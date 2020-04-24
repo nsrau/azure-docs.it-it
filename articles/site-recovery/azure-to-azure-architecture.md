@@ -1,6 +1,6 @@
 ---
-title: Architettura di ripristino di emergenza da Azure ad Azure in Azure Site Recovery
-description: Panoramica dell'architettura usata quando si configura il ripristino di emergenza tra aree di Azure per macchine virtuali di Azure usando il servizio Azure Site Recovery.Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
+title: Architettura del ripristino di emergenza da Azure ad Azure in Azure Site Recovery
+description: Panoramica dell'architettura usata quando si configura il ripristino di emergenza tra aree di Azure per le macchine virtuali di Azure, usando il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -31,7 +31,7 @@ La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza
 **Macchine virtuali nell'area di origine** | Una o più macchine virtuali di Azure in un'[area di origine supportata](azure-to-azure-support-matrix.md#region-support).<br/><br/> Le macchine virtuali possono eseguire qualsiasi [sistema operativo supportato](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Archiviazione macchine virtuali di origine** | Le macchine virtuali di Azure possono essere gestite o avere dischi non gestiti distribuiti fra gli account di archiviazione.<br/><br/>[Informazioni](azure-to-azure-support-matrix.md#replicated-machines---storage) sull'archiviazione di Azure supportata.
 **Reti macchine virtuali di origine** | Le macchine virtuali possono essere collocate in una o più subnet di una rete virtuale nell'area di origine. [Altre informazioni](azure-to-azure-support-matrix.md#replicated-machines---networking) sui requisiti di rete.
-**Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.  Cache storage accounts must be Standard.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
+**Account di archiviazione della cache** | È necessario un account di archiviazione della cache nella rete di origine. Durante la replica, le modifiche alle macchine virtuali vengono memorizzate nella cache prima di essere inviate all'archivio di destinazione.  Gli account di archiviazione della cache devono essere standard.<br/><br/> L'uso di una cache assicura un impatto minimo sulle applicazioni di produzione in esecuzione in una macchina virtuale.<br/><br/> [Altre informazioni](azure-to-azure-support-matrix.md#cache-storage) sui requisiti di archiviazione nella cache. 
 **Risorse di destinazione** | Le risorse di destinazione vengono usate durante la replica e in caso di failover. Site Recovery può configurare le risorse di destinazione per impostazione predefinita oppure è possibile crearle o personalizzarle.<br/><br/> Nell'area di destinazione verificare che sia possibile creare macchine virtuali e che la sottoscrizione disponga di risorse sufficienti per supportare le dimensioni di macchina virtuale che saranno necessarie nell'area di destinazione. 
 
 ![Replica delle risorse di origine e di destinazione](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
@@ -47,8 +47,8 @@ Quando si abilita la replica per una macchina virtuale, Site Recovery offre la p
 **Rete virtuale di destinazione** | Rete virtuale in cui si trovano le macchine virtuali replicate dopo il failover. Un mapping di rete viene creato tra le reti virtuali di origine e di destinazione e viceversa.<br/><br/> Site Recovery crea una nuova rete virtuale e una subnet con il suffisso "asr".
 **Account di archiviazione di destinazione** |  Se la macchina virtuale non usa un disco gestito, si tratta dell'account di archiviazione in cui vengono replicati i dati.<br/><br/> Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione di origine.
 **Dischi gestiti di replica** | Se la macchina virtuale usa un disco gestito, si tratta dei dischi gestiti in cui vengono replicati i dati.<br/><br/> Site Recovery crea dischi gestiti di replica nell'area di archiviazione per eseguire il mirroring dell'origine.
-**Set di disponibilità di destinazioneTarget availability sets** |  Set di disponibilità in cui si trovano le macchine virtuali replicate dopo il failover.<br/><br/> Site Recovery crea un set di disponibilità con suffisso "asr" nell'area di destinazione per le macchine virtuali che si trovano in un set di disponibilità nella posizione di origine. Se esiste un set di disponibilità, viene usato quello e non ne viene creato uno nuovo.
-**Aree di disponibilità di destinazione** | Se l'area di destinazione supporta le zone di disponibilità, Site Recovery assegna lo stesso numero di zona usato nell'area di origine.
+**Set di disponibilità di destinazione** |  Set di disponibilità in cui si trovano le macchine virtuali replicate dopo il failover.<br/><br/> Site Recovery crea un set di disponibilità con suffisso "asr" nell'area di destinazione per le macchine virtuali che si trovano in un set di disponibilità nella posizione di origine. Se esiste un set di disponibilità, viene usato quello e non ne viene creato uno nuovo.
+**Zone di disponibilità di destinazione** | Se l'area di destinazione supporta le zone di disponibilità, Site Recovery assegna lo stesso numero di zona usato nell'area di origine.
 
 ### <a name="managing-target-resources"></a>Gestione delle risorse di destinazione
 
@@ -63,10 +63,10 @@ Quando si abilita la replica per una macchina virtuale, Site Recovery offre la p
 
 Quando si abilita la replica delle macchine virtuali di Azure, per impostazione predefinita Site Recovery crea nuovi criteri di replica con le impostazioni predefinite riepilogate nella tabella.
 
-**Impostazione criteri** | **Dettagli** | **Predefinito**
+**Impostazione dei criteri** | **Dettagli** | **Impostazione predefinita**
 --- | --- | ---
-**Conservazione dei punti di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
-**Frequenza snapshot coerente con l'app** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni quattro ore
+**Conservazione del punto di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
+**Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni quattro ore
 
 ### <a name="managing-replication-policies"></a>Gestione dei criteri di replica
 
@@ -97,13 +97,13 @@ La tabella seguente illustra i vari tipi di coerenza.
 
 ### <a name="crash-consistent"></a>Coerenza con l'arresto anomalo del sistema
 
-**Descrizione** | **Dettagli** | **Raccomandazione**
+**Descrizione** | **Dettagli** | **Consiglio**
 --- | --- | ---
 Uno snapshot coerente con l'arresto anomalo del sistema acquisisce i dati contenuti nel disco al momento dell'acquisizione dello snapshot. Non include alcun dato in memoria.<br/><br/> Contiene l'equivalente dei dati su disco che sarebbero presenti se si verificasse un arresto anomalo della macchina virtuale o se il cavo di alimentazione del server venisse scollegato nell'istante esatto dell'acquisizione dello snapshot.<br/><br/> Uno snapshot coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o per le app in esecuzione nella macchina virtuale. | Per impostazione predefinita, Site Recovery crea punti di ripristino coerenti con l'arresto anomalo del sistema ogni cinque minuti. Questa impostazione non può essere modificata.<br/><br/>  | Attualmente, la maggior parte delle app può essere ripristinata correttamente da punti coerenti con l'arresto anomalo del sistema.<br/><br/> I punti di ripristino coerenti con l'arresto anomalo del sistema sono in genere sufficienti per la replica di sistemi operativi e app come i server DHCP e i server di stampa.
 
 ### <a name="app-consistent"></a>Coerenza con l'app
 
-**Descrizione** | **Dettagli** | **Raccomandazione**
+**Descrizione** | **Dettagli** | **Consiglio**
 --- | --- | ---
 I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app.<br/><br/> Uno snapshot coerente con l'app contiene tutte le informazioni contenute in uno snapshot coerente con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e le transazioni in corso. | Gli snapshot coerenti con l'app usano il servizio Copia Shadow del volume:<br/><br/>   1) All'avvio di uno snapshot, il servizio esegue un'operazione di copia su scrittura sul volume.<br/><br/>   2) Prima di eseguire l'operazione di copia su scrittura, il servizio informa ogni app presente nella macchina virtuale che dovrà scaricare i dati residenti in memoria su disco.<br/><br/>   3) Il servizio Copia Shadow del volume consente quindi all'app di backup/ripristino di emergenza (in questo caso Site Recovery) di leggere i dati dello snapshot e di procedere. | Gli snapshot vengono acquisiti in base alla frequenza specificata. Questa frequenza deve essere sempre inferiore a quella impostata per la conservazione dei punti di ripristino. Ad esempio, se i punti di ripristino vengono conservati in base all'impostazione predefinita di 24 ore, la frequenza deve essere impostata su un periodo inferiore a 24 ore.<br/><br/>Gli snapshot coerenti con l'app sono più complessi e il loro completamento richiede più tempo rispetto agli snapshot coerenti con l'arresto anomalo del sistema.<br/><br/> Influiscono sulle prestazioni delle app in esecuzione su una macchina virtuale abilitata per la replica. 
 
@@ -129,41 +129,41 @@ Quando si abilita la replica per una macchina virtuale di Azure, accade quanto s
 
 Se l'accesso in uscita per le macchine virtuali è controllato tramite URL, consentire gli URL seguenti.
 
-| **Url** | **Dettagli** |
+| **URL** | **Dettagli** |
 | ------- | ----------- |
 | *.blob.core.windows.net | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. |
 | login.microsoftonline.com | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Consente alla macchina virtuale di comunicare con il servizio Site Recovery. |
 | *.servicebus.windows.net | Consente alla macchina virtuale di scrivere i dati di diagnostica e monitoraggio di Site Recovery. |
 | *.vault.azure.net | Consente l'accesso per abilitare la replica per le macchine virtuali abilitate per ADE tramite il portale
-| .automation.ext.azure.com | Consente di abilitare l'aggiornamento automatico dell'agente mobility per un elemento replicato tramite il portale
+| *. automation.ext.azure.com | Consente l'abilitazione dell'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
 Per controllare la connettività in uscita per le macchine virtuali tramite indirizzi IP, consentire questi indirizzi.
-Si prega di notare che i dettagli dei requisiti di connettività di rete sono disponibili nel [white paper di rete](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
+Si noti che i dettagli relativi ai requisiti di connettività di rete sono disponibili in [rete white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### <a name="source-region-rules"></a>Regole dell'area di origine
 
-**Regola** |  **Dettagli** | **Tag di servizio**
+**Regola** |  **Dettagli** | **Tag servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. \<nome-regione>
-Consenti HTTPS in uscita: porta 443 | Intervalli consentiti che corrispondono ad Azure Active Directory (Azure AD)Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono all'Hub eventi nell'area di destinazione. | EventsHub. \<nome-regione>
-Consenti HTTPS in uscita: porta 443 | Intervalli consentiti che corrispondono a Azure Site RecoveryAllow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery (Recupero di AzureSite)
-Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono all'insieme di credenziali delle chiavi di Azure (questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale)Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
-Consenti HTTPS in uscita: porta 443 | Consentire intervalli che corrispondono al controller di automazione di Azure (questa operazione è necessaria solo per abilitare l'aggiornamento automatico dell'agente mobility per un elemento replicato tramite portale)Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
+Consenti HTTPS in uscita: porta 443 | Consente gli intervalli che corrispondono agli account di archiviazione nell'area di origine. | Archiviazione. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Active Directory (Azure AD)  | AzureActiveDirectory
+Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di destinazione. | EventsHub. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Site Recovery  | AzureSiteRecovery
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Key Vault (questo è necessario solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale) | AzureKeyVault
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al controller di automazione di Azure (necessario solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale) | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>Regole dell'area di destinazione
 
-**Regola** |  **Dettagli** | **Tag di servizio**
+**Regola** |  **Dettagli** | **Tag servizio**
 --- | --- | --- 
-Consenti HTTPS in uscita: porta 443 | Consentire intervalli che corrispondono agli account di archiviazione nell'area di destinazioneAllow ranges that correspond to storage accounts in the target region | Archiviazione. \<nome-regione>
-Consenti HTTPS in uscita: porta 443 | Consentire intervalli che corrispondono ad Azure ADAllow ranges that correspond to Azure AD  | AzureActiveDirectory
-Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono all'Hub eventi nell'area di origine. | EventsHub. \<nome-regione>
-Consenti HTTPS in uscita: porta 443 | Intervalli consentiti che corrispondono a Azure Site RecoveryAllow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery (Recupero di AzureSite)
-Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono all'insieme di credenziali delle chiavi di Azure (questa operazione è necessaria solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale)Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
-Consenti HTTPS in uscita: porta 443 | Consentire intervalli che corrispondono al controller di automazione di Azure (questa operazione è necessaria solo per abilitare l'aggiornamento automatico dell'agente mobility per un elemento replicato tramite portale)Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono agli account di archiviazione nell'area di destinazione | Archiviazione. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure AD  | AzureActiveDirectory
+Consenti HTTPS in uscita: porta 443 | Consentire gli intervalli che corrispondono all'hub eventi nell'area di origine. | EventsHub. \<Region-Name>
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Site Recovery  | AzureSiteRecovery
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono a Azure Key Vault (questo è necessario solo per abilitare la replica delle macchine virtuali abilitate per ADE tramite il portale) | AzureKeyVault
+Consenti HTTPS in uscita: porta 443 | Consenti intervalli che corrispondono al controller di automazione di Azure (necessario solo per abilitare l'aggiornamento automatico dell'agente di mobilità per un elemento replicato tramite il portale) | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>Controllare l'accesso con le regole NSG

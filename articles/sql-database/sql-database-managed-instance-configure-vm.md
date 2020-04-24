@@ -1,5 +1,5 @@
 ---
-title: Connettere la macchina virtuale client - istanza gestitaConnect client VM - managed instance
+title: Connettere un'istanza gestita di VM client
 description: Connettersi a un'istanza gestita di database SQL di Azure tramite SQL Server Management Studio da una macchina virtuale di Azure.
 services: sql-database
 ms.service: sql-database
@@ -49,9 +49,9 @@ La procedura seguente illustra come creare una nuova subnet nella rete virtuale 
    | **Nome** | Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
    | **Intervallo di indirizzi (blocco CIDR)** | Un intervallo valido | Il valore predefinito è appropriato per questa guida introduttiva.|
    | **Gruppo di sicurezza di rete** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Tabella del percorso** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Endpoint di servizioService endpoints** | 0 selezionato | Il valore predefinito è appropriato per questa guida introduttiva.|
-   | **Delega della subnet** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Tabella di route** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Endpoint di servizio** | 0 selezionato | Il valore predefinito è appropriato per questa guida introduttiva.|
+   | **Delegazione subnet** | nessuno | Il valore predefinito è appropriato per questa guida introduttiva.|
 
    ![Nuova subnet dell'istanza gestita per la macchina virtuale client](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -67,7 +67,7 @@ Poiché l'istanza gestita di SQL viene inserita nella rete virtuale privata, è 
 
 Il modo più semplice per creare una macchina virtuale client con tutti gli strumenti necessari è usare i modelli di Azure Resource Manager.
 
-1. Assicurarsi di aver eseguito l'accesso al portale di Azure in un'altra scheda del browser. Selezionare quindi il pulsante seguente per creare una macchina virtuale client e installare SQL Server Management Studio:Then, select the following button to create a client virtual machine and install SQL Server Management Studio:
+1. Assicurarsi di aver eseguito l'accesso al portale di Azure in un'altra scheda del browser. Quindi, selezionare il pulsante seguente per creare una macchina virtuale client e installare SQL Server Management Studio:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
@@ -77,16 +77,16 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
    | ---------------- | ----------------- | ----------- |
    | **Sottoscrizione** | Una sottoscrizione valida | Deve trattarsi di una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse. |
    | **Gruppo di risorse** |Il gruppo di risorse specificato nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).|Deve essere il gruppo di risorse in cui si trova la rete virtuale.|
-   | **Percorso** | Posizione per il gruppo di risorse | Questo valore viene popolato in base al gruppo di risorse selezionato. |
+   | **Posizione** | Posizione per il gruppo di risorse | Questo valore viene popolato in base al gruppo di risorse selezionato. |
    | **Nome macchina virtuale**  | Qualsiasi nome valido | Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming).|
    |**Nome utente amministratore**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). Non usare "serveradmin" perché è un ruolo a livello di server riservato.<br>Questo nome utente viene usato ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Questa password viene usata ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).|
    | **Dimensioni macchina virtuale** | Qualsiasi dimensione valida | Il valore predefinito in questo modello, **Standard_B2s**, è sufficiente per questo argomento di avvio rapido. |
-   | **Percorso**|[resourceGroup().location].| Non modificare questo valore. |
-   | **Nome rete virtuale**|Rete virtuale in cui è stata creata l'istanza gestita.|
-   | **Nome subnet**|Nome della subnet creata nella procedura precedente| Non scegliere la subnet in cui è stata creata l'istanza gestita.|
-   | **artefatti Posizione** | [deployment().properties.templateLink.uri] | Non modificare questo valore. |
-   | **token Sas di posizione degli elementi** | lasciare vuoto | Non modificare questo valore. |
+   | **Posizione**|[resourceGroup().location].| Non modificare questo valore. |
+   | **Nome rete virtuale**|Rete virtuale in cui è stato creato il Istanza gestita.|
+   | **Nome della subnet**|Nome della subnet creata nella procedura precedente| Non scegliere la subnet in cui è stata creata l'istanza gestita.|
+   | **Posizione artefatti** | [deployment().properties.templateLink.uri] | Non modificare questo valore. |
+   | **token SAS percorso artefatti** | lasciare vuoto | Non modificare questo valore. |
 
    ![Creare una VM client](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
@@ -120,7 +120,7 @@ La procedura seguente illustra come connettersi alla macchina virtuale appena cr
 
 4. Chiudere il modulo **Connettere la macchina virtuale**.
 5. Per connettersi alla VM, aprire il file RDP scaricato.
-6. Quando richiesto, selezionare **Connect** (Connetti). In Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponibile nel Mac App Store.
+6. Quando richiesto, selezionare **Connect** (Connetti). In un Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponibile nel Mac App Store.
 
 7. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi scegliere **OK**.
 
@@ -141,6 +141,6 @@ Dopo aver stabilito la connessione, è possibile visualizzare i database di sist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una guida introduttiva che illustra come connettersi da un computer client locale utilizzando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md).
+- Per una guida introduttiva che illustra come connettersi da un computer client locale usando una connessione da punto a sito, vedere [configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md).
 - Per una panoramica delle opzioni di connessione delle applicazioni, consultare [Connessione delle applicazioni a un'Istanza gestita](sql-database-managed-instance-connect-app.md).
 - Per ripristinare un database SQL Server esistente dal sistema locale a un'istanza gestita, è possibile usare il [Servizio Migrazione del database di Azure (DMS) per la migrazione](../dms/tutorial-sql-server-to-managed-instance.md) o il [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) per il ripristino da un file di backup del database.

@@ -1,19 +1,18 @@
 ---
 title: API di evasione SaaS V2 | Azure Marketplace
 description: Questo articolo illustra come creare e gestire un'offerta SaaS in AppSource e in Azure Marketplace usando le API di Fulfillment V2 associate.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
-ms.author: evansma
-ms.openlocfilehash: c0d5deef609796501515fc9c7064a96ca1419b3a
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.author: dsindona
+ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371529"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275765"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API di evasione SaaS, versione 2 
 
@@ -32,7 +31,7 @@ La tabella seguente elenca gli Stati di provisioning per una sottoscrizione SaaS
 
 #### <a name="provisioning"></a>Provisioning
 
-Quando un cliente avvia un acquisto, il partner riceve queste informazioni in un codice di autorizzazione in una pagina Web interattiva del cliente che usa un parametro URL. Un esempio è `https://contoso.com/signup?token=..`, mentre l'URL della pagina di destinazione nel centro per i partner è `https://contoso.com/signup`. Il codice di autorizzazione può essere convalidato e scambiato per i dettagli del servizio di provisioning chiamando l'API Resolve.  Al termine del provisioning di un servizio SaaS, viene inviata una chiamata Activate per segnalare che l'evasione è stata completata e che è possibile fatturare il cliente. 
+Quando un cliente avvia un acquisto, il partner riceve queste informazioni in un codice di autorizzazione in una pagina Web interattiva del cliente che usa un parametro URL. Un esempio è `https://contoso.com/signup?token=..`, mentre l'URL della pagina di destinazione nel centro `https://contoso.com/signup`per i partner è. Il codice di autorizzazione può essere convalidato e scambiato per i dettagli del servizio di provisioning chiamando l'API Resolve.  Al termine del provisioning di un servizio SaaS, viene inviata una chiamata Activate per segnalare che l'evasione è stata completata e che è possibile fatturare il cliente. 
 
 Il diagramma seguente illustra la sequenza di chiamate API per uno scenario di provisioning.  
 
@@ -71,9 +70,9 @@ Questo stato indica che non è stato ricevuto alcun pagamento da parte del clien
 Le sottoscrizioni raggiungono questo stato in risposta a una richiesta esplicita del cliente o al mancato pagamento delle quote. L'aspettativa del partner è che i dati del cliente vengono conservati per il ripristino su richiesta per un determinato numero di giorni e quindi eliminati. 
 
 
-## <a name="api-reference"></a>Riferimento all'API
+## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
-Questa sezione illustra l'API di *sottoscrizione* SaaS e l' *API per le operazioni*.  Il valore del parametro `api-version` per le API della versione 2 è `2018-08-31`.  
+Questa sezione illustra l'API di *sottoscrizione* SaaS e l' *API per le operazioni*.  Il valore del parametro `api-version` per le API della versione 2 `2018-08-31`è.  
 
 
 ### <a name="parameter-and-entity-definitions"></a>Definizioni di parametri ed entità
@@ -88,7 +87,7 @@ La tabella seguente elenca le definizioni per i parametri e le entità comuni us
 | `offerId`                | Identificatore di stringa univoco per ogni offerta (ad esempio: "offer1").  |
 | `planId`                 | Identificatore di stringa univoco per ogni piano/SKU (ad esempio: "Silver"). |
 | `operationId`            | Identificatore GUID per una particolare operazione.  |
-|  `action`                | Azione eseguita su una risorsa, ovvero `Unsubscribe`, `Suspend`, `Reinstate`o `ChangePlan``ChangeQuantity``Transfer`. |
+|  `action`                | `Unsubscribe`Azione eseguita su una risorsa, ovvero `Suspend` `Reinstate`,, o `ChangePlan`, `ChangeQuantity`,. `Transfer` |
 |   |   |
 
 Gli identificatori univoci globali ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sono numeri a 128 bit (32-esadecimale) che vengono in genere generati automaticamente. 
@@ -97,7 +96,7 @@ Gli identificatori univoci globali ([GUID](https://en.wikipedia.org/wiki/Univers
 
 L'endpoint di risoluzione consente al server di pubblicazione di risolvere un token del Marketplace in un ID di risorsa permanente. L'ID risorsa è l'identificatore univoco per una sottoscrizione SaaS. Quando un utente viene reindirizzato al sito Web di un partner, l'URL contiene un token nei parametri di query. È previsto che il partner usi questo token ed effettui una richiesta di risoluzione. La risposta contiene l'ID sottoscrizione SaaS univoco, il nome, l'ID offerta e il piano per la risorsa. Questo token è valido solo per un'ora. 
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Inserisci<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -113,7 +112,7 @@ L'endpoint di risoluzione consente al server di pubblicazione di risolvere un to
 |  x-ms-requestid    |  Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta. |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se questo valore non è specificato, ne verrà generato uno e specificato nelle intestazioni della risposta.  |
 |  authorization     |  [Ottenere il token Web JSON (JWT) Bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Ad esempio: "`Bearer <access_token>`". |
-|  x-ms-marketplace-token  |  Il parametro di query del token nell'URL quando l'utente viene reindirizzato al sito Web del partner SaaS da Azure (ad esempio: `https://contoso.com/signup?token=..`). *Nota:* L'URL decodifica il valore del token dal browser prima di usarlo.  |
+|  x-ms-marketplace-token  |  Il parametro di query del token nell'URL quando l'utente viene reindirizzato al sito Web del partner SaaS da Azure ( `https://contoso.com/signup?token=..`ad esempio:). *Nota:* L'URL decodifica il valore del token dal browser prima di usarlo.  |
 
 *Codici di risposta:*
 
@@ -184,7 +183,7 @@ Codice: 200 <br/>
 Ottiene il server di pubblicazione e le sottoscrizioni corrispondenti per tutte le offerte del server di pubblicazione, in base al token di autenticazione.
 
 >[!Note]
->Le [API fittizie](#mock-apis) vengono usate quando si sviluppa l'offerta per la prima volta, mentre le API effettive devono essere usate quando si pubblica effettivamente l'offerta.  Le API reali e le API fittizie sono diverse dalla prima riga del codice.  Nell'API reale è presente la sezione `subscription`, mentre questa sezione non esiste per l'API fittizia.
+>Le [API fittizie](#mock-apis) vengono usate quando si sviluppa l'offerta per la prima volta, mentre le API effettive devono essere usate quando si pubblica effettivamente l'offerta.  Le API reali e le API fittizie sono diverse dalla prima riga del codice.  Nell'API reale è presente la sezione `subscription` , mentre questa sezione non esiste per l'API fittizia.
 
 Payload di risposta per l'API fittizia:<br>
 
@@ -403,7 +402,7 @@ Errore interno del server.<br>
 
 #### <a name="activate-a-subscription"></a>Attivare una sottoscrizione
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Inserisci<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Parametri di query:*
 
@@ -520,7 +519,7 @@ Errore interno del server.
 ```
 
 >[!Note]
->È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a una sottoscrizione con **aggiornamento** non sono in `allowedCustomerOperations`.
+>È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a **Update** una sottoscrizione con `allowedCustomerOperations`aggiornamento non sono presenti in.
 
 #### <a name="change-the-quantity-on-the-subscription"></a>Modificare la quantità nella sottoscrizione
 
@@ -587,7 +586,7 @@ Errore interno del server.
 ```
 
 >[!Note]
->È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a una sottoscrizione con **aggiornamento** non sono in `allowedCustomerOperations`.
+>È possibile applicare patch solo a un piano o una quantità alla volta, non a entrambe. Le modifiche apportate a **Update** una sottoscrizione con `allowedCustomerOperations`aggiornamento non sono presenti in.
 
 #### <a name="delete-a-subscription"></a>Eliminazione di una sottoscrizione
 
@@ -617,7 +616,7 @@ Codice: 202<br>
 Il partner ha avviato una chiamata per annullare la sottoscrizione di una sottoscrizione SaaS.<br>
 
 Codice: 400<br>
-Elimina in una sottoscrizione con **Delete** non in `allowedCustomerOperations`.
+Elimina in una sottoscrizione con **Delete** not in `allowedCustomerOperations`.
 
 Codice: 403<br>
 Non autorizzato. Il token di autenticazione non è stato fornito o non è valido oppure la richiesta sta tentando di accedere a un'acquisizione che non appartiene al server di pubblicazione corrente.
@@ -708,7 +707,7 @@ Errore interno del server.
 
 #### <a name="get-operation-status"></a>Ottenere lo stato dell'operazione
 
-Consente al server di pubblicazione di tenere traccia dello stato dell'operazione asincrona attivata specificata, ad esempio `Subscribe`, `Unsubscribe`, `ChangePlan`o `ChangeQuantity`.
+Consente al `Subscribe`server di pubblicazione di tenere traccia dello stato dell'operazione asincrona attivata specificata, ad esempio `Unsubscribe`, `ChangePlan`, o `ChangeQuantity`.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Recupero<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -851,17 +850,17 @@ Il server di pubblicazione deve implementare un webhook in questo servizio SaaS 
 }
 ```
 Dove l'azione può essere una delle seguenti: 
-- `Unsubscribe` (quando la risorsa è stata eliminata)
-- `ChangePlan` (al termine dell'operazione di modifica del piano)
-- `ChangeQuantity` (al termine dell'operazione di modifica della quantità)
-- `Suspend` (quando la risorsa è stata sospesa)
-- `Reinstate` (quando la risorsa è stata ripristinata dopo la sospensione)
+- `Unsubscribe`(quando la risorsa è stata eliminata)
+- `ChangePlan`(al termine dell'operazione di modifica del piano)
+- `ChangeQuantity`(quando l'operazione di modifica della quantità è stata completata)
+- `Suspend`(quando la risorsa è stata sospesa)
+- `Reinstate`(quando la risorsa è stata ripristinata dopo la sospensione)
 
 Dove lo stato può essere uno dei seguenti: 
 - **NotStarted** <br>
  - **InProgress** <br>
 - **Completato** <br>
-- **Non riuscito** <br>
+- **Operazione non riuscita** <br>
 - **Conflitto** <br>
 
 In una notifica webhook, gli Stati interoperabili sono **succeeded** e **failed**. Il ciclo di vita di un'operazione è da **NotStarted** a uno stato terminale come **succeeded**, **failed**o **Conflict**. Se si riceve **NotStarted** o in **corso**, continuare a richiedere lo stato tramite Get API fino a quando l'operazione non raggiunge uno stato terminale prima di eseguire un'azione. 
@@ -871,10 +870,10 @@ In una notifica webhook, gli Stati interoperabili sono **succeeded** e **failed*
 È possibile usare le API fittizie per iniziare a sviluppare, in particolare per la creazione di prototipi e per i progetti di test. 
 
 Endpoint host: `https://marketplaceapi.microsoft.com/api` (nessuna autenticazione necessaria)<br/>
-Versione API: `2018-09-15`<br/>
-URI di esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
+Versione API:`2018-09-15`<br/>
+URI di esempio:`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-I percorsi dell'endpoint API sono gli stessi per le API fittizie e reali, ma le versioni API sono diverse. La versione è `2018-09-15` per la versione fittizia e `2018-08-31` per la versione di produzione. 
+I percorsi dell'endpoint API sono gli stessi per le API fittizie e reali, ma le versioni API sono diverse. La versione è `2018-09-15` per la versione fittizia `2018-08-31` e per la versione di produzione. 
 
 Tutte le chiamate API in questo articolo possono essere apportate all'endpoint dell'host fittizio. In generale, si prevede di recuperare i dati fittizi come risposta. Le chiamate ai metodi di sottoscrizione di aggiornamento nell'API fittizia restituiscono sempre 500. 
 

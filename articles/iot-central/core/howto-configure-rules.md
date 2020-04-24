@@ -1,6 +1,6 @@
 ---
 title: Configurare regole e azioni in Azure IoT Central | Microsoft Docs
-description: Questo articolo sulle procedure illustra come generatore come configurare le regole e le azioni basate sulla telemetria nell'applicazione Azure IoT Central.This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
+description: Questo articolo illustra come un generatore, come configurare le regole e le azioni basate sulla telemetria nell'applicazione IoT Central di Azure.
 author: vavilla
 ms.author: vavilla
 ms.date: 11/27/2019
@@ -21,35 +21,35 @@ ms.locfileid: "80158463"
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
-Le regole in IoT Central fungono da strumento di risposta personalizzabile che si attivano su eventi monitorati attivamente dai dispositivi connessi. Nelle sezioni seguenti viene descritto come vengono valutate le regole.
+Le regole in IoT Central fungeranno da strumento di risposta personalizzabile che attiva gli eventi monitorati attivamente dai dispositivi connessi. Nelle sezioni seguenti viene descritto il modo in cui vengono valutate le regole.
 
 ## <a name="select-target-devices"></a>Selezionare i dispositivi di destinazione
 
-Utilizzare la sezione dispositivi di destinazione per selezionare il tipo di dispositivi a cui verrà applicata questa regola. I filtri consentono di perfezionare ulteriormente i dispositivi da includere. I filtri utilizzano le proprietà nel modello di dispositivo per filtrare il set di dispositivi. I filtri stessi non attivano un'azione. Nella schermata seguente, i dispositivi di destinazione sono di tipo **Refrigerator**. Il filtro indica che la regola deve includere solo **i refrigeratori** in cui la proprietà **Stato prodotto** è uguale a **Washington**.
+Usare la sezione dispositivi di destinazione per selezionare il tipo di dispositivi a cui verrà applicata questa regola. I filtri consentono di perfezionare ulteriormente i dispositivi da includere. I filtri usano le proprietà nel modello di dispositivo per filtrare il set di dispositivi. I filtri non attivano un'azione. Nello screenshot seguente i dispositivi di destinazione sono di tipo modello di dispositivo **frigorifero**. Il filtro indica che la regola deve includere solo i **frigoriferi** in cui la proprietà **stato prodotto** è uguale a **Washington**.
 
 ![Condizioni](media/howto-configure-rules/filters.png)
 
-## <a name="use-multiple-conditions"></a>Utilizzare più condizioni
+## <a name="use-multiple-conditions"></a>Usare più condizioni
 
-Le condizioni sono le regole che si attivano. Attualmente, quando si aggiungono più condizioni a una regola, sono logicamente e'd insieme. In altre parole, tutte le condizioni devono essere soddisfatte affinché la regola venga valutata come vera.  
+Condizioni in base alle quali vengono attivate le regole. Attualmente, quando si aggiungono più condizioni a una regola, le condizioni sono logiche e combinate. In altre parole, è necessario che tutte le condizioni siano soddisfatte perché la regola valuti come true.  
 
-Nella schermata seguente, le condizioni controllano&deg; quando la temperatura è maggiore di 70 F e l'umidità è inferiore a 10. Quando entrambe queste istruzioni sono vere, la regola restituisce true e attiva un'azione.
+Nello screenshot seguente, le condizioni verificano quando la temperatura è maggiore di 70&deg; F e l'umidità è minore di 10. Quando entrambe le istruzioni sono true, la regola restituisce true e attiva un'azione.
 
 ![Condizioni](media/howto-configure-rules/conditions.png)
 
-## <a name="use-aggregate-windowing"></a>Utilizzare la finestra aggregata
+## <a name="use-aggregate-windowing"></a>Usa finestra di aggregazione
 
-Le regole valutano le finestre temporali aggregate come finestre a cascata. Nella schermata seguente, l'intervallo di tempo è di cinque minuti. Ogni cinque minuti, la regola valuta gli ultimi cinque minuti di dati. I dati vengono valutati una sola volta nella finestra a cui corrispondono.
+Le regole valutano le finestre temporali aggregate come finestre a cascata. Nella schermata seguente l'intervallo di tempo è di cinque minuti. Ogni cinque minuti la regola valuta gli ultimi cinque minuti di dati. I dati vengono valutati solo una volta nella finestra a cui corrisponde.
 
 ![Finestre a cascata](media/howto-configure-rules/tumbling-window.png)
 
-## <a name="use-rules-with-iot-edge-modules"></a>Usare le regole con i moduli Edge IoT
+## <a name="use-rules-with-iot-edge-modules"></a>Usare le regole con moduli IoT Edge
 
-Una restrizione si applica alle regole applicate ai moduli IoT Edge. Le regole sui dati di telemetria di moduli diversi non vengono valutate come regole valide. Prendiamo ad esempio quanto segue. The first condition of the rule is on a temperature telemetry from Module A. La seconda condizione della regola è su una telemetria di umidità sul modulo B. Poiché le due condizioni provengono da moduli diversi, si tratta di un insieme di condizioni non valido. La regola non è valida e genererà un errore durante il tentativo di salvare la regola.
+Una restrizione si applica alle regole applicate ai moduli IoT Edge. Le regole sui dati di telemetria di moduli diversi non vengono valutate come regole valide. Come esempio, seguire questa procedura. La prima condizione della regola è la telemetria della temperatura del modulo A. La seconda condizione della regola si trova in una telemetria dell'umidità sul modulo B. Poiché le due condizioni sono da moduli diversi, si tratta di un set di condizioni non valido. La regola non è valida e genererà un errore durante il tentativo di salvare la regola.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come configurare una regola nell'applicazione Azure IoT Central, è possibile:Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
+Ora che si è appreso come configurare una regola nell'applicazione IoT Central di Azure, è possibile:
 
 > [!div class="nextstepaction"]
-> [Analizza i tuoi dati in tempo reale](howto-create-analytics.md)
+> [Analizza i dati in tempo reale](howto-create-analytics.md)

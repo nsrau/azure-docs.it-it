@@ -1,6 +1,6 @@
 ---
-title: Registrare un'applicazione SaaS Azure Marketplace
-description: Viene illustrato come registrare un'applicazione SaaS usando il portale di Azure.Explains how to register a SaaS application using the Azure portal.
+title: Registrare un'applicazione SaaS | Azure Marketplace
+description: Viene illustrato come registrare un'applicazione SaaS usando il portale di Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -16,23 +16,23 @@ ms.locfileid: "80275714"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
 
-In questo articolo viene illustrato come registrare un'applicazione SaaS usando il portale di Microsoft [Azure](https://portal.azure.com/).  Dopo una corretta registrazione, si riceverà un token di sicurezza di Azure Active Directory (Azure AD) che è possibile usare per accedere alle API di evasione SaaS.  Per altre informazioni su Azure AD, vedere [Che cos'è l'autenticazione?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+Questo articolo illustra come registrare un'applicazione SaaS usando il [portale di Azure](https://portal.azure.com/)Microsoft.  Al termine della registrazione, si riceverà un token di sicurezza Azure Active Directory (Azure AD) che è possibile usare per accedere alle API di evasione SaaS.  Per ulteriori informazioni su Azure AD, vedere [che cos'è l'autenticazione?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
 
 
-## <a name="service-to-service-authentication-flow"></a>Flusso di autenticazione da servizio a servizioService-to-service authentication flow
+## <a name="service-to-service-authentication-flow"></a>Flusso di autenticazione da servizio a servizio
 
 Il diagramma seguente mostra il flusso di sottoscrizione di un nuovo cliente e quando vengono usate queste API:
 
 ![Flusso di API dell'offerta SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
-Azure non impone i vincoli per l'autenticazione che il servizio SaaS espone ai propri utenti finali. Tuttavia, l'autenticazione con le API di evasione SaaS viene eseguita con un token di sicurezza di Azure AD, in genere ottenuto registrando l'app SaaS tramite il portale di Azure.However, authentication with the SaaS Fulfillment APIs is performed with an Azure AD security token, typically obtained by registering the SaaS app through the Azure portal. 
+Azure non impone i vincoli per l'autenticazione che il servizio SaaS espone ai propri utenti finali. Tuttavia, l'autenticazione con le API di evasione SaaS viene eseguita con un token di sicurezza Azure AD, in genere ottenuto registrando l'app SaaS tramite il portale di Azure. 
 
 
-## <a name="register-an-azure-ad-secured-app"></a>Registrare un'app protetta di Azure ADRegister an Azure AD-secured app
+## <a name="register-an-azure-ad-secured-app"></a>Registrare un'app protetta da Azure AD
 
 Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima essere registrata in un tenant di Azure AD. Questo processo di registrazione comporta l'assegnazione di dettagli di Azure AD sull'applicazione, ad esempio l'URL in cui si trova, l'URL per inviare risposte dopo che un utente viene autenticato, l'URI che identifica l'app e così via.  Per registrare una nuova applicazione nel portale di Azure, seguire i passaggi seguenti:
 
-1.  Accedere al [portale](https://portal.azure.com/)di Azure .
+1.  Accedere al [portale di Azure](https://portal.azure.com/).
 2.  Se l'account consente di accedere a più di uno, fare clic sull'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 3.  Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** e fare clic su **Registrazione nuova applicazione**.
 
@@ -41,27 +41,27 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 4.  Nella pagina Crea, immettere le informazioni di registrazione\' dell'applicazione:
     -   **Nome:** Immettere un nome significativo per l'applicazione
     -   **Tipo di applicazione**: 
-        - Selezionare **Nativo** per [le applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) installate localmente in un dispositivo. Questa impostazione viene usata per i [client nativi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) OAuth pubblici.
-        - Selezionare **App Web/API** per le [applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e le [applicazioni risorsa/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installate in un server sicuro. Questa impostazione viene utilizzata per [i client Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) riservati OAuth e i client pubblici [basati su agente utente.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)
+        - Selezionare **nativo** per [le applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) installate localmente in un dispositivo. Questa impostazione viene usata per i [client nativi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) OAuth pubblici.
+        - Selezionare **app Web/API** per [le applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [le applicazioni di risorse/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installate in un server protetto. Questa impostazione viene usata per [client Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) OAuth riservati e [client pubblici basati su agenti utente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         La stessa applicazione può anche esporre sia un'API client che un'API di risorse.
-    -   **URL di accesso**: per le applicazioni API/app Web, specificare l'URL di base dell'app. Ad esempio, **http://localhost:31544** potrebbe essere l'URL di un'app Web in esecuzione nel computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
-    -   **URI di reindirizzamento**: per le applicazioni native, fornire l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per **http://MyFirstAADApp**l'applicazione, ad esempio .
+    -   **URL di accesso**: per le applicazioni API/app Web, specificare l'URL di base dell'app. Ad esempio, **http://localhost:31544** può essere l'URL di un'app Web in esecuzione nel computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
+    -   **URI di reindirizzamento**: per le applicazioni native, fornire l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio **http://MyFirstAADApp**.
 
         ![Registrazioni di App SaaS AD](./media/saas-offer-app-registration-v1-2.png)
 
-        Per esempi specifici per applicazioni Web o applicazioni native, vedere le configurazioni guidate delle guide introduttive disponibili nella sezione *Introduzione* della Guida per gli sviluppatori di [Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+        Per esempi specifici per le applicazioni Web o le applicazioni native, vedere le configurazioni guidate introduttive disponibili nella sezione *Introduzione* della [guida per sviluppatori Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Al termine, fare clic su **Crea**. Azure AD assegna un *ID applicazione* univoco\'all'applicazione e\'viene visualizzato nuovamente nella pagina di registrazione principale dell'applicazione. A seconda che si tratti di un'applicazione Web o nativa, sono fornite opzioni diverse per l'aggiunta di altre funzionalità all'applicazione.
+5.  Al termine, fare clic su **Crea**. Azure AD assegna un *ID applicazione* univoco all'applicazione e viene\'nuovamente eseguita la pagina di registrazione principale dell'\'applicazione. A seconda che si tratti di un'applicazione Web o nativa, sono fornite opzioni diverse per l'aggiunta di altre funzionalità all'applicazione.
 
 >[!Note]
 >Per impostazione predefinita, l'applicazione appena registrata viene configurata in modo da consentire solo agli utenti dello stesso tenant di accedere all'applicazione stessa.
 
 
-## <a name="using-the-azure-ad-security-token"></a>Uso del token di sicurezza di Azure ADUsing the Azure AD security token
+## <a name="using-the-azure-ad-security-token"></a>Uso del token di sicurezza Azure AD
 
-Dopo aver registrato l'applicazione, è possibile richiedere un token di sicurezza di Azure AD a livello di codice.  Il server di pubblicazione deve utilizzare questo token ed effettuare una richiesta per risolverlo.  When using the various Fulfillment APIs, the token query parameter is in the URL when the user is redirected to SaaS website from Azure.  Questo token è valido solo per un'ora.  Inoltre, è necessario URL decodificare il valore del token dal browser prima di utilizzarlo.
+Dopo aver registrato l'applicazione, è possibile richiedere a livello di codice un token di sicurezza Azure AD.  Il server di pubblicazione deve usare questo token ed effettuare una richiesta per risolverlo.  Quando si usano le varie API di evasione, il parametro di query del token si trova nell'URL quando l'utente viene reindirizzato al sito Web SaaS da Azure.  Questo token è valido solo per un'ora.  Inoltre, è consigliabile decodificare l'URL del valore del token dal browser prima di usarlo.
 
-Per altre informazioni su questi token, vedere Token di accesso ad Azure Active Directory.For more information about these [tokens,](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)see Azure Active Directory access tokens .
+Per ulteriori informazioni su questi token, vedere [Azure Active Directory token di accesso](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Ottenere un token basato sull'app Azure AD
@@ -72,7 +72,7 @@ Metodo HTTP
 
 *URL richiesta*
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token /oauth2/token**
+**https://login.microsoftonline.com/*{tenantId}*/OAuth2/token**
 
 *Parametro URI*
 
@@ -101,9 +101,9 @@ Metodo HTTP
 |  |  |  |
 
 
-*Response*
+*Risposta*
 
-|  **Nome**  | **Tipo**       |  **Descrizione**    |
+|  **Nome**  | **Type**       |  **Descrizione**    |
 | ---------- | -------------  | ------------------- |
 | 200 - OK    | TokenResponse  | La richiesta ha avuto esito positivo   |
 |  |  |  |
@@ -127,4 +127,4 @@ Token di risposta di esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'app protetta di Azure AD può ora usare [l'API di evasione di SaaS versione 2.](./pc-saas-fulfillment-api-v2.md)
+L'app protetta da Azure AD ora può usare l' [API di evasione Saas versione 2](./pc-saas-fulfillment-api-v2.md).

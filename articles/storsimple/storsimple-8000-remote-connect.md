@@ -18,7 +18,7 @@ ms.locfileid: "80298999"
 
 ## <a name="overview"></a>Panoramica
 
-È possibile connettersi in remoto al dispositivo tramite Windows PowerShell. Questo metodo di connessione non consente di visualizzare alcun menu. (Viene visualizzato un menu solo se si utilizza la console seriale sul dispositivo per la connessione.) Con la comunicazione remota di Windows PowerShell, ci si connette a uno spazio di esecuzione specifico. È inoltre possibile specificare la lingua di visualizzazione.
+È possibile connettersi in remoto al dispositivo tramite Windows PowerShell. Questo metodo di connessione non consente di visualizzare alcun menu. Viene visualizzato un menu solo se si usa la console seriale sul dispositivo per la connessione. Con la comunicazione remota di Windows PowerShell è possibile connettersi a un spazio specifico. È inoltre possibile specificare la lingua di visualizzazione.
 
 Per ulteriori informazioni sull'utilizzo della comunicazione remota di Windows PowerShell per gestire il dispositivo, andare a [Utilizzare Windows PowerShell per StorSimple per gestire il dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 
@@ -54,7 +54,7 @@ Attenersi alla procedura seguente nel portale di Azure per abilitare la gestione
 1. Passare al servizio Gestione dispositivi StorSimple. Selezionare **Dispositivi** e quindi fare clic sul dispositivo che si vuole configurare per la gestione remota. Passare a **Impostazioni dispositivo > Sicurezza**.
 2. Nel pannello **Impostazioni di sicurezza** fare clic su **Gestione remota**.
 3. Nel pannello **Gestione remota** impostare l'opzione **Abilita gestione remota** su **Sì**.
-4. È ora possibile scegliere di connettersi tramite HTTP. L'impostazione predefinita prevede la connessione tramite HTTPS. Assicurarsi che HTTP sia selezionato.
+4. È ora possibile scegliere di connettersi tramite HTTP. (L'impostazione predefinita è la connessione tramite HTTPS). Assicurarsi che sia selezionato HTTP.
    
    > [!NOTE]
    > La connessione tramite HTTP dovrebbe essere eseguita solo su reti attendibili.
@@ -133,7 +133,7 @@ Attenersi alla procedura seguente nel portale di Azure per abilitare la gestione
 1. Passare al servizio Gestione dispositivi StorSimple. Selezionare **Dispositivi** e quindi fare clic sul dispositivo che si vuole configurare per la gestione remota. Passare a **Impostazioni dispositivo > Sicurezza**.
 2. Nel pannello **Impostazioni di sicurezza** fare clic su **Gestione remota**.
 3. Impostare **Abilita gestione remota** su **Sì**.
-4. È ora possibile scegliere di connettersi tramite HTTPS. L'impostazione predefinita prevede la connessione tramite HTTPS. Assicurarsi che HTTPS sia selezionato.
+4. È ora possibile scegliere di connettersi tramite HTTPS. (L'impostazione predefinita è la connessione tramite HTTPS). Assicurarsi che sia selezionato HTTPS.
 5. Fare clic su **Scarica il certificato di gestione remota**. Specificare un percorso per salvare il file. Sarà necessario installare questo certificato nel computer client o host che si userà per connettersi al dispositivo.
 6. Alla richiesta di conferma fare clic su **Salva** e quindi su **Sì**.
 
@@ -176,7 +176,7 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 
 Per preparare il computer host per una connessione remota che utilizza una sessione HTTPS, eseguire le procedure seguenti:
 
-* [Importare il file CER nell'archivio radice del client o dell'host remoto.](#to-import-the-certificate-on-the-remote-host)
+* [Importare il file con estensione cer nell'archivio radice del client o dell'host remoto](#to-import-the-certificate-on-the-remote-host).
 * [Aggiunta dei numeri di serie del dispositivo al file hosts sull'host remoto](#to-add-device-serial-numbers-to-the-remote-host)
 
 Ognuna di queste procedure è descritta di seguito.
@@ -185,8 +185,8 @@ Ognuna di queste procedure è descritta di seguito.
 1. Fare clic con il pulsante destro del mouse sul file con estensione cer, quindi scegliere **Installa certificato**. Viene avviata l'Esportazione guidata certificati.
    
     ![Impostazione guidata del certificato 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. Per **Percorso archivio** selezionare **Computer locale**, quindi fare clic su **Avanti**.
-3. Selezionare **Mettere tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Spostarsi sull'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
+2. Per **Percorso archivio**, selezionare **Computer locale**, quindi fare clic su **Avanti**.
+3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
    
     ![Impostazione guidata del certificato 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
@@ -203,11 +203,11 @@ Ognuna di queste procedure è descritta di seguito.
 
 ### <a name="connect-to-the-device-from-the-remote-host"></a>Connessione al dispositivo dall'host remoto
 
-Utilizzare Windows PowerShell e TLS per accedere a una sessione SSAdmin nel dispositivo da un host o un client remoto. Viene eseguito il mapping della sessione SSAdmin all'opzione 1 del menu [console seriale](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) del dispositivo.
+Usare Windows PowerShell e TLS per immettere una sessione SSAdmin sul dispositivo da un host o un client remoto. Viene eseguito il mapping della sessione SSAdmin all'opzione 1 del menu [console seriale](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) del dispositivo.
 
 Eseguire la procedura seguente sul computer da cui si desidera effettuare la connessione remota di Windows PowerShell.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Per accedere a una sessione SSAdmin nel dispositivo utilizzando Windows PowerShell e TLS
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-tls"></a>Per immettere una sessione SSAdmin sul dispositivo usando Windows PowerShell e TLS
 1. Avviare una sessione di Windows PowerShell come amministratore. Se si usa un client Windows 10, per impostazione predefinita, il servizio WinRM è impostato su manuale. Può essere necessario avviare il servizio digitando:
 
     `Start-Service WinRM`
@@ -232,9 +232,9 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 5. Digitare:
    
      `Enter-PSSession $session`
-6. Dovrai aspettare qualche minuto e quindi sarai connesso al tuo dispositivo tramite HTTPS su TLS. Verrà visualizzato un messaggio indicante che è stata effettuata la connessione al dispositivo.
+6. Sarà necessario attendere alcuni minuti e quindi verrà stabilita la connessione al dispositivo tramite HTTPS su TLS. Verrà visualizzato un messaggio indicante che è stata effettuata la connessione al dispositivo.
    
-    ![PowerShell remoting using HTTPS and TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![Comunicazione remota di PowerShell con HTTPS e TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

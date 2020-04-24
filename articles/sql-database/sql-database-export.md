@@ -22,7 +22,7 @@ Quando è necessario esportare un database per l'archiviazione o lo spostamento 
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Considerazioni relative all'esportazione di un database SQL di Azure
 
-- Affinché un'esportazione sia coerente a livello di transazione, è necessario assicurarsi che durante l'esportazione non venga eseguita alcuna attività di scrittura o che si esporti da una copia coerente a livello di transazione del database SQL di Azure.For an export to be transactionally consistent, you must ensure that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL database.
+- Affinché un'esportazione sia coerente a livello di transazione, è necessario assicurarsi che non si verifichi alcuna attività di scrittura durante l'esportazione o che si stia esportando da una [copia coerente](sql-database-copy.md) dal punto di transazione del database SQL di Azure.
 - Se si sta eseguendo l'esportazione nell'archiviazione BLOB, la dimensione massima di un file BACPAC è 200 GB. Per archiviare un file BACPAC di dimensioni maggiori, eseguire l'esportazione in una risorsa di archiviazione locale.
 - L'esportazione di un file BACPAC in Archiviazione Premium di Azure usando i metodi descritti in questo articolo non è supportata.
 - L'archiviazione dietro un firewall non è attualmente supportata.
@@ -37,16 +37,16 @@ Quando è necessario esportare un database per l'archiviazione o lo spostamento 
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Eseguire l'esportazione in un file BACPAC con il portale di Azure
 
-L'esportazione di un BACPAC di un database da [un'istanza gestita](sql-database-managed-instance.md) tramite Azure PowerShell non è attualmente supportata. Usare invece SQL Server Management StudioSQL Server Management Studio o SQLPackage.Use SQL Server Management Studio or SQLPackage instead.
+L'esportazione di un BACPAC di un database da un' [istanza gestita](sql-database-managed-instance.md) usando Azure PowerShell non è attualmente supportata. In alternativa, usare SQL Server Management Studio o SqlPackage.
 
 > [!NOTE]
-> I computer che elaborano le richieste di importazione/esportazione inviate tramite il portale di Azure o PowerShell devono archiviare il file BACPAC e i file temporanei generati dal framework dell'applicazione livello dati (DacFX). Lo spazio su disco richiesto varia in modo significativo tra i database con le stesse dimensioni e può richiedere spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono la richiesta di importazione/esportazione dispongono solo di 450 GB di spazio su disco locale. Di conseguenza, alcune richieste potrebbero `There is not enough space on the disk`non riuscire con l'errore . In questo caso, la soluzione consiste nell'eseguire sqlpackage.exe in un computer con spazio su disco locale sufficiente. Si consiglia di utilizzare [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) per importare/esportare database di dimensioni superiori a 150 GB per evitare questo problema.
+> I computer che elaborano le richieste di importazione/esportazione inviate tramite il portale di Azure o PowerShell devono archiviare il file BACPAC e i file temporanei generati dal framework dell'applicazione livello dati (DacFX). Lo spazio su disco richiesto varia significativamente tra i database con le stesse dimensioni e può richiedere spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono la richiesta di importazione/esportazione hanno solo spazio su disco locale 450GB. Di conseguenza, alcune richieste potrebbero non riuscire con l' `There is not enough space on the disk`errore. In questo caso, la soluzione alternativa consiste nell'eseguire SqlPackage. exe su un computer con sufficiente spazio su disco locale. Si consiglia di usare [SqlPackage](#export-to-a-bacpac-file-using-the-sqlpackage-utility) per importare/esportare database di dimensioni superiori a 150 GB per evitare questo problema.
 
 1. Per esportare un database con il [portale di Azure](https://portal.azure.com), aprire la pagina relativa al database e fare clic su **Esporta** sulla barra degli strumenti.
 
    ![Esportazione di un database](./media/sql-database-export/database-export1.png)
 
-2. Specificare il nome del file BACPAC, selezionare un account di archiviazione di Azure esistente e un contenitore per l'esportazione e quindi fornire le credenziali appropriate per l'accesso al database di origine. Un **account** di accesso di amministratore di SQL Server è necessario qui anche se si è l'amministratore di Azure, come essere un amministratore di Azure non equivale a avere le autorizzazioni di amministratore di SQL Server.A SQL Server admin login is needed here even if you are the Azure admin, as being an Azure admin does not eeparto to have SQL Server admin permissions.
+2. Specificare il nome del file BACPAC, selezionare un account di archiviazione di Azure esistente e un contenitore per l'esportazione e quindi fornire le credenziali appropriate per l'accesso al database di origine. È necessario un **account di accesso amministratore** di SQL Server anche se si è l'amministratore di Azure, perché un amministratore di Azure non equivale a avere SQL Server autorizzazioni di amministratore.
 
     ![Esportazione di un database](./media/sql-database-export/database-export2.png)
 
@@ -77,7 +77,7 @@ Le versioni più recenti di SQL Server Management Studio includono una procedura
 > [!NOTE]
 > [Un'istanza gestita](sql-database-managed-instance.md) non supporta attualmente l'esportazione di un database in un file BACPAC tramite PowerShell. Per esportare un'istanza gestita in un file BACPAC, usare SQL Server Management Studio o SQLPackage.
 
-Utilizzare il cmdlet New-AzSqlDatabaseExport per inviare una richiesta di database di esportazione al servizio Database SQL di Azure.Use the [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere molto tempo.
+Usare il cmdlet [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) per inviare una richiesta di esportazione del database al servizio database SQL di Azure. A seconda delle dimensioni del database, l'operazione di esportazione potrebbe richiedere molto tempo.
 
 ```powershell
 $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -85,7 +85,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Per controllare lo stato della richiesta di esportazione, utilizzare il cmdlet [Get-AzSqlDatabaseImportExportStatus.](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. Al termine dell'esportazione, il messaggio restituito è **Status: Succeeded**.
+Per controllare lo stato della richiesta di esportazione, usare il cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) . L'esecuzione di questo cmdlet subito dopo la richiesta restituisce in genere **Status: InProgress**. Al termine dell'esportazione, il messaggio restituito è **Status: Succeeded**.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

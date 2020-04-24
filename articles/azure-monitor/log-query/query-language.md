@@ -21,7 +21,7 @@ I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log
 
 ## <a name="getting-started"></a>Introduzione
 
-- [Introduzione a Azure Monitor Log Analytics](get-started-portal.md) è una lezione per la scrittura di query e l'uso dei risultati nel portale di Azure.Get started with Azure Monitor Log Analytics is a lesson for writing queries and working with results in the Azure portal.
+- [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md) è una lezione per la scrittura di query e l'uso dei risultati nel portale di Azure.
 - [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md) è una lezione per la scrittura di query e l'uso con i dati di log di Monitoraggio di Azure.
 
 ## <a name="concepts"></a>Concetti

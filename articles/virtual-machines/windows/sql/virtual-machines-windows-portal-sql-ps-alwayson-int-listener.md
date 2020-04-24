@@ -1,5 +1,5 @@
 ---
-title: Configurare i listener del gruppo di disponibilità & il servizio di bilanciamento del carico (PowerShell)Configure availability group listeners & load balancer (PowerShell)
+title: Configurare i listener del gruppo di disponibilità & servizio di bilanciamento del carico (PowerShell)
 description: Configurare i listener dei gruppi di disponibilità nel modello di Azure Resource Manager usando un servizio di bilanciamento del carico interno con uno o più indirizzi IP.
 services: virtual-machines
 documentationcenter: na
@@ -58,12 +58,12 @@ Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi 
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determinare lo SKU di Load Balancer necessario
 
-Il servizio di [bilanciamento del carico](../../../load-balancer/load-balancer-overview.md) di Azure è disponibile in 2 SKU: Basic & Standard.Azure load balancer is available in 2 SKUs: Basic & Standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Se le macchine virtuali si trovano in una zona di disponibilità, è necessario un servizio di bilanciamento del carico standard. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
+Il servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-balancer-overview.md) è disponibile in due SKU: Basic & standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Se le macchine virtuali si trovano in una zona di disponibilità, è necessario un servizio di bilanciamento del carico standard. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
 
 Il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
 
    > [!NOTE]
-   > Sarà necessario configurare un [endpoint del servizio](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se si usa un servizio di bilanciamento del carico standard e Archiviazione di Azure per il cloud di controllo. 
+   > È necessario configurare un endpoint di [servizio](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se si usa un servizio di bilanciamento del carico standard e archiviazione di Azure per il server di controllo del cloud. 
 
 
 Gli esempi in questo articolo si riferiscono a un'istanza di Load Balancer Standard. Negli esempi lo script include `-sku Standard`.
@@ -133,7 +133,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>Script di esempio: aggiungere un indirizzo IP a un servizio di bilanciamento del carico esistente con PowerShellExample script: Add an IP address to an existing load balancer with PowerShell
+## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>Script di esempio: aggiungere un indirizzo IP a un servizio di bilanciamento del carico esistente con PowerShell
 Per usare più di un gruppo di disponibilità, aggiungere un altro indirizzo IP al bilanciamento del carico. Ogni indirizzo IP richiede la sua regola di bilanciamento, la sua porta probe e la sua porta front-end.
 
 La porta front-end è quella usata dalle applicazioni per connettersi all'istanza di SQL Server. Gli indirizzi IP per i diversi gruppi di disponibilità possono usare la stessa porta front-end.
@@ -141,7 +141,7 @@ La porta front-end è quella usata dalle applicazioni per connettersi all'istanz
 > [!NOTE]
 > Per i gruppi di disponibilità di SQL Server, ogni indirizzo IP richiede una porta probe specifica. Ad esempio, se un indirizzo IP su un servizio di bilanciamento del carico usa la porta probe 59999, nessun altro indirizzo IP in tale servizio di bilanciamento del carico può usare la porta probe 59999.
 
-* Per informazioni sui limiti del servizio di bilanciamento del carico, vedere IP front-end privato per ogni servizio di bilanciamento del carico in Limiti di rete - Azure Resource Manager.For information about load balancer limits, see **Private front-end IP per load balancer** under Networking Limits - Azure Resource [Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Per informazioni sui limiti del servizio di bilanciamento del carico, vedere **IP front-end privato per ogni** servizio di bilanciamento del carico in [limiti di rete-Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Per informazioni sui limiti dei gruppi di disponibilità, vedere [Restrizioni (gruppi di disponibilità)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 Lo script seguente aggiunge un nuovo indirizzo IP a un servizio di bilanciamento del carico esistente. Il servizio di bilanciamento del carico interno usa la porta del listener per la porta front-end di bilanciamento del carico. Questa porta può essere la porta su cui SQL Server è in ascolto. Per le istanze predefinite di SQL Server, la porta è la numero 1433. La regola di bilanciamento del carico per un gruppo di disponibilità richiede un indirizzo IP mobile (Direct Server Return), quindi la porta back-end corrisponde alla porta front-end. Aggiornare le variabili per l'ambiente. 
@@ -193,11 +193,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Avviare SQL Server Management Studio e connettersi alla replica primaria.
 
-1. Passare a**Listener gruppo**di **disponibilità AlwaysOn a** | **disponibilità** | elevata . 
+1. Passare a disponibilità **elevata** | AlwaysOn**gruppi** | di disponibilità**listener gruppo di disponibilità**. 
 
 1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e scegliere **Proprietà**.
 
-1. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità utilizzando il $EndpointPort utilizzato in precedenza (1433 era quello predefinito), quindi fare clic su **OK**.
+1. Nella casella **porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il $EndpointPort usato in precedenza (1433 è il valore predefinito), quindi fare clic su **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testare la connessione al listener
 
@@ -205,7 +205,7 @@ Per testare la connessione:
 
 1. Usare RDP per connettersi a un'istanza di SQL Server che si trova nella stessa rete virtuale, ma non è proprietaria della replica. Può trattarsi dell'altra istanza di SQL Server nel cluster.
 
-1. Utilizzare l'utilità **sqlcmd** per verificare la connessione. Ad esempio, lo script seguente stabilisce una connessione sqlcmd alla replica primaria tramite il listener con l'autenticazione di Windows:For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
+1. Usare l'utilità **SQLCMD** per testare la connessione. Ad esempio, lo script seguente stabilisce una connessione **SQLCMD** alla replica primaria tramite il listener con l'autenticazione di Windows:
    
     ```
     sqlcmd -S <listenerName> -E
@@ -231,7 +231,7 @@ Tenere presente le linee guida seguenti per il listener del gruppo di disponibil
 
 * Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi che le regole di autorizzazione includano gli indirizzi IP della macchina virtuale di SQL Server di back-end e gli indirizzi IP del bilanciamento del carico mobile per il listener AG e l'indirizzo IP principale del cluster, se disponibile.
 
-* Creare un endpoint del servizio quando si usa un servizio di bilanciamento del carico standard con Archiviazione di Azure per il cloud. Per altre informazioni, vedere [Concedere l'accesso da una rete virtuale.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)
+* Creare un endpoint di servizio quando si usa un servizio di bilanciamento del carico standard con archiviazione di Azure per il server di controllo del cloud. Per altre informazioni, vedere [concedere l'accesso da una rete virtuale](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Per ulteriori informazioni
 Per altre informazioni, vedere [Configurare manualmente i gruppi di disponibilità AlwaysOn nelle VM di Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

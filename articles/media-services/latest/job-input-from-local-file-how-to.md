@@ -1,6 +1,6 @@
 ---
-title: Creare un input del processo di Servizi multimediali di Azure da un file locale. Documenti Microsoft
-description: Questo articolo illustra come creare un input di processo di Servizi multimediali di Azure da un file locale.
+title: Creare un input del processo di servizi multimediali di Azure da un file locale | Microsoft Docs
+description: Questo articolo illustra come creare un input del processo di servizi multimediali di Azure da un file locale.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -25,23 +25,23 @@ In Servizi multimediali v3, quando si inviano processi per elaborare i video, è
 ## <a name="prerequisites"></a>Prerequisiti 
 
 * [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
-* Esaminare [gestire le risorse](manage-asset-concept.md).
+* Vedere [Gestire gli asset](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Esempio .NET
 
 Il codice seguente mostra come creare un asset di input da usare come input per il processo. La funzione CreateInputAsset esegue le azioni seguenti:
 
 * Crea l'asset
-* Ottiene un URL di chiamata di [archiviazione](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile per il contenitore dell'asset [nell'archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Ottiene un [URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) di firma di accesso condiviso scrivibile per il contenitore dell'asset [nell'archivio](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-Il frammento di codice seguente crea un asset di output se non esiste già:The following code snippet creates an output asset if it doesn't already exist:
+Il frammento di codice seguente crea un asset di output se non esiste già:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-Il frammento di codice seguente invia un processo di codifica:The following code snippet submits an encoding job:
+Il frammento di codice seguente invia un processo di codifica:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
@@ -51,4 +51,4 @@ Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#j
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un input di processo da un URL HTTPS](job-input-from-http-how-to.md).
+[Creare un input del processo da un URL HTTPS](job-input-from-http-how-to.md).

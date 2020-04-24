@@ -18,30 +18,30 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "80745137"
 ---
-# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Ripristinare un pool SQL eliminato usando Azure Synapse AnalyticsRestore a deleted SQL pool using Azure Synapse Analytics
+# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Ripristinare un pool SQL eliminato usando Azure sinapsi Analytics
 
-In this article, you learn to restore a SQL using either the Azure portal or PowerShell.
+In questo articolo si apprenderà come ripristinare un'operazione SQL usando il portale di Azure o PowerShell.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verificare la capacità in DTU.** Ogni pool SQL è ospitato da un server SQL (ad esempio, myserver.database.windows.net) che ha una quota DTU predefinita.  Verificare che il server SQL disponga di una quota DTU rimanente sufficiente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verificare la capacità in DTU.** Ogni pool SQL è ospitato da un server SQL (ad esempio, myserver.database.windows.net) con una quota DTU predefinita.  Verificare che SQL Server disponga di una quota DTU rimanente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Ripristinare un data warehouse eliminato tramite PowerShellRestore a deleted data warehouse through PowerShell
+## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Ripristinare un data warehouse eliminato tramite PowerShell
 
-Per ripristinare un pool SQL eliminato, utilizzare il cmdlet [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Se è stato eliminato anche il server logico corrispondente, non è possibile ripristinare tale data warehouse.
+Per ripristinare un pool SQL eliminato, usare il cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . Se anche il server logico corrispondente è stato eliminato, non è possibile ripristinare tale data warehouse.
 
-1. Prima di iniziare, assicurarsi di [installare Azure PowerShell.](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Aprire PowerShell.
 3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
-4. Selezionare la sottoscrizione che contiene il data warehouse eliminato da ripristinare.
+4. Consente di selezionare la sottoscrizione che contiene il data warehouse eliminato da ripristinare.
 5. Ottenere il data warehouse eliminato specifico.
 6. Ripristinare il data warehouse eliminato
-    1. Per ripristinare il sql Data Warehouse eliminato in un server logico diverso, assicurarsi di specificare l'altro nome del server logico.  Questo server logico può anche trovarsi in un gruppo di risorse e in un'area diversi.
-    1. Per eseguire il ripristino in una sottoscrizione diversa, usare il pulsante [Sposta](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) per spostare il server logico in un'altra sottoscrizione.
+    1. Per ripristinare il SQL Data Warehouse eliminato in un server logico diverso, assicurarsi di specificare l'altro nome del server logico.  Questo server logico può trovarsi anche in un gruppo di risorse e in un'area diversi.
+    1. Per eseguire il ripristino in un'altra sottoscrizione, utilizzare il pulsante [Sposta](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) per spostare il server logico in un'altra sottoscrizione.
 7. Verificare che il data warehouse ripristinato sia online.
-8. Al termine del ripristino, è possibile configurare il data warehouse ripristinato seguendo la configurazione del database dopo il [ripristino.](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)
+8. Al termine del ripristino, è possibile configurare il data warehouse ripristinato seguendo la procedura di [configurazione del database dopo il ripristino](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -72,8 +72,8 @@ $RestoredDatabase.status
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Ripristinare un database eliminato con il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Passare al server SQL in cui è stato ospitato il data warehouse eliminato.
-3. Selezionare l'icona **Database eliminati** nel sommario.
+2. Passare al server SQL in cui è ospitato il data warehouse eliminato.
+3. Selezionare l'icona **database eliminati** nel sommario.
 
     ![Database eliminati](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-01.png)
 
@@ -81,11 +81,11 @@ $RestoredDatabase.status
 
     ![Selezionare i database eliminati](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-11.png)
 
-5. Specificare un nuovo **nome per il database** e fare clic su **OK**
+5. Specificare un nuovo **nome di database** e fare clic su **OK**
 
     ![Specificare il nome del database](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristinare un pool SQL esistenteRestore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
-- [Eseguire il ripristino da un pool SQL di backup geograficoRestore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
+- [Ripristinare un pool SQL esistente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Ripristinare da un pool SQL di backup geografico](sql-data-warehouse-restore-from-geo-backup.md)

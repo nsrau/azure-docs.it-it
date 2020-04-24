@@ -1,6 +1,6 @@
 ---
 title: Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure con Azure Migrate
-description: Descrive come valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure usando il servizio Azure Migrate.e
+description: Viene descritto come valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure usando il servizio Azure Migrate. e
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
@@ -10,10 +10,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80336860"
 ---
-# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad AzureAssess large numbers of VMware VMs for migration to Azure
+# <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure
 
 
-In questo articolo viene descritto come valutare numeri grandi (1000-35.000) di macchine virtuali VMware locali per la migrazione ad Azure, usando lo strumento valutazione del server di Azure Migrate.This article describes how to assess large numbers (1000-35,000) of on-premises VMware VMs for migration to Azure, using the Azure Migrate Server Assessment tool.
+Questo articolo descrive come valutare numeri elevati (1000-35.000) di macchine virtuali VMware locali per la migrazione ad Azure, usando lo strumento di valutazione di Azure Migrate server.
 
 [Azure Migrate](migrate-services-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
@@ -26,74 +26,74 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 
 > [!NOTE]
-> Se si vuole provare un proof-of-concept per valutare un paio di macchine virtuali prima di valutare su larga scala, seguire la nostra [serie di tutorial](tutorial-prepare-vmware.md)
+> Se si vuole provare un modello di prova per valutare un paio di macchine virtuali prima di valutare la scalabilità, seguire la serie di [esercitazioni](tutorial-prepare-vmware.md)
 
-## <a name="plan-for-assessment"></a>Piano per la valutazione
+## <a name="plan-for-assessment"></a>Pianificare la valutazione
 
-Quando si pianifica la valutazione di un numero elevato di macchine virtuali VMware, è necessario considerare un paio di aspetti:When planning for assessment of large number of VMware VMs, there are a couple of things to think about:
+Quando si pianifica la valutazione di un numero elevato di macchine virtuali VMware, è necessario considerare alcuni aspetti:
 
-- **Pianificare**i progetti di Azure Migrate: informazioni su come distribuire progetti di Azure Migrate.Plan Azure Migrate projects : How out how to deploy Azure Migrate projects. Ad esempio, se i data center si trovano in aree geografiche diverse o è necessario archiviare metadati correlati all'individuazione, alla valutazione o alla migrazione in un'area geografica diversa, potrebbero essere necessari più progetti. 
-- **Pianificare le appliance:** Azure Migrate usa un'appliance di Azure Migrate locale, distribuita come macchina virtuale VMware, per individuare continuamente le macchine virtuali. L'appliance monitora le modifiche dell'ambiente, ad esempio l'aggiunta di macchine virtuali, dischi o schede di rete. Invia inoltre metadati e dati sulle prestazioni su di essi ad Azure.It also sends metadata and performance data about them to Azure. È necessario determinare il numero di appliance da distribuire.
-- **Pianificare gli account per l'individuazione:** l'appliance di Azure Migrate usa un account con accesso a vCenter Server per individuare le macchine virtuali per la valutazione e la migrazione. Se si stanno scoprendo più di 10.000 macchine virtuali, configurare più account.
+- **Pianificare Azure migrate progetti**: scoprire come distribuire progetti di Azure migrate. Se, ad esempio, i Data Center si trovano in aree geografiche diverse oppure è necessario archiviare i metadati relativi a individuazione, valutazione o migrazione in un'altra area geografica, potrebbero essere necessari più progetti. 
+- **Appliance del piano**: Azure migrate usa un'appliance Azure migrate locale, distribuita come macchina virtuale VMware, per individuare continuamente le VM. Il dispositivo monitora le modifiche apportate all'ambiente, ad esempio l'aggiunta di VM, dischi o schede di rete. Invia inoltre i metadati e i dati sulle prestazioni relativi ad Azure. È necessario scoprire quante Appliance è necessario distribuire.
+- **Pianificare gli account per l'individuazione**: il Azure migrate Appliance usa un account con accesso a server vCenter per individuare le VM per la valutazione e la migrazione. Se si stanno scoprendo più di 10.000 VM, configurare più account.
 
 
 ## <a name="planning-limits"></a>Limiti di pianificazione
  
-Utilizzare i limiti riepilogati in questa tabella per la pianificazione.
+Usare i limiti riepilogati in questa tabella per la pianificazione.
 
 **Pianificazione** | **Limiti**
 --- | --- 
-**Progetti di azure migrateAzure Migrate projects** | Valutare fino a 35.000 macchine virtuali in un progetto.
-**Appliance Azure Migrate** | Un'appliance può individuare fino a 10.000 macchine virtuali in un server vCenter.<br/> Un'appliance può connettersi a un solo server vCenter.<br/> Un'appliance può essere associata solo a un singolo progetto di Azure Migrate.An appliance can only be associated with a single Azure Migrate project.<br/>  È possibile associare un numero qualsiasi di appliance a un singolo progetto di Azure Migrate.Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
-**Gruppo** | È possibile aggiungere fino a 35.000 macchine virtuali in un singolo gruppo.
-**Valutazione di Azure MigrateAzure Migrate assessment** | È possibile valutare fino a 35.000 macchine virtuali in un'unica valutazione.
+**Progetti Azure Migrate** | Consente di valutare fino a 35.000 VM in un progetto.
+**Appliance Azure Migrate** | Un dispositivo può individuare fino a 10.000 VM in una server vCenter.<br/> Un appliance può connettersi solo a una singola server vCenter.<br/> Un appliance può essere associato solo a un singolo progetto Azure Migrate.<br/>  Un numero qualsiasi di Appliance può essere associato a un singolo progetto di Azure Migrate. <br/><br/> 
+**Gruppo** | È possibile aggiungere fino a 35.000 VM in un singolo gruppo.
+**Valutazione Azure Migrate** | È possibile valutare fino a 35.000 VM in un'unica valutazione.
 
-Tenendo presenti questi limiti, ecco alcune distribuzioni di esempio:With these limits in mind, here are some example deployments:
+Tenendo conto di questi limiti, di seguito sono riportate alcune distribuzioni di esempio:
 
 
-**Server vCenter** | **Macchine virtuali nel server** | **Raccomandazione** | **Azione**
+**Server vCenter** | **Macchine virtuali nel server** | **Consiglio** | **Azione**
 ---|---|---
-Uno | < 10.000 | Un progetto di azure Migrate.<br/> Un apparecchio.<br/> Un account vCenter per l'individuazione. | Configurare l'appliance, connettersi a vCenter Server con un account.
-Uno | > 10.000 | Un progetto di azure Migrate.<br/> Elettrodomestici multipli.<br/> Più account vCenter. | Configurare l'appliance per ogni 10.000 macchine virtuali.<br/><br/> Configurare gli account vCenter e dividere le scorte per limitare l'accesso di un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con appliance diverse.
-Multipli | < 10.000 |  Un progetto di azure Migrate.<br/> Elettrodomestici multipli.<br/> Un account vCenter per l'individuazione. | Configurare le appliance, connettersi a vCenter Server con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con appliance diverse.
-Multipli | > 10.000 | Un progetto di azure Migrate.<br/> Elettrodomestici multipli.<br/> Più account vCenter. | Se l'individuazione di vCenter Server < 10.000 macchine virtuali, configurare un'appliance per ogni server vCenter.<br/><br/> Se l'individuazione di vCenter Server > 10.000 macchine virtuali, configurare un'appliance per ogni 10.000 macchine virtuali.<br/> Configurare gli account vCenter e dividere le scorte per limitare l'accesso di un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con appliance diverse.
+Uno | < 10.000 | Un progetto Azure Migrate.<br/> Un appliance.<br/> Un account vCenter per l'individuazione. | Configurare il dispositivo, connettersi a server vCenter con un account.
+Uno | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Configurare l'appliance per ogni VM 10.000.<br/><br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
+Multipli | < 10.000 |  Un progetto Azure Migrate.<br/> Più appliance.<br/> Un account vCenter per l'individuazione. | Configurare le appliance, connettersi a server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
+Multipli | > 10.000 | Un progetto Azure Migrate.<br/> Più appliance.<br/> Più account vCenter. | Se server vCenter individuazione < VM 10.000, configurare un'appliance per ogni server vCenter.<br/><br/> Se server vCenter individuazione > VM 10.000, configurare un'appliance per ogni VM 10.000.<br/> Configurare gli account vCenter e dividere l'inventario per limitare l'accesso per un account a meno di 10.000 macchine virtuali.<br/> Connettere ogni appliance al server vCenter con un account.<br/> È possibile analizzare le dipendenze tra computer individuati con dispositivi diversi.
 
 
-## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Pianificare l'individuazione in un ambiente multi-tenantPlan discovery in a multi-tenant environment
+## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Pianificare l'individuazione in un ambiente multi-tenant
 
-Se si pianifica un ambiente multi-tenant, è possibile definire l'ambito dell'individuazione nel server vCenter.
+Se si sta pianificando un ambiente multi-tenant, è possibile definire l'ambito dell'individuazione nel server vCenter.
 
-- È possibile impostare l'ambito di individuazione dell'appliance su un datacenter di vCenter Server, su cluster o su una cartella di cluster, host o cartelle di host o singole macchine virtuali.
-- Se l'ambiente è condiviso tra tenant e si desidera individuare ogni tenant separatamente, è possibile definire l'ambito dell'accesso all'account vCenter utilizzato dall'appliance per l'individuazione. 
-    - È possibile definire l'ambito in base alle cartelle della macchina virtuale se i tenant condividono gli host. Azure Migrate non è in grado di individuare le macchine virtuali se l'account vCenter ha accesso concesso a livello di cartella VM vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. [Scopri di più](set-discovery-scope.md).
+- È possibile impostare l'ambito di individuazione dell'appliance su un server vCenter Data Center, cluster o cartella di cluster, host o cartella di host o singole macchine virtuali.
+- Se l'ambiente è condiviso tra i tenant e si vuole individuare separatamente ogni tenant, è possibile definire l'ambito di accesso all'account vCenter usato dall'appliance per l'individuazione. 
+    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. [Altre informazioni](set-discovery-scope.md)
 
 ## <a name="prepare-for-assessment"></a>Prepararsi per la valutazione
 
 Preparare Azure e VMware per la valutazione del server. 
 
-1. Verificare i requisiti e le limitazioni del [supporto VMware](migrate-support-matrix-vmware.md).
-2. Configurare le autorizzazioni per l'account Azure per interagire con Azure Migrate.Set up permissions for your Azure account to interact with Azure Migrate.
+1. Verificare i [requisiti e le limitazioni del supporto VMware](migrate-support-matrix-vmware.md).
+2. Configurare le autorizzazioni per l'account di Azure per interagire con Azure Migrate.
 3. Preparare VMware per la valutazione.
 
-Seguire le istruzioni in [questa esercitazione](tutorial-prepare-vmware.md) per configurare queste impostazioni.
+Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-prepare-vmware.md) .
 
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-In conformità con i requisiti di pianificazione, eseguire le operazioni seguenti:
+In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 
-1. Creare un progetto di azure Migrate.Create an Azure Migrate projects.
-2. Aggiungere lo strumento di valutazione del server di Azure Migrate ai progetti.
+1. Creare un progetto Azure Migrate.
+2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
-[Scopri di più](how-to-add-tool-first-time.md)
+[Altre informazioni](how-to-add-tool-first-time.md)
 
-## <a name="create-and-review-an-assessment"></a>Creare e rivedere una valutazione
+## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 
-1. Creare valutazioni per le macchine virtuali VMware.Create assessments for VMware VMs.
+1. Creare valutazioni per le macchine virtuali VMware.
 1. Esaminare le valutazioni in preparazione per la pianificazione della migrazione.
 
 
-Seguire le istruzioni in [questa esercitazione](tutorial-assess-vmware.md) per configurare queste impostazioni.
+Per configurare queste impostazioni, seguire le istruzioni riportate in [questa esercitazione](tutorial-assess-vmware.md) .
     
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -101,9 +101,9 @@ Seguire le istruzioni in [questa esercitazione](tutorial-assess-vmware.md) per c
 In questo articolo si apprenderà come:
  
 > [!div class="checklist"] 
-> * Pianificato di ridimensionare le valutazioni di Azure Migrate per le macchine virtuali VMware
+> * Pianificazione della scalabilità di Azure Migrate valutazioni per le macchine virtuali VMware
 > * Azure e VMware preparati per la valutazione
 > * Creazione di un progetto Azure Migrate ed esecuzione di valutazioni
-> * Valutazioni riviste in preparazione per la migrazione.
+> * Revisione delle valutazioni in preparazione alla migrazione.
 
-A [questo](concepts-assessment-calculation.md) punto, scopri come vengono calcolate le valutazioni e come [modificare le valutazioni.](how-to-modify-assessment.md)
+A questo punto, [informazioni su come](concepts-assessment-calculation.md) vengono calcolate le valutazioni e su come [modificare le valutazioni](how-to-modify-assessment.md).

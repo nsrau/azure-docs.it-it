@@ -85,7 +85,7 @@ Managed Disks supporta tre ruoli predefiniti principali:
 
 **È possibile copiare o esportare un disco gestito in un account di archiviazione privato?**
 
-È possibile generare un URI di firma di accesso condiviso (SAS) in sola lettura per il disco gestito e usarlo per copiare i contenuti in un account di archiviazione privato o in un archivio locale. È possibile usare l'URI della rete di accesso condiviso usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o [AzCopyYou](../articles/storage/common/storage-use-azcopy.md) can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or AzCopy
+È possibile generare un URI di firma di accesso condiviso (SAS) in sola lettura per il disco gestito e usarlo per copiare i contenuti in un account di archiviazione privato o in un archivio locale. È possibile usare l'URI SAS usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **È possibile creare una copia del proprio disco gestito?**
 
@@ -99,7 +99,7 @@ Sì, sono supportati sia i dischi non gestiti che quelli gestiti. È consigliabi
 
 No.
 
-**Se si crea un disco da 128 GB e quindi si aumenta la dimensione a 130 gibibyte (GiB), verrà addebitato il costo della dimensione successiva del disco (256 GiB)?**
+**Se si crea un disco da 128 GB e si aumentano le dimensioni a 130 gibibyte (GiB), verranno addebitate le dimensioni del disco successive (256 GiB)?**
 
 Sì.
 
@@ -133,116 +133,116 @@ Non è possibile rinominare i dischi gestiti. È tuttavia possibile rinominare u
 
 **È possibile usare il partizionamento GPT in un disco di Azure?**
 
-Le immagini di generazione 1 possono utilizzare il partizionamento DI GPT solo su dischi dati, non su dischi del sistema operativo. I dischi del sistema operativo devono usare lo stile di partizione MBR.
+Le immagini di generazione 1 possono usare il partizionamento GPT solo sui dischi dati, non sui dischi del sistema operativo. I dischi del sistema operativo devono usare lo stile di partizione MBR.
 
-[Le immagini](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) di generazione 2 possono utilizzare il partizionamento GPT sul disco del sistema operativo e sui dischi dati.
+Le [Immagini di generazione 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) possono usare il partizionamento GPT sul disco del sistema operativo e sui dischi dati.
 
-**Quali tipi di disco supportano gli snapshot?**
+**Quali tipi di dischi supportano gli snapshot?**
 
-Premium SSD, SSD standard e istantanee di supporto HDD standard. Per questi tre tipi di disco, gli snapshot sono supportati per tutte le dimensioni dei dischi (inclusi i dischi di dimensioni fino a 32 TiB). I dischi ultra non supportano le istantanee.
+Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre tipi di dischi, gli snapshot sono supportati per tutte le dimensioni dei dischi (inclusi i dischi con dimensioni fino a 32 TiB). I dischi Ultra non supportano gli snapshot.
 
-**Che cosa sono le prenotazioni del disco di Azure?**
-La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo il costo totale. Per informazioni dettagliate sulle prenotazioni disco di Azure, vedere l'articolo sull'argomento: [Informazioni su come viene applicato lo sconto sulla prenotazione al](../articles/cost-management-billing/reservations/understand-disk-reservations.md)disco di Azure.For details regarding Azure disk reservations, see our article on the subject: Understand how your reservation discount is applied to Azure Disk .
+**Che cosa sono le prenotazioni dischi di Azure?**
+La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo i costi totali. Per informazioni dettagliate sulle prenotazioni dischi di Azure, vedere l'articolo sull'argomento: [informazioni sul modo in cui viene applicato lo sconto per la prenotazione al disco di Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Quali opzioni offre la prenotazione del disco di Azure?**    
-La prenotazione su disco di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di un anno. Non vi è alcuna limitazione sulla quantità minima di dischi necessari per acquistare una prenotazione del disco. Inoltre, puoi scegliere di pagare con un unico pagamento anticipato o pagamenti mensili. Non è previsto alcun costo transazionale aggiuntivo per i dischi gestiti SSD Premium.There is no additional transactional cost applied for Premium SSD Managed Disks.    
+**Quali sono le opzioni offerte dalla prenotazione dischi di Azure?**    
+Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Inoltre, è possibile scegliere di pagare con un singolo pagamento iniziale o pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks.    
 
-Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si prenota un disco P80 (32 TiB), si ottiene un singolo disco P80, non è possibile dividere tale prenotazione specifica in due dischi P70 più piccoli (16 TiB). Naturalmente, è possibile prenotare il numero o il numero di dischi che si desidera, inclusi due dischi P70 (16 TiB) separati.
+Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si riserva un disco P80 (32 TiB), si ottiene un singolo disco P80, non è quindi possibile dividere la prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile riservare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
 
-**Come viene applicata la prenotazione del disco di Azure?**    
-La prenotazione dei dischi segue un modello simile alle istanze di macchine virtuali (VM) riservate. La differenza è che una prenotazione su disco non può essere applicata a SKU diversi, mentre un'istanza di macchina virtuale può. Per altre informazioni sulle istanze di macchine virtuali, vedere [Salvare i costi con le istanze di macchine virtuali riservate di Azure.See Costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
+**Come viene applicata la prenotazione dischi di Azure?**    
+La prenotazione dischi segue un modello simile alle istanze di macchina virtuale riservate (VM). La differenza consiste nel fatto che non è possibile applicare una prenotazione disco a SKU diversi, mentre un'istanza di macchina virtuale può. Per altre informazioni sulle istanze di VM, vedere [risparmiare sui costi con le istanze di VM riservate di Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) .     
 
-**È possibile usare l'archiviazione dei dati acquistata tramite la prenotazione dei dischi di Azure in più aree?**    
-La prenotazione dei dischi di Azure viene acquistata per un'area specifica e sKU (ad esempio P30 in Stati Uniti orientali 2) e pertanto non può essere usata all'esterno di questi costrutti. È sempre possibile acquistare una prenotazione di dischi di Azure aggiuntiva per le esigenze di archiviazione su disco in altre aree o SKU.    
+**È possibile usare la risorsa di archiviazione dei dati acquistata tramite prenotazione dischi di Azure in più aree?**    
+La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU specifici, ad esempio P30 in Stati Uniti orientali 2, e pertanto non può essere usata all'esterno di questi costrutti. È sempre possibile acquistare una prenotazione aggiuntiva di dischi di Azure per le esigenze di archiviazione su disco in altre aree o SKU.    
 
-**Cosa succede quando scade la prenotazione dei dischi di Azure?**    
-Riceverai notifiche via email 30 giorni prima della scadenza e di nuovo alla data di scadenza. Alla scadenza della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le ultime tariffe con pagamento in base al [numero di azioni.](https://azure.microsoft.com/pricing/details/managed-disks/)
+**Cosa accade quando la prenotazione di dischi di Azure scade?**    
+Si riceveranno le notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Al termine della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le [tariffe con pagamento in base](https://azure.microsoft.com/pricing/details/managed-disks/)al consumo più recenti.
 
-### <a name="azure-shared-disks"></a>Dischi condivisi di AzureAzure shared disks
+### <a name="azure-shared-disks"></a>Dischi condivisi di Azure
 
-**La funzionalità di dischi condivisi è supportata per i dischi non gestiti o i BLOB di pagine?**
+**La funzionalità dischi condivisi è supportata per i dischi non gestiti o i BLOB di pagine?**
 
-No, è supportato solo per i dischi gestiti SSD premium.
+No, è supportato solo per i dischi gestiti da unità SSD Premium.
 
 **Quali aree supportano i dischi condivisi?**
 
-Attualmente solo Stati Uniti centro-occidentali.
+Attualmente solo negli Stati Uniti centro-occidentali.
 
-**I dischi condivisi possono essere utilizzati come disco del sistema operativo?**
+**I dischi condivisi possono essere usati come disco del sistema operativo?**
 
 No, i dischi condivisi sono supportati solo per i dischi dati.
 
 **Quali dimensioni dei dischi supportano i dischi condivisi?**
 
-Solo gli SSD premium che sono P15 o superiore supportano i dischi condivisi.
+Solo le unità SSD Premium P15 o versioni successive supportano dischi condivisi.
 
-**Se ho un SSD premium esistente, posso abilitare i dischi condivisi su di esso?**
+**Se ho un'unità SSD Premium esistente, posso abilitarvi I dischi condivisi?**
 
-Tutti i dischi gestiti creati con la versione API 2019-07-01 o successiva possono abilitare i dischi condivisi. A tale scopo, è necessario smontare il disco da tutte le macchine virtuali a cui è collegato. Modificare quindi `maxShares` la proprietà sul disco.
+Tutti i dischi gestiti creati con API versione 2019-07-01 o successiva possono abilitare i dischi condivisi. A tale scopo, è necessario smontare il disco da tutte le macchine virtuali a cui è collegato. Modificare quindi la `maxShares` proprietà sul disco.
 
-**Se non si desidera più utilizzare un disco in modalità condivisa, come è possibile disattivarlo?**
+**Se non si vuole più usare un disco in modalità condivisa, come si disabilita?**
 
-Smontare il disco da tutte le macchine virtuali a cui è collegato. Quindi modificare la proprietà maxShare sul disco su 1.
+Smontare il disco da tutte le macchine virtuali a cui è collegato. Modificare quindi la proprietà maxShare del disco su 1.
 
 **È possibile ridimensionare un disco condiviso?**
 
 Sì.
 
-**È possibile abilitare l'acceleratore di scrittura su un disco in cui sono abilitati anche i dischi condivisi?**
+**È possibile abilitare l'acceleratore di scrittura su un disco in cui sono abilitati anche dischi condivisi?**
 
 No.
 
-**È possibile abilitare la memorizzazione nella cache dell'host per un disco con disco condiviso abilitato?**
+**È possibile abilitare la memorizzazione nella cache dell'host per un disco in cui è abilitato il disco condiviso?**
 
-L'unica opzione di memorizzazione nella cache host supportata è 'None'.
+L'unica opzione supportata per la memorizzazione nella cache dell'host è' none '.
 
 ## <a name="ultra-disks"></a>Dischi Ultra
 
-**Su cosa è necessario impostare la velocità effettiva del disco ultra?**
-Se non si è certi dell'impostazione della velocità effettiva del disco, è consigliabile iniziare assumendo una dimensione di I/O di 16 KiB e regolare le prestazioni durante il monitoraggio dell'applicazione. La formula è: Velocità effettiva in MBps - numero di Operazioni pari a IOPS - 16 / 1000.
+**Per cosa è necessario impostare la velocità effettiva del disco Ultra?**
+Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: velocità effettiva in MBps = # di IOPS * 16/1000.
 
-**Ho configurato il mio disco su 40000 IOPS ma vedo solo 12800 IOPS, perché non vedo le prestazioni del disco?**
-Oltre alla limitazione del disco, è presente una limitazione di I/O che viene imposta a livello di macchina virtuale. Assicurarsi che le dimensioni della macchina virtuale in uso siano in grado di supportare i livelli configurati nei dischi. Per informazioni dettagliate sui limiti di I/O imposti dalla macchina virtuale, vedere [Dimensioni per macchine virtuali Windows in Azure.](../articles/virtual-machines/windows/sizes.md)
+**Il disco è stato configurato per 40000 IOPS, ma vengono visualizzati solo 12800 IOPS, perché le prestazioni del disco non vengono visualizzati?**
+Oltre alla limitazione del disco, viene applicata una limitazione di i/o a livello di macchina virtuale. Assicurarsi che le dimensioni della macchina virtuale in uso siano in grado di supportare i livelli configurati sui dischi. Per informazioni dettagliate sui limiti di i/o imposti dalla VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../articles/virtual-machines/windows/sizes.md).
 
-**È possibile utilizzare i livelli di memorizzazione nella cache con un disco ultra?**
-No, i dischi ultra non supportano i diversi metodi di memorizzazione nella cache supportati in altri tipi di disco. Impostare la memorizzazione nella cache del disco su Nessuno.Set the disk caching to None.
+**È possibile usare I livelli di memorizzazione nella cache con un disco Ultra?**
+No, i dischi Ultra non supportano i diversi metodi di Caching supportati in altri tipi di dischi. Impostare la memorizzazione nella cache del disco su nessuno.
 
-**È possibile collegare un disco ultra alla macchina virtuale esistente?**
-È possibile che la macchina virtuale si appaia in una coppia di aree e zona di disponibilità che supporta i dischi Ultra. Per informazioni [dettagliate, vedere Introduzione ai dischi ultra.](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md)
+**È possibile aggiungere un disco ultra alla macchina virtuale esistente?**
+Probabilmente, la macchina virtuale deve trovarsi in una coppia area e zona di disponibilità che supporta dischi Ultra. Per informazioni dettagliate, vedere [Getting Started with ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
 
-**È possibile usare un disco ultra come disco del sistema operativo per la macchina virtuale?**
-No, i dischi ultra sono supportati solo come dischi dati e sono supportati solo come dischi nativi 4K.
+**È possibile usare un disco Ultra come disco del sistema operativo per la macchina virtuale?**
+No, i dischi Ultra sono supportati solo come dischi dati e sono supportati solo come dischi nativi 4K.
 
-**Posso convertire un disco esistente in un disco ultra?**
-No, ma è possibile eseguire la migrazione dei dati da un disco esistente a un disco ultra. Per eseguire la migrazione di un disco esistente a un disco ultra, collegare entrambi i dischi alla stessa macchina virtuale e copiare i dati del disco da un disco all'altro o sfruttare una soluzione di terze parti per la migrazione dei dati.
+**È possibile convertire un disco esistente in un disco Ultra?**
+No, ma è possibile eseguire la migrazione dei dati da un disco esistente a un disco Ultra. Per eseguire la migrazione di un disco esistente a un disco Ultra, alleghi entrambi i dischi alla stessa VM e copia i dati del disco da un disco all'altro o sfrutta una soluzione di terze parti per la migrazione dei dati.
 
-**È possibile creare istantanee per dischi ultra?**
-No, le istantanee non sono ancora disponibili.
+**È possibile creare snapshot per i dischi ultra?**
+No, gli snapshot non sono ancora disponibili.
 
 **Backup di Azure è disponibile per i dischi ultra?**
-No, il supporto di Backup di Azure non è ancora disponibile.
+No, il supporto di backup di Azure non è ancora disponibile.
 
-**È possibile collegare un disco ultra a una macchina virtuale in esecuzione in un set di disponibilità?**
-No, questo non è ancora supportato.
+**È possibile aggiungere un disco Ultra a una macchina virtuale in esecuzione in un set di disponibilità?**
+No, questa operazione non è ancora supportata.
 
-**È possibile abilitare Azure Site Recovery per le macchine virtuali usando dischi ultra?**
-No, Azure Site Recovery non è ancora supportato per i dischi ultra.
+**È possibile abilitare Azure Site Recovery per le macchine virtuali con dischi ultra?**
+No, Azure Site Recovery non è ancora supportata per i dischi Ultra.
 
-## <a name="uploading-to-a-managed-disk"></a>Caricamento su un disco gestito
+## <a name="uploading-to-a-managed-disk"></a>Caricamento in un disco gestito
 
-**È possibile caricare dati su un disco gestito esistente?**
+**È possibile caricare i dati in un disco gestito esistente?**
 
-No, il caricamento può essere utilizzato solo durante la creazione di un nuovo disco vuoto con lo stato **ReadyToUpload.**
+No, il caricamento può essere usato solo durante la creazione di un nuovo disco vuoto con lo stato **ReadyToUpload** .
 
-**Come si carica su un disco gestito?**
+**Ricerca per categorie caricare in un disco gestito?**
 
-Creare un disco gestito con la proprietà [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) di [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) impostata su "Upload", quindi è possibile caricarvi i dati.
+Creare un disco gestito con la proprietà [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) di [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) impostata su "upload", quindi è possibile caricarvi dati.
 
-**È possibile collegare un disco a una macchina virtuale mentre è in stato di caricamento?**
+**È possibile allegare un disco a una macchina virtuale mentre è in stato di caricamento?**
 
 No.
 
-**È possibile creare un'istantanea di un disco manofilato in uno stato di caricamento?**
+**È possibile creare uno snapshot di un disco modificato in uno stato di caricamento?**
 
 No.
 
@@ -258,7 +258,7 @@ Tutte le aree di Azure supportano ora i dischi SSD Standard.
 Sì, Backup di Azure è ora disponibile.
 
 **Come si creano i dischi SSD Standard?**
-È possibile creare dischi SSD standard usando i modelli di Azure Resource Manager, SDK, PowerShell o CLI. Di seguito sono elencati i parametri necessari nel modello di Resource Manager per creare dischi SSD Standard:
+È possibile creare dischi SDD Standard usando Azure Resource Manager modelli, SDK, PowerShell o l'interfaccia della riga di comando. Di seguito sono elencati i parametri necessari nel modello di Resource Manager per creare dischi SSD Standard:
 
 * *apiVersion* per Microsoft.Computer deve essere impostato su `2018-04-01` (o versioni successive)
 * Specificare *managedDisk.storageAccountType* come `StandardSSD_LRS`
@@ -284,7 +284,7 @@ Sì, Per le linee guida generali per la conversione di Azure Managed Disks fare 
 -AccountType StandardSSD_LRS
 
 **Quali sono i vantaggi offerti dall'uso dei dischi SSD Standard rispetto ai dischi HDD?**
-I dischi SSD standard offrono latenza, coerenza, disponibilità e affidabilità migliori rispetto ai dischi HDD. Per questo motivo, i carichi di lavoro delle applicazioni vengono eseguiti in modo molto più efficiente su unità SSD Standard. Si noti che i dischi SSD Premium rappresentano la soluzione consigliata per la maggior parte dei carichi di lavoro di produzione con I/O intensivo.
+I dischi SDD Standard offrono latenza, coerenza, disponibilità e affidabilità migliori rispetto ai dischi HDD. Per questo motivo, i carichi di lavoro delle applicazioni vengono eseguiti in modo molto più efficiente su unità SSD Standard. Si noti che i dischi SSD Premium rappresentano la soluzione consigliata per la maggior parte dei carichi di lavoro di produzione con I/O intensivo.
 
 **Si possono usare dischi SSD Standard come dischi non gestiti?**
 No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
@@ -294,9 +294,9 @@ No, i dischi SSD Standard non supportano contratti di servizio per macchine virt
 
 ## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
-**C'è qualche impatto sulla migrazione sulle prestazioni dei dischi gestiti?**
+**Si verificano effetti della migrazione sulle prestazioni del Managed Disks?**
 
-La migrazione comporta lo spostamento del disco da una posizione di archiviazione a un'altra. Questa operazione viene orchestrata tramite copia in background dei dati, che può richiedere diverse ore per il completamento, in genere inferiore a 24 risorse a seconda della quantità di dati nei dischi. Durante questo periodo, l'applicazione può riscontrare una latenza di lettura maggiore del solito poiché alcune operazioni di lettura possono essere reindirizzate alla posizione originale e possono quindi richiedere più tempo. Non è previsto alcun impatto sulla latenza di scrittura durante questo periodo.  
+La migrazione comporta lo spostamento del disco da una posizione di archiviazione a un'altra. Questa operazione viene orchestrata tramite una copia in background dei dati, il cui completamento può richiedere diverse ore, in genere inferiore a 24 ore, in base alla quantità di dati nei dischi. Durante questo periodo, l'applicazione può riscontrare una latenza di lettura maggiore del solito poiché alcune operazioni di lettura possono essere reindirizzate alla posizione originale e possono quindi richiedere più tempo. Non è previsto alcun impatto sulla latenza di scrittura durante questo periodo.  
 
 **Quali modifiche sono necessarie in una configurazione del servizio Backup di Azure preesistente prima/dopo la migrazione a Managed Disks?**
 
@@ -310,7 +310,7 @@ Sì, i backup continueranno a funzionare senza problemi.
 
 Non sono necessarie modifiche.
 
-**La migrazione automatica di un set di scalabilità di macchine virtuali esistente da dischi non gestiti a dischi gestiti è supportata?**
+**La migrazione automatica di un set di scalabilità di macchine virtuali esistente da dischi non gestiti a Managed Disks supportata?**
 
 No. È possibile creare un nuovo set di scalabilità di macchine virtuali con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti.
 
@@ -324,7 +324,7 @@ Sì, è possibile scegliere di eseguire il failover su una macchina virtuale con
 
 **La migrazione su macchine virtuali di Azure protette da Azure Site Recovery tramite la replica da Azure ad Azure ha qualche ripercussione?**
 
-No. Azure Site Recovery Azure to Azure Protection per macchine virtuali con dischi gestiti è disponibile.
+No. È disponibile Azure Site Recovery la protezione da Azure ad Azure per le macchine virtuali con Managed Disks.
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
@@ -336,7 +336,7 @@ Sì
 
 Sì.
 
-**Il volume di avvio è crittografato per impostazione predefinita su un disco gestito?**
+**Il volume di avvio è crittografato per impostazione predefinita in un disco gestito?**
 
 Sì. Per impostazione predefinita, tutti i dischi gestiti sono crittografati, incluso il disco del sistema operativo.
 
@@ -407,21 +407,21 @@ L'uso di TRIM su dischi Azure Premium o Standard non ha alcun impatto negativo.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Dimensioni dei nuovi dischi, gestiti e non gestiti
 
-**Quali aree supportano la funzionalità di bursting per le dimensioni del disco SSD premium applicabili?**
+**Quali aree supportano la funzionalità di espansione per le dimensioni dei dischi SSD Premium applicabili?**
 
-La funzionalità di espansione è attualmente supportata in tutte le aree del cloud pubblico di Azure, con il supporto per i cloud sovrani in arrivo. 
+La funzionalità di espansione è attualmente supportata in tutte le aree del cloud pubblico di Azure e il supporto per i cloud sovrani sarà presto disponibile. 
 
-**In quali aree sono supportate le dimensioni 4/8/16 di dischi gestiti GiB (P1/P2/P3, E1/E2/E3)?**
+**Quali aree sono le dimensioni del disco gestito 4/8/16 GiB (P1/P2/P3, E1/E2/E3) supportate in?**
 
-Queste nuove dimensioni del disco sono attualmente supportate in tutte le aree nel cloud pubblico di Azure, con il supporto per i cloud sovrani in arrivo. 
+Queste nuove dimensioni dei dischi sono attualmente supportate in tutte le aree del cloud pubblico di Azure, con supporto per i cloud sovrani presto disponibili. 
 
 **Le dimensioni dei dischi P1/P2/P3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
 
-No, è supportato solo su dischi gestiti SSD premium. 
+No, è supportato solo nei dischi gestiti da unità SSD Premium. 
 
 **Le dimensioni dei dischi E1/E2/E3 sono supportate per i dischi non gestiti o i BLOB di pagine?**
 
-No, i dischi gestiti SSD standard di qualsiasi dimensione non possono essere usati con dischi non gestiti o BLOB di pagine.
+No, non è possibile usare dischi gestiti SSD standard di qualsiasi dimensione con dischi non gestiti o BLOB di pagine.
 
 **Qual è la dimensioni massima supportata per i dischi gestiti e il sistema operativo?**
 
@@ -458,29 +458,29 @@ I dischi Premium esistenti di dimensioni inferiori a 64 GiB continuano a essere 
 
 È possibile creare uno snapshot dei dischi di piccole dimensioni e quindi creare un disco per passare automaticamente al piano tariffario a P4 o P6 in base alla dimensione del disco di cui viene effettuato il provisioning.
 
-**È possibile ridimensionare i dischi gestiti esistenti da dimensioni inferiori a 4 tebibyte (TiB) a nuove dimensioni del disco appena introdotte fino a 32 TiB?**
+**È possibile ridimensionare Managed Disks esistenti da dimensioni inferiori a 4 TB (TiB) a nuove dimensioni del disco appena introdotte fino a 32 TiB?**
 
 Sì.
 
-**Quali sono le dimensioni di disco più grandi supportate dal servizio Backup di Azure e Azure Site Recovery?**
+**Quali sono le dimensioni massime dei dischi supportate da backup di Azure e Azure Site Recovery servizio?**
 
-La dimensione massima del disco supportata da Backup di Azure è 32 TiB (4 TiB per dischi crittografati). La dimensione massima del disco supportata da Azure Site Recovery è 8 TiB. Il supporto per i dischi più grandi fino a 32 TiB non è ancora disponibile in Azure Site Recovery.Support for the larger disks up to 32 TiB is not yet available in Azure Site Recovery.
+Le dimensioni massime del disco supportate da backup di Azure sono 32 TiB (4 TiB per i dischi crittografati). La dimensione massima del disco supportata da Azure Site Recovery è 8 TiB. Il supporto per i dischi di dimensioni maggiori fino a 32 TiB non è ancora disponibile in Azure Site Recovery.
 
-**Quali sono le dimensioni consigliate per le macchine virtuali per dischi di dimensioni maggiori (>4 TiB) per i dischi SSD standard e HDD standard per ottenere operazioni di I/O al secondo e larghezza di banda su disco ottimizzate?**
+**Quali sono le dimensioni di macchina virtuale consigliate per le dimensioni dei dischi più grandi (>4 TiB) per i dischi SDD Standard e HDD Standard per ottenere una larghezza di banda e un numero di unità ottimizzate**
 
-Per ottenere la velocità effettiva del disco di SSD standard e DISCO rigido standard di grandi dimensioni (>4 TiB) oltre 500 IOPS e 60 MiB/s, è consigliabile distribuire una nuova macchina virtuale da una delle seguenti dimensioni di VM per ottimizzare le prestazioni: serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o VM serie Ls. Il collegamento di dischi di grandi dimensioni a macchine virtuali o macchine virtuali esistenti che non utilizzano le dimensioni consigliate sopra riportate potrebbe avere prestazioni inferiori.
+Per ottenere la velocità effettiva del disco di SDD Standard e HDD Standard grandi dimensioni dei dischi (>4 TiB) oltre 500 IOPS e 60 MiB/s, per ottimizzare le prestazioni, è consigliabile distribuire una nuova macchina virtuale da una delle dimensioni di macchina virtuale seguenti: serie B, serie DSv2, serie Dsv3, serie ESv3, serie FS, serie Fsv2, serie M, serie GS, NCv2, serie NCv3 o VM serie LS. Il montaggio di dischi di grandi dimensioni in macchine virtuali o macchine virtuali esistenti che non usano le dimensioni consigliate precedente può comportare prestazioni ridotte.
 
-**Come è possibile aggiornare i dischi (>4 TiB) distribuiti durante l'anteprima delle dimensioni dei dischi maggiori per ottenere le operazioni di I/O al secondo & larghezza di banda più elevata in GA?**
+**Come è possibile aggiornare i dischi (>4 TiB) che sono stati distribuiti durante l'anteprima di dimensioni dei dischi più grandi per ottenere i valori di IOPS più elevati & larghezza di banda in GA?**
 
-È possibile arrestare e avviare la macchina virtuale a cui è collegato il disco o scollegare e ricollegare il disco. Gli obiettivi di prestazioni di dimensioni disco più grandi sono stati aumentati sia per gli SSD premium che per gli SSD standard di GA.
+È possibile arrestare e avviare la macchina virtuale a cui è collegato il disco o, scollegare e ricollegare il disco. Gli obiettivi di prestazioni di dimensioni dei dischi più grandi sono stati aumentati sia per le unità SSD Premium sia per le SSD standard in GA.
 
-**In quali aree sono supportate le dimensioni dei dischi gestiti di 8 TiB, 16 TiB e 32 TiB?**
+**Quali aree sono le dimensioni dei dischi gestiti di 8 TiB, 16 TiB e 32 TiB supportati in?**
 
-Gli 8 SKU del disco TiB, 16 TiB e 32 TiB sono supportati in tutte le aree di Azure globale, Microsoft Azure per enti pubblici e Azure China 21Vianet.
+Gli SKU di dischi da 8 TiB, 16 TiB e 32 TiB sono supportati in tutte le aree in Azure globale, Microsoft Azure per enti pubblici e Azure Cina 21Vianet.
 
-**È supportata l'abilitazione della memorizzazione nella cache dell'host su tutte le dimensioni del disco?**
+**È supportata l'abilitazione della memorizzazione nella cache dell'host su tutte le dimensioni dei dischi?**
 
-Supportiamo la memorizzazione nella cache host di ReadOnly e lettura/scrittura su dimensioni del disco inferiori a 4 TiB. Per le dimensioni del disco superiori a 4 TiB, non è supportata l'impostazione dell'opzione di memorizzazione nella cache diversa da Nessuno.For disk sizes more than 4 TiB, we don't support setting caching option other than None. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
+Supporta la memorizzazione nella cache dell'host di ReadOnly e la lettura/scrittura su disco con dimensioni inferiori a 4 TiB. Per le dimensioni dei dischi superiori a 4 TiB, non è supportata l'impostazione di un'opzione di memorizzazione nella cache diversa da nessuna. È consigliabile sfruttare la memorizzazione nella cache per una dimensione disco inferiore in merito alla quale sarà possibile osservare l'incremento delle prestazioni con i dati memorizzati nella cache per la macchina virtuale.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 

@@ -1,5 +1,5 @@
 ---
-title: Funzioni modello - distribuzione
+title: Funzioni di modello-distribuzione
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
 ms.topic: conceptual
 ms.date: 11/27/2019
@@ -12,12 +12,12 @@ ms.locfileid: "80156328"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM 
 
-Resource Manager offre le funzioni seguenti per ottenere i valori correlati alla distribuzione corrente del modello di Azure Resource Manager (ARM):
+Gestione risorse fornisce le funzioni seguenti per ottenere i valori correlati alla distribuzione corrente del modello di Azure Resource Manager (ARM):
 
-* [Distribuzione](#deployment)
-* [Ambiente](#environment)
-* [Parametri](#parameters)
-* [Variabili](#variables)
+* [distribuzione](#deployment)
+* [ambiente](#environment)
+* [parametri](#parameters)
+* [variabili](#variables)
 
 Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funzioni delle risorse](template-functions-resource.md).
 
@@ -137,11 +137,11 @@ Per un modello a livello di sottoscrizione che usa la funzione di distribuzione,
 
 `environment()`
 
-Restituisce informazioni sull'ambiente di Azure usato per la distribuzione.
+Restituisce informazioni sull'ambiente Azure usato per la distribuzione.
 
 ### <a name="return-value"></a>Valore restituito
 
-Questa funzione restituisce le proprietà per l'ambiente Azure corrente. L'esempio seguente mostra le proprietà di Azure globale. I cloud sovrani possono restituire proprietà leggermente diverse.
+Questa funzione restituisce le proprietà per l'ambiente Azure corrente. Nell'esempio seguente vengono illustrate le proprietà di Azure globale. I cloud sovrani possono restituire proprietà leggermente diverse.
 
 ```json
 {
@@ -179,7 +179,7 @@ Questa funzione restituisce le proprietà per l'ambiente Azure corrente. L'esemp
 
 ### <a name="example"></a>Esempio
 
-Il modello di esempio seguente restituisce l'oggetto ambiente.
+Il modello di esempio seguente restituisce l'oggetto Environment.
 
 ```json
 {
@@ -195,7 +195,7 @@ Il modello di esempio seguente restituisce l'oggetto ambiente.
 }
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+L'esempio precedente restituisce l'oggetto seguente quando viene distribuito in Azure globale:
 
 ```json
 {
@@ -334,7 +334,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | string | option 1 |
 
-Per altre informazioni sull'uso dei parametri, vedere Modello Parametri in Azure Resource Manager.For more information about using parameters, see [Parameters in Azure Resource Manager template.](template-parameters.md)
+Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
 
 ## <a name="variables"></a>variables
 
@@ -425,11 +425,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
-Per altre informazioni sull'uso delle variabili, vedere [Variabili nel modello di Azure Resource Manager.For](template-variables.md)more information about using variables, see Variables in Azure Resource Manager template .
+Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [creazione di modelli di Azure Resource Manager](template-syntax.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 

@@ -70,11 +70,11 @@ Lo stato dei processi completati può essere visualizzato per un massimo di 90 g
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Che cosa si deve fare per importare o esportare più di 10 unità?
 
 Un singolo processo di importazione o esportazione può fare riferimento solo a 10 unità. Per spedire più di 10 unità, è necessario creare più processi. Le unità associate allo stesso processo devono essere spedite insieme nello stesso pacco.
-Per altre informazioni e indicazioni su quando la capacità dei dati si estende su più processi di importazione del disco, contattare il supporto tecnico Microsoft.For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft Support.
+Per ulteriori informazioni e indicazioni su come la capacità dei dati si estende su più processi di importazione del disco, contattare supporto tecnico Microsoft.
 
 ### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>Lo stato del BLOB caricato è "Il lease è scaduto". Cosa devo fare?
 
-È possibile ignorare il campo "Lease scaduto". Importazione/Esportazione accetta il lease sul BLOB durante il caricamento per assicurarsi che nessun altro processo possa aggiornare il BLOB in parallelo. Lo stato Il lease è scaduto indica che Importazione/Esportazione non sta più eseguendo il caricamento e il BLOB è disponibile per l'uso.
+È possibile ignorare il campo "lease scaduto". Importazione/Esportazione accetta il lease sul BLOB durante il caricamento per assicurarsi che nessun altro processo possa aggiornare il BLOB in parallelo. Lo stato Il lease è scaduto indica che Importazione/Esportazione non sta più eseguendo il caricamento e il BLOB è disponibile per l'uso.
 
 ## <a name="shipping-disks"></a>Spedizione dei dischi
 
@@ -97,20 +97,20 @@ Per spedire le unità al data center di Azure è possibile servirsi di uno quals
 - Un numero di account DHL nelle aree di Asia e Australia.
 
 > [!NOTE]
-> I data center in India richiedono una lettera di dichiarazione sulla carta intestata (consegna challan) per restituire le unità. Per organizzare il pass di immissione richiesto, è inoltre necessario prenotare il ritiro con il vettore selezionato e condividere i dettagli con il data center.
+> Per la restituzione delle unità, i Data Center in India necessitano di una lettera di dichiarazione nella carta intestata (per il recapito). Per organizzare il passaggio di ingresso obbligatorio, è necessario anche prenotare il prelievo con il vettore selezionato e condividere i dettagli con il Data Center.
 
-### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Ci sono restrizioni con la spedizione e la restituzione del mio disco internazionale?
+### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Sono previste restrizioni per la spedizione e la restituzione della mia unità a livello internazionale?
 
 È possibile che i supporti fisici spediti debbano passare i confini internazionali. È responsabilità del cliente assicurarsi che i supporti fisici e i dati siano importati e/o esportati conformemente alle leggi vigenti. Prima di spedire i supporti fisici, rivolgersi ai consulenti per verificare che i supporti e i dati possano essere spediti ai data center specificati in modo conforme alle normative. Ciò assicura che la spedizione raggiunga Microsoft in modo tempestivo.
 
-Al termine del caricamento, il processo di ritorno degli unità a un indirizzo internazionale può richiedere più tempo rispetto ai tipici 2-3 giorni necessari per la spedizione locale. Durante la fase elencata nel portale di Azure come Imballaggio, il team di Data Box garantisce che venga fornita la documentazione corretta per garantire che la spedizione sia conforme ai vari requisiti internazionali di importazione ed esportazione.
+Al termine del caricamento, il processo per restituire le unità a un indirizzo internazionale può richiedere più tempo dei tipici 2-3 giorni necessari per la spedizione locale. Durante la fase elencata nel portale di Azure come pacchetto, il team di Data Box garantisce che venga fornita la documentazione corretta per garantire che la spedizione sia conforme ai vari requisiti di importazione ed esportazione internazionali.
 
-### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Esistono requisiti speciali per il recapito dei dischi a un data center?
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Sono previsti requisiti speciali per la distribuzione dei dischi a un Data Center?
 
-I requisiti dipendono dalle restrizioni specifiche del data center di Azure.The requirements depend on the specific Azure datacenter restrictions.
+I requisiti dipendono dalle limitazioni specifiche del Data Center di Azure.
 
-- Esistono alcuni siti, ad esempio Australia, Germania e Regno Unito sud, che richiedono la scrittura di un numero ID in ingresso del data center Microsoft nel pacchetto per motivi di sicurezza. Prima di spedire le unità o i dischiadbops@microsoft.comal data center, contattare Operazioni DataBox di Azure ( ) per ottenere questo numero. Senza questo numero, il pacco verrà rifiutato.
-- I data center in India richiedono i dati personali del driver, ad esempio la carta d'identità governativa o la prova n. (ad esempio, PAN, AADHAR, DL), nome, contatto e il numero di targa dell'auto per ottenere un pass di ingresso del cancello. Per evitare ritardi di consegna, informa il tuo operatore in merito a questi requisiti.
+- Sono disponibili alcuni siti, ad esempio Australia, Germania e Regno Unito meridionale, che richiedono la scrittura di un numero di ID in ingresso per i Data Center Microsoft nel pacco per motivi di sicurezza. Prima di spedire le unità o i dischi al Data Center, contattare le operazioni diadbops@microsoft.comAzure databox () per ottenere questo numero. Senza questo numero, il pacchetto verrà rifiutato.
+- I Data Center in India richiedono i dettagli personali del driver, ad esempio la scheda ID del governo o il numero di prova. (ad esempio, PAN, AADHAR, DL), nome, contatto e il numero della targa per ottenere un passaggio di ingresso del Gate. Per evitare ritardi di recapito, informare il vettore in merito a questi requisiti.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Durante la creazione di un processo, l'indirizzo di spedizione è una località diversa dalla posizione dell'account di archiviazione. Cosa devo fare?
 
@@ -132,7 +132,7 @@ No. Tutte le unità vengono crittografate con BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Come si accede ai dati importati dal servizio?
 
-Usare il portale di Azure o Esplora archivi per accedere ai dati nell'account di archiviazione di Azure.Use the Azure portal or [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to access the data under your Azure storage account.  
+Usare il portale di Azure o [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) per accedere ai dati nell'account di archiviazione di Azure.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>Al termine dell'importazione, come si presenteranno i dati nell'account di archiviazione? Verrà mantenuta la gerarchia di directory?
 
@@ -153,7 +153,7 @@ No. Lo strumento WAImportExport è compatibile solo con i sistemi operativo Wind
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Importazione/Esportazione di Microsoft Azure supporta la crittografia AES 256?
 
-No. Il servizio Importazione/Esportazione di Azure usa la crittografia BitLocker di AES-128.Azure Import/Export service uses AES-128 BitLocker encryption.
+No. Il servizio importazione/esportazione di Azure usa la crittografia BitLocker AES-128.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

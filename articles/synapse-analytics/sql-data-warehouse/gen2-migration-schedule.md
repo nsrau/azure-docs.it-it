@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione del pool SQL a Gen2Migrate your SQL pool to Gen2
+title: Eseguire la migrazione del pool SQL a Gen2
 description: Istruzioni per la migrazione di un pool SQL esistente a Gen2 e la pianificazione della migrazione in base all'area.
 services: synapse-analytics
 author: mlee3gsd
@@ -18,12 +18,12 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2020
 ms.locfileid: "80631574"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>Aggiornare il pool SQL a Gen2Upgrade your SQL pool to Gen2
+# <a name="upgrade-your-sql-pool-to-gen2"></a>Aggiornare il pool SQL a Gen2
 
-Microsoft sta contribuendo a ridurre il costo entry-level di esecuzione di un pool SQL.  Sono ora disponibili livelli di elaborazione inferiori in grado di gestire query richieste per il pool SQL. Leggere l'annuncio completo Supporto del livello di [calcolo inferiore per Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nuova offerta è disponibile nelle regioni indicate nella tabella seguente. Per le aree supportate, i pool SQL Gen1 esistenti possono essere aggiornati a Gen2 tramite:For supported regions, existing Gen1 SQL pools can be upgraded to Gen2 through either:
+Microsoft contribuisce a ridurre il costo di ingresso per l'esecuzione di un pool SQL.  Per il pool SQL sono ora disponibili livelli di calcolo inferiori in grado di gestire query complesse. Leggere l'annuncio completo [supporto del livello di calcolo più basso per Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nuova offerta è disponibile nelle aree geografiche indicate nella tabella seguente. Per le aree supportate, i pool SQL Gen1 esistenti possono essere aggiornati a Gen2 tramite uno dei seguenti:
 
-- Il processo di **aggiornamento automatico:** Gli aggiornamenti automatici non vengono avviati non appena il servizio è disponibile in un'area geografica.  Quando gli aggiornamenti automatici iniziano in un'area specifica, i singoli aggiornamenti del data warehouse verranno eseguiti durante la pianificazione di manutenzione selezionata.
-- [**Auto-aggiornamento a Gen2:**](#self-upgrade-to-gen2) È possibile controllare quando eseguire l'aggiornamento eseguendo un auto-aggiornamento a Gen2.You can control when to upgrade by doing a self-upgrade to Gen2. Se l'area non è ancora supportata, è possibile eseguire il ripristino da un punto di ripristino direttamente a un'istanza Gen2 in un'area supportata.
+- **Processo di aggiornamento automatico:** Gli aggiornamenti automatici non vengono avviati non appena il servizio è disponibile in un'area.  Quando gli aggiornamenti automatici vengono avviati in un'area specifica, vengono eseguiti singoli aggiornamenti di data warehouse durante la pianificazione di manutenzione selezionata.
+- [**Aggiornamento automatico a Gen2:**](#self-upgrade-to-gen2) È possibile controllare quando eseguire l'aggiornamento eseguendo un aggiornamento automatico a Gen2. Se l'area non è ancora supportata, è possibile eseguire il ripristino da un punto di ripristino direttamente in un'istanza di Gen2 in un'area supportata.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Tabella delle pianificazioni automatiche e della disponibilità per area
 
@@ -33,18 +33,18 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 
 | **Area** | **Disponibilità livello inferiore Gen2** | **Inizio aggiornamenti automatici** |
 |:--- |:--- |:--- |
-| Canada orientale |1o giugno 2020 |1o luglio 2020 |
+| Canada orientale |1 giugno 2020 |1 ° luglio 2020 |
 | Cina orientale |\* |\* |
 | Cina settentrionale |\* |\* |
 | Germania centrale |\* |\* |
-| Germania Centro Ovest |Disponibile |1o maggio 2020 |
-| India occidentale |Disponibile |1o maggio 2020  |
+| Germania centro-occidentale |Disponibile |1 maggio 2020 |
+| India occidentale |Disponibile |1 maggio 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Processo di aggiornamento automatico
 
-In base al grafico sulla disponibilità riportato sopra, la pianificazione degli aggiornamenti automatici per le istanze Gen1 verrà eseguita. Per evitare interruzioni impreviste della disponibilità del pool SQL, gli aggiornamenti automatici verranno pianificati durante la pianificazione della manutenzione. La possibilità di creare una nuova istanza Gen1 verrà disabilitata nelle aree sottoposte a aggiornamento automatico a Gen2.The ability to create a new Gen1 instance will be disabled in regions under auto upgrade to Gen2. Gen1 sarà deprecato una volta completati gli aggiornamenti automatici. Per altre informazioni sulle pianificazioni, vedere [Visualizzare una pianificazione della manutenzione](maintenance-scheduling.md#view-a-maintenance-schedule).
+In base al grafico di disponibilità precedente, verranno pianificati gli aggiornamenti automatici per le istanze di Gen1. Per evitare interruzioni impreviste della disponibilità del pool SQL, gli aggiornamenti automatici verranno pianificati durante la pianificazione della manutenzione. La possibilità di creare una nuova istanza di Gen1 verrà disabilitata nelle aree in cui viene eseguito l'aggiornamento automatico a Gen2. Gen1 sarà deprecato dopo il completamento degli aggiornamenti automatici. Per altre informazioni sulle pianificazioni, vedere [Visualizzare una pianificazione della manutenzione](maintenance-scheduling.md#view-a-maintenance-schedule).
 
-Il processo di aggiornamento comporterà un breve calo della connettività (circa 5 min) quando riavviiamo il pool SQL.  Una volta riavviato, il pool SQL sarà completamente disponibile per l'utilizzo. Tuttavia, si verifichi un calo delle prestazioni mentre il processo di aggiornamento continua ad aggiornare i file di dati in background. La durata totale di questa riduzione del livello delle prestazioni dipende dalle dimensioni dei file di dati.
+Il processo di aggiornamento comporterà un breve calo della connettività (circa 5 minuti) quando si riavvia il pool SQL.  Una volta che il pool SQL è stato riavviato, sarà completamente disponibile per l'uso. Tuttavia, è possibile che si verifichi un calo delle prestazioni mentre il processo di aggiornamento continua ad aggiornare i file di dati in background. La durata totale di questa riduzione del livello delle prestazioni dipende dalle dimensioni dei file di dati.
 
 Si può anche accelerare il processo di aggiornamento dei file di dati eseguendo [ALTER INDEX REBUILD](sql-data-warehouse-tables-index.md) su tutte le tabelle columnstore primarie con SLO e classe di risorse più grandi dopo il riavvio.
 
@@ -53,15 +53,15 @@ Si può anche accelerare il processo di aggiornamento dei file di dati eseguendo
 
 ## <a name="self-upgrade-to-gen2"></a>Aggiornamento autonomo a Gen2
 
-È possibile scegliere di eseguire l'auto-aggiornamento seguendo questi passaggi in un pool SQL Gen1 esistente. Se si sceglie di eseguire l'aggiornamento automatico, è necessario completarlo prima che inizi il processo di aggiornamento automatico nella propria area geografica. In questo modo si garantisce qualsiasi rischio di aggiornamenti automatici che causano un conflitto.
+È possibile scegliere di eseguire l'aggiornamento automatico attenendosi alla procedura seguente in un pool SQL Gen1 esistente. Se si sceglie di eseguire l'aggiornamento automatico, è necessario completarlo prima che il processo di aggiornamento automatico inizi nella propria area. In questo modo si evita il rischio che gli aggiornamenti automatici causino un conflitto.
 
-L'aggiornamento autonomo offre due opzioni.  È possibile aggiornare il pool SQL corrente sul posto oppure ripristinare un pool SQL Gen1 in un'istanza Gen2.You can either upgrade your current SQL pool in-place or you can restore a Gen1 SQL pool into a Gen2 instance.
+L'aggiornamento autonomo offre due opzioni.  È possibile aggiornare il pool SQL corrente sul posto oppure ripristinare un pool SQL Gen1 in un'istanza di Gen2.
 
-- [Aggiorna sul posto:](upgrade-to-latest-generation.md) questa opzione aggiornerà il pool SQL Gen1 esistente a Gen2.Upgrade in-place - This option will upgrade your existing Gen1 SQL pool to Gen2. Il processo di aggiornamento comporterà un breve calo della connettività (circa 5 min) quando riavviiamo il pool SQL.  Una volta riavviato, il pool SQL sarà completamente disponibile per l'utilizzo. Se si verificano problemi durante l'aggiornamento, aprire una richiesta di [supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento a "Aggiornamento Gen2" come possibile causa.
-- [Eseguire l'aggiornamento dal punto di ripristino:](sql-data-warehouse-restore-points.md) creare un punto di ripristino definito dall'utente nel pool SQL Gen1 corrente e quindi eseguire il ripristino direttamente in un'istanza Gen2.Upgrade from restore point - Create a user-defined restore point on your current Gen1 SQL pool and then restore directly to a Gen2 instance. Il pool SQL Gen1 esistente rimarrà in posizione. Una volta completato il ripristino, il pool SQL Gen2 sarà completamente disponibile per l'uso.  Dopo aver eseguito tutti i processi di test e convalida sull'istanza di Gen2 ripristinata, l'istanza di Gen1 originale può essere eliminata.
+- [Aggiornamento sul posto](upgrade-to-latest-generation.md) : questa opzione aggiornerà il pool SQL Gen1 esistente a Gen2. Il processo di aggiornamento comporterà un breve calo della connettività (circa 5 minuti) quando si riavvia il pool SQL.  Una volta che il pool SQL è stato riavviato, sarà completamente disponibile per l'uso. Se si verificano problemi durante l'aggiornamento, aprire una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento all'aggiornamento di Gen2 come possibile.
+- [Aggiornamento dal punto di ripristino](sql-data-warehouse-restore-points.md) : creare un punto di ripristino definito dall'utente nel pool SQL Gen1 corrente e quindi eseguire il ripristino direttamente in un'istanza di Gen2. Il pool SQL Gen1 esistente resterà in vigore. Una volta completato il ripristino, il pool SQL di Gen2 sarà completamente disponibile per l'uso.  Dopo aver eseguito tutti i processi di test e convalida sull'istanza di Gen2 ripristinata, l'istanza di Gen1 originale può essere eliminata.
 
-  - Passaggio 1: Dal portale di Azure creare un punto di [ripristino definito dall'utente.](sql-data-warehouse-restore-active-paused-dw.md)
-  - Passaggio 2: Quando si esegue il ripristino da un punto di ripristino definito dall'utente, impostare il "Livello di prestazioni" sul livello Gen2 preferito.
+  - Passaggio 1: dalla portale di Azure [creare un punto di ripristino definito dall'utente](sql-data-warehouse-restore-active-paused-dw.md).
+  - Passaggio 2: durante il ripristino da un punto di ripristino definito dall'utente, impostare il "livello di prestazioni" sul livello Gen2 preferito.
 
 Si potrebbe riscontrare un periodo di riduzione delle prestazioni mentre il processo di aggiornamento prosegue l'aggiornamento dei file di dati in background. La durata totale di questa riduzione del livello delle prestazioni dipende dalle dimensioni dei file di dati.
 
@@ -70,56 +70,56 @@ Per accelerare il processo di migrazione dei dati in background, è possibile fo
 > [!NOTE]
 > ALTER INDEX REBUILD è un'operazione offline, pertanto le tabelle non saranno disponibili fino al completamento della ricompilazione.
 
-Se si verificano problemi con il pool SQL, creare una richiesta di [supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento a "Aggiornamento Gen2" come possibile causa.
+Se si verificano problemi con il pool SQL, creare una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento all'aggiornamento di Gen2 come possibile.
 
 Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generation.md).
 
 ## <a name="migration-frequently-asked-questions"></a>Domande frequenti sulla migrazione
 
-**D: Gen2 costa lo stesso costo di Gen1?**
+**D: il costo di Gen2 è uguale a quello di Gen1?**
 
 - A: Sì.
 
-**D: In che modo gli aggiornamenti influiranno sui miei script di automazione?**
+**D: in che modo gli aggiornamenti interessano gli script di automazione?**
 
-- R: Qualsiasi script di automazione che fa riferimento a un obiettivo del livello di servizio deve essere modificato in modo da corrispondere all'equivalente Gen2.  Vedere i dettagli [qui](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
+- R: tutti gli script di automazione che fanno riferimento a un obiettivo del livello di servizio devono essere modificati in modo che corrispondano all'equivalente Gen2.  Vedere i dettagli [qui](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
 
-**D: Quanto tempo richiede normalmente un auto-aggiornamento?**
+**D: quanto tempo richiede normalmente un aggiornamento automatico?**
 
-- R: È possibile eseguire l'aggiornamento sul posto o da un punto di ripristino.
+- R: è possibile eseguire l'aggiornamento sul posto o eseguire l'aggiornamento da un punto di ripristino.
 
-  - L'aggiornamento sul posto causerà momentaneamente la sospensione e la ripresa del pool SQL.  Un processo in background continuerà mentre il pool SQL è online.  
+  - L'aggiornamento sul posto provocherà momentaneamente la sospensione e la ripresa del pool SQL.  Un processo in background continuerà mentre il pool SQL è online.  
   - L'aggiornamento da un punto di ripristino richiede più tempo, in quanto deve essere eseguito l'intero processo di ripristino.
 
-**D: Quanto tempo richiederà l'aggiornamento automatico?**
+**D: quanto tempo è necessario per l'aggiornamento automatico?**
 
-- R: Il tempo di inattività effettivo per l'aggiornamento è solo il tempo necessario per sospendere e riprendere il servizio, che è compreso tra 5 e 10 minuti. Dopo questa breve interruzione, un processo in background eseguirà una migrazione delle risorse di archiviazione. Il periodo di tempo per il processo in background dipende dalle dimensioni del pool SQL.
+- R: i tempi di inattività effettivi per l'aggiornamento sono solo il tempo necessario per sospendere e riprendere il servizio, che è compreso tra 5 e 10 minuti. Dopo questa breve interruzione, un processo in background eseguirà una migrazione delle risorse di archiviazione. L'intervallo di tempo per il processo in background dipende dalle dimensioni del pool SQL.
 
-**D: Quando avrà luogo questo aggiornamento automatico?**
+**D: quando si verifica l'aggiornamento automatico?**
 
-- R: Durante il programma di manutenzione. Sfruttando la pianificazione della manutenzione scelta dal cliente si ridurrà al minimo l'interruzione delle attività aziendali.
+- R: durante la pianificazione della manutenzione. Sfruttando la pianificazione della manutenzione scelta dal cliente si ridurrà al minimo l'interruzione delle attività aziendali.
 
-**D: Cosa devo fare se il mio processo di aggiornamento in background sembra essere bloccato?**
+**D: quali operazioni è necessario eseguire se il processo di aggiornamento in background sembra bloccato?**
 
-- R: Avviare una reindicizzazione delle tabelle Columnstore. Si noti che durante l'operazione di reindicizzazione le tabelle saranno offline.
+- R: avviare un REINDEX delle tabelle columnstore. Si noti che durante l'operazione di reindicizzazione le tabelle saranno offline.
 
-**D: Cosa succede se Gen2 non ha l'obiettivo del livello di servizio che ho su Gen1?**
+**D: cosa accade se Gen2 non ha l'obiettivo del livello di servizio in Gen1?**
 
-- R: Se si esegue un DW600 o DW1200 su Gen1, si consiglia di utilizzare rispettivamente DW500c o DW1000c poiché Gen2 fornisce più memoria, risorse e prestazioni superiori rispetto a Gen1.
+- R: se si esegue DW600 o DW1200 in Gen1, è consigliabile usare rispettivamente DW500c o compreso dw1000c, dal momento che Gen2 offre più memoria, risorse e prestazioni superiori rispetto a Gen1.
 
-**D: È possibile disabilitare il geo-backup?**
+**D: è possibile disabilitare il backup geografico?**
 
-- R: No. Il geo-backup è una funzionalità aziendale per mantenere la disponibilità del pool SQL nel caso in cui un'area non sia più disponibile. Aprire una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) in caso di ulteriori problemi.
+- R: No. Il backup geografico è una funzionalità aziendale che consente di mantenere la disponibilità del pool SQL nel caso in cui un'area diventi non disponibile. Aprire una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) in caso di ulteriori problemi.
 
-**D: Esiste una differenza nella sintassi T-SQL tra Gen1 e Gen2?**
+**D: esiste una differenza nella sintassi T-SQL tra Gen1 e Gen2?**
 
-- R: Non viene apportata alcuna modifica alla sintassi del linguaggio T-SQL da Gen1 a Gen2.
+- R: non sono state apportate modifiche alla sintassi del linguaggio T-SQL da Gen1 a Gen2.
 
-**D: Gen2 supporta la manutenzione di Windows?**
+**D: Gen2 supporta le finestre di manutenzione?**
 
 - A: Sì.
 
-**D: Sarà possibile creare una nuova istanza Gen1 dopo l'aggiornamento dell'area?**
+**D: sarà possibile creare una nuova istanza di Gen1 dopo l'aggiornamento dell'area?**
 
 - R: No. Dopo l'aggiornamento di un'area, la creazione di nuove istanze di Gen1 verrà disabilitata.
 

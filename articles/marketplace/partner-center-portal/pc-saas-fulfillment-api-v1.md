@@ -1,20 +1,19 @@
 ---
 title: API di evasione SaaS V1 | Azure Marketplace
 description: Spiega come creare e gestire un'offerta SaaS in Azure Marketplace usando le API di evasione associate V1.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
-ms.author: evansma
+ms.author: dsindona
 ROBOTS: NOINDEX
-ms.openlocfilehash: f56e9b4f6c3db6fb47452c7478f5a27445955e87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3ec8373288a2ea5809ee5d349c52c57051586035
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715379"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288343"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>API di evasione SaaS versione 1 (deprecata)
 
@@ -26,7 +25,7 @@ Questo articolo illustra come creare un'offerta SaaS con le API. Le API, costitu
 Le API seguenti sono fornite per semplificare l'integrazione del servizio SaaS con Azure:
 
 -   Risolvi
--   Subscribe
+-   Sottoscrivi
 -   Conversione
 -   Annullare la sottoscrizione
 
@@ -61,9 +60,9 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 |  |  |
 
 
-*Intestazioni*
+*Headers*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | No           | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
 | x-ms-correlationid | No           | Valore stringa univoco per l'operazione sul client. Questo campo mette in correlazione tutti gli eventi dall'operazione client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -86,10 +85,10 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | String        | ID della sottoscrizione SaaS.          |
-| subscriptionName| String| Nome della sottoscrizione SaaS impostata dall'utente in Azure durante la sottoscrizione al servizio SaaS.|
-| OfferId            | String        | ID dell'offerta sottoscritta dall'utente. |
-| planId             | String        | ID del piano sottoscritto dall'utente.  |
+| id                 | string        | ID della sottoscrizione SaaS.          |
+| subscriptionName| string| Nome della sottoscrizione SaaS impostata dall'utente in Azure durante la sottoscrizione al servizio SaaS.|
+| OfferId            | string        | ID dell'offerta sottoscritta dall'utente. |
+| planId             | string        | ID del piano sottoscritto dall'utente.  |
 |  |  |  |
 
 
@@ -105,9 +104,9 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 |  |  |  |
 
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
@@ -116,13 +115,13 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 |  |  |  |
 
 
-### <a name="subscribe"></a>Subscribe
+### <a name="subscribe"></a>Sottoscrivi
 
 L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione a un servizio SaaS per un determinato piano e attiva la fatturazione nel sistema commerciale.
 
-**PUT**
+**METTERE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{SubscriptionId}*? API-Version = 2017-04-15**
 
 | **Nome parametro**  | **Descrizione**                                       |
 |---------------------|-------------------------------------------------------|
@@ -130,9 +129,9 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-*Intestazioni*
+*Headers*
 
-|  **Chiave dell'intestazione**        | **Obbligatorio** |  **Descrizione**                                                  |
+|  **Chiave di intestazione**        | **Obbligatorio** |  **Descrizione**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
 | x-ms-requestid         |   No         | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | x-ms-correlationid     |   No         | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -150,7 +149,7 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 }
 ```
 
-| **Nome dell'elemento** | **Tipo di dati** | **Descrizione**                      |
+| **Nome elemento** | **Tipo di dati** | **Descrizione**                      |
 |------------------|---------------|--------------------------------------|
 | planId           | Stringa (Obbligatoria)        | Il piano ID dell'utente del servizio SaaS sta sottoscrivendo.  |
 |  |  |  |
@@ -170,9 +169,9 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 
 Per una risposta 202, completare lo stato dell'operazione di richiesta nell'intestazione ' Operation-location '. L'autenticazione è la stessa usata per le altre API Marketplace.
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
@@ -187,7 +186,7 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{SubscriptionId}*? API-Version = 2017-04-15**
 
 | **Nome parametro**  | **Descrizione**                                       |
 |---------------------|-------------------------------------------------------|
@@ -195,9 +194,9 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-*Intestazioni*
+*Headers*
 
-| **Chiave dell'intestazione**          | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
+| **Chiave di intestazione**          | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid          | No           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
 | x-ms-correlationid      | No           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -214,7 +213,7 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 }
 ```
 
-|  **Nome dell'elemento** |  **Tipo di dati**  | **Descrizione**                              |
+|  **Nome elemento** |  **Tipo di dati**  | **Descrizione**                              |
 |  ---------------- | -------------   | --------------------------------------       |
 |  planId           |  Stringa (Obbligatoria)         | Il piano ID dell'utente del servizio SaaS sta sottoscrivendo.          |
 |  |  |  |
@@ -232,9 +231,9 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 | 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                          |
 |  |  |  |
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
@@ -243,15 +242,15 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 | Operation-Location | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 
-### <a name="delete-subscription"></a>Eliminare la sottoscrizione
+### <a name="delete-subscription"></a>Eliminare una sottoscrizione
 
 L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminare una sottoscrizione con un ID specifico.
 
 *Richiesta*
 
-**DELETE**
+**ELIMINARE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{SubscriptionId}*? API-Version = 2017-04-15**
 
 | **Nome parametro**  | **Descrizione**                                       |
 |---------------------|-------------------------------------------------------|
@@ -259,9 +258,9 @@ L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminar
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-*Intestazioni*
+*Headers*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | No           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
 | x-ms-correlationid | No           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -282,9 +281,9 @@ L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminar
 
 Per una risposta 202, completare lo stato dell'operazione di richiesta nell'intestazione ' Operation-location '. L'autenticazione è la stessa usata per le altre API Marketplace.
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
@@ -301,7 +300,7 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*? API-Version = 2017-04-15**
 
 | **Nome parametro**  | **Descrizione**                                       |
 |---------------------|-------------------------------------------------------|
@@ -309,9 +308,9 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-*Intestazioni*
+*Headers*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | No           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
 | x-ms-correlationid | No           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
@@ -332,11 +331,11 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | ID dell'operazione.                                                                      |
-| stato             | Enum          | Stato dell'operazione, uno dei seguenti: `In Progress`, `Succeeded` o `Failed`.          |
-| resourceLocation   | String        | Collegamento alla sottoscrizione creata o modificata. In questo modo, il client ottiene lo stato successivo all'operazione aggiornato. Questo valore non è impostato per le operazioni `Unsubscribe`. |
-| created            | DateTime      | Ora della creazione dell'operazione in formato UTC.                                                           |
-| LastModified       | DateTime      | Ultimo aggiornamento dell'operazione in formato UTC.                                                      |
+| id                 | string        | ID dell'operazione.                                                                      |
+| status             | Enum          | Stato dell'operazione, uno dei seguenti: `In Progress`, `Succeeded` o `Failed`.          |
+| resourceLocation   | string        | Collegamento alla sottoscrizione creata o modificata. In questo modo, il client ottiene lo stato successivo all'operazione aggiornato. Questo valore non è impostato per le operazioni `Unsubscribe`. |
+| created            | Datetime      | Ora della creazione dell'operazione in formato UTC.                                                           |
+| LastModified       | Datetime      | Ultimo aggiornamento dell'operazione in formato UTC.                                                      |
 |  |  |  |
 
 *Codici di risposta*
@@ -351,9 +350,9 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 | 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                             |
 |  |  |  |
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
@@ -369,7 +368,7 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{SubscriptionId}*? API-Version = 2017-04-15**
 
 | **Nome parametro**  | **Descrizione**                                       |
 |---------------------|-------------------------------------------------------|
@@ -377,9 +376,9 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-*Intestazioni*
+*Headers*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                           |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | No           | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
 | x-ms-correlationid | No           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -402,13 +401,13 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | String        | ID dell'offerta sottoscritta dall'utente.         |
-| planId                 | String        | ID del piano sottoscritto dall'utente.          |
-| saasSubscriptionName   | String        | Nome della sottoscrizione SaaS.                |
-| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
-| created                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
-| LastModified           | DateTime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
+| id                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | string        | ID dell'offerta sottoscritta dall'utente.         |
+| planId                 | string        | ID del piano sottoscritto dall'utente.          |
+| saasSubscriptionName   | string        | Nome della sottoscrizione SaaS.                |
+| saasSubscriptionStatus | Enum          | Stato dell'operazione.  I tipi validi sono:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
+| created                | Datetime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
+| LastModified           | Datetime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
 |  |  |  |
 
 *Codici di risposta*
@@ -423,9 +422,9 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 | 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                             |
 |  |  |  |
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
@@ -449,9 +448,9 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 | api-version         | La versione dell'operazione da usare per questa richiesta. |
 |  |  |
 
-*Intestazioni*
+*Headers*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                           |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | No           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.             |
 | x-ms-correlationid | No           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
@@ -474,13 +473,13 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID della risorsa di sottoscrizione SaaS in Azure    |
-| offerId                | String        | ID offerta sottoscritta dall'utente         |
-| planId                 | String        | ID del piano sottoscritto dall'utente          |
-| saasSubscriptionName   | String        | Nome della sottoscrizione SaaS                |
-| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
-| created                | DateTime      | Valore timestamp creazione sottoscrizione (UTC) |
-| LastModified           | DateTime      | Valore timestamp della sottoscrizione modificato (UTC) |
+| id                     | string        | ID della risorsa di sottoscrizione SaaS in Azure    |
+| offerId                | string        | ID offerta sottoscritta dall'utente         |
+| planId                 | string        | ID del piano sottoscritto dall'utente          |
+| saasSubscriptionName   | string        | Nome della sottoscrizione SaaS                |
+| saasSubscriptionStatus | Enum          | Stato dell'operazione.  I tipi validi sono:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
+| created                | Datetime      | Valore timestamp creazione sottoscrizione (UTC) |
+| LastModified           | Datetime      | Valore timestamp della sottoscrizione modificato (UTC) |
 |  |  |  |
 
 *Codici di risposta*
@@ -495,9 +494,9 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 | 503                  | `ServiceUnavailable` | Il servizio è temporaneamente interrotto, riprovare più tardi. Riprovare più tardi.                             |
 |  |  |  |
 
-*Intestazioni di risposta*
+*Intestazioni della risposta*
 
-| **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
+| **Chiave di intestazione**     | **Obbligatorio** | **Descrizione**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
@@ -524,14 +523,14 @@ Un webhook SaaS viene usato per notificare le modifiche in modo proattivo al ser
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | String       | ID univoco per l'operazione attivata.                |
-| activityId   | String        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
-| subscriptionId                     | String        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | String        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
-| publisherId                | String        | ID dell'autore dell'offerta SaaS.         |
-| planId                 | String        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
-| action                 | String        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
-| Timestamp                 | String        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
+| id  | string       | ID univoco per l'operazione attivata.                |
+| activityId   | string        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
+| subscriptionId                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | string        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
+| publisherId                | string        | ID dell'autore dell'offerta SaaS.         |
+| planId                 | string        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
+| action                 | string        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
+| Timestamp                 | string        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
 |  |  |  |
 
 

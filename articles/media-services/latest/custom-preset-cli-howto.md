@@ -1,6 +1,6 @@
 ---
-title: Codificare una trasformazione personalizzata usando l'interfaccia della riga di comando di Azure di Servizi multimediali v3. Documenti Microsoft
-description: Questo argomento illustra come usare Servizi multimediali di Azure v3 per codificare una trasformazione personalizzata usando l'interfaccia della riga di comando di Azure.This topic shows how to use Azure Media Services v3 to encode a custom transform using Azure CLI.
+title: Codificare la trasformazione personalizzata usando l'interfaccia della riga di comando di Azure per servizi multimediali Microsoft Docs
+description: Questo argomento illustra come usare servizi multimediali di Azure V3 per codificare una trasformazione personalizzata usando l'interfaccia della riga di comando di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -19,16 +19,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2020
 ms.locfileid: "80382954"
 ---
-# <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata - Interfaccia della riga di comando di AzureHow to encode with a custom transform - Azure CLI
+# <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure
 
-Quando si esegue la codifica con Servizi multimediali di Azure, è possibile iniziare rapidamente con una delle procedure predefinite predefinite predefinite consigliate, in base alle procedure consigliate del settore, come illustrato nella guida introduttiva dei file di [streaming.](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Puoi anche creare un predefinito personalizzato per il tuo scenario specifico o i requisiti del dispositivo.
+Quando si esegue la codifica con servizi multimediali di Azure, è possibile iniziare rapidamente con uno dei set di impostazioni predefiniti consigliati, in base alle procedure consigliate del settore, come illustrato nella Guida introduttiva ai [file di streaming](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) . È anche possibile creare un set di impostazioni personalizzato per individuare i requisiti specifici dello scenario o del dispositivo.
 
 ## <a name="considerations"></a>Considerazioni
 
-Quando create predefiniti personalizzati, si applicano le seguenti considerazioni:
+Quando si creano set di impostazioni personalizzati, si applicano le considerazioni seguenti:
 
 * Tutti i valori per altezza e larghezza sul contenuto AVC devono essere un multiplo di 4.
-* In Servizi multimediali di Azure v3, tutte le velocità in bit di codifica sono in bit al secondo. Questo è diverso dai preset con le nostre API v2, che hanno usato kilobit al secondo come unità. Ad esempio, se la velocità in bit 2 è stata specificata come 128 (kilobit/secondo), in v3 verrà impostata su 128000 (bit/secondo).
+* In servizi multimediali di Azure V3 tutti i bitrate di codifica sono in bit al secondo. Questa impostazione è diversa da quella delle API v2, che hanno usato kilobit al secondo come unità. Se, ad esempio, la velocità in bit in V2 è stata specificata come 128 (kilobit al secondo), in V3 verrebbe impostata su 128000 (bit al secondo).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,13 +38,13 @@ Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-## <a name="define-a-custom-preset"></a>Definire un predefinito personalizzato
+## <a name="define-a-custom-preset"></a>Definire un set di impostazioni personalizzato
 
-Nell'esempio seguente viene definito il corpo della richiesta di una nuova trasformazione. Definiamo un set di output che vogliamo generare quando viene usata questa trasformazione.
+Nell'esempio seguente viene definito il corpo della richiesta di una nuova trasformazione. Si definisce un set di output che si desidera generare quando si utilizza questa trasformazione.
 
-In questo esempio, aggiungiamo innanzitutto un livello AacAudio per la codifica audio e due livelli H264Video per la codifica video. Nei livelli video, assegniamo le etichette in modo che possano essere utilizzate nei nomi dei file di output. Successivamente, vogliamo che l'output includa anche le miniature. Nell'esempio seguente specifichiamo le immagini in formato PNG, generate al 50% della risoluzione del video di input, e a tre timestamp : 25%, 50%, 75 della lunghezza del video di input. Infine, specifichiamo il formato per i file di output - uno per il video e l'audio e un altro per le miniature. Poiché abbiamo più H264Layers, dobbiamo usare macro che producono nomi univoci per ogni livello. Possiamo usare una `{Label}` `{Bitrate}` o macro, l'esempio mostra il primo.
+In questo esempio viene innanzitutto aggiunto un livello l'elemento aacaudio per la codifica audio e due livelli H264Video per la codifica video. Nei livelli video si assegnano le etichette in modo da poterle usare nei nomi dei file di output. Successivamente, si vuole che l'output includa anche anteprime. Nell'esempio seguente vengono specificate le immagini in formato PNG, generate al 50% della risoluzione del video di input e tre timestamp: {25%, 50%, 75} della lunghezza del video di input. Infine, viene specificato il formato per i file di output, uno per video e audio e un altro per le anteprime. Poiché sono presenti più H264Layers, è necessario usare macro che producono nomi univoci per livello. È possibile usare una `{Label}` macro o `{Bitrate}` , l'esempio mostra la prima.
 
-Salveremo questa trasformazione in un file. In questo esempio, nominiamo il file `customPreset.json`.
+Questa trasformazione verrà salvata in un file. In questo esempio il file `customPreset.json`è denominato.
 
 ```json
 {
@@ -124,22 +124,22 @@ Salveremo questa trasformazione in un file. In questo esempio, nominiamo il file
 }
 ```
 
-## <a name="create-a-new-transform"></a>Creare una nuova trasformazione  
+## <a name="create-a-new-transform"></a>Crea una nuova trasformazione  
 
-In questo esempio viene creata una **trasformazione** basata sul predefinito personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario innanzitutto verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. Il `show` comando seguente `customTransformName` restituisce la trasformazione, se esistente:The following command returns the transform if it exists:
+In questo esempio viene creata una **trasformazione** basata sul set di impostazioni personalizzato definito in precedenza. Quando si crea una trasformazione, è necessario prima verificare se ne esiste già una. Se la trasformazione esiste, riutilizzarla. Il comando `show` seguente restituisce la `customTransformName` trasformazione se esistente:
 
 ```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-Il comando CLI di Azure seguente crea la trasformazione in base alla preimpostazione personalizzata (definita in precedenza).
+Il comando dell'interfaccia della riga di comando di Azure seguente crea la trasformazione in base al set di impostazioni personalizzato (definito in precedenza).
 
 ```azurecli-interactive
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-Affinché Servizi multimediali applichi la trasformazione al video o all'audio specificato, devi inviare un lavoro in tale trasformazione. Per un esempio completo che illustra come inviare un processo in una trasformazione, vedere Guida introduttiva: File video di flusso - Interfaccia della riga di comando di Azure.For a complete example that shows how to submit a job under a transform, [see Quickstart: Stream video files - Azure CLI.](stream-files-cli-quickstart.md)
+Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione. Per un esempio completo in cui viene illustrato come inviare un processo in una trasformazione, vedere [Guida introduttiva: eseguire lo streaming di file video-interfaccia](stream-files-cli-quickstart.md)della riga di comando di Azure.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Interfaccia della riga di comando di AzureAzure](/cli/azure/ams)
+[Interfaccia della riga di comando di Azure](/cli/azure/ams)

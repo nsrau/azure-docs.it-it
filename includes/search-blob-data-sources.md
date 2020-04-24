@@ -12,15 +12,15 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "80272704"
 ---
 * PDF
-* Formati di Microsoft Office: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (posta elettronica di Outlook), XML (sia 2003 che 2006 WORD XML)
-* Formati di documento aperto: ODT, ODS, ODP  
+* Formati di Microsoft Office: DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (messaggi di posta elettronica di Outlook), XML (2003 e 2006 WORD XML)
+* Aprire i formati di documento: ODT, ODS, ODP  
 * HTML
 * XML
 * ZIP
-* Gz
-* Epub
+* GZ
+* EPUB
 * EML
 * RTF
 * File di testo normale (vedere anche [Indicizzazione di testo normale](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
 * JSON (vedere [Indicizzazione di BLOB JSON](../articles/search/search-howto-index-json-blobs.md))
-* CSV (vedere [Indicizzazione di BLOB CSV)](../articles/search/search-howto-index-csv-blobs.md)
+* CSV (vedere [indicizzazione di BLOB CSV](../articles/search/search-howto-index-csv-blobs.md))

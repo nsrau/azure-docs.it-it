@@ -15,14 +15,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80116907"
 ---
-Una nuova funzionalità del client VPN di Windows 10, Always On, è la possibilità di mantenere una connessione VPN. Con Always On, il profilo VPN attivo può connettersi automaticamente e rimanere connesso in base ai trigger, ad esempio l'accesso dell'utente, il cambiamento dello stato della rete o lo schermo del dispositivo attivo.
+Una nuova funzionalità del client VPN di Windows 10, Always On, è la possibilità di mantenere una connessione VPN. Con Always On, il profilo VPN attivo può connettersi automaticamente e rimanere connesso in base ai trigger, ad esempio l'accesso utente, la modifica dello stato della rete o lo schermo del dispositivo attivo.
 
-È possibile usare i gateway con Windows 10 Always On per stabilire tunnel utente persistenti e tunnel di dispositivo in Azure.You can use gateways with Windows 10 Always On to establish persistent user tunnels and device tunnels to Azure. Questo articolo consente di configurare un tunnel utente VPN Always On.
+È possibile usare i gateway con Windows 10 Always On per stabilire tunnel utente persistenti e tunnel di dispositivo in Azure. Questo articolo consente di configurare un tunnel utente Always On VPN.
 
-Le connessioni VPN Always On includono uno dei due tipi di tunnel:
+Always On connessioni VPN includono uno dei due tipi di tunnel:
 
-* **Tunnel del dispositivo:** si connette ai server VPN specificati prima che gli utenti accedano al dispositivo. Gli scenari di connettività di accesso preliminare e la gestione dei dispositivi usano un tunnel del dispositivo.
+* **Tunnel del dispositivo**: consente di connettersi ai server VPN specificati prima di accedere al dispositivo. Gli scenari di connettività di pre-accesso e la gestione dei dispositivi usano un tunnel del dispositivo.
 
-* **Tunnel utente:** si connette solo dopo che gli utenti hanno effettuato l'accesso al dispositivo. Utilizzando i tunnel utente, è possibile accedere alle risorse dell'organizzazione tramite server VPN.
+* **Tunnel utente**: si connette solo dopo che gli utenti hanno eseguito l'accesso al dispositivo. Usando i tunnel utente è possibile accedere alle risorse dell'organizzazione tramite i server VPN.
 
-I tunnel dei dispositivi e i tunnel utente operano indipendentemente dai profili VPN. Possono essere connessi contemporaneamente e possono utilizzare diversi metodi di autenticazione e altre impostazioni di configurazione VPN, a seconda dei casi.
+I tunnel e i tunnel utente del dispositivo operano indipendentemente dai profili VPN. Possono essere connesse contemporaneamente e possono usare metodi di autenticazione diversi e altre impostazioni di configurazione VPN, in base alle esigenze.

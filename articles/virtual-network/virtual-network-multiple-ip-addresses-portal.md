@@ -42,13 +42,13 @@ Se si vuole creare una macchina virtuale con più indirizzi IP, o un indirizzo I
 
 1. Passare al portale di Azure all'indirizzo https://portal.azure.com e, se necessario, eseguire l'accesso.
 2. Nel portale fare clic su **Altri servizi** > digitare *macchine virtuali* nella casella del filtro e quindi fare clic su **Macchine virtuali**.
-3. Nel riquadro **Macchine virtuali** scegliere la macchina virtuale a cui aggiungere indirizzi IP. Passare alla scheda **Rete.** Fare clic su **Interfaccia di rete** nella pagina. Come mostrato nell'immagine qui sotto: 
+3. Nel riquadro **Macchine virtuali** scegliere la macchina virtuale a cui aggiungere indirizzi IP. Passare alla scheda **rete** . fare clic sull' **interfaccia di rete** nella pagina. Come illustrato nell'immagine seguente: 
 
 
     ![Aggiungere un indirizzo IP pubblico a una macchina virtuale](./media/virtual-network-multiple-ip-addresses-portal/figure200319.png)
-4. Nel riquadro **Interfaccia di rete** fare clic sul pulsante **Configurazioni IP**.
+4. Nel riquadro **interfaccia di rete** fare clic su **configurazioni IP**.
 
-5. Nel riquadro visualizzato per la scheda di interfaccia di rete selezionata fare clic su **Configurazioni IP**. Fare clic su **Aggiungi**, completare i passaggi in una delle sezioni seguenti, in base al tipo di indirizzo IP che si desidera aggiungere, quindi fare clic su **OK**. 
+5. Nel riquadro visualizzato per la scheda di interfaccia di rete selezionata fare clic su **Configurazioni IP**. Fare clic su **Aggiungi**, completare i passaggi in una delle sezioni seguenti, in base al tipo di indirizzo IP che si desidera aggiungere e quindi fare clic su **OK**. 
 
 ### <a name="add-a-private-ip-address"></a>**Aggiungere un indirizzo IP privato**
 
@@ -77,7 +77,7 @@ Per aggiungere un indirizzo IP pubblico è necessario associare una risorsa indi
 Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Se si dispone di una risorsa indirizzo IP pubblico che non è attualmente associata a una configurazione IP e la si vuole associare a una configurazione IP, ignorare i passaggi seguenti e completare quelli della sezione appropriata fra quelle riportate di seguito. Se non si dispone di una risorsa indirizzo IP pubblico, completare la procedura seguente per crearne una:
 
 1. Passare al portale di Azure all'indirizzo https://portal.azure.com e, se necessario, eseguire l'accesso.
-3. Nel portale fare clic su **Crea una risorsa** > **Accesso pubblico** > **indirizzo IP**.
+3. Nel portale fare clic su **Crea una risorsa** > **rete** > **indirizzo IP pubblico**.
 4. Nel riquadro **Crea indirizzo IP pubblico** che viene visualizzato immettere un **Nome**, selezionare un tipo di **Assegnazione indirizzi IP**, una **Sottoscrizione**, un **Gruppo di risorse** e un **Percorso**, quindi fare clic su **Crea**, come illustrato nell'immagine seguente:
 
     ![Creare una risorsa indirizzo IP pubblico](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)

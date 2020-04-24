@@ -1,6 +1,6 @@
 ---
-title: 'WAN virtuale: tenant di Azure AD per gruppi di utenti diversi: autenticazione di Azure ADVirtual WAN: Azure AD tenant for different user groups: Azure AD authentication'
-description: È possibile usare la VPN P2S per connettersi alla rete virtuale usando l'autenticazione di Azure ADYou can use P2S VPN to connect to your VNet using Azure AD authentication
+title: 'Rete WAN virtuale: Azure AD tenant per gruppi di utenti diversi: autenticazione Azure AD'
+description: È possibile usare la VPN P2S per connettersi alla VNet usando l'autenticazione Azure AD
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
@@ -14,19 +14,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80060708"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni di protocollo OpenVPN P2SCreate an Azure Active Directory tenant for P2S OpenVPN protocol connections
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN P2S
 
-Quando ci si connette alla rete virtuale, è possibile utilizzare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo Open VPN, è anche possibile usare l'autenticazione di Azure Active Directory.However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. Se si vuole che un set diverso di utenti sia in grado di connettersi a gateway diversi, è possibile registrare più app in Active Directory e collegarle a gateway diversi.
+Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo VPN aperto, è anche possibile usare l'autenticazione Azure Active Directory. Se si vuole che un diverso set di utenti sia in grado di connettersi a Gateway diversi, è possibile registrare più app in Active Directory e collegarle a diversi gateway.
 
-Questo articolo illustra come configurare un tenant di Azure AD per l'autenticazione OpenVPN P2S e creare e registrare più app in Azure AD per consentire l'accesso diverso per utenti e gruppi diversi.
+Questo articolo illustra come configurare un tenant di Azure AD per l'autenticazione di P2S OpenVPN e come creare e registrare più app in Azure AD per consentire l'accesso a diversi utenti e gruppi.
 
 > [!NOTE]
-> L'autenticazione di Azure&reg; AD è supportata solo per le connessioni di protocollo OpenVPN.Azure AD authentication is supported only for OpenVPN protocol connections.
+> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
-## <a name="6-create-a-new-p2s-configuration"></a><a name="site"></a>6. Creare una nuova configurazione P2S
+## <a name="6-create-a-new-p2s-configuration"></a><a name="site"></a>6. creare una nuova configurazione di P2S
 
 Una configurazione da punto a sito definisce i parametri per la connessione di client remoti.
 
@@ -45,9 +45,9 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
    ```
 
    > [!NOTE]
-   > Non usare l'ID applicazione del client VPN di Azure nei comandi precedenti: concederà a tutti gli utenti l'accesso al gateway. Utilizzare l'ID dell'applicazione o delle applicazioni registrate.
+   > Non usare l'ID dell'applicazione del client VPN di Azure nei comandi precedenti: consentirà a tutti gli utenti di accedere al gateway. Usare l'ID dell'applicazione o delle applicazioni registrate.
 
-## <a name="7-edit-hub-assignment"></a><a name="hub"></a>7. Modificare l'assegnazione dell'hub
+## <a name="7-edit-hub-assignment"></a><a name="hub"></a>7. Modifica assegnazione Hub
 
 1. Passare al pannello **Hub** nella rete WAN virtuale.
 
@@ -63,11 +63,11 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
 5. Immettere il **Pool di indirizzi** da cui gli indirizzi IP verranno assegnati ai client VPN.
 
-6. Fare clic su **Conferma**.
+6. Fare clic su **conferma**.
 
 7. Il completamento dell'operazione può richiedere fino a 30 minuti.
 
-## <a name="8-download-vpn-profile"></a><a name="device"></a>8. Scarica il profilo VPN
+## <a name="8-download-vpn-profile"></a><a name="device"></a>8. scaricare il profilo VPN
 
 Usare il profilo VPN per configurare i client.
 
@@ -83,14 +83,14 @@ Usare il profilo VPN per configurare i client.
 
 6. Passare alla cartella "AzureVPN" decompressa.
 
-7. Prendere nota del percorso del file "azurevpnconfig.xml". Il file azurevpnconfig.xml contiene l'impostazione per la connessione VPN e può essere importato direttamente nell'applicazione client VPN di Azure.The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. È inoltre possibile distribuire questo file a tutti gli utenti che devono connettersi tramite posta elettronica o altri mezzi. L'utente avrà bisogno di credenziali di Azure AD valide per connettersi correttamente.
+7. Prendere nota della posizione del file "azurevpnconfig. xml". Azurevpnconfig. XML contiene l'impostazione per la connessione VPN e può essere importato direttamente nell'applicazione client VPN di Azure. È anche possibile distribuire questo file a tutti gli utenti che devono connettersi tramite posta elettronica o altri mezzi. Per la corretta connessione, l'utente dovrà disporre di credenziali Azure AD valide.
 
-## <a name="9-configure-user-vpn-clients"></a>9. Configurare i client VPN utente
+## <a name="9-configure-user-vpn-clients"></a>9. Configurare client VPN utente
 
 Per connettersi, è necessario scaricare il client VPN di Azure e importare il profilo client VPN scaricato nei passaggi precedenti in ogni computer che dovrà connettersi alla rete virtuale.
 
 > [!NOTE]
-> L'autenticazione di Azure&reg; AD è supportata solo per le connessioni di protocollo OpenVPN.Azure AD authentication is supported only for OpenVPN protocol connections.
+> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
@@ -123,31 +123,31 @@ Usare questo [collegamento](https://go.microsoft.com/fwlink/?linkid=2117554) per
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![Elimina](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![Elimina](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Per diagnosticare i problemi di connessione
 
 1. Per diagnosticare i problemi di connessione, è possibile usare lo strumento **Diagnosi**. Selezionare i puntini di sospensione (...) accanto alla connessione VPN che si vuole diagnosticare per visualizzare il menu. Selezionare quindi **Diagnosi**.
 
-    ![diagnosi](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. Nella pagina **Proprietà connessione** selezionare **Esegui diagnosi**.
 
-    ![diagnosi](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Accedere con le credenziali personali.
 
-    ![diagnosi](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. Visualizzare i risultati della diagnosi.
 
-    ![diagnosi](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
-## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. Visualizzare la WAN virtuale
+## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. visualizzare la rete WAN virtuale
 
 1. Passare alla rete WAN virtuale.
 

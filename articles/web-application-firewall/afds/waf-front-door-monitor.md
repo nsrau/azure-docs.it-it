@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio e registrazione di Firewall applicazione Web di AzureAzure Web Application Firewall monitoring and logging
-description: Informazioni su Web Application Firewall (WAF) con il monitoraggio e la registrazione FrontDoor
+title: Monitoraggio e registrazione del firewall applicazione Web di Azure
+description: Informazioni sul Web Application Firewall (WAF) con monitoraggio e registrazione FrontDoor
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -14,27 +14,27 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80284144"
 ---
-# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitoraggio e registrazione di Firewall applicazione Web di AzureAzure Web Application Firewall monitoring and logging 
+# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitoraggio e registrazione del firewall applicazione Web di Azure 
 
-Il monitoraggio e la registrazione di Firewall applicazione Web di Azure vengono forniti tramite la registrazione e l'integrazione con i log di Monitoraggio di Azure e Monitoraggio di Azure.Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
+Il monitoraggio e la registrazione di Web Application Firewall (WAF) di Azure sono disponibili tramite registrazione e integrazione con i log di monitoraggio di Azure e di monitoraggio di Azure.
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
-WAF con il log FrontDoor è integrato con [Monitor di Azure.](../../azure-monitor/overview.md) Monitoraggio di Azure consente di tenere traccia delle informazioni di diagnostica, inclusi gli avvisi e i log WAF. È possibile configurare il monitoraggio WAF all'interno della risorsa Porta frontale nel portale nella scheda Diagnostica o direttamente tramite il servizio Monitoraggio di Azure.You can configure WAF monitoring within the Front Door resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
+WAF con il log FrontDoor è integrato con [monitoraggio di Azure](../../azure-monitor/overview.md). Monitoraggio di Azure consente di tenere traccia delle informazioni di diagnostica, inclusi i log e gli avvisi WAF. È possibile configurare il monitoraggio WAF all'interno della risorsa porta anteriore nel portale nella scheda **diagnostica** o direttamente tramite il servizio monitoraggio di Azure.
 
-Dal portale di Azure passare al tipo di risorsa Front Door.From Azure portal, go to Front Door resource type. Dalla scheda**Metriche** di **monitoraggio**/a sinistra, è possibile aggiungere **WebApplicationFirewallRequestCount** per tenere traccia del numero di richieste che soddisfano le regole WAF. È possibile creare filtri personalizzati in base ai tipi di azione e ai nomi delle regole.
+Da portale di Azure passare al tipo di risorsa porta anteriore. Dalla scheda**metriche** di **monitoraggio**/a sinistra è possibile aggiungere **WebApplicationFirewallRequestCount** per tenere traccia del numero di richieste corrispondenti alle regole di WAF. I filtri personalizzati possono essere creati in base ai tipi di azione e ai nomi delle regole.
 
-![COPERTURa](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
+![WAFMetrics](../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png)
 
-## <a name="logs-and-diagnostics"></a>Registri e diagnostica
+## <a name="logs-and-diagnostics"></a>Log e diagnostica
 
-WAF with Front Door fornisce report dettagliati su ogni minaccia rilevata. La registrazione è integrata con i log di diagnostica di Azure e gli avvisi vengono registrati in formato JSON. Questi log possono essere integrati con i [log di Monitoraggio di Azure](../../azure-monitor/insights/azure-networking-analytics.md).
+WAF con sportello anteriore fornisce report dettagliati su ogni minaccia rilevata. La registrazione è integrata con i log di diagnostica di Azure e gli avvisi vengono registrati in formato JSON. Questi log possono essere integrati con i [log di Monitoraggio di Azure](../../azure-monitor/insights/azure-networking-analytics.md).
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-FrontdoorAccessLog registra tutte le richieste inoltrate ai back-end dei clienti. FrontdoorWebApplicationFirewallLog registra qualsiasi richiesta che corrisponde a una regola WAF.
+FrontdoorAccessLog registra tutte le richieste che vengono inviate ai back-end dei clienti. FrontdoorWebApplicationFirewallLog registra tutte le richieste che corrispondono a una regola WAF.
 
-La query di esempio seguente consente di ottenere i registri WAF per le richieste bloccate:The following example query obtains WAF logs on blocked requests:
+La query di esempio seguente ottiene i log WAF per le richieste bloccate:
 
 ``` WAFlogQuery
 AzureDiagnostics
@@ -43,7 +43,7 @@ AzureDiagnostics
 
 ```
 
-Di seguito è riportato un esempio di richiesta registrata nel registro WAF:
+Di seguito è riportato un esempio di una richiesta registrata in WAF log:
 
 ``` WAFlogQuerySample
 {
@@ -74,7 +74,7 @@ AzureDiagnostics
 
 ```
 
-Di seguito è riportato un esempio di richiesta registrata nel registro di accesso:Here is an example of a logged request in Access log:
+Di seguito è riportato un esempio di una richiesta registrata nel log di accesso:
 
 ``` AccessLogSample
 {
@@ -105,4 +105,4 @@ Di seguito è riportato un esempio di richiesta registrata nel registro di acces
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ulteriori informazioni su [Front Door](../../frontdoor/front-door-overview.md).
+- Altre informazioni su [sportello anteriore](../../frontdoor/front-door-overview.md).

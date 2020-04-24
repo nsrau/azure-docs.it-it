@@ -1,6 +1,6 @@
 ---
-title: 'Gateway VPN: client VPN per connessioni P2S del protocollo OpenVPN: autenticazione di Azure AD'
-description: È possibile usare la VPN P2S per connettersi alla rete virtuale usando l'autenticazione di Azure ADYou can use P2S VPN to connect to your VNet using Azure AD authentication
+title: 'Gateway VPN: client VPN per le connessioni P2S del protocollo OpenVPN: autenticazione Azure AD'
+description: È possibile usare la VPN P2S per connettersi alla VNet usando l'autenticazione Azure AD
 services: vpn-gateway
 author: anzaman
 ms.service: virtual-wan
@@ -14,9 +14,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2020
 ms.locfileid: "80385623"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione di Azure ADConfigure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione Azure AD
 
-Questo articolo consente di configurare un client VPN per la connessione a una rete virtuale usando la VPN da punto a sito e l'autenticazione di Azure Active Directory.This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Prima di potersi connettere e autenticare usando Azure AD, è necessario configurare il tenant di Azure AD. Per altre informazioni, vedere [Configurare un tenant](openvpn-azure-ad-tenant.md)di Azure AD.
+Questo articolo illustra come configurare un client VPN per connettersi a una rete virtuale usando la VPN da punto a sito e l'autenticazione Azure Active Directory. Prima di poter connettersi ed eseguire l'autenticazione con Azure AD, è necessario innanzitutto configurare il tenant di Azure AD. Per altre informazioni, vedere [configurare un tenant di Azure ad](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
 > L'autenticazione di Azure AD è supportata solo per le connessioni tramite il protocollo OpenVPN®.
@@ -24,21 +24,21 @@ Questo articolo consente di configurare un client VPN per la connessione a una r
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Utilizzo dei profili client
 
-Per connettersi, è necessario scaricare il client VPN di Azure e configurare un profilo client VPN in ogni computer che desidera connettersi alla rete virtuale. È possibile creare un profilo client in un computer, esportarlo e quindi importarlo in altri computer.
+Per connettersi, è necessario scaricare il client VPN di Azure e configurare un profilo client VPN in ogni computer che desidera connettersi a VNet. È possibile creare un profilo client in un computer, esportarlo e quindi importarlo in altri computer.
 
 ### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
 
-Usare questo [collegamento](https://go.microsoft.com/fwlink/?linkid=2117554) per scaricare il client VPN di Azure. Assicurarsi che il client VPN di Azure disponga dell'autorizzazione per l'esecuzione in background. Per controllare/abilitare l'autorizzazione, attenersi alla seguente procedura:
+Usare questo [collegamento](https://go.microsoft.com/fwlink/?linkid=2117554) per scaricare il client VPN di Azure. Verificare che il client VPN di Azure disponga delle autorizzazioni per l'esecuzione in background. Per selezionare o abilitare l'autorizzazione, attenersi alla procedura seguente:
 
-1. Vai a Start , quindi seleziona Impostazioni > Privacy > App in background.
-2. In App in background verificare che **l'opzione Consenti l'esecuzione** delle app in background sia attivata.
-3. In Scegliere le app che possono essere eseguite in background attivare le impostazioni per Client VPN di **Azure.**
+1. Passare a Start, quindi selezionare impostazioni > privacy > app in background.
+2. In app in background verificare che **le app eseguite in background** siano attivate.
+3. In scegliere le app che possono essere eseguite in background, attivare le impostazioni per il client VPN di Azure **su on**.
 
   ![autorizzazione](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
-### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Per creare un profilo client basato su certificatiTo create a certificate-based client profile
+### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Per creare un profilo client basato su certificati
 
-Quando si utilizza un profilo basato su certificati, assicurarsi che i certificati appropriati siano installati nel computer client. Per ulteriori informazioni sui certificati, vedere [Installare certificati client](certificates-point-to-site.md).
+Quando si utilizza un profilo basato su certificato, verificare che nel computer client siano installati i certificati appropriati. Per ulteriori informazioni sui certificati, vedere [Install Client Certificates](certificates-point-to-site.md).
 
   ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
@@ -47,18 +47,18 @@ Quando si utilizza un profilo basato su certificati, assicurarsi che i certifica
   ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
-> Il segreto del server può essere esportato nel profilo client VPN P2S.  Le istruzioni su come esportare un profilo cliente sono disponibili [qui](about-vpn-profile-download.md).
+> Il segreto server può essere esportato nel profilo client VPN P2S.  Le istruzioni su come esportare un profilo client sono disponibili [qui](about-vpn-profile-download.md).
 >
 
 ### <a name="to-export-and-distribute-a-client-profile"></a><a name="export"></a>Per esportare e distribuire un profilo client
 
-Dopo aver utilizzato un profilo di lavoro e averlo distribuito ad altri utenti, è possibile esportarlo attenendosi alla seguente procedura:
+Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri utenti, è possibile esportarlo attenendosi alla procedura seguente:
 
-1. Evidenziare il profilo client VPN che si desidera esportare, selezionare il **...**, quindi selezionare **Esporta**.
+1. Evidenziare il profilo client VPN che si vuole esportare, selezionare il **...** e quindi selezionare **Esporta**.
 
     ![esportare](./media/openvpn-azure-ad-client/export/export1.jpg)
 
-2. Selezionare il percorso in cui si desidera salvare il profilo, lasciare il nome del file così com'è, quindi selezionare **Salva** per salvare il file xml.
+2. Selezionare il percorso in cui si desidera salvare il profilo, lasciare il nome del file così com'è, quindi selezionare **Salva** per salvare il file XML.
 
     ![esportare](./media/openvpn-azure-ad-client/export/export2.jpg)
 
@@ -88,39 +88,39 @@ Dopo aver utilizzato un profilo di lavoro e averlo distribuito ad altri utenti, 
 
 1. Selezionare i puntini di sospensione accanto al profilo client che si desidera eliminare. Selezionare quindi **Rimuovi**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![Elimina](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![Elimina](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Creare una connessione
 
-1. Nella pagina, **+** selezionare , quindi **Aggiungi .**
+1. Nella pagina selezionare **+**, quindi **+ Aggiungi**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Compilare le informazioni di connessione. Se non si è sicuri dei valori, contattare l'amministratore. Dopo aver compilato i valori, selezionare **Salva**.
+2. Inserire le informazioni di connessione. Se non si è certi dei valori, contattare l'amministratore. Dopo aver compilato i valori, selezionare **Salva**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
 
-4. Selezionare le credenziali corrette, quindi selezionare **Continua**.
+4. Selezionare le credenziali appropriate e quindi fare clic su **continua**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
 
-5. Una volta stabilita la connessione, l'icona diventerà verde e dirà **Connesso**.
+5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Per connettersi automaticamente
 
-Questi passaggi consentono di configurare la connessione per la connessione automatica con Always-on.
+Questi passaggi consentono di configurare la connessione per la connessione automatica con always-on.
 
-1. Nella home page del client VPN selezionare **Impostazioni VPN**.
+1. Nella home page per il client VPN selezionare **Impostazioni VPN**.
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
@@ -128,7 +128,7 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
-3. Assicurarsi che la connessione che si desidera impostare non sia già connessa, quindi evidenziare il profilo e selezionare la casella di controllo **Connetti automaticamente.**
+3. Verificare che la connessione che si vuole impostare non sia già connessa, quindi evidenziare il profilo e selezionare la casella di controllo **Connetti automaticamente** .
 
     ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
@@ -140,25 +140,25 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 
 1. Per diagnosticare i problemi di connessione, è possibile usare lo strumento **Diagnosi**. Selezionare il **...** accanto alla connessione VPN che si desidera diagnosticare per visualizzare il menu. Selezionare quindi **Diagnosi**.
 
-    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
 2. Nella pagina **Proprietà connessione** selezionare **Esegui diagnosi**.
 
-    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Accedere con le credenziali personali.
 
-    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. Visualizzare i risultati della diagnosi.
 
-    ![diagnosi](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>Domande frequenti
 
-### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Come si aggiungono suffissi DNS al client VPN?
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Ricerca per categorie aggiungere suffissi DNS al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere ** \<i dnssuffixes>\<dnssufix \<> /dnssufix>\<tag>dnssuffixes**
+È possibile modificare il file XML del profilo scaricato e aggiungere i ** \<tag \<dnssuffixes>\<dnssufix> \</dnssufix>/dnssuffixes>**
 
 ```
 <azvpnprofile>
@@ -174,9 +174,9 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 </azvpnprofile>
 ```
 
-### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Come si aggiungono server DNS personalizzati al client VPN?
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Ricerca per categorie aggiungere server DNS personalizzati al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere i ** \<tag dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tag
+È possibile modificare il file XML del profilo scaricato e aggiungere i ** \<tag \<dnsservers>\<dnsserver> \</dnsserver>/dnsservers>**
 
 ```
 <azvpnprofile>
@@ -192,12 +192,12 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 ```
 
 > [!NOTE]
-> Il client OpenVPN Azure AD utilizza le voci della tabella dei criteri di risoluzione dei nomi `ipconfig /all`DNS (NRPT), il che significa che i server DNS non verranno elencati nell'output di . Per verificare le impostazioni DNS in uso, consultare [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) in PowerShell.
+> Il client Azure AD OpenVPN usa le voci della tabella dei criteri di risoluzione dei nomi DNS, che significa che i server DNS non saranno elencati nell'output `ipconfig /all`di. Per confermare le impostazioni DNS in uso, vedere [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) in PowerShell.
 >
 
-### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Come si aggiungono route personalizzate al client VPN?
+### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Ricerca per categorie aggiungere route personalizzate al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere la ** \<route \<includeroutes \<>\<>\<> maschera di destinazione>\<> \</destination>mask>\</route>/includeroutes>** tag
+È possibile modificare il file XML del profilo scaricato e aggiungere il ** \<includeroutes \<>route \<>destinazione \<>mask \<>/Destination \<>/mask \<>/route \<>/includeroutes**>Tag
 
 ```
 <azvpnprofile>
@@ -213,9 +213,9 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 </azvpnprofile>
 ```
 
-### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Come si bloccano (escludono) le route dal client VPN?
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Ricerca per categorie le route di blocco (escluse) dal client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere il ** \<percorso excluderoutes>\<route>\<la maschera \< \<di destinazione>> destinazione>\</mask>\</route>\</excluderoutes>** tag
+È possibile modificare il file XML del profilo scaricato e aggiungere il ** \<excluderoutes \<>route \<>destinazione \<>mask \<>/Destination \<>/mask \<>/route \<>/excluderoutes**>Tag
 
 ```
 <azvpnprofile>
@@ -233,4 +233,4 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere Creare un tenant di [Azure Active Directory per le connessioni P2S Open VPN che usano l'autenticazione](openvpn-azure-ad-tenant.md)di Azure AD.
+Per altre informazioni, vedere [creare un tenant di Azure Active Directory per le connessioni VPN aperte P2S che usano l'autenticazione Azure ad](openvpn-azure-ad-tenant.md).

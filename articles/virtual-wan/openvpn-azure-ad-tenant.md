@@ -1,6 +1,6 @@
 ---
-title: 'Tenant di Azure AD per le connessioni VPN utente: autenticazione di Azure ADAzure AD tenant for User VPN connections: Azure AD authentication'
-description: È possibile usare la VPN dell'utente WAN virtuale di Azure (da punto a sito) per connettersi alla rete virtuale usando l'autenticazione di Azure ADYou can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Azure AD authentication
+title: 'Tenant Azure AD per le connessioni VPN utente: autenticazione Azure AD'
+description: È possibile usare la VPN utente WAN virtuale di Azure (da punto a sito) per connettersi alla VNet usando l'autenticazione Azure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: anzaman
@@ -15,45 +15,45 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80059450"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni di protocollo OpenVPN VPN utenteCreate an Azure Active Directory tenant for User VPN OpenVPN protocol connections
+# <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Creare un tenant di Azure Active Directory per le connessioni del protocollo OpenVPN VPN utente
 
-Quando ci si connette alla rete virtuale, è possibile utilizzare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo Open VPN, è anche possibile usare l'autenticazione di Azure Active Directory.However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. Questo articolo consente di configurare un tenant di Azure AD per l'autenticazione VPN aperta dell'utente WAN virtuale (da punto a sito) Open VPN.
+Quando ci si connette alla VNet, è possibile usare l'autenticazione basata su certificati o l'autenticazione RADIUS. Tuttavia, quando si usa il protocollo VPN aperto, è anche possibile usare l'autenticazione Azure Active Directory. Questo articolo illustra come configurare un tenant di Azure AD per l'autenticazione VPN per l'utente WAN virtuale (da punto a sito).
 
 > [!NOTE]
-> L'autenticazione di Azure&reg; AD è supportata solo per le connessioni di protocollo OpenVPN.Azure AD authentication is supported only for OpenVPN protocol connections.
+> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
 >
 
-## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Creare il tenant di Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. creare il tenant di Azure AD
 
-Creare un tenant di Azure AD seguendo la procedura descritta nell'articolo [Creare un nuovo tenant:Create](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) an Azure AD tenant using the steps in the Create a new tenant article:
+Creare un tenant di Azure AD usando la procedura descritta nell'articolo [creare un nuovo tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Nome dell'organizzazione
 * Nome di dominio iniziale
 
 Esempio:
 
-   ![Nuovo tenant di Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
+   ![Nuovo tenant Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
-## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Creare utenti tenant di Azure AD
+## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. creare Azure AD utenti tenant
 
-Successivamente, creare due account utente. Creare un account amministratore globale e un account utente master. L'account utente master viene utilizzato come account di incorporamento principale (account di servizio). Quando si crea un account utente tenant di Azure AD, si modifica il ruolo Directory per il tipo di utente che si desidera creare.
+Successivamente, creare due account utente. Creare un account amministratore globale e un account utente Master. L'account utente master viene usato come account di incorporamento Master (account del servizio). Quando si crea un account utente Azure AD tenant, si regola il ruolo della directory per il tipo di utente che si desidera creare.
 
-Usare i passaggi descritti in [questo articolo](../active-directory/fundamentals/add-users-azure-active-directory.md) per creare almeno due utenti per il tenant di Azure AD. Assicurarsi di modificare il **ruolo di directory** per creare i tipi di account:
+Usare la procedura descritta in [questo articolo](../active-directory/fundamentals/add-users-azure-active-directory.md) per creare almeno due utenti per il tenant di Azure ad. Assicurarsi di modificare il **ruolo della directory** per creare i tipi di account:
 
 * Amministratore globale
 * Utente
 
-## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Abilitare l'autenticazione di Azure AD nel gateway VPN
+## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. abilitare l'autenticazione Azure AD nel gateway VPN
 
-1. Individuare l'ID directory della directory che si desidera utilizzare per l'autenticazione. È elencato nella sezione delle proprietà della pagina di Active Directory.
+1. Individuare l'ID directory della directory che si desidera utilizzare per l'autenticazione. Viene elencato nella sezione proprietà della pagina Active Directory.
 
     ![ID directory](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copiare l'ID directory.
 
-3. Accedere al portale di Azure come utente a cui è assegnato il ruolo **di amministratore globale.**
+3. Accedere al portale di Azure come utente a cui viene assegnato il ruolo di **amministratore globale** .
 
-4. Successivamente, dare il consenso dell'amministratore. Copiare e incollare l'URL che riguarda il percorso di distribuzione nella barra degli indirizzi del browser:
+4. Quindi, concedere il consenso dell'amministratore. Copiare e incollare l'URL relativo alla posizione di distribuzione nella barra degli indirizzi del browser:
 
     Pubblico
 
@@ -79,20 +79,20 @@ Usare i passaggi descritti in [questo articolo](../active-directory/fundamentals
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. Se richiesto, selezionare l'account **amministratore globale.**
+5. Se richiesto, selezionare l'account **amministratore globale** .
 
     ![ID directory](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. Selezionare **Accetta** quando richiesto.
+6. Selezionare **Accetto** quando richiesto.
 
     ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-7. In Azure AD, in **Applicazioni aziendali,** nella VPN di **Azure** è elencata.
+7. Nel Azure AD, in **applicazioni aziendali**, viene visualizzata la rete **VPN di Azure** elencata.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![VPN di Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-8. Configurare l'autenticazione di Azure AD per la VPN utente e assegnarla a un hub virtuale seguendo i passaggi descritti in Configurare l'autenticazione di Azure AD per la connessione da punto a sito ad AzureConfigure Azure AD authentication for User VPN and assign it to a Virtual Hub by following the steps in [Configure Azure AD authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md)
+8. Configurare Azure AD autenticazione per la VPN utente e assegnarla a un hub virtuale attenendosi alla procedura descritta in [configurare l'autenticazione Azure ad per la connessione da punto a sito ad Azure](virtual-wan-point-to-site-azure-ad.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN e associarlo a un hub virtuale. Vedere [Configurare l'autenticazione di Azure AD per la connessione da punto a sito ad Azure.See Configure Azure AD authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md).
+Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN e associarlo a un hub virtuale. Vedere [configurare l'autenticazione Azure ad per la connessione da punto a sito ad Azure](virtual-wan-point-to-site-azure-ad.md).

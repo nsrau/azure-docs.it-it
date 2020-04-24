@@ -1,6 +1,6 @@
 ---
-title: Intervalli di indirizzi IP privati SNAT del firewall di AzureAzure Firewall SNAT private IP address ranges
-description: È possibile configurare gli intervalli privati degli indirizzi IP in modo che il firewall non SNAT non scivoli verso tali indirizzi IP.
+title: Intervalli di indirizzi IP privati SNAT del firewall di Azure
+description: È possibile configurare gli intervalli privati degli indirizzi IP in modo che il firewall non SNAT il traffico agli indirizzi IP.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -14,30 +14,30 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80064801"
 ---
-# <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalli di indirizzi IP privati SNAT del firewall di AzureAzure Firewall SNAT private IP address ranges
+# <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalli di indirizzi IP privati SNAT del firewall di Azure
 
-Firewall di Azure non SNAT con regole di rete quando l'indirizzo IP di destinazione è in un intervallo di indirizzi IP privati per [IANA RFC 1918.](https://tools.ietf.org/html/rfc1918) Le regole dell'applicazione vengono sempre applicate utilizzando un [proxy trasparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) indipendentemente dall'indirizzo IP di destinazione.
+Il firewall di Azure non SNAT con le regole di rete quando l'indirizzo IP di destinazione si trova in un intervallo di indirizzi IP privati per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Le regole dell'applicazione vengono sempre applicate usando un [proxy trasparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) indipendentemente dall'indirizzo IP di destinazione.
 
-Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, Firewall di Azure scommette il traffico verso uno degli indirizzi IP privati del firewall in AzureFirewallSubnet.If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. Tuttavia, è possibile configurare Firewall di Azure in modo che **non** SNAT l'intervallo di indirizzi IP pubblici.
+Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, il firewall di Azure SNATs il traffico verso uno degli indirizzi IP privati del firewall in AzureFirewallSubnet. Tuttavia, è possibile configurare il firewall di Azure in modo che **non** SNAT l'intervallo di indirizzi IP pubblici.
 
 ## <a name="configure-snat-private-ip-address-ranges"></a>Configurare gli intervalli di indirizzi IP privati SNAT
 
-È possibile usare Azure PowerShell per specificare un intervallo di indirizzi IP che il firewall non sverrà.
+È possibile usare Azure PowerShell per specificare un intervallo di indirizzi IP che il firewall non SNAT.
 
 ### <a name="new-firewall"></a>Nuovo firewall
 
-Per un nuovo firewall, il comando di Azure PowerShell è:For a new firewall, the Azure PowerShell command is:
+Per un nuovo firewall, il Azure PowerShell comando è:
 
 `New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
 
 > [!NOTE]
-> IANAPrivateRanges viene espanso ai valori predefiniti correnti in Firewall di Azure mentre gli altri intervalli vengono aggiunti ad esso.
+> IANAPrivateRanges viene espansa alle impostazioni predefinite correnti nel firewall di Azure mentre gli altri intervalli vengono aggiunti.
 
 Per ulteriori informazioni, vedere [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 
 ### <a name="existing-firewall"></a>Firewall esistente
 
-Per configurare un firewall esistente, usare i comandi di Azure PowerShell seguenti:To configure an existing firewall, use the following Azure PowerShell commands:
+Per configurare un firewall esistente, usare i comandi Azure PowerShell seguenti:
 
 ```azurepowershell
 $azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
@@ -47,7 +47,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ### <a name="templates"></a>Modelli
 
-È possibile aggiungere quanto `additionalProperties` segue alla sezione:
+È possibile aggiungere quanto segue alla `additionalProperties` sezione:
 
 ```
 "additionalProperties": {

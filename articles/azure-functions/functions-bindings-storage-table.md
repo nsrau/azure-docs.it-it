@@ -26,7 +26,7 @@ Le associazioni di archiviazione tabelle sono incluse nel pacchetto NuGet [Micro
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pacchetti - Funzioni 2.x e successive
+## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
 Le associazioni di archiviazione tabelle sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables).
 
@@ -36,7 +36,7 @@ Le associazioni di archiviazione tabelle sono incluse nel pacchetto NuGet [Micro
 
 Usare l'associazione di input dell'archiviazione tabelle di Azure per leggere una tabella in un account di archiviazione di Azure.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>Un'entità
 
@@ -67,7 +67,7 @@ public class TableStorage
 
 ### <a name="iqueryable"></a>IQueryable
 
-Nell'esempio riportato di seguito viene illustrata `MyPoco` una funzione `TableEntity` [di C,](functions-dotnet-class-library.md) che legge più righe di tabella in cui la classe deriva da .
+Nell'esempio seguente viene illustrata una [funzione C#](functions-dotnet-class-library.md) che legge più righe della `MyPoco` tabella in cui la `TableEntity`classe deriva da.
 
 ```csharp
 public class TableStorage
@@ -93,7 +93,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Ecco un esempio di una funzione che esegue una query su una tabella di log di Funzioni di Azure:Here's an example of a function that queries an Azure Functions log table:
+Il metodo `IQueryable` non è supportato nel [runtime di Funzioni v2](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione che esegue una query su una tabella del log di funzioni di Azure:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -248,7 +248,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`non è supportato nel runtime di Funzioni per le [versioni 2.x e successive)](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Ecco un esempio di una funzione che esegue una query su una tabella di log di Funzioni di Azure:Here's an example of a function that queries an Azure Functions log table:
+`IQueryable`non è supportato nel runtime di funzioni per le [versioni 2. x e successive](functions-versions.md). In alternativa, è possibile usare un parametro del metodo `CloudTable` per leggere la tabella tramite Azure Storage SDK. Di seguito è riportato un esempio di una funzione che esegue una query su una tabella del log di funzioni di Azure:
 
 ```json
 {
@@ -354,7 +354,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Riga di tabella singola 
+Riga singola tabella 
 
 ```json
 {
@@ -403,7 +403,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nell'esempio seguente viene illustrata una funzione attivata HTTP che restituisce un elenco di oggetti person che si trovano in una partizione specificata nell'archivio tabelle. Nell'esempio, la chiave di partizione viene estratta dalla route http e tableName e connection provengono dalle impostazioni della funzione. 
+Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che restituisce un elenco di oggetti Person presenti in una partizione specificata nell'archivio tabelle. Nell'esempio, la chiave di partizione viene estratta dalla Route http e il TableName e la connessione provengono dalle impostazioni della funzione. 
 
 ```java
 public class Person {
@@ -432,7 +432,7 @@ public Person[] get(
 }
 ```
 
-L'annotazione TableInput può anche estrarre le associazioni dal corpo json della richiesta, come illustrato nell'esempio seguente.
+L'annotazione TableInput può anche estrarre i binding dal corpo JSON della richiesta, come illustrato nell'esempio seguente.
 
 ```java
 @FunctionName("GetPersonsByKeysFromRequest")
@@ -472,15 +472,15 @@ public Person[] get(
 
 ---
 
-## <a name="input---attributes-and-annotations"></a>Input - attributi e annotazioni
+## <a name="input---attributes-and-annotations"></a>Input-attributi e annotazioni
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
  Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attributi seguenti per configurare un'associazione di input per la tabella:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
-  Il costruttore dell'attributo accetta il nome della tabella, una chiave di partizione e una chiave di riga. L'attributo può `out` essere utilizzato su un parametro o sul valore restituito della funzione, come illustrato nell'esempio seguente:
+  Il costruttore dell'attributo accetta il nome della tabella, una chiave di partizione e una chiave di riga. L'attributo può essere usato su un `out` parametro o sul valore restituito della funzione, come illustrato nell'esempio seguente:
 
   ```csharp
   [FunctionName("TableInput")]
@@ -534,7 +534,7 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script di C.
+Gli attributi non sono supportati dallo script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -552,27 +552,27 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 ## <a name="input---configuration"></a>Input - configurazione
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Table` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `Table` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
-|**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
+|**direzione** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
 |**name** | n/d | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
-|**Tablename** | **Tablename** | Nome della tabella.| 
-|**partitionKey (chiave)** | **PartitionKey** |Facoltativa. Chiave di partizione dell'entità della tabella da leggere. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
-|**rowKey (chiave di riga)** |**RowKey** | Facoltativa. Chiave di riga dell'entità della tabella da leggere. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
-|**take** |**Prendere** | Facoltativa. Numero massimo di entità da leggere in JavaScript. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
-|**ﬁltro** |**Filtro** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Vedere la sezione [relativa all'utilizzo](#input---usage) per istruzioni su come utilizzare questa proprietà.| 
-|**Connessione** |**Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. L'impostazione può essere il nome di un'impostazione dell'app con prefisso "AzureWebJobs" o il nome della stringa di connessione. Ad esempio, se il nome dell'impostazione è "AzureWebJobsMyStorage", è possibile specificare "MyStorage" qui. Il runtime di Funzioni cercherà automaticamente un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**tableName** | **TableName** | Nome della tabella.| 
+|**partitionKey** | **PartitionKey** |Facoltativo. Chiave di partizione dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**rowKey** |**RowKey** | Facoltativo. Chiave di riga dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**take** |**Prendere** | Facoltativo. Numero massimo di entità da leggere in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**filtro** |**Filter** | Facoltativo. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**connection** |**Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. L'impostazione può essere il nome di un'impostazione dell'app con prefisso "AzureWebJobs" o di una stringa di connessione. Ad esempio, se il nome dell'impostazione è "AzureWebJobsMyStorage", è possibile specificare "Storage" qui. Il runtime di funzioni cercherà automaticamente un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Input - uso
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-* **Leggere una riga in**
+* **Leggi una riga in**
 
   Impostare `partitionKey` e `rowKey`. Accedere ai dati della tabella con un parametro di metodo `T <paramName>`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. `T` in genere è un tipo che implementa `ITableEntity` o deriva da `TableEntity`. Le proprietà `filter` e `take` non vengono usate in questo scenario.
 
@@ -585,7 +585,7 @@ Nella tabella seguente vengono illustrate le proprietà di configurazione dell'a
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-* **Leggere una riga in**
+* **Leggi una riga in**
 
   Impostare `partitionKey` e `rowKey`. Accedere ai dati della tabella con un parametro di metodo `T <paramName>`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. `T` in genere è un tipo che implementa `ITableEntity` o deriva da `TableEntity`. Le proprietà `filter` e `take` non vengono usate in questo scenario.
 
@@ -602,7 +602,7 @@ Impostare le proprietà `filter` e `take`. Non impostare `partitionKey` o `rowKe
 
 # <a name="python"></a>[Python](#tab/python)
 
-I dati della tabella vengono passati alla funzione come stringa JSON. Deserializzare il messaggio `json.loads` chiamando come illustrato nell'esempio di input . [example](#input)
+I dati della tabella vengono passati alla funzione come stringa JSON. Deserializzare il messaggio chiamando `json.loads` come illustrato nell' [esempio](#input)di input.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -617,7 +617,7 @@ Usare un'associazione di output dell'archiviazione tabelle di Azure per scrivere
 > [!NOTE]
 > L'associazione di output non supporta l'aggiornamento di entità esistenti. Per aggiornare un'entità esistente, usare l'operazione `TableOperation.Replace`[da Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente illustra una [funzione C# ](functions-dotnet-class-library.md) che usa un trigger HTTP per scrivere una singola riga della tabella. 
 
@@ -745,7 +745,7 @@ module.exports = function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrato come utilizzare l'associazione di output di archiviazione Table.The following example demonstrates how to use the Table storage output binding. `table` L'associazione viene configurata in *function.json* `partitionKey`assegnando `connection`valori a `name`, `tableName`, e :
+Nell'esempio seguente viene illustrato come utilizzare l'associazione di output dell'archiviazione tabelle. L' `table` associazione viene configurata in *Function. JSON* assegnando valori a `name`, `tableName`, `partitionKey`e `connection`:
 
 ```json
 {
@@ -778,7 +778,7 @@ Nell'esempio seguente viene illustrato come utilizzare l'associazione di output 
 }
 ```
 
-La funzione seguente genera un'interfaccia utente univoca per il `rowKey` valore e rende persistente il messaggio nell'archivio tabelle.
+La funzione seguente genera una UUI univoca per `rowKey` il valore e Salva in modo permanente il messaggio nell'archivio tabelle.
 
 ```python
 import logging
@@ -804,7 +804,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nell'esempio seguente viene illustrata una funzione Java che utilizza un trigger HTTP per scrivere una singola riga di tabella.
+Nell'esempio seguente viene illustrata una funzione Java che usa un trigger HTTP per scrivere una singola riga di tabella.
 
 ```java
 public class Person {
@@ -845,7 +845,7 @@ public class AddPerson {
 }
 ```
 
-Nell'esempio seguente viene illustrata una funzione Java che utilizza un trigger HTTP per scrivere più righe di tabella.
+Nell'esempio seguente viene illustrata una funzione Java che usa un trigger HTTP per scrivere più righe di tabella.
 
 ```java
 public class Person {
@@ -881,13 +881,13 @@ public class AddPersons {
 
 ---
 
-## <a name="output---attributes-and-annotations"></a>Output - attributi e annotazioni
+## <a name="output---attributes-and-annotations"></a>Output-attributi e annotazioni
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
-Il costruttore dell'attributo accetta il nome della tabella. L'attributo può `out` essere utilizzato su un parametro o sul valore restituito della funzione, come illustrato nell'esempio seguente:
+Il costruttore dell'attributo accetta il nome della tabella. L'attributo può essere usato su un `out` parametro o sul valore restituito della funzione, come illustrato nell'esempio seguente:
 
 ```csharp
 [FunctionName("TableOutput")]
@@ -919,7 +919,7 @@ Per un esempio completo, vedere [Output - esempio in C#](#output).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script di C.
+Gli attributi non sono supportati dallo script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -931,61 +931,61 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nella [libreria](/java/api/overview/azure/functions/runtime)di runtime delle funzioni Java utilizzare l'annotazione [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) sui parametri per scrivere valori nell'archiviazione tabelle.
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime)usare l'annotazione [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) sui parametri per scrivere i valori nell'archivio tabelle.
 
-Vedere [l'esempio per ulteriori dettagli](#output).
+[Per altri dettagli](#output), vedere l'esempio.
 
 ---
 
 ## <a name="output---configuration"></a>Output - configurazione
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Table` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `Table` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
-|**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
+|**direzione** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
 |**name** | n/d | Nome della variabile usato nel codice della funzione che rappresenta la tabella o l'entità. Impostare su `$return` per fare riferimento al valore restituito della funzione.| 
-|**Tablename** |**Tablename** | Nome della tabella.| 
-|**partitionKey (chiave)** |**PartitionKey** | Chiave di partizione dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
-|**rowKey (chiave di riga)** |**RowKey** | Chiave di riga dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
-|**Connessione** |**Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se `connection` si imposta "MyStorage", il runtime di Functions cerca un'impostazione dell'app denominata "MyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**tableName** |**TableName** | Nome della tabella.| 
+|**partitionKey** |**PartitionKey** | Chiave di partizione dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
+|**rowKey** |**RowKey** | Chiave di riga dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
+|**connection** |**Connessione** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Output - uso
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Accedere all'entità della tabella `ICollector<T> paramName` di `IAsyncCollector<T> paramName` `T` output `PartitionKey` utilizzando `RowKey` un parametro del metodo o se include le proprietà e . Queste proprietà sono spesso `ITableEntity` accompagnate `TableEntity`dall'implementazione o dall'ereditarietà di .
+Accedere all'entità della tabella di output usando un parametro `ICollector<T> paramName` del `IAsyncCollector<T> paramName` metodo `T` o dove `PartitionKey` include `RowKey` le proprietà e. Queste proprietà sono spesso associate all'implementazione `ITableEntity` o all'ereditarietà `TableEntity`.
 
-In alternativa, è `CloudTable` possibile usare un parametro del metodo per scrivere nella tabella usando Azure Storage SDK.Alternatively you can use a method parameter to write to the table by using the Azure Storage SDK. Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
+In alternativa, è possibile usare `CloudTable` un parametro di metodo per scrivere nella tabella tramite Azure Storage SDK. Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Accedere all'entità della tabella `ICollector<T> paramName` di `IAsyncCollector<T> paramName` `T` output `PartitionKey` utilizzando `RowKey` un parametro del metodo o se include le proprietà e . Queste proprietà sono spesso `ITableEntity` accompagnate `TableEntity`dall'implementazione o dall'ereditarietà di . Il `paramName` valore è `name` specificato nella proprietà di *function.json*.
+Accedere all'entità della tabella di output usando un parametro `ICollector<T> paramName` del `IAsyncCollector<T> paramName` metodo `T` o dove `PartitionKey` include `RowKey` le proprietà e. Queste proprietà sono spesso associate all'implementazione `ITableEntity` o all'ereditarietà `TableEntity`. Il `paramName` valore viene specificato nella `name` proprietà di *Function. JSON*.
 
-In alternativa, è `CloudTable` possibile usare un parametro del metodo per scrivere nella tabella usando Azure Storage SDK.Alternatively you can use a method parameter to write to the table by using the Azure Storage SDK. Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
+In alternativa, è possibile usare `CloudTable` un parametro di metodo per scrivere nella tabella tramite Azure Storage SDK. Se si prova a eseguire l'associazione a `CloudTable` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Accedere all'evento `context.bindings.<name>` di `<name>` output utilizzando where `name` è il valore specificato nella proprietà *di function.json*.
+Accedere all'evento di output usando `context.bindings.<name>` Where `<name>` è il valore specificato nella `name` proprietà di *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Sono disponibili due opzioni per l'output di un messaggio di riga di archiviazione Tabella da una funzione:There are two options for outputting a Table storage row message from a function:
+Sono disponibili due opzioni per l'output di un messaggio di riga di archiviazione tabelle da una funzione:
 
-- **Valore restituito**: `name` impostare la `$return`proprietà in *function.json su* . Con questa configurazione, il valore restituito della funzione viene mantenuto come riga di archiviazione Table.With this configuration, the function's return value is persisted as a Table storage row.
+- **Valore restituito**: impostare la `name` proprietà in *Function. JSON* su `$return`. Con questa configurazione, il valore restituito della funzione viene reso permanente come riga di archiviazione tabelle.
 
-- **Imperative**: Passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Il valore `set` passato a viene mantenuto come messaggio dell'Hub eventi.
+- **Imperativo**: passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . Il valore passato a `set` viene reso permanente come messaggio dell'hub eventi.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Sono disponibili due opzioni per l'output di una riga di archiviazione Table da una funzione tramite l'annotazione [TableStorageOutput:There](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) are two options for outputting a Table storage row from a function by using the TableStorageOutput annotation:
+Sono disponibili due opzioni per l'output di una riga di archiviazione tabelle da una funzione tramite l'annotazione [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) :
 
-- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene mantenuto come riga di archiviazione Table.
+- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come riga di archiviazione tabelle.
 
-- **Imperative**: per impostare in modo esplicito il valore [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)del `T` messaggio, applicare l'annotazione a un parametro specifico del tipo , in cui include le `PartitionKey` proprietà e `RowKey` . Queste proprietà sono spesso `ITableEntity` accompagnate `TableEntity`dall'implementazione o dall'ereditarietà di .
+- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)a un `T` parametro specifico `PartitionKey` del `RowKey` tipo, dove include le proprietà e. Queste proprietà sono spesso associate all'implementazione `ITableEntity` o all'ereditarietà `TableEntity`.
 
 ---
 

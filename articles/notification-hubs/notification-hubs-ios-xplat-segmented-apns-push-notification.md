@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push a dispositivi iOS specifici usando Hub di notifica di Azure. Documenti Microsoft
+title: Inviare notifiche push a dispositivi iOS specifici usando hub di notifica di Azure | Microsoft Docs
 description: In questa esercitazione si apprende come usare Hub di notifica di Azure per inviare notifiche push a dispositivi iOS specifici.
 services: notification-hubs
 documentationcenter: ios
@@ -23,7 +23,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80126986"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a dispositivi iOS specifici usando Hub di notifica di AzureTutorial: Send push notifications to specific iOS devices using Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push a dispositivi iOS specifici usando hub di notifica di Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -159,7 +159,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 9. Nel metodo `didRegisterForRemoteNotificationsWithDeviceToken` in `AppDelegate.m` sostituire il codice nel metodo con il codice seguente per passare il token del dispositivo alla classe `notifications`. La classe `notifications` esegue la registrazione per le notifiche con le categorie. Se l'utente modifica le selezioni delle categorie, chiamare il metodo `subscribeWithCategories` in risposta al pulsante **sottoscrizione** per aggiornarle.
 
     > [!NOTE]
-    > Poiché il token del dispositivo assegnato da Apple Push Notification Service (APNS) può cambiare in qualsiasi momento, è necessario eseguire la registrazione frequente per le notifiche per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
+    > Poiché il token del dispositivo assegnato dalla Apple Push Notification Service (APNS) può cambiare in qualsiasi momento, è necessario registrarsi spesso per le notifiche per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -371,4 +371,4 @@ In questa esercitazione sono state inviate notifiche di trasmissione ai disposit
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

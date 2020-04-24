@@ -1,5 +1,5 @@
 ---
-title: Funzioni modello - numeriche
+title: Funzioni di modello-numeric
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
 ms.topic: conceptual
 ms.date: 11/08/2017
@@ -12,24 +12,24 @@ ms.locfileid: "80156345"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funzioni numeriche per i modelli ARM
 
-Resource Manager offre le funzioni seguenti per l'uso di numeri interi nel modello di Azure Resource Manager (ARM):
+Gestione risorse fornisce le funzioni seguenti per l'utilizzo di numeri interi nel modello di Azure Resource Manager (ARM):
 
-* [aggiungi](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
-* [Galleggiante](#float)
-* [Int](#int)
-* [Massimo](#max)
-* [Minimo](#min)
-* [Mod](#mod)
-* [mul](#mul)
+* [float](#float)
+* [int](#int)
+* [max](#max)
+* [min](#min)
+* [mod](#mod)
+* [Mul](#mul)
 * [Sub](#sub)
 
 <a id="add" />
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="add"></a>add
+## <a name="add"></a>aggiungi
 `add(operand1, operand2)`
 
 Restituisce la somma dei due numeri interi forniti.
@@ -649,8 +649,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
-* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
-* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
-* Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con](deploy-powershell.md)il modello di Azure Resource Manager.To see how to deploy the template you have created, see Deploy an application with Azure Resource Manager template.
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [creazione di modelli di Azure Resource Manager](template-syntax.md).
+* Per unire più modelli, vedere [uso di modelli collegati con Azure Resource Manager](linked-templates.md).
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
+* Per informazioni su come distribuire il modello creato, vedere [distribuire un'applicazione con Azure Resource Manager modello](deploy-powershell.md).
 

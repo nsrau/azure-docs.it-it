@@ -31,7 +31,7 @@ Tutti i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) s
 - Il ruolo predefinito [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator) è supportato, ma solo per lo scopo limitato di [assegnazione di ruoli a un'identità gestita nel tenant del cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Non verranno applicate altre autorizzazioni generalmente concesse da questo ruolo. Se si definisce un utente con questo ruolo, è necessario specificare anche uno o più ruoli predefiniti che possono essere assegnati da questo utente alle identità gestite.
 
 > [!NOTE]
-> Dopo aver aggiunto un nuovo ruolo predefinito applicabile ad Azure, è possibile assegnarlo durante l'onboarding di un cliente tramite i modelli di Azure Resource Manager.Once an applicable new built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). Potrebbe verificarsi un ritardo prima che il ruolo appena aggiunto diventi disponibile nel portale Cloud Partner quando [si pubblica un'offerta](../how-to/publish-managed-services-offers.md)di servizio gestito .
+> Una volta aggiunto in Azure un nuovo ruolo incorporato applicabile, è possibile assegnarlo durante l' [onboarding di un cliente usando Azure Resource Manager modelli](../how-to/onboard-customer.md). È possibile che si verifichi un ritardo prima che il ruolo appena aggiunto diventi disponibile in portale Cloud Partner durante la [pubblicazione di un'offerta di servizio gestito](../how-to/publish-managed-services-offers.md).
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Procedure consigliate per la definizione di utenti e ruoli
 
@@ -43,7 +43,7 @@ Quando si creano le autorizzazioni, è consigliabile attenersi alle procedure co
 - Assicurarsi che tutti gli utenti che devono [visualizzare la pagina Clienti personali nel portale di Azure](../how-to/view-manage-customers.md) dispongano del ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) o di un altro ruolo predefinito che include l'accesso in lettura.
 
 > [!IMPORTANT]
-> Per aggiungere autorizzazioni per un gruppo di Azure AD, il tipo di **gruppo** deve essere **Sicurezza** e non **Office 365.** Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere **sicurezza** e non **Office 365**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Implementare una soluzione con distribuzione geograficaImplement a geo-distributed solution
+title: Implementare una soluzione con distribuzione geografica
 description: Informazioni su come configurare il database SQL di Azure e l'applicazione per il failover in un database replicato e su come testare un failover.
 services: sql-database
 ms.service: sql-database
@@ -23,7 +23,7 @@ ms.locfileid: "80067298"
 Questa esercitazione mostra come configurare un database SQL di Azure e l'applicazione per il failover in un'area remota e come testare un piano di failover. Si apprenderà come:
 
 > [!div class="checklist"]
-> - Creare un [gruppo di failoverCreate a failover group](sql-database-auto-failover-group.md)
+> - Creazione di un [gruppo di failover](sql-database-auto-failover-group.md)
 > - Usare un'applicazione Java per eseguire query su un database SQL di Azure
 > - Failover di test
 
@@ -34,15 +34,15 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo di PowerShell Azure Resource Manager è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Per questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per completare l'esercitazione, verificare di avere installato i componenti seguenti:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Un singolo database nel database SQL di Azure.A single database in Azure SQL Database. Per crearne uno, usare:
+- Un database singolo nel database SQL di Azure. Per crearne uno, usare:
   - [Portale](sql-database-single-database-get-started.md)
-  - [Cli](sql-database-cli-samples.md)
-  - [Powershell](sql-database-powershell-samples.md)
+  - [CLI](sql-database-cli-samples.md)
+  - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
   > In questa esercitazione viene usato il database di esempio *AdventureWorksLT*.
@@ -52,13 +52,13 @@ Per completare l'esercitazione, verificare di avere installato i componenti segu
 > [!IMPORTANT]
 > Assicurarsi di configurare le regole del firewall in modo da usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi dell'esercitazione. Le regole del firewall a livello di database verranno replicate automaticamente nel server secondario.
 >
-> Per informazioni, vedere [Creare una regola firewall](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) a livello di database o per determinare l'indirizzo IP utilizzato per la regola del firewall a livello di server per il computer, vedere Creare un firewall a livello di [server.](sql-database-server-level-firewall-rule.md)  
+> Per informazioni, vedere creare una [regola del firewall a livello di database](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) o per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il computer, vedere [creare un firewall a livello di server](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Creare un gruppo di failover
 
 Usando Azure PowerShell, creare [gruppi di failover](sql-database-auto-failover-group.md) tra un server SQL di Azure esistente e un nuovo server SQL di Azure in un'altra area. Aggiungere quindi il database di esempio al gruppo di failover.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -90,10 +90,10 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
-> Eseguire `az login` per accedere ad Azure.Run to sign in to Azure.
+> Eseguire `az login` per accedere ad Azure.
 
 ```azurecli
 $admin = "<adminName>"
@@ -118,7 +118,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Le impostazioni di replica geografica possono essere modificate anche nel portale di Azure, selezionando il database, quindi La**replica geografica** **delle impostazioni** > .
+È anche possibile modificare le impostazioni di replica geografica nella portale di Azure, selezionando il database, quindi **Impostazioni** > **replica geografica**.
 
 ![Impostazioni di replica geografica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
@@ -138,7 +138,7 @@ Le impostazioni di replica geografica possono essere modificate anche nel portal
    cd SqlDbSample
    ```
 
-1. Utilizzando l'editor preferito, aprire il file *pom.xml* nella cartella del progetto.
+1. Usando l'editor preferito, aprire il file *POM. XML* nella cartella del progetto.
 
 1. Includere la dipendenza Microsoft JDBC Driver per SQL Server aggiungendo la sezione `dependency` seguente. La dipendenza deve essere incollata all'interno della sezione `dependencies` più estesa.
 
@@ -288,7 +288,7 @@ Le impostazioni di replica geografica possono essere modificate anche nel portal
    }
    ```
 
-1. Salvare e chiudere il file *App.java.*
+1. Salvare e chiudere il file *app. Java* .
 
 1. Nella console dei comandi eseguire il comando seguente:
 
@@ -317,7 +317,7 @@ Le impostazioni di replica geografica possono essere modificate anche nel portal
 
 Eseguire gli script seguenti per simulare un failover e osservare i risultati dell'applicazione. Si noti come alcune operazioni di inserimento e selezione avranno esito negativo durante la migrazione del database.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 È possibile controllare il ruolo del server di ripristino di emergenza durante il test con il comando seguente:
 
@@ -342,7 +342,7 @@ Per testare un failover:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile controllare il ruolo del server di ripristino di emergenza durante il test con il comando seguente:
 
@@ -378,4 +378,4 @@ In questa esercitazione sono stati configurati un database SQL di Azure e un'app
 Passare all'esercitazione successiva per informazioni su come eseguire la migrazione con Servizio Migrazione del database.
 
 > [!div class="nextstepaction"]
-> [Eseguire la migrazione di SQL Server all'istanza gestita del database SQL di Azure tramite DMSMigrate SQL Server to Azure SQL database managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure con DMS](../dms/tutorial-sql-server-to-managed-instance.md)

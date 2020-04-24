@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Azure Multi-Factor AuthenticationAzure Multi-Factor Authentication overview
-description: Informazioni su come Azure Multi-Factor Authentication consente di proteggere l'accesso ai dati e alle applicazioni soddisfacendo al contempo la richiesta degli utenti di un semplice processo di accesso.
+title: Panoramica di Azure Multi-Factor Authentication
+description: Informazioni sul modo in cui Azure Multi-Factor Authentication aiuta a proteggere l'accesso ai dati e alle applicazioni, soddisfacendo al tempo stesso la richiesta di un processo di accesso semplice.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -36,34 +36,34 @@ Gli utenti possono registrarsi per la reimpostazione della password self-service
 
 ![Metodi di autenticazione in uso nella schermata di accesso](media/concept-authentication-methods/overview-login.png)
 
-Azure Multi-Factor Authentication consente di proteggere l'accesso ai dati e alle applicazioni, mantenendo la semplicità per gli utenti. Offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata tramite una gamma di [metodi di autenticazione semplici](concept-authentication-methods.md). Gli utenti possono o meno visualizzare una richiesta di autenticazione MFA in base alle decisioni di configurazione prese da un amministratore.
+Azure Multi-Factor Authentication aiuta a proteggere l'accesso ai dati e alle applicazioni mantenendo la semplicità per gli utenti. Offre ulteriore sicurezza richiedendo una seconda forma di autenticazione nonché un'autenticazione avanzata tramite una gamma di [metodi di autenticazione semplici](concept-authentication-methods.md). Gli utenti possono o meno visualizzare una richiesta di autenticazione MFA in base alle decisioni di configurazione prese da un amministratore.
 
-Le applicazioni o i servizi non devono apportare modifiche per usare Azure Multi-Factor Authentication.Your applications or services don't need to make any changes to use Azure Multi-Factor Authentication. Le richieste di verifica fanno parte dell'evento di accesso di Azure AD, che richiede ed elabora automaticamente la richiesta di autenticazione a più fattori quando necessario.
+Le applicazioni o i servizi non devono apportare modifiche per l'uso di Azure Multi-Factor Authentication. I prompt di verifica fanno parte dell'evento di accesso Azure AD, che richiede ed elabora automaticamente la richiesta di autenticazione a più fattori quando necessario.
 
 ## <a name="available-verification-methods"></a>Metodi di verifica disponibili
 
-Quando un utente accede a un'applicazione o un servizio e riceve un prompt di autenticazione a più fattori, può scegliere tra una delle forme registrate di verifica aggiuntiva. Un amministratore potrebbe richiedere la registrazione di questi metodi di verifica di Azure Multi-Factor Authentication oppure l'utente può accedere al proprio [profilo personale](https://myprofile.microsoft.com) per modificare o aggiungere metodi di verifica.
+Quando un utente accede a un'applicazione o a un servizio e riceve una richiesta di autenticazione a più fattori, può scegliere una delle forme registrate di verifica aggiuntiva. Un amministratore potrebbe richiedere la registrazione di questi metodi di verifica Multi-Factor Authentication di Azure oppure l'utente può accedere al proprio [profilo](https://myprofile.microsoft.com) personale per modificare o aggiungere metodi di verifica.
 
-Con Azure Multi-Factor Authentication è possibile usare le forme aggiuntive seguenti di verifica:The following additional forms of verification can be used with Azure Multi-Factor Authentication:
+Con Multi-Factor Authentication di Azure è possibile usare le seguenti forme di verifica aggiuntive:
 
 * App Microsoft Authenticator
 * Token hardware OATH
 * sms
 * Chiamata vocale
 
-## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Come abilitare e usare Azure Multi-Factor AuthenticationHow to enable and use Azure Multi-Factor Authentication
+## <a name="how-to-enable-and-use-azure-multi-factor-authentication"></a>Come abilitare e usare Azure Multi-Factor Authentication
 
-Gli utenti e i gruppi possono essere abilitati per Azure Multi-Factor Authentication per richiedere ulteriore verifica durante l'evento di accesso. [Le impostazioni predefinite](../fundamentals/concept-fundamentals-security-defaults.md) di sicurezza sono disponibili per tutti i tenant di Azure AD per abilitare rapidamente l'uso dell'app Microsoft Authenticator per tutti gli utenti.
+Utenti e gruppi possono essere abilitati per Multi-Factor Authentication di Azure per richiedere una verifica aggiuntiva durante l'evento di accesso. Le [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md) sono disponibili per tutti i tenant Azure ad per consentire rapidamente l'uso dell'app Microsoft Authenticator per tutti gli utenti.
 
-Per controlli più granulari, i criteri [di accesso condizionale](../conditional-access/overview.md) possono essere usati per definire eventi o applicazioni che richiedono l'autenticazione a più fattori. Questi criteri possono consentire eventi di accesso regolari quando l'utente si trova nella rete aziendale o in un dispositivo registrato, ma richiedono fattori di verifica aggiuntivi in remoto o su un dispositivo personale.
+Per controlli più granulari, è possibile usare i criteri di [accesso condizionale](../conditional-access/overview.md) per definire eventi o applicazioni che richiedono l'autenticazione a più fattori. Questi criteri possono consentire eventi di accesso regolari quando l'utente si trova nella rete aziendale o in un dispositivo registrato, ma richiede altri fattori di verifica quando è remoto o in un dispositivo personale.
 
 ![Diagramma della panoramica del funzionamento dell'accesso condizionale per proteggere il processo di accesso](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle licenze, vedere [Funzionalità e licenze per Azure Multi-Factor Authentication.](concept-mfa-licensing.md)
+Per informazioni sulle licenze, vedere [funzionalità e licenze per Azure multi-factor authentication](concept-mfa-licensing.md).
 
-Per vedere MFA in azione, abilitare Azure Multi-Factor Authentication per un set di utenti di test nell'esercitazione seguente:To see MFA in action, enable Azure Multi-Factor Authentication for a set of test users in the following tutorial:
+Per vedere l'autenticazione a più fattori in azione, abilitare Multi-Factor Authentication di Azure per un set di utenti di test nell'esercitazione seguente:
 
 > [!div class="nextstepaction"]
 > [Abilitare Azure Multi-Factor Authentication](tutorial-mfa-applications.md)

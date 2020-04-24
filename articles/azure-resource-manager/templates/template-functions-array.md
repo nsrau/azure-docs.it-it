@@ -1,5 +1,5 @@
 ---
-title: Funzioni modello - matrici e oggetti
+title: Funzioni di modello-matrici e oggetti
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager per l'uso di matrici e oggetti.
 ms.topic: conceptual
 ms.date: 07/31/2019
@@ -10,25 +10,25 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80156376"
 ---
-# <a name="array-and-object-functions-for-arm-templates"></a>Funzioni di matrici e oggetti per i modelli ARM
+# <a name="array-and-object-functions-for-arm-templates"></a>Funzioni di matrice e oggetto per i modelli ARM
 
-Resource Manager offre diverse funzioni per l'uso di matrici e oggetti nel modello di Azure Resource Manager (ARM).
+Gestione risorse offre diverse funzioni per l'uso di matrici e oggetti nel modello di Azure Resource Manager (ARM).
 
-* [Matrice](#array)
-* [coalesce](#coalesce)
-* [concat](#concat)
-* [Contiene](#contains)
-* [createArray (matrice)](#createarray)
-* [Vuoto](#empty)
-* [Prima](#first)
-* [Intersezione](#intersection)
-* [Json](#json)
+* [array](#array)
+* [COALESCE](#coalesce)
+* [Concat](#concat)
+* [contiene](#contains)
+* [Funzione CreateArray](#createarray)
+* [vuoto](#empty)
+* [prima](#first)
+* [intersezione](#intersection)
+* [JSON](#json)
 * [Ultima](#last)
 * [length](#length)
-* [Massimo](#max)
-* [Minimo](#min)
-* [Gamma](#range)
-* [skip](#skip)
+* [max](#max)
+* [min](#min)
+* [intervallo](#range)
+* [ignorare](#skip)
 * [take](#take)
 * [Unione](#union)
 
@@ -211,7 +211,7 @@ Combina più matrici e restituisce la matrice concatenata oppure combina più va
 | arg1 |Sì |stringa o matrice |La prima matrice o stringa per la concatenazione. |
 | argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
 
-Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire matrici e stringhe per i parametri. Le matrici vengono concatenate solo con altre matrici.
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire sia matrici che stringhe per i parametri. Le matrici sono concatenate solo con altre matrici.
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -844,13 +844,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 `length(arg1)`
 
-Restituisce il numero di elementi in una matrice, i caratteri in una stringa o le proprietà a livello di radice in un oggetto.
+Restituisce il numero di elementi in una matrice, i caratteri di una stringa o le proprietà a livello di radice in un oggetto.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice, stringa o oggetto |Matrice da utilizzare per ottenere il numero di elementi, la stringa da utilizzare per ottenere il numero di caratteri o l'oggetto da utilizzare per ottenere il numero di proprietà a livello di radice. |
+| arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -914,7 +914,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
-| objectLength (Lunghezza oggetto) | Int | 4 |
+| objectLength | Int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1368,8 +1368,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
-* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
-* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
-* Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con](deploy-powershell.md)il modello di Azure Resource Manager.To see how to deploy the template you have created, see Deploy an application with Azure Resource Manager template.
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [creazione di modelli di Azure Resource Manager](template-syntax.md).
+* Per unire più modelli, vedere [uso di modelli collegati con Azure Resource Manager](linked-templates.md).
+* Per eseguire l'iterazione di un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
+* Per informazioni su come distribuire il modello creato, vedere [distribuire un'applicazione con Azure Resource Manager modello](deploy-powershell.md).
 

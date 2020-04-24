@@ -1,6 +1,6 @@
 ---
-title: "Configurare l'autenticazione di Azure AD per la connessione VPN utente: WAN virtualeConfigure Azure AD authentication for User VPN connection: Virtual WAN"
-description: Informazioni su come configurare l'autenticazione di Azure Active Directory per la VPN utente.
+title: 'Configurare Azure AD autenticazione per la connessione VPN utente: rete WAN virtuale'
+description: Informazioni su come configurare l'autenticazione Azure Active Directory per la VPN utente.
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
@@ -14,11 +14,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80059496"
 ---
-# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione di Azure Active Directory per la VPN utenteConfigure Azure Active Directory authentication for User VPN
+# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
 
-Questo articolo illustra come configurare l'autenticazione di Azure AD per la VPN utente nella rete WAN virtuale per connettersi alle risorse in Azure tramite una connessione VPN OpenVPN.This article shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. L'autenticazione di Azure Active Directory è disponibile solo per i gateway che usano il protocollo OpenVPN e i client che eseguono Windows.
+Questo articolo illustra come configurare l'autenticazione Azure AD per la VPN utente in una rete WAN virtuale per la connessione alle risorse in Azure tramite una connessione VPN OpenVPN. L'autenticazione di Azure Active Directory è disponibile solo per i gateway che usano il protocollo OpenVPN e i client che eseguono Windows.
 
-Questo tipo di connessione richiede la configurazione di un client nel computer client. Per ulteriori informazioni sulla rete WAN virtuale, vedere [Panoramica](virtual-wan-about.md)della rete WAN virtuale .
+Questo tipo di connessione richiede la configurazione di un client nel computer client. Per ulteriori informazioni sulla rete WAN virtuale, vedere [Panoramica di WAN virtuale](virtual-wan-about.md).
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -44,7 +44,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 * Ottenere un intervallo di indirizzi IP per l'area dell'hub. L'hub è una rete virtuale che viene creata e usata dalla rete WAN virtuale. L'intervallo di indirizzi specificati per l'hub non può sovrapporsi ad alcuna delle reti virtuali esistenti a cui ci si connette. Inoltre non può sovrapporsi agli intervalli di indirizzi a cui ci si connette in locale. Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, coordinarsi con qualcuno che possa fornire tali dettagli.
 
-* Se non si dispone di una sottoscrizione di Azure, creare un [account gratuito.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Creare una rete WAN virtuale
 
@@ -57,10 +57,10 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    ![Rete WAN virtuale](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
 
    * **Sottoscrizione** - Selezionare la sottoscrizione che si vuole usare.
-   * **Gruppo di risorse:** crearne uno nuovo o usarne uno esistente.
+   * **Gruppo di risorse** : Crea nuovo o Usa esistente.
    * **Posizione gruppo di risorse** - Scegliere una posizione per le risorse nell'elenco a discesa. Una rete WAN è una risorsa globale e non si trova in un'area specifica. Tuttavia, è necessario selezionare un'area per poter gestire e individuare più facilmente la risorsa WAN creata.
    * **Nome** - Digitare il nome che si vuole usare per la rete WAN.
-   * **Tipologia:** Standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
+   * **Tipo:** Standard. Con la creazione di una rete WAN di base è possibile creare solo un hub di base. Gli hub di base possono supportare solo la connettività VPN da sito a sito.
 4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
 5. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
 
@@ -78,7 +78,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    **Spazio di indirizzi privato dell'hub**: intervallo di indirizzi dell'hub nella notazione CIDR.
 
    ![nuovo sito](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
-3. Fare clic su **Revisione e creazione**.
+3. Fare clic su **Rivedi e crea**.
 4. Nella pagina **Convalida superata** fare clic su **Crea**.
 
 ## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Creare una nuova configurazione da punto a sito
@@ -108,7 +108,7 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
    ![nuovo sito](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
 5. Immettere il **Pool di indirizzi** da cui gli indirizzi IP verranno assegnati ai client VPN.
-6. Fare clic su **Conferma**.
+6. Fare clic su **conferma**.
 7. Il completamento dell'operazione potrà richiedere fino a 30 minuti.
 
 ## <a name="download-vpn-profile"></a><a name="device"></a>Scaricare il profilo VPN
@@ -125,7 +125,7 @@ Usare il profilo VPN per configurare i client.
 Per connettersi, è necessario scaricare il client VPN di Azure e importare il profilo client VPN scaricato nei passaggi precedenti in ogni computer che dovrà connettersi alla rete virtuale.
 
 > [!NOTE]
-> L'autenticazione di Azure&reg; AD è supportata solo per le connessioni di protocollo OpenVPN.Azure AD authentication is supported only for OpenVPN protocol connections.
+> Azure AD autenticazione è supportata solo per le&reg; connessioni di protocollo OpenVPN.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Per scaricare il client VPN di Azure
@@ -158,29 +158,29 @@ Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![Elimina](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![Elimina](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticare i problemi di connessione
 
 1. Per diagnosticare i problemi di connessione, è possibile usare lo strumento **Diagnosi**. Selezionare i puntini di sospensione (...) accanto alla connessione VPN che si vuole diagnosticare per visualizzare il menu. Selezionare quindi **Diagnosi**.
 
-    ![diagnosi](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
+    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
 2. Nella pagina **Proprietà connessione** selezionare **Esegui diagnosi**.
 
-    ![diagnosi](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
+    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 
 3. Accedere con le credenziali personali.
 
-    ![diagnosi](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
+    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
 
 4. Visualizzare i risultati della diagnosi.
 
-    ![diagnosi](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
+    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Visualizzare la rete WAN virtuale
 

@@ -16,37 +16,37 @@ ms.locfileid: "80065923"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
-Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il portale di Azure offre una visualizzazione aggregata di queste metriche. È anche possibile visualizzare le metriche di Azure Cosmos DB nell'API di Monitoraggio di Azure. Per altre informazioni su come visualizzare le metriche dal monitoraggio di Azure, vedere l'articolo [Ottenere metriche da Monitoraggio di Azure.To](cosmos-db-azure-monitor-metrics.md) learn about how to view metrics from Azure monitor, see the Get metrics from Azure Monitor article. 
+Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il portale di Azure offre una visualizzazione aggregata di queste metriche. È anche possibile visualizzare le metriche di Azure Cosmos DB nell'API di Monitoraggio di Azure. Per informazioni su come visualizzare le metriche da monitoraggio di Azure, vedere l'articolo [ottenere le metriche da monitoraggio](cosmos-db-azure-monitor-metrics.md) di Azure. 
 
 Questo articolo illustra dettagliatamente i casi d'uso comuni e come usare le metriche di Azure Cosmos DB per analizzare ed eseguire il debug di questi problemi. Le metriche vengono raccolte ogni cinque minuti e vengono conservate per sette giorni.
 
-## <a name="view-metrics-from-azure-portal"></a>Visualizzare le metriche dal portale di AzureView metrics from Azure portal
+## <a name="view-metrics-from-azure-portal"></a>Visualizzare le metriche da portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
-1. Aprire il riquadro **Metriche.** Per impostazione predefinita, il riquadro delle metriche mostra le metriche di archiviazione, indice e unità richiesta per tutti i database nell'account Cosmos di Azure.By default, the metrics pane shows the storage, index, request units metrics for all the databases in your Azure Cosmos account. È possibile filtrare queste metriche per ogni database, contenitore o area. È inoltre possibile filtrare le metriche in base a una granularità temporale specifica. Ulteriori dettagli sulle metriche di velocità effettiva, archiviazione, disponibilità, latenza e coerenza vengono forniti in schede separate. 
+1. Aprire il riquadro **metrica** . Per impostazione predefinita, il riquadro metriche Mostra le metriche di archiviazione, indice, unità richiesta per tutti i database nell'account Azure Cosmos. È possibile filtrare queste metriche per database, contenitore o area. È anche possibile filtrare le metriche in base a una granularità temporale specifica. Altre informazioni sulle metriche di velocità effettiva, archiviazione, disponibilità, latenza e coerenza sono disponibili in schede separate. 
 
-   ![Metriche delle prestazioni di Cosmos DB nel portale di AzureCosmos DB performance metrics in Azure portal](./media/use-metrics/performance-metrics.png)
+   ![Cosmos DB le metriche delle prestazioni in portale di Azure](./media/use-metrics/performance-metrics.png)
 
-Nel riquadro **Metriche** sono disponibili le metriche seguenti:The following metrics are available from the Metrics pane: 
+Dal riquadro **metriche** sono disponibili le metriche seguenti: 
 
-* **Metriche della velocità effettiva:** questa metrica indica il numero di richieste utilizzate o non riuscite (codice di risposta 429) perché la velocità effettiva o la capacità di archiviazione di cui è stato eseguito il provisioning per il contenitore è stata superata.
+* **Metriche della velocità effettiva** : questa metrica indica il numero di richieste utilizzate o non riuscite (429 di codice di risposta) perché la velocità effettiva o la capacità di archiviazione di cui è stato effettuato il provisioning per il contenitore ha superato.
 
-* **Metriche di archiviazione:** questa metrica mostra le dimensioni dei dati e l'utilizzo dell'indice.
+* **Metriche di archiviazione** : questa metrica Mostra le dimensioni dei dati e l'utilizzo degli indici.
 
-* **Metriche di disponibilità:** questa metrica mostra la percentuale di richieste riuscite sul totale delle richieste all'ora. La percentuale di successo è definita dai contratti di gruppo di Azure Cosmos DB.
+* **Metriche di disponibilità** : questa metrica Mostra la percentuale di richieste riuscite sul totale delle richieste all'ora. La percentuale di esecuzioni riuscite è definita dalla Azure Cosmos DB contratti di contratto.
 
-* **Metriche di latenza:** questa metrica mostra la latenza di lettura e scrittura osservata da Azure Cosmos DB nell'area in cui opera l'account. È possibile visualizzare la latenza tra le aree per un account con replica geografica. Questa metrica non rappresenta la latenza delle richieste end-to-end.
+* **Metrica di latenza** : questa metrica Mostra la latenza di lettura e scrittura osservata da Azure Cosmos DB nell'area in cui l'account è operativo. È possibile visualizzare la latenza tra le aree per un account con replica geografica. Questa metrica non rappresenta la latenza della richiesta end-to-end.
 
-* **Metriche di coerenza:** questa metrica mostra come sia possibile la coerenza per il modello di coerenza scelto. Per gli account con più aree, questa metrica mostra anche la latenza di replica tra le aree selezionate.
+* **Metrica di coerenza** : questa metrica indica il modo in cui è possibile la coerenza del modello di coerenza scelto. Per gli account in più aree, questa metrica Mostra anche la latenza di replica tra le aree selezionate.
 
-* **Metriche di sistema:** questa metrica indica quante richieste di metadati vengono servite dalla partizione master. Aiuta anche a identificare le richieste limitate.
+* **Metriche di sistema** : questa metrica indica il numero di richieste di metadati gestite dalla partizione master. Consente inoltre di identificare le richieste limitate.
 
-Le sezioni seguenti illustrano scenari comuni in cui è possibile usare le metriche di Azure Cosmos DB.The following sections explain common scenarios where you can use Azure Cosmos DB metrics. 
+Le sezioni seguenti illustrano scenari comuni in cui è possibile usare Azure Cosmos DB metrica. 
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Scoprire il numero di richieste che riesce o causa errori
 
-Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche**. Nel pannello, trovare il numero di richieste superato la capacità per grafico di 1 minuto. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per altre informazioni sui codici di stato HTTP, vedere Codici di [stato HTTP per Azure Cosmos DB.](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)
+Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche**. Nel pannello, trovare il * * numero di richieste che hanno superato la capacità per ogni grafico di 1 minuto. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per ulteriori informazioni sui codici di stato HTTP, vedere [codici di stato HTTP per Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Il codice di stato di errore più comune è 429 (limitazione della velocità/limitazione). Questo errore indica che le richieste ad Azure Cosmos DB sono maggiori rispetto alle UR di cui è stato effettuato provisioning. La soluzione più comune per questo problema consiste nell'[aumentare il numero di UR](./set-throughput.md) per la raccolta specificata.
 
@@ -111,6 +111,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Si è appreso come monitorare ed eseguire il debug dei problemi con le metriche disponibili nel portale di Azure. È possibile leggere gli articoli seguenti per scoprire di più su come migliorare le prestazioni del database:
 
-* Per altre informazioni su come visualizzare le metriche dal monitoraggio di Azure, vedere l'articolo [Ottenere metriche da Monitoraggio di Azure.To](cosmos-db-azure-monitor-metrics.md) learn about how to view metrics from Azure monitor, see the Get metrics from Azure Monitor article. 
+* Per informazioni su come visualizzare le metriche da monitoraggio di Azure, vedere l'articolo [ottenere le metriche da monitoraggio](cosmos-db-azure-monitor-metrics.md) di Azure. 
 * [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md)
 * [Suggerimenti sulle prestazioni per Azure Cosmos DB](performance-tips.md)

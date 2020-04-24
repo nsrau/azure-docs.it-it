@@ -1,5 +1,5 @@
 ---
-title: Definire un profilo tecnico RESTful in un criterio personalizzatoDefine a RESTful technical profile in a custom policy
+title: Definire un profilo tecnico RESTful in un criterio personalizzato
 titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
@@ -22,7 +22,7 @@ ms.locfileid: "80332601"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornisce supporto per l'integrazione del proprio servizio RESTful. Azure AD B2C invia dati al servizio RESTful in una raccolta di attestazioni di input e riceve dati in una raccolta di attestazioni di output. Per altre informazioni, vedere Integrare gli scambi di [attestazioni dell'API REST nei criteri personalizzati di Azure AD B2C.For](custom-policy-rest-api-intro.md)more information, see Integrate REST API claims exchanges in your Azure AD B2C custom policy .  
+Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per l'integrazione di un servizio RESTful. Azure AD B2C invia dati al servizio RESTful in una raccolta di attestazioni di input e riceve dati in una raccolta di attestazioni di output. Per altre informazioni, vedere [integrare scambi di attestazioni API REST nei criteri personalizzati Azure ad B2C](custom-policy-rest-api-intro.md).  
 
 ## <a name="protocol"></a>Protocollo
 
@@ -51,20 +51,20 @@ L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'API
 
 L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** che vengono usati per modificare le attestazioni di input o per generarne di nuove prima dell'invio all'API REST.
 
-## <a name="send-a-json-payload"></a>Inviare un payload JSONSend a JSON payload
+## <a name="send-a-json-payload"></a>Inviare un payload JSON
 
 Il profilo tecnico dell'API REST consente di inviare un payload JSON complesso a un endpoint.
 
-Per inviare un payload JSON complesso:To send a complex JSON payload:
+Per inviare un payload JSON complesso:
 
-1. Compilare il payload JSON con la trasformazione delle attestazioni [GenerateJson.Build](json-transformations.md) your JSON payload with the GenerateJson claims transformation.
-1. Nel profilo tecnico dell'API REST:In the REST API technical profile:
-    1. Aggiungere una trasformazione delle attestazioni di input con un riferimento alla trasformazione delle `GenerateJson` attestazioni.
-    1. Impostare `SendClaimsIn` l'opzione dei metadati su`body`
-    1. Impostare `ClaimUsedForRequestPayload` l'opzione metadata sul nome dell'attestazione contenente il payload JSON.
+1. Compilare il payload JSON con la trasformazione delle attestazioni [GenerateJson](json-transformations.md) .
+1. Nel profilo tecnico dell'API REST:
+    1. Aggiungere una trasformazione delle attestazioni di input con un `GenerateJson` riferimento alla trasformazione delle attestazioni.
+    1. Impostare l' `SendClaimsIn` opzione metadati su`body`
+    1. Impostare l' `ClaimUsedForRequestPayload` opzione Metadata sul nome dell'attestazione contenente il payload JSON.
     1. Nell'attestazione di input aggiungere un riferimento all'attestazione di input contenente il payload JSON.
 
-Nell'esempio `TechnicalProfile` seguente viene inviato un messaggio di posta elettronica di verifica utilizzando un servizio di posta elettronica di terze parti (in questo caso, SendGrid).
+Nell'esempio seguente `TechnicalProfile` viene inviato un messaggio di posta elettronica di verifica utilizzando un servizio di posta elettronica di terze parti (in questo caso, SendGrid).
 
 ```XML
 <TechnicalProfile Id="SendGrid">
@@ -114,15 +114,15 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sì | L'URL dell'endpoint API REST. |
-| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il `ClientCertificate` valore (scelta consigliata) indica che l'API REST limita l'accesso tramite l'autenticazione del certificato client. Solo i servizi che dispongono dei certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token OAuth2 Bearer del client. |
-| AllowInsecureAuthInProduction| No| Indica se `AuthenticationType` l'oggetto `none` può essere`DeploymentMode` impostato su nell'ambiente `Production`di produzione ( di [TrustFrameworkPolicy](trustframeworkpolicy.md) è impostato su o non specificato ). Valori possibili: true o false (impostazione predefinita). |
-| SendClaimsIn | No | Specifica la modalità di invio di attestazioni di input al provider di attestazioni RESTful. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di input che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di input che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore`Header` è l'attestazione di input che viene inviata nell'intestazione della richiesta. Il valore`QueryString` è l'attestazione di input che viene inviata nella stringa di query della richiesta. I verbi HTTP richiamati da ciascuno sono i seguenti:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
-| ClaimsFormat | No | Non attualmente utilizzato, può essere ignorato. |
-| ClaimUsedForRequestPayload| No | Nome di un'attestazione stringa che contiene il payload da inviare all'API REST. |
-| DebugMode | No | Il profilo tecnico viene eseguito in modalità debug. Valori possibili: `true` `false` , o (impostazione predefinita). In modalità debug, l'API REST può restituire altre informazioni. Vedere la sezione [Messaggio di errore di restituzione.](#returning-error-message) |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` `false`  , o (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni `true`nel profilo tecnico, impostarlo su . |
-| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` `false` , o (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [oggetto OutputClaim](technicalprofiles.md#outputclaims)impostare l'elemento `PartnerClaimType` sul percorso JSON che si desidera restituire. Ad esempio: `firstName.localized` `data.0.to.0.email`, o .|
-| UseClaimAsBearerToken| No| Nome dell'attestazione che contiene il token di connessione.|
+| AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il `ClientCertificate` valore (consigliato) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il `Bearer` valore indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. |
+| AllowInsecureAuthInProduction| No| `AuthenticationType` Indica se può essere impostato su `none` in un ambiente di produzione`DeploymentMode` (di [TrustFrameworkPolicy](trustframeworkpolicy.md) è impostato su `Production`o non è stato specificato). Valori possibili: true o false (impostazione predefinita). |
+| SendClaimsIn | No | Specifica la modalità di invio di attestazioni di input al provider di attestazioni RESTful. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di input che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di input che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore`Header` è l'attestazione di input che viene inviata nell'intestazione della richiesta. Il valore`QueryString` è l'attestazione di input che viene inviata nella stringa di query della richiesta. I verbi HTTP richiamati da ciascuno di essi sono i seguenti:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
+| ClaimsFormat | No | Non attualmente in uso, può essere ignorato. |
+| ClaimUsedForRequestPayload| No | Nome di un'attestazione di stringa che contiene il payload da inviare all'API REST. |
+| DebugMode | No | Il profilo tecnico viene eseguito in modalità debug. Valori possibili: `true`, o `false` (impostazione predefinita). In modalità debug, l'API REST può restituire altre informazioni. Vedere la sezione [restituzione del messaggio di errore](#returning-error-message) . |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
+| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true`, o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized`o `data.0.to.0.email`.|
+| UseClaimAsBearerToken| No| Nome dell'attestazione che contiene il bearer token.|
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
@@ -190,7 +190,7 @@ Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **Cryptographi
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| BearerAuthenticationToken (Token BearerAuthenticationToken) | No | Il token di bearer OAuth 2.0. |
+| BearerAuthenticationToken | No | Token di porta OAuth 2,0. |
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -209,7 +209,7 @@ Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **Cryptographi
 
 ## <a name="returning-error-message"></a>Restituzione messaggio di errore
 
-L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistema CRM non trovato". Se si verifica un errore, l'API REST deve restituire un messaggio di errore HTTP 4xx, ad esempio 400 (richiesta non valida) o 409 (conflitto) codice di stato di stato della risposta. Il corpo della risposta contiene un messaggio di errore formattato in JSON:The response body contains error message formatted in JSON:
+L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistema CRM non trovato". Se si verifica un errore, l'API REST deve restituire un messaggio di errore HTTP 4xx, ad esempio, 400 (richiesta non valida) o codice di stato della risposta 409 (conflitto). Il corpo della risposta contiene il messaggio di errore formattato in JSON:
 
 ```JSON
 {
@@ -225,9 +225,9 @@ L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistem
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| version | Sì | La versione dell'API REST. Ad esempio: 1.0.1 |
+| version | Sì | Versione dell'API REST. Ad esempio: 1.0.1 |
 | status | Sì | Deve essere 409 |
-| codice | No | Un codice di errore del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
+| code | No | Un codice di errore del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
 | requestId | No | Un identificatore della richiesta del provider di endpoint RESTful, visualizzato quando `DebugMode` è abilitato. |
 | userMessage | Sì | Un messaggio di errore visualizzato dall'utente. |
 | developerMessage | No | La descrizione dettagliata del problema e della sua risoluzione, visualizzata quando `DebugMode` è abilitato. |
@@ -251,10 +251,10 @@ public class ResponseContent
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere i seguenti articoli per esempi di utilizzo di un profilo tecnico RESTful:
+Per esempi relativi all'uso di un profilo tecnico RESTful, vedere gli articoli seguenti:
 
-- [Integrare gli scambi di attestazioni dell'API REST nei criteri personalizzati di Azure AD](custom-policy-rest-api-intro.md)
-- [Procedura dettagliata: Integrare gli scambi di attestazioni dell'API REST nel percorso utente B2C di Azure AD come convalida dell'input dell'utenteWalkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](custom-policy-rest-api-claims-validation.md)
-- [Procedura dettagliata: Aggiungere scambi di attestazioni DELL'API REST ai criteri personalizzati in Azure Active Directory B2CWalkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
-- [Proteggere i servizi dell'API RESTSecure your REST API services](secure-rest-api.md)
+- [Integrare scambi di attestazioni API REST nei criteri personalizzati Azure AD B2C](custom-policy-rest-api-intro.md)
+- [Procedura dettagliata: integrare scambi di attestazioni API REST nel percorso utente Azure AD B2C come convalida dell'input utente](custom-policy-rest-api-claims-validation.md)
+- [Procedura dettagliata: aggiungere scambi di attestazioni API REST a criteri personalizzati in Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Proteggere i servizi API REST](secure-rest-api.md)
 

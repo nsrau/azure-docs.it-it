@@ -4,13 +4,41 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: b5d8f67a70961aab21312b6f241081dcb33f66fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67179941"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81791633"
 ---
+### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "eventHubs": {
+            "batchCheckpointFrequency": 5,
+            "eventProcessorOptions": {
+                "maxBatchSize": 256,
+                "prefetchCount": 512
+            }
+        }
+    }
+}  
+```
+
+|Proprietà  |Predefinito | Descrizione |
+|---------|---------|---------|
+|maxBatchSize|10|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
+|prefetchCount|300|Conteggio predefinito di pre-recupero utilizzato dall'oggetto sottostante `EventProcessorHost`.|
+|batchCheckpointFrequency|1|Il numero di batch di eventi da elaborare prima di creare un checkpoint di cursore EventHub.|
+
+> [!NOTE]
+> Per informazioni di riferimento su host. JSON in funzioni di Azure 2. x e versioni successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](../articles/azure-functions/functions-host-json.md).
+
+### <a name="functions-1x"></a>Funzioni 1.x
+
 ```json
 {
     "eventHub": {
@@ -24,5 +52,9 @@ ms.locfileid: "67179941"
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------| 
 |maxBatchSize|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
-|prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.| 
+|prefetchCount|n/d|Pre-recupero predefinito che verrà utilizzato dall'oggetto sottostante `EventProcessorHost`.| 
 |batchCheckpointFrequency|1|Il numero di batch di eventi da elaborare prima di creare un checkpoint di cursore EventHub.| 
+
+> [!NOTE]
+> Per informazioni di riferimento su host. JSON in funzioni di Azure 1. x, vedere informazioni di [riferimento su host. JSON per funzioni di Azure 1. x](../articles/azure-functions/functions-host-json-v1.md).
+

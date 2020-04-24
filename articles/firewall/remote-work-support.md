@@ -1,6 +1,6 @@
 ---
-title: Supporto del lavoro remoto di Firewall di AzureAzure Firewall remote work support
-description: Questo articolo illustra come Firewall di Azure può supportare i requisiti della forza lavoro remota.
+title: Supporto per lavoro remoto del firewall di Azure
+description: Questo articolo illustra come il firewall di Azure può supportare i requisiti di forza lavoro remoto.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -14,16 +14,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80289641"
 ---
-# <a name="azure-firewall-remote-work-support"></a>Supporto del lavoro remoto di Firewall di AzureAzure Firewall remote work support
+# <a name="azure-firewall-remote-work-support"></a>Supporto per lavoro remoto del firewall di Azure
 
-Firewall di Azure è un servizio di sicurezza di rete gestito basato su cloud che protegge le risorse di rete virtuale di Azure.Azure Firewall is a managed, cloud-based network security service that protects your Azure virtual network resources. È un firewall con stato completo distribuito come servizio con disponibilità elevata e scalabilità cloud senza limiti. 
+Il firewall di Azure è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. È un firewall con stato completo distribuito come servizio con disponibilità elevata e scalabilità cloud senza limiti. 
 
 ## <a name="firewall-rules"></a>Regole del firewall
 
-È possibile usare Firewall di Azure per proteggere l'accesso RDP in ingresso dell'infrastruttura di desktop virtuale (VDI) alla rete virtuale di Azure usando le regole DNAT di Firewall di Azure.You can use Azure Firewall to secure your virtual desktop infrastructure (VDI) inbound RDP access to your Azure virtual network using Azure Firewall [DNAT rules.](rule-processing.md) Windows Virtual Desktop (WVD) non richiede l'apertura di alcun accesso in ingresso alla rete virtuale. Tuttavia, è necessario consentire un set di connessioni di rete in uscita per le macchine virtuali WVD in esecuzione nella rete virtuale. Per ulteriori informazioni, vedere [Che cos'è Windows Virtual Desktop?](../virtual-desktop/overview.md#requirements)
+È possibile usare il firewall di Azure per proteggere l'accesso RDP in ingresso di Virtual Desktop Infrastructure (VDI) alla rete virtuale di Azure usando [le regole DNAT](rule-processing.md)del firewall di Azure. Per desktop virtuale Windows (WVD) non è necessario aprire alcun accesso in ingresso alla rete virtuale. È tuttavia necessario consentire un set di connessioni di rete in uscita per le macchine virtuali WVD in esecuzione nella rete virtuale. Per ulteriori informazioni, vedere informazioni sul [desktop virtuale Windows](../virtual-desktop/overview.md#requirements)
 
-È possibile configurare questo accesso in uscita usando le regole dell'applicazione Firewall di Azure.You can configure this outbound access using Azure Firewall application rules. Per altre informazioni, vedere [Esercitazione: Distribuire e configurare Firewall](tutorial-firewall-deploy-portal.md)di Azure usando il portale di Azure.For more information, see Tutorial: Deploy and configure Azure Firewall using the Azure portal .
+È possibile configurare questo accesso in uscita usando le regole dell'applicazione firewall di Azure. Per altre informazioni, vedere [esercitazione: distribuire e configurare il firewall di Azure usando il portale di Azure](tutorial-firewall-deploy-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni su [Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/).
+Ulteriori informazioni su [desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/).

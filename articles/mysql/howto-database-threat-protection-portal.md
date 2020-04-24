@@ -1,6 +1,6 @@
 ---
-title: Advanced Threat Protection - Azure portal - Azure Database for MySQL
-description: Informazioni su come configurare Advanced Threat Protection per rilevare attività anomale del database che indicano potenziali minacce alla sicurezza per il database.
+title: Advanced Threat Protection-portale di Azure-database di Azure per MySQL
+description: Informazioni su come configurare Advanced Threat Protection per rilevare attività di database anomale che indicano potenziali minacce alla sicurezza per il database.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
@@ -27,7 +27,7 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
-1. Avviare il [https://portal.azure.com](https://portal.azure.com)portale di Azure all'indirizzo .
+1. Avviare il portale di Azure all' [https://portal.azure.com](https://portal.azure.com)indirizzo.
 2. Passare alla pagina di configurazione del Database di Azure per MySQL che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
 3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
 
@@ -54,7 +54,7 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
 
 ## <a name="explore-threat-detection-alerts"></a>Esplorare gli avvisi di rilevamento minacce
 
-Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro Di rilevamento delle minacce SQL attivo tiene traccia dello stato delle minacce attive nel database e delle pagine di SQL ATP nel portale di Azure.A live SQL threat detection tile tracks the status of active threats on the database and SQL ATP pages in the Azure portal.
+Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro Live SQL Threat detection tiene traccia dello stato delle minacce attive nel database e nelle pagine di SQL ATP nel portale di Azure.
 
 Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
 
@@ -63,5 +63,5 @@ Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul Centro sicurezza di [AzureLearn](https://docs.microsoft.com/azure/security-center/security-center-intro) more about Azure Security Center
+* Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per MySQL](https://azure.microsoft.com/pricing/details/mysql/)  

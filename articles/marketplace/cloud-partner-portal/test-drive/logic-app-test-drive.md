@@ -1,5 +1,5 @@
 ---
-title: Test Drive dell'app per la logica Azure Marketplace
+title: Unità di test dell'app per la logica | Azure Marketplace
 description: Viene illustrato come creare un test drive che si connette a un'istanza di Dynamics AX/CRM o a qualsiasi altra risorsa non di Azure.
 author: dsindona
 ms.service: marketplace
@@ -22,7 +22,7 @@ Questo articolo è per gli autori che hanno un'offerta in AppSource e vogliono c
 <a name="how-to-build-a-logic-app-test-drive"></a>Come compilare un test drive di app per la logica
 -----------------------------------
 
-La documentazione di Test Drive per Logic App Test Drive è attualmente ancora su GitHub for [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), vai lì per leggere di più.
+La documentazione di test drive per le unità di test per l'app per la logica è attualmente ancora in GitHub per [le operazioni](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e il [coinvolgimento dei clienti](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app). per altre informazioni, vedere.
 
 <a name="how-to-publish-a-test-drive"></a>Come pubblicare un test drive
 ---------------------------
@@ -31,7 +31,7 @@ Dopo aver compilato il test drive, la sezione conterrà i campi da compilare per
 
 ![Abilitare la funzionalità di test drive](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-Il primo e più importante campo è quello di attivare o disattivare se si desidera Test del modulo con tutti i campi obbligatori sono presentati per voi da compilare. Quando selezioni **No,** il modulo viene disabilitato e se ripubblicate con test Drive disabilitato, il Test Drive viene rimosso dalla produzione.
+Il primo e più importante campo consiste nel selezionare se si desidera che il test del form con tutti i campi richiesti venga compilato. Quando si seleziona **No,** il modulo viene disabilitato e se si ripubblica con la test drive disabilitata, la test drive viene rimosso dalla produzione.
 
 *Nota*: se non vi sono test drive usati attivamente dagli utenti, quei test drive devono continuare l'esecuzione fino alla fine della sessione.
 
@@ -61,11 +61,11 @@ Nella sezione successiva da compilare, si configura l'app per la logica del test
 
 ![Configurazione tecnica del test drive](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Regione** - *[Campo obbligatorio]* L'area selezionata è la posizione in cui è possibile selezionare le risorse di Test Drive Logic App.
+- **Region** - *[campo obbligatorio]* l'area selezionata è la posizione in cui si sceglie la posizione in cui vengono distribuite le risorse dell'app per la logica test drive.
 
     *Note:* se vi sono risorse personalizzate archiviate in un'area, assicurarsi qui che l'area sia selezionata. Il modo migliore per farlo è **distribuire completamente l'app per la logica in locale nella sottoscrizione di Azure del portale e verificare che funzioni** prima di scrivere qui.
 
-- **Numero massimo** - di test simultanei *[Campo obbligatorio]* Numero di istanze di Test Drive già distribuite e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione.
+- **Numero massimo di unità** - di test simultanee *[campo obbligatorio]* numero di istanze di test drive già distribuite e in attesa di accesso per area selezionata. I clienti possono accedere immediatamente a questo test drive, anziché dover attendere la distribuzione.
 
     *Nota:* se si svolge un webinar/lezione dove si vuole che tutti gli studenti eseguano un test drive, pubblicare con un numero N di istanze a livello di accesso frequente. Quindi, una volta finita la lezione, ripubblicare con il numero N normale di istanze a livello di accesso frequente.
 
@@ -119,20 +119,20 @@ Fare clic su Salva. L'ultimo passaggio consiste nell'individuare l'ID applicazio
 Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessario aggiungere l'applicazione come collaboratore nella sottoscrizione. Le istruzioni per questi sono le seguenti:
 
 1. Sul pannello di sottoscrizione, selezionare la sottoscrizione in uso usando soltanto per il test drive.
-1. Fare clic su **Controllo di accesso (IAM)**.
-1. Fare clic sulla scheda **Assegnazioni ruolo.**  ![Azure Active Directory, aggiunta di una nuova entità di controllo di accessoAzure Active Directory, adding a new Access Control principal](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Fare clic su **controllo di accesso (IAM)**.
+1. Fare clic sulla scheda **assegnazioni di ruolo** .  ![Azure Active Directory, aggiunta di una nuova entità di controllo di accesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Fare clic su **Aggiungi assegnazione ruolo**.
-1. Impostare il ruolo come **Collaboratore**.
+1. Impostare il ruolo come **collaboratore**.
 1. Digitare il nome dell'applicazione Azure AD e selezionare l'applicazione per assegnare il ruolo.
     ![Autorizzazioni di Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 **Chiave dell'app Azure AD ** *[Campo obbligatorio]* L'ultimo campo genera una chiave di autenticazione. In Chiavi, aggiungere una descrizione di chiave, impostare la scadenza come Non scade, quindi selezionare Salva. È **importante** evitare di avere una chiave scaduta, che interrompe il test drive in corso. Copiare questo valore e incollarlo nel campo corrispondente del test drive.
 
 ![Sezione delle chiavi di Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> Non è possibile usare l'anteprima di registrazione app di Azure perché attualmente non genera una chiave codificata in base 64.You cannot use the Azure App Registration Preview because it does currently not generate a base64 encoded key.
+> Non è possibile usare l'anteprima della registrazione app Azure perché attualmente non genera una chiave con codifica Base64.
 
 
 <a name="next-steps"></a>Passaggi successivi

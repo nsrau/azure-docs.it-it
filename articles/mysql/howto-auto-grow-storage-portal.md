@@ -1,6 +1,6 @@
 ---
-title: Archiviazione a crescita automatica - Portale di Azure - Database di Azure per MySQLAuto grow storage - Azure portal - Azure Database for MySQL
-description: Questo articolo descrive come abilitare l'archiviazione di crescita automatica per il database di Azure per MySQL usando il portale di AzureThis article describes how you can enable auto grow storage for Azure Database for MySQL using Azure portal using Azure portal
+title: Aumento automatico delle dimensioni di archiviazione-portale di Azure-database di Azure per MySQL
+description: Questo articolo descrive come abilitare l'espansione automatica dell'archiviazione per database di Azure per MySQL usando portale di Azure
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
@@ -13,33 +13,33 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80062508"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Archiviazione in sufficiente crescita automatica nel database di Azure per MySQL usando il portale di AzureAuto grow storage in Azure Database for MySQL using the Azure portal
-Questo articolo descrive come configurare un database di Azure per l'archiviazione del server MySQL in modo che cresca senza influire sul carico di lavoro.
+# <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Espandere automaticamente l'archiviazione nel database di Azure per MySQL usando il portale di Azure
+Questo articolo descrive come configurare l'archiviazione di un database di Azure per il server MySQL in modo che cresca senza compromettere il carico di lavoro.
 
-Quando un server raggiunge il limite di archiviazione allocato, il server viene contrassegnato come di sola lettura. Tuttavia, se si abilita l'aumento automatico dello spazio di archiviazione, lo spazio di archiviazione del server aumenta per supportare l'aumento dei dati. Per i server con meno di 100 GB di spazio di archiviazione di cui è stato eseguito il provisioning, la dimensione dello spazio di archiviazione di cui è stato eseguito il provisioning viene aumentata di 5 GB non appena lo spazio di archiviazione disponibile è inferiore a 1 GB o al 10% dello spazio di archiviazione di cui è stato eseguito il provisioning. Per i server con più di 100 GB di spazio di archiviazione di cui è stato eseguito il provisioning, le dimensioni dello spazio di archiviazione di cui è stato eseguito il provisioning vengono aumentate del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione di cui è stato eseguito il provisioning. Si applicano i limiti di archiviazione massimi specificati [qui.](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)
+Quando un server raggiunge il limite di archiviazione allocato, il server è contrassegnato come di sola lettura. Tuttavia, se si Abilita l'aumento automatico delle dimensioni di archiviazione, l'archiviazione del server aumenta per adattarsi ai dati in crescita. Per i server con archiviazione con provisioning inferiore a 100 GB, le dimensioni di archiviazione di cui è stato effettuato il provisioning vengono aumentate di 5 GB non appena lo spazio di archiviazione disponibile è inferiore a 1 GB o al 10% dell'archiviazione con provisioning. Per i server con più di 100 GB di spazio di archiviazione di cui è stato effettuato il provisioning, la dimensione di archiviazione con provisioning viene aumentata del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione con provisioning. Si applicano i limiti di archiviazione massimi come specificato [qui](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
-- Un [database di Azure per il server MySQLAn Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
-## <a name="enable-storage-auto-grow"></a>Abilitare l'aumento automatico automatico dello spazio di archiviazioneEnable storage 
+## <a name="enable-storage-auto-grow"></a>Abilita espansione automatica dell'archiviazione 
 
-Seguire questi passaggi per impostare l'aumento automatico delle dimensioni dell'archiviazione del server MySQL:Follow these steps to set MySQL server storage auto grow:
+Seguire questa procedura per impostare l'aumento automatico delle dimensioni di archiviazione del server MySQL:
 
-1. Nel [portale](https://portal.azure.com/)di Azure selezionare il database di Azure esistente per il server MySQL.In the Azure portal , select your existing Azure Database for MySQL server.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server MySQL esistente.
 
-2. Nella pagina Server MySQL, sotto l'intestazione **Impostazioni,** fare clic su **Livello prezzi** per aprire la pagina Livello prezzi.
+2. Nella pagina server MySQL, in **Impostazioni** intestazione, fare clic su piano **tariffario** per aprire la pagina piano tariffario.
 
-3. Nella sezione Crescita automatica selezionare **Sì** per abilitare l'aumento automatico dell'archiviazione.
+3. Nella sezione aumento automatico selezionare **Sì** per abilitare l'aumento automatico delle dimensioni di archiviazione.
 
-    ![Azure Database for MySQL - Settings_Pricing_tier - Auto-growth](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    ![Database di Azure per MySQL-Settings_Pricing_tier-aumento automatico](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
 4. Fare clic su **OK** per salvare le modifiche.
 
-5. Una notifica confermerà che l'aumento automatico è stato abilitato correttamente.
+5. Una notifica conferma che l'espansione automatica è stata abilitata correttamente.
 
-    ![Database di Azure per MySQL - successo di crescita automaticaAzure Database for MySQL - auto-growth success](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
+    ![Database di Azure per MySQL-crescita automatica riuscita](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su [come creare avvisi sulle metriche.](howto-alert-on-metric.md)
+Informazioni su [come creare avvisi per le metriche](howto-alert-on-metric.md).

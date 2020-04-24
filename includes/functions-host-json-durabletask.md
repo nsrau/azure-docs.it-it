@@ -16,7 +16,7 @@ ms.locfileid: "80117158"
 ---
 Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-functions/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Funzioni durevoli 1.x
+### <a name="durable-functions-1x"></a>Durable Functions 1. x
 
 ```json
 {
@@ -43,7 +43,7 @@ Impostazioni di configurazione per [Funzioni permanenti](../articles/azure-funct
 }
 ```
 
-### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Funzioni durevoli 2.x
+### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2. x
 
 ```json
 {
@@ -96,23 +96,23 @@ I nomi degli hub attività devono iniziare con una lettera e contenere solo lett
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|I nomi alternativi dell'[hub attività](../articles/azure-functions/durable-functions-task-hubs.md) possono essere usati per separare le applicazioni di Durable Functions, anche se usano lo stesso back-end di archiviazione.|
 |controlQueueBatchSize|32|Numero di messaggi di cui eseguire il pull dalla coda di controllo contemporaneamente.|
-|ControlQueueBufferThreshold|256|Numero di messaggi della coda di controllo che possono essere memorizzati nel buffer in memoria alla volta, a quel punto il dispatcher attenderà prima della rimozione dalla coda di eventuali messaggi aggiuntivi.|
+|controlQueueBufferThreshold|256|Il numero di messaggi della coda di controllo che possono essere memorizzati nel buffer in memoria alla volta, a quel punto il dispatcher resterà in attesa prima di rimuovere eventuali altri messaggi.|
 |partitionCount |4|Numero di partizioni per la coda di controllo. Può essere un numero intero positivo compreso tra 1 e 16.|
-|controlQueueVisibilityTimeout (Timeout di controlQueueVisibilityTimeout) |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda di controllo.|
-|workItemQueueVisibilityTimeout (informazioni in questo specifico) |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda degli elementi di lavoro.|
+|controlQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda di controllo.|
+|workItemQueueVisibilityTimeout |5 minuti|Timeout di visibilità dei messaggi rimossi dalla coda degli elementi di lavoro.|
 |maxConcurrentActivityFunctions |10 volte il numero di processori sul computer corrente|Numero massimo di funzioni di attività che possono essere elaborate contemporaneamente in una singola istanza host.|
 |maxConcurrentOrchestratorFunctions |10 volte il numero di processori sul computer corrente|Numero massimo di funzioni dell'agente di orchestrazione che possono essere elaborate contemporaneamente in una singola istanza host.|
-|maxQueuePollingInterval|30 secondi|Il controllo massimo e l'intervallo di polling della coda degli elementi di lavoro nel formato *hh:mm:ss.* Valori più elevati possono comportare latenze di elaborazione dei messaggi più elevate. Valori più bassi possono comportare costi di archiviazione più elevati a causa dell'aumento delle transazioni di archiviazione.|
-|azureStorageConnectionStringName (nome in azureStorageConnectionStringName) |AzureWebJobsStorage|Nome dell'impostazione dell'app che include la stringa di connessione di Archiviazione di Azure usata per gestire le risorse di Archiviazione di Azure sottostanti.|
-|trackingStoreConnectionStringName (nome di oggetto TrackingStoreConnectionStringName)||Nome di una stringa di connessione da utilizzare per le tabelle Cronologia e Istanze. Se non specificato, viene utilizzata la `azureStorageConnectionStringName` connessione.|
-|trackingStoreNamePrefix (nome trackingStoreNamePrefix)||Prefisso da utilizzare per le `trackingStoreConnectionStringName` tabelle Cronologia e Istanze quando viene specificato. Se non è impostato, il `DurableTask`valore predefinito del prefisso sarà . Se `trackingStoreConnectionStringName` non viene specificato, le tabelle Cronologia `hubName` e Istanze utilizzeranno `trackingStoreNamePrefix` il valore come prefisso e qualsiasi impostazione per verrà ignorata.|
+|maxQueuePollingInterval|30 secondi|Il controllo massimo e l'intervallo di polling della coda di elementi di lavoro nel formato *hh: mm: SS* . I valori superiori possono comportare latenze di elaborazione dei messaggi più elevate. I valori inferiori possono comportare costi di archiviazione più elevati a causa di un aumento delle transazioni di archiviazione.|
+|azureStorageConnectionStringName |AzureWebJobsStorage|Nome dell'impostazione dell'app che include la stringa di connessione di Archiviazione di Azure usata per gestire le risorse di Archiviazione di Azure sottostanti.|
+|trackingStoreConnectionStringName||Nome di una stringa di connessione da utilizzare per le tabelle cronologia e istanze. Se non è specificato, `azureStorageConnectionStringName` viene utilizzata la connessione.|
+|trackingStoreNamePrefix||Prefisso da utilizzare per la cronologia e le tabelle di istanze `trackingStoreConnectionStringName` quando si specifica. Se non è `DurableTask`impostato, il valore predefinito del prefisso sarà. Se `trackingStoreConnectionStringName` non si specifica, le tabelle cronologia e istanze utilizzeranno il `hubName` valore come prefisso e tutte le impostazioni per `trackingStoreNamePrefix` verranno ignorate.|
 |traceInputsAndOutputs |false|Valore che indica se tenere traccia degli input e degli output di chiamate di funzione. Quando si tiene traccia degli eventi di esecuzione delle funzioni, il comportamento predefinito prevede di includere il numero di byte degli input e output serializzati per le chiamate di funzione. Questo comportamento fornisce informazioni minime sull'aspetto degli input e degli output senza gonfiare i log o esporre inavvertitamente informazioni riservate. Se questa proprietà viene impostata su true, per impostazione predefinita viene registrato l'intero contenuto degli input e output della funzione.|
-|logReplayEvents (informazioni in netto utente)|false|Un valore che indica se scrivere eventi di riproduzione di orchestrazione in Application Insights.|
+|logReplayEvents|false|Un valore che indica se scrivere eventi di riproduzione di orchestrazione in Application Insights.|
 |eventGridTopicEndpoint ||URL di un endpoint di un argomento personalizzato di Griglia di eventi di Azure. Quando questa proprietà è impostata, gli eventi di notifica del ciclo di vita dell'orchestrazione vengono pubblicati in questo endpoint. Questa proprietà supporta la risoluzione delle impostazioni dell'app.|
-|eventGridKeySettingName (nome di impostazione eventGridKey) ||Nome dell'impostazione dell'app che contiene la chiave usata per l'autenticazione con l'argomento personalizzato di Griglia di eventi di Azure in `EventGridTopicEndpoint`.|
+|eventGridKeySettingName ||Nome dell'impostazione dell'app che contiene la chiave usata per l'autenticazione con l'argomento personalizzato di Griglia di eventi di Azure in `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|Il numero di tentativi se la pubblicazione nell'argomento di Griglia di eventi ha esito negativo.|
-|eventGridPublishRetryInterval (eventoGridPublishRetryInterval)|5 minuti|Intervallo fra i tentativi di pubblicazione in Griglia di eventi nel formato *hh:mm:ss*.|
-|eventGridPublishEventTypes||Elenco di tipi di evento da pubblicare in Griglia di eventi. Se non specificato, verranno pubblicati tutti i tipi di evento. I valori `Started` `Completed`consentiti includono , , `Failed`, . `Terminated`|
-|utilizzareGracefulShutdown|false|(Anteprima) Abilitare l'arresto normale per ridurre la possibilità che gli arresti dell'host non riescano le esecuzioni di funzioni in-process.|
+|eventGridPublishRetryInterval|5 minuti|Intervallo fra i tentativi di pubblicazione in Griglia di eventi nel formato *hh:mm:ss*.|
+|eventGridPublishEventTypes||Elenco di tipi di evento da pubblicare in griglia di eventi. Se non specificato, verranno pubblicati tutti i tipi di evento. I valori consentiti `Failed`sono `Terminated` `Started`, `Completed`,,.|
+|useGracefulShutdown|false|Anteprima Abilitare la chiusura normale per ridurre la possibilità di arresti dell'host che non riescono a eseguire le esecuzioni di funzioni in-process.|
 
-Molte di queste impostazioni sono per ottimizzare le prestazioni. Per altre informazioni, vedere [Prestazioni e scalabilità](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Molte di queste impostazioni sono per l'ottimizzazione delle prestazioni. Per altre informazioni, vedere [Prestazioni e scalabilità](../articles/azure-functions/durable-functions-perf-and-scale.md).

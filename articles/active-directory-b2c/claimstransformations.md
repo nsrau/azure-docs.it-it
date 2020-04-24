@@ -33,7 +33,7 @@ Per includere l'elenco di funzioni di trasformazione delle attestazioni che poss
 </ClaimsTransformations>
 ```
 
-L'elemento ClaimsTransformation contiene gli attributi seguenti:The **ClaimsTransformation** element contains the following attributes:
+L'elemento **ClaimsTransformation** contiene gli attributi seguenti:
 
 | Attributo |Obbligatoria | Descrizione |
 | --------- |-------- | ----------- |
@@ -96,7 +96,7 @@ L'elemento **InputParameters** contiene l'elemento seguente:
 | --------- | ----------- |----------- |
 | ID | Sì | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
 | DataType | Sì | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
-| valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
+| Valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -161,7 +161,7 @@ Per esempi di trasformazioni delle attestazioni, vedere le pagine seguenti:
 
 - [Boolean](boolean-transformations.md)
 - [Data](date-transformations.md)
-- [Intero](integer-transformations.md)
+- [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Numero di telefono](phone-number-claims-transformations.md)
 - [Generale](general-transformations.md)

@@ -37,9 +37,9 @@ Le cause comuni di questo problema sono le seguenti:
 | openSUSE | 13.2+ | 42.3+ |
 | SuSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- Le utilità CIFS (cifs-utils) non sono installate nel client.
+- Le utilità CIFS (CIFS-utils) non sono installate nel client.
 - La versione SMB/CIFS minima, ossia la 2.1, non è installata nel client.
-- La crittografia SMB 3.0 non è supportata nel client. La tabella precedente fornisce un elenco di distribuzioni Linux che supportano il montaggio da locale e tra aree usando la crittografia. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
+- La crittografia SMB 3.0 non è supportata nel client. La tabella precedente fornisce un elenco di distribuzioni Linux che supportano il montaggio dall'ambiente locale e tra più aree usando la crittografia. Altre distribuzioni richiedono il kernel 4.11 e versioni successive.
 - Si sta tentando di connettersi a un account di archiviazione tramite la porta TCP 445, che non è supportata.
 - Si sta tentando di connettersi a una condivisione file di Azure da una macchina virtuale di Azure e la macchina virtuale non si trova nella stessa area dell'account di archiviazione.
 - Se l'impostazione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione, File di Azure consentirà solo connessioni crittografate con SMB 3.0.
@@ -54,7 +54,7 @@ Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per g
 * Raccoglie le tracce di diagnostica.
 
 <a id="mounterror13"></a>
-## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Mount error(13): autorizzazione negata" quando si monta una condivisione file di Azure
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Errore di montaggio (13): autorizzazione negata" quando si monta una condivisione file di Azure
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
 
@@ -65,9 +65,9 @@ Per altre informazioni, vedere [Prerequisiti per il montaggio di una condivision
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
 1. Eseguire la connessione da un client che supporta la crittografia SMB o da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
-2. Verificare che l'impostazione [Trasferimento sicuro necessario](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione se il client non supporta la crittografia SMB.
+2. Verificare che l'impostazione [trasferimento sicuro richiesto](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione se il client non supporta la crittografia SMB.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: Le regole della rete virtuale o del firewall sono abilitate nell'account di archiviazione 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione 
 
 Se nell'account di archiviazione sono configurate regole di rete virtuale o del firewall, verrà negato l'accesso al traffico di rete a meno che all'indirizzo IP o alla rete virtuale client sia consentito l'accesso.
 
@@ -80,7 +80,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 
 In Linux si riceve un messaggio di errore simile al seguente:
 
-**\<filename> [autorizzazione negata] Quota disco superata**
+**\<nome file> [autorizzazione negata] quota disco superata**
 
 ### <a name="cause"></a>Causa
 
@@ -92,30 +92,30 @@ In Linux si riceve un messaggio di errore simile al seguente:
 
 Ridurre il numero di handle aperti simultaneamente chiudendone alcuni e quindi riprovare.
 
-Per visualizzare gli handle aperti per una condivisione file, una directory o un file, utilizzare il cmdlet [PowerShell Get-AzStorageFileHandle.](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle)  
+Per visualizzare gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) .  
 
-Per chiudere gli handle aperti per una condivisione file, una directory o un file, utilizzare il cmdlet di PowerShell [Close-AzStorageFileHandle.](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle)
+Per chiudere gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo Az PowerShell versione 2.4 o successiva. Per installare il modulo Az PowerShell più recente, vedere [Installare il modulo di Azure PowerShell.](https://docs.microsoft.com/powershell/azure/install-az-ps)
+> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Rallentamento della copia del file da e verso File di Azure in Linux
 
 - In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MiB per assicurare prestazioni ottimali.
 - Usare il metodo di copia corretto:
-    - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per qualsiasi trasferimento tra due condivisioni file.
-    - L'uso di cp o dd con parallel potrebbe migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Negli esempi seguenti vengono utilizzati sei: 
-    - cp esempio (cp utilizzerà la dimensione predefinita del blocco `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`del file system come dimensione del blocco): .
-    - dd esempio (questo comando imposta in modo esplicito la dimensione del blocco su 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
-    - Strumenti di terze parti open source come:
-        - [GNU Parallelo](https://www.gnu.org/software/parallel/).
-        - [Fpart](https://github.com/martymac/fpart) - Ordina i file e li comprime in partizioni.
-        - [Fpsync:](https://github.com/martymac/fpart/blob/master/tools/fpsync) utilizza Fpart e uno strumento di copia per generare più istanze per eseguire la migrazione dei dati da src_dir a dst_url.
-        - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp e md5sum basati su coreutils GNU.
-- L'impostazione della dimensione del file in anticipo, invece di rendere ogni scrittura di estensione di scrittura, aiuta a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle scritture, è possibile impostare una dimensione del file di destinazione con `truncate - size <size><file>` il comando. Dopo di `dd if=<source> of=<target> bs=1M conv=notrunc`che, comando copierà un file di origine senza dover aggiornare ripetutamente la dimensione del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (presupponendo che una condivisione sia montata in /mnt/share):
+    - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
+    - L'uso di CP o DD con Parallel può migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Gli esempi seguenti usano sei: 
+    - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - Strumenti di terze parti open source, ad esempio:
+        - [Parallelo GNU](https://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) : USA fpart e uno strumento di copia per generare più istanze per eseguire la migrazione dei dati da src_dir a dst_url.
+        - CP e [md5sum multithread](https://github.com/pkolano/mutil) multithreading basati su coreutils GNU.
+- Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del `truncate - size <size><file>` file di destinazione con il comando. Successivamente, `dd if=<source> of=<target> bs=1M conv=notrunc`tramite il comando viene copiato un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - e poi - copiare i file senza estendere le scritture in parallelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - e quindi copiare i file senza estendere le Scritture in parallelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Errore di montaggio (115): L'operazione è in corso" quando si esegue il montaggio di File di Azure usando SMB 3.0
@@ -126,13 +126,13 @@ Alcune distribuzioni di Linux non supportano ancora le funzionalità di crittogr
 
 ### <a name="solution"></a>Soluzione
 
-La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare una condivisione file di Azure da un ambiente locale o da un'area di Azure diversa. Alcune distribuzioni Linux potrebbero aver eseguito il backportdelle dal kernel 4.11 alle versioni precedenti del kernel Linux che mantengono. Per determinare se la versione di Linux in uso supporta SMB 3.0 con la crittografia, consultare Usare File di [Azure con Linux.](storage-how-to-use-files-linux.md) 
+La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare una condivisione file di Azure da un ambiente locale o da un'area di Azure diversa. Alcune distribuzioni di Linux possono avere modifiche con backport dal kernel 4,11 alle versioni precedenti del kernel Linux che gestiscono. Per contribuire a determinare se la versione di Linux supporta SMB 3,0 con la crittografia, vedere [usare file di Azure con Linux](storage-how-to-use-files-linux.md). 
 
 Se il client Linux SMB non supporta la crittografia, montare File di Azure usando SMB 2.1 da una macchina virtuale Linux di Azure presente nello stesso data center della condivisione file. Verificare che l'opzione [Trasferimento sicuro obbligatorio]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione. 
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Errore "Nessun accesso" quando si tenta di accedere o eliminare una condivisione file di AzureError "No access" when you try to access or delete an Azure File Share  
-Quando si tenta di accedere o eliminare una condivisione file di Azure nel portale, è che venga visualizzato il seguente errore:
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Errore di "nessun accesso" quando si tenta di accedere o eliminare una condivisione file di Azure  
+Quando si tenta di accedere o eliminare una condivisione file di Azure nel portale, è possibile che venga visualizzato l'errore seguente:
 
 Nessun accesso  
 Codice di errore: 403 
@@ -159,19 +159,19 @@ Questo problema si verifica in genere se il file o la directory dispone di un ha
 
 Se i client SMB hanno chiuso tutti gli handle aperti e il problema continua a verificarsi, eseguire le operazioni seguenti:
 
-- Utilizzare il cmdlet [PowerShell Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti.
+- Usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti.
 
-- Utilizzare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) per chiudere gli handle aperti. 
+- Usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) per chiudere gli handle aperti. 
 
 > [!Note]  
-> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo Az PowerShell versione 2.4 o successiva. Per installare il modulo Az PowerShell più recente, vedere [Installare il modulo di Azure PowerShell.](https://docs.microsoft.com/powershell/azure/install-az-ps)
+> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rallentamento delle prestazioni in una condivisione file di Azure montata in una VM Linux
 
-### <a name="cause-1-caching"></a>Causa 1: memorizzazione nella cache
+### <a name="cause-1-caching"></a>Cause 1: memorizzazione nella cache
 
-Una possibile causa del rallentamento delle prestazioni è la disattivazione della memorizzazione nella cache. La memorizzazione nella cache può essere utile se si accede a un file ripetutamente, in caso contrario, può essere un sovraccarico. Verificare se si sta utilizzando la cache prima di disabilitarla.
+Una possibile causa del rallentamento delle prestazioni è la disattivazione della memorizzazione nella cache. La memorizzazione nella cache può essere utile se si accede ripetutamente a un file. in caso contrario, può essere un sovraccarico. Controllare se si sta usando la cache prima di disattivarla.
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
@@ -179,7 +179,7 @@ Per controllare se la memorizzazione nella cache è disattivata, cercare la voce
 
 **cache=none** indica che la memorizzazione nella cache è disattivata. Eseguire nuovamente il montaggio della condivisione usando il comando di montaggio predefinito o aggiungendo esplicitamente l'opzione **cache=strict** al comando di montaggio per assicurarsi che la modalità di memorizzazione nella cache predefinita o "strict" sia attivata.
 
-In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento comporta una riduzione delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
+In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il comando **ls** esegua stat rispetto a ogni voce di directory. Questo comportamento comporta un peggioramento delle prestazioni quando si elenca una directory di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce **/etc/fstab**:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
@@ -191,13 +191,13 @@ In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il coma
 
 Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montare nuovamente File di Azure eseguendo il comando di montaggio dalla [documentazione](../storage-how-to-use-files-linux.md). Verificare quindi di nuovo che la voce **/etc/fstab** disponga delle opzioni corrette.
 
-### <a name="cause-2-throttling"></a>Causa 2: limitazione della limitazione
+### <a name="cause-2-throttling"></a>Cause 2: limitazione
 
-È possibile che si verifichilando la limitazione delle richieste e che le richieste vengano inviate a una coda. È possibile verificarlo sfruttando le metriche di [Archiviazione di Azure in Monitoraggio di Azure.You](../common/storage-metrics-in-azure-monitor.md)can verify this by leveraging Azure Storage metrics in Azure Monitor .
+È possibile che si verifichino limitazioni e che le richieste vengano inviate a una coda. Per verificarlo, è possibile sfruttare le [metriche di archiviazione di Azure in monitoraggio di Azure](../common/storage-metrics-in-azure-monitor.md).
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
-Verificare che l'app sia compresa nelle destinazioni di [scalabilità File](storage-files-scale-targets.md#azure-files-scale-targets)di Azure.
+Assicurarsi che l'app si trovi entro gli [obiettivi di scalabilità file di Azure](storage-files-scale-targets.md#azure-files-scale-targets).
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>I timestamp sono andati persi durante la copia dei file da Windows a Linux
@@ -280,7 +280,7 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
 - [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and later](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel 4.9 e versioni successive)
 
-È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Se si usa una distribuzione Linux comune, è possibile controllare l'uso di File di [Azure con Linux](storage-how-to-use-files-linux.md) per vedere quale versione della distribuzione presenta le modifiche necessarie al kernel.
+È tuttavia possibile che queste modifiche non siano state ancora trasferite a tutte le distribuzioni di Linux. Se si usa una distribuzione Linux comune, è possibile controllare l'uso di [file di Azure con Linux](storage-how-to-use-files-linux.md) per vedere quale versione della distribuzione ha le modifiche necessarie al kernel.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
@@ -288,10 +288,10 @@ Questo problema di riconnessione nel kernel Linux è stato corretto nell'ambito 
 
 Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recenti, si può ovviare a questo problema conservando un file nella condivisione file di Azure in cui scrivere ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica del file. In caso contrario, i risultati verrebbero memorizzati nella cache e l'operazione potrebbe non attivare la riconnessione.
 
-## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>"CIFS VFS: errore -22 su ioctl per ottenere l'elenco di interfaccia" quando si monta una condivisione file di Azure utilizzando SMB 3.0
+## <a name="cifs-vfs-error--22-on-ioctl-to-get-interface-list-when-you-mount-an-azure-file-share-by-using-smb-30"></a>"CIFS VFS: Error-22 su IOCTL per ottenere l'elenco di interfacce" quando si monta una condivisione file di Azure usando SMB 3,0
 
 ### <a name="cause"></a>Causa
-Questo errore viene registrato perché File di Azure [non supporta attualmente SMB multicanale](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Questo errore viene registrato perché File di Azure [attualmente non supporta SMB multicanale](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### <a name="solution"></a>Soluzione
 Questo errore può essere ignorato.

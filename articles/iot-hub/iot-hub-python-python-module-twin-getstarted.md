@@ -1,5 +1,5 @@
 ---
-title: Identità e modulo gemello dell'hub IoT di Azure (Python)Azure IoT Hub module identity and module twin (Python)
+title: Identità del modulo Hub Azure Internet e modulo gemello (Python)
 description: Come creare l'identità del modulo e aggiornare il modulo gemello usando gli SDK per IoT per Python.
 author: chrissie926
 ms.service: iot-hub
@@ -15,21 +15,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "80756991"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo Hub IoT e al modulo gemello (Python)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (Python)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> Le identità dei moduli e i moduli gemelli sono simili alle identità dei dispositivi [dell'hub dell'IoT](iot-hub-devguide-module-twins.md) di Azure e ai dispositivi gemelli, ma offrono una granularità più fine. Mentre le identità dei dispositivi dell'hub IoT di Azure e i dispositivi gemelli consentono a un'applicazione back-end di configurare un dispositivo e di fornire visibilità sulle condizioni del dispositivo, le identità dei moduli e i moduli gemelli forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi in grado con più componenti, ad esempio dispositivi basati sul sistema operativo o dispositivi firmware, consentono la configurazione isolata e le condizioni per ogni componente.
+> [Le identità dei moduli e i moduli gemelli](iot-hub-devguide-module-twins.md) sono simili alle identità dei dispositivi dell'hub Azure e ai dispositivi gemelli, ma offrono una maggiore granularità. Mentre le identità dei dispositivi dell'hub Azure Internet e i dispositivi gemelli consentono a un'applicazione back-end di configurare un dispositivo e fornire visibilità sulle condizioni del dispositivo, le identità dei moduli e i moduli gemelli forniscono queste funzionalità per i singoli componenti di un dispositivo. Nei dispositivi compatibili con più componenti, ad esempio dispositivi basati sul sistema operativo o dispositivi firmware, consentono la configurazione isolata e le condizioni per ogni componente.
 >
 
-Alla fine di questa esercitazione, sono disponibili tre app Python:At the end of this tutorial, you have three Python apps:
+Al termine di questa esercitazione si avranno tre app Python:
 
 * **CreateModule**, che crea un'identità del dispositivo, un'identità del modulo e le chiavi di sicurezza associate per connettere i client del dispositivo e del modulo.
 
-* **UpdateModuleTwinDesiredProperties**, che invia le proprietà desiderate del modulo gemello aggiornate all'hub IoT.
+* **UpdateModuleTwinDesiredProperties**, che invia le proprietà desiderate del modulo gemello aggiornato all'hub Internet.
 
-* **ReceiveModuleTwinDesiredPropertiesPatch**, che riceve la patch delle proprietà desiderate del modulo gemello sul dispositivo.
+* **ReceiveModuleTwinDesiredPropertiesPatch**, che riceve la patch del modulo gemello per le proprietà desiderate nel dispositivo.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -41,31 +41,31 @@ Alla fine di questa esercitazione, sono disponibili tre app Python:At the end of
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub IoTGet the IoT hub connection string
+## <a name="get-the-iot-hub-connection-string"></a>Ottenere la stringa di connessione dell'hub Internet
 
-In questo articolo viene creato un servizio back-end che aggiunge un dispositivo nel Registro di sistema delle identità e quindi aggiunge un modulo a tale dispositivo. Questo servizio richiede l'autorizzazione di **scrittura del Registro** di sistema (che include anche la **lettura del Registro**di sistema ). È inoltre possibile creare un servizio che aggiunge le proprietà desiderate al modulo gemello per il modulo appena creato. Questo servizio richiede l'autorizzazione di connessione del **servizio.** Sebbene esistano criteri di accesso condiviso predefiniti che concedono queste autorizzazioni singolarmente, in questa sezione viene creato un criterio di accesso condiviso personalizzato contenente entrambe queste autorizzazioni.
+In questo articolo viene creato un servizio back-end che aggiunge un dispositivo nel registro delle identità e quindi aggiunge un modulo al dispositivo. Questo servizio richiede l'autorizzazione di **scrittura del registro di sistema** , che include anche la **lettura del registro**di sistema. Si crea anche un servizio che aggiunge le proprietà desiderate al modulo gemello per il modulo appena creato. Questo servizio richiede l'autorizzazione Connect per il **servizio** . Sebbene esistano criteri di accesso condiviso predefiniti che concedono singolarmente queste autorizzazioni, in questa sezione viene creato un criterio di accesso condiviso personalizzato che contiene entrambe le autorizzazioni.
 
 [!INCLUDE [iot-hub-include-find-service-regrw-connection-string](../../includes/iot-hub-include-find-service-regrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Creare un'identità del dispositivo e un'identità del modulo nell'hub IoT
 
-In questa sezione viene creata un'app del servizio Python che crea un'identità del dispositivo e un'identità del modulo nel Registro di sistema delle identità nell'hub IoT.In this section, you create a Python service app that creates a device identity and a module identity in the identity registry in your IoT hub. Un dispositivo o un modulo non può connettersi all'hub IoT a meno che non disponga di una voce nel Registro di sistema delle identità. Per altre informazioni, vedere [Informazioni sul registro delle identità nell'hub IoT](iot-hub-devguide-identity-registry.md). Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
+In questa sezione si crea un'app di servizio Python che crea un'identità del dispositivo e un'identità del modulo nel registro delle identità nell'hub Internet. Un dispositivo o un modulo non è in grado di connettersi all'hub delle cose a meno che non includa una voce nel registro delle identità. Per altre informazioni, vedere [comprendere il registro delle identità nell'hub](iot-hub-devguide-identity-registry.md). Quando si esegue questa app console vengono generati un ID e una chiave univoci sia per il dispositivo che per il modulo. Il dispositivo e il modulo usano questi valori per identificarsi quando inviano messaggi da dispositivo a cloud all'hub IoT. Negli ID viene fatta distinzione tra maiuscole e minuscole.
 
-1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-hub:At** your command prompt, run the following command to install the azure-iot-hub package:
+1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet per l'hub:
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **msrest.** Questo pacchetto è necessario per intercettare le eccezioni **HTTPOperationError.You** need this package to catch HTTPOperationError exceptions.
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **msrest** . Questo pacchetto è necessario per intercettare le eccezioni **HTTPOperationError** .
 
     ```cmd/sh
     pip install msrest
     ```
 
-1. Utilizzando un editor di testo, creare un file denominato **CreateModule.py** nella directory di lavoro.
+1. Usando un editor di testo, creare un file denominato **CreateModule.py** nella directory di lavoro.
 
-1. Aggiungere il codice seguente al file Python. Sostituire *YourIoTHubConnectionString* con la stringa di connessione copiata in Ottenere la stringa di [connessione dell'hub IoT](#get-the-iot-hub-connection-string).
+1. Aggiungere il codice seguente al file Python. Sostituire *YourIoTHubConnectionString* con la stringa di connessione copiata in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
     ```python
     import sys
@@ -122,31 +122,31 @@ In questa sezione viene creata un'app del servizio Python che crea un'identità 
         print("IoTHubRegistryManager sample stopped")
     ```
 
-1. Al prompt dei comandi, eseguire il comando seguente:
+1. Al prompt dei comandi eseguire il comando seguente:
 
     ```cmd/sh
     python CreateModule.py
     ```
 
-Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'identità del modulo con ID **myFirstModule** per il dispositivo **myFirstDevice**. Se l'ID del dispositivo o del modulo esiste già nel registro delle identità, il codice recupera semplicemente le informazioni sul dispositivo o sul modulo esistente. L'app visualizza l'ID e la chiave primaria per ogni identità.
+Questa app crea un'identità del dispositivo con ID **myFirstDevice** e un'identità del modulo con ID **myFirstModule** per il dispositivo **myFirstDevice**. Se il dispositivo o l'ID del modulo esiste già nel registro delle identità, il codice recupera semplicemente le informazioni sul dispositivo o sul modulo esistente. L'app Visualizza l'ID e la chiave primaria per ogni identità.
 
 > [!NOTE]
-> Il registro delle identità dell'hub IoT archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere [Informazioni sul registro delle identità nell'hub IoT](iot-hub-devguide-identity-registry.md).
+> Il registro delle identità dell'hub IoT archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere [comprendere il registro delle identità nell'hub](iot-hub-devguide-identity-registry.md).
 >
 
-## <a name="update-the-module-twin-using-python-service-sdk"></a>Aggiornare il modulo gemello utilizzando python service SDK
+## <a name="update-the-module-twin-using-python-service-sdk"></a>Aggiornare il modulo gemello con Python Service SDK
 
-In questa sezione viene creata un'app di servizio Python che aggiorna le proprietà desiderate del modulo gemello.
+In questa sezione si crea un'app di servizio Python che aggiorna le proprietà desiderate del modulo gemello.
 
-1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-hub.** È possibile ignorare questo passaggio se è stato installato il pacchetto **azure-iot-hub** nella sezione precedente.
+1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **Azure-** Internet. È possibile ignorare questo passaggio se è stato installato il pacchetto **Azure-Azure-hub-hub** nella sezione precedente.
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-1. Utilizzando un editor di testo, creare un file denominato **UpdateModuleTwinDesiredProperties.py** nella directory di lavoro.
+1. Usando un editor di testo, creare un file denominato **UpdateModuleTwinDesiredProperties.py** nella directory di lavoro.
 
-1. Aggiungere il codice seguente al file Python. Sostituire *YourIoTHubConnectionString* con la stringa di connessione copiata in Ottenere la stringa di [connessione dell'hub IoT](#get-the-iot-hub-connection-string).
+1. Aggiungere il codice seguente al file Python. Sostituire *YourIoTHubConnectionString* con la stringa di connessione copiata in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
     ```python
     import sys
@@ -184,19 +184,19 @@ In questa sezione viene creata un'app di servizio Python che aggiorna le proprie
 
 ## <a name="get-updates-on-the-device-side"></a>Ottenere aggiornamenti sul lato dispositivo
 
-In questa sezione viene creata un'app Python per ottenere l'aggiornamento delle proprietà desiderato del modulo gemello nel dispositivo.
+In questa sezione si crea un'app Python per ottenere l'aggiornamento delle proprietà desiderate del modulo gemello nel dispositivo.
 
-1. Ottenere la stringa di connessione del modulo. Nel [portale di Azure](https://portal.azure.com/)passare all'hub IoT e selezionare Dispositivi **IoT** nel riquadro sinistro. Selezionare **myFirstDevice** dall'elenco dei dispositivi e aprirlo. In **Identità modulo**selezionare **myFirstModule**. Copiare la stringa di connessione del modulo. È necessario in un passaggio successivo.
+1. Ottenere la stringa di connessione del modulo. In [portale di Azure](https://portal.azure.com/)passare all'hub Internet delle cose e selezionare **dispositivi** Internet nel riquadro sinistro. Selezionare **myFirstDevice** nell'elenco dei dispositivi e aprirlo. In **identità modulo**selezionare **myFirstModule**. Copiare la stringa di connessione del modulo. È necessario in un passaggio successivo.
 
    ![Dettagli del modulo nel portale di Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. Al prompt dei comandi eseguire il comando seguente per installare il pacchetto **azure-iot-device:At** your command prompt, run the following command to install the azure-iot-device package:
+1. Al prompt dei comandi, eseguire il comando seguente per installare il pacchetto **Azure-** Internet:
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. Utilizzando un editor di testo, creare un file denominato **ReceiveModuleTwinDesiredPropertiesPatch.py** nella directory di lavoro.
+1. Usando un editor di testo, creare un file denominato **ReceiveModuleTwinDesiredPropertiesPatch.py** nella directory di lavoro.
 
 1. Aggiungere il codice seguente al file Python. Sostituire *YourModuleConnectionString* con la stringa di connessione del modulo copiata nel passaggio 1.
 
@@ -239,29 +239,29 @@ In questa sezione viene creata un'app Python per ottenere l'aggiornamento delle 
 
 ## <a name="run-the-apps"></a>Eseguire le app
 
-In questa sezione viene eseguita l'app per dispositivi **ReceiveModuleTwinDesiredPropertiesPatch** e quindi l'app di servizio **UpdateModuleTwinDesiredProperties** per aggiornare le proprietà desiderate del modulo.
+In questa sezione si esegue l'app per dispositivi **ReceiveModuleTwinDesiredPropertiesPatch** , quindi si esegue l'app del servizio **UpdateModuleTwinDesiredProperties** per aggiornare le proprietà desiderate del modulo.
 
-1. Aprire un prompt dei comandi ed eseguire l'app per dispositivi:
+1. Aprire un prompt dei comandi ed eseguire l'app per dispositivo:
 
     ```cmd/sh
     python ReceiveModuleTwinDesiredPropertiesPatch.py
     ```
 
-   ![Output iniziale dell'app per dispositivi](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
+   ![Output iniziale dell'app dispositivo](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
 
-1. Aprire un prompt dei comandi separato ed eseguire l'app di servizio:Open a separate command prompt and run the service app:
+1. Aprire un prompt dei comandi separato ed eseguire l'app di servizio:
 
     ```cmd/sh
     python UpdateModuleTwinDesiredProperties.py
     ```
 
-    Si noti che la proprietà desiderata TelemetryInterval viene visualizzata nel modulo gemello aggiornato nell'output dell'app del servizio:Notice that the **TelemetryInterval** desired property appears in the updated module twin in your service app output:
+    Si noti che la proprietà desiderata **TelemetryInterval** viene visualizzata nel modulo gemello aggiornato nell'output dell'app di servizio:
 
    ![Output dell'app di servizio](./media/iot-hub-python-python-module-twin-getstarted/service.png)
 
     La stessa proprietà viene visualizzata nella patch delle proprietà desiderata ricevuta nell'output dell'app per dispositivi:
 
-   ![L'output dell'app per dispositivi mostra la patch delle proprietà desiderate](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
+   ![L'output dell'app dispositivo Mostra la patch delle proprietà desiderate](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,10 +1,10 @@
 ---
-title: Funzionamento del codice di Visual Studio con gli spazi di sviluppo di AzureHow Visual Studio Code works with Azure Dev Spaces
+title: Funzionamento di Visual Studio Code con Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: conceptual
-description: Scopri come Visual Studio Code e Azure Dev Spaces ti aiutano a eseguire il debug e a scorrere rapidamente le tue applicazioni Kubernetes
-keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Servizio Azure Kubernetes, contenitori
+description: Informazioni su come Visual Studio Code e Azure Dev Spaces consentono di eseguire il debug e di eseguire rapidamente l'iterazione delle applicazioni Kubernetes
+keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
 ms.openlocfilehash: 91440e59fdb8c21579ef1f04e78e66f933221ba0
 ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
@@ -12,45 +12,45 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80240453"
 ---
-# <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Funzionamento del codice di Visual Studio con gli spazi di sviluppo di AzureHow Visual Studio Code works with Azure Dev Spaces
+# <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Funzionamento di Visual Studio Code con Azure Dev Spaces
 
-È possibile usare il codice di Visual Studio e [l'estensione Spazi di sviluppo di Azure][azds-extension] per preparare, eseguire ed eseguire il debug dei servizi con Azure Dev Spaces.You can use Visual Studio Code and the Azure Dev Spaces extension to prepare, run, and debug your services with Azure Dev Spaces. Con Visual Studio Code e l'estensione Azure Dev Spaces, è possibile:With Visual Studio Code and the Azure Dev Spaces extension, you can:
+È possibile utilizzare Visual Studio Code e l' [estensione Azure Dev Spaces][azds-extension] per preparare, eseguire ed eseguire il debug dei servizi con Azure Dev Spaces. Con Visual Studio Code e l'estensione Azure Dev Spaces, è possibile:
 
-* Generare risorse per l'esecuzione e il debug di servizi in AKSGenerate assets for running and debugging services in AKS
-* Eseguire i servizi Java, Node.js e .NET Core in uno spazio di sviluppoRun your Java, Node.js, and .NET Core services in a dev space
-* Eseguire direttamente il debug dei servizi Java, Node.js e .NET Core in esecuzione in uno spazio di sviluppoDirectly debug your Java, Node.js, and .NET Core services running in a dev space
+* Generare asset per l'esecuzione e il debug dei servizi in AKS
+* Eseguire i servizi Java, node. js e .NET Core in uno spazio di sviluppo
+* Esegui il debug diretto dei servizi Java, node. js e .NET Core in esecuzione in uno spazio di sviluppo
 
-## <a name="generate-assets"></a>Generare risorse
+## <a name="generate-assets"></a>Genera asset
 
-Il codice di Visual Studio e l'estensione Azure Dev Spaces generano le risorse seguenti per il progetto:Visual Studio Code and the Azure Dev Spaces extension generate the following assets for your project:
+Visual Studio Code e l'estensione Azure Dev Spaces generano gli asset seguenti per il progetto:
 
-* Dockerfiles per applicazioni Java che utilizzano applicazioni Maven, Node.js e .NET Core
-* Grafici Helm per quasi tutte le lingue con un Dockerfile
-* Un `azds.yaml` file, ovvero il file di configurazione di [Azure Dev Spaces][azds-yaml] per il progetto
-* Una `.vscode` cartella con la configurazione di avvio del codice di Visual Studio del progetto per le applicazioni Java che utilizzano le applicazioni Maven, Node.js e .NET Core
+* Dockerfile per applicazioni Java con Maven, applicazioni node. js e applicazioni .NET Core
+* Grafici Helm per quasi tutti i linguaggi con Dockerfile
+* Un `azds.yaml` file, ovvero il [file di configurazione Azure Dev Spaces][azds-yaml] per il progetto
+* Una `.vscode` cartella con la Visual Studio Code avviare la configurazione del progetto per le applicazioni Java con Maven, le applicazioni node. js e le applicazioni .NET Core
 
-Il Dockerfile, il `azds.yaml` grafico Helm e i `azds prep`file sono gli stessi asset generati durante l'esecuzione di . Tali file possono essere utilizzati anche all'esterno del codice di `azds up`Visual Studio per eseguire il progetto in AKS, ad esempio l'esecuzione di . La `.vscode` cartella viene utilizzata solo dal codice di Visual Studio per eseguire il progetto in AKS dal codice di Visual Studio.The folder is only used by Visual Studio code to run your project in AKS from Visual Studio Code.
+Il Dockerfile, il grafico Helm e `azds.yaml` i file sono le stesse risorse generate `azds prep`durante l'esecuzione di. Questi file possono essere usati anche all'esterno di Visual Studio Code per eseguire il progetto in AKS, ad esempio `azds up`in esecuzione. La `.vscode` cartella viene usata solo da Visual Studio Code per eseguire il progetto in AKS da Visual Studio Code.
 
-## <a name="run-your-service-in-aks"></a>Eseguire il servizio in AKSRun your service in AKS
+## <a name="run-your-service-in-aks"></a>Eseguire il servizio in AKS
 
-Dopo aver generato le risorse per il progetto, è possibile eseguire i servizi Java, Node.js e .NET Core in uno spazio di sviluppo esistente da Visual Studio Code. Nella pagina *Debug* di Visual Studio Code è possibile `.vscode` richiamare la configurazione di avvio dalla directory per eseguire il progetto.
+Dopo aver generato gli asset per il progetto, è possibile eseguire i servizi Java, node. js e .NET Core in uno spazio di sviluppo esistente da Visual Studio Code. Nella pagina *debug* di Visual Studio Code è possibile richiamare la configurazione di avvio dalla `.vscode` directory per eseguire il progetto.
 
-È necessario creare il cluster AKS e abilitare Azure Dev Spaces nel cluster all'esterno del codice di Visual Studio.You must create your AKS cluster and enable Azure Dev Spaces in your cluster outside of Visual Studio Code. Ad esempio, è possibile usare l'interfaccia della riga di comando di Azure o il portale di Azure per eseguire questa configurazione. È possibile riutilizzare i file Docker, Helm e `azds.yaml` i file creati all'esterno `azds prep`del codice di Visual Studio, ad esempio gli asset generati eseguendo . Se si riutilizzano gli asset generati all'esterno di `.vscode` Visual Studio Code, è comunque necessario disporre di una directory. Questa `.vscode` directory può essere rigenerata dal codice di Visual Studio e dall'estensione Azure Dev Spaces e non sovrascriverà gli asset esistenti.
+È necessario creare il cluster AKS e abilitare Azure Dev Spaces nel cluster al di fuori della Visual Studio Code. Ad esempio, è possibile usare l'interfaccia della riga di comando di Azure o il portale di Azure per eseguire questa configurazione. È possibile riutilizzare Dockerfile, i grafici Helm e `azds.yaml` i file esistenti creati al di fuori di Visual Studio Code, ad esempio gli `azds prep`asset generati eseguendo. Se si riutilizzano risorse generate all'esterno di Visual Studio Code, è comunque necessario `.vscode` disporre di una directory. Questa `.vscode` directory può essere rigenerata da Visual Studio Code e dall'estensione Azure Dev Spaces e non sovrascrive gli asset esistenti.
 
-Per i progetti .NET Core, è necessario che sia installata [l'estensione di C,][csharp-extension] per eseguire il servizio .NET da Visual Studio Code. Anche per i progetti Java che usano Maven, è necessario che [l'estensione Java Debugger for Azure Dev Spaces][java-extension] sia per l'installazione e la configurazione di [Maven][maven] per l'esecuzione del servizio Java da Visual Studio Code.
+Per i progetti .NET Core, è necessario che sia installata l' [estensione C#][csharp-extension] per eseguire il servizio .net da Visual Studio Code. Inoltre, per i progetti Java con Maven, è necessario che sia installato il [Debugger Java per Azure Dev Spaces estensione][java-extension] [e Maven installato e configurato][maven] per eseguire il servizio Java da Visual Studio Code.
 
-## <a name="debug-your-service-in-aks"></a>Debug your service in AKS
+## <a name="debug-your-service-in-aks"></a>Eseguire il debug del servizio in AKS
 
-Dopo aver avviato il progetto, è possibile eseguire il debug dei servizi Java, Node.js e .NET Core in esecuzione in uno spazio di sviluppo direttamente dal codice di Visual Studio.After you launch your project, you can debug your Java, Node.js, and .NET Core services running in a dev space directly from Visual Studio Code. La configurazione di `.vscode` avvio nella directory fornisce informazioni di debug aggiuntive per l'esecuzione di un servizio con il debug abilitato in uno spazio di sviluppo. Visual Studio Code si connette anche al processo di debug nel contenitore in esecuzione negli spazi di sviluppo, consentendo di impostare punti di interruzione, controllare le variabili ed eseguire altre operazioni di debug.
+Dopo aver avviato il progetto, è possibile eseguire il debug dei servizi Java, node. js e .NET Core in esecuzione in uno spazio di sviluppo direttamente da Visual Studio Code. La configurazione di avvio nella `.vscode` Directory fornisce le informazioni di debug aggiuntive per l'esecuzione di un servizio con il debug abilitato in uno spazio di sviluppo. Visual Studio Code inoltre si connette al processo di debug nel contenitore in esecuzione negli spazi di sviluppo, consentendo di impostare i punti di rottura, controllare le variabili ed eseguire altre operazioni di debug.
 
 
-## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Usare il codice di Visual Studio con gli spazi di sviluppo di AzureUse Visual Studio Code with Azure Dev Spaces
+## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Usare Visual Studio Code con Azure Dev Spaces
 
-È possibile visualizzare Visual Studio Code e l'estensione Azure Dev Spaces che funzionacon azure Dev Spaces nelle guide introduttive seguenti:You can see Visual Studio Code and the Azure Dev Spaces extension working with Azure Dev Spaces in the following quickstarts:
+È possibile vedere Visual Studio Code e l'estensione Azure Dev Spaces uso di Azure Dev Spaces nelle guide introduttive seguenti:
 
-* [Iterazione ed eseguire rapidamente il debug con Visual Studio Code e Java][quickstart-java]
-* [Iterazione ed eseguire rapidamente il debug con Visual Studio Code e .NET][quickstart-netcore]
-* [Eseguire rapidamente l'iterazione e il debug con Visual Studio Code e Node.js][quickstart-node]
+* [Iterazione e debug rapidi con Visual Studio Code e Java][quickstart-java]
+* [Iterazione e debug rapidi con Visual Studio Code e .NET][quickstart-netcore]
+* [Iterazione e debug rapidi con Visual Studio Code e node. js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code

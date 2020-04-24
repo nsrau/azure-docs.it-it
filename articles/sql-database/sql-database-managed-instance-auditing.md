@@ -25,13 +25,13 @@ ms.locfileid: "80387768"
 Il controllo dell'[istanza gestita](sql-database-managed-instance.md) tiene traccia degli eventi del database e li registra in un log di controllo nell'account di archiviazione di Azure. Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
-- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) di Azure in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
+- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurare il controllo per il server in Archiviazione di Azure
 
 La sezione seguente descrive la configurazione del controllo per l'istanza gestita.
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Creare un **contenitore** di Archiviazione di Azure in cui archiviare i log di controllo.
 
    1. Passare all'archiviazione di Azure in cui si vogliono archiviare i log di controllo.
@@ -51,7 +51,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
       ![Creare una configurazione del contenitore BLOB](./media/sql-managed-instance-auditing/3_create_container_config.png)
   > [!IMPORTANT]
-  > Il cliente che desidera configurare un archivio log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da Archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) di Azure (assicurarsi di aver selezionato Consenti **aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile)
+  > Il cliente che desidera configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) (assicurarsi di aver selezionato **Consenti aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile)
   
 3. Dopo aver creato il contenitore, è possibile configurarlo come destinazione dei log di controllo in due modi: [usando T-SQL](#blobtsql) oppure [tramite l'interfaccia utente di SQL Server Management Studio (SSMS)](#blobssms):
 
@@ -65,7 +65,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         ![URL da copiare del contenitore BLOB](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. Generare un token di firma di accesso condiviso di Archiviazione di Azure per concedere a un'istanza gestita i diritti di accesso per il controllo dell'accesso all'account di archiviazione:Generate an Azure Storage **SAS Token** to grant managed instance auditing access rights to the storage account:
+     1. Generare un **token** di firma di accesso condiviso di archiviazione di Azure per concedere al controllo dell'istanza gestita i diritti di accesso all'account di archiviazione:
 
         - Passare all'account di Archiviazione di Azure in cui è stato creato il contenitore nel passaggio precedente.
 
@@ -77,9 +77,9 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
           - **Servizi consentiti**: BLOB
 
-          - **Data di inizio**: per evitare problemi relativi al fuso orario, si consiglia di utilizzare la data di
+          - **Data di inizio**: per evitare problemi relativi al fuso orario, è consigliabile usare la data di ieri
 
-          - **Data di fine**: scegliere la data di scadenza del token sAS
+          - **Data di fine**: scegliere la data di scadenza del token di firma di accesso condiviso
 
             > [!NOTE]
             > Rinnovare il token alla scadenza per evitare errori di controllo.
@@ -136,16 +136,16 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dagli elenchi a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
 
-        ![Selezionare sottoscrizione di Azure, account di archiviazione e contenitore BLOBSelect Azure subscription, storage account, and blob container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Selezionare la sottoscrizione di Azure, l'account di archiviazione e il contenitore BLOB](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Fare clic su **OK** nella finestra di dialogo "Crea controllo".
 
-4. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione per i log di controllo, creare e abilitare una specifica di controllo del server o una specifica di controllo del database come per SQL Server:After configuring the Blob container as target for the audit logs, create and enable a Server Audit Specification or Database Audit Specification as you would for SQL Server:
+4. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione per i log di controllo, creare e abilitare una specifica del controllo del server o una specifica del controllo del database come per SQL Server:
 
    - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-5. Abilitare il controllo del server creato nel passaggio 3:
+5. Abilitare il controllo del server creato al passaggio 3:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -155,13 +155,13 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 Per altre informazioni:
 
-- [Controllo delle differenze tra singoli database, pool elastici e istanze gestite nel database SQL di Azure e i database in SQL ServerAuditing differences between single databases, elastic pools, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Controllo delle differenze tra database singoli, pool elastici e istanze gestite in database SQL di Azure e database in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurare il controllo per il server nei log dell'hub eventi o di Monitoraggio di AzureSet up auditing for your server to Event Hub or Azure Monitor logs
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurare il controllo per il server per l'hub eventi o i log di monitoraggio di Azure
 
-I log di controllo da un'istanza gestita possono essere inviati ai log di Hub o Monitor di Azure.Audit logs from a managed instance can be sent to Even Hubs or Azure Monitor logs. Questa sezione illustra come configurarli:
+I log di controllo da un'istanza gestita possono essere inviati anche a hub o log di monitoraggio di Azure. Questa sezione illustra come configurarli:
 
 1. All'interno del [portale di Azure](https://portal.azure.com/) passare all'istanza gestita.
 
@@ -171,9 +171,9 @@ I log di controllo da un'istanza gestita possono essere inviati ai log di Hub o 
 
 4. Selezionare **SQLSecurityAuditEvents** nell'elenco dei log.
 
-5. Selezionare una destinazione per gli eventi di controllo: Hub eventi, Log di Monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
+5. Selezionare una destinazione per gli eventi di controllo: Hub eventi, log di monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
 
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
     ![Configurare le impostazioni di diagnostica](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -186,12 +186,12 @@ I log di controllo da un'istanza gestita possono essere inviati ai log di Hub o 
     GO
     ```
 
-9. Creare e abilitare una specifica di controllo del server o una specifica di controllo del database come per SQL Server:Create and enable a server audit specification or database audit specification as you would for SQL Server:
+9. Creare e abilitare una specifica del controllo del server o una specifica del controllo del database come si farebbe per SQL Server:
 
    - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Abilitare il controllo del server creato nel passaggio 8:Enable the server audit created in step 8:
+10. Abilitare il controllo del server creato nel passaggio 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -207,7 +207,7 @@ Per visualizzare i log di controllo dei BLOB sono disponibili diversi metodi.
 
 - Usare la funzione di sistema `sys.fn_get_audit_file` (T-SQL) per restituire i dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere la [documentazione su sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- È possibile esplorare i log di controllo usando uno strumento come [Azure Storage Explorer.You](https://azure.microsoft.com/features/storage-explorer/)can explore audit logs by using a tool such as Azure Storage Explorer . In Archiviazione di Azure i log di controllo vengono salvati come raccolta di file BLOB in un contenitore appositamente definito per l'archiviazione di questi log. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
+- È possibile esplorare i log di controllo utilizzando uno strumento come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Archiviazione di Azure i log di controllo vengono salvati come raccolta di file BLOB in un contenitore appositamente definito per l'archiviazione di questi log. Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](sql-database-auditing.md).
 
@@ -215,11 +215,11 @@ Per visualizzare i log di controllo dei BLOB sono disponibili diversi metodi.
 
 Per utilizzare i dati dei log di controllo da Hub eventi, è necessario configurare un flusso per utilizzare gli eventi e scriverli in una destinazione. Per altre informazioni, vedere la documentazione di Hub eventi di Azure.
 
-### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Usare e analizzare i log archiviati nei log di Monitoraggio di AzureConsume and Analyze logs stored in Azure Monitor logs
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Utilizzare e analizzare i log archiviati nei log di monitoraggio di Azure
 
-Se i log di controllo vengono scritti nei log di Monitoraggio di Azure, sono disponibili nell'area di lavoro di Log Analytics, in cui è possibile eseguire ricerche avanzate nei dati di controllo. Come punto di partenza, passare all'area di lavoro di Log Analytics e `search "SQLSecurityAuditEvents"` nella sezione *Generale* fare clic su *Registri* e immettere una query semplice, ad esempio: per visualizzare i log di controllo.  
+Se i log di controllo vengono scritti nei log di monitoraggio di Azure, sono disponibili nell'area di lavoro Log Analytics, in cui è possibile eseguire ricerche avanzate sui dati di controllo. Come punto di partenza, passare all'area di lavoro Log Analytics e nella sezione *generale* fare clic su *log* e immettere una semplice query, `search "SQLSecurityAuditEvents"` ad esempio: per visualizzare i log di controllo.  
 
-I log di Monitoraggio di Azure offrono informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare facilmente milioni di record in tutti i carichi di lavoro e nei server. Per altre informazioni utili sul linguaggio e sui comandi dei log di Monitoraggio di Azure, vedere Informazioni di riferimento sulla ricerca dei log di Monitoraggio di Azure.For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Log di monitoraggio di Azure offre informazioni operative in tempo reale usando la ricerca integrata e i dashboard personalizzati per analizzare rapidamente milioni di record in tutti i carichi di lavoro e i server. Per altre informazioni utili sul linguaggio di ricerca dei log di Azure e sui comandi, vedere i [riferimenti alla ricerca nei log di monitoraggio](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -235,7 +235,7 @@ Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BL
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
 - È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui vengono inseriti i file con estensione `.xel`.
-- Viene fornita `TO EXTERNAL MONITOR` una nuova sintassi per abilitare anche hub e le destinazioni dei log di Monitoraggio di Azure.A new syntax is provided to enable Even Hub and Azure Monitor logs targets.
+- Viene fornita una `TO EXTERNAL MONITOR` nuova sintassi per abilitare anche le destinazioni dei log degli hub e di monitoraggio di Azure.
 - La sintassi `TO FILE`**non è supportata** perché il database SQL non può accedere alle condivisioni file di Windows.
 - L'opzione Shutdown **non è supportata**.
 - Un valore di `queue_delay` uguale a 0 **non è supportato**.
@@ -243,7 +243,7 @@ Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](sql-database-auditing.md).
-- Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) di Azure in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
+- Per ulteriori informazioni sui programmi di Azure che supportano la conformità agli standard, vedere la [Centro protezione di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 <!--Image references-->
 

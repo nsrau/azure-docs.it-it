@@ -1,6 +1,6 @@
 ---
-title: Sospendere, riprendere e ridimensionare con le API RESTPause, resume, scale with REST APIs
-description: Gestire la potenza di calcolo nel data warehouse di Azure Synapse Analytics tramite le API REST.
+title: Sospendere, riprendere e ridimensionare con le API REST
+description: Gestire la potenza di calcolo in Azure sinapsi Analytics data warehouse tramite le API REST.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -20,7 +20,7 @@ ms.locfileid: "80633209"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST per Azure SQL Data Warehouse
 
-API REST per la gestione del calcolo nel data warehouse di Azure Synapse Analytics.REST APIs for managing compute in Azure Synapse Analytics data warehouse.
+API REST per la gestione delle risorse di calcolo in Azure sinapsi Analytics data warehouse.
 
 ## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
 
@@ -56,13 +56,13 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="check-database-state"></a>Controllare lo stato del database
 
 > [!NOTE]
-> Attualmente controllare lo stato del database potrebbe restituire ONLINE mentre il database sta completando il flusso di lavoro online, causando errori di connessione. Potrebbe essere necessario aggiungere un ritardo di 2 o 3 minuti nel codice dell'applicazione se si utilizza questa chiamata API per attivare i tentativi di connessione.
+> Attualmente controllare lo stato del database potrebbe restituire ONLINE mentre il database sta completando il flusso di lavoro online, causando errori di connessione. Se si usa questa chiamata API per attivare i tentativi di connessione, potrebbe essere necessario aggiungere un ritardo da 2 a 3 minuti nel codice dell'applicazione.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Ottenere la pianificazione della manutenzioneGet maintenance schedule
+## <a name="get-maintenance-schedule"></a>Ottenere la pianificazione della manutenzione
 
 Controllare la pianificazione di manutenzione impostata per un data warehouse.
 
@@ -71,7 +71,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Impostare la pianificazione della manutenzione
+## <a name="set-maintenance-schedule"></a>Imposta pianificazione di manutenzione
 
 Per impostare e aggiornare una pianificazione di manutenzione in un data warehouse esistente.
 

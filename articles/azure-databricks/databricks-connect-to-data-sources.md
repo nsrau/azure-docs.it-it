@@ -1,6 +1,6 @@
 ---
 title: 'Connettersi a origini dati diverse da Azure Databricks '
-description: Informazioni su come connettersi al database SQL di Azure, all'archivio di dati di Azure, all'archiviazione BLOB, al database Cosmos, agli hub eventi e al data warehouse SQL di Azure da Azure Databrick.Learn how to connect to Azure SQL Database, Azure Data Lake Store, blob storage, Cosmos DB, Event Hubs, and Azure SQL Data Warehouse from Azure Databricks.
+description: Informazioni su come connettersi a database SQL di Azure, Azure Data Lake Store, archiviazione BLOB, Cosmos DB, Hub eventi e Azure SQL Data Warehouse da Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -28,14 +28,14 @@ Questo articolo fornisce collegamenti a tutte le origini dati diverse in Azure c
 
 L'elenco seguente include le origini dati in Azure che è possibile usare con Azure Databricks. Per un elenco completo di origini dati da usare con Azure Databricks, vedere [Origini dati per Azure Databricks](/azure/databricks/data/data-sources/index).
 
-- [Database SQL di AzureAzure SQL database](/azure/databricks/data/data-sources/sql-databases)
+- [Database SQL di Azure](/azure/databricks/data/data-sources/sql-databases)
 
     Questo collegamento fornisce l'API del frame di dati per la connessione ai database SQL mediante JDBC, oltre a informazioni su come controllare il parallelismo di letture tramite l'interfaccia JDBC. In questo argomento vengono forniti esempi dettagliati mediante l'API Scala, con Python abbreviato ed esempi di Spark SQL alla fine.
 - [Azure Data Lake Storage](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)
 
-    Questo collegamento fornisce esempi su come usare l'entità servizio Azure Active Directory per eseguire l'autenticazione con Archiviazione dati di Azure.This link provides examples on how to use the Azure Active Directory service principal to authenticate with Azure Data Lake Storage. Vengono inoltre fornite istruzioni su come accedere ai dati in Archiviazione data lake di Azure da Azure Databricks.It also provides instructions on how to access the data in Azure Data Lake Storage from Azure Databricks.
+    Questo collegamento fornisce esempi su come usare l'entità servizio Azure Active Directory per l'autenticazione con Azure Data Lake Storage. Vengono inoltre fornite istruzioni su come accedere ai dati in Azure Data Lake Storage da Azure Databricks.
 
-- [Archiviazione BLOB di AzureAzure Blob Storage](/azure/databricks/data/data-sources/azure/azure-storage)
+- [Archiviazione BLOB di Azure](/azure/databricks/data/data-sources/azure/azure-storage)
 
     Questo collegamento fornisce esempi su come accedere direttamente ad Archiviazione BLOB di Azure da Azure Databricks tramite la chiave di accesso o la firma di accesso condiviso per un contenitore specificato. Il collegamento contiene anche informazioni su come accedere ad Archiviazione BLOB di Azure da Azure Databricks usando l'API RDD.
 

@@ -1,6 +1,6 @@
 ---
-title: Creare utenti - Database di Azure per PostgreSQL - Server singoloCreate users - Azure Database for PostgreSQL - Single Server
-description: Questo articolo descrive come creare nuovi account utente per interagire con un database di Azure per PostgreSQL - Server singolo.
+title: Creare utenti-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come è possibile creare nuovi account utente per interagire con un database di Azure per PostgreSQL-singolo server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,11 +13,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2020
 ms.locfileid: "80384348"
 ---
-# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Creare utenti nel database di Azure per PostgreSQL - Server singoloCreate users in Azure Database for PostgreSQL - Single Server
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Creare utenti in database di Azure per PostgreSQL-server singolo
 
-Questo articolo descrive come creare utenti all'interno di un database di Azure per il server PostgreSQL.This article describes how you can create users within an Azure Database for PostgreSQL server.
+Questo articolo descrive come creare utenti in un database di Azure per il server PostgreSQL.
 
-Per informazioni su come creare e gestire gli utenti della sottoscrizione di Azure e i relativi privilegi, è possibile visitare l'articolo controllo degli [accessi in base](../role-based-access-control/built-in-roles.md) al ruolo di Azure o [esaminare come personalizzare i ruoli.](../role-based-access-control/custom-roles.md)
+Per informazioni su come creare e gestire gli utenti della sottoscrizione di Azure e i relativi privilegi, vedere l' [articolo controllo degli accessi in base al ruolo (RBAC) di Azure](../role-based-access-control/built-in-roles.md) o vedere [come personalizzare i ruoli](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Account amministratore del server
 

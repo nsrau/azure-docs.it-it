@@ -1,7 +1,7 @@
 ---
-title: Configurare il flusso delle credenziali della password del proprietario della risorsa con i criteri personalizzatiConfigure the resource owner password credentials flow with custom policies
+title: Configurare il flusso di credenziali password del proprietario della risorsa con criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Informazioni su come configurare il flusso di credenziali delle password del proprietario della risorsa (ROPC) usando criteri personalizzati in Azure Active Directory B2C.
+description: Informazioni su come configurare il flusso delle credenziali password del proprietario della risorsa (ROPC) usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -22,7 +22,7 @@ ms.locfileid: "80529179"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-In Azure Active Directory B2C (Azure AD B2C), il flusso di credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione standard OAuth. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
+In Azure Active Directory B2C (Azure AD B2C), il flusso di credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione OAuth standard. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
@@ -124,7 +124,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     </TechnicalProfile>
     ```
 
-    Sostituire **DefaultValue** di **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creata nell'esercitazione sui prerequisiti. Sostituire **quindi DefaultValue** di **resource_id** con l'ID applicazione dell'applicazione IdentityExperienceFramework creata anche nell'esercitazione sui prerequisiti.
+    Sostituire il **DefaultValue** di **client_id** con l'ID applicazione dell'applicazione ProxyIdentityExperienceFramework creata nell'esercitazione sui prerequisiti. Sostituire quindi **DefaultValue** di **RESOURCE_ID** con l'ID applicazione dell'applicazione IdentityExperienceFramework creata anche nell'esercitazione sui prerequisiti.
 
 5. Aggiungere gli elementi **ClaimsProvider** seguenti con i relativi profili tecnici all'elemento **ClaimsProviders**:
 
@@ -239,7 +239,7 @@ Completare le procedure illustrate in [Introduzione ai criteri personalizzati in
     ```
 
 5. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
-6. Abilitare **Sovrascrivi il criterio, se esistente,** quindi individuare e selezionare il file *ROPC_Auth.xml.*
+6. Abilitare **Sovrascrivi il criterio se esistente**, quindi individuare e selezionare il file *ROPC_Auth. XML* .
 7. Fare clic su **Carica**.
 
 ## <a name="test-the-policy"></a>Testare i criteri
@@ -253,10 +253,10 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 
 | Chiave | valore |
 | --- | ----- |
-| username | `user-account` |
+| nomeutente | `user-account` |
 | password | `password1` |
 | grant_type | password |
-| scope | openid `application-id` offline_access |
+| ambito | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
 
@@ -298,11 +298,11 @@ Costruire una chiamata POST come l'esempio seguente. Usare le informazioni ripor
 
 | Chiave | valore |
 | --- | ----- |
-| grant_type | refresh_token |
+| grant_type | token di aggiornamento |
 | response_type | id_token |
 | client_id | `application-id` |
-| resource | `application-id` |
-| refresh_token | `refresh-token` |
+| risorse | `application-id` |
+| token di aggiornamento | `refresh-token` |
 
 - Sostituire `application-id` con l'ID applicazione della registrazione di *ROPC_Auth_app*.
 - Sostituire `refresh-token` con il **refresh_token** che è stato inviato nella risposta precedente.

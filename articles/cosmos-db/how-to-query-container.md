@@ -1,6 +1,6 @@
 ---
 title: Eseguire query sui contenitori in Azure Cosmos DB
-description: Informazioni su come eseguire query sui contenitori in Azure Cosmos DB usando query in-partition e tra partizioni
+description: Informazioni su come eseguire query sui contenitori in Azure Cosmos DB usando query in-Partition e tra partizioni
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -15,25 +15,25 @@ ms.locfileid: "80131391"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
 
-Questo articolo illustra come eseguire una query su un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. In particolare, viene illustrato il funzionamento delle query in partizione e tra partizioni in Azure Cosmos DB.
+Questo articolo illustra come eseguire una query su un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. In particolare, vengono illustrate le modalità di lavoro delle query in partizione e tra partizioni in Azure Cosmos DB.
 
 ## <a name="in-partition-query"></a>Query in partizioni
 
-Quando si esegue una query sui dati dai contenitori, se alla query è specificato un filtro chiave di partizione, Azure Cosmos DB ottimizza automaticamente la query. Indirizza la query alle [partizioni fisiche corrispondenti ai](partition-data.md#physical-partitions) valori della chiave di partizione specificati nel filtro.
+Quando si esegue una query sui dati dei contenitori, se per la query è stato specificato un filtro della chiave di partizione, Azure Cosmos DB ottimizza automaticamente la query. Instrada la query alle [partizioni fisiche](partition-data.md#physical-partitions) corrispondenti ai valori della chiave di partizione specificati nel filtro.
 
-Si consideri ad esempio la query `DeviceId`seguente con un filtro di uguaglianza su . Se si esegue questa query su `DeviceId`un contenitore partizionato in , la query verrà filtrata in base a una singola partizione fisica.
+Si consideri, ad esempio, la query seguente con `DeviceId`un filtro di uguaglianza su. Se si esegue questa query su un contenitore partizionato in `DeviceId`, questa query verrà filtrata in un'unica partizione fisica.
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
-Come nell'esempio precedente, questa query verrà filtrata anche in base a una singola partizione. L'aggiunta del `Location` filtro aggiuntivo non modifica questa impostazione:
+Come per l'esempio precedente, la query verrà filtrata anche in una singola partizione. L'aggiunta del filtro aggiuntivo `Location` in non cambia:
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
-Ecco una query che ha un filtro di intervallo sulla chiave di partizione e non verrà limitato a una singola partizione fisica. Per essere una query all'in-partition, la query deve avere un filtro di uguaglianza che include la chiave di partizione:
+Di seguito è illustrata una query con un filtro di intervallo sulla chiave di partizione e non verrà definito come ambito di una singola partizione fisica. Per essere una query nel partizionamento, è necessario che la query disponga di un filtro di uguaglianza che includa la chiave di partizione:
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
@@ -41,15 +41,15 @@ Ecco una query che ha un filtro di intervallo sulla chiave di partizione e non v
 
 ## <a name="cross-partition-query"></a>Query tra partizioni
 
-La query seguente non dispone di un`DeviceId`filtro sulla chiave di partizione ( ). Pertanto, deve fan-out a tutte le partizioni fisiche in cui viene eseguito sull'indice di ogni partizione:
+La query seguente non dispone di un filtro per la chiave di`DeviceId`partizione (). Pertanto, è necessario che la ventola venga eseguita su tutte le partizioni fisiche in cui viene eseguita sull'indice di ogni partizione:
 
 ```sql
     SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
-Ogni partizione fisica ha il proprio indice. Pertanto, quando si esegue una query tra partizioni su un contenitore, si esegue effettivamente una query *per* partizione fisica. Azure Cosmos DB aggregherà automaticamente i risultati tra diverse partizioni fisiche.
+Ogni partizione fisica dispone di un proprio indice. Pertanto, quando si esegue una query tra partizioni in un contenitore, si esegue effettivamente una query *per* partizione fisica. Azure Cosmos DB aggrega automaticamente i risultati in partizioni fisiche diverse.
 
-Gli indici in partizioni fisiche diverse sono indipendenti l'uno dall'altro. Non esiste alcun indice globale in Azure Cosmos DB.
+Gli indici di partizioni fisiche diverse sono indipendenti l'uno dall'altro. Nessun indice globale in Azure Cosmos DB.
 
 ## <a name="parallel-cross-partition-query"></a>Query tra partizioni in parallelo
 
@@ -57,46 +57,46 @@ Le versioni degli SDK di Azure Cosmos DB 1.9.0 e successive supportano le opzion
 
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
-- **MaxConcurrency**: Imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta `-1`questa proprietà su , l'SDK gestisce il grado di parallelismo. Se `MaxConcurrency` l'opzione è impostata su `0`, è disponibile una singola connessione di rete alle partizioni del contenitore.
+- **MaxConcurrency**: imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1`, l'SDK gestisce il grado di parallelismo. Se `MaxConcurrency` impostato su `0`, esiste una singola connessione di rete alle partizioni del contenitore.
 
 - **MaxBufferedItemCount**: bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
-A causa della capacità di Azure Cosmos DB di parallelizzare le query tra partizioni, la latenza delle query viene in genere ridimensionata e il sistema aggiunge [partizioni fisiche.](partition-data.md#physical-partitions) Tuttavia, la carica RU aumenterà in modo significativo con l'aumentare del numero totale di partizioni fisiche.
+Grazie alla capacità Azure Cosmos DB di parallelizzare le query tra partizioni, la latenza delle query viene in genere ridimensionata in modo da consentire al sistema di aggiungere [partizioni fisiche](partition-data.md#physical-partitions). Tuttavia, l'addebito delle UR aumenterà in modo significativo man mano che aumenta il numero totale di partizioni fisiche.
 
-Quando si esegue una query tra partizioni, si esegue essenzialmente una query separata per ogni singola partizione fisica. Mentre le query tra partizioni utilizzeranno l'indice, se disponibile, non sono ancora efficienti quanto le query all'in-partition.
+Quando si esegue una query tra partizioni, si esegue essenzialmente una query separata per ogni singola partizione fisica. Sebbene le query tra partizioni utilizzino l'indice, se disponibile, non sono ancora molto efficienti come le query nel partizionamento.
 
 ## <a name="useful-example"></a>Esempio utile
 
-Di seguito è riportata un'analogia per comprendere meglio le query tra partizioni:Here's an analogy to better understand cross-partition queries:
+Ecco un'analogia per comprendere meglio le query tra partizioni:
 
-Immaginiamo di essere un autista di consegna che deve consegnare i pacchi a diversi complessi di appartamenti. Ogni complesso di appartamenti ha una lista sul posto che ha tutti i numeri di unità del residente. Possiamo confrontare ogni complesso di apartment con una partizione fisica e ogni elenco con l'indice della partizione fisica.
+Si supponga di essere un driver di recapito che deve recapitare i pacchetti a complessi di Apartment diversi. Ogni complesso di Apartment dispone di un elenco locale con tutti i numeri di unità del residente. È possibile confrontare ogni Apartment complesso con una partizione fisica e ogni elenco nell'indice della partizione fisica.
 
-Possiamo confrontare le query all'in-partition e cross-partition usando questo esempio:
+È possibile confrontare le query in partizione e tra partizioni usando questo esempio:
 
 ### <a name="in-partition-query"></a>Query in partizioni
 
-Se il conducente di consegna conosce il complesso di appartamenti corretto (partizione fisica), allora possono guidare immediatamente verso l'edificio corretto. Il conducente può controllare l'elenco dei numeri unitari del residente (l'indice) e consegnare rapidamente i pacchi appropriati. In questo caso, il conducente non perde tempo o fatica guidando verso un complesso di appartamenti per verificare e vedere se ci vivono dei destinatari del pacco.
+Se il driver di recapito è a conoscenza del complesso di Apartment corretto (partizione fisica), potrà immediatamente procedere alla compilazione corretta. Il driver può controllare l'elenco dei numeri di unità del residente (indice) del complesso di Apartment e fornire rapidamente i pacchetti appropriati. In questo caso, il driver non spreca tempo o fatica a guidare un complesso di Apartment per controllare e verificare se sono presenti destinatari di pacchetti.
 
 ### <a name="cross-partition-query-fan-out"></a>Query tra partizioni (fan-out)
 
-Se il conducente di consegna non conosce il complesso di appartamenti corretto (partizione fisica), dovrà guidare per ogni singolo condominio e controllare l'elenco con tutti i numeri di unità del residente (l'indice). Una volta arrivati in ogni complesso di appartamenti, saranno ancora in grado di utilizzare l'elenco degli indirizzi di ogni residente. Tuttavia, dovranno controllare l'elenco di ogni complesso di appartamenti, se i destinatari del pacchetto vivono lì o no. Ecco come funzionano le query tra partizioni. Mentre possono utilizzare l'indice (non è necessario bussare a ogni singola porta), devono controllare separatamente l'indice per ogni partizione fisica.
+Se il driver di recapito non conosce la struttura di Apartment corretta (partizione fisica), sarà necessario eseguire un'unità per ogni singolo Apartment e controllare l'elenco con tutti i numeri di unità del residente (l'indice). Una volta che arrivano a ogni complesso di Apartment, saranno comunque in grado di usare l'elenco degli indirizzi di ogni residente. Tuttavia, dovranno controllare l'elenco di ogni complesso di Apartment, indipendentemente dal fatto che i destinatari dei pacchetti siano presenti o meno. Questo è il funzionamento delle query tra partizioni. Sebbene possano usare l'indice (non è necessario bussare a ogni sportello singolo), devono controllare separatamente l'indice per ogni partizione fisica.
 
-### <a name="cross-partition-query-scoped-to-only-a-few-physical-partitions"></a>Query tra partizioni (con ambito solo a poche partizioni fisiche)Cross-partition query (scoped to only a few physical partitions)
+### <a name="cross-partition-query-scoped-to-only-a-few-physical-partitions"></a>Query tra partizioni (limitate a poche partizioni fisiche)
 
-Se il conducente di consegna sa che tutti i destinatari del pacchetto vivono all'interno di alcuni complessi di appartamenti, non avranno bisogno di guidare a ogni singolo. Durante la guida verso alcuni complessi di appartamenti richiederà ancora più lavoro rispetto a visitare un solo edificio, il conducente di consegna consente comunque di risparmiare tempo e fatica significativi. Se una query ha la chiave `IN` di partizione nel filtro con la parola chiave, controllerà solo gli indici della partizione fisica pertinente per i dati.
+Se il driver di recapito è consapevole che tutti i destinatari dei pacchetti risiedono in un certo numero di complessi di Apartment, non dovranno eseguire un'unità a ogni singolo. Sebbene il passaggio a un numero ridotto di complessi Apartment richieda ancora più lavoro rispetto alla visita di un unico edificio, il driver di recapito continua a risparmiare tempo e fatica. Se una query ha la chiave di partizione nel filtro con la `IN` parola chiave, verificherà solo gli indici della partizione fisica pertinente per i dati.
 
-## <a name="avoiding-cross-partition-queries"></a>Evitare le query tra partizioniAvoiding cross-partition queries
+## <a name="avoiding-cross-partition-queries"></a>Evitare query tra partizioni
 
-Per la maggior parte dei contenitori, è inevitabile disporre di alcune query tra partizioni. Avere alcune query tra partizioni è ok! Quasi tutte le operazioni di query sono supportate tra le partizioni (chiavi di partizione logiche e partizioni fisiche). Azure Cosmos DB include inoltre molte ottimizzazioni nel motore di query e negli SDK client per parallelizzare l'esecuzione delle query tra partizioni fisiche.
+Per la maggior parte dei contenitori, è inevitabile che ci siano alcune query tra partizioni. La presenza di alcune query tra partizioni è accettabile. Quasi tutte le operazioni di query sono supportate tra le partizioni (chiavi di partizione logiche e partizioni fisiche). Azure Cosmos DB dispone anche di numerose ottimizzazioni nel motore di query e negli SDK client per parallelizzare l'esecuzione di query tra partizioni fisiche.
 
-Per la maggior parte degli scenari con un numero elevato di letture, è consigliabile selezionare semplicemente la proprietà più comune nei filtri di query. È inoltre necessario assicurarsi che la chiave di partizione sia conforme ad altre procedure consigliate per la selezione della [chiave di partizione.](partitioning-overview.md#choose-partitionkey)
+Per la maggior parte degli scenari di lettura intensivo, è consigliabile selezionare semplicemente la proprietà più comune nei filtri di query. È anche necessario assicurarsi che la chiave di partizione rispetti le altre [procedure consigliate](partitioning-overview.md#choose-partitionkey)per la selezione della chiave di partizione.
 
-Evitare query tra partizioni in genere è importante solo con contenitori di grandi dimensioni. Viene addebitato un minimo di circa 2,5 RU ogni volta che si controlla l'indice di una partizione fisica per i risultati, anche se nessun elemento nella partizione fisica corrisponde al filtro della query. Di conseguenza, se si dispone di una sola (o solo poche) partizioni fisiche, le query tra partizioni non utilizzeranno un numero significativamente maggiore di RU rispetto alle query in-partition.
+Evitando in genere le query tra partizioni sono importanti solo con contenitori di grandi dimensioni. Viene addebitato un minimo di circa 2,5 UR ogni volta che si controlla l'indice di una partizione fisica per i risultati, anche se nessun elemento della partizione fisica corrisponde al filtro della query. Di conseguenza, se si dispone solo di una o più partizioni fisiche, le query tra partizioni non utilizzeranno molto più ur rispetto alle query in partizione.
 
-Il numero di partizioni fisiche è legato alla quantità di RU di cui è stato eseguito il provisioning. Ogni partizione fisica consente fino a 10.000 RU di cui è stato eseguito il provisioning e può archiviare fino a 50 GB di dati. Azure Cosmos DB gestirà automaticamente le partizioni fisiche. Il numero di partizioni fisiche nel contenitore dipende dalla velocità effettiva di cui è stato eseguito il provisioning e dall'archiviazione utilizzata.
+Il numero di partizioni fisiche è associato alla quantità di UR di cui è stato effettuato il provisioning. Ogni partizione fisica consente fino a 10.000 UR di cui è stato effettuato il provisioning e può archiviare fino a 50 GB di dati. Azure Cosmos DB gestirà automaticamente le partizioni fisiche. Il numero di partizioni fisiche nel contenitore dipende dalla velocità effettiva con provisioning e dall'archiviazione utilizzata.
 
-È consigliabile cercare di evitare query tra partizioni se il carico di lavoro soddisfa i criteri seguenti:You should try to avoid cross-partition queries if your workload meets the criteria below:
-- Si prevede di avere più di 30.000 RU di provisioning
+Se il carico di lavoro soddisfa i criteri indicati di seguito, provare a evitare le query tra partizioni:
+- Si prevede di avere più di 30.000 UR di cui è stato effettuato il provisioning
 - Si prevede di archiviare oltre 100 GB di dati
 
 ## <a name="next-steps"></a>Passaggi successivi

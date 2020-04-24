@@ -3,8 +3,8 @@ title: Interagire con contenitori Windows
 services: azure-dev-spaces
 ms.date: 01/16/2020
 ms.topic: conceptual
-description: Informazioni su come eseguire Spazi di sviluppo di Azure in un cluster esistente con contenitori di Windows
-keywords: Spazi di sviluppo di Azure, spazi dev, docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, contenitori WindowsAzure Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Windows containers
+description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
+keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
 ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
 ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
@@ -12,27 +12,27 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80240492"
 ---
-# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Gli spazi di sviluppo di AzureInteract with Windows containers using Azure Dev Spaces
+# <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
 
-È possibile abilitare gli spazi di sviluppo di Azure in spazi dei nomi Kubernetes nuovi ed esistenti. Azure Dev Spaces verrà eseguito e strumentazione dei servizi che vengono eseguiti in contenitori Linux.Azure Dev Spaces will run and instrument services that run on Linux containers. Tali servizi possono anche interagire con le applicazioni eseguite in contenitori Windows nello stesso spazio dei nomi. Questo articolo illustra come usare Spazi di sviluppo per eseguire servizi in uno spazio dei nomi con contenitori windows esistenti. Al momento, non è possibile eseguire il debug o connettersi a contenitori Windows con Azure Dev Spaces.
+È possibile abilitare Azure Dev Spaces per gli spazi dei nomi Kubernetes nuovi ed esistenti. Azure Dev Spaces eseguirà e instrumenterà i servizi eseguiti in contenitori Linux. Tali servizi possono anche interagire con le applicazioni eseguite in contenitori Windows nello stesso spazio dei nomi. Questo articolo illustra come usare gli spazi di sviluppo per eseguire i servizi in uno spazio dei nomi con i contenitori di Windows esistenti. A questo punto, non è possibile eseguire il debug o la connessione a contenitori Windows con Azure Dev Spaces.
 
 ## <a name="set-up-your-cluster"></a>Configurare il cluster
 
-In questo articolo si presuppone che si dispone già di un cluster con pool di nodi Linux e Windows.This article assumes you already have a cluster with both Linux and Windows node pools. Se è necessario creare un cluster con pool di nodi Linux e Windows, è possibile seguire le istruzioni [qui][windows-container-cli].
+Questo articolo presuppone che sia già presente un cluster con pool di nodi Linux e Windows. Se è necessario creare un cluster con pool di nodi Linux e Windows, è possibile seguire le istruzioni riportate [qui][windows-container-cli].
 
-Connettersi al cluster utilizzando [kubectl][kubectl], il client della riga di comando Kubernetes. Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+Connettersi al cluster usando [kubectl][kubectl], il client da riga di comando Kubernetes. Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-L'output di esempio seguente mostra un cluster con un nodo Windows e Linux.The following example output shows a cluster with both a Windows and Linux node. Assicurarsi che lo stato sia *Pronto* per ogni nodo prima di procedere.
+L'output di esempio seguente mostra un cluster con un nodo Windows e Linux. Prima di procedere, verificare che lo stato sia *pronto* per ogni nodo.
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -41,27 +41,27 @@ aks-nodepool1-12345678-vmss000001   Ready    agent   13m    v1.14.8
 aksnpwin000000                      Ready    agent   108s   v1.14.8
 ```
 
-Applicare una macchia ai nodi di Windows.Apply a [taint][using-taints] to your Windows nodes. La macchia nei nodi di Windows impedisce agli spazi dev di pianificare i contenitori Linux per l'esecuzione nei nodi di Windows. Il comando seguente consente di applicare una macchia al nodo Windows *aksnpwin987654* dell'esempio precedente.
+Applicare una [macchia][using-taints] ai nodi di Windows. Il guasto nei nodi di Windows impedisce agli spazi di sviluppo di pianificare i contenitori Linux da eseguire nei nodi Windows. Il comando di esempio seguente consente di applicare una macchia al nodo *aksnpwin987654* di Windows dell'esempio precedente.
 
 ```azurecli-interactive
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
 
 > [!IMPORTANT]
-> Quando si applica una macchia a un nodo, è necessario configurare una torazione corrispondente nel modello di distribuzione del servizio per eseguire il servizio in tale nodo. L'applicazione di esempio è già configurata con una [torazione corrispondente][sample-application-toleration-example] alla macchia configurata nel comando precedente.
+> Quando si applica una macchia a un nodo, è necessario configurare una tolleranza corrispondente nel modello di distribuzione del servizio per eseguire il servizio in tale nodo. L'applicazione di esempio è già configurata con una [tolleranza corrispondente][sample-application-toleration-example] al Tainio configurato nel comando precedente.
 
 ## <a name="run-your-windows-service"></a>Eseguire il servizio Windows
 
-Eseguire il servizio Windows nel cluster AKS e verificare che sia in *esecuzione.* Questo articolo usa [un'applicazione di esempio][sample-application] per illustrare un servizio Windows e Linux in esecuzione nel cluster.
+Eseguire il servizio Windows nel cluster AKS e verificare che sia in uno stato di *esecuzione* . Questo articolo usa un' [applicazione di esempio][sample-application] per illustrare un servizio Windows e Linux in esecuzione nel cluster.
 
-Clonare l'applicazione di esempio `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` da GitHub e passare alla directory:Clone the sample application from GitHub and navigate into the directory:
+Clonare l'applicazione di esempio da GitHub e passare `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` alla directory:
 
 ```console
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-L'applicazione di esempio utilizza [Helm 3][helm-installed] per eseguire il servizio Windows nel cluster. Passare alla `charts` directory e usare Helm per eseguire il servizio Windows:
+L'applicazione di esempio usa [Helm 3][helm-installed] per eseguire il servizio Windows nel cluster. Passare alla `charts` directory e usare Helm eseguire il servizio Windows:
 
 ```console
 cd charts/
@@ -69,9 +69,9 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-Il comando precedente usa Helm per eseguire il servizio Windows nello spazio dei nomi *dev.* Se non si dispone di uno spazio dei nomi denominato *dev*, verrà creato.
+Il comando precedente USA Helm per eseguire il servizio Windows nello spazio dei nomi *dev* . Se non si dispone di uno spazio dei nomi denominato *dev*, verrà creato.
 
-Usare `kubectl get pods` il comando per verificare che il servizio Windows sia in esecuzione nel cluster. 
+Usare il `kubectl get pods` comando per verificare che il servizio Windows sia in esecuzione nel cluster. 
 
 ```console
 $ kubectl get pods --namespace dev --watch
@@ -81,19 +81,19 @@ myapi-4b9667d123-1a2b3   0/1     ContainerCreating   0          47s
 myapi-4b9667d123-1a2b3   1/1     Running             0          98s
 ```
 
-## <a name="enable-azure-dev-spaces"></a>Abilitare gli spazi di sviluppo di AzureEnable Azure Dev Spaces
+## <a name="enable-azure-dev-spaces"></a>Abilita Azure Dev Spaces
 
-Abilitare Dev Spaces nello stesso spazio dei nomi usato per eseguire il servizio Windows.Enable Dev Spaces in the same namespace you used to run your Windows service. Il comando seguente abilita gli spazi di sviluppo nello spazio dei nomi *dev:The* following command enables Dev Spaces in the dev namespace:
+Abilitare gli spazi di sviluppo nello stesso spazio dei nomi utilizzato per eseguire il servizio Windows. Il comando seguente abilita gli spazi di sviluppo nello spazio dei nomi *dev* :
 
 ```console
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
 ```
 
-## <a name="update-your-windows-service-for-dev-spaces"></a>Aggiornare il servizio Windows per Dev Spaces
+## <a name="update-your-windows-service-for-dev-spaces"></a>Aggiornare il servizio Windows per gli spazi di sviluppo
 
-Quando si abilita Spazi di sviluppo in uno spazio dei nomi esistente con contenitori già in esecuzione, per impostazione predefinita, Dev Spaces tenterà di instrumentare eventuali nuovi contenitori eseguiti in tale spazio dei nomi. Dev Spaces tenterà inoltre di instrumentare tutti i nuovi contenitori creati per il servizio già in esecuzione nello spazio dei nomi. Per impedire a Dev Spaces di instrumentare un contenitore in `deployment.yaml`esecuzione nello spazio dei nomi, aggiungere l'intestazione *no-proxy* all'oggetto .
+Quando si abilitano gli spazi di sviluppo in uno spazio dei nomi esistente con contenitori già in esecuzione, per impostazione predefinita gli spazi di sviluppo proveranno a instrumentare tutti i nuovi contenitori in esecuzione in tale spazio dei nomi. Gli spazi di sviluppo proveranno anche a instrumentare tutti i nuovi contenitori creati per il servizio già in esecuzione nello spazio dei nomi. Per impedire agli spazi di sviluppo di instrumentare un contenitore in esecuzione nello spazio dei nomi, aggiungere l'intestazione *No-proxy* a `deployment.yaml`.
 
-Aggiungi `azds.io/no-proxy: "true"` al `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` file:
+Aggiungere `azds.io/no-proxy: "true"` al `existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml` file:
 
 ```yaml
 apiVersion: apps/v1
@@ -112,7 +112,7 @@ spec:
         azds.io/no-proxy: "true"
 ```
 
-Usare `helm list` per elencare la distribuzione per il servizio Windows:Use to list the deployment for your Windows service:
+Usare `helm list` per elencare la distribuzione per il servizio Windows:
 
 ```cmd
 $ helm list --namespace dev
@@ -120,17 +120,17 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-Nell'esempio precedente, il nome della distribuzione è *windows-service*. Aggiornare il servizio Windows `helm upgrade`con la nuova configurazione utilizzando:
+Nell'esempio precedente, il nome della distribuzione è *Windows-Service*. Aggiornare il servizio Windows con la nuova configurazione usando `helm upgrade`:
 
 ```cmd
 helm upgrade windows-service . --namespace dev
 ```
 
-Dal momento `deployment.yaml`che hai aggiornato il tuo , Dev Spaces non cercherà di instrumentare il tuo servizio.
+Poiché è stato aggiornato `deployment.yaml`, gli spazi di sviluppo non tenterà di instrumentare il servizio.
 
-## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Eseguire l'applicazione Linux con Azure Dev SpacesRun your Linux application with Azure Dev Spaces
+## <a name="run-your-linux-application-with-azure-dev-spaces"></a>Eseguire l'applicazione Linux con Azure Dev Spaces
 
-Passare alla `webfrontend` directory e `azds prep` `azds up` usare i comandi e per eseguire l'applicazione Linux nel cluster.
+Passare alla `webfrontend` directory e usare i `azds prep` comandi e `azds up` per eseguire l'applicazione Linux nel cluster.
 
 ```console
 cd ../../webfrontend-linux/
@@ -138,7 +138,7 @@ azds prep --enable-ingress
 azds up
 ```
 
-Il `azds prep --enable-ingress` comando genera il grafico Helm e dockerfiles per l'applicazione.
+Il `azds prep --enable-ingress` comando genera il grafico Helm e dockerfile per l'applicazione.
 
 > [!TIP]
 > Il [Dockerfile e il grafico Helm](../how-dev-spaces-works-prep.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
@@ -161,9 +161,9 @@ Service 'webfrontend' port 'http' is available at http://dev.webfrontend.abcdef0
 Service 'webfrontend' port 80 (http) is available via port forwarding at http://localhost:57648
 ```
 
-È possibile visualizzare il servizio in esecuzione aprendo l'URL pubblico, visualizzato nell'output del comando azds up. In questo esempio l'URL pubblico è `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Passare al servizio in un browser e fare clic su *Informazioni* in alto. Verificare che venga visualizzato un messaggio dal servizio *mywebapi* contenente la versione di Windows in uso del contenitore.
+È possibile visualizzare il servizio in esecuzione aprendo l'URL pubblico, che viene visualizzato nell'output del comando azds up. In questo esempio l'URL pubblico è `http://dev.webfrontend.abcdef0123.eus.azds.io/`. Passare al servizio in un browser e fare clic su *About (informazioni* ) nella parte superiore. Verificare che venga visualizzato un messaggio dal servizio *mywebapi* contenente la versione di Windows usata dal contenitore.
 
-![App di esempio che mostra la versione di Windows di mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
+![App di esempio che mostra la versione di Windows da mywebapi](../media/run-dev-spaces-windows-containers/sample-app.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

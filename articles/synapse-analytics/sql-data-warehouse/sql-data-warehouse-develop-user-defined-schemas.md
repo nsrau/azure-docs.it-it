@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di schemi definiti dall'utenteUsing user-defined schemas
-description: Suggerimenti per l'utilizzo di schemi T-SQL definiti dall'utente per sviluppare soluzioni nel pool Synapse SQL.
+title: Utilizzo di schemi definiti dall'utente
+description: Suggerimenti per l'uso di schemi T-SQL definiti dall'utente per lo sviluppo di soluzioni nel pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -18,35 +18,35 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2020
 ms.locfileid: "80633464"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schemi definiti dall'utente nel pool SQL SynapseUser-defined schemas in Synapse SQL pool
-Questo articolo è incentrato sulla fornitura di diversi suggerimenti per l'utilizzo di schemi T-SQL definiti dall'utente per sviluppare soluzioni nel pool SQL Synapse.This article focuses on providing several tips for using T-SQL user-defined schemas to develop solutions in Synapse SQL pool.
+# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schemi definiti dall'utente nel pool di SQL sinapsi
+Questo articolo è incentrato sulla fornitura di diversi suggerimenti per l'uso di schemi definiti dall'utente T-SQL per lo sviluppo di soluzioni nel pool SQL sinapsi.
 
 ## <a name="schemas-for-application-boundaries"></a>Schemi per i limiti dell'applicazione
 
 I data warehouse tradizionali spesso usano database separati per creare i limiti dell'applicazione in base a carico di lavoro, dominio o di sicurezza. 
 
-Ad esempio, un data warehouse tradizionale di SQL Server sql Server potrebbe includere un database dell'area di gestione temporanea, un database del data warehouse e alcuni database di data mart. In questa topologia, ogni database opera come un carico di lavoro e limite di sicurezza nell'architettura.
+Ad esempio, un SQL Server tradizionale data warehouse può includere un database di gestione temporanea, un database data warehouse e alcuni database data mart. In questa topologia ogni database funziona come un carico di lavoro e un limite di sicurezza nell'architettura.
 
-Al contrario, il pool SQL esegue l'intero carico di lavoro del data warehouse all'interno di un database. I join tra database non sono consentiti. Il pool SQL prevede che tutte le tabelle utilizzate dal warehouse vengano archiviate all'interno di un database.
+Al contrario, il pool SQL esegue l'intero carico di lavoro data warehouse all'interno di un database. I join tra database non sono consentiti. Il pool SQL prevede l'archiviazione di tutte le tabelle utilizzate dal warehouse all'interno di un unico database.
 
 > [!NOTE]
-> Il pool SQL non supporta query tra database di alcun tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
+> Il pool SQL non supporta le query tra database di qualsiasi tipo. Di conseguenza, le implementazioni di data warehouse che usano questo modello dovranno essere modificate.
 > 
 > 
 
 ## <a name="recommendations"></a>Consigli
-Di seguito sono indicati alcuni suggerimenti per il consolidamento dei carichi di lavoro, della sicurezza, del dominio e dei limiti funzionali tramite schemi definiti dall'utente:What follows are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
+Di seguito sono riportati i consigli per consolidare i carichi di lavoro, la sicurezza, il dominio e i limiti funzionali usando schemi definiti dall'utente:
 
-- Usare un database del pool SQL per eseguire l'intero carico di lavoro del data warehouse.
-- Consolidare l'ambiente del data warehouse esistente per utilizzare un unico database del pool SQL.
+- Usare un database del pool SQL per eseguire l'intero carico di lavoro data warehouse.
+- Consolidare l'ambiente di data warehouse esistente per l'utilizzo di un database del pool SQL.
 - Sfruttare gli **schemi definiti dall'utente** per fornire il limite implementato in precedenza tramite database.
 
-Se gli schemi definiti dall'utente non sono stati utilizzati in precedenza, si dispone di una lavagna pulita. Utilizzare il nome del database precedente come base per gli schemi definiti dall'utente nel database del pool SQL.
+Se gli schemi definiti dall'utente non sono stati usati in precedenza, si avrà uno Slate pulito. Utilizzare il nome del database precedente come base per gli schemi definiti dall'utente nel database del pool SQL.
 
-Se gli schemi sono già stati utilizzati, sono disponibili alcune opzioni:If schemas have already been used, then you have a few options:
+Se gli schemi sono già stati usati, sono disponibili alcune opzioni:
 
-- Rimuovere i nomi degli schemi legacy e ricominciare da capo.
-- Mantenere i nomi di schema legacy anteponendo il nome dello schema legacy al nome della tabella.
+- Rimuovere i nomi degli schemi legacy e iniziare da zero.
+- Mantenere i nomi degli schemi legacy anteponendo il nome di schema precedente al nome della tabella.
 - Mantenere i nomi degli schemi legacy implementando viste sulla tabella in uno schema aggiuntivo per ricreare la struttura dello schema precedente.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Se gli schemi sono già stati utilizzati, sono disponibili alcune opzioni:If sch
 > 
 
 ### <a name="examples"></a>Esempi:
-Implementare schemi definiti dall'utente in base ai nomi di database:Implement user-defined schemas based on database names:
+Implementare schemi definiti dall'utente in base ai nomi di database:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -73,7 +73,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Mantenere i nomi degli schemi legacy pre-pendingndoli al nome della tabella. Usare gli schemi per il limite del carico di lavoro:Use schemas for the workload boundary:
+Mantenendo i nomi degli schemi legacy in precedenza in base al nome della tabella. Utilizzare gli schemi per il limite del carico di lavoro:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -91,7 +91,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Mantenere i nomi degli schemi legacy utilizzando le visualizzazioni:Keep legacy schema names using views:
+Mantieni i nomi degli schemi legacy usando le visualizzazioni:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -119,7 +119,7 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Qualsiasi modifica nella strategia relativa agli schemi richiede una revisione del modello di sicurezza per il database. In molti casi, è possibile semplificare il modello di sicurezza assegnando autorizzazioni a livello di schema. Se sono necessarie autorizzazioni più granulari, è possibile utilizzare i ruoli del database.
+> Qualsiasi modifica nella strategia relativa agli schemi richiede una revisione del modello di sicurezza per il database. In molti casi, si potrebbe essere in grado di semplificare il modello di sicurezza assegnando autorizzazioni a livello di schema. Se sono necessarie autorizzazioni più granulari, è possibile usare i ruoli del database.
 > 
 > 
 

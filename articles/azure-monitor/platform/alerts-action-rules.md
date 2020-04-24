@@ -4,16 +4,18 @@ description: Informazioni sulle regole di azione in monitoraggio di Azure e su c
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668469"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618981"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
 Le regole di azione consentono di definire o escludere azioni in qualsiasi ambito Azure Resource Manager (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). Hanno diversi filtri che consentono di limitare il subset specifico di istanze di avviso su cui si vuole agire.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
 ## <a name="why-and-when-should-you-use-action-rules"></a>Perché e quando utilizzare le regole di azione?
 
@@ -35,7 +37,7 @@ Le regole di azione consentono di semplificare questo processo. Definendo azioni
 
 ## <a name="configuring-an-action-rule"></a>Configurazione di una regola di azione
 
-È possibile accedere alla funzionalità selezionando **Gestisci azioni** dalla pagina di destinazione **avvisi** in monitoraggio di Azure. Selezionare quindi **regole di azione (anteprima)** . È possibile accedere alle regole selezionando **regole di azione (anteprima)** dal dashboard della pagina di destinazione per gli avvisi.
+È possibile accedere alla funzionalità selezionando **Gestisci azioni** dalla pagina di destinazione **avvisi** in monitoraggio di Azure. Selezionare quindi **regole di azione (anteprima)**. È possibile accedere alle regole selezionando **regole di azione (anteprima)** dal dashboard della pagina di destinazione per gli avvisi.
 
 ![Regole di azione dalla pagina di destinazione di monitoraggio di Azure](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -51,7 +53,7 @@ A questo punto verrà visualizzata la pagina flusso per la creazione di regole d
 
 ![Nuovo flusso di creazione della regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Ambito
+### <a name="scope"></a>Scope
 
 Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). È anche possibile selezionare una combinazione di ambiti all'interno di una singola sottoscrizione.
 
@@ -69,7 +71,7 @@ I filtri disponibili sono:
 * **ID regola di avviso**: opzione per filtrare le regole di avviso specifiche usando l'ID gestione risorse della regola di avviso.
 * **Condizione di monitoraggio**: filtro per le istanze di avviso con **attivato** o **risolto** come condizione di monitoraggio.
 * **Descrizione**: corrispondenza Regex (Regular Expression) che definisce una corrispondenza di stringa rispetto alla descrizione, definita come parte della regola di avviso. Ad esempio, la **Descrizione contiene ' prod '** corrispondente a tutti gli avvisi che contengono la stringa "prod" nelle descrizioni.
-* **Contesto avviso (payload)** : una corrispondenza Regex che definisce una corrispondenza di stringa con i campi di contesto degli avvisi del payload di un avviso. Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** corrisponde a tutti gli avvisi i cui payload contengono la stringa "computer-01".
+* **Contesto avviso (payload)**: una corrispondenza Regex che definisce una corrispondenza di stringa con i campi di contesto degli avvisi del payload di un avviso. Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** corrisponde a tutti gli avvisi i cui payload contengono la stringa "computer-01".
 
 Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, è stato applicato un filtro per tutti gli avvisi **Sev0** solo nelle VM. 
 
@@ -79,10 +81,10 @@ Questi filtri vengono applicati insieme tra loro. Se ad esempio si imposta il **
 
 Configurare quindi la regola di azione per il supporto dell'eliminazione avvisi o del gruppo di azioni. Non è possibile scegliere entrambi. La configurazione agisce su tutte le istanze di avviso che corrispondono all'ambito e ai filtri definiti in precedenza.
 
-#### <a name="suppression"></a>Eliminazione
+#### <a name="suppression"></a>Eliminazione degli avvisi
 
 Se si seleziona l' **eliminazione**, configurare la durata per l'eliminazione di azioni e notifiche. Scegliere una delle opzioni seguenti:
-* **Da Now (always)** : Disattiva tutte le notifiche a tempo indefinito.
+* **Da Now (always)**: Disattiva tutte le notifiche a tempo indefinito.
 * **All'ora pianificata**: disattiva le notifiche entro una durata limitata.
 * **Con una ricorrenza**: disattiva le notifiche in base a una pianificazione ricorrente giornaliera, settimanale o mensile.
 
@@ -100,7 +102,7 @@ Se si seleziona **gruppo di azioni** nell'interruttore, aggiungere un gruppo di 
 ### <a name="action-rule-details"></a>Dettagli regola azione
 
 Infine, configurare i dettagli seguenti per la regola di azione:
-* Name
+* Nome
 * Gruppo di risorse in cui viene salvato
 * Descrizione 
 
@@ -112,7 +114,7 @@ Contoso vuole escludere le notifiche per tutti gli avvisi Sev4 su tutte le macch
 
 **Soluzione:** Creare una regola di azione con:
 * Ambito = **ContosoSub**
-* Filtri.
+* Filtri
     * Gravità = **Sev4**
     * Tipo di risorsa = **macchine virtuali**
 * Eliminazione con ricorrenza impostata su settimanale, **sabato** e **domenica** controllati
@@ -123,7 +125,7 @@ Contoso desidera disattivare le notifiche per tutti gli avvisi del log generati 
 
 **Soluzione:** Creare una regola di azione con:
 * Ambito = **ContosoSub**
-* Filtri.
+* Filtri
     * Servizio di monitoraggio = **log Analytics**
     * Il contesto dell'avviso (payload) contiene **computer-01**
 * Eliminazione impostata su **da ora (sempre)**

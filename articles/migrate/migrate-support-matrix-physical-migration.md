@@ -1,6 +1,6 @@
 ---
-title: Supporto per la migrazione fisica del server in Azure MigrateSupport for physical server migration in Azure Migrate
-description: Informazioni sul supporto per la migrazione fisica dei server in Azure Migrate.Learn about support for physical server migration in Azure Migrate.
+title: Supporto per la migrazione di server fisici in Azure Migrate
+description: Informazioni sul supporto per la migrazione di server fisici in Azure Migrate.
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 01/07/2020
@@ -11,67 +11,67 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/01/2020
 ms.locfileid: "80520277"
 ---
-# <a name="support-matrix-for-physical-server-migration"></a>Matrice di supporto per la migrazione fisica dei serverSupport matrix for physical server migration
+# <a name="support-matrix-for-physical-server-migration"></a>Matrice di supporto per la migrazione di server fisici
 
-Questo articolo riepiloga le impostazioni e le limitazioni di supporto per la migrazione dei server fisici con [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . Per informazioni sulla valutazione dei server fisici per la migrazione ad Azure, esaminare la matrice di supporto della [valutazione.](migrate-support-matrix-physical.md)
+Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la migrazione dei server fisici con [Azure migrate: migrazione del server](migrate-services-overview.md#azure-migrate-server-migration-tool) . Per informazioni sulla valutazione dei server fisici per la migrazione in Azure, vedere la [matrice di supporto](migrate-support-matrix-physical.md)per la valutazione.
 
 
 ## <a name="overview"></a>Panoramica
 
-È possibile eseguire la migrazione di computer locali come server fisici, utilizzando la replica basata su agente. Con questo strumento è possibile eseguire la migrazione di un'ampia gamma di computer ad Azure:
+È possibile eseguire la migrazione di computer locali come server fisici utilizzando la replica basata su agenti. Con questo strumento è possibile eseguire la migrazione di un'ampia gamma di computer ad Azure:
 
 - Server fisici locali.
 - Macchine virtuali virtualizzate da piattaforme come Xen, KVM.
-- Macchine virtuali Hyper-V o macchine virtuali VMware se per qualche motivo non si desidera utilizzare i flussi standard di [Hyper-V](tutorial-migrate-hyper-v.md) o [VMware.](server-migrate-overview.md)
+- Macchine virtuali Hyper-V o VM VMware se per qualche motivo non si vogliono usare i flussi standard di [Hyper-v](tutorial-migrate-hyper-v.md) o [VMware](server-migrate-overview.md) .
 - Macchine virtuali in esecuzione in cloud privati.
-- Macchine virtuali in esecuzione in cloud pubblici come Amazon Web Services (AWS) o Google Cloud Platform (GCP).
+- Macchine virtuali in esecuzione in cloud pubblici, ad esempio Amazon Web Services (AWS) o Google Cloud Platform (GCP).
 
 
 ## <a name="migration-limitations"></a>Limitazioni della migrazione
 
-È possibile selezionare fino a 10 computer contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10.If you want to migrate more machines, then replicate in groups of 10.
+È possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10.
 
 
 ## <a name="physical-server-requirements"></a>Requisiti per i server fisici
 
-Nella tabella viene riepilogato il supporto per i server fisici di cui si desidera eseguire la migrazione tramite la migrazione basata su agenti.
+Nella tabella viene riepilogato il supporto per i server fisici di cui si desidera eseguire la migrazione mediante la migrazione basata su agenti.
 
 **Supporto** | **Dettagli**
 --- | ---
-**Carico di lavoro del computer** | Azure Migrate supporta la migrazione di qualsiasi carico di lavoro (ad esempio Active Directory, SQL Server e così via) in esecuzione in un computer supportato.
-**Sistemi operativi** | Per informazioni aggiornate, esaminare il [supporto del sistema operativo](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) per Site Recovery. Azure Migrate offre un supporto identico per il sistema operativo.
-**File system Linux/archiviazione guest** | Per le informazioni più recenti, esaminare il supporto del [file system Linux](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) per Site Recovery. Azure Migrate offre un supporto del file system Linux identico.
-**Rete/Archiviazione** | Per informazioni aggiornate, esaminare i prerequisiti di [rete](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#storage) per Site Recovery. Azure Migrate offre requisiti di rete/archiviazione identici.
-**Requisiti di Azure** | Per informazioni aggiornate, esaminare la rete di [Azure,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)i requisiti [di archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [di calcolo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) per Site Recovery. Azure Migrate ha requisiti identici per la migrazione del server fisico.
-**Servizio Mobility** | L'agente del servizio Mobility deve essere installato in ogni computer di cui si desidera eseguire la migrazione.
-**Stivale UEFI** | La macchina migrata in Azure verrà automaticamente convertita in una macchina virtuale di Azure di avvio del BIOS. Solo il server che esegue Windows Server 2012 e versioni successive supportato.<br/><br/> Il disco del sistema operativo deve avere fino a quattro partizioni e i volumi devono essere formattati con NTFS.
-**Disco di destinazione** | I computer possono essere migrati solo su dischi gestiti (HDD standard, SSD premium) in Azure.Machines can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Dimensioni disco** | Disco oS da 2 TB; 8 TB per i dischi dati.
-**Limiti del disco** |  Fino a 63 dischi per macchina.
-**Dischi/volumi crittografati** |  I computer con dischi/volumi crittografati non sono supportati per la migrazione.
+**Carico di lavoro del computer** | Azure Migrate supporta la migrazione di qualsiasi carico di lavoro (ad indicare Active Directory, SQL Server e così via) in esecuzione in un computer supportato.
+**Sistemi operativi** | Per informazioni aggiornate, vedere il [supporto del sistema operativo](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) per Site Recovery. Azure Migrate offre un supporto identico per il sistema operativo.
+**File system Linux/archiviazione Guest** | Per informazioni aggiornate, vedere il [supporto di Linux file System](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) per Site Recovery. Azure Migrate offre un supporto di Linux file system identico.
+**Rete/archiviazione** | Per le informazioni più aggiornate, esaminare i prerequisiti di [rete](../site-recovery/vmware-physical-azure-support-matrix.md#network) e di [archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#storage) per Site Recovery. Azure Migrate fornisce requisiti di rete/archiviazione identici.
+**Requisiti di Azure** | Per informazioni aggiornate, vedere i requisiti di rete, [archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [calcolo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) di [Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)per Site Recovery. Azure Migrate presenta requisiti identici per la migrazione di server fisici.
+**Servizio Mobility** | L'agente del servizio Mobility deve essere installato in ogni computer di cui si vuole eseguire la migrazione.
+**Avvio UEFI** | Il computer migrato in Azure verrà convertito automaticamente in una macchina virtuale di Azure di avvio BIOS. Sono supportati solo i server che eseguono Windows Server 2012 e versioni successive.<br/><br/> Il disco del sistema operativo deve avere fino a quattro partizioni e i volumi devono essere formattati con NTFS.
+**Disco di destinazione** | È possibile eseguire la migrazione dei computer solo a Managed Disks (standard HDD, unità SSD Premium) in Azure.
+**Dimensioni disco** | disco del sistema operativo da 2 TB; 8 TB per i dischi dati.
+**Limiti del disco** |  Fino a 63 dischi per computer.
+**Dischi/volumi crittografati** |  I computer con volumi o dischi crittografati non sono supportati per la migrazione.
 **Cluster di dischi condivisi** | Non supportato.
 **Dischi indipendenti** | Supportato.
 **Dischi pass-through** | Supportato.
-**NFS** | I volumi NFS montati come volumi sui computer non verranno replicati.
-**Obiettivi iSCSI** | I computer con destinazioni iSCSI non sono supportati per la migrazione senza agente.
-**I/O multipercorso** | Non supportato.
-**Archiviazione vMotion** | Supportato
-**Schede di rete in team** | Non supportato.
+**NFS** | I volumi NFS montati come volumi nei computer non verranno replicati.
+**destinazioni iSCSI** | I computer con destinazioni iSCSI non sono supportati per la migrazione senza agenti.
+**I/o a percorsi multipli** | Non supportato.
+**Storage vMotion** | Supportato
+**NIC raggruppate** | Non supportato.
 **IPv6** | Non supportato.
 
 
 
 ## <a name="replication-appliance-requirements"></a>Requisiti dell'appliance di replica
 
-Se l'appliance di replica viene configurata manualmente in un server fisico, assicurarsi che sia conforme ai requisiti riepilogati nella tabella. Quando si configura l'appliance di replica di Azure Migrate come VM VMware usando il modello OVA fornito nell'hub di Azure Migrate, l'appliance viene configurata con Windows Server 2016 ed è conforme ai requisiti di supporto. 
+Se si configura manualmente l'appliance di replica in un server fisico, assicurarsi che sia conforme ai requisiti riepilogati nella tabella. Quando si configura l'appliance di replica Azure Migrate come macchina virtuale VMware usando il modello OVA fornito nell'hub Azure Migrate, l'Appliance viene configurata con Windows Server 2016 e soddisfa i requisiti di supporto. 
 
-- Informazioni sui [requisiti dell'appliance](migrate-replication-appliance.md#appliance-requirements)di replica .
-- MySQL deve essere installato nell'appliance. Ulteriori informazioni sulle opzioni di [installazione](migrate-replication-appliance.md#mysql-installation).
+- Informazioni sui [requisiti dell'appliance di replica](migrate-replication-appliance.md#appliance-requirements).
+- MySQL deve essere installato nell'appliance. Informazioni sulle [Opzioni di installazione](migrate-replication-appliance.md#mysql-installation).
 - Informazioni sugli [URL](migrate-replication-appliance.md#url-access) a cui l'appliance di replica deve accedere.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 
-Tutte le macchine virtuali locali replicate in Azure devono soddisfare i requisiti delle macchine virtuali di Azure riepilogati in questa tabella. Quando Site Recovery esegue un controllo dei prerequisiti per la replica, il controllo avrà esito negativo se alcuni dei requisiti non vengono soddisfatti.
+Tutte le macchine virtuali locali replicate in Azure devono soddisfare i requisiti della macchina virtuale di Azure riepilogati in questa tabella. Quando Site Recovery esegue un controllo dei prerequisiti per la replica, il controllo ha esito negativo se alcuni dei requisiti non vengono soddisfatti.
 
 **Componente** | **Requisiti** | **Dettagli**
 --- | --- | ---
@@ -86,10 +86,10 @@ VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supporta
 Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
-Connettersi dopo la migrazione di Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:To connect to Azure VMs running Windows after migration:<br/> - Prima che la migrazione abiliti RDP nella macchina virtuale locale.- Before migration enables RDP on the on-premises VM. Assicurarsi che le regole TCP e UDP vengano aggiunte per il profilo **pubblico** e che RDP sia consentito in **Windows Firewall** > **Allowed Apps**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire RDP in **Windows Firewall** -> **Allowed apps and features** for Domain **and Private** networks. Verificare inoltre che il criterio SAN del sistema operativo sia impostato su **OnlineAll**. [Altre informazioni](prepare-for-migration.md) |
-Connessione dopo la migrazione Linux | To connect to Azure VMs after migration using SSH:<br/> Prima della migrazione, nel computer locale, verificare che il servizio Secure Shell sia impostato su Avvia e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale di cui è stato eseguito il failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall** > **app consentite**per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
+Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire la migrazione di](tutorial-migrate-physical-virtual-machines.md) server fisici.
+[Eseguire la migrazione](tutorial-migrate-physical-virtual-machines.md) dei server fisici.

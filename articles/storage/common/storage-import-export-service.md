@@ -23,13 +23,13 @@ Specificare le unità disco e trasferire dati con il servizio Importazione/Espor
 
 Per trasferire i dati usando i dischi forniti da Microsoft, è possibile usare [Azure Data Box Disk](../../databox/data-box-disk-overview.md) per importare dati in Azure. Microsoft spedisce fino a 5 dischi SSD (Solid State Disk) crittografati con una capacità di 40 TB totali per ordine al data center del cliente tramite un corriere locale. È possibile configurare rapidamente i dischi, copiarvi i dati su una connessione USB 3.0 e rispedirli ad Azure. Per altre informazioni, vedere [Panoramica di Azure Data Box Disk](../../databox/data-box-disk-overview.md).
 
-## <a name="azure-importexport-use-cases"></a>Casi d'uso di Importazione/Esportazione di AzureAzure Import/Export use cases
+## <a name="azure-importexport-use-cases"></a>Casi d'uso di importazione/esportazione di Azure
 
 È consigliabile usare il servizio Importazione/Esportazione di Azure quando l'upload o il download dei dati attraverso la rete è troppo lento o l'acquisizione di maggiore larghezza di banda di rete comporta costi proibitivi. Usare questo servizio negli scenari seguenti:
 
 * **Migrazione di dati al cloud**: spostamento di grandi quantità di dati in Azure in modo veloce e a costi contenuti.
-* **Distribuzione dei contenuti**: Inviare rapidamente i dati ai siti dei clienti.
-* **Backup:** eseguire backup dei dati locali da archiviare in Archiviazione di Azure.Backup : Take backups of your on-premises data to store in Azure Storage.
+* **Distribuzione del contenuto**: inviare rapidamente i dati ai siti dei clienti.
+* **Backup**: eseguire il backup dei dati locali da archiviare in archiviazione di Azure.
 * **Ripristino di dati**: ripristino di una grande quantità di dati archiviati nell'archivio perché vengano recapitati al percorso locale.
 
 ## <a name="importexport-components"></a>Componenti del servizio Importazione/Esportazione
@@ -41,7 +41,7 @@ Il servizio Importazione/Esportazione usa i componenti seguenti:
 * **Strumento WAImportExport**: si tratta di uno strumento da riga di comando che esegue le operazioni seguenti:
   * Prepara l'unità disco da spedire per l'importazione.
   * Facilita la copia dei dati nell'unità.
-  * Crittografa i dati nell'unità con BitLocker a 128 bit di AES. È possibile utilizzare una protezione della chiave esterna per proteggere la chiave BitLocker.
+  * Crittografa i dati nell'unità con BitLocker a 128 bit AES. È possibile utilizzare una protezione con chiave esterna per proteggere la chiave di BitLocker.
   * Genera i file journal dell'unità usati durante la creazione dell'importazione.
   * Identifica i numeri di unità necessarie per i processi di esportazione.
 
@@ -75,9 +75,9 @@ In generale, un processo di importazione prevede i passaggi seguenti:
 8. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
 
 > [!NOTE]
-> Per le spedizioni locali (all'interno del paese/area geografica del data center), si prega di condividere un conto vettore nazionale.
+> Per le spedizioni locali (entro data center paese/area geografica), condividere un account del vettore nazionale.
 >
-> Per le spedizioni all'estero (al di fuori del paese del data center), si prega di condividere un conto vettore internazionale.
+> Per le spedizioni all'estero (fuori data center paese/area geografica), condividere un account International Carrier.
 
  ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 9. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
 
 > [!NOTE]
-> Per le spedizioni locali (all'interno del paese/area geografica del data center), si prega di condividere un conto vettore nazionale.
+> Per le spedizioni locali (entro data center paese/area geografica), condividere un account del vettore nazionale.
 >
-> Per le spedizioni all'estero (al di fuori del paese del data center), si prega di condividere un conto vettore internazionale.
+> Per le spedizioni all'estero (fuori data center paese/area geografica), condividere un account International Carrier.
   
  ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
 
@@ -131,15 +131,15 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 
 ## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
-I dati sull'unità vengono crittografati utilizzando AES 128-bit Bit BitLocker Drive Encryption. che protegge i dati mentre sono in transito.
+I dati nell'unità vengono crittografati tramite Crittografia unità BitLocker AES a 128 bit. che protegge i dati mentre sono in transito.
 
 Per i processi di importazione, le unità vengono crittografate in due modi.  
 
 * Specificare l'opzione quando si usa il file *dataset.csv* durante l'esecuzione dello strumento WAImportExport per la preparazione delle unità.
 
-* Abilitare la crittografia BitLocker manualmente nell'unità. Specificare la chiave di crittografia nel file *driveset.csv* durante l'esecuzione dello strumento da riga di comando WAImportExport per la preparazione dell'unità. La chiave di crittografia BitLocker può essere ulteriormente protetta utilizzando una protezione con chiave esterna (nota anche come chiave gestita Microsoft) o una chiave gestita dal cliente. Per ulteriori informazioni, vedere Come [utilizzare una chiave gestita dal cliente per proteggere la chiave BitLocker](storage-import-export-encryption-key-portal.md).
+* Abilitare la crittografia BitLocker manualmente nell'unità. Specificare la chiave di crittografia nel file *driveset.csv* durante l'esecuzione dello strumento da riga di comando WAImportExport per la preparazione dell'unità. La chiave di crittografia di BitLocker può essere ulteriormente protetta usando una protezione con chiave esterna (nota anche come chiave gestita da Microsoft) o una chiave gestita dal cliente. Per ulteriori informazioni, vedere come [utilizzare una chiave gestita dal cliente per proteggere la chiave BitLocker](storage-import-export-encryption-key-portal.md).
 
-Per i processi di esportazione, dopo la copia dei dati nelle unità, il servizio applica la crittografia BitLocker all'unità prima di rispedirla all'utente. La chiave di crittografia viene indicata all'utente tramite il portale di Azure. L'unità deve essere sbloccata utilizzando lo strumento WAImporExport utilizzando la chiave.
+Per i processi di esportazione, dopo la copia dei dati nelle unità, il servizio applica la crittografia BitLocker all'unità prima di rispedirla all'utente. La chiave di crittografia viene indicata all'utente tramite il portale di Azure. È necessario sbloccare l'unità usando lo strumento WAImporExport usando la chiave.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
@@ -155,7 +155,7 @@ Quando si spediscono unità ad Azure, si paga il costo di spedizione al vettore.
 
 **Costi di transazione**
 
-Le spese standard per le [transazioni di archiviazione](https://azure.microsoft.com/pricing/details/storage/) si applicano durante l'importazione e l'esportazione dei dati. Standard egress charges are also applicable along with storage transaction charges when data is exported from Azure Storage. Per ulteriori informazioni sui costi in uscita, consultate Prezzi per il trasferimento dei [dati.](https://azure.microsoft.com/pricing/details/data-transfers/). .
+L' [addebito per le transazioni di archiviazione standard](https://azure.microsoft.com/pricing/details/storage/) si applica durante l'importazione e l'esportazione dei dati. Gli addebiti in uscita standard sono applicabili anche quando i dati vengono esportati dalla risorsa di archiviazione di Azure. Per ulteriori informazioni sui costi in uscita, vedere prezzi per il [trasferimento dei dati.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

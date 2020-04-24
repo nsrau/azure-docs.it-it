@@ -1,5 +1,5 @@
 ---
-title: Registrazione Analisi archiviazione di Azure
+title: Registrazione di Analisi archiviazione di Azure
 description: Informazioni su come registrare i dettagli delle richieste effettuate nell'archiviazione di Azure.
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5b94a97f1286e1273300014e4eef140be412436b
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268418"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637172"
 ---
-# <a name="azure-storage-analytics-logging"></a>Registrazione di analisi archiviazione di Azure
+# <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 
 Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione. Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo.
 
@@ -26,8 +26,6 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 > [!NOTE]
 >  La registrazione dell'analisi archiviazione è attualmente disponibile solo per servizi BLOB, code e tabelle. Tuttavia, l'account di archiviazione Premium non è supportato.
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="requests-logged-in-logging"></a>Richieste di registrazione registrate
 ### <a name="logging-authenticated-requests"></a>Registrazione delle richieste autenticate
 
@@ -35,7 +33,7 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 
 - Richieste riuscite
 - Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo
-- Richieste con una firma di accesso condiviso o OAuth, incluse le richieste non riuscite e riuscite
+- Richieste tramite una firma di accesso condiviso o OAuth, incluse le richieste riuscite e non riuscite
 - Richieste ai dati di analisi
 
   Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format).
@@ -56,7 +54,7 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 Tutti i log vengono archiviati in Blob in blocchi in un contenitore denominato `$logs`, che viene creato automaticamente quando si abilita Analisi archiviazione per un account di archiviazione. Il contenitore `$logs` si trova nello spazio dei nomi Blob dell'account di archiviazione, ad esempio: `http://<accountname>.blob.core.windows.net/$logs`. Questo contenitore non può essere eliminato una volta abilitata Analisi di archiviazione, sebbene sia possibile eliminarne il contenuto. Se si usa lo strumento di esplorazione dell'archiviazione per passare direttamente al contenitore, vengono visualizzati tutti i BLOB contenenti i dati di registrazione.
 
 > [!NOTE]
->  Il contenitore `$logs` non viene visualizzato quando viene eseguita un'operazione di elenco dei contenitori, ad esempio l'operazione list Containers. È necessario effettuare l'accesso diretto. Ad esempio, è possibile usare l'operazione list Blobs per accedere ai BLOB nel contenitore `$logs`.
+>  Il `$logs` contenitore non viene visualizzato quando viene eseguita un'operazione di elenco dei contenitori, ad esempio l'operazione di elenco contenitori. È necessario effettuare l'accesso diretto. Ad esempio, è possibile usare l'operazione list Blobs per accedere ai BLOB nel `$logs` contenitore.
 
 Nel momento in cui vengono registrate le richieste, Analisi archiviazione carica i risultati intermedi come blocchi. Analisi archiviazione invierà periodicamente questi blocchi e li renderà disponibili come BLOB. Potrebbe essere necessaria fino a un'ora per la visualizzazione dei dati di log nei BLOB del contenitore **$logs** perché la frequenza con cui il servizio di archiviazione Scarica i writer di log. Per i log creati nella stessa ora possono esistere record duplicati. È possibile determinare se un record è un duplicato controllandone il numero **RequestId** e **Operation**.
 
@@ -95,7 +93,7 @@ Per informazioni sull'elenco di BLOB a livello di codice, vedere [enumerazione d
 |`MM`|Mese a due cifre per il log. Ad esempio: `07`|
 |`DD`|Giorno a due cifre per il log. Ad esempio: `31`|
 |`hh`|Ora a due cifre che indica l'ora di inizio dei log, in nel formato UTC 24 ore. Ad esempio: `18`|
-|`mm`|Numero di due cifre che indica il minuto iniziale per i log. **Nota:**  Questo valore non è supportato nella versione corrente di Analisi archiviazione e il relativo valore sarà sempre `00`.|
+|`mm`|Numero di due cifre che indica il minuto iniziale per i log. **Nota:**  Questo valore non è supportato nella versione corrente di Analisi archiviazione e il suo valore sarà sempre `00`.|
 |`<counter>`|Contatore base zero con sei cifre che indica il numero di BLOB di log generati per il servizio di archiviazione in un'ora. Il contatore inizia da `000000`. Ad esempio: `000001`|
 
  Di seguito è riportato un nome di log completo di esempio che combina gli esempi precedenti:
@@ -114,7 +112,7 @@ Per informazioni sull'elenco di BLOB a livello di codice, vedere [enumerazione d
 
 |Attributo|Descrizione|
 |---------------|-----------------|
-|`LogType`|Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola.<br /><br /> Esempio 1: `write`<br /><br /> Esempio 2: `read,write`<br /><br /> Esempio 3: `read,write,delete`|
+|`LogType`|Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola.<br /><br /> Esempio 1: `write`<br /><br /> Esempio 2: `read,write`<br /><br /> Esempio 3:`read,write,delete`|
 |`StartTime`|L'ora meno recente di una voce del log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. Ad esempio: `2011-07-31T18:21:46Z`|
 |`EndTime`|L'ora più recente di una voce del log, sotto forma di `YYYY-MM-DDThh:mm:ssZ`. Ad esempio: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versione del formato del log.|
@@ -182,7 +180,7 @@ queueClient.SetServiceProperties(serviceProperties);
  Per visualizzare e analizzare i dati di log, è necessario scaricare su un computer locale i BLOB contenenti i dati di log a cui si è interessati. Molti strumenti di esplorazione dell'archiviazione consentono di scaricare i BLOB dall'account di archiviazione. per scaricare i dati di log, è anche possibile usare il team di archiviazione di Azure fornito dallo strumento copia di Azure della riga di comando [AzCopy](storage-use-azcopy-v10.md) .  
  
 >[!NOTE]
-> Il contenitore `$logs` non è integrato con griglia di eventi, quindi non si riceveranno notifiche quando vengono scritti i file di log. 
+> Il `$logs` contenitore non è integrato con griglia di eventi, quindi non si riceveranno notifiche quando vengono scritti i file di log. 
 
  Per scaricare soltanto i dati di log a cui si è interessati e per evitare di scaricare più volte gli stessi dati, procedere come segue:  
 

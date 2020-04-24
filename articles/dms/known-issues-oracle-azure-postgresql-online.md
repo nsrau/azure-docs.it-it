@@ -1,7 +1,7 @@
 ---
-title: 'Problemi noti: Eseguire la migrazione da Oracle al database di Azure per PostgreSQLKnown issues: Migrate from Oracle to Azure Database for PostgreSQL'
+title: 'Problemi noti: eseguire la migrazione da Oracle al database di Azure per PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Informazioni sui problemi noti e sulle limitazioni della migrazione con le migrazioni online da Oracle al database di Azure per il server PostgreSQL-Single usando il servizio Migrazione del database di Azure.Learn about known issues and migration limitations with online migrations from Oracle to Azure Database for PostgreSQL-Single server using the Azure Database Migration Service.
+description: Informazioni sui problemi noti e sulle limitazioni della migrazione con migrazioni online da Oracle al database di Azure per PostgreSQL-server singolo con il servizio migrazione del database di Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -19,54 +19,54 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80235250"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemi noti/limitazioni di migrazione con le migrazioni online da Oracle ad Azure DB per PostgreSQL-Single Server
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemi noti/limitazioni della migrazione con migrazioni online da Oracle al database di Azure per PostgreSQL-server singolo
 
-I problemi noti e le limitazioni associate alle migrazioni online da Oracle al database di Azure per server PostgreSQL-Single sono descritti nelle sezioni seguenti.
+Le sezioni seguenti illustrano i problemi noti e le limitazioni associate alle migrazioni online da Oracle al database di Azure per PostgreSQL: un server singolo.
 
-## <a name="oracle-versions-supported-as-a-source-database"></a>Versioni Oracle supportate come database di origine
+## <a name="oracle-versions-supported-as-a-source-database"></a>Versioni di Oracle supportate come database di origine
 
-Il servizio Migrazione del database di Azure supporta la connessione a:Azure Database Migration Service supports connecting to:
+Il servizio migrazione del database di Azure supporta la connessione a:
 
-- Oracle versione 10g, 11g e 12c.
-- Oracle Enterprise, Standard, Express e Personal Edition.
+- Oracle versione 10g, 11g e 12C.
+- Oracle Enterprise, standard, Express e Personal Edition.
 
-Il servizio Migrazione del database di Azure non supporta la connessione ai database contenitore multi-tenant (CDB).
+Il servizio migrazione del database di Azure non supporta la connessione a database contenitore multi-tenant (CDBs).
 
-## <a name="postgresql-versions-supported-as-a-target-database"></a>Versioni PostgreSQL supportate come database di destinazionePostgreSQL versions supported as a target database
+## <a name="postgresql-versions-supported-as-a-target-database"></a>Versioni di PostgreSQL supportate come database di destinazione
 
-Il servizio di migrazione del database di Azure supporta le migrazioni al database di Azure per PostgreSQL-Single Server versione 9.5, 9.6, 10 e 11.Azure Database Migration Service supports migrations to Azure Database for PostgreSQL-Single server version 9.5, 9.6, 10 and 11. Vedere l'articolo Versioni di [database PostgreSQL supportate](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) per informazioni aggiornate sul supporto delle versioni nel database di Azure per postgreSQL-singolo server.
+Il servizio migrazione del database di Azure supporta le migrazioni al database di Azure per PostgreSQL: versione a server singolo 9,5, 9,6, 10 e 11. Per informazioni aggiornate sul supporto della versione nel database di Azure per PostgreSQL-server singolo, vedere l'articolo [versioni del database PostgreSQL supportate](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) .
 
 ## <a name="datatype-limitations"></a>Limitazioni relative ai tipi di dati
 
-Non verrà eseguita la migrazione dei tipi di dati seguenti:The following datatypes **won't** be migrated:
+**Non** verrà eseguita la migrazione dei seguenti tipi di oggetto:
 
 - BFILE
 - ROWID
 - REF
 - UROWID
-- DATI ANYDATA
+- ANYDATA
 - SDO_GEOMETRY
 - Tabelle nidificate
 - Tipi di dati definiti dall'utente
 - Note
 - Colonne virtuali
-- Visualizzazioni materializzate basate sulla colonna ROWID
+- Viste materializzate basate sulla colonna ROWID
 
-Inoltre, le colonne BLOB/CLOB vuote vengono mappate a NULL nella destinazione.
+Inoltre, le colonne BLOB/CLOB vuote sono mappate a NULL nella destinazione.
 
 ## <a name="lob-limitations"></a>Limitazioni relative ai tipi di dati LOB
 
-- Quando è attivata la modalità LOB di dimensioni limitate, i LOB vuoti nell'origine Oracle vengono replicati come valori NULL.
+- Quando è abilitata la modalità LOB a dimensione limitata, LOB vuoti nell'origine Oracle vengono replicati come valori NULL.
 - I nomi di oggetti lunghi (oltre 30 byte) non sono supportati.
-- I dati nelle colonne LONG e LONG RAW non possono superare 64k. Tutti i dati oltre a 64k verranno troncati.
-- Solo in Oracle 12, tutte le modifiche alle colonne LOB non sono supportate (migrate).
-- Gli UPDAT e le colonne XMLTYPE e LOB non sono supportati (migrati).
+- I dati nella colonna non ELABORAta LONG e LONG non possono superare 64K. Tutti i dati oltre 64K verranno troncati.
+- Solo in Oracle 12, le modifiche apportate alle colonne LOB non sono supportate (migrate).
+- Gli aggiornamenti alle colonne XmlType e LOB non sono supportati (migrati).
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
-- I clienti devono utilizzare SYSDBA per connettersi a Oracle.
-- Le modifiche ai dati risultanti dalle operazioni di partizione/sottopartizione (ADD, DROP, EXCHANGE e TRUNCATE) non verranno migrate e potrebbero causare i seguenti errori:
-  - Per le operazioni ADD, gli aggiornamenti e le eliminazioni sui dati aggiunti possono restituire un avviso "0 righe interessate".
+- I clienti devono usare SYSDBA per connettersi a Oracle.
+- Non verrà eseguita la migrazione delle modifiche dei dati risultanti da operazioni di partizione/Sottopartizione (ADD, DROP, EXCHANGE e Truncate) e potrebbero verificarsi i seguenti errori:
+  - Per aggiungere operazioni, gli aggiornamenti e le eliminazioni sui dati aggiunti possono restituire un avviso "0 righe interessate".
   - Per le operazioni DROP e TRUNCATE, i nuovi inserimenti possono generare errori di "duplicati".
-  - Per le operazioni di EXCHANGE, possono verificarsi entrambi gli errori di avviso "0 righe interessate" e "duplicati".
+  - Per le operazioni di EXCHANGE è possibile che si verifichino errori di avviso "0 righe interessate" e "duplicati".
 - Le tabelle i cui nomi contengono apostrofi non possono essere replicate.

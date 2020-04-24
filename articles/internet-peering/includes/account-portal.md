@@ -15,16 +15,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/21/2020
 ms.locfileid: "81678519"
 ---
-Da un browser passare al [portale di](https://portal.azure.com/) Azure e accedere con l'account Azure.From a browser, go to the Azure portal and sign in with your Azure account.
+Da un browser passare al [portale](https://portal.azure.com/) di Azure e accedere con l'account Azure.
 
-Se si dispone di più sottoscrizioni ed è necessario passare da una sottoscrizioni all'altra:If you have multiple subscriptions and need to switch subscriptions:
+Se sono disponibili più sottoscrizioni ed è necessario cambiare le sottoscrizioni:
 
-1. Selezionare il pulsante del profilo, quindi selezionare **Cambia directory**.
+1. Selezionare il pulsante profilo, quindi selezionare **Cambia directory**.
 
     > [!div class="mx-imgBorder"]
-    > ![Selezionare Cambia directory](../media/choose-subscription-2.png)
+    > ![Seleziona directory switch](../media/choose-subscription-2.png)
 
-1. Scegliere una sottoscrizione da usare per la configurazione del peering.
+1. Scegliere una sottoscrizione che si vuole usare per la configurazione del peering.
 
     > [!div class="mx-imgBorder"]
     > ![Scegliere la sottoscrizione](../media/choose-subscription-3.png)

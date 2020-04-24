@@ -1,6 +1,6 @@
 ---
-title: Gestire utenti e ruoli nell'applicazione Azure IoT Central . Documenti Microsoft
-description: In qualità di amministratore, come gestire utenti e ruoli nell'applicazione Azure IoT Central
+title: Gestire utenti e ruoli nell'applicazione IoT Central di Azure | Microsoft Docs
+description: Come amministratore, come gestire utenti e ruoli nell'applicazione IoT Central di Azure
 author: lmasieri
 ms.author: lmasieri
 ms.date: 12/05/2019
@@ -17,13 +17,13 @@ ms.locfileid: "80365509"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gestire utenti e ruoli nell'applicazione IoT Central
 
-Questo articolo descrive come, come amministratore, è possibile aggiungere, modificare ed eliminare utenti nell'applicazione Azure IoT Central.This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application. L'articolo descrive anche come gestire i ruoli nell'applicazione Azure IoT Central.The article also describes how to manage roles in your Azure IoT Central application.
+Questo articolo descrive come un amministratore può aggiungere, modificare ed eliminare utenti nell'applicazione IoT Central di Azure. Questo articolo descrive anche come gestire i ruoli nell'applicazione IoT Central di Azure.
 
-Per accedere alla sezione **Amministrazione** e usarla, è necessario disporre del ruolo **Amministratore** per l'applicazione Azure IoT Central. Se si crea un'applicazione Azure IoT Central, si viene aggiunti automaticamente al ruolo **di amministratore** per tale applicazione.
+Per accedere alla sezione **Amministrazione** e usarla, è necessario disporre del ruolo **Amministratore** per l'applicazione Azure IoT Central. Se si crea un'applicazione IoT Central di Azure, l'utente viene aggiunto automaticamente al ruolo di **amministratore** per l'applicazione.
 
 ## <a name="add-users"></a>Aggiungere utenti
 
-Ogni utente deve avere un account utente prima di poter accedere a un'applicazione Azure IoT Central. Microsoft Accounts and Azure Active Directory accounts are supported in Azure IoT Central. I gruppi di Azure Active Directory non sono attualmente supportati in Azure IoT Central.
+Ogni utente deve avere un account utente prima di poter accedere a un'applicazione Azure IoT Central. Gli account Microsoft e Azure Active Directory sono supportati in Azure IoT Central. I gruppi di Azure Active Directory non sono attualmente supportati in Azure IoT Central.
 
 Per altre informazioni, vedere [Guida di Account Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [Guida introduttiva: Aggiungere nuovi utenti ad Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
@@ -37,19 +37,19 @@ Per altre informazioni, vedere [Guida di Account Microsoft](https://support.micr
 1. Scegliere un ruolo per l'utente dal menu a discesa **Ruolo**. Per altre informazioni sui ruoli, vedere la sezione [Gestire i ruoli](#manage-roles) in questo articolo.
 
     > [!div class="mx-imgBorder"]
-    >![Aggiungere un utente e selezionare un ruoloAdd user and select a role](media/howto-manage-users-roles/add-user-pnp.png)
+    >![Aggiungere un utente e selezionare un ruolo](media/howto-manage-users-roles/add-user-pnp.png)
 
     > [!NOTE]
-    > Un utente che risieda un ruolo personalizzato che concede loro l'autorizzazione per aggiungere altri utenti può aggiungere solo utenti a un ruolo con autorizzazioni uguali o inferiori rispetto al proprio ruolo.
+    > Un utente che si trova in un ruolo personalizzato che concede loro l'autorizzazione ad aggiungere altri utenti può solo aggiungere utenti a un ruolo con le stesse autorizzazioni o un minor numero di autorizzazioni rispetto al proprio ruolo.
 
-Se un ID utente di IoT Central viene eliminato da Azure Active Directory e quindi aggiunto nuovamente, l'utente non sarà in grado di accedere all'applicazione IoT Central.If an IoT Central user ID is deleted from Azure Active Directory and then readded, the user's not be able to sign in the IoT Central application. Per riattivare l'accesso, l'amministratore di IoT Central deve eliminare e aggiungere nuovamente l'utente nell'applicazione.
+Se un IoT Central ID utente viene eliminato da Azure Active Directory e quindi aggiunto nuovamente, l'utente non sarà in grado di accedere all'applicazione IoT Central. Per abilitare nuovamente l'accesso, l'amministratore di IoT Central deve eliminare e leggere l'utente nell'applicazione.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Modificare i ruoli assegnati agli utenti
 
-I ruoli non possono essere modificati dopo che sono stati assegnati. Per modificare il ruolo assegnato a un utente, eliminare l'utente e aggiungerlo nuovamente con un ruolo diverso.
+I ruoli non possono essere modificati dopo essere stati assegnati. Per modificare il ruolo assegnato a un utente, eliminare l'utente e aggiungerlo nuovamente con un ruolo diverso.
 
 > [!NOTE]
-> The roles assigned are specific to IoT Central application and cannot be managed from the Azure Portal.
+> I ruoli assegnati sono specifici dell'applicazione IoT Central e non possono essere gestiti dal portale di Azure.
 
 ## <a name="delete-users"></a>Eliminare gli utenti
 
@@ -57,99 +57,99 @@ Per eliminare gli utenti, selezionare una o più caselle di controllo nella pagi
 
 ## <a name="manage-roles"></a>Gestire i ruoli
 
-I ruoli consentono di controllare chi all'interno dell'organizzazione è autorizzato a eseguire varie attività in IoT Central. Esistono tre ruoli predefiniti che è possibile assegnare agli utenti dell'applicazione. È inoltre possibile [creare ruoli personalizzati](#create-a-custom-role) se è necessario un controllo con granularità più fine.
+I ruoli consentono di controllare chi all'interno dell'organizzazione è autorizzato a eseguire varie attività in IoT Central. Sono disponibili tre ruoli predefiniti che è possibile assegnare agli utenti dell'applicazione. È anche possibile [creare ruoli personalizzati](#create-a-custom-role) se è necessario un controllo con granularità fine.
 
 > [!div class="mx-imgBorder"]
-> ![Gestire la selezione dei ruoli](media/howto-manage-users-roles/manage-roles-pnp.png)
+> ![Gestione Selezione ruoli](media/howto-manage-users-roles/manage-roles-pnp.png)
 
 ### <a name="administrator"></a>Amministratore
 
-Gli utenti con il ruolo **Amministratore** possono gestire e controllare ogni parte dell'applicazione, inclusa la fatturazione.
+Gli utenti con il ruolo di **amministratore** possono gestire e controllare ogni parte dell'applicazione, inclusa la fatturazione.
 
 All'utente che ha creato un'applicazione viene assegnato automaticamente il ruolo **Amministratore**. Ci deve sempre essere almeno un utente con il ruolo **Administrator** (Amministratore).
 
 ### <a name="builder"></a>Generatore
 
-Gli utenti nel ruolo **Generatore** possono gestire ogni parte dell'app, ma non possono apportare modifiche nelle schede Amministrazione o Esportazione dati continua.
+Gli utenti nel ruolo di **Generatore** possono gestire ogni parte dell'app, ma non possono apportare modifiche nelle schede amministrazione o esportazione dati continua.
 
 ### <a name="operator"></a>Operatore
 
-Gli utenti con il ruolo **Operatore** possono monitorare l'integrità e lo stato del dispositivo. Non è consentito apportare modifiche ai modelli di dispositivo o amministrare l'applicazione. Gli operatori possono aggiungere ed eliminare dispositivi, gestire set di dispositivi ed eseguire analisi e processi. 
+Gli utenti del ruolo **operatore** possono monitorare l'integrità e lo stato dei dispositivi. Non è consentito apportare modifiche ai modelli di dispositivo o amministrare l'applicazione. Gli operatori possono aggiungere ed eliminare dispositivi, gestire set di dispositivi ed eseguire analisi e processi. 
 
 ## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
 
-Se la soluzione richiede controlli di accesso con granularità più fine, è possibile creare ruoli personalizzati con set personalizzati di autorizzazioni. Per creare un ruolo personalizzato, passare alla pagina **Ruoli** nella sezione **Amministrazione** dell'applicazione. Quindi selezionare **Nuovo ruolo**e aggiungere un nome e una descrizione per il ruolo. Selezionare le autorizzazioni necessarie per il ruolo, quindi selezionare **Salva**.
+Se la soluzione richiede controlli di accesso con granularità fine, è possibile creare ruoli personalizzati con set personalizzati di autorizzazioni. Per creare un ruolo personalizzato, passare alla pagina **ruoli** nella sezione **Amministrazione** dell'applicazione. Quindi selezionare **+ nuovo ruolo**e aggiungere un nome e una descrizione per il ruolo. Selezionare le autorizzazioni necessarie per il ruolo e quindi fare clic su **Salva**.
 
-È possibile aggiungere utenti al ruolo personalizzato nello stesso modo in cui si aggiungono utenti a un ruolo predefinito.
+È possibile aggiungere utenti al ruolo personalizzato nello stesso modo in cui si aggiungono gli utenti a un ruolo predefinito.
 
 > [!div class="mx-imgBorder"]
-> ![Creare un ruolo personalizzato](media/howto-manage-users-roles/create-custom-role-pnp.png)
+> ![Creazione di un ruolo personalizzato](media/howto-manage-users-roles/create-custom-role-pnp.png)
 
-### <a name="custom-role-options"></a>Opzioni di ruolo personalizzate
+### <a name="custom-role-options"></a>Opzioni del ruolo personalizzato
 
-Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni che un utente viene concesso se è un membro del ruolo. Alcune autorizzazioni dipendono da altre. Ad esempio, se si aggiunge l'autorizzazione **Aggiorna dashboard dell'applicazione** a un ruolo, l'autorizzazione **Visualizza dashboard dell'applicazione** viene aggiunta automaticamente. Nelle tabelle seguenti sono riepilogate le autorizzazioni disponibili e le relative dipendenze che è possibile utilizzare durante la creazione di ruoli personalizzati.
+Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni che un utente viene concesso se è membro del ruolo. Alcune autorizzazioni dipendono da altri. Ad esempio, se si aggiunge l'autorizzazione **Aggiorna dashboard applicazione** a un ruolo, l'autorizzazione **Visualizza dashboard applicazione** viene aggiunta automaticamente. Nelle tabelle seguenti vengono riepilogate le autorizzazioni disponibili e le relative dipendenze, che è possibile utilizzare per la creazione di ruoli personalizzati.
 
 #### <a name="managing-devices"></a>Gestione dei dispositivi
 
-**Autorizzazioni del modello di dispositivo**
+**Autorizzazioni per i modelli di dispositivo**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Gestione | Visualizza <br/> Altre dipendenze: visualizzare le istanze del dispositivoOther dependencies: View device instances  |
-| Controllo completo | Visualizza, Gestisci <br/> Altre dipendenze: visualizzare le istanze del dispositivoOther dependencies: View device instances |
+| Visualizzazione | nessuno     |
+| Gestisci | Visualizzazione <br/> Altre dipendenze: visualizzare le istanze del dispositivo  |
+| Controllo completo | Visualizza, Gestisci <br/> Altre dipendenze: visualizzare le istanze del dispositivo |
 
-**Autorizzazioni dell'istanza del dispositivoDevice instance permissions**
-
-| Nome | Dependencies |
-| ---- | -------- |
-| Visualizza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositiviOther dependencies: View device templates and device groups |
-| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositiviOther dependencies: View device templates and device groups  |
-| Create | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositiviOther dependencies: View device templates and device groups  |
-| Delete | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositiviOther dependencies: View device templates and device groups  |
-| Comandi di esecuzione | Aggiorna, Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositiviOther dependencies: View device templates and device groups  |
-| Controllo completo | Comandi di visualizzazione, aggiornamento, creazione, eliminazione, esecuzione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositiviOther dependencies: View device templates and device groups  |
-
-**Autorizzazioni per i gruppi di dispositivi**
+**Autorizzazioni per l'istanza del dispositivo**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze dei dispositiviOther dependencies: View device templates and device instances |
-| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze dei dispositiviOther dependencies: View device templates and device instances   |
-| Create | Visualizza, Aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze dei dispositiviOther dependencies: View device templates and device instances   |
-| Delete | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze dei dispositiviOther dependencies: View device templates and device instances   |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze dei dispositiviOther dependencies: View device templates and device instances |
+| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi |
+| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Create | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Comandi Execute | Aggiorna, Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare ed eseguire comandi <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 
-**Autorizzazioni di gestione della connettività dei dispositivi**
-
-| Nome | Dependencies |
-| ---- | -------- |
-| Esempio di lettura dell'istanza | nessuno <br/> Altre dipendenze: visualizzare modelli di dispositivo, gruppi di dispositivi, istanze di dispositivoOther dependencies: View device templates, device groups, device instances |
-| Gestire l'istanza | nessuno |
-| Leggi globale | nessuno   |
-| Gestire globale | Leggi Globale |
-| Controllo completo | Leggere istanza, Gestisci istanza, Leggi globale, Gestisci globale. <br/> Altre dipendenze: visualizzare modelli di dispositivo, gruppi di dispositivi, istanze di dispositivoOther dependencies: View device templates, device groups, device instances |
-
-**Autorizzazioni per i processi**
+**Autorizzazioni per gruppi di dispositivi**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze dei dispositivi e i gruppi di dispositiviOther dependencies: View device templates, device instances, and device groups |
-| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze dei dispositivi e i gruppi di dispositiviOther dependencies: View device templates, device instances, and device groups |
-| Create | Visualizza, Aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze dei dispositivi e i gruppi di dispositiviOther dependencies: View device templates, device instances, and device groups |
-| Delete | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze dei dispositivi e i gruppi di dispositiviOther dependencies: View device templates, device instances, and device groups |
-| Execute | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze dei dispositivi e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivoExecute commands on device instances |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina, Esegui <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze dei dispositivi e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivoExecute commands on device instances |
+| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
+| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
+
+**Autorizzazioni di gestione della connettività del dispositivo**
+
+| Nome | Dependencies |
+| ---- | -------- |
+| Lettura istanza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
+| Gestisci istanza | nessuno |
+| Lettura globale | nessuno   |
+| Gestione globale | Lettura globale |
+| Controllo completo | Lettura istanza, Gestisci istanza, lettura globale, Gestisci globale. <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
+
+**Autorizzazioni processi**
+
+| Nome | Dependencies |
+| ---- | -------- |
+| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Execute | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare ed eseguire <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
 
 **Autorizzazioni per le regole**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivoOther dependencies: View device templates |
-| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivoOther dependencies: View device templates |
-| Create | Visualizza, Aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivoOther dependencies: View device templates |
-| Delete | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivoOther dependencies: View device templates |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina <br/> Altre dipendenze: visualizzare i modelli di dispositivoOther dependencies: View device templates |
+| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 
 #### <a name="managing-the-app"></a>Gestione dell'app
 
@@ -157,50 +157,50 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Aggiornamento | Visualizza   |
-| Copiare | Visualizza <br/> Altre dipendenze: visualizzare modelli di dispositivo, istanze di dispositivi, gruppi di dispositivi, dashboard, esportazione dati, personalizzazione, collegamenti della Guida, ruoli personalizzati, regole |
-| Delete | Visualizza   |
-| Controllo completo | Visualizza, Aggiorna, Copia, Elimina <br/> Altre dipendenze: visualizzare modelli di dispositivo, gruppi di dispositivi, dashboard dell'applicazione, esportazione dati, personalizzazione, collegamenti della Guida, ruoli personalizzati, regole |
+| Visualizzazione | nessuno     |
+| Aggiorna | Visualizzazione   |
+| Copiare | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
+| Delete | Visualizzazione   |
+| Controllo completo | Visualizzazione, aggiornamento, copia, eliminazione <br/> Altre dipendenze: visualizzare modelli di dispositivi, gruppi di dispositivi, dashboard dell'applicazione, esportazione dei dati, personalizzazione, collegamenti alla guida, ruoli personalizzati, regole |
 
-**Autorizzazioni di esportazione del modello di applicazioneApplication template export permissions**
+**Autorizzazioni esportazione modello applicazione**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Esportazione | Visualizza <br/> Altre dipendenze: visualizzare modelli di dispositivo, istanze di dispositivi, gruppi di dispositivi, dashboard, esportazione dati, personalizzazione, collegamenti della Guida, ruoli personalizzati, regole |
-| Controllo completo | Visualizza, Esporta <br/> Altre dipendenze: visualizzare modelli di dispositivo, gruppi di dispositivi, dashboard dell'applicazione, esportazione dati, personalizzazione, collegamenti della Guida, ruoli personalizzati, regole |
+| Visualizzazione | nessuno     |
+| Esportazione | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
+| Controllo completo | Visualizza, Esporta <br/> Altre dipendenze: visualizzare modelli di dispositivi, gruppi di dispositivi, dashboard dell'applicazione, esportazione dei dati, personalizzazione, collegamenti alla guida, ruoli personalizzati, regole |
 
 **Autorizzazioni di fatturazione**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Gestione | nessuno     |
-| Controllo completo | Gestione |
+| Gestisci | nessuno     |
+| Controllo completo | Gestisci |
 
 #### <a name="managing-users-and-roles"></a>Gestione di utenti e ruoli
 
-**Autorizzazioni per i ruoli personalizzati**
+**Autorizzazioni per ruoli personalizzati**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno |
-| Aggiornamento | Visualizza |
-| Create | Visualizza, Aggiorna |
-| Delete | Visualizza |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina |
+| Visualizzazione | nessuno |
+| Aggiorna | Visualizzazione |
+| Create | Visualizza, aggiorna |
+| Delete | Visualizzazione |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
-**Autorizzazioni di gestione utenti**
+**Autorizzazioni Gestione utenti**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno <br/> Altre dipendenze: visualizzare ruoli personalizzati |
-| Add | Visualizza <br/> Altre dipendenze: visualizzare ruoli personalizzati |
-| Delete | Visualizza <br/> Altre dipendenze: visualizzare ruoli personalizzati |
-| Controllo completo | Visualizza, Aggiungi, Elimina <br/> Altre dipendenze: visualizzare ruoli personalizzati |
+| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Add | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Controllo completo | Visualizza, Aggiungi, Elimina <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 
 > [!NOTE]
-> Un utente che risieda un ruolo personalizzato che concede loro l'autorizzazione per aggiungere altri utenti può aggiungere solo utenti a un ruolo con autorizzazioni uguali o inferiori rispetto al proprio ruolo.
+> Un utente che si trova in un ruolo personalizzato che concede loro l'autorizzazione ad aggiungere altri utenti può solo aggiungere utenti a un ruolo con le stesse autorizzazioni o un minor numero di autorizzazioni rispetto al proprio ruolo.
 
 #### <a name="customizing-the-app"></a>Personalizzazione dell'app
 
@@ -208,59 +208,59 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Aggiornamento | Visualizza   |
-| Create | Visualizza, Aggiorna |
-| Delete | Visualizza   |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina |
+| Visualizzazione | nessuno     |
+| Aggiorna | Visualizzazione   |
+| Create | Visualizza, aggiorna |
+| Delete | Visualizzazione   |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
-**Autorizzazioni dashboard personali**
+**Autorizzazioni per Dashboard personali**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Aggiornamento | Visualizza   |
-| Create | Visualizza, Aggiorna   |
-| Delete | Visualizza   |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina |
+| Visualizzazione | nessuno     |
+| Aggiorna | Visualizzazione   |
+| Create | Visualizza, aggiorna   |
+| Delete | Visualizzazione   |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni per personalizzazione, favicon e colori**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Aggiornamento | Visualizza   |
-| Controllo completo | Visualizza, Aggiorna |
+| Visualizzazione | nessuno     |
+| Aggiorna | Visualizzazione   |
+| Controllo completo | Visualizza, aggiorna |
 
-**Autorizzazioni per i collegamenti della Guida**
+**Autorizzazioni collegamenti Guida**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Aggiornamento | Visualizza   |
-| Controllo completo | Visualizza, Aggiorna |
+| Visualizzazione | nessuno     |
+| Aggiorna | Visualizzazione   |
+| Controllo completo | Visualizza, aggiorna |
 
 #### <a name="extending-the-app"></a>Estensione dell'app
 
-**Autorizzazioni di esportazione dei dati**
+**Autorizzazioni esportazione dati**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Aggiornamento | Visualizza   |
-| Create | Visualizza, Aggiorna  |
-| Delete | Visualizza   |
-| Controllo completo | Visualizza, Aggiorna, Crea, Elimina |
+| Visualizzazione | nessuno     |
+| Aggiorna | Visualizzazione   |
+| Create | Visualizza, aggiorna  |
+| Delete | Visualizzazione   |
+| Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni token API**
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizza | nessuno     |
-| Create | Visualizza   |
-| Delete | Visualizza   |
-| Controllo completo | Visualizza, Crea, Elimina |
+| Visualizzazione | nessuno     |
+| Create | Visualizzazione   |
+| Delete | Visualizzazione   |
+| Controllo completo | Visualizza, crea, Elimina |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come gestire gli utenti e i ruoli nell'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'apprendere come [gestire la fattura.](howto-view-bill.md)
+Ora che si è appreso come gestire utenti e ruoli nell'applicazione IoT Central di Azure, il passaggio successivo suggerito consiste nell'apprendere come [gestire la fattura](howto-view-bill.md).

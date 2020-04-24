@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per la configurazione delle app di Azure Documenti Microsoft
-description: Informazioni su come usare al meglio la configurazione delle app di Azure
+title: Procedure consigliate per la configurazione di app Azure | Microsoft Docs
+description: Informazioni su come usare al meglio la configurazione di app Azure
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -19,32 +19,32 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "80348671"
 ---
-# <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione delle app di AzureAzure App Configuration best practices
+# <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 
-Questo articolo illustra i modelli comuni e le procedure consigliate quando si usa Configurazione app di Azure.This article discusses common patterns and best practices when you're using Azure App Configuration.
+Questo articolo illustra i modelli comuni e le procedure consigliate quando si usa la configurazione di app Azure.
 
-## <a name="key-groupings"></a>Raggruppamenti di chiaviKey groupings
+## <a name="key-groupings"></a>Raggruppamenti di chiavi
 
-Configurazione app offre due opzioni per l'organizzazione delle chiavi:App Configuration provides two options for organizing keys:
+La configurazione dell'app offre due opzioni per organizzare le chiavi:
 
 * Prefissi di chiave
 * Etichette
 
-È possibile utilizzare una o entrambe le opzioni per raggruppare le chiavi.
+È possibile usare una o entrambe le opzioni per raggruppare le chiavi.
 
-*I prefissi* di chiave sono le parti iniziali delle chiavi. È possibile raggruppare logicamente un set di chiavi utilizzando lo stesso prefisso nei relativi nomi. I prefissi possono contenere più componenti connessi `/`da un delimitatore, ad esempio , simile a un percorso URL, per formare uno spazio dei nomi. Tali gerarchie sono utili quando si archiviano le chiavi per molte applicazioni, servizi componenti e ambienti in un archivio di configurazione app.
+I *prefissi di chiave* sono le parti iniziali delle chiavi. È possibile raggruppare logicamente un set di chiavi usando lo stesso prefisso nei rispettivi nomi. I prefissi possono contenere più componenti connessi da un delimitatore, ad `/`esempio, in modo simile a un percorso URL, per formare uno spazio dei nomi. Queste gerarchie sono utili quando si archiviano chiavi per molte applicazioni, Servizi componenti e ambienti in un archivio di configurazione dell'app.
 
-Una cosa importante da tenere a mente è che le chiavi sono ciò che il codice dell'applicazione fa riferimento per recuperare i valori delle impostazioni corrispondenti. Le chiavi non devono essere modificate, altrimenti dovrai modificare il codice ogni volta che si verifica.
+Un aspetto importante da tenere presente è che le chiavi sono i riferimenti del codice dell'applicazione per recuperare i valori delle impostazioni corrispondenti. Le chiavi non devono essere modificate, altrimenti sarà necessario modificare il codice ogni volta che si verifica.
 
-*Le etichette* sono un attributo sulle chiavi. Vengono utilizzati per creare varianti di una chiave. Ad esempio, è possibile assegnare etichette a più versioni di una chiave. Una versione può essere un'iterazione, un ambiente o altre informazioni contestuali. L'applicazione può richiedere un set completamente diverso di valori di chiave specificando un'altra etichetta. Di conseguenza, tutti i riferimenti alle chiavi rimangono invariati nel codice.
+Le *etichette* sono un attributo delle chiavi. Sono usati per creare varianti di una chiave. Ad esempio, è possibile assegnare etichette a più versioni di una chiave. Una versione potrebbe essere un'iterazione, un ambiente o altre informazioni contestuali. L'applicazione può richiedere un set completamente diverso di valori di chiave specificando un'altra etichetta. Di conseguenza, tutti i riferimenti alla chiave rimangono invariati nel codice.
 
 ## <a name="key-value-compositions"></a>Composizioni chiave-valore
 
-La configurazione delle app considera tutte le chiavi archiviate come entità indipendenti. Configurazione app non tenta di dedurre qualsiasi relazione tra le chiavi o di ereditare i valori di chiave in base alla gerarchia. È tuttavia possibile aggregare più set di chiavi usando etichette associate a uno stack di configurazione corretto nel codice dell'applicazione.
+La configurazione dell'app considera tutte le chiavi archiviate come entità indipendenti. La configurazione dell'app non tenta di dedurre alcuna relazione tra le chiavi o di ereditare i valori delle chiavi in base alla gerarchia. È possibile aggregare più insiemi di chiavi, tuttavia, usando etichette abbinate al corretto stack di configurazione nel codice dell'applicazione.
 
-Ecco un esempio. Si supponga di disporre di un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Creare una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Sviluppo". Nella prima etichetta si inserisce il valore predefinito per **Asset1**e si inserisce un valore specifico per "Sviluppo" in quest'ultimo.
+Ecco un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1**e si inserisce un valore specifico per "Development" nel secondo.
 
-Nel codice, è innanzitutto recuperare i valori di chiave senza etichette e quindi recuperare lo stesso set di valori di chiave una seconda volta con l'etichetta "Sviluppo". Quando si recuperano i valori la seconda volta, i valori precedenti delle chiavi vengono sovrascritti. Il sistema di configurazione .NET Core consente di "impilare" più set di dati di configurazione uno sopra l'altro. Se una chiave è presente in più set, viene utilizzato l'ultimo set che la contiene. Con un framework di programmazione moderno, ad esempio .NET Core, si ottiene questa funzionalità di stacking gratuitamente se si utilizza un provider di configurazione nativo per accedere a Configurazione app. Il frammento di codice seguente mostra come implementare lo stacking in un'applicazione .NET Core:The following code snippet shows how you can implement stacking in a .NET Core application:
+Nel codice è necessario innanzitutto recuperare i valori della chiave senza alcuna etichetta e quindi recuperare la stessa serie di valori di chiave una seconda volta con l'etichetta "Development". Quando si recuperano i valori la seconda volta, i valori precedenti delle chiavi vengono sovrascritti. Il sistema di configurazione di .NET Core consente di "stack" più set di dati di configurazione uno sull'altro. Se una chiave è presente in più di un set, viene usato l'ultimo set che lo contiene. Con un Framework di programmazione moderno, ad esempio .NET Core, questa funzionalità di stacking è disponibile gratuitamente se si usa un provider di configurazione nativo per accedere alla configurazione dell'app. Il frammento di codice seguente mostra come è possibile implementare lo stack in un'applicazione .NET Core:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
@@ -56,36 +56,36 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
-[Utilizzare le etichette per abilitare configurazioni diverse per ambienti diversi](./howto-labels-aspnet-core.md) fornisce un esempio completo.
+[Usare le etichette per abilitare configurazioni diverse per ambienti diversi](./howto-labels-aspnet-core.md) fornisce un esempio completo.
 
-## <a name="app-configuration-bootstrap"></a>Bootstrap di configurazione app
+## <a name="app-configuration-bootstrap"></a>Bootstrap configurazione app
 
-Per accedere a un archivio di configurazione app, è possibile usare la relativa stringa di connessione, disponibile nel portale di Azure.To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Poiché le stringhe di connessione contengono informazioni sulle credenziali, vengono considerate segreti. Questi segreti devono essere archiviati nell'insieme di credenziali delle chiavi di Azure e il codice deve autenticarsi nell'insieme di credenziali delle chiavi per recuperarli.
+Per accedere a un archivio di configurazione dell'app, è possibile usare la relativa stringa di connessione, disponibile nel portale di Azure. Poiché le stringhe di connessione contengono informazioni sulle credenziali, sono considerate segreti. Questi segreti devono essere archiviati in Azure Key Vault e il codice deve eseguire l'autenticazione a Key Vault per recuperarli.
 
-Un'opzione migliore consiste nell'usare la funzionalità delle identità gestite in Azure Active Directory.A better option is to use the managed identities feature in Azure Active Directory. Con le identità gestite, è necessario solo l'URL dell'endpoint di configurazione app per eseguire il bootstrap dell'accesso all'archivio di configurazione delle app. È possibile incorporare l'URL nel codice dell'applicazione, ad esempio nel file *appsettings.json.* Per informazioni [dettagliate, vedere Integrazione con le identità gestite di Azure.See Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for details.
+Un'opzione migliore consiste nell'usare la funzionalità identità gestite in Azure Active Directory. Con le identità gestite è necessario solo l'URL dell'endpoint di configurazione dell'app per avviare l'accesso all'archivio di configurazione dell'app. È possibile incorporare l'URL nel codice dell'applicazione, ad esempio nel file *appSettings. JSON* . Per informazioni dettagliate, vedere l' [integrazione con le identità gestite di Azure](howto-integrate-azure-managed-service-identity.md) .
 
-## <a name="app-or-function-access-to-app-configuration"></a>Accesso alle app o alle funzioni di Configurazione app
+## <a name="app-or-function-access-to-app-configuration"></a>Accesso all'app o alla funzione per la configurazione dell'app
 
-È possibile fornire l'accesso a Configurazione app per le app Web o le funzioni utilizzando uno dei metodi seguenti:
+È possibile fornire l'accesso alla configurazione dell'app per le app Web o le funzioni usando uno dei metodi seguenti:
 
-* Tramite il portale di Azure immettere la stringa di connessione all'archivio di configurazione app nelle impostazioni dell'applicazione del servizio app.
-* Archiviare la stringa di connessione all'archivio di configurazione app nell'insieme di credenziali delle chiavi e [farvi riferimento dal servizio app](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
-* Usare le identità gestite di Azure per accedere all'archivio di configurazione delle app. Per altre informazioni, vedere [Integrazione con le identità gestite di Azure](howto-integrate-azure-managed-service-identity.md).For more information, see Integrate with Azure managed identities .
-* Configurazione push da Configurazione app al servizio app. Configurazione app offre una funzione di esportazione (nel portale di Azure e nell'interfaccia della riga di comando di Azure) che invia i dati direttamente nel servizio app. Con questo metodo, non è necessario modificare il codice dell'applicazione a tutti.
+* Tramite il portale di Azure, immettere la stringa di connessione all'archivio di configurazione dell'app nelle impostazioni dell'applicazione del servizio app.
+* Archiviare la stringa di connessione nell'archivio di configurazione dell'app in Key Vault e [farvi riferimento dal servizio app](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Usare le identità gestite di Azure per accedere all'archivio di configurazione dell'app. Per altre informazioni, vedere [integrazione con le identità gestite di Azure](howto-integrate-azure-managed-service-identity.md).
+* Eseguire il push della configurazione dalla configurazione dell'app al servizio app. La configurazione dell'app fornisce una funzione di esportazione (in portale di Azure e l'interfaccia della riga di comando di Azure) che invia i dati direttamente nel servizio app. Con questo metodo non è necessario modificare il codice dell'applicazione.
 
 ## <a name="reduce-requests-made-to-app-configuration"></a>Ridurre le richieste effettuate alla configurazione dell'app
 
-Un numero eccessivo di richieste di configurazione delle app può comportare la limitazione delle richieste o costi di superaone. Per ridurre il numero di richieste effettuate:
+Richieste eccessive alla configurazione dell'app possono comportare una limitazione o addebiti in eccedenza. Per ridurre il numero di richieste effettuate:
 
-* Aumentare il timeout di aggiornamento, soprattutto se i valori di configurazione non cambiano frequentemente. Specificare un nuovo [ `SetCacheExpiration` ](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration)timeout di aggiornamento utilizzando il metodo .
+* Aumentare il timeout di aggiornamento, soprattutto se i valori di configurazione non cambiano di frequente. Specificare un nuovo timeout di aggiornamento usando il [ `SetCacheExpiration` metodo](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
-* Guarda una singola *chiave sentinel,* invece di guardare i singoli tasti. Aggiornare tutta la configurazione solo se la chiave sentinel cambia. Per un esempio, vedere Usare la [configurazione dinamica in un'app ASP.NET Core.See](enable-dynamic-configuration-aspnet-core.md) Use dynamic configuration in an ASP.NET Core app for an example.
+* Osservare una singola *chiave Sentinel*, anziché osservare le singole chiavi. Aggiornare tutte le configurazioni solo se la chiave Sentinel viene modificata. Per un esempio, vedere [usare la configurazione dinamica in un'app ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) .
 
-* Usare Griglia di eventi di Azure per ricevere notifiche quando la configurazione cambia, anziché eseguire costantemente il polling di eventuali modifiche. Per altre informazioni, vedere [Instradare](./howto-app-configuration-event.md) gli eventi di configurazione delle app di Azure a un endpoint Web
+* Usare griglia di eventi di Azure per ricevere notifiche in caso di modifiche alla configurazione, anziché eseguire costantemente il polling delle modifiche. Per ulteriori informazioni, vedere [Route app Azure Configuration Events to a Web endpoint](./howto-app-configuration-event.md) .
 
-## <a name="importing-configuration-data-into-app-configuration"></a>Importazione dei dati di configurazione nella configurazione dell'appImporting configuration data into App Configuration
+## <a name="importing-configuration-data-into-app-configuration"></a>Importazione dei dati di configurazione nella configurazione dell'app
 
-Configurazione app offre l'opzione per [importare](https://aka.ms/azconfig-importexport1) in blocco le impostazioni di configurazione dai file di configurazione correnti usando il portale di Azure o l'interfaccia della riga di comando. È inoltre possibile utilizzare le stesse opzioni per esportare i valori da Configurazione app, ad esempio tra negozi correlati. Se si desidera configurare una sincronizzazione in corso con il repository GitHub, è possibile utilizzare la nostra [azione GitHub](https://aka.ms/azconfig-gha2) in modo da poter continuare a utilizzare le procedure di controllo del codice sorgente esistenti ottenendo i vantaggi di Configurazione App.
+La configurazione dell'app offre la possibilità di [importare](https://aka.ms/azconfig-importexport1) in blocco le impostazioni di configurazione dai file di configurazione correnti usando il portale di Azure o l'interfaccia della riga di comando. È anche possibile usare le stesse opzioni per esportare i valori dalla configurazione dell'app, ad esempio tra archivi correlati. Se si vuole configurare una sincronizzazione continuativa con il repository GitHub, è possibile usare l' [azione GitHub](https://aka.ms/azconfig-gha2) per poter continuare a usare le procedure di controllo del codice sorgente esistenti sfruttando al contempo i vantaggi della configurazione dell'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

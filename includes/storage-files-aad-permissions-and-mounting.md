@@ -106,7 +106,7 @@ Utilizzare Esplora file di Windows per concedere l'autorizzazione completa a tut
 3. Selezionare **modifica.** per modificare le autorizzazioni.
 4. È possibile modificare le autorizzazioni degli utenti esistenti o selezionare **Aggiungi...** per concedere le autorizzazioni ai nuovi utenti.
 5. Nella finestra di messaggio di richiesta per l'aggiunta di nuovi utenti, immettere il nome utente di destinazione a cui si vuole concedere l'autorizzazione nella casella **immettere i nomi degli oggetti da selezionare** e selezionare **Controlla nomi** per trovare il nome UPN completo dell'utente di destinazione.
-7.    Selezionare **OK**.
+7.    Fare clic su **OK**.
 8.    Nella scheda **sicurezza** selezionare tutte le autorizzazioni che si desidera concedere al nuovo utente.
 9.    Selezionare **Applica**.
 

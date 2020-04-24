@@ -1,7 +1,7 @@
 ---
-title: "Riferimento: Deprecazione dell'immagine dell'immagine della macchina virtuale di data scienceReference: Data Science Virtual Machine Image Deprecation"
+title: "Riferimento: Data Science Virtual Machine deprecazione dell'immagine"
 titleSuffix: Azure Data Science Virtual Machine
-description: Dettagli sulle deprecazioni che interessano la macchina virtuale di analisi scientifica dei dati di AzureDetails on deprecations affecting the Azure Data Science Virtual Machine
+description: Informazioni dettagliate sulle deprecazioni che interessano la Data Science Virtual Machine di Azure
 author: lobrien
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -15,18 +15,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "80754761"
 ---
-# <a name="reference-deprecation-of-dsvm-images"></a>Riferimento: Deprecazione delle immagini DSVMReference: Deprecation of DSVM Images
+# <a name="reference-deprecation-of-dsvm-images"></a>Informazioni di riferimento: deprecazione di immagini DSVM
 
-Di seguito vengono illustrati i suggerimenti per gestire le prossime deprecazioni nella macchina virtuale di analisi scientifica dei dati di Azure.Below we discuss suggestions for dealing ing imminent deprecations on the Azure Data Science Virtual Machine.
+Di seguito vengono illustrati i suggerimenti per la gestione delle deprecazioni future nel Data Science Virtual Machine di Azure.
 
-## <a name="windows-2012-migrating-data-disks"></a>Windows 2012: Migrazione dei dischi dati
+## <a name="windows-2012-migrating-data-disks"></a>Windows 2012: migrazione di dischi dati
 
-Smetteremo di supportare l'immagine DSVM di Windows 2012 il 31 dicembre 2019. Per eseguire la migrazione di un disco dati dalla dSVM di Windows 2012 esistente a una DSVM di Windows 2016, attenersi alla seguente procedura:
+Il 31 dicembre 2019 si arresterà il supporto dell'immagine di Windows 2012 DSVM. Per eseguire la migrazione di un disco dati da Windows DSVM 2012 esistente a un DSVM Windows 2016, seguire questa procedura:
 
-1. Creare una nuova DSVM di Windows 2016, seguendo le istruzioni illustrate [di seguito](./provision-vm.md#create-your-dsvm).
-1. Scollegare i dischi dati esistenti dall'immagine di Windows 2012 utilizzando [queste istruzioni.](../../virtual-machines/windows/detach-disk.md)
-1. Collegare il disco del passaggio precedente all'immagine di Windows 2016 seguendo [queste istruzioni.](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)
+1. Creare una nuova DSVM di Windows 2016, seguendo le istruzioni riportate [qui](./provision-vm.md#create-your-dsvm).
+1. Scollegare i dischi dati esistenti dall'immagine di Windows 2012 seguendo [queste istruzioni](../../virtual-machines/windows/detach-disk.md).
+1. Alleghi il disco dal passaggio precedente all'immagine di Windows 2016 usando [queste istruzioni](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
 
 ## <a name="centos"></a>CentOS
 
-I nuovi utenti devono utilizzare le immagini Ubuntu o Windows più recenti. CentOS rimarrà disponibile per l'utilizzo con i modelli di soluzione esistenti.
+I nuovi utenti devono usare le immagini Ubuntu o Windows più recenti. CentOS rimarrà disponibile per l'uso con i modelli di soluzione esistenti.

@@ -1,6 +1,6 @@
 ---
-title: Tipi di regole di confronto del data warehouseData warehouse collation types
-description: Tipi di regole di confronto supportati nel pool SQL di Analisi synapse di Azure.Collation types supported in Azure Synapse Analytics SQL pool.
+title: Tipi di regole di confronto del data warehouse
+description: Tipi di regole di confronto supportati nel pool SQL di Azure sinapsi Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -17,19 +17,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2020
 ms.locfileid: "80633081"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Supporto delle regole di confronto del database per il pool SQL di Azure Synapse AnalyticsDatabase collation support for Azure Synapse Analytics SQL pool
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Supporto delle regole di confronto del database per il pool SQL di Azure sinapsi Analytics
 
-È possibile modificare le regole di confronto predefinite del database dal portale di Azure quando si crea un nuovo database del pool SQL di Azure Synapse.You can change the default database collation from the Azure portal when you create a new Azure Synapse SQL pool database. Questa funzionalità semplifica ulteriormente la creazione di un nuovo database utilizzando una delle regole di confronto del database supportate da 3800.
+È possibile modificare le regole di confronto predefinite del database dal portale di Azure quando si crea un nuovo database del pool SQL di Azure sinapsi. Questa funzionalità rende ancora più semplice la creazione di un nuovo database usando una delle regole di confronto del database supportate da 3800.
 
-Le regole di confronto forniscono le regole relative alle impostazioni locali, alla tabella codici, all'ordinamento e alla sensibilità dei caratteri per i tipi di dati basati su caratteri. Una volta scelto, tutte le colonne e le espressioni che richiedono informazioni sulle regole di confronto ereditano le regole di confronto scelte dall'impostazione del database. L'ereditarietà predefinita può essere sottoposta a override indicando in modo esplicito regole di confronto diverse per un tipo di dati basato su caratteri.
+Le regole di confronto forniscono le impostazioni locali, la tabella codici, il tipo di ordinamento e la riservatezza dei caratteri per i tipi di dati basati su caratteri. Una volta scelte, tutte le colonne e le espressioni che richiedono le informazioni sulle regole di confronto ereditano le regole di confronto selezionate dall'impostazione del database. È possibile eseguire l'override dell'ereditarietà predefinita specificando in modo esplicito una regola di confronto diversa per un tipo di dati basato su caratteri.
 
 ## <a name="changing-collation"></a>Modifica delle regole di confronto
 
-Per modificare le regole di confronto predefinite, eseguire l'aggiornamento al campo Regole di confronto nell'esperienza di provisioning.
+Per modificare le regole di confronto predefinite, aggiornare il campo regole di confronto nell'esperienza di provisioning.
 
-Ad esempio, se si desidera modificare le regole di confronto predefinite in maiuscole e minuscole, è sufficiente rinominare le regole di confronto da SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS.
+Se, ad esempio, si desidera modificare le regole di confronto predefinite in maiuscole/minuscole, è sufficiente rinominare le regole di confronto da SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS.
 
-## <a name="list-of-unsupported-collation-types"></a>Elenco dei tipi di regole di confronto non supportati
+## <a name="list-of-unsupported-collation-types"></a>Elenco di tipi di regole di confronto non supportate
 
 * Japanese_Bushu_Kakusu_140_BIN
 * Japanese_Bushu_Kakusu_140_BIN2
@@ -104,10 +104,10 @@ Ad esempio, se si desidera modificare le regole di confronto predefinite in maiu
 
 ## <a name="checking-the-current-collation"></a>Verifica delle regole di confronto correnti
 
-Per controllare le regole di confronto correnti per il database, è possibile eseguire il frammento T-SQL seguente:To check the current collation for the database, you can run the following T-SQL snippet:
+Per verificare le regole di confronto correnti per il database, è possibile eseguire il seguente frammento T-SQL:
 
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 
-Quando viene passato 'Collation' come parametro della proprietà, la funzione DatabasePropertyEx restituisce le regole di confronto correnti per il database specificato. Per ulteriori informazioni, vedere [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Quando viene passato ' Collation ' come parametro Property, la funzione DatabasePropertyEx restituisce le regole di confronto correnti per il database specificato. Per ulteriori informazioni, vedere [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

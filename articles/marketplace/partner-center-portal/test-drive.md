@@ -1,6 +1,6 @@
 ---
-title: Test Drive la tua offerta sul mercato commerciale Azure Marketplace
-description: Consenti ai tuoi clienti di testare la tua offerta
+title: Test drive dell'offerta nel Marketplace commerciale | Azure Marketplace
+description: Consenti ai tuoi clienti di test drive l'offerta
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80285181"
 ---
-# <a name="allow-your-customers-to-test-drive-your-offer"></a>Consenti ai tuoi clienti di testare la tua offerta
+# <a name="allow-your-customers-to-test-drive-your-offer"></a>Consenti ai tuoi clienti di test drive l'offerta
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 

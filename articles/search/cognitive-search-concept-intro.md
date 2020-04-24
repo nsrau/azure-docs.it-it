@@ -1,7 +1,7 @@
 ---
 title: Introduzione all'arricchimento tramite intelligenza artificiale
 titleSuffix: Azure Cognitive Search
-description: L'estrazione del contenuto, l'elaborazione del linguaggio naturale (NLP) e l'elaborazione delle immagini vengono usati per creare contenuto ricercabile negli indici di Ricerca cognitiva di Azure con competenze cognitive predefinite e algoritmi di iaformazione personalizzata.
+description: L'estrazione del contenuto, l'elaborazione del linguaggio naturale (PNL) e l'elaborazione di immagini vengono usate per creare contenuto ricercabile in Azure ricerca cognitiva indici con competenze cognitive predefinite e algoritmi di intelligenza artificiale personalizzati.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -15,29 +15,29 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80283022"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Introduzione all'arricchimento dell'iA
+# <a name="getting-started-with-ai-enrichment"></a>Introduzione all'arricchimento di intelligenza artificiale
 
-L'arricchimento dell'iaalatura è una funzionalità dell'indicizzazione di Ricerca cognitiva di Azure usata per estrarre testo da immagini, BLOB e altre origini dati non strutturate. L'arricchimento e l'estrazione rendono i tuoi contenuti più ricercabili in un [indice](search-what-is-an-index.md) o [in un knowledge store.](knowledge-store-concept-intro.md) L'estrazione e l'arricchimento vengono implementate utilizzando *le competenze cognitive* associate alla pipeline di indicizzazione. Le competenze cognitive predefinite del servizio rientrano nelle categorie seguenti: 
+L'arricchimento di intelligenza artificiale è una funzionalità di Azure ricerca cognitiva Indexing usata per estrarre il testo da immagini, BLOB e altre origini dati non strutturate. Arricchimento ed estrazione rendono i contenuti più ricercabili in un [Indice](search-what-is-an-index.md) o in un [Archivio informazioni](knowledge-store-concept-intro.md). L'estrazione e l'arricchimento vengono implementate usando le *competenze cognitive* associate alla pipeline di indicizzazione. Le competenze cognitive predefinite del servizio rientrano nelle categorie seguenti: 
 
 + Le competenze di **elaborazione in linguaggio naturale** includono il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), il [rilevamento della lingua](cognitive-search-skill-language-detection.md), l'[estrazione delle frasi chiave](cognitive-search-skill-keyphrases.md), la modifica del testo, il [rilevamento delle valutazioni](cognitive-search-skill-sentiment.md) e il [rilevamento delle informazioni personali](cognitive-search-skill-pii-detection.md). Con queste competenze, il testo non strutturato viene mappato come campi ricercabili e filtrabili in un indice.
 
-+ Le capacità di **elaborazione** delle immagini includono il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione delle [caratteristiche visive,](cognitive-search-skill-image-analysis.md)come il rilevamento facciale, l'interpretazione delle immagini, il riconoscimento delle immagini (persone famose e punti di riferimento) o attributi come l'orientamento dell'immagine. Queste competenze creano rappresentazioni testuali del contenuto dell'immagine, rendendolo ricercabile usando le funzionalità di query di Ricerca cognitiva di Azure.These skills create text representations of image content, making it searchable using the query capabilities of Azure Cognitive Search.
++ Le competenze di **elaborazione delle immagini** includono il [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione delle [funzionalità visive](cognitive-search-skill-image-analysis.md), ad esempio il rilevamento facciale, l'interpretazione delle immagini, il riconoscimento delle immagini (persone famose e i punti di riferimento) o attributi come l' Queste competenze creano rappresentazioni di testo di contenuto immagine, rendendole disponibili per la ricerca tramite le funzionalità di query di Azure ricerca cognitiva.
 
 ![Diagramma della pipeline di arricchimento](./media/cognitive-search-intro/cogsearch-architecture.png "panoramica della pipeline di arricchimento")
 
-Le competenze cognitive in Ricerca cognitiva di Azure si basano su modelli di apprendimento automatico pre-addestrati nelle API dei servizi cognitivi: [visione computerizzata](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e analisi del [testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Le competenze cognitive in Azure ricerca cognitiva si basano su modelli di apprendimento automatico pre-addestrati in API Servizi cognitivi: [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice ricercabile in Ricerca cognitiva di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie. L'architettura è estendibile per permettere di creare e associare [competenze personalizzate](cognitive-search-create-custom-skill-example.md) per integrare l'elaborazione personalizzata nel caso in cui le competenze predefinite non siano sufficienti. Esempi possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
-## <a name="when-to-use-ai-enrichment"></a>Quando usare l'arricchimento dell'IAWhen to use AI enrichment
+## <a name="when-to-use-ai-enrichment"></a>Quando usare l'arricchimento di intelligenza artificiale
 
 È consigliabile usare le competenze cognitive predefinite se il contenuto non elaborato è un testo non strutturato, un contenuto di immagini o un contenuto che richiede il rilevamento e la traduzione della lingua. L'applicazione di intelligenza artificiale attraverso le competenze cognitive predefinite può sbloccare questo contenuto, aumentandone il valore e l'utilità nelle app di ricerca e data science. 
 
-Inoltre, è consigliabile aggiungere una competenza personalizzata se si dispone di codice open source interno o di terze parti da integrare nella pipeline. I modelli di classificazione che identificano le caratteristiche salienti di vari tipi di documento rientrano in questa categoria, ma è possibile usare qualsiasi pacchetto che aggiunge valore al contenuto.
+Inoltre, è consigliabile aggiungere una competenza personalizzata se si dispone di codice open source interno o di terze parti da integrare nella pipeline. I modelli di classificazione che identificano le caratteristiche salienti di diversi tipi di documenti rientrano in questa categoria, ma è possibile usare qualsiasi pacchetto che aggiunga valore al contenuto.
 
 ### <a name="more-about-built-in-skills"></a>Altre informazioni sulle competenze predefinite
 
-Un set di [competenze](cognitive-search-defining-skillset.md) assemblato utilizzando competenze incorporate è adatto per i seguenti scenari applicativi:
+Un insieme di [competenze](cognitive-search-defining-skillset.md) assemblato con competenze predefinite è particolarmente adatto per gli scenari di applicazione seguenti:
 
 + Documenti analizzati (JPEG) che si vogliono rendere disponibili per la ricerca full-text. È possibile collegare una competenza di riconoscimento ottico dei caratteri (OCR) per identificare, estrarre e inserire testo da file JPEG.
 
@@ -56,33 +56,33 @@ Un set di [competenze](cognitive-search-defining-skillset.md) assemblato utilizz
 Le competenze personalizzate possono supportare scenari più complessi, ad esempio il riconoscimento di moduli o il rilevamento di entità personalizzate tramite un modello fornito e inserito nell'[interfaccia Web di competenze personalizzate](cognitive-search-custom-skill-interface.md). Alcuni esempi di competenze personalizzate includono [Riconoscimento modulo](/azure/cognitive-services/form-recognizer/overview), l'integrazione dell'[API Ricerca entità Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e il [riconoscimento di entità personalizzate](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
 
-## <a name="steps-in-an-enrichment-pipeline"></a>Passaggi in una pipeline di arricchimentoSteps in an enrichment pipeline
+## <a name="steps-in-an-enrichment-pipeline"></a>Passaggi in una pipeline di arricchimento
 
-Una pipeline di arricchimento è basata sugli [*indicizzatori.*](search-indexer-overview.md) Gli indicizzatori popolano un indice in base ai mapping da campo a campo tra l'indice e l'origine dati per il cracking del documento. Competenze, ora associate agli indicizzatori, intercettano e arricchiscono i documenti in base alle competenze definite. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca usando tutti i [tipi di query supportati da Ricerca cognitiva di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
+Una pipeline di arricchimento è basata sugli [*indicizzatori*](search-indexer-overview.md). Gli indicizzatori popolano un indice in base ai mapping da campo a campo tra l'indice e l'origine dati per il cracking del documento. Le competenze, ora associate agli indicizzatori, intercettano e arricchiscono i documenti secondo le competenze definite. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca usando tutti i [tipi di query supportati da Ricerca cognitiva di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>Fase 1: Collegamento e documentazione della fase di cracking
+### <a name="step-1-connection-and-document-cracking-phase"></a>Passaggio 1: fase di connessione e di cracking del documento
 
-All'inizio della pipeline sono presenti testo non strutturato o contenuto non testuale (ad esempio immagini, documenti digitalizzati o file JPEG). I dati devono esistere in un servizio di archiviazione dati di Azure a cui è possibile accedere tramite un indicizzatore. Gli indicizzatori possono "individuare" i documenti di origine per estrarre il testo dai dati di origine. La fessurazione dei documenti è il processo di estrazione o creazione di contenuto di testo da origini non testuali durante l'indicizzazione.
+All'inizio della pipeline è presente un testo non strutturato o contenuto non di testo, ad esempio immagini, documenti analizzati o file JPEG. I dati devono esistere in un servizio di archiviazione dati di Azure a cui è possibile accedere tramite un indicizzatore. Gli indicizzatori possono "individuare" i documenti di origine per estrarre il testo dai dati di origine. Il cracking dei documenti è il processo di estrazione o creazione di contenuto di testo da origini non di testo durante l'indicizzazione.
 
 ![Fase di cracking dei documenti](./media/cognitive-search-intro/document-cracking-phase-blowup.png "cracking di documenti")
 
  Le origini supportate includono archiviazione BLOB di Azure, archiviazione tabelle di Azure, database SQL di Azure e Azure Cosmos DB. I contenuti testuali possono essere estratti dai seguenti tipi di file: PDF, Word, PowerPoint e file CSV. Per un elenco completo, vedere [Formati supportati](search-howto-indexing-azure-blob-storage.md#supported-document-formats). L'indicizzazione richiede tempo; si consiglia quindi di iniziare con un set di dati piccolo ma rappresentativo, per poi compilarlo in modo incrementale con l'evolversi della soluzione.
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Fase 2: Abilità cognitive e fase di arricchimento
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passaggio 2: competenze cognitive e fase di arricchimento
 
-L'arricchimento viene eseguito con *abilità cognitive* che eseguono operazioni atomiche. Ad esempio, dopo aver violato un PDF, è possibile applicare il riconoscimento delle entità, il rilevamento della lingua o l'estrazione di frasi chiave per produrre nuovi campi nell'indice che non sono disponibili in modo nativo nell'origine. Nel complesso, la raccolta di competenze usata nella pipeline viene chiamata *set di competenze*.  
+L'arricchimento viene eseguito con le *competenze cognitive* che eseguono operazioni atomiche. Ad esempio, dopo aver eseguito il cracking di un file PDF, è possibile applicare il riconoscimento delle entità, il rilevamento della lingua o l'estrazione della frase chiave per produrre nuovi campi nell'indice che non sono disponibili in modalità nativa nell'origine. Nel complesso, la raccolta di competenze usata nella pipeline viene chiamata *set di competenze*.  
 
 ![Fase di arricchimento](./media/cognitive-search-intro/enrichment-phase-blowup.png "fase di arricchimento")
 
 Un set di competenze si basa su [competenze cognitive predefinite](cognitive-search-predefined-skills.md) o [competenze personalizzate](cognitive-search-create-custom-skill-example.md) fornite e connesse al set di competenze. Un set di competenze può essere minimamente o particolarmente complesso e determina non solo il tipo di elaborazione, ma anche l'ordine delle operazioni. Un set di competenze, assieme ai mapping dei campi definiti come parte di un indicizzatore, specifica l'intera pipeline di arricchimento. Per altre informazioni sul raggruppamento di tutte queste parti, vedere [Definire un set di competenze](cognitive-search-defining-skillset.md).
 
-Internamente, la pipeline genera una raccolta di documenti arricchiti. È possibile decidere quali parti dei documenti arricchiti devono essere mappate ai campi indicizzabili contenuti nell'indice di ricerca. Ad esempio, se hai applicato l'estrazione della frase chiave e le competenze di riconoscimento delle entità, i nuovi campi diventeranno parte del documento arricchito e possono essere mappati ai campi dell'indice. Vedere [Annotazioni](cognitive-search-concept-annotations-syntax.md) per altre informazioni sulle formazioni in ingresso/uscita.
+Internamente, la pipeline genera una raccolta di documenti arricchiti. È possibile decidere quali parti dei documenti arricchiti devono essere mappate ai campi indicizzabili contenuti nell'indice di ricerca. Se, ad esempio, è stata applicata l'estrazione della frase chiave e le competenze per il riconoscimento delle entità, i nuovi campi diventeranno parte del documento arricchito ed è possibile eseguirne il mapping ai campi dell'indice. Vedere [Annotazioni](cognitive-search-concept-annotations-syntax.md) per altre informazioni sulle formazioni in ingresso/uscita.
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Aggiungere un elemento knowledgeStore per salvare gli arricchimenti
 
-L'[API REST di ricerca versione 2019-05-06-Preview](search-api-preview.md) estende i set di competenze con una definizione di `knowledgeStore` che fornisce una connessione all'archiviazione di Azure e proiezioni che descrivono la modalità di archiviazione degli arricchimenti. Questo è in aggiunta al tuo indice. In una pipeline di intelligenza artificiale standard, i documenti arricchiti sono temporanei, ovvero vengono usati solo durante l'indicizzazione per poi essere rimossi. Con l'archivio conoscenze, i documenti arricchiti vengono conservati. Per altre informazioni, vedere [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
+L'[API REST di ricerca versione 2019-05-06-Preview](search-api-preview.md) estende i set di competenze con una definizione di `knowledgeStore` che fornisce una connessione all'archiviazione di Azure e proiezioni che descrivono la modalità di archiviazione degli arricchimenti. Questa operazione è aggiunta all'indice. In una pipeline di intelligenza artificiale standard, i documenti arricchiti sono temporanei, ovvero vengono usati solo durante l'indicizzazione per poi essere rimossi. Con l'archivio conoscenze, i documenti arricchiti vengono conservati. Per altre informazioni, vedere [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
 
-### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: Ricerca dell'indice e accesso basato su queryStep 3: Search index and query-based access
+### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: eseguire ricerche nell'indice e nell'accesso basato su query
 
 Al termine dell'elaborazione, si avrà un indice di ricerca costituito da documenti arricchiti in cui è possibile eseguire ricerche di testo in Ricerca cognitiva di Azure. [L'esecuzione di query dell'indice](search-query-overview.md) consente a utenti e sviluppatori di accedere al contenuto arricchito generato dalla pipeline. 
 
@@ -115,9 +115,9 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Collegamenti alla documentazione per l'arricchimento tramite intelligenza artificiale](cognitive-search-resources-documentation.md)
-+ [Esempio: creazione di una competenza personalizzata per l'arricchimento dell'iaproprietà (c'è)Example: Creating a custom skill for AI enrichment (C](cognitive-search-create-custom-skill-example.md)
-+ [Guida introduttiva: Provare l'arricchimento dell'iA in una procedura utente del portale](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: informazioni sulle API di arricchimento dell'iaale](cognitive-search-tutorial-blob.md)
++ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale (C#)](cognitive-search-create-custom-skill-example.md)
++ [Guida introduttiva: provare a arricchire l'intelligenza artificiale in una procedura dettagliata per il portale](cognitive-search-quickstart-blob.md)
++ [Esercitazione: informazioni sulle API di arricchimento intelligenza artificiale](cognitive-search-tutorial-blob.md)
 + [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
 + [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)

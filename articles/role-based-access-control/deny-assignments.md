@@ -28,14 +28,14 @@ Simile a un'assegnazione di ruolo, un'*assegnazione di rifiuto* allega un set di
 
 Questo articolo descrive il modo in cui le assegnazioni di rifiuto sono definite.
 
-## <a name="how-deny-assignments-are-created"></a>Come vengono create le assegnazioni di negazione
+## <a name="how-deny-assignments-are-created"></a>Come vengono create le assegnazioni Deny
 
-Negare le assegnazioni vengono create e gestite da Azure per proteggere le risorse. Blueprint di Azure e le app gestite di Azure usano negare le assegnazioni per proteggere le risorse gestite dal sistema. I blueprint di Azure e le app gestite di Azure sono l'unico modo per negare le assegnazioni. Non è possibile creare direttamente le proprie assegnazioni di negazione. Per altre informazioni su come Blueprints usa le assegnazioni di negazione per bloccare le risorse, vedere Informazioni sul blocco delle risorse in Blueprint di Azure.For more information about how Blueprints uses deny assignments to lock resources, see [Understand resource locking in Azure Blueprints](../governance/blueprints/concepts/resource-locking.md).
+Le assegnazioni Deny vengono create e gestite da Azure per proteggere le risorse. I progettisti di Azure e le app gestite di Azure usano le assegnazioni di rifiuto per proteggere le risorse gestite dal sistema. I progetti di Azure e le app gestite di Azure sono l'unico modo per creare le assegnazioni di negazione. Non è possibile creare direttamente le assegnazioni di rifiuto. Per ulteriori informazioni su come i progetti utilizzano le assegnazioni di negazione per bloccare le risorse, vedere informazioni sul [blocco delle risorse nei progetti di Azure](../governance/blueprints/concepts/resource-locking.md).
 
 > [!NOTE]
-> Non è possibile creare direttamente le proprie assegnazioni di negazione.
+> Non è possibile creare direttamente le assegnazioni di rifiuto.
 
-## <a name="compare-role-assignments-and-deny-assignments"></a>Confrontare le assegnazioni di ruolo e negare le assegnazioni
+## <a name="compare-role-assignments-and-deny-assignments"></a>Confrontare le assegnazioni di ruolo e le assegnazioni di rifiuto
 
 Le assegnazioni di negazione seguono un modello simile a quello delle assegnazioni di ruolo, ma presentano anche alcune differenze.
 
@@ -44,10 +44,10 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
 | Concedere l'accesso | :heavy_check_mark: |  |
 | Rifiutare l'accesso |  | :heavy_check_mark: |
 | Può essere creato direttamente | :heavy_check_mark: |  |
-| Applicare in un ambito | :heavy_check_mark: | :heavy_check_mark: |
-| Escludi principi |  | :heavy_check_mark: |
-| Impedire l'ereditarietà agli ambiti figlioPrevent inheritance to child scopes |  | :heavy_check_mark: |
-| Applica alle assegnazioni [di amministratori di sottoscrizione classica](rbac-and-directory-admin-roles.md) |  | :heavy_check_mark: |
+| Applicare a un ambito | :heavy_check_mark: | :heavy_check_mark: |
+| Escludi entità |  | :heavy_check_mark: |
+| Impedisci ereditarietà agli ambiti figlio |  | :heavy_check_mark: |
+| Si applicano alle assegnazioni di [amministratore della sottoscrizione classica](rbac-and-directory-admin-roles.md) |  | :heavy_check_mark: |
 
 ## <a name="deny-assignment-properties"></a>Proprietà dell'assegnazione di rifiuto
 
@@ -65,14 +65,14 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
 > | `Scope` | No | string | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è False. |
 > | `Principals[i].Id` | Sì | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui si applica l'assegnazione di rifiuto. Impostare un GUID vuoto `00000000-0000-0000-0000-000000000000` per rappresentare tutte le entità. |
-> | `Principals[i].Type` | No | String[] | Matrice di tipi di oggetto rappresentati da Principals[i].Id. Impostare per `SystemDefined` rappresentare tutte le entità. |
+> | `Principals[i].Type` | No | String[] | Matrice di tipi di oggetti rappresentati da entità [i]. ID. impostare su `SystemDefined` per rappresentare tutte le entità. |
 > | `ExcludePrincipals[i].Id` | No | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui non si applica l'assegnazione di rifiuto. |
 > | `ExcludePrincipals[i].Type` | No | String[] | Una matrice di tipi di oggetto rappresentati da ExcludePrincipals[i].Id. |
 > | `IsSystemProtected` | No | Boolean | Specifica se questa assegnazione di rifiuto è stata creata da Azure e non può essere modificata o eliminata. Attualmente, tutte le assegnazioni di rifiuto sono protette dal sistema. |
 
-## <a name="the-all-principals-principal"></a>Il principale All Principals
+## <a name="the-all-principals-principal"></a>Entità tutte le entità
 
-Per supportare le assegnazioni di negazione, è stata introdotta un'entità definita dal sistema denominata All Principals.To support deny *assignments,* a system-defined principal named All Principals has been introduced. Quest'entità rappresenta tutti gli utenti, gruppi, entità servizio e identità gestite in una directory di Azure AD. Se l'ID entità è un GUID zero `00000000-0000-0000-0000-000000000000` e il tipo di entità è `SystemDefined`, l'entità rappresenta tutte le entità. Nell'output di Azure PowerShell tutte le entità è simile al seguente:In Azure PowerShell output, All Principals looks like the following:
+Per supportare le assegnazioni di negazione, è stata introdotta un'entità definita dal sistema denominata *tutte le entità* . Quest'entità rappresenta tutti gli utenti, gruppi, entità servizio e identità gestite in una directory di Azure AD. Se l'ID entità è un GUID zero `00000000-0000-0000-0000-000000000000` e il tipo di entità è `SystemDefined`, l'entità rappresenta tutte le entità. In Azure PowerShell output, tutte le entità hanno un aspetto simile al seguente:
 
 ```azurepowershell
 Principals              : {
@@ -82,12 +82,12 @@ Principals              : {
                           }
 ```
 
-Tutti i principi possono `ExcludePrincipals` essere combinati con per negare tutte le entità ad eccezione di alcuni utenti. Tutte le Entità Ha i seguenti vincoli:
+Tutte le entità possono essere combinate `ExcludePrincipals` con per negare l'accesso a tutte le entità ad eccezione di alcuni utenti. Per tutte le entità sono presenti i vincoli seguenti:
 
 - Può essere usata solo con `Principals` e non può essere usata con `ExcludePrincipals`.
 - `Principals[i].Type` deve essere impostato su `SystemDefined`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Proteggere nuove risorse con i blocchi delle risorse di Azure BlueprintsTutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Elencare le assegnazioni di negazione per le risorse di Azure usando il portale di AzureList deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
+* [Esercitazione: proteggere nuove risorse con i blocchi delle risorse dei progetti di Azure](../governance/blueprints/tutorials/protect-new-resources.md)
+* [Elencare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md)

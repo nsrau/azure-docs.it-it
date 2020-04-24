@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configure BFD'
+title: 'Azure ExpressRoute: configurare BFD'
 description: Questo articolo contiene istruzioni su come configurare il rilevamento dell'inoltro bidirezionale sul peering privato di un circuito ExpressRoute.
 services: expressroute
 author: rambk
@@ -16,7 +16,7 @@ ms.locfileid: "80064848"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
-ExpressRoute supporta il rilevamento dell'inoltro bidirezionale (BFD, Bidirectional Forwarding Detection) sia tramite peering privato che Microsoft.ExpressRoute supports Bidirectional Forwarding Detection (BFD) both over private and Microsoft peering. Abilitando BFD su ExpressRoute, è possibile accelerare il rilevamento degli errori dei collegamenti tra i dispositivi Microsoft Enterprise Edge (MSEE) e i router in cui si termina il circuito ExpressRoute (CE/PE). È possibile terminare ExpressRoute sui dispositivi di routing Edge di clienti o partner (se si è usato il servizio di connessione gestita di livello 3). Questo documento illustra i vantaggi offerti dal rilevamento dell'inoltro bidirezionale e mostra come abilitare questa funzionalità su ExpressRoute.
+ExpressRoute supporta il rilevamento di inoltri bidirezionale (BFD) sia sul peering privato che sul peering Microsoft. Abilitando BFD su ExpressRoute, è possibile velocizzare il rilevamento degli errori di collegamento tra i dispositivi Microsoft Enterprise Edge (MSEE) e i router in cui si termina il circuito ExpressRoute (CE/PE). È possibile terminare ExpressRoute sui dispositivi di routing Edge di clienti o partner (se si è usato il servizio di connessione gestita di livello 3). Questo documento illustra i vantaggi offerti dal rilevamento dell'inoltro bidirezionale e mostra come abilitare questa funzionalità su ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Vantaggi del rilevamento dell'inoltro bidirezionale
 
@@ -26,16 +26,16 @@ Il diagramma seguente illustra i vantaggi offerti dall'abilitazione del rilevame
 
 Nei dispositivi MSEE, per i tempi di keep-alive e attesa della sessione BGP sono in genere configurati rispettivamente 60 e 180 secondi. Pertanto, in seguito a un errore di collegamento, possono essere necessari fino a tre minuti per rilevare eventuali errori di collegamento e passare il traffico a una connessione alternativa.
 
-È possibile controllare i timer BGP configurando tempi di keep-alive e attesa della sessione BGP inferiori nel dispositivo di peering perimetrale del cliente. Se tra i due dispositivi di peering i timer BGP non corrispondono, la sessione BGP tra i peer userà il valore di timer inferiore. Come tempo di keep-alive BGP può essere impostato un minimo di tre secondi e il tempo di attesa può essere dell'ordine di decine di secondi. Tuttavia, l'impostazione aggressiva dei timer BGP è meno preferibile perché il protocollo richiede un utilizzo intensivo del processo.
+È possibile controllare i timer BGP configurando tempi di keep-alive e attesa della sessione BGP inferiori nel dispositivo di peering perimetrale del cliente. Se tra i due dispositivi di peering i timer BGP non corrispondono, la sessione BGP tra i peer userà il valore di timer inferiore. Come tempo di keep-alive BGP può essere impostato un minimo di tre secondi e il tempo di attesa può essere dell'ordine di decine di secondi. Tuttavia, l'impostazione di timer BGP in modo aggressivo è meno preferibile perché il protocollo è a elevato utilizzo di processi.
 
 In questo scenario, il rilevamento dell'inoltro bidirezionale può essere di aiuto poiché consente di rilevare gli errori di collegamento con un sovraccarico ridotto in un intervallo di frazioni di secondo. 
 
 
 ## <a name="enabling-bfd"></a>Abilitazione del rilevamento dell'inoltro bidirezionale
 
-Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predefinita in tutte le nuove interfacce di peering privato ExpressRoute create sui dispositivi MSEE. Pertanto, per abilitare BFD, è sufficiente configurare BFD sui CE/PE (sia sui dispositivi primari che secondari). La configurazione di BFD è un processo in due passaggi: è necessario configurare il BFD sull'interfaccia e quindi collegarlo alla sessione BGP.
+Il rilevamento dell'inoltro bidirezionale è configurato per impostazione predefinita in tutte le nuove interfacce di peering privato ExpressRoute create sui dispositivi MSEE. Per abilitare BFD, è quindi necessario configurare BFD solo in CEs/PEs (sia nei dispositivi primari che secondari). La configurazione di BFD è un processo in due passaggi: è necessario configurare BFD sull'interfaccia e quindi collegarlo alla sessione BGP.
 
-Di seguito è riportato un esempio di configurazione CE/PE (utilizzando Cisco IOS XE). 
+Di seguito è riportata una configurazione di esempio CE/PE (usando Cisco IOS XE). 
 
     interface TenGigabitEthernet2/0/0.150
        description private peering to Azure
@@ -63,7 +63,7 @@ Di seguito è riportato un esempio di configurazione CE/PE (utilizzando Cisco IO
 Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento determina la velocità di trasmissione. Gli intervalli di trasmissione/ricezione del rilevamento dell'inoltro bidirezionale su dispositivi MSEE sono impostati su 300 millisecondi. In alcuni scenari, l'intervallo può essere impostato su un valore più elevato di 750 millisecondi. Configurando valori più alti, è possibile imporre intervalli più lunghi, ma non più brevi.
 
 >[!NOTE]
->Se sono stati configurati circuiti ExpressRoute con ridondanza geografica o la connettività VPN IPSec da sito a sito come backup. l'abilitazione di BFD consente di eseguire il failover più rapidamente in seguito a un errore di connettività ExpressRoute.enabling BFD would help failover quicker following an ExpressRoute connectivity failure. 
+>Se sono stati configurati circuiti ExpressRoute con ridondanza geografica o si usa la connettività VPN IPSec da sito a sito come backup; l'abilitazione di BFD consente il failover più rapido dopo un errore di connettività di ExpressRoute. 
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

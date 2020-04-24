@@ -1,7 +1,7 @@
 ---
 title: Predicates e PredicateValidations
 titleSuffix: Azure AD B2C
-description: Impedire l'aggiunta di dati in formato non corretto al tenant B2C di Azure AD usando criteri personalizzati in Azure Active Directory B2C.
+description: Impedisci l'aggiunta di dati in formato non valido al tenant di Azure AD B2C usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -22,17 +22,17 @@ ms.locfileid: "80396882"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Gli elementi **Predicates** e **PredicateValidations** consentono di eseguire un processo di convalida per garantire che solo i dati formati correttamente vengano immessi nel tenant B2C (Azure AD B2C) di Azure Active Directory.
+I **predicati** e gli elementi **PredicateValidations** consentono di eseguire un processo di convalida per assicurarsi che vengano immessi nel tenant Azure Active Directory B2C (Azure ad B2C) solo i dati in formato corretto.
 
 Il diagramma seguente mostra la relazione tra gli elementi:
 
-![Diagramma che mostra la relazione Predicati e convalide predicati](./media/predicates/predicates.png)
+![Diagramma che mostra i predicati e la relazione di convalida del predicato](./media/predicates/predicates.png)
 
 ## <a name="predicates"></a>Predicati
 
 L'elemento **Predicate** definisce una convalida di base per controllare il valore di un tipo di attestazione e restituisce `true` o `false`. La convalida viene eseguita usando un elemento **Method** specificato e un set di elementi **Parameter** pertinenti al metodo. Un predicato può ad esempio controllare se la lunghezza di un valore di attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato o se un valore di attestazione di tipo stringa contiene un set di caratteri. L'elemento **UserHelpText** visualizza un messaggio di errore agli utenti se il controllo ha esito negativo. Il valore dell'elemento **UserHelpText** può essere localizzato usando la [funzionalità di personalizzazione della lingua](localization.md).
 
-L'elemento **Predicates** deve essere visualizzato direttamente dopo l'elemento **ClaimsSchema** all'interno dell'elemento [BuildingBlocks.](buildingblocks.md)
+L'elemento **Predicates** deve apparire direttamente dopo l'elemento **ClaimsSchema** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
 
 L'elemento **Predicates** contiene l'elemento seguente:
 
@@ -52,7 +52,7 @@ L'elemento **Predicate** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| UserHelpText | 0:1 | (Obsoleto) Un messaggio di errore per gli utenti se il controllo ha esito negativo. |
+| UserHelpText | 0:1 | Deprecato Un messaggio di errore per gli utenti se il controllo ha esito negativo. |
 | Parametri | 1:1 | Parametri del tipo di metodo della convalida della stringa. |
 
 L'elemento **Parameters** contiene gli elementi seguenti:
@@ -67,19 +67,19 @@ L'elemento **Parameter** contiene gli attributi seguenti:
 | ------- | ----------- | ----------- |
 | ID | 1:1 | Identificatore del parametro. |
 
-### <a name="predicate-methods"></a>Metodi predicati
+### <a name="predicate-methods"></a>Metodi di predicato
 
 #### <a name="islengthrange"></a>IsLengthRange
 
-Il IsLengthRange metodo controlla se la lunghezza di un valore di attestazione stringa è compresa nell'intervallo di parametri minimo e massimo specificato. L'elemento predicato supporta i parametri seguenti:The predicate element supports the following parameters:
+Il metodo IsLengthRange controlla se la lunghezza di un valore di attestazione di stringa rientra nell'intervallo dei parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
 | Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Numero massimo di caratteri che è possibile immettere. |
-| Minima | Sì | Numero minimo di caratteri da immettere. |
+| Minima | Sì | Numero minimo di caratteri che devono essere immessi. |
 
 
-Nell'esempio seguente viene illustrato un `Minimum` IsLengthRange metodo con i parametri e che specificano l'intervallo di lunghezza della stringa:The following example shows a IsLengthRange method with the parameters and `Maximum` that specify the length range of the string:
+Nell'esempio seguente viene illustrato un metodo IsLengthRange con i `Minimum` parametri `Maximum` e che specificano l'intervallo di lunghezza della stringa:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -90,9 +90,9 @@ Nell'esempio seguente viene illustrato un `Minimum` IsLengthRange metodo con i p
 </Predicate>
 ```
 
-#### <a name="matchesregex"></a>Partite di fiammiferi
+#### <a name="matchesregex"></a>MatchesRegex
 
-Il MatchesRegex metodo controlla se un valore di attestazione stringa corrisponde a un'espressione regolare. L'elemento predicato supporta i parametri seguenti:The predicate element supports the following parameters:
+Il metodo MatchesRegex controlla se un valore di attestazione stringa corrisponde a un'espressione regolare. L'elemento predicato supporta i parametri seguenti:
 
 | Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
@@ -108,13 +108,13 @@ L'esempio seguente mostra un metodo `MatchesRegex` con il parametro `RegularExpr
 </Predicate>
 ```
 
-#### <a name="includescharacters"></a>IncludeCaratteri
+#### <a name="includescharacters"></a>IncludesCharacters
 
-Il metodo IncludesCharacters controlla se un valore di attestazione stringa contiene un set di caratteri. L'elemento predicato supporta i parametri seguenti:The predicate element supports the following parameters:
+Il metodo IncludesCharacters controlla se un valore di attestazione stringa contiene un set di caratteri. L'elemento predicato supporta i parametri seguenti:
 
 | Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
-| CharacterSet | Sì | Insieme di caratteri che è possibile immettere. Ad esempio, i `a-z`caratteri minuscoli , i caratteri maiuscoli, `A-Z`le cifre `0-9`o un elenco di simboli, ad `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`esempio . |
+| CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad `a-z`esempio, caratteri minuscoli, caratteri `A-Z`maiuscoli, `0-9`cifre o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
 
 L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `CharacterSet` che specifica il set di caratteri:
 
@@ -126,14 +126,14 @@ L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `Chara
 </Predicate>
 ```
 
-#### <a name="isdaterange"></a>IsDateRange (intervallo di dati)
+#### <a name="isdaterange"></a>IsDateRange
 
-Il metodo IsDateRange controlla se un valore di attestazione data è compreso tra un intervallo di parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:The predicate element supports the following parameters:
+Il metodo IsDateRange controlla se un valore di attestazione data è compreso tra un intervallo di parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
 | Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
-| Massimo | Sì | La data più grande possibile che può essere immessa. Il formato della `yyyy-mm-dd` data segue `Today`convenzione, o . |
-| Minima | Sì | La data più piccola possibile che è possibile immettere. Il formato della `yyyy-mm-dd` data segue `Today`convenzione, o .|
+| Massimo | Sì | Data massima consentita per l'immissione. Il formato della data segue `yyyy-mm-dd` la convenzione o. `Today` |
+| Minima | Sì | Data minima che è possibile immettere. Il formato della data segue `yyyy-mm-dd` la convenzione o. `Today`|
 
 L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `Maximum` che specificano l'intervallo di date con un formato `yyyy-mm-dd` e `Today`.
 
@@ -150,7 +150,7 @@ L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `M
 
 Mentre i predicati definiscono la convalida da controllare rispetto a un tipo di attestazione, gli elementi **PredicateValidations** raggruppano un set di predicati per formare la convalida di un input utente che può essere applicata a un tipo di attestazione. Ogni elemento **PredicateValidation** contiene un set di elementi **PredicateGroup** che contengono un set di elementi **PredicateReference** che punta a un elemento **Predicate**. Per passare la convalida, il valore dell'attestazione deve superare tutti i testi di qualsiasi predicato in tutto il **PredicateGroup** con i rispettivi set di elementi **PredicateReference**.
 
-Il **PredicateValidations** elemento deve essere visualizzato direttamente dopo il **Predicates** elemento all'interno di [BuildingBlocks](buildingblocks.md) elemento.
+L'elemento **PredicateValidations** deve essere visualizzato direttamente dopo l'elemento **Predicates** all'interno dell'elemento [BuildingBlocks](buildingblocks.md) .
 
 ```XML
 <PredicateValidations>
@@ -234,7 +234,7 @@ Con gli elementi **Predicates** e **PredicateValidationsInput** è possibile con
 - **Lowercase** con il metodo `IncludesCharacters`, convalida che la password contiene una lettera minuscola.
 - **Uppercase** con il metodo `IncludesCharacters` convalida che la password contiene una lettera maiuscola.
 - **Number** con il metodo `IncludesCharacters` convalida che la password contiene una cifra.
-- **Simbolo** che `IncludesCharacters` utilizza il metodo, convalida che la password contiene uno dei diversi caratteri simbolo.
+- **Simbolo** che usa `IncludesCharacters` il metodo, verifica che la password contenga uno dei diversi caratteri simbolo.
 - **PIN** con il metodo `MatchesRegex` convalida che la password contiene solo numeri.
 - **AllowedAADCharacters** con il metodo `MatchesRegex` convalida che la password è costituita solo da caratteri non validi.
 - **DisallowedWhitespace** con il metodo `MatchesRegex` convalida che la password non inizia o non finisce con un carattere di spazio.
@@ -380,7 +380,7 @@ Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** 
 
 Di seguito viene illustrato come vengono organizzati gli elementi quando Azure AD B2C visualizza il messaggio di errore:
 
-![Esempio di complessità delle password di Predicate e PredicateGroup](./media/predicates/predicates-pass.png)
+![Diagramma dell'esempio di complessità della password predicato e PredicateGroup](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configurare un intervallo di date
 
@@ -428,4 +428,4 @@ Nel tipo di attestazione aggiungere l'elemento **PredicateValidationReference** 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come configurare la complessità delle [password usando criteri personalizzati in Azure Active Directory B2C](custom-policy-password-complexity.md) usando le convalide dei predicati.
+- Informazioni su come [configurare la complessità delle password usando criteri personalizzati in Azure Active Directory B2C](custom-policy-password-complexity.md) usando le convalide di predicato.

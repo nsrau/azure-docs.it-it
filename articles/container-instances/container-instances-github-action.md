@@ -1,6 +1,6 @@
 ---
-title: Distribuire l'istanza del contenitore tramite l'azione GitHubDeploy container instance by GitHub action
-description: Configurare un'azione GitHub che automatizza i passaggi per compilare, eseguire il push e distribuire un'immagine del contenitore nelle istanze del contenitore di AzureConfigure a GitHub action that automates steps to build, push, and deploy a container image to Azure Container Instances
+title: Distribuire un'istanza del contenitore da un'azione GitHub
+description: Configurare un'azione GitHub che consente di automatizzare i passaggi per compilare, inserire e distribuire un'immagine del contenitore in istanze di contenitore di Azure
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
@@ -11,49 +11,49 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80258040"
 ---
-# <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza del contenitoreConfigure a GitHub action to create a container instance
+# <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza di contenitore
 
-[GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) è una suite di funzionalità in GitHub per automatizzare i flussi di lavoro di sviluppo software nella stessa posizione in cui si archivia il codice e si collabora su richieste pull e problemi.
+[Azioni di GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) è una suite di funzionalità di GitHub che consente di automatizzare i flussi di lavoro di sviluppo del software nella stessa posizione in cui si archivia il codice e si collabora alle richieste pull e ai problemi.
 
-Usare l'azione Distribuisci nelle [istanze del contenitore](https://github.com/azure/aci-deploy) di Azure GitHub per automatizzare la distribuzione di un contenitore in Istanze del contenitore di Azure.Use the Deploy to Azure Container Instances GitHub action to automate deployment of a container to Azure Container Instances. L'azione consente di impostare le proprietà per un'istanza del contenitore in modo simile a quelle nel comando [az container create.][az-container-create]
+Usare l'azione [Distribuisci in istanze di contenitore di Azure](https://github.com/azure/aci-deploy) in GitHub per automatizzare la distribuzione di un contenitore in istanze di contenitore di Azure. L'azione consente di impostare le proprietà per un'istanza del contenitore simile a quelle del comando [AZ container create][az-container-create] .
 
-Questo articolo illustra come configurare un flusso di lavoro in un repository GitHub che esegue le azioni seguenti:This article shows how to set up a workflow in a GitHub repo that performs the following actions:
+Questo articolo illustra come configurare un flusso di lavoro in un repository GitHub che esegue le azioni seguenti:
 
 * Compilare un'immagine da un Dockerfile
-* Eseguire il push dell'immagine in un registro del contenitore di AzurePush the image to an Azure container registry
-* Distribuire l'immagine del contenitore in un'istanza del contenitore di AzureDeploy the container image to an Azure container instance
+* Eseguire il push dell'immagine in un registro contenitori di Azure
+* Distribuire l'immagine del contenitore in un'istanza di contenitore di Azure
 
-In questo articolo vengono illustrati due modi per impostare il flusso di lavoro:This article shows two ways to set up the workflow:
+Questo articolo illustra due modi per configurare il flusso di lavoro:
 
-* Configurare un flusso di lavoro manualmente in un repository GitHub usando l'azione Distribuisci in istanze del contenitore di Azure e altre azioni.  
-* Usare `az container app up` il comando nell'estensione [Distribuisci](https://github.com/Azure/deploy-to-azure-cli-extension) in Azure nell'interfaccia della riga di comando di Azure.Use the command in the Deploy to Azure extension in the Azure CLI. Questo comando semplifica la creazione del flusso di lavoro GitHub e dei passaggi di distribuzione.
+* Configurare un flusso di lavoro in un repository GitHub usando l'azione Distribuisci in istanze di contenitore di Azure e altre azioni.  
+* Usare il `az container app up` comando nell'estensione [Distribuisci in Azure](https://github.com/Azure/deploy-to-azure-cli-extension) nell'interfaccia della riga di comando di Azure. Questo comando semplifica la creazione dei passaggi di distribuzione e del flusso di lavoro GitHub.
 
 > [!IMPORTANT]
-> L'azione GitHub per le istanze del contenitore di Azure è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> L'azione GitHub per istanze di contenitore di Azure è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Account GitHub-** Crea https://github.com un account su se non ne hai già uno.
-* Interfaccia della riga di comando di **Azure:** è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure per completare i passaggi dell'interfaccia della riga di comando di Azure.Azure CLI - You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete the Azure CLI steps. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
-* **Registro** di sistema del contenitore di Azure: se non ne hai uno, crea un registro contenitori di Azure nel livello Basic usando l'interfaccia della riga di comando di [Azure,](../container-registry/container-registry-get-started-azure-cli.md)il portale di [Azure](../container-registry/container-registry-get-started-portal.md)o altri metodi. Prendere nota del gruppo di risorse usato per la distribuzione, che viene usato per il flusso di lavoro GitHub.An not annot of the resource group used for the deployment, which is used for the GitHub workflow.
+* **Account github** : https://github.com se non si ha già un account, crearne uno.
+* **Interfaccia** della riga di comando di Azure: è possibile usare l'Azure cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure per completare i passaggi della CLI di Azure Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+* **Registro contenitori di Azure** : se non è già stato creato, creare un registro contenitori di Azure nel livello Basic usando l'interfaccia della riga di comando di [Azure](../container-registry/container-registry-get-started-azure-cli.md), [portale di Azure](../container-registry/container-registry-get-started-portal.md)o altri metodi. Prendere nota del gruppo di risorse usato per la distribuzione, che viene usato per il flusso di lavoro GitHub.
 
-## <a name="set-up-repo"></a>Impostare il repository
+## <a name="set-up-repo"></a>Configurare il repository
 
-* Per gli esempi in questo articolo, usare GitHub per eseguire il fork del repository seguente:For the examples in this article, use GitHub to fork the following repository:https://github.com/Azure-Samples/acr-build-helloworld-node
+* Per gli esempi in questo articolo, usare GitHub per creare una copia tramite fork del repository seguente:https://github.com/Azure-Samples/acr-build-helloworld-node
 
-  Questo repository contiene un Dockerfile e file di origine per creare un'immagine contenitore di un'app Web di piccole dimensioni.
+  Questo repository contiene i file di origine e Dockerfile per creare un'immagine del contenitore di un'app Web di piccole dimensioni.
 
   ![Screenshot del pulsante Fork (evidenziato) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Assicurarsi che Le azioni siano abilitate per il repository. Passare al repository biforcchino e selezionare**Azioni** **impostazioni** > . In **Autorizzazioni azioni**verificare che l'opzione Abilita azioni locali e di terze parti per il **repository** sia selezionata.
+* Assicurarsi che le azioni siano abilitate per il repository. Passare al repository con fork e selezionare **Impostazioni** > **azioni**. In **azioni autorizzazioni**verificare che sia selezionata l'opzione **Abilita azioni locali e di terze parti per questo repository** .
 
-## <a name="configure-github-workflow"></a>Configurare il flusso di lavoro di GitHubConfigure GitHub workflow
+## <a name="configure-github-workflow"></a>Configurare il flusso di lavoro GitHub
 
-### <a name="create-service-principal-for-azure-authentication"></a>Creare un'entità servizio per l'autenticazione di AzureCreate service principal for Azure authentication
+### <a name="create-service-principal-for-azure-authentication"></a>Creare un'entità servizio per l'autenticazione di Azure
 
-Nel flusso di lavoro GitHub, è necessario fornire le credenziali di Azure per l'autenticazione nell'interfaccia della riga di comando di Azure.In the GitHub workflow, you need to supply Azure credentials to authenticate to the Azure CLI. Nell'esempio seguente viene creata un'entità servizio con il ruolo Collaboratore nell'ambito del gruppo di risorse per il registro contenitori.
+Nel flusso di lavoro GitHub è necessario specificare le credenziali di Azure per l'autenticazione nell'interfaccia della riga di comando di Azure. L'esempio seguente crea un'entità servizio con il ruolo Collaboratore nell'ambito del gruppo di risorse del registro contenitori.
 
-Ottenere innanzitutto l'ID risorsa del gruppo di risorse. Sostituire il nome del gruppo nel seguente comando [az group show:][az-acr-show]
+Per prima cosa, ottenere l'ID risorsa del gruppo di risorse. Sostituire il nome del gruppo con il comando [AZ Group Show][az-acr-show] seguente:
 
 ```azurecli
 groupId=$(az group show \
@@ -61,7 +61,7 @@ groupId=$(az group show \
   --query id --output tsv)
 ```
 
-Usare az ad sp create-for-rbac per creare l'entità [servizio:Use az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal:
+Usare [AZ ad SP create-for-RBAC][az-ad-sp-create-for-rbac] per creare l'entità servizio:
 
 ```azurecli
 az ad sp create-for-rbac \
@@ -87,13 +87,13 @@ L'output è simile a:
 }
 ```
 
-Salvare l'output JSON perché viene usato in un passaggio successivo. Inoltre, prendere nota di `clientId`, che è necessario aggiornare l'entità servizio nella sezione successiva.
+Salvare l'output JSON perché verrà usato in un passaggio successivo. Prendere nota anche di `clientId`, che è necessario aggiornare l'entità servizio nella sezione successiva.
 
-### <a name="update-service-principal-for-registry-authentication"></a>Aggiornare l'entità servizio per l'autenticazione del Registro di sistemaUpdate service principal for
+### <a name="update-service-principal-for-registry-authentication"></a>Aggiornare l'entità servizio per l'autenticazione del registro di sistema
 
-Aggiornare le credenziali dell'entità servizio di Azure per consentire le autorizzazioni push e pull nel Registro di sistema del contenitore. Questo passaggio consente al flusso di lavoro GitHub di utilizzare l'entità servizio per [l'autenticazione con il Registro di sistema del contenitore.](../container-registry/container-registry-auth-service-principal.md) 
+Aggiornare le credenziali dell'entità servizio di Azure per consentire le autorizzazioni push e pull nel registro contenitori. Questo passaggio consente al flusso di lavoro GitHub di usare l'entità servizio per l' [autenticazione con il registro contenitori](../container-registry/container-registry-auth-service-principal.md). 
 
-Ottenere l'ID risorsa del Registro di sistema del contenitore. Sostituire il nome del Registro di sistema nel seguente comando [az acr show:][az-acr-show]
+Ottenere l'ID risorsa del registro contenitori. Sostituire il nome del registro di sistema con il comando [AZ ACR Show][az-acr-show] seguente:
 
 ```azurecli
 registryId=$(az acr show \
@@ -101,7 +101,7 @@ registryId=$(az acr show \
   --query id --output tsv)
 ```
 
-Utilizzare [az role assignment create][az-role-assignment-create] per assegnare il ruolo AcrPush, che offre l'accesso push e pull al Registro di sistema. Sostituire l'ID client dell'entità servizio:
+Usare [AZ Role Assignment create][az-role-assignment-create] per assegnare il ruolo AcrPush, che consente l'accesso push e pull al registro di sistema. Sostituire l'ID client dell'entità servizio:
 
 ```azurecli
 az role assignment create \
@@ -110,26 +110,26 @@ az role assignment create \
   --role AcrPush
 ```
 
-### <a name="save-credentials-to-github-repo"></a>Salvare le credenziali nel repository GitHubSave credentials to GitHub repo
+### <a name="save-credentials-to-github-repo"></a>Salva le credenziali nel repository GitHub
 
-1. Nell'interfaccia utente di GitHub, passare al repository bifork e selezionare**Segreti** **delle impostazioni** > . 
+1. Nell'interfaccia utente di GitHub passare al repository con fork e selezionare **Impostazioni** > **segreti**. 
 
-1. Selezionare **Aggiungi un nuovo segreto** per aggiungere i segreti seguenti:Select Add a new secret to add the following secrets:
+1. Selezionare **Aggiungi un nuovo segreto** per aggiungere i segreti seguenti:
 
-|Segreto  |valore  |
+|Segreto  |Valore  |
 |---------|---------|
 |`AZURE_CREDENTIALS`     | L'intero output JSON dalla creazione dell'entità servizio |
-|`REGISTRY_LOGIN_SERVER`   | Il nome del server di accesso del Registro di sistema (tutto in minuscolo). Esempio: *myregistry.azure.cr.io*        |
-|`REGISTRY_USERNAME`     |  Dall'output `clientId` JSON dalla creazione dell'entità servizio       |
-|`REGISTRY_PASSWORD`     |  Dall'output `clientSecret` JSON dalla creazione dell'entità servizio |
+|`REGISTRY_LOGIN_SERVER`   | Nome del server di accesso del registro di sistema (tutto in lettere minuscole). Esempio: *MyRegistry.Azure.CR.io*        |
+|`REGISTRY_USERNAME`     |  `clientId` Dall'output JSON della creazione dell'entità servizio       |
+|`REGISTRY_PASSWORD`     |  `clientSecret` Dall'output JSON della creazione dell'entità servizio |
 | `RESOURCE_GROUP` | Nome del gruppo di risorse usato per definire l'ambito dell'entità servizio |
 
-### <a name="create-workflow-file"></a>Crea file flusso di lavoro
+### <a name="create-workflow-file"></a>Crea file del flusso di lavoro
 
-1. Nell'interfaccia utente di GitHub selezionare **Azioni** > **Nuovo flusso di lavoro**.
-1. Selezionare **Imposta un flusso di lavoro manualmente**.
-1. In **Modifica nuovo file**incollare il contenuto YAML seguente per sovrascrivere il codice di esempio. Accettare il `main.yml`nome file predefinito o fornire un nome file scelto.
-1. Selezionare **Avvia commit**, fornire facoltativamente descrizioni brevi ed estese del commit e selezionare **Commit nuovo file**.
+1. Nell'interfaccia utente di GitHub selezionare **azioni** > **nuovo flusso di lavoro**.
+1. Selezionare **configura un flusso di lavoro**.
+1. In **modifica nuovo file**incollare il contenuto YAML seguente per sovrascrivere il codice di esempio. Accettare il nome file `main.yml`predefinito o specificare un nome file scelto.
+1. Selezionare **Avvia commit**, facoltativamente fornire descrizioni brevi ed estese del commit e selezionare **commit nuovo file**.
 
 ```yml
 on: [push]
@@ -171,15 +171,15 @@ jobs:
             location: 'west us'
 ```
 
-### <a name="validate-workflow"></a>Convalidare il flusso di lavoro
+### <a name="validate-workflow"></a>Convalida flusso di lavoro
 
-Dopo aver eseguito il commit del file del flusso di lavoro, il flusso di lavoro viene attivato. Per esaminare lo stato di avanzamento del flusso di lavoro, passare a**Flussi di lavoro** **azioni** > . 
+Dopo aver eseguito il commit del file del flusso di lavoro, viene attivato il flusso di lavoro. Per esaminare lo stato del flusso di lavoro, passare a **azioni** > **flussi di lavoro**. 
 
-![Visualizzare lo stato del flusso di lavoro](./media/container-instances-github-action/github-action-progress.png)
+![Visualizza lo stato del flusso di lavoro](./media/container-instances-github-action/github-action-progress.png)
 
-Per informazioni sulla visualizzazione dello stato e dei risultati di ogni passaggio del flusso di lavoro, vedere [Gestione dell'esecuzione](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) di un flusso di lavoro.
+Per informazioni sulla visualizzazione dello stato e dei risultati di ogni passaggio nel flusso di lavoro, vedere [gestione dell'esecuzione di un flusso di lavoro](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) .
 
-Al termine del flusso di lavoro, ottenere informazioni sull'istanza del contenitore denominata *aci-sampleapp* eseguendo il comando [az container show.][az-container-show] Sostituire il nome del gruppo di risorse: 
+Quando il flusso di lavoro viene completato, ottenere informazioni sull'istanza del contenitore denominata *ACI-SampleApp* eseguendo il comando [AZ container Show][az-container-show] . Sostituire il nome del gruppo di risorse: 
 
 ```azurecli
 az container show \
@@ -197,35 +197,35 @@ FQDN                                   ProvisioningState
 aci-action01.westus.azurecontainer.io  Succeeded
 ```
 
-Dopo aver eseguito il provisioning dell'istanza, passare all'FQDN del contenitore nel browser per visualizzare l'app Web in esecuzione.
+Al termine del provisioning dell'istanza, passare all'FQDN del contenitore nel browser per visualizzare l'app Web in esecuzione.
 
 ![Esecuzione dell'app Web nel browser](./media/container-instances-github-action/github-action-container.png)
 
-## <a name="use-deploy-to-azure-extension"></a>Usare l'estensione Distribuisci in AzureUse Deploy to Azure extension
+## <a name="use-deploy-to-azure-extension"></a>Usare l'estensione Distribuisci in Azure
 
-In alternativa, usare [l'estensione Distribuisci](https://github.com/Azure/deploy-to-azure-cli-extension) in Azure nell'interfaccia della riga di comando di Azure per configurare il flusso di lavoro. Il `az container app up` comando nell'estensione accetta parametri di input per configurare un flusso di lavoro da distribuire alle istanze del contenitore di Azure.The command in the extension takes input parameters from you to set up a workflow to deploy to Azure Container Instances. 
+In alternativa, usare l' [estensione Distribuisci in Azure](https://github.com/Azure/deploy-to-azure-cli-extension) nell'interfaccia della riga di comando di Azure per configurare il flusso di lavoro. Il `az container app up` comando nell'estensione accetta parametri di input dall'utente per configurare un flusso di lavoro per la distribuzione in istanze di contenitore di Azure. 
 
-Il flusso di lavoro creato dall'interfaccia della riga di comando di Azure è simile a quello che è possibile [creare manualmente usando GitHub](#configure-github-workflow).
+Il flusso di lavoro creato dall'interfaccia della riga di comando di Azure è simile al flusso di lavoro che è possibile [creare manualmente usando GitHub](#configure-github-workflow).
 
 ### <a name="additional-prerequisite"></a>Prerequisito aggiuntivo
 
-Oltre [ai prerequisiti](#prerequisites) e alla configurazione dei repository per questo scenario, è necessario installare **l'estensione Distribuisci** in Azure per l'interfaccia della riga di comando di Azure.In addition to the prerequisites and [repo setup](#set-up-repo) for this scenario, you need to install the Deploy to Azure extension for the Azure CLI.
+Oltre ai [prerequisiti](#prerequisites) e alla [configurazione del repository](#set-up-repo) per questo scenario, è necessario installare l' **estensione deploy to Azure** per l'interfaccia della riga di comando di Azure.
 
-Eseguire il comando [az extension add][az-extension-add] per installare l'estensione:
+Eseguire il comando [AZ Extension Add][az-extension-add] per installare l'estensione:
 
 ```azurecli
 az extension add \
   --name deploy-to-azure
 ```
 
-Per informazioni sulla ricerca, l'installazione e la gestione delle estensioni, vedere [Usare le estensioni con l'interfaccia della riga](/cli/azure/azure-cli-extensions-overview)di comando di Azure.For information about finding, installing, and managing extensions, see Use extensions with Azure CLI .
+Per informazioni su come trovare, installare e gestire le estensioni, vedere [usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
 
 ### <a name="run-az-container-app-up"></a>Eseguire `az container app up`
 
-Per eseguire il comando [az container app up,][az-container-app-up] specificare almeno:To run the az container app up command, provide at minimum:
+Per eseguire il comando [AZ container app up][az-container-app-up] , specificare come minimo:
 
-* Il nome del registro contenitori di Azure, ad esempio *myregistry*
-* L'URL del repository GitHub, ad esempio,`https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
+* Nome del registro contenitori di Azure, ad esempio, *Registro* di sistema
+* URL del repository GitHub, ad esempio`https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
 
 Comando di esempio:
 
@@ -235,16 +235,16 @@ az container app up \
   --repository https://github.com/myID/acr-build-helloworld-node
 ```
 
-### <a name="command-progress"></a>Avanzamento dei comandi
+### <a name="command-progress"></a>Stato comando
 
-* Quando richiesto, fornire le credenziali GitHub o fornire un token di [accesso personale (PAT) GitHub](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) con *repository* e ambiti *utente* per l'autenticazione con il Registro di sistema. Se si forniscono le credenziali GitHub, il comando crea automaticamente un PAT.
+* Quando richiesto, fornire le credenziali di GitHub o fornire un [token di accesso personale](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) (Pat) GitHub con ambiti di *repository* e *utenti* per l'autenticazione con il registro. Se si forniscono le credenziali di GitHub, il comando crea automaticamente un PAT.
 
-* Il comando crea segreti di repository per il flusso di lavoro:The command creates repo secrets for the workflow:
+* Il comando crea i segreti del repository per il flusso di lavoro:
 
-  * Credenziali dell'entità servizio per l'interfaccia della riga di comando di AzureService principal credentials for the Azure CLI
-  * Credenziali per accedere al Registro di sistema del contenitore di AzureCredentials to access the Azure container registry
+  * Credenziali entità servizio per l'interfaccia della riga di comando di Azure
+  * Credenziali per l'accesso al registro contenitori di Azure
 
-* Dopo che il comando esegue il commit del file del flusso di lavoro nel repository, viene attivato il flusso di lavoro. 
+* Dopo che il comando ha eseguito il commit del file del flusso di lavoro nel repository, il flusso di lavoro viene attivato. 
 
 L'output è simile a:
 
@@ -258,11 +258,11 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-### <a name="validate-workflow"></a>Convalidare il flusso di lavoro
+### <a name="validate-workflow"></a>Convalida flusso di lavoro
 
-Il flusso di lavoro distribuisce un'istanza del contenitore di Azure con il nome di base del repository GitHub, in questo caso *acr-build-helloworld-node*. Nel browser è possibile passare al collegamento fornito per visualizzare l'app Web in esecuzione. Se l'app è in ascolto su una porta diversa da 8080, specificala nell'URL.
+Il flusso di lavoro distribuisce un'istanza di contenitore di Azure con il nome di base del repository GitHub, in questo caso *ACR-Build-HelloWorld-node*. Nel browser è possibile passare al collegamento fornito per visualizzare l'app Web in esecuzione. Se l'app è in ascolto su una porta diversa da 8080, specificarla nell'URL.
 
-Per visualizzare lo stato del flusso di lavoro e i risultati di ogni passaggio nell'interfaccia utente di GitHub, vedere [Gestione di un'esecuzione del flusso di lavoro](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
+Per visualizzare lo stato del flusso di lavoro e i risultati di ogni passaggio nell'interfaccia utente di GitHub, vedere [gestione di un'esecuzione del flusso di lavoro](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -274,7 +274,7 @@ az container delete \
   --resource-group <resource-group-name>
 ```
 
-Per eliminare il gruppo di risorse e tutte le risorse in esso in esso in esso e seguito il comando [az group delete:][az-group-delete]
+Per eliminare il gruppo di risorse e tutte le risorse, eseguire il comando [AZ Group Delete][az-group-delete] :
 
 ```azurecli
 az group delete \
@@ -283,7 +283,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplora [GitHub Marketplace](https://github.com/marketplace?type=actions) per altre azioni per automatizzare il flusso di lavoro di sviluppo
+Esplorare il [Marketplace GitHub](https://github.com/marketplace?type=actions) per altre azioni per automatizzare il flusso di lavoro di sviluppo
 
 
 <!-- LINKS - external -->

@@ -1,6 +1,6 @@
 ---
-title: Concedere i controlli nei criteri di accesso condizionale - Azure Active DirectoryGrant controls in Conditional Access policy - Azure Active Directory
-description: Che cosa sono i controlli delle sovvenzioni in un criterio di accesso condizionale di Azure ADWhat are grant controls in an Azure AD Conditional Access policy
+title: Concedere controlli nei criteri di accesso condizionale-Azure Active Directory
+description: Che cosa sono i controlli di concessione in un Azure AD criteri di accesso condizionale
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,58 +18,58 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80331851"
 ---
-# <a name="conditional-access-grant"></a>Accesso condizionale: sovvenzione
+# <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
-All'interno di un criterio di accesso condizionale, un amministratore può utilizzare i controlli di accesso per concedere o bloccare l'accesso alle risorse.
+All'interno di un criterio di accesso condizionale, un amministratore può usare i controlli di accesso per concedere o bloccare l'accesso alle risorse.
 
-![Criteri di accesso condizionale con un controllo di concessione che richiede l'autenticazione a più fattoriConditional Access policy with a grant control requiring multi-factor authentication](./media/concept-conditional-access-grant/conditional-access-grant.png)
+![Criteri di accesso condizionale con un controllo di concessione che richiede l'autenticazione a più fattori](./media/concept-conditional-access-grant/conditional-access-grant.png)
 
 ## <a name="block-access"></a>Blocca accesso
 
-Block prende in considerazione tutte le assegnazioni e impedisce l'accesso in base alla configurazione dei criteri di accesso condizionale.
+Block prende in considerazione le assegnazioni e impedisce l'accesso in base alla configurazione dei criteri di accesso condizionale.
 
-Il blocco è un potente controllo che dovrebbe essere esercitato con conoscenze adeguate. È qualcosa che gli amministratori devono utilizzare la [modalità solo report](concept-conditional-access-report-only.md) per testare prima di abilitare.
+Block è un potente controllo che deve essere dotato di una conoscenza adeguata. È necessario che gli amministratori usino la [modalità solo report](concept-conditional-access-report-only.md) per eseguire il test prima di abilitare.
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Gli amministratori possono scegliere di applicare uno o più controlli quando concedono l'accesso. Questi controlli includono le seguenti opzioni: 
+Gli amministratori possono scegliere di applicare uno o più controlli durante la concessione dell'accesso. Questi controlli includono le opzioni seguenti: 
 
-- [Richiedere l'autenticazione a più fattori (Azure Multi-Factor Authentication)Require multi-factor authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Richiedere che il dispositivo sia contrassegnato come conforme (Microsoft Intune)Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [Richiedere un dispositivo aggiunto ad Azure AD ibridoRequire hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
+- [Richiedi autenticazione a più fattori (Multi-Factor Authentication di Azure)](../authentication/concept-mfa-howitworks.md)
+- [Richiedi che il dispositivo sia contrassegnato come conforme (Microsoft Intune)](/intune/protect/device-compliance-get-started)
+- [Richiedi dispositivo ibrido Azure AD aggiunto](../devices/concept-azure-ad-join-hybrid.md)
 - [Richiedere app client approvata](app-based-conditional-access.md)
 - [Richiedere criteri di protezione dell'app](app-protection-based-conditional-access.md)
 
-Quando gli amministratori scelgono di combinare queste opzioni, possono scegliere i seguenti metodi:
+Quando gli amministratori scelgono di combinare queste opzioni, possono scegliere i metodi seguenti:
 
-- Richiedi tutti i controlli selezionati (controllo **E** controllo)
-- Richiedi uno dei controlli selezionati (controllo **OR** di controllo)
+- Richiedi tutti i controlli selezionati (controllo **e** controllo)
+- Richiedi uno dei controlli selezionati (controllo **o** controllo)
 
 Per impostazione predefinita, l'accesso condizionale richiede tutti i controlli selezionati.
 
 ### <a name="require-multi-factor-authentication"></a>Richiedi autenticazione a più fattori
 
-Selezionando questa casella di controllo si richiederà agli utenti di eseguire Azure Multi-Factor Authentication.Selecting this checkbox will require users to perform Azure Multi-Factor Authentication. Per altre informazioni sulla distribuzione di Azure Multi-Factor Authentication, l'articolo Pianificazione di una distribuzione di [Azure MultiFactor Authentication basata su cloud](../authentication/howto-mfa-getstarted.md)è disponibile.
+Selezionando questa casella di controllo, gli utenti dovranno eseguire Multi-Factor Authentication di Azure. Altre informazioni sulla distribuzione di Azure Multi-Factor Authentication sono disponibili nell'articolo [pianificazione di una distribuzione di azure multi-factor authentication basata sul cloud](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Richiedere che i dispositivi siano contrassegnati come conformi
 
-Le organizzazioni che hanno distribuito Microsoft Intune possono usare le informazioni restituite dai propri dispositivi per identificare i dispositivi che soddisfano requisiti di conformità specifici. Queste informazioni sulla conformità dei criteri vengono inoltrate da Intune ad Azure AD in cui l'accesso condizionale può prendere decisioni per concedere o bloccare l'accesso alle risorse. Per altre informazioni sui criteri di conformità, vedere l'articolo [Impostare le regole nei dispositivi per consentire l'accesso alle risorse nell'organizzazione usando Intune.For](/intune/protect/device-compliance-get-started)more information about compliance policies, see the article Set rules on devices to allow access to resources in your organization using Intune.
+Le organizzazioni che hanno distribuito Microsoft Intune possono usare le informazioni restituite dai dispositivi per identificare i dispositivi che soddisfano requisiti di conformità specifici. Le informazioni di conformità dei criteri vengono trasmesse da Intune a Azure AD dove l'accesso condizionale può prendere decisioni per concedere o bloccare l'accesso alle risorse. Per altre informazioni sui criteri di conformità, vedere l'articolo [impostare le regole sui dispositivi per consentire l'accesso alle risorse dell'organizzazione con Intune](/intune/protect/device-compliance-get-started).
 
-Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o da un sistema MDM di terze parti per i dispositivi Windows 10.A device can be marked as compliant by Intune (for any device OS) or by third-party MDM system for Windows 10 devices. Jamf pro è l'unico sistema MDM di terze parti supportato. Ulteriori informazioni sull'integrazione sono disponibili nell'articolo [Integrare Jamf Pro con Intune per la conformità.](/intune/protect/conditional-access-integrate-jamf)
+Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o da un sistema MDM di terze parti per i dispositivi Windows 10. JAMF Pro è l'unico sistema MDM di terze parti supportato. Altre informazioni sull'integrazione sono disponibili nell'articolo [integrare JAMF Pro con Intune per la conformità](/intune/protect/conditional-access-integrate-jamf).
 
-I dispositivi devono essere registrati in Azure AD prima di poter essere contrassegnati come conformi. Ulteriori informazioni sulla registrazione del dispositivo possono essere trovate nell'articolo, [Che cos'è un'identità del dispositivo](../devices/overview.md).
+I dispositivi devono essere registrati in Azure AD prima che possano essere contrassegnati come conformi. Altre informazioni sulla registrazione del dispositivo sono disponibili nell'articolo, [che cos'è un'identità del dispositivo](../devices/overview.md).
 
-### <a name="require-hybrid-azure-ad-joined-device"></a>Richiedere un dispositivo aggiunto ad Azure AD ibridoRequire hybrid Azure AD joined device
+### <a name="require-hybrid-azure-ad-joined-device"></a>Richiedi dispositivo ibrido Azure AD aggiunto
 
-Le organizzazioni possono scegliere di usare l'identità del dispositivo come parte dei criteri di accesso condizionale. Le organizzazioni possono richiedere che i dispositivi siano aggiunti ad Azure AD ibrido usando questa casella di controllo. Per ulteriori informazioni sulle identità dei dispositivi, vedere l'articolo [Che cos'è un'identità del dispositivo?](../devices/overview.md).
+Le organizzazioni possono scegliere di usare l'identità del dispositivo come parte dei criteri di accesso condizionale. Le organizzazioni possono richiedere che i dispositivi siano ibridi Azure AD Uniti con questa casella di controllo. Per altre informazioni sulle identità dei dispositivi, vedere l'articolo [che cos'è un'identità del dispositivo?](../devices/overview.md).
 
 ### <a name="require-approved-client-app"></a>Richiedere app client approvata
 
-Le organizzazioni possono richiedere che un tentativo di accesso alle app cloud selezionate debba essere eseguito da un'app client approvata. Queste app client approvate supportano i criteri di [protezione delle app di Intune](/intune/app-protection-policy) indipendentemente da qualsiasi soluzione di gestione dei dispositivi mobili (MDM).
+Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
-Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app broker. L'app broker può essere Microsoft Authenticator per iOS o il Portale aziendale Microsoft per i dispositivi Android. Se un'app broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'app store per installare l'app broker.
+Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere Microsoft Authenticator per iOS o il Portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'App Store per installare l'app Broker.
 
-Questa impostazione si applica alle seguenti app iOS e Android:
+Questa impostazione si applica alle app iOS e Android seguenti:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -83,7 +83,7 @@ Questa impostazione si applica alle seguenti app iOS e Android:
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Microsoft Office Hub
+- Hub Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -102,21 +102,21 @@ Questa impostazione si applica alle seguenti app iOS e Android:
 - Microsoft Yammer
 - Microsoft Whiteboard
 
-**Osservazioni**
+**Note**
 
 - Le app client approvate supportano la funzionalità di gestione di applicazioni mobili di Intune.
 - Il requisito **Richiedi app client approvata**:
    - Supporta solo iOS e Android come condizione per le piattaforme del dispositivo.
-   - Per registrare il dispositivo è necessaria un'app broker. In iOS, l'app broker è Microsoft Authenticator e in Android è l'app Portale aziendale di Intune.On iOS, the broker app is Microsoft Authenticator and on Android, it is Intune Company Portal app.
-- L'accesso condizionale non può considerare Microsoft Edge in modalità InPrivate un'app client approvata.
+   - Per registrare il dispositivo è necessaria un'app Broker. In iOS l'app Broker è Microsoft Authenticator e in Android è Portale aziendale Intune app.
+- L'accesso condizionale non può considerare Microsoft Edge in modalità InPrivate per un'app client approvata.
 
-Vedere l'articolo [Procedura: Richiedere app client approvate per l'accesso alle app cloud con accesso condizionale](app-based-conditional-access.md) per esempi di configurazione.
+Vedere l'articolo [procedura: richiedere app client approvate per l'accesso alle app cloud con accesso condizionale](app-based-conditional-access.md) per esempi di configurazione.
 
 ### <a name="require-app-protection-policy"></a>Richiedere criteri di protezione dell'app
 
-Nei criteri di accesso condizionale è possibile richiedere che nell'app client siano presenti criteri di protezione delle app di [Intune](/intune/app-protection-policy) prima che l'accesso sia disponibile per le app cloud selezionate. 
+Nei criteri di accesso condizionale è possibile richiedere che i [criteri di protezione delle app di Intune](/intune/app-protection-policy) siano presenti nell'app client prima che l'accesso sia disponibile per le app Cloud selezionate. 
 
-Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app broker. L'app broker può essere Microsoft Authenticator per iOS o il Portale aziendale Microsoft per i dispositivi Android. Se un'app broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'app store per installare l'app broker.
+Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere Microsoft Authenticator per iOS o il Portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'App Store per installare l'app Broker.
 
 Questa impostazione è valida solo per le app client seguenti:
 
@@ -125,23 +125,23 @@ Questa impostazione è valida solo per le app client seguenti:
 - Microsoft Outlook
 - Microsoft Planner
 
-**Osservazioni**
+**Note**
 
-- Le app per i criteri di protezione delle app supportano la funzionalità di gestione delle applicazioni mobili di Intune con la protezione dei criteri.
-- Richiedi requisiti **dei criteri di protezione delle app:The Require app protection policy** requirements:
+- Le app per i criteri di protezione delle app supportano la funzionalità di gestione delle applicazioni mobili di Intune con protezione dei criteri.
+- Richiede i requisiti dei **criteri di protezione delle app** :
     - Supporta solo iOS e Android come condizione per le piattaforme del dispositivo.
-    - Per registrare il dispositivo è necessaria un'app broker. In iOS, l'app broker è Microsoft Authenticator e in Android è l'app Portale aziendale di Intune.On iOS, the broker app is Microsoft Authenticator and on Android, it is Intune Company Portal app.
+    - Per registrare il dispositivo è necessaria un'app Broker. In iOS l'app Broker è Microsoft Authenticator e in Android è Portale aziendale Intune app.
 
-Vedere l'articolo Procedura: Richiedere criteri di [protezione delle app e un'app client approvata per l'accesso alle app cloud con accesso condizionale](app-protection-based-conditional-access.md) per esempi di configurazione.
+Per gli esempi di configurazione, vedere l'articolo [procedura: richiedere i criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con accesso condizionale](app-protection-based-conditional-access.md) .
 
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
-Se l'organizzazione ha creato le condizioni per l'utilizzo, le opzioni aggiuntive potrebbero essere visibili sotto i controlli delle sovvenzioni. Queste opzioni consentono agli amministratori di richiedere il riconoscimento delle condizioni per l'utilizzo come condizione per accedere alle risorse protette dai criteri. Ulteriori informazioni sulle condizioni per l'utilizzo sono disponibili nell'articolo [Condizioni per l'utilizzo di Azure Active Directory](terms-of-use.md).
+Se l'organizzazione ha creato le condizioni per l'utilizzo, è possibile che siano visibili opzioni aggiuntive sotto i controlli di concessione. Queste opzioni consentono agli amministratori di richiedere il riconoscimento delle condizioni per l'utilizzo come condizione di accesso alle risorse protette dai criteri. Altre informazioni sulle condizioni per l'utilizzo sono disponibili nell'articolo [Azure Active Directory condizioni](terms-of-use.md)per l'utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accesso condizionale: controlli sessioneConditional Access: Session controls](concept-conditional-access-session.md)
+- [Accesso condizionale: controlli della sessione](concept-conditional-access-session.md)
 
-- [Criteri comuni di Accesso condizionaleConditional Access common policies](concept-conditional-access-policy-common.md)
+- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
 
 - [Modalità solo report](concept-conditional-access-report-only.md)

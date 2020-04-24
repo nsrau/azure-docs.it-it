@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.date: 04/16/2020
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425800"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684689"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Eccezioni e codici di errore per la finestra di progettazione (anteprima)
 
 Questo articolo descrive i messaggi di errore e i codici di eccezione in Azure Machine Learning Designer (anteprima) per semplificare la risoluzione dei problemi relativi alle pipeline di machine learning.
 
-Esistono due modi per ottenere il testo completo di un messaggio di errore nella finestra di progettazione:  
+È possibile trovare il messaggio di errore nella finestra di progettazione attenendosi alla procedura seguente:  
 
-- Fare clic sul collegamento, **visualizzare il log di output**nel riquadro destro e scorrere fino alla fine. Il messaggio di errore dettagliato viene visualizzato nelle ultime due righe della finestra.  
-  
-- Selezionare il modulo in cui si è verificato l'errore, quindi fare clic sulla X rossa. Viene visualizzato solo il testo dell'errore pertinente.
+- Selezionare il modulo non riuscito, passare alla scheda **output + log** . è possibile trovare il log dettagliato nel file **70_driver_log. txt** nella categoria **azureml-logs** .
+
+- Per un errore dettagliato del modulo, è possibile archiviarlo nel file error_info. JSON nella categoria **module_statistics** .
+
+Di seguito sono riportati i codici di errore dei moduli nella finestra di progettazione.
 
 ## <a name="error-0001"></a>Errore 0001  
  Si verifica un'eccezione se non è possibile trovare una o più colonne specificate del set di dati.  
@@ -39,6 +41,9 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Impossibile trovare la colonna con nome o indice "{column_id}".|
 |La colonna con nome o indice "{column_id}" non esiste in "{arg_name_missing_column}".|
 |La colonna con nome o indice "{column_id}" non esiste in "{arg_name_missing_column}", ma è presente in "{arg_name_has_column}".|
+|Colonne con nome o indice "{column_names}" non trovate.|
+|Le colonne con nome o indice "{column_names}" non esistono in "{arg_name_missing_column}".|
+|Le colonne con nome o indice "{column_names}" non esistono in "{arg_name_missing_column}", ma esistono in "{arg_name_has_column}".|
 
 
 ## <a name="error-0002"></a>Errore 0002  
@@ -140,6 +145,7 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Il valore del parametro "{arg_name}" deve essere minore o uguale al valore del parametro "{upper_boundary_parameter_name}".|
 |Il valore "{actual_value}" del parametro "{arg_name}" deve essere minore o uguale a {upper_boundary}.|
 |Il valore {actual_value} del parametro "{arg_name}" deve essere minore o uguale al valore {upper_boundary} del parametro "{upper_boundary_parameter_name}".|
+|Il valore {actual_value} del parametro "{arg_name}" deve essere minore o uguale al valore {upper_boundary_meaning} {upper_boundary}.|
 
 
 ## <a name="error-0008"></a>Errore 0008  
@@ -248,8 +254,8 @@ Se è stato eseguito il training del modello utilizzando uno dei moduli di train
 
 |Tipo di modello|Modulo di training| Modulo di assegnazione dei punteggi|
 |----|----|----|
-|qualsiasi classificatore|[Eseguire il training del modello](train-model.md) |[Modello di Punteggio](score-model.md)|
-|qualsiasi modello di regressione|[Eseguire il training del modello](train-model.md) |[Modello di Punteggio](score-model.md)|
+|qualsiasi classificatore|[Eseguire il training del modello](train-model.md) |[Assegnare il punteggio al modello](score-model.md)|
+|qualsiasi modello di regressione|[Eseguire il training del modello](train-model.md) |[Assegnare il punteggio al modello](score-model.md)|
 
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
@@ -266,6 +272,7 @@ Se è stato eseguito il training del modello utilizzando uno dei moduli di train
 |Learner of invalid type is passed.|
 |Il tipo di apprendimento "{arg_name}" non è valido.|
 |Il tipo "{learner_type}" del discente "{arg_name}" non è valido.|
+|Learner of invalid type is passed. Messaggio eccezione: {exception_message}|
 
 
 ## <a name="error-0014"></a>Errore 0014  
@@ -323,7 +330,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0017"></a>Errore 0017  
  Si verifica un'eccezione se una colonna selezionata utilizza un tipo di dati non supportato dal modulo corrente.  
 
- Ad esempio, è possibile che venga visualizzato questo errore in Azure Machine Learning se la selezione della colonna include una colonna con un tipo di dati che non può essere elaborato dal modulo, ad esempio una colonna stringa per un'operazione matematica o una colonna score in cui una colonna di funzionalità categorica è Obbligatorio.  
+ Ad esempio, è possibile che venga visualizzato questo errore in Azure Machine Learning se la selezione della colonna include una colonna con un tipo di dati che non può essere elaborato dal modulo, ad esempio una colonna stringa per un'operazione matematica o una colonna score in cui è richiesta una colonna della funzionalità categorica.  
 
 **Risoluzione:**
  1. Identificare la colonna che rappresenta il problema.
@@ -349,7 +356,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0018"></a>Errore 0018  
  Si verifica un'eccezione se il set di dati di input non è valido.  
 
-**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, quindi non esiste una singola risoluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne oppure che il tipo di dati non corrisponde ai requisiti del modulo. Ad esempio,  
+**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, quindi non esiste una singola risoluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne oppure che il tipo di dati non corrisponde ai requisiti del modulo. Ad esempio:  
 
 -   Il modulo richiede una colonna Label, ma nessuna colonna è contrassegnata come etichetta oppure non è ancora stata selezionata una colonna Label.  
   
@@ -357,7 +364,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 
 <!---   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  -->
 
--   Il formato dei dati non è corretto.  
+-   I dati sono nel formato non corretto.  
   
 -   I dati importati contengono caratteri non validi, valori non validi o valori non compresi nell'intervallo.  
 -   La colonna è vuota o contiene troppi valori mancanti.  
@@ -373,6 +380,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 |{DataSet1} e {Dataset2} devono essere coerenti columnwise.|
 |{DataSet1} contiene dati non validi, {Reason}.|
 |{DataSet1} contiene {invalid_data_category}. {troubleshoot_hint}|
+|{DataSet1} non è valido, {Reason}. {troubleshoot_hint}|
 
 
 ## <a name="error-0019"></a>Errore 0019  
@@ -387,6 +395,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 |Values in column are not sorted.|
 |I valori nella colonna "{col_index}" non sono ordinati.|
 |I valori nella colonna "{col_index}" del set di dati "{DataSet}" non sono ordinati.|
+|I valori nell'argomento "{arg_name}" non sono ordinati nell'ordine "{sorting_order}".|
 
 
 ## <a name="error-0020"></a>Errore 0020  
@@ -429,7 +438,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0022"></a>Errore 0022  
  Si verifica un'eccezione se il numero di colonne selezionate nel set di dati di input non corrisponde al numero previsto.  
 
- Questo errore in Azure Machine Learning può verificarsi quando il modulo o l'operazione downstream richiede un numero specifico di colonne o input e sono stati specificati troppi o troppi colonne o input. Ad esempio,  
+ Questo errore in Azure Machine Learning può verificarsi quando il modulo o l'operazione downstream richiede un numero specifico di colonne o input e sono stati specificati troppi o troppi colonne o input. Ad esempio:  
 
 -   È possibile specificare una singola colonna di etichetta o colonna chiave e selezionare accidentalmente più colonne.  
   
@@ -619,7 +628,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 ## <a name="error-0033"></a>Errore 0033  
  Si verifica un'eccezione se l'argomento è Infinity.  
 
- Questo errore si verifica Azure Machine Learning se l'argomento è infinito. Questo errore viene visualizzato se l'argomento è `double.NegativeInfinity` o `double.PositiveInfinity`.  
+ Questo errore si verifica Azure Machine Learning se l'argomento è infinito. Questo errore viene visualizzato se l'argomento è `double.NegativeInfinity` o. `double.PositiveInfinity`  
 
 **Risoluzione:** Modificare l'argomento specificato in modo che sia un valore valido.  
 
@@ -627,6 +636,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |------------------------|
 |L'argomento deve essere finito.|
 |"{arg_name}" non è finito.|
+|La colonna "{column_name}" contiene valori infiniti.|
 
 
 ## <a name="error-0034"></a>Errore 0034  
@@ -652,7 +662,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 
 Quando si usano le funzionalità degli elementi o le funzionalità utente, è necessario che il Consiglio di ricorrenza di determinati requisiti venga soddisfatto.  Questo errore indica che manca un vettore di funzionalità per un utente o un elemento fornito come input. Verificare che nei dati sia disponibile un vettore di funzionalità per ogni utente o elemento.  
 
- Se, ad esempio, è stato eseguito il training di un modello di raccomandazione utilizzando funzionalità quali la durata, la posizione o il reddito dell'utente, ma ora si desidera creare i punteggi per i nuovi utenti che non sono stati visualizzati durante il training, è necessario fornire un set di funzionalità equivalente (ossia, età, località e valori del reddito) per i nuovi utenti per eseguire stime appropriate. 
+ Se, ad esempio, è stato eseguito il training di un modello di raccomandazione utilizzando funzionalità quali la durata, la posizione o il reddito dell'utente, ma ora si desidera creare i punteggi per i nuovi utenti che non sono stati individuati durante il training, è necessario fornire un set di funzionalità equivalente (ossia, età, località e valori di reddito) per i nuovi utenti per eseguire stime appropriate. 
 
  Se non si dispone di alcuna funzionalità per questi utenti, provare a progettare le funzionalità per generare le funzionalità appropriate.  Se, ad esempio, non sono presenti valori di età o reddito singoli, è possibile generare valori approssimati da usare per un gruppo di utenti. 
 
@@ -678,7 +688,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 |Messaggi di eccezione|
 |------------------------|
-|Definizione di funzione duplicata per un utente o un elemento.|
+|Definizione di funzione duplicata per un utente o un elemento. |
 
 
 ## <a name="error-0037"></a>Errore 0037  
@@ -732,8 +742,8 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
     + Esaminare le colonne di testo per i caratteri non Unicode, i caratteri di tabulazione o i caratteri di controllo
     + I dati DateTime devono essere coerenti per evitare errori di modellazione, ma la pulizia può essere complessa a causa dei diversi formati. Prendere in considerazione l'uso di <!--the [Execute R Script](execute-r-script.md) or -->Eseguire i moduli di [script Python](execute-python-script.md) per eseguire la pulizia.  
 + Se necessario, modificare i valori nel set di dati di input in modo che la colonna possa essere convertita correttamente. La modifica può includere operazioni di suddivisione in contenitori, troncamento o arrotondamento, eliminazione di outlier o imputazione di valori mancanti. Vedere gli articoli seguenti per alcuni scenari comuni di trasformazione dei dati in Machine Learning:
-    + [Pulisci i dati mancanti](clean-missing-data.md)
-    + [Normalizza i dati](normalize-data.md)
+    + [Pulire i dati mancanti](clean-missing-data.md)
+    + [Normalizzare i dati](normalize-data.md)
 <!--+ [Clip Values](clip-values.md) 
     + [Group Data Into Bins](group-data-into-bins.md)
   -->
@@ -825,7 +835,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 
 |Messaggi di eccezione|
 |------------------------|
-|Non è possibile aprire un file.|
+|Unable to open a file.|
 |Errore durante l'apertura del file: {file_name}.|
 |Errore durante l'apertura del file: {file_name}. Messaggio eccezione di archiviazione: {Exception}.|
 
@@ -959,7 +969,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 
 |Messaggi di eccezione|
 |------------------------|
-|L'intervallo specificato per l'indice di colonna non è valido o non è compreso nei limiti consentiti.|
+|L'intervallo specificato per l'indice di colonna non è valido o non è compreso nei limiti consentiti. |
 |L'intervallo di colonne "{column_range}" non è valido o non è compreso nell'intervallo.|
 
 
@@ -1072,9 +1082,9 @@ Il messaggio di errore di hive viene in genere riportato nel log degli errori di
 
 Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per Machine Learning:
 
-+ [Creare tabelle hive e caricare dati dall'archivio BLOB di Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
++ [Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
 + [Esplorare i dati nelle tabelle con query hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Creare funzionalità per i dati in un cluster Hadoop con query Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Creare funzionalità per i dati in un cluster Hadoop mediante le query Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
 + [Foglio informativo di hive per utenti SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1096,7 +1106,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per 
 
  Se è presente un messaggio generato da SQL segnalato dall'eccezione del modulo, eseguire un'azione in base all'errore segnalato. I messaggi di errore, ad esempio, includono a volte istruzioni specifiche sul probabile errore:
 + *Nessuna colonna di questo tipo o database mancante*, a indicare che è possibile che sia stato digitato un nome di colonna errato. Se si è certi che il nome della colonna sia corretto, provare a utilizzare le parentesi quadre o le virgolette per racchiudere l'identificatore di colonna.
-+ *Errore di logica SQL vicino \<parola chiave sql\>* , che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
++ *Errore di logica SQL \<vicino alla\>parola chiave SQL*, che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
 
   
 |Messaggi di eccezione|
@@ -1248,6 +1258,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |{data_name} contiene dati non validi per il training.|
 |{data_name} contiene dati non validi per il training. Tipo di discente: {learner_type}.|
 |{data_name} contiene dati non validi per il training. Tipo di discente: {learner_type}. Motivo: {Reason}.|
+|Non è stato possibile applicare l'azione "{action_name}" ai dati di training {data_name}. Motivo: {Reason}.|
 
 
 ## <a name="error-0084"></a>Errore 0084  
@@ -1315,7 +1326,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|  
 |------------------------|  
 |Tipo di parametro non supportato.|  
-|Il tipo di parametro '{0}' specificato non è supportato.|  
+|Il tipo di parametro ''{0}specificato non è supportato.|  
 
 
 ## <a name="error-0107"></a>Errore 0107  
@@ -1394,7 +1405,8 @@ Risoluzione:
 
  Se si include una colonna etichetta nella selezione colonna ma non è riconosciuta, utilizzare il modulo [Modifica metadati](edit-metadata.md) per contrassegnarla come colonna etichetta.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Quindi, è possibile usare il modulo [Clean Missing data](clean-missing-data.md) per rimuovere le righe con valori mancanti nella colonna Label. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  Quindi, è possibile usare il modulo [Clean Missing data](clean-missing-data.md) per rimuovere le righe con valori mancanti nella colonna Label. 
 
  Controllare i set di dati di input per assicurarsi che contengano dati validi e un numero sufficiente di righe per soddisfare i requisiti dell'operazione. Molti algoritmi genereranno un messaggio di errore se richiedono un numero minimo di righe di dati, ma i dati contengono solo poche righe o solo un'intestazione.
 
@@ -1455,8 +1467,8 @@ Risoluzione:
 
 |Messaggi di eccezione|
 |------------------------|
-|I nomi delle colonne non sono di stringa.|
-|I nomi di colonna: {column_names} non sono di stringa.|
+|Il nome della colonna dataframe deve essere di tipo stringa. I nomi delle colonne non sono di stringa.|
+|Il nome della colonna dataframe deve essere di tipo stringa. I nomi di colonna {column_names} non sono di stringa.|
 
 
 ## <a name="error-0156"></a>Errore 0156  
@@ -1475,6 +1487,27 @@ Risoluzione:
 |------------------------|
 |Le informazioni dell'archivio dati non sono valide.|
 |Le informazioni dell'archivio dati non sono valide. Non è stato possibile ottenere l'archivio dati AzureML ' {datastore_name}' nell'area di lavoro ' {workspace_name}'.|
+
+
+## <a name="error-0158"></a>Errore 0158
+ Generata quando una directory di trasformazione non è valida.
+
+|Messaggi di eccezione|
+|------------------------------------------------------------|
+|Il TransformationDirectory specificato non è valido.|
+|TransformationDirectory "{arg_name}" non è valido. Motivo: {Reason}. Rieseguire l'esperimento di training che genera il file di trasformazione. Se l'esperimento di training è stato eliminato, ricreare e salvare il file di trasformazione.|
+|TransformationDirectory "{arg_name}" non è valido. Motivo: {Reason}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>Errore 0159
+ Si verifica un'eccezione se il passaggio alla directory del modello di modulo non è valido. 
+
+|Messaggi di eccezione|
+|------------------------------------------------------------|
+|Il ModelDirectory specificato non è valido.|
+|ModelDirectory "{arg_name}" non è valido.|
+|ModelDirectory "{arg_name}" non è valido. Motivo: {Reason}.|
+|ModelDirectory "{arg_name}" non è valido. Motivo: {Reason}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>Errore 1000  

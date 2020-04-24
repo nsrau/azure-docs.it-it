@@ -1,6 +1,6 @@
 ---
-title: Per quanto tempo Azure AD archivia i dati dei report? | Microsoft Docs
-description: Informazioni sulla durata dell'archiviazione dei vari tipi di dati di report in Azure.Learn how long Azure stores the various types of reporting data.
+title: Quanto tempo Azure AD archiviare i dati dei report? | Microsoft Docs
+description: Scopri per quanto tempo Azure archivia i vari tipi di dati di report.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,7 +24,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80239557"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Per quanto tempo Azure AD archivia i dati dei report?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo Azure AD archiviare i dati dei report?
 
 
 In questo articolo vengono illustrati i criteri di conservazione dei dati per i diversi report attività in Azure Active Directory. 
@@ -40,7 +40,7 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando i dati dell'attività sono disponibili nel portale di Azure?
 
-- **Immediatamente:** se sono già stati usati i report nel portale di Azure.Immediately - If you have already been working with reports in the Azure portal.
+- **Immediatamente** : se si è già lavorato con i report nel portale di Azure.
 - **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
 
 ---
@@ -65,13 +65,13 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 ### <a name="how-long-does-azure-ad-store-the-data"></a>Per quanto tempo Azure AD archivia i dati?
 
-**Relazioni sulle attività**    
+**Report attività**    
 
 | Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Log di controllo             | 7 giorni        | 30 giorni             | 30 giorni             |
 | Accessi               | 7 giorni        | 30 giorni             | 30 giorni             |
-| Utilizzo di Azure MFAAzure MFA usage        | 30 giorni       | 30 giorni             | 30 giorni             |
+| Utilizzo dell'autenticazione a più fattori di Azure        | 30 giorni       | 30 giorni             | 30 giorni             |
 
 È possibile mantenere i dati relativi alle attività di controllo e accesso per più tempo rispetto al periodo di conservazione predefinito descritto in precedenza instradandoli a un account di archiviazione di Azure con Monitoraggio di Azure. Per altre informazioni, vedere [Archiviare i log di Azure AD in un account di archiviazione di Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 

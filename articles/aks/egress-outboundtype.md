@@ -1,6 +1,6 @@
 ---
-title: Personalizzare le route definite dall'utente (UDR) nel servizio Azure Kubernetes (AKS)Customize user-defined routes (UDR) in Azure Kubernetes Service (AKS)
-description: Informazioni su come definire una route in uscita personalizzata nel servizio Azure Kubernetes (AKS)Learn how to define a custom egress route in Azure Kubernetes Service (AKS)
+title: Personalizzare le route definite dall'utente (UDR) in Azure Kubernetes Service (AKS)
+description: Informazioni su come definire una route in uscita personalizzata in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
@@ -11,25 +11,25 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "80676497"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizzare l'uscita del cluster con una route definita dall'utente (anteprima)Customize cluster egress with a User-Defined Route (Preview)
+# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizzare l'uscita del cluster con una route definita dall'utente (anteprima)
 
-L'uscita da un cluster AKS può essere personalizzata per adattarsi a scenari specifici. Per impostazione predefinita, AKS eseguirà il provisioning di un servizio di bilanciamento del carico SKU Standard per l'installazione e l'utilizzo per l'uscita. Tuttavia, la configurazione predefinita potrebbe non soddisfare i requisiti di tutti gli scenari se gli indirizzi IP pubblici non sono consentiti o sono necessari hop aggiuntivi per l'uscita.
+L'uscita da un cluster AKS può essere personalizzata per adattarsi a scenari specifici. Per impostazione predefinita, AKS effettuerà il provisioning di uno SKU standard Load Balancer essere configurato e usato per l'uscita. Tuttavia, l'installazione predefinita potrebbe non soddisfare i requisiti di tutti gli scenari se gli indirizzi IP pubblici non sono consentiti o se sono necessari hop aggiuntivi per l'uscita.
 
-Questo articolo illustra come personalizzare la route in uscita di un cluster per supportare scenari di rete personalizzati, ad esempio quelli che non consentono gli indirizzi IP pubblici e richiede che il cluster si esibisca dietro un'appliance virtuale di rete (NVA).
+Questo articolo illustra come personalizzare la route in uscita di un cluster per supportare scenari di rete personalizzati, ad esempio quelli che non consentono indirizzi IP pubblici e che il cluster deve sedersi dietro un'appliance virtuale di rete.
 
 > [!IMPORTANT]
-> Le funzionalità di anteprima di AKS sono self-service e sono offerte in base all'opt-in. Le anteprime vengono fornite così *come sono* e *come disponibili* e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dall'assistenza clienti nel *miglior modo possibile.* Pertanto, le funzionalità non sono destinate all'utilizzo in produzione. Per altre informazioni, vedere i seguenti articoli di supporto:
+> Le funzionalità di anteprima di AKS sono self-service e sono offerte in base al consenso esplicito. Le anteprime vengono fornite *così come sono* e sono *disponibili* e sono escluse dal contratto di servizio (SLA) e dalla garanzia limitata. Le anteprime AKS sono parzialmente coperte dal supporto tecnico per il *massimo sforzo* . Pertanto, le funzionalità non sono destinate all'uso in produzione. Per ulteriori informazioni, vedere gli articoli di supporto seguenti:
 >
 > * [Criteri di supporto AKS](support-policies.md)
 > * [Domande frequenti relative al supporto tecnico Azure](faq.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Interfaccia della riga di comando di Azure versione 2.0.81 o successivaAzure CLI version 2.0.81 or greater
-* Estensione di anteprima dell'interfaccia della riga di comando di Azure 0.4.28 o successivaAzure CLI Preview extension version version 0.4.28 or greater
-* Versione API `2020-01-01` di o superiore
+* Versione 2.0.81 o successiva dell'interfaccia della riga di comando di Azure
+* Versione di anteprima dell'interfaccia della riga di comando di Azure 0.4.28 o successiva
+* Versione API di `2020-01-01` o versione successiva
 
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installare l'estensione più recente dell'anteprima AKS dell'interfaccia della riga di comando di AzureInstall the latest Azure CLI AKS Preview extension
-Per impostare il tipo in uscita di un cluster, è necessaria l'estensione di Azure CLI AKS Preview versione 0.4.18 o successiva. Installare l'estensione di Azure CLI AKS Preview usando il comando az extension add e quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando di aggiornamento dell'estensione az seguente:Install the Azure CLI AKS Preview extension by using the az extension add command, and then check for any available updates by using the following az extension update command:
+## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installare l'estensione più recente dell'interfaccia della riga di comando di Azure AKS
+Per impostare il tipo in uscita di un cluster, è necessaria l'estensione dell'interfaccia della riga di comando di Azure AKS Preview 0.4.18 o versione successiva. Installare l'estensione dell'interfaccia della riga di comando di Azure AKS anteprima usando il comando AZ Extension Add, quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando AZ Extension Update seguente:
 
 ```azure-cli
 # Install the aks-preview extension
@@ -40,61 +40,61 @@ az extension update --name aks-preview
 ```
 
 ## <a name="limitations"></a>Limitazioni
-* Durante l'anteprima, `outboundType` può essere definito solo in fase di creazione del cluster e non può essere aggiornato in seguito.
-* Durante l'anteprima, i cluster AKS devono usare CNI di Azure.During preview, `outboundType` AKS clusters should use Azure CNI. Kubenet è configurabile, l'utilizzo richiede associazioni manuali della tabella di route alla subnet AKS.
-* `outboundType` L'impostazione richiede cluster `vm-set-type` `VirtualMachineScaleSets` AKS `Standard`con un e di `load-balancer-sku` .
-* L'impostazione `outboundType` `UDR` su un valore di richiede una route definita dall'utente con connettività in uscita valida per il cluster.
-* L'impostazione `outboundType` `UDR` su un valore implica che l'IP di origine in ingresso instradato al servizio di bilanciamento del carico potrebbe **non corrispondere all'indirizzo** di destinazione in uscita del cluster.
+* Durante la fase `outboundType` di anteprima, può essere definito solo in fase di creazione del cluster e non può essere aggiornato in seguito.
+* Durante la fase `outboundType` di anteprima, i cluster AKS devono usare Azure CNI. Kubenet è configurabile. l'utilizzo richiede associazioni manuali della tabella di route alla subnet AKS.
+* L' `outboundType` `vm-set-type` impostazione richiede cluster AKS con di `VirtualMachineScaleSets` e `load-balancer-sku` di. `Standard`
+* L' `outboundType` impostazione di su un `UDR` valore richiede una route definita dall'utente con connettività in uscita valida per il cluster.
+* L' `outboundType` impostazione di su un `UDR` valore implica che l'IP di origine in ingresso indirizzato al servizio di bilanciamento del carico potrebbe **non corrispondere** all'indirizzo di destinazione in uscita del cluster.
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Panoramica dei tipi in uscita in AKS
 
-Un cluster AKS può essere `outboundType` personalizzato con un unico bilanciamento del carico di tipo o routing definito dall'utente.
+Un cluster AKS può essere personalizzato con un tipo `outboundType` di servizio di bilanciamento del carico o di routing definito dall'utente univoco.
 
 > [!IMPORTANT]
-> Il tipo in uscita influisce solo sul traffico in uscita del cluster. Per ulteriori informazioni, [vedere Configurazione dei controller in ingresso.](ingress-basic.md)
+> Il tipo in uscita influisca solo sul traffico in uscita del cluster. Per ulteriori informazioni, vedere [configurazione dei controller di ingresso](ingress-basic.md) .
 
-### <a name="outbound-type-of-loadbalancer"></a>Tipo in uscita di loadBalancerOutbound type of loadBalancer
+### <a name="outbound-type-of-loadbalancer"></a>Tipo in uscita di loadBalancer
 
-Se `loadBalancer` impostato, AKS completa automaticamente la seguente configurazione. Il servizio di bilanciamento del carico viene usato per l'uscita tramite un IP pubblico assegnato ad AKS. Un tipo `loadBalancer` di supporto in uscita supporta `loadBalancer`i servizi Kubernetes di tipo , che prevedono l'uscita dal servizio di bilanciamento del carico creato dal provider di risorse AKS.
+Se `loadBalancer` è impostato, AKS completa automaticamente la seguente installazione. Il servizio di bilanciamento del carico viene usato per l'uscita tramite un indirizzo IP pubblico assegnato da AKS. Un tipo in uscita di `loadBalancer` supporta i servizi Kubernetes di `loadBalancer`tipo, che prevedono l'uscita dal servizio di bilanciamento del carico creato dal provider di risorse AKS.
 
-La seguente configurazione viene eseguita da AKS.
+Il seguente programma di installazione viene eseguito da AKS.
    * Viene eseguito il provisioning di un indirizzo IP pubblico per l'uscita del cluster.
-   * L'indirizzo IP pubblico viene assegnato alla risorsa di bilanciamento del carico.
-   * I pool back-end per il servizio di bilanciamento del carico vengono configurati per i nodi agente nel cluster.
+   * L'indirizzo IP pubblico viene assegnato alla risorsa del servizio di bilanciamento del carico.
+   * I pool back-end per il servizio di bilanciamento del carico sono impostati per i nodi agente nel cluster.
 
-Di seguito è riportata una topologia di rete distribuita `outboundType` `loadBalancer`nei cluster AKS per impostazione predefinita, che utilizzano un oggetto di .
+Di seguito è riportata una topologia di rete distribuita nei cluster AKS per impostazione `outboundType` predefinita `loadBalancer`, che usa un di.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![OutboundType-lb](media/egress-outboundtype/outboundtype-lb.png)
 
-### <a name="outbound-type-of-userdefinedrouting"></a>Tipo in uscita di userDefinedRoutingOutbound type of userDefinedRouting
+### <a name="outbound-type-of-userdefinedrouting"></a>Tipo in uscita di userDefinedRouting
 
 > [!NOTE]
-> L'utilizzo del tipo in uscita è uno scenario di rete avanzato e richiede una configurazione di rete appropriata.
+> L'uso di un tipo in uscita è uno scenario di rete avanzato e richiede una configurazione di rete corretta.
 
-Se `userDefinedRouting` impostato, AKS non configurerà automaticamente i percorsi in uscita. **L'utente**dovrebbe eseguire le operazioni seguenti.
+Se `userDefinedRouting` è impostato, AKS non configurerà automaticamente i percorsi in uscita. L' **utente**deve eseguire le operazioni seguenti.
 
-Il cluster deve essere distribuito in una rete virtuale esistente con una subnet configurata. Una route definita dall'utente valida deve esistere nella subnet con connettività in uscita.
+Il cluster deve essere distribuito in una rete virtuale esistente con una subnet configurata. Una route definita dall'utente (UDR) valida deve esistere nella subnet con connettività in uscita.
 
-Il provider di risorse AKS distribuirà un servizio di bilanciamento del carico (SLB) standard. Il servizio di bilanciamento del carico non è configurato con alcuna regola e [non comporta un addebito fino a quando non viene inserita una regola.](https://azure.microsoft.com/pricing/details/load-balancer/) AKS **non** eseguirà automaticamente il provisioning di un indirizzo IP pubblico per il front-end SLB. AKS **non** configurerà automaticamente il pool back-end del servizio di bilanciamento del carico.
+Il provider di risorse AKS distribuirà un servizio di bilanciamento del carico standard (SLB). Il servizio di bilanciamento del carico non è configurato con alcuna regola e non [comporta alcun addebito fino a quando non viene inserita una regola](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **non** effettuerà automaticamente il provisioning di un indirizzo IP pubblico per il front-end SLB. AKS **non** configurerà automaticamente il pool back-end del servizio di bilanciamento del carico.
 
-## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Distribuire un cluster con tipo in uscita di UDR e Firewall di AzureDeploy a cluster with outbound type of UDR and Azure Firewall
+## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Distribuire un cluster con il tipo di UDR e il firewall di Azure in uscita
 
-Per illustrare l'applicazione di un cluster con tipo in uscita usando una route definita dall'utente, è possibile configurare un cluster in una rete virtuale con peering con un firewall di Azure.To illustrate the application of a cluster with outbound type using a user-defined route, a cluster can be configured on a virtual network peered with an Azure Firewall.
+Per illustrare l'applicazione di un cluster con tipo in uscita usando una route definita dall'utente, è possibile configurare un cluster in una rete virtuale con peering con un firewall di Azure.
 
 ![Topologia bloccata](media/egress-outboundtype/outboundtype-udr.png)
 
-* L'ingresso è forzato a scorrere attraverso i filtri firewall
-   * Una subnet isolata contiene un servizio di bilanciamento del carico interno per il routing nei nodi dell'agenteAn isolated subnet holds an internal load balancer for routing into agent nodes
-   * I nodi agente sono isolati in una subnet dedicataAgent nodes are isolated in a dedicated subnet
-* Le richieste in uscita vengono avviate dai nodi agente all'indirizzo IP interno del firewall di Azure usando una route definita dall'utenteOutbound requests start from agent nodes to the Azure Firewall internal IP using a user-defined route
-   * Le richieste provenienti dai nodi dell'agente AKS seguono un UDR che è stato inserito nella subnet in cui è stato distribuito il cluster AKS.
-   * Firewall di Azure in uscita dalla rete virtuale da un front-end IP pubblico
-   * L'accesso al piano di controllo AKS è protetto da un gruppo di sicurezza di rete, che ha abilitato l'indirizzo IP front-end del firewall
-   * L'accesso a Internet pubblico o ad altri servizi di Azure passa da e verso l'indirizzo IP front-end del firewall
+* Il traffico in ingresso è forzato a passare attraverso i filtri del firewall
+   * Una subnet isolata include un servizio di bilanciamento del carico interno per il routing nei nodi degli agenti
+   * I nodi agente sono isolati in una subnet dedicata
+* Le richieste in uscita iniziano dai nodi dell'agente all'IP interno del firewall di Azure usando una route definita dall'utente
+   * Le richieste provenienti dai nodi dell'agente AKS seguono una UDR che è stata posizionata nella subnet in cui è stato distribuito il cluster AKS.
+   * Egresses del firewall di Azure dalla rete virtuale da un front-end IP pubblico
+   * L'accesso al piano di controllo AKS è protetto da un NSG, che ha abilitato l'indirizzo IP front-end del firewall
+   * L'accesso alla rete Internet pubblica o ad altri servizi di Azure viene trasmesso da e verso l'indirizzo IP front-end del firewall
 
-### <a name="set-configuration-via-environment-variables"></a>Impostare la configurazione tramite variabili di ambienteSet configuration via environment variables
+### <a name="set-configuration-via-environment-variables"></a>Impostare la configurazione tramite le variabili di ambiente
 
-Definire un set di variabili di ambiente da utilizzare nelle creazioni di risorse.
+Definire un set di variabili di ambiente da usare nelle creazioni di risorse.
 
 ```bash
 PREFIX="contosofin"
@@ -116,7 +116,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}fwinternet"
 DEVSUBNET_NAME="${PREFIX}dev"
 ```
 
-Successivamente, impostare gli ID sottoscrizione.
+Impostare quindi gli ID sottoscrizione.
 
 ```azure-cli
 # Get ARM Access Token and Subscription ID - This will be used for AuthN later.
@@ -139,7 +139,7 @@ Effettuare il provisioning di una rete virtuale con tre subnet separate, una per
 
 ![Topologia di rete vuota](media/egress-outboundtype/empty-network.png)
 
-Creare un gruppo di risorse per contenere tutte le risorse.
+Creare un gruppo di risorse che contenga tutte le risorse.
 
 ```azure-cli
 # Create Resource Group
@@ -147,7 +147,7 @@ Creare un gruppo di risorse per contenere tutte le risorse.
 az group create --name $RG --location $LOC
 ```
 
-Creare due reti virtuali per ospitare il cluster AKS e il firewall di Azure.Create a two virtual networks to host the AKS cluster and the Azure Firewall. Ognuno avrà la propria subnet. Iniziamo con la rete AKS.
+Creare due reti virtuali per ospitare il cluster AKS e il firewall di Azure. Ognuno avrà una propria subnet. Iniziamo con la rete AKS.
 
 ```
 # Dedicated virtual network with AKS subnet
@@ -176,19 +176,19 @@ az network vnet subnet create \
     --address-prefix 100.64.3.0/24
 ```
 
-## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Creare e configurare un firewall di Azure con un UDRCreate and setup an Azure Firewall with a UDR
+## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Creare e configurare un firewall di Azure con un UDR
 
-È necessario configurare le regole in ingresso e in uscita di Firewall di Azure.Azure Firewall inbound and outbound rules must be configured. Lo scopo principale del firewall è consentire alle organizzazioni di configurare regole granulari per il traffico in ingresso ed uscita in entrata e in uscita dal cluster AKS.
+È necessario configurare le regole di Azure firewall in ingresso e in uscita. Lo scopo principale del firewall è quello di consentire alle organizzazioni di configurare le regole di traffico in ingresso e in uscita granulari all'interno e all'esterno del cluster AKS.
 
 ![Firewall e UDR](media/egress-outboundtype/firewall-udr.png)
 
-Creare una risorsa IP pubblica SKU standard che verrà usata come indirizzo front-end di Firewall di Azure.Create a standard SKU public IP resource that will be used as the Azure Firewall frontend address.
+Creare una risorsa IP pubblico con SKU standard che verrà usata come indirizzo front-end del firewall di Azure.
 
 ```azure-cli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
-Registrare l'estensione dell'estensione dell'anteprima per creare un firewall di Azure.Register the preview cli-extension to create an Azure Firewall.
+Registrare l'estensione dell'interfaccia della riga di comando di anteprima per creare un firewall di Azure.
 ```azure-cli
 # Install Azure Firewall preview CLI extension
 
@@ -199,11 +199,11 @@ az extension add --name azure-firewall
 az network firewall create -g $RG -n $FWNAME -l $LOC
 ```
 
-L'indirizzo IP creato in precedenza può ora essere assegnato al frontend del firewall.
+È ora possibile assegnare l'indirizzo IP creato in precedenza al front-end del firewall.
 > [!NOTE]
-> La configurazione dell'indirizzo IP pubblico in Firewall di Azure potrebbe richiedere alcuni minuti.
+> La configurazione dell'indirizzo IP pubblico per il firewall di Azure può richiedere alcuni minuti.
 > 
-> Se gli errori vengono ripetutamente ricevuti nel comando seguente, eliminare il firewall esistente e l'indirizzo IP pubblico ed eseguire il provisioning di IP pubblico e Firewall di Azure tramite il portale contemporaneamente.
+> Se vengono ricevuti ripetutamente errori nel comando seguente, eliminare il firewall e l'IP pubblico esistenti ed effettuare il provisioning dell'IP pubblico e del firewall di Azure tramite il portale nello stesso momento.
 
 ```azure-cli
 # Configure Firewall IP Config
@@ -211,7 +211,7 @@ L'indirizzo IP creato in precedenza può ora essere assegnato al frontend del fi
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
 ```
 
-Quando il comando precedente ha esito positivo, salvare l'indirizzo IP front-end del firewall per la configurazione in un secondo momento.
+Quando il comando precedente ha avuto esito positivo, salvare l'indirizzo IP front-end firewall per la configurazione in un secondo momento.
 
 ```bash
 # Capture Firewall IP Address for Later Use
@@ -220,11 +220,11 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
-### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Creare un UDR con un hop a Firewall di AzureCreate a UDR with a hop to Azure Firewall
+### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Creare un UDR con un hop al firewall di Azure
 
 Azure effettua il routing automatico del traffico tra subnet di Azure, reti virtuali e reti locali. Per modificare il routing predefinito di Azure è necessario creare una tabella di route.
 
-Creare una tabella di route vuota da associare a una determinata subnet. La tabella di route definirà l'hop successivo come Firewall di Azure creato in precedenza. A ogni subnet può essere associata una o nessuna tabella di route.
+Creare una tabella di route vuota da associare a una determinata subnet. La tabella di route definisce l'hop successivo come il firewall di Azure creato in precedenza. A ogni subnet può essere associata una o nessuna tabella di route.
 
 ```azure-cli
 # Create UDR and add a route for Azure Firewall
@@ -234,16 +234,16 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
-Vedere la [documentazione](../virtual-network/virtual-networks-udr-overview.md#user-defined) della tabella di route della rete virtuale su come eseguire l'override delle route di sistema predefinite di Azure o aggiungere altre route alla tabella di route di una subnet.
+Vedere la [documentazione della tabella di route della rete virtuale](../virtual-network/virtual-networks-udr-overview.md#user-defined) in cui è possibile eseguire l'override delle route di sistema predefinite di Azure o aggiungere altre route alla tabella di route di una subnet.
 
 ## <a name="adding-network-firewall-rules"></a>Aggiunta di regole del firewall di rete
 
 > [!WARNING]
-> Di seguito è riportato un esempio di aggiunta di una regola firewall. Tutti gli endpoint in uscita definiti negli endpoint in [uscita necessari](egress.md) devono essere abilitati dalle regole del firewall dell'applicazione affinché i cluster AKS funzionino. Senza questi endpoint abilitati, il cluster non può funzionare.
+> Di seguito è riportato un esempio di aggiunta di una regola del firewall. Tutti gli endpoint in uscita definiti negli [endpoint in uscita necessari](egress.md) devono essere abilitati dalle regole del firewall dell'applicazione per il funzionamento dei cluster AKS. Senza questi endpoint abilitati, il cluster non può funzionare.
 
-Di seguito è riportato un esempio di una regola di rete e applicazione. Aggiungiamo una regola di rete che consente qualsiasi protocollo, indirizzo di origine, indirizzo di destinazione e porte di destinazione. Aggiungiamo anche una regola dell'applicazione per **alcuni** degli endpoint richiesti da AKS.
+Di seguito è riportato un esempio di una regola di rete e di applicazione. Viene aggiunta una regola di rete che consente qualsiasi protocollo, indirizzo di origine, indirizzo di destinazione e porte di destinazione. Viene anche aggiunta una regola dell'applicazione per **alcuni** degli endpoint richiesti da AKS.
 
-In uno scenario di produzione, è necessario abilitare l'accesso solo agli endpoint necessari per l'applicazione e a quelli definiti in [AKS required egress](egress.md).
+In uno scenario di produzione è necessario abilitare l'accesso solo agli endpoint necessari per l'applicazione e a quelli definiti in [AKS in uscita](egress.md).
 
 ```
 # Add Network FW Rules
@@ -273,11 +273,11 @@ az network firewall application-rule create -g $RG -f $FWNAME \
         'acs-mirror.azureedge.net'
 ```
 
-Per altre informazioni sul servizio Firewall di Azure, vedere [la documentazione](https://docs.microsoft.com/azure/firewall/overview) di Firewall di Azure.See Azure Firewall documentation to learn more about the Azure Firewall service.
+Vedere la [documentazione del firewall di Azure](https://docs.microsoft.com/azure/firewall/overview) per altre informazioni sul servizio firewall di Azure.
 
-## <a name="associate-the-route-table-to-aks"></a>Associare la tabella di route ad AKS
+## <a name="associate-the-route-table-to-aks"></a>Associare la tabella di route a AKS
 
-Per associare il cluster al firewall, la subnet dedicata per la subnet del cluster deve fare riferimento alla tabella di route creata in precedenza. L'associazione può essere eseguita inviando un comando alla rete virtuale che contiene sia il cluster che il firewall per aggiornare la tabella di route della subnet del cluster.
+Per associare il cluster al firewall, è necessario che la subnet dedicata per la subnet del cluster faccia riferimento alla tabella di route creata in precedenza. È possibile eseguire l'associazione inviando un comando alla rete virtuale che contiene sia il cluster che il firewall per aggiornare la tabella di route della subnet del cluster.
 
 ```azure-cli
 # Associate route table with next hop to Firewall to the AKS subnet
@@ -285,15 +285,15 @@ Per associare il cluster al firewall, la subnet dedicata per la subnet del clust
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
-## <a name="deploy-aks-with-outbound-type-of-udr-to-the-existing-network"></a>Distribuire AKS con tipo di UDR in uscita nella rete esistenteDeploy AKS with outbound type of UDR to the existing network
+## <a name="deploy-aks-with-outbound-type-of-udr-to-the-existing-network"></a>Distribuire AKS con il tipo di UDR in uscita alla rete esistente
 
-Ora un cluster AKS può essere distribuito nella configurazione di rete virtuale esistente. Per impostare un tipo di cluster in uscita per il routing definito dall'utente, è necessario fornire una subnet esistente ad AKS.
+A questo punto è possibile distribuire un cluster AKS nella configurazione della rete virtuale esistente. Per impostare un tipo in uscita del cluster sul routing definito dall'utente, è necessario fornire una subnet esistente a AKS.
 
-![aks-deploy](media/egress-outboundtype/outboundtype-udr.png)
+![AKS-distribuzione](media/egress-outboundtype/outboundtype-udr.png)
 
-### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Creare un'entità servizio con accesso per il provisioning all'interno della rete virtuale esistenteCreate a service principal with access to provision inside the existing virtual network
+### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Creare un'entità servizio con accesso al provisioning all'interno della rete virtuale esistente
 
-Un'entità servizio viene usata da AKS per creare risorse cluster. L'entità servizio passata in fase di creazione viene usata per creare risorse AKS sottostanti, ad esempio macchine virtuali, archiviazione e servizi di bilanciamento del carico usati da AKS. Se vengono concesse autorizzazioni troppo poche, non sarà possibile eseguire il provisioning di un cluster AKS.
+Un'entità servizio viene usata da AKS per creare le risorse del cluster. L'entità servizio passata in fase di creazione viene usata per creare risorse AKS sottostanti, ad esempio macchine virtuali, archiviazione e servizi di bilanciamento del carico usati da AKS. Se vengono concesse autorizzazioni insufficienti, non sarà possibile effettuare il provisioning di un cluster AKS.
 
 ```azure-cli
 # Create SP and Assign Permission to Virtual Network
@@ -301,7 +301,7 @@ Un'entità servizio viene usata da AKS per creare risorse cluster. L'entità ser
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 ```
 
-Sostituire ora `APPID` `PASSWORD` e di seguito con l'appid dell'entità servizio e la password dell'entità servizio generata automaticamente dall'output del comando precedente. Faremo riferimento all'ID risorsa VNET per concedere le autorizzazioni all'entità servizio in modo che AKS possa distribuire le risorse in esso.
+Sostituire ora `APPID` e `PASSWORD` con l'ID dell'entità servizio e la password dell'entità servizio generate automaticamente dall'output del comando precedente. Si fa riferimento all'ID della risorsa VNET per concedere le autorizzazioni all'entità servizio in modo che AKS possa distribuire le risorse al suo interno.
 
 ```azure-cli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
@@ -316,20 +316,20 @@ az role assignment create --assignee $APPID --scope $VNETID --role Contributor
 az role assignment list --assignee $APPID --all -o table
 ```
 
-### <a name="deploy-aks"></a>Distribuire AKSDeploy AKS
+### <a name="deploy-aks"></a>Distribuisci AKS
 
-Infine, il cluster AKS può essere distribuito nella subnet esistente dedicata al cluster. La subnet di destinazione in cui essere `$SUBNETID`distribuita viene definita con la variabile di ambiente , . Non abbiamo definito `$SUBNETID` la variabile nei passaggi precedenti. Per impostare il valore per l'ID subnet, è possibile utilizzare il comando seguente:
+Infine, il cluster AKS può essere distribuito nella subnet esistente dedicata al cluster. La subnet di destinazione da distribuire in viene definita con la variabile di ambiente `$SUBNETID`,. La `$SUBNETID` variabile non è stata definita nei passaggi precedenti. Per impostare il valore per l'ID subnet, è possibile usare il comando seguente:
 
 ```azurecli
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
 ```
 
-Definiremo il tipo in uscita per seguire l'UDR presente nella subnet, consentendo ad AKS di ignorare l'installazione e il provisioning IP per il servizio di bilanciamento del carico che ora può essere strettamente interno.
+Si definirà il tipo in uscita per seguire il UDR che esiste nella subnet, consentendo ad AKS di ignorare l'installazione e il provisioning IP per il servizio di bilanciamento del carico che ora può essere strettamente interno.
 
-La funzionalità AKS per [gli intervalli IP autorizzati](api-server-authorized-ip-ranges.md) al server API può essere aggiunta per limitare l'accesso al server API solo all'endpoint pubblico del firewall. La funzionalità degli intervalli IP autorizzati è indicata nel diagramma come gruppo di sicurezza di sicurezza di database che deve essere passato per accedere al piano di controllo. Quando si abilita la funzionalità di intervallo IP autorizzato per limitare l'accesso al server API, gli strumenti di sviluppo devono utilizzare un jumpbox dalla rete virtuale del firewall oppure è necessario aggiungere tutti gli endpoint di sviluppo all'intervallo IP autorizzato.
+È possibile aggiungere la funzionalità AKS per gli [intervalli IP autorizzati del server API](api-server-authorized-ip-ranges.md) per limitare l'accesso al server API solo all'endpoint pubblico del firewall. La funzionalità degli intervalli IP autorizzati è indicata nel diagramma come NSG che deve essere passata per accedere al piano di controllo. Quando si Abilita la funzionalità intervallo IP autorizzato per limitare l'accesso al server API, gli strumenti di sviluppo devono usare un JumpBox dalla rete virtuale del firewall oppure è necessario aggiungere tutti gli endpoint per sviluppatori all'intervallo di indirizzi IP autorizzati.
 
 > [!TIP]
-> È possibile aggiungere ulteriori funzionalità alla distribuzione del cluster, ad esempio (Cluster privato)[]. Quando si utilizzano intervalli IP autorizzati, sarà necessario un jumpbox all'interno della rete del cluster per accedere al server API.
+> È possibile aggiungere funzionalità aggiuntive alla distribuzione del cluster, ad esempio (cluster privato) []. Quando si usano intervalli IP autorizzati, per accedere al server API è necessario un JumpBox all'interno della rete cluster.
 
 ```azure-cli
 az aks create -g $RG -n $AKS_NAME -l $LOC \
@@ -346,11 +346,11 @@ az aks create -g $RG -n $AKS_NAME -l $LOC \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
   ```
 
-### <a name="enable-developer-access-to-the-api-server"></a>Abilitare l'accesso dello sviluppatore al server APIEnable developer access to the API server
+### <a name="enable-developer-access-to-the-api-server"></a>Consentire agli sviluppatori di accedere al server API
 
-A causa della configurazione degli intervalli IP autorizzati per il cluster, è necessario aggiungere gli indirizzi IP degli strumenti di sviluppo all'elenco di cluster AKS degli intervalli IP approvati per accedere al server API. Un'altra opzione consiste nel configurare un jumpbox con gli strumenti necessari all'interno di una subnet separata nella rete virtuale del firewall.
+A causa della configurazione degli intervalli IP autorizzati per il cluster, è necessario aggiungere gli indirizzi IP degli strumenti per sviluppatori all'elenco di cluster AKS degli intervalli IP approvati per accedere al server API. Un'altra opzione consiste nel configurare un JumpBox con gli strumenti necessari all'interno di una subnet separata nella rete virtuale del firewall.
 
-Aggiungere un altro indirizzo IP agli intervalli approvati con il seguente comando
+Aggiungere un altro indirizzo IP agli intervalli approvati con il comando seguente
 
 ```bash
 # Retrieve your IP address
@@ -361,7 +361,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
- Utilizzare il comando [az aks get-credentials][az-aks-get-credentials] per configurare `kubectl` la connessione al cluster Kubernetes appena creato. 
+ Usare il comando [AZ AKS Get-credentials][az-aks-get-credentials] per `kubectl` configurare la connessione al cluster Kubernetes appena creato. 
 
  ```azure-cli
  az aks get-credentials -g $RG -n $AKS_NAME
@@ -369,9 +369,9 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ### <a name="setup-the-internal-load-balancer"></a>Configurare il servizio di bilanciamento del carico interno
 
-AKS ha distribuito un servizio di bilanciamento del carico con il cluster che può essere configurato come servizio di [bilanciamento del carico interno.](internal-lb.md)
+AKS ha distribuito un servizio di bilanciamento del carico con il cluster, che può essere configurato come un servizio di [bilanciamento del carico interno](internal-lb.md).
 
-Per creare un servizio di bilanciamento del carico interno, creare un manifesto del servizio denominato internal-lb.yaml con il tipo di servizio LoadBalancer e l'annotazione interna al servizio di bilanciamento del carico di azure, come illustrato nell'esempio seguente:To create an internal load balancer, create a service manifest named internal-lb.yaml with the service type LoadBalancer and the azure-load-balancer-internal annotation as shown in the following example:
+Per creare un servizio di bilanciamento del carico interno, creare un manifesto del servizio denominato Internal-lb. YAML con il tipo di servizio LoadBalancer e l'annotazione Azure-Load-Balancer-Internal come illustrato nell'esempio seguente:
 
 ```yaml
 apiVersion: v1
@@ -389,7 +389,7 @@ spec:
     app: internal-app
 ```
 
-Distribuire il servizio di bilanciamento del carico interno usando l'applicazione kubectl e specificare il nome del manifesto YAML:Deploy the internal load balancer using the kubectl apply and specify the name of your YAML manifest:
+Distribuire il servizio di bilanciamento del carico interno usando kubectl Apply e specificare il nome del manifesto YAML:
 
 ```bash
 kubectl apply -f internal-lb.yaml
@@ -397,9 +397,9 @@ kubectl apply -f internal-lb.yaml
 
 ## <a name="deploy-a-kubernetes-service"></a>Distribuire un servizio Kubernetes
 
-Poiché il tipo di cluster in uscita è impostato come UDR, l'associazione dei nodi dell'agente come pool back-end per il servizio di bilanciamento del carico non viene completata automaticamente da AKS in fase di creazione del cluster. Tuttavia, l'associazione del pool back-end viene gestita dal provider cloud di Kubernetes Azure quando viene distribuito il servizio Kubernetes.However, backend pool association is handled by the Kubernetes Azure cloud provider when the Kubernetes service is deployed.
+Poiché il tipo in uscita del cluster è impostato come UDR, l'associazione dei nodi dell'agente come pool back-end per il servizio di bilanciamento del carico non viene completata automaticamente da AKS al momento della creazione del cluster. Tuttavia, l'associazione del pool back-end viene gestita dal provider di servizi cloud di Azure Kubernetes quando viene distribuito il servizio Kubernetes.
 
-Distribuire l'applicazione dell'app di voto di Azure `example.yaml`copiando lo yaml riportato di seguito in un file denominato .
+Distribuire l'applicazione Azure vote App copiando il file YAML riportato di seguito in `example.yaml`un file denominato.
 
 ```yaml
 apiVersion: apps/v1
@@ -495,19 +495,19 @@ Distribuire il servizio eseguendo:
 kubectl apply -f example.yaml
 ```
 
-## <a name="add-a-dnat-rule-to-azure-firewall"></a>Aggiungere una regola DNAT a Firewall di AzureAdd a DNAT rule to Azure Firewall
+## <a name="add-a-dnat-rule-to-azure-firewall"></a>Aggiungere una regola DNAT al firewall di Azure
 
-To configure inbound connectivity, a DNAT rule must be written to the Azure Firewall. Per verificare la connettività al cluster, viene definita una regola per l'indirizzo IP pubblico front-end del firewall per instradare all'indirizzo IP interno esposto dal servizio interno.
+Per configurare la connettività in ingresso, è necessario scrivere una regola DNAT nel firewall di Azure. Per testare la connettività al cluster, viene definita una regola per l'indirizzo IP pubblico front-end del firewall da indirizzare all'IP interno esposto dal servizio interno.
 
-L'indirizzo di destinazione può essere personalizzato in quanto è la porta sul firewall a cui accedere. L'indirizzo convertito deve essere l'indirizzo IP del servizio di bilanciamento del carico interno. La porta tradotta deve essere la porta esposta per il servizio Kubernetes.
+È possibile personalizzare l'indirizzo di destinazione perché è la porta sul firewall a cui accedere. L'indirizzo convertito deve essere l'indirizzo IP del servizio di bilanciamento del carico interno. La porta convertita deve essere la porta esposta per il servizio Kubernetes.
 
-È necessario specificare l'indirizzo IP interno assegnato al servizio di bilanciamento del carico creato dal servizio Kubernetes. Recuperare l'indirizzo eseguendo:
+Sarà necessario specificare l'indirizzo IP interno assegnato al servizio di bilanciamento del carico creato dal servizio Kubernetes. Recuperare l'indirizzo eseguendo:
 
 ```bash
 kubectl get services
 ```
 
-L'indirizzo IP necessario verrà elencato nella colonna EXTERNAL-IP, simile al seguente.
+L'indirizzo IP necessario verrà elencato nella colonna EXTERNAL-IP, simile a quanto riportato di seguito.
 
 ```bash
 NAME               TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
@@ -523,7 +523,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 > [!NOTE]
-> Quando si elimina il servizio interno Kubernetes, se il servizio di bilanciamento del carico interno non è più utilizzato da alcun servizio, il provider cloud di Azure eliminerà il servizio di bilanciamento del carico interno. Nella distribuzione successiva del servizio verrà distribuito un servizio di bilanciamento del carico se non ne è stato trovato nessuno con la configurazione richiesta.
+> Quando si elimina il servizio interno Kubernetes, se il servizio di bilanciamento del carico interno non è più usato da alcun servizio, il provider di servizi cloud di Azure eliminerà il servizio di bilanciamento del carico interno. Alla successiva distribuzione del servizio, verrà distribuito un servizio di bilanciamento del carico se non è possibile trovarlo con la configurazione richiesta.
 
 Per pulire le risorse di Azure, eliminare il gruppo di risorse AKS.
 
@@ -533,15 +533,15 @@ az group delete -g $RG
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 
-Passare all'indirizzo IP del front-end di Firewall di Azure in un browser per convalidare la connettività.
+Passare all'indirizzo IP front-end del firewall di Azure in un browser per convalidare la connettività.
 
-Verrà visualizzata un'immagine dell'app di voto di Azure.You should see an image of the Azure voting app.
+Verrà visualizzata un'immagine dell'app Azure vote.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [Panoramica dell'UDR di rete di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).See Azure networking UDR overview .
+Vedere [Panoramica di UdR](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)per la rete di Azure.
 
-Informazioni su [come creare, modificare o eliminare una tabella di route.](https://docs.microsoft.com/azure/virtual-network/manage-route-table)
+Vedere [come creare, modificare o eliminare una tabella di route](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

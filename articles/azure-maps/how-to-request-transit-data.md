@@ -1,6 +1,6 @@
 ---
-title: Richiesta di dati di transito Mappe di Microsoft Azure
-description: In this article, you will learn how to request public transit data using the Microsoft Azure Maps Mobility Service.
+title: Dati di transito della richiesta | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come richiedere i dati di transito pubblici usando il servizio Mobility di Microsoft Azure maps.
 author: philmea
 ms.author: philmea
 ms.date: 09/06/2019
@@ -16,45 +16,45 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80335467"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere dati di trasporto pubblico usando il servizio per dispositivi mobili di Azure MapsRequest public transit data using the Azure Maps Mobility Service 
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere i dati di transito pubblici usando il servizio Mobility di Azure Maps 
 
-Questo articolo illustra come usare il servizio [per dispositivi mobili](https://aka.ms/AzureMapsMobilityService) di Azure Maps per richiedere i dati di trasporto pubblico. I dati di transito includono le fermate di transito, le informazioni sul percorso e le stime del tempo di percorrenza.
+Questo articolo illustra come usare il [servizio Mobility](https://aka.ms/AzureMapsMobilityService) di Azure Maps per richiedere dati di transito pubblici. I dati di transito includono arresti di transito, informazioni sulla Route e stime del tempo di viaggio.
 
-In questo articolo imparerai come:
+In questo articolo si apprenderà come:
 
-* Ottenere un ID area metropolitana utilizzando [l'API Get Metro Area](https://aka.ms/AzureMapsMobilityMetro)
-* La richiesta di transito nelle vicinanze smette di utilizzare il servizio [Get Nearby Transit.](https://aka.ms/AzureMapsMobilityNearbyTransit)
-* Eseguire query [sull'API Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute) per pianificare un percorso tramite il trasporto pubblico.
-* Richiedere la geometria del percorso di transito e la pianificazione dettagliata per il percorso utilizzando [l'API Get Transit Itinerary](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
+* Ottenere un ID area Metro usando l' [API area metropolitana Get](https://aka.ms/AzureMapsMobilityMetro)
+* La richiesta interrompe il transito con il servizio di [transito vicino](https://aka.ms/AzureMapsMobilityNearbyTransit) .
+* Query [ottenere le route di transito API](https://aka.ms/AzureMapsMobilityTransitRoute) per pianificare una route usando il trasporto pubblico.
+* Richiedere la geometria della route di transito e la pianificazione dettagliata per la route usando l' [API per ottenere](https://aka.ms/https://azure.microsoft.com/services/azure-maps/)il percorso di transito.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È innanzitutto necessario disporre di un account di Azure Maps e di una chiave di sottoscrizione per effettuare chiamate alle API di trasporto pubblico di Azure Maps.You first need to have an Azure Maps account and a subscription key to make any calls to the Azure Maps public transit APIs. Per informazioni, seguire le istruzioni in Creare un account per creare un account di Azure Maps.For information, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account. Segui i passaggi descritti in Ottenere la [chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per il tuo account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
+Prima di tutto è necessario avere un account Azure Maps e una chiave di sottoscrizione per effettuare chiamate alle API di transito pubblico di Azure maps. Per informazioni, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare un account Azure maps. Seguire i passaggi in [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 
 
-## <a name="get-a-metro-area-id"></a>Ottenere un ID area metropolitanaGet a metro area ID
+## <a name="get-a-metro-area-id"></a>Ottenere un ID area metro
 
-Per richiedere informazioni di transito per una particolare area `metroId` metropolitana, avrai bisogno di quella zona. [L'API Get Metro Area](https://aka.ms/AzureMapsMobilityMetro) consente di richiedere aree metropolitane in cui è disponibile il servizio per dispositivi mobili di Azure Maps.The Get Metro Area API allows you to request metro areas, in which the Azure Maps Mobility Service is available. La risposta include dettagli `metroId` `metroName`quali , e la rappresentazione della geometria dell'area metropolitana in formato GeoJSON.
+Per richiedere informazioni di transito per una particolare area metropolitana, è necessario disporre `metroId` di tale area. L' [API Get Metro Area](https://aka.ms/AzureMapsMobilityMetro) consente di richiedere le aree metropolitane, in cui è disponibile il servizio Mobility di Azure maps. La risposta include i dettagli `metroId`, ad esempio `metroName`, e la rappresentazione della geometria dell'area metro in formato GeoJSON.
 
-Facciamo una richiesta per ottenere l'area metropolitana per l'ID dell'area metropolitana di Seattle-Tacoma. La procedura seguente illustra come richiedere l'ID per un'area metropolitana:
+Facciamo una richiesta per ottenere l'area metropolitana per l'ID area della metro Seattle-Tacoma. Per richiedere l'ID per un'area metropolitana, completare i passaggi seguenti:
 
-1. Apri l'app Postman e creiamo una raccolta per archiviare le richieste. Nella parte superiore dell'app Postman selezionare **Nuovo**. Nella finestra **Crea nuovo** selezionare **Raccolta**.  Assegnare un nome alla raccolta e selezionare il pulsante **Crea.Name** the collection and select the Create button.
+1. Aprire l'app postazione e creare una raccolta per archiviare le richieste. Nella parte superiore dell'app post, selezionare **nuovo**. Nella finestra **Crea nuova** selezionare **raccolta**.  Assegnare un nome alla raccolta e selezionare il pulsante **Crea** .
 
-2. Per creare la richiesta, selezionare di nuovo **Nuovo.** Nella finestra **Crea nuovo** selezionare **Richiedi**. Immettere un **Nome richiesta** per la richiesta. Selezionare la raccolta creata nel passaggio precedente come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
+2. Per creare la richiesta, selezionare nuovamente **nuovo** . Nella finestra **Crea nuova** selezionare **Request**. Immettere un **nome di richiesta** per la richiesta. Selezionare la raccolta creata nel passaggio precedente come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
     
-    ![Creare una richiesta in Postman](./media/how-to-request-transit-data/postman-new.png)
+    ![Creare una richiesta in post](./media/how-to-request-transit-data/postman-new.png)
 
-3. Selezionare il metodo **GET** HTTP nella scheda Generatore e immettere l'URL seguente per creare una richiesta GET. Sostituire `{subscription-key}`, con la chiave primaria di Azure Maps.
+3. Selezionare il metodo **Get** http nella scheda generatore e immettere l'URL seguente per creare una richiesta GET. Sostituire `{subscription-key}`con la chiave primaria di Azure maps.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
     ```
 
-4. Dopo una richiesta riuscita, riceverai la seguente risposta:
+4. Dopo una richiesta con esito positivo, si riceverà la risposta seguente:
 
     ```JSON
     {
@@ -111,23 +111,23 @@ Facciamo una richiesta per ottenere l'area metropolitana per l'ID dell'area metr
     }
     ```
 
-5. Copiare `metroId`il , sarà necessario utilizzarlo in un secondo momento.
+5. Copiare il `metroId`, sarà necessario usarlo in un secondo momento.
 
-## <a name="request-nearby-transit-stops"></a>Richiesta fermate di transito nelle vicinanze
+## <a name="request-nearby-transit-stops"></a>Richiedi arresti di transito vicino
 
-Il servizio Azure Maps [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) consente di cercare oggetti di transito.  l'API restituisce i dettagli dell'oggetto di transito, ad esempio le soste di transito pubblico e le biciclette condivise intorno a una determinata posizione. Successivamente faremo una richiesta al servizio per cercare le fermate dei mezzi pubblici nelle vicinanze entro un raggio di 300 metri intorno alla posizione specificata. Nella richiesta, è necessario `metroId` includere il recuperato in precedenza.
+Il servizio di [transito](https://aka.ms/AzureMapsMobilityNearbyTransit) delle mappe di Azure consente di eseguire ricerche in oggetti di transito.  l'API restituisce i dettagli dell'oggetto di transito, ad esempio le interruzioni di transito pubbliche e le biciclette condivise in una determinata località. A questo punto, verrà richiesta al servizio la ricerca di interruzioni di transito pubblico vicine entro un raggio di 300 metri intorno alla località specificata. Nella richiesta, è necessario includere il `metroId` recuperato in precedenza.
 
-Per effettuare una richiesta al [Get Nearby Transit,](https://aka.ms/AzureMapsMobilityNearbyTransit)attenersi alla seguente procedura:
+Per effettuare una richiesta per il [transito vicino](https://aka.ms/AzureMapsMobilityNearbyTransit), attenersi alla procedura seguente:
 
-1. In Postman fare clic su **Nuova** | **richiesta GET richiesta** e denominarla Get Nearby **stops**.
+1. In postazione fare clic su **nuova richiesta richiesta** | **Get** e denominarla **Get immediately stops**.
 
-2. Nella scheda Generatore selezionare il metodo **HTTP GET,** immettere l'URL di richiesta seguente per l'endpoint API e fare clic su **Invia**.
+2. Nella scheda generatore selezionare il metodo **Get** http, immettere l'URL della richiesta seguente per l'endpoint API e fare clic su **Send**.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=47.63096,-122.126&radius=300&objectType=stop
     ```
 
-3. Dopo una richiesta riuscita, la struttura di risposta dovrebbe essere simile a quella riportata di seguito:After a successful request, the response structure should look like the one below:
+3. Dopo una richiesta con esito positivo, la struttura della risposta dovrebbe avere un aspetto simile al seguente:
 
     ```JSON
     {
@@ -214,30 +214,30 @@ Per effettuare una richiesta al [Get Nearby Transit,](https://aka.ms/AzureMapsMo
     }   
     ```
 
-Se si osserva attentamente la struttura di risposta, si noterà che contiene parametri per ogni oggetto di transito. Ogni oggetto transit dispone `id` `type`di `stopName` `mainTransitType`parametri `mainAgencyName`quali , , , , e la posizione, in coordinate, dell'oggetto.
+Se si osserva con attenzione la struttura della risposta, si noterà che contiene i parametri per ogni oggetto di transito. Ogni oggetto di transito presenta parametri come `id`, `type`, `stopName`, `mainTransitType`, `mainAgencyName`e la posizione, nelle coordinate, dell'oggetto.
 
-Ai fini dell'apprendimento, useremo una `id` delle fermate degli autobus come origine, per il nostro percorso nella sezione successiva.  
+Ai fini dell'apprendimento, verrà usata una `id` delle interruzioni del bus come origine, per il nostro itinerario nella sezione successiva.  
 
 
-## <a name="request-a-transit-route"></a>Richiedere un percorso di transito
+## <a name="request-a-transit-route"></a>Richiedere una route di transito
 
-[L'API Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute) di Azure Maps consente la pianificazione del viaggio. Restituisce le migliori opzioni di percorso possibili da un'origine a una destinazione. Il servizio offre diversi tipi di modalità di viaggio, tra cui a piedi, in bicicletta e mezzi pubblici. Successivamente, cercheremo un percorso dalla fermata dell'autobus più vicina alla torre Space Needle di Seattle.
+L'API Azure Maps [Get Transit Route](https://aka.ms/AzureMapsMobilityTransitRoute) consente la pianificazione dei viaggi. Restituisce le migliori opzioni di route possibili da un'origine a una destinazione. Il servizio offre diversi tipi di modalità di viaggio, tra cui l'escursionismo, il biking e il transito pubblico. Successivamente, verrà cercata una route dall'arresto del bus più vicino alla Torre Needle di spazio a Seattle.
 
-### <a name="get-location-coordinates-for-destination"></a>Ottenere le coordinate di posizione per la destinazioneGet location coordinates for destination
+### <a name="get-location-coordinates-for-destination"></a>Ottenere le coordinate di posizione per la destinazione
 
-Per ottenere le coordinate di posizione della torre Space Needle, consente di usare il servizio di [ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)di Azure Maps .
+Per ottenere le coordinate della posizione dello spazio, è possibile usare l' [servizio di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)Maps di Azure.
 
-Per effettuare una richiesta al servizio di ricerca Fuzzy, attenersi alla seguente procedura:
+Per effettuare una richiesta al servizio ricerca fuzzy, attenersi alla procedura seguente:
 
-1. In Postman fare clic su **Nuova** | **richiesta GET richiesta** e denominarla Ottieni coordinate **posizione**.
+1. In postazione fare clic su **nuova richiesta richiesta** | **Get** e denominarla **get location coordinates**.
 
-2.  Nella scheda Generatore selezionare il metodo **HTTP GET,** immettere l'URL della richiesta seguente e fare clic su **Invia**.
+2.  Nella scheda generatore selezionare il metodo **Get** http, immettere l'URL della richiesta seguente e fare clic su **Send**.
  
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
     
-3. Se si guarda la risposta con attenzione, contiene più posizioni nei risultati per la ricerca Space Needle. Ogni risultato contiene le coordinate di posizione sotto la **posizione**. Copiare `lat` `lon` il e sotto la **posizione** del primo risultato.
+3. Se si esamina con attenzione la risposta, questa contiene più posizioni nei risultati per la ricerca con aghi di spazio. Ogni risultato contiene le coordinate della posizione sotto la **posizione**. Copiare `lat` e `lon` nella **posizione** del primo risultato.
     
    ```JSON
    {
@@ -333,23 +333,23 @@ Per effettuare una richiesta al servizio di ricerca Fuzzy, attenersi alla seguen
     ``` 
     
 
-### <a name="request-route"></a>Richiedi percorso
+### <a name="request-route"></a>Route richiesta
 
-Per effettuare una richiesta di percorso, completare i passaggi seguenti:To make a route request, complete the steps below:
+Per eseguire una richiesta di route, attenersi alla procedura seguente:
 
-1. In Postman fare clic su **Nuova** | **richiesta GET richiesta** e denominarla Ottieni informazioni **percorso**.
+1. In post, fare clic su **nuova richiesta** | **Get request** e assegnare al nome **Get Route info**.
 
-2. Nella scheda Generatore selezionare il metodo **HTTP GET,** immettere l'URL di richiesta seguente per l'endpoint API e fare clic su **Invia**.
+2. Nella scheda generatore selezionare il metodo **Get** http, immettere l'URL della richiesta seguente per l'endpoint API e fare clic su **Send**.
 
-    Richiediamo percorsi di trasporto pubblico per `modeType` un `transitType` bus specificando i parametri e . L'URL della richiesta contiene le posizioni recuperate nelle sezioni precedenti. Per `originType`il , ora abbiamo un **stopId**. E per `destionationType`la , abbiamo la **posizione**.
+    Verranno richieste route di transito pubblico per un bus specificando i `modeType` parametri `transitType` e. L'URL della richiesta contiene le posizioni recuperate nelle sezioni precedenti. Per il `originType`è ora disponibile un **stopId**. E per `destionationType`, abbiamo la **posizione**.
 
-    Vedere [l'elenco dei parametri URI](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) che è possibile utilizzare nella richiesta all'API [Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute). 
+    Vedere l' [elenco dei parametri URI](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) che è possibile usare nella richiesta all' [API Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute). 
   
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&originType=stopId&origin=522---2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
     ```
 
-3. In caso di richiesta riuscita, la struttura di risposta dovrebbe essere simile a quella riportata di seguito:Upon a successful request, the response structure should look like the one below:
+3. Una volta completata la richiesta, la struttura della risposta dovrebbe essere simile a quella riportata di seguito:
 
     ```JSON
     {
@@ -494,23 +494,23 @@ Per effettuare una richiesta di percorso, completare i passaggi seguenti:To make
     }
     ```
 
-4. Se si osserva attentamente, ci sono più linee **di autobus** nella risposta. Ogni percorso ha un **ID itinerario** univoco e un riepilogo che descrive ogni tappa del percorso. Una tappa del percorso è la parte del percorso tra due punti di sosta. Successivamente, chiederemo i dettagli per il `itineraryId` percorso più veloce utilizzando il nella risposta.
+4. Se si osserva con attenzione, nella risposta sono presenti più route del **bus** . Ogni route ha un **ID itinerario** univoco e un riepilogo che descrive ogni parte della route. Un itinerario è la parte del percorso tra due punti di interruzione. Successivamente, verranno richiesti i dettagli per la route più veloce usando `itineraryId` nella risposta.
 
-## <a name="request-fastest-route-itinerary"></a>Richiedi itinerario percorso più veloce
+## <a name="request-fastest-route-itinerary"></a>Richiedi itinerario Route più veloce
 
-Il servizio Azure Maps Get Transit Itinerary consente di richiedere dati per una route specifica usando l'ID **itinerario** della route restituito dal servizio API Get Transit Routes.The Azure Maps [Get Transit Itinerary service](https://aka.ms/AzureMapsMobilityTransitItinerary) allows you to request data for a particular route using the route's itinerary ID ed by the [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRoute) service. Per effettuare una richiesta, completare i passaggi seguenti:To make a request, complete the steps below:
+Il servizio Azure Maps [Get Transit itinerario](https://aka.ms/AzureMapsMobilityTransitItinerary) consente di richiedere i dati per una determinata route usando l' **ID itinerario** della route restituito dal servizio [API Get Transit Routes](https://aka.ms/AzureMapsMobilityTransitRoute) . Per effettuare una richiesta, completare i passaggi seguenti:
 
-1. In Postman fare clic su **Nuova** | **richiesta GET richiesta** e denominarla Ottieni informazioni **transito**.
+1. In postazione fare clic su **nuova richiesta richiesta** | **Get** e assegnare al file il nome **Get Transit info**.
 
-2. Nella scheda Generatore selezionare il metodo **GET** HTTP. Immettere l'URL di richiesta seguente per l'endpoint API e fare clic su **Invia**.
+2. Nella scheda generatore selezionare il metodo **Get** http. Immettere l'URL della richiesta seguente per l'endpoint API e fare clic su **Send (Invia**).
 
-    Il `detailType` parametro verrà impostato sulla **geometria** in modo che la risposta contenga informazioni di arresto per i trasporti pubblici e la navigazione turn-by-turn per le tratte camminate e in bicicletta del percorso.
+    Il `detailType` parametro verrà impostato su **Geometry** in modo che la risposta contenga le informazioni di arresto per il trasporto pubblico e la navigazione turn-by-turn per le gambe della strada e della bicicletta.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry
     ```
     
-3. In caso di richiesta riuscita, la struttura di risposta dovrebbe essere simile a quella riportata di seguito:Upon a successful request, the response structure should look like the one below:
+3. Una volta completata la richiesta, la struttura della risposta dovrebbe essere simile a quella riportata di seguito:
 
     ```JSON
     {
@@ -781,12 +781,12 @@ Il servizio Azure Maps Get Transit Itinerary consente di richiedere dati per una
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri come richiedere dati in tempo reale utilizzando il servizio Mobility:
+Informazioni su come richiedere dati in tempo reale tramite il servizio Mobility:
 
 > [!div class="nextstepaction"]
 > [Come richiedere dati in tempo reale](how-to-request-real-time-data.md)
 
-Esplorare la documentazione dell'API del servizio per dispositivi mobili di Azure MapsExplore the Azure Maps Mobility Service API documentation
+Esplora la documentazione dell'API del servizio Mobility di Azure Maps
 
 > [!div class="nextstepaction"]
 > [Documentazione dell'API del servizio Mobility](https://aka.ms/AzureMapsMobilityService)

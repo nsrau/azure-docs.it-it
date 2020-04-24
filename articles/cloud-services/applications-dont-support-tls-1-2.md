@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi causati da applicazioni che non supportano TLS 1.2 Documenti Microsoft
-description: Risoluzione dei problemi causati da applicazioni che non supportano TLS 1.2
+title: Risoluzione dei problemi causati da applicazioni che non supportano TLS 1,2 | Microsoft Docs
+description: Risoluzione dei problemi causati da applicazioni che non supportano TLS 1,2
 services: cloud-services
 documentationcenter: ''
 author: mimckitt
@@ -21,24 +21,24 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80053764"
 ---
-# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Risoluzione dei problemi delle applicazioni che non supportano TLS 1.2
-In questo articolo viene descritto come abilitare i protocolli TLS meno recenti (TLS 1.0 e 1.1) nonché applicare suite di crittografia legacy per supportare i protocolli aggiuntivi nei ruoli Web e di lavoro del servizio cloud di Windows Server 2019. 
+# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Risoluzione dei problemi relativi alle applicazioni che non supportano TLS 1,2
+Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1,0 e 1,1), nonché come applicare pacchetti di crittografia legacy per supportare i protocolli aggiuntivi nei ruoli Web e di lavoro del servizio cloud di Windows Server 2019. 
 
-Siamo consapevoli che mentre stiamo prendendo misure per deprecare TLS 1.0 e TLS 1.1, i nostri clienti potrebbero avere bisogno di supportare i protocolli meno recenti e le suite di crittografia fino a quando non possono pianificare la loro deprecazione.  Anche se non consigliamo di riattivare questi valori legacy, forniamo indicazioni per aiutare i clienti. Incoraggiamo i clienti a valutare il rischio di regressione prima di implementare le modifiche descritte in questo articolo. 
+Microsoft comprende che, durante l'esecuzione dei passaggi per deprecare TLS 1,0 e TLS 1,1, è possibile che i clienti debbano supportare i protocolli e i pacchetti di crittografia precedenti fino a quando non pianificano la loro deprecazione.  Sebbene non sia consigliabile riabilitare questi valori legacy, verranno fornite indicazioni per aiutare i clienti. Si consiglia ai clienti di valutare il rischio di regressione prima di implementare le modifiche descritte in questo articolo. 
 
 > [!NOTE]
-> La versione guest OS Family 6 impone TLS 1.2 disabilitando in modo esplicito TLS 1.0 e 1.1 e definendo un set specifico di suite di crittografia. Per ulteriori informazioni sulle famiglie di sistemi operanti ospiti, vedere [Guest OS release news](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> La versione 6 della famiglia di sistemi operativi guest impone TLS 1,2 disabilitando in modo esplicito TLS 1,0 e 1,1 e definendo un set specifico di pacchetti di crittografia. Per ulteriori informazioni sulle famiglie di sistemi operativi guest, vedere le [notizie sulla versione del sistema operativo guest](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
 
 
-## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Eliminazione del supporto per TLS 1.0, TLS 1.1 e vecchie suite di crittografia 
-A sostegno del nostro impegno a utilizzare la crittografia best-in-class, Microsoft ha annunciato l'intenzione di avviare la migrazione lontano da TLS 1.0 e 1.1 nel giugno del 2017.   Da tale annuncio iniziale, Microsoft ha annunciato l'intenzione di disabilitare Transport Layer Security (TLS) 1.0 e 1.1 per impostazione predefinita nelle versioni supportate di Microsoft Edge e Internet Explorer 11 nella prima metà del 2020.  Annunci simili da parte di Apple, Google e Mozilla indicano la direzione in cui il settore è diretto.   
+## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Eliminazione del supporto per TLS 1,0, TLS 1,1 e pacchetti di crittografia precedenti 
+A supporto del nostro impegno a usare la crittografia migliore, Microsoft ha annunciato piani per iniziare la migrazione da TLS 1,0 e 1,1 a giugno 2017.   Poiché tale annuncio iniziale, Microsoft ha annunciato l'intenzione di disabilitare Transport Layer Security (TLS) 1,0 e 1,1 per impostazione predefinita nelle versioni supportate di Microsoft Edge e Internet Explorer 11 nella prima metà di 2020.  Annunci simili da Apple, Google e Mozilla indicano la direzione in cui il settore è diretto.   
 
-Per altre informazioni, vedere [Preparazione per TLS 1.2 in Microsoft AzureFor more information, see Preparing for TLS 1.2 in Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
+Per ulteriori informazioni, vedere [preparazione per TLS 1,2 in Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
 ## <a name="tls-configuration"></a>Configurazione TLS  
-L'immagine del server cloud di Windows Server 2019 è configurata con TLS 1.0 e TLS 1.1 disabilitato a livello di Registro di sistema. Ciò significa che le applicazioni distribuite in questa versione di Windows e utilizzando lo stack di Windows per la negoziazione TLS non consentirà la comunicazione TLS 1.0 e TLS 1.1.   
+L'immagine server di Windows Server 2019 cloud è configurata con TLS 1,0 e TLS 1,1 disabilitato a livello di registro di sistema. Ciò significa che le applicazioni distribuite a questa versione di Windows e che usano lo stack di Windows per la negoziazione TLS non consentiranno la comunicazione TLS 1,0 e TLS 1,1.   
 
-Il server viene fornito anche con un set limitato di suite di crittografia: 
+Il server dispone anche di un set limitato di pacchetti di crittografia: 
 
 ```
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
@@ -51,9 +51,9 @@ Il server viene fornito anche con un set limitato di suite di crittografia:
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 ```
 
-## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Passaggio 1: Creare lo script di PowerShell per abilitare TLS 1.0 e TLS 1.1Step 1: Create the PowerShell script to enable TLS 1.0 and TLS 1.1 
+## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Passaggio 1: creare lo script di PowerShell per abilitare TLS 1,0 e TLS 1,1 
 
-Utilizzare il codice seguente come esempio per creare uno script che abilita i protocolli e i pacchetti di crittografia meno recenti. Ai fini di questa documentazione, questo script sarà denominato: **TLSsettings.ps1**. Archiviare questo script sul desktop locale per un facile accesso nei passaggi successivi. 
+Usare il codice seguente come esempio per creare uno script che Abilita i protocolli e i pacchetti di crittografia precedenti. Ai fini di questa documentazione, questo script verrà denominato: **TLSsettings. ps1**. Archiviare questo script sul desktop locale per facilitarne l'accesso nei passaggi successivi. 
 
 
 ```Powershell
@@ -273,9 +273,9 @@ If ($reboot) {
 }
 ```
 
-## <a name="step-2-create-a-command-file"></a>Passaggio 2: Creare un file di comandoStep 2: Create a command file 
+## <a name="step-2-create-a-command-file"></a>Passaggio 2: creare un file di comando 
 
-Creare un file CMD denominato **RunTLSSettings.cmd** utilizzando quanto segue. Archiviare questo script sul desktop locale per un facile accesso nei passaggi successivi. 
+Creare un file CMD denominato **RunTLSSettings. cmd** usando quanto riportato di seguito. Archiviare questo script sul desktop locale per facilitarne l'accesso nei passaggi successivi. 
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -300,7 +300,7 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Passaggio 3: Aggiungere l'attività di avvio alla definizione del servizio del ruolo (csdef)Step 3: Add the startup task to the role's service definition (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Passaggio 3: aggiungere l'attività di avvio alla definizione del servizio del ruolo (csdef) 
 
 Aggiungere il frammento di codice seguente al file di definizione del servizio esistente. 
 
@@ -311,7 +311,7 @@ Aggiungere il frammento di codice seguente al file di definizione del servizio e
     </Startup> 
 ```
 
-Di seguito è riportato un esempio che illustra sia il ruolo di lavoro che il ruolo Web. 
+Di seguito è riportato un esempio che mostra il ruolo di lavoro e il ruolo Web. 
 
 ```
 <?xmlversion="1.0"encoding="utf-8"?> 
@@ -341,27 +341,27 @@ Di seguito è riportato un esempio che illustra sia il ruolo di lavoro che il ru
 </ServiceDefinition> 
 ```
 
-## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Passaggio 4: Aggiungere gli script al servizio cloudStep 4: Add the scripts to your Cloud Service 
+## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Passaggio 4: aggiungere gli script al servizio cloud 
 
 1) In Visual Studio fare clic con il pulsante destro del mouse su WebRole o WorkerRole
 2) Selezionare **Aggiungi**
 3) Seleziona **elemento esistente**
-4) In Esplora file passare al desktop in cui sono stati archiviati i file **TLSsettings.ps1** e **RunTLSSettings.cmd** 
-5) Selezionare i due file per aggiungerli al progetto Cloud Services
+4) In Esplora file passare al desktop in cui sono stati archiviati i file **TLSsettings. ps1** e **RunTLSSettings. cmd** 
+5) Selezionare i due file da aggiungere al progetto di servizi cloud
 
-## <a name="step-5-enable-copy-to-output-directory"></a>Passaggio 5: Abilitare la copia nella directory di outputStep 5: Enable Copy to Output Directory
+## <a name="step-5-enable-copy-to-output-directory"></a>Passaggio 5: abilitare la copia nella directory di output
 
-Per garantire che gli script vengano caricati a ogni aggiornamento inviato da Visual Studio, l'impostazione *Copia nella directory* di output deve essere impostata su Copia *sempre*
+Per assicurarsi che gli script vengano caricati con tutti gli aggiornamenti inseriti da Visual Studio, è necessario impostare la *copia nella directory di output* su *copia sempre*
 
-1) In WebRole o WorkerRole, fare clic con il pulsante destro del mouse su RunTLSSettings.cmd
-2) Seleziona **proprietà**
-3) Nella scheda delle proprietà, modificare *Copia nella directory* di output in Copia *sempre"*
-4) Ripetere i passaggi per **TLSsettings.ps1**
+1) In WebRole o WorkerRole fare clic con il pulsante destro del mouse su RunTLSSettings. cmd
+2) Selezione **Proprietà**
+3) Nella scheda Proprietà modificare copia nella *directory di output* in *copia sempre "*
+4) Ripetere i passaggi per **TLSsettings. ps1**
 
-## <a name="step-6-publish--validate"></a>Passaggio 6: Pubblicare & ConvalidaStep 6: Publish & Validate
+## <a name="step-6-publish--validate"></a>Passaggio 6: pubblicare & Validate
 
 Ora che i passaggi precedenti sono stati completati, pubblicare l'aggiornamento nel servizio cloud esistente. 
 
-È possibile utilizzare [SSLLabs](https://www.ssllabs.com/) per convalidare lo stato TLS degli endpoint 
+È possibile usare [SSLLabs](https://www.ssllabs.com/) per convalidare lo stato di TLS degli endpoint 
 
  

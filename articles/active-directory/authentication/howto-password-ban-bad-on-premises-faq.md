@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulla protezione password di Azure AD locale
-description: Esaminare le domande frequenti sulla protezione delle password di Azure AD in un ambiente di Servizi di dominio Active Directory localeReview frequently asked questions for Azure AD Password Protection in an on-premises Active Directory Domain Services environment
+description: Esaminare le domande frequenti per Azure AD la protezione delle password in un ambiente Active Directory Domain Services locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,55 +18,55 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2020
 ms.locfileid: "80652650"
 ---
-# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti su Azure AD Password Protection in localeAzure AD Password Protection on-premises frequently asked questions
+# <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti sulla protezione Azure AD password locale
 
-In questa sezione vengono fornite le risposte a molte domande frequenti su Azure AD Password Protection.This section provides answers to many commonly asked questions about Azure AD Password Protection.
+In questa sezione vengono fornite le risposte a molte domande frequenti sulla protezione Azure AD password.
 
 ## <a name="general-questions"></a>Domande generali
 
-**D: Quali indicazioni devono essere fornite agli utenti su come selezionare una password sicura?**
+**D: quali linee guida è necessario assegnare agli utenti per la selezione di una password sicura?**
 
 Le indicazioni correnti di Microsoft su questo argomento sono disponibili nella pagina Web a cui si accede tramite il collegamento seguente:
 
 [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance) (Indicazioni di Microsoft sulle password)
 
-**D: La protezione con password di Azure AD locale è supportata nei cloud non pubblici?**
+**D: la protezione delle password in locale Azure AD supportata in cloud non pubblici?**
 
 No, la protezione password di Azure AD locale è supportata solo nel cloud pubblico. Non è stata annunciata alcuna data per la disponibilità nei cloud non pubblici.
 
-Il portale di Azure AD consente la modifica della configurazione "Password protection for Windows Server Active Directory" specifica dell'ambiente locale anche in cloud non pubblici. tali modifiche saranno perseverate, ma altrimenti non avranno mai effetto. La registrazione di foreste o agenti proxy locali non è supportata quando vengono utilizzate credenziali cloud non pubbliche e qualsiasi tentativo di registrazione avrà sempre esito negativo.
+Il portale di Azure AD consente di modificare la configurazione di "Password Protection for Windows Server Active Directory" specifica locale anche in cloud non pubblici. tali modifiche verranno rese permanente, ma in caso contrario non saranno mai effettive. La registrazione degli agenti o delle foreste proxy locali non è supportata quando si usano credenziali di cloud non pubbliche e tutti questi tentativi di registrazione avranno sempre esito negativo.
 
-**D: In che modo è possibile applicare i vantaggi di Azure AD Password Protection a un sottoinsieme di utenti locali?**
+**D: in che modo è possibile applicare Azure AD vantaggi della protezione delle password a un sottoinsieme di utenti locali?**
 
 Non supportato. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
-**D: Qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
+**D: qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
 
-Una modifica della password è quando un utente sceglie una nuova password dopo aver dimostrato di essere a conoscenza della vecchia password. Ad esempio, una modifica della password è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
+Una modifica della password si verifica quando un utente sceglie una nuova password dopo avere dimostrato la conoscenza della vecchia password. Ad esempio, una modifica della password è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
 
-Una password impostata (talvolta chiamata reimpostazione della password) è quando un amministratore sostituisce la password di un account con una nuova password, ad esempio utilizzando lo strumento di gestione Utenti e computer di Active Directory. Questa operazione richiede un elevato livello di privilegi (in genere Domain Admin) e la persona che esegue l'operazione in genere non è a conoscenza della vecchia password. Gli scenari di help desk spesso eseguono set di password, ad esempio quando si assiste un utente che ha dimenticato la password. Vedrai anche gli eventi di impostazione della password quando un nuovo account utente viene creato per la prima volta con una password.
+Un set di password (talvolta denominato reimpostazione della password) si verifica quando un amministratore sostituisce la password di un account con una nuova password, ad esempio tramite lo strumento di gestione Active Directory utenti e computer. Questa operazione richiede un livello elevato di privilegi (in genere amministratore di dominio) e la persona che esegue l'operazione in genere non conosce la vecchia password. Gli scenari di supporto tecnico eseguono spesso set di password, ad esempio quando si assiste a un utente che ha dimenticato la password. Gli eventi di impostazione della password vengono visualizzati anche quando viene creato un nuovo account utente per la prima volta con una password.
 
-Il criterio di convalida della password si comporta allo stesso modo indipendentemente dal fatto che venga eseguita una modifica o un set di password. Il servizio Agente controller di dominio di Azure AD Password Protection registra eventi diversi per informare l'utente se è stata eseguita un'operazione di modifica o impostazione della password.  Vedere Monitoraggio e registrazione di [Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+I criteri di convalida della password si comportano allo stesso modo, indipendentemente dal fatto che sia stata eseguita una modifica o un set di password. Il servizio Azure AD Password Protection Agent esegue il log di eventi diversi per indicare se è stata eseguita una modifica della password o un'operazione di impostazione.  Vedere [Azure ad monitoraggio e registrazione per la protezione delle password](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**D: Perché vengono registrati gli eventi di rifiuto della password duplicati quando si tenta di impostare una password debole utilizzando lo snap-in di gestione Utenti e computer di Active Directory?**
+**D: perché vengono registrati gli eventi di rifiuto delle password duplicati quando si tenta di impostare una password vulnerabile mediante lo snap-in gestione Active Directory utenti e computer?**
 
-Lo snap-in di gestione Utenti e computer di Active Directory tenterà innanzitutto di impostare la nuova password utilizzando il protocollo Kerberos. In caso di errore, lo snap-in effettuerà un secondo tentativo di impostare la password utilizzando un protocollo legacy (SAM RPC) (i protocolli specifici utilizzati non sono importanti). Se la nuova password viene considerata debole da Azure AD Password Protection, questo comportamento dello snap-in comporterà la registrazione di due set di eventi di rifiuto della reimpostazione della password.
+Lo snap-in gestione utenti e computer Active Directory tenterà innanzitutto di impostare la nuova password utilizzando il protocollo Kerberos. In caso di errore, lo snap-in effettuerà un secondo tentativo di impostazione della password utilizzando un protocollo legacy (SAM RPC) (i protocolli specifici utilizzati non sono importanti). Se la nuova password viene considerata debole dalla protezione Azure AD password, questo comportamento dello snap-in comporterà la registrazione di due set di eventi di rifiuto di reimpostazione della password.
 
-**D: Perché gli eventi di convalida della password di Azure AD Password Protection vengono registrati con un nome utente vuoto?**
+**D: perché vengono registrati gli eventi di convalida password Azure AD Password Protection con un nome utente vuoto?**
 
-Active Directory supporta la possibilità di testare una password per verificare se supera i requisiti di complessità della password correnti del dominio, ad esempio utilizzando l'API [NetValidatePasswordPolicy.](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) Quando una password viene convalidata in questo modo, il test include anche la convalida tramite prodotti basati su password basati su filtri di password, ad esempio Protezione password di Azure AD, ma i nomi utente passati a una dll del filtro password specificata saranno vuoti. In questo scenario, Azure AD Password Protection continuerà a convalidare la password usando i criteri password attualmente attivi e genererà un messaggio del registro eventi per acquisire il risultato, tuttavia il messaggio del log eventi avrà campi del nome utente vuoti.
+Active Directory supporta la possibilità di testare una password per verificare se supera i requisiti di complessità della password correnti del dominio, ad esempio usando l'API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) . Quando una password viene convalidata in questo modo, il test include anche la convalida da parte di prodotti basati su dll con filtro password, ad esempio Azure AD la protezione con password, ma i nomi utente passati a una determinata DLL di filtro password saranno vuoti. In questo scenario, Azure AD la protezione con password convaliderà la password usando i criteri della password attualmente in vigore ed emetterà un messaggio del registro eventi per acquisire il risultato, ma il messaggio del registro eventi avrà campi nome utente vuoti.
 
-**D: È supportata l'installazione di Azure AD Password Protection affiancata ad altri prodotti basati su filtri password?**
+**D: è supportata l'installazione side-by-side di Azure AD la protezione delle password con altri prodotti basati sul filtro password?**
 
 Sì. Il supporto di più DLL di filtro password registrate è una funzionalità di base di Windows e non è specifico della protezione password di Azure AD. Tutte le DLL di filtro password registrate devono concordare, prima che venga accettata una password.
 
-**D: In che modo è possibile distribuire e configurare Azure AD Password Protection nell'ambiente Active Directory senza usare Azure?**
+**D: come è possibile distribuire e configurare Azure AD la protezione delle password nell'ambiente Active Directory senza usare Azure?**
 
 Non supportato. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
 
-**D: Come è possibile modificare il contenuto dei criteri a livello di Active Directory?**
+**D: come è possibile modificare il contenuto del criterio a livello di Active Directory?**
 
-Non supportato. I criteri possono essere amministrati solo tramite il portale di Azure AD. Vedere anche la domanda precedente.
+Non supportato. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
 
 **D: perché è necessario il servizio DFSR per la replica di sysvol?**
 
@@ -78,14 +78,14 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) (La fine è vicina per il servizio Replica file)
 
-Se il dominio non usa già DFSR, è necessario eseguirne la migrazione per usare DFSR prima di installare Azure AD Password Protection. Per ulteriori informazioni, vedere il seguente collegamento:
+Se il dominio non sta già usando DFSR, è necessario eseguirne la migrazione per usare DFSR prima di installare Azure AD la protezione delle password. Per ulteriori informazioni, vedere il collegamento seguente:
 
 [Guida alla migrazione della replica SYSVOL: Replica da FRS a DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
-> Il software Azure AD Password Protection controller di dominio verrà attualmente installato nei controller di dominio in domini che utilizzano ancora FRS per la replica sysvol, ma il software NON funzionerà correttamente in questo ambiente. Ulteriori effetti collaterali negativi includono singoli file che non vengono replicati e le procedure di ripristino sysvol sembrano avere esito positivo, ma non riescono a replicare tutti i file. È consigliabile eseguire la migrazione del dominio per usare DFSR il prima possibile, sia per i vantaggi intrinseci di DFSR che per sbloccare la distribuzione di Azure AD Password Protection. Le versioni future del software verranno disabilitate automaticamente quando vengono eseguite in un dominio che utilizza ancora FRS.
+> Il software dell'agente del controller di dominio Azure AD Password Protection verrà attualmente installato nei controller di dominio in domini che utilizzano ancora FRS per la replica SYSVOL, ma il software non funzionerà correttamente in questo ambiente. Gli effetti collaterali negativi aggiuntivi includono i singoli file che non riescono a eseguire la replica e le procedure di ripristino di SYSVOL sembrano avere esito positivo ma non riescono a replicare tutti i file. È consigliabile eseguire la migrazione del dominio per usare DFSR il prima possibile, sia per i vantaggi intrinseci di DFSR che per sbloccare la distribuzione di Azure AD la protezione delle password. Le versioni future del software verranno disabilitate automaticamente durante l'esecuzione in un dominio che continua a usare il servizio Replica file.
 
-**D: Quanto spazio su disco è necessaria per la funzionalità nella condivisione sysvol del dominio?**
+**D: qual è la quantità di spazio su disco necessaria per la funzionalità nella condivisione SYSVOL del dominio?**
 
 La quantità esatta di spazio usato dipende da fattori come il numero e la lunghezza dei token esclusi contenuti nell'elenco globale degli elementi esclusi Microsoft e nell'elenco personalizzato del singolo tenant, nonché dal sovraccarico della crittografia. Il contenuto di questi elenchi probabilmente aumenterà in futuro. Tenendo presente tale situazione, è ragionevole prevedere che per la funzionalità siano necessari almeno cinque (5) megabyte di spazio nella condivisione sysvol del dominio.
 
@@ -97,17 +97,17 @@ Questo requisito dipende dal comportamento di base di Windows.
 
 No. Poiché il server proxy è senza stato, non ha importanza quale server proxy specifico venga usato.
 
-**D: È possibile distribuire il servizio Proxy di password di Azure AD().**
+**D: è possibile distribuire il servizio proxy Azure AD password protection side-by-side con altri servizi, ad esempio Azure AD Connect?**
 
 Sì. Il servizio proxy di Password di protezione di Azure AD e Azure AD Connect non devono essere mai direttamente in conflitto l'uno con l'altro.
 
-Sfortunatamente, è stata rilevata un'incompatibilità tra la versione del servizio Microsoft Azure AD Connect Agent Updater installata dal software Proxy di protezione password di Azure AD e la versione del servizio installato dal software [Proxy applicazione di Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Questa incompatibilità può comportare l'impossibilità del servizio Agent Updater di contattare Azure per gli aggiornamenti software. Non è consigliabile installare il proxy di protezione password di Azure AD e il proxy di applicazione di Azure Active Directory nello stesso computer.
+Sfortunatamente, è stata rilevata un'incompatibilità tra la versione del servizio Microsoft Azure AD Connect Agent Updater installata dal software proxy di Azure AD Password Protection e la versione del servizio installata dal software [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Questa incompatibilità può comportare la mancata riuscita del servizio Agent Updater per contattare Azure per gli aggiornamenti software. Non è consigliabile installare Azure AD proxy di protezione con password e Azure Active Directory Application Proxy nello stesso computer.
 
-**D: In quale ordine gli agenti e i proxy del controller di dominio devono essere installati e registrati?**
+**D: in che ordine devono essere installati e registrati gli agenti e i proxy del controller di dominio?**
 
-È supportato qualsiasi ordine dell'installazione dell'agente proxy, dell'installazione dell'agente controller di dominio, della registrazione della foresta e della registrazione proxy.
+Sono supportati gli ordini di installazione dell'agente proxy, l'installazione dell'agente DC, la registrazione della foresta e la registrazione del proxy.
 
-**D: È necessario preoccuparsi per l'hit delle prestazioni nei controller di dominio di distribuire questa funzionalità?**
+**D: è opportuno preoccuparsi delle prestazioni dei controller di dominio per la distribuzione di questa funzionalità?**
 
 Il servizio agente del controller di dominio di Password di protezione di Azure AD non dovrebbe incidere in modo significativo sulle prestazioni dei controller di dominio in una distribuzione di Active Directory esistente e integra.
 
@@ -115,47 +115,47 @@ Per la maggior parte delle distribuzioni di Active Directory attive, le operazio
 
 Se però i controller di dominio correnti già operano a livelli di prestazioni limitate (ad esempio, perché sono stati superati i limiti massimi di CPU, spazio su disco, I/O su disco e così via), prima di distribuire questa funzionalità è consigliabile aggiungere altri controller di dominio o espandere lo spazio su disco disponibile. Vedere anche la domanda precedente relativa all'uso dello spazio su disco per la condivisione sysvol.
 
-**D: Voglio testare Azure AD Password Protection in pochi controller di dominio nel mio dominio. È possibile forzare le modifiche della password utente a utilizzare tali controller di dominio specifici?**
+**D: si desidera testare Azure AD la protezione delle password in pochi controller di dominio nel dominio. È possibile forzare le modifiche della password utente per usare i controller di dominio specifici?**
 
-No. È il sistema operativo client Windows a controllare quale controller di dominio viene usato quando un utente modifica la password. Il controller di dominio viene selezionato in base a fattori quali le assegnazioni di siti e subnet di Active Directory, la configurazione di rete specifica dell'ambiente e così via. Azure AD Password Protection non controlla questi fattori e non può influenzare quale controller di dominio è selezionato per modificare la password di un utente.
+No. È il sistema operativo client Windows a controllare quale controller di dominio viene usato quando un utente modifica la password. Il controller di dominio è selezionato in base a fattori quali Active Directory assegnazioni di siti e subnet, configurazione di rete specifica dell'ambiente e così via. Azure AD Password Protection non controlla questi fattori e non può influenzare il controller di dominio selezionato per modificare la password di un utente.
 
 Un modo per raggiungere parzialmente questo obiettivo consiste nel distribuire Password di protezione di Azure AD in tutti i controller di dominio presenti in un determinato sito di Active Directory. Questo approccio garantirà una copertura ragionevole per i client Windows assegnati al sito e, di conseguenza, anche per gli utenti che accedono a tali client e modificano le loro password.
 
-**D: Se si installa il servizio Agente controller di dominio di Azure AD Password Protection solo nel controller di dominio primario (PDC), verranno protetti anche tutti gli altri controller di dominio nel dominio?**
+**D: se si installa il servizio Azure AD Password Protection Agent nel solo controller di dominio primario (PDC), saranno protetti anche tutti gli altri controller di dominio nel dominio?**
 
 No. Quando la password di un utente viene modificata in un determinato controller di dominio non primario, la password non crittografata non viene mai inviata al controller di dominio primario (questa è un'idea errata molto diffusa). Dopo che una nuova password viene accettata in un controller di dominio, quest'ultimo usa tale password per crearne i vari hash specifici del protocollo di autenticazione e quindi rende permanenti gli hash nella directory. La password non crittografata non diventa permanente. Gli hash aggiornati vengono poi replicati nel controller di dominio primario. Le password utente possono in alcune circostanze essere modificate direttamente nel controller di dominio primario, anche in questo caso in base a vari fattori come la topologia di rete e la struttura del sito di Active Directory. Vedere la domanda precedente.
 
 In sintesi, la distribuzione del servizio agente del controller di dominio di Password di protezione di Azure AD nel controller di dominio primario è necessaria per raggiungere una copertura di sicurezza della funzionalità pari al 100% all'interno del dominio. La distribuzione della funzionalità nel solo controller di dominio primario non offre i vantaggi di sicurezza di Password di protezione di Azure AD per gli altri controller di dominio presenti nel dominio.
 
-**D: Perché il blocco intelligente personalizzato non funziona anche dopo l'installazione degli agenti nell'ambiente Active Directory locale?**
+**D: perché il blocco Smart personalizzato non funziona anche dopo che gli agenti sono stati installati nell'ambiente Active Directory locale?**
 
-Il blocco intelligente personalizzato è supportato solo in Azure AD. Le modifiche alle impostazioni di blocco intelligente personalizzate nel portale di Azure AD non hanno alcun effetto sull'ambiente Active Directory locale, anche con gli agenti installati.
+Il blocco Smart personalizzato è supportato solo in Azure AD. Le modifiche apportate alle impostazioni di blocco Smart personalizzato nel portale di Azure AD non hanno alcun effetto sull'ambiente Active Directory locale, anche con gli agenti installati.
 
-**D: Un Management Pack di System Center Operations Manager è disponibile per Azure AD Password Protection?**
+**D: è disponibile un System Center Operations Manager Management Pack per la protezione Azure AD password?**
 
 No.
 
-**D: Perché Azure AD rifiuta ancora le password deboli anche se ho configurato il criterio in modalità di controllo?**
+**D: perché Azure AD continuano a rifiutare le password vulnerabili anche se i criteri sono stati configurati per la modalità di controllo?**
 
-La modalità di controllo è supportata solo nell'ambiente Active Directory locale. Azure AD è implicitamente sempre in modalità "imporre" quando valuta le password.
+La modalità di controllo è supportata solo nell'ambiente di Active Directory locale. Azure AD è sempre in modo implicito in modalità "applica" quando valuta le password.
 
-**D: Gli utenti visualizzano il messaggio di errore tradizionale di Windows quando una password viene rifiutata da Azure AD Password Protection. È possibile personalizzare questo messaggio di errore in modo che gli utenti sappiano cosa è realmente successo?**
+**D: gli utenti visualizzano il messaggio di errore di Windows tradizionale quando una password viene rifiutata da Azure AD la protezione con password. È possibile personalizzare questo messaggio di errore in modo che gli utenti conoscano effettivamente cosa è successo?**
 
-No. Il messaggio di errore visualizzato dagli utenti quando una password viene rifiutata da un controller di dominio è controllato dal computer client, non dal controller di dominio. Questo comportamento si verifica se una password viene rifiutata dai criteri password di Active Directory predefiniti o da una soluzione basata su filtro password, ad esempio Azure AD Password Protection.
+No. Il messaggio di errore visualizzato dagli utenti quando una password viene rifiutata da un controller di dominio viene controllata dal computer client, non dal controller di dominio. Questo comportamento si verifica se una password viene rifiutata dai criteri predefiniti Active Directory password o da una soluzione basata su filtro password, ad esempio Azure AD la protezione delle password.
 
 ## <a name="additional-content"></a>Contenuto aggiuntivo
 
 Gli articoli a cui si accede tramite i collegamenti seguenti non fanno parte della documentazione di base relativa a Password di protezione di Azure AD, ma possono essere una fonte utile di informazioni aggiuntive su tale funzionalità.
 
-[Azure AD Password Protection è ora disponibile in generale.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Azure AD la protezione con password è ora disponibile a livello generale.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Guida alla protezione dal phishing della posta elettronica - Parte 15: Implementare il servizio di protezione password di Microsoft Azure AD (anche per locale!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Guida alla protezione da phishing tramite posta elettronica-parte 15: implementare il servizio Microsoft Azure AD Password Protection (anche per locale).](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [Azure AD Password Protection and Smart Lockout are now in Public Preview!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529) (Password di protezione di Azure AD e il blocco intelligente sono ora disponibili in anteprima pubblica)
 
 ## <a name="microsoft-premierunified-support-training-available"></a>Disponibilità di training in caso contratti di supporto Microsoft Premier o Unified
 
-Se è interessati ad approfondire la conoscenza di Password di protezione di Azure AD e la distribuzione di tale funzionalità nell'ambiente in uso, è possibile sfruttare i vantaggi di un servizio proattivo Microsoft disponibile per i clienti con un contratto di supporto Premier o Unified. Il servizio è denominato Azure Active Directory: Password Protection.The service is called Azure Active Directory: Password Protection. Per altre informazioni, contattare il technical account manager.
+Se è interessati ad approfondire la conoscenza di Password di protezione di Azure AD e la distribuzione di tale funzionalità nell'ambiente in uso, è possibile sfruttare i vantaggi di un servizio proattivo Microsoft disponibile per i clienti con un contratto di supporto Premier o Unified. Il servizio viene chiamato Azure Active Directory: Password Protection. Per altre informazioni, contattare il technical account manager.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

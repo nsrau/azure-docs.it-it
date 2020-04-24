@@ -1,5 +1,5 @@
 ---
-title: Architettura di connettività - Database di Azure per MariaDB
+title: 'Architettura di connettività: database di Azure per MariaDB'
 description: Descrive l'architettura di connettività per il database di Azure per il server MariaDB.
 author: kummanish
 ms.author: manishku
@@ -14,7 +14,7 @@ ms.lasthandoff: 04/02/2020
 ms.locfileid: "80546298"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
-Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e come il traffico viene indirizzato al database di Azure per l'istanza MariaDB dai client sia all'interno che all'esterno di Azure.This article explains the Azure Database for MariaDB connectivity architecture as well as how the traffic is directed to your Azure Database for MariaDB instance from clients both within and outside Azure.
+Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e il modo in cui il traffico viene indirizzato al database di Azure per l'istanza di MariaDB dai client all'interno e all'esterno di Azure.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
@@ -22,16 +22,16 @@ La connessione al database di Azure per MariaDB viene stabilita tramite un gatew
 
 ![Panoramica dell'architettura di connettività](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Quando il client si connette al database, ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico in ascolto sulla porta 3306.This gateway has a public IP address that listens to port 3306. All'interno del cluster di database, il traffico viene inoltrato al database di Azure appropriato per MariaDB. Pertanto, per connettersi al server, ad esempio da reti aziendali, è necessario aprire il firewall lato client per consentire al traffico in uscita di raggiungere i gateway. Di seguito è riportato un elenco completo degli indirizzi IP utilizzati dai nostri gateway per regione.
+Quando il client si connette al database, ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico che è in ascolto sulla porta 3306. All'interno del cluster di database, il traffico viene inviato al database di Azure appropriato per MariaDB. Pertanto, per connettersi al server, ad esempio dalle reti aziendali, è necessario aprire il firewall sul lato client per consentire al traffico in uscita di raggiungere i nostri Gateway. Di seguito è possibile trovare un elenco completo degli indirizzi IP usati dai gateway per area.
 
-## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Database di Azure per gli indirizzi IP del gateway MariaDBAzure Database for MariaDB gateway IP addresses
+## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Indirizzi IP del gateway di database di Azure per MariaDB
 
-Nella tabella seguente sono elencati gli indirizzi IP primari e secondari del gateway Database di Azure per MariaDB per tutte le aree dati. L'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover in caso di errore del server primario. Come accennato in precedenza, i clienti devono consentire l'uscita a entrambi gli indirizzi IP. Il secondo indirizzo IP non è in ascolto su alcun servizio finché non viene attivato dal database di Azure affinché MariaDB accetti le connessioni.
+La tabella seguente elenca gli indirizzi IP primari e secondari del database di Azure per il gateway MariaDB per tutte le aree dati. L'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover in caso di errore del database primario. Come indicato in precedenza, i clienti devono consentire il traffico in uscita verso gli indirizzi IP. Il secondo indirizzo IP non è in ascolto in alcun servizio fino a quando non viene attivato da database di Azure per MariaDB per accettare le connessioni.
 
-| **Nome area** | **Indirizzi IP gateway** |
+| **Nome area** | **Indirizzi IP del gateway** |
 |:----------------|:-------------|
 | Australia centrale| 20.36.105.0     |
-| Australia Centrale2     | 20.36.113.0   |
+| Central2 Australia     | 20.36.113.0   |
 | Australia orientale | 13.75.149.87, 40.79.161.1     |
 | Australia sud-orientale |191.239.192.109, 13.73.109.251   |
 | Brasile meridionale | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
@@ -58,7 +58,7 @@ Nella tabella seguente sono elencati gli indirizzi IP primari e secondari del ga
 | Stati Uniti centro-settentrionali | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa settentrionale | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
 | Sudafrica settentrionale  | 102.133.152.0    |
-| Sudafrica Ovest | 102.133.24.0   |
+| Sudafrica occidentale | 102.133.24.0   |
 | Stati Uniti centro-meridionali |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Asia sud-orientale | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Emirati Arabi Uniti centrali | 20.37.72.64  |

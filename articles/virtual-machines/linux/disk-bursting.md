@@ -1,6 +1,6 @@
 ---
-title: Burst del disco gestito
-description: Informazioni sul burst del disco e sul suo funzionamento per gli sSD premium di Azure.Learn about disk bursting and how it works for Azure premium SSDs.
+title: Espansione disco gestito
+description: Informazioni sul picchi di disco e sul relativo funzionamento per le unità SSD Premium di Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 03/28/2019
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2020
 ms.locfileid: "80385198"
 ---
-# <a name="premium-ssd-bursting"></a>SSD Premium scoppio
+# <a name="premium-ssd-bursting"></a>SSD Premium in sequenza
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 

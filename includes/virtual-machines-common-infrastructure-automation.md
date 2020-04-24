@@ -14,7 +14,7 @@ ms.locfileid: "81637146"
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
 
 - Automatizzare la configurazione delle macchine virtuali
-    - Gli strumenti includono il modello [Ansible](#ansible), [Chef](#chef), [Puppet](#puppet)e [Azure Resource Manager](#azure-resource-manager-template).
+    - Gli strumenti includono [Ansible](#ansible), [chef](#chef), [Puppet](#puppet)e [Azure Resource Manager modello](#azure-resource-manager-template).
     - Gli strumenti specifici per la personalizzazione delle macchine virtuali includono [cloud-init](#cloud-init) per le macchine virtuali Linux, [PowerShell DSC (Desired State Configuration)](#powershell-dsc)e l'[estensione di script personalizzata di Azure](#azure-custom-script-extension) per tutte le macchine virtuali di Azure.
 
 - Automatizzare la gestione dell'infrastruttura
@@ -111,7 +111,7 @@ Automazione di Azure fornisce anche un servizio DSC (Desired State Configuration
 
 Viene illustrato come:
 
-- [Creare un runbook di PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Creare un Runbook di PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
 - [Usare un ruolo di lavoro ibrido per runbook per gestire risorse locali](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Usare Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
@@ -133,15 +133,15 @@ Viene illustrato come:
 
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
-[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) è il servizio di distribuzione e gestione per Azure.Azure Resource Manager is the deployment and management service for Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
+[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) è il servizio di distribuzione e gestione per Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
 
 Viene illustrato come:
 
-- [Distribuire macchine virtuali spot usando un modello](../articles/virtual-machines/linux/spot-template.md)di Resource Manager.
-- Distribuire una macchina virtuale di [Azure usando C'è e un modello di Resource Manager](../articles/virtual-machines/windows/csharp-template.md).
-- [Creare una macchina virtuale Windows da un modello di Resource Manager.](../articles/virtual-machines/windows/ps-template.md)
+- [Distribuire le VM spot usando un modello di gestione risorse](../articles/virtual-machines/linux/spot-template.md).
+- [Distribuire una macchina virtuale di Azure con C# e un modello di gestione risorse](../articles/virtual-machines/windows/csharp-template.md).
+- [Creare una macchina virtuale Windows da un modello di gestione risorse](../articles/virtual-machines/windows/ps-template.md).
 - [Scaricare il modello per una macchina virtuale](../articles/virtual-machines/windows/download-template.md).
-- [Creare un modello](../articles/virtual-machines/linux/image-builder-json.md)di Generatore immagini di Azure.
+- [Creare un modello di generatore di immagini di Azure](../articles/virtual-machines/linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Sono disponibili molte opzioni diverse per usare gli strumenti di automazione dell'infrastruttura in Azure. È possibile usare la soluzione più adatta alle esigenze e all'ambiente con la massima libertà. Per iniziare a usare e provare alcuni degli strumenti integrati in Azure, vedere gli argomenti sull'automazione della personalizzazione di una macchina virtuale [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) o [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md).

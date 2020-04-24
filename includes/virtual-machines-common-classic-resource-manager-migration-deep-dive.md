@@ -1,21 +1,21 @@
 ---
-author: cynthn
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tanmaygore
-ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: tagore
+ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77068468"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866200"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 È importante comprendere prima di tutto la differenza tra le operazioni a livello di piano dati e quelle a livello di piano di gestione sulle risorse dell'infrastruttura distribuita come servizio (IaaS).
 
-* Il piano di *gestione/controllo* descrive le chiamate che entrano nel piano di gestione/controllo o nell'API per la modifica delle risorse. Ad esempio, operazioni come la creazione di una VM, il riavvio di una VM e l'aggiornamento di una rete virtuale con una nuova subnet gestiscono le risorse in esecuzione. Non incidono direttamente sulla connessione alle macchine virtuali.
-* *Il piano dati* (applicazione) descrive il runtime dell'applicazione stessa e implica l'interazione con le istanze che non passano attraverso l'API di Azure.Data plane (application) describes the runtime of the application itself, and involves interaction with instances that don't pass through the Azure API. Ad esempio, l'accesso a un sito Web o il pull dei dati da un'istanza di SQL Server o da un server MongoDB in esecuzione sono interazioni a livello di piano dati o dell'applicazione. Altri esempi includono la copia di un BLOB da un account di archiviazione e l'accesso a un indirizzo IP pubblico per l'uso di Remote Desktop Protocol (RDP) o Secure Shell (SSH) nella macchina virtuale. Queste operazioni mantengono in esecuzione l'applicazione nelle risorse di calcolo, rete e archiviazione.
+* Il *piano di gestione/controllo* descrive le chiamate che entrano nel piano di gestione/controllo o l'API per la modifica delle risorse. Ad esempio, operazioni come la creazione di una VM, il riavvio di una VM e l'aggiornamento di una rete virtuale con una nuova subnet gestiscono le risorse in esecuzione. Non incidono direttamente sulla connessione alle macchine virtuali.
+* Il *piano dati* (applicazione) descrive il runtime dell'applicazione stessa e prevede l'interazione con istanze che non passano attraverso l'API di Azure. Ad esempio, l'accesso a un sito Web o il pull dei dati da un'istanza di SQL Server o da un server MongoDB in esecuzione sono interazioni a livello di piano dati o dell'applicazione. Altri esempi includono la copia di un BLOB da un account di archiviazione e l'accesso a un indirizzo IP pubblico per l'uso di Remote Desktop Protocol (RDP) o Secure Shell (SSH) nella macchina virtuale. Queste operazioni mantengono in esecuzione l'applicazione nelle risorse di calcolo, rete e archiviazione.
 
 Il piano dati è lo stesso sia per il modello di distribuzione classica che per gli stack di Azure Resource Manager. La differenza sta nel fatto che, durante il processo di migrazione, Microsoft converte la rappresentazione delle risorse dal modello di distribuzione classica a quella nello stack di Azure Resource Manager. È quindi necessario usare nuovi strumenti, API e SDK per gestire le risorse nello stack di Azure Resource Manager.
 
@@ -121,7 +121,7 @@ Questo è un passaggio facoltativo che permette di annullare le modifiche al mod
 Dopo aver completato la convalida, è possibile eseguire il commit della migrazione. Le risorse non vengono più visualizzate nel modello di distribuzione classica e sono disponibili solo nel modello di distribuzione Resource Manager. Le risorse migrate possono essere gestite solo nel nuovo portale.
 
 > [!NOTE]
-> Si tratta di un'operazione idempotente. In caso di esito negativo, ripetere l'operazione. Se continua a non riuscire, creare un ticket di supporto o creare un forum su [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
+> Si tratta di un'operazione idempotente. In caso di esito negativo, ripetere l'operazione. Se l'errore persiste, creare un ticket di supporto o creare un forum su [Microsoft Q&a](https://docs.microsoft.com/answers/index.html)
 >
 >
 

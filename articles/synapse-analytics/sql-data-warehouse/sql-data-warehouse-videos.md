@@ -1,6 +1,6 @@
 ---
 title: Video
-description: Collegamenti a varie playlist video per Azure Synapse Analytics.
+description: Collegamenti a diverse playlist video per Azure sinapsi Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -18,11 +18,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "80350122"
 ---
-# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure Synapse Analytics - SQL pool Videos
+# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure sinapsi Analytics-video su pool SQL
 
-Guardare i video più recenti del pool SQL di Azure Synapse per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni. 
+Per informazioni sulle nuove funzionalità e sui miglioramenti delle prestazioni, vedere i video più recenti sul pool di SQL sinapsi di Azure. 
 
-Per iniziare, selezionare il video di seguito per informazioni sui nuovi aggiornamenti al pool SQL di Azure Synapse.To get started, select the overview video below to learn about the new updates to Azure Synapse SQL pool. Inoltre, scopri come i moderni modelli di data warehouse possono essere utilizzati per affrontare scenari reali come la criminalità informatica.
+Per iniziare, selezionare il video di panoramica seguente per informazioni sui nuovi aggiornamenti per il pool SQL di sinapsi di Azure. Inoltre, informazioni su come usare i modelli di data warehouse moderni per affrontare scenari reali, ad esempio il crimine informatico.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
@@ -31,8 +31,8 @@ Per iniziare, selezionare il video di seguito per informazioni sui nuovi aggiorn
   </div>
 </a>
 
-Ulteriori video che descrivono funzionalità specifiche possono essere visualizzati su: 
-- [YouTube: Advanced Analytics with Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
-- [Video di Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
+È possibile visualizzare altri video che descrivono funzionalità specifiche in: 
+- [YouTube: analisi avanzata con Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
+- [Video su Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
 
 

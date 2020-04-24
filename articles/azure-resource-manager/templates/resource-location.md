@@ -1,6 +1,6 @@
 ---
-title: Percorso risorse modello
-description: Viene descritto come impostare il percorso delle risorse in un modello di Azure Resource Manager.Describes how to set resource location in an Azure Resource Manager template.
+title: Percorso risorsa modello
+description: Viene descritto come impostare la posizione delle risorse in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
@@ -10,22 +10,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80156430"
 ---
-# <a name="set-resource-location-in-arm-template"></a>Impostare il percorso delle risorse nel modello ARMSet resource location in ARM template
+# <a name="set-resource-location-in-arm-template"></a>Impostare la posizione delle risorse nel modello ARM
 
-Quando si distribuisce un modello di Azure Resource Manager (ARM), è necessario fornire un percorso per ogni risorsa. Non è necessario che la posizione sia la stessa posizione del gruppo di risorse.
+Quando si distribuisce un modello di Azure Resource Manager (ARM), è necessario specificare un percorso per ogni risorsa. Il percorso non deve necessariamente corrispondere alla località del gruppo di risorse.
 
-## <a name="get-available-locations"></a>Ottenere le posizioni disponibiliGet available locations
+## <a name="get-available-locations"></a>Ottenere le località disponibili
 
-Diversi tipi di risorse sono supportati in posizioni diverse. Per ottenere i percorsi supportati per un tipo di risorsa, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.To get the supported locations for a resource type, use Azure PowerShell or Azure CLI.
+Diversi tipi di risorse sono supportati in posizioni diverse. Per ottenere i percorsi supportati per un tipo di risorsa, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes `
   | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az provider show \
@@ -36,9 +36,9 @@ az provider show \
 
 ---
 
-## <a name="use-location-parameter"></a>Usa parametro posizione
+## <a name="use-location-parameter"></a>Usa parametro percorso
 
-Per consentire flessibilità durante la distribuzione del modello, utilizzare un parametro per specificare il percorso delle risorse. Impostare il valore predefinito `resourceGroup().location`del parametro su .
+Per garantire flessibilità durante la distribuzione del modello, usare un parametro per specificare il percorso delle risorse. Impostare il valore predefinito del parametro su `resourceGroup().location`.
 
 L'esempio seguente illustra un account di archiviazione che viene distribuito in una posizione specificata come parametro:
 
@@ -96,4 +96,4 @@ L'esempio seguente illustra un account di archiviazione che viene distribuito in
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per l’elenco completo delle funzioni del modello, vedere [Funzioni del modello di Gestione risorse di Azure](template-functions.md).
-* Per ulteriori informazioni sui file modello, vedere Informazioni sulla struttura e la [sintassi dei modelli ARM](template-syntax.md).
+* Per altre informazioni sui file modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).

@@ -1,6 +1,6 @@
 ---
-title: Gestire la fattura e convertire dal piano tariffario gratuito nell'applicazione Azure IoT Central. Documenti Microsoft
-description: In qualità di amministratore, scopri come gestire la fattura e passare dal piano tariffario gratuito a un piano tariffario standard nell'applicazione Azure IoT Central
+title: Gestire la fattura e la conversione dal piano tariffario gratuito nell'applicazione IoT Central di Azure | Microsoft Docs
+description: In qualità di amministratore, Scopri come gestire la fattura e passare dal piano tariffario gratuito a un piano tariffario standard nell'applicazione IoT Central di Azure
 author: v-krghan
 ms.author: v-krghan
 ms.date: 12/09/2019
@@ -17,57 +17,57 @@ ms.locfileid: "80157511"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gestire la fattura in un'applicazione IoT Central
 
-Questo articolo descrive come, come amministratore, è possibile gestire la fattura nell'applicazione Azure IoT Central nella sezione relativa all'amministrazione. Si apprenderà come spostare l'applicazione dal piano tariffario gratuito a un piano tariffario standard e come aggiornare o ridurre il downgrade del piano tariffario.
+Questo articolo descrive come un amministratore può gestire la fattura nell'applicazione IoT Central di Azure nella sezione amministrazione. Si apprenderà come spostare l'applicazione dal piano tariffario gratuito a un piano tariffario standard, nonché come aggiornare o effettuare il downgrade del piano tariffario.
 
-Per accedere e usare la sezione **Amministrazione,** è necessario essere nel ruolo *di amministratore* o disporre di un ruolo utente personalizzato che consenta di visualizzare la fatturazione per un'applicazione Azure IoT Central.To access and use the Administration section, you must be in the Administrator role or have a *custom user role* that allows you to view billing for an Azure IoT Central application. All'utente che crea un'applicazione Azure IoT Central viene automaticamente assegnato il ruolo **Amministratore** per l'applicazione.
+Per accedere e usare la sezione **Amministrazione** , è necessario avere il ruolo di *amministratore* o avere un *ruolo utente personalizzato* che consente di visualizzare la fatturazione per un'applicazione IoT Central di Azure. All'utente che crea un'applicazione Azure IoT Central viene automaticamente assegnato il ruolo **Amministratore** per l'applicazione.
 
 ## <a name="move-from-free-to-standard-pricing-plan"></a>Passare dal piano tariffario gratuito a quello standard
 
-- Le applicazioni che utilizzano il piano tariffario gratuito sono gratuite per sette giorni prima della scadenza. Per evitare di perdere dati, è possibile spostarli in un piano tariffario standard in qualsiasi momento prima della scadenza.
-- Le applicazioni che utilizzano un piano tariffario standard vengono addebitate per dispositivo, con i primi due dispositivi gratuiti, per applicazione.
+- Le applicazioni che usano il piano tariffario gratuito sono gratuite per sette giorni prima della scadenza. Per evitare la perdita di dati, è possibile spostarli in un piano tariffario standard in qualsiasi momento prima della scadenza.
+- Le applicazioni che usano un piano tariffario standard vengono addebitate per ogni dispositivo, con i primi due dispositivi gratuiti, per ogni applicazione.
 
 Per altre informazioni sui prezzi, vedere la [pagina dei prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
-Nella sezione dei prezzi, è possibile spostare l'applicazione dal piano di determinazione prezzi gratuito a uno standard.
+Nella sezione relativa ai prezzi è possibile spostare l'applicazione dal piano tariffario gratuito a quello standard.
 
 Per completare il processo self-service, seguire questa procedura:
 
-1. Vai alla pagina **Prezzi** nella sezione **Amministrazione.**
+1. Passare alla pagina dei **prezzi** nella sezione **Amministrazione** .
 
     ![Stato della versione di valutazione](media/howto-view-bill/freetrialbilling.png)
 
-1. Selezionare **Converti in un piano a pagamento**.
+1. Selezionare **Converti in piano a pagamento**.
 
     ![Convertire la versione di valutazione](media/howto-view-bill/convert.png)
 
-1. Selezionare Azure Active Directory appropriato e quindi la sottoscrizione di Azure da usare per l'applicazione che usa un piano a pagamento.
+1. Selezionare il Azure Active Directory appropriato, quindi la sottoscrizione di Azure da usare per l'applicazione che usa un piano a pagamento.
 
-1. Dopo aver selezionato **Converti**, l'applicazione utilizza ora un piano a pagamento e si inizia a ricevere la fatturazione.
+1. Dopo aver selezionato **Convert**, l'applicazione ora usa un piano a pagamento e si inizia a fatturare.
 
 > [!Note]
-> Per impostazione predefinita, si viene convertiti in un piano tariffario *Standard 2.*
+> Per impostazione predefinita, viene convertito in un piano tariffario *standard 2* .
 
 ## <a name="how-to-change-your-application-pricing-plan"></a>Come modificare il piano tariffario dell'applicazione
 
-Le applicazioni che utilizzano un piano tariffario standard vengono addebitate per dispositivo, con i primi due dispositivi gratuiti, per applicazione.
+Le applicazioni che usano un piano tariffario standard vengono addebitate per ogni dispositivo, con i primi due dispositivi gratuiti, per ogni applicazione.
 
-Nella sezione dei prezzi è possibile aggiornare o declassare il piano tariffario di Azure IoT in qualsiasi momento.
+Nella sezione relativa ai prezzi è possibile aggiornare o effettuare il downgrade del piano tariffario di Azure Internet in qualsiasi momento.
 
-1. Vai alla pagina **Prezzi** nella sezione **Amministrazione.**
+1. Passare alla pagina dei **prezzi** nella sezione **Amministrazione** .
 
     ![Stato della versione di valutazione](media/howto-view-bill/pricing.png)
 
-1. Selezionare **Il piano** e fare clic su **Salva** per eseguire l'aggiornamento o il downgrade.
+1. Selezionare il **piano** e fare clic su **Save (Salva** ) per eseguire l'aggiornamento o il downgrade.
 
 ## <a name="view-your-bill"></a>Visualizzare la fattura
 
-1. Selezionare Azure Active Directory appropriato e quindi la sottoscrizione di Azure da usare per l'applicazione che usa un piano a pagamento.
+1. Selezionare il Azure Active Directory appropriato, quindi la sottoscrizione di Azure da usare per l'applicazione che usa un piano a pagamento.
 
-1. Dopo aver selezionato **Converti**, l'applicazione utilizza ora un piano a pagamento e si inizia a ricevere la fatturazione.
+1. Dopo aver selezionato **Convert**, l'applicazione ora usa un piano a pagamento e si inizia a fatturare.
 
 > [!Note]
-> Per impostazione predefinita, si viene convertiti in un piano tariffario *Standard 2.*
+> Per impostazione predefinita, viene convertito in un piano tariffario *standard 2* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come gestire la fattura nell'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'apprendere [la personalizzazione dell'interfaccia utente dell'applicazione](howto-customize-ui.md) in Azure IoT Central.Now that you've learned about how to manage your bill in Azure IoT Central application, the suggested next step is to learn about Customize application UI in Azure IoT Central.
+Ora che si è appreso come gestire la fattura in Azure IoT Central applicazione, il passaggio successivo suggerito consiste nell'apprendere come [personalizzare l'interfaccia utente dell'applicazione](howto-customize-ui.md) in Azure IOT Central.

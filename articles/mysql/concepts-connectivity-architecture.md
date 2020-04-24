@@ -1,6 +1,6 @@
 ---
-title: Architettura di connettività - Database di Azure per MySQLConnectivity architecture - Azure Database for MySQL
-description: Descrive l'architettura di connettività per il database di Azure per il server MySQL.Describes the connectivity architecture for your Azure Database for MySQL server.
+title: Architettura di connettività-database di Azure per MySQL
+description: Descrive l'architettura di connettività per il database di Azure per il server MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
@@ -13,23 +13,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/02/2020
 ms.locfileid: "80547505"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQLConnectivity architecture in Azure Database for MySQL
-Questo articolo illustra il Database di Azure per l'architettura di connettività MySQL e come il traffico viene indirizzato al database di Azure per l'istanza MySQL dai client sia all'interno che all'esterno di Azure.This article explains the Azure Database for MySQL connectivity architecture as well as how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
+# <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
+Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 La connessione al database di Azure per MySQL viene stabilita tramite un gateway responsabile del routing delle connessioni in ingresso alla posizione fisica del server nei cluster. Il diagramma seguente illustra il flusso del traffico.
 
 ![Panoramica dell'architettura di connettività](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Quando il client si connette al database, ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico in ascolto sulla porta 3306.This gateway has a public IP address that listens to port 3306. All'interno del cluster di database, il traffico viene inoltrato al database di Azure appropriato per MySQL.Inside the database cluster, traffic is forwarded to appropriate Azure Database for MySQL. Pertanto, per connettersi al server, ad esempio da reti aziendali, è necessario aprire il firewall lato client per consentire al traffico in uscita di raggiungere i gateway. Di seguito è riportato un elenco completo degli indirizzi IP utilizzati dai nostri gateway per regione.
+Quando il client si connette al database, ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico che è in ascolto sulla porta 3306. All'interno del cluster di database, il traffico viene inviato al database di Azure per MySQL appropriato. Pertanto, per connettersi al server, ad esempio dalle reti aziendali, è necessario aprire il firewall sul lato client per consentire al traffico in uscita di raggiungere i nostri Gateway. Di seguito è possibile trovare un elenco completo degli indirizzi IP usati dai gateway per area.
 
-## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Database di Azure per gli indirizzi IP del gateway MySQLAzure Database for MySQL gateway IP addresses
-Nella tabella seguente sono elencati gli indirizzi IP primari e secondari del gateway Database di Azure per MySQL per tutte le aree dati. L'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover in caso di errore del server primario. Come accennato in precedenza, i clienti devono consentire l'uscita a entrambi gli indirizzi IP. Il secondo indirizzo IP non è in ascolto su alcun servizio finché non viene attivato dal database di Azure affinché MySQL accetti connessioni.
+## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Indirizzi IP del gateway di database di Azure per MySQL
+La tabella seguente elenca gli indirizzi IP primari e secondari del database di Azure per il gateway MySQL per tutte le aree dati. L'indirizzo IP primario è l'indirizzo IP corrente del gateway e il secondo indirizzo IP è un indirizzo IP di failover in caso di errore del database primario. Come indicato in precedenza, i clienti devono consentire il traffico in uscita verso gli indirizzi IP. Il secondo indirizzo IP non è in ascolto in alcun servizio fino a quando non viene attivato da database di Azure per MySQL per accettare le connessioni.
 
-| **Nome area** | **Indirizzi IP gateway** |
+| **Nome area** | **Indirizzi IP del gateway** |
 |:----------------|:-------------|
 | Australia centrale| 20.36.105.0     |
-| Australia Centrale2     | 20.36.113.0   |
+| Central2 Australia     | 20.36.113.0   |
 | Australia orientale | 13.75.149.87, 40.79.161.1     |
 | Australia sud-orientale |191.239.192.109, 13.73.109.251   |
 | Brasile meridionale | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
@@ -56,7 +56,7 @@ Nella tabella seguente sono elencati gli indirizzi IP primari e secondari del ga
 | Stati Uniti centro-settentrionali | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa settentrionale | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
 | Sudafrica settentrionale  | 102.133.152.0    |
-| Sudafrica Ovest | 102.133.24.0   |
+| Sudafrica occidentale | 102.133.24.0   |
 | Stati Uniti centro-meridionali |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Asia sud-orientale | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Emirati Arabi Uniti centrali | 20.37.72.64  |
@@ -69,19 +69,19 @@ Nella tabella seguente sono elencati gli indirizzi IP primari e secondari del ga
 | Stati Uniti occidentali 2 | 13.66.226.202  |
 ||||
 
-## <a name="connection-redirection"></a>Reindirizzamento delle connessioni
+## <a name="connection-redirection"></a>Reindirizzamento della connessione
 
-Database di Azure per MySQL supporta criteri di connessione aggiuntivi, **il reindirizzamento,** che consente di ridurre la latenza di rete tra le applicazioni client e i server MySQL. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MySQL, il server restituisce l'indirizzo back-end del nodo che ospita il server MySQL al client. Successivamente, tutti i pacchetti successivi scorrono direttamente al server, ignorando il gateway. Man mano che i pacchetti scorrono direttamente al server, la latenza e la velocità effettiva hanno migliorato le prestazioni.
+Database di Azure per MySQL supporta un criterio di connessione aggiuntivo, il **Reindirizzamento**, che consente di ridurre la latenza di rete tra le applicazioni client e i server MySQL. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MySQL, il server restituisce l'indirizzo back-end del nodo che ospita il server MySQL al client. Successivamente, tutti i pacchetti successivi fluiscono direttamente sul server, ignorando il gateway. Poiché i pacchetti vengono inviati direttamente al server, la latenza e la velocità effettiva hanno un miglioramento delle prestazioni.
 
-Questa funzionalità è supportata nel database di Azure per i server MySQL con le versioni del motore 5.6, 5.7 e 8.0.This feature is supported in Azure Database for MySQL servers with engine versions 5.6, 5.7, and 8.0.
+Questa funzionalità è supportata nei server di database di Azure per MySQL con le versioni del motore 5,6, 5,7 e 8,0.
 
-Il supporto per il reindirizzamento è disponibile nell'estensione [PHP mysqlnd_azure,](https://github.com/microsoft/mysqlnd_azure) sviluppato da Microsoft ed è disponibile su [PECL](https://pecl.php.net/package/mysqlnd_azure). Vedere l'articolo [configurazione del reindirizzamento](./howto-redirection.md) per ulteriori informazioni su come utilizzare il reindirizzamento nelle applicazioni.
+Il supporto per il reindirizzamento è disponibile nell'estensione PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) , sviluppato da Microsoft ed è disponibile in [PECL](https://pecl.php.net/package/mysqlnd_azure). Per altre informazioni su come usare il reindirizzamento nelle applicazioni, vedere l'articolo sulla [configurazione del reindirizzamento](./howto-redirection.md) .
 
 > [!IMPORTANT]
-> Il supporto per il reindirizzamento nell'estensione [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) PHP è attualmente in anteprima.
+> Il supporto per il reindirizzamento nell'estensione PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) è attualmente in versione di anteprima.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare e gestire le regole del firewall di Azure Database for MySQL usando il portale di AzureCreate and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
+* [Creare e gestire le regole del firewall di database di Azure per MySQL usando il portale di Azure](./howto-manage-firewall-using-portal.md)
 * [Creare e gestire regole del firewall di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
-* [Configurare il reindirizzamento con il database di Azure per MySQLConfigure redirection with Azure Database for MySQL](./howto-redirection.md)
+* [Configurare il reindirizzamento con database di Azure per MySQL](./howto-redirection.md)

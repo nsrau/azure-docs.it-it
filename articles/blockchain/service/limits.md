@@ -1,6 +1,6 @@
 ---
-title: Limiti del servizio Blockchain di AzureAzure Blockchain Service limits
-description: Panoramica dei limiti di servizio e funzionalità nel servizio Blockchain di AzureOverview of the service and functional limits in Azure Blockchain Service
+title: Limiti del servizio Azure blockchain
+description: Panoramica del servizio e dei limiti funzionali nel servizio Azure blockchain
 ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
@@ -11,60 +11,60 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "80676524"
 ---
-# <a name="limits-in-azure-blockchain-service"></a>Limiti nel servizio Blockchain di AzureLimits in Azure Blockchain Service
+# <a name="limits-in-azure-blockchain-service"></a>Limiti nel servizio Azure blockchain
 
-Il servizio Blockchain di Azure include limiti di funzionalità e servizio, ad esempio il numero di nodi che un membro può avere, le restrizioni del consorzio e le quantità di archiviazione.
+Il servizio Azure blockchain presenta limiti di servizio e funzionale, ad esempio il numero di nodi di cui un membro può disporre, le restrizioni del Consorzio e gli importi di archiviazione.
 
 ## <a name="pricing-tier"></a>Piano tariffario
 
-I limiti massimi per le transazioni e i nodi di convalida dipendono dal provisioning del servizio Blockchain di Azure a i piani tariffari di base o standard.
+I limiti massimi per le transazioni e i nodi validator dipendono dal fatto che il servizio Azure blockchain sia stato provisioning a piani tariffari Basic o standard.
 
-| Piano tariffario | Numero massimo di nodi di transazioneMax transaction nodes | Nodi validatore maxMax validator nodes |
+| Piano tariffario | Numero massimo di nodi transazione | Numero massimo di nodi validator |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
 
-La rete del consorzio deve avere almeno due nodi di livello standard del servizio Blockchain di Azure.Your consortium network should have a least two Azure Blockchain Service standard tier nodes. I nodi di livello standard includono due nodi validator. Quattro nodi validator sono necessari per soddisfare il consenso di tolleranza di errore [bizantene](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)di Istanbul .
+La rete del consorzio deve avere almeno due nodi di livello standard del servizio Azure blockchain. I nodi di livello standard includono due nodi validator. Quattro nodi validator sono necessari per soddisfare i [consensi di tolleranza di errore bizantino di Istanbul](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
-Usare il livello di base per lo sviluppo, il test e la prova dei concetti. Usare il livello Standard per le distribuzioni di livello di produzione. È inoltre necessario utilizzare il livello *Standard* se si utilizza Blockchain Data Manager o si invia un elevato volume di transazioni private.
+Usare il livello Basic per lo sviluppo, i test e i concetti di prova. Usare il livello standard per le distribuzioni di livello produzione. È necessario usare anche il livello *Standard* anche se si usa Blockchain Data Manager o si invia un volume elevato di transazioni private.
 
-La modifica del piano tariffario tra base e standard dopo la creazione dei membri non è supportata.
+Dopo la creazione di membri non è possibile passare dal piano tariffario Basic a quello Standard.
 
 ## <a name="storage-capacity"></a>Capacità di archiviazione
 
-La quantità massima di spazio di archiviazione che può essere utilizzata per nodo per i dati e i registri della contabilità generale è 1,8 terabyte.
+La quantità massima di spazio di archiviazione che può essere usata per nodo per i log e i dati di Ledger è 1,8 terabyte.
 
-La riduzione delle dimensioni di archiviazione della contabilità generale e dei registri non è supportata.
-## <a name="consortium-limits"></a>Limiti del consorzio
+La riduzione delle dimensioni dello spazio di archiviazione del log e del Ledger non è supportata.
+## <a name="consortium-limits"></a>Limiti del Consorzio
 
-* **I nomi di consorzio e membro devono essere univoci** rispetto agli altri nomi di consorzio e membro nel servizio Blockchain di Azure.Consortium and member names must be unique from other consortium and member names in the Azure Blockchain Service.
+* I **nomi di Consorzio e membri devono essere univoci** da altri nomi di Consorzio e membri nel servizio Azure blockchain.
 
-* **I nomi dei membri e dei consorzi non possono essere modificati**
+* **Non è possibile modificare i nomi di membri e consorzi**
 
-* **Tutti i membri di un consorzio devono essere nello stesso piano tariffario**
+* **Tutti i membri di un consorzio devono trovarsi nello stesso piano tariffario**
 
-* **Tutti i membri che partecipano a un consorzio devono risiedere nella stessa regione**
+* **Tutti i membri che fanno parte di un consorzio devono trovarsi nella stessa area**
 
-    Il primo membro creato in un consorzio detta la regione. I membri invitati al consorzio devono risiedere nella stessa regione del primo membro. Limitare tutti i membri nella stessa regione contribuisce a garantire che il consenso della rete non sia influenzato negativamente.
+    Il primo membro creato in un consorzio impone l'area. I membri invitati al consorzio devono trovarsi nella stessa area del primo membro. La limitazione di tutti i membri alla stessa area contribuisce a garantire che il consenso alla rete non sia influenzato negativamente.
 
 * **Un consorzio deve avere almeno un amministratore**
 
-    Se in un consorzio è presente un solo amministratore, non possono rimuovere se stessi dal consorzio o eliminare il membro finché non viene aggiunto o promosso un altro amministratore nel consorzio.
+    Se è presente un solo amministratore in un consorzio, questi non possono rimuovere se stessi dal consorzio o eliminare il membro fino a quando un altro amministratore non viene aggiunto o promosso nel Consorzio.
 
-* **I membri rimossi dal consorzio non possono essere aggiunti di nuovo**
+* **Non è possibile aggiungere di nuovo i membri rimossi dal Consortium**
 
-    Piuttosto, devono essere nuovamente invitati a unirsi al consorzio e creare un nuovo membro. Le risorse membro esistenti non vengono eliminate per mantenere le transazioni cronologiche.
+    Ma devono essere riinvitati a partecipare al Consorzio e creare un nuovo membro. Le risorse membro esistenti non vengono eliminate per mantenere le transazioni cronologiche.
 
-* **Tutti i membri di un consorzio devono utilizzare la stessa versione contabile**
+* **Tutti i membri di un consorzio devono usare la stessa versione di Ledger**
 
-    Per altre informazioni sulle versioni di applicazione di patch, aggiornamenti e contabilità generale disponibili nel servizio Blockchain di Azure, vedere [Applicazione di patch, aggiornamenti e versioni.](ledger-versions.md)
+    Per altre informazioni sulle versioni di patch, aggiornamenti e Ledger disponibili nel servizio Azure blockchain, vedere applicazione di [patch, aggiornamenti e versioni](ledger-versions.md).
 
 ## <a name="performance"></a>Prestazioni
 
-Non utilizzare la funzione *eth.estimate* gas per ogni invio di transazioni. La funzione *eth.estimate* richiede un utilizzo intensivo della memoria. La chiamata alla funzione più volte riduce drasticamente le transazioni al secondo.
+Non utilizzare la funzione *ETH. Estimate* gas per ogni invio di transazione. La funzione *ETH. Estimate* è a elevato utilizzo di memoria. La chiamata della funzione più volte riduce drasticamente le transazioni al secondo.
 
-Se possibile, utilizzare un valore del gas conservativo per l'invio delle transazioni e ridurre al minimo l'uso di *eth.estimate*.
+Se possibile, usare un valore di gas conservativo per inviare le transazioni e ridurre al minimo l'uso di *ETH. Estimate*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sui criteri relativi all'applicazione di patch e agli aggiornamenti dei sistemi: [applicazione di patch, aggiornamenti e versioni](ledger-versions.md).
+Altre informazioni sui criteri relativi a patch e aggiornamenti per i sistemi- [patch, aggiornamenti e versioni](ledger-versions.md).

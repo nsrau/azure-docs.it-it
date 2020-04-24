@@ -1,6 +1,6 @@
 ---
-title: Codici di errore per le istanze di macchine virtuali e set di scalabilità di Azure SpotError codes for Azure Spot VMs and scale set instances
-description: Informazioni sui codici di errore che è possibile visualizzare quando si usano macchine virtuali Spot e istanze del set di scalabilità.
+title: Codici di errore per le istanze di macchine virtuali e set di scalabilità di Azure spot
+description: Informazioni sui codici di errore che potrebbero essere visualizzati quando si usano le VM e le istanze del set di scalabilità.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -14,29 +14,29 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/02/2020
 ms.locfileid: "80547810"
 ---
-# <a name="error-messages-for-spot-vms-and-scale-sets"></a>Messaggi di errore per macchine virtuali spot e set di scalabilitàError messages for Spot VMs and scale sets
+# <a name="error-messages-for-spot-vms-and-scale-sets"></a>Messaggi di errore per le VM spot e i set di scalabilità
 
-Ecco alcuni possibili codici di errore che è possibile ricevere quando si usano macchine virtuali Spot e set di scalabilità.
+Di seguito sono riportati alcuni possibili codici di errore che è possibile ricevere quando si usano macchine virtuali e set di scalabilità.
 
 
 | Chiave | Message | Descrizione |
 |-----|---------|-------------|
-| SkuNotAvailable | Il livello richiesto\<per\>la risorsa ' risorsa\<\>' non\<è\>attualmente disponibile nella posizione ' posizione ' per la sottoscrizione ' subscriptionID '. Provare un altro livello o distribuirlo in un percorso diverso. | La capacità di Azure Spot in questa posizione non è sufficiente per creare la macchina virtuale o l'istanza del set di scalabilità. |
-| EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  I criteri di rimozione possono essere impostati solo nelle macchine virtuali di Azure Spot.Eviction policy can be set only on Azure Spot Virtual Machines. | Questa macchina virtuale non è una macchina virtuale Spot, pertanto non è possibile impostare i criteri di rimozione. |
-| AzureSpotVMNotSupportedInAvailabilitySet  |  La macchina virtuale di Azure Spot non è supportata nel set di disponibilità. | È necessario scegliere di usare una macchina virtuale Spot o una macchina virtuale in un set di disponibilità, non è possibile scegliere entrambi. |
-| AzureSpotFeatureNotEnabledForSubscription  |  Sottoscrizione non abilitata con la funzionalità Azure Spot.Subscription not enabled with Azure Spot feature. | Usare una sottoscrizione che supporti le macchine virtuali Spot.Use a subscription that supports Spot VMs. |
-| VMPriorityCannotBeApplied  |  Il valore di{0}priorità specificato ' '{1}non può essere applicato alla macchina virtuale ' poiché non è stata specificata alcuna priorità al momento della creazione della macchina virtuale. | Specificare la priorità quando viene creata la macchina virtuale. |
-| Prezzo spotPriceGreaterThanProvidedMaxPrice  |  Impossibile eseguire{0}l'operazione ' '{1} poiché il prezzo massimo{2} fornito ' USD' è{3}inferiore al prezzo spot corrente ' USD' per la dimensione di Azure Spot VM ' '. | Selezionare un prezzo massimo più alto. Per ulteriori informazioni, vedere informazioni sui prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).|
-| MaxPriceValueInvalid  |  Valore di prezzo massimo non valido. Gli unici valori supportati per il prezzo massimo sono -1 o un decimale maggiore di zero. Il valore massimo del prezzo pari a -1 indica che la macchina virtuale Azure Spot non verrà rimossa per motivi di prezzo. | Immettere un prezzo massimo valido. Per ulteriori informazioni, vedere Prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). |
-| MaxPriceChangeNotAllowedForAllocatedVMs | La modifica massima del prezzo{0}non è consentita quando la macchina virtuale ' ' è attualmente allocata. Si prega di deallocare e riprovare. | Arrestare: deallocare la macchina virtuale in modo da poter modificare il prezzo massimo. |
-| MaxPriceChangeNotAllowed | La variazione di prezzo massima non è consentita. | Non è possibile modificare il prezzo massimo per questa macchina virtuale. |
-| AzureSpotIsNotSupportedForThisAPIVersion  |  Azure Spot non è supportato per questa versione dell'API. | La versione dell'API deve essere 2019-03-01.The API version needs to be 2019-03-01. |
-| AzureSpotIsNotSupportedForThisVMSize  |  Azure Spot non è supportato per questa dimensione {0}della macchina virtuale. | Selezionare un'altra dimensione della macchina virtuale. Per ulteriori informazioni, vedere [Macchine virtuali spot](./linux/spot-vms.md). |
-| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Il prezzo massimo è supportato solo per le macchine virtuali di Azure Spot.Max price is supported only for Azure Spot Virtual Machines. | Per ulteriori informazioni, vedere [Macchine virtuali spot](./linux/spot-vms.md). |
-| MoveResourcesWithAzureSpotVMNotSupported  |  La richiesta Sposta risorse contiene una macchina virtuale Azure Spot.The Move resources request contains an Azure Spot virtual machine. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID della macchina virtuale. | Non è possibile spostare le macchine virtuali Spot. |
-| MoveResourcesWithAzureSpotVmsSNotSupported  |  La richiesta Sposta risorse contiene un set di scalabilità di macchine virtuali di Azure Spot.The Move resources request contains an Azure Spot virtual machine scale set. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID del set di scalabilità delle macchine virtuali. | Non è possibile spostare le istanze del gruppo di scale Spot. |
-| EphemeralOSDisksNotSupportedForSpotVMs | I dischi del sistema operativo effimeri non sono supportati per le macchine virtuali Spot. | Usare un normale disco del sistema operativo per la macchina virtuale Spot.Use a regular OS disk for your Spot VM. |
-| Modalitàdi Orchestrazione di AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | La macchina virtuale di Azure Spot non è supportata nel set di scalabilità di macchine virtuali con la modalità di orchestrazione della macchina virtuale. | Impostare la modalità di orchestrazione sul set di scalabilità della macchina virtuale per usare le istanze Spot.Set the orchestration mode to virtual machine scale set in order to use Spot instances. |
+| SkuNotAvailable | Il livello richiesto per la risorsa\<'\>Resource ' non è attualmente disponibile nella località\<'\>location ' per la\<sottoscrizione\>' subscriptionID '. Provare un altro livello o eseguire la distribuzione in un percorso diverso. | La capacità di Azure spot in questo percorso non è sufficiente per creare la macchina virtuale o l'istanza del set di scalabilità. |
+| EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  I criteri di rimozione possono essere impostati solo in macchine virtuali Azure spot. | Questa macchina virtuale non è una macchina virtuale spot, quindi non è possibile impostare i criteri di rimozione. |
+| AzureSpotVMNotSupportedInAvailabilitySet  |  La macchina virtuale Azure spot non è supportata nel set di disponibilità. | È necessario scegliere di usare una VM spot o di usare una macchina virtuale in un set di disponibilità, non è possibile scegliere entrambe. |
+| AzureSpotFeatureNotEnabledForSubscription  |  Sottoscrizione non abilitata con la funzionalità Azure spot. | Usare una sottoscrizione che supporta le macchine virtuali spot. |
+| VMPriorityCannotBeApplied  |  Non è possibile applicare il{0}valore di priorità specificato '' alla macchina virtuale{1}'' perché non è stata specificata alcuna priorità durante la creazione della macchina virtuale. | Specificare la priorità durante la creazione della macchina virtuale. |
+| SpotPriceGreaterThanProvidedMaxPrice  |  Non è possibile eseguire l'{0}operazione '' perché il prezzo massimo{1} ' USD ' specificato è inferiore al prezzo spot corrente{2} ' USD ' per le dimensioni della macchina{3}virtuale di Azure spot ''. | Selezionare un prezzo massimo superiore. Per ulteriori informazioni, vedere le informazioni sui prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).|
+| MaxPriceValueInvalid  |  Valore di prezzo massimo non valido. Gli unici valori supportati per il prezzo massimo sono-1 o un numero decimale maggiore di zero. Il valore di prezzo massimo-1 indica che la macchina virtuale Azure spot non verrà rimossa per motivi di prezzo. | Immettere un prezzo massimo valido. Per altre informazioni, vedere prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). |
+| MaxPriceChangeNotAllowedForAllocatedVMs | La variazione del prezzo massima non è consentita{0}quando la macchina virtuale '' è attualmente allocata. Deallocare e riprovare. | Stop\Deallocate la macchina virtuale in modo da poter modificare il prezzo massimo. |
+| MaxPriceChangeNotAllowed | La variazione del prezzo massima non è consentita. | Non è possibile modificare il prezzo massimo per questa macchina virtuale. |
+| AzureSpotIsNotSupportedForThisAPIVersion  |  Azure spot non è supportato per questa versione API. | La versione dell'API deve essere 2019-03-01. |
+| AzureSpotIsNotSupportedForThisVMSize  |  Azure spot non è supportato per questa dimensione {0}di macchina virtuale. | Selezionare le altre dimensioni della macchina virtuale. Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md). |
+| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Il prezzo massimo è supportato solo per le macchine virtuali Azure spot. | Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md). |
+| MoveResourcesWithAzureSpotVMNotSupported  |  La richiesta di spostamento delle risorse contiene una macchina virtuale Azure spot. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID macchina virtuale. | Non è possibile spostare le VM spot. |
+| MoveResourcesWithAzureSpotVmssNotSupported  |  La richiesta di spostamento delle risorse contiene un set di scalabilità di macchine virtuali Azure spot. Non supportato attualmente. Controllare i dettagli dell'errore per gli ID del set di scalabilità di macchine virtuali. | Non è possibile spostare le istanze del set di scalabilità di punti. |
+| EphemeralOSDisksNotSupportedForSpotVMs | I dischi del sistema operativo temporaneo non sono supportati per le macchine virtuali spot. | Usare un normale disco del sistema operativo per la macchina virtuale spot. |
+| AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | La macchina virtuale Azure spot non è supportata nel set di scalabilità di macchine virtuali con la modalità di orchestrazione VM. | Impostare la modalità di orchestrazione sul set di scalabilità di macchine virtuali per usare le istanze di spot. |
 
 
-**Passaggi successivi** Per ulteriori informazioni, vedere [Macchine virtuali spot](./linux/spot-vms.md).
+**Passaggi successivi** Per ulteriori informazioni, vedere la pagina relativa alle [macchine virtuali spot](./linux/spot-vms.md).

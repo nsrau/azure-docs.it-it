@@ -1,5 +1,5 @@
 ---
-title: Eseguire la distribuzione da GitHub ad AKS con JenkinsDeploy from GitHub to AKS with Jenkins
+title: Eseguire la distribuzione da GitHub ad AKS con Jenkins
 titleSuffix: Azure Kubernetes Service
 description: Configurare Jenkins per l'integrazione continua (CI) da GitHub e la distribuzione continua (CD) nel servizio Azure Kubernetes (AKS)
 services: container-service
@@ -41,7 +41,7 @@ Per completare questa esercitazione, è necessario quanto segue:
 
 - [Docker installato](https://docs.docker.com/install/) nel sistema di sviluppo
 
-- Un account GitHub, un token di [accesso personale GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)e un client Git installato nel sistema di sviluppo
+- Un account GitHub, un [token di accesso personale GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)e un client Git installati nel sistema di sviluppo
 
 - Se si fornisce la propria istanza di Jenkins piuttosto che questo esempio con script per distribuire Jenkins, l'istanza di Jenkins richiede [l'installazione e la configurazione di Docker](https://docs.docker.com/install/) e [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
@@ -50,9 +50,9 @@ Per completare questa esercitazione, è necessario quanto segue:
 In questo articolo si usa un'applicazione di voto di Azure di esempio che contiene un'interfaccia Web ospitata in uno o più pod e un secondo pod che ospita Redis per l'archiviazione temporanea dei dati. Prima di integrare Jenkins e il servizio Azure Kubernetes per le distribuzioni automatizzate, preparare e distribuire l'applicazione di voto di Azure nel cluster servizio Azure Kubernetes. Questa distribuzione manuale può essere considerata come la prima versione dell'applicazione e consente di visualizzare l'applicazione in azione.
 
 > [!NOTE]
-> L'applicazione di voto di Azure di esempio usa un pod Linux pianificato per l'esecuzione in un nodo Linux.The sample Azure vote application uses a Linux pod that is scheduled to run on a Linux node. Il flusso descritto in questo articolo funziona anche per un pod di Windows Server pianificato in un nodo di Windows Server.The flow outlined in this article also works for a Windows Server pod scheduled on a Windows Server node.
+> L'applicazione Azure vote di esempio usa un pod Linux pianificato per l'esecuzione in un nodo Linux. Il flusso descritto in questo articolo funziona anche per un pod di Windows Server pianificato in un nodo di Windows Server.
 
-Per il repository GitHub seguente per [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis)l'applicazione di esempio, ovvero . Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro.
+Creare una copia tramite fork del repository GitHub seguente per [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis)l'applicazione di esempio:. Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro.
 
 Clonare il fork nel proprio sistema di sviluppo. Verificare di usare l'URL del fork durante la clonazione del repository:
 
@@ -117,7 +117,7 @@ Successivamente, usare il comando [kubectl apply](https://kubernetes.io/docs/ref
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Viene creato un servizio di bilanciamento del carico di Kubernetes per esporre l'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. Per monitorare l'avanzamento della distribuzione del bilanciamento del carico, usare il comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) con l'argomento `--watch`. Una volta che l'indirizzo *EXTERNAL-IP* è `Control + C` cambiato da in *sospeso* a un indirizzo *IP*, utilizzare per arrestare il processo di controllo kubectl.
+Viene creato un servizio di bilanciamento del carico di Kubernetes per esporre l'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. Per monitorare l'avanzamento della distribuzione del bilanciamento del carico, usare il comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) con l'argomento `--watch`. Quando l'indirizzo *IP esterno* è cambiato da *Pending* a un *indirizzo IP*, usare `Control + C` per arrestare il processo kubectl Watch.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -138,7 +138,7 @@ Per distribuire rapidamente Jenkins per l'uso in questo articolo, è possibile u
 > [!WARNING]
 > Questo script di esempio è a scopo dimostrativo per effettuare rapidamente il provisioning di un ambiente Jenkins eseguito su una macchina virtuale Azure. Sfrutta l'estensione script personalizzata di Azure per configurare una macchina virtuale e quindi visualizzare le credenziali necessarie. *~/.kube/config* viene copiato sulla macchina virtuale di Jenkins.
 
-Eseguire i comandi seguenti per scaricare ed eseguire lo script. È consigliabile esaminare il contenuto di [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh)qualsiasi script prima di eseguirlo - .
+Eseguire i comandi seguenti per scaricare ed eseguire lo script. Esaminare il contenuto di uno script prima di eseguirlo [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh).
 
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
@@ -166,7 +166,7 @@ Aprire un browser Web all'URL visualizzato e immettere la chiave di sblocco. Seg
 
 Per contenere il nome del server di accesso di Registro Azure Container, viene usata una variabile di ambiente di Jenkins. A tale variabile viene fatto riferimento durante il processo di compilazione di Jenkins. Per creare questa variabile di ambiente, completare i passaggi seguenti:
 
-- Sul lato sinistro del portale Jenkins, selezionare **Gestisci Jenkins** > **Configura sistema**
+- Sul lato sinistro del portale di Jenkins selezionare **Manage Jenkins** > **Configure System** .
 - In **Global Properties** (Proprietà globali) selezionare **Environment variables** (Variabili di ambiente). Aggiungere una variabile con il nome `ACR_LOGINSERVER` e il valore del server di accesso di Registro Azure Container in uso.
 
     ![Variabili di ambiente di Jenkins](media/jenkins-continuous-deployment/env-variables.png)
@@ -211,7 +211,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 
 Con l'assegnazione di ruolo creata in Azure, archiviare le credenziali di Registro Azure Container in un oggetto credenziale di Jenkins. Durante il processo di compilazione di Jenkins si farà riferimento a queste credenziali.
 
-Tornare a sinistra del portale di Jenkins, fare clic su **Credenziali** > **Jenkins** > **Credenziali globali (senza restrizioni)** > Aggiungi**credenziali**
+Tornare al lato sinistro del portale di Jenkins, fare clic su **Credentials** > **Jenkins** > **Global Credentials (Unrestricted)** > **Add Credentials**
 
 Verificare che il tipo di credenziali sia **Username with password** (Nome utente con password) e immettere gli elementi seguenti:
 
@@ -230,8 +230,8 @@ Fare clic su **OK** e tornare al portale di Jenkins.
 Nella home page del portale di Jenkins selezionare **New item** (Nuovo elemento) nella parte sinistra:
 
 1. Immettere *azure-vote* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**
-1. Nella sezione **Generale** selezionare **il progetto GitHub** e immettere l'URL del repository biforcato, ad esempio *https:\/\</github.com/\>account-github/azure-voting-app-redis*
-1. Nella sezione **Gestione del codice sorgente** selezionare **Git**, immettere l'URL *git* del repository con forked, ad esempio *https:\//github.com/\<account-github-account\>/azure-voting-app-redis.git*
+1. Nella sezione **generale** selezionare **GitHub Project (progetto GitHub** ) e immettere l'URL del repository con fork, ad esempio *\/HTTPS\<:/github.com/your-\>GitHub-account/Azure-voting-app-Redis*
+1. Nella sezione **gestione del codice sorgente** selezionare **git**, immettere il repository con fork *. git* URL, ad esempio *https:\//github.com/\<your-GitHub-account/Azure-voting-app-Redis.git\>*
 
 1. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 1. In **Build Environment** (Ambiente di compilazione) selezionare **Use secret texts or files** (Usa testi o file segreti).

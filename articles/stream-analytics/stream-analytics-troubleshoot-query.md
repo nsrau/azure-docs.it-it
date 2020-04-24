@@ -19,18 +19,18 @@ ms.locfileid: "80409448"
 
 Questo articolo descrive problemi comuni di sviluppo delle query di Analisi di flusso di Azure e la risoluzione di questi.
 
-Questo articolo descrive i problemi comuni relativi allo sviluppo di query di Analisi di flusso di Azure, come risolvere i problemi di query e come correggerli. Molti passaggi per la risoluzione dei problemi richiedono l'abilitazione dei log di diagnostica per il processo di Analisi di flusso. Se i log di diagnostica non sono abilitati, vedere Risolvere i problemi di Analisi di flusso di Azure usando i log di [diagnostica.](stream-analytics-job-diagnostic-logs.md)
+Questo articolo descrive i problemi comuni relativi allo sviluppo di query di analisi di flusso di Azure, come risolvere i problemi di query e come risolvere i problemi. Molti passaggi per la risoluzione dei problemi richiedono l'abilitazione dei log di diagnostica per il processo di analisi di flusso. Se i log di diagnostica non sono abilitati, vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagnostica](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="query-is-not-producing-expected-output"></a>La query non genera l'output previsto
 
 1.  Esaminare gli errori eseguendo un test locale:
 
-    - Nella scheda **Query** del portale di Azure selezionare **Test**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
-    - È anche possibile [testare la query in locale](stream-analytics-live-data-local-testing.md) usando gli strumenti di Analisi di flusso di Azure per Visual Studio o Visual Studio [Code.](visual-studio-code-local-run-live-input.md) 
+    - Nella scheda **query** di portale di Azure selezionare **test**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
+    - È anche possibile [testare la query localmente](stream-analytics-live-data-local-testing.md) usando gli strumenti di analisi di flusso di Azure per Visual Studio o [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Eseguire il debug delle query passo dopo passo in locale usando](debug-locally-using-job-diagram.md) il diagramma dei processi negli strumenti di Analisi di flusso di Azure per Visual Studio.Debug queries step by step locally using job diagram in Azure Stream Analytics tools for Visual Studio. Il diagramma dei processi mostra come i dati passano dalle origini di input (Hub eventi, hub IoT e così via) tramite più passaggi di query e infine nei sink di output. Ogni passaggio di query viene mappato a un set di risultati temporaneo definito nello script utilizzando l'istruzione WITH. È possibile visualizzare i dati, nonché le metriche, in ogni set di risultati intermedio per trovare l'origine del problema.
+2.  [Eseguire il debug delle query in locale usando il diagramma dei processi](debug-locally-using-job-diagram.md) negli strumenti di analisi di flusso di Azure per Visual Studio. Il diagramma dei processi Mostra come il flusso di dati dalle origini di input (hub eventi, hub Internet e così via) attraverso più passaggi di query e infine i sink di output. Ogni passaggio della query viene mappato a un set di risultati temporaneo definito nello script utilizzando l'istruzione WITH. Per individuare l'origine del problema, è possibile visualizzare i dati, nonché le metriche, in ogni set di risultati intermedi.
 
-    ![Risultato dell'anteprima del diagramma di processo](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Risultato anteprima Diagramma processi](./media/debug-locally-using-job-diagram/preview-result.png)
 
 3.  Se si usa [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), assicurarsi che i timestamp degli eventi siano successivi all'[ora di inizio del processo](stream-analytics-out-of-order-and-late-events.md).
 
@@ -39,9 +39,9 @@ Questo articolo descrive i problemi comuni relativi allo sviluppo di query di An
     - Una funzione [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) non riesce, causando l'esito negativo del processo. Per evitare errori di cast di tipo, usare [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics).
     - Quando si usano le funzioni finestra, attendere la durata dell'intera finestra per vedere l'output dalla query.
     - Il timestamp per gli eventi precede l'ora di inizio del processo e gli eventi vengono eliminati.
-    - [**Le**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) condizioni JOIN non corrispondono. Se non ci sono corrispondenze, non ci sarà alcun output.
+    - Le condizioni di [**join**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) non corrispondono. Se non sono presenti corrispondenze, verrà restituito zero output.
 
-5.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Vai a **Impostazioni** e seleziona [**Ordine eventi**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione. 
+5.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Passare a **Impostazioni** e selezionare [**ordinamento evento**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione. 
 
 6. Eseguire il debug usando i log di controllo e diagnostica:
     - Usare i [log di controllo](../azure-resource-manager/resource-group-audit.md) e filtrare per identificare gli errori ed eseguirne il debug.
@@ -53,7 +53,7 @@ Assicurarsi di sfruttare i vantaggi della parallelizzazione in Analisi di flusso
 
 ## <a name="debug-queries-progressively"></a>Eseguire il debug progressivo delle query
 
-Nell'elaborazione dei dati in tempo reale può essere utile conoscere l'aspetto dei dati nel mezzo di una query. È possibile vedere questo utilizzando il diagramma dei processi in Visual Studio.You can see this using the job diagram in Visual Studio. Se non si dispone di Visual Studio, è possibile eseguire passaggi aggiuntivi per l'output di dati intermedi.
+Nell'elaborazione dei dati in tempo reale può essere utile conoscere l'aspetto dei dati nel mezzo di una query. È possibile visualizzarlo usando il diagramma dei processi in Visual Studio. Se non si dispone di Visual Studio, è possibile eseguire altri passaggi per l'output dei dati intermedi.
 
 Poiché gli input o i passaggi di un processo di Analisi di flusso di Azure possono essere letti più volte, è possibile scrivere istruzioni SELECT INTO aggiuntive. In questo modo vengono generati dati intermedi nella risorsa di archiviazione che consentono di controllare la correttezza dei dati, esattamente come fanno le *variabili di controllo* quando si esegue il debug di un programma.
 
@@ -77,11 +77,11 @@ In questo esempio sono stati aggiunti due nuovi "output temporanei". Può tratta
 
 Ora avviare nuovamente il processo e lasciarlo in esecuzione per alcuni minuti. Quindi eseguire una query su temp1 e temp2 con Visual Studio Cloud Explorer per generare le tabelle seguenti:
 
-**tabella temp1**
-SELECT INTO temp1 tabella Query di analisi di![flusso](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+**tabella Temp1 selezionare**
+nella query di analisi di flusso della![tabella Temp1](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**tabella temp2**
-SELECT INTO temp2 tabella Query di analisi di![flusso](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+**tabella Temp2 selezionare**
+nella query di analisi di flusso della![tabella Temp2](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Come si può vedere, temp1 e temp2 hanno entrambe dati e la colonna del nome viene popolata in modo corretto in temp2. Tuttavia, poiché non sono ancora presenti dati nell'output, c'è qualcosa di sbagliato:
 
@@ -103,12 +103,12 @@ Questa volta i dati nell'output vengono formattati e popolati come previsto.
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, prova il forum di Analisi di Flusso di [Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -23,7 +23,7 @@ ms.locfileid: "80387819"
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglierà di specificare i dettagli dei contatti di sicurezza per la sottoscrizione di Azure, se non è già stato fatto. Queste informazioni verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai dati del cliente. Microsoft Security Response Center esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi.
 
-Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata gravità viene inviata una notifica tramite posta elettronica. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. I gruppi di risorse all'interno di una sottoscrizione ereditano queste impostazioni. Gli avvisi sono disponibili solo nel livello Standard del Centro sicurezza di Azure.Alerts are available only in the Standard tier of Azure Security Center.
+Alla prima occorrenza giornaliera di un avviso e solo per gli avvisi di elevata gravità viene inviata una notifica tramite posta elettronica. Le preferenze di posta elettronica possono essere configurate solo per i criteri della sottoscrizione. I gruppi di risorse all'interno di una sottoscrizione ereditano queste impostazioni. Gli avvisi sono disponibili solo nel livello standard del Centro sicurezza di Azure.
 
 Le notifiche di avviso tramite posta elettronica vengono inviate:
 - A un singolo destinatario di posta elettronica per tipo di avviso al giorno  
@@ -32,38 +32,38 @@ Le notifiche di avviso tramite posta elettronica vengono inviate:
 - Solo per avvisi con gravità alta
 
 > [!TIP]
-> Per gli avvisi con altri livelli di gravità, creare [un'automazione del flusso](workflow-automation.md) di lavoro per usare un'app per la logica che invierà messaggi di posta elettronica al personale pertinente.
+> Per gli avvisi con altri livelli di gravità, creare un' [automazione del flusso di lavoro](workflow-automation.md) per usare un'app per la logica che invierà messaggi di posta elettronica al personale interessato.
  
 Ad esempio, se è già stato inviato un messaggio di posta elettronica per avvisare l'utente di un attacco RDP, questo non riceverà nessun altro messaggio di posta elettronica relativo all'attacco RDP nello stesso giorno, anche se viene attivato un altro avviso. 
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
 
-## <a name="set-up-email-notifications-for-alerts"></a>Configurare le notifiche tramite posta elettronica per gli avvisi<a name="email"></a>
+## <a name="set-up-email-notifications-for-alerts"></a>Configurare le notifiche di posta elettronica per gli avvisi<a name="email"></a>
 
-1. Aprire la pagina **Notifiche e-mail:**
+1. Aprire la pagina delle **notifiche di posta elettronica** :
 
-    - Per gli avvisi, aprire **Impostazioni di & prezzi**, selezionare la sottoscrizione pertinente e selezionare Notifiche **tramite posta elettronica**.
+    - Per gli avvisi, aprire **prezzi & impostazioni**, selezionare la sottoscrizione pertinente e selezionare **notifiche di posta elettronica**.
 
-    - Se si implementa un suggerimento, in **Raccomandazioni**selezionare **Fornisci dettagli contatto**di sicurezza , selezionare la sottoscrizione di Azure su cui fornire le informazioni di contatto. Si aprirà **Notifiche tramite posta elettronica**.
+    - Se si sta implementando una raccomandazione, in **raccomandazioni**selezionare **specificare i dettagli dei contatti di sicurezza**e selezionare la sottoscrizione di Azure in cui inserire le informazioni di contatto. Si aprirà **Notifiche tramite posta elettronica**.
 
    ![Specificare dettagli del contatto per la sicurezza][2]
 
-1. Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non c'è limite al numero di indirizzi email che puoi inserire.
+1. Immettere l'indirizzo o gli indirizzi di posta elettronica del contatto di sicurezza, separati da virgole. Non esiste alcun limite al numero di indirizzi di posta elettronica che è possibile immettere.
 
-1. Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, attivare l'opzione **Send me emails about alerts**(Invia messaggi di posta elettronica sugli avvisi). Per altri livelli di gravità utilizzare un'app per la logica come spiegato [nell'automazione del flusso](workflow-automation.md)di lavoro.
+1. Per ricevere messaggi di posta elettronica relativi agli avvisi di elevata gravità, attivare l'opzione **Send me emails about alerts**(Invia messaggi di posta elettronica sugli avvisi). Per gli altri livelli di gravità usare un'app per la logica come illustrato in [automazione dei flussi di lavoro](workflow-automation.md).
 
-1. È possibile inviare notifiche tramite posta elettronica ai proprietari della sottoscrizione (amministratore del servizio classico e coamministratori, oltre al ruolo Proprietario RBAC nell'ambito della sottoscrizione).
+1. È possibile inviare notifiche tramite posta elettronica ai proprietari delle sottoscrizioni (l'amministratore e i coamministratori del servizio classico, oltre al ruolo di proprietario RBAC nell'ambito della sottoscrizione).
 
-1. Per applicare le informazioni di contatto di sicurezza all'abbonamento, selezionare **Salva**.
+1. Per applicare le informazioni di contatto di sicurezza alla sottoscrizione, selezionare **Salva**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Setting security policies in Azure Security Center:](tutorial-security-policy.md) informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.Setting security policies in Azure Security Center -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Gestione dei consigli](security-center-recommendations.md) sulla sicurezza nel Centro sicurezza di Azure: informazioni su come i consigli consentono di proteggere le risorse di Azure.Managing security recommendations in Azure Security Center -- Learn how recommendations help you protect your Azure resources.
-* [Monitoraggio dell'integrità](security-center-monitoring.md) della sicurezza nel Centro sicurezza di Azure: informazioni su come monitorare l'integrità delle risorse di Azure.Security health monitoring in Azure Security Center-- Learn how to monitor the health of your Azure resources.
-* [Gestione e risposta agli avvisi](security-center-managing-and-responding-alerts.md) di sicurezza nel Centro sicurezza di Azure: informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Impostazione dei criteri di sicurezza nel centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+* [Gestione delle raccomandazioni di sicurezza nel centro sicurezza di Azure](security-center-recommendations.md) : informazioni su come i consigli consentono di proteggere le risorse di Azure.
+* [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: Backup e ripristino - Database di Azure per MariaDB
+title: Backup e ripristino-database di Azure per MariaDB
 description: Informazioni su backup automatici e ripristino del Database di Azure per il server MariaDB.
 author: ajlam
 ms.author: andrela
@@ -21,7 +21,7 @@ Database di Azure per MariaDB crea automaticamente backup del server e li archiv
 
 Database di Azure per MariaDB crea backup completi, differenziali e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
-Questi file di backup non sono esposti all'utente e non possono essere esportati. Questi backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MariaDB.These backups can only be used for restore operations in Azure Database for MariaDB. È possibile utilizzare [mysqldump](howto-migrate-dump-restore.md) per copiare un database.
+Questi file di backup non sono esposti dall'utente e non possono essere esportati. Questi backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MariaDB. Per copiare un database, è possibile usare [mysqldump](howto-migrate-dump-restore.md) .
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
@@ -44,12 +44,12 @@ Per altre informazioni sul costo dell'archiviazione di backup, visitare la [pagi
 
 ## <a name="restore"></a>Restore
 
-In Database di Azure per MariaDB, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale e ripristina tutti i database contenuti nel server.
+Nel database di Azure per MariaDB, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale e ripristina tutti i database contenuti nel server.
 
 Sono disponibili due tipi di ripristino:
 
-- **Il ripristino temporizzato** è disponibile con l'opzione di ridondanza del backup e crea un nuovo server nella stessa area del server originale utilizzando la combinazione di backup completi e del log delle transazioni.
-- **Il ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa utilizzando il backup più recente eseguito.
+- Il **ripristino temporizzato** è disponibile con l'opzione di ridondanza dei backup e crea un nuovo server nella stessa area del server originale utilizzando la combinazione di backup completi e del log delle transazioni.
+- Il **ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa usando il backup più recente adottato.
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
 
@@ -66,7 +66,7 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Il ripristino geografico utilizza il backup più recente del server. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Il ripristino geografico usa il backup più recente del server. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
 Durante il ripristino geografico è possibile modificare le seguenti opzioni relative alle configurazioni del server: generazione delle risorse di calcolo, vCore, periodo di conservazione dei backup e ridondanza per il backup. La modifica del piano tariffario (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della risorsa di archiviazione non è supportata durante il ripristino geografico.
 
@@ -75,12 +75,12 @@ Durante il ripristino geografico è possibile modificare le seguenti opzioni rel
 Dopo il ripristino con uno dei due meccanismi, per rendere nuovamente operativi gli utenti e le applicazioni è consigliabile eseguire queste attività:
 
 - Se il nuovo server è destinato a sostituire il server originale, reindirizzare i client e le applicazioni client al nuovo server
-- Assicurarsi che siano disponibili regole di rete virtuale appropriate per la connessione degli utenti. Queste regole non vengono copiate dal server originale.
+- Verificare che siano disponibili regole VNet appropriate per la connessione degli utenti. Queste regole non vengono copiate dal server originale.
 - Verificare che siano presenti gli account di accesso e le autorizzazioni a livello di database appropriati
 - Configurare gli avvisi in base alle proprie esigenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla continuità aziendale, vedere la relativa  [panoramica](concepts-business-continuity.md).
-- Per eseguire il ripristino in un momento base tramite il portale di Azure, vedere Ripristinare il server in un momento base [tramite il portale](howto-restore-server-portal.md)di Azure.
-- Per eseguire il ripristino a un punto nel tempo usando l'interfaccia della riga di comando di Azure, vedere Ripristinare il server in un momento [nel tempo usando l'interfaccia della riga di comando.](howto-restore-server-cli.md)
+- Per eseguire il ripristino temporizzato usando il portale di Azure, vedere [ripristinare il server a un punto nel tempo usando il portale di Azure](howto-restore-server-portal.md).
+- Per eseguire il ripristino temporizzato usando l'interfaccia della riga di comando di Azure, vedere [ripristinare un server a un punto nel tempo usando l'interfaccia della](howto-restore-server-cli.md)riga di comando.

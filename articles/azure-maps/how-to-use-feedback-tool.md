@@ -1,6 +1,6 @@
 ---
-title: Fornire commenti e suggerimenti sui dati ad Azure Maps . Mappe di Microsoft Azure
-description: Fornire commenti e suggerimenti sui dati usando lo strumento di commenti e suggerimenti di Microsoft Azure Maps.Provide data feedback using Microsoft Azure Maps feedback tool.
+title: Fornire feedback sui dati ad Azure Maps | Mappe Microsoft Azure
+description: Fornire feedback sui dati tramite lo strumento di feedback Microsoft Azure maps.
 author: philmea
 ms.author: philmea
 ms.date: 08/19/2019
@@ -16,56 +16,56 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80335340"
 ---
-# <a name="provide-data-feedback-to-azure-maps"></a>Fornire commenti e suggerimenti sui dati ad Azure MapsProvide data feedback to Azure Maps
+# <a name="provide-data-feedback-to-azure-maps"></a>Fornire commenti e suggerimenti sui dati ad Azure Maps
 
-Mappe di Azure è disponibile da maggio 2018.Azure Maps is been available since May 2018. Azure Maps ha fornito dati di mappa aggiornati, API REST di facile utilizzo e SDK potenti per supportare i clienti aziendali con diversi tipi di casi d'uso aziendali. Il mondo reale sta cambiando ogni secondo ed è fondamentale per noi fornire una rappresentazione digitale reale ai nostri clienti. I nostri clienti che intendono aprire o chiudere le strutture hanno bisogno delle nostre mappe per aggiornarsi tempestivamente. In questo modo, possono pianificare in modo efficiente la consegna, la manutenzione o il servizio clienti presso le strutture giuste. Abbiamo creato il sito di feedback sui dati di Azure Maps per consentire ai nostri clienti di fornire feedback diretto sui dati. Il feedback dei dati dei clienti va direttamente ai nostri fornitori di dati e ai loro editor di mappe. Possono valutare e incorporare rapidamente feedback nei nostri prodotti di mappatura.  
+Mappe di Azure è disponibile a partire dal 2018 maggio. Azure Maps fornisce dati della mappa aggiornati, API REST facili da usare e potenti SDK per supportare i clienti aziendali con diversi tipi di casi d'uso aziendali. Il mondo reale sta cambiando ogni secondo ed è fondamentale per Microsoft fornire una rappresentazione digitale effettiva ai clienti. I clienti che pianificano di aprire o chiudere le strutture devono aggiornare tempestivamente le mappe. Quindi, possono pianificare in modo efficiente la distribuzione, la manutenzione o il servizio clienti presso le strutture corrette. Il sito di commenti e suggerimenti sui dati di Azure Maps è stato creato per consentire ai clienti di fornire commenti e suggerimenti sui dati diretti. Il feedback dei dati dei clienti passa direttamente ai nostri provider di dati e ai rispettivi editor della mappa. Consentono di valutare e incorporare rapidamente commenti e suggerimenti nei prodotti di mapping.  
 
-[Il sito di commenti](https://feedback.azuremaps.com) e suggerimenti sui dati di Azure Maps offre ai clienti un modo semplice per fornire commenti e suggerimenti sui dati delle mappe, in particolare sui punti di interesse aziendali e sugli indirizzi residenziali. Questo articolo illustra come fornire diversi tipi di commenti e suggerimenti usando il sito di commenti e suggerimenti di Azure Maps.This article guides you on how to provide different kinds of feedback using the Azure Maps feedback site.
+Il [sito dei commenti e suggerimenti sui dati di Azure Maps](https://feedback.azuremaps.com) fornisce ai clienti un modo semplice per offrire commenti sui dati della mappa, in particolare sui punti di interesse e sugli indirizzi residenziali. Questo articolo illustra come fornire diversi tipi di feedback usando il sito di feedback di Azure maps.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Aggiungere un luogo aziendale o un indirizzo residenziale 
 
-Si consiglia di fornire un feedback su un punto di interesse mancante o un indirizzo residenziale. È possibile eseguire questa operazione in due modi. Aprire il sito di commenti e suggerimenti sui dati di Azure Map, cercare le coordinate della posizione mancante e quindi fare clic su "Aggiungi un luogo"
+È possibile fornire commenti e suggerimenti su un punto di interesse mancante o un indirizzo residenziale. È possibile eseguire questa operazione in due modi. Aprire il sito dei commenti e suggerimenti sui dati della mappa di Azure, cercare le coordinate della località mancante, quindi fare clic su "Aggiungi un posto".
 
-  ![cerca la posizione mancante](./media/how-to-use-feedback-tool/search-poi.png)
+  ![Cerca percorso mancante](./media/how-to-use-feedback-tool/search-poi.png)
 
-In alternativa, è possibile interagire con la mappa. Fare clic sulla posizione per rilasciare un perno in corrispondenza della coordinata e fare clic su "Aggiungi un luogo".
+In alternativa, è possibile interagire con la mappa. Fare clic sulla posizione per rilasciare un pin in corrispondenza della coordinata e fare clic su "Aggiungi un posto".
 
-  ![aggiungere pin](./media/how-to-use-feedback-tool/add-poi.png)
+  ![Aggiungi pin](./media/how-to-use-feedback-tool/add-poi.png)
 
-Facendo clic, verrai indirizzato a un modulo per fornire i dettagli corrispondenti per il luogo.
+Quando si fa clic su, si verrà indirizzati a un modulo per fornire i dettagli corrispondenti per la posizione.
 
-  ![aggiungere un luogo](./media/how-to-use-feedback-tool/add-a-place.png)
+  ![Aggiungi una posizione](./media/how-to-use-feedback-tool/add-a-place.png)
 
-## <a name="fix-a-business-place-or-a-residential-address"></a>Fissare un luogo di lavoro o un indirizzo residenziale 
+## <a name="fix-a-business-place-or-a-residential-address"></a>Correzione di un luogo aziendale o di un indirizzo residenziale 
 
-Il sito di feedback consente inoltre di cercare e individuare un luogo aziendale o un indirizzo. Puoi fornire un feedback per correggere l'indirizzo o la posizione del pin, se non sono corretti. Per fornire commenti e suggerimenti per correggere l'indirizzo, utilizzare la barra di ricerca per cercare un luogo aziendale o un indirizzo residenziale. Clicca sulla posizione di tuo interesse dall'elenco dei risultati. Clicca su "Correggi questo posto".
+Il sito dei commenti e suggerimenti consente anche di cercare e individuare un luogo aziendale o un indirizzo. È possibile fornire commenti e suggerimenti per correggere l'indirizzo o il percorso del PIN, se non sono corretti. Per fornire commenti e suggerimenti per correggere l'indirizzo, usare la barra di ricerca per cercare un indirizzo aziendale o un indirizzo residenziale. Fare clic sulla posizione desiderata dall'elenco risultati. Fare clic su "Correggi questo posto".
 
-  ![luogo di ricerca per risolvere](./media/how-to-use-feedback-tool/fix-place.png)
+  ![posizione di ricerca da correggere](./media/how-to-use-feedback-tool/fix-place.png)
 
-Per fornire un feedback per correggere l'indirizzo, compilare il modulo "Correzione di un luogo", quindi fare clic sul pulsante "Invia".
+Per fornire commenti e suggerimenti per correggere l'indirizzo, compilare il modulo "Correggi un posto" e quindi fare clic sul pulsante "Invia".
 
-  ![correggere il modulo](./media/how-to-use-feedback-tool/fix-form.png)
+  ![modulo correzione](./media/how-to-use-feedback-tool/fix-form.png)
 
-Se la posizione del pin per il luogo è errata, selezionare la casella di controllo nel modulo "Correggi un luogo" che dice "La posizione del pin non è corretta". Spostare il segnaposto nella posizione corretta, quindi fare clic sul pulsante "Invia".
+Se il percorso del PIN non è corretto, selezionare la casella di controllo nel modulo "Correggi un posto" indicante che la posizione del PIN non è corretta. Spostare il pin nel percorso corretto, quindi fare clic sul pulsante "Submit" (Invia).
 
-  ![spostare la posizione del perno](./media/how-to-use-feedback-tool/move-pin.png)
+  ![Sposta il percorso del PIN](./media/how-to-use-feedback-tool/move-pin.png)
 
 ## <a name="add-a-comment"></a>Aggiungi un commento 
 
-Oltre a consentire la ricerca di una posizione, lo strumento di feedback consente anche di aggiungere un commento di testo in formato libero per i dettagli relativi alla posizione. Per aggiungere un commento, cercala o fai clic sulla posizione. Fare clic su "Aggiungi un commento", scrivere un commento e quindi fare clic su "Invia".
+Oltre a consentire la ricerca di un percorso, lo strumento feedback consente anche di aggiungere un commento di testo in formato libero per i dettagli relativi alla località. Per aggiungere un commento, cercare il percorso o fare clic sul percorso. Fare clic su "Aggiungi un commento", scrivere un commento, quindi fare clic su "Invia".
 
   ![aggiungere commento](./media/how-to-use-feedback-tool/add-comment.png)
 
 ## <a name="track-status"></a>Monitoraggio dello stato 
 
-Puoi anche tenere traccia dello stato della tua richiesta selezionando la casella "Voglio monitorare lo stato" e fornendo la tua email mentre effettui una richiesta. Riceverai un link di monitoraggio nell'e-mail che fornisce uno stato aggiornato della tua richiesta. 
+È anche possibile tenere traccia dello stato della richiesta selezionando la casella "desidero tenere traccia dello stato" e specificando l'indirizzo di posta elettronica durante la creazione di una richiesta. Si riceverà un collegamento di rilevamento nel messaggio di posta elettronica che fornisce uno stato aggiornato della richiesta. 
 
-  ![stato del feedback](./media/how-to-use-feedback-tool/feedback-status.png)
+  ![stato Commenti](./media/how-to-use-feedback-tool/feedback-status.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per pubblicare tutte le domande tecniche relative a Mappe di Azure, visitare:To post any technical questions related to Azure Maps, visit:
+Per pubblicare eventuali domande tecniche relative alle mappe di Azure, visitare:
 
-* [Overflow dello stack di Mappe di AzureAzure Maps Stack Overflow](https://stackoverflow.com/questions/tagged/azure-maps)
-* [Forum di commenti e suggerimenti su Azure Maps](https://feedback.azure.com/forums/909172-azure-maps)
+* [Stack Overflow mappe di Azure](https://stackoverflow.com/questions/tagged/azure-maps)
+* [Forum dei commenti e suggerimenti su Azure Maps](https://feedback.azure.com/forums/909172-azure-maps)

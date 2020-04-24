@@ -243,7 +243,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
         --allocation-method Static
         ```
     
-        Immettere il comando seguente per associare la risorsa indirizzo IP pubblico alla configurazione IP esistente denominata *IPConfig-3*:
+        Immettere il comando seguente per associare la risorsa indirizzo IP pubblico alla configurazione IP esistente denominata *ipconfig-3*:
     
         ```azurecli
         az network nic ip-config update \

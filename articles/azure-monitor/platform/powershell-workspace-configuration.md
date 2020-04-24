@@ -1,6 +1,6 @@
 ---
-title: Creare & configurare Log Analytics con PowerShellCreate & configure Log Analytics with PowerShell
-description: Le aree di lavoro di Log Analytics in Monitoraggio di Azure archiviano i dati dai server nell'infrastruttura cloud o locale. È possibile raccogliere i dati del computer dall'archiviazione di Azure quando vengono generati dalla diagnostica di Azure.
+title: Creare & configurare Log Analytics con PowerShell
+description: Log Analytics le aree di lavoro in monitoraggio di Azure archiviano i dati dai server nell'infrastruttura locale o cloud. È possibile raccogliere i dati del computer dall'archiviazione di Azure quando vengono generati dalla diagnostica di Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,9 +13,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80054703"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gestire l'area di lavoro di Log Analytics in Monitoraggio di Azure tramite PowerShellManage Log Analytics workspace in Azure Monitor using PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gestire Log Analytics area di lavoro in monitoraggio di Azure con PowerShell
 
-È possibile usare i cmdlet di [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/) per Log Analytics per eseguire varie funzioni in un'area di lavoro di Log Analytics in Monitoraggio di Azure da una riga di comando o come parte di uno script.  Esempi di attività che è possibile eseguire con PowerShell:
+È possibile usare i [cmdlet di PowerShell log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) per eseguire varie funzioni in un'area di lavoro log Analytics in monitoraggio di Azure da una riga di comando o come parte di uno script.  Esempi di attività che è possibile eseguire con PowerShell:
 
 * Creare un'area di lavoro
 * Aggiungere o rimuovere una soluzione
@@ -37,7 +37,7 @@ Questo articolo presenta due codici di esempio con cui vengono illustrate alcune
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questi esempi funzionano con la versione 1.0.0 o successiva del modulo Az.OperationalInsights.These examples work with version 1.0.0 or later of the Az.OperationalInsights module.
+Questi esempi funzionano con la versione 1.0.0 o successiva del modulo AZ. OperationalInsights.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro Log Analytics
@@ -178,7 +178,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> Il formato per il parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Properties** è la configurazione richiesta per il parametro **CustomLogRawJson.**
+> Il formato del parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Properties** è la configurazione richiesta per il parametro **CustomLogRawJson** .
 
 Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova riga. Il delimitatore di log può anche essere un timestamp.  Questi sono i formati supportati:
 
@@ -196,8 +196,8 @@ Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> dove + è + o - <br> dove zzzz è la differenza di orario | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> T è una valore letterale per la lettera T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurazione di Log Analytics per l'invio della diagnostica di AzureConfiguring Log Analytics to send Azure diagnostics
-Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro Log Analytics. Questo approccio invia i dati direttamente all'area di lavoro e non richiede la scrittura dei dati in un account di archiviazione. Le risorse supportate includono:
+## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configurazione di Log Analytics per l'invio di diagnostica di Azure
+Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro Log Analytics. Questo approccio invia i dati direttamente all'area di lavoro e non richiede la scrittura di dati in un account di archiviazione. Le risorse supportate includono:
 
 | Tipo di risorsa | Log | Metriche |
 | --- | --- | --- |
@@ -222,7 +222,7 @@ Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la dia
 
 Per informazioni dettagliate sulle metriche disponibili, vedere [Metriche supportate con il monitoraggio di Azure](../../azure-monitor/platform/metrics-supported.md).
 
-Per i dettagli dei log disponibili, fare riferimento ai servizi e allo [schema supportati per i log delle risorse.](../../azure-monitor/platform/diagnostic-logs-schema.md)
+Per informazioni dettagliate sui log disponibili, vedere [servizi supportati e schema per i log delle risorse](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -235,15 +235,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 Il cmdlet precedente può essere usato anche per la raccolta di log da risorse presenti in sottoscrizioni diverse. Il cmdlet funziona in sottoscrizioni diverse perché vengono specificati sia l'ID della risorsa che crea i log sia l'area di lavoro a cui questi vengono inviati.
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configurazione dell'area di lavoro di Log Analytics per raccogliere la diagnostica di Azure dall'archiviazioneConfiguring Log Analytics workspace to collect Azure diagnostics from storage
-Per raccogliere dati di log dall'interno di un'istanza in esecuzione di un servizio cloud classico o di un cluster di Service Fabric, è necessario prima scrivere i dati in Archiviazione di Azure. Un'area di lavoro di Log Analytics viene quindi configurata per raccogliere i log dall'account di archiviazione. Le risorse supportate includono:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configurazione di Log Analytics area di lavoro per la raccolta di diagnostica di Azure dall'archiviazione
+Per raccogliere dati di log dall'interno di un'istanza in esecuzione di un servizio cloud classico o di un cluster di Service Fabric, è necessario prima scrivere i dati in Archiviazione di Azure. Viene quindi configurata un'area di lavoro Log Analytics per raccogliere i log dall'account di archiviazione. Le risorse supportate includono:
 
 * Servizi cloud classici (ruoli di lavoro e Web)
 * Cluster di Service Fabric
 
 L'esempio seguente illustra come:
 
-1. Elencare gli account e i percorsi di archiviazione esistenti da cui verranno indicizzati i dati da cui verranno indicizzati i datiList the existing storage accounts and locations that the workspace will index data from
+1. Elenca gli account di archiviazione e i percorsi esistenti da cui l'area di lavoro indurrà i dati
 2. Creare una configurazione che possa essere letta da un account di archiviazione
 3. Aggiornare la configurazione appena creata in modo da poter indicizzare i dati anche da altri percorsi
 4. Eliminare la configurazione appena creata

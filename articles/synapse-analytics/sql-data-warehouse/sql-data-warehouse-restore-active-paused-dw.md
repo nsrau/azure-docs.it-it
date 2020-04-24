@@ -18,22 +18,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "80745222"
 ---
-# <a name="restore-an-existing-sql-pool"></a>Ripristinare un pool SQL esistenteRestore an existing SQL pool
+# <a name="restore-an-existing-sql-pool"></a>Ripristinare un pool SQL esistente
 
-In this article, you learn how to restore an existing SQL pool in Azure Synapse Analytics using Azure portal and PowerShell.
+Questo articolo illustra come ripristinare un pool SQL esistente in Azure sinapsi Analytics usando portale di Azure e PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verificare la capacità in DTU.** Ogni pool è ospitato da un server SQL (ad esempio, myserver.database.windows.net) con una quota DTU predefinita. Verificare che il server SQL disponga di un numero sufficiente di quote DTU rimanenti per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verificare la capacità in DTU.** Ogni pool è ospitato da un server SQL (ad esempio, myserver.database.windows.net) con una quota DTU predefinita. Verificare che SQL Server disponga di una quota DTU rimanente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere maggiore DTU, vedere come [richiedere una modifica della quota DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 1. Assicurarsi di [installare Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Disporre di un punto di ripristino esistente da cui si desidera eseguire il ripristino. Se si desidera creare un nuovo ripristino, vedere [l'esercitazione per creare un nuovo punto di ripristino definito dall'utente.](sql-data-warehouse-restore-points.md)
+2. Disporre di un punto di ripristino esistente da cui si desidera eseguire il ripristino. Se si desidera creare un nuovo ripristino, vedere [l'esercitazione per la creazione di un nuovo punto di ripristino definito dall'utente](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-sql-pool-through-powershell"></a>Ripristinare un pool SQL esistente tramite PowerShellRestore an existing SQL pool through PowerShell
+## <a name="restore-an-existing-sql-pool-through-powershell"></a>Ripristinare un pool SQL esistente tramite PowerShell
 
-Per ripristinare un pool SQL esistente da un punto di ripristino, utilizzare il cmdlet di PowerShell [Restore-AzSqlDatabase.To](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) restore an existing SQL pool from a restore point use the Restore-AzSqlDatabase PowerShell cmdlet.
+Per ripristinare un pool SQL esistente da un punto di ripristino, usare il cmdlet di PowerShell [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 1. Aprire PowerShell.
 
@@ -45,13 +45,13 @@ Per ripristinare un pool SQL esistente da un punto di ripristino, utilizzare il 
 
 5. Selezionare il punto di ripristino desiderato utilizzando RestorePointCreationDate.
 
-6. Ripristinare il pool SQL al punto di ripristino desiderato utilizzando il cmdlet di PowerShell [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
-        1. Per ripristinare il pool SQL in un server logico diverso, assicurarsi di specificare l'altro nome del server logico.  Questo server logico può anche trovarsi in un gruppo di risorse e in un'area diversi.
-        2. Per eseguire il ripristino in una sottoscrizione diversa, usare il pulsante 'Sposta' per spostare il server logico in un'altra sottoscrizione.
+6. Ripristinare il pool SQL al punto di ripristino desiderato usando il cmdlet [di PowerShell Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
+        1. Per ripristinare il pool SQL in un server logico diverso, assicurarsi di specificare l'altro nome del server logico.  Questo server logico può trovarsi anche in un gruppo di risorse e in un'area diversi.
+        2. Per eseguire il ripristino in una sottoscrizione diversa, usare il pulsante "Sposta" per spostare il server logico in un'altra sottoscrizione.
 
 7. Verificare che il pool SQL ripristinato sia online.
 
-8. Al termine del ripristino, è possibile configurare il pool SQL ripristinato seguendo la configurazione del database dopo il [ripristino.](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)
+8. Al termine del ripristino, è possibile configurare il pool SQL ripristinato seguendo la procedura di [configurazione del database dopo il ripristino](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -87,7 +87,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Ripristinare un pool SQL esistente tramite il portale di AzureRestore an existing SQL pool through the Azure portal
+## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Ripristinare un pool SQL esistente tramite il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare al pool SQL da cui si desidera eseguire il ripristino.
@@ -95,11 +95,11 @@ $RestoredDatabase.status
 
     ![ Panoramica del servizio di ripristino](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Selezionare **Punto di ripristino automatico** o **Punti di ripristino definiti dall'utente**. Se il pool SQL non dispone di punti di ripristino automatici, attendere alcune ore o creare un punto di ripristino definito dall'utente prima del ripristino. Per Punti di ripristino definiti dall'utente, selezionarne uno esistente o crearne uno nuovo. Per **Server**, è possibile selezionare un server logico in un gruppo di risorse e in un'area diversi o crearne uno nuovo. Dopo aver fornito tutti i parametri, fare clic su **Revisione e ripristino**.
+4. Selezionare **Punto di ripristino automatico** o **Punti di ripristino definiti dall'utente**. Se il pool SQL non contiene punti di ripristino automatici, attendere alcune ore o creare un punto di ripristino definito dall'utente prima del ripristino. Per i punti di ripristino definiti dall'utente, selezionarne uno esistente o crearne uno nuovo. Per **Server**è possibile selezionare un server logico in un gruppo di risorse e un'area diversi o crearne uno nuovo. Dopo aver fornito tutti i parametri, fare clic su **Verifica + Ripristina**.
 
     ![Punti di ripristino automatici](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ripristinare un pool SQL eliminato](sql-data-warehouse-restore-deleted-dw.md)
-- [Eseguire il ripristino da un pool SQL di backup geograficoRestore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
+- [Ripristinare da un pool SQL di backup geografico](sql-data-warehouse-restore-from-geo-backup.md)

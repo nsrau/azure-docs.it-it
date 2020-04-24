@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: Eseguire la migrazione di SQL Server di Servizi Desktop remoto online al database SQLTutorial: Migrate RDS SQL Server online to SQL Database'
+title: 'Esercitazione: eseguire la migrazione di Servizi Desktop remoto SQL Server online al database SQL'
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire una migrazione online da SQL Server RDS al database SQL di Azure singolo database o istanza gestita tramite il servizio Migrazione del database di Azure.Learn to perform an online migration from RDS SQL Server to Azure SQL Database single database or managed instance by using the Azure Database Migration Service.
+description: Informazioni su come eseguire una migrazione in linea da Servizi Desktop remoto SQL Server all'istanza gestita o al database singolo del database SQL di Azure usando il servizio migrazione del database di Azure.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80298862"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione di SQL Server RDS al database SQL di Azure o a un'istanza gestita del database SQL di Azure online tramite DMSTutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: eseguire la migrazione di SQL Server RDS al database SQL di Azure o a un'istanza gestita di database SQL di Azure Online tramite DMS
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di RDS SQL Server verso il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) o un'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con tempi di inattività minimi. In questa esercitazione si userà Servizio Migrazione del database di Azure per eseguire la migrazione del database **AdventureWorks2012** ripristinato in un'istanza di RDS SQL Server con SQL Server 2012 (o versione successiva) verso un database SQL di Azure o un'istanza gestita di tale database.
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Scaricare un report di migrazione.
 
 > [!NOTE]
-> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Per altre informazioni, vedere la pagina [dei prezzi](https://azure.microsoft.com/pricing/details/database-migration/) del servizio di migrazione del database di Azure.For more information, see the Azure Database Migration Service pricing page.
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Per altre informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/database-migration/) del servizio migrazione del database di Azure.
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
@@ -52,10 +52,10 @@ Per completare questa esercitazione, è necessario:
     > Se si esegue la migrazione a un'istanza gestita di database SQL di Azure, seguire le istruzioni dettagliate riportate nell'articolo [Creare un'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) e quindi creare un database vuoto denominato **AdventureWorks2012**. 
  
 * Scaricare e installare [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 3.3 o versione successiva.
-* Creare una rete virtuale di Microsoft Azure per il servizio di migrazione del database di Azure usando il modello di distribuzione di Azure Resource Manager.Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. Se si esegue la migrazione a un'istanza gestita del database SQL di Azure, assicurarsi di creare l'istanza DMS nella stessa rete virtuale usata per l'istanza gestita del database SQL di Azure, ma in una subnet diversa.  In alternativa, se si usa una rete virtuale diversa per DMS, è necessario creare una rete virtuale di peering tra le due reti virtuali. Per ulteriori informazioni sulla creazione di una rete virtuale, vedere gli articoli relativi alla [documentazione](https://docs.microsoft.com/azure/virtual-network/)relativa alla rete virtuale e in particolare gli articoli delle guide introduttive con dettagli dettagliati.
+* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager. Se si sta eseguendo la migrazione a un'istanza gestita di database SQL di Azure, assicurarsi di creare l'istanza DMS nella stessa rete virtuale usata per l'istanza gestita di database SQL di Azure, ma in un'altra subnet.  In alternativa, se si usa una rete virtuale diversa per DMS, è necessario creare un peering di rete virtuale tra le due reti virtuali. Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
 
     > [!NOTE]
-    > Durante l'installazione della rete virtuale, se si usa ExpressRoute con peering di rete a Microsoft, aggiungere gli endpoint del servizio seguenti alla subnet in cui verrà eseguito il provisioning del servizio:During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
     >
     > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > * Endpoint di archiviazione
@@ -63,10 +63,10 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché Servizio Migrazione del database di Azure non dispone di connettività Internet. 
 
-* Verificare che le regole del gruppo di sicurezza di rete virtuale non blocchino le seguenti porte di comunicazione in ingresso al servizio di migrazione del database di Azure: 443, 53, 9354, 445, 12000.Ensure that your virtual network Network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. Per ulteriori informazioni sul filtro del traffico del gruppo di sicurezza di rete virtuale, vedere l'articolo [Filtrare](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)il traffico di rete con i gruppi di sicurezza di rete .
+* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine (per impostazione predefinita attraverso la porta TCP 1433).
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usata per il servizio di migrazione del database di Azure.Provide the subnet range of the virtual network used for the Azure Database Migration Service.
+* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
 * Assicurarsi che le credenziali usate per connettersi all'istanza di RDS SQL Server di origine siano associate a un account membro del ruolo del server "Processadmin" e del ruolo del database "db_owner" in tutti i database di cui verrà eseguita la migrazione.
 * Assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE per i database SQL di Azure di destinazione e siano associate a un membro del ruolo sysadmin in caso di migrazione a un'istanza gestita di database SQL di Azure.
 * La versione dell'istanza di RDS SQL Server di origine deve essere SQL Server 2012 o superiore. Per determinare la versione eseguita dall'istanza di SQL Server, vedere l'articolo [Come determinare la versione, l'edizione e il livello di aggiornamento di SQL Server e dei relativi componenti](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -146,7 +146,7 @@ Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL d
 
     ![Visualizzare i provider di risorse](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. Cercare la migrazione e quindi a destra di **Microsoft.DataMigration**, selezionare **Registra**.
+3. Cercare la migrazione e quindi a destra di **Microsoft. DataMigration**selezionare Register ( **registra**).
 
     ![Registrare il provider di risorse](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/portal-register-resource-provider.png)    
 
@@ -166,13 +166,13 @@ Per eseguire la migrazione dello schema **AdventureWorks2012** al database SQL d
 
 5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La rete virtuale fornisce al servizio di migrazione del database di Azure l'accesso all'SQL Server di origine e all'istanza del database SQL di Azure di destinazione.
+    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso alla SQL Server di origine e l'istanza di database SQL di Azure di destinazione.
 
-    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo Creare una rete virtuale usando il portale di Azure.For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal.](https://aka.ms/DMSVnet)
+    Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
 
 6. Selezionare un piano tariffario. Per questa migrazione online assicurarsi di selezionare il piano tariffario Premium.
 
-    Per ulteriori informazioni sui costi e sui piani tariffari, vedere la [pagina dei prezzi](https://aka.ms/dms-pricing).
+    Per ulteriori informazioni sui costi e sui piani tariffari, vedere la [pagina](https://aka.ms/dms-pricing)relativa ai prezzi.
 
      ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-settings3.png)
 
@@ -190,13 +190,13 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
      ![Individuare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-instance-search.png)
 
-3. Selezionare : **Nuovo progetto di migrazione**.
+3. Selezionare + **nuovo progetto di migrazione**.
 4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e selezionare **AWS RDS per SQL Server** nella casella di testo **Tipo del server di origine** e **Database SQL di Azure** nella casella di testo **Tipo del server di destinazione**.
 
     > [!NOTE]
     > Per il tipo del server di destinazione selezionare **Database SQL di Azure** per la migrazione sia verso un database singleton di database SQL di Azure sia verso un'istanza gestita di database SQL di Azure.
 
-5. Nella sezione Scegliere il **tipo di attività** selezionare Migrazione dei dati **online**.
+5. Nella sezione **scegliere il tipo di attività** selezionare **migrazione dei dati online**.
 
     > [!IMPORTANT]
     > Assicurarsi di selezionare **Migrazione dei dati online**; le migrazioni offline non sono supportate per questo scenario.
@@ -223,7 +223,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
     Quando non è installato un certificato attendibile, SQL Server genera un certificato autofirmato all'avvio dell'istanza. Questo certificato viene usato per crittografare le credenziali per le connessioni client.
 
     > [!CAUTION]
-    > Le connessioni TLS crittografate utilizzando un certificato autofirmato non forniscono una protezione avanzata. Sono infatti suscettibili ad attacchi man-in-the-middle. È consigliabile non fare affidamento su TLS utilizzando certificati autofirmati in un ambiente di produzione o su server connessi a Internet.You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > Le connessioni TLS crittografate con un certificato autofirmato non garantiscono una sicurezza avanzata. Sono infatti suscettibili ad attacchi man-in-the-middle. Non fare affidamento su TLS utilizzando certificati autofirmati in un ambiente di produzione o su server connessi a Internet.
 
    ![Dettagli origine](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 
@@ -263,7 +263,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 * Selezionare **Esegui migrazione**.
 
-    Viene visualizzata la finestra dell'attività di migrazione e lo **stato** dell'attività è **Inizializzazione**.
+    Viene visualizzata la finestra attività di migrazione e viene **inizializzato**lo **stato** dell'attività.
 
     ![Stato attività - Inizializzazione in corso](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-status2.png)
 

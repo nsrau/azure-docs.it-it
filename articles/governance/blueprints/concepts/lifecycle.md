@@ -1,6 +1,6 @@
 ---
 title: Informazioni sul ciclo di vita di un progetto
-description: Informazioni sul ciclo di vita e dettagli su ogni fase, inclusa l'aggiornamento e la rimozione delle assegnazioni del blueprint.
+description: Informazioni sul ciclo di vita della definizione di un progetto e informazioni dettagliate su ogni fase, tra cui l'aggiornamento e la rimozione di assegnazioni di progetti.
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
@@ -12,7 +12,7 @@ ms.locfileid: "80677379"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
-Come molte risorse all'interno di Azure, un progetto di Azure Blueprint ha un ciclo di vita tipico e naturale. Sono creati, distribuiti e infine eliminati quando non sono più necessari o pertinenti. Blueprint di Azure supporta le operazioni standard del ciclo di vita. In seguito compila su di esse per fornire livelli di stato aggiuntivi che supportano pipeline comuni di integrazione e distribuzione continua per le organizzazioni che ne gestiscono l'infrastruttura come Codice, un elemento fondamentale in DevOps.
+Come molte risorse all'interno di Azure, un progetto di Azure Blueprint ha un ciclo di vita tipico e naturale. Sono creati, distribuiti e infine eliminati quando non sono più necessari o pertinenti. Progetti di Azure supporta le operazioni del ciclo di vita standard. In seguito compila su di esse per fornire livelli di stato aggiuntivi che supportano pipeline comuni di integrazione e distribuzione continua per le organizzazioni che ne gestiscono l'infrastruttura come Codice, un elemento fondamentale in DevOps.
 
 Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di vita standard:
 
@@ -28,7 +28,7 @@ Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di v
 
 Quando si crea un progetto, aggiungere artefatti, salvarli in un gruppo di gestione o in una sottoscrizione e fornire un nome univoco e una versione univoca. Il progetto è ora in modalità **Bozza** e non può ancora essere assegnato. Nella modalità **Bozza** può continuare a essere aggiornato e modificato.
 
-Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. **L'ultima versione** viene visualizzata come **Bozza** per questi blueprint mai pubblicati.
+Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. La **versione più recente** viene visualizzata come **bozza** per questi progetti mai pubblicati.
 
 Creare e modificare un progetto tramite il [portale di Azure](../create-blueprint-portal.md#create-a-blueprint) o [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -62,11 +62,11 @@ Ogni versione di un progetto è un oggetto univoco e può essere **Pubblicato** 
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Selezionare **Definizioni blueprint** dalla pagina a sinistra e utilizzare le opzioni di filtro per individuare il blueprint di cui si desidera eliminare una versione. Selezionarlo per aprire la pagina di modifica.
+1. Selezionare **definizioni progetto** nella pagina a sinistra e usare le opzioni di filtro per individuare il progetto di cui si vuole eliminare una versione. Selezionarlo per aprire la pagina modifica.
 
-1. Selezionare la scheda **Versioni pubblicate** e individuare la versione che si desidera eliminare.
+1. Selezionare la scheda **versioni pubblicate** e individuare la versione che si desidera eliminare.
 
-1. Fare clic con il pulsante destro del mouse sulla versione da eliminare e selezionare **Elimina questa versione**.
+1. Fare clic con il pulsante destro del mouse sulla versione da eliminare e selezionare **Elimina la versione**.
 
 ## <a name="deleting-the-blueprint"></a>Eliminazione del progetto
 
@@ -93,16 +93,16 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 Per informazioni, vedere [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Assegnazione di assegnazioni di assegnazione
+### <a name="unassigning-assignments"></a>Annullare l'assegnazione di assegnazioni
 
-Se il blueprint non è più necessario, può essere annullato dal gruppo di gestione o dalla sottoscrizione. Durante l'annullamento dell'assegnazione del blueprint, si verifica quanto segue:
+Se il progetto non è più necessario, è possibile che non sia assegnato dal gruppo di gestione o dalla sottoscrizione. Durante l'unassegnazione del progetto, si verifica quanto segue:
 
-- Rimozione del [blocco delle risorse del blueprint](resource-locking.md)
-- Eliminazione dell'oggetto di assegnazione del blueprint
-- (Condizionale) Se è stata utilizzata **un'identità gestita assegnata dal sistema,** viene eliminata anche
+- Rimozione del [blocco delle risorse del progetto](resource-locking.md)
+- Eliminazione dell'oggetto di assegnazione progetto
+- Condizionale Se è stata usata un' **identità gestita assegnata dal sistema** , viene eliminata anche
 
 > [!NOTE]
-> Tutte le risorse distribuite dall'assegnazione del blueprint rimangono valide, ma non sono più protette da Azure Blueprints.All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
+> Tutte le risorse distribuite dall'assegnazione progetto rimangono invariate, ma non sono più protette dai progetti di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

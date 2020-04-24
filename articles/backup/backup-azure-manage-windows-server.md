@@ -1,6 +1,6 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure
-description: In questo articolo viene illustrato come utilizzare il dashboard Panoramica dell'insieme di credenziali di Servizi di ripristino per monitorare e gestire gli insiemi di credenziali di Servizi di ripristino.
+description: Questo articolo illustra come usare il dashboard di panoramica dell'insieme di credenziali di servizi di ripristino per monitorare e gestire gli insiemi di credenziali dei servizi di ripristino.
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
@@ -24,7 +24,7 @@ I prerequisiti per questo articolo sono: una sottoscrizione di Azure, un insieme
 
 Per monitorare gli avvisi o visualizzare i dati di gestione su un insieme di credenziali di Servizi di ripristino, aprire l'insieme di credenziali.
 
-1. Accedere al [portale](https://portal.azure.com/) di Azure usando la sottoscrizione di Azure.Sign in to the Azure portal using your Azure subscription.
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
 
 2. Nel portale fare clic su **Tutti i servizi**.
 
@@ -49,7 +49,7 @@ Il dashboard **Panoramica** dell'insieme di credenziali di Servizi di ripristino
 La sezione Monitoraggio mostra i risultati delle query **Avvisi di backup** e **Processi di backup** predefinite. I riquadri di Monitoraggio forniscono informazioni aggiornate su:
 
 * Avvisi critici e avvertenze per i processi di backup (nelle ultime 24 ore)
-* Verificare pre-controllare lo stato per le macchine virtuali di Azure.Pre-check status for Azure VMs. Per informazioni complete sullo stato di verifica preliminare, vedere [Stato pre-controllo backup](#backup-pre-check-status).
+* Stato di verifica preliminare per le macchine virtuali di Azure. Per informazioni complete sullo stato di verifica preliminare, vedere [backup pre-check status](#backup-pre-check-status).
 * I processi di backup in corso e i processi non riusciti (nelle ultime 24 ore).
 
 I riquadri di Utilizzo forniscono:
@@ -63,21 +63,21 @@ Fare clic sui riquadri (a eccezione di Archivio backup) per aprire il menu assoc
 
 Il menu Avvisi di backup nell'immagine precedente viene filtrato per: stato attivo, gravità critica e intervallo di tempo corrispondente alle 24 ore precedenti.
 
-### <a name="backup-pre-check-status"></a>Stato pre-controllo backup
+### <a name="backup-pre-check-status"></a>Stato del controllo preliminare di backup
 
-Pre-controlli di backup controllare la configurazione delle macchine virtuali per i problemi che possono influire negativamente sui backup. Queste informazioni vengono aggregate in modo da poterle visualizzare direttamente dal dashboard dell'insieme di credenziali di Servizi di ripristino e forniscono suggerimenti per misure correttive per garantire backup coerenti con i file o le applicazioni. Non richiedono alcuna infrastruttura e non hanno costi aggiuntivi.  
+I controlli preliminari di backup controllano la configurazione delle VM per individuare eventuali problemi che possono influire negativamente sui backup. Queste informazioni vengono aggregate in modo che sia possibile visualizzarle direttamente dal dashboard dell'insieme di credenziali dei servizi di ripristino e fornire consigli per le misure correttive per garantire la corretta esecuzione di backup coerenti con i file o coerenti con l'applicazione. Non richiedono alcuna infrastruttura e non hanno costi aggiuntivi.  
 
-Backup Pre-Checks run as part of the scheduled backup operations for your Azure VMs. Essi concludono con uno dei seguenti stati:
+I controlli preliminari di backup vengono eseguiti come parte delle operazioni di backup pianificate per le macchine virtuali di Azure. Concludono con uno degli Stati seguenti:
 
-* **Superato:** questo stato indica che la configurazione della macchina virtuale deve portare a backup riusciti e non è necessario eseguire alcuna azione correttiva.
-* **Avviso:** questo stato indica uno o più problemi nella configurazione della macchina virtuale che *potrebbero* causare errori di backup. Fornisce i passaggi *consigliati* per garantire il corretto funzionamento dei backup. Ad esempio, la mancata installazione dell'agente di macchine virtuali più recente può causare errori intermittenti nei backup. Questa situazione fornirebbe uno stato di avviso.
-* **Critico:** questo stato indica uno o più problemi critici nella configurazione della macchina virtuale che *porteranno* a errori di backup e fornisce i passaggi *necessari* per garantire il corretto funzionamento dei backup. Ad esempio, un problema di rete causato da un aggiornamento delle regole del gruppo di sicurezza di rete di una macchina virtuale causerà l'esito negativo dei backup, in quanto impedisce alla macchina virtuale di comunicare con il servizio Backup di Azure.For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. Questa situazione fornirebbe uno stato critico.
+* **Passato**: questo stato indica che la configurazione della macchina virtuale deve condurre a backup completati e non è necessario eseguire alcuna azione correttiva.
+* **Avviso**: questo stato indica uno o più problemi nella configurazione della macchina virtuale che *potrebbero* causare errori di backup. Sono disponibili procedure *consigliate* per garantire la riuscita dei backup. Se, ad esempio, non è installato l'agente VM più recente, i backup non vengono eseguiti in modo intermittente. Questa situazione fornirebbe uno stato di avviso.
+* **Critico**: questo stato indica uno o più problemi critici nella configurazione della macchina *virtuale che comporteranno* errori di backup e fornirà i passaggi *necessari* per garantire il corretto backup. Un problema di rete, ad esempio, causato da un aggiornamento alle regole NSG di una macchina virtuale, provocherà l'esito negativo dei backup, in quanto impedisce alla macchina virtuale di comunicare con il servizio backup di Azure. Questa situazione fornirebbe uno stato critico.
 
-Attenersi alla procedura seguente per avviare la risoluzione di eventuali problemi segnalati da Backup pre-controlla i backup delle macchine virtuali nell'insieme di credenziali dei servizi di ripristino.
+Attenersi alla procedura seguente per iniziare a risolvere gli eventuali problemi segnalati dai controlli preliminari di backup per i backup delle VM nell'insieme di credenziali di servizi di ripristino.
 
-* Selezionare il riquadro **Stato precontrollo backup (macchine virtuali di Azure)** nel dashboard dell'insieme di credenziali dei servizi di ripristino.
-* Selezionare una macchina virtuale con lo stato Di verifica preliminare backup **Critica** o **Avviso**. Questa azione aprirà il riquadro dei dettagli della **macchina virtuale.**
-* Selezionare la notifica del riquadro nella parte superiore del riquadro per visualizzare la descrizione del problema di configurazione e i passaggi corretti.
+* Selezionare il riquadro **stato del controllo preliminare di backup (VM di Azure)** nel dashboard dell'insieme di credenziali di servizi di ripristino.
+* Selezionare una macchina virtuale con uno stato di verifica preliminare del backup **critico** o **avviso**. Questa azione apre il riquadro dei **Dettagli della macchina virtuale** .
+* Selezionare la notifica del riquadro nella parte superiore del riquadro per visualizzare la descrizione del problema di configurazione e i passaggi correttivi.
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
 
@@ -111,7 +111,7 @@ Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**
 * Elementi di backup
 * Server protetti
 * Gravità
-* Duration
+* Durata
 * Data creazione
 * Stato
 * Ora ultima occorrenza
@@ -166,7 +166,7 @@ Scegliere la gravità degli avvisi (critici o avvertenze) usata per generare il 
 
 ## <a name="manage-backup-items"></a>Gestire gli elementi di backup
 
-Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. [Scopri](backup-overview.md#what-can-i-back-up) di più su cosa puoi eseguire il backup. Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
+Un insieme di credenziali di Servizi di ripristino contiene molti tipi di dati di backup. [Altre](backup-overview.md#what-can-i-back-up) informazioni sugli elementi di cui è possibile eseguire il backup. Per gestire i diversi server, computer, database e carichi di lavoro fare clic sul riquadro **Elementi di backup** per visualizzare i contenuti dell'insieme di credenziali.
 
 ![Riquadro Elementi di backup](./media/backup-azure-manage-windows-server/backup-items.png)
 

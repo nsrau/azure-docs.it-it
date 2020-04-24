@@ -11,15 +11,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80159413"
 ---
-Le voci nella `inferenceconfig.json` mappa documento vengono mappate ai parametri per la classe [InferenceConfig.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) Nella tabella seguente viene descritto il mapping tra le entità nel documento JSON e i parametri per il metodo:
+Le voci nel `inferenceconfig.json` documento vengono mappate ai parametri per la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . La tabella seguente descrive il mapping tra le entità nel documento JSON e i parametri per il metodo:
 
 | Entità JSON | Parametro del metodo | Descrizione |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Percorso di un file locale che contiene il codice da eseguire per l'immagine. |
-| `sourceDirectory` | `source_directory` | Facoltativa. Percorso delle cartelle che contengono tutti i file per creare l'immagine, che rende facile accedere a tutti i file all'interno di questa cartella o sottocartella. È possibile caricare un'intera cartella dal computer locale come dipendenze per il servizio Web.You can upload an entire folder from your local machine as dependencies for the Webservice. Nota: i percorsi entry_script, conda_file e extra_docker_file_steps sono percorsi relativi al percorso source_directory. |
-| `environment` | `environment` | Facoltativa.  Ambiente Di Azure Machine [Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py).|
+| `sourceDirectory` | `source_directory` | Facoltativo. Percorso delle cartelle che contengono tutti i file per creare l'immagine, semplificando l'accesso a tutti i file all'interno della cartella o della sottocartella. È possibile caricare un'intera cartella dal computer locale come dipendenze per il servizio Web. Nota: i percorsi di entry_script, conda_file e extra_docker_file_steps sono percorsi relativi del percorso source_directory. |
+| `environment` | `environment` | Facoltativo.  [Ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)Azure Machine Learning.|
 
-È possibile includere specifiche complete di un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning nel file di configurazione dell'inferenza. Se questo ambiente non esiste nell'area di lavoro, Azure Machine Learning lo creerà. In caso contrario, Azure Machine Learning aggiornerà l'ambiente se necessario. Il codice JSON seguente è un esempio:The following JSON is an example:
+È possibile includere le specifiche complete di un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure machine learning nel file di configurazione dell'inferenza. Se l'ambiente non esiste nell'area di lavoro, Azure Machine Learning lo creerà. In caso contrario, Azure Machine Learning aggiornerà l'ambiente, se necessario. Il codice JSON seguente è un esempio:
 
 ```json
 {
@@ -65,7 +65,7 @@ Le voci nella `inferenceconfig.json` mappa documento vengono mappate ai parametr
 }
 ```
 
-È anche possibile usare un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning esistente in parametri CLI separati e rimuovere la chiave "ambiente" dal file di configurazione dell'inferenza. Utilizzare -e come nome dell'ambiente e --ev per la versione dell'ambiente. Se non si specifica --ev, verrà utilizzata la versione più recente. Di seguito è riportato un esempio di file di configurazione dell'inferenza:Here is an example of an inference configuration file:
+È anche possibile usare un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) di Azure Machine Learning esistente in parametri dell'interfaccia della riga di comando separati e rimuovere la chiave "Environment" dal file di configurazione dell'inferenza. Usare-e per il nome dell'ambiente e--EV per la versione dell'ambiente. Se non si specifica--EV, verrà usata la versione più recente. Di seguito è riportato un esempio di un file di configurazione dell'inferenza:
 
 ```json
 {
@@ -74,9 +74,9 @@ Le voci nella `inferenceconfig.json` mappa documento vengono mappate ai parametr
 }
 ```
 
-Il comando seguente illustra come distribuire un modello utilizzando il file di configurazione dell'inferenza precedente (denominato myInferenceConfig.json). 
+Il comando seguente illustra come distribuire un modello usando il file di configurazione dell'inferenza precedente (denominato myInferenceConfig. Json). 
 
-Usa anche la versione più recente di un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning esistente (denominato AzureML-Minimal).
+USA inoltre la versione più recente di un [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) di Azure Machine Learning esistente (denominato AzureML-Minimal).
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json

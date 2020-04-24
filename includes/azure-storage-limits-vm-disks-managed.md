@@ -15,18 +15,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80334990"
 ---
-**Dischi gestiti HDD standard**  
+**HDD Standard Managed Disks**  
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**Dischi gestiti SSD standard**  
+**SDD Standard Managed Disks**  
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Dischi gestiti SSD Premium: limiti per discoPremium SSD managed disks: Per-disk limits**  
+**SSD Premium Managed disks: limiti per disco**  
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Dischi gestiti SSD Premium: limiti per macchina virtualePremium SSD managed disks: Per-VM limits**
+**SSD Premium Managed disks: limiti per macchina virtuale**
 
 | Risorsa | Limite |
 | --- | --- |
-| Numero massimo di operazioni di I/O al secondo per macchina virtualeMaximum IOPS Per |80.000 IOPS con VM GS5 |
-| Velocità effettiva massima per macchina virtualeMaximum throughput per VM |2.000 MB/s con VM GS5 |
+| Numero massimo di IOPS per macchina virtuale |80.000 IOPS con VM GS5 |
+| Velocità effettiva massima per macchina virtuale |2.000 MB/s con VM GS5 |

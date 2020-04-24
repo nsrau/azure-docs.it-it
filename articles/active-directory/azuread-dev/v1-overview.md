@@ -56,6 +56,6 @@ Gli articoli seguenti forniscono informazioni dettagliate su API, messaggi di pr
 
 ## <a name="videos"></a>Video
 
-Vedere i video della [piattaforma per sviluppatori di Azure Active Directory](videos.md) per informazioni sulla migrazione alla nuova piattaforma di identità Microsoft.See Azure Active Directory developer platform videos for help migrating to the new Microsoft identity platform.
+Per informazioni sulla migrazione alla nuova piattaforma di Microsoft Identity, vedere [Azure Active Directory video della piattaforma per sviluppatori](videos.md) .
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

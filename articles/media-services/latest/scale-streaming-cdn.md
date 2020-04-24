@@ -1,7 +1,7 @@
 ---
-title: Trasmettere contenuti in streaming con l'integrazione CDN
+title: Flusso di contenuto con l'integrazione della rete CDN
 titleSuffix: Azure Media Services
-description: Scopri di più sui contenuti in streaming con l'integrazione CDN, nonché sulla prelettura e sulla prelettura della rete CDN di Origin-Assist.
+description: "Informazioni sul flusso di contenuto con l'integrazione della rete CDN, oltre che sulla prelettura e sull'origine: supporto della rete CDN-prelettura."
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -19,134 +19,134 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80128059"
 ---
-# <a name="stream-content-with-cdn-integration"></a>Trasmettere contenuti in streaming con l'integrazione CDN
+# <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
 
 La rete per la distribuzione di contenuti (rete CDN) offre agli sviluppatori una soluzione globale per distribuire rapidamente contenuto con esigenze di larghezza di banda elevata tramite la memorizzazione di tale contenuto nella cache in nodi fisici strategici ubicati in tutto il mondo.  
 
-La rete CDN memorizza nella cache il contenuto trasmesso in streaming da un Endpoint di streaming di Servizi multimediali [(origine)](streaming-endpoint-concept.md) per codec, per protocollo di streaming, per bitrate, per formato contenitore e per crittografia/DRM. Per ogni combinazione di crittografia di formato bitrate codec-streaming protocol-container, sarà disponibile una cache della rete CDN separata.
+La rete CDN memorizza nella cache il contenuto trasmesso da un endpoint di streaming di servizi multimediali [(Origin)](streaming-endpoint-concept.md) per codec, per protocollo di streaming, per velocità in bit, per ogni formato di contenitore e per crittografia/DRM. Per ogni combinazione di codec-Streaming Protocol-Container Format-bitrate-Encryption, sarà presente una cache della rete CDN separata.
 
-Il contenuto popolare verrà servito direttamente dalla cache della rete CDN finché il frammento video viene memorizzato nella cache. Il contenuto live viene in genere memorizzato nella cache perché molte persone guardano la stessa cosa. I contenuti on-demand possono essere un po 'più complicati perché potresti avere alcuni contenuti che sono popolari e altri no. Se hai milioni di risorse video in cui nessuna di esse è popolare (solo uno o due spettatori alla settimana), ma hai migliaia di persone che guardano tutti i video diversi, la CDN diventa molto meno efficace.
+Il contenuto popolare verrà servito direttamente dalla cache della rete CDN, purché il frammento video venga memorizzato nella cache. Il contenuto live viene in genere memorizzato nella cache perché molte persone guardano la stessa cosa. Il contenuto su richiesta può essere un po' più complicato perché potrebbe essere presente contenuto popolare e altri non. Se si hanno milioni di asset video in cui nessuno di essi è popolare (solo uno o due visualizzatori alla settimana) ma si hanno migliaia di persone che guardano tutti i video, la rete CDN diventa molto meno efficace.
 
-È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come propria entità. Ad esempio, immagina la prima volta che un determinato video viene guardato. Se lo spettatore salta la visione solo pochi secondi qua e là, solo i frammenti video associati a ciò che la persona ha guardato vengono memorizzati nella cache nella rete CDN. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. Se una persona sta guardando una bitrate e un'altra persona sta guardando una velocità di bit diversa, ogni persona viene memorizzata nella cache separatamente nella rete CDN. Anche se due persone stanno guardando lo stesso bitrate, potrebbero essere in streaming su protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
+È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come entità propria. Si supponga, ad esempio, la prima volta che un determinato video viene guardato. Se il Visualizzatore Ignora solo pochi secondi qui e qui, solo i frammenti video associati a ciò che l'utente ha guardato vengono memorizzati nella cache nella rete CDN. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. Se una persona sta osservando una velocità in bit e un altro utente sta osservando una velocità in bit diversa, ognuno di essi viene memorizzato nella cache separatamente nella rete CDN. Anche se due persone stanno osservando la stessa velocità in bit, potrebbero trasmettere flussi su protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
 
-Quando si decide se abilitare o meno la rete CDN [nell'endpoint](streaming-endpoint-concept.md)di streaming di Servizi multimediali, considerare il numero di visualizzatori previsti. La rete CDN aiuta solo se ti aspetti molti spettatori per i tuoi contenuti. Se la concorrenza massima dei visualizzatori è inferiore a 500, è consigliabile disabilitare la rete CDN poiché la rete CDN è scalabile al meglio con la concorrenza.
+Per decidere se abilitare o meno la rete CDN nell'endpoint di [streaming](streaming-endpoint-concept.md)di servizi multimediali, prendere in considerazione il numero di visualizzatori previsti. La rete CDN è utile solo se ci si aspettano molti visualizzatori per il contenuto. Se la concorrenza massima dei visualizzatori è inferiore a 500, è consigliabile disabilitare la rete CDN poiché la rete CDN si adatta meglio alla concorrenza.
 
-In questo argomento viene illustrata l'abilitazione [dell'integrazione CDN.](#enable-azure-cdn-integration) Vengono inoltre illustrate le prelettura (caching attivo) e il concetto [di CDN-Prefetch Origin-Assist.](#origin-assist-cdn-prefetch)
+Questo argomento illustra l'abilitazione dell'integrazione della rete [CDN](#enable-azure-cdn-integration). Viene inoltre illustrata la prelettura (memorizzazione nella cache attiva) e il concetto di [prelettura della rete CDN Origin-Assist](#origin-assist-cdn-prefetch) .
 
 ## <a name="considerations"></a>Considerazioni
 
-* [L'endpoint](streaming-endpoint-concept.md) `hostname` di streaming e l'URL di streaming rimangono invariati indipendentemente dal fatto che si abiliti o meno la rete CDN.
-* Se è necessaria la possibilità di testare il contenuto con o senza rete CDN, creare un altro endpoint di streaming non abilitato per la rete CDN.
+* L' [endpoint](streaming-endpoint-concept.md) `hostname` di streaming e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
+* Se è necessario testare il contenuto con o senza la rete CDN, creare un altro endpoint di streaming non abilitato per la rete CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Abilitare l'integrazione della rete CDN di Azure
 
 > [!IMPORTANT]
 > Non è possibile abilitare la rete CDN per gli account Azure di valutazione o per studenti.
 >
-> L'integrazione della rete CDN è abilitata in tutti i data center di Azure ad eccezione delle aree Federal Government e China.CDN integration is enabled in all the Azure data centers except Federal Government and China regions.
+> L'integrazione della rete CDN è abilitata in tutti i Data Center di Azure, ad eccezione del governo federale e della Cina.
 
-Dopo il provisioning di un endpoint di streaming con la rete CDN abilitata, è disponibile un tempo di attesa definito in Servizi multimediali prima che venga eseguito l'aggiornamento DNS per eseguire il mapping dell'endpoint di streaming all'endpoint della rete CDN.
+Quando viene eseguito il provisioning di un endpoint di streaming con la rete CDN abilitata, è previsto un tempo di attesa definito in servizi multimediali prima di eseguire l'aggiornamento DNS per eseguire il mapping dell'endpoint di streaming all'endpoint rete CDN.
 
-Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming e lo streaming senza interruzioni dall'endpoint di streaming. Una volta completata l'integrazione, il flusso viene recapitato dalla rete CDN. Durante il periodo di provisioning, l'endpoint di streaming sarà nello stato **iniziale** e si potrebbero osservare un peggioramento delle prestazioni.
+Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming e il flusso senza interruzioni dall'endpoint di streaming. Una volta completata l'integrazione, il flusso viene recapitato dalla rete CDN. Durante il periodo di provisioning, l'endpoint di streaming sarà nello stato **iniziale** ed è possibile che si verifichi un calo delle prestazioni.
 
-Quando viene creato, l'endpoint di streaming Standard viene configurato per impostazione predefinita con Standard Verizon.When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. È possibile configurare i provider Premium Verizon o Standard Akamai utilizzando le API REST.
+Quando viene creato l'endpoint di streaming standard, questo viene configurato per impostazione predefinita con Verizon standard. È possibile configurare Premium Verizon o provider Akamai standard usando le API REST.
 
 L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**.
 
 > [!NOTE]
-> Per informazioni dettagliate sulla rete CDN di Azure, vedere Panoramica della [rete CDN.](../../cdn/cdn-overview.md)
+> Per informazioni dettagliate sulla rete CDN di Azure, vedere la panoramica della rete [CDN](../../cdn/cdn-overview.md).
 
 ## <a name="determine-if-a-dns-change-was-made"></a>Determinare se è stata apportata una modifica DNS
 
-È possibile determinare se è stata apportata una modifica DNS in un <https://www.digwebinterface.com>endpoint di streaming (il traffico viene indirizzato alla rete CDN di Azure) utilizzando . Se nei risultati vengono visualizzati azureedge.net nomi di dominio, il traffico punta ora alla rete CDN.
+È possibile determinare se è stata apportata una modifica DNS a un endpoint di streaming (il traffico viene indirizzato alla rete <https://www.digwebinterface.com>CDN di Azure) usando. Se nei risultati vengono visualizzati i nomi di dominio azureedge.net, il traffico viene ora puntato alla rete CDN.
 
-## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
+## <a name="origin-assist-cdn-prefetch"></a>Origine-supporto della rete CDN-prelettura
 
-La memorizzazione nella cache della rete CDN è un processo reattivo. Se la rete CDN è in grado di prevedere quale verrà richiesto l'oggetto successivo, la rete CDN può richiedere in modo proattivo e memorizzare nella cache l'oggetto successivo. Con questo processo, è possibile ottenere un riscontro nella cache per tutti (o la maggior parte) degli oggetti, che migliora le prestazioni.
+La memorizzazione nella cache della rete CDN è un processo reattivo. Se la rete CDN è in grado di stimare l'oggetto successivo che verrà richiesto, la rete CDN può richiedere e memorizzare nella cache l'oggetto successivo. Con questo processo, è possibile ottenere un riscontro nella cache per tutti (o la maggior parte) degli oggetti, migliorando le prestazioni.
 
-Il concetto di prelettura si sforza di posizionare gli oggetti sul "bordo di Internet" in previsione che questi saranno richiesti dal giocatore imminentemente, riducendo così il tempo per consegnare quell'oggetto al giocatore.
+Il concetto di prelettura si impegna a posizionare gli oggetti in "Edge of the Internet" in previsione che questi verranno richiesti dal giocatore in modo imminente, riducendo così il tempo necessario per il recapito dell'oggetto al lettore.
 
-Per raggiungere questo obiettivo, un endpoint di streaming (origine) e una rete CDN devono lavorare di pari passo in due modi:To achieve this goal, a streaming endpoint (origin) and CDN need to work in-hand in a couple ways:
+Per raggiungere questo obiettivo, un endpoint di streaming (origine) e una rete CDN devono funzionare manualmente in due modi:
 
-- L'origine di Servizi multimediali deve disporre dell'"intelligenza" (Origin-Assist) per informare CDN dell'oggetto successivo da prelettura.
-- La rete CDN esegue la prelettura e la memorizzazione nella cache (parte CDN-prefetch). CDN deve anche avere l'"intelligenza" per informare l'origine se si tratta di una prelettura o di un recupero regolare, gestire le risposte 404 e un modo per evitare un ciclo di prelettura senza fine.
+- L'origine di servizi multimediali deve avere l'"Intelligence" (Origin-Assist) per informare la rete CDN come oggetto successivo per la prelettura.
+- La rete CDN esegue la prelettura e la memorizzazione nella cache (parte di prelettura della rete CDN). La rete CDN deve anche avere l'"Intelligence" per informare l'origine se si tratta di una prelettura o di una normale operazione di recupero, gestire le risposte 404 e un modo per evitare un ciclo di prelettura infinito.
 
 ### <a name="benefits"></a>Vantaggi
 
-I vantaggi della funzionalità *CDN-Prefetch di Origin-Assist* includono:
+I vantaggi della funzionalità di *prelettura della rete CDN Origin-Assist* includono:
 
-- La prelettura migliora la qualità di riproduzione video preposizionando i segmenti video previsti sul bordo durante la riproduzione, riducendo la latenza per lo spettatore e migliorando i tempi di download dei segmenti video. Questo si traduce in tempi di avvio video più veloci e minori occorrenze di rebuffering.
-- Questo concetto è applicabile allo scenario generale di origine CDN e non è limitato ai supporti.
-- Akamai ha aggiunto questa funzionalità ad [Akamai Cloud Embed (ACE)](https://learn.akamai.com/en-us/products/media_delivery/cloud_embed.html).
+- La prelettura migliora la qualità della riproduzione dei video preposizionando i segmenti video previsti al bordo durante la riproduzione, riducendo la latenza al visualizzatore e migliorando i tempi di download del segmento video. In questo modo si ottiene un tempo di avvio video più rapido e si riducono le occorrenze del buffering.
+- Questo concetto è applicabile allo scenario di origine della rete CDN generale e non è limitato ai supporti.
+- Akamai ha aggiunto questa funzionalità a [Akamai cloud Embed (ACE)](https://learn.akamai.com/en-us/products/media_delivery/cloud_embed.html).
 
 > [!NOTE]
-> Questa funzionalità non è ancora applicabile alla rete CDN Akamai integrata con l'endpoint di streaming di Servizi multimediali. Tuttavia, è disponibile per i clienti di Servizi multimediali che hanno un contratto Akamai preesistente e richiedono un'integrazione personalizzata tra la rete CDN Akamai e l'origine di Servizi multimediali.
+> Questa funzionalità non è ancora applicabile alla rete CDN Akamai integrata con l'endpoint di streaming di servizi multimediali. Tuttavia, è disponibile per i clienti di servizi multimediali che hanno un contratto Akamai preesistente e richiedono l'integrazione personalizzata tra la rete CDN Akamai e l'origine di servizi multimediali.
 
 ### <a name="how-it-works"></a>Funzionamento
 
-Il supporto `Origin-Assist CDN-Prefetch` CDN per le intestazioni (sia per lo streaming live che per lo streaming su richiesta) è disponibile per i clienti che hanno un contratto diretto con Akamai CDN. La funzionalità prevede i seguenti scambi di intestazione HTTP tra la rete CDN Akamai e l'origine di Servizi multimediali:
+Il supporto della rete `Origin-Assist CDN-Prefetch` CDN per le intestazioni (per lo streaming live e video su richiesta) è disponibile per i clienti che hanno un contratto diretto con la rete CDN Akamai. La funzionalità prevede gli scambi di intestazioni HTTP seguenti tra la rete CDN Akamai e l'origine di servizi multimediali:
 
 |Intestazione HTTP|Valori|Mittente|Ricevitore|Scopo|
 | ---- | ---- | ---- | ---- | ----- |
-|`CDN-Origin-Assist-Prefetch-Enabled` | 1 (predefinito) o 0 |RETE CDN|Origine|Per indicare che la rete CDN è abilitata per la prelettura.|
-|`CDN-Origin-Assist-Prefetch-Path`| Esempio: <br/>Frammenti(video -1400000000,format-mpd-time-cmaf)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN.|
-|`CDN-Origin-Assist-Prefetch-Request`|1 (richiesta di prelettura) o 0 (richiesta regolare)|RETE CDN|Origine|Indicare che la richiesta dalla rete CDN è una prelettura.|
+|`CDN-Origin-Assist-Prefetch-Enabled` | 1 (valore predefinito) o 0 |RETE CDN|Origine|Per indicare che la rete CDN è abilitata per la prelettura.|
+|`CDN-Origin-Assist-Prefetch-Path`| Esempio: <br/>Frammenti (video = 1400000000, Format = MPD-Time-CMAF)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN.|
+|`CDN-Origin-Assist-Prefetch-Request`|1 (richiesta di prelettura) o 0 (richiesta normale)|RETE CDN|Origine|Per indicare che la richiesta dalla rete CDN è una prelettura.|
 
-Per visualizzare parte dello scambio di intestazione in azione, è possibile provare i seguenti passaggi:
+Per visualizzare parte dello scambio di intestazioni in azione, è possibile provare a eseguire la procedura seguente:
 
-1. Utilizzare Postman o cURL per inviare una richiesta all'origine di Servizi multimediali per un segmento o un frammento audio o video. Assicurarsi di aggiungere `CDN-Origin-Assist-Prefetch-Enabled: 1` l'intestazione nella richiesta.
-2. Nella risposta, l'intestazione `CDN-Origin-Assist-Prefetch-Path` con un percorso relativo dovrebbe essere visualizzato come valore.
+1. Usare il post o il cURL per inviare una richiesta all'origine di servizi multimediali per un segmento o un frammento audio o video. Assicurarsi di aggiungere l'intestazione `CDN-Origin-Assist-Prefetch-Enabled: 1` nella richiesta.
+2. Nella risposta dovrebbe essere visualizzata l'intestazione `CDN-Origin-Assist-Prefetch-Path` con un percorso relativo come valore.
 
 ### <a name="supported-streaming-protocols"></a>Protocolli di streaming supportati
 
-La `Origin-Assist CDN-Prefetch` funzionalità supporta i seguenti protocolli di streaming per lo streaming live e su richiesta:
+La `Origin-Assist CDN-Prefetch` funzionalità supporta i protocolli di streaming seguenti per lo streaming live e on demand:
 
-* HLS v3
-* HLS v4
+* HLS V3
+* HLS V4
 * HLS CMAF
-* DASH (CSF)
-* DASH (CMAF)
+* TRATTINO (CSF)
+* TRATTINO (CMAF)
 * Smooth Streaming
 
 ### <a name="faqs"></a>Domande frequenti
 
-* Cosa succede se l'URL di un percorso di prelettura non è valido in modo che la prelettura della rete CDN ottenga un 404?
+* Cosa accade se un URL del percorso di prelettura non è valido in modo che la prelettura della rete CDN ottenga 404?
 
     La rete CDN memorizza nella cache solo una risposta 404 per 10 secondi (o un altro valore configurato).
 
-* Supponiamo di avere un video on-demand. Se CDN-prefetch è abilitato, questa funzionalità implica che una volta che un client richiede il primo segmento video, la prelettura avvierà un ciclo per eseguire il prelettura di tutti i segmenti video successivi allo stesso bitrate?
+* Si supponga di avere un video su richiesta. Se la rete CDN-prelettura è abilitata, questa funzionalità implica che una volta che un client richiede il primo segmento video, la prelettura avvierà un ciclo per prerecuperare tutti i segmenti video successivi con la stessa velocità in bit?
 
-    No, la prelettura CDN viene eseguita solo dopo una richiesta/risposta avviata dal client. La prelettura CDN non viene mai attivata da una prelettura, per evitare un ciclo di prelettura.
+    No, la prelettura della rete CDN viene eseguita solo dopo una richiesta/risposta avviata dal client. Rete CDN: la prelettura non viene mai attivata da una prelettura, per evitare un ciclo di prelettura.
 
-* La funzionalità CDN-Prefetch di Origin-Assist è sempre accesa? Come può essere attivato/disattivato?
+* Origine-supporto della rete CDN-la funzionalità di prelettura è sempre attiva? Come è possibile attivare/disattivare?
 
-    Questa funzionalità è disattivata per impostazione predefinita. I clienti devono accenderlo tramite l'API Akamai.
+    Questa funzionalità è disattivata per impostazione predefinita. I clienti devono attivarla tramite l'API Akamai.
 
-* Per il live streaming, cosa accadrebbe a Origin-Assist se il segmento o il frammento successivo non è ancora disponibile?
+* Per lo streaming live, cosa accadrebbe ad Origin-Assist se il segmento o il frammento successivo non è ancora disponibile?
 
-    In questo caso, l'origine di `CDN-Origin-Assist-Prefetch-Path` Servizi multimediali non fornirà intestazione e CDN-prefetch non si verificherà.
+    In questo caso, l'origine di servizi multimediali non `CDN-Origin-Assist-Prefetch-Path` fornirà l'intestazione e la rete CDN-la prelettura non verrà eseguita.
 
-* Come `Origin-Assist CDN-Prefetch` funzionano con i filtri di manifesto dinamici?
+* Come `Origin-Assist CDN-Prefetch` funziona con i filtri manifesto dinamici?
 
-    Questa funzionalità funziona indipendentemente dal filtro del manifesto. Quando il frammento successivo è fuori da una finestra di filtro, il relativo URL sarà ancora individuato esaminando il manifesto client non elaborato e quindi restituito come intestazione di risposta di prelettura della rete CDN. Così CDN otterrà l'URL di un frammento che viene filtrato dal manifesto DASH/HLS/Smooth. Tuttavia, il giocatore non effettuerà mai una richiesta GET alla rete CDN per recuperare il frammento, perché quel frammento non è incluso nel manifesto DASH/HLS/Smooth detenuto dal giocatore (il giocatore non sa l'esistenza di quel frammento).
+    Questa funzionalità funziona indipendentemente dal filtro del manifesto. Quando il frammento successivo è esterno a una finestra di filtro, l'URL viene comunque individuato esaminando il manifesto client non elaborato e quindi restituito come intestazione della risposta di prelettura della rete CDN. Quindi la rete CDN otterrà l'URL di un frammento che viene escluso da DASH/HLS/Smooth manifest. Tuttavia, il lettore non effettuerà mai una richiesta GET alla rete CDN per recuperare il frammento, perché tale frammento non è incluso in DASH/HLS/Smooth manifest utilizzato dal lettore (il lettore non conosce l'esistenza del frammento).
 
-* Il manifesto DASH MPD/HLS playlist/Smooth può essere prefetched?
+* È possibile precaricare la playlist MPD/HLS o il manifesto smussato?
 
-    No, DASH MPD, playlist master HLS, playlist di varianti HLS o URL del manifesto uniforme non vengono aggiunti all'intestazione di prelettura.
+    No, DASH MPD, playlist Master HLS, playlist della variante HLS o URL del manifesto smussato non viene aggiunto all'intestazione di prelettura.
 
 * Gli URL di prelettura sono relativi o assoluti?
 
-    Mentre Akamai CDN consente entrambi, l'origine di Servizi multimediali fornisce solo URL relativi per il percorso di prelettura perché non c'è alcun vantaggio apparente nell'utilizzo di URL assoluti.
+    Sebbene la rete CDN Akamai consenta entrambe, l'origine di servizi multimediali fornisce solo URL relativi per il percorso di prelettura perché non esiste alcun vantaggio evidente nell'uso degli URL assoluti.
 
 * Questa funzionalità funziona con contenuti protetti da DRM?
 
-    Sì, poiché questa funzionalità funziona a livello HTTP, non decodifica né analizza alcun segmento/frammento. Non importa se il contenuto è crittografato o meno.
+    Sì, poiché questa funzionalità funziona a livello HTTP, non decodifica né analizza alcun segmento o frammento. Non importa se il contenuto è crittografato o meno.
 
-* Questa funzionalità funziona con SSAI (Server Side Ad Insertion)?
+* Questa funzionalità funziona con l'inserimento di annunci lato server (SSAI)?
     
-    Lo fa per i contenuti originali/principali (il contenuto video originale prima dell'inserimento dell'annuncio) funziona, poiché SSAI non modifica il timestamp del contenuto di origine dall'origine di Servizi multimediali. Il funzionamento di questa funzione con i contenuti degli annunci dipende dal fatto che l'origine dell'annuncio supporti Origin-Assist. Ad esempio, se il contenuto dell'annuncio è ospitato anche in Servizi multimediali di Azure (stessa origine o di origine separata), anche il contenuto dell'annuncio verrà sottoposto a prelettura.
+    Questa operazione viene eseguita per il contenuto originale o principale (il contenuto video originale prima dell'inserimento di annunci), perché SSAI non modifica il timestamp del contenuto di origine dall'origine di servizi multimediali. Il funzionamento di questa funzionalità con il contenuto di Active Directory varia a seconda che l'origine di Active Directory supporti Origin-assist. Se, ad esempio, i contenuti di Active Directory sono ospitati anche in servizi multimediali di Azure (stessa o origine separata), anche il contenuto di Active Directory verrà precaricato.
 
-* Questa funzione funziona con i contenuti UHD/HEVC?
+* Questa funzionalità funziona con i contenuti UHD/HEVC?
 
     Sì.
 
@@ -156,5 +156,5 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Assicurarsi di esaminare il documento [Streaming Endpoint (origine).](streaming-endpoint-concept.md)
+* Assicurarsi di esaminare il documento dell' [endpoint di streaming (Origin)](streaming-endpoint-concept.md) .
 * L'esempio [in questo repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) illustra come avviare l'endpoint di streaming predefinito con .NET.

@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80282478"
 ---
-Per spedire il pacco al data center di Azure è possibile usare FedEx, UPS o DHL. Se si desidera utilizzare un vettore diverso da FedEx/DHL, contattare il team Azure Data Box Operations all'indirizzo`adbops@microsoft.com`
+Per spedire il pacco al data center di Azure è possibile usare FedEx, UPS o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo`adbops@microsoft.com`
 
 * Fornire un numero di account valido per il vettore FedEx, UPS o DHL, che Microsoft userà per restituire le unità.
   * Per la restituzione di unità da località negli Stati Uniti e in Europa è necessario un numero di account FedEx, UPS o DHL.

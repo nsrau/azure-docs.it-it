@@ -1,6 +1,6 @@
 ---
-title: Creare o aggiornare ruoli personalizzati per le risorse di Azure con Azure PowerShellCreate or update custom roles for Azure resources with Azure PowerShell
-description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo per le risorse di Azure usando Azure PowerShell.Learn how to list, create, update, or delete custom roles with role-based access control (RBAC) for Azure resources using Azure PowerShell.
+title: Crea o aggiorna i ruoli personalizzati per le risorse di Azure con Azure PowerShell
+description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure usando Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -21,16 +21,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80062268"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare o aggiornare ruoli personalizzati per le risorse di Azure usando Azure PowerShellCreate or update custom roles for Azure resources using Azure PowerShell
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando Azure PowerShell
 
 > [!IMPORTANT]
-> L'aggiunta di `AssignableScopes` un gruppo di gestione è attualmente in anteprima.
+> L'aggiunta di un gruppo `AssignableScopes` di gestione a è attualmente in fase di anteprima.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se i [ruoli predefiniti per](built-in-roles.md) le risorse di Azure non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare ruoli personalizzati usando Azure PowerShell.This article describes how to list, create, update, or delete custom roles using Azure PowerShell.
+Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare ruoli personalizzati usando Azure PowerShell.
 
-Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere Esercitazione: Creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell.For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role for Azure resources using Azure PowerShell.](tutorial-custom-role-powershell.md)
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [esercitazione: creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -74,9 +74,9 @@ Virtual Machine Operator     True
 
 Se la sottoscrizione selezionata non è nel `AssignableScopes` del ruolo, il ruolo personalizzato non sarà elencato.
 
-## <a name="list-a-custom-role-definition"></a>Elencare una definizione di ruolo personalizzataList a custom role definition
+## <a name="list-a-custom-role-definition"></a>Elencare una definizione di ruolo personalizzata
 
-Per elencare una definizione di ruolo personalizzata, utilizzare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Questo è lo stesso comando che si usa per un ruolo predefinito.
+Per elencare una definizione di ruolo personalizzata, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Si tratta dello stesso comando utilizzato per un ruolo predefinito.
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -111,7 +111,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 }
 ```
 
-L'esempio seguente elenca solo le azioni del ruolo:
+Nell'esempio seguente vengono elencate solo le azioni del ruolo:
 
 ```azurepowershell
 (Get-AzRoleDefinition <role_name>).Actions
@@ -302,7 +302,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-Nell'esempio seguente viene `AssignableScopes` aggiunto un gruppo di gestione del ruolo personalizzato *Virtual Machine Operator.* L'aggiunta di `AssignableScopes` un gruppo di gestione è attualmente in anteprima.
+Nell'esempio seguente viene aggiunto un gruppo di `AssignableScopes` gestione a del ruolo personalizzato *operatore macchina virtuale* . L'aggiunta di un gruppo `AssignableScopes` di gestione a è attualmente in fase di anteprima.
 
 ```azurepowershell
 Get-AzManagementGroup
@@ -401,6 +401,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShellTutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Esercitazione: creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
-- [Operazioni del provider di risorse di Azure Resource ManagerAzure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Operazioni del provider di risorse Azure Resource Manager](resource-provider-operations.md)

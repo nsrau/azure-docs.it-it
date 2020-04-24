@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80153353"
 ---
-# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creare e distribuire modelli ARM utilizzando IntelliJ IDEA
+# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creare e distribuire modelli ARM con IntelliJ IDEA
 
-Informazioni su come distribuire un modello di Azure Resource Manager (ARM) in Azure usando IntelliJ IDEA e il processo di modifica e aggiornamento del modello direttamente dall'IDE. I modelli ARM sono file JSON che definiscono le risorse da distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
+Informazioni su come distribuire un modello di Azure Resource Manager (ARM) in Azure usando IntelliJ IDEA e il processo di modifica e aggiornamento del modello direttamente dall'IDE. I modelli ARM sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere la [panoramica della distribuzione di modelli](overview.md).
 
-![Diagramma del portale dei modelli di Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+![Diagramma del portale del modello di Gestione risorse](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Al termine dell'esercitazione si distribuirà un account di archiviazione di Azure. Lo stesso processo può essere usato per distribuire altre risorse di Azure.
 
@@ -31,9 +31,9 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="deploy-a-quickstart-template"></a>Distribuire un modello di avvio rapido
 
-Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). Modelli di avvio rapido di Azure è un repository per i modelli ARM. Il modello usato in questo articolo è denominato [Creare un account di archiviazione standard.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) Questo modello definisce una risorsa account di archiviazione di Azure.
+Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/). I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azure Resource Manager. Il modello usato in questo articolo è denominato [creare un account di archiviazione standard](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Questo modello definisce una risorsa account di archiviazione di Azure.
 
-1. Fare clic con [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) il [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) pulsante destro del mouse e salvare e nel computer locale.
+1. Fare clic con il pulsante destro [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) del [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) mouse e salvare nel computer locale.
 
 1. Se Azure Toolkit è installato correttamente ed è stato eseguito l'accesso, nella barra laterale di IntelliJ IDEA verrà visualizzato Azure Explorer. Fare clic con il pulsante destro del mouse su **Resource Management** (Gestione risorse) e scegliere **Create Deployment** (Crea distribuzione).
 
@@ -80,7 +80,7 @@ Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Lo scopo principale di questo articolo consiste nell'usare IntelliJ IDEA per distribuire un modello esistente dai modelli di Guida introduttiva di Azure.The main focus of this article is to use IntelliJ IDEA to deploy an existing template from Azure Quickstart templates. È stato anche illustrato come visualizzare e aggiornare una distribuzione esistente in Azure. I modelli di avvio rapido di Azure potrebbero non fornire tutto il necessario. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
+L'obiettivo principale di questo articolo è usare IntelliJ IDEA per distribuire un modello esistente da modelli di avvio rapido di Azure. È stato anche illustrato come visualizzare e aggiornare una distribuzione esistente in Azure. I modelli di avvio rapido di Azure potrebbero non fornire tutto il necessario. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per principianti](./template-tutorial-create-first-template.md)

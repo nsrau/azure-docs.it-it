@@ -23,7 +23,7 @@ ms.locfileid: "80668567"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Il certificato del server back-end non è consentito per un gateway applicazione quando si usa un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
-Questo articolo consente di risolvere il problema seguente: Un certificato non è inserito nella whitelist quando si crea un gateway applicazione utilizzando un servizio di bilanciamento del carico interno (ILB) con un ambiente del servizio app (ASE) nel back-end quando si usa TLS end-to-end in Azure.This article troubleshoots the following issue: A certificate isn't whitelisted when you create an application gateway (ILB) together with an App Service Environment (ASE) at the back-end when using end-to-end TLS in Azure.
+Questo articolo illustra come risolvere il problema seguente: un certificato non è consentita quando si crea un gateway applicazione usando un Load Balancer interno (ILB) insieme a un ambiente del servizio app (ASE) nel back-end quando si usa TLS end-to-end in Azure.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -52,7 +52,7 @@ Quando si crea un gateway applicazione tramite un servizio di bilanciamento del 
 
 Quando si accede al gateway applicazione, viene visualizzato il messaggio di errore seguente perché il server back-end non è integro:
 
-**502 – Il server Web ha ricevuto una risposta non valida mentre agisce come gateway o server proxy.**
+**502: il server Web ha ricevuto una risposta non valida quando funge da gateway o server proxy.**
 
 ## <a name="solution"></a>Soluzione
 
@@ -68,7 +68,7 @@ Quando si usa un nome di dominio completo (FQDN) per accedere al servizio di bil
 
 - Deselezionare l'opzione **Use for App service** (Usa per servizio app) per il gateway applicazione se si usa l'indirizzo IP del servizio di bilanciamento del carico interno.
 
-Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà utilizzato per la comunicazione TLS.) È possibile recuperare il certificato ILB accedendo al bilanciamento del carico di integrità con il relativo indirizzo IP dal browser su HTTPS, quindi esportando il certificato TLS/SSL in un formato CER con codifica Base 64 e caricando il certificato nelle rispettive impostazioni HTTP.
+Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà usato per la comunicazione TLS. È possibile recuperare il certificato ILB accedendo al ILB con il relativo indirizzo IP dal browser su HTTPS, quindi esportando il certificato TLS/SSL in un formato CER con codifica base 64 e caricando il certificato nelle rispettive impostazioni HTTP.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

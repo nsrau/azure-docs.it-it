@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso basato sulla rete virtuale per un account Cosmos di AzureConfigure virtual network based access for an Azure Cosmos account
+title: Configurare l'accesso in base alla rete virtuale per un account Azure Cosmos
 description: Questo documento descrive i passaggi necessari per configurare un endpoint servizio di rete virtuale per Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -52,7 +52,7 @@ Le sezioni seguenti descrivono come configurare un endpoint servizio di rete vir
 > Per abilitare gli endpoint servizio di rete virtuale sono necessarie le autorizzazioni seguenti per la sottoscrizione:
 >   * Sottoscrizione con la rete virtuale: Collaboratore Rete
 >   * Sottoscrizione con account Azure Cosmos DB: Collaboratore Account DocumentDB
->   * Se la rete virtuale e l'account del database Cosmos di Azure si `Microsoft.DocumentDB` trovano in sottoscrizioni diverse, assicurarsi che nella sottoscrizione con rete virtuale sia registrato anche il provider di risorse. Per registrare un provider di risorse, vedere l'articolo Tipi di [provider di risorse di Azure.To](../azure-resource-manager/management/resource-providers-and-types.md) register a resource provider, see Azure resource providers and types article.
+>   * Se la rete virtuale e l'account Azure Cosmos DB si trovano in sottoscrizioni diverse, verificare che anche la sottoscrizione con rete virtuale `Microsoft.DocumentDB` disponga di un provider di risorse registrato. Per registrare un provider di risorse, vedere l'articolo sui [tipi e i provider di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md) .
 
 Di seguito sono riportate le istruzioni per la registrazione della sottoscrizione con il provider di risorse.
 
@@ -68,7 +68,7 @@ Di seguito sono riportate le istruzioni per la registrazione della sottoscrizion
 
    ![Selezionare una rete virtuale e una subnet da una nuova rete virtuale](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Se l'account del database Cosmos di Azure viene usato da altri servizi di Azure, ad esempio Ricerca cognitiva di Azure, oppure è accessibile da Analisi di flusso o Power BI, è possibile concedere l'accesso selezionando **Accetta connessioni all'interno**di data center di Azure globali.
+Se l'account Azure Cosmos DB viene usato da altri servizi di Azure come Azure ricerca cognitiva oppure è accessibile da analisi di flusso o Power BI, si consente l'accesso selezionando **accetta connessioni dai data center globali di Azure**.
 
 Per assicurarsi di avere accesso alle metriche di Azure Cosmos DB dal portale, è necessario abilitare le opzioni **Consentire l'accesso dal portale di Azure**. Per altre informazioni su queste opzioni, vedere l'articolo [Configurare un firewall IP](how-to-configure-firewall.md). Dopo avere abilitato l'accesso, selezionare **Salva** per salvare le impostazioni.
 
@@ -120,14 +120,14 @@ Usare questa procedura per configurare un endpoint di servizio per un account Az
    $subnetId = $vnet.Id + "/subnets/" + $subnetName
    ```
 
-1. Preparare una regola di rete virtuale Cosmos DBPrepare a Cosmos DB Virtual Network Rule
+1. Preparare una regola della rete virtuale Cosmos DB
 
    ```powershell
    $vnetRule = New-AzCosmosDBVirtualNetworkRule `
       -Id $subnetId
    ```
 
-1. Aggiornare le proprietà dell'account di Azure Cosmos DB con la nuova configurazione dell'endpoint della rete virtuale:Update Azure Cosmos DB account properties with the new Virtual Network endpoint configuration: 
+1. Aggiornare Azure Cosmos DB proprietà dell'account con la nuova configurazione dell'endpoint della rete virtuale: 
 
    ```powershell
    $accountName = "<Cosmos DB account name>"
@@ -152,11 +152,11 @@ Usare questa procedura per configurare un endpoint di servizio per un account Az
 
 ## <a name="configure-a-service-endpoint-by-using-the-azure-cli"></a><a id="configure-using-cli"></a>Configurare un endpoint di servizio tramite l'interfaccia della riga di comando di Azure
 
-Gli account Di Azure Cosmos possono essere configurati per gli endpoint di servizio quando vengono creati o aggiornati in un secondo momento se la subnet è già configurata per essi. Gli endpoint di servizio possono essere abilitati anche nell'account Cosmos in cui la subnet non è ancora configurata per essi e quindi inizieranno a funzionare quando la subnet verrà configurata in un secondo momento. Questa flessibilità consente agli amministratori che non hanno accesso sia all'account Cosmos che alle risorse di rete virtuale di rendere le proprie configurazioni indipendenti l'una dall'altra.
+Gli account Azure Cosmos possono essere configurati per gli endpoint di servizio quando vengono creati o aggiornati in un secondo momento se la subnet è già stata configurata. Gli endpoint di servizio possono anche essere abilitati nell'account Cosmos in cui la subnet non è ancora configurata e quindi inizierà a funzionare quando la subnet viene configurata in un secondo momento. Questa flessibilità consente agli amministratori che non hanno accesso all'account Cosmos e alle risorse della rete virtuale di rendere le proprie configurazioni indipendenti tra loro.
 
-### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>Creare un nuovo account Cosmos e connetterlo a una subnet back-end per una nuova rete virtualeCreate a new Cosmos account and connect it to a back-end subnet for a new virtual network
+### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>Creare un nuovo account Cosmos e connetterlo a una subnet back-end per una nuova rete virtuale
 
-In questo esempio la rete virtuale e la subnet vengono create con gli endpoint di servizio abilitati per entrambi al momento della creazione.
+In questo esempio la rete virtuale e la subnet vengono create con gli endpoint di servizio abilitati per entrambi quando vengono creati.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -200,9 +200,9 @@ az cosmosdb create \
    --virtual-network-rules $svcEndpoint
 ```
 
-### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Connettere e configurare un account Cosmos a una subnet back-end in modo indipendente
+### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Connettere e configurare un account Cosmos in una subnet back-end in modo indipendente
 
-Questo esempio ha lo scopo di mostrare come connettere un account Cosmos di Azure a una nuova rete virtuale esistente in cui la subnet non è ancora configurata per gli endpoint del servizio. Questa operazione viene `--ignore-missing-vnet-service-endpoint` eseguita utilizzando il parametro . Ciò consente il completamento della configurazione dell'account Cosmos senza errori prima del completamento della configurazione nella subnet della rete virtuale. Una volta completata la configurazione della subnet, l'account Cosmos diventerà accessibile tramite la subnet configurata.
+Questo esempio illustra come connettere un account Azure Cosmos a una nuova rete virtuale esistente in cui la subnet non è ancora configurata per gli endpoint di servizio. Questa operazione viene eseguita tramite il `--ignore-missing-vnet-service-endpoint` parametro. Ciò consente di completare la configurazione dell'account Cosmos senza errori prima che la configurazione alla subnet della rete virtuale sia stata completata. Una volta completata la configurazione della subnet, l'account Cosmos diventerà accessibile tramite la subnet configurata.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -260,13 +260,13 @@ az network vnet subnet update \
 
 ## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>Migrazione da una regola del firewall IP a un ACL di rete virtuale
 
-Per eseguire la migrazione di un account di database Cosmos di Azure dall'uso delle regole del firewall IP all'uso degli endpoint del servizio di rete virtuale, eseguire la procedura seguente.
+Per eseguire la migrazione di un account Azure Cosmos DB usando le regole del firewall IP per usare gli endpoint del servizio rete virtuale, seguire questa procedura.
 
-Dopo aver configurato un account di database Cosmos di Azure per un endpoint del servizio per una subnet, le richieste provenienti da tale subnet vengono inviate al database Cosmos di Azure con informazioni sulla rete virtuale e sull'origine subnet anziché un indirizzo IP pubblico di origine. Queste richieste non corrisponderanno più a un filtro IP configurato nell'account azure Cosmos DB, motivo per cui i passaggi seguenti sono necessari per evitare tempi di inattività.
+Dopo aver configurato un account di Azure Cosmos DB per un endpoint di servizio per una subnet, le richieste provenienti da tale subnet vengono inviate a Azure Cosmos DB con le informazioni sull'origine della rete virtuale e della subnet invece di un indirizzo IP pubblico di origine. Queste richieste non corrisponderanno più a un filtro IP configurato per l'account Azure Cosmos DB, motivo per cui è necessario eseguire i passaggi seguenti per evitare tempi di inattività.
 
-Prima di procedere, abilitare l'endpoint del servizio database Cosmos di Azure nella rete virtuale e nella subnet usando il passaggio illustrato in precedenza in "Abilitare l'endpoint del servizio per una subnet esistente di una rete virtuale".
+Prima di procedere, abilitare l'endpoint del servizio Azure Cosmos DB nella rete virtuale e nella subnet usando il passaggio illustrato in "abilitare l'endpoint del servizio per una subnet esistente di una rete virtuale".
 
-1. Ottenere informazioni sulla rete virtuale e sulla subnet:Get virtual network and subnet information:
+1. Ottenere informazioni su rete virtuale e subnet:
 
    ```powershell
    $resourceGroupName = "myResourceGroup"
@@ -281,14 +281,14 @@ Prima di procedere, abilitare l'endpoint del servizio database Cosmos di Azure n
    $subnetId = $vnet.Id + "/subnets/" + $subnetName
    ```
 
-1. Preparare un nuovo oggetto regola di rete virtuale per l'account del database Cosmos di Azure:Prepare a new Virtual Network rule object for the Azure Cosmos DB account:
+1. Preparare un nuovo oggetto regola della rete virtuale per l'account Azure Cosmos DB:
 
    ```powershell
    $vnetRule = New-AzCosmosDBVirtualNetworkRule `
       -Id $subnetId
    ```
 
-1. Aggiornare l'account del database Cosmos di Azure per abilitare l'accesso all'endpoint del servizio dalla subnet:Update the Azure Cosmos DB account to enable service endpoint access from the subnet:
+1. Aggiornare l'account Azure Cosmos DB per abilitare l'accesso all'endpoint di servizio dalla subnet:
 
    ```powershell
    Update-AzCosmosDBAccount `
@@ -298,9 +298,9 @@ Prima di procedere, abilitare l'endpoint del servizio database Cosmos di Azure n
       -VirtualNetworkRuleObject @($vnetRule)
    ```
 
-1. Ripetere i passaggi precedenti per tutti gli account di database Cosmos di Azure a cui si accede dalla subnet.
+1. Ripetere i passaggi precedenti per tutti gli account di Azure Cosmos DB a cui si accede dalla subnet.
 
-1. Rimuovere la regola del firewall IP per la subnet dalle regole del firewall dell'account di database Cosmos di Azure.Remove the IP firewall rule for the subnet from the Azure Cosmos DB account's Firewall rules.
+1. Rimuovere la regola del firewall IP per la subnet dalle regole del firewall dell'account Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

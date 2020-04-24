@@ -20,13 +20,13 @@ ms.locfileid: "80745067"
 ---
 # <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
 
-In questo articolo imparerai a creare un nuovo punto di ripristino definito dall'utente per un pool SQL in Azure Synapse Analytics usando PowerShell e il portale di Azure.In this article, you'll learn to create a new user-defined restore point for a SQL pool in Azure Synapse Analytics by using PowerShell and the Azure portal.
+In questo articolo si apprenderà come creare un nuovo punto di ripristino definito dall'utente per un pool SQL in Azure sinapsi Analytics usando PowerShell e il portale di Azure.
 
-## <a name="create-user-defined-restore-points-through-powershell"></a>Creare punti di ripristino definiti dall'utente tramite PowerShellCreate user-defined restore points through PowerShell
+## <a name="create-user-defined-restore-points-through-powershell"></a>Creare punti di ripristino definiti dall'utente tramite PowerShell
 
-Per creare un punto di ripristino definito dall'utente, utilizzare il cmdlet [PowerShell New-AzSqlDatabaseRestorePoint.](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Per creare un punto di ripristino definito dall'utente, usare il cmdlet [di PowerShell New-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-1. Prima di iniziare, assicurarsi di [installare Azure PowerShell.](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+1. Prima di iniziare, assicurarsi di [installare Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Aprire PowerShell.
 3. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
 4. Selezionare la sottoscrizione che contiene il database da ripristinare.
@@ -56,25 +56,25 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
-## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Creare punti di ripristino definiti dall'utente tramite il portale di AzureCreate user-defined restore points through the Azure portal
+## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Creare punti di ripristino definiti dall'utente tramite il portale di Azure
 
-I punti di ripristino definiti dall'utente possono essere creati anche tramite il portale di Azure.User-defined restore points can also be created through Azure portal.
+I punti di ripristino definiti dall'utente possono essere creati anche tramite portale di Azure.
 
-1. Accedere all'account del portale di Azure.Sign in to your [Azure portal](https://portal.azure.com/) account.
+1. Accedere al proprio account di [portale di Azure](https://portal.azure.com/) .
 
 2. Passare al pool SQL per il quale si desidera creare un punto di ripristino.
 
-3. Selezionare **Panoramica** dal riquadro di sinistra, selezionare **Nuovo punto di ripristino**. Se il pulsante Nuovo punto di ripristino non è abilitato, assicurarsi che il pool SQL non sia in pausa.
+3. Selezionare **Panoramica** nel riquadro a sinistra e selezionare **+ nuovo punto di ripristino**. Se il pulsante nuovo punto di ripristino non è abilitato, assicurarsi che il pool SQL non sia sospeso.
 
     ![Nuovo punto di ripristino](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
-4. Specificare un nome per il punto di ripristino definito dall'utente e fare clic su **Applica**. I punti di ripristino definiti dall'utente hanno un periodo di conservazione predefinito di sette giorni.
+4. Specificare un nome per il punto di ripristino definito dall'utente e fare clic su **applica**. I punti di ripristino definiti dall'utente hanno un periodo di conservazione predefinito di sette giorni.
 
     ![Nome del punto di ripristino](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristinare un pool SQL esistenteRestore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
+- [Ripristinare un pool SQL esistente](sql-data-warehouse-restore-active-paused-dw.md)
 - [Ripristinare un pool SQL eliminato](sql-data-warehouse-restore-deleted-dw.md)
-- [Eseguire il ripristino da un pool SQL di backup geograficoRestore from a geo-backup SQL pool](sql-data-warehouse-restore-from-geo-backup.md)
+- [Ripristinare da un pool SQL di backup geografico](sql-data-warehouse-restore-from-geo-backup.md)
 

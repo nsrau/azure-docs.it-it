@@ -29,7 +29,7 @@ In questa esercitazione si userà l'esempio di rilevamento delle frodi in tempo 
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scenario: telecomunicazioni e rilevamento di illecito relativo alle SIM in tempo reale
 
-Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di frode, l'azienda deve esaminare i tabulati telefonici in arrivo e cercare modelli specifici, in questo caso per le chiamate effettuate nello stesso momento in diversi paesi/aree geografiche. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
+Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di illecito, è necessario che l'azienda esamini i record del telefono in arrivo e cerchi modelli specifici, in questo caso, per le chiamate eseguite nello stesso momento in paesi o aree geografiche diverse. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -89,7 +89,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 
 1. Nel riquadro dello spazio dei nomi dell'evento fare clic su **Hub eventi** e quindi sul nome del nuovo hub eventi.
 
-2. Nel riquadro hub eventi fare clic su **Criteri di accesso condiviso** e quindi su ** + &nbsp;Aggiungi**.
+2. Nel riquadro Hub eventi fare clic su **criteri di accesso condiviso** e quindi su ** + &nbsp;Aggiungi**.
 
     > [!NOTE]
     > Verificare di usare l'hub eventi e non lo spazio dei nomi.
@@ -130,7 +130,7 @@ Prima di avviare l'app TelcoGenerator è necessario configurarla per l'invio di 
    * Impostare il valore della chiave `EventHubName` sul nome dell'hub eventi (ovvero il valore del percorso dell'entità).
    * Impostare il valore della chiave `Microsoft.ServiceBus.ConnectionString` sulla stringa di connessione. 
 
-   La `<appSettings>` sezione sarà simile all'esempio seguente:The section will look like the following example:
+   La `<appSettings>` sezione sarà simile all'esempio seguente:
 
     ```xml
     <appSettings>
@@ -162,7 +162,7 @@ Prima di avviare l'app TelcoGenerator è necessario configurarla per l'invio di 
 
 Di seguito sono riportati alcuni campi chiave che verranno usati in questa applicazione di rilevamento di frodi in tempo reale:
 
-|**Registrazione**|**Definizione**|
+|**Record**|**Definizione**|
 |----------|--------------|
 |`CallrecTime`|Timestamp dell'ora di inizio della chiamata. |
 |`SwitchNum`|Commutatore telefonico usato per la connessione della chiamata. Per questo esempio i commutatori sono stringhe che rappresentano il paese/area di origine (Stati Uniti, Cina, Regno Unito, Germania o Australia). |
@@ -178,7 +178,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
 
 ### <a name="create-the-job"></a>Creare il processo 
 
-1. Nel portale di Azure fare clic su **Crea una risorsa** > del processo di**analisi**di flusso di Internet**of Things** > .
+1. Nella portale di Azure fare clic su **Crea una risorsa** > **Internet delle cose** > **processo di analisi di flusso**.
 
 2. Denominare il processo `asa_frauddetection_job_demo`, specificare una sottoscrizione, un gruppo di risorse e un percorso.
 
@@ -291,7 +291,7 @@ In molti casi, l'analisi non necessita di tutte le colonne dal flusso di input. 
 
 Si supponga di voler contare il numero di chiamate in ingresso per ogni area. Nei dati di streaming, se si vuole eseguire funzioni di aggregazione come il conteggio, è necessario segmentare il flusso in unità temporali (poiché il flusso di dati stesso è in effetti infinito). A tale scopo, usare una [funzione finestra](stream-analytics-window-functions.md) di Analisi di flusso. Sarà quindi possibile usare i dati all'interno di tale finestra come unità.
 
-Per questa trasformazione si intende creare una sequenza di finestre temporali che non si sovrappongano. Ogni finestra includerà un set distinto di dati che è possibile raggruppare e aggregare. A questo tipo di finestra si fa riferimento con la locuzione *finestra a cascata*. All'interno della finestra a cascata, è possibile `SwitchNum`ottenere un conteggio delle chiamate in arrivo raggruppate per , che rappresenta il paese o l'area geografica in cui ha avuto origine la chiamata. 
+Per questa trasformazione si intende creare una sequenza di finestre temporali che non si sovrappongano. Ogni finestra includerà un set distinto di dati che è possibile raggruppare e aggregare. A questo tipo di finestra si fa riferimento con la locuzione *finestra a cascata*. All'interno della finestra a cascata è possibile ottenere un conteggio delle chiamate in ingresso raggruppate per `SwitchNum`, che rappresenta il paese/area geografica in cui ha avuto origine la chiamata. 
 
 1. Modificare la query nell'editor di codice nel modo seguente:
 
@@ -307,7 +307,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
     La proiezione include `System.Timestamp`, che restituisce un timestamp per la fine di ogni finestra. 
 
-    Per specificare che si desidera utilizzare una finestra a cascata, utilizzare la funzione [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) nella `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio, la finestra a cascata è costituita da intervalli di 5 secondi, in modo da ottenere un conteggio per paese/area geografica per ogni 5 secondi di chiamate.
+    Per specificare che si desidera utilizzare una finestra a cascata, utilizzare la funzione [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) nella `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio, la finestra a cascata è costituita da intervalli di 5 secondi, quindi si otterrà un conteggio per paese/area geografica ogni 5 secondi per le chiamate.
 
 2. Fare di nuovo clic su **Test**. Si noti nei risultati che i timestamp in **WindowEnd** sono in incrementi di 5 secondi.
 
@@ -317,9 +317,9 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
 Per questo esempio, considerare come uso fraudolento le chiamate che provengono dallo stesso utente ma in posizioni diverse, a 5 secondi l'una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. 
 
-Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare i `CallingIMSI` record di chiamata in cui il valore `SwitchNum` (il numero di origine) è lo stesso, ma il valore (paese/area geografica di origine) non è lo stesso.
+Per verificare questi casi, è possibile usare un self-join dei dati di streaming per creare un join del flusso a se stesso in base al valore `CallRecTime`. È quindi possibile cercare i record delle chiamate in `CallingIMSI` cui il valore (numero di origine) è lo stesso, ma `SwitchNum` il valore (paese/regione di origine) non è lo stesso.
 
-Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. (Come notato in precedenza, i dati di streaming sono effettivamente infiniti.) I limiti di tempo per la `ON` relazione vengono specificati `DATEDIFF` all'interno della clausola del join, utilizzando la funzione . In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
+Quando si usa un join con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Come indicato in precedenza, i dati di streaming sono effettivamente infiniti. I limiti di tempo per la relazione sono specificati all'interno `ON` della clausola del join, usando la `DATEDIFF` funzione. In questo caso il join è basato su un intervallo di 5 secondi di dati di chiamata.
 
 1. Modificare la query nell'editor di codice nel modo seguente: 
 
@@ -359,7 +359,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
 
 ### <a name="create-an-azure-blob-storage-account"></a>Creare un account Archiviazione BLOB di Azure
 
-1. Nell'angolo superiore sinistro del portale di Azure selezionare Crea un**account**di**archiviazione** >  **delle risorse.** >  Compilare la pagina del processo dell'account di archiviazione impostando **Nome** su "asaehstorage", **Località** su "Stati Uniti orientali", **Gruppo di risorse** su "asa-eh-ns-rg" (ospitare l'account di archiviazione nello stesso gruppo di risorse del processo di streaming per ottenere prestazioni migliori). Per le altre impostazioni è possibile lasciare i valori predefiniti.  
+1. Dall'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa** > **Storage** > archiviazione**account di archiviazione**. Compilare la pagina del processo dell'account di archiviazione impostando **Nome** su "asaehstorage", **Località** su "Stati Uniti orientali", **Gruppo di risorse** su "asa-eh-ns-rg" (ospitare l'account di archiviazione nello stesso gruppo di risorse del processo di streaming per ottenere prestazioni migliori). Per le altre impostazioni è possibile lasciare i valori predefiniti.  
 
    ![Creare un account di archiviazione nel portale di Azure](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
@@ -379,7 +379,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Fare clic su **Salva**. 
+5. Fare clic su **Save**. 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Avviare il processo di Analisi di flusso
@@ -418,9 +418,9 @@ Se tuttavia non si desidera proseguire e le risorse create non sono necessarie, 
 5. Eliminare l'hub eventi.
 6. Eliminare lo spazio dei nomi dell'hub eventi.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
-Per ulteriore assistenza, prova il forum di [Analisi di flusso](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)di Azure .
+Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -432,5 +432,5 @@ Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

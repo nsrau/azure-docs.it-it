@@ -15,19 +15,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/21/2020
 ms.locfileid: "81678461"
 ---
-Prima di iniziare la configurazione, installare e importare i moduli necessari. Per installare i moduli in PowerShell, è necessario disporre dei privilegi di amministratore.
+Prima di iniziare la configurazione, installare e importare i moduli richiesti. Per installare i moduli in PowerShell sono necessari i privilegi di amministratore.
 
-1. Installare e importare il modulo Az.
+1. Installare e importare il modulo AZ.
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Installare e importare il modulo Az.Peering.
+1. Installare e importare il modulo AZ. peering.
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Verificare che i moduli importati correttamente utilizzando questo comando:
+1. Verificare che i moduli siano stati importati correttamente usando questo comando:
     ```powershell
     Get-Module
     ```
@@ -46,8 +46,8 @@ Prima di iniziare la configurazione, installare e importare i moduli necessari. 
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Se non sono già stati associati l'ASN e la sottoscrizione, seguire i passaggi descritti in [Associate Peer ASN](../howto-subscription-association-powershell.md). Questa azione è necessaria per richiedere un peering.
+> Se non è già stata eseguita l'associazione di ASN e della sottoscrizione, seguire la procedura descritta in [associare un ASN peer](../howto-subscription-association-powershell.md). Questa azione è necessaria per richiedere un peering.
 
 > [!NOTE]
-> La posizione di un gruppo di risorse è indipendente dalla posizione in cui si sceglie di configurare un peering.
+> Il percorso di un gruppo di risorse è indipendente dalla posizione in cui si sceglie di configurare un peering.
 &nbsp;

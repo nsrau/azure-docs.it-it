@@ -1,7 +1,7 @@
 ---
-title: 'Riferimento: Macchina virtuale Per la scienza dei dati di Ubuntu'
+title: 'Informazioni di riferimento: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
-description: Dettagli sugli strumenti inclusi in Ubuntu Data Science Virtual Machine
+description: Informazioni dettagliate sugli strumenti inclusi in Ubuntu Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -15,9 +15,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2020
 ms.locfileid: "80631374"
 ---
-# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Riferimento: Ubuntu (Linux) Data Science Virtual Machine
+# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
-Di seguito è riportato un elenco degli strumenti disponibili nella macchina virtuale Ubuntu Data Science. 
+Per un elenco degli strumenti disponibili nella Data Science Virtual Machine Ubuntu, vedere di seguito. 
 
 ## <a name="deep-learning-libraries"></a>Librerie di Deep Learning
 
@@ -32,7 +32,7 @@ cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
 cntk configFile=lr_bs.cntk makeMode=false command=Train
 ```
 
-Per ulteriori informazioni, vedere la sezione CNTK di [GitHub](https://github.com/Microsoft/CNTK) e [il wiki CNTK](https://github.com/Microsoft/CNTK/wiki).
+Per altre informazioni, vedere la sezione CNTK di [GitHub](https://github.com/Microsoft/CNTK) e il [wiki di CNTK](https://github.com/Microsoft/CNTK/wiki).
 
 ### <a name="caffe"></a>Caffe
 
@@ -66,7 +66,7 @@ MXNet è un framework di apprendimento avanzato progettato per l'efficienza e la
 
 NVIDIA Deep Learning GPU Training System (DIGITS) è un sistema che semplifica le comuni attività di Deep Learning. Queste attività includono la gestione dei dati, la progettazione e il training di reti neurali nei sistemi GPU, oltre al monitoraggio delle prestazioni in tempo reale con visualizzazione avanzata.
 
-DIGITS è disponibile come servizio chiamato *digits*. Avviare il servizio e passare a http://localhost:5000 per iniziare.
+Le cifre sono disponibili come servizio denominato *digits*. Avviare il servizio e passare a http://localhost:5000 per iniziare.
 
 DIGITS viene anche installato come modulo Python nell'ambiente root Conda.
 
@@ -137,7 +137,7 @@ Se si usa un'interfaccia grafica o è configurato X11 Forwarding, è possibile i
 
 La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Notebook di Jupyter è accessibile tramite JupyterHub. Per eseguire l'accesso, usare il nome utente e la password locali di Linux.
 
-Il server Notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Usare l'icona del desktop **Jupyter Notebook** per aprire il browser e accedere al server notebook. Se si è nella macchina virtuale tramite SSH o il client X2Go, [https://localhost:8000/](https://localhost:8000/)è anche possibile accedere al server notebook Jupyter all'indirizzo .
+Il server Notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i kernel R. Usare l'icona del desktop **Jupyter Notebook** per aprire il browser e accedere al server notebook. Se ci si trova nella macchina virtuale tramite SSH o il client X2Go, è anche possibile accedere al server Jupyter notebook [https://localhost:8000/](https://localhost:8000/)all'indirizzo.
 
 > [!NOTE]
 > Se vengono visualizzati avvisi relativi al certificato, scegliere di continuare.
@@ -185,7 +185,7 @@ PyCharm, RStudio e IntelliJ sono editor grafici. Per usarli, è necessario aver 
 
 VIM e Emacs sono editor basati su testo. In Emacs il pacchetto di componenti aggiuntivi ESS semplifica l'uso di R nell'editor Emacs. Per altre informazioni, visitare il [sito Web ESS](https://ess.r-project.org/).
 
-LaTex viene installato tramite il pacchetto texlive, insieme a un pacchetto aggiuntivo Emacs chiamato [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Questo pacchetto semplifica la creazione di documenti LaTeX in Emacs.  
+LaTex viene installato tramite il pacchetto texlive, insieme a un pacchetto di componente aggiuntivo Emacs denominato [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Questo pacchetto semplifica la creazione di documenti LaTeX in Emacs.  
 
 ## <a name="databases"></a>Database
 
@@ -199,17 +199,17 @@ SQuirreL SQL, un client SQL grafico, viene fornito per la connessione a vari dat
 
 Prima di usarlo per la prima volta, è necessario configurare i driver e gli alias di database. I driver JDBC si trovano nel percorso /usr/share/java/jdbcdrivers.
 
-Per ulteriori informazioni, vedere [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
+Per altre informazioni, vedere [Squirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
 ### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Strumenti da riga di comando per l'accesso a Microsoft SQL Server
 
 Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da riga di comando:
 
-- **bcp**: lo strumento bcp copia in blocco i dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
+- **bcp**: lo strumento bcp esegue operazioni di copia bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
   Per altre informazioni, vedere [Connessione a bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-- **sqlcmd**: è possibile immettere istruzioni Transact-SQLTransact-SQL utilizzando lo strumento sqlcmd. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
+- **SQLCMD**: è possibile immettere istruzioni Transact-SQL utilizzando lo strumento sqlcmd. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
 
   Per altre informazioni, vedere [Connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -227,21 +227,21 @@ Le librerie per l'accesso al database sono disponibili in R e Python:
 
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-* **Interfaccia della riga di comando**di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse di Azure tramite comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer:** Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare dati da e verso i BLOB di Azure.Azure Storage Explorer : Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
-* **Librerie**di Azure: di seguito sono riportate alcune delle librerie preinstallate.
+* Interfaccia della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse **di Azure tramite**i comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer**: Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare i dati da e verso i BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
+* **Librerie di Azure**: di seguito sono riportate alcune delle librerie pre-installate.
   
-  * **Python**: le librerie correlate ad Azure in Python sono *azure*, *azureml*, *pydocumentdb*e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
-  * **R**: Le librerie correlate ad Azure in R sono AzureML e RODBC.R : The Azure-related libraries in R are AzureML and RODBC.
+  * **Python**: le librerie correlate ad Azure in Python sono *Azure*, *azureml*, *pydocumentdb*e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme ai driver Microsoft ODBC per SQL Server), consente l'accesso da Python a SQL Server, al database SQL di Azure e ad Azure SQL Data Warehouse tramite un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
+  * **R**: le librerie correlate ad Azure in r sono AZUREML e RODBC.
   * **Java**: l'elenco delle librerie Java per Azure è disponibile nella directory /dsvm/sdk/AzureSDKJava della VM. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
 
-È possibile accedere al portale di [Azure](https://portal.azure.com) dal browser Firefox preinstallato. Nel portale di Azure si possono creare, gestire e monitorare le risorse di Azure.
+È possibile accedere al [portale di Azure](https://portal.azure.com) dal browser Firefox pre-installato. Nel portale di Azure si possono creare, gestire e monitorare le risorse di Azure.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. È possibile compilare gli esperimenti e i modelli in Azure Machine Learning Studio (anteprima). a cui è possibile accedere da un Web browser nella Data Science Virtual Machine, visitando il sito [Microsoft Azure Machine Learning](https://ml.azure.com).
+Azure Machine Learning è un servizio cloud completamente gestito che consente di creare, distribuire e condividere soluzioni di analisi predittiva. È possibile compilare esperimenti e modelli in Azure Machine Learning Studio (anteprima). a cui è possibile accedere da un Web browser nella Data Science Virtual Machine, visitando il sito [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-Dopo aver eseguito l'accesso ad Azure Machine Learning Studio, è possibile usare un canvas di sperimentazione per creare un flusso logico per gli algoritmi di apprendimento automatico. È inoltre possibile accedere a un blocco appunti di Jupyter ospitato in Azure Machine Learning e che può funzionare senza problemi con gli esperimenti in Azure Machine Learning Studio.You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
+Dopo aver effettuato l'accesso a Azure Machine Learning Studio, è possibile usare un'area di disegno sperimentazione per creare un flusso logico per gli algoritmi di machine learning. È anche possibile accedere a un notebook di Jupyter ospitato in Azure Machine Learning e funziona senza interruzioni con gli esperimenti in Azure Machine Learning Studio. 
 
 È possibile rendere operativi i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. In questo modo i client scritti in qualsiasi linguaggio possono richiamare le stime dai modelli di Machine Learning. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -261,7 +261,7 @@ La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e pr
 * **Rattle**: strumento grafico basato su R per una semplice modellazione ed esplorazione dei dati.
 * **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
 * **LightGBM**: un framework rapido, distribuito e a prestazioni elevate di boosting a gradienti basato su algoritmi dell'albero delle decisioni.
-* **R**: Una libreria completa di funzioni di apprendimento automatico è disponibile per R. Le librerie preinstallate includono lm, glm, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
+* **R**: è disponibile una ricca libreria di funzioni di machine learning per R. le librerie pre-installate includono LM, GLM, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
   
         install.packages(<lib name>)
 
@@ -338,11 +338,11 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 1. Selezionare la scheda **Evaluate** (Valuta).
 1. Selezionare l'opzione **Risk** (Rischio) e quindi **Execute** per visualizzare due tracciati delle prestazioni per **Risk (Cumulative)** (Rischio cumulativo).
 1. Selezionare la scheda **Log** per visualizzare il codice R generato per le operazioni precedenti.
-   (A causa di un bug nella versione corrente di **#** Rattle, è necessario inserire un carattere davanti **a Esporta questo registro** nel testo del registro.)
+   (A causa di un bug nella versione corrente di Rattle, è necessario inserire un **#** carattere davanti a **Esporta questo log** nel testo del log).
 1. Selezionare il pulsante **Export** (Esporta) per salvare il file di script R denominato *weather_script.R* nella home directory.
 
 È possibile uscire da Rattle e R. A questo punto è possibile modificare lo script R generato. In alternativa, usare lo script così com'è ed eseguirlo in qualsiasi momento per ripetere tutti i passaggi eseguiti nell'interfaccia utente di Rattle. Si tratta di un modo rapido, specialmente per gli utenti meno esperti di R, per eseguire funzioni di analisi e Machine Learning in un'interfaccia grafica semplice, generando automaticamente codice in R da modificare o per l'apprendimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre domande? Prendere in considerazione la creazione di un ticket di [supporto](https://azure.microsoft.com/support/create-ticket/).
+Altre domande? Prendere in considerazione la creazione di un [ticket di supporto](https://azure.microsoft.com/support/create-ticket/).

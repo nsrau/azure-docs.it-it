@@ -1,6 +1,6 @@
 ---
-title: Elencare le definizioni di ruolo in Controllo degli accessi in base al ruolo di Azure usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Documenti Microsoft
-description: Informazioni su come elencare i ruoli predefiniti e personalizzati in Controllo degli accessi in base al ruolo di Azure usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+title: Elencare le definizioni dei ruoli nel controllo degli accessi in base al ruolo di Azure con portale di Azure, Azure PowerShell, interfaccia della riga di comando Microsoft Docs
+description: Informazioni su come elencare i ruoli predefiniti e personalizzati nel controllo degli accessi in base al ruolo di Azure con portale di Azure, Azure PowerShell, interfaccia della riga di comando di Azure o API REST
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -21,23 +21,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80062996"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Definizioni di ruolo di elenco in Controllo degli accessi in base al ruolo di AzureList role definitions
+# <a name="list-role-definitions-in-azure-rbac"></a>Elencare le definizioni dei ruoli in RBAC di Azure
 
-Una definizione di ruolo è una raccolta di autorizzazioni che possono essere eseguite, ad esempio lettura, scrittura ed eliminazione. generalmente chiamata ruolo. Il controllo degli [accessi in base al ruolo](overview.md) di Azure include oltre 120 ruoli [predefiniti](built-in-roles.md) oppure è possibile creare ruoli personalizzati. Questo articolo descrive come elencare i ruoli predefiniti e personalizzati che è possibile usare per concedere l'accesso alle risorse di Azure.This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
+Una definizione di ruolo è una raccolta di autorizzazioni che è possibile eseguire, ad esempio la lettura, la scrittura e l'eliminazione. generalmente chiamata ruolo. Il [controllo degli accessi in base al ruolo (RBAC) di Azure](overview.md) ha più di 120 [ruoli predefiniti](built-in-roles.md) oppure è possibile creare ruoli personalizzati. Questo articolo descrive come elencare i ruoli predefiniti e personalizzati che è possibile usare per concedere l'accesso alle risorse di Azure.
 
-Per visualizzare l'elenco dei ruoli di amministratore per Azure Active Directory, vedere Autorizzazioni dei ruoli di [amministratore in Azure Active Directory.](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+Per visualizzare l'elenco dei ruoli di amministratore per Azure Active Directory, vedere autorizzazioni per i ruoli di [amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
 ### <a name="list-all-roles"></a>Elencare tutti i ruoli
 
-Seguire questi passaggi per elencare tutti i ruoli nel portale di Azure.Follow these steps to list all roles in the Azure portal.
+Attenersi alla seguente procedura per elencare tutti i ruoli nel portale di Azure.
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi selezionare un ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
+1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare un ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
 1. Fare clic sulla risorsa specifica.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **controllo di accesso (IAM)**.
 
 1. Fare clic su **Ruoli** per visualizzare l'elenco di tutti i ruoli predefiniti e personalizzati.
 
@@ -69,9 +69,9 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### <a name="list-a-role-definition"></a>Elencare una definizione di ruoloList a role definition
+### <a name="list-a-role-definition"></a>Elencare una definizione di ruolo
 
-Per elencare i dettagli di un ruolo specifico, utilizzare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Per elencare i dettagli di un ruolo specifico, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name>
@@ -92,9 +92,9 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-role-definition-in-json-format"></a>Elencare una definizione di ruolo in formato JSONList a role definition in JSON format
+### <a name="list-a-role-definition-in-json-format"></a>Elencare una definizione di ruolo in formato JSON
 
-Per elencare un ruolo in formato JSON, utilizzare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Per elencare un ruolo in formato JSON, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -126,9 +126,9 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### <a name="list-permissions-of-a-role-definition"></a>Elencare le autorizzazioni di una definizione di ruoloList permissions of a role definition
+### <a name="list-permissions-of-a-role-definition"></a>Elencare le autorizzazioni di una definizione di ruolo
 
-Per elencare le autorizzazioni per un ruolo specifico, utilizzare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Per elencare le autorizzazioni per un ruolo specifico, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | FL Actions, NotActions
@@ -166,7 +166,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### <a name="list-all-roles"></a>Elencare tutti i ruoli
 
-Per elencare tutti i ruoli nell'interfaccia della riga di comando di Azure, usare l'elenco di [definizione](/cli/azure/role/definition#az-role-definition-list)dei ruoli az .
+Per elencare tutti i ruoli nell'interfaccia della riga di comando di Azure, usare [AZ Role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list
@@ -221,9 +221,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-a-role-definition"></a>Elencare una definizione di ruoloList a role definition
+### <a name="list-a-role-definition"></a>Elencare una definizione di ruolo
 
-Per elencare i dettagli di un ruolo, utilizzare [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+Per elencare i dettagli di un ruolo, usare [AZ Role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list --name <role_name>
@@ -267,9 +267,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-### <a name="list-permissions-of-a-role-definition"></a>Elencare le autorizzazioni di una definizione di ruoloList permissions of a role definition
+### <a name="list-permissions-of-a-role-definition"></a>Elencare le autorizzazioni di una definizione di ruolo
 
-Nell'esempio seguente vengono elencate solo le *azioni* e *notAzioni* del ruolo *Collaboratore.*
+Nell'esempio seguente vengono elencate solo le *azioni* e le *notacte* del ruolo *collaboratore* .
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -288,7 +288,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-Nell'esempio seguente sono elencate solo le azioni del ruolo *Collaboratore macchina virtuale.*
+Nell'esempio seguente vengono elencate solo le azioni del ruolo *collaboratore macchina virtuale* .
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -316,7 +316,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-definitions"></a>Elencare le definizioni di ruolo
 
-Per elencare le definizioni di ruolo, usare l'API REST [Definizioni ruolo - Elenco.To](/rest/api/authorization/roledefinitions/list) list role definitions, use the Role Definitions - List REST API. Per affinare i risultati, specificare un ambito e un filtro facoltativo.
+Per elencare le definizioni dei ruoli, usare l'API REST per l' [elenco delle definizioni di ruolo](/rest/api/authorization/roledefinitions/list) . Per affinare i risultati, specificare un ambito e un filtro facoltativo.
 
 1. Iniziare con la richiesta seguente:
 
@@ -324,7 +324,7 @@ Per elencare le definizioni di ruolo, usare l'API REST [Definizioni ruolo - Elen
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
     ```
 
-1. All'interno dell'URI, sostituire *l'ambito* con l'ambito per il quale si desidera elencare le definizioni di ruolo.
+1. All'interno dell'URI, sostituire *{scope}* con l'ambito per il quale si desidera visualizzare l'elenco delle definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
     > | Scope | Type |
@@ -334,19 +334,19 @@ Per elencare le definizioni di ruolo, usare l'API REST [Definizioni ruolo - Elen
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Risorsa |
 
-    Nell'esempio precedente, microsoft.web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile utilizzare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [Tipi e provider di risorse](../azure-resource-manager/management/resource-providers-and-types.md) di Azure e Operazioni del provider di risorse di Azure Resource [Manager](resource-provider-operations.md)supportate.  
+    Nell'esempio precedente Microsoft. Web è un provider di risorse che fa riferimento a un'istanza del servizio app. Analogamente, è possibile usare qualsiasi altro provider di risorse e specificare l'ambito. Per altre informazioni, vedere [provider di risorse di Azure e tipi](../azure-resource-manager/management/resource-providers-and-types.md) e [le operazioni supportate Azure Resource Manager provider di risorse](resource-provider-operations.md).  
      
-1. Sostituire *il filtro* con la condizione che si desidera applicare per filtrare l'elenco delle definizioni di ruolo.
+1. Sostituire *{Filter}* con la condizione che si vuole applicare per filtrare l'elenco di definizioni di ruolo.
 
     > [!div class="mx-tableFixed"]
     > | Filtro | Descrizione |
     > | --- | --- |
-    > | `$filter=atScopeAndBelow()` | Elenca le definizioni di ruolo per l'ambito specificato e gli eventuali ambiti secondari. |
-    > | `$filter=type+eq+'{type}'` | Elenca le definizioni di ruolo del tipo specificato. Il tipo di `CustomRole` `BuiltInRole`ruolo può essere o . |
+    > | `$filter=atScopeAndBelow()` | Elenca le definizioni dei ruoli per l'ambito specificato e per qualsiasi ambito. |
+    > | `$filter=type+eq+'{type}'` | Elenca le definizioni dei ruoli del tipo specificato. Il tipo di ruolo può `CustomRole` essere `BuiltInRole`o. |
 
-### <a name="list-a-role-definition"></a>Elencare una definizione di ruoloList a role definition
+### <a name="list-a-role-definition"></a>Elencare una definizione di ruolo
 
-Per elencare i dettagli di un ruolo specifico, usare l'API REST [Definizioni di](/rest/api/authorization/roledefinitions/get) ruolo - Get o [Role - Get By Id](/rest/api/authorization/roledefinitions/getbyid) REST.
+Per elencare i dettagli di un ruolo specifico, usare l'API REST per le [definizioni di ruolo-ottenere](/rest/api/authorization/roledefinitions/get) o le [definizioni dei ruoli-Get by ID](/rest/api/authorization/roledefinitions/getbyid) .
 
 1. Iniziare con la richiesta seguente:
 
@@ -354,13 +354,13 @@ Per elencare i dettagli di un ruolo specifico, usare l'API REST [Definizioni di]
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-    Per una definizione di ruolo a livello di directory, è possibile utilizzare questa richiesta:For a directory-level role definition, you can use this request:
+    Per una definizione di ruolo a livello di directory, è possibile usare questa richiesta:
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. All'interno dell'URI, sostituire *l'ambito* con l'ambito per il quale si desidera elencare la definizione del ruolo.
+1. Nell'URI sostituire *{scope}* con l'ambito per il quale si desidera elencare la definizione di ruolo.
 
     > [!div class="mx-tableFixed"]
     > | Scope | Type |
@@ -376,5 +376,5 @@ Per elencare i dettagli di un ruolo specifico, usare l'API REST [Definizioni di]
 
 - [Ruoli predefiniti per le risorse di Azure](built-in-roles.md)
 - [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
-- [Elencare le assegnazioni di ruolo usando controllo degli accessi in base al ruolo di Azure e il portale di AzureList role assignments using Azure RBAC and the Azure portal](role-assignments-list-portal.md)
-- [Aggiungere o rimuovere assegnazioni di ruolo tramite controllo degli accessi in base al ruolo di Azure e il portale di AzureAdd or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
+- [Elencare le assegnazioni di ruolo usando RBAC di Azure e il portale di Azure](role-assignments-list-portal.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure](role-assignments-portal.md)

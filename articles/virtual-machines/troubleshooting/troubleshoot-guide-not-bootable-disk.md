@@ -1,6 +1,6 @@
 ---
-title: Errore di avvio – "questo non è un disco di avvio"
-description: Questo articolo illustra i passaggi per risolvere i problemi in cui il disco non è avviabile in una macchina virtuale di AzureThis article provides steps to resolve issues where the disk isn't bootable in an Azure Virtual Machine
+title: 'Errore di avvio: "non è un disco di avvio"'
+description: Questo articolo illustra la procedura per risolvere i problemi in cui il disco non è avviabile in una macchina virtuale di Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -21,91 +21,91 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80300979"
 ---
-# <a name="boot-error--this-is-not-a-bootable-disk"></a>Errore di avvio – Questo non è un disco di avvio
+# <a name="boot-error--this-is-not-a-bootable-disk"></a>Errore di avvio: questo non è un disco di avvio
 
-Questo articolo illustra la procedura per risolvere i problemi in cui il disco non è avviabile in una macchina virtuale di Azure.This article provides steps to resolve issues where the disk isn't bootable in an Azure Virtual Machine (VM).
+Questo articolo illustra la procedura per risolvere i problemi in cui il disco non è avviabile in una macchina virtuale (VM) di Azure.
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si utilizza diagnostica di [avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare la schermata della macchina virtuale, si noterà che la schermata viene visualizzato un prompt con il messaggio 'Questo non è un disco avviabile. Inserire un floppy di avvio e premere un tasto qualsiasi per riprovare...".
+Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato un messaggio che indica che non si tratta di un disco di avvio. Inserire un floppy di avvio e premere un tasto qualsiasi per riprovare.. .'.
 
    Figura 1
 
-   ![Figura 1 Viene illustrato il messaggio "Questo non è un disco di avvio. Inserire un floppy avviabile e premere un tasto qualsiasi per riprovare..."](media/troubleshoot-guide-not-bootable-disk/1.jpg)
+   ![Nella figura 1 viene visualizzato il messaggio * "non si tratta di un disco di avvio. Inserire un floppy di avvio e premere un tasto qualsiasi per riprovare... "*](media/troubleshoot-guide-not-bootable-disk/1.jpg)
 
 ## <a name="cause"></a>Causa
 
-Questo messaggio di errore indica che il processo di avvio del sistema operativo non è riuscito a individuare una partizione di sistema attiva. Questo errore potrebbe anche significare che è presente un riferimento mancante nell'archivio dei dati di configurazione di avvio (BCD), impedendogli di individuare la partizione di Windows.
+Questo messaggio di errore indica che il processo di avvio del sistema operativo non è riuscito a individuare una partizione di sistema attiva Questo errore può anche indicare la presenza di un riferimento mancante nell'archivio di dati configurazione di avvio (BCD), impedendone l'individuazione della partizione di Windows.
 
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
 
 1. Creare e accedere a una macchina virtuale di ripristino.
-2. Impostare Stato partizione su Attivo.Set Partition Status to Active.
+2. Impostare stato partizione su attivo.
 3. Correggere la partizione del disco.
-4. **Consigliato:** prima di ricompilare la macchina virtuale, abilitare la console seriale e la raccolta di immagine della memoria.
-5. Ricompilare la macchina virtuale originale.
+4. **Scelta consigliata**: prima di ricompilare la macchina virtuale, abilitare la raccolta di dump della memoria e della console seriale.
+5. Ricompilare la VM originale.
 
    > [!NOTE]
-   > Quando si verifica questo errore di avvio, il sistema operativo guest non è operativo. La risoluzione dei problemi in modalità offline verrà la risoluzione dei problemi.
+   > Quando si verifica questo errore di avvio, il sistema operativo guest non è operativo. Per risolvere il problema, è necessario eseguire la risoluzione dei problemi in modalità offline.
 
-### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristinoCreate and Access a Repair VM
+### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei comandi di ripristino della [macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
-2. L'uso di Connessione desktop remoto si connette alla macchina virtuale di ripristino.
+1. Usare i passaggi 1-3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+2. Usare Connessione Desktop remoto connettersi alla macchina virtuale di ripristino.
 
-### <a name="set-partition-status-to-active"></a>Impostare lo stato della partizione su Attivo
+### <a name="set-partition-status-to-active"></a>Imposta lo stato della partizione su attivo
 
-Le macchine virtuali di generazione 1 devono innanzitutto verificare che la partizione del sistema operativo, che contiene l'archivio BCD, sia contrassegnata come *attiva.* Se si dispone di una macchina virtuale di generazione 2, passare a [Correggere la partizione del disco](#fix-the-disk-partition), poiché il flag di *stato* è stato deprecato nella generazione successiva.
+Le macchine virtuali di prima generazione devono prima verificare che la partizione del sistema operativo, che include l'archivio BCD, sia contrassegnata come *attiva*. Se si dispone di una macchina virtuale di seconda generazione, andare avanti per [correggere la partizione del disco](#fix-the-disk-partition), perché il flag di *stato* è stato deprecato nella generazione successiva.
 
-1. Aprire un prompt dei comandi con privilegi elevati *(cmd.exe)*.
-2. Immettere *diskpart* per avviare lo strumento DISKPART.
-3. Immettere *il disco dell'elenco* per elencare i dischi nel sistema e identificare il disco rigido virtuale del sistema operativo collegato.
-4. Una volta individuato il disco rigido virtuale del sistema operativo collegato, immettere *sel disk per* selezionare il disco.  Vedere Figura 2, dove disco 1 è il disco rigido virtuale del sistema operativo collegato.
+1. Aprire un prompt dei comandi con privilegi elevati *(cmd. exe)*.
+2. Immettere *DiskPart* per avviare lo strumento Diskpart.
+3. Immettere il *disco elenco* per elencare i dischi del sistema e identificare il VHD del sistema operativo collegato.
+4. Una volta individuato il VHD del sistema operativo collegato, immettere *SEL disk #* per selezionare il disco.  Vedere la figura 2, dove il disco 1 è il VHD del sistema operativo collegato.
 
    Figura 2
 
-   ![Nella figura 2 è illustrata la finestra "DISKPART" che mostra l'output del comando del disco di elenco, del disco 0 e del disco 1 visualizzati nella tabella.  Mostra anche l'output del comando sel disk 1, disco 1 è il disco selezionato](media/troubleshoot-guide-not-bootable-disk/2.jpg)
+   ![Nella figura 2 è illustrata la finestra * DISKPART * che mostra l'output del comando list disk, disk 0 e Disk 1 visualizzati nella tabella.  Mostra anche l'output del comando SEL Disk 1, il disco 1 è il disco selezionato](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. Una volta selezionato il disco, immettere *list partition* per elencare le partizioni del disco selezionato.
-6. Una volta identificata la partizione di avvio, immettere *sel partition per* selezionare la partizione.  Di solito la partizione di avvio sarà di circa 350 MB di dimensioni.  Vedere Figura 3, dove partizione 1 è la partizione di avvio.
+5. Una volta selezionato il disco, immettere *List Partition* per elencare le partizioni del disco selezionato.
+6. Una volta identificata la partizione di avvio, immettere *SEL Partition #* per selezionare la partizione.  In genere, la partizione di avvio avrà dimensioni di circa 350 MB.  Vedere la figura 3, dove partition 1 è la partizione di avvio.
 
    Figura 3
 
-   ![Nella figura 3 è illustrata la finestra "DISKPART" con l'output del comando "list partition". La partizione 1 e la partizione 2 vengono visualizzate nella tabella. Viene inoltre illustrato l'output del comando partizione 1, quando la partizione 1 è il disco selezionato.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
+   ![Nella figura 3 viene illustrata la finestra * DISKPART * con l'output del comando * list partition *. La partizione 1 e la partizione 2 vengono visualizzate nella tabella. Viene inoltre visualizzato l'output del comando * SEL partition 1 *, quando Partition 1 è il disco selezionato.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
 
-7. Immettere 'detail partition' per controllare lo stato della partizione. Vedere Figura 4, in cui la partizione è *attiva: No*, o Figura 5 , in cui la partizione è 'Attivo: Sì'.
+7. Immettere ' detail partition ' per verificare lo stato della partizione. Vedere la figura 4, in cui la partizione è *attiva: No*o la figura 5, dove la partizione è' Active: Yes '.
 
    Figura 4
 
-   ![Nella Figura 4 viene illustrata la finestra "DISKPART" con l'output del comando "Detail partition" quando la partizione 1 è impostata su "Active: No"](media/troubleshoot-guide-not-bootable-disk/4.jpg)
+   ![Nella figura 4 viene illustrata la finestra * DISKPART * con l'output del comando * detail partition *, quando la partizione 1 è impostata su * Active: No *](media/troubleshoot-guide-not-bootable-disk/4.jpg)
 
    Figura 5
 
-   ![Nella Figura 5 viene illustrata la finestra "DISKPART" con l'output del comando "Detail partition", quando la partizione 1 è impostata su "Active: Yes".](media/troubleshoot-guide-not-bootable-disk/5.jpg)
+   ![Nella figura 5 viene illustrata la finestra * DISKPART * con l'output del comando * detail partition *, quando Partition 1 è impostato su * Active: Yes *.](media/troubleshoot-guide-not-bootable-disk/5.jpg)
 
-8. Se la partizione non è **attiva**, immettere *active* per modificare il flag *Attivo.*
-9. Verificare che la modifica dello stato sia stata eseguita correttamente digitando *detail partition*.
+8. Se la partizione **non è attiva**, immettere *attivo* per modificare il flag *attivo* .
+9. Verificare che la modifica dello stato sia stata eseguita correttamente digitando *dettaglio partizione*.
 
    Figura 6
 
-   ![Figura 6 Mostra la finestra diskpart con l'output del comando di partizione di dettaglio, quando la partizione 1 è impostata su "Attivo: Sì"](media/troubleshoot-guide-not-bootable-disk/6.jpg)
+   ![Nella figura 6 viene illustrata la finestra DiskPart con l'output del comando * detail partition *, quando la partizione 1 è impostata su * Active: Yes *](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
-10. Immettere *exit* per chiudere lo strumento DISKPART e salvare le modifiche alla configurazione.
+10. Immettere *Exit* per chiudere lo strumento DiskPart e salvare le modifiche alla configurazione.
 
-### <a name="fix-the-disk-partition"></a>Correggere la partizione del discoFix the Disk Partition
+### <a name="fix-the-disk-partition"></a>Correggere la partizione del disco
 
-1. Aprire un prompt dei comandi con privilegi elevati (cmd.exe).
-2. Utilizzare il comando seguente per eseguire *CHKDSK* sui dischi e correggere gli errori:
+1. Aprire un prompt dei comandi con privilegi elevati (cmd. exe).
+2. Usare il comando seguente per eseguire *chkdsk* sui dischi e correggere gli errori:
 
    `chkdsk <DRIVE LETTER>: /f`
 
-   L'aggiunta dell'opzione di comando '/f' correggerà eventuali errori sul disco. Assicurarsi di <DRIVE LETTER> sostituire con la lettera del disco rigido virtuale del sistema operativo allegato.
+   L'aggiunta dell'opzione di comando '/f ' consente di correggere eventuali errori sul disco. Assicurarsi di sostituire <DRIVE LETTER> con la lettera del disco rigido virtuale del sistema operativo collegato.
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Consigliato: prima di ricompilare la macchina virtuale, abilitare la raccolta di dump della memoria e della console seriale
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Scelta consigliata: prima di ricompilare la macchina virtuale, abilitare la raccolta di dump della memoria e della console seriale
 
-Per abilitare la raccolta di immagine della memoria e la console seriale, eseguire lo script seguente:
+Per abilitare la raccolta di dump della memoria e la console seriale, eseguire lo script seguente:
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (Esegui come amministratore).
 2. Eseguire i comandi seguenti:
@@ -116,17 +116,17 @@ Per abilitare la raccolta di immagine della memoria e la console seriale, esegui
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-3. Verificare che lo spazio disponibile sul disco del sistema operativo sia tanto quanto la dimensione della memoria (RAM) nella macchina virtuale.
+3. Verificare che lo spazio disponibile sul disco del sistema operativo sia pari alla dimensione della memoria (RAM) nella macchina virtuale.
 
-   Se lo spazio sul disco del sistema operativo non è sufficiente, è necessario modificare il percorso in cui verrà creato il file di immagine della memoria e fare riferimento a qualsiasi disco dati collegato alla macchina virtuale che dispone di spazio libero sufficiente. Per modificare il percorso, sostituire "%SystemRoot%" con la lettera di unità (ad esempio, "F:") del disco dati nei comandi seguenti.
+   Se lo spazio sul disco del sistema operativo non è sufficiente, è necessario modificare il percorso in cui verrà creato il file di dump della memoria e fare riferimento a qualsiasi disco dati collegato alla VM con spazio libero sufficiente. Per modificare il percorso, sostituire "% SystemRoot%" con la lettera di unità (ad esempio, "F:") del disco dati nei comandi seguenti.
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Configurazione consigliata per abilitare il dump del sistema operativo
 
-**Carica disco del sistema operativo interrotto**:
+**Carica disco del sistema operativo danneggiato**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**Abilita su ControlSet001:**
+**Abilita in ControlSet001:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -134,7 +134,7 @@ Per abilitare la raccolta di immagine della memoria e la console seriale, esegui
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Abilita su ControlSet002:**
+**Abilita in ControlSet002:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -142,10 +142,10 @@ Per abilitare la raccolta di immagine della memoria e la console seriale, esegui
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Scarica disco osinterrotto:**
+**Scarica disco del sistema operativo danneggiato:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
-### <a name="rebuild-the-original-vm"></a>Ricompilare la macchina virtuale originaleRebuild the Original VM
+### <a name="rebuild-the-original-vm"></a>Ricompilare la VM originale
 
-Usare [il passaggio 5 dei comandi](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) di ripristino della macchina virtuale per riassemblare la macchina virtuale.
+Usare [il passaggio 5 dei comandi di ripristino della macchina](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) virtuale per riassemblare la macchina virtuale.

@@ -15,28 +15,28 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/08/2020
 ms.locfileid: "80887418"
 ---
-Il burst del disco è supportato per gli sSD premium. Il bursting è supportato su qualsiasi dimensione di disco SSD premium <512 GiB (P20 o inferiore). Queste dimensioni del disco supportano il bursting nel miglior sforzo e utilizzano un sistema di credito per gestire l'bursting. I crediti si accumulano in un bucket ogni volta che il traffico su disco è inferiore all'obiettivo di prestazioni di cui è stato eseguito il provisioning per le dimensioni del disco e consumano crediti quando il traffico supera l'obiettivo. Il traffico su disco viene monitorato sia per le operazioni di I/O al secondo che per la larghezza di banda nella destinazione di cui è stato eseguito il provisioning. Il burst del disco non ignorerà le limitazioni delle dimensioni della macchina virtuale (VM) su IOPS o velocità effettiva.
+L'espansione del disco è supportata per le unità SSD Premium. L'espansione è supportata in qualsiasi dimensione di dischi SSD Premium <= 512 GiB (P20 o di seguito). Queste dimensioni del disco supportano il proporziono al massimo sforzo e utilizzano un sistema di credito per gestire il picchio. I crediti si accumulano in un bucket di espansione ogni volta che il traffico del disco è al di sotto dell'obiettivo di prestazioni con provisioning per le dimensioni del disco e utilizza crediti quando il traffico supera la destinazione. Il traffico su disco viene monitorato in base a IOPS e larghezza di banda nella destinazione sottoposta a provisioning. L'espansione del disco non esclude le limitazioni delle dimensioni delle macchine virtuali (VM) per IOPS o velocità effettiva.
 
-Il burst del disco è abilitato per impostazione predefinita nelle nuove distribuzioni delle dimensioni del disco che lo supportano. Le dimensioni dei dischi esistenti, se supportano il burst del disco, possono consentire il bursting tramite uno dei metodi seguenti:
+Per impostazione predefinita, l'espansione del disco è abilitata nelle nuove distribuzioni delle dimensioni dei dischi che la supportano. Le dimensioni dei dischi esistenti, se supportano la modalità di espansione del disco, possono consentire l'espansione tramite uno dei metodi seguenti:
 
-- Scollegare e ricollegare il disco.
+- Scollegare e riconnettere il disco.
 - Arrestare e avviare la macchina virtuale.
 
-## <a name="burst-states"></a>Stati burst
+## <a name="burst-states"></a>Stati di espansione
 
-Tutte le dimensioni del disco applicabili del burst inizieranno con un bucket di credito burst completo quando il disco è collegato a una macchina virtuale. La durata massima di bursting è determinata dalle dimensioni del bucket di credito burst. È possibile accumulare crediti inutilizzati fino alle dimensioni del bucket di credito. In qualsiasi momento, il bucket di credito del burst del disco può trovarsi in uno dei tre stati seguenti: 
+Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di credito a espansione completa quando il disco è collegato a una macchina virtuale. La durata massima dell'espansione è determinata dalla dimensione del bucket di credito di espansione. È possibile accumulare solo crediti inutilizzati fino alle dimensioni del bucket di credito. In qualsiasi momento, il bucket di credito con picchi di disco può trovarsi in uno dei tre stati seguenti: 
 
-- Accumulo, quando il traffico del disco utilizza meno dell'obiettivo di prestazioni di cui è stato eseguito il provisioning. È possibile accumulare credito se il traffico del disco supera le operazioni di I/O al secondo o gli obiettivi di larghezza di banda o entrambi. È comunque possibile accumulare crediti I/O quando si utilizza la larghezza di banda del disco completa, viceversa.  
+- Accumulo, quando il traffico del disco sta utilizzando meno della destinazione di prestazioni con provisioning. È possibile accumulare il credito se il traffico su disco è superiore a IOPS o destinazioni della larghezza di banda o entrambi. È comunque possibile accumulare crediti di i/o quando si utilizza una larghezza di banda completa del disco, viceversa.  
 
-- In diminuzione, quando il traffico su disco utilizza più dell'obiettivo di prestazioni di cui è stato eseguito il provisioning. Il traffico burst utilizzerà in modo indipendente i crediti da Operazioni di I/O al secondo o dalla larghezza di banda. 
+- In declino, quando il traffico del disco utilizza un numero di volte superiore rispetto alla destinazione di prestazioni con provisioning. Il traffico di espansione utilizzerà in modo indipendente i crediti da IOPS o larghezza di banda. 
 
-- Costante rimanente, quando il traffico del disco è esattamente all'obiettivo di prestazioni di cui è stato eseguito il provisioning. 
+- Costante rimanente, quando il traffico del disco è esattamente in corrispondenza della destinazione di prestazioni con provisioning. 
 
-Le dimensioni del disco che forniscono il supporto per l'esplosione insieme alle specifiche burst sono riepilogate nella tabella seguente.
+Nella tabella riportata di seguito vengono riepilogate le dimensioni dei dischi che forniscono il supporto per l'espansione in sequenza con le specifiche di espansione.
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-Il burst del disco è disponibile in tutte le aree del cloud pubblico.
+L'espansione del disco è disponibile in tutte le aree nel cloud pubblico.
 
 ## <a name="disk-sizes"></a>Dimensione disco
 
@@ -44,10 +44,10 @@ Il burst del disco è disponibile in tutte le aree del cloud pubblico.
 
 ## <a name="example-scenarios"></a>Scenari di esempio
 
-Per darti un'idea migliore di come funziona, ecco alcuni scenari di esempio:
+Per fornire un'idea più approfondita del funzionamento, ecco alcuni scenari di esempio:
 
-- Uno scenario comune che può trarre vantaggio dall'burst del disco è l'avvio più rapido della macchina virtuale e l'avvio dell'applicazione nei dischi del sistema operativo. Prendiamo come esempio una macchina virtuale Linux con un'immagine oS GiB 8.Take a Linux VM with an 8 GiB OS image as an example. Se si usa un disco P2 come disco del sistema operativo, la destinazione di cui è stato eseguito il provisioning è 120 IOPS e 25 MiB. All'avvio della macchina virtuale, si verifica un picco di lettura per il disco del sistema operativo che carica i file di avvio. Con l'introduzione del bursting, è possibile leggere alla velocità massima burst di 3500 IOPS e 170 MiB, accelerando il tempo di caricamento di almeno 6x. Dopo l'avvio della macchina virtuale, il livello di traffico sul disco del sistema operativo è in genere basso, poiché la maggior parte delle operazioni sui dati da parte dell'applicazione sarà sui dischi dati collegati. Se il traffico è inferiore alla destinazione di cui è stato eseguito il provisioning, si accumulano crediti.
+- Uno scenario comune che può trarre vantaggio dall'espansione del disco è l'avvio più veloce delle macchine virtuali e l'avvio dell'applicazione nei dischi del sistema operativo. Come esempio, usare una VM Linux con un'immagine del sistema operativo 8 GiB. Se si usa un disco P2 come disco del sistema operativo, la destinazione di cui è stato effettuato il provisioning è 120 IOPS e 25 MiB. Quando viene avviata la macchina virtuale, il disco del sistema operativo carica i file di avvio. Con l'introduzione dell'espansione, è possibile leggere la massima velocità di espansione di 3500 IOPS e 170 MiB, accelerando il tempo di caricamento di almeno 6x. Dopo l'avvio della macchina virtuale, il livello di traffico sul disco del sistema operativo è in genere basso, perché la maggior parte delle operazioni sui dati da parte dell'applicazione avverrà sui dischi dati collegati. Se il traffico è inferiore alla destinazione di cui è stato effettuato il provisioning, si accumuleranno crediti.
 
-- Se si ospita un ambiente Desktop virtuale remoto, ogni volta che un utente attivo avvia un'applicazione come AutoCAD, il traffico di lettura verso il disco del sistema operativo aumenta in modo significativo. In questo caso, il traffico burst consumerà i crediti accumulati, consentendo di andare oltre la destinazione di cui è stato eseguito il provisioning e avviando l'applicazione molto più velocemente.
+- Se si ospita un ambiente desktop virtuale remoto, ogni volta che un utente attivo avvia un'applicazione come AutoCAD, il traffico verso il disco del sistema operativo aumenta in modo significativo. In questo caso, il traffico di espansione utilizzerà crediti accumulati, consentendo di superare la destinazione di cui è stato effettuato il provisioning e di avviare l'applicazione molto più velocemente.
 
-- Un disco P1 ha una destinazione di cui è stato eseguito il provisioning di 120 IOPS e 25 MiB. Se il traffico effettivo sul disco era di 100 operazioni di I/O al secondo e 20 MiB nell'intervallo di 1 secondo, i 20 I/O inutilizzati e i 5 MB vengono accreditati nel bucket burst del disco. I crediti nel bucket burst possono essere usati in un secondo momento quando il traffico supera la destinazione di cui è stato eseguito il provisioning, fino al limite massimo del burst. Il limite massimo di burst definisce il limite massimo di traffico su disco anche se si dispone di crediti burst da cui consumare. In questo caso, anche se nel bucket di credito sono in grado di avere 10.000 I/O, un disco P1 non può emettere più del burst massimo di 3.500 I/O al secondo.  
+- Un disco P1 ha una destinazione con provisioning di 120 IOPS e 25 MiB. Se il traffico effettivo sul disco è 100 IOPS e 20 MiB nell'intervallo di 1 secondo precedente, i 20 IOs e 5 MB non usati vengono accreditati nel bucket di espansione del disco. I crediti nel bucket di espansione possono essere usati in un secondo momento quando il traffico supera la destinazione di cui è stato effettuato il provisioning, fino al limite massimo di picchi. Il limite massimo di impulsi definisce il limite di traffico del disco anche se sono presenti crediti di espansione da utilizzare. In questo caso, anche se si dispone di 10.000 IOs nel bucket di credito, un disco P1 non può emettere più del picco massimo di 3.500 IO al secondo.  

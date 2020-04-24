@@ -49,41 +49,41 @@ Altri requisiti della rete virtuale possono essere diversi a seconda che il pool
 **Ulteriori risorse di rete** - Batch alloca automaticamente le risorse di rete aggiuntive nel gruppo di risorse contenente la rete virtuale.
 
 > [!IMPORTANT]
->Per ogni 50 nodi dedicati (o ogni 20 nodi con priorità bassa), Batch alloca: un gruppo di sicurezza di rete (NSG), un indirizzo IP pubblico e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per i pool di grandi dimensioni, potrebbe essere necessario richiedere un aumento della quota per una o più di queste risorse.
+>Per ogni nodo dedicato 50 (o ogni 20 nodi con priorità bassa), batch alloca: un gruppo di sicurezza di rete (NSG), un indirizzo IP pubblico e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per i pool di grandi dimensioni, potrebbe essere necessario richiedere un aumento della quota per una o più di queste risorse.
 
-#### <a name="network-security-groups-batch-default"></a>Gruppi di sicurezza di rete: batch predefinitoNetwork security groups: Batch default
+#### <a name="network-security-groups-batch-default"></a>Gruppi di sicurezza di rete: batch predefinito
 
-La subnet deve consentire la comunicazione in ingresso dal servizio Batch per poter pianificare le attività nei nodi di calcolo e le comunicazioni in uscita per comunicare con Archiviazione di Azure o altre risorse in base alle esigenze del carico di lavoro. Per i pool nella configurazione della macchina virtuale, Batch aggiunge gruppi di sicurezza di rete a livello di interfacce di rete (NIC) collegate ai nodi di calcolo. Questi gruppi di sicurezza di rete sono configurati con le regole aggiuntive seguenti:These NSGs are configured with the following additional rules:
+La subnet deve consentire la comunicazione in ingresso dal servizio batch per poter pianificare le attività nei nodi di calcolo e le comunicazioni in uscita per comunicare con archiviazione di Azure o altre risorse in base alle esigenze del carico di lavoro. Per i pool nella configurazione della macchina virtuale, batch aggiunge gruppi a livello di interfacce di rete (NIC) collegato ai nodi di calcolo. Questi gruppi vengono configurati con le regole aggiuntive seguenti:
 
-* Traffico TCP in ingresso sulle porte 29876 e 29877 `BatchNodeManagement` dagli indirizzi IP del servizio Batch che corrispondono al tag del servizio.
-* Traffico TCP in ingresso sulla porta 22 (nodi di Linux) o sulla porta 3389 (nodi di Windows) per consentire l'accesso remoto. Per alcuni tipi di attività a più istanze in Linux (ad esempio MPI), è necessario consentire anche il traffico della porta SSH 22 per gli indirizzi IP nella subnet contenente i nodi di calcolo Batch.For certain types of multi-instance tasks on Linux (such as MPI), you will also need to allow SSH port 22 traffic for Ip in the subnet containing the Batch compute nodes. Questo può essere bloccato per le regole del gruppo di sicurezza di rete a livello di subnet (vedere di seguito).
-* Traffico in uscita su qualsiasi porta verso la rete virtuale. Questo può essere modificato per le regole del gruppo di sicurezza di rete a livello di subnet (vedere di seguito).
-* Traffico in uscita su qualsiasi porta verso Internet. Questo può essere modificato per le regole del gruppo di sicurezza di rete a livello di subnet (vedere di seguito).
+* Traffico TCP in ingresso sulle porte 29876 e 29877 dagli indirizzi IP del `BatchNodeManagement` servizio batch che corrispondono al tag di servizio.
+* Traffico TCP in ingresso sulla porta 22 (nodi di Linux) o sulla porta 3389 (nodi di Windows) per consentire l'accesso remoto. Per alcuni tipi di attività a istanza multipla in Linux (ad esempio MPI), è necessario consentire anche il traffico della porta SSH 22 per gli indirizzi IP nella subnet che contiene i nodi di calcolo batch. Questo può essere bloccato per ogni regola di NSG a livello di subnet (vedere di seguito).
+* Traffico in uscita su qualsiasi porta verso la rete virtuale. Questo può essere modificato per ogni regola di NSG a livello di subnet (vedere di seguito).
+* Traffico in uscita su qualsiasi porta verso Internet. Questo può essere modificato per ogni regola di NSG a livello di subnet (vedere di seguito).
 
 > [!IMPORTANT]
-> Prestare attenzione se si modificano o aggiungono regole in ingresso o in uscita nei gruppi di sicurezza di rete configurati per Batch. Se la comunicazione ai nodi di calcolo nella subnet specificata viene negata da un gruppo di sicurezza di rete, il servizio Batch imposta lo stato dei nodi di calcolo su **Non utilizzabile**. Inoltre, nessun blocco delle risorse deve essere applicato a qualsiasi risorsa creata da Batch, altrimenti ciò può comportare la pulizia delle risorse come risultato di azioni avviate dall'utente, ad esempio l'eliminazione di un pool.
+> Prestare attenzione se si modificano o aggiungono regole in ingresso o in uscita nei gruppi di sicurezza di rete configurati per Batch. Se la comunicazione ai nodi di calcolo nella subnet specificata viene negata da un gruppo di sicurezza di rete, il servizio Batch imposta lo stato dei nodi di calcolo su **Non utilizzabile**. Inoltre, non deve essere applicato alcun blocco di risorsa a qualsiasi risorsa creata da batch. in caso contrario, ciò può impedire la pulizia delle risorse in seguito a azioni avviate dall'utente, ad esempio l'eliminazione di un pool.
 
-#### <a name="network-security-groups-specifying-subnet-level-rules"></a>Gruppi di sicurezza di rete: specifica delle regole a livello di subnetNetwork security groups: Specifying subnet-level rules
+#### <a name="network-security-groups-specifying-subnet-level-rules"></a>Gruppi di sicurezza di rete: specifica di regole a livello di subnet
 
-Non è necessario specificare i gruppi di sicurezza di rete a livello di subnet di rete virtuale perché Batch configura i propri gruppi di sicurezza di rete (vedere sopra). Se si dispone di un gruppo di sicurezza di rete associato alla subnet in cui vengono distribuiti i nodi di calcolo Batch o si desidera applicare regole del gruppo di sicurezza di rete personalizzate per eseguire l'override dei valori predefiniti applicati, è necessario configurare questo gruppo di sicurezza di rete con almeno le regole di sicurezza in ingresso e in uscita, come illustrato nelle tabelle seguenti.
+Non è necessario specificare gruppi a livello di subnet della rete virtuale perché batch configura il proprio gruppi (vedere sopra). Se si dispone di un NSG associato alla subnet in cui vengono distribuiti i nodi di calcolo batch o si desidera applicare regole NSG personalizzate per sostituire le impostazioni predefinite applicate, è necessario configurare questo NSG con almeno le regole di sicurezza in ingresso e in uscita, come illustrato nelle tabelle seguenti.
 
-Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo se è necessario consentire l'accesso remoto ai nodi di calcolo da origini esterne. Potrebbe essere necessario abilitare le regole della porta 22 in Linux se è necessario il supporto per le attività a più istanze con determinati runtime MPI. Consentire il traffico su queste porte non è strettamente necessario per i nodi di calcolo del pool per essere utilizzabili.
+Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo se è necessario consentire l'accesso remoto ai nodi di calcolo da origini esterne. Potrebbe essere necessario abilitare le regole della porta 22 in Linux se è necessario il supporto per le attività a istanze diverse con determinati Runtime MPI. Consentire il traffico su queste porte non è strettamente necessario per l'utilizzo dei nodi di calcolo del pool.
 
 **Regole di sicurezza in ingresso**
 
 | Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement`[Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) (se si utilizza la variante regionale, nella stessa area dell'account Batch) | * | Qualsiasi | 29876-29877 | TCP | Allow |
-| IP di origine utente per l'accesso remoto ai nodi di calcolo e/o alla subnet dei nodi di calcolo per le attività multi-istanza Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | Allow |
+| N/D | `BatchNodeManagement`[Tag del servizio](../articles/virtual-network/security-overview.md#service-tags) (se si usa una variante regionale, nella stessa area dell'account batch) | * | Qualsiasi | 29876-29877 | TCP | Allow |
+| Indirizzi IP di origine utente per accedere in remoto ai nodi di calcolo e/o alla subnet del nodo di calcolo per le attività a istanze diverse di Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 > [!WARNING]
-> Gli indirizzi IP del servizio batch possono cambiare nel tempo. Pertanto, è consigliabile `BatchNodeManagement` utilizzare il tag di servizio (o variante regionale) per le regole del gruppo di sicurezza di rete. Non è consigliabile popolare direttamente le regole del gruppo di sicurezza di rete con gli indirizzi IP del servizio Batch.It is not recommended to populate NSG rules with Batch service IP addresses directly.
+> Gli indirizzi IP del servizio batch possono cambiare nel tempo. È pertanto consigliabile utilizzare il `BatchNodeManagement` tag di servizio (o variante di area) per le regole NSG. Non è consigliabile popolare direttamente le regole NSG con indirizzi IP del servizio batch.
 
 **Regole di sicurezza in uscita**
 
-| Source (Sorgente) | Porte di origine | Destination | Tag del servizio di destinazione | Porte di destinazione | Protocollo | Azione |
+| Origine | Porte di origine | Destination | Tag del servizio di destinazione | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- | --- |
-| Qualsiasi | * | [Tag di servizio](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(se si utilizza la variante regionale, nella stessa regione del tuo account Batch) | 443 | TCP | Allow |
+| Qualsiasi | * | [Tag servizio](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(se si usa una variante regionale, nella stessa area dell'account batch) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pool nella configurazione di Servizi cloud
 
@@ -114,6 +114,6 @@ Qualsiasi <br /><br />Anche se per questa operazione sono richieste in effetti a
 
 **Regole di sicurezza in uscita**
 
-| Source (Sorgente) | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| Origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
 | --- | --- | --- | --- | --- | --- |
 | Qualsiasi | * | Qualsiasi | 443  | Qualsiasi | Allow |

@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza di Azure Service Fabric
-description: Procedure consigliate e considerazioni di progettazione per garantire la protezione dei cluster e delle applicazioni di Azure Service Fabric.Best practices and design considerations for keeping Azure Service Fabric clusters and applications secure.
+description: Procedure consigliate e considerazioni di progettazione per mantenere protetti i cluster e le applicazioni di Azure Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
@@ -145,7 +145,7 @@ Dopo aver crittografato i valori protetti [specificare i segreti crittografati n
 
 ## <a name="include-certificate-in-service-fabric-applications"></a>Includi certificato nelle applicazioni Service Fabric
 
-Per concedere all'applicazione l'accesso ai segreti, includere il certificato aggiungendo un elemento **SecretsCertificate** al manifesto dell'applicazione.
+Per consentire all'applicazione di accedere ai segreti, includere il certificato aggiungendo un elemento **SecretsCertificate** al manifesto dell'applicazione.
 
 ```xml
 <ApplicationManifest … >
@@ -191,7 +191,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Nel codice dell'applicazione Service Fabric ottenere un token di accesso per Azure Resource Manager rendendo un'applicazione REST simile al seguente:In your Service Fabric application code, [obtain an access token](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) for Azure Resource Manager by making a REST all similar to the following:
+Nel codice dell'applicazione Service Fabric [ottenere un token di accesso](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) per Azure Resource Manager rendendo un oggetto Rest simile al seguente:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -205,19 +205,19 @@ L'esempio seguente mostra come eseguire questa operazione per la risorsa Cosmos 
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
 ## <a name="windows-security-baselines"></a>Elementi di base della sicurezza di Windows
-Si consiglia di implementare una configurazione standard del settore ampiamente [nota e ben testata, ad esempio le linee di base di sicurezza Microsoft, anziché creare una linea di base.](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) un'opzione per il provisioning di questi set di scalabilità in Virtual Machine Scale Sets consiste nell'usare il gestore dell'estensione DSC (Desired State Configuration) di Azure per configurare le macchine virtuali man mano che vengono online, in modo che eseguano il software di produzione.
+Si [consiglia di implementare una configurazione standard del settore che sia ampiamente nota e ben collaudata, ad esempio le linee di base della sicurezza Microsoft, anziché creare manualmente una baseline](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). un'opzione per il provisioning di questi nei set di scalabilità di macchine virtuali consiste nell'usare il gestore estensioni DSC (Desired state Configuration) di Azure per configurare le macchine virtuali in linea, in modo che eseguano il software di produzione.
 
 ## <a name="azure-firewall"></a>Firewall di Azure
-Firewall di Azure è un servizio di sicurezza di rete gestito basato su cloud che protegge le risorse della rete virtuale di [Azure.Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata integrata e scalabilità cloud senza restrizioni.](https://docs.microsoft.com/azure/firewall/overview) ciò consente di limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione TLS/SSL. È consigliabile sfruttare [i tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) di Azure Firewall per gli aggiornamenti di Windows e abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update può passare attraverso il firewall. [Deploy Azure Firewall usando un modello](https://docs.microsoft.com/azure/firewall/deploy-template) offre un esempio per la definizione del modello di risorsa Microsoft.Network/azureFirewalls.Deploy Azure Firewall using a template provides a sample for Microsoft.Network/azureFirewalls resource template definition. Le regole del firewall comuni alle applicazioni Service Fabric consentono quanto segue per la rete virtuale dei cluster:Firewall rules common to Service Fabric Applications is to allow the following for your clusters virtual network:
+Il [firewall di Azure è un servizio di sicurezza di rete gestito e basato sul cloud che protegge le risorse della rete virtuale di Azure. Si tratta di un firewall completamente con stato come servizio con disponibilità elevata incorporata e scalabilità illimitata del cloud.](https://docs.microsoft.com/azure/firewall/overview) in questo modo è possibile limitare il traffico HTTP/S in uscita a un elenco specificato di nomi di dominio completi (FQDN), inclusi i caratteri jolly. Questa funzionalità non richiede la terminazione TLS/SSL. Si consiglia di usare i [tag FQDN del firewall di Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) per gli aggiornamenti di Windows e di abilitare il traffico di rete verso gli endpoint di Microsoft Windows Update possono attraversare il firewall. [Distribuire il firewall di Azure con un modello](https://docs.microsoft.com/azure/firewall/deploy-template) fornisce un esempio per la definizione del modello di risorsa Microsoft. Network/azureFirewalls. Le regole del firewall comuni alle applicazioni Service Fabric consentono di eseguire le operazioni seguenti per la rete virtuale dei cluster:
 
-- Download.microsoft.com z
-- Servicefabric.azure.com
+- * download.microsoft.com
+- * servicefabric.azure.com
 - *.core.windows.net
 
-Queste regole del firewall completano i gruppi di sicurezza di rete in uscita consentiti, che includono ServiceFabric e Archiviazione, come destinazioni consentite dalla rete virtuale.
+Queste regole del firewall sono complementari ai gruppi di sicurezza di rete in uscita consentiti, che includono ServiceFabric e archiviazione, come destinazioni consentite dalla rete virtuale.
 
 ## <a name="tls-12"></a>TLS 1.2
-[Stg](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+[STG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -253,8 +253,8 @@ Per impostazione predefinita, Windows Defender Antivirus è installato in Window
 > [!NOTE]
 > Se non si usa Windows Defender, fare riferimento alla documentazione dell'antimalware in uso per informazioni sulle regole di configurazione. Windows Defender non è supportato in Linux.
 
-## <a name="platform-isolation"></a>Isolamento della piattaforma
-Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'accesso al runtime di Service Fabric stesso, che si manifesta in forme diverse: variabili di [ambiente](service-fabric-environment-variables-reference.md) che puntano a percorsi di file nell'host corrispondenti ai file dell'applicazione e di infrastruttura, un endpoint di comunicazione tra processi che accetta richieste specifiche dell'applicazione e il certificato client che Fabric prevede che l'applicazione utilizzi per autenticarsi. Nell'eventualità che il servizio ospita codice non attendibile, è consigliabile disabilitare questo accesso al runtime SF, a meno che non sia esplicitamente necessario. L'accesso al runtime viene rimosso utilizzando la dichiarazione seguente nella sezione Criteri del manifesto dell'applicazione: 
+## <a name="platform-isolation"></a>Isolamento piattaforma
+Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'accesso al Runtime Service Fabric stesso, che si manifesta in forme diverse: [variabili di ambiente](service-fabric-environment-variables-reference.md) che puntano a percorsi di file nell'host corrispondente ai file dell'applicazione e dell'infrastruttura, un endpoint di comunicazione tra processi che accetta richieste specifiche dell'applicazione e il certificato client che l'infrastruttura prevede che l'applicazione usi per l'autenticazione. Nell'eventualità che il servizio ospiti un codice non attendibile, è consigliabile disabilitare questo accesso al runtime di SF, a meno che non sia necessario esplicitamente. L'accesso al runtime viene rimosso usando la dichiarazione seguente nella sezione policies del manifesto dell'applicazione: 
 
 ```xml
 <ServiceManifestImport>
@@ -267,8 +267,8 @@ Per impostazione predefinita, alle applicazioni Service Fabric viene concesso l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare un cluster in macchine virtuali o in computer che eseguono Windows Server: [Creazione cluster di Service Fabric per Windows Server.](service-fabric-cluster-creation-for-windows-server.md)
-* Creare un cluster in macchine virtuali o in computer che eseguono Linux: [Creare un cluster Linux.](service-fabric-cluster-creation-via-portal.md)
+* Creare un cluster in macchine virtuali o computer che eseguono Windows Server: [Service Fabric la creazione di cluster per Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Creare un cluster nelle VM o nei computer che eseguono Linux: [creare un cluster Linux](service-fabric-cluster-creation-via-portal.md).
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

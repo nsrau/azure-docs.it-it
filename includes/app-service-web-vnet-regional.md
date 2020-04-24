@@ -11,90 +11,90 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/17/2020
 ms.locfileid: "81604866"
 ---
-L'uso dell'integrazione regionale della rete virtuale consente all'app di accedere a:Using regional VNet Integration enables your app to access:
+L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
-* Risorse in una rete virtuale nella stessa area dell'app.
-* Risorse nelle reti virtuali sottoposte a peered alla rete virtuale con cui è integrata l'app.
-* Servizi protetti dall'endpoint del servizio.
-* Risorse tra connessioni Azure ExpressRoute.Resources across Azure ExpressRoute connections.
-* Risorse nella rete virtuale con cui si è integrati.
-* Risorse tra connessioni con peer, che includono connessioni Azure ExpressRoute.Resources across peered connections, which includes Azure ExpressRoute connections.
+* Risorse in un VNet nella stessa area dell'app.
+* Risorse in reti virtuali con peering al VNet con cui è integrata l'app.
+* Servizi protetti dell'endpoint di servizio.
+* Risorse tra le connessioni Azure ExpressRoute.
+* Risorse nella VNet con cui si è integrato.
+* Risorse tra connessioni con peering, incluse le connessioni di Azure ExpressRoute.
 * Endpoint privati 
 
-Quando si usa l'integrazione della rete virtuale con le reti virtuali nella stessa area, è possibile usare le funzionalità di rete di Azure seguenti:When you use VNet Integration with VNets in the same region, you can use the following Azure networking features:
+Quando si usa l'integrazione di VNet con reti virtuali nella stessa area, è possibile usare le funzionalità di rete di Azure seguenti:
 
-* Gruppi di sicurezza di rete: è possibile bloccare il traffico in uscita con un gruppo di sicurezza di rete inserito nella subnet di integrazione.Network **security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione della rete virtuale per fornire l'accesso in ingresso all'app.
-* **Tabelle di route (UDR):** è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita dove si desidera.
+* **Gruppi di sicurezza di rete (gruppi)**: è possibile bloccare il traffico in uscita con una NSG posizionata nella subnet di integrazione. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione VNet per fornire l'accesso in ingresso all'app.
+* **Tabelle di route (UDR)**: è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita laddove si vuole.
 
-Per impostazione predefinita, l'app instrada solo il traffico RFC1918 nella rete virtuale. Se vuoi instradare tutto il traffico in uscita nella rete virtuale, applica l'impostazione dell'app WEBSITE_VNET_ROUTE_ALL all'app. Per configurare l'impostazione dell'app:
+Per impostazione predefinita, l'app instrada solo il traffico RFC1918 in VNet. Se si vuole instradare tutto il traffico in uscita nella VNet, applicare l'impostazione dell'app WEBSITE_VNET_ROUTE_ALL all'app. Per configurare l'impostazione dell'app:
 
 1. Passare all'interfaccia utente di **configurazione** nel portale dell'app. Selezionare **Nuova impostazione applicazione**.
-1. Immettere **WEBSITE_VNET_ROUTE_ALL** nella casella **Nome** e **1** nella casella **Valore.**
+1. Immettere **WEBSITE_VNET_ROUTE_ALL** nella casella **nome** e immettere **1** nella casella **valore** .
 
-   ![Fornire l'impostazione dell'applicazioneProvide application setting][4]
+   ![Specificare l'impostazione dell'applicazione][4]
 
 1. Selezionare **OK**.
 1. Selezionare **Salva**.
 
-Se si instrada tutto il traffico in uscita nella rete virtuale, è soggetto ai gruppi di sicurezza di rete e alle dur applicate alla subnet di integrazione. Quando instradare tutto il traffico in uscita nella rete virtuale, gli indirizzi in uscita sono ancora gli indirizzi in uscita elencati nelle proprietà dell'app, a meno che non si forniscano route per inviare il traffico altrove.
+Se si instrada tutto il traffico in uscita nel VNet, è soggetto a gruppi e UdR applicati alla subnet di integrazione. Quando si esegue il routing di tutto il traffico in uscita nella VNet, gli indirizzi in uscita sono ancora gli indirizzi in uscita elencati nelle proprietà dell'app, a meno che non si forniscano route per inviare il traffico altrove.
 
-Esistono alcune limitazioni con l'utilizzo dell'integrazione della rete virtuale con reti virtuali nella stessa area:There are some limitations with using VNet Integration with VNets in the same region:
+Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali nella stessa area:
 
-* Non è possibile raggiungere le risorse attraverso connessioni peering globali.
-* La funzionalità è disponibile solo dalle unità di scala del servizio app di Azure più recenti che supportano i piani di servizio app PremiumV2.The feature is available only from newer Azure App Service scale units that support PremiumV2 App Service plans.
+* Non è possibile raggiungere risorse tra connessioni di peering globali.
+* La funzionalità è disponibile solo dalle più recenti app Azure unità di scala del servizio che supportano i piani di servizio app PremiumV2.
 * La subnet di integrazione può essere usata da un solo piano di servizio app.
-* La funzionalità non può essere usata dalle app di piano isolato che si trovano in un ambiente del servizio app.
-* La funzionalità richiede una subnet inutilizzata che è un /27 con 32 indirizzi o più grandi in una rete virtuale di Azure Resource Manager.The feature requires an unused subnet that's a /27 with 32 addresses or larger in an Azure Resource Manager VNet.
-* L'app e la rete virtuale devono trovarsi nella stessa area.
-* Non è possibile eliminare una rete virtuale con un'app integrata. Rimuovere l'integrazione prima di eliminare la rete virtuale.
-* È possibile integrare solo con le reti virtuali nello stesso abbonamento dell'app.
-* È possibile avere una sola integrazione della rete virtuale regionale per ogni piano di servizio app. Più app nello stesso piano di servizio app possono usare la stessa rete virtuale.
-* Non è possibile modificare la sottoscrizione di un'app o di un piano mentre è presente un'app che usa l'integrazione regionale della rete virtuale.
-* L'app non è in grado di risolvere gli indirizzi nelle zone private DNS di Azure senza modifiche alla configurazione
+* La funzionalità non può essere usata da app del piano isolato che si trovano in un ambiente del servizio app.
+* La funzionalità richiede una subnet inutilizzata a/27 con indirizzi 32 o più grandi in un Azure Resource Manager VNet.
+* L'app e il VNet devono trovarsi nella stessa area.
+* Non è possibile eliminare un VNet con un'app integrata. Rimuovere l'integrazione prima di eliminare il VNet.
+* È possibile eseguire l'integrazione solo con reti virtuali nella stessa sottoscrizione dell'app.
+* È possibile avere una sola integrazione VNet a livello di area per ogni piano di servizio app. Più app nello stesso piano di servizio app possono usare lo stesso VNet.
+* Non è possibile modificare la sottoscrizione di un'app o di un piano mentre è presente un'app che usa l'integrazione VNet a livello di area.
+* L'app non può risolvere gli indirizzi in Zone private di DNS di Azure senza modifiche alla configurazione
 
-Viene utilizzato un indirizzo per ogni istanza del piano. Se si ridimensiona l'app a cinque istanze, vengono usati cinque indirizzi. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scalabilità che l'app potrebbe raggiungere. Un /26 con 64 indirizzi è la dimensione consigliata. Un /26 con 64 indirizzi supporta un piano Premium con 30 istanze. Quando si aumenta o si aumenta la scalabilità di un piano, è necessario il doppio degli indirizzi per un breve periodo di tempo.
+Per ogni istanza del piano viene usato un indirizzo. Se si ridimensiona l'app a cinque istanze, vengono usati cinque indirizzi. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Le dimensioni consigliate sono le dimensioni consigliate per/26 con indirizzi 64. A/26 con 64 indirizzi di un piano Premium con 30 istanze. Quando si ridimensiona un piano verso l'alto o verso il basso, sono necessari due volte il numero di indirizzi per un breve periodo di tempo.
 
-Se si vuole che le app in un altro piano raggiungano una rete virtuale già connessa dalle app in un altro piano, selezionare una subnet diversa da quella usata dall'integrazione di rete virtuale preesistente.
+Se si vuole che le app in un altro piano raggiungano un VNet già connesso da app in un altro piano, selezionare una subnet diversa da quella usata dall'integrazione VNet preesistente.
 
-La funzionalità è in anteprima per Linux.The feature is in preview for Linux. Il formato Linux della funzionalità supporta solo chiamate a indirizzi RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
+La funzionalità è in anteprima per Linux. Il formato Linux della funzionalità supporta solo l'esecuzione di chiamate a indirizzi RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
 
-### <a name="web-or-function-app-for-containers"></a>App Web o funzione per i contenitori
+### <a name="web-or-function-app-for-containers"></a>Web o app per le funzioni per i contenitori
 
-Se si ospita l'app in Linux con le immagini incorporate, l'integrazione regionale della rete virtuale funziona senza ulteriori modifiche. Se si utilizza Web o Function App per i contenitori, è necessario modificare l'immagine docker per utilizzare l'integrazione della rete virtuale. Nell'immagine docker, utilizzare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma al momento dell'avvio del contenitore. Se si utilizza SSH, il daemon SSH deve essere configurato per l'ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si utilizza l'integrazione della rete virtuale regionale. Non è disponibile alcun supporto per l'integrazione della rete virtuale richiesta dal gateway in Linux.There's no support for gateway-required VNet Integration on Linux.
+Se l'app viene ospitata in Linux con le immagini predefinite, l'integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa Web o app per le funzioni per i contenitori, è necessario modificare l'immagine Docker in modo da usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area. Non è disponibile alcun supporto per l'integrazione VNet necessaria per il gateway in Linux.
 
 ### <a name="service-endpoints"></a>Endpoint di servizio
 
-L'integrazione regionale della rete virtuale consente di utilizzare gli endpoint del servizio. Per usare gli endpoint del servizio con l'app, usare l'integrazione della rete virtuale regionale per connettersi a una rete virtuale selezionata e quindi configurare gli endpoint del servizio con il servizio di destinazione nella subnet usata per l'integrazione. Se si desidera accedere a un servizio tramite endpoint di servizio:If you wanted to access a service over service endpoints:
+L'integrazione VNet a livello di area consente di usare gli endpoint di servizio. Per usare gli endpoint di servizio con l'app, usare l'integrazione VNet a livello di area per connettersi a un VNet selezionato e quindi configurare gli endpoint di servizio con il servizio di destinazione nella subnet usata per l'integrazione. Se si desidera accedere a un servizio tramite gli endpoint del servizio:
 
-1. configurare l'integrazione regionale della rete virtuale con l'app Web
-1. passare al servizio di destinazione e configurare gli endpoint del servizio nella subnet utilizzata per l'integrazione
+1. configurare l'integrazione di VNet a livello di area con l'app Web
+1. passare al servizio di destinazione e configurare gli endpoint di servizio nella subnet usata per l'integrazione
 
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-È possibile usare i gruppi di sicurezza di rete per bloccare il traffico in ingresso e in uscita verso le risorse in una rete virtuale. Un'app che usa l'integrazione regionale della rete virtuale può usare un gruppo di sicurezza di rete per bloccare il traffico in uscita verso le risorse nella rete virtuale o in Internet.An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. Per bloccare il traffico verso indirizzi pubblici, è necessario che l'impostazione dell'applicazione WEBSITE_VNET_ROUTE_ALL impostata su 1.To block traffic to public addresses, you must have the application setting WEBSITE_VNET_ROUTE_ALL set to 1. Le regole in ingresso in un gruppo di sicurezza di rete non si applicano all'app perché l'integrazione della rete virtuale influisce solo sul traffico in uscita dall'app.
+È possibile usare i gruppi di sicurezza di rete per bloccare il traffico in ingresso e in uscita verso le risorse in una VNet. Un'app che usa l'integrazione VNet a livello di area può usare un [gruppo di sicurezza di rete][VNETnsg] per bloccare il traffico in uscita verso le risorse in VNet o Internet. Per bloccare il traffico verso indirizzi pubblici, è necessario che l'impostazione dell'applicazione WEBSITE_VNET_ROUTE_ALL impostata su 1. Le regole in ingresso in un NSG non si applicano all'app perché l'integrazione con VNet influiscono solo sul traffico in uscita dall'app.
 
-Per controllare il traffico in ingresso verso l'app, usa la funzionalità Restrizioni di accesso. Un gruppo di sicurezza di rete applicato alla subnet di integrazione è attivo indipendentemente dalle route applicate alla subnet di integrazione. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1 e non sono presenti route che influiscono sul traffico degli indirizzi pubblici nella subnet di integrazione, tutto il traffico in uscita è ancora soggetto ai gruppi di sicurezza di rete assegnati alla subnet di integrazione. Se WEBSITE_VNET_ROUTE_ALL non è impostato, i gruppi di sicurezza di rete vengono applicati solo al traffico RFC1918.If a cis't set, NSGs are only applied to RFC1918 traffic.
+Per controllare il traffico in ingresso verso l'app, usare la funzionalità restrizioni di accesso. Un NSG applicato alla subnet di integrazione è attivo indipendentemente dalle route applicate alla subnet di integrazione. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1 e non sono presenti route che influiscono sul traffico degli indirizzi pubblici sulla subnet di integrazione, tutto il traffico in uscita è ancora soggetto a gruppi assegnati alla subnet di integrazione. Se WEBSITE_VNET_ROUTE_ALL non è impostato, gruppi viene applicato solo al traffico RFC1918.
 
 ### <a name="routes"></a>Route
 
-Puoi usare le tabelle di route per instradare il traffico in uscita dall'app a ovunque desideri. Per impostazione predefinita, le tabelle di route influiscono solo sul traffico di destinazione RFC1918. Se si imposta WEBSITE_VNET_ROUTE_ALL su 1, tutte le chiamate in uscita sono interessate. Le route impostate nella subnet di integrazione non influiscono sulle risposte alle richieste di app in ingresso. Le destinazioni comuni possono includere dispositivi firewall o gateway.
+È possibile usare le tabelle di route per instradare il traffico in uscita dall'app a qualsiasi posizione. Per impostazione predefinita, le tabelle di route influiscono solo sul traffico di destinazione RFC1918. Se si imposta WEBSITE_VNET_ROUTE_ALL su 1, verranno interessate tutte le chiamate in uscita. Le route impostate nella subnet di integrazione non influiranno sulle risposte alle richieste di app in ingresso. Le destinazioni comuni possono includere dispositivi firewall o gateway.
 
-Se si vuole instradare tutto il traffico in uscita in locale, è possibile usare una tabella di route per inviare tutto il traffico in uscita al gateway ExpressRoute.If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. Se si instrada il traffico a un gateway, assicurarsi di impostare le route nella rete esterna per inviare le risposte.
+Se si vuole instradare tutto il traffico in uscita in locale, è possibile usare una tabella di route per inviare tutto il traffico in uscita al gateway ExpressRoute. Se si esegue il routing del traffico a un gateway, assicurarsi di impostare le route nella rete esterna per restituire le risposte.
 
-Le route BGP (Border Gateway Protocol) influiscono anche sul traffico dell'app. Se si dispone di route BGP da un'operazione simile a un gateway ExpressRoute, il traffico in uscita dell'app ne risentirà. Per impostazione predefinita, le route BGP influiscono solo sul traffico di destinazione RFC1918. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere influenzato dalle route BGP.
+Le route Border Gateway Protocol (BGP) influiscono anche sul traffico dell'app. Se si hanno Route BGP da un gateway ExpressRoute, il traffico in uscita dell'app sarà interessato. Per impostazione predefinita, le route BGP hanno effetto solo sul traffico di destinazione RFC1918. Se WEBSITE_VNET_ROUTE_ALL è impostato su 1, tutto il traffico in uscita può essere influenzato dalle route BGP.
 
-### <a name="azure-dns-private-zones"></a>Aree private DNS di AzureAzure DNS Private zones 
+### <a name="azure-dns-private-zones"></a>Zone private di DNS di Azure 
 
-Dopo l'integrazione dell'app con la rete virtuale, usa lo stesso server DNS con cui è configurata la rete virtuale. Per impostazione predefinita, l'app non funziona con le zone private DNS di Azure.By default, your app won't work with Azure DNS Private zones. Per usare le zone private DNS di Azure, è necessario aggiungere le impostazioni dell'app seguenti:To work with Azure DNS Private zones you need to add the following app settings:
+Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. Per impostazione predefinita, l'app non funzionerà con Zone private di DNS di Azure. Per lavorare con Zone private di DNS di Azure è necessario aggiungere le impostazioni dell'app seguenti:
 
 1. WEBSITE_DNS_SERVER con valore 168.63.129.16 
 1. WEBSITE_VNET_ROUTE_ALL con valore 1
 
-Queste impostazioni invieranno tutte le chiamate in uscita dall'app nella rete virtuale oltre a consentire all'app di usare le zone private DNS di Azure.These settings will send all of your outbound calls from your app into your VNet in addition to enabling your app to use Azure DNS private zones.
+Queste impostazioni invieranno tutte le chiamate in uscita dall'app in VNet, oltre a consentire all'app di usare le zone private di DNS di Azure.
 
 ### <a name="private-endpoints"></a>Endpoint privati
 
-Se si desidera effettuare chiamate agli [endpoint privati][privateendpoints], è necessario eseguire l'integrazione con le zone private DNS di Azure o gestire l'endpoint privato nel server DNS usato dall'app. 
+Se si desidera effettuare chiamate a [endpoint privati][privateendpoints], è necessario integrare con zone private di DNS di Azure o gestire l'endpoint privato nel server DNS usato dall'app. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png

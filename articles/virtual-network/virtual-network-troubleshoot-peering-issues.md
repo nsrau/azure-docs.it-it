@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di peering di rete virtuale
-description: Passaggi per risolvere la maggior parte dei problemi di peering della rete virtuale.
+description: Passaggi per risolvere la maggior parte dei problemi relativi al peering di rete virtuale.
 services: virtual-network
 documentationcenter: na
 author: v-miegge
@@ -24,225 +24,225 @@ ms.locfileid: "80521877"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Risolvere i problemi di peering di rete virtuale
 
-Questa guida alla risoluzione dei problemi illustra la procedura per risolvere la maggior parte dei problemi di peering della [rete virtuale.](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)
+Questa guida alla risoluzione dei problemi illustra la procedura per risolvere la maggior parte dei problemi relativi al [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
 
-![Diagramma del peering della rete virtuale](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
+![Diagramma del peering di rete virtuale](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
-## <a name="configure-virtual-network-peering-between-two-virtual-networks"></a>Configurare il peering di rete virtuale tra due reti virtualiConfigure virtual network peering between two virtual networks
+## <a name="configure-virtual-network-peering-between-two-virtual-networks"></a>Configurare il peering di rete virtuale tra due reti virtuali
 
 Le reti virtuali si trovano nella stessa sottoscrizione o in sottoscrizioni diverse?
 
-### <a name="the-virtual-networks-are-in-the-same-subscription"></a>Le reti virtuali si trovano nella stessa sottoscrizioneThe virtual networks are in the same subscription
+### <a name="the-virtual-networks-are-in-the-same-subscription"></a>Le reti virtuali si trovano nella stessa sottoscrizione
 
-Per configurare il peering di rete virtuale per le reti virtuali che si trovano nella stessa sottoscrizione, usare i metodi negli articoli seguenti:To configure virtual network peering for the virtual networks that are in the same subscription, use the methods in the following articles:
+Per configurare il peering di rete virtuale per le reti virtuali che si trovano nella stessa sottoscrizione, usare i metodi descritti negli articoli seguenti:
 
-* Se le reti virtuali si trovano nella *stessa area*, vedere Creare [un peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
-* Se le reti virtuali si trovano in *aree diverse,* vedere [Peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
+* Se le reti virtuali si trovano nella *stessa area*, vedere [creare un peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
+* Se le reti virtuali si trovano nelle *diverse aree*, vedere [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
 
 > [!Note]
-> La connettività non funziona su un peering di rete virtuale globale per le risorse seguenti:Connectivity doesn't work over global virtual network peering for the following resources: 
+> La connettività non funziona sul peering di rete virtuale globale per le risorse seguenti: 
 >
-> * Macchine virtuali (VM) dietro lo SKU del servizio di bilanciamento del carico interno (ILB) di baseVirtual machines (VMs) behind Basic internal load balancer (ILB) SKU
-> * Cache Redis (utilizza lo SKU ILB di base)
-> * Gateway applicazione (utilizza lo SKU ILB di base)
-> * Set di scalabilità di macchine virtuali (usa sKU ILB di base)Virtual machine scale sets (uses Basic ILB SKU)
-> * Azure Service Fabric clusters (uses Basic ILB SKU)
-> * SQL Server Always On (utilizza sKU ILB di base)
-> * Azure App Service Environment for PowerApps (uses Basic ILB SKU)
-> * Azure API Management (uses Basic ILB SKU)
-> * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
+> * Macchine virtuali (VM) dietro lo SKU del servizio di bilanciamento del carico interno Basic (ILB)
+> * Cache Redis (USA lo SKU ILB Basic)
+> * Gateway applicazione (USA lo SKU ILB Basic)
+> * Set di scalabilità di macchine virtuali (USA lo SKU ILB Basic)
+> * Cluster di Azure Service Fabric (USA lo SKU ILB Basic)
+> * SQL Server Always On (USA lo SKU ILB Basic)
+> * Ambiente del servizio app di Azure per PowerApps (USA lo SKU ILB Basic)
+> * Gestione API di Azure (USA lo SKU ILB Basic)
+> * Azure Active Directory Domain Services (Azure AD DS) (USA lo SKU ILB Basic)
 
-Per altre informazioni, vedere i [requisiti e i vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) del peering globale.
+Per ulteriori informazioni, vedere i [requisiti e i vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) del peering globale.
 
-### <a name="the-virtual-networks-are-in-different-subscriptions-or-active-directory-tenants"></a>Le reti virtuali si trovano in sottoscrizioni diverse o tenant di Active Directory
+### <a name="the-virtual-networks-are-in-different-subscriptions-or-active-directory-tenants"></a>Le reti virtuali si trovano in sottoscrizioni o Active Directory tenant diversi
 
-Per configurare il peering della rete virtuale per le reti virtuali in sottoscrizioni diverse o tenant di Active Directory, vedere [Creare peering in sottoscrizioni diverse per l'interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)di Azure.To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see Create peering in different subscriptions for Azure CLI.
+Per configurare il peering di rete virtuale per le reti virtuali in sottoscrizioni diverse o Active Directory tenant, vedere [creare un peering in sottoscrizioni diverse per l'interfaccia](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)della riga di comando di Azure.
 
 > [!Note]
-> Per configurare il peering di rete, è necessario disporre delle autorizzazioni **Collaboratore** di rete in entrambe le sottoscrizioni. Per ulteriori informazioni, vedere [Peering permissions](virtual-network-manage-peering.md#permissions).
+> Per configurare il peering di rete, è necessario disporre delle autorizzazioni di **collaboratore rete** in entrambe le sottoscrizioni. Per altre informazioni, vedere [autorizzazioni per il peering](virtual-network-manage-peering.md#permissions).
 
-## <a name="configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Configurare il peering della rete virtuale con la topologia hub-spoke che usa le risorse localiConfigure virtual network peering with hub-spoke topology that uses on-premises resources
+## <a name="configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Configurare il peering di rete virtuale con la topologia hub-spoke che usa le risorse locali
 
-![Diagramma del peering della rete virtuale con spoke locale](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
+![Diagramma del peering di rete virtuale con spoke locale](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
 
-### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Per una connessione da sito a sito o a una connessione ExpressRouteFor a site-to-site connection or an ExpressRoute connection
+### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Per una connessione da sito a sito o una connessione ExpressRoute
 
-Seguire i passaggi descritti in: Configurare il transito del gateway VPN per il [peering della rete virtuale.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)
+Seguire i passaggi in: [configurare il transito del gateway VPN per il peering di rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
-### <a name="for-point-to-site-connections"></a>Per connessioni da punto a sito
+### <a name="for-point-to-site-connections"></a>Per le connessioni da punto a sito
 
-1. Seguire i passaggi descritti in: Configurare il transito del gateway VPN per il [peering della rete virtuale.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)
-2. Dopo aver stabilito o modificato il peering della rete virtuale, scaricare e reinstallare il pacchetto da punto a sito in modo che i client da punto a sito ottono le route aggiornate alla rete virtuale spoke.
+1. Seguire i passaggi in: [configurare il transito del gateway VPN per il peering di rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+2. Dopo la creazione o la modifica del peering di rete virtuale, scaricare e reinstallare il pacchetto da punto a sito in modo che i client da punto a sito ottengano le route aggiornate alla rete virtuale spoke.
 
-## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configurare il peering della rete virtuale con la rete virtuale della topologia hub-spokeConfigure virtual network peering with hub-spoke topology virtual network
+## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configurare il peering di rete virtuale con la rete virtuale della topologia hub-spoke
 
 ![Diagramma del peering di rete virtuale con una rete virtuale spoke](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1b.png)
 
 ### <a name="the-virtual-networks-are-in-the-same-region"></a>Le reti virtuali si trovano nella stessa area
 
 
-1. Nella rete virtuale dell'hub configurare un'appliance virtuale di rete (NVA).
-1. Nelle reti virtuali spoke, disporre di route definite dall'utente con il tipo di hop successivo "appliance virtuale di rete" applicata.
+1. Nella rete virtuale Hub configurare un'appliance virtuale di rete.
+1. Nelle reti virtuali spoke, avere route definite dall'utente con il tipo di hop successivo applicato "appliance virtuale di rete".
 
-Per ulteriori informazioni, vedere [Concatenamento dei](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)servizi .
+Per ulteriori informazioni, vedere [concatenamento dei servizi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
 
 > [!Note]
-> Se è necessaria assistenza per configurare un'applicazione file di rete, [contattare il fornitore dell'evento di rete.](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)
+> Se è necessaria assistenza per configurare un'appliance virtuale di sistema, [contattare il fornitore dell'](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)appliance virtuale di appliance.
 
-Per informazioni sulla risoluzione dei problemi relativi alla configurazione e al routing dei dispositivi NVA, vedere Problemi relativi alle appliance virtuali di rete in Azure.For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure.](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+Per informazioni sulla risoluzione dei problemi relativi all'installazione e al routing del dispositivo di [appliance virtuale di rete, vedere problemi di appliance virtuali di rete in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
-### <a name="the-virtual-networks-are-in-different-regions"></a>Le reti virtuali si trovano in aree diverse
+### <a name="the-virtual-networks-are-in-different-regions"></a>Le reti virtuali si trovano in aree geografiche diverse
 
-Il transito sulla rete virtuale globale è ora supportato. La connettività non funziona su peering di rete virtuale globale per le risorse seguenti:Connectivity does not work over global virtual network peering for the following resources:
+Il transito sul peering di rete virtuale globale è ora supportato. La connettività non funziona sul peering di rete virtuale globale per le risorse seguenti:
 
-* Macchine virtuali dietro lo SKU ILB di base
-* Cache Redis (utilizza lo SKU ILB di base)
-* Gateway applicazione (utilizza lo SKU ILB di base)
-* Set di scalabilità (utilizza SKU ILB di base)Scale sets (uses Basic ILB SKU)
-* Service Fabric clusters (uses Basic ILB SKU)
-* SQL Server Always On (utilizza sKU ILB di base)
-* App Service Environment (uses Basic ILB SKU)
-* Gestione API (utilizza lo SKU ILB di base)
-* Azure AD DS (uses Basic ILB SKU)
+* VM dietro lo SKU Basic ILB
+* Cache Redis (USA lo SKU ILB Basic)
+* Gateway applicazione (USA lo SKU ILB Basic)
+* Set di scalabilità (USA lo SKU ILB Basic)
+* Cluster Service Fabric (USA lo SKU ILB Basic)
+* SQL Server Always On (USA lo SKU ILB Basic)
+* Ambiente del servizio app (USA lo SKU ILB Basic)
+* Gestione API (USA lo SKU ILB Basic)
+* Azure AD DS (USA lo SKU ILB Basic)
 
-Per altre informazioni sui requisiti e i vincoli di peering globale, vedere [Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints)di rete virtuale .
+Per ulteriori informazioni sui requisiti e i vincoli di peering globali, vedere [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
 
-## <a name="troubleshoot-a-connectivity-issue-between-two-peered-virtual-networks"></a>Risolvere un problema di connettività tra due reti virtuali con peeredTroubleshoot a connectivity issue between two peered virtual networks
+## <a name="troubleshoot-a-connectivity-issue-between-two-peered-virtual-networks"></a>Risolvere un problema di connettività tra due reti virtuali con peering
 
-Accedere al [portale](https://portal.azure.com/) di Azure con un account con i [ruoli e le autorizzazioni](virtual-network-manage-peering.md#permissions)necessari. Selezionare la rete virtuale, selezionare **Peering**, quindi controllare il campo **Stato** . Qual è lo stato?
+Accedere al [portale di Azure](https://portal.azure.com/) con un account che disponga dei [ruoli e delle autorizzazioni](virtual-network-manage-peering.md#permissions)necessari. Selezionare la rete virtuale, selezionare **peering**, quindi controllare il campo **stato** . Qual è lo stato?
 
-### <a name="the-peering-status-is-connected"></a>Lo stato di peering è "Connesso"
+### <a name="the-peering-status-is-connected"></a>Lo stato del peering è "Connected"
 
 Per risolvere il problema:
 
-1. Controllare i flussi di traffico di rete:
+1. Controllare i flussi del traffico di rete:
 
-   Usare [risoluzione dei problemi](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) di connessione e la verifica del flusso [IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) dalla macchina virtuale di origine alla macchina virtuale di destinazione per determinare se è presente un gruppo di sicurezza di rete o un UDR che causa interferenze nei flussi di traffico.
+   Usare la [risoluzione dei problemi di connessione](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) e la [Verifica del flusso IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) dalla VM di origine alla macchina virtuale di destinazione per determinare se esiste un NSG o UdR che causa un'interferenza nei flussi di traffico.
 
-   Se si utilizza un firewall o un'unità NVA: 
-   1. Documentare i parametri UDR in modo da poterli ripristinare al termine di questo passaggio.
-   2. Rimuovere l'UDR dalla subnet della macchina virtuale di origine o dalla scheda di interfaccia di rete che punta all'nVA come hop successivo. Verificare la connettività dalla macchina virtuale di origine direttamente alla destinazione che ignora l'nVA. Se questo passaggio non funziona, vedere lo strumento di [risoluzione dei problemi](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)di NVA .
+   Se si usa un firewall o un appliance virtuale di dispositivo: 
+   1. Documentare i parametri UDR in modo che sia possibile ripristinarli al termine di questo passaggio.
+   2. Rimuovere il UDR dalla subnet VM di origine o dalla scheda di interfaccia di rete che fa riferimento all'appliance virtuale di rete come hop successivo. Verificare la connettività dalla VM di origine direttamente alla destinazione che ignora l'appliance virtuale di dispositivo. Se questo passaggio non funziona, vedere la pagina relativa alla [risoluzione dei problemi](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)di appliance virtuale di.
 
-2. Eseguire una traccia di rete:Take a network trace: 
-   1. Avviare una traccia di rete nella macchina virtuale di destinazione. Per Windows, è possibile utilizzare **Netsh**. Per Linux, utilizzare **TCPDump**.
-   2. Eseguire **TcpPing** o **PsPing** dall'origine all'IP di destinazione.
+2. Eseguire una traccia di rete: 
+   1. Avviare una traccia di rete nella macchina virtuale di destinazione. Per Windows, è possibile usare **netsh**. Per Linux, usare **TCPDump**.
+   2. Eseguire **TcpPing** o **PsPing** dall'origine all'indirizzo IP di destinazione.
 
-      Di conseguenza, è un esempio di comando **TcpPing:This** is an example of a TcpPing command:`tcping64.exe -t <destination VM address> 3389`
+      Di seguito è riportato un esempio di comando **TcpPing** :`tcping64.exe -t <destination VM address> 3389`
 
-   3. Al termine del **TcpPing,** arrestare la traccia di rete nella destinazione.
-   4. Se i pacchetti arrivano dall'origine, non vi è alcun problema di rete. Esaminare sia il firewall della macchina virtuale che l'applicazione in ascolto su tale porta per individuare il problema di configurazione.
+   3. Al termine del **TcpPing** , arrestare la traccia di rete nella destinazione.
+   4. Se i pacchetti arrivano dall'origine, non si verifica alcun problema di rete. Esaminare il firewall della macchina virtuale e l'applicazione in ascolto su tale porta per individuare il problema di configurazione.
 
    > [!Note]
-   > Non è possibile connettersi ai tipi di risorse seguenti tramite il peering di rete virtuale globale (reti virtuali in aree diverse):You can't connect to the following resource types over global virtual network peering (virtual networks in different regions):
+   > Non è possibile connettersi ai tipi di risorse seguenti tramite il peering di rete virtuale globale (reti virtuali in aree diverse):
    >
-   > * Macchine virtuali dietro lo SKU ILB di base
-   > * Cache Redis (utilizza lo SKU ILB di base)
-   > * Gateway applicazione (utilizza lo SKU ILB di base)
-   > * Set di scalabilità (utilizza SKU ILB di base)Scale sets (uses Basic ILB SKU)
-   > * Service Fabric clusters (uses Basic ILB SKU)
-   > * SQL Server Always On (utilizza sKU ILB di base)
-   > * App Service Environment (uses Basic ILB SKU)
-   > * Gestione API (utilizza lo SKU ILB di base)
-   > * Azure AD DS (uses Basic ILB SKU)
+   > * VM dietro lo SKU Basic ILB
+   > * Cache Redis (USA lo SKU ILB Basic)
+   > * Gateway applicazione (USA lo SKU ILB Basic)
+   > * Set di scalabilità (USA lo SKU ILB Basic)
+   > * Cluster Service Fabric (USA lo SKU ILB Basic)
+   > * SQL Server Always On (USA lo SKU ILB Basic)
+   > * Ambiente del servizio app (USA lo SKU ILB Basic)
+   > * Gestione API (USA lo SKU ILB Basic)
+   > * Azure AD DS (USA lo SKU ILB Basic)
 
-Per altre informazioni, vedere i [requisiti e i vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) del peering globale.
+Per ulteriori informazioni, vedere i [requisiti e i vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) del peering globale.
 
-### <a name="the-peering-status-is-disconnected"></a>Lo stato del peering è "Disconnesso"
+### <a name="the-peering-status-is-disconnected"></a>Lo stato del peering è "Disconnected"
 
 Per risolvere questo problema, eliminare il peering da entrambe le reti virtuali e quindi ricrearli.
 
-## <a name="troubleshoot-a-connectivity-issue-between-a-hub-spoke-virtual-network-and-an-on-premises-resource"></a>Risolvere un problema di connettività tra una rete virtuale hub-spoke e una risorsa localeTroubleshoot a connectivity issue between a hub-spoke virtual network and an on-premises resource
+## <a name="troubleshoot-a-connectivity-issue-between-a-hub-spoke-virtual-network-and-an-on-premises-resource"></a>Risolvere un problema di connettività tra una rete virtuale hub-spoke e una risorsa locale
 
-La rete utilizza un gateway NVA o VPN di terze parti?
+La rete usa un'appliance virtuale di rete di terze parti o un gateway VPN?
 
-### <a name="my-network-uses-a-third-party-nva-or-vpn-gateway"></a>La rete utilizza un gateway NVA o VPN di terze parti
+### <a name="my-network-uses-a-third-party-nva-or-vpn-gateway"></a>La rete usa un'appliance virtuale di rete di terze parti o un gateway VPN
 
-Per risolvere i problemi di connettività che interessano un gateway NVA o VPN di terze parti, vedere gli articoli seguenti:
+Per risolvere i problemi di connettività che interessano un'appliance virtuale di rete o un gateway VPN di terze parti, vedere gli articoli seguenti:
 
-* [Risoluzione dei problemi relativi all'NVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+* [Risoluzione dei problemi di appliance appliance di dispositivo](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
 * [Concatenamento dei servizi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
 
-### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>La rete non utilizza un gateway NVA o VPN di terze parti
+### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>La rete non usa un'appliance virtuale di rete o un gateway VPN di terze parti
 
-La rete virtuale hub e la rete virtuale spoke dispongono di un gateway VPN?
+La rete virtuale dell'hub e la rete virtuale spoke hanno un gateway VPN?
 
-#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-have-a-vpn-gateway"></a>Sia la rete virtuale hub che la rete virtuale spoke dispongono di un gateway VPN
+#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-have-a-vpn-gateway"></a>Sia la rete virtuale Hub che la rete virtuale spoke hanno un gateway VPN
 
-L'utilizzo di un gateway remoto non è supportato.
+L'uso di un gateway remoto non è supportato.
 
-Se la rete virtuale spoke dispone già di un gateway VPN, l'opzione **Usa gateway remoto** non è supportata nella rete virtuale spoke. Ciò è dovuto a una limitazione del peering della rete virtuale.
+Se la rete virtuale spoke dispone già di un gateway VPN, l'opzione **use Remote Gateway** non è supportata nella rete virtuale spoke. A causa di una limitazione del peering di rete virtuale.
 
-#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-do-not-have-a-vpn-gateway"></a>Sia la rete virtuale hub che la rete virtuale spoke non dispongono di un gateway VPN
+#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-do-not-have-a-vpn-gateway"></a>Sia la rete virtuale Hub che la rete virtuale spoke non dispongono di un gateway VPN
 
-Per le connessioni da sito a sito o Azure ExpressRoute, verificare le cause principali seguenti dei problemi di connettività alla rete virtuale remota da locale:For site-to-site or Azure ExpressRoute connections, check the following primary causes of connectivity issues to the remote virtual network from on-premises:
+Per le connessioni da sito a sito o Azure ExpressRoute, verificare le seguenti cause principali di problemi di connettività alla rete virtuale remota da locale:
 
-* Nella rete virtuale che dispone di un gateway verificare che la casella di controllo **Consenti traffico inoltrato** sia selezionata.
-* Nella rete virtuale che non dispone di un gateway verificare che la casella di controllo **Usa gateway remoto** sia selezionata.
-* Fare in modo che l'amministratore di rete controlli i dispositivi locali per verificare che tutti dispongano dello spazio di indirizzi della rete virtuale remota.
+* Nella rete virtuale con un gateway verificare che sia selezionata la casella di controllo **Consenti traffico trasmesso** .
+* Nella rete virtuale che non dispone di un gateway, verificare che la casella di controllo **Usa gateway remoto** sia selezionata.
+* Chiedere all'amministratore di rete di controllare i dispositivi locali per verificare che tutti dispongano dello spazio di indirizzi della rete virtuale remota.
 
 Per le connessioni da punto a sito:
 
-* Nella rete virtuale che dispone di un gateway verificare che la casella di controllo **Consenti traffico inoltrato** sia selezionata.
-* Nella rete virtuale che non dispone di un gateway verificare che la casella di controllo **Usa gateway remoto** sia selezionata.
-* Scaricare e reinstallare il pacchetto client da punto a sito. Le route di rete virtuale di cui viene eseguito il peered di recente non aggiungono automaticamente route ai client da punto a sito.
+* Nella rete virtuale con un gateway verificare che sia selezionata la casella di controllo **Consenti traffico trasmesso** .
+* Nella rete virtuale che non dispone di un gateway, verificare che la casella di controllo **Usa gateway remoto** sia selezionata.
+* Scaricare e reinstallare il pacchetto client da punto a sito. Le route di rete virtuale di cui è stato appena creato il peering non aggiungono automaticamente le route ai client da punto a sito.
 
-## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-the-same-region"></a>Risolvere un problema di connettività di rete hub-spoke tra reti virtuali spoke nella stessa areaTroubleshoot a hub-spoke network connectivity issue between spoke virtual networks in the same region
+## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-the-same-region"></a>Risolvere un problema di connettività di rete hub-spoke tra reti virtuali spoke nella stessa area
 
-Una rete hub deve includere un'nVA. Configurare gli UDR negli spoke con un'unità di gestione guidata come hop successivo e abilitare **Consenti traffico inoltrato** nella rete virtuale dell'hub.
+Una rete hub deve includere un'appliance virtuale di rete. Configurare UdR in spoke che hanno un appliance virtuale di rete impostato come hop successivo e abilitare **Consenti il traffico in avanti** nella rete virtuale dell'hub.
 
-Per ulteriori informazioni, vedere [Concatenamento dei](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)servizi e discutere di questi requisiti con il [fornitore dell'account di](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) rete NVA desiderato.
+Per altre informazioni, vedere [concatenamento dei servizi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)e discutere di questi requisiti con il [Fornitore](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) dell'appliance virtuale di rete di propria scelta.
 
-## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Risolvere un problema di connettività di rete hub-spoke tra reti virtuali spoke in aree diverseTroubleshoot a hub-spoke network connectivity issue between spoke virtual networks in different regions
+## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Risolvere un problema di connettività di rete hub-spoke tra reti virtuali spoke in aree diverse
 
-Il transito sulla rete virtuale globale è ora supportato. La connettività non funziona su un peering di rete virtuale globale per le risorse seguenti:Connectivity doesn't work over global virtual network peering for the following resources:
+Il transito sul peering di rete virtuale globale è ora supportato. La connettività non funziona sul peering di rete virtuale globale per le risorse seguenti:
 
-* Macchine virtuali dietro lo SKU ILB di base
-* Cache Redis (utilizza lo SKU ILB di base)
-* Gateway applicazione (utilizza lo SKU ILB di base)
-* Set di scalabilità (utilizza SKU ILB di base)Scale sets (uses Basic ILB SKU)
-* Service Fabric clusters (uses Basic ILB SKU)
-* SQL Server Always On (utilizza sKU ILB di base)
-* App Service Environment (uses Basic ILB SKU)
-* Gestione API (utilizza lo SKU ILB di base)
-* Azure AD DS (uses Basic ILB SKU)
+* VM dietro lo SKU Basic ILB
+* Cache Redis (USA lo SKU ILB Basic)
+* Gateway applicazione (USA lo SKU ILB Basic)
+* Set di scalabilità (USA lo SKU ILB Basic)
+* Cluster Service Fabric (USA lo SKU ILB Basic)
+* SQL Server Always On (USA lo SKU ILB Basic)
+* Ambiente del servizio app (USA lo SKU ILB Basic)
+* Gestione API (USA lo SKU ILB Basic)
+* Azure AD DS (USA lo SKU ILB Basic)
 
-Per ulteriori informazioni, vedere i [requisiti e i vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) del peering globale e delle [diverse topologie VPN.](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/)
+Per ulteriori informazioni, vedere i [requisiti e i vincoli](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) del peering globale e delle [diverse topologie VPN](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-a-web-app-and-the-spoke-virtual-network"></a>Risolvere un problema di connettività di rete hub-spoke tra un'app Web e la rete virtuale spoke
 
 Per risolvere il problema:
 
 1. Accedere al portale di Azure. 
-1. Nell'app Web selezionare **rete**, quindi selezionare **Integrazione della rete virtuale**.
-1. Verificare se è possibile visualizzare la rete virtuale remota. Immettere manualmente lo spazio di indirizzi della rete virtuale remota (**Sincronizza rete** e **Aggiungi route**).
+1. Nell'app Web selezionare **rete**e quindi selezionare **integrazione VNet**.
+1. Controllare se è possibile visualizzare la rete virtuale remota. Immettere manualmente lo spazio di indirizzi della rete virtuale remota (**sincronizzazione rete** e **Aggiungi route**).
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-* [Integrare l'app con una rete virtuale di AzureIntegrate your app with an Azure virtual network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+* [Integrare l'app con una rete virtuale di Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [Informazioni sul routing VPN da punto a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
-## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Risolvere i problemi relativi a un messaggio di errore di configurazione peering di rete virtualeTroubleshoot a virtual network peering configuration error message 
+## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Risolvere i problemi di un messaggio di errore di configurazione del peering di rete virtuale 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Il `<TENANT ID>` tenant corrente non è autorizzato ad accedere alla sottoscrizione collegata
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Il tenant `<TENANT ID>` corrente non è autorizzato ad accedere alla sottoscrizione collegata
 
-Per risolvere questo problema, vedere Creare peering - interfaccia della riga di comando di [Azure.To](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)resolve this issue, see Create peering - Azure CLI .
+Per risolvere questo problema, vedere [creare un peering-interfaccia](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)della riga di comando di Azure.
 
 ### <a name="not-connected"></a>Non connesso
 
 Per risolvere questo problema, eliminare il peering da entrambe le reti virtuali e quindi ricrearli.
 
-### <a name="failed-to-peer-a-databricks-virtual-network"></a>Impossibile eseguire il peernetworko di una rete virtuale Databricks
+### <a name="failed-to-peer-a-databricks-virtual-network"></a>Non è stato possibile eseguire il peering di una rete virtuale databricks
 
-Per risolvere questo problema, configurare il peering della rete virtuale in **Azure Databricks**, quindi specificare la rete virtuale di destinazione utilizzando **Resource ID**. Per altre informazioni, vedere Eseguire il [peerare una rete virtuale Databricks a una rete virtuale remota.](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)
+Per risolvere questo problema, configurare il peering di rete virtuale in **Azure Databricks**e quindi specificare la rete virtuale di destinazione usando l' **ID risorsa**. Per ulteriori informazioni, vedere la pagina relativa [alla rete virtuale peer a databricks in una rete virtuale remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>La rete virtuale remota non dispone di un gateway
 
-Questo problema si verifica quando si peer reti virtuali `Use Remote Gateways`da tenant diversi e successivamente si desidera configurare . Una limitazione del portale di Azure è che non è possibile convalidare la presenza di un gateway di rete virtuale nella rete virtuale di un altro tenant.
+Questo problema si verifica quando si esegue il peering di reti virtuali da tenant diversi e `Use Remote Gateways`si desidera configurare in un secondo momento. Una limitazione del portale di Azure è che non è in grado di convalidare la presenza di un gateway di rete virtuale nella rete virtuale di un altro tenant.
 
 Esistono due modi per risolvere il problema:
 
- * Eliminare i peering e `Use Remote Gateways` attivare l'opzione quando si crea un nuovo peering.
- * Usare PowerShell o l'interfaccia della riga `Use Remote Gateways`di comando, anziché il portale di Azure, per abilitare .
+ * Eliminare i peering e attivare l' `Use Remote Gateways` opzione quando si crea un nuovo peering.
+ * Per abilitare `Use Remote Gateways`, usare PowerShell o l'interfaccia della riga di comando, anziché il portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

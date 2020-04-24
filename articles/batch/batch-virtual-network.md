@@ -56,7 +56,7 @@ Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un
 
 Per garantire che i nodi di calcolo dei pool di Azure Batch funzionino correttamente in una rete virtuale con il tunneling forzato abilitato, è necessario aggiungere le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) seguenti per tali subnet:
 
-* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco degli indirizzi IP del servizio Batch, vedere [Tag del servizio locale](../virtual-network/service-tags-overview.md). Gli indirizzi IP del servizio `BatchNodeManagement` Batch verranno associati al tag del servizio (o alla variante regionale che corrisponde all'area dell'account Batch).
+* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco di indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/service-tags-overview.md). Gli indirizzi IP del servizio batch verranno associati al tag `BatchNodeManagement` di servizio (o alla variante regionale corrispondente all'area dell'account batch).
 
 * Verificare che il traffico in uscita verso il servizio Archiviazione di Azure (in particolare, gli URL con formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) non sia bloccato tramite un Network Appliance locale.
 
@@ -65,7 +65,7 @@ Quando si aggiunge una route definita dall'utente, definire la route per ogni pr
 ![Route definita dall'utente](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Gli indirizzi IP del servizio batch possono cambiare nel tempo. Per evitare un'interruzione dovuta a una modifica dell'indirizzo IP, è consigliabile stabilire un processo periodico per aggiornare automaticamente gli indirizzi IP del servizio Batch e mantenerli aggiornati nella tabella di route.
+> Gli indirizzi IP del servizio batch possono cambiare nel tempo. Per evitare un'interruzione a causa di una modifica dell'indirizzo IP, è consigliabile stabilire un processo periodico per aggiornare automaticamente gli indirizzi IP del servizio batch e mantenerli aggiornati nella tabella di route.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

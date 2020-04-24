@@ -17,9 +17,9 @@ ms.locfileid: "80573267"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Avvisi di metrica (classico) |100 regole di avviso attive per sottoscrizione. | Chiamare il supporto tecnico. |
-| Avvisi delle metriche |2.000 regole di avviso attive per ogni sottoscrizione nei cloud azure public, Azure China 21Vianet e Azure per enti pubblici. | Chiamare il supporto tecnico. |
-| Avvisi dei log attività | 100 regole di avviso attive per sottoscrizione. | Uguale a quello predefinito. |
-| Avvisi relativi ai log | 512 regole di avviso attive per sottoscrizione. 200 regole di avviso attive per risorsa. | Chiamare il supporto tecnico. |
-| Gruppi di azioni |2.000 gruppi di azioni per sottoscrizione. | Chiamare il supporto tecnico. |
-| Impostazioni di scalabilità automatica |100 per area per sottoscrizione. | Uguale a quello predefinito. |
+| Avvisi metrica (versione classica) |100 regole di avviso attive per ogni sottoscrizione. | Chiamare il supporto. |
+| Avvisi delle metriche |2.000 regole di avviso attive per ogni sottoscrizione in Azure Public, Azure Cina 21Vianet e cloud di Azure per enti pubblici. | Chiamare il supporto. |
+| Avvisi dei log attività | 100 regole di avviso attive per ogni sottoscrizione. | Uguale all'impostazione predefinita. |
+| Avvisi relativi ai log | 512 regole di avviso attive per ogni sottoscrizione. 200 regole di avviso attive per ogni risorsa. | Chiamare il supporto. |
+| Gruppi di azioni |2.000 gruppi di azioni per ogni sottoscrizione. | Chiamare il supporto. |
+| Impostazioni di scalabilità automatica |100 per area per sottoscrizione. | Uguale all'impostazione predefinita. |

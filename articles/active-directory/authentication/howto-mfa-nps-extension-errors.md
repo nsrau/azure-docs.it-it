@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi all'estensione Server dei criteri di rete di Azure MFA - Azure Active DirectoryTroubleshooting Azure MFA NPS extension - Azure Active Directory
+title: Risoluzione dei problemi relativi all'estensione NPS di Azure per Azure-Azure Active Directory
 description: Informazioni sulla risoluzione dei problemi relativi all'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
@@ -20,26 +20,26 @@ ms.locfileid: "80653724"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
-Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di Azure, usare questo articolo per ottenere una soluzione in modo rapido. I registri delle estensioni dei criteri di rete si trovano nel Visualizzatore eventi in**Ruoli** >  **server visualizzazioni personalizzate** > Criteri di rete e Access Services nel server in cui è installata l'estensione Server dei criteri di**rete.**
+Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di Azure, usare questo articolo per ottenere una soluzione in modo rapido. I log di estensione server dei criteri di rete sono disponibili in Visualizzatore eventi in**ruoli** > del server **visualizzazioni** > personalizzate**servizi di accesso e criteri di rete** nel server in cui è installata l'estensione NPS.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Procedura per la risoluzione di errori comuni
 
-| Codice di errore | Passaggi per la risoluzione dei problemi |
+| Codice errore | Passaggi per la risoluzione dei problemi |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Contattare il supporto tecnico](#contact-microsoft-support) e segnalare l'elenco dei passaggi per la raccolta dei log. Dare quante più informazioni possibili sulle operazioni verificatesi prima dell'errore, tra cui ID tenant e il nome dell'entità utente. |
 | **CLIENT_CERT_INSTALL_ERROR** | Potrebbe esserci un problema con la modalità di installazione del certificato client o con la modalità di associazione al tenant. Per analizzare i problemi del certificato client seguire le istruzioni in [Risoluzione dei problemi dell'estensione NPS MFA](howto-mfa-nps-extension.md#troubleshooting). |
 | **ESTS_TOKEN_ERROR** | Per analizzare i problemi del certificato client e del token ADAL seguire le istruzioni in [Risoluzione dei problemi dell'estensione NPS MFA](howto-mfa-nps-extension.md#troubleshooting). |
 | **HTTPS_COMMUNICATION_ERROR** | Il server NPS non è in grado di ricevere risposte da Azure MFA. Verificare che i firewall siano aperti in modalità bidirezionale per il traffico da e verso https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | Nel server che esegue l'estensione NPS, verificare la possibilità di raggiungere `https://adnotifications.windowsazure.com` e `https://login.microsoftonline.com/`. Se tali siti non vengono caricati, risolvere i problemi di connettività sul server. |
-| **Estensione NPS per Azure MFA:** <br> L'estensione NPS per Azure MFA esegue solo l'autenticazione secondaria per le richieste Radius in stato AccessAccept. La richiesta ricevuta per l'utente nomeutente con stato della risposta AccessReject, sta ignorando la richiesta. | Questo errore indica in genere un problema di autenticazione in Active Directory o che NPS non è in grado di ricevere risposte da Azure AD. Verificare che i firewall siano aperti in modalità bidirezionale per il traffico da e verso `https://adnotifications.windowsazure.com` e `https://login.microsoftonline.com` tramite le porte 80 e 443. È importante anche verificare che nella scheda Chiamate in ingresso di Autorizzazione di accesso alla rete l'impostazione sia Controlla accesso tramite criteri di rete del Server dei criteri di rete. Questo errore può essere generato anche se all'utente non è assegnata una licenza. |
+| **Estensione NPS per Azure MFA:** <br> L'estensione NPS per Azure MFA esegue solo l'autenticazione secondaria per le richieste Radius in stato AccessAccept. La richiesta ricevuta per l'utente nomeutente con stato della risposta AccessReject, sta ignorando la richiesta. | Questo errore indica in genere un problema di autenticazione in Active Directory o che NPS non è in grado di ricevere risposte da Azure AD. Verificare che i firewall siano aperti in modalità bidirezionale per il traffico da e verso `https://adnotifications.windowsazure.com` e `https://login.microsoftonline.com` tramite le porte 80 e 443. È importante anche verificare che nella scheda Chiamate in ingresso di Autorizzazione di accesso alla rete l'impostazione sia Controlla accesso tramite criteri di rete del Server dei criteri di rete. Questo errore può anche essere attivato se all'utente non è assegnata una licenza. |
 | **REGISTRY_CONFIG_ERROR** | Manca una chiave nel registro per l'applicazione. Questa potrebbe essere la causa per cui lo [script di PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) non viene eseguito dopo l'installazione. Il messaggio di errore deve includere la chiave mancante. Assicurarsi che la chiave si trovi in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Nella richiesta RADIUS manca l'attributo RADIUS userName\Identifier attributo obbligatorio. Verificare che NPS riceva le richieste RADIUS | Questo errore indica in genere un problema di installazione. L'estensione NPS deve essere installata nei server NPS che possono ricevere le richieste RADIUS. I server NPS installati come dipendenze dei servizi come RDG e RRAS non ricevono le richieste RADIUS. L'estensione NPS non funziona quando è installata su tali installazioni e genera degli errori poiché è impossibile leggere i dettagli della richiesta di autenticazione. |
-| **REQUEST_MISSING_CODE** | Verificare che il protocollo di crittografia delle password tra i server dei criteri di rete e di accesso alla rete supporti il metodo di autenticazione secondario usato. **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili. **CHAPV2** ed **EAP** supporto telefonata e notifica app mobile. |
+| **REQUEST_MISSING_CODE** | Verificare che il protocollo di crittografia delle password tra i server dei criteri di rete e di accesso alla rete supporti il metodo di autenticazione secondario usato. **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili. **CHAPv2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verificare che l'utente sia presente nell'istanza di Active Directory locale e che il servizio NPS disponga delle autorizzazioni per accedere alla directory. Se si usano i trust tra foreste, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
 
 ### <a name="alternate-login-id-errors"></a>Errori relativi all'ID di accesso alternativo
 
-| Codice di errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
+| Codice errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: la ricerca di userObjectSid non è riuscita | Verificare che l'utente esista nell'istanza di Active Directory locale. Se si usano i trust tra foreste, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: la ricerca dell'ID di accesso alternativo non è riuscita | Verificare che LDAP_ALTERNATE_LOGINID_ATTRIBUTE sia impostato su un [attributo di Active Directory valido](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG è impostata su True o LDAP_LOOKUP_FORESTS è configurato con un valore non vuoto, verificare di avere configurato un catalogo globale e che vi sia stato aggiunto l'attributo AlternateLoginId. <br><br> Se LDAP_LOOKUP_FORESTS è configurato con un valore non vuoto, verificare che il valore sia corretto. Se è presente più di un nome di foresta, i nomi devono essere separati da punti e virgola, non da spazi. <br><br> Se questi passaggi non risolvono il problema, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
@@ -47,7 +47,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 
 ## <a name="errors-your-users-may-encounter"></a>Errori che possono verificarsi per gli utenti
 
-| Codice di errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
+| Codice errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Caller tenant does not have access permissions to do authentication for the user (Il tenant chiamante non dispone delle autorizzazioni di accesso per eseguire l'autenticazione per l'utente) | Controllare che il dominio del tenant e il dominio del nome dell'entità utente (UPN) corrispondano. Ad esempio, assicurarsi che user@contoso.com stia tentando di eseguire l'autenticazione al tenant di Contoso. L'UPN rappresenta un utente valido per il tenant in Azure. |
 | **AuthenticationMethodNotConfigured** | The specified authentication method was not configured for the user (Il metodo di autenticazione specificato non è stato configurato per l'utente) | Richiedere all'utente di aggiungere o verificare i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
@@ -66,7 +66,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 
 In alcuni casi, gli utenti possono ricevere messaggi da Multi-Factor Authentication in quanto la richiesta di autenticazione ha esito negativo. Non si tratta di errori del prodotto di configurazione, ma sono avvisi intenzionali che spiegano il motivo per cui una richiesta di autenticazione è stata negata.
 
-| Codice di errore | Messaggio di errore | Procedure consigliate | 
+| Codice errore | Messaggio di errore | Procedure consigliate | 
 | ---------- | ------------- | ----------------- |
 | **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect (Codice inserito non corretto\Codice OATH errato) | L'utente ha immesso il codice errato. Fare in modo che l'utente ripeta l'operazione richiedendo un nuovo codice o effettuando di nuovo l'accesso. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached (Numero massimo di tentativi di inserimento del codice raggiunto) | L'utente ha superato il numero di richieste di verifica consentito. A seconda delle impostazioni, potrebbe essere necessaria una procedura di sblocco da parte dell'amministratore.  |
@@ -76,7 +76,7 @@ In alcuni casi, gli utenti possono ricevere messaggi da Multi-Factor Authenticat
 
 Se si verifica uno di questi errori, è consigliabile [contattare il supporto tecnico](#contact-microsoft-support) per assistenza diagnostica. Non esistono procedure standard che consentono di risolvere questi errori. Quando si contatta il supporto tecnico, assicurarsi di includere più informazioni possibili sui passaggi che hanno causato l'errore e le informazioni del tenant.
 
-| Codice di errore | Messaggio di errore |
+| Codice errore | Messaggio di errore |
 | ---------- | ------------- |
 | **InvalidParameter** | Request must not be null (La richiesta non deve essere null) |
 | **InvalidParameter** | ObjectId must not be null or empty for ReplicationScope:{0} (ObjectId non deve essere null o vuoto per ReplicationScope: {0}) |
@@ -87,7 +87,7 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 | **InvalidParameter** | Could not resolve any ProofData from request or Msods. (Impossibile risolvere ProofData dalla richiesta o Msods.) The ProofData is unKnown (ProofData è sconosciuto) |
 | **InternalError** |  |
 | **OathCodePinIncorrect** |  |
-| **VersioneNotSupportedVersionNotSupported** |  |
+| **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -96,9 +96,9 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 
 Se gli utenti hanno [Problemi con la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-troubleshoot.md) è necessario aiutarli a diagnosticare autonomamente i problemi.
 
-### <a name="health-check-script"></a>Script di controllo dell'integrità
+### <a name="health-check-script"></a>Script di controllo integrità
 
-Lo script di [controllo dell'integrità dell'estensione Server dei criteri](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) di rete di Azure MFA esegue un controllo di integrità di base durante la risoluzione dei problemi relativi all'estensione server dei criteri di rete. Eseguire lo script e scegliere l'opzione 3.
+Lo [script di controllo integrità dell'estensione NPS di Azure](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) esegue un controllo di integrità di base per la risoluzione dei problemi relativi all'estensione NPS. Eseguire lo script e scegliere l'opzione 3.
 
 ### <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 

@@ -1,6 +1,6 @@
 ---
-title: Reagire agli eventi della mappa utilizzando Griglia di eventi. Mappe di Microsoft Azure
-description: In questo articolo verrà illustrato come reagire agli eventi di Microsoft Azure Maps usando Griglia di eventi.
+title: Reagire per eseguire il mapping degli eventi tramite griglia di eventi | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come rispondere agli eventi di Microsoft Azure Maps usando griglia di eventi.
 author: philmea
 ms.author: philmea
 ms.date: 02/08/2019
@@ -18,9 +18,9 @@ ms.locfileid: "80335722"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Rispondere agli eventi di Mappe di Azure con Griglia di eventi 
 
-Mappe di Azure si integra con Griglia di eventi di Azure, in modo che gli utenti possano inviare notifiche di eventi ad altri servizi e attivare processi downstream. Lo scopo di questo articolo è quello di configurare le applicazioni aziendali per l'ascolto degli eventi di Mappe di Azure.The purpose of this article is to help you configure your business applications to listen to Azure Maps events. Ciò consente agli utenti di reagire agli eventi critici in modo affidabile, scalabile e sicuro. Ad esempio, gli utenti possono creare un'applicazione per aggiornare un database, creare un ticket e recapitare una notifica tramite posta elettronica ogni volta che un dispositivo entra in un geofence.
+Azure Maps si integra con griglia di eventi di Azure, in modo che gli utenti possano inviare notifiche degli eventi ad altri servizi e attivare processi downstream. Lo scopo di questo articolo è semplificare la configurazione delle applicazioni aziendali per l'ascolto degli eventi di Azure maps. Ciò consente agli utenti di rispondere a eventi critici in modo affidabile, scalabile e sicuro. Ad esempio, gli utenti possono compilare un'applicazione per aggiornare un database, creare un ticket e recapitare una notifica di posta elettronica, ogni volta che un dispositivo immette una rete perimetrale.
 
-Griglia di eventi di Azure è un servizio di routing degli eventi completamente gestito, che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto incorporato per i servizi di Azure come Funzioni di Azure e App per la logica di Azure.Event Grid has built-in support for Azure services like [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) and Azure Logic [Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Può recapitare avvisi di eventi a servizi non Azure usando webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto incorporato per i servizi di Azure, come [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e app per la [logica di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
 
 ![Modello funzionale di Griglia di eventi di Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -32,13 +32,13 @@ Griglia di eventi usa le [sottoscrizioni di eventi](https://docs.microsoft.com/a
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Generato quando le coordinate ricevute si sono spostate dall'esterno di un determinato |
-| Microsoft.Maps.GeofenceExited | Generato quando le coordinate ricevute si sono spostate dall'interno di un determinato recinto |
+| Microsoft.Maps.GeofenceEntered | Generato quando le coordinate ricevute sono state spostate dall'esterno di una data Fence specificata all'interno di |
+| Microsoft.Maps.GeofenceExited | Generato quando le coordinate ricevute sono state spostate dall'interno di una determinata georecinzione all'esterno |
 | Microsoft.Maps.GeofenceResult | Generato ogni volta che una query di geofencing restituisce un risultato, indipendentemente dallo stato |
 
 ## <a name="event-schema"></a>Schema di eventi
 
-The following example shows the schema for GeofenceResult:
+Nell'esempio seguente viene illustrato lo schema per GeofenceResult:
 
 ```JSON
 {   
@@ -80,9 +80,9 @@ The following example shows the schema for GeofenceResult:
 
 Per le applicazioni che gestiscono gli eventi di un recinto virtuale di Mappe di Azure è consigliabile seguire alcune procedure:
 
-* Configurare più sottoscrizioni per instradare gli eventi allo stesso gestore eventi. È importante non presupporre che gli eventi provengano da un'origine in particolare. Controllare sempre l'argomento del messaggio per assicurarsi che il messaggio provenga dall'origine prevista.
-* Utilizzare `X-Correlation-id` il campo nell'intestazione della risposta per capire se le informazioni sugli oggetti sono aggiornate. I messaggi possono arrivare senza ordine o dopo un ritardo.
-* Quando una richiesta GET o POST nell'API Geofence viene `EnterAndExit`chiamata con il parametro mode impostato su , viene generato un evento Enter o Exit per ogni geometria nel geofence per la quale lo stato è cambiato rispetto alla precedente chiamata API Geofence.
+* Configurare più sottoscrizioni per indirizzare gli eventi allo stesso gestore eventi. È importante non presupporre che gli eventi provengano da un'origine in particolare. Controllare sempre l'argomento del messaggio per verificare che il messaggio provenga dall'origine prevista.
+* Usare il `X-Correlation-id` campo nell'intestazione della risposta per capire se le informazioni sugli oggetti sono aggiornate. I messaggi possono arrivare senza ordine o dopo un ritardo.
+* Quando una richiesta GET o POST nell'API Geofence viene chiamata con il parametro mode impostato su `EnterAndExit`, viene generato un evento Enter o Exit per ogni geometria nel Geofence per cui lo stato è stato modificato rispetto alla precedente chiamata API di Geofence.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

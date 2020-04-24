@@ -1,5 +1,5 @@
 ---
-title: Serie NDv2 - Macchine virtuali di Azure
+title: Serie NDv2-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie NDv2.
 services: virtual-machines
 author: vikancha
@@ -14,51 +14,51 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "80247283"
 ---
-# <a name="updated-ndv2-series"></a>Serie NDv2 aggiornata
+# <a name="updated-ndv2-series"></a>Serie NDv2 aggiornate
 
-La macchina virtuale della serie NDv2 è una nuova aggiunta alla famiglia GPU progettata per le esigenze dei carichi di lavoro IA accelerati GPU, apprendimento automatico, simulazione e HPC più esigenti.
+La macchina virtuale della serie NDv2 è una nuova aggiunta alla famiglia di GPU progettata per le esigenze dei carichi di lavoro di intelligenza artificiale, apprendimento automatico, simulazione e HPC con accelerazione più impegnativa.
 
-NDv2 è alimentato da 8 GPU collegate n. NVIDIA Tesla V100, ognuna con 32 GB di memoria GPU. Ogni VM NDv2 ha anche 40 core Intel Xeon Platinum 8168 (Skylake) non HyperThreaded e 672 GiB di memoria di sistema.
+NDv2 è alimentato da 8 GPU NVIDIA Tesla V100 NVLINK-connected, ciascuna con 32 GB di memoria GPU. Ogni macchina virtuale NDv2 dispone anche di 40 core Intel Xeon Platinum 8168 (Skylake) senza Hyper-Threading e 672 GiB della memoria di sistema.
 
-Le istanze NDv2 offrono prestazioni eccellenti per i carichi di lavoro HPC e AI utilizzando kernel di calcolo CUDA GPU e i numerosi strumenti di analisi e AI che supportano l'accelerazione GPU "out-of-box", come TensorFlow, Pytorch, Caffe, RAPIDS e altri Framework.
+Le istanze di NDv2 offrono prestazioni eccellenti per i carichi di lavoro HPC e intelligenza artificiale che usano i kernel di calcolo ottimizzati per GPU CUDA e i molti strumenti di intelligenza artificiale, Machine Learning e analisi che supportano l'accelerazione della GPU predefinita, ad esempio TensorFlow, Pytorch, caffe, RAPIDS e altri Framework.
 
-In modo critico, l'NDv2 è progettato per carichi di lavoro con scalabilità verticale computazionalmente intenso (harnessing 8 GPU per macchina virtuale) che per quelli di scalabilità orizzontale (harnessing multiple VMs working together). La serie NDv2 ora supporta una rete back-end infiniBand EDR da 100 Gigabit, simile a quella disponibile nella serie HB della VM HPC, per consentire clustering ad alte prestazioni per scenari paralleli, tra cui formazione distribuita per AI e ML. Questa rete back-end supporta tutti i principali protocolli InfiniBand, inclusi quelli utilizzati dalle librerie NCCL2 di NVIDIA, consentendo un clustering senza soluzione di continuità delle GPU.
+In modo critico, il NDv2 è progettato per la scalabilità verticale sia a livello di calcolo (sfruttando 8 GPU per macchina virtuale) sia per la scalabilità orizzontale (sfruttando più macchine virtuali che operano insieme) carichi di lavoro. La serie NDv2 supporta ora le reti back-end InfiniBand EDR 100-Gigabit, simili a quelle disponibili nella serie HB della VM HPC, per consentire il clustering a prestazioni elevate per gli scenari paralleli, incluso il training distribuito per AI e ML. Questa rete back-end supporta tutti i principali protocolli InfiniBand, inclusi quelli usati dalle librerie NCCL2 di NVIDIA, consentendo un clustering di GPU senza problemi.
 
-> Quando si [abilita InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) nella macchina virtuale ND40rs_v2, usare il driver OFED 4.7-1.0.0.1 Mellanox.
+> Quando si [Abilita InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) nella macchina virtuale ND40rs_v2, usare il driver OFED Mellanox 4.7-1.0.0.1.
 >
-> A causa dell'aumento della memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di macchine virtuali di [generazione 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e immagini del marketplace. 
+> A causa di una maggiore memoria GPU, la nuova macchina virtuale ND40rs_v2 richiede l'uso di [macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e immagini del Marketplace. 
 >
-> Nota: il ND40s_v2 con 16 GB di memoria per GPU non è più disponibile per l'anteprima ed è stato sostituito dal ND40rs_v2 aggiornato.
+> Nota: la ND40s_v2 con 16 GB di memoria per GPU non è più disponibile in anteprima ed è stata sostituita dalla ND40rs_v2 aggiornata.
 
 <br>
 
 Archiviazione Premium: supportata
 
-Memorizzazione nella cache di archiviazione Premium: supportata
+Caching archiviazione Premium: supportato
 
 Live Migration: non supportato
 
-Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Updates: Not Supported
+Aggiornamenti con mantenimento della memoria: non supportato
 
-InfiniBand: Supportato
+InfiniBand: supportato
 
-| Dimensione | vCPU | Memoria: GiB | Temp Storage (SSD): GiB | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda di rete massima | Schede di interfaccia di rete max |
+| Dimensione | vCPU | Memoria: GiB | Archiviazione temporanea (SSD): GiB | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda di rete massima | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 32 | 32 | 80000 / 800 | 24000 Mbps | 8 |
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 32 | 32 | 80000/800 | 24000 Mbps | 8 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
-Per sfruttare le funzionalità GPU delle macchine virtuali di Azure Serie N, è necessario installare i driver GPU NVIDIA.
+Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure, è necessario installare i driver GPU NVIDIA.
 
 L'[estensione del driver NVIDIA GPU](./extensions/hpccompute-gpu-linux.md) consente di installare i driver NVIDIA CUDA o GRID appropriati in una macchina virtuale serie N. Installare o gestire l'estensione usando il portale di Azure o strumenti come i modelli di Azure PowerShell Azure o Azure Resource Manager. Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features](./extensions/overview.md) (Funzionalità ed estensioni macchina virtuale di Azure).
 
-Se si sceglie di installare manualmente i driver GPU NVIDIA, vedere [Configurazione del driver GPU di serie N per Linux](./linux/n-series-driver-setup.md).
+Se si sceglie di installare manualmente i driver GPU NVIDIA, vedere [la pagina relativa all'installazione dei driver GPU della serie N per Linux](./linux/n-series-driver-setup.md).
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Finalità generale](sizes-general.md)
+- [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

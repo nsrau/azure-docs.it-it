@@ -1,6 +1,6 @@
 ---
-title: Servizi di dominio di Azure AD sicuri Documenti Microsoft
-description: Informazioni su come disabilitare le crittografie deboli, i protocolli precedenti e la sincronizzazione dell'hash delle password NTLM per un dominio gestito di Servizi di dominio Azure Active Directory.Learn how to disable weak ciphers, old protocols, and NTLM password hash synchronization for an Azure Active Directory Domain Services managed domain.
+title: Azure AD Domain Services protetto | Microsoft Docs
+description: Informazioni su come disabilitare le crittografie vulnerabili, i protocolli obsoleti e la sincronizzazione degli hash delle password NTLM per un dominio gestito Azure Active Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -18,35 +18,35 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2020
 ms.locfileid: "80654728"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Disabilitare la sincronizzazione di crittografia debole e hash delle password per proteggere un dominio gestito di Servizi di dominio Azure ADDisable weak ciphers and password hash synchronization to secure an Azure AD Domain Services managed domain
+# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password per proteggere un dominio gestito Azure AD Domain Services
 
-Per impostazione predefinita, Servizi di dominio Azure Active Directory (Azure AD DS) consente l'uso di crittografia, ad esempio NTLM v1 e TLS v1. Queste crittografie possono essere necessarie per alcune applicazioni legacy, ma sono considerate deboli e possono essere disabilitate se non sono necessarie. Se si dispone di connettività ibrida locale con Azure AD Connect, è anche possibile disabilitare la sincronizzazione degli hash delle password NTLM.
+Per impostazione predefinita, Azure Active Directory Domain Services (Azure AD DS) consente l'utilizzo di crittografie come NTLM v1 e TLS v1. Queste crittografie potrebbero essere necessarie per alcune applicazioni legacy, ma sono considerate vulnerabili e possono essere disabilitate se non sono necessarie. Se si dispone di connettività ibrida locale con Azure AD Connect, è anche possibile disabilitare la sincronizzazione degli hash delle password NTLM.
 
-In questo articolo viene illustrato come disattivare la crittografia NTLM v1 e TLS v1 e disabilitare la sincronizzazione dell'hash delle password NTLM.
+Questo articolo illustra come disabilitare le crittografie NTLM v1 e TLS v1 e disabilitare la sincronizzazione degli hash delle password NTLM.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questo articolo, sono necessarie le risorse seguenti:To complete this article, you need the following resources:
+Per completare l'esercitazione di questo articolo, sono necessarie le risorse seguenti:
 
 * Una sottoscrizione di Azure attiva.
-    * Se non si dispone di una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un tenant di Azure Active Directory associato alla sottoscrizione, sincronizzato con una directory locale o con una directory solo cloud.
     * Se necessario, [creare un tenant di Azure Active Directory][create-azure-ad-tenant] o [associare una sottoscrizione di Azure al proprio account][associate-azure-ad-tenant].
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Installare e configurare Azure PowerShell.
-    * Se necessario, seguire le istruzioni per [installare il modulo di Azure PowerShell e connettersi alla sottoscrizione](/powershell/azure/install-az-ps)di Azure.
-    * Assicurarsi di accedere alla sottoscrizione di Azure usando il cmdlet [Connect-AzAccount.][Connect-AzAccount]
-* Installare e configurare Azure AD PowerShell.Install and configure Azure AD PowerShell.
-    * Se necessario, seguire le istruzioni per [installare il modulo Azure AD PowerShell e connettersi ad Azure AD.](/powershell/azure/active-directory/install-adv2)
-    * Assicurarsi di accedere al tenant di Azure AD utilizzando il cmdlet [Connect-AzureAD.][Connect-AzureAD]
+    * Se necessario, seguire le istruzioni nell'articolo per [installare il modulo Azure PowerShell e connettersi alla sottoscrizione di Azure](/powershell/azure/install-az-ps).
+    * Assicurarsi di accedere alla sottoscrizione di Azure usando il cmdlet [Connect-AzAccount][Connect-AzAccount].
+* Installare e configurare Azure AD PowerShell.
+    * Se necessario, seguire le istruzioni nell'articolo per [installare il modulo Azure AD PowerShell e connettersi ad Azure AD](/powershell/azure/active-directory/install-adv2).
+    * Assicurarsi di accedere al tenant di Azure usando il cmdlet [Connect-AzureAD][Connect-AzureAD].
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Disabilitare la sincronizzazione dell'hash delle password deboli e dell'hash delle password NTLM
+## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password NTLM
 
-Per disabilitare le suite di crittografia deboli e la sincronizzazione dell'hash delle credenziali NTLM, accedere all'account Azure, quindi ottenere la risorsa di Azure AD DS usando il cmdlet [Get-AzResource:To][Get-AzResource] disable weak cipher suites and NTLM credential hash synchronization, sign in to your Azure account, then get the Azure AD DS resource using the Get-AzResource cmdlet:
+Per disabilitare i pacchetti di crittografia vulnerabili e la sincronizzazione degli hash delle credenziali NTLM, accedere al proprio account Azure e quindi ottenere la risorsa Azure AD DS usando il cmdlet [Get-AzResource][Get-AzResource] :
 
 > [!TIP]
-> Se viene visualizzato un errore utilizzando il comando [Get-AzResource][Get-AzResource] che la risorsa *Microsoft.AAD/DomainServices* non esiste, [elevare l'accesso per gestire tutte le sottoscrizioni e i gruppi][global-admin]di gestione di Azure.
+> Se si riceve un errore usando il comando [Get-AzResource][Get-AzResource] che la risorsa *Microsoft. AAD/DomainServices* non esiste, [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure][global-admin].
 
 ```powershell
 Login-AzAccount
@@ -54,30 +54,30 @@ Login-AzAccount
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 ```
 
-Definire quindi DomainSecuritySettings per configurare le opzioni di sicurezza seguenti:Next, define *DomainSecuritySettings* to configure the following security options:
+Definire quindi *DomainSecuritySettings* per configurare le opzioni di sicurezza seguenti:
 
-1. Disabilitare il supporto NTLM v1.
+1. Disabilitare il supporto di NTLM v1.
 2. Disabilitare la sincronizzazione degli hash delle password NTLM dall'istanza di Active Directory locale.
 3. Disabilitare TLS v1.
 
 > [!IMPORTANT]
-> Gli utenti e gli account di servizio non possono eseguire binding semplici LDAP se si disabilita la sincronizzazione dell'hash delle password NTLM nel dominio gestito di Azure AD DS. Se è necessario eseguire associazioni semplici LDAP, non impostare l'opzione di configurazione della protezione *"SyncNtlmPasswords"; "Disabled";*
+> Gli account utente e del servizio non possono eseguire binding LDAP semplici se si disabilita la sincronizzazione dell'hash delle password NTLM nel dominio gestito di Azure AD DS. Se è necessario eseguire binding semplici LDAP, non impostare l'opzione di configurazione *"SyncNtlmPasswords" = "disabled";* Security nel comando seguente.
 
 ```powershell
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Infine, applicare le impostazioni di sicurezza definite al dominio gestito di Servizi di dominio Active Directory di Azure usando il cmdlet Set-AzResource.Finally, apply the defined security settings to the Azure AD DS managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specificare la risorsa Di SDi Azure AD dal primo passaggio e le impostazioni di sicurezza del passaggio precedente.
+Infine, applicare le impostazioni di sicurezza definite al dominio gestito di Azure AD DS usando il cmdlet [set-AzResource][Set-AzResource] . Specificare la risorsa Azure AD DS dal primo passaggio e le impostazioni di sicurezza del passaggio precedente.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-L'applicazione delle impostazioni di sicurezza al dominio gestito di Servizi di dominio Active Directory di Azure richiede alcuni minuti.
+Per applicare le impostazioni di sicurezza al dominio gestito di Azure AD DS sono necessari alcuni istanti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul processo di sincronizzazione, vedere Modalità di sincronizzazione di oggetti e credenziali in un dominio gestito di Servizi di dominio Active Directory di Azure.To learn more about the synchronization process, see [How objects and credentials are synchronized in an Azure AD DS managed domain][synchronization].
+Per ulteriori informazioni sul processo di sincronizzazione, vedere la sincronizzazione [di oggetti e credenziali in un dominio gestito Azure AD DS][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

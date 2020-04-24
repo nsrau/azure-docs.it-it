@@ -1,6 +1,6 @@
 ---
-title: Creare un'istruzione ILB ASE v1Create an ILB ASE v1
-description: Creazione e utilizzo di un'insieme di informazioni del bene con un'ilB. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Creare un ambiente del servizio app ILB V1
+description: Creazione e uso di un ambiente del servizio app con un ILB. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.topic: article
@@ -50,7 +50,7 @@ La creazione di un ambiente del servizio app con bilanciamento del carico intern
 3. Selezionare o creare un gruppo di risorse.
 4. Selezionare o creare una rete virtuale.
 5. Creare una subnet se si seleziona una rete virtuale.
-6. Selezionare Rete virtuale/Percorso -> Configurazione di rete virtuale e impostare Il tipo di VIP su Interno.Select **Virtual Network/Location -> VNet Configuration** and set the VIP Type to Internal.
+6. Selezionare **rete virtuale/località-> configurazione VNet** e impostare il tipo di indirizzo VIP su interno.
 7. Fornire un nome di sottodominio; questo sarà il sottodominio usato per le app create con questo ambiente del servizio app.
 8. Selezionare **OK**, quindi **Crea**.
 
@@ -68,7 +68,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 3. Selezionare la propria sottoscrizione.
 4. Selezionare o creare un gruppo di risorse.
 5. Selezionare o creare un piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro in cui si vuole creare il piano di servizio. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro. Quando si specifica il nome dell'app, si noterà che il sottodominio sotto il nome dell'app verrà sostituito con il sottodominio dell'ambiente del servizio app. 
-6. Selezionare **Crea**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
+6. Seleziona **Crea**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
 
 ![][2]
 
@@ -123,7 +123,7 @@ Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi
 
 
 ## <a name="getting-started"></a>Introduzione
-Per iniziare a usare gli ambienti del servizio app, vedere Introduzione agli ambienti del [servizio appTo][WhatisASE] get started with App Service Environments, see Introduction to App Service Environments
+Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
