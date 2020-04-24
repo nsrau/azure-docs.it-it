@@ -1,24 +1,14 @@
 ---
-title: Disponibilità elevata e ripristino di emergenza - Azure BatchHigh availability and disaster recovery - Azure Batch
-description: Informazioni su come progettare l'applicazione Batch per un'interruzione a livello di area. I carichi di lavoro devono eseguire il failover in un'altra area o essere suddivisi tra due o più aree.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: ''
-ms.tgt_pltfrm: na
+title: Disponibilità elevata e ripristino di emergenza-Azure Batch
+description: Informazioni su come progettare un'applicazione batch per un'interruzione a livello di area. I carichi di lavoro devono eseguire il failover in un'altra area o essere suddivisi tra due o più aree.
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: labrenne
-ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da46753906e27a94e3c76fcaf9c4a26861bba6c8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77026082"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117438"
 ---
 # <a name="design-your-application-for-high-availability"></a>Progettare l'applicazione per la disponibilità elevata
 
@@ -49,5 +39,5 @@ Quando si progetta una soluzione di cui poter eseguire il failover, tenere prese
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla creazione di account Batch con il [portale di Azure,](batch-account-create-portal.md)l'interfaccia della riga di comando di [Azure,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)o l'API di [gestione Batch.](batch-management-dotnet.md)
+- Altre informazioni sulla creazione di account batch con il [portale di Azure](batch-account-create-portal.md), l' [interfaccia](cli-samples.md)della riga di comando di Azure, [PowerShell](batch-powershell-cmdlets-get-started.md)o l'API di [gestione di batch](batch-management-dotnet.md).
 - A un account Batch sono associate quote predefinite. [Questo articolo](batch-quota-limit.md) illustra i valori delle quote predefinite e descrive come poter aumentare le quote.

@@ -41,10 +41,10 @@
   items:
     - name: Account di archiviazione
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Security
+    - name: Sicurezza
       items:
-        - name: Suggerimenti per la sicurezza
-          href: security-recommendations.md
+        - name: Baseline di sicurezza
+          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Crittografia dei dati inattivi di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:

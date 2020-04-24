@@ -1,18 +1,16 @@
 ---
-title: Uso delle funzionalità di rendering-Azure Batch
+title: Uso delle funzionalità di rendering
 description: Come usare le funzionalità di rendering Azure Batch. Provare a utilizzare l'applicazione Batch Explorer, direttamente o richiamata da un plug-in di applicazione client.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6dd7d73d2b04f6e076794ee63d0a546170782fce
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672001"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115636"
 ---
 # <a name="using-azure-batch-rendering"></a>Uso del rendering di Azure Batch
 

@@ -1,19 +1,14 @@
 ---
-title: Creazione e uso di file di risorse-Azure Batch
+title: Creazione e utilizzo di file di risorse
 description: Informazioni su come creare file di risorse batch da varie origini di input. Questo articolo illustra alcuni metodi comuni su come crearli e inserirli in una macchina virtuale.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 03/18/2020
-ms.author: labrenne
-ms.openlocfilehash: 0fe859ac30e7b8050d1f4688d7cf106a465e7566
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: article
+ms.openlocfilehash: c9a2e581d0cada467e89e3da731fac7f78b22992
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531142"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117183"
 ---
 # <a name="creating-and-using-resource-files"></a>Creazione e utilizzo di file di risorse
 

@@ -1,24 +1,24 @@
 ---
-title: Archiviazione e spostamento dati per il rendering - Azure Batch
-description: Informazioni sulle varie opzioni di archiviazione e spostamento dei dati per il rendering dei carichi di lavoro degli asset e dei file di output.
+title: Archiviazione e spostamento di dati per il rendering
+description: Informazioni sulle varie opzioni di archiviazione e spostamento dei dati per il rendering dei carichi di lavoro di file di output e di asset.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1076fc152ddf2c3a2d4f2346262ca90215d68ddf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497f3b3b42d98c08b06744eaa976ae188443b90d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390393"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115670"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opzioni di archiviazione e spostamento dati per i file di asset e output del rendering
 
 È possibile sfruttare numerose opzioni per rendere i file di scena e di asset disponibili alle applicazioni per il rendering nelle macchine virtuali (VM) del pool:
 
-* [Archiviazione BLOB di Azure:Azure blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
+* [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
   * I file di scena e di asset vengono caricati nell'archiviazione BLOB da un file system locale. Quando l'applicazione viene eseguita da un'attività, i file richiesti vengono copiati dall'archiviazione BLOB alla VM in modo da essere accessibili dall'applicazione per il rendering. I file di output vengono scritti dall'applicazione per il rendering nel disco della VM e quindi copiati nell'archiviazione BLOB.  Se necessario, i file di output possono essere scaricati dall'archiviazione BLOB a un file system locale.
   * Archiviazione BLOB di Azure è un'opzione semplice ed economicamente conveniente per i progetti di dimensioni più piccole.  Poiché tutti i file di asset sono necessari in ogni VM del pool, in caso di aumento del numero e delle dimensioni dei file di asset è necessario assicurarsi che i trasferimenti di file siano il più possibile efficienti.  
 * Archiviazione di Azure come file system con [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):
@@ -132,6 +132,6 @@ File di Azure è supportato da tutte le API e gli strumenti principali che dispo
 
 Per altre informazioni sulle opzioni di archiviazione, vedere la documentazione di approfondimento:
 
-* [Archiviazione BLOB di AzureAzure blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
 * [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

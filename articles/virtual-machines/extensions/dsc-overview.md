@@ -15,38 +15,38 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: adb36e14bb7b772d3e28361bdc48d248bd84f41f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458965"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115313"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
 L'agente di macchine virtuali di Azure e le relative estensioni associate fanno parte dei servizi di infrastruttura di Microsoft Azure. Le estensioni di VM sono componenti software che estendono la funzionalità delle macchine virtuali e ne semplificano varie operazioni di gestione.
 
-Il caso d'uso principale per l'estensione DSC (Desired State Configuration) di Azure consiste nel eseguire il bootstrap di una macchina virtuale nel [servizio DSC (Azure Automation State Configuration).](../../automation/automation-dsc-overview.md)
-Il servizio offre vantaggi che includono la gestione continua della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio Monitoraggio di Azure.The service provides [benefits](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
-L'uso dell'estensione per registrare le macchine virtuali nel servizio offre una soluzione flessibile che funziona anche tra le sottoscrizioni di Azure.Using the extension to register VM's to the service provides a flexible solution that even works across Azure subscriptions.
+Il caso d'uso principale per l'estensione DSC (Desired state Configuration) di Azure consiste nel bootstrap di una macchina virtuale nel [servizio Azure Automation state Configuration (DSC)](../../automation/automation-dsc-overview.md).
+Il servizio offre [vantaggi](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio monitoraggio di Azure.
+L'uso dell'estensione per registrare le macchine virtuali nel servizio offre una soluzione flessibile che funziona anche tra le sottoscrizioni di Azure.
 
 È possibile usare l'estensione DSC in modo indipendente dal servizio Automation DSC.
-Tuttavia, questo inserirà solo una configurazione alla macchina virtuale.
-Non sono disponibili report in corso, ad esempio in locale nella macchina virtuale.
+Tuttavia, verrà push una configurazione solo alla macchina virtuale.
+Non sono disponibili report in corso, oltre a quelli locali nella macchina virtuale.
 
 Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'estensione DSC per l'onboarding in Automazione e uso dell'estensione DSC come strumento per l'assegnazione di configurazioni a VM tramite Azure SDK.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - **Computer locale**: per interagire con l'estensione della macchina virtuale di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
-- **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](../../automation/automation-dsc-extension-history.md).
 
 ## <a name="terms-and-concepts"></a>Termini e concetti
 
 Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 
 - **Configurazione**: documento di configurazione DSC.
-- **Nodo**: destinazione di una configurazione DSC. In questo documento, nodo fa sempre riferimento a una macchina virtuale di Azure.In this document, *node* always refers to an Azure VM.
+- **Nodo**: destinazione di una configurazione DSC. In questo documento, *node* fa sempre riferimento a una VM di Azure.
 - **Dati di configurazione**: file con estensione psd1 con i dati ambientali di una configurazione.
 
 ## <a name="architecture"></a>Architecture
@@ -59,30 +59,30 @@ Alla prima chiamata, l'estensione installa una versione di WMF adottando la logi
 - Se la proprietà **wmfVersion** è specificata, viene installata la versione di WMF corrispondente, a meno che tale versione non sia incompatibile con il sistema operativo della VM.
 - Se la proprietà **wmfVersion** non è specificata, viene installata la versione più recente applicabile di WMF.
 
-L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scarica il file ZIP eventualmente specificato nella proprietà **modulesUrl**. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà **sasToken** per accedere al file. Dopo il download e la decompressione di .zip, la funzione di configurazione definita in **configurationFunction** viene eseguita per generare un file .mof([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). L'estensione esegue quindi `Start-DscConfiguration -Force` usando il file con estensione mof generato, acquisisce l'output e lo scrive nel canale di stato di Azure.
+L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scarica il file ZIP eventualmente specificato nella proprietà **modulesUrl**. Se tale percorso si trova nell'archiviazione BLOB di Azure, è possibile specificare un token di firma di accesso condiviso nella proprietà **sasToken** per accedere al file. Dopo aver scaricato e decompresso il file zip, viene eseguita la funzione di configurazione definita in **configurationFunction** per generare un file mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). L'estensione esegue quindi `Start-DscConfiguration -Force` usando il file con estensione mof generato, acquisisce l'output e lo scrive nel canale di stato di Azure.
 
 ### <a name="default-configuration-script"></a>Script di configurazione predefinito
 
 L'estensione DSC di Azure include uno script di configurazione predefinito da usare per l'onboarding di una macchina virtuale nel servizio Automation DSC per Azure. I parametri dello script sono allineati con le proprietà configurabili di [Gestione configurazione locale](/powershell/scripting/dsc/managing-nodes/metaConfig). Per i parametri dello script, vedere [Script di configurazione predefinito](dsc-template.md#default-configuration-script) in [Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager](dsc-template.md). Per lo script completo, vedere il [modello di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informazioni per la registrazione con il servizio DSC (Automation State Configuration) di AzureInformation for registering with Azure Automation State Configuration (DSC) service
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informazioni per la registrazione con il servizio di configurazione dello stato di automazione di Azure (DSC)
 
-Quando si usa l'estensione DSC per registrare un nodo con il servizio Configurazione stato, sarà necessario fornire tre valori.
+Quando si usa l'estensione DSC per registrare un nodo con il servizio di configurazione dello stato, è necessario fornire tre valori.
 
-- RegistrationUrl - l'indirizzo https dell'account di Automazione di Azure
-- RegistrationKey - un segreto condiviso utilizzato per registrare i nodi con il servizio
-- NodeConfigurationName - il nome della configurazione del nodo (MOF) da estrarre dal servizio per configurare il ruolo del server
+- RegistrationUrl: indirizzo https dell'account di automazione di Azure
+- RegistrationKey: un segreto condiviso usato per registrare i nodi con il servizio
+- NodeConfigurationName-nome della configurazione del nodo (MOF) per eseguire il pull dal servizio per configurare il ruolo del server
 
-Queste informazioni possono essere visualizzate nel portale di Azure oppure è possibile usare PowerShell.This information can be seen in the Azure portal or you can use PowerShell.
+Queste informazioni possono essere visualizzate nel portale di Azure oppure è possibile usare PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-Per il nome della configurazione del nodo, assicurarsi che la configurazione del nodo esista in Configurazione stato di Azure.For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi inoltre di utilizzare il nome della configurazione del *nodo* e non la configurazione.
-Una configurazione viene definita in uno script utilizzato [per compilare il file MOF (Node Configuration).](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
-Il nome sarà sempre la configurazione `.` seguita `localhost` da un punto e da uno o da un nome di computer specifico.
+Per il nome della configurazione del nodo, assicurarsi che la configurazione del nodo esista nella configurazione dello stato di Azure.  In caso contrario, la distribuzione dell'estensione restituirà un errore.  Assicurarsi inoltre di usare il nome della *configurazione del nodo* e non la configurazione.
+Una configurazione è definita in uno script utilizzato [per compilare la configurazione del nodo (file MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Il nome sarà sempre la configurazione seguita da un punto `.` e da `localhost` o da un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager
 
@@ -102,7 +102,7 @@ Il cmdlet **Get-AzVMDscExtension** recupera lo stato dell'estensione DSC di una 
 
 Il cmdlet **Get-AzVMDscExtensionStatus** recupera lo stato della configurazione DSC applicata dal gestore dell'estensione DSC. Questa azione può essere eseguita su una singola VM o su un gruppo di VM.
 
-Il cmdlet **Remove-AzVMDscExtension** rimuove il gestore dell'estensione da una macchina virtuale specifica. Questo cmdlet *non* rimuove la configurazione, non disinstalla WMF e non modifica le impostazioni applicate nella VM. Rimuove soltanto il gestore dell'estensione. 
+Il cmdlet **Remove-AzVMDscExtension** rimuove il gestore dell'estensione da una macchina virtuale specifica. Questo cmdlet *non* rimuove la configurazione, non disinstalla WMF e non modifica le impostazioni applicate nella VM. Rimuove soltanto il gestore dell'estensione.
 
 Informazioni importanti sui cmdlet dell'estensione DSC di Resource Manager:
 
@@ -115,7 +115,7 @@ Informazioni importanti sui cmdlet dell'estensione DSC di Resource Manager:
 
 L'estensione DSC di Azure può usare documenti di configurazione DSC per configurare direttamente macchine virtuali di Azure durante la distribuzione. Questa operazione non determina tuttavia la registrazione del nodo in Automazione. Il nodo *non* è gestito centralmente.
 
-Di seguito è riportato un semplice esempio di configurazione. Salvare la configurazione in locale come iisInstall.ps1.
+Di seguito è riportato un semplice esempio di configurazione. Salvare la configurazione localmente come iisInstall. ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-I comandi seguenti inserisce lo script iisInstall.ps1 nella macchina virtuale specificata. eseguono la configurazione e quindi inviano un report sullo stato.
+I comandi seguenti consentono di inserire lo script iisInstall. ps1 nella macchina virtuale specificata. eseguono la configurazione e quindi inviano un report sullo stato.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -147,7 +147,7 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione DSC in una macchina virtuale esistente.
 
-Per una macchina virtuale che esegue Windows:For a virtual machine running Windows:
+Per una macchina virtuale che esegue Windows:
 
 ```azurecli
 az vm extension set \
@@ -159,7 +159,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-Per una macchina virtuale che esegue Linux:For a virtual machine running Linux:
+Per una macchina virtuale che esegue Linux:
 
 ```azurecli
 az vm extension set \
@@ -184,13 +184,13 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Configuration Modules or Script** (Moduli o script di configurazione): questo campo è obbligatorio. Il modulo non è stato aggiornato per lo [script di configurazione predefinito](#default-configuration-script). I moduli e gli script di configurazione richiedono un file con estensione ps1 contenente uno script di configurazione oppure un file ZIP con uno script di configurazione con estensione ps1 nella directory radice. Se si usa un file ZIP, tutte le risorse dipendenti devono essere incluse nelle cartelle del modulo all'interno del file ZIP. È possibile creare il file con estensione zip con il cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluso in Azure PowerShell SDK. Il file ZIP viene caricato nell'archiviazione BLOB dell'utente e protetto da un token di firma di accesso condiviso.
 
-- **Nome di configurazione qualificato dal modulo**: È possibile includere più funzioni di configurazione in un file con estensione ps1. Immettere il nome dello script di configurazione con estensione ps1 seguito da \\ e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione ps1 ha il nome configuration.ps1 e la configurazione è **IisInstall**, immettere **configuration.ps1\IisInstall**.
+- **Nome completo del modulo di configurazione**: è possibile includere più funzioni di configurazione in un file con estensione ps1. Immettere il nome dello script di configurazione con estensione ps1 seguito da \\ e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione ps1 ha il nome configuration.ps1 e la configurazione è **IisInstall**, immettere **configuration.ps1\IisInstall**.
 
 - **Configuration Arguments** (Argomenti di configurazione): se la funzione di configurazione accetta argomenti, immetterli qui nel formato **argumentName1=value1,argumentName2=value2**. Questo è un formato diverso in cui vengono accettati gli argomenti di configurazione nei cmdlet di PowerShell o nei modelli di Resource Manager.
 
 - **Configuration Data PSD1 File**(File PSD1 dati di configurazione): questo è un campo facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
-- **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
+- **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **più recente**.
 
 - **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
 

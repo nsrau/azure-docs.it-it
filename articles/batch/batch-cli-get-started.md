@@ -1,25 +1,15 @@
 ---
-title: Introduzione all'interfaccia della riga di comando di Azure per Batch | Microsoft Docs
+title: Introduzione all'interfaccia della riga di comando di Azure per batch
 description: Introduzione rapida ai comandi per Batch nell'interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020183"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117370"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -83,7 +73,7 @@ Per usare l'interfaccia della riga di comando di Azure per gestire le risorse di
 
 Per l'autenticazione con l'account Batch è possibile procedere in due modi:
 
-- **Tramite l'autenticazione di Azure Active Directory (Azure AD)By using Azure Active Directory (Azure AD) authentication** 
+- **Utilizzando l'autenticazione di Azure Active Directory (Azure AD)** 
 
     L'autenticazione con Azure AD è l'opzione predefinita quando si usa l'interfaccia della riga di comando di Azure con Batch ed è consigliata per la maggior parte degli scenari. 
     
@@ -151,7 +141,7 @@ Quando si esegue una query sul servizio Batch con un'operazione `list`, è possi
 
 La tabella seguente illustra le clausole OData supportate dal servizio Batch:
 
-| Clausola | Descrizione |
+| Clausola | Description |
 |---|---|
 | `--select-clause [select-clause]` | Restituisce un subset di proprietà per ogni entità. |
 | `--filter-clause [filter-clause]` | Restituisce solo le entità che corrispondono all'espressione OData specificata. |

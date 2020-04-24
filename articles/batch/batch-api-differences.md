@@ -1,20 +1,15 @@
 ---
-title: Differenze tra API di gestione e API del servizio-Azure Batch | Microsoft Docs
+title: Differenze tra API di gestione e API del servizio
 description: Le API funzionano sui diversi livelli del servizio Azure Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 181515c0f497af8ffadcb909c13e51a40bfbf3b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b8c5980aba1090155d6b136c6707e928666abf
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672767"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115398"
 ---
 # <a name="service-level-and-management-level-apis"></a>API del livello di servizio e di gestione
 

@@ -1,25 +1,15 @@
 ---
-title: Installare pacchetti dell'applicazione nei nodi di calcolo - Azure Batch | Microsoft Docs
+title: Installare i pacchetti dell'applicazione nei nodi di calcolo
 description: Usare la funzionalità dei pacchetti dell’applicazione di Azure Batch per gestire facilmente più applicazioni e versioni ed eseguire l'installazione su nodi di calcolo in Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086215"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115619"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -42,7 +32,7 @@ Per *applicazione* in Azure Batch si intende un set di file binari con versione 
 
 ![Diagramma di alto livello di applicazioni e pacchetti applicazione][1]
 
-### <a name="applications"></a>APPLICAZIONI
+### <a name="applications"></a>Applicazioni
 Un'applicazione in Batch contiene uno o più pacchetti dell'applicazione e specifica le opzioni di configurazione per l'applicazione. Un'applicazione può ad esempio specificare la versione predefinita del pacchetto dell'applicazione da installare nei nodi di calcolo e se i pacchetti possono essere aggiornati o eliminati.
 
 ### <a name="application-packages"></a>Pacchetti dell'applicazione
@@ -82,7 +72,7 @@ Per usare i pacchetti dell'applicazione, è prima necessario collegare un [accou
 
 
 
-![Avviso 'Nessun account di archiviazione configurato' nel portale di Azure'No storage account configured' warning in Azure portal][9]
+![Avviso ' nessun account di archiviazione ' configurato in portale di Azure][9]
 
 Il servizio Batch usa l'account di archiviazione associato per archiviare i pacchetti dell'applicazione. Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato nei nodi di calcolo. Per collegare un account di archiviazione a un account Batch, fare clic su **Account di archiviazione** nella finestra **Avviso** e quindi fare di nuovo clic su **Account di archiviazione**.
 
@@ -92,9 +82,9 @@ Il servizio Batch usa l'account di archiviazione associato per archiviare i pacc
 
 > [!IMPORTANT] 
 > - Non è attualmente possibile usare i pacchetti dell'applicazione con un account di archiviazione di Azure configurato con [regole del firewall](../storage/common/storage-network-security.md).
-> - Un account di archiviazione di Azure con **spazio dei nomi gerarchico** impostato su **Abilitato** non può essere usato per i pacchetti di applicazioni.
+> - Non è possibile usare un account di archiviazione di Azure con **lo spazio dei nomi gerarchico** impostato su **abilitato** per i pacchetti dell'applicazione.
 
-Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione come BLOB in blocchi. Viene [addebitato come di consueto][storage_pricing] per i dati BLOB in blocchi e le dimensioni di ogni pacchetto non possono superare le dimensioni massime del BLOB in blocchi. Per altre informazioni, vedere Obiettivi di [scalabilità e prestazioni di Archiviazione di Azure per gli account di archiviazione.](../storage/blobs/scalability-targets.md) Controllare la dimensione e il numero dei pacchetti dell'applicazione e rimuovere periodicamente i pacchetti obsoleti per ridurre al minimo il costo.
+Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione come BLOB in blocchi. Viene [addebitato il costo normale][storage_pricing] per i dati BLOB in blocchi e le dimensioni di ogni pacchetto non possono superare le dimensioni massime del BLOB in blocchi. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per archiviazione di Azure per gli account di archiviazione](../storage/blobs/scalability-targets.md). Controllare la dimensione e il numero dei pacchetti dell'applicazione e rimuovere periodicamente i pacchetti obsoleti per ridurre al minimo il costo.
 
 ### <a name="view-current-applications"></a>Visualizzare le applicazioni correnti
 Per visualizzare le applicazioni nell'account Batch, fare clic sulla voce di menu **Applicazioni** nel menu di sinistra mentre l'**account Batch** è aperto.
@@ -111,11 +101,11 @@ La finestra visualizza l'ID di ogni applicazione nell'account e le proprietà se
 * **Versione predefinita**: la versione dell'applicazione che verrà installata se non si indica una versione quando si specifica l'applicazione per un pool. Questa impostazione è facoltativa.
 * **Consenti aggiornamenti**: il valore che specifica se sono consentiti aggiornamenti, eliminazioni e aggiunte per il pacchetto. Se l'opzione è impostata su **No**, gli aggiornamenti del pacchetto e le eliminazioni sono disabilitate per l'applicazione. È possibile aggiungere solo nuove versioni del pacchetto dell'applicazione. Il valore predefinito è **Sì**.
 
-Per visualizzare la struttura di file del pacchetto dell'applicazione nel nodo di calcolo, passare all'account Batch nel portale. Dall'account Batch, accedere a **Pool**. Selezionare il pool che contiene i nodi di calcolo a cui si è interessati.
+Se si vuole visualizzare la struttura di file del pacchetto dell'applicazione nel nodo di calcolo, passare all'account batch nel portale. Dall'account batch passare a **pool**. Selezionare il pool che contiene i nodi di calcolo a cui si è interessati.
 
 ![Nodi nel pool][13]
 
-Dopo aver selezionato il pool, passare al nodo di calcolo in cui è installato il pacchetto dell'applicazione. Da lì, i dettagli del pacchetto dell'applicazione si trovano nella cartella delle **applicazioni.** Le cartelle aggiuntive nel nodo di calcolo contengono altri file, ad esempio attività di avvio, file di output, output degli errori e così via.
+Dopo aver selezionato il pool, passare al nodo di calcolo in cui è installato il pacchetto dell'applicazione. Da qui, i dettagli del pacchetto dell'applicazione si trovano nella cartella **applicazioni** . Cartelle aggiuntive nel nodo di calcolo contengono altri file, ad esempio attività di avvio, file di output, output degli errori e così via.
 
 ![File nel nodo][14]
 
@@ -148,7 +138,7 @@ Questo campo specifica l'ID della nuova applicazione, che è soggetto alle regol
 * Deve essere univoco nell’account Batch.
 * Mantiene le maiuscole/minuscole e non fa distinzione tra maiuscole e minuscole.
 
-**Version**
+**Versione**
 
 Questo campo specifica la versione del pacchetto dell'applicazione che si sta caricando. Le stringhe della versione sono soggette alle regole di convalida seguenti:
 
@@ -173,7 +163,7 @@ Per aggiungere una versione del pacchetto dell'applicazione per un'applicazione 
 
 ![Pannello per aggiungere pacchetto dell’applicazione nel portale di Azure][8]
 
-Come si può notare, i campi corrispondono a quelli della finestra **Nuova applicazione,** ma la casella **ID applicazione** è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
+Come si può notare, i campi corrispondono a quelli della **nuova finestra dell'applicazione** , ma la casella **ID applicazione** è disabilitata. Come è stato fatto per la nuova applicazione, specificare la **versione** del nuovo pacchetto, scegliere il file ZIP del **pacchetto dell'applicazione** e quindi fare clic su **OK** per caricare il pacchetto.
 
 ### <a name="update-or-delete-an-application-package"></a>Aggiornare o eliminare un pacchetto dell'applicazione
 Per aggiornare o eliminare un pacchetto dell'applicazione esistente, aprire i dettagli relativi all'applicazione, fare clic su **Pacchetti**, fare clic sui **puntini di sospensione** nella riga del pacchetto dell'applicazione che si vuole modificare e quindi selezionare l'azione da eseguire.
@@ -369,12 +359,12 @@ Con i pacchetti dell'applicazione è possibile assistere i clienti nella scelta 
 [2]: ./media/batch-application-packages/app_pkg_02.png "Riquadro Applicazioni nel portale di Azure"
 [3]: ./media/batch-application-packages/app_pkg_03.png "Pannello Applicazioni nel portale di Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Pannello Dettagli applicazione nel portale di Azure"
-[5]: ./media/batch-application-packages/app_pkg_05.png "Nuovo pannello dell'applicazione nel portale di AzureNew application blade in Azure portal"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Pannello nuova applicazione in portale di Azure"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Elenco a discesa per aggiornamento o eliminazione pacchetto nel portale di Azure"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Pannello per nuovo pacchetto dell'applicazione nel portale di Azure"
 [9]: ./media/batch-application-packages/app_pkg_09.png " Nessun account di archiviazione collegato"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Scegliere il pannello dell'account di archiviazione nel portale di AzureChoose storage account blade in Azure portal"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Aggiornare il blade del pacchetto nel portale di AzureUpdate package blade in Azure portal"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Scegliere Pannello account di archiviazione in portale di Azure"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Pannello Aggiorna pacchetto in portale di Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Finestra di conferma eliminazione pacchetto nel portale di Azure"
-[13]: ./media/batch-application-packages/package-file-structure.png "Calcolare le informazioni sui nodi nel portale di AzureCompute node information in Azure portal"
-[14]: ./media/batch-application-packages/package-file-structure-node.png "File nel nodo di calcolo visualizzati nel portale di AzureFiles on the compute node displayed in Azure portal"
+[13]: ./media/batch-application-packages/package-file-structure.png "Informazioni sui nodi di calcolo in portale di Azure"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "File nel nodo di calcolo visualizzato in portale di Azure"

@@ -1,23 +1,23 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
-description: Descrive come vengono utilizzate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
+description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 329692c7220810af1d47fe7036e727bb49284810
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461005"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117285"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
-Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni dei criteri descrivono [le condizioni](#conditions) di conformità delle risorse e l'effetto da avere se viene soddisfatta una condizione. Una condizione confronta un [campo](#fields) della proprietà della risorsa con un valore obbligatorio. L'accesso ai campi delle proprietà delle risorse viene eseguito tramite [alias](#aliases). Un campo della proprietà della risorsa è un campo a valore singolo o [una matrice](#understanding-the--alias) di più valori. La valutazione delle condizioni è diversa nelle matrici.
-Ulteriori informazioni sulle [condizioni](#conditions).
+Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni dei criteri descrivono le [condizioni](#conditions) di conformità delle risorse e l'effetto da eseguire se viene soddisfatta una condizione. Una condizione Confronta un [campo](#fields) della proprietà della risorsa con un valore obbligatorio. È possibile accedere ai campi delle proprietà delle risorse tramite [alias](#aliases). Un campo della proprietà della risorsa è un campo a valore singolo o una [matrice](#understanding-the--alias) di più valori. La valutazione della condizione è diversa nelle matrici.
+Altre informazioni sulle [condizioni](#conditions).
 
 Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
-Lo schema di definizione dei criteri è disponibile qui:The policy definition schema is found here:[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+Lo schema di definizione dei criteri è disponibile qui:[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
@@ -63,36 +63,36 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 }
 ```
 
-Tutti gli esempi di Criteri di Azure sono disponibili in Esempi di criteri di Azure.All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
+Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
 ## <a name="mode"></a>Mode
 
-**La modalità** viene configurata a seconda che il criterio sia destinato a una proprietà di Azure Resource Manager o a una proprietà del provider di risorse.
+La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
 
-### <a name="resource-manager-modes"></a>Modalità di Resource Manager
+### <a name="resource-manager-modes"></a>Modalità Gestione risorse
 
 Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
 
 - `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
 - `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
-Ad esempio, `Microsoft.Network/routeTables` la risorsa supporta i tag e la posizione e viene valutata in entrambe le modalità. Tuttavia, `Microsoft.Network/routeTables/routes` la risorsa non può essere contrassegnata e non viene valutata in `Indexed` modalità.
+Ad esempio, la `Microsoft.Network/routeTables` risorsa supporta i tag e la posizione e viene valutata in entrambe le modalità. Tuttavia, la `Microsoft.Network/routeTables/routes` risorsa non può essere contrassegnata e `Indexed` non viene valutata in modalità.
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco delle risorse che supportano i tag, vedere Supporto dei tag per le risorse di [Azure.](../../../azure-resource-manager/management/tag-support.md)
+`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto dei tag per le risorse di Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modalità provider di risorse (anteprima)Resource Provider modes (preview)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modalità del provider di risorse (anteprima)
 
-Le seguenti modalità del provider di risorse sono attualmente supportate durante l'anteprima:The following Resource Provider modes are currently supported during preview:
+Le modalità del provider di risorse seguenti sono attualmente supportate durante l'anteprima:
 
-- `Microsoft.ContainerService.Data`per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). I criteri che utilizzano questa modalità del provider di risorse devono utilizzare l'effetto [EnforceRegoPolicy.Policies](./effects.md#enforceregopolicy) using this Resource Provider mode **must** use the EnforceRegoPolicy effect.
-- `Microsoft.Kubernetes.Data`per la gestione dei cluster AKS Engine kubernetes autogestiti in Azure.For managing self-managed AKS Engine Kubernetes clusters on Azure.
-  I criteri che utilizzano questa modalità del provider di risorse **devono** utilizzare l'effetto [EnforceOPAConstraint.](./effects.md#enforceopaconstraint)
+- `Microsoft.ContainerService.Data`per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). I criteri che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceRegoPolicy](./effects.md#enforceregopolicy) .
+- `Microsoft.Kubernetes.Data`per la gestione di cluster Kubernetes del motore AKS autogestiti in Azure.
+  I criteri che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
 - `Microsoft.KeyVault.Data`per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative durante l'anteprima.
+> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative in fase di anteprima.
 
 ## <a name="parameters"></a>Parametri
 
@@ -106,22 +106,22 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 
 Un parametro presenta le proprietà seguenti, usate nella definizione di criteri:
 
-- **name**: Il nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
-- `type`: determina se il parametro è una **stringa**, **matrice**, **object**, **boolean**, **integer**, **float**o **datetime**.
-- `metadata`: definisce le sottoproprietà utilizzate principalmente dal portale di Azure per visualizzare informazioni di facile utilizzo:: Defines subproperties primarily used by the Azure portal to display user-friendly information:
-  - `description`: spiegazione dell'utilizzo del parametro. Può essere usata per fornire esempi di valori accettabili.
-  - `displayName`: il nome descrittivo visualizzato nel portale per il parametro.
-  - `version`: (Facoltativo) Tiene traccia dei dettagli relativi alla versione del contenuto di una definizione dei criteri.
+- **nome**: il nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
+- `type`: Determina se il parametro è una **stringa**, una **matrice**, un **oggetto**, un valore **booleano**, un Integer, un **valore** **float**o **DateTime**.
+- `metadata`: Definisce le sottoproprietà utilizzate principalmente dal portale di Azure per visualizzare informazioni descrittivo:
+  - `description`: Spiegazione della funzione utilizzata per il parametro. Può essere usata per fornire esempi di valori accettabili.
+  - `displayName`: Nome descrittivo visualizzato nel portale per il parametro.
+  - `version`: (Facoltativo) tiene traccia dei dettagli sulla versione del contenuto di una definizione dei criteri.
 
     > [!NOTE]
-    > Il servizio Criteri `version` `preview`di `deprecated` Azure usa , e le proprietà per trasmettere il livello di modifica a una definizione o a un'iniziativa e allo stato predefiniti. Il formato `version` di `{Major}.{Minor}.{Patch}`è: . Stati specifici, ad esempio _preview_ _deprecato_ o anteprima `version` , vengono aggiunti alla proprietà o in un'altra proprietà come **valore booleano.**
+    > Il servizio criteri di Azure `version`USA `preview`le proprietà `deprecated` , e per fornire il livello di modifica a una definizione di criteri incorporata o a un'iniziativa e uno stato. Il formato di `version` è: `{Major}.{Minor}.{Patch}`. Gli stati specifici, ad esempio _deprecato_ o _Anteprima_, vengono aggiunti alla `version` proprietà o in un'altra proprietà come **valore booleano**.
 
-  - `category`: (Facoltativo) Determina in quale categoria nel portale di Azure viene visualizzata la definizione dei criteri.
-  - `strongType`: (Facoltativo) Utilizzato durante l'assegnazione della definizione dei criteri tramite il portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
-  - `assignPermissions`: (Facoltativo) Impostare su true per fare in modo che il portale di Azure crei assegnazioni di ruolo durante l'assegnazione dei criteri.: (Optional) Set as _true_ to have Azure portal create role assignments during policy assignment. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni all'esterno dell'ambito di assegnazione. Esiste un'assegnazione di ruolo per definizione di ruolo nei criteri (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
-- `defaultValue`: (Facoltativo) Imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
+  - `category`: (Facoltativo) determina in quale categoria portale di Azure viene visualizzata la definizione dei criteri.
+  - `strongType`: (Facoltativo) usato quando si assegna la definizione dei criteri tramite il portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
+  - `assignPermissions`: (Facoltativo) impostare su _true_ per avere portale di Azure creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
+- `defaultValue`: (Facoltativo) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
   Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
-- `allowedValues`: (Facoltativo) Fornisce una matrice di valori accettati dal parametro durante l'assegnazione.
+- `allowedValues`: (Facoltativo) fornisce una matrice di valori accettati dal parametro durante l'assegnazione.
 
 Ad esempio, è possibile definire una definizione di criteri per limitare i percorsi in cui le risorse possono essere distribuite. Un parametro per questa definizione di criteri potrebbe essere **allowedLocations**. Questo parametro è stato usato da ogni assegnazione della definizione di criteri per limitare i valori accettati. L'uso di **strongType** offre un'esperienza migliorata nel completamento dell'assegnazione tramite portale:
 
@@ -146,7 +146,7 @@ Ad esempio, è possibile definire una definizione di criteri per limitare i perc
 
 ### <a name="using-a-parameter-value"></a>Usare un valore di parametro
 
-Nella regola dei criteri, si `parameters` fa riferimento a parametri con la sintassi della funzione seguente:
+Nella regola dei criteri è necessario fare riferimento ai parametri con `parameters` la sintassi della funzione seguente:
 
 ```json
 {
@@ -159,13 +159,13 @@ Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella
 
 ### <a name="strongtype"></a>strongType
 
-Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. strongType può essere un _tipo di risorsa_ supportato o un valore consentito.strongType can be a supported resource type or an allowed value. **strongType** Per determinare se un _tipo di risorsa_ è valido per **strongType**, utilizzare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **StrongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
 
-Alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** sono supportati. Questi sono:
+Sono supportati alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** . Sono:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-I valori consentiti per il tipo di risorsa non consentiti per strongType sono:The non _resource type_ allowed values for **strongType** are:
+I valori non consentiti per il _tipo di risorsa_ per **strongType** sono:
 
 - `location`
 - `resourceTypes`
@@ -187,7 +187,7 @@ Se la posizione della definizione è:
 Usare **displayName** e **description** per identificare la definizione dei criteri e fornire il contesto d'uso. **displayName** ha una lunghezza massima di _128_ caratteri e **description** una lunghezza massima di _512_ caratteri.
 
 > [!NOTE]
-> Durante la creazione o l'aggiornamento di una definizione di criteri, **id**, **type**e **name** sono definiti da proprietà esterne a JSON e non sono necessarie nel file JSON. Il seraggio della definizione dei criteri tramite SDK restituisce le proprietà **id**, **type**e **name** come parte del codice JSON, ma ognuna di esse sono informazioni di sola lettura relative alla definizione dei criteri.
+> Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo**e **nome** sono definiti da proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **ID**, **tipo**e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
 ## <a name="policy-rule"></a>Regola dei criteri
 
@@ -258,14 +258,14 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 - `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-Per **less**, **lessOrEquals**, **greater**e **greaterOrEquals**, se il tipo di proprietà non corrisponde al tipo di condizione, viene generato un errore. I confronti tra `InvariantCultureIgnoreCase`stringhe vengono effettuati utilizzando .
+Per **less**, **lessOrEquals**, **Greater**e **greaterOrEquals**, se il tipo di proprietà non corrisponde al tipo di condizione, viene generato un errore. I confronti tra stringhe `InvariantCultureIgnoreCase`vengono eseguiti usando.
 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
 
-Quando si utilizzano le condizioni **match** e `?` **notMatch,** specificare `#` di trovare una corrispondenza con una cifra, per una lettera, `.` per la corrispondenza con qualsiasi carattere e qualsiasi altro carattere corrispondente al carattere effettivo. Mentre, **match** e **notMatch** sono case-sensitive, tutte le altre condizioni che valutano un _stringValue_ sono case senza distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**.
+Quando si usano le condizioni **match** e **notMatch** , `#` fornire per trovare la corrispondenza `?` con una cifra, `.` per una lettera, per trovare la corrispondenza con qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo. While, **match** e **notMatch** fanno distinzione tra maiuscole e minuscole e tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**.
 
-In ** \[ \* \] ** un valore di campo di matrice alias, ogni elemento della matrice viene valutato singolarmente con elementi logici **e** intermedi. Per ulteriori informazioni, vedere [Valutazione \[ \* \] dell'alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+In ** \[ \* un \] ** valore di campo di matrice alias ogni elemento nella matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione dell' \[ \* \] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### <a name="fields"></a>Campi
 
@@ -281,16 +281,16 @@ Sono supportati i seguenti campi:
 - `location`
   - Usare **global** per le risorse che sono indipendenti dalla posizione.
 - `identity.type`
-  - Restituisce il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitato per la risorsa.
+  - Restituisce il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
 - `tags`
 - `tags['<tagName>']`
   - Questa sintassi tra parentesi quadre supporta nomi di tag con segni di punteggiatura, ad esempio un trattino, punti o spazi.
-  - Dove ** \<tagName\> ** è il nome del tag per cui convalidare la condizione.
+  - Dove ** \<TagName\> ** è il nome del tag per cui convalidare la condizione.
   - Esempi: `tags['Acct.CostCenter']` dove **Acct.CostCenter** è il nome del tag.
 - `tags['''<tagName>''']`
   - Questa sintassi tra parentesi quadre supporta nomi di tag contenenti apostrofi eseguendo l'escape con esso in caratteri di escape con apostrofi doppi.
-  - Dove **\<'\>tagName '** è il nome del tag per cui convalidare la condizione.
-  - Esempio: `tags['''My.Apostrophe.Tag''']` dove **'My.Apostrophe.Tag'** è il nome del tag.
+  - Dove **'\<TagName\>'** è il nome del tag per cui convalidare la condizione.
+  - Esempio: `tags['''My.Apostrophe.Tag''']` dove **' My. Apostrof. Tag '** è il nome del tag.
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 > [!NOTE]
@@ -300,7 +300,7 @@ Sono supportati i seguenti campi:
 
 È possibile passare a un campo di tag un valore di parametro. Passare un parametro a un campo di tag aumenta la flessibilità della definizione dei criteri durante l'assegnazione dei criteri.
 
-Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di tag per il tag che ha come nome il valore del parametro **tagName**. Se tale tag non esiste, l'effetto di **modifica** viene utilizzato per aggiungere il tag utilizzando il valore `resourcegroup()` dello stesso tag denominato impostato nel gruppo di risorse padre delle risorse controllate utilizzando la funzione di ricerca.
+Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di tag per il tag che ha come nome il valore del parametro **tagName**. Se il tag non esiste, l'effetto di **modifica** viene usato per aggiungere il tag usando il valore dello stesso set di tag denominato nel gruppo di risorse padre delle risorse controllate tramite la `resourcegroup()` funzione Lookup.
 
 ```json
 {
@@ -330,7 +330,7 @@ Le condizioni possono essere formate anche usando **value**. **value** controlla
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
 
 > [!WARNING]
-> Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Per altre informazioni, vedere come [evitare errori dei modelli](#avoiding-template-failures). Utilizzare [enforcementMode](./assignment-structure.md#enforcement-mode) di **DoNotEnforce** per evitare l'impatto di una valutazione non riuscita su risorse nuove o aggiornate durante il test e la convalida di una nuova definizione dei criteri.
+> Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Per altre informazioni, vedere come [evitare errori dei modelli](#avoiding-template-failures). Usare [enforcementMode](./assignment-structure.md#enforcement-mode) di **DoNotEnforce** per evitare l'effetto di una valutazione non riuscita sulle risorse nuove o aggiornate durante il test e la convalida di una nuova definizione dei criteri.
 
 #### <a name="value-examples"></a>Esempi d'uso di value
 
@@ -372,9 +372,9 @@ Questa regola dei criteri usa **value** per verificare se il risultato di più f
 }
 ```
 
-#### <a name="avoiding-template-failures"></a>Evitare errori di modello
+#### <a name="avoiding-template-failures"></a>Evitare gli errori di modelli
 
-L'uso di funzioni di _modello_ nel **valore** consente molte funzioni annidate complesse. Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Un esempio di un valore che ha esito negativo in determinati scenari:An example of a **value** that fails in certain scenarios:
+L'utilizzo delle _funzioni di modello_ in **value** consente numerose funzioni annidate complesse. Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Un esempio di un **valore** che ha esito negativo in determinati scenari:
 
 ```json
 {
@@ -390,9 +390,9 @@ L'uso di funzioni di _modello_ nel **valore** consente molte funzioni annidate c
 }
 ```
 
-La regola dei criteri di esempio precedente utilizza [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) per confrontare i primi tre caratteri del **nome con** **abc**. Se **name** è più breve `substring()` di tre caratteri, la funzione genera un errore. Questo errore fa sì che il criterio diventi un effetto **di negazione.**
+La regola dei criteri di esempio precedente USA [substring ()](../../../azure-resource-manager/templates/template-functions-string.md#substring) per confrontare i primi tre caratteri di **nome** in **ABC**. Se il **nome** è più breve di tre caratteri, `substring()` la funzione genera un errore. Questo errore fa sì che i criteri diventino un effetto **negato** .
 
-Utilizzate invece la funzione [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if) per verificare se i primi tre caratteri del **nome** sono uguali a **abc** senza consentire a un **nome** inferiore a tre caratteri di causare un errore:
+Utilizzare invece la funzione [if ()](../../../azure-resource-manager/templates/template-functions-logical.md#if) per verificare se i primi tre caratteri del **nome** corrispondono a **ABC** senza consentire a un **nome** più breve di tre caratteri di generare un errore:
 
 ```json
 {
@@ -408,13 +408,13 @@ Utilizzate invece la funzione [if()](../../../azure-resource-manager/templates/t
 }
 ```
 
-Con la regola dei `if()` criteri modificata, controlla la `substring()` lunghezza del **nome** prima di tentare di ottenere un valore su un valore con meno di tre caratteri. Se **name** è troppo breve, viene restituito il valore "not starting with abc" e confrontato con **abc**. Una risorsa con un nome breve che non inizia con **abc** continua a non riuscire alla regola dei criteri, ma non causa più un errore durante la valutazione.
+Con la regola dei criteri modificata `if()` , controlla la lunghezza del **nome** prima di provare a `substring()` ottenere un valore con meno di tre caratteri. Se il **nome** è troppo breve, viene invece restituito il valore "Not Starting with ABC" e viene confrontato con **ABC**. Una risorsa con un nome breve che non inizia con **ABC** continua ad avere esito negativo sulla regola dei criteri, ma non causa più errori durante la valutazione.
 
 ### <a name="count"></a>Conteggio
 
-Le condizioni che contano quanti membri di una matrice nel payload della risorsa soddisfano un'espressione di condizione che possono essere formate usando l'espressione **count.** Scenari comuni stanno controllando se 'almeno uno di', 'esattamente uno di', 'all of' o 'nessuno dei' i membri della matrice soddisfano la condizione. **count** valuta [ \[ \* \] ](#understanding-the--alias) ogni membro della matrice di alias per un'espressione di condizione e somma i risultati _reali,_ che vengono quindi confrontati con l'operatore di espressione.
+Le condizioni che contano il numero di membri di una matrice nel payload della risorsa che soddisfano un'espressione di condizione possono essere create usando l'espressione **count** . Gli scenari comuni controllano se ' almeno uno di ',' esattamente uno dei membri della matrice ',' tutti ' o ' nessuno di ' soddisfi la condizione. **count** valuta [ \[ \* ogni \] ](#understanding-the--alias) membro della matrice alias per un'espressione di condizione e somma i risultati _reali_ , che viene quindi confrontato con l'operatore Expression. Le espressioni **count** possono essere aggiunte fino a tre volte a una singola definizione **policyRule** .
 
-La struttura dell'espressione **count** è:
+La struttura dell'espressione **count** è la seguente:
 
 ```json
 {
@@ -428,16 +428,16 @@ La struttura dell'espressione **count** è:
 }
 ```
 
-Le seguenti proprietà vengono utilizzate con **count**:
+Con **count**vengono usate le proprietà seguenti:
 
-- **count.field** (obbligatorio): contiene il percorso della matrice e deve essere un alias di matrice. Se la matrice non è presente, l'espressione viene valutata su _false_ senza considerare l'espressione della condizione.
-- **count.where** (facoltativo): l'espressione di [ \[ \* \] ](#understanding-the--alias) condizione per valutare singolarmente ogni membro della matrice di alias di **count.field**. Se questa proprietà non viene fornita, tutti i membri della matrice con il percorso di 'field' vengono valutati su _true_. Qualsiasi [condizione](../concepts/definition-structure.md#conditions) può essere utilizzata all'interno di questa proprietà.
+- **Count. Field** (obbligatorio): contiene il percorso della matrice e deve essere un alias di matrice. Se la matrice non è presente, l'espressione viene valutata come _false_ senza considerare l'espressione della condizione.
+- **Count. Where** (facoltativo): espressione della condizione per valutare singolarmente [ \[ \* \] ](#understanding-the--alias) ogni membro della matrice di alias di **Count. Field**. Se questa proprietà non viene specificata, tutti i membri della matrice con il percorso ' Field ' verranno valutati come _true_. È possibile utilizzare qualsiasi [condizione](../concepts/definition-structure.md#conditions) all'interno di questa proprietà.
   [Gli operatori logici](#logical-operators) possono essere utilizzati all'interno di questa proprietà per creare requisiti di valutazione complessi.
-- condition (required): il valore viene confrontato con il numero di elementi che hanno soddisfatto l'espressione della condizione **count.where.** ** \<\> ** Deve essere utilizzata una [condizione](../concepts/definition-structure.md#conditions) numerica.
+- Condition (obbligatorio): il valore viene confrontato con il numero di elementi che soddisfano l'espressione della condizione **Count. Where** . ** \<\> ** È necessario usare una [condizione](../concepts/definition-structure.md#conditions) numerica.
 
 #### <a name="count-examples"></a>Esempi di conteggio
 
-Esempio 1: Controllare se una matrice è vuotaExample 1: Check if an array is empty
+Esempio 1: verificare se una matrice è vuota
 
 ```json
 {
@@ -448,7 +448,7 @@ Esempio 1: Controllare se una matrice è vuotaExample 1: Check if an array is em
 }
 ```
 
-Esempio 2: Verificare la presenza di un solo membro della matrice per soddisfare l'espressione di condizioneExample 2: Check for only one array member to meet the condition expression
+Esempio 2: verificare la presenza di un solo membro della matrice per soddisfare l'espressione della condizione
 
 ```json
 {
@@ -463,7 +463,7 @@ Esempio 2: Verificare la presenza di un solo membro della matrice per soddisfare
 }
 ```
 
-Esempio 3: Verificare la presenza di almeno un membro della matrice per soddisfare l'espressione di condizioneExample 3: Check for at least one array member to meet the condition expression
+Esempio 3: verificare la presenza di almeno un membro della matrice per soddisfare l'espressione della condizione
 
 ```json
 {
@@ -478,7 +478,7 @@ Esempio 3: Verificare la presenza di almeno un membro della matrice per soddisfa
 }
 ```
 
-Esempio 4: Verificare che tutti i membri dell'array di oggetti soddisfino l'espressione di condizioneExample 4: Check that all object array members meet the condition expression
+Esempio 4: controllare che tutti i membri della matrice di oggetti soddisfino l'espressione della condizione
 
 ```json
 {
@@ -493,7 +493,7 @@ Esempio 4: Verificare che tutti i membri dell'array di oggetti soddisfino l'espr
 }
 ```
 
-Esempio 5: Verificare che tutti i membri della matrice di stringhe soddisfino l'espressione di condizioneExample 5: Check that all string array members meet the condition expression
+Esempio 5: controllare che tutti i membri della matrice di stringhe soddisfino l'espressione della condizione
 
 ```json
 {
@@ -508,7 +508,7 @@ Esempio 5: Verificare che tutti i membri della matrice di stringhe soddisfino l'
 }
 ```
 
-Esempio 6: Utilizzare il **valore** **field** inside per verificare che tutti i membri della matrice soddisfino l'espressione della condizione
+Esempio 6: usare il **campo** all'interno del **valore** per verificare che tutti i membri della matrice soddisfino l'espressione della condizione
 
 ```json
 {
@@ -523,7 +523,7 @@ Esempio 6: Utilizzare il **valore** **field** inside per verificare che tutti i 
 }
 ```
 
-Esempio 7: verificare che almeno un membro della matrice corrisponda a più proprietà nell'espressione della condizioneExample 7: Check that at least one array member matches multiple properties in the condition expression
+Esempio 7: verificare che almeno un membro della matrice corrisponda a più proprietà nell'espressione della condizione
 
 ```json
 {
@@ -552,54 +552,54 @@ Esempio 7: verificare che almeno un membro della matrice corrisponda a più prop
 
 ### <a name="effect"></a>Effetto
 
-Criteri di Azure supporta i tipi di effetto seguenti:Azure Policy supports the following types of effect:
+Criteri di Azure supporta i seguenti tipi di effetto:
 
 - **Append**: aggiunge il set di campi definiti alla richiesta
 - **Audit**: genera un evento di avviso nel log attività, ma non nega la richiesta
-- **AuditIfNotExists**: genera un evento di avviso nel registro attività se non esiste una risorsa correlata
+- **AuditIfNotExists**: genera un evento di avviso nel log attività se una risorsa correlata non esiste
 - **Deny**: genera un evento nel log attività e nega la richiesta
-- **DeployIfNotExists:** distribuisce una risorsa correlata se non esiste già
+- **DeployIfNotExists**: distribuisce una risorsa correlata se non esiste già
 - **Disabled**: non valuta le risorse per garantire la conformità alla regola dei criteri
-- **EnforceOPAConstraint** (anteprima): configura il controller di ammissione dell'agente criteri aperto con Gatekeeper v3 per i cluster Kubernetes autogestiti in Azure (anteprima)EnforceOPAConstraint (preview): configures the Open Policy Agent admissions controller with Gatekeeper v3 for self-managed Kubernetes clusters on Azure (preview)
-- **EnforceRegoPolicy** (anteprima): configura il controller di ammissione dell'agente criteri aperto con Gatekeeper v2 nel servizio Azure KubernetesEnforceRegoPolicy (preview): configures the Open Policy Agent admissions controller with Gatekeeper v2 in Azure Kubernetes Service
+- **EnforceOPAConstraint** (anteprima): configura il controller di ammissione di agenti criteri aperti con gatekeeper V3 per i cluster Kubernetes autogestiti in Azure (anteprima)
+- **EnforceRegoPolicy** (anteprima): configura il controller di ammissione di agenti criteri aperti con gatekeeper V2 nel servizio Azure Kubernetes
 - **Modifica**: aggiunge, aggiorna o rimuove i tag definiti da una risorsa
 
-Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere Informazioni sugli effetti dei criteri di [Azure.](effects.md)
+Per informazioni complete su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [informazioni sugli effetti dei criteri di Azure](effects.md).
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
-Tutte le funzioni modello di Resource Manager sono disponibili per l'utilizzo all'interno di una regola dei criteri, ad eccezione delle funzioni e delle funzioni definite dall'utente seguenti:All [Resource Manager template](../../../azure-resource-manager/templates/template-functions.md) functions are available to use within a policy rule, except the following functions and user-defined functions:
+Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manager/templates/template-functions.md) sono disponibili per l'uso in una regola dei criteri, eccetto le funzioni e le funzioni definite dall'utente seguenti:
 
 - copyIndex()
 - deployment()
 - list*
-- newGuid()
-- pick-ones()
+- newGuid ()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
 
 > [!NOTE]
-> Queste funzioni sono ancora `details.deployment.properties.template` disponibili all'interno della parte della distribuzione del modello in una definizione dei criteri **deployIfNotExists.**
+> Queste funzioni sono ancora disponibili nella `details.deployment.properties.template` parte della distribuzione del modello in una definizione di criteri **deployIfNotExists** .
 
-La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è diversa dall'uso in un modello di Azure Resource Manager:The following function is available to use in a policy rule, but differs from use in an Azure Resource Manager template:
+La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è diversa da quella usata in un modello di Azure Resource Manager:
 
-- `utcNow()`- A differenza di un modello di Resource Manager, questo può essere usato al di fuori di defaultValue.- Unlike a Resource Manager template, this can be used outside defaultValue.
-  - Restituisce una stringa impostata sulla data e sull'ora correnti nel formato ISO 8601 DateTime universale 'aaaa-MM-ggTHH:mm:ss.fffffff'
+- `utcNow()`-Diversamente da un modello di Gestione risorse, può essere usato all'esterno di defaultValue.
+  - Restituisce una stringa impostata sulla data e l'ora correnti nel formato DateTime ISO 8601 universale ' AAAA-MM-GGThh: mm: SS. fffffffZ '
 
-Nelle regole dei criteri sono disponibili solo le funzioni seguenti:The following functions are only available in policy rules:
+Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **stringa dateTime**: [Obbligatorio] stringa - Stringa nel formato ISO 8601 Universale DateTime 'aaaa-MM-ggTHH:mm:ss.fffffff'
-  - **numberOfDaysToAdd**: [Obbligatorio] intero - Numero di giorni da aggiungere
+  - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
+  - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - `field(fieldName)`
-  - **fieldName**: stringa [Obbligatorio] - Nome del [campo](#fields) da recuperare
-  - Restituisce il valore di tale campo dalla risorsa che viene valutata dalla condizione If
+  - **FieldName**: [Required] nome stringa del [campo](#fields) da recuperare
+  - Restituisce il valore di tale campo dalla risorsa valutata dalla condizione If
   - `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Restituisce la versione API della richiesta che `2019-09-01`ha attivato la valutazione dei criteri (esempio: ).
-    Questa sarà la versione dell'API utilizzata nella richiesta PUT/PATCH per le valutazioni sulla creazione/aggiornamento delle risorse. La versione api più recente viene sempre usata durante la valutazione della conformità sulle risorse esistenti.
+  - Restituisce la versione dell'API della richiesta che ha attivato la valutazione del criterio ( `2019-09-01`ad esempio:).
+    Questa sarà la versione dell'API usata nella richiesta PUT/PATCH per le valutazioni per la creazione o l'aggiornamento delle risorse. La versione più recente dell'API viene sempre usata durante la valutazione della conformità sulle risorse esistenti.
   
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
@@ -625,15 +625,15 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attualmente supportati da Criteri di Azure usare uno dei metodi seguenti:
 
-- Estensione dei criteri di Azure per il codice di Visual Studio (scelta consigliata)Azure Policy extension for Visual Studio Code (recommended)
+- Estensione di criteri di Azure per Visual Studio Code (scelta consigliata)
 
-  Usare [l'estensione Criteri](../how-to/extension-for-vscode.md) di Azure per Visual Studio Code per visualizzare e individuare gli alias per le proprietà delle risorse.
+  Usare l' [estensione di criteri di Azure per Visual Studio Code](../how-to/extension-for-vscode.md) per visualizzare e individuare gli alias per le proprietà delle risorse.
 
-  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  ![Estensione di criteri di Azure per Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
 
 - Diagramma delle risorse di Azure
 
-  Utilizzare `project` l'operatore per visualizzare **l'alias** di una risorsa.
+  Usare l' `project` operatore per visualizzare l' **alias** di una risorsa.
 
   ```kusto
   Resources
@@ -682,15 +682,15 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che appare come un nome ** \[ \* ** 'normale' e un altro che è collegato ad esso. Ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un altro ** \[ \* ** associato. Ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-L'alias 'normale' rappresenta il campo come un singolo valore. Questo campo è per gli scenari di confronto delle corrispondenze esatte quando l'intero set di valori deve essere esattamente come definito, né più né meno.
+L'alias ' Normal ' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto con corrispondenza esatta quando l'intero set di valori deve essere esattamente come definito, non più e non meno.
 
-L'alias ** \[ \* ** consente di eseguire il confronto con il valore di ogni elemento nella matrice e con le proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari 'if', 'if any of'o'. Per scenari più complessi, usare l'espressione della condizione [di conteggio.](#count) Utilizzando **\[\*ipRules**, un esempio potrebbe essere la convalida che ogni _azione_ è _Deny_, ma non preoccuparsi di quante regole esistono o quale sia il _valore_ IP .
-Questa regola di esempio verifica la presenza di eventuali corrispondenze di **\[\*\]ipRules .value** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
+** \[ L' \* ** alias rende possibile il confronto con il valore di ogni elemento nella matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Per scenari più complessi, usare l'espressione della condizione [count](#count) . Usando **ipRules\[\***, un esempio consiste nel convalidare che ogni _azione_ è _negata_, ma non è necessario preoccuparsi del numero di regole esistenti o del _valore_ IP.
+Questa regola di esempio controlla la presenza di eventuali corrispondenze di **\[\*\]ipRules. Value** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
 
 ```json
 "policyRule": {
@@ -712,14 +712,14 @@ Questa regola di esempio verifica la presenza di eventuali corrispondenze di **\
 }
 ```
 
-Per ulteriori informazioni, vedere [valutazione dell'alias\*[ ]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Per ulteriori informazioni, vedere [la pagina relativa alla\*valutazione dell'alias []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniziative
 
 Le iniziative consentono di raggruppare più definizioni di criteri correlati per semplificare le assegnazioni e la gestione e quindi di usare un gruppo come se fosse un unico elemento. È possibile ad esempio raggruppare tutte le definizioni di criteri relativi ai tag in una singola iniziativa. Invece di assegnare ciascun criterio singolarmente, si applica l'iniziativa.
 
 > [!NOTE]
-> Una volta assegnata un'iniziativa, i parametri a livello di iniziativa non possono essere modificati. Per questo motivo, si consiglia di impostare un **defaultValue** quando si definisce il parametro.
+> Una volta assegnata un'iniziativa, non è possibile modificare i parametri del livello di iniziativa. Per questo motivo, è consigliabile impostare un **DefaultValue** quando si definisce il parametro.
 
 L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag: `costCenter` e `productName`. Usa due criteri predefiniti per applicare il valore di tag predefinito.
 
@@ -796,9 +796,9 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
+- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
-- Comprendere come creare criteri a livello di [codice.](../how-to/programmatically-create.md)
-- Scopri come ottenere i dati di [conformità](../how-to/get-compliance-data.md).
-- Informazioni su come [correggere le risorse non conformi.](../how-to/remediate-resources.md)
-- Esaminare le informazioni su cui si trova un gruppo di gestione con Organizzare le risorse con i gruppi di gestione di Azure.Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
+- Esaminare le funzionalità di un gruppo di gestione con [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

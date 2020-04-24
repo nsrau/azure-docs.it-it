@@ -1,22 +1,14 @@
 ---
 title: Copia di applicazioni e dati nei nodi del pool
 description: Informazioni su come copiare le applicazioni e i dati nei nodi del pool.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/17/2020
-ms.author: labrenne
-ms.openlocfilehash: 226a0d69ac387142ecf580537e35f8754ac848a6
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385584"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115585"
 ---
 # <a name="copying-applications-and-data-to-pool-nodes"></a>Copia di applicazioni e dati nei nodi del pool
 

@@ -1,23 +1,20 @@
 ---
-title: Usare Azure Pipelines per compilare & distribuire soluzioni HPC-Azure Batch
+title: Usare Azure Pipelines per compilare & distribuire soluzioni HPC
 description: Informazioni su come distribuire una pipeline di compilazione/versione per un'applicazione HPC in esecuzione in Azure Batch.
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
-ms.openlocfilehash: 50cb711dfd16c2a8718d13ba9255ace1e7e3e26d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533131"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117387"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 
-I servizi DevOps di Azure offrono una gamma di strumenti usati dai team di sviluppo per la creazione di un'applicazione personalizzata. Gli strumenti forniti da Azure DevOps possono tradursi in creazione e test automatici di soluzioni di calcolo ad alte prestazioni. Questo articolo illustra come configurare un'integrazione continua (CI) e la distribuzione continua (CD) usando Azure Pipelines per una soluzione di calcolo ad alte prestazioni distribuita su Azure Batch.
+Azure DevOps Services offrono una gamma di strumenti usati dai team di sviluppo per la creazione di un'applicazione personalizzata. Gli strumenti forniti da Azure DevOps possono tradursi in creazione e test automatici di soluzioni di calcolo ad alte prestazioni. Questo articolo illustra come configurare un'integrazione continua (CI) e la distribuzione continua (CD) usando Azure Pipelines per una soluzione di calcolo ad alte prestazioni distribuita su Azure Batch.
 
 Azure Pipelines offre una gamma di moderni processi di integrazione continua/recapito continuo per la compilazione, la distribuzione, il test e il monitoraggio del software. Questi processi accelerano la distribuzione del software, consentendo di concentrarsi sul codice anziché supportare l'infrastruttura e le operazioni.
 
