@@ -4,12 +4,12 @@ description: Ricevere una notifica tramite SMS, webhook, posta elettronica e alt
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669014"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137706"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività
 
@@ -41,7 +41,7 @@ Gli avvisi del log attività hanno alcune opzioni comuni:
 - **Gruppo di risorse**: per impostazione predefinita, la regola di avviso viene salvata nello stesso gruppo di risorse di quello di destinazione definito nell'ambito. L'utente può anche definire il gruppo di risorse in cui deve essere archiviata la regola di avviso.
 - **Tipo di risorsa**: spazio dei nomi definito da Resource Manager per la destinazione dell'avviso.
 - **Nome dell'operazione**: il nome dell' [operazione Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) usato per il controllo degli accessi in base al ruolo. Non è possibile usare le operazioni non registrate con Azure Resource Manager in una regola di avviso del log attività.
-- **Livello**: il livello di gravità dell'evento (dettagliato, informativo, avvertenza, errore o critico).
+- **Level**: livello di gravità dell'evento (informativo, avviso, errore o critico).
 - **Stato**: lo stato dell'evento, in genere Avviato, Non riuscito o Riuscito.
 - **Evento avviato da**: noto anche come "chiamante". L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
 

@@ -1,64 +1,66 @@
 ---
-title: Probe di Azure Service FabricAzure Service Fabric probes
-description: Come modellare Liveness Probe in Azure Service Fabric usando i file del manifesto dell'applicazione e del servizio.
+title: Probe di Service Fabric di Azure
+description: Come modellare un probe di Livenza in Azure Service Fabric usando i file manifesto dell'applicazione e del servizio.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431215"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137587"
 ---
-# <a name="liveness-probe"></a>Sonda di liveness
-A partire da 7.1 Service Fabric supporta il meccanismo Liveness Probe per le applicazioni [containerizzate.][containers-introduction-link] Liveness Probe aiuta ad annunciare la vivacità dell'applicazione containerizzata e quando non rispondono in modo tempestivo, si tradurrà in un riavvio.
-Questo articolo fornisce una panoramica su come definire una sonda di liveness tramite file manifesto.
+# <a name="liveness-probe"></a>Probe di liveity
+A partire dalla versione 7,1, Azure Service Fabric supporta un meccanismo di probe di Livezza per le applicazioni incluse in [contenitori][containers-introduction-link] . Un probe di Livenza consente di segnalare la durata di un'applicazione in contenitori, che verrà riavviata se non risponde velocemente.
+Questo articolo fornisce una panoramica su come definire un probe di Livezza usando i file manifesto.
 
-Prima di procedere con questo articolo, è consigliabile acquisire familiarità con il modello di [applicazione di Service Fabric][application-model-link] e il modello di hosting di Service [Fabric][hosting-model-link].
+Prima di procedere con questo articolo, acquisire familiarità con il [modello di applicazione Service Fabric][application-model-link] e con il [modello di hosting Service Fabric][hosting-model-link].
 
 > [!NOTE]
-> Liveness Probe è supportato solo per i contenitori in modalità di rete NAT.
+> Il probe di liveity è supportato solo per i contenitori in modalità di rete NAT.
 
 ## <a name="semantics"></a>Semantics
-È possibile specificare solo 1 Sonda di Liveness per contenitore e controllare il suo comportamento con questi campi:You can specify only 1 Liveness Probe per container and can control it behavior with these fields:
+È possibile specificare un solo Probe di liveity per ogni contenitore e controllarne il comportamento usando i campi seguenti:
 
-* `initialDelaySeconds`: ritardo iniziale in secondi per l'avvio dell'esecuzione del probe una volta avviato il contenitore. Il valore supportato è int. Il valore predefinito è 0.Supported value is int. Default is 0. Il valore minimo è 0.
+* `initialDelaySeconds`: Ritardo iniziale in secondi per l'esecuzione del probe dopo l'avvio del contenitore. Il valore supportato è **int**. Il valore predefinito è 0 e il valore minimo è 0.
 
-* `timeoutSeconds`: Periodo in secondi dopo il quale consideriamo il probe come non riuscito se non è stato completato correttamente. Il valore supportato è int. Il valore predefinito è 1.Supported value is int. Default is 1. Il valore minimo è 1.
+* `timeoutSeconds`: Il periodo in secondi dopo il quale il probe viene considerato non riuscito, se non è stato completato correttamente. Il valore supportato è **int**. Il valore predefinito è 1 e il valore minimo è 1.
 
-* `periodSeconds`: Periodo in secondi per specificare la frequenza con cui sondiamo. Il valore supportato è int. Il valore predefinito è 10.Supported value is int. Default is 10. Il valore minimo è 1.
+* `periodSeconds`: Periodo in secondi per specificare la frequenza del probe. Il valore supportato è **int**. Il valore predefinito è 10 e il valore minimo è 1.
 
-* `failureThreshold`: Una volta raggiunto FailureThreshold, il contenitore verrà riavviato. Il valore supportato è int. Il valore predefinito è 3.Supported value is int. Default is 3. Il valore minimo è 1.
+* `failureThreshold`: Quando si raggiunge questo valore, il contenitore viene riavviato. Il valore supportato è **int**. Il valore predefinito è 3 e il valore minimo è 1.
 
-* `successThreshold`: in caso di errore, affinché il probe venga considerato riuscito deve essere eseguito correttamente per SuccessThreshold. Il valore supportato è int. Il valore predefinito è 1.Supported value is int. Default is 1. Il valore minimo è 1.
+* `successThreshold`: In caso di errore, perché il probe venga considerato riuscito, deve essere eseguito correttamente per questo valore. Il valore supportato è **int**. Il valore predefinito è 1 e il valore minimo è 1.
 
-Ci sarà al massimo 1 sonda al contenitore in un momento di tempo. Se il probe non viene completato in **timeoutSecondi,** continuiamo ad attenderlo e a contarlo verso **failureThreshold**. 
+In qualsiasi momento può essere presente, al massimo, un probe per un contenitore. Se il probe non termina nel tempo impostato in **timeoutSeconds**, attendere e contare il tempo verso il **failureThreshold**. 
 
-Inoltre, ServiceFabric genererà i report di integrità probe seguenti in DeployedServicePackage:Additionally, ServiceFabric will raise following probe [Health Reports][health-introduction-link] on DeployedServicePackage:
+Inoltre, Service Fabric genererà i report sull' [integrità][health-introduction-link] dei probe seguenti in **DeployedServicePackage**:
 
-* `Ok`: se il probe ha esito positivo per **successThreshold,** il probe viene segnalato come OK.
+* `OK`: Il probe ha esito positivo per il valore impostato in **successThreshold**.
 
-* `Error`: se il valore di failureCount del probe è **un valore in**cui si riavvia, prima di riavviare il contenitore viene segnalato l'errore.
+* `Error`: Il probe **failureCount** ==  **failureThreshold**prima che il contenitore venga riavviato.
 
 * `Warning`: 
-    1. Se il probe ha esito negativo e failureCount < **failureThreshold** si segnala avviso. Questo report di integrità rimane fino a quando failureCount raggiunge **failureThreshold** o **successThreshold**.
-    2. In caso di esito positivo, riportiamo ancora Avviso ma con l'esito positivo consecutivo aggiornato.
+    * Il probe ha esito negativo e **failureCount** < **failureThreshold**. Questo report sull'integrità rimane attivo fino a quando **failureCount** raggiunge il valore impostato in **failureThreshold** o **successThreshold**.
+    * In caso di esito negativo, l'avviso rimane ma con successi consecutivi aggiornati.
 
-## <a name="specifying-liveness-probe"></a>Specifica della sonda di liveness
+## <a name="specifying-a-liveness-probe"></a>Specifica di un probe di liveity
 
-È possibile specificare probe nel file ApplicationManifest.xml in ServiceManifestImport:You can specify probe in the ApplicationManifest.xml under ServiceManifestImport:
+È possibile specificare un probe nel file ApplicationManifest. XML in **ServiceManifestImport**.
 
-La sonda può utilizzare uno dei due:
+Il Probe può essere per uno dei seguenti elementi:
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Exec 
 
-## <a name="http-probe"></a>Sonda HTTP
+### <a name="http-probe"></a>Probe HTTP
 
-Per il probe HTTP, Service Fabric invierà una richiesta HTTP alla porta e al percorso specificati. Il codice restituito maggiore o uguale a 200 e minore di 400 indica l'esito positivo.
+Per un probe HTTP, Service Fabric invierà una richiesta HTTP alla porta e al percorso specificati. Un codice restituito maggiore o uguale a 200 e minore di 400 indica l'esito positivo.
 
-Di seguito è riportato un esempio di come specificare il probe HttpGet:Here is an example of how to specify HttpGet probe:
+Di seguito è riportato un esempio di come specificare un probe HTTP:
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Di seguito è riportato un esempio di come specificare il probe HttpGet:Here is 
   </ServiceManifestImport>
 ```
 
-Il probe HttpGet ha proprietà aggiuntive che è possibile impostare:HttpGet probe has additional properties you can set:
+Il probe HTTP ha proprietà aggiuntive che è possibile impostare:
 
-* `path`: percorso di accesso alla richiesta HTTP.
+* `path`: Percorso da usare nella richiesta HTTP.
 
-* `port`: porta di accesso per le sonde. L'intervallo è compreso tra 1 e 65535. Mandatory.
+* `port`: Porta da usare per i probe. Questa proprietà è obbligatoria. L'intervallo è compreso tra 1 e 65535.
 
-* `scheme`: schema da utilizzare per la connessione al pacchetto di codice. Se impostato su HTTPS, la verifica del certificato viene ignorata. Il valore predefinito è HTTP
+* `scheme`: Schema da utilizzare per la connessione al pacchetto di codice. Se questa proprietà è impostata su HTTPS, la verifica del certificato viene ignorata. L'impostazione predefinita è HTTP.
 
-* `httpHeader`: intestazioni da impostare nella richiesta. È possibile specificarne più.
+* `httpHeader`: Le intestazioni da impostare nella richiesta. È possibile specificare più intestazioni.
 
-* `host`: IP host a cui connettersi.
+* `host`: Indirizzo IP dell'host a cui connettersi.
 
-## <a name="tcp-probe"></a>Sonda TCP
+### <a name="tcp-probe"></a>Probe TCP
 
-Per il probe TCP, Service Fabric tenterà di aprire un socket nel contenitore con la porta specificata. Se è in grado di stabilire una connessione, il probe viene considerato positivo. Di seguito è riportato un esempio di come specificare il probe che utilizza il socket TCP:Here is an example of how to specify probe which uses TCP socket:
+Per un probe TCP, Service Fabric tenterà di aprire un socket sul contenitore utilizzando la porta specificata. Se è possibile stabilire una connessione, il probe viene considerato riuscito. Di seguito è riportato un esempio di come specificare un probe che usa un socket TCP:
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ Per il probe TCP, Service Fabric tenterà di aprire un socket nel contenitore co
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Sonda Exec
+### <a name="exec-probe"></a>Probe Exec
 
-Questo probe emetterà un exec nel contenitore e attenderà il completamento del comando.
+Questo Probe emetterà un comando **Exec** nel contenitore e attenderà il completamento del comando.
 
 > [!NOTE]
-> Exec comando accetta una stringa con separatore virgola. Il comando seguente nell'esempio funzionerà per il contenitore Linux.The following command in the example will work for Linux container.
-> Se si sta provando windows container, utilizzare <Command>cmd</Command>
+> Il comando **Exec** accetta una stringa separata da virgole. Il comando nell'esempio seguente funzionerà per un contenitore Linux.
+> Se si sta provando a eseguire il probe di un contenitore di Windows, usare **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Questo probe emetterà un exec nel contenitore e attenderà il completamento del
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni correlate, vedere gli articoli seguenti.
-* [Service Fabric e contenitori.][containers-introduction-link]
+Per informazioni correlate, vedere l'articolo seguente:
+* [Service Fabric e contenitori][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

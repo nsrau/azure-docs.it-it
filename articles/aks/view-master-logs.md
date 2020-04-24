@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e visualizzare i log per il nodo mas
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 504d6a5216f3345f22a601c4ae084488aeb97c8d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259383"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128962"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Azure Kubernetes
 
@@ -19,9 +19,9 @@ Con il servizio Azure Kubernetes, i componenti master, ad esempio *kube-apiserve
 
 Questo articolo richiede un cluster del servizio Azure Kubernetes esistente in esecuzione nel proprio account di Azure. Se non si dispone ancora di un cluster del servizio Azure Kubernetes, crearne uno usando l'[interfaccia della riga di comando di Azure][cli-quickstart] oppure il [portale di Azure][portal-quickstart]. I log di Monitoraggio di Azure funzionano con cluster del servizio Azure Kubernetes abilitati per il Controllo degli accessi in base al ruolo e non abilitati.
 
-## <a name="enable-diagnostics-logs"></a>Abilitare la registrazione diagnostica
+## <a name="enable-resource-logs"></a>Abilitare i log delle risorse
 
-Per raccogliere e rivedere i dati da più origini, i log di Monitoraggio di Azure forniscono un linguaggio di query e un motore di analisi che offrono informazioni dettagliate per l'ambiente in uso. Viene usata un'area di lavoro per collazionare e analizzare i dati che possa integrarsi con altri servizi di Azure, ad esempio Application Insights e Centro sicurezza. Per usare una piattaforma diversa per analizzare i log, è possibile scegliere di inviare i log di diagnostica a un account di archiviazione di Azure o a un hub eventi. Per altre informazioni, vedere [Analizzare i dati di log in Monitoraggio di Azure][log-analytics-overview].
+Per raccogliere e rivedere i dati da più origini, i log di Monitoraggio di Azure forniscono un linguaggio di query e un motore di analisi che offrono informazioni dettagliate per l'ambiente in uso. Viene usata un'area di lavoro per collazionare e analizzare i dati che possa integrarsi con altri servizi di Azure, ad esempio Application Insights e Centro sicurezza. Per usare una piattaforma diversa per analizzare i log, è invece possibile scegliere di inviare i log delle risorse a un account di archiviazione di Azure o a un hub eventi. Per altre informazioni, vedere [Analizzare i dati di log in Monitoraggio di Azure][log-analytics-overview].
 
 I log di monitoraggio di Azure sono abilitati e gestiti nella portale di Azure. Per abilitare la raccolta dei log per i componenti master di Kubernetes nel cluster del servizio Azure Kubernetes, aprire il portale di Azure in un Web browser e completare i passaggi seguenti:
 
@@ -117,7 +117,7 @@ Per semplificare l'analisi dei dati dei log, la tabella seguente illustra lo sch
 
 ## <a name="log-roles"></a>Ruoli di log
 
-| Ruolo                     | Descrizione |
+| Ruolo                     | Description |
 |--------------------------|-------------|
 | *aksService*             | Nome visualizzato nel log di controllo per l'operazione del piano di controllo (da hcpService) |
 | *MasterClient*           | Nome visualizzato nel log di controllo per MasterClientCertificate, il certificato ottenuto da AZ AKS Get-credentials |

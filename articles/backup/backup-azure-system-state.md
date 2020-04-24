@@ -4,12 +4,12 @@ description: Informazioni su come eseguire il backup dello stato del sistema di 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76294015"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "82128184"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
 
@@ -25,7 +25,7 @@ Per eseguire il backup dello stato del sistema di Windows Server, è necessario 
 
 ### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
 
-1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/), usando la sottoscrizione di Azure.
+1. Se non è già stato fatto, accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
 2. Fare clic su **Tutti i servizi** nel menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-system-state/open-rs-vault-list.png)
@@ -127,7 +127,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
     ![Scaricare le credenziali dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Salva**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.
+    Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Save**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.
 
     ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -189,7 +189,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 3. Nella pagina Guida introduttiva della Pianificazione guidata backup fare clic su **Avanti**.
 
-4. Nella pagina Seleziona elementi per backup fare clic su **Aggiungi elementi**.
+4. Nella pagina **Seleziona elementi per backup** fare clic su Aggiungi elementi.
 
 5. Selezionare **Stato del sistema** e quindi fare clic su **OK**.
 
@@ -213,7 +213,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 4. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Fare clic su **Backup**.
 
-5. Fare clic su **Chiudi** per chiudere la procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
+5. Fare clic su **Chiudi** per uscire dalla procedura guidata. Se si chiude la procedura guidata prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
     > [!NOTE]
     > L'agente MARS attiva SFC/VERIFYONLY. come parte delle verifiche preliminari prima di ogni backup dello stato del sistema. In questo modo si garantisce che i file di cui è stato eseguito il backup come parte dello stato del sistema abbiano le versioni corrette corrispondenti alla versione di Windows. Altre informazioni su controllo file di sistema (SFC) in [questo articolo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
     >
@@ -224,10 +224,10 @@ Al termine del backup iniziale, nella console Backup comparirà lo stato **Proce
 
 ## <a name="questions"></a>Domande?
 
-In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](https://aka.ms/azurebackup_feedback).
+In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Sono disponibili altre informazioni sul [backup di computer Windows](backup-configure-vault.md).
+* Sono disponibili altre informazioni sul [backup di computer Windows](backup-windows-with-mars-agent.md).
 * Dopo aver eseguito il backup dello stato del sistema Windows Server, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 * Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).

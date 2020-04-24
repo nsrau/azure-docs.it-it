@@ -1,18 +1,18 @@
 ---
 title: Associazioni di certificati
-description: Illustrare numerosi argomenti correlati ai certificati in un ambiente del servizio app. Informazioni sul funzionamento delle associazioni di certificati nelle app a tenant singolo in un servizio app.
+description: Illustrare numerosi argomenti relativi ai certificati in un ambiente del servizio app. Informazioni sul funzionamento delle associazioni di certificati nelle app a tenant singolo in un ambiente del servizio app.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477508"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128713"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
 
@@ -22,7 +22,7 @@ L'ambiente del servizio app è un sistema a tenant singolo. Poiché si tratta di
 
 ## <a name="ilb-ase-certificates"></a>Certificati di Ambiente del servizio app con bilanciamento del carico interno 
 
-Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appname].[asename].p.azurewebsites.net. Per impostazione predefinita tutti gli Ambienti del servizio app, anche gli Ambienti del servizio App ILB, vengono creati con i certificati che seguono tale formato. Quando si dispone di un Ambiente del servizio app con bilanciamento del carico interno, le app vengono raggiunte in base al nome di dominio specificato durante la creazione dell'Ambiente del servizio app con bilanciamento del carico interno. Affinché le app supportino TLS, è necessario caricare i certificati. Ottenere un certificato TLS/SSL valido utilizzando le autorità di certificazione interne, acquistando un certificato da un'autorità di certificazione esterna o utilizzando un certificato autofirmato. 
+Se si usa un Ambiente del servizio app esterno, le app vengono raggiunte a [appname].[asename].p.azurewebsites.net. Per impostazione predefinita tutti gli Ambienti del servizio app, anche gli Ambienti del servizio App ILB, vengono creati con i certificati che seguono tale formato. Quando si dispone di un Ambiente del servizio app con bilanciamento del carico interno, le app vengono raggiunte in base al nome di dominio specificato durante la creazione dell'Ambiente del servizio app con bilanciamento del carico interno. Per consentire alle app di supportare TLS, è necessario caricare i certificati. Ottenere un certificato TLS/SSL valido usando le autorità di certificazione interne, acquistando un certificato da un emittente esterno o usando un certificato autofirmato. 
 
 Sono disponibili due opzioni di configurazione dei certificati con l'Ambiente del servizio app con bilanciamento del carico interno.  È possibile impostare un certificato predefinito con caratteri jolly per l'Ambiente del servizio app con bilanciamento del carico interno o impostare i certificati per le singole app Web nell'Ambiente del servizio app.  Indipendentemente dalla scelta, è necessario configurare correttamente gli attributi del certificato seguenti:
 
@@ -48,7 +48,7 @@ Se si desidera creare rapidamente un certificato autofirmato per il test, è pos
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-Quando si crea un certificato autofirmato, è necessario assicurarsi che il nome del soggetto abbia il formato CN,ASE_NAME_HERE_InternalLoadBalancingASE.
+Quando si crea un certificato autofirmato, è necessario assicurarsi che il nome del soggetto abbia il formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificati delle applicazioni 
 
@@ -58,7 +58,7 @@ Le app ospitate in un Ambiente del servizio app possono usare le funzionalità r
 - SSL basato su IP, supportato solo con un Ambiente del servizio app esterno.  Un ambiente del servizio app con bilanciamento del carico interno non supporta SSL basato su IP.
 - Certificati di Key Vault ospitato 
 
-Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in [Aggiungere un certificato TLS/SSL nel servizio app](../configure-ssl-certificate.md)di Azure.  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
+Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in [aggiungere un certificato TLS/SSL nel servizio app Azure](../configure-ssl-certificate.md).  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
 
 ## <a name="tls-settings"></a>Impostazioni di TLS 
 
@@ -78,13 +78,13 @@ Per caricare il certificato nell'app dell'Ambiente di servizio app:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Il certificato sarà disponibile per tutte le app nello stesso piano di servizio app come l'app che ha permesso di configurare tale impostazione. Se è necessario che sia disponibile per le app in un piano di servizio app diverso, è necessario ripetere l'operazione di impostazione dell'app in un'app nel piano di servizio app. Per verificare che il certificato sia impostato, passare alla console di Kudu ed eseguire il comando seguente nella console di debug di PowerShell:
+Il certificato sarà disponibile per tutte le app nello stesso piano di servizio app come l'app che ha permesso di configurare tale impostazione. Se è necessario che sia disponibile per le app in un piano di servizio app diverso, è necessario ripetere l'operazione di impostazione dell'app in un'app nel piano di servizio app. Per verificare che il certificato sia impostato, passare alla console Kudu ed eseguire il comando seguente nella console di debug di PowerShell:
 
     dir cert:\localmachine\root
 
 Per eseguire il test, è possibile creare un certificato autofirmato e generare un file *CER* con il comando PowerShell seguente: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
     $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
