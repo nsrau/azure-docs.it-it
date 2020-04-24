@@ -18,7 +18,7 @@ ms.locfileid: "79481739"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In this quickstart, a Docker CE cluster is deployed using the Azure CLI. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
+In questa Guida introduttiva viene distribuito un cluster Docker CE usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
 
 Docker CE nel servizio Azure Container è in anteprima e **non deve essere usato per carichi di lavoro di produzione**.
 
@@ -53,7 +53,7 @@ Output:
 
 ## <a name="create-docker-swarm-cluster"></a>Creare un cluster Docker Swarm
 
-Creare un cluster Docker CE nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). Per informazioni sulla disponibilità di aree di Docker CE, vedere [Aree ACS per Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Creare un cluster Docker CE nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). Per informazioni sulla disponibilità dell'area di Docker CE, vedere [aree ACS per Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 L'esempio seguente crea un cluster denominato *mySwarmCluster* con un nodo master Linux e tre nodi agente Linux.
 
@@ -67,7 +67,7 @@ Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in
 
 ## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-In questa guida introduttiva è necessario il nome di dominio completo del master Swarm Docker e del pool di agenti Docker. Eseguire questo comando per ottenere entrambi i nomi di dominio completi.
+In questa Guida introduttiva è necessario il nome di dominio completo sia del Master Docker Swarm che del pool di agenti docker. Eseguire questo comando per ottenere entrambi i nomi di dominio completi.
 
 ```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
@@ -159,13 +159,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-In questa guida introduttiva sono state usate immagini contenitore create in precedena per creare un servizio Docker.In this quickstart, pre-created container images have been used to create a Docker service. Il codice dell'applicazione correlato, Dockerfile, e il file Compose sono disponibili in GitHub.
+In questa Guida introduttiva sono state usate immagini del contenitore già create per creare un servizio docker. Il codice dell'applicazione correlato, Dockerfile, e il file Compose sono disponibili in GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un cluster Docker Swarm e vi è stata distribuita un'applicazione multicontenitore.
+In questa Guida introduttiva è stato distribuito un cluster Docker Swarm ed è stata distribuita un'applicazione a più contenitori.
 
 Per informazioni sull'integrazione di Docker Swarm con Azure DevOps, vedere l'articolo relativo a CI/CD con Docker Swarm e Azure DevOps.
 

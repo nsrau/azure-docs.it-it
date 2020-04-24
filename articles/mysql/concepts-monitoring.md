@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio - Database di Azure per MySQLMonitoring - Azure Database for MySQL
+title: Monitoraggio-database di Azure per MySQL
 description: Questo articolo illustra le metriche di monitoraggio e avviso per Database di Azure per MySQL, che includono statistiche relative a CPU, spazio di archiviazione e connessioni.
 author: ajlam
 ms.author: andrela
@@ -41,36 +41,36 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
 
 ## <a name="server-logs"></a>Log del server
-È possibile abilitare la registrazione di controllo e query lenta sul server. Questi log sono disponibili anche tramite i log di diagnostica di Azure nei log di Monitoraggio di Azure, negli hub eventi e nell'account di archiviazione. Per altre informazioni sulla registrazione, vedere [i log](concepts-audit-logs.md) di controllo e gli articoli sui log delle [query lenti.](concepts-server-logs.md)
+È possibile abilitare la registrazione lenta della query e del controllo nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in log di monitoraggio di Azure, Hub eventi e account di archiviazione. Per altre informazioni sulla registrazione, vedere gli articoli [log di controllo](concepts-audit-logs.md) e log di [query lente](concepts-server-logs.md) .
 
 ## <a name="query-store"></a>Archivio query
-[Query Store](concepts-query-store.md) è una funzionalità che tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime delle query e gli eventi di attesa. La funzionalità rende persistenti le informazioni sulle prestazioni di runtime di query nello schema **mysql.** È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
+[Query Store](concepts-query-store.md) è una funzionalità che tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime di query e gli eventi di attesa. La funzionalità rende permanente le informazioni sulle prestazioni di query runtime nello schema **MySQL** . È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 
 ## <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query
-[Informazioni dettagliate prestazioni query](concepts-query-performance-insight.md) funziona in combinazione con Query Store per fornire visualizzazioni accessibili dal portale di Azure. Questi grafici consentono di identificare le principali query che influiscono sulle prestazioni. Informazioni dettagliate sulle prestazioni delle query è accessibile nella sezione Prestazioni intelligenti della pagina del portale del server Azure Database for MySQL.Query Performance Insight is accessible in the **Intelligent Performance** section of your Azure Database for MySQL server's portal page.
+[Informazioni dettagliate prestazioni query](concepts-query-performance-insight.md) funziona in combinazione con Query Store per fornire visualizzazioni accessibili dal portale di Azure. Questi grafici consentono di identificare le principali query che influiscono sulle prestazioni. Informazioni dettagliate prestazioni query è accessibile nella sezione **prestazioni intelligenti** della pagina del portale del database di Azure per il server MySQL.
 
 ## <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
-La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) identifica le opportunità per migliorare le prestazioni dei carichi di lavoro. Consigli sulle prestazioni fornisce suggerimenti per la creazione di nuovi indici che possono migliorare le prestazioni dei carichi di lavoro. Per generare le raccomandazioni sugli indici, la funzionalità prende in considerazione diverse caratteristiche del database, tra cui lo schema e il carico di lavoro segnalati da Query Store. Dopo avere implementato le raccomandazioni per le prestazioni, i clienti devono testare le prestazioni per valutare l'impatto di tali modifiche.
+La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) identifica le opportunità per migliorare le prestazioni dei carichi di lavoro. Suggerimenti sulle prestazioni fornisce consigli per la creazione di nuovi indici che possono migliorare le prestazioni dei carichi di lavoro. Per generare le raccomandazioni sugli indici, la funzionalità prende in considerazione diverse caratteristiche del database, tra cui lo schema e il carico di lavoro segnalati da Query Store. Dopo avere implementato le raccomandazioni per le prestazioni, i clienti devono testare le prestazioni per valutare l'impatto di tali modifiche.
 
 ## <a name="planned-maintenance-notification"></a>Notifica di manutenzione pianificata
 
-Le notifiche di **manutenzione pianificata** consentono di ricevere avvisi per la manutenzione pianificata imminente nel database di Azure per MySQL.Planned maintenance notifications allow you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. Queste notifiche sono integrate con la manutenzione pianificata [di Integrità dei](../service-health/overview.md) servizi e consentono di visualizzare tutte le operazioni di manutenzione pianificata per le sottoscrizioni in un'unica posizione. Consente inoltre di ridimensionare la notifica ai gruppi di destinatari giusti per gruppi di risorse diversi, in quanto potrebbero essere presenti contatti diversi responsabili di risorse diverse. Riceverai la notifica della manutenzione imminente 72 ore prima dell'evento.
+Le **notifiche di manutenzione pianificata** consentono di ricevere avvisi per la manutenzione pianificata imminente nel database di Azure per MySQL. Queste notifiche sono integrate con la manutenzione pianificata [dell'integrità dei servizi](../service-health/overview.md) e consentono di visualizzare tutte le operazioni di manutenzione pianificate per le sottoscrizioni in un'unica posizione. Consente inoltre di ridimensionare la notifica ai destinatari giusti per gruppi di risorse diversi, in quanto è possibile che si disponga di contatti diversi responsabili di risorse diverse. Si riceverà la notifica relativa alla manutenzione imminente di 72 ore prima dell'evento.
 
 > [!Note]
-> Faremo ogni tentativo di fornire la notifica di **manutenzione pianificata** 72 ore di preavviso per tutti gli eventi. Tuttavia, in caso di patch critiche o di sicurezza, le notifiche potrebbero essere inviate più vicino all'evento o essere omesse.
+> Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di preavviso per tutti gli eventi verrà effettuato. Tuttavia, in caso di patch di sicurezza o critiche, le notifiche potrebbero essere inviate più vicino all'evento o essere omesse.
 
-### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere una notifica di manutenzione pianificata
+### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere la notifica di manutenzione pianificata
 
 1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
 2. Nella sezione **Avvisi** selezionare **Avvisi integrità**.
-3. Selezionare **: Aggiungi avviso di integrità** del servizio e compilare i campi.
+3. Selezionare **+ Aggiungi avviso di integrità del servizio** e compilare i campi.
 4. Compilare i campi obbligatori. 
-5. Scegliere il **tipo di evento**, selezionare Manutenzione **pianificata** o **Seleziona tutto**
-6. In **Gruppi di** azioni definire come si desidera ricevere l'avviso (ricevere un messaggio di posta elettronica, attivare un'app per la logica e così via).  
-7. Verificare che Abilita regola al momento della creazione sia impostato su Sì.Ensure Enable rule upon creation is set to Yes.
+5. Scegliere il **tipo di evento**, selezionare **manutenzione pianificata** o **selezionare tutto**
+6. Nei **gruppi di azioni** definire come si vuole ricevere l'avviso (ricevere un messaggio di posta elettronica, attivare un'app per la logica e così via).  
+7. Assicurarsi che Abilita regola al momento della creazione sia impostata su Sì.
 8. Selezionare **Crea regola di avviso** per completare l'avviso
 
-Per la procedura dettagliata su come creare avvisi di integrità del **servizio,** vedere [Creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
+Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
 > Le notifiche di manutenzione pianificata sono attualmente in anteprima

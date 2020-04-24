@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale Linux suddivisa in zone con l'interfaccia della riga della riga della riga della riga della riga della riga di comando di AzureCreate a zone
+title: Creare una VM Linux in zone con l'interfaccia della riga di comando di Azure
 description: Creare una VM Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 author: cynthn
 ms.service: virtual-machines-linux
@@ -15,7 +15,7 @@ ms.locfileid: "79535613"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 
-Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per creare una VM Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure.An availability zone is a physically separate zone in an Azure region. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
+Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per creare una VM Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
 
 Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-overview.md#services-support-by-region).
 
@@ -92,7 +92,7 @@ La creazione della macchina virtuale può richiedere alcuni minuti. Dopo la crea
 
 Se la macchina virtuale è distribuita in una zona di disponibilità, viene creato un disco gestito per la macchina virtuale nella stessa zona di disponibilità. Per impostazione predefinita, in questa zona viene creato anche un indirizzo IP pubblico. Gli esempi seguenti ottengono informazioni su queste risorse.
 
-Per verificare che il disco gestito della macchina virtuale si trova nella zona di disponibilità, usare il comando [az vm show](/cli/azure/vm) per restituire l'ID del disco. In questo esempio, l'ID disco viene archiviato in una variabile utilizzata in un passaggio successivo. 
+Per verificare che il disco gestito della macchina virtuale si trovi nella zona di disponibilità, usare il comando [AZ VM Show](/cli/azure/vm) per restituire l'ID del disco. In questo esempio, l'ID disco viene archiviato in una variabile che viene usata in un passaggio successivo. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -188,7 +188,7 @@ L'output indica che l'indirizzo IP si trova nella stessa zona di disponibilità 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla disponibilità per le macchine virtuali di Azure.Learn more about [availability](availability.md) for Azure VMs.
+In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla [disponibilità](availability.md) per le macchine virtuali di Azure.
 
 
 

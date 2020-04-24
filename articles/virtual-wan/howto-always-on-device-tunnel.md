@@ -1,7 +1,7 @@
 ---
-title: Configurare un tunnel VPN Always-On
+title: Configurare un tunnel VPN always on
 titleSuffix: Azure Virtual WAN
-description: Passaggi per configurare il tunneling del dispositivo VPN Always On per la rete WAN virtuale
+description: Procedura per configurare Always On tunnel del dispositivo VPN per la rete WAN virtuale
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -21,7 +21,7 @@ ms.locfileid: "79502854"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:See the following sections for instructions:
+È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:
 
 * [Creare una configurazione da punto a sito](virtual-wan-point-to-site-portal.md#p2sconfig)
 * [Modificare l'assegnazione dell'hub](virtual-wan-point-to-site-portal.md#edit)

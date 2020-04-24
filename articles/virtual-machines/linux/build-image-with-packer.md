@@ -1,5 +1,5 @@
 ---
-title: Creare immagini di macchine virtuali di Azure Linux con PackerCreate Linux Azure VM Images with Packer
+title: Creare immagini di VM Linux di Azure con Packer
 description: Informazioni su come usare Packer per creare immagini di macchine virtuali di Linux in Azure
 author: cynthn
 ms.service: virtual-machines-linux
@@ -18,13 +18,13 @@ ms.locfileid: "79534220"
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Linux e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per gli ambienti applicativi e di distribuzione più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
 
 > [!NOTE]
-> Azure dispone ora di un servizio, Azure Image Builder (anteprima), per la definizione e la creazione di immagini personalizzate. Azure Image Builder è basato su Packer, pertanto è anche possibile usare gli script di provisioning della shell Packer esistenti. Per iniziare a usare Azure Image Builder, vedere Creare una macchina virtuale Linux con Azure Image Builder.To get started with Azure Image Builder, see [Create a Linux VM with Azure Image Builder.](image-builder.md)
+> Azure dispone ora di un servizio, generatore di immagini di Azure (anteprima), per la definizione e la creazione di immagini personalizzate. Il generatore di immagini di Azure si basa su Packer, quindi è possibile anche usare gli script esistenti del provisioning della shell di Packer. Per iniziare a usare Azure Image Builder, vedere [creare una VM Linux con Azure Image Builder](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Creare un gruppo di risorse di Azure
 Durante il processo di compilazione della macchina virtuale di origine Packer crea risorse di Azure temporanee. Per acquisire la macchina virtuale di origine per usarla come immagine, è necessario definire un gruppo di risorse, nel quale verrà archiviato l'output del processo di compilazione di Packer.
 
-Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
+Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -227,4 +227,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È anche possibile usare gli script del provisioning Packer esistenti con [Azure Image Builder.](image-builder.md)
+È anche possibile usare gli script di provisioning di Packer esistenti con [Azure Image Builder](image-builder.md).

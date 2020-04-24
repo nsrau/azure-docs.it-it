@@ -49,7 +49,7 @@ Applicare controlli dei criteri più completi prima che vengano stabilite connes
 
 Con [l'accesso condizionale](../conditional-access/overview.md)è possibile definire restrizioni sul traffico autorizzato ad accedere alle applicazioni back-end. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
 
-È inoltre possibile utilizzare l'accesso condizionale per configurare i criteri di autenticazione a più fattori, aggiungendo un altro livello di sicurezza alle autenticazioni utente. Inoltre, le applicazioni possono anche essere instradate a Microsoft Cloud App Security tramite l'accesso condizionale di Azure AD per fornire controlli e monitoraggio in tempo reale, tramite criteri di [accesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessione](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+È anche possibile usare l'accesso condizionale per configurare i criteri di Multi-Factor Authentication, aggiungendo un altro livello di sicurezza alle autenticazioni degli utenti. Inoltre, le applicazioni possono essere instradate a Microsoft Cloud App Security tramite Azure AD l'accesso condizionale per fornire controlli e monitoraggio in tempo reale, tramite criteri di [accesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e di [sessione](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Terminazione di traffico
 
@@ -61,7 +61,7 @@ Il proxy applicazione di Azure AD è un proxy inverso, quindi tutto il traffico 
 
 Non è necessario aprire alcuna connessione in ingresso nella rete aziendale.
 
-I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedevano una rete perimetrale (nota anche come *rete*perimetrale, *zona demilitarizzata*o *subnet schermata)* e consentivano l'accesso a connessioni non autenticate sul perimetro della rete. Questo scenario richiede investimenti in prodotti web application firewall per analizzare il traffico e proteggere l'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
+I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una rete perimetrale (nota anche come *subnet schermata*o *DMZ*) e possono accedere a connessioni non autenticate al perimetro della rete. *demilitarized zone* Questo scenario richiede investimenti in prodotti web application firewall per analizzare il traffico e proteggere l'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
 
 Per altre informazioni sui connettori, vedere [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md) (Informazioni sui connettori proxy di applicazione di Azure AD).
 
@@ -69,7 +69,7 @@ Per altre informazioni sui connettori, vedere [Understand Azure AD Application P
 
 Ottenere una protezione all'avanguardia.
 
-Dal momento che fa parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](../active-directory-identityprotection.md) con i dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme identifichiamo in modo proattivo gli account compromessi e offriamo protezione dagli invii ad alto rischio. Prendiamo in considerazione numerosi fattori per determinare quali tentativi di accesso sono ad alto rischio. Questi fattori includono l'uso di flag per contrassegnare i dispositivi infettati, l'anonimizzazione delle reti e i percorsi atipici o improbabili.
+Dal momento che fa parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](../active-directory-identityprotection.md) con i dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme si identificano in modo proattivo gli account compromessi e si offre la protezione dagli accessi ad alto rischio. Vengono presi in considerazione numerosi fattori per determinare quali tentativi di accesso sono ad alto rischio. Questi fattori includono l'uso di flag per contrassegnare i dispositivi infettati, l'anonimizzazione delle reti e i percorsi atipici o improbabili.
 
 Molti di questi eventi e segnalazioni sono già disponibili tramite un'API per l'integrazione con i sistemi SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza).
 
@@ -81,9 +81,9 @@ Il software senza patch è tuttora responsabile di un numero elevato di attacchi
 
 Per migliorare la sicurezza delle applicazioni pubblicate dal proxy applicazione di Azure AD, vengono bloccate l'indicizzazione e l'archiviazione delle applicazioni da parte dei robot dell'agente di ricerca Web. Ogni volta che un robot dell'agente di ricerca Web prova a recuperare le impostazioni dei robot per un'app pubblicata, il proxy applicazione risponde con un file robots.txt che include `User-agent: * Disallow: /`.
 
-#### <a name="azure-ddos-protection-service"></a>Servizio di protezione DDoS di AzureAzure DDoS protection service
+#### <a name="azure-ddos-protection-service"></a>Servizio protezione DDoS di Azure
 
-Le applicazioni pubblicate tramite il proxy di applicazione sono protette da attacchi DDoS (Distributed Denial of Service). **La protezione DDoS** di Azure è un servizio offerto con la piattaforma Azure per proteggere le risorse di Azure dagli attacchi Denial of Service.Azure DDoS protection is a service offered with the Azure platform to protect your Azure resources from Denial of service attacks. Il livello di servizio **Basic** viene abilitato automaticamente, fornendo il monitoraggio del traffico sempre in tempo reale e la mitigazione in tempo reale degli attacchi comuni a livello di rete. È inoltre disponibile un livello **Standard,** che offre funzionalità di attenuazione aggiuntive che sono sintonizzate in modo specifico per le risorse di rete virtuale di Azure.A Standard tier is also offering additional mitigation capabilities that are tuned specifically to Azure Virtual Network resources. Per informazioni dettagliate, vedere Panoramica di [Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Le applicazioni pubblicate tramite il proxy di applicazione sono protette da attacchi DDoS (Distributed Denial of Service). **Protezione DDoS di Azure** è un servizio offerto con la piattaforma Azure per proteggere le risorse di Azure da attacchi di tipo Denial of Service. Il livello di servizio **Basic** viene abilitato automaticamente, garantendo il monitoraggio del traffico always on e la mitigazione in tempo reale degli attacchi comuni a livello di rete. È disponibile anche un livello **standard** , che offre funzionalità aggiuntive di mitigazione ottimizzate in modo specifico per le risorse di rete virtuale di Azure. Per informazioni dettagliate, vedere [Panoramica di protezione DDoS di Azure standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>dietro le quinte
 
@@ -99,7 +99,7 @@ Un flusso tra il connettore e il servizio proxy applicazione viene stabilito qua
 * Un utente accede a un'applicazione pubblicata.
 
 >[!NOTE]
->Tutte le comunicazioni avvengono tramite TLS e hanno sempre origine dal connettore al servizio proxy di applicazione. Il servizio è solo in uscita.
+>Tutte le comunicazioni avvengono tramite TLS e hanno sempre origine nel connettore per il servizio proxy di applicazione. Il servizio è solo in uscita.
 
 Il connettore usa un certificato client per l'autenticazione al servizio proxy applicazione per quasi tutte le chiamate. L'unica eccezione a questo processo è il passaggio di configurazione iniziale in cui viene stabilito il certificato client.
 
@@ -134,13 +134,13 @@ Quando gli utenti accedono a un'applicazione pubblicata, tra il servizio proxy d
 Per altre informazioni sugli eventi che si verificano in ognuno di questi passaggi, continuare la lettura.
 
 
-#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. Il servizio autentica l'utente per l'app
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. il servizio autentica l'utente per l'app
 
 Se l'app è configurata per l'utilizzo di PassThrough come metodo di autenticazione, gli eventi descritti in questa sezione non si verificano.
 
 Se l'app è configurata per eseguire la pre-autenticazione con Azure AD, l'utente viene reindirizzato al servizio token di sicurezza di Azure AD per eseguire l'autenticazione e si verificano gli eventi seguenti:
 
-1. Il proxy di applicazione verifica la presenza di eventuali requisiti dei criteri di accesso condizionale per l'applicazione specifica. Questo passaggio verifica che l'utente sia stato assegnato all'applicazione. Se è necessaria la verifica in due passaggi, la sequenza di autenticazione richiede all'utente di usare un secondo metodo di autenticazione.
+1. Il proxy di applicazione controlla i requisiti dei criteri di accesso condizionale per l'applicazione specifica. Questo passaggio verifica che l'utente sia stato assegnato all'applicazione. Se è necessaria la verifica in due passaggi, la sequenza di autenticazione richiede all'utente di usare un secondo metodo di autenticazione.
 
 2. Dopo avere superato tutti i controlli, il servizio token di sicurezza di Azure AD rilascia un token firmato per l'applicazione e l'utente viene reindirizzato al servizio proxy applicazione.
 
@@ -153,13 +153,13 @@ Se l'app è configurata per eseguire la pre-autenticazione con Azure AD, l'utent
 Se qualsiasi parte dei passaggi di preautenticazione non ha esito positivo, la richiesta dell'utente viene negata e viene visualizzato un messaggio che indica l'origine del problema.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. Il servizio effettua una richiesta nella coda del connettore
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. il servizio inserisce una richiesta nella coda del connettore
 
 I connettori mantengono aperta una connessione in uscita diretta al servizio proxy di applicazione. Quando viene ricevuta una richiesta, il sevizio la mette in coda su una delle connessioni aperte affinché il connettore la accetti.
 
 La richiesta include elementi dell'applicazione, come le intestazioni della richiesta e i dati del cookie crittografato, l'utente che effettua la richiesta e l'ID richiesta. Con la richiesta vengono inviati i dati del cookie crittografato, non il cookie di autenticazione.
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. Il connettore elabora la richiesta dalla coda. 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. il connettore elabora la richiesta dalla coda. 
 
 A seconda della richiesta, il proxy applicazione eseguirà una delle azioni seguenti:
 
@@ -167,13 +167,13 @@ A seconda della richiesta, il proxy applicazione eseguirà una delle azioni segu
 
 * Se la richiesta contiene dati associati nel corpo, ad esempio un'operazione RESTful *POST*, il connettore esegue una connessione in uscita usando il certificato client verso l'istanza del proxy applicazione. Esegue questa connessione per richiedere i dati e aprire una connessione alla risorsa interna. Dopo la ricezione della richiesta dal connettore, il servizio proxy applicazione inizia ad accettare contenuto dall'utente e inoltra i dati al connettore. Il connettore, a sua volta, inoltra i dati alla risorsa interna.
 
-#### <a name="4-the-connector-waits-for-a-response"></a>4. Il connettore attende una risposta.
+#### <a name="4-the-connector-waits-for-a-response"></a>4. il connettore attende una risposta.
 
 Dopo aver completato la richiesta e la trasmissione di tutto il contenuto al back-end, il connettore attende una risposta.
 
 Dopo aver ricevuto la risposta, il connettore esegue una connessione in uscita al servizio proxy applicazione per restituire i dettagli dell'intestazione e avviare il flusso dei dati restituiti.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Il servizio trasmette i dati all'utente. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. il servizio trasmette i dati all'utente. 
 
 In questa fase è possibile che vengano eseguite alcune operazioni di elaborazione dell'applicazione. Se è il proxy di applicazione è stato configurato in modo da convertire le intestazioni o gli URL nell'applicazione, in questa fase vengono eseguite tutte le operazioni di elaborazione necessarie.
 
@@ -182,4 +182,4 @@ In questa fase è possibile che vengano eseguite alcune operazioni di elaborazio
 
 [Considerazioni relative alla topologia di rete quando si usa il proxy applicazione Azure AD](application-proxy-network-topology.md)
 
-[Informazioni sui connettori del proxy di applicazione di Azure ADUnderstand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Informazioni sui connettori del proxy di applicazione Azure AD](application-proxy-connectors.md)

@@ -1,6 +1,6 @@
 ---
-title: Digest di raccomandazione per Azure AdvisorRecommendation digest for Azure Advisor
-description: Ottenere un riepilogo periodico per i consigli attiviGet periodic summary for your active recommendations
+title: Digest della raccomandazione per Azure Advisor
+description: Ottenere un riepilogo periodico per le raccomandazioni attive
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
@@ -11,45 +11,45 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79502464"
 ---
-# <a name="configure-periodic-summary-for-recommendations"></a>Configurare il riepilogo periodico per i suggerimenti
+# <a name="configure-periodic-summary-for-recommendations"></a>Configura riepilogo periodico per le raccomandazioni
 
-I digest dei suggerimenti di Advisor forniscono un modo semplice e proattivo per rimanere **aggiornati** sui consigli attivi, in diverse categorie. La funzionalità consente di configurare notifiche periodiche per il riepilogo di tutti i consigli attivi, in diverse categorie. È possibile scegliere il canale desiderato per le notifiche come e-mail, sms o altri, utilizzando gruppi di azione. In questo articolo viene illustrato come impostare un digest di raccomandazione per i suggerimenti di Advisor.This article shows you how to set-up a **recommendation digests** for your Advisor recommendations.
+I **digest delle raccomandazioni** di Advisor forniscono un modo semplice e proattivo per rimanere sempre aggiornati sulle raccomandazioni attive, in categorie diverse. La funzionalità offre la possibilità di configurare notifiche periodiche per il riepilogo di tutte le raccomandazioni attive, in categorie diverse. È possibile scegliere il canale desiderato per le notifiche, ad esempio posta elettronica, SMS o altri, usando i gruppi di azioni. Questo articolo illustra come configurare i digest di una **raccomandazione** per le raccomandazioni di Advisor.
 
 
-## <a name="setting-up-your-recommendation-digest"></a>Impostazione del digest della raccomandazione 
+## <a name="setting-up-your-recommendation-digest"></a>Impostazione del digest delle raccomandazioni 
 
-L'esperienza di creazione del **digest di raccomandazione** consente di configurare il riepilogo. È possibile selezionare i seguenti parametri per le configurazioni:
-1. Categoria: Abbiamo categorie di raccomandazione come costo, alta disponibilità, prestazioni ed eccellenza operativa. La funzionalità non è ancora disponibile per le raccomandazioni sulla sicurezza.
-2. Frequenza del digest: la frequenza delle notifiche di riepilogo può essere settimanale, bisettimanale e mensile.
-3. Gruppo di azioni: è possibile selezionare un gruppo di azioni esistente o creare un nuovo gruppo di azioni. Per ulteriori informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)di azioni .
+L'esperienza di creazione del **digest di raccomandazione** consente di configurare il riepilogo. È possibile selezionare i parametri seguenti per le configurazioni:
+1. Categoria: abbiamo categorie di raccomandazioni come costo, disponibilità elevata, prestazioni e eccellenza operativa. La funzionalità non è ancora disponibile per le raccomandazioni sulla sicurezza.
+2. Frequenza del digest: la frequenza per le notifiche di riepilogo può essere settimanale, quindicinale e mensile.
+3. Gruppo di azione: è possibile selezionare un gruppo di azioni esistente o creare un nuovo gruppo di azioni. Per altre informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 4. Lingua per il digest
-5. Nome digest di consiglio: è possibile utilizzare una stringa di facile utilizzo per tenere traccia e monitorare meglio i digest.
+5. Nome del digest di Raccomandazione: è possibile usare una stringa intuitiva per tenere traccia e monitorare meglio i digest.
 
-## <a name="steps-to-create-recommendation-digest-in-azure-portal"></a>Passaggi per creare il digest delle raccomandazioni nel portale di AzureSteps to create recommendation digest in Azure portal
+## <a name="steps-to-create-recommendation-digest-in-azure-portal"></a>Procedura per creare il digest delle raccomandazioni in portale di Azure
 
-Ecco i passaggi per creare il **digest della raccomandazione:Here** are the steps to create recommendation digest:
-* **Fase 1:** Nel portale di Azure passare a **Advisor** e nella sezione **Monitoraggio** selezionare **Digest consigli** 
+Ecco i passaggi per creare il **digest delle raccomandazioni:**
+* **Passaggio 1:** Nel portale di Azure passare a **Advisor** e in **monitoraggio** sezione selezionare **digest di raccomandazione** . 
 
-   ![Punto di ingresso del digest di raccomandazioneRecommendation digest entry-point](./media/digest-0.png)
+   ![Punto di ingresso del digest di raccomandazione](./media/digest-0.png)
 
-* **Fase 2:** Seleziona **Nuovo digest di raccomandazione** dalla barra superiore come indicato di seguito:Select New recommendation digest from the top bar as below:
+* **Passaggio 2:** Selezionare **nuovo digest raccomandazione** dalla barra superiore come riportato di seguito:
 
-   ![Creare un digest di raccomandazioneCreate recommendation digest](./media/digest-5.png)
+   ![Crea digest delle raccomandazioni](./media/digest-5.png)
 
-* **Fase 3:** Nella sezione **ambito** selezionare la **sottoscrizione** per il digest
+* **Passaggio 3:** Nella sezione **ambito** selezionare la **sottoscrizione** per il digest
 
-   ![Fornire input digest di raccomandazioneProvide recommendation digest inputs](./media/digest-1.png)
+   ![Fornire input del digest di raccomandazione](./media/digest-1.png)
 
-* **Fase 4:** Nella sezione **della condizione,** selezionare le configurazioni come **categoria,** **frequenza** e **lingua**
+* **Passaggio 4:** Nella sezione **condizione** selezionare le configurazioni come **Category**, **Frequency** e **Language** .
 
-   ![Fornire le condizioni di input del digest di raccomandazioneProvide recommendation digest input conditions](./media/digest-2.png)
+   ![Fornire le condizioni di input del digest di raccomandazione](./media/digest-2.png)
 
-* **Fase 5:** Nella sezione Del **gruppo** di azioni selezionare il **gruppo di azioni** per il digest. Per saperne di più qui - [Creare e gestire gruppi](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) di azioni
+* **Passaggio 5:** Nella sezione **gruppo di azione** selezionare il **gruppo di azioni** per il digest. Per altre informazioni, vedere [creare e gestire gruppi di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 
-   ![Fornire un gruppo di azioni di input del digest di raccomandazioneProvide recommendation digest input action group](./media/digest-3.png)
+   ![Fornire il gruppo di azioni di input digest di raccomandazione](./media/digest-3.png)
 
-* **Fase 6:** In questa sezione finale per **i dettagli del digest**è possibile assegnare nome e stato al digest dei suggerimenti. Premere **crea digest di raccomandazione** per completare la configurazione.
-   ![Creazione completa del digest di raccomandazione](./media/digest-4.png)
+* **Passaggio 6:** In questa sezione finale per **i dettagli del digest**è possibile assegnare il nome e lo stato al digest di raccomandazione. Premere **Crea il digest delle raccomandazioni** per completare la configurazione.
+   ![Creazione del digest di raccomandazione completa](./media/digest-4.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -59,5 +59,5 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
-* [Consigli per l'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
+* [API REST Advisor](https://docs.microsoft.com/rest/api/advisor/)

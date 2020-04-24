@@ -1,7 +1,7 @@
 ---
-title: Configurare un tunnel utente VPN Always-On
+title: Configurare un tunnel utente VPN always on
 titleSuffix: Azure Virtual WAN
-description: In questo articolo viene descritto come configurare un tunnel utente VPN Always On per la rete WAN virtuale
+description: Questo articolo descrive come configurare un tunnel utente VPN Always On per la rete WAN virtuale
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -21,7 +21,7 @@ ms.locfileid: "79502867"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:See the following sections for instructions:
+È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:
 
 * [Creare una configurazione da punto a sito](virtual-wan-point-to-site-portal.md#p2sconfig)
 * [Modificare l'assegnazione dell'hub](virtual-wan-point-to-site-portal.md#edit)
@@ -32,7 +32,7 @@ ms.locfileid: "79502867"
 
 ## <a name="to-remove-a-profile"></a>Per rimuovere un profilo
 
-Per rimuovere un profilo, attenersi alla seguente procedura:
+Per rimuovere un profilo, attenersi alla procedura seguente:
 
 1. Eseguire il comando seguente:
 
@@ -40,7 +40,7 @@ Per rimuovere un profilo, attenersi alla seguente procedura:
    C:\> Remove-VpnConnection UserTest  
    ```
 
-1. Scollegare la connessione e deselezionare la casella di controllo **Connetti automaticamente.**
+1. Disconnettere la connessione e deselezionare la casella di controllo **Connetti automaticamente** .
 
    ![Pulizia](./media/howto-always-on-user-tunnel/disconnect.jpg)
 

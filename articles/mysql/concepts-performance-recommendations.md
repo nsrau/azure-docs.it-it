@@ -1,6 +1,6 @@
 ---
-title: Consigli sulle prestazioni - Database di Azure per MySQLPerformance recommendations - Azure Database for MySQL
-description: Questo articolo descrive la funzionalità di raccomandazione delle prestazioni nel database di Azure per MySQLThis article describes the Performance Recommendation feature in Azure Database for MySQL
+title: Raccomandazioni per le prestazioni-database di Azure per MySQL
+description: Questo articolo descrive la funzionalità di raccomandazione per le prestazioni del database di Azure per MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -15,9 +15,9 @@ ms.locfileid: "79537075"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Raccomandazioni per le prestazioni nel Database di Azure per MySQL
 
-**Si applica a:** Database di Azure per MySQL 5.7Azure Database for MySQL 5.7
+**Si applica a:** Database di Azure per MySQL 5,7
 
-La funzionalità Suggerimenti per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina varie caratteristiche del database, tra cui lo schema. Abilitare [Query Store](concepts-query-store.md) nel server per utilizzare completamente la funzionalità Suggerimenti per le prestazioni. Se lo schema delle prestazioni è OFF, l'attivazione dell'archivio query consente performance_schema e un sottoinsieme degli strumenti dello schema delle prestazioni necessari per la funzionalità. Dopo aver implementato qualsiasi raccomandazione di prestazioni, è necessario testare le prestazioni per valutare l'impatto di tali modifiche.
+La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina le varie caratteristiche del database, incluso lo schema. Abilitare [query Store](concepts-query-store.md) sul server per usare completamente la funzionalità delle raccomandazioni per le prestazioni. Se lo schema delle prestazioni è disattivato, l'attivazione di Query Store Abilita performance_schema e un subset di strumenti dello schema di prestazioni necessari per la funzionalità. Una volta implementate le indicazioni sulle prestazioni, è consigliabile testare le prestazioni per valutare l'effetto di tali modifiche.
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -27,25 +27,25 @@ Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per eseguire
 
 La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) analizza i carichi di lavoro sul server per identificare gli indici con la possibilità di migliorare le prestazioni.
 
-Aprire **Consigli sulle prestazioni** dalla sezione Prestazioni intelligenti della barra dei menu nella pagina del portale di Azure per il server MySQL.Open Performance Recommendations from the Intelligent **Performance** section of the menu bar on the Azure portal page for your MySQL server.
+Aprire **suggerimenti sulle prestazioni** dalla sezione **prestazioni intelligenti** della barra dei menu nella pagina portale di Azure per il server MySQL.
 
 ![Pagina di destinazione Elementi consigliati per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Selezionare **Analizza** e scegliere un database per avviare l'analisi. A seconda del carico di lavoro, il completamento dell'analisi potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia di eseguire l'analisi durante i periodi di minore attività.
+Selezionare **analizza** e scegliere un database che inizierà l'analisi. A seconda del carico di lavoro, l'analisi potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia di eseguire l'analisi durante i periodi di minore traffico.
 
-Nella finestra **Suggerimenti** verrà visualizzato un elenco di suggerimenti se ne sono stati trovati e l'ID query correlato che ha generato questa raccomandazione. Con l'ID query, è possibile utilizzare la visualizzazione [mysql.query_store](concepts-query-store.md#mysqlquery_store) per ulteriori informazioni sulla query.
+Nella finestra **raccomandazioni** verrà visualizzato un elenco di raccomandazioni, se trovate, e l'ID di query correlato che ha generato questa raccomandazione. Con l'ID query è possibile usare la vista [MySQL. query_store](concepts-query-store.md#mysqlquery_store) per ottenere ulteriori informazioni sulla query.
 
 ![Nuova pagina Raccomandazioni per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-Le raccomandazioni non vengono applicate automaticamente. Per applicare la raccomandazione, copiare il testo della query ed eseguirlo dal client desiderato. Ricordarsi di testare e monitorare per valutare la raccomandazione.
+Le raccomandazioni non vengono applicate automaticamente. Per applicare la raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Ricordarsi di eseguire il test e il monitoraggio per valutare la raccomandazione.
 
 ## <a name="recommendation-types"></a>Tipi di raccomandazione
 
-Attualmente sono supportate solo le raccomandazioni *Crea indice.*
+Attualmente sono supportate solo le raccomandazioni *create index* .
 
 ### <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
 
-*Creare* suggerimenti per l'indice suggerisci nuovi indici per velocizzare le query eseguite più di frequente o che richiedono molto tempo nel carico di lavoro. Questo tipo di raccomandazione richiede l'abilitazione di [Query Store.This](concepts-query-store.md) recommendation type requires Query Store to be enabled. Query Store raccoglie le informazioni sulle query e fornisce le statistiche dettagliate sul runtime delle query e sulla frequenza utilizzate dall'analisi per eseguire la raccomandazione.
+I suggerimenti per la *creazione* di indici suggeriscono nuovi indici per velocizzare le query di esecuzione più frequenti o che richiedono molto tempo nel carico di lavoro. Questo tipo di raccomandazione richiede l'abilitazione di [query Store](concepts-query-store.md) . Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate sul runtime di query e sulla frequenza utilizzate dall'analisi per apportare le indicazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sul [monitoraggio e l'ottimizzazione](concepts-monitoring.md) in Azure Database for MySQL.Learn more about monitoring and tuning in Azure Database for MySQL.
+- Altre informazioni sul [monitoraggio e l'ottimizzazione](concepts-monitoring.md) nel database di Azure per MySQL.
