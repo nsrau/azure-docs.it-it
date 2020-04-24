@@ -1,5 +1,5 @@
 ---
-title: Aggregazione di eventi con Diagnostica di Windows AzureEvent Aggregation with Windows Azure Diagnostics
+title: Aggregazione di eventi con Windows Diagnostica di Azure
 description: Informazioni sull'aggregazione e la raccolta di eventi con Diagnostica di Microsoft Azure per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
@@ -21,7 +21,7 @@ ms.locfileid: "79282497"
 
 Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i log da tutti i nodi in una posizione centrale. Il salvataggio dei log in una posizione centrale semplifica l'analisi e la risoluzione di eventuali problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster.
 
-Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dall'archiviazione e inserirli in un prodotto della piattaforma di analisi, ad esempio [i log](../log-analytics/log-analytics-service-fabric.md) di Monitoraggio di Azure o un'altra soluzione di analisi dei log.
+Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in un prodotto della piattaforma di analisi, ad esempio i [log di monitoraggio di Azure](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi dei log.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,11 +31,11 @@ In questo articolo vengono usati gli strumenti seguenti:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Modello di Azure Resource ManagerAzure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventi della piattaforma Service Fabric
 Service Fabric offre alcuni [canali di registrazione predefiniti](service-fabric-diagnostics-event-generation-infra.md). Tra questi, i canali seguenti vengono preconfigurati con l'estensione per inviare i dati di monitoraggio e diagnostica a una tabella di archiviazione o un'altra posizione:
-  * [Eventi operativi:](service-fabric-diagnostics-event-generation-operational.md)operazioni di livello superiore eseguite dalla piattaforma Service Fabric. Gli esempi includono la creazione di applicazioni e servizi, le modifiche allo stato dei nodi e informazioni sull'aggiornamento. Questi eventi vengono generati come log di Event Tracing for Windows (ETW)
+  * [Eventi operativi](service-fabric-diagnostics-event-generation-operational.md): operazioni di livello superiore eseguite dalla piattaforma Service Fabric. Gli esempi includono la creazione di applicazioni e servizi, le modifiche allo stato dei nodi e informazioni sull'aggiornamento. Questi eventi vengono generati come log di Event Tracing for Windows (ETW)
   * [Eventi del modello di programmazione Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Eventi relativi al modello di programmazione Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
@@ -51,7 +51,7 @@ Si consiglia di scaricare il modello **prima di fare clic su Crea** nel passaggi
 
 ![Modello di cluster](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Ora che si stanno aggregando gli eventi in Archiviazione di Azure, [configurare i log](service-fabric-diagnostics-oms-setup.md) di Monitoraggio di Azure per ottenere informazioni dettagliate ed eseguire query nel portale dei log di Monitoraggio di Azure
+Ora che si stanno aggregando gli eventi in archiviazione di Azure, [configurare i log di monitoraggio di Azure](service-fabric-diagnostics-oms-setup.md) per ottenere informazioni dettagliate ed eseguire query nel portale dei log di monitoraggio di Azure
 
 >[!NOTE]
 >Attualmente non è possibile filtrare o eliminare gli eventi inviati alle tabelle. Se non si implementa un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare (il limite massimo è di 50 GB). Le istruzioni su come modificare questa impostazione sono disponibili [più avanti in questo articolo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Inoltre, è disponibile un esempio di servizio di eliminazione dati in esecuzione nel [watchdog di esempio](https://github.com/Azure-Samples/service-fabric-watchdog-service). È consigliabile scriverne uno personalizzato, a meno che non esista un motivo valido per archiviare i log per un intervallo di tempo superiore a 30 o 90 giorni.
@@ -89,7 +89,7 @@ Aggiungere una nuova risorsa di archiviazione al modello nella sezione risorse.
 },
 ```
 
- Aggiungere quindi alla sezione parametri subito dopo le definizioni dell'account di archiviazione, tra `supportLogStorageAccountName`. Sostituire il testo segnaposto *storage account name goes here* con il nome dell'account di archiviazione preferito.
+ Aggiungere quindi alla sezione parametri subito dopo le definizioni dell'account di archiviazione, tra `supportLogStorageAccountName`. Sostituire il nome dell' *account di archiviazione* del testo segnaposto con il nome dell'account di archiviazione desiderato.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -202,7 +202,7 @@ Dato che le tabelle popolate dall'estensione aumentano fino al raggiungimento de
 ## <a name="log-collection-configurations"></a>Configurazioni di raccolta log
 Sono disponibili per la raccolta anche log da canali aggiuntivi; di seguito sono riportare alcune delle configurazioni più comuni che è possibile apportare nel modello per i cluster in esecuzione in Azure.
 
-* Canale operativo - Base: abilitato per impostazione predefinita, operazioni di alto livello eseguite da Service Fabric e dal cluster, inclusi gli eventi per un nodo in arrivo, una nuova applicazione distribuita o un rollback dell'aggiornamento e così via. Per un elenco di eventi, fare riferimento a [Eventi del canale operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canale operativo-base: abilitata per impostazione predefinita, operazioni di alto livello eseguite da Service Fabric e dal cluster, inclusi gli eventi per un nodo in arrivo, una nuova applicazione da distribuire o un rollback dell'aggiornamento e così via. Per un elenco di eventi, vedere [eventi del canale operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
@@ -312,7 +312,7 @@ Se si usa un sink di Application Insights, come descritto nella sezione di segui
 >[!NOTE]
 >Al momento, si applica solo ai cluster Windows.
 
-Esistono due modi principali per inviare dati da WAD ad Azure Application Insights, che si ottiene aggiungendo un sink di Application Insights alla configurazione di WAD, tramite il portale di Azure o tramite un modello di Azure Resource Manager.There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, through the Azure portal or through an Azure Resource Manager template.
+Esistono due modi principali per inviare dati da WAD a applicazione Azure Insights, che si ottengono aggiungendo un sink Application Insights alla configurazione di WAD, tramite la portale di Azure o tramite un modello Azure Resource Manager.
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Aggiungere una chiave di strumentazione di Application Insights durante la creazione di un cluster nel portale di Azure
 
@@ -346,20 +346,20 @@ Nel modello di Resource Manager, in "WadCfg" aggiungere un "Sink" apportando le 
 
 In entrambi i frammenti di codice precedenti il nome "applicationInsights" è stato usato per descrivere il sink. Questo non è un requisito e fino a quando il nome del sink è incluso in "sink", è possibile impostare il nome per qualsiasi stringa.
 
-Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Poiché la maggior parte delle tracce provenienti dalla piattaforma sono di livello "Informativo", è anche possibile modificare la configurazione del sink per inviare solo i registri di tipo "Avviso" o "Errore". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Poiché la maggior parte delle tracce provenienti dalla piattaforma è di livello "informativo", è anche possibile modificare la configurazione del sink per inviare solo i log di tipo "Warning" o "Error". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Se si usa una chiave di Application Insights errata nel portale o nel modello di Resource Manager è necessario modificare la chiave e aggiornare il cluster o ridistribuirlo manualmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato correttamente Diagnostica di Azure, sarà possibile visualizzare i dati nelle tabelle di archiviazione dai log EventSource ed ETW. Se si sceglie di usare i log di Monitoraggio di Azure, Kibana o qualsiasi altra piattaforma di analisi e visualizzazione dei dati non configurata direttamente nel modello di Resource Manager, assicurarsi di configurare la piattaforma scelta per la lettura dei dati da queste tabelle di archiviazione. Questa operazione per i log di Monitoraggio di Azure è relativamente semplice e viene illustrata in [Analisi eventi e log](service-fabric-diagnostics-event-analysis-oms.md). Application Insights è un caso particolare sotto questo aspetto, perché può essere configurato nell'ambito della configurazione dell'estensione Diagnostica. Se si sceglie di usare Application Insights, vedere l'[articolo appropriato](service-fabric-diagnostics-event-analysis-appinsights.md).
+Dopo aver configurato correttamente Diagnostica di Azure, sarà possibile visualizzare i dati nelle tabelle di archiviazione dai log EventSource ed ETW. Se si sceglie di usare i log di monitoraggio di Azure, Kibana o qualsiasi altra piattaforma di analisi e visualizzazione dei dati non configurata direttamente nel modello di Gestione risorse, assicurarsi di configurare la piattaforma scelta per la lettura dei dati da queste tabelle di archiviazione. Questa operazione per i log di monitoraggio di Azure è relativamente semplice e viene illustrata in [analisi di eventi e log](service-fabric-diagnostics-event-analysis-oms.md). Application Insights è un caso particolare sotto questo aspetto, perché può essere configurato nell'ambito della configurazione dell'estensione Diagnostica. Se si sceglie di usare Application Insights, vedere l'[articolo appropriato](service-fabric-diagnostics-event-analysis-appinsights.md).
 
 >[!NOTE]
 >Attualmente non è possibile filtrare o eliminare gli eventi inviati alla tabella. Se non si implementa un processo per rimuovere gli eventi dalla tabella, le dimensioni della tabella continueranno ad aumentare. È attualmente disponibile un esempio di servizio di eliminazione dati in esecuzione nel [watchdog di esempio](https://github.com/Azure-Samples/service-fabric-watchdog-service). È consigliabile scriverne uno personalizzato, a meno che non esista un motivo valido per archiviare i log per un intervallo di tempo superiore a 30 o 90 giorni.
 
 * [Informazioni su come raccogliere i contatori delle prestazioni o i log mediante l'estensione Diagnostica](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Analisi e visualizzazione degli eventi con Application Insights)
-* [Analisi e visualizzazione degli eventi con i log di Monitoraggio di AzureEvent Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analisi e visualizzazione di eventi con i log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) (Analisi e visualizzazione degli eventi con Application Insights)
-* [Analisi e visualizzazione degli eventi con i log di Monitoraggio di AzureEvent Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analisi e visualizzazione di eventi con i log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)

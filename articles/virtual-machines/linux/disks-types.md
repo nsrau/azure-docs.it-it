@@ -1,6 +1,6 @@
 ---
-title: Selezionare un tipo di disco per le macchine virtuali Linux di Azure IaaS - dischi gestitiSelect a disk type for Azure IaaS Linux VMs - managed disks
-description: Informazioni sui tipi di disco di Azure disponibili per le macchine virtuali Linux, inclusi dischi ultra, unità SSD premium, unità SSD standard e unità disco standard.
+title: Selezionare un tipo di disco per le VM Linux di Azure IaaS-dischi gestiti
+description: Informazioni sui tipi di dischi di Azure disponibili per le macchine virtuali Linux, inclusi dischi Ultra, SSD Premium, SSD standard e HDD standard.
 author: roygara
 ms.author: rogarana
 ms.date: 11/04/2019
@@ -17,7 +17,7 @@ ms.locfileid: "79267378"
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Se si vuole iniziare a usare dischi ultra, vedere l'articolo sull'argomento: Uso dei [dischi ultra di Azure](disks-enable-ultra-ssd.md).
+Per iniziare a usare i dischi Ultra, vedere l'articolo sull'argomento relativo all'uso di [dischi ultra di Azure](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 

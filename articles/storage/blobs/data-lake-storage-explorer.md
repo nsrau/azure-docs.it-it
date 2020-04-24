@@ -1,6 +1,6 @@
 ---
-title: Usare Azure Storage Explorer con Azure Data Lake Storage Gen2Use Azure Storage Explorer with Azure Data Lake Storage Gen2
-description: Usare Azure Storage Explorer per gestire le directory e gli elenchi di controllo di accesso (ACL) di file e directory negli account di archiviazione con spazio dei nomi gerarchico abilitato.
+title: Usare Azure Storage Explorer con Azure Data Lake Storage Gen2
+description: Usare il Azure Storage Explorer per gestire directory e elenchi di controllo di accesso (ACL) di file e directory in account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -17,14 +17,14 @@ ms.locfileid: "79255548"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare Azure Storage Explorer per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
-Questo articolo illustra come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare e gestire directory, file e autorizzazioni negli account di archiviazione con spazio dei nomi gerarchico abilitato.
+Questo articolo illustra come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare e gestire directory, file e autorizzazioni negli account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico (HNS).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Un account di archiviazione con spazio dei nomi gerarchico abilitato. Seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni per crearne una.
-> * Esplora archivi di Azure installato nel computer locale. Per installare Azure Storage Explorer per Windows, Macintosh o Linux, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> * Un account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato. Seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni per crearne uno.
+> * Azure Storage Explorer installato nel computer locale. Per installare Azure Storage Explorer per Windows, Macintosh o Linux, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-storage-explorer"></a>Accedere a Storage Explorer
 
@@ -36,7 +36,7 @@ Al primo avvio di Storage Explorer, viene visualizzata la finestra **Microsoft A
 |Usare una stringa di connessione o un URI di firma di accesso condiviso | Consente di accedere direttamente a un contenitore o a un account di archiviazione con un token di firma di accesso condiviso o una stringa di connessione condivisa. |
 |Usare un nome e una chiave dell'account di archiviazione| Consente di usare un nome e una chiave dell'account di archiviazione per la connessione ad Archiviazione di Azure.|
 
-Selezionare **Aggiungi un account Azure** e fare clic su **Accedi..**. Seguire le istruzioni visualizzate per accedere all'account Azure.Follow the on-screen prompts to sign into your Azure account.
+Selezionare **Aggiungi un account Azure** e fare clic su **Accedi.**.. Seguire le istruzioni visualizzate per accedere all'account Azure.
 
 ![Microsoft Azure Storage Explorer - Finestra Connetti](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -46,19 +46,19 @@ Al termine della connessione, Azure Storage Explorer viene caricato con la sched
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Un contenitore contiene directory e file. Per crearne uno, espandere l'account di archiviazione creato nel passaggio successivo. Selezionare **Contenitori BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Immettere il nome per il contenitore. Vedere la sezione [Creare un contenitore](storage-quickstart-blobs-dotnet.md#create-a-container) per un elenco di regole e restrizioni sulla denominazione dei contenitori. Al termine, premere **INVIO** per creare il contenitore. Una volta creato correttamente, il contenitore viene visualizzato nella cartella **Contenitori BLOB** per l'account di archiviazione selezionato.
+Un contenitore include le directory e i file. Per crearne uno, espandere l'account di archiviazione creato nel passaggio che segue. Selezionare **Contenitori BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Immettere il nome del contenitore. Vedere la sezione [creare un contenitore](storage-quickstart-blobs-dotnet.md#create-a-container) per un elenco di regole e restrizioni relative alla denominazione dei contenitori. Al termine, premere **invio** per creare il contenitore. Una volta creato correttamente, il contenitore viene visualizzato nella cartella **contenitori BLOB** per l'account di archiviazione selezionato.
 
-![Esplora archivi di Microsoft Azure - Creazione di un contenitore](media/data-lake-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage Explorer-creazione di un contenitore](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="create-a-directory"></a>Creare una directory
 
-Per creare una directory, selezionare il contenitore creato nel passaggio successivo. Nella barra multifunzione del contenitore scegliere il pulsante **Nuova cartella.** Immettere il nome della directory. Al termine, premere **INVIO** per creare la directory. Una volta creata, la directory viene visualizzata nella finestra dell'editor.
+Per creare una directory, selezionare il contenitore creato nel passaggio che segue. Nella barra multifunzione del contenitore scegliere il pulsante **nuova cartella** . Immettere il nome per la directory. Al termine, premere **invio** per creare la directory. Una volta creata correttamente, la directory viene visualizzata nella finestra dell'editor.
 
-![Esplora archivi di Microsoft Azure - Creazione di una directory](media/data-lake-storage-explorer/creating-a-directory.png)
+![Microsoft Azure Storage Explorer-creazione di una directory](media/data-lake-storage-explorer/creating-a-directory.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Caricare i BLOB nella directory
 
-Sulla barra multifunzione della directory scegliere il pulsante **Carica.** Questa operazione consente di caricare una cartella o un file.
+Sulla barra multifunzione Directory scegliere il pulsante **carica** . Questa operazione consente di caricare una cartella o un file.
 
 Scegliere i file o le cartelle da caricare.
 
@@ -74,7 +74,7 @@ Nell'applicazione **Azure Storage Explorer**, selezionare una directory in un ac
 
 ## <a name="download-blobs"></a>Scaricare BLOB
 
-Per scaricare i file tramite **Azure Storage Explorer,** con un file selezionato, selezionare **Scarica** dalla barra multifunzione. Viene visualizzata una finestra di dialogo File, che consente di immettere un nome di file. Selezionare **Salva** per avviare il download di un file nel percorso locale.
+Per scaricare i file tramite **Azure Storage Explorer**, con un file selezionato, selezionare **Scarica** dalla barra multifunzione. Viene visualizzata una finestra di dialogo File, che consente di immettere un nome di file. Selezionare **Save (Salva** ) per avviare il download di un file nel percorso locale.
 
 ## <a name="managing-access"></a>Gestione dell'accesso
 
@@ -95,11 +95,11 @@ L'utente o il gruppo verranno visualizzati nel campo **Utenti e gruppi:**, che c
 
 Esistono due categorie di autorizzazioni che è possibile assegnare: elenchi ACL di acceso e ACL predefiniti.
 
-* **Access**: gli ACL di accesso controllano l'accesso a un oggetto. Sia i file che le directory hanno ACL di accesso.
+* **Accesso**: gli ACL di accesso controllano l'accesso a un oggetto. Sia i file che le directory hanno ACL di accesso.
 
-* **Predefinito**: un modello di ACL associato a una directory che determina gli ACL di accesso per tutti gli elementi figlio creati in tale directory. I file non hanno ACL predefiniti.
+* **Impostazione predefinita**: un modello di ACL associato a una directory che determina gli ACL di accesso per tutti gli elementi figlio creati in tale directory. I file non hanno ACL predefiniti.
 
-All'interno di entrambe queste categorie, è possibile assegnare tre autorizzazioni a file o directory: **Lettura**, **Scrittura**ed **Esecuzione**.
+All'interno di queste categorie sono disponibili tre autorizzazioni che è possibile assegnare a file o directory: **lettura**, **scrittura**ed **esecuzione**.
 
 >[!NOTE]
 > Le selezioni effettuate qui non imposteranno le autorizzazioni per tutti gli elementi attualmente esistenti all'interno della directory. Se il file esiste già, è necessario passare a ogni singolo elemento e impostare le autorizzazioni manualmente.
@@ -108,7 +108,7 @@ All'interno di entrambe queste categorie, è possibile assegnare tre autorizzazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni gli elenchi di controllo di accesso in Data Lake Storage Gen2.Learn access control lists in Data Lake Storage Gen2.
+Informazioni sugli elenchi di controllo di accesso in Data Lake Storage Gen2.
 
 > [!div class="nextstepaction"]
-> [Controllo dell'accesso in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [Controllo di accesso in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

@@ -1,7 +1,7 @@
 ---
-title: 'Testo di pre-elaborazione: riferimento modulo'
+title: 'Testo pre-elaborazione: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Pre-process Text in Azure Machine Learning per pulire e semplificare il testo.
+description: Informazioni su come usare il modulo di testo pre-elaborazione in Azure Machine Learning per pulire e semplificare il testo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,73 +18,73 @@ ms.locfileid: "79477494"
 ---
 # <a name="preprocess-text"></a>Preprocess Text
 
-Questo articolo descrive un modulo nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
-Utilizzare il modulo **Pre-elaborazione del testo** per pulire e semplificare il testo. Supporta queste operazioni comuni di elaborazione del testo:It supports these common text processing operations:
+Usare il modulo di **testo pre-elaborazione** per pulire e semplificare il testo. Supporta le seguenti operazioni comuni di elaborazione del testo:
 
-* Rimozione delle parole stop
-* Utilizzo di espressioni regolari per cercare e sostituire stringhe di destinazione specificheUsing regular expressions to search for and replace specific target strings
-* Lemmatizzazione, che converte più parole correlate in una singola forma canonica
-* Normalizzazione dei casi
-* Rimozione di alcune classi di caratteri, ad esempio numeri, caratteri speciali e sequenze di caratteri ripetuti, ad esempio "aaaa"
-* Identificazione e rimozione di e-mail e URL
+* Rimozione di parole non significative
+* Utilizzo di espressioni regolari per la ricerca e la sostituzione di stringhe di destinazione specifiche
+* Lemmatizzazione, che converte più parole correlate in un unico formato canonico
+* Normalizzazione maiuscole/minuscole
+* Rimozione di determinate classi di caratteri, ad esempio numeri, caratteri speciali e sequenze di caratteri ripetuti come "aaaa"
+* Identificazione e rimozione di messaggi di posta elettronica e URL
 
-Il modulo **Pre-process Text** attualmente supporta solo l'inglese.
+Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
 
 ## <a name="configure-text-preprocessing"></a>Configurare la pre-elaborazione del testo  
 
-1.  Aggiungere il modulo di testo di **pre-elaborazione** alla pipeline in Azure Machine Learning.Add the Preprocess Text module to your pipeline in Azure Machine Learning. È possibile trovare questo modulo in **Analisi del testo**.
+1.  Aggiungere il modulo di **testo pre-elaborazione** alla pipeline in Azure Machine Learning. È possibile trovare questo modulo in **analisi del testo**.
 
 1. Connettere un set di dati con almeno una colonna contenente testo.
 
-1. Selezionare la lingua dall'elenco a discesa **Lingua.**
+1. Selezionare la lingua dall'elenco a discesa **lingua** .
 
-1. **Colonna di testo da pulire:** selezionare la colonna che si desidera pre-elaborare.
+1. **Colonna di testo da pulire**: selezionare la colonna che si desidera pre-elaborare.
 
-1. **Rimuovi parole non significative**: Selezionare questa opzione se si desidera applicare un elenco di parole non significative predefinito alla colonna di testo. 
+1. **Rimuovi parole non significative**: selezionare questa opzione se si desidera applicare un elenco parola non significativa predefinito alla colonna di testo. 
 
-    Gli elenchi di parole non in ordine popup dipendono dalla lingua e sono personalizzabili.
+    Gli elenchi parola non significativa sono dipendenti dalla lingua e personalizzabili.
 
-1. **Lemmatizzazione**: Selezionare questa opzione se si desidera che le parole siano rappresentate nella loro forma canonica. Questa opzione è utile per ridurre il numero di occorrenze univoche di token di testo altrimenti simili.
+1. **Lemmatizzazione**: selezionare questa opzione se si desidera che le parole siano rappresentate nel formato canonico. Questa opzione è utile per ridurre il numero di occorrenze univoche di token di testo altrimenti simili.
 
-    Il processo di lemmatizzazione dipende fortemente dalla lingua..
+    Il processo lemmatizzazione dipende dalla lingua.
 
-1. **Rileva frasi**: Selezionare questa opzione se si desidera che il modulo inserisca un contrassegno del contorno della frase durante l'analisi.
+1. **Rileva frasi**: selezionare questa opzione se si vuole che il modulo inserisca un contrassegno limite frase durante l'esecuzione dell'analisi.
 
-    Questo modulo utilizza una serie `|||` di tre caratteri barra verticale per rappresentare il terminatore di frase.
+    Questo modulo usa una serie di tre caratteri di `|||` pipe per rappresentare il carattere di terminazione della frase.
 
-1. Eseguire operazioni facoltative di ricerca e sostituzione utilizzando espressioni regolari.
+1. Eseguire operazioni di ricerca e sostituzione facoltative mediante espressioni regolari.
 
-    * **Espressione regolare personalizzata**: Definire il testo che si sta cercando.
-    * **Stringa di sostituzione personalizzata**: Definire un singolo valore di sostituzione.
+    * **Espressione regolare personalizzata**: definire il testo che si sta cercando.
+    * **Stringa di sostituzione personalizzata**: definire un singolo valore di sostituzione.
 
-1. **Normalizza maiuscole/minuscole:** selezionare questa opzione se si desidera convertire i caratteri maiuscoli ASCII nelle relative maschere minuscole.
+1. **Normalizza maiuscole/minuscole**: selezionare questa opzione se si desidera convertire i caratteri ASCII maiuscoli nelle forme minuscole.
 
-    Se i caratteri non vengono normalizzati, la stessa parola in lettere maiuscole e minuscole viene considerata due parole diverse.
+    Se i caratteri non vengono normalizzati, la stessa parola in lettere maiuscole e minuscole viene considerata come due parole diverse.
 
-1. È inoltre possibile rimuovere i seguenti tipi di caratteri o sequenze di caratteri dal testo di output elaborato:
+1. È anche possibile rimuovere i seguenti tipi di caratteri o sequenze di caratteri dal testo di output elaborato:
 
-    * **Rimuovi numeri**: Selezionare questa opzione per rimuovere tutti i caratteri numerici per la lingua specificata. I numeri di identificazione dipendono dal dominio e dipendono dalla lingua. Se i caratteri numerici sono parte integrante di una parola nota, il numero potrebbe non essere rimosso.
+    * **Rimuovi numeri**: selezionare questa opzione per rimuovere tutti i caratteri numerici per la lingua specificata. I numeri di identificazione sono dipendenti dal dominio e la lingua. Se i caratteri numerici sono parte integrante di una parola nota, il numero potrebbe non essere rimosso.
     
-    * **Rimuovi caratteri speciali**: utilizzare questa opzione per rimuovere eventuali caratteri speciali non alfanumerici.
+    * **Rimuovi caratteri speciali**: usare questa opzione per rimuovere i caratteri speciali non alfanumerici.
     
-    * **Rimuovi caratteri duplicati**: Selezionare questa opzione per rimuovere i caratteri aggiuntivi in tutte le sequenze che si ripetono per più di due volte. Ad esempio, una sequenza come "aaaaa" verrebbe ridotta a "aa".
+    * **Rimuovi caratteri duplicati**: selezionare questa opzione per rimuovere i caratteri aggiuntivi in qualsiasi sequenza ripetuta per più di due volte. Ad esempio, una sequenza come "aaaaa" verrebbe ridotta a "AA".
     
-    * **Rimuovi indirizzi e-mail**: Selezionare questa `<string>@<string>`opzione per rimuovere qualsiasi sequenza del formato .  
-    * **Rimuovi URL**: Selezionare questa opzione per rimuovere qualsiasi sequenza `http` `https`che `ftp`includa i seguenti prefissi URL: , , ,`www`
+    * **Rimuovi indirizzi di posta elettronica**: selezionare questa opzione per rimuovere qualsiasi sequenza del `<string>@<string>`formato.  
+    * **Rimuovi URL**: selezionare questa opzione per rimuovere qualsiasi sequenza che includa i prefissi URL seguenti `http`: `https`, `ftp`,,`www`
     
-1. **Espandi contrazioni verbali**: questa opzione si applica solo alle lingue che utilizzano contrazioni verbali; attualmente, solo in inglese. 
+1. **Espandi contrazioni verbo**: questa opzione si applica solo ai linguaggi che usano le contrazioni di verbi; Attualmente, solo in lingua inglese. 
 
-    Ad esempio, selezionando questa opzione, è possibile sostituire la frase *"non ci starebbe"* con *"non ci starebbe".*
+    Se, ad esempio, si seleziona questa opzione, è possibile sostituire la frase *"non rimanere lì* " con *"non rimanere lì"*.
 
-1. **Normalizza barre rovesciate in barre**: selezionare `\\` questa `/`opzione per mappare tutte le istanze di a .
+1. Normalizza le barre rovesciate **in barre**: selezionare questa opzione per eseguire il mapping di tutte `\\` le `/`istanze di a.
 
-1. **Dividi token su caratteri speciali:** selezionare questa opzione `&`se `-`si desidera interrompere le parole su caratteri quali , e così via. Questa opzione può anche ridurre i caratteri speciali quando si ripete più di due volte. 
+1. **Suddividere i token in caratteri speciali**: selezionare questa opzione se si desidera interrompere le parole su caratteri quali `&`, `-`e così via. Questa opzione può anche ridurre i caratteri speciali quando si ripete più di due volte. 
 
-    Ad esempio, `MS---WORD` la stringa verrebbe suddivisa `MS` `-`in `WORD`tre token, , e .
+    La stringa `MS---WORD` , ad esempio, viene suddivisa in tre token, `MS` `-`, e `WORD`.
 
 1. Inviare la pipeline.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

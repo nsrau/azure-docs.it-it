@@ -25,21 +25,21 @@ Il database SQL di Azure è un servizio dati gestito automaticamente che esegue 
 L'ottimizzazione automatica può essere abilitata a livello di server o di database dal [portale di Azure](sql-database-automatic-tuning-enable.md#azure-portal) o tramite chiamate [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandi [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 > [!NOTE]
-> Per l'istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurata solo tramite [T-SQL.](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) Le opzioni di configurazione basata sul portale e ottimizzazione automatica dell'indice descritte in questo articolo non si applicano all'istanza gestita.
+> Per Istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurata solo tramite [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . Le opzioni di configurazione basata su portale e di ottimizzazione automatica degli indici descritte in questo articolo non si applicano a Istanza gestita.
 
 > [!NOTE]
-> La configurazione delle opzioni di ottimizzazione automatica tramite il modello ARM (Azure Resource Manager) non è attualmente supportata.
+> In questo momento la configurazione delle opzioni di ottimizzazione automatica tramite il modello ARM (Azure Resource Manager) non è supportata.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Abilitare l'ottimizzazione automatica nel server
 
 A livello di server è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitato), CREATE_INDEX (abilitato) e DROP_INDEX (disabilitato).
 
 > [!IMPORTANT]
-> A partire da marzo, 2020 le modifiche alle impostazioni predefinite di Azure per l'ottimizzazione automatica avranno effetto come segue:
+> A partire da marzo, 2020 le modifiche apportate alle impostazioni predefinite di Azure per l'ottimizzazione automatica diverranno effettive come segue:
 >
-> - Le nuove impostazioni predefinite di Azure saranno FORCE_LAST_GOOD_PLAN, abilitato, CREATE_INDEX, disabilitato e DROP_INDEX disabilitato.
-> - I server esistenti senza preferenze di ottimizzazione automatica configurate verranno configurati automaticamente per INHERIT le nuove impostazioni predefinite di Azure.Existing servers with no automatic tuning preferences configured will be automatically configured to INHERIT the new Azure defaults. Questo vale per tutti i clienti che attualmente hanno impostazioni del server per l'ottimizzazione automatica in uno stato indefinito.
-> - I nuovi server creati verranno configurati automaticamente in INHERIT le nuove impostazioni predefinite di Azure (a differenza delle versioni precedenti, quando la configurazione di ottimizzazione automatica era in uno stato non definito al momento della creazione del nuovo server).
+> - Le nuove impostazioni predefinite di Azure verranno FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled e DROP_INDEX = disabled.
+> - I server esistenti senza preferenze di ottimizzazione automatica configurata verranno automaticamente configurati per EREDITAre le nuove impostazioni predefinite di Azure. Questo vale per tutti i clienti che dispongono attualmente di impostazioni server per l'ottimizzazione automatica in uno stato non definito.
+> - I nuovi server creati verranno automaticamente configurati in modo da EREDITAre le nuove impostazioni predefinite di Azure (a differenza di quanto prima quando la configurazione dell'ottimizzazione automatica era in uno stato non definito durante la creazione di un nuovo server).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -48,10 +48,10 @@ Per abilitare l'ottimizzazione automatica nel **server** logico del database SQL
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Si noti che al momento l'opzione **DROP_INDEX** non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi. L'eliminazione degli indici inutilizzati non è supportata per i livelli di servizio Premium e Business Critical.
+> Si noti che al momento l'opzione **DROP_INDEX** non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi. L'eliminazione degli indici inutilizzati non è supportata per i livelli di servizio Premium e business critical.
 >
 
-Selezionare le opzioni di ottimizzazione automatica che si desidera abilitare e selezionare **Applica**.
+Selezionare le opzioni di ottimizzazione automatica che si vuole abilitare e selezionare **applica**.
 
 Le opzioni di ottimizzazione automatica in un server vengono applicate a tutti i database nel server stesso. Per impostazione predefinita, tutti i database ereditano la configurazione dal server padre corrispondente, ma è possibile sostituire questa impostazione e specificarne una distinta per ogni database.
 
@@ -64,7 +64,7 @@ Per altre informazioni sull'uso dell'API REST per abilitare l'ottimizzazione aut
 Il database SQL di Azure consente di specificare singolarmente la configurazione di ottimizzazione automatica per ogni database. A livello di database è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica dal server padre o da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
 
 > [!TIP]
-> Si consiglia di gestire la configurazione di ottimizzazione automatica a livello di **server** in modo che le stesse impostazioni di configurazione possano essere applicate automaticamente in ogni database. Configurare l'ottimizzazione automatica in un singolo database solo se è necessario che per tale database le impostazioni siano diverse rispetto ai database che ereditano le impostazioni dallo stesso server.
+> L'indicazione generale è quella di gestire la configurazione di ottimizzazione automatica a **livello di server** , in modo che le stesse impostazioni di configurazione possano essere applicate automaticamente a ogni database. Configurare l'ottimizzazione automatica in un singolo database solo se è necessario che per tale database le impostazioni siano diverse rispetto ai database che ereditano le impostazioni dallo stesso server.
 >
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -99,7 +99,7 @@ Per configurare le singole opzioni di ottimizzazione automatica con Transact-SQL
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Impostare l'opzione di ottimizzazione specifica su ON per eseguire l'override di qualsiasi impostazione ereditata dal database e abilitare l'opzione di ottimizzazione specifica. Se viene impostata su OFF, verrà eseguito l'override di qualsiasi impostazione ereditata dal database, ma l'opzione di ottimizzazione specifica verrà disabilitata. L'opzione di ottimizzazione automatica, per la quale è specificato DEFAULT, erediterà la configurazione di ottimizzazione automatica dalle impostazioni a livello di server.  
+Impostare l'opzione di ottimizzazione specifica su ON per eseguire l'override di qualsiasi impostazione ereditata dal database e abilitare l'opzione di ottimizzazione specifica. Se viene impostata su OFF, verrà eseguito l'override di qualsiasi impostazione ereditata dal database, ma l'opzione di ottimizzazione specifica verrà disabilitata. L'opzione di ottimizzazione automatica, per la quale viene specificato il valore predefinito, erediterà la configurazione di ottimizzazione automatica dalle impostazioni a livello di server.  
 
 > [!IMPORTANT]
 > In caso di [replica geografica attiva](sql-database-auto-failover-group.md), l'ottimizzazione automatica deve essere configurata solo nel database primario. Le azioni di ottimizzazione applicate automaticamente, ad esempio la creazione o l'eliminazione dell'indice, verranno replicate automaticamente nel database secondario di sola lettura. Se si tenta di abilitare l'ottimizzazione automatica tramite T-SQL nel database secondario di sola lettura, si verificherà un errore perché una configurazione di ottimizzazione diversa per il database secondario di sola lettura non è supportata.
@@ -113,13 +113,13 @@ L'ottimizzazione automatica esegue il monitoraggio di tutte le azioni eseguite a
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Poiché l'ottimizzazione automatica è la funzionalità di Azure, per usarla è necessario usare i ruoli RBAC predefiniti di Azure.As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. L'uso solo dell'autenticazione SQL non sarà sufficiente per usare la funzionalità dal portale di Azure.Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
+Poiché l'ottimizzazione automatica è la funzionalità di Azure, per usarla è necessario usare i ruoli RBAC predefiniti di Azure. L'utilizzo dell'autenticazione SQL non sarà sufficiente per utilizzare la funzionalità da portale di Azure.
 
-Per usare l'ottimizzazione automatica, l'autorizzazione minima richiesta da concedere all'utente è il ruolo di [collaboratore del database SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor) predefinito di Azure.To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in SQL DB contributor role. È inoltre possibile prendere in considerazione l'utilizzo di ruoli con privilegi più elevati, ad esempio Collaboratore, Collaboratore e Proprietario di SQL Server.You can also consider using higher privilege roles such as SQL Server Contributor, Contributor and Owner.
+Per usare l'ottimizzazione automatica, l'autorizzazione minima necessaria per concedere all'utente è il ruolo di [collaboratore database SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor) predefinito di Azure. È inoltre possibile considerare l'utilizzo di ruoli con privilegi più elevati, ad esempio SQL Server collaboratore, collaboratore e proprietario.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurare notifiche tramite posta elettronica per l'ottimizzazione automatica
 
-Vedere la [guida all'ottimizzazione automatica delle notifiche tramite posta elettronica.](sql-database-automatic-tuning-email-notifications.md)
+Vedere la Guida all' [ottimizzazione automatica delle notifiche tramite posta elettronica](sql-database-automatic-tuning-email-notifications.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

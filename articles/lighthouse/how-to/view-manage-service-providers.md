@@ -12,18 +12,18 @@ ms.locfileid: "79270628"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
-I clienti possono usare la pagina **Provider** di servizi nel portale di [Azure](https://portal.azure.com) per visualizzare informazioni sui provider di servizi e sulle offerte di provider di servizi, delegare risorse specifiche tramite la gestione delle risorse delegate di [Azure](../concepts/azure-delegated-resource-management.md)e acquistare nuove offerte di provider di servizi. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
+I clienti possono utilizzare la pagina dei **provider di servizi** nella [portale di Azure](https://portal.azure.com) per visualizzare informazioni sui provider di servizi e le offerte del provider di servizi, delegare risorse specifiche tramite la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md)e acquistare nuove offerte di provider di servizi. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
 
 Per accedere alla pagina **Provider di servizi** nel portale di Azure, il cliente può selezionare **Tutti i servizi**, quindi cercare **Provider di servizi** e selezionarlo. Può trovarlo anche immettendo "Provider di servizi" nella casella di ricerca nella parte superiore del portale di Azure.
 
-Tenere presente che nella pagina Provider di servizi vengono visualizzate solo informazioni sui provider di servizi che hanno accesso alle sottoscrizioni o ai gruppi di risorse del cliente tramite la gestione delle risorse delegate di Azure.Keep in mind that the **Service providers** page only shows information about the service providers that have access to the customer's subscriptions or resource groups through Azure delegated resource management. Se un cliente lavora con provider di servizi aggiuntivi che non usano la gestione risorse delegate di Azure per accedere alle risorse del cliente, le informazioni su tali provider di servizi non vengono visualizzate qui.
+Tenere presente che la pagina **provider di servizi** Mostra solo le informazioni sui provider di servizi che hanno accesso alle sottoscrizioni o ai gruppi di risorse del cliente tramite la gestione delle risorse delegate di Azure. Se un cliente lavora con provider di servizi aggiuntivi che non usano la gestione risorse delegate di Azure per accedere alle risorse del cliente, le informazioni su tali provider di servizi non vengono visualizzate qui.
 
 > [!NOTE]
 > I provider di servizi possono visualizzare le informazioni sui clienti passando a **Clienti personali** nel portale di Azure. Per altre informazioni, vedere [Visualizzare e gestire clienti e risorse delegate](view-manage-customers.md).
 
 ## <a name="view-service-provider-details"></a>Visualizzare i dettagli dei provider di servizi
 
-Per visualizzare informazioni sui fornitori di servizi, il cliente può selezionare **Offerte fornitore** sul lato sinistro della pagina Provider di **servizi.**
+Per visualizzare informazioni sui provider di servizi, il cliente può selezionare **offerte del provider** sul lato sinistro della pagina provider di **Servizi** .
 
 Per ogni offerta di un provider di servizi, il cliente vedrà il nome del provider di servizi e l'offerta associata, con il nome immesso dal cliente durante il processo di onboarding.
 
@@ -59,18 +59,18 @@ Una volta controllate le modifiche, il cliente può scegliere di eseguire l'aggi
 
 Le deleghe rappresentano le assegnazioni di ruolo che concedono al provider di servizi le autorizzazioni per le risorse delegate da un cliente. Per visualizzare queste informazioni, selezionare **Deleghe** sul lato sinistro della pagina **Provider di servizi**.
 
-I filtri nella parte superiore della pagina consentono di ordinare e raggruppare le informazioni di delega. Puoi anche filtrare in base a clienti, offerte o parole chiave specifici.
+I filtri nella parte superiore della pagina consentono di ordinare e raggruppare le informazioni di delega. È anche possibile filtrare in base a clienti, offerte o parole chiave specifiche.
 
 > [!NOTE]
-> I clienti non vedranno queste assegnazioni di ruolo o gli utenti del tenant del provider di servizi a cui sono stati concessi questi ruoli, quando visualizzano le informazioni sulle assegnazioni di [ruolo per l'ambito delegato nel portale](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) di Azure o tramite le API.
+> I clienti non visualizzeranno queste assegnazioni di ruolo o tutti gli utenti del tenant del provider di servizi a cui sono stati concessi questi ruoli, quando [visualizzano le informazioni sull'assegnazione di ruolo per l'ambito delegato nell'portale di Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) o tramite le API.
 
-## <a name="audit-delegations-in-your-environment"></a>Delega di controllo nell'ambienteAudit delegations in your environment
+## <a name="audit-delegations-in-your-environment"></a>Delega di controllo nell'ambiente in uso
 
-È possibile che i clienti desiderino ottenere visibilità sulle sottoscrizioni e/o nei gruppi di risorse delegati ai provider di servizi per la gestione delle risorse delegate di [Azure.](../concepts/azure-delegated-resource-management.md) Ciò è particolarmente utile per i clienti con un numero elevato di sottoscrizioni o che dispongono di molti utenti che eseguono attività di gestione.
+I clienti potrebbero voler ottenere visibilità sulle sottoscrizioni e/o sui gruppi di risorse delegati ai provider di servizi per la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md). Questa operazione è particolarmente utile per i clienti con un numero elevato di sottoscrizioni o con molti utenti che eseguono attività di gestione.
 
-Viene fornita una [definizione](../../governance/policy/samples/built-in-policies.md#lighthouse) dei criteri predefinita di Criteri di Azure per controllare la delega degli ambiti a un tenant di gestione. È possibile assegnare questo criterio a un gruppo di gestione che include tutte le sottoscrizioni che si desidera controllare. Quando si verifica la conformità a questo criterio, tutte le sottoscrizioni delegate e/o i gruppi di risorse (all'interno del gruppo di gestione a cui è assegnato il criterio) verranno visualizzati in uno stato non conforme. È quindi possibile esaminare i risultati e verificare che non vi siano deleghe impreviste.
+Viene fornita una [definizione dei criteri incorporata in criteri di Azure](../../governance/policy/samples/built-in-policies.md#lighthouse) per controllare la delega degli ambiti a un tenant di gestione. È possibile assegnare questo criterio a un gruppo di gestione che include tutte le sottoscrizioni che si desidera controllare. Quando si verifica la conformità con questi criteri, tutte le sottoscrizioni delegate e/o i gruppi di risorse (all'interno del gruppo di gestione a cui viene assegnato il criterio) verranno visualizzati in uno stato non conforme. È quindi possibile esaminare i risultati e verificare che non esistano deleghe impreviste.
 
-Per altre info su come assegnare criteri e visualizzare i risultati dello stato di conformità, vedi [Guida introduttiva: Creare un'assegnazione dei criteri.](../../governance/policy/assign-policy-portal.md)
+Per altre informazioni su come assegnare un criterio e visualizzare i risultati dello stato di conformità, vedere [Guida introduttiva: creare un'assegnazione di criteri](../../governance/policy/assign-policy-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
  

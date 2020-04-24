@@ -15,8 +15,8 @@ ms.locfileid: "79278532"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
-> * [Interfaccia della riga di comando di AzureAzure](cache-manage-cli.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
+> * [Interfaccia della riga di comando di Azure](cache-manage-cli.md)
 > 
 > 
 
@@ -70,7 +70,7 @@ Per connettersi ad Azure Government Cloud, usare uno dei comandi seguenti.
 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
 
-o
+oppure
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureUSGovernment)
 
@@ -86,7 +86,7 @@ Per connettersi ad Azure China Cloud, usare uno dei comandi seguenti.
 
     Connect-AzAccount -EnvironmentName AzureChinaCloud
 
-o
+oppure
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 
@@ -103,7 +103,7 @@ Per connettersi a Microsoft Azure Germania, usare uno dei comandi seguenti.
     Connect-AzAccount -EnvironmentName AzureGermanCloud
 
 
-o
+oppure
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 

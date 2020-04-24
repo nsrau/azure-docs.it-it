@@ -1,6 +1,6 @@
 ---
-title: Punteggio sicuro nel Centro sicurezza di Azure Documenti Microsoft
-description: " Assegnare una priorità ai consigli sulla sicurezza usando il punteggio di sicurezza in Centro sicurezza di Azure.Prioritize your security recommendations using the Secure Score in Azure Security Center. "
+title: Punteggio sicuro nel centro sicurezza di Azure | Microsoft Docs
+description: " Assegnare priorità ai consigli di sicurezza usando il Punteggio sicuro nel centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
 author: memildin
@@ -23,54 +23,54 @@ ms.locfileid: "79415762"
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure
 
 > [!NOTE]
-> Questo articolo riguarda la versione precedente del punteggio sicuro. Questa esperienza di punteggio sicuro è ancora disponibile nell'interfaccia utente, ma verrà eliminata gradualmente nel tempo. Le due esperienze di punteggio sicuro sono in esecuzione side-by-side per consentire una transizione più agevole.
+> Questo articolo riguarda la versione precedente del Punteggio sicuro. Questa esperienza di Punteggio sicuro è ancora disponibile dall'interfaccia utente, ma verrà gradualmente eliminata. Per consentire una transizione più uniforme, le due esperienze di valutazione sicura sono in esecuzione side-by-side.
 >
-> Per i dettagli del punteggio di sicurezza più recente, vedere [qui](secure-score-security-controls.md).
+> Per informazioni dettagliate sul nuovo punteggio sicuro, vedere [qui](secure-score-security-controls.md).
 >
 
-A fronte di così tanti servizi che offrono vantaggi in termini di sicurezza, è spesso difficile sapere quali passaggi eseguire prima per proteggere e rafforzare il carico di lavoro. Il punteggio sicuro esamina i consigli sulla sicurezza e li assegna le priorità per te, in modo da sapere quali consigli eseguire per primi. Questo è utile per trovare le vulnerabilità della sicurezza più gravi e stabilire di conseguenza le priorità di indagine. Secure Score è uno strumento che ti aiuta a valutare la sicurezza del carico di lavoro.
+A fronte di così tanti servizi che offrono vantaggi in termini di sicurezza, è spesso difficile sapere quali passaggi eseguire prima per proteggere e rafforzare il carico di lavoro. Il Punteggio sicuro esamina le raccomandazioni sulla sicurezza e le assegna una priorità, in modo da essere in grado di stabilire quali consigli eseguire prima. Questo è utile per trovare le vulnerabilità della sicurezza più gravi e stabilire di conseguenza le priorità di indagine. Il Punteggio sicuro è uno strumento che consente di valutare il comportamento di sicurezza del carico di lavoro.
 
-## <a name="secure-score-calculation"></a>Calcolo del punteggio sicuro
+## <a name="secure-score-calculation"></a>Calcolo del Punteggio sicuro
 
 Il Centro sicurezza simula il lavoro di un analista della sicurezza esaminando i consigli sulla sicurezza e applicando algoritmi avanzati per determinare il livello di importanza di ogni consiglio.
-Il Centro sicurezza di Azure esamina costantemente i consigli attivi e calcola il punteggio sicuro in base a tali punti di sicurezza, il punteggio di una raccomandazione deriva dalle procedure consigliate per la gravità e la sicurezza che influiranno maggiormente sulla sicurezza del carico di lavoro.
+Il Centro sicurezza di Azure esamina costantemente le raccomandazioni attive e calcola il Punteggio sicuro in base a tali raccomandazioni, il Punteggio di una raccomandazione deriva dalla gravità e dalle procedure ottimali di sicurezza che incidono maggiormente sulla sicurezza del carico di lavoro.
 
-Il Centro sicurezza fornisce inoltre un **punteggio sicuro generale**. 
+Il Centro sicurezza offre anche un **Punteggio sicuro complessivo**. 
 
-**Nel complesso Secure Score** è un accumulo di tutti i punteggi di raccomandazione. È possibile visualizzare il punteggio sicuro complessivo tra le sottoscrizioni o i gruppi di gestione, a seconda di ciò che si seleziona. Il punteggio varia in base alla sottoscrizione selezionata e alle raccomandazioni attive in ognuna di queste sottoscrizioni.
+Il **Punteggio sicuro complessivo** è un accumulo di tutti i punteggi di raccomandazione. È possibile visualizzare il Punteggio sicuro complessivo tra le sottoscrizioni o i gruppi di gestione, a seconda di ciò che si seleziona. Il punteggio varia in base alla sottoscrizione selezionata e alle raccomandazioni attive in ognuna di queste sottoscrizioni.
 
-Per verificare quali consigli influiscono maggiormente sul punteggio sicuro, è possibile visualizzare i tre consigli più importanti nel dashboard del Centro sicurezza oppure è possibile ordinare i suggerimenti nel riquadro dell'elenco dei suggerimenti usando la colonna **Impatto punteggio sicuro.**
+Per verificare quali consigli influiscano maggiormente sul punteggio sicuro, è possibile visualizzare le prime tre raccomandazioni più interessate nel dashboard del Centro sicurezza oppure è possibile ordinare le raccomandazioni nel pannello dell'elenco di raccomandazioni usando la colonna **Secure Score Impact** .
 
-Per visualizzare il punteggio sicuro complessivo:
+Per visualizzare il Punteggio sicuro globale:
 
 1. Nel dashboard di Azure fare clic su **Centro sicurezza** e quindi su **Punteggio sicuro**.
 
-2. In alto puoi vedere i punti salienti di Secure Score:
-   - Il **punteggio sicuro complessivo** rappresenta il punteggio per i criteri, per ogni sottoscrizione selezionata
-   - **Secure Score per categoria** ti mostra quali risorse hanno bisogno di più attenzione
-   - **I principali consigli per impatto sul punteggio sicuro** forniscono un elenco dei consigli che miglioreranno al meglio il tuo Secure Score se li implementi.
+2. Nella parte superiore è possibile visualizzare le evidenziazioni del Punteggio sicuro:
+   - Il **Punteggio sicuro generale** rappresenta il punteggio per ogni criterio, per ogni sottoscrizione selezionata
+   - Il **Punteggio sicuro per categoria** indica le risorse che richiedono maggiore attenzione
+   - I **suggerimenti principali per l'effetto di un punteggio sicuro** forniscono un elenco delle raccomandazioni che miglioreranno il Punteggio sicuro se vengono implementate.
  
    ![Punteggio di sicurezza](./media/security-center-secure-score/secure-score-dashboard.png)
 
-3. Nella tabella seguente puoi vedere ogni tuo abbonamento e il punteggio sicuro complessivo per ciascuno.
+3. Nella tabella riportata di seguito è possibile visualizzare ogni sottoscrizione e il Punteggio sicuro complessivo per ogni sottoscrizione.
 
    > [!NOTE]
-   > La somma del punteggio sicuro di ogni sottoscrizione non è uguale al punteggio sicuro complessivo. Il punteggio sicuro è un calcolo basato sul rapporto tra le risorse integre e le risorse totali per ogni raccomandazione, non una somma di secure Score nelle sottoscrizioni. 
+   > La somma del Punteggio sicuro di ogni sottoscrizione non è uguale al Punteggio sicuro complessivo. Il Punteggio sicuro è un calcolo basato sul rapporto tra le risorse integre e le risorse totali per raccomandazione, non una somma dei punteggi sicuri tra le sottoscrizioni. 
    >
-4. Fare clic su **Visualizza suggerimenti** per visualizzare i consigli per la sottoscrizione che è possibile correggere per migliorare il punteggio sicuro.
-4. Nell'elenco dei consigli, è possibile vedere che per ogni raccomandazione è presente una colonna che rappresenta **l'impatto del punteggio sicuro**. Questo numero rappresenta quanto migliorerà il tuo punteggio sicuro complessivo se segui le raccomandazioni. Ad esempio, nella schermata seguente, se si **correggino le vulnerabilità nelle configurazioni**di sicurezza dei contenitori, il punteggio sicuro aumenterà di 35 punti.
+4. Fare clic su **Visualizza raccomandazioni** per visualizzare le raccomandazioni per la sottoscrizione che è possibile correggere per migliorare il Punteggio sicuro.
+4. Nell'elenco di raccomandazioni è possibile notare che per ogni raccomandazione è presente una colonna che rappresenta l'effetto del **Punteggio sicuro**. Questo numero rappresenta quanto il Punteggio sicuro complessivo sarà migliore se si seguono le raccomandazioni. Ad esempio, nella schermata seguente, se si **aggiornano le vulnerabilità nelle configurazioni di sicurezza del contenitore**, il Punteggio sicuro aumenterà di 35 punti.
 
    ![Punteggio di sicurezza](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 
-## <a name="individual-secure-score"></a>Punteggio sicuro individuale
+## <a name="individual-secure-score"></a>Punteggio sicuro singolo
 
-Inoltre, per visualizzare i singoli Secure Score, è possibile trovarli all'interno del pannello di raccomandazione individuale.  
+Inoltre, per visualizzare i singoli punteggi sicuri, è possibile trovarli nel pannello delle singole raccomandazioni.  
 
-Il **punteggio sicuro di raccomandazione** è un calcolo basato sul rapporto tra le risorse integre e le risorse totali. Se il numero di risorse integre è uguale al numero totale di risorse, si ottiene il punteggio massimo sicuro della raccomandazione di 50. Per cercare di avvicinare il punteggio sicuro al punteggio massimo, correggere le risorse non integre seguendo le raccomandazioni.
+Il **Punteggio sicuro** per le raccomandazioni è un calcolo basato sul rapporto tra le risorse integre e le risorse totali. Se il numero di risorse integre è uguale al numero totale di risorse, si ottiene il Punteggio sicuro massimo della raccomandazione 50. Per provare a ottenere il Punteggio sicuro più vicino al punteggio massimo, correggere le risorse non integre seguendo le indicazioni.
 
-**L'impatto di raccomandazione** consente di sapere quanto migliora il punteggio sicuro se si applicano i passaggi di raccomandazione. Ad esempio, se il tuo punteggio sicuro è 42 e **l'impatto della raccomandazione** è di 3, l'esecuzione dei passaggi descritti nella raccomandazione migliora il punteggio in 45.
+L' **effetto della raccomandazione** consente di conoscere la quantità di Punteggio sicuro migliore se si applicano le procedure consigliate. Se, ad esempio, il Punteggio sicuro è 42 e l' **effetto raccomandazione** è + 3, l'esecuzione dei passaggi descritti nella raccomandazione consente di migliorare il punteggio fino a 45.
 
 La raccomandazione indica a quali minacce viene esposto il carico di lavoro se non si esegue la procedura di correzione.
 
@@ -78,7 +78,7 @@ La raccomandazione indica a quali minacce viene esposto il carico di lavoro se n
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo illustra come migliorare la sicurezza usando **il punteggio sicuro** nel Centro sicurezza di Azure.This article showed you how to improve your security posture using Secure Score in Azure Security Center. Per altre informazioni sul Centro sicurezza, vedere:
+Questo articolo ha illustrato come migliorare il comportamento di sicurezza usando un **Punteggio sicuro** nel centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere:
 
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.

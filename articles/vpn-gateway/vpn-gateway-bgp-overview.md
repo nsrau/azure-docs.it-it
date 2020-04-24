@@ -1,5 +1,5 @@
 ---
-title: 'Gateway BGP e GATEWAY VPN di Azure: panoramica'
+title: 'BGP e gateway VPN di Azure: Panoramica'
 description: Questo articolo fornisce una panoramica di BGP con i gateway VPN di Azure.
 services: vpn-gateway
 author: yushwang

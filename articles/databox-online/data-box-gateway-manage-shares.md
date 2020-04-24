@@ -50,7 +50,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 5. In **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come **BLOB in blocchi**, quindi è questa l'opzione da selezionare. Se si sceglie **BLOB di pagine**, occorre verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
 
    > [!IMPORTANT]
-   > Assicurarsi che l'account di Archiviazione di Azure usato non disponga di criteri di immutabilità impostati se viene usato con un dispositivo Azure Stack Edge o Data Box Gateway.Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. Per altre informazioni, vedere Impostare e gestire i criteri di [immutabilità per l'archiviazione BLOB.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)
+   > Verificare che l'account di archiviazione di Azure in uso non abbia criteri di immutabilità impostati su di esso se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
     - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
@@ -122,7 +122,7 @@ Se le chiavi dell'account di archiviazione sono state ruotate, sarà necessario 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare la chiave di accesso alle risorse di archiviazione.
 
 1. Passare a **Panoramica** nella risorsa. 
-2. Nell'elenco delle condivisioni scegliere e fare clic su una condivisione associata all'account di archiviazione da sincronizzare. Fare clic su **Sincronizza chiave di archiviazione**. 
+2. Dall'elenco di condivisioni scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare. Fare clic su **Sincronizza chiave di archiviazione**. 
 
      ![Sincronizzare la chiave di archiviazione 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 

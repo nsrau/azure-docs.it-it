@@ -1,7 +1,7 @@
 ---
-title: Distribuire modelli ml in App funzioni di Azure (anteprima)Deploy ml models to Azure Functions Apps (preview)
+title: Distribuire modelli ml in app di funzioni di Azure (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare Azure Machine Learning per distribuire un modello in un'app Funzioni di Azure.Learn how to use Azure Machine Learning to deploy a model to an Azure Functions App.
+description: Informazioni su come usare Azure Machine Learning per distribuire un modello in un'app funzioni di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,51 +17,51 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927449"
 ---
-# <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in Funzioni di Azure (anteprima)Deploy a machine learning model to Azure Functions (preview)
+# <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Informazioni su come distribuire un modello da Azure Machine Learning come app per le funzioni in Funzioni di Azure.Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
+Informazioni su come distribuire un modello da Azure Machine Learning come app per le funzioni in funzioni di Azure.
 
 > [!IMPORTANT]
-> Mentre sono generalmente disponibili sia Azure Machine Learning che Funzioni di Azure, la possibilità di creare un pacchetto di un modello dal servizio Machine Learning per Funzioni è in anteprima.
+> Sebbene sia la Azure Machine Learning che funzioni di Azure siano disponibili a livello generale, la possibilità di creare un pacchetto di un modello dal servizio Machine Learning per le funzioni è in anteprima.
 
-Con Azure Machine Learning è possibile creare immagini Docker da modelli di apprendimento automatico addestrati. Azure Machine Learning include ora la funzionalità di anteprima per compilare questi modelli di Machine Learning in app per le funzioni, che possono essere distribuite in Funzioni di Azure.Azure Machine Learning now has the preview functionality to build these Machine Learning models into function apps, which can be [deployed into Azure Functions.](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container)
+Con Azure Machine Learning, è possibile creare immagini Docker da modelli di apprendimento automatico sottoposti a training. Azure Machine Learning dispone ora della funzionalità di anteprima per compilare questi modelli di apprendimento automatico in app per le funzioni, che possono essere [distribuite in funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [Creare un'area di lavoro.](how-to-manage-workspace.md)
-* [L'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)di Azure .
-* Un modello di apprendimento automatico con training registrato nell'area di lavoro. Se non si dispone di un modello, usare [l'esercitazione Classificazione immagini: modello di training](tutorial-train-models-with-aml.md) per eseguire il training e registrarne uno.
+* Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
+* INTERFACCIA della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Un modello di apprendimento automatico sottoposto a training registrato nell'area di lavoro. Se non si dispone di un modello, usare l' [esercitazione relativa alla classificazione delle immagini: Train Model](tutorial-train-models-with-aml.md) per eseguire il training e la registrazione di un modello.
 
     > [!IMPORTANT]
-    > I frammenti di codice in questo articolo presuppongono che siano state impostate le variabili seguenti:The code snippets in this article assume that you have set the following variables:
+    > I frammenti di codice in questo articolo presuppongono che siano state impostate le variabili seguenti:
     >
-    > * `ws`- L'area di lavoro di Azure Machine Learning.- Your Azure Machine Learning workspace.
-    > * `model`- Il modello registrato che verrà distribuito.
-    > * `inference_config`- La configurazione di inferenza per il modello.
+    > * `ws`-L'area di lavoro Azure Machine Learning.
+    > * `model`: Modello registrato che verrà distribuito.
+    > * `inference_config`-Configurazione dell'inferenza per il modello.
     >
-    > Per altre informazioni sull'impostazione di queste variabili, vedere Distribuire modelli con Azure Machine Learning.For more information on setting these variables, see [Deploy models with Azure Machine Learning.](how-to-deploy-and-where.md)
+    > Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 
-Prima della distribuzione, è necessario definire gli elementi necessari per eseguire il modello come servizio Web. Nell'elenco seguente vengono descritti gli elementi di base necessari per una distribuzione:The following list describes the basic items needed for a deployment:
+Prima di distribuire, è necessario definire gli elementi necessari per eseguire il modello come servizio Web. Nell'elenco seguente vengono descritti gli elementi di base necessari per una distribuzione:
 
-* Uno __script di immissione__. Questo script accetta le richieste, la richiesta viene valutata utilizzando il modello e restituisce i risultati.
+* Uno __script di immissione__. Questo script accetta richieste, assegna punteggi alla richiesta utilizzando il modello e restituisce i risultati.
 
     > [!IMPORTANT]
-    > Lo script di immissione è specifico del modello; deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
+    > Lo script di immissione è specifico del modello. deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
     >
-    > Se i dati della richiesta sono in un formato non utilizzabile dal modello, lo script può trasformarlo in un formato accettabile. Può anche trasformare la risposta prima di tornare a esso al client.
+    > Se i dati della richiesta sono in un formato non utilizzabile dal modello, lo script può trasformarlo in un formato accettabile. Può anche trasformare la risposta prima di restituirla al client.
     >
-    > Per impostazione predefinita durante la creazione di pacchetti per le funzioni, l'input viene considerato come testo. Se si è interessati a utilizzare i byte non elaborati dell'input, ad esempio per i trigger BLOB, è necessario usare [AMLRequest per accettare dati non elaborati.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data)
+    > Per impostazione predefinita, quando si esegue il packaging per le funzioni, l'input viene considerato come testo. Se si è interessati a utilizzare i byte non elaborati dell'input (ad esempio per i trigger BLOB), è necessario utilizzare [AMLRequest per accettare dati non elaborati](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
 
-* **Dipendenze**, ad esempio script helper o pacchetti Python/Conda necessari per eseguire lo script di ingresso o il modello
+* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello
 
-Queste entità sono incapsulate in una configurazione di __inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
+Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
-> Quando si crea una configurazione di inferenza da usare con Funzioni di Azure, è necessario usare un oggetto [Environment.When](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) creating an inference configuration for use with Azure Functions, you must use an Environment object. Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere impostazioni predefinite di azureml con la versione >1.0.45 come dipendenza pip. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e l'utilizzo con una configurazione di inferenza:The following example demonstrates creating an environment object and using it with an inference configuration:
+> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -77,16 +77,16 @@ Queste entità sono incapsulate in una configurazione di __inferenza__. La confi
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-Per ulteriori informazioni sugli ambienti, vedere Creare e gestire ambienti per la formazione e la [distribuzione.](how-to-use-environments.md)
+Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
 
-Per altre informazioni sulla configurazione dell'inferenza, vedere Distribuire modelli con Azure Machine Learning.For more information on inference configuration, see [Deploy models with Azure Machine Learning.](how-to-deploy-and-where.md)
+Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Quando si esegue la distribuzione in Funzioni, non è necessario creare una configurazione di __distribuzione.__
+> Quando si esegue la distribuzione in funzioni, non è necessario creare una __configurazione di distribuzione__.
 
-## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installare il pacchetto di anteprima SDK per il supporto delle funzioniInstall the SDK preview package for functions support
+## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installare il pacchetto di anteprima SDK per il supporto delle funzioni
 
-Per creare pacchetti per Funzioni di Azure, è necessario installare il pacchetto di anteprima SDK.
+Per compilare pacchetti per funzioni di Azure, è necessario installare il pacchetto di anteprima dell'SDK.
 
 ```bash
 pip install azureml-contrib-functions
@@ -94,10 +94,10 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Per creare l'immagine Docker distribuita in Funzioni di Azure, usare [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) o la funzione del pacchetto specifica per il trigger che si desidera usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger BLOB dalla configurazione del modello e dell'inferenza:The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
+Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger di BLOB dal modello e dalla configurazione dell'inferenza:
 
 > [!NOTE]
-> Il frammento di `model` codice presuppone che `inference_config` contiene un modello registrato e che contiene la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere Distribuire modelli con Azure Machine Learning.For more information, see [Deploy models with Azure Machine Learning.](how-to-deploy-and-where.md)
+> Il frammento di codice `model` presuppone che contenga un modello registrato `inference_config` e che contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -108,23 +108,23 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-Quando `show_output=True`è , viene visualizzato l'output del processo di compilazione Docker. Al termine del processo, l'immagine è stata creata nel Registro di sistema del contenitore di Azure per l'area di lavoro. Dopo aver compilato l'immagine, viene visualizzato il percorso nel Registro di sistema del contenitore di Azure.Once the image has been built, the location in your Azure Container Registry is displayed. Il percorso restituito è `<acrinstance>.azurecr.io/package@sha256:<hash>`nel formato .
+Quando `show_output=True`viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<hash>`.
 
 > [!NOTE]
-> La creazione del pacchetto per le funzioni supporta attualmente trigger HTTP, trigger BLOB e trigger del bus di servizio. Per altre informazioni sui trigger, vedere Associazioni di Funzioni di Azure.For more information on triggers, see [Azure Functions bindings.](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns)
+> Il packaging per le funzioni supporta attualmente trigger HTTP, trigger di BLOB e trigger del bus di servizio. Per altre informazioni sui trigger, vedere [binding di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
 
 > [!IMPORTANT]
-> Salvare le informazioni sul percorso, come viene utilizzato durante la distribuzione dell'immagine.
+> Salvare le informazioni sul percorso, così come vengono usate durante la distribuzione dell'immagine.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuire un'immagine come app Web
 
-1. Usare il comando seguente per ottenere le credenziali di accesso per il Registro di sistema del contenitore di Azure che contiene l'immagine. Sostituire `<myacr>` con il valore `package.location`restituito in precedenza da : 
+1. Usare il comando seguente per ottenere le credenziali di accesso per il Container Registry di Azure che contiene l'immagine. Sostituire `<myacr>` con il valore restituito in precedenza `package.location`da: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
     ```
 
-    L'output di questo comando è simile al seguente documento JSON:
+    L'output di questo comando è simile al documento JSON seguente:
 
     ```json
     {
@@ -142,21 +142,21 @@ Quando `show_output=True`è , viene visualizzato l'output del processo di compil
     }
     ```
 
-    Salvare il valore di __username__ e di una delle __password__.
+    Salvare il valore per __username__ e una delle __password__.
 
-1. Se non si dispone già di un gruppo di risorse o di un piano di servizio app per distribuire il servizio, i comandi seguenti illustrano come creare entrambi:If you do not already have a resource group or app service plan to deploy the service, the following commands demonstrate how to create both:
+1. Se non si dispone già di un gruppo di risorse o di un piano di servizio app per distribuire il servizio, i comandi seguenti illustrano come creare entrambi:
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    In questo esempio viene utilizzato`--sku B1`un piano tariffario di base di _Linux_ ( ).
+    In questo esempio viene usato un piano tariffario _Basic Linux_ (`--sku B1`).
 
     > [!IMPORTANT]
-    > Le immagini create da Azure Machine Learning `--is-linux` usano Linux, pertanto è necessario usare il parametro.
+    > Le immagini create da Azure Machine Learning usano Linux, quindi è necessario usare `--is-linux` il parametro.
 
-1. Creare l'account di archiviazione da usare per l'archiviazione dei processi Web e ottenere la relativa stringa di connessione. Sostituire `<webjobStorage>` con il nome che si desidera utilizzare.
+1. Creare l'account di archiviazione da usare per l'archiviazione dei processi Web e ottenere la relativa stringa di connessione. Sostituire `<webjobStorage>` con il nome che si vuole usare.
 
     ```azurecli-interactive
     az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -165,16 +165,16 @@ Quando `show_output=True`è , viene visualizzato l'output del processo di compil
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si desidera utilizzare. Sostituire `<acrinstance>` `<imagename>` e con i `package.location` valori restituiti in precedenza. Sostituire `<webjobStorage>` con il nome dell'account di archiviazione del passaggio precedente:
+1. Per creare l'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome che si vuole usare. Sostituire `<acrinstance>` e `<imagename>` con i valori restituiti `package.location` in precedenza. Sostituire `<webjobStorage>` con il nome dell'account di archiviazione nel passaggio precedente:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
     ```
 
     > [!IMPORTANT]
-    > A questo punto, l'app per le funzioni è stata creata. Tuttavia, poiché non è stata fornita la stringa di connessione per il trigger BLOB o le credenziali al Registro di sistema del contenitore di Azure che contiene l'immagine, l'app per le funzioni non è attiva. Nei passaggi successivi vengono fornite la stringa di connessione e le informazioni di autenticazione per il Registro di sistema del contenitore. 
+    > A questo punto è stata creata l'app per le funzioni. Tuttavia, poiché non è stata specificata la stringa di connessione per il trigger o le credenziali del BLOB al Container Registry di Azure che contiene l'immagine, l'app per le funzioni non è attiva. Nei passaggi successivi vengono fornite la stringa di connessione e le informazioni di autenticazione per il registro contenitori. 
 
-1. Creare l'account di archiviazione da usare per l'archiviazione dei trigger BLOB e ottenere la relativa stringa di connessione. Sostituire `<triggerStorage>` con il nome che si desidera utilizzare.
+1. Creare l'account di archiviazione da usare per l'archiviazione del trigger del BLOB e ottenere la relativa stringa di connessione. Sostituire `<triggerStorage>` con il nome che si vuole usare.
 
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -182,9 +182,9 @@ Quando `show_output=True`è , viene visualizzato l'output del processo di compil
     ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
-    Registrare questa stringa di connessione da fornire all'app per le funzioni. Lo useremo più tardi quando chiederemo`<triggerConnectionString>`
+    Registrare la stringa di connessione da fornire all'app per le funzioni. Verrà usato in un secondo momento per richiedere`<triggerConnectionString>`
 
-1. Creare i contenitori per l'input e l'output nell'account di archiviazione. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:Replace with the connection string returned earlier:
+1. Creare i contenitori per l'input e l'output nell'account di archiviazione. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -193,25 +193,25 @@ Quando `show_output=True`è , viene visualizzato l'output del processo di compil
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Per associare la stringa di connessione del trigger all'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome dell'app per le funzioni. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:Replace with the connection string returned earlier:
+1. Per associare la stringa di connessione del trigger all'app per le funzioni, usare il comando seguente. Sostituire `<app-name>` con il nome dell'app per le funzioni. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:
 
     ```azurecli-interactive
     az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
     ```
-1. Sarà necessario recuperare il tag associato al contenitore creato utilizzando il comando seguente. Sostituire `<username>` con il nome utente restituito in precedenza dal Registro contenitori:
+1. È necessario recuperare il tag associato al contenitore creato usando il comando seguente. Sostituire `<username>` con il nome utente restituito in precedenza dal registro contenitori:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    Salvare il valore restituito, verrà utilizzato `imagetag` come nel passaggio successivo.
+    Salvare il valore restituito, che verrà usato come `imagetag` nel passaggio successivo.
 
-1. Per fornire all'app per le funzioni le credenziali necessarie per accedere al Registro di sistema del contenitore, usare il comando seguente. Sostituire `<app-name>` con il nome dell'app per le funzioni. Sostituire `<acrinstance>` `<imagetag>` e con i valori della chiamata a interfaccia di comando di A . Sostituire `<username>` `<password>` e con le informazioni di accesso ACR recuperate in precedenza:
+1. Per fornire all'app per le funzioni le credenziali necessarie per accedere al registro contenitori, usare il comando seguente. Sostituire `<app-name>` con il nome dell'app per le funzioni. Sostituire `<acrinstance>` e `<imagetag>` con i valori della chiamata AZ cli nel passaggio precedente. Sostituire `<username>` e `<password>` con le informazioni di accesso di ACR recuperate in precedenza:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
-    Questo comando restituisce informazioni simili al seguente documento JSON:
+    Questo comando restituisce informazioni simili al documento JSON seguente:
 
     ```json
     [
@@ -245,28 +245,28 @@ Quando `show_output=True`è , viene visualizzato l'output del processo di compil
 A questo punto, l'app per le funzioni inizia a caricare l'immagine.
 
 > [!IMPORTANT]
-> Potrebbero essere alcuni minuti prima che l'immagine sia caricata. È possibile monitorare lo stato di avanzamento usando il portale di Azure.You can monitor progress using the Azure Portal.
+> Potrebbero essere necessari alcuni minuti prima che l'immagine venga caricata. È possibile monitorare lo stato di avanzamento tramite il portale di Azure.
 
 ## <a name="test-the-deployment"></a>Test della distribuzione
 
-Dopo aver caricato l'immagine e aver a disposizione l'app, segui questi passaggi per attivare l'app:
+Dopo che l'immagine è stata caricata e l'app è disponibile, seguire questa procedura per attivare l'app:
 
-1. Creare un file di testo contenente i dati previsti dal file score.py. L'esempio seguente funziona con un score.py che prevede una matrice di 10 numeri:The following example would work with a following that expects an array of 10 numbers:
+1. Creare un file di testo contenente i dati previsti dal file score.py. L'esempio seguente funziona con un score.py che prevede una matrice di 10 numeri:
 
     ```json
     {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
     ```
 
     > [!IMPORTANT]
-    > Il formato dei dati dipende dal tipo di score.py e del modello.
+    > Il formato dei dati dipende da ciò che si aspetta il score.py e il modello.
 
-2. Usare il comando seguente per caricare il file nel contenitore di input nel BLOB di archiviazione trigger creato in precedenza. Sostituire `<file>` con il nome del file contenente i dati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo `input` esempio, è il nome del contenitore di input creato in precedenza. Se è stato utilizzato un nome diverso, sostituire questo valore:If you used a different name, replace this value:
+2. Usare il comando seguente per caricare il file nel contenitore di input nel BLOB di archiviazione dei trigger creato in precedenza. Sostituire `<file>` con il nome del file contenente i dati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo esempio, `input` è il nome del contenitore di input creato in precedenza. Se è stato usato un nome diverso, sostituire questo valore:
 
     ```azurecli-interactive
     az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
     ```
 
-    L'output di questo comando è simile al seguente JSON:
+    L'output di questo comando è simile al codice JSON seguente:
 
     ```json
     {
@@ -275,15 +275,15 @@ Dopo aver caricato l'immagine e aver a disposizione l'app, segui questi passaggi
     }
     ```
 
-3. Per visualizzare l'output prodotto dalla funzione, utilizzare il comando seguente per elencare i file di output generati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo `output` esempio, è il nome del contenitore di output creato in precedenza. Se è stato utilizzato un nome diverso, sostituire questo valore:If you used a different name, replace this value::
+3. Per visualizzare l'output prodotto dalla funzione, utilizzare il comando seguente per elencare i file di output generati. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza. In questo esempio, `output` è il nome del contenitore di output creato in precedenza. Se è stato usato un nome diverso, sostituire questo valore::
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
     ```
 
-    L'output di questo `sample_input_out.json`comando è simile a .
+    L'output di questo comando è simile a `sample_input_out.json`.
 
-4. Per scaricare il file ed esaminarne il contenuto, utilizzare il comando seguente. Sostituire `<file>` con il nome del file restituito dal comando precedente. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:Replace with the connection string returned earlier: 
+4. Per scaricare il file ed esaminarne il contenuto, usare il comando seguente. Sostituire `<file>` con il nome file restituito dal comando precedente. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza: 
 
     ```azurecli-interactive
     az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
@@ -291,12 +291,12 @@ Dopo aver caricato l'immagine e aver a disposizione l'app, segui questi passaggi
 
     Al termine del comando, aprire il file. Contiene i dati restituiti dal modello.
 
-Per altre informazioni sull'uso dei trigger BLOB, vedere l'articolo [Creare una funzione attivata dall'archiviazione BLOB](/azure/azure-functions/functions-create-storage-blob-triggered-function) di Azure.For more information on using blob triggers, see the Create a function triggered by Azure Blob storage article.
+Per altre informazioni sull'uso dei trigger BLOB, vedere l'articolo [creare una funzione attivata da archiviazione BLOB di Azure](/azure/azure-functions/functions-create-storage-blob-triggered-function) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla configurazione dell'app Funzioni, vedere la documentazione relativa alle [funzioni.](/azure/azure-functions/functions-create-function-linux-custom-image)
-* Altre informazioni sull'archiviazione BLOB attiva le associazioni di archiviazione BLOB di Azure.Learn more about Blob storage triggers [Azure Blob storage bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
-* [Distribuire il modello nel](how-to-deploy-app-service.md)servizio app di Azure .
+* Informazioni su come configurare l'app per le funzioni nella documentazione di [funzioni](/azure/azure-functions/functions-create-function-linux-custom-image) .
+* Altre informazioni sull'archiviazione BLOB attiva i [binding dell'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* [Distribuire il modello nel servizio app Azure](how-to-deploy-app-service.md).
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
 * [Riferimento API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)

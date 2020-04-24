@@ -15,61 +15,61 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898393"
 ---
-# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di Analisi di flusso di Azure nel portaleTest an Azure Stream Analytics job in the portal
+# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
 
-In Analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dalle origini di streaming o caricare dati di esempio da un file locale nel portale di Azure.You can test queries on incoming data from your streaming sources or upload sample data from a local file on Azure Portal. È inoltre possibile testare le query in locale dai dati di esempio locali o dai dati attivi in [Visual Studio](stream-analytics-live-data-local-testing.md) e Visual [Studio Code](visual-studio-code-local-run-live-input.md).
+In analisi di flusso di Azure è possibile testare la query senza avviare o arrestare il processo. È possibile testare le query sui dati in ingresso dalle origini di streaming o caricare i dati di esempio da un file locale nel portale di Azure. È anche possibile testare le query localmente da dati di esempio locali o dati dinamici in [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## <a name="automatically-sample-incoming-data-from-input"></a>Campionare automaticamente i dati in ingresso dall'input
+## <a name="automatically-sample-incoming-data-from-input"></a>Campionamento automatico dei dati in ingresso dall'input
 
 Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di streaming. È possibile eseguire query sull'esempio predefinito o impostare un intervallo di tempo specifico per l'esempio.
 
 1. Accedere al portale di Azure.
 
-2. Individua e seleziona il processo di Analisi di flusso esistente.
+2. Individuare e selezionare il processo di analisi di flusso esistente.
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Query** nell'intestazione **Topologia processo** per aprire la finestra dell'editor Query. 
 
-4. Per visualizzare un elenco di esempio di eventi in ingresso, selezionare l'icona di input con file e gli eventi di esempio verranno visualizzati automaticamente **nell'anteprima di input**.
+4. Per visualizzare un elenco di eventi in ingresso di esempio, selezionare l'icona input con file. gli eventi di esempio verranno visualizzati automaticamente nell' **Anteprima di input**.
 
-   a. Il tipo di serializzazione per i dati viene rilevato automaticamente se è JSON o CSV. È possibile modificarlo manualmente anche in JSON, CSV, AVRO modificando l'opzione nel menu a discesa.
+   a. Il tipo di serializzazione per i dati viene rilevato automaticamente se il relativo JSON o CSV. È possibile modificarlo manualmente in JSON, CSV e AVRO cambiando l'opzione nel menu a discesa.
     
-   b. Utilizzare il selettore per visualizzare i dati in formato **Tabella** o **Non elaborato.**
+   b. Usare il selettore per visualizzare i dati in formato **tabella** o non **elaborato** .
     
    c. Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti.
 
-   La tabella seguente è un esempio di dati nel **formato Tabella:**
+   La tabella seguente è un esempio di dati nel **formato tabella**:
 
-   ![Input dell'esempio di Analisi di flusso di Azure in formato tabellaAzure Stream Analytics sample input in table format](./media/stream-analytics-test-query/asa-sample-table.png)
+   ![Input di esempio di analisi di flusso di Azure in formato tabella](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   La tabella seguente è un esempio di dati in **formato Raw:**
+   La tabella seguente è un esempio di dati in **formato non elaborato**:
 
-   ![Input di esempio di Analisi di flusso di Azure in formato non elaboratoAzure Stream Analytics sample input in raw format](./media/stream-analytics-test-query/asa-sample-raw.png)
+   ![Input di esempio di analisi di flusso di Azure in formato non elaborato](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. Per testare la query con i dati in ingresso, selezionare **Test query**. I risultati vengono visualizzati nella scheda **Risultati test.** È anche possibile selezionare **Scarica risultati** per scaricare i risultati.
+5. Per testare la query con i dati in ingresso, selezionare **Test query**. I risultati vengono visualizzati nella scheda **risultati test** . È anche possibile selezionare **Scarica risultati** per scaricare i risultati.
 
-   ![Risultati delle query di test di esempio di Analisi di flusso di Azure Azure](./media/stream-analytics-test-query/asa-test-query.png)
+   ![Risultati della query di esempio di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. Per testare la query rispetto a un intervallo di tempo specifico di eventi in ingresso, selezionare **Seleziona intervallo di tempo**.
+6. Per testare la query in base a un intervallo di tempo specifico di eventi in ingresso, selezionare **Seleziona intervallo di tempo**.
    
-   ![Intervallo di tempo di Analisi di flusso di Azure per gli eventi di esempio in ingressoAzure Stream Analytics time range for incoming sample events](./media/stream-analytics-test-query/asa-select-time-range.png)
+   ![Intervallo di tempo di analisi di flusso di Azure per gli eventi di esempio in ingresso](./media/stream-analytics-test-query/asa-select-time-range.png)
 
-7. Impostare l'intervallo di tempo degli eventi che si desidera utilizzare per testare la query e selezionare **Esempio**. All'interno di tale intervallo di tempo, è possibile recuperare fino a 1000 eventi o 1 MB, a seconda di quale viene prima.
+7. Impostare l'intervallo di tempo degli eventi che si vuole usare per testare la query e selezionare **Sample (esempio**). All'interno di tale intervallo di tempo, è possibile recuperare fino a 1000 eventi o 1 MB, a seconda di quale si verifichi per primo.
 
-   ![Azure Analisi flusso imposta l'intervallo di tempo per gli eventi di esempio in ingressoAzure Stream Analytics set time range for incoming sample events](./media/stream-analytics-test-query/asa-set-time-range.png)
+   ![Intervallo di tempo set di analisi di flusso di Azure per gli eventi di esempio in ingresso](./media/stream-analytics-test-query/asa-set-time-range.png)
 
-8. Una volta campionati gli eventi, questi vengono visualizzati nella scheda **Anteprima input.**
+8. Una volta campionati gli eventi per l'intervallo di tempo selezionato, verranno visualizzati nella scheda **Anteprima input** .
 
-   ![Azure Stream Analytics visualizza i risultati dei testAzure Stream Analytics view test results](./media/stream-analytics-test-query/asa-view-test-results.png)
+   ![Analisi di flusso di Azure visualizzare i risultati dei test](./media/stream-analytics-test-query/asa-view-test-results.png)
 
-9. Selezionare **Reimposta** per visualizzare l'elenco di esempio degli eventi in ingresso. Se si seleziona **Reimposta**, la selezione dell'intervallo di tempo andrà persa. Selezionare **Test query** per testare la query ed esaminare i risultati nella scheda **Risultati test.**
+9. Selezionare **Reimposta** per visualizzare l'elenco degli eventi in ingresso di esempio. Se si seleziona **Reimposta**, la selezione dell'intervallo di tempo andrà persa. Selezionare **query di test** per testare la query ed esaminare i risultati nella scheda **risultati test** .
 
-10. Quando si apportano modifiche alla query, selezionare **Salva query** per testare la nuova logica di query. In questo modo è possibile modificare in modo iterativo la query e testarla di nuovo per vedere come cambia l'output.
+10. Quando si apportano modifiche alla query, fare clic su **Salva query** per testare la nuova logica di query. In questo modo è possibile modificare la query in modo iterativo e testarla di nuovo per vedere come cambia l'output.
 
-11. Dopo aver verificato i risultati visualizzati nel browser, è possibile **avviare** il processo.
+11. Dopo aver verificato i risultati visualizzati nel browser, si è pronti per **avviare** il processo.
 
-## <a name="upload-sample-data-from-a-local-file"></a>Caricare dati di esempio da un file localeUpload sample data from a local file
+## <a name="upload-sample-data-from-a-local-file"></a>Carica dati di esempio da un file locale
 
-Anziché usare i dati dinamici, è possibile usare i dati di esempio da un file locale per testare la query di Analisi di flusso di Azure.Instead of using live data, you can use sample data from a local file to test your Azure Stream Analytics query.
+Invece di usare i dati dinamici, è possibile usare dati di esempio da un file locale per testare la query di analisi di flusso di Azure.
 
 1. Accedere al portale di Azure.
    
@@ -77,30 +77,30 @@ Anziché usare i dati dinamici, è possibile usare i dati di esempio da un file 
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Query** nell'intestazione **Topologia processo** per aprire la finestra dell'editor Query.
 
-4. Per testare la query con un file locale, selezionare **Carica input di esempio** nella scheda Anteprima **input.** 
+4. Per testare la query con un file locale, selezionare **carica input di esempio** nella scheda **Anteprima input** . 
 
-   ![File di esempio di caricamento di Analisi di flusso di AzureAzure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![File di esempio di caricamento di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Caricare il file locale per testare la query. È possibile caricare file solo con i formati JSON, CSV o AVRO. Selezionare **OK**.
+5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Fare clic su **OK**.
 
-   ![File di esempio di caricamento di Analisi di flusso di AzureAzure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![File di esempio di caricamento di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-6. Non appena si carica il file, è anche possibile visualizzare il contenuto del file nel modulo come tabella o in formato non elaborato. Se si seleziona **Reimposta**, i dati di esempio torneranno ai dati di input in ingresso illustrati nella sezione precedente. È possibile caricare qualsiasi altro file per testare la query in qualsiasi momento.
+6. Non appena si carica il file, è anche possibile visualizzare il contenuto del file nel form come tabella o nel formato non elaborato. Se si seleziona **Reimposta**, i dati di esempio torneranno ai dati di input descritti nella sezione precedente. È possibile caricare qualsiasi altro file per testare la query in qualsiasi momento.
 
-7. Selezionare **Testquery** per testare la query rispetto al file di esempio caricato.
+7. Selezionare **Test query** per testare la query sul file di esempio caricato.
 
-8. I risultati dei test vengono visualizzati in base alla query. È possibile modificare la query e selezionare **Salva query** per testare la nuova logica di query. In questo modo è possibile modificare in modo iterativo la query e testarla di nuovo per vedere come cambia l'output.
+8. I risultati dei test vengono visualizzati in base alla query. È possibile modificare la query e selezionare **Salva query** per testare la nuova logica di query. In questo modo è possibile modificare la query in modo iterativo e testarla di nuovo per vedere come cambia l'output.
 
 9. Quando si utilizzano più output nella query, i risultati vengono visualizzati in base all'output selezionato. 
 
-   ![Output selezionato di Analisi di flusso di AzureAzure Stream Analytics selected output](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
+   ![Output selezionato di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Dopo aver verificato i risultati visualizzati nel browser, è possibile **avviare** il processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Crea una [soluzione IoT usando Analisi di flusso:](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)questa esercitazione ti guiderà a creare una soluzione end-to-end con un generatore di dati che simulerà il traffico in un casello.
+* [Creare una soluzione Internet delle cose usando analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): questa esercitazione illustra come creare una soluzione end-to-end con un generatore di dati che simula il traffico presso un casello.
 
-* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Esempi di query per modelli di uso comune di Analisi di flusso](stream-analytics-stream-analytics-query-patterns.md)
 

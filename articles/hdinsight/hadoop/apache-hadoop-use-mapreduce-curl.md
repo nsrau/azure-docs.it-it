@@ -17,18 +17,18 @@ ms.locfileid: "78302713"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
-Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi MapReduce in un Apache Hadoop nel cluster HDInsight.Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on an Apache Hadoop on HDInsight cluster. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
+Informazioni su come usare l'API REST di Apache Hive WebHCat per eseguire processi MapReduce in un cluster HDInsight in un Apache Hadoop. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
 
 > [!NOTE]  
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Creare cluster Apache Hadoop tramite il portale](../hdinsight-hadoop-create-linux-clusters-portal.md)di Azure.
+* Un cluster Apache Hadoop in HDInsight. Vedere [creare cluster Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 È possibile: 
   * Windows PowerShell o,
-  * [Ricciolo](https://curl.haxx.se/) con [jq](https://stedolan.github.io/jq/)
+  * [Curl](https://curl.haxx.se/) con [JQ](https://stedolan.github.io/jq/)
 
 ## <a name="run-a-mapreduce-job"></a>Eseguire un processo MapReduce
 
@@ -39,7 +39,7 @@ Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi 
 
 ### <a name="curl"></a>Curl
 
-1. Per facilità d'uso, impostare le variabili riportate di seguito. Questo esempio è basato su un ambiente Windows, rivedere in base alle esigenze per l'ambiente.
+1. Per semplicità d'uso, impostare le variabili seguenti. Questo esempio è basato su un ambiente Windows, modificato in base alle esigenze dell'ambiente in uso.
 
     ```cmd
     set CLUSTERNAME=
@@ -65,7 +65,7 @@ Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi 
     {"version":"v1","status":"ok"}
     ```
 
-1. Per inviare un processo MapReduce, utilizzare il comando seguente. Modificare il percorso in **jq** in base alle esigenze.
+1. Per inviare un processo MapReduce, usare il comando seguente. Modificare il percorso di **JQ** in base alle esigenze.
 
     ```cmd
     curl -u admin:%PASSWORD% -d user.name=admin ^
@@ -77,7 +77,7 @@ Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi 
 
     La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvia un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
 
-   * **-d** `-G` : non viene utilizzato, pertanto la richiesta viene utilizzata per impostazione predefinita sul metodo POST. `-d` specifica i valori di dati che vengono inviati con la richiesta.
+   * **-d**: `-G` non viene usato, quindi la richiesta usa il metodo post per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
      * **user.name**: l'utente che esegue il comando.
      * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire.
      * **class**: la classe che contiene la logica MapReduce.
@@ -87,7 +87,7 @@ Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi 
 
        job_1415651640909_0026
 
-1. Per verificare lo stato del processo, usare il seguente comando. Sostituire il `JOBID` valore di per con il valore **effettivo** restituito nel passaggio precedente. Rivedere la posizione di **jq** in base alle esigenze.
+1. Per verificare lo stato del processo, usare il seguente comando. Sostituire il valore di `JOBID` con il valore **effettivo** restituito nel passaggio precedente. Rivedere il percorso di **JQ** in base alle esigenze.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -98,14 +98,14 @@ Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi 
 
 ### <a name="powershell"></a>PowerShell
 
-1. Per facilità d'uso, impostare le variabili riportate di seguito. Sostituire `CLUSTERNAME` con il nome effettivo del cluster. Eseguire il comando e immettere la password di accesso al cluster quando richiesto.
+1. Per semplicità d'uso, impostare le variabili seguenti. Sostituire `CLUSTERNAME` con il nome del cluster effettivo. Eseguire il comando e immettere la password di accesso del cluster quando richiesto.
 
     ```powershell
     $clusterName="CLUSTERNAME"
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:Use the following command to verify that you can connect to your HDInsight cluster:
+1. usare il comando seguente per verificare che sia possibile connettersi al cluster HDInsight:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -171,7 +171,7 @@ Informazioni su come usare l'API REST Apache Hive WebHCat per eseguire processi 
 
 1. Dopo che lo stato del processo risulta essere `SUCCEEDED`, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output. In questo esempio la località è `/example/curl`. Questo indirizzo archivia l'output del processo nella risorsa di archiviazione predefinita dei cluster in `/example/curl`.
 
-È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure per usare l'archiviazione BLOB di Azure, vedere Guida introduttiva: Creare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure.For more information on using the Azure CLI to work with Azure Blob storage, see [Quickstart: Create, download, and list blobs with Azure CLI.](../../storage/blobs/storage-quickstart-blobs-cli.md)
+È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure per lavorare con l'archiviazione BLOB di Azure, vedere [Guida introduttiva: creare, scaricare ed elencare BLOB con l'interfaccia](../../storage/blobs/storage-quickstart-blobs-cli.md)della riga di comando
 
 ## <a name="next-steps"></a>Passaggi successivi
 

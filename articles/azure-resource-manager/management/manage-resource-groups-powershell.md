@@ -1,6 +1,6 @@
 ---
-title: Gestire i gruppi di risorse - Azure PowerShellManage resource groups - Azure PowerShell
-description: Usare Azure PowerShell per gestire i gruppi di risorse tramite Azure Resource Manager.Use Azure PowerShell to manage your resource groups through Azure Resource Manager. Viene illustrato come creare, elencare ed eliminare gruppi di risorse.
+title: Gestisci gruppi di risorse-Azure PowerShell
+description: Usare Azure PowerShell per gestire i gruppi di risorse tramite Azure Resource Manager. Viene illustrato come creare, elencare ed eliminare gruppi di risorse.
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
@@ -12,16 +12,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248359"
 ---
-# <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gestire i gruppi di risorse di Azure Resource Manager tramite Azure PowerShellManage Azure Azure Resource Manager resource groups by using Azure PowerShell
+# <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gestire i gruppi di risorse Azure Resource Manager tramite Azure PowerShell
 
-Informazioni su come usare Azure PowerShell con Azure Resource Manager per gestire i gruppi di risorse di Azure.Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to manage your Azure resource groups. Per la gestione delle risorse di Azure, vedere Gestire le risorse di Azure tramite Azure PowerShell.For managing Azure resources, see [Manage Azure resources by using Azure PowerShell.](manage-resources-powershell.md)
+Informazioni su come usare Azure PowerShell con [Azure Resource Manager](overview.md) per gestire i gruppi di risorse di Azure. Per la gestione delle risorse di Azure, vedere [gestire le risorse di Azure usando Azure PowerShell](manage-resources-powershell.md).
 
-Altri articoli sulla gestione dei gruppi di risorse:Other articles about managing resource groups:
+Altri articoli sulla gestione dei gruppi di risorse:
 
-- [Gestire i gruppi di risorse di Azure tramite il portale di AzureManage Azure resource groups by using the Azure portal](manage-resources-portal.md)
-- [Gestire i gruppi di risorse di Azure usando l'interfaccia della riga di comando di AzureManage Azure resource groups by using Azure CLI](manage-resources-cli.md)
+- [Gestire i gruppi di risorse di Azure usando il portale di Azure](manage-resources-portal.md)
+- [Gestire i gruppi di risorse di Azure usando l'interfaccia della riga di comando](manage-resources-cli.md)
 
-## <a name="what-is-a-resource-group"></a>Che cos'è un gruppo di risorseWhat is a resource group
+## <a name="what-is-a-resource-group"></a>Che cos'è un gruppo di risorse
 
 Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione. È in genere consigliabile aggiungere risorse che condividono lo stesso ciclo di vita allo stesso gruppo di risorse per poterle distribuire, aggiornare ed eliminare facilmente come gruppo.
 
@@ -31,7 +31,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica una 
 
 ## <a name="create-resource-groups"></a>Creare gruppi di risorse
 
-Lo script di PowerShell seguente crea un gruppo di risorse e quindi mostra il gruppo di risorse.
+Lo script di PowerShell seguente crea un gruppo di risorse e quindi Mostra il gruppo di risorse.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -44,13 +44,13 @@ Get-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="list-resource-groups"></a>Elencare i gruppi di risorse
 
-Lo script di PowerShell seguente elenca i gruppi di risorse nella sottoscrizione.
+Il seguente script di PowerShell elenca i gruppi di risorse nella sottoscrizione.
 
 ```azurepowershell-interactive
 Get-AzResourceGroup
 ```
 
-Per ottenere un gruppo di risorse:To get one resource group:
+Per ottenere un gruppo di risorse:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -60,7 +60,7 @@ Get-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="delete-resource-groups"></a>Eliminare i gruppi di risorse
 
-Lo script di PowerShell seguente elimina un gruppo di risorse:The following PowerShell script deletes a resource group:
+Il seguente script di PowerShell Elimina un gruppo di risorse:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -68,29 +68,29 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-Per altre informazioni su come Azure Resource Manager ordina l'eliminazione delle risorse, vedere Eliminazione del gruppo di risorse di Azure Resource Manager.For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion.](delete-resource-group.md)
+Per altre informazioni su come Azure Resource Manager Ordina l'eliminazione delle risorse, vedere [Azure Resource Manager eliminazione del gruppo di risorse](delete-resource-group.md).
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>Distribuire risorse in un gruppo di risorse esistenteDeploy resources to an existing resource group
+## <a name="deploy-resources-to-an-existing-resource-group"></a>Distribuire le risorse in un gruppo di risorse esistente
 
-Vedere [Distribuire risorse in un gruppo di risorse esistente.](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group)
+Vedere [distribuire le risorse in un gruppo di risorse esistente](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Per convalidare la distribuzione di un gruppo di risorse, vedere [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Per convalidare la distribuzione di un gruppo di risorse, vedere [test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
-## <a name="deploy-a-resource-group-and-resources"></a>Distribuire un gruppo di risorse e le risorseDeploy a resource group and resources
+## <a name="deploy-a-resource-group-and-resources"></a>Distribuire un gruppo di risorse e le risorse
 
-È possibile creare un gruppo di risorse e distribuire le risorse al gruppo usando un modello di Resource Manager.You can create a resource group and deploy resources to the group by using a Resource Manager template. Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](../templates/deploy-to-subscription.md#resource-group-and-resources).
+È possibile creare un gruppo di risorse e distribuire le risorse nel gruppo usando un modello di Gestione risorse. Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](../templates/deploy-to-subscription.md#resource-group-and-resources).
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
-Questa funzionalità è nota anche come *Rollback in caso di errore*. Per ulteriori informazioni, vedere [Ridistribuire quando la distribuzione non riesce.](../templates/rollback-on-error.md)
+Questa funzionalità è nota anche come *rollback in errore*. Per ulteriori informazioni, vedere [ridistribuzione quando la distribuzione ha esito negativo](../templates/rollback-on-error.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Passare a un altro gruppo di risorse o sottoscrizione
+## <a name="move-to-another-resource-group-or-subscription"></a>Passare a un altro gruppo di risorse o a una sottoscrizione
 
 È possibile spostare le risorse del gruppo in un altro gruppo di risorse. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](move-resource-group-and-subscription.md).
 
-## <a name="lock-resource-groups"></a>Bloccare i gruppi di risorse
+## <a name="lock-resource-groups"></a>Blocca gruppi di risorse
 
-Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente risorse critiche, ad esempio una sottoscrizione di Azure, un gruppo di risorse o una risorsa. 
+Il blocco impedisce ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche, ad esempio la sottoscrizione di Azure, il gruppo di risorse o la risorsa. 
 
 Lo script seguente blocca un gruppo di risorse in modo che il gruppo di risorse non possa essere eliminato.
 
@@ -100,7 +100,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName 
 ```
 
-Lo script seguente ottiene tutti i blocchi per un gruppo di risorse:The following script gets all locks for a resource group:
+Lo script seguente ottiene tutti i blocchi per un gruppo di risorse:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -108,18 +108,18 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Get-AzResourceLock -ResourceGroupName $resourceGroupName 
 ```
 
-Per altre informazioni, vedere [Bloccare le risorse con Azure Resource Manager.For](lock-resources.md)more information, see Lock resources with Azure Resource Manager.
+Per altre informazioni, vedere [bloccare le risorse con Azure Resource Manager](lock-resources.md).
 
 ## <a name="tag-resource-groups"></a>Contrassegnare i gruppi di risorse
 
-È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni, vedere Uso dei tag per organizzare le risorse di Azure.For information, see [Using tags to organize your Azure resources](tag-resources.md#powershell).
+È possibile applicare tag ai gruppi di risorse e alle risorse per organizzare logicamente gli asset. Per informazioni, vedere [uso dei tag per organizzare le risorse di Azure](tag-resources.md#powershell).
 
-## <a name="export-resource-groups-to-templates"></a>Esportare gruppi di risorse in modelliExport resource groups to templates
+## <a name="export-resource-groups-to-templates"></a>Esportare gruppi di risorse nei modelli
 
-Dopo aver impostato il gruppo di risorse, è possibile visualizzare un modello di Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
+Dopo aver configurato il gruppo di risorse, è possibile visualizzare un modello di Gestione risorse per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
 
-- Automatizzare le distribuzioni future della soluzione perché il modello contiene l'infrastruttura completa.
-- È possibile ottenere la sintassi del modello esaminando la notazione di oggetto JavaScript (JSON) che rappresenta la soluzione.
+- Automatizzare le distribuzioni future della soluzione perché il modello contiene l'intera infrastruttura.
+- Per informazioni sulla sintassi del modello, vedere il JavaScript Object Notation (JSON) che rappresenta la soluzione.
 
 Per esportare tutte le risorse in un gruppo di risorse, usare il cmdlet [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) e specificare il nome del gruppo di risorse.
 
@@ -129,11 +129,11 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-Il modello viene salvato come file locale.
+Salva il modello come file locale.
 
-Anziché esportare tutte le risorse nel gruppo di risorse, è possibile selezionare le risorse da esportare.
+Invece di esportare tutte le risorse nel gruppo di risorse, è possibile selezionare le risorse da esportare.
 
-Per esportare una risorsa, passare l'ID della risorsa.
+Per esportare una risorsa, passare l'ID risorsa.
 
 ```azurepowershell-interactive
 $resource = Get-AzResource `
@@ -145,7 +145,7 @@ Export-AzResourceGroup `
   -Resource $resource.ResourceId
 ```
 
-Per esportare più di una risorsa, passare gli ID di risorsa in una matrice.
+Per esportare più di una risorsa, passare gli ID risorsa in una matrice.
 
 ```azurepowershell-interactive
 Export-AzResourceGroup `
@@ -153,7 +153,7 @@ Export-AzResourceGroup `
   -Resource @($resource1.ResourceId, $resource2.ResourceId)
 ```
 
-Quando si esporta il modello, è possibile specificare se i parametri vengono utilizzati nel modello. Per impostazione predefinita, i parametri per i nomi delle risorse sono inclusi, ma non hanno un valore predefinito. È necessario passare il valore del parametro durante la distribuzione.
+Quando si esporta il modello, è possibile specificare se i parametri vengono usati nel modello. Per impostazione predefinita, i parametri per i nomi delle risorse sono inclusi ma non hanno un valore predefinito. È necessario passare il valore del parametro durante la distribuzione.
 
 ```json
 "parameters": {
@@ -168,7 +168,7 @@ Quando si esporta il modello, è possibile specificare se i parametri vengono ut
 }
 ```
 
-Nella risorsa, il parametro viene utilizzato per il nome.
+Nella risorsa viene usato il parametro per il nome.
 
 ```json
 "resources": [
@@ -181,7 +181,7 @@ Nella risorsa, il parametro viene utilizzato per il nome.
 ]
 ```
 
-Se si `-IncludeParameterDefaultValue` utilizza il parametro durante l'esportazione del modello, il parametro di modello include un valore predefinito impostato sul valore corrente. È possibile utilizzare tale valore predefinito o sovrascrivere il valore predefinito passando un valore diverso.
+Se si usa il `-IncludeParameterDefaultValue` parametro durante l'esportazione del modello, il parametro di modello include un valore predefinito impostato sul valore corrente. È possibile utilizzare il valore predefinito oppure sovrascrivere il valore predefinito passando un valore diverso.
 
 ```json
 "parameters": {
@@ -196,7 +196,7 @@ Se si `-IncludeParameterDefaultValue` utilizza il parametro durante l'esportazio
 }
 ```
 
-Se si `-SkipResourceNameParameterization` utilizza il parametro durante l'esportazione del modello, i parametri per i nomi delle risorse non vengono inclusi nel modello. Al contrario, il nome della risorsa viene impostato direttamente sulla risorsa sul valore corrente. Non è possibile personalizzare il nome durante la distribuzione.
+Se si usa il `-SkipResourceNameParameterization` parametro durante l'esportazione del modello, i parametri per i nomi delle risorse non sono inclusi nel modello. Al contrario, il nome della risorsa viene impostato direttamente sulla risorsa sul valore corrente. Non è possibile personalizzare il nome durante la distribuzione.
 
 ```json
 "resources": [
@@ -209,19 +209,19 @@ Se si `-SkipResourceNameParameterization` utilizza il parametro durante l'esport
 ]
 ```
 
-La funzionalità del modello di esportazione non supporta l'esportazione delle risorse di Azure Data Factory.The export template feature doesn't support exporting Azure Data Factory resources. Per informazioni su come esportare le risorse di Data Factory, vedere [Copiare o clonare una data factory in Azure Data Factory.](https://aka.ms/exportTemplateViaAdf)
+La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
 
-Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello](https://aka.ms/migrateclassicresourcetoarm)di distribuzione di Resource Manager.
+Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](https://aka.ms/migrateclassicresourcetoarm).
 
-Per altre informazioni, vedere Esportazione di risorse singole e multirisorse nel modello nel portale di Azure.For more information, see [Single and multi-resource export to template in Azure portal.](../templates/export-template-portal.md)
+Per altre informazioni, vedere [esportazione a più risorse e a modello in portale di Azure](../templates/export-template-portal.md).
 
-## <a name="manage-access-to-resource-groups"></a>Gestire l'accesso ai gruppi di risorseManage access to resource groups
+## <a name="manage-access-to-resource-groups"></a>Gestire l'accesso ai gruppi di risorse
 
-Il controllo degli accessi in base al ruolo è il modo in cui si gestisce l'accesso alle risorse in [Azure.Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. Per altre informazioni, vedere [Gestire l'accesso tramite RBAC e Azure PowerShell.For](../../role-based-access-control/role-assignments-powershell.md)more information, see Manage access using RBAC and Azure PowerShell.
+Il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Per altre informazioni, vedere [gestire l'accesso con RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per apprendere Azure Resource Manager, vedere Panoramica di Azure Resource Manager.To learn Azure [Resource Manager,](overview.md)see Azure Resource Manager overview .
-- Per informazioni sulla sintassi dei modelli di Resource Manager, vedere Informazioni sulla struttura e la [sintassi dei modelli di Azure Resource Manager.](../templates/template-syntax.md)
-- Per informazioni su come sviluppare modelli, consultate le [esercitazioni dettagliate.](/azure/azure-resource-manager/)
-- Per visualizzare gli schemi di modello di Azure Resource Manager, vedere [riferimento al modello](/azure/templates/).
+- Per informazioni Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](overview.md).
+- Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../templates/template-syntax.md).
+- Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](/azure/azure-resource-manager/).
+- Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).

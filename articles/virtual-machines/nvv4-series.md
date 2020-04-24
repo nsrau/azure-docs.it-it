@@ -1,5 +1,5 @@
 ---
-title: Serie NVv4 - Macchine virtuali di Azure
+title: Serie NVv4-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie NVv4.
 services: virtual-machines
 author: vikancha
@@ -16,17 +16,17 @@ ms.locfileid: "78273857"
 ---
 # <a name="nvv4-series"></a>Serie NVv4 
 
-Le macchine virtuali della serie NVv4 sono alimentate da GPU [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) e CPU AMD EPYC 7V12(Roma). Con la serie NVv4, Azure introduce macchine virtuali con GPU parziali. Scegli la macchina virtuale di dimensioni corrette per le applicazioni grafiche accelerate GPU e i desktop virtuali a partire da 1/8 di una GPU con 2 buffer di frame GiB a una GPU completa con 16 buffer di frame GiB. Le macchine virtuali NVv4 attualmente supportano solo il sistema operativo guest Windows.
+Le macchine virtuali della serie NVv4 sono basate su GPU [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) e sulle CPU AMD EPYC 7V12 (Roma). Con la serie NVv4, Azure introduce macchine virtuali con GPU parziali. Scegli la macchina virtuale di dimensioni appropriate per le applicazioni grafiche con accelerazione GPU e i desktop virtuali a partire dal 1/8 di una GPU con 2 GiB frame buffer in una GPU completa con 16 GiB frame buffer. Le macchine virtuali NVv4 attualmente supportano solo il sistema operativo guest Windows.
 
 <br>
 
 Archiviazione Premium: supportata
 
-Memorizzazione nella cache di archiviazione Premium: supportata
+Caching archiviazione Premium: supportato
 
 Live Migration: non supportato
 
-Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Updates: Not Supported
+Aggiornamenti con mantenimento della memoria: non supportato
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -35,19 +35,19 @@ Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Up
 | Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 |
 | Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 |
 
-<sup>1</sup> macchine virtuali serie NVv4 dispongono di tecnologia multithreading simultanea AMD
+<sup>1</sup> macchine virtuali della serie NVV4 funzionalità AMD simultanea multithreading
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
-Per sfruttare le funzionalità GPU delle macchine virtuali di serie NVv4 di Azure che eseguono Windows, è necessario installare i driver AMD GPU.
+Per sfruttare i vantaggi delle funzionalità GPU delle macchine virtuali della serie NVv4 di Azure che eseguono Windows, è necessario installare i driver GPU AMD.
 
-Per installare manualmente i driver AmD GPU, vedere [Configurazione del driver GPU AMD](./windows/n-series-amd-driver-setup.md) per Windows per i sistemi operativi supportati, i driver, l'installazione e la procedura di verifica.
+Per installare manualmente i driver GPU AMD, vedere la [serie N configurazione driver GPU AMD per Windows](./windows/n-series-amd-driver-setup.md) per i sistemi operativi supportati, i driver, l'installazione e i passaggi di verifica.
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Finalità generale](sizes-general.md)
+- [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

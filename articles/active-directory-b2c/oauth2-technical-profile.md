@@ -1,5 +1,5 @@
 ---
-title: Definire un profilo tecnico OAuth2 in un criterio personalizzatoDefine an OAuth2 technical profile in a custom policy
+title: Definire un profilo tecnico OAuth2 in un criterio personalizzato
 titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico OAuth2 in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -18,11 +18,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184044"
 ---
-# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un criterio personalizzato B2C di Azure Active DirectoryDefine an OAuth2 technical profile in an Azure Active Directory B2C custom policy
+# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità del protocollo OAuth2.Azure Active Directory B2C (Azure AD B2C) provides support for the OAuth2 protocol identity provider. OAuth2 è il protocollo principale per l'autorizzazione e l'autenticazione delegata. Per altre informazioni, vedere la [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Con un profilo tecnico OAuth2, è possibile eseguire la federazione con un provider di identità basato su OAuth2, ad esempio Facebook.With an OAuth2 technical profile, you can federatewith with an OAuth2 based identity provider, such as Facebook. La federazione con un provider di identità consente agli utenti di accedere con le identità aziendali o di social networking esistenti.
+Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità del protocollo OAuth2. OAuth2 è il protocollo principale per l'autorizzazione e l'autenticazione delegata. Per altre informazioni, vedere la [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Con un profilo tecnico OAuth2, è possibile eseguire la Federazione con un provider di identità basato su OAuth2, ad esempio Facebook. La Federazione con un provider di identità consente agli utenti di accedere con le identità aziendali o di social networking esistenti.
 
 ## <a name="protocol"></a>Protocollo
 
@@ -55,7 +55,7 @@ L'esempio seguente illustra le attestazioni restituite dal provider di identità
 
 - Il mapping dell'attestazione **first_name** viene eseguito per l'attestazione **givenName**.
 - Il mapping dell'attestazione **last_name** viene eseguito per l'attestazione **surname**.
-- Attestazione **displayName** senza mapping dei nomi.
+- Attestazione **DisplayName** senza mapping dei nomi.
 - L'attestazione **email** senza eseguire il mapping del nome.
 
 Il profilo tecnico restituisce anche le attestazioni che non vengono restituite dal provider di identità:
@@ -91,13 +91,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsEndpointFormat | No | Il valore del parametro della stringa di query di formato. Ad esempio, è possibile impostare il valore su `json` in questo endpoint attestazioni LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
 | ProviderName | No | Il nome del provider di identità. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
-| scope | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
+| ambito | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
 | HttpBinding | No | L'associazione HTTP prevista per il token di accesso e per gli endpoint del token delle attestazioni. I valori possibili sono: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | No | Il nome del parametro che contiene il messaggio di errore restituito nel messaggio HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | ExtraParamsInClaimsEndpointRequest | No | Contiene altri parametri che possono essere restituiti nella richiesta **ClaimsEndpoint** da alcuni provider di identità. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` `false`  , o (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni `true`nel profilo tecnico, impostarlo su . |
-| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true` `false` , o (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [oggetto OutputClaim](technicalprofiles.md#outputclaims)impostare l'elemento `PartnerClaimType` sul percorso JSON che si desidera restituire. Ad esempio: `firstName.localized` `data.0.to.0.email`, o .|
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`, o `false`  (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione `true`su. |
+| ResolveJsonPathsInJsonTokens  | No | Indica se il profilo tecnico risolve i percorsi JSON. Valori possibili: `true`, o `false` (impostazione predefinita). Usare questi metadati per leggere i dati da un elemento JSON annidato. In un [OutputClaim](technicalprofiles.md#outputclaims)impostare sull' `PartnerClaimType` elemento JSON Path che si vuole restituire. Ad esempio: `firstName.localized`o `data.0.to.0.email`.|
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
@@ -105,7 +105,7 @@ L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati `id_token`sono impostati su , è possibile omettere la chiave crittografica. |
+| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token`, è possibile omettere la chiave crittografica. |
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 

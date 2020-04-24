@@ -1,6 +1,6 @@
 ---
-title: Supporto della mappa di origine per le applicazioni JavaScript - Azure Monitor Application InsightsSource map support for JavaScript applications - Azure Monitor Application Insights
-description: Informazioni su come caricare le mappe di origine nel contenitore BLOB dell'account di archiviazione usando Application Insights.Learn how to upload source maps to your own storage account Blob container using Application Insights.
+title: Supporto della mappa di origine per applicazioni JavaScript-monitoraggio di Azure Application Insights
+description: Informazioni su come caricare i mapping di origine nel contenitore BLOB dell'account di archiviazione usando Application Insights.
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
@@ -12,75 +12,75 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79474884"
 ---
-# <a name="source-map-support-for-javascript-applications"></a>Supporto della mappa di origine per le applicazioni JavaScriptSource map support for JavaScript applications
+# <a name="source-map-support-for-javascript-applications"></a>Supporto della mappa di origine per le applicazioni JavaScript
 
-Application Insights supporta il caricamento di mappe di origine nel proprio contenitore BLOB dell'account di archiviazione.
-Le mappe di origine possono essere utilizzate per annullare l'invogliamento degli stack di chiamate disponibili nella pagina dei dettagli delle transazioni end-to-end. Qualsiasi eccezione inviata da [JavaScript SDK][ApplicationInsights-JS] o [dall'SDK di Node.js][ApplicationInsights-Node.js] può essere annullata con le mappe di origine.
+Application Insights supporta il caricamento delle mappe di origine nel contenitore BLOB dell'account di archiviazione.
+È possibile usare le mappe di origine per unminify gli stack di chiamate trovati nella pagina dei dettagli della transazione end-to-end. Qualsiasi eccezione inviata da [JavaScript SDK][ApplicationInsights-JS] o [node. js SDK][ApplicationInsights-Node.js] può essere unminified con le mappe di origine.
 
-![Annullare l'elesia uno stack di chiamate tramite il collegamento a un account di archiviazioneUnminify a Call Stack by linking with a Storage Account](./media/source-map-support/details-unminify.gif)
+![Unminify di uno stack di chiamate mediante collegamento a un account di archiviazione](./media/source-map-support/details-unminify.gif)
 
-## <a name="create-a-new-storage-account-and-blob-container"></a>Creare un nuovo account di archiviazione e un nuovo contenitore BLOBCreate a new storage account and Blob container
+## <a name="create-a-new-storage-account-and-blob-container"></a>Creare un nuovo account di archiviazione e un contenitore BLOB
 
-Se si dispone già di un account di archiviazione o di un contenitore BLOB esistente, è possibile ignorare questo passaggio.
+Se si ha già un account di archiviazione o un contenitore BLOB esistente, è possibile ignorare questo passaggio.
 
 1. [Creare un nuovo account di archiviazione.][create storage account]
-2. [Creare un contenitore BLOB][create blob container] all'interno dell'account di archiviazione. Assicurarsi di impostare il "Livello di accesso pubblico" su `Private`, per assicurarsi che le mappe di origine non siano accessibili pubblicamente.
+2. [Creare un contenitore BLOB][create blob container] nell'account di archiviazione. Assicurarsi di impostare il "livello di accesso pubblico" su `Private`per assicurarsi che le mappe di origine non siano accessibili pubblicamente.
 
 > [!div class="mx-imgBorder"]
->![Il livello di accesso al contenitore deve essere impostato su Private](./media/source-map-support/container-access-level.png)
+>![Il livello di accesso del contenitore deve essere impostato su privato](./media/source-map-support/container-access-level.png)
 
-## <a name="push-your-source-maps-to-your-blob-container"></a>Eseguire il push delle mappe di origine nel contenitore BLOB
+## <a name="push-your-source-maps-to-your-blob-container"></a>Eseguire il push delle mappe di origine al contenitore BLOB
 
-È necessario integrare la pipeline di distribuzione continua con l'account di archiviazione configurandolo per caricare automaticamente le mappe di origine nel contenitore BLOB configurato. È consigliabile non caricare le mappe di origine in una sottocartella nel contenitore BLOB. attualmente la mappa di origine verrà recuperata solo dalla cartella radice.
+È necessario integrare la pipeline di distribuzione continua con l'account di archiviazione configurando il codice per caricare automaticamente i mapping di origine nel contenitore BLOB configurato. Non caricare i mapping di origine in una sottocartella nel contenitore BLOB; Attualmente la mappa di origine verrà recuperata solo dalla cartella radice.
 
-### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Caricare le mappe di origine tramite le pipeline di Azure (scelta consigliata)Upload source maps via Azure Pipelines (recommended)
+### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Caricare i mapping di origine tramite Azure Pipelines (scelta consigliata)
 
-Se si usa pipeline di Azure per compilare e distribuire continuamente l'applicazione, aggiungere un'attività [Copia file][azure file copy] di Azure alla pipeline per caricare automaticamente le mappe di origine.
+Se si usa Azure Pipelines per compilare e distribuire continuamente l'applicazione, aggiungere un'attività di [copia file di Azure][azure file copy] alla pipeline per caricare automaticamente le mappe di origine.
 
 > [!div class="mx-imgBorder"]
-> ![Aggiungere un'attività Copia file di Azure alla pipeline per caricare le mappe di origine in Archiviazione BLOB di AzureAdd an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure-file-copy.png)
+> ![Aggiungere un'attività di copia file di Azure alla pipeline per caricare i mapping di origine nell'archiviazione BLOB di Azure](./media/source-map-support/azure-file-copy.png)
 
-## <a name="configure-your-application-insights-resource-with-a-source-map-storage-account"></a>Configurare la risorsa di Application Insights con un account di archiviazione della mappa di origineConfigure your Application Insights resource with a Source Map storage account
+## <a name="configure-your-application-insights-resource-with-a-source-map-storage-account"></a>Configurare la risorsa di Application Insights con un account di archiviazione della mappa di origine
 
-### <a name="from-the-end-to-end-transaction-details-page"></a>Dalla pagina dei dettagli della transazione end-to-end
+### <a name="from-the-end-to-end-transaction-details-page"></a>Dalla pagina dettagli transazione end-to-end
 
-Dalla scheda Dettagli transazione end-to-end, è possibile fare clic su *Non ingrandisci* e verrà visualizzato un prompt per configurare se la risorsa non è configurata.
+Dalla scheda Dettagli transazione end-to-end, è possibile fare clic su *Unminify* e verrà visualizzata una richiesta per configurare se la risorsa non è configurata.
 
-1. Nel portale, visualizzare i dettagli di un'eccezione che è stata reindita.
-2. Clicca su *Annulla minifichezza*
+1. Nel portale visualizzare i dettagli di un'eccezione minimizzati.
+2. Fare clic su *Unminify*
 3. Se la risorsa non è stata configurata, verrà visualizzato un messaggio che richiede di configurare.
 
-### <a name="from-the-properties-page"></a>Dalla pagina delle proprietà
+### <a name="from-the-properties-page"></a>Dalla pagina proprietà
 
-Se si vuole configurare o modificare l'account di archiviazione o il contenitore BLOB collegato alla risorsa di Application Insights, è possibile visualizzarla visualizzando la scheda *Proprietà* della risorsa di Application Insights.If you would like to configure or change the storage account or Blob container that is linked to your Application Insights Resource, you can do it by viewing the Application Insights resource tab.
+Per configurare o modificare l'account di archiviazione o il contenitore BLOB collegato alla risorsa di Application Insights, è possibile eseguire questa operazione visualizzando la scheda *proprietà* Application Insights della risorsa.
 
 1. Passare alla scheda *Proprietà* della risorsa Application Insights.
-2. Fare clic su *Modifica contenitore BLOB della mappa di origine*.
-3. Selezionare un contenitore BLOB diverso come contenitore di mappe di origine.
+2. Fare clic su *modifica il contenitore BLOB della mappa di origine*.
+3. Selezionare un contenitore BLOB diverso come contenitore Maps di origine.
 4. Fare clic su `Apply`.
 
 > [!div class="mx-imgBorder"]
-> ![Riconfigurare il contenitore BLOB di Azure selezionato passando al pannello ProprietàReconfigure your selected Azure Blob Container by navigating to the Properties Blade](./media/source-map-support/reconfigure.png)
+> ![Riconfigurare il contenitore BLOB di Azure selezionato passando al pannello delle proprietà](./media/source-map-support/reconfigure.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Impostazioni necessarie per il controllo degli accessi in base al ruolo nel contenitore BLOBRequired role-based access control (RBAC) settings on your Blob container
+### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Impostazioni del controllo degli accessi in base al ruolo (RBAC) necessarie per il contenitore BLOB
 
-Qualsiasi utente nel portale che usa questa funzionalità deve essere assegnato almeno come [lettore di dati BLOB][storage blob data reader] di archiviazione al contenitore BLOB. È necessario assegnare questo ruolo a chiunque utilizzi le mappe di origine tramite questa funzionalità.
+Qualsiasi utente nel portale che usa questa funzionalità deve essere almeno assegnato come [lettore dati BLOB di archiviazione][storage blob data reader] al contenitore BLOB. È necessario assegnare questo ruolo a tutti gli altri utenti che utilizzeranno i mapping di origine tramite questa funzionalità.
 
 > [!NOTE]
 > A seconda di come è stato creato il contenitore, questo potrebbe non essere stato assegnato automaticamente all'utente o al team.
 
 ### <a name="source-map-not-found"></a>Mappa di origine non trovata
 
-1. Verificare che la mappa di origine corrispondente venga caricata nel contenitore BLOB correttoVerify that the corresponding source map is uploaded to the correct blob container
-2. Verificare che il file di mappa di origine sia denominato `.map`in base al file JavaScript a cui è mappato, con il suffisso .
-    - Ad esempio, `/static/js/main.4e2ca5fa.chunk.js` cercherà il BLOB denominato`main.4e2ca5fa.chunk.js.map`
-3. Controllare la console del browser per verificare se vengono registrati errori. Includilo in qualsiasi ticket di supporto.
+1. Verificare che la mappa di origine corrispondente venga caricata nel contenitore BLOB corretto
+2. Verificare che il file di mapping di origine sia denominato dopo il file JavaScript a cui viene eseguito il `.map`mapping, con suffisso.
+    - Ad esempio, `/static/js/main.4e2ca5fa.chunk.js` eseguirà la ricerca del BLOB denominato`main.4e2ca5fa.chunk.js.map`
+3. Controllare la console del browser per verificare se sono stati registrati errori. Includere questo in qualsiasi ticket di supporto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Attività Copia file di AzureAzure File Copy task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Attività copia file di Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 
 <!-- Remote URLs -->

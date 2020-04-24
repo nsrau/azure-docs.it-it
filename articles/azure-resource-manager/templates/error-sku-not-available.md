@@ -1,6 +1,6 @@
 ---
 title: Errori SKU non disponibili
-description: Viene descritto come risolvere l'errore SKU non disponibile durante la distribuzione di risorse con Azure Resource Manager.Describes how to troubleshoot the SKU not available error when deploying resources with Azure Resource Manager.
+description: Viene descritto come risolvere l'errore SKU non disponibile durante la distribuzione di risorse con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
@@ -12,7 +12,7 @@ ms.locfileid: "78942719"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Risolvere gli errori dovuti all'indisponibilità di SKU
 
-Questo articolo descrive come risolvere l'errore **SkuNotAvailable**. Se non si riesce a trovare uno SKU adatto in tale area/zona o in un'area/zona alternativa che soddisfi le esigenze aziendali, inviare una richiesta SKU al supporto di Azure.If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
+Questo articolo descrive come risolvere l'errore **SkuNotAvailable**. Se non si riesce a trovare uno SKU appropriato in tale area/area o in un'area/area alternativa che soddisfi le esigenze aziendali, inviare una [richiesta di SKU](https://aka.ms/skurestriction) al supporto tecnico di Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,11 +30,11 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Questo errore viene visualizzato quando lo SKU della risorsa selezionato, ad esempio le dimensioni della macchina virtuale, non è disponibile per il percorso selezionato.
 
-Se si distribuisce un'istanza di Azure Spot VM o Set di scalabilità Spot, non è disponibile alcuna capacità per Azure Spot in questa posizione. Per ulteriori informazioni, consultate Messaggi di [errore spot](../../virtual-machines/error-codes-spot.md).
+Se si distribuisce una macchina virtuale di Azure spot o un'istanza del set di scalabilità di punti, non esiste alcuna capacità per Azure spot in questa località. Per ulteriori informazioni, vedere [messaggi di errore di individuazione](../../virtual-machines/error-codes-spot.md).
 
 ## <a name="solution-1---powershell"></a>Soluzione 1: PowerShell
 
-Per determinare quali SKU sono disponibili in un'area/zona, utilizzare il comando [Get-AzComputeResourceSku.](/powershell/module/az.compute/get-azcomputeresourcesku) Filtrare i risultati in base all'area. Per questo comando, è necessaria la versione più recente di PowerShell.
+Per determinare quali SKU sono disponibili in un'area/area, usare il comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) . Filtrare i risultati in base all'area. Per questo comando, è necessaria la versione più recente di PowerShell.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
@@ -51,14 +51,14 @@ virtualMachines       Standard_A2    centralus             NotAvailableForSubscr
 virtualMachines       Standard_D1_v2 centralus   {2, 1, 3}                                  MaxResourceVolumeMB
 ```
 
-Alcuni campioni aggiuntivi:
+Esempi aggiuntivi:
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
 ```
 
-L'aggiunta di "fc" alla fine restituisce ulteriori dettagli.
+L'aggiunta di "FC" alla fine restituisce maggiori dettagli.
 
 ## <a name="solution-2---azure-cli"></a>Soluzione 2: interfaccia della riga di comando di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Comandi dell'interfaccia della riga di comando classici di AzureAzure classic CLI
+title: Comandi CLI di Azure classico
 description: Comandi dell'interfaccia della riga di comando di Azure per gestire le risorse.
 author: cynthn
 manager: gwallace
@@ -15,15 +15,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250881"
 ---
-# <a name="azure-classic-cli-commands"></a>Comandi dell'interfaccia della riga di comando classici di AzureAzure classic CLI 
+# <a name="azure-classic-cli-commands"></a>Comandi CLI di Azure classico 
 
 [!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
-Questo argomento illustra come installare l'interfaccia della riga di comando classica di Azure. L'interfaccia della riga di comando classica è deprecata e deve essere usata solo con il modello di distribuzione classica. Per tutte le altre distribuzioni, usare l'interfaccia della riga di comando di [Azure.](https://docs.microsoft.com/cli/azure/)
+Questo argomento illustra come installare l'interfaccia della riga di comando classica di Azure. L'interfaccia della riga di comando classica è deprecata e deve essere usata solo con il modello di distribuzione classica. Per tutte le altre distribuzioni, usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/).
 
-Questo articolo offre sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) classici di Azure che usare comunemente per creare e gestire le risorse di Azure.This article provides syntax and options for Azure classic command-line interface (CLI) commands you'd commonly use to create and manage Azure resources. Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. 
+Questo articolo fornisce la sintassi e le opzioni per i comandi dell'interfaccia della riga di comando di Azure classico usati comunemente per creare e gestire le risorse di Azure. Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. 
 
-Per iniziare, [installare innanzitutto l'interfaccia della riga](../cli-install-nodejs.md) di comando classica di Azure e [connettersi alla sottoscrizione](/cli/azure/authenticate-azure-cli)di Azure.
+Per iniziare, installare prima [l'interfaccia della](../cli-install-nodejs.md) riga di comando di Azure classico e [connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli).
 
 Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
@@ -130,7 +130,7 @@ Le informazioni relative alla sottoscrizione di Azure vengono usate dallo strume
     config mode [options] <modename>
 
 
-## <a name="account-features"></a>Caratteristiche dell'account
+## <a name="account-features"></a>Funzionalità dell'account
 **Elencare tutte le funzionalità disponibili per la sottoscrizione**
 
     feature list [options]
@@ -301,7 +301,7 @@ Opzioni dei parametri:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>Approfondimenti (eventi, regole di avviso, impostazioni di scalabilità automatica, metriche)
+## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>Informazioni dettagliate (eventi, regole di avviso, impostazioni di scalabilità automatica, metriche)
 **Recuperare i log delle operazioni per una sottoscrizione, un ID correlazione, un gruppo di risorse, una risorsa o un provider di risorse**
 
     insights logs list [options]

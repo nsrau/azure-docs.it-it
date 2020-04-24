@@ -100,7 +100,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    
     Nella pagina **Proxy Web** :
    
-   1. Specificare l'URL del **proxy Web** nel formato *http: http:\//host-IP address* o *FQDN:Port number*. Notare che gli URL HTTPS non sono supportati.
+   1. Specificare l' **URL del proxy Web** nel formato seguente: *http\/:/host-IP indirizzo* o *FQDN: numero di porta*. Notare che gli URL HTTPS non sono supportati.
    2. Specificare **Autenticazione** come **Basic** o **Nessuna**.
    3. Se si usa l'autenticazione, è necessario fornire anche **Nome utente** e **Password**.
    4. Fare clic su **Applica**. Le impostazioni proxy Web configurate vengono così convalidate e applicate.
@@ -117,8 +117,8 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 9. Configurare le impostazioni del cloud per il dispositivo. In questo passaggio viene completata la configurazione del dispositivo locale, quindi si registra il dispositivo con il servizio Gestione dispositivi StorSimple.
    
    1. Immettere la **chiave di registrazione del servizio** ottenuta al **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire l'array virtuale StorSimple: preparare il portale](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
-   2. Se questo non è il primo dispositivo che si sta registrando con questo servizio, è necessario fornire la chiave di crittografia dei dati del **servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
-   3. Fare clic su **Registra**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
+   2. Se questo non è il primo dispositivo che si sta registrando con questo servizio, sarà necessario fornire la chiave di **crittografia dei dati del servizio**. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. Per altre informazioni, fare riferimento a come ottenere la [chiave DEK del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+   3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
       
       ![Registrare il dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Tornare al portale di Azure.
@@ -194,10 +194,10 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 3. Nella finestra di dialogo **Individua portale destinazione** specificare l'indirizzo IP dell'interfaccia di rete abilitata per iSCSI e quindi fare clic su **OK**.
    
     ![Indirizzo IP](./media/storsimple-virtual-array-deploy3-iscsi-setup/image23.png)
-4. Nella scheda **Destinazioni** della finestra delle **proprietà dell'iniziatore iSCSI** individuare **Destinazioni individuate**. (Ogni volume sarà un obiettivo scoperto.) Lo stato del dispositivo dovrebbe essere **Inattivo**.
+4. Nella scheda **Destinazioni** della finestra delle **proprietà dell'iniziatore iSCSI** individuare **Destinazioni individuate**. (Ogni volume sarà una destinazione individuata). Lo stato del dispositivo dovrebbe essere **inattivo**.
    
     ![destinazioni individuate](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Selezionare un dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per ulteriori informazioni sull'utilizzo dell'inittore iSCSI Microsoft, vedere [Installazione e configurazione dell'inittore iSCSI Microsoft][1].
+5. Selezionare un dispositivo di destinazione e quindi fare clic su **Connetti**. Dopo aver connesso il dispositivo, lo stato deve essere modificato in **Connesso**. Per altre informazioni sull'uso dell'iniziatore iSCSI Microsoft, vedere [installazione e configurazione dell'iniziatore iSCSI Microsoft][1].
    
     ![selezionare il dispositivo di destinazione](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Nell'host di Windows, premere il tasto Logo Windows + X, quindi fare clic su **Esegui**.
@@ -230,7 +230,7 @@ Eseguire i passaggi seguenti per montare, inizializzare e formattare i volumi St
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come utilizzare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>Appendice A: Ottenere il nome qualificato iSCSI di un host di Windows Server
 
@@ -239,7 +239,7 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 #### <a name="to-get-the-iqn-of-a-windows-host"></a>Per ottenere il nome qualificato iSCSI di un host di Windows
 
 1. Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
-2. Nella scheda **Configurazione** della finestra **Proprietà invitante iSCSI** selezionare e copiare la stringa dal campo **Nome initiator.**
+2. Nella scheda **configurazione** della finestra delle **proprietà dell'iniziatore iSCSI** selezionare e copiare la stringa dal campo **nome iniziatore** .
    
     ![Proprietà iniziatore iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. Salvare la stringa.

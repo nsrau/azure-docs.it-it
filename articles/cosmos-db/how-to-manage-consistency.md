@@ -1,6 +1,6 @@
 ---
 title: Gestire la coerenza in Azure Cosmos DB
-description: Informazioni su come configurare e gestire i livelli di coerenza in Azure Cosmos DB usando il portale di Azure, .Net SDK, Java SDK e vari altri SDK
+description: Informazioni su come configurare e gestire i livelli di coerenza in Azure Cosmos DB usando portale di Azure, .NET SDK, Java SDK e diversi altri SDK
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -21,7 +21,7 @@ Questo articolo illustra come gestire i livelli di coerenza in Azure Cosmos DB. 
 
 ## <a name="configure-the-default-consistency-level"></a>Configurare il livello di coerenza predefinito
 
-Il livello di [coerenza predefinito](consistency-levels.md) è il livello di coerenza utilizzato dai client per impostazione predefinita. I client possono sempre eseguirne l'override.
+Il [livello di coerenza predefinito](consistency-levels.md) è il livello di coerenza utilizzato dai client per impostazione predefinita. I client possono sempre eseguirne l'override.
 
 ### <a name="cli"></a>CLI
 
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)
 
-Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)**](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **Metriche** e selezionare la **Probability of strongly consistent reads based on your workload (see PBS)** scheda **Coerenza.**
+Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)**](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **metriche** e selezionare la scheda **coerenza** . esaminare il grafo denominato **probabilità di letture fortemente coerenti in base al carico di lavoro (vedere PBS)**.
 
 ![Grafico PBS nel portale di Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
@@ -240,9 +240,9 @@ Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadiment
 
 Scoprire di più su come gestire i conflitti di dati o passare al concetto chiave successivo di Azure Cosmos DB. Vedere gli articoli seguenti:
 
-* [Livelli di coerenza in Azure Cosmos DBConsistency Levels in Azure Cosmos DB](consistency-levels.md)
+* [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 * [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)
 * [Partizionamento e distribuzione dei dati](partition-data.md)
-* [Compromessi di coerenza nella progettazione di moderni sistemi di database distribuiti](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Disponibilità elevata](high-availability.md)
 * [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

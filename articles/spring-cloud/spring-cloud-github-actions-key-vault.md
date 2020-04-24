@@ -1,6 +1,6 @@
 ---
-title: Autenticazione di Azure Spring Cloud con l'insieme di credenziali delle chiavi nelle azioni GitHubAuthenticate Azure Spring Cloud with Key Vault in GitHub Actions
-description: Come usare l'insieme di credenziali delle chiavi con il flusso di lavoro CI/CD per Azure Spring Cloud con le azioni GitHubHow to use key vault with CI/CD workflow for Azure Spring Cloud with GitHub Actions
+title: Autenticare Azure Spring cloud con Key Vault nelle azioni di GitHub
+description: Come usare l'insieme di credenziali delle chiavi con il flusso di lavoro CI/CD per Azure Spring cloud con azioni di GitHub
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
@@ -13,17 +13,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945477"
 ---
-# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticazione di Azure Spring Cloud con l'insieme di credenziali delle chiavi nelle azioni GitHubAuthenticate Azure Spring Cloud with Key Vault in GitHub Actions
-L'insieme di credenziali delle chiavi è un luogo sicuro in cui archiviare le chiavi. Gli utenti aziendali devono archiviare le credenziali per gli ambienti CI/CD nell'ambito che controllano. La chiave per ottenere le credenziali nell'insieme di credenziali delle chiavi deve essere limitata all'ambito della risorsa.  Ha accesso solo all'ambito dell'insieme di credenziali delle chiavi, non all'intero ambito di Azure.It has access to only the key vault scope, not the entire Azure scope. È come una chiave che può aprire solo una scatola forte non una chiave master che può aprire tutte le porte in un edificio. È un modo per ottenere una chiave con un'altra chiave, che è utile in un flusso di lavoro CICD. 
+# <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticare Azure Spring cloud con Key Vault nelle azioni di GitHub
+Key Vault è un luogo sicuro per archiviare le chiavi. Gli utenti aziendali devono archiviare le credenziali per gli ambienti CI/CD nell'ambito che controllano. La chiave per ottenere le credenziali nell'insieme di credenziali delle chiavi deve essere limitata all'ambito della risorsa.  Ha accesso solo all'ambito dell'insieme di credenziali delle chiavi, non all'intero ambito di Azure. È come una chiave che può aprire solo una casella complessa e non una chiave master in grado di aprire tutte le porte di un edificio. Si tratta di un modo per ottenere una chiave con un'altra chiave, che risulta utile in un flusso di lavoro CICD. 
 
 ## <a name="generate-credential"></a>Genera credenziali
-Per generare una chiave per accedere all'insieme di credenziali delle chiavi, eseguire il comando seguente sul computer locale:
+Per generare una chiave per accedere all'insieme di credenziali delle chiavi, eseguire il comando seguente nel computer locale:
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
-L'ambito specificato `--scopes` dal parametro limita l'accesso chiave alla risorsa.  Può accedere solo alla scatola forte.
+L'ambito specificato dal `--scopes` parametro limita l'accesso alla chiave alla risorsa.  Può accedere solo alla casella Strong.
 
-Con i risultati:
+Con risultati:
 ```
 {
     "clientId": "<GUID>",
@@ -37,29 +37,29 @@ Con i risultati:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Salvare quindi i risultati nei **segreti** GitHub come descritto in [Configurare il repository GitHub ed eseguire l'autenticazione con Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
+Salvare quindi i risultati in GitHub **Secrets** come descritto in [configurare il repository GitHub ed eseguire l'autenticazione con Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
 
-## <a name="add-access-policies-for-the-credential"></a>Aggiungere criteri di accesso per la credenzialeAdd Access Policies for the Credential
-Le credenziali create in precedenza possono ottenere solo informazioni generali sull'insieme di credenziali delle chiavi, non sul contenuto archiviato.  Per ottenere i segreti archiviati nell'insieme di credenziali delle chiavi, è necessario impostare i criteri di accesso per la credenziale.
+## <a name="add-access-policies-for-the-credential"></a>Aggiungere criteri di accesso per le credenziali
+La credenziale creata in precedenza può ottenere solo informazioni generali sulla Key Vault, non sul contenuto archiviato.  Per ottenere i segreti archiviati nella Key Vault, è necessario impostare i criteri di accesso per le credenziali.
 
-Passare al **scope**dashboard **dell'insieme** di credenziali dei tasti nel portale di Azure, **Type** fare `This resource` clic sul menu **Controllo** di accesso, quindi aprire la scheda **Assegnazioni ruolo.** **Apps**  Dovresti vedere le credenziali create nel passaggio precedente:
+Passare al dashboard **Key Vault** in portale di Azure, fare clic sul menu di **controllo di accesso** , quindi aprire la scheda **assegnazioni di ruolo** . Selezionare **app** per **tipo** e `This resource` per **ambito**.  Verranno visualizzate le credenziali create nel passaggio precedente:
 
  ![Impostare i criteri di accesso](./media/github-actions/key-vault1.png)
 
-Copiare il nome della `azure-cli-2020-01-19-04-39-02`credenziale, ad esempio . Aprire il menu Criteri di **accesso,** fare clic sul collegamento Aggiungi criteri di **accesso.**  `Secret Management` Selezionare **Modello**, quindi **Principale**. Incollare il nome della credenziale nella casella di input**Selezione** **entità:**/
+Copiare il nome delle credenziali, ad esempio `azure-cli-2020-01-19-04-39-02`. Aprire il menu **criteri di accesso** e fare clic sul collegamento **+ Aggiungi criteri di accesso** .  Selezionare `Secret Management` per **modello**, quindi selezionare **entità**. Incollare il nome delle credenziali nella casella **principale**/**Select** input:
 
  ![Select](./media/github-actions/key-vault2.png)
 
- Fare clic sul pulsante **Aggiungi** nella finestra di dialogo **Aggiungi criteri** di accesso , quindi fare clic su **Salva**.
+ Fare clic sul pulsante **Aggiungi** nella finestra di dialogo **Aggiungi criteri di accesso** , quindi fare clic su **Salva**.
 
 ## <a name="generate-full-scope-azure-credential"></a>Genera credenziali di Azure con ambito completo
-Questa è la chiave master per aprire tutte le porte dell'edificio. La procedura è simile al passaggio precedente, ma qui si modifica l'ambito per generare la chiave master:The procedure is similar to the previous step, but here we change the scope to generate the master key:
+Si tratta della chiave master per aprire tutte le porte nell'edificio. La procedura è simile al passaggio precedente, ma in questo caso viene modificato l'ambito per generare la chiave master:
 
 ```
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
-Anche in questo caso, i risultati:
+Anche in questo caso, i risultati sono:
 ```
 {
     "clientId": "<GUID>",
@@ -73,12 +73,12 @@ Anche in questo caso, i risultati:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Copiare l'intera stringa JSON.  Torna al dashboard **dell'insieme di** credenziali delle chiavi. Apri il menu **Segreti,** quindi fai clic sul pulsante **Genera/Importa.** Immettere il nome `AZURE-CRENDENTIALS-FOR-SPRING`del segreto, ad esempio . Incollare la stringa delle credenziali JSON nella casella di input **Valore.** È possibile notare che la casella di input del valore è un campo di testo di una riga, anziché un'area di testo su più righe.  È possibile incollare la stringa JSON completa.
+Copiare l'intera stringa JSON.  Tornare a **Key Vault** dashboard. Aprire il menu **segreti** , quindi fare clic sul pulsante **genera/importa** . Immettere il nome del segreto, ad `AZURE-CRENDENTIALS-FOR-SPRING`esempio. Incollare la stringa di credenziali JSON nella casella di immissione **valore** . È possibile notare che la casella di input valore è un campo di testo a riga singola, anziché un'area di testo a più righe.  È possibile incollare la stringa JSON completa.
 
- ![Credenziale dell'ambito completo](./media/github-actions/key-vault3.png)
+ ![Credenziali dell'ambito completo](./media/github-actions/key-vault3.png)
 
-## <a name="combine-credentials-in-github-actions"></a>Combinare le credenziali nelle azioni GitHubCombine credentials in GitHub Actions
-Impostare le credenziali utilizzate durante l'esecuzione della pipeline CICD:Set the credentials used when the CICD pipeline executes:
+## <a name="combine-credentials-in-github-actions"></a>Combinare le credenziali nelle azioni di GitHub
+Impostare le credenziali utilizzate quando viene eseguita la pipeline CICD:
 
 ```
 on: [push]
@@ -109,4 +109,4 @@ jobs:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Azioni di Spring Cloud GitHub](./spring-cloud-howto-github-actions.md)
+* [Azioni GitHub di Spring cloud](./spring-cloud-howto-github-actions.md)

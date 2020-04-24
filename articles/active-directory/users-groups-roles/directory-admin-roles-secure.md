@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per l'accesso amministratore sicuro - Azure AD Documenti Microsoft
+title: Procedure consigliate per l'accesso amministratore sicuro-Azure AD | Microsoft Docs
 description: Verificare la sicurezza degli account amministratore e dell'accesso amministrativo nell'organizzazione. Per progettisti di sistemi e professionisti IT che configurano Azure AD, Azure e i Microsoft Online Services.
 services: active-directory
 keywords: ''
@@ -76,7 +76,7 @@ Questo framework di roadmap è progettato per ottimizzare l'uso delle tecnologie
 
 ## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Fase 1: elementi critici che è consigliabile gestire immediatamente
 
-![Fase 1 Elementi critici da eseguire per primi](./media/directory-admin-roles-secure/stage-one.png)
+![Fasi 1 elementi critici da eseguire prima](./media/directory-admin-roles-secure/stage-one.png)
 
 La fase 1 della roadmap è incentrata sulle attività critiche che possono essere implementate in modo semplice e rapido. È consigliabile eseguire queste poche operazioni immediatamente, entro le prime 24-48 ore, per garantire un livello di base di sicurezza dell'accesso con privilegi. Questa fase della roadmap per la sicurezza dell'accesso con privilegi include le attività seguenti:
 
@@ -94,7 +94,7 @@ Dopo avere attivato Azure AD Privileged Identity Management:
 
 2. Per selezionare il tenant dove usare Privileged Identity Management, selezionare il nome utente nell'angolo in alto a destra del portale di Azure.
 
-3. Nel menu del portale di Azure selezionare **Tutti i servizi** e filtrare l'elenco per Gestione delle identità con privilegi di Azure **AD.**
+3. Nel menu portale di Azure selezionare tutti i **Servizi** e filtrare l'elenco per **Azure ad Privileged Identity Management**.
 
 4. Aprire Privileged Identity Management dall'elenco **Tutti i servizi** e aggiungerlo al dashboard.
 
@@ -102,7 +102,7 @@ Alla prima persona che usa Azure AD Privileged Identity Management nel tenant ve
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identificare e classificare gli account che si trovano in ruoli con privilegi elevati 
 
-Dopo avere attivato Azure AD Privileged Identity Management, visualizzare gli utenti con i ruoli della directory di amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Se nel tenant non è presente Azure AD PIM, è possibile usare l'[API di PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniziare con il ruolo di amministratore globale poiché questo ruolo è generico: un utente assegnato a questo ruolo di amministratore dispone delle stesse autorizzazioni in tutti i servizi cloud per i quali l'organizzazione ha sottoscritto, indipendentemente dal fatto che sia stato assegnato o meno in Microsoft 365 l'interfaccia di amministrazione, il portale di Azure o il modulo Di Azure AD per Microsoft PowerShell.Admin center, the Azure portal, or by using the Azure AD module for Microsoft PowerShell. 
+Dopo avere attivato Azure AD Privileged Identity Management, visualizzare gli utenti con i ruoli della directory di amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Se nel tenant non è presente Azure AD PIM, è possibile usare l'[API di PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniziare con il ruolo di amministratore globale perché questo ruolo è generico: un utente a cui è assegnato questo ruolo di amministratore ha le stesse autorizzazioni in tutti i servizi cloud per cui l'organizzazione ha eseguito la sottoscrizione, indipendentemente dal fatto che il ruolo sia stato assegnato all'interfaccia di amministrazione di Microsoft 365, portale di Azure o usando il modulo Azure AD per Microsoft PowerShell. 
 
 Rimuovere tutti gli account non più necessari in questi ruoli. Classificare quindi gli account rimanenti assegnati ai ruoli di amministratore:
 
@@ -127,7 +127,7 @@ Richiedere Azure Multi-Factor Authentication (MFA) all'accesso per tutti i singo
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: attenuazione delle tecniche di attacco usate più di frequente
 
-![Fase 2 Mitigare gli attacchi usati di frequente](./media/directory-admin-roles-secure/stage-two.png)
+![Fase 2 attenuare gli attacchi usati di frequente](./media/directory-admin-roles-secure/stage-two.png)
 
 La fase 2 della roadmap è incentrata sull'attenuazione delle tecniche di attacco usate più di frequente per il furto e l'abuso di credenziali e può essere implementata in circa 2-4 settimane. Questa fase della roadmap per la sicurezza dell'accesso con privilegi include le attività seguenti.
 
@@ -139,7 +139,7 @@ Con l'aumentare degli scenari BYOD (Bring Your Own Device) e di lavoro da casa e
 
 * Identificare gli utenti con ruoli amministrativi e i servizi che possono gestire.
 * Usare Azure AD PIM per scoprire quali utenti dell'organizzazione hanno accesso amministrativo ad Azure AD, inclusi ruoli aggiuntivi oltre a quelli elencati nella fase 1.
-* Oltre ai ruoli definiti in Azure AD, Office 365 include un set di ruoli di amministratore che è possibile assegnare agli utenti dell'organizzazione. Ogni ruolo di amministratore esegue il mapping alle funzioni aziendali comuni e concede agli utenti dell'organizzazione le autorizzazioni per eseguire attività specifiche nell'interfaccia di amministrazione di [Microsoft 365.](https://admin.microsoft.com) Usare l'interfaccia di amministrazione di Microsoft 365 per scoprire quali utenti dell'organizzazione hanno accesso di amministratore a Office 365, anche tramite ruoli non gestiti in Azure AD. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [Procedure consigliate per la sicurezza per Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Oltre ai ruoli definiti in Azure AD, Office 365 include un set di ruoli di amministratore che è possibile assegnare agli utenti dell'organizzazione. Ogni ruolo di amministratore esegue il mapping a funzioni di business comuni e consente agli utenti dell'organizzazione di eseguire attività specifiche nell'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com). Usare l'interfaccia di amministrazione di Microsoft 365 per scoprire quali utenti dell'organizzazione hanno accesso amministrativo a Office 365, anche tramite ruoli non gestiti in Azure AD. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) e [Procedure consigliate per la sicurezza per Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Eseguire l'inventario in altri servizi usati nell'organizzazione, ad esempio Azure, Intune o Dynamics 365.
 * Assicurarsi che gli account amministratore (gli account usati a scopo amministrativo e non solo per le attività quotidiane degli utenti) abbiano indirizzi di posta elettronica funzionanti associati e abbiano eseguito la registrazione per Azure MFA oppure usino MFA in locale.
 * Chiedere agli utenti il motivo per cui necessitano di accesso amministrativo.
@@ -161,7 +161,7 @@ Verificare che tutti gli utenti abbiano eseguito l'accesso al proprio account am
 
 #### <a name="turn-on-password-hash-synchronization"></a>Attivare la sincronizzazione dell'hash delle password
 
-La sincronizzazione dell'hash delle password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud. Anche se si decide di usare la federazione con Active Directory Federation Services (AD FS) o altri provider di identità, è possibile configurare la sincronizzazione dell'hash delle password come backup in caso di errore o temporanea indisponibilità dell'infrastruttura locale, ad esempio dei server AD o ADFS. In questo modo, gli utenti potranno accedere al servizio usando la stessa password usata per accedere all'istanza di AD locale. Identity Protection può inoltre rilevare le credenziali compromesse confrontando gli hash delle password con password segnalate come compromesse, se un utente ha usato lo stesso indirizzo di posta elettronica e la stessa password in altri servizi non connessi ad Azure AD.  Per altre informazioni, vedere Implementare la [sincronizzazione dell'hash delle password con](../hybrid/how-to-connect-password-hash-synchronization.md)la sincronizzazione di Azure AD Connect.For more information, see Implement password hash synchronization with Azure AD Connect sync .
+La sincronizzazione dell'hash delle password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud. Anche se si decide di usare la federazione con Active Directory Federation Services (AD FS) o altri provider di identità, è possibile configurare la sincronizzazione dell'hash delle password come backup in caso di errore o temporanea indisponibilità dell'infrastruttura locale, ad esempio dei server AD o ADFS. In questo modo, gli utenti potranno accedere al servizio usando la stessa password usata per accedere all'istanza di AD locale. Identity Protection può inoltre rilevare le credenziali compromesse confrontando gli hash delle password con password segnalate come compromesse, se un utente ha usato lo stesso indirizzo di posta elettronica e la stessa password in altri servizi non connessi ad Azure AD.  Per altre informazioni, vedere [implementare la sincronizzazione dell'hash delle password con Azure ad Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Richiedere Multi-Factor Authentication (MFA) per gli utenti con tutti i ruoli con privilegi e gli utenti esposti
 
@@ -169,7 +169,7 @@ Azure AD consiglia di richiedere l'uso di Multi-Factor Authentication (MFA) per 
 
 Attivare:
 
-* [L'autenticazione a](../authentication/howto-mfa-getstarted.md) più fattori utilizza i criteri di accesso condizionale per tutti gli utenti dell'organizzazione.
+* Autenticazione a più fattori [usando i criteri di accesso condizionale](../authentication/howto-mfa-getstarted.md) per tutti gli utenti dell'organizzazione.
 
 Se si usa Windows Hello for Business, è possibile soddisfare il requisito MFA con l'esperienza di accesso di Windows Hello. Per altre informazioni, vedere [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -179,7 +179,7 @@ Azure AD Identity Protection è uno strumento di monitoraggio e creazione di rep
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Ottenere Office 365 Secure Score (se si usa Office 365)
 
-Secure Score esamina i servizi di Office 365 in uso (ad esempio, OneDrive, SharePoint ed Exchange), quindi analizza le impostazioni e le attività e le confronta con informazioni di base stabilite da Microsoft. Si ottiene un punteggio che indica a che livello l'organizzazione è allineata alle procedure consigliate di sicurezza. Chiunque disponga delle autorizzazioni di amministratore (amministratore globale o un ruolo di amministratore personalizzato) per [https://securescore.office.com](https://securescore.office.com/)un abbonamento a Office 365 Business Premium o Enterprise può accedere al punteggio di protezione in .
+Secure Score esamina i servizi di Office 365 in uso (ad esempio, OneDrive, SharePoint ed Exchange), quindi analizza le impostazioni e le attività e le confronta con informazioni di base stabilite da Microsoft. Si ottiene un punteggio che indica a che livello l'organizzazione è allineata alle procedure consigliate di sicurezza. Chiunque disponga delle autorizzazioni di amministratore (amministratore globale o ruolo di amministratore personalizzato) per una sottoscrizione Office 365 Business Premium o Enterprise può accedere al Punteggio sicuro [https://securescore.office.com](https://securescore.office.com/)all'indirizzo.
 
 #### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Esaminare le indicazioni di sicurezza e conformità di Office 365 (se si usa Office 365)
 
@@ -187,7 +187,7 @@ Il [piano per la sicurezza e la conformità](https://support.office.com/article/
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Configurare Monitoraggio attività di Office 365 (se si usa Office 365)
 
-È possibile monitorare il modo in cui le persone dell'organizzazione usano i servizi di Office 365, identificando gli utenti che hanno un account amministrativo e che potrebbero non necessitare di accesso a Office 365 in quanto non accedono a tali portali. Per ulteriori informazioni, vedere Rapporti attività nell'interfaccia di amministrazione di [Microsoft 365.](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)
+È possibile monitorare il modo in cui le persone dell'organizzazione usano i servizi di Office 365, identificando gli utenti che hanno un account amministrativo e che potrebbero non necessitare di accesso a Office 365 in quanto non accedono a tali portali. Per altre informazioni, vedere [report attività nell'interfaccia di amministrazione di Microsoft 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Stabilire i proprietari del piano di risposta a eventi imprevisti ed emergenze
 
@@ -205,7 +205,7 @@ Usare Enterprise Portal e il portale di Azure per identificare le sottoscrizioni
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Rimuovere gli account Microsoft dai ruoli di amministratore
 
-Gli account Microsoft di altri programmi, ad esempio Xbox Live e Outlook, non devono essere usati come account amministratore per le sottoscrizioni dell'organizzazione. Rimuovere lo stato di amministratore da tutti gli account chris@contoso.comMicrosoft e sostituirlo con gli account aziendali o dell'istituto di istruzione di Azure Active Directory (ad esempio).
+Gli account Microsoft di altri programmi, ad esempio Xbox Live e Outlook, non devono essere usati come account amministratore per le sottoscrizioni dell'organizzazione. Rimuovere lo stato amministratore da tutti gli account Microsoft e sostituire con Azure Active Directory (ad esempio chris@contoso.com,) account aziendali o dell'Istituto di istruzione.
 
 #### <a name="monitor-azure-activity"></a>Monitorare l'attività di Azure
 
@@ -213,14 +213,14 @@ Il log attività di Azure fornisce una cronologia degli eventi a livello di sott
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad altre app cloud tramite Azure AD
 
-#### <a name="configure-conditional-access-policies"></a>Configurare i criteri di accesso condizionaleConfigure Conditional Access policies
+#### <a name="configure-conditional-access-policies"></a>Configurare i criteri di accesso condizionale
 
-Preparare i criteri di accesso condizionale per le applicazioni locali e ospitate nel cloud. Se gli utenti dispongono di dispositivi aggiunti all'area di lavoro, ottenere altre informazioni da Configurazione dell'accesso condizionale locale tramite la registrazione dei dispositivi di [Azure Active Directory.](../active-directory-device-registration-on-premises-setup.md)
+Preparare i criteri di accesso condizionale per applicazioni locali e ospitate nel cloud. Se sono stati aggiunti dispositivi all'area di lavoro, è possibile ottenere altre informazioni dalla [configurazione dell'accesso condizionale locale usando Azure Active Directory la registrazione del dispositivo](../active-directory-device-registration-on-premises-setup.md).
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>Fase 3: implementazione di visibilità e controllo completo sull'attività di amministrazione
 
-![Fase 3 assumere il controllo dell'attività di amministrazione](./media/directory-admin-roles-secure/stage-three.png)
+![Fase 3 assumere il controllo delle attività amministrative](./media/directory-admin-roles-secure/stage-three.png)
 
 La fase 3 si basa sulle mitigazioni della fase 2 ed è pensata per essere implementata in circa 1-3 mesi. Questa fase della roadmap per la sicurezza dell'accesso con privilegi include i componenti seguenti.
 
@@ -241,7 +241,7 @@ Richiedere a dirigenti, manager di alto livello, personale addetto alla sicurezz
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Usare workstation dedicate per l'amministrazione di Azure AD
 
-Gli utenti malintenzionati possono tentare di prendere di mira account con privilegi per ottenere l'accesso ai dati e ai sistemi di un'organizzazione in modo da compromettere l'integrità e l'autenticità dei dati, tramite codice dannoso che consente di modificare la logica di programma o di osservare un amministratore mentre immette le credenziali. Per le attività sensibili, le workstation dotate di accesso con privilegi (PAW, Privileged Access Workstation) forniscono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce. Separare le attività e gli account sensibili da workstation e dispositivi usati quotidianamente assicura una protezione estrema contro gli attacchi di phishing, le vulnerabilità di applicazioni e sistemi operativi, svariati attacchi di rappresentazione e tecniche di furto delle credenziali, come registrazione delle pressioni di tasti, Pass the Hash e Pass The Ticket. La distribuzione di workstation con accesso con privilegi consente di ridurre il rischio che gli amministratori immettano credenziali di amministratore, se non in un ambiente desktop con sicurezza avanzata. Per altre informazioni, vedere [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) (Workstation con accesso con privilegi).
+Gli utenti malintenzionati possono tentare di prendere di mira account con privilegi per ottenere l'accesso ai dati e ai sistemi di un'organizzazione in modo da compromettere l'integrità e l'autenticità dei dati, tramite codice dannoso che consente di modificare la logica di programma o di osservare un amministratore mentre immette le credenziali. Le workstation PAW (Privileged Access Workstation, workstation amministrativa con privilegi) dispongono di un sistema operativo dedicato per le attività sensibili che devono essere protette dagli attacchi provenienti da Internet e dai vettori di minacce di qualsiasi tipo. Separare le attività e gli account sensibili da workstation e dispositivi usati quotidianamente assicura una protezione estrema contro gli attacchi di phishing, le vulnerabilità di applicazioni e sistemi operativi, svariati attacchi di rappresentazione e tecniche di furto delle credenziali, come registrazione delle pressioni di tasti, Pass the Hash e Pass The Ticket. La distribuzione di workstation con accesso con privilegi consente di ridurre il rischio che gli amministratori immettano credenziali di amministratore, se non in un ambiente desktop con sicurezza avanzata. Per altre informazioni, vedere [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) (Workstation con accesso con privilegi).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Esaminare le indicazioni del National Institute of Standards and Technology per la gestione degli eventi imprevisti 
 
@@ -261,7 +261,7 @@ Se si usa già Azure AD Privileged Identity Management, modificare gli intervall
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determinare l'esposizione a protocolli di accesso basati su password (se si usa Exchange Online)
 
-In passato, i protocolli presupponevano che le combinazioni di nome utente/password fossero incorporate in dispositivi, account di posta elettronica, telefoni e così via. Ma ora con il rischio di attacchi informatici nel cloud, ti consigliamo di identificare ogni potenziale utente che, se le loro credenziali sono state compromesse, potrebbe essere catastrofico per l'organizzazione ed escludili dalla possibilità di accedere alla loro email tramite nome utente/password implementando requisiti di autenticazione avanzata e accesso condizionale. È possibile [bloccare l'autenticazione legacy utilizzando l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Controllare i dettagli su [come bloccare l'autenticazione di base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) tramite Exchange online. 
+In passato, i protocolli presupponevano che le combinazioni di nome utente/password fossero incorporate in dispositivi, account di posta elettronica, telefoni e così via. Tuttavia, ora, con il rischio di attacchi informatici nel cloud, è consigliabile identificare ogni potenziale utente che, se le loro credenziali sono state compromesse, potrebbe essere catastrofico per l'organizzazione ed escluderli dalla possibilità di accedere alla propria posta elettronica tramite nome utente e password implementando requisiti di autenticazione avanzata e accesso condizionale. È possibile bloccare [l'autenticazione legacy usando l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Per informazioni su [come bloccare l'autenticazione di base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) tramite Exchange Online, vedere. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Completare una valutazione di verifica dei ruoli per i ruoli di Office 365 (se si usa Office 365)
 
@@ -306,7 +306,7 @@ MCAS consente di esaminare i file e impostare criteri in base alle etichette di 
 
 #### <a name="configure-conditional-access"></a>Configurare l'accesso condizionale
 
-Configurare l'accesso condizionale in base a un gruppo, posizione e sensibilità delle applicazioni per [le app SaaS](https://azure.microsoft.com/overview/what-is-saas/) e le app connesse di Azure AD. 
+Configurare l'accesso condizionale in base a un gruppo, alla posizione e alla sensibilità dell'applicazione per le [app Saas](https://azure.microsoft.com/overview/what-is-saas/) e le app connesse Azure ad. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Monitorare l'attività nelle app cloud connesse
 
@@ -342,7 +342,7 @@ La fase finale e continuativa della roadmap per la sicurezza dell'accesso con pr
 
 #### <a name="review-admin-roles-in-azure-active-directory"></a>Esaminare i ruoli di amministratore in Azure Active Directory 
 
-Determinare se i ruoli di amministratore di Azure AD predefiniti correnti sono ancora aggiornati e assicurarsi che gli utenti siano associati solo ai ruoli e alle deleghe per cui hanno bisogno delle autorizzazioni corrispondenti. Azure AD consente di designare amministratori diversi per le diverse funzioni. Per altre informazioni, vedere Assegnazione di ruoli di amministratore in Azure Active Directory.For more information, see [Assigning administrator roles in Azure Active Directory.](directory-assign-admin-roles.md)
+Determinare se i ruoli di amministratore di Azure AD predefiniti correnti sono ancora aggiornati e assicurarsi che gli utenti siano associati solo ai ruoli e alle deleghe per cui hanno bisogno delle autorizzazioni corrispondenti. Azure AD consente di designare amministratori diversi per le diverse funzioni. Per ulteriori informazioni, vedere [assegnazione dei ruoli di amministratore in Azure Active Directory](directory-assign-admin-roles.md).
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Esaminare gli utenti che amministrano i dispositivi aggiunti ad Azure AD
 
@@ -367,7 +367,7 @@ Determinare se è necessario [trasferire la proprietà di una sottoscrizione di 
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Rompere il vetro": cosa fare in caso di emergenza
 
-![Account per l'accesso al vetro di rottura di emergenza](./media/directory-admin-roles-secure/emergency.jpeg)
+![Account per l'accesso al vetro con interruzioni di emergenza](./media/directory-admin-roles-secure/emergency.jpeg)
 
 1. Comunicare ai principali dirigenti e ai responsabili della sicurezza le informazioni pertinenti relative all'evento imprevisto.
 
@@ -379,7 +379,7 @@ Determinare se è necessario [trasferire la proprietà di una sottoscrizione di 
 
 5. Esaminare i [report di accesso di Azure AD](../reports-monitoring/overview-reports.md). Potrebbe esserci un ritardo tra il momento in cui si verifica un evento e quello in cui viene incluso nel report.
 
-6. Per gli ambienti ibridi, se federato e il server ADFS non è disponibile, potrebbe essere necessario passare temporaneamente dall'autenticazione federata per utilizzare la sincronizzazione dell'hash delle password. In questo modo viene ripristinata l'autenticazione gestita della federazione di dominio fino a quando il server ADFS non diventa disponibile.
+6. Per gli ambienti ibridi, se federati e il server AD FS non sono disponibili, potrebbe essere necessario passare temporaneamente dall'autenticazione federata per usare la sincronizzazione dell'hash delle password. In questo modo, la Federazione del dominio torna all'autenticazione gestita fino a quando non diventa disponibile il server AD FS.
 
 7. Monitorare la posta elettronica per gli account con privilegi.
 

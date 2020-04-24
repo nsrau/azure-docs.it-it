@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup di una farm di SharePoint in Azure con MABS
+title: Eseguire il backup di una farm di SharePoint in Azure con MAB
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
@@ -10,7 +10,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673132"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con MABS
+# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con MAB
 
 Il backup di una farm di SharePoint in Azure si esegue tramite il server di Backup di Microsoft Azure (MABS) in modo analogo al backup delle altre origini dati. Backup di Azure offre flessibilità nella pianificazione di backup per creare punti di backup quotidiani, settimanali, mensili o annuali e offre diverse opzioni in termini di criteri di conservazione per i vari intervalli di backup. Offre inoltre la possibilità di archiviare copie dei dischi locali per obiettivi di tempi di ripristino (RTO) rapidi e di archiviare copie in Azure per una conservazione economicamente conveniente e a lungo termine.
 
@@ -18,7 +18,7 @@ Il backup di una farm di SharePoint in Azure si esegue tramite il server di Back
 
 Backup di Azure per DPM supporta gli scenari seguenti:
 
-| Carico di lavoro | Versione | Distribuzione di SharePoint | Protezione e ripristino |
+| Carico di lavoro | Version | Distribuzione di SharePoint | Protezione e ripristino |
 | --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint distribuito come un server fisico o macchina virtuale Hyper-V o VmWare <br> -------------- <br> SQL AlwaysOn | Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
 
@@ -46,7 +46,7 @@ Se la farm di SharePoint ha un database di SQL Server configurato con alias di S
 
 ### <a name="sharepoint-server"></a>SharePoint Server
 
-Mentre le prestazioni dipendono da molti fattori, ad esempio le dimensioni della farm di SharePoint, come indicazioni generali un MABS può proteggere una farm di SharePoint da 25 TB.
+Mentre le prestazioni dipendono da molti fattori, ad esempio le dimensioni della farm di SharePoint, come guida generale un MAB può proteggere una farm di SharePoint da 25 TB.
 
 ### <a name="whats-not-supported"></a>Attività non supportate
 
@@ -68,7 +68,7 @@ Prima di usare MABS per proteggere SharePoint, è necessario configurare il serv
    * Concedere l'accesso in lettura al gruppo WSS_Admin_WPG per la chiave del Registro di sistema di DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Sarà necessario eseguire nuovamente ConfigureSharePoint.exe ogni volta che viene apportata una modifica alle credenziali di amministratore della farm di SharePoint.
+> È necessario eseguire di nuovo ConfigureSharePoint. exe ogni volta che viene apportata una modifica alle credenziali di amministratore della farm di SharePoint.
 >
 >
 
@@ -127,7 +127,7 @@ Dopo aver configurato MABS e la farm di SharePoint come descritto in precedenza,
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS fornisce un massimo di due backup giornalieri in Azure dal punto di backup del disco più recente disponibile in quel momento. Backup di Azure può anche controllare la quantità di larghezza di banda WAN che può essere usata per i backup nelle ore di punta e non di punta usando [la limitazione della rete](backup-windows-with-mars-agent.md#enable-network-throttling)di Backup di Azure.Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using Azure Backup network throttling .
+    > MABS fornisce un massimo di due backup giornalieri in Azure dal punto di backup del disco più recente disponibile in quel momento. Backup di Azure può anche controllare la quantità di larghezza di banda WAN che può essere usata per i backup in orari di picco e di minore utilizzo con la [limitazione della rete di backup di Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. In base alla pianificazione di backup selezionata, nella pagina **Specificare i criteri di mantenimento online** selezionare i criteri di conservazione per i punti di backup giornalieri, settimanali, mensili e annuali.

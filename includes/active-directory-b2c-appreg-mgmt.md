@@ -16,25 +16,25 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 
 #### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant B2C di Azure AD.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
 1. Nel portale di Azure cercare e selezionare **Azure Active Directory**.
-1. In **Gestisci**selezionare **Registrazioni app (legacy)**.
+1. In **Gestisci**selezionare **registrazioni app (legacy)**.
 1. Selezionare **Registrazione nuova applicazione**.
 1. Immettere un nome per l'applicazione. Ad esempio, *managementapp1*.
-1. Per **Tipo di applicazione**, selezionare App Web / **API**.
-1. Immettere un URL valido in **URL di accesso**. Ad esempio: `https://localhost`. Non è necessario che l'endpoint sia raggiungibile, ma deve essere un URL valido.
-1. Selezionare **Crea**.
-1. Registrare **l'ID applicazione** visualizzato nella pagina **Panoramica dell'app registrata.** Questo valore viene utilizzato in un passaggio successivo.
+1. Per **tipo di applicazione**selezionare **app Web/API**.
+1. Immettere un URL valido nell' **URL di accesso**. Ad esempio, `https://localhost` Non è necessario che l'endpoint sia raggiungibile, ma deve essere un URL valido.
+1. Seleziona **Crea**.
+1. Registrare l' **ID applicazione** visualizzato nella pagina Panoramica dell' **app registrata** . Questo valore verrà usato in un passaggio successivo.
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant B2C di Azure AD.
-1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
 1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *managementapp1*.
-1. Selezionare **Solo account in questa directory dell'organizzazione**.
-1. In **Autorizzazioni**deselezionare la casella di controllo *Concedi il consenso dell'amministratore alle autorizzazioni openid e offline_access.*
+1. Selezionare **account solo in questa directory aziendale**.
+1. In **autorizzazioni**deselezionare la casella *di controllo Concedi il consenso dell'amministratore a OpenID e offline_access le autorizzazioni* .
 1. Selezionare **Registra**.
-1. Registrare **l'ID applicazione (client)** visualizzato nella pagina di panoramica dell'applicazione. Questo valore viene utilizzato in un passaggio successivo.
+1. Registrare l' **ID dell'applicazione (client)** visualizzato nella pagina Panoramica dell'applicazione. Questo valore verrà usato in un passaggio successivo.

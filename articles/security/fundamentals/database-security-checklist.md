@@ -41,7 +41,7 @@ incluse le seguenti:
 Il cloud computing richiede nuovi paradigmi di sicurezza che sono diversi per molti utenti dell'applicazione, amministratori del database e programmatori. Di conseguenza, alcune organizzazioni esitano a implementare un'infrastruttura cloud per la gestione dei dati a causa dei rischi di sicurezza percepiti. Tuttavia, la maggior parte di questo problema può essere mitigato tramite una migliore comprensione della funzionalità di sicurezza incorporate in Microsoft Azure e nel database SQL di Microsoft Azure.
 
 ## <a name="checklist"></a>Elenco di controllo
-Si consiglia di leggere l'articolo [Azure Database Security Best Practices](database-best-practices.md) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver risolto i problemi importanti della sicurezza del database di Azure.You can then use this checklist to make sure that you've addressed the important issues in Azure database security.
+Si consiglia di leggere l'articolo [Azure Database Security Best Practices](database-best-practices.md) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver risolto i problemi importanti della sicurezza del database di Azure.
 
 
 |Categoria dell'elenco di controllo| Descrizione|

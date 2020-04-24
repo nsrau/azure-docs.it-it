@@ -15,39 +15,39 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269720"
 ---
-# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Aggiornamento di Threat Modeling Tool versione 7.1.60408.1 - 4/9/2019
+# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versione di aggiornamento Threat Modeling Tool 7.1.60408.1-4/9/2019
 
-La versione 7.1.60408.1 di Microsoft Threat Modeling Tool (TMT) è stata rilasciata il 9 aprile 2019 e contiene le seguenti modifiche:
+La versione 7.1.60408.1 del Microsoft Threat Modeling Tool (TMT) è stata rilasciata il 9 2019 aprile e contiene le modifiche seguenti:
 
-- Nuovi stencil per L'insieme di credenziali delle chiavi di Azure e Gestione traffico di AzureNew Stencils for Azure Key Vault and Azure Traffic Manager
-- Il numero di versione TMT viene ora visualizzato nella schermata iniziale
-- I link di supporto sono stati aggiornati
+- Nuovi stencil per Azure Key Vault e gestione traffico di Azure
+- Il numero di versione di TMT è ora visualizzato nella schermata iniziale
+- Sono stati aggiornati i collegamenti di supporto
 - Correzioni di bug
 
 ## <a name="feature-changes"></a>Modifiche apportate alle funzionalità
 
-### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nuovi stencil per L'insieme di credenziali delle chiavi di Azure e Gestione traffico di AzureNew Stencils for Azure Key Vault and Azure Traffic Manager
+### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nuovi stencil per Azure Key Vault e gestione traffico di Azure
 
-![Stencil dell'insieme di credenziali delle chiavi di AzureAzure Key Vault Stencil](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Stencil Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-Nuovi stencil e minacce per L'insieme di credenziali delle chiavi di Azure e Gestione traffico di Azure sono stati aggiunti al set di stencil di Azure.New stencils and threats for Azure Key Vault and Azure Traffic Manager have been added to the Azure stencil set. Quando si aprono modelli basati sullo stencil di Azure, agli utenti verrà richiesto di aggiornare il modello associato al modello. L'aggiornamento di un modello basato sullo stencil di Azure può anche essere avviato manualmente usando il comando "Applica modello" nel menu "File" e riapplicando il file di Azure Cloud Services.tb7 più recente.
+Al set di stencil di Azure sono stati aggiunti nuovi stencil e minacce per Azure Key Vault e gestione traffico di Azure. Quando si aprono modelli basati sul set di stencil di Azure, agli utenti verrà richiesto di aggiornare il modello associato al modello. L'aggiornamento di un modello basato sul set di stencil di Azure può anche essere avviato manualmente usando il comando "Applica modello" nel menu "file" e riapplicando il file TB7 di servizi cloud di Azure più recente.
 
-### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>Il numero di versione TMT viene ora visualizzato nella schermata iniziale
+### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>Il numero di versione di TMT è ora visualizzato nella schermata iniziale
 
-La versione client di Threat Modeling Tool viene ora visualizzata nella schermata iniziale dell'applicazione per facilitare l'accesso.
+La versione client del Threat Modeling Tool viene ora visualizzata nella schermata iniziale dell'applicazione di per semplificare l'accesso.
 
-![Stencil dell'insieme di credenziali delle chiavi di AzureAzure Key Vault Stencil](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Stencil Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
-### <a name="support-links-have-been-updated"></a>I link di supporto sono stati aggiornati
+### <a name="support-links-have-been-updated"></a>Sono stati aggiornati i collegamenti di supporto
 
-Tutti i collegamenti di supporto all'interno [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) dello strumento sono stati aggiornati per indirizzare gli utenti a anziché un forum MSDN.
+Tutti i collegamenti di supporto all'interno dello strumento sono stati aggiornati per [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) indirizzare gli utenti a anziché a un forum di MSDN.
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 
 - Sistemi operativi supportati
   - [Aggiornamento dell'anniversario di Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) o versione successiva
 - Versione .NET richiesta
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) o versione successiva
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) o versione successiva
 - Requisiti aggiuntivi
   - Per ricevere aggiornamenti dello strumento e dei modelli, è necessaria una connessione Internet.
 

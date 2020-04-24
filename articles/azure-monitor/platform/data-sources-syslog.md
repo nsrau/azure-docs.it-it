@@ -17,13 +17,13 @@ ms.locfileid: "79274723"
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux. Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog. Quando è installato, l'agente di Log Analytics per Linux configura il daemon Syslog locale per inoltrare i messaggi all'agente. Quest'ultimo invia quindi il messaggio a Monitoraggio di Azure, dove viene creato un record corrispondente.  
 
 > [!NOTE]
-> Monitoraggio di Azure supporta la raccolta di messaggi inviati da rsyslog o syslog-ng, dove rsyslog rappresenta il daemon predefinito. Il daemon SysLog predefinito nella versione 5 di Red Hat Enterprise Linux, CentOS e nella versione Oracle Linux (sysklog) non è supportato per la raccolta di eventi SysLog. Per raccogliere dati syslog da questa versione di queste distribuzioni, il [daemon rsyslog](http://rsyslog.com) deve essere installato e configurato per sostituire sysklog.
+> Monitoraggio di Azure supporta la raccolta di messaggi inviati da rsyslog o syslog-ng, dove rsyslog rappresenta il daemon predefinito. Il daemon SysLog predefinito nella versione 5 di Red Hat Enterprise Linux, CentOS e nella versione Oracle Linux (sysklog) non è supportato per la raccolta di eventi SysLog. Per raccogliere dati syslog da questa versione di queste distribuzioni, è necessario installare e configurare il [daemon rsyslog](http://rsyslog.com) per sostituire sysklog.
 >
 >
 
 ![Raccolta Syslog](media/data-sources-syslog/overview.png)
 
-Le seguenti strutture sono supportate con l'agente di raccolta Syslog:
+Con l'agente di raccolta syslog sono supportate le seguenti funzionalità:
 
 * Kern
 * utente
@@ -34,12 +34,12 @@ Le seguenti strutture sono supportate con l'agente di raccolta Syslog:
 * lpr
 * news
 * uucp
-* Cron
+* cron
 * authpriv
 * ftp
-* local0-local7
+* local0-LOCAL7
 
-Per qualsiasi altra struttura, [configurare un'origine dati Log personalizzati](data-sources-custom-logs.md) in Monitoraggio di Azure.For any other facility, configure a Custom Logs data source in Azure Monitor.
+Per qualsiasi altra struttura, [configurare un'origine dati dei log personalizzati](data-sources-custom-logs.md) in monitoraggio di Azure.
  
 ## <a name="configuring-syslog"></a>Configurazione di Syslog
 L'agente di Log Analytics per Linux raccoglie solo gli eventi con le funzionalità e i livelli di gravità specificati nella configurazione. È possibile configurare Syslog tramite il portale di Azure o mediante la gestione dei file di configurazione negli agenti Linux.
@@ -47,11 +47,11 @@ L'agente di Log Analytics per Linux raccoglie solo gli eventi con le funzionalit
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurare Syslog nel portale di Azure
 Configurare Syslog usando il [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources). Questa configurazione viene distribuita al file di configurazione su ogni agente Linux.
 
-È possibile aggiungere una nuova struttura selezionando prima l'opzione **Applica sotto la configurazione alle macchine,** quindi digitandone il nome e facendo clic su **+**. Per ogni funzionalità vengono raccolti solo i messaggi con i livelli di gravità selezionati.  Controllare i livelli di gravità relativi alla funzionalità per la quale si vuole raccogliere i dati. Non è possibile specificare altri criteri per filtrare i messaggi.
+È possibile aggiungere una nuova funzionalità selezionando prima di tutto l'opzione **applica la configurazione seguente alle macchine virtuali** e digitando il **+** nome e facendo clic su. Per ogni funzionalità vengono raccolti solo i messaggi con i livelli di gravità selezionati.  Controllare i livelli di gravità relativi alla funzionalità per la quale si vuole raccogliere i dati. Non è possibile specificare altri criteri per filtrare i messaggi.
 
 ![Configurare Syslog](media/data-sources-syslog/configure.png)
 
-Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Se si desidera configurare Syslog manualmente su ogni agente Linux, deselezionare la casella *Applica sotto la configurazione ai computer*.
+Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Se si vuole configurare syslog manualmente in ogni agente Linux, deselezionare la casella *applica la configurazione seguente alle macchine virtuali*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurare Syslog sull'agente Linux
 Durante l'[installazione dell'agente di Log Analytics in un client Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), viene installato un file di configurazione syslog predefinito che definisce la funzionalità e il livello di gravità dei messaggi raccolti. È possibile modificare questo file per cambiare la configurazione. Il file di configurazione è diverso a seconda del daemon Syslog installato nel client.

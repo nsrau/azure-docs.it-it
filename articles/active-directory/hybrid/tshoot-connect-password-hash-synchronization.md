@@ -64,13 +64,13 @@ Per risolvere i problemi per cui nessuna password viene sincronizzata:
 
 3. Avviare la procedura guidata di Azure AD Connect.
 
-4. Passare alla pagina **Attività aggiuntive** , selezionare **Risoluzione dei problemi**e fare clic su **Avanti**.
+4. Passare alla pagina **attività aggiuntive** , selezionare **risoluzione dei problemi**e fare clic su **Avanti**.
 
-5. Nella pagina Risoluzione dei problemi fare clic su Avvia per avviare il menu di risoluzione dei problemi in PowerShell.On the Troubleshooting page, click **Launch** to start the troubleshooting menu in PowerShell.
+5. Nella pagina risoluzione dei problemi fare clic su **Avvia** per avviare il menu Risoluzione dei problemi in PowerShell.
 
-6. Nel menu principale selezionare **Risoluzione dei problemi di sincronizzazione dell'hash delle password**.
+6. Nel menu principale selezionare **risoluzione dei problemi di sincronizzazione dell'hash delle password**.
 
-7. Nel sottomenu selezionare **La sincronizzazione dell'hash delle**password non funziona affatto.
+7. Nel sottomenu selezionare la **sincronizzazione dell'hash delle password non funziona affatto**.
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Informazioni sui risultati dell'attività di risoluzione dei problemi
 
@@ -147,11 +147,11 @@ Per risolvere i problemi relativi a un oggetto utente specifico:
 
 3. Avviare la procedura guidata di Azure AD Connect.
 
-4. Passare alla pagina **Attività aggiuntive** , selezionare **Risoluzione dei problemi**e fare clic su **Avanti**.
+4. Passare alla pagina **attività aggiuntive** , selezionare **risoluzione dei problemi**e fare clic su **Avanti**.
 
-5. Nella pagina Risoluzione dei problemi fare clic su Avvia per avviare il menu di risoluzione dei problemi in PowerShell.On the Troubleshooting page, click **Launch** to start the troubleshooting menu in PowerShell.
+5. Nella pagina risoluzione dei problemi fare clic su **Avvia** per avviare il menu Risoluzione dei problemi in PowerShell.
 
-6. Nel menu principale selezionare **Risoluzione dei problemi di sincronizzazione dell'hash delle password**.
+6. Nel menu principale selezionare **risoluzione dei problemi di sincronizzazione dell'hash delle password**.
 
 7. Dal sottomenu scegliere **Password is not synchronized for a specific user account** (La password non viene sincronizzata per un oggetto utente specifico).
 
@@ -253,7 +253,7 @@ Per stabilire il motivo per cui nessuna password viene sincronizzata, seguire qu
 
     ![Output dello script di PowerShell dalle impostazioni di sincronizzazione password](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. Se la funzionalità non è abilitata in Azure AD o se lo stato del canale di sincronizzazione non è abilitato, eseguire l'Installazione guidata di Connect. Selezionare **Personalizza opzioni di sincronizzazione**e deselezionare Sincronizzazione password. Questa modifica disattiva temporaneamente la funzionalità. Eseguire quindi nuovamente la procedura guidata e riattivare la sincronizzazione delle password. Eseguire nuovamente lo script per verificare che la configurazione sia corretta.
+3. Se la funzionalità non è abilitata in Azure AD o se lo stato del canale di sincronizzazione non è abilitato, eseguire l'Installazione guidata di Connect. Selezionare **Personalizza opzioni di sincronizzazione**e deselezionare sincronizzazione password. Questa modifica Disabilita temporaneamente la funzionalità. Quindi eseguire di nuovo la procedura guidata e riabilitare la sincronizzazione delle password. Eseguire di nuovo lo script per verificare che la configurazione sia corretta.
 
 4. Esaminare il log eventi per cercare eventuali errori. Cercare gli eventi seguenti che potrebbero indicare un problema:
     * Origine: ID "Sincronizzazione della directory": 0, 611, 652, 655 Se vengono visualizzati eventi di questo tipo, c'è un problema di connettività. Il messaggio del log eventi contiene informazioni relative alla foresta in cui è presente un problema. Per altre informazioni, vedere [Problemi di connettività](#connectivity problem).
@@ -293,7 +293,7 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
  
 8. Selezionare il dominio in **Select directory partitions** (Selezionare le partizioni della directory), selezionare la casella di controllo **Only use preferred domain controller** (Usare solo controller di dominio preferito) e quindi fare clic su **Configura**. 
 
-9. Nell'elenco immettere i controller di dominio che Connect deve utilizzare per la sincronizzazione delle password. Lo stesso elenco viene utilizzato anche per l'importazione e l'esportazione. Eseguire questi passaggi per tutti i domini.
+9. Nell'elenco immettere i controller di dominio che Connect deve usare per la sincronizzazione delle password. Lo stesso elenco viene usato anche per l'importazione e l'esportazione. Eseguire questi passaggi per tutti i domini.
 
 10. Se lo script mostra che non sono stati generati heartbeat, eseguire lo script riportato in [Attivare una sincronizzazione completa di tutte le password](#trigger-a-full-sync-of-all-passwords).
 
@@ -339,11 +339,11 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 
     Verificare che non sia presente alcun attributo **cloudFiltered**. Assicurarsi che gli attributi di dominio (domainFQDN e domainNetBios) abbiano i valori previsti.
 
-    j. Fare clic sulla scheda **Connettori.** Assicurarsi che siano visualizzati i connettori sia per Active Directory locale che ad Azure AD.
+    j. Fare clic sulla scheda **Connectors (connettori** ). Assicurarsi di visualizzare i connettori sia per la Active Directory locale sia per Azure ad.
 
     ![Informazioni del metaverse](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Selezionare la riga che rappresenta Azure AD, fare clic su **Proprietà**e quindi sulla scheda **Lineage.** L'oggetto spazio connettore deve avere una regola in uscita nella colonna **PasswordSync** impostata su **True**. Nella configurazione predefinita il nome della regola di sincronizzazione è **Out to AAD - User Join**.  
+    k. Selezionare la riga che rappresenta Azure AD, fare clic su **Proprietà**e quindi sulla **scheda** derivazione. L'oggetto spazio connettore deve avere una regola in uscita nella colonna **PasswordSync** impostata su **true**. Nella configurazione predefinita il nome della regola di sincronizzazione è **Out to AAD - User Join**.  
 
     ![Finestra di dialogo Proprietà dell'oggetto spazio connettore](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -445,5 +445,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Implementazione della sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](how-to-connect-password-hash-synchronization.md)
-* [Sincronizzazione di Azure AD Connect: Personalizzazione delle opzioni di sincronizzazioneAzure AD Connect Sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
+* [Sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

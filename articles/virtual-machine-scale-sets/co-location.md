@@ -1,6 +1,6 @@
 ---
-title: Co-individuare i set di scalabilità delle macchine virtuali di AzureCo-locate Azure virtual machine scale sets
-description: Informazioni su come la co-localizzazione delle risorse del set di scalabilità di macchine virtuali di Azure può migliorare le prestazioni.
+title: Condividere i set di scalabilità di macchine virtuali di Azure
+description: Informazioni su come condividere il percorso delle risorse del set di scalabilità di macchine virtuali di Azure può migliorare le prestazioni.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
@@ -17,7 +17,7 @@ ms.locfileid: "79250829"
 ---
 # <a name="co-location"></a>Co-location
 
-Uno dei maggiori contributori alla latenza tra le macchine virtuali è semplicemente la distanza.
+Uno dei maggiori collaboratori alla latenza tra le macchine virtuali è semplicemente la distanza.
 
 ## <a name="preview-proximity-placement-groups"></a>Anteprima: gruppi di posizionamento di prossimità 
 
@@ -25,5 +25,5 @@ Uno dei maggiori contributori alla latenza tra le macchine virtuali è semplicem
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare un gruppo di posizionamento di prossimità per il set di [scalabilità.](proximity-placement-groups.md)
+Creare un [gruppo di posizionamento vicino](proximity-placement-groups.md) per il set di scalabilità.
 

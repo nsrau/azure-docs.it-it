@@ -18,7 +18,7 @@ ms.locfileid: "78196713"
 
 È possibile integrare un firewall di Azure in una rete virtuale con un servizio di bilanciamento del carico standard di Azure (pubblico o interno). 
 
-La progettazione preferita consiste nell'integrare un servizio di bilanciamento del carico interno con il firewall di Azure, poiché si tratta di una progettazione molto più semplice. È possibile usare un servizio di bilanciamento del carico pubblico se ne è già stato distribuito e si vuole mantenerlo sul posto. È tuttavia necessario tenere presente un problema di routing asimmetrico che può interrompere la funzionalità con lo scenario di bilanciamento del carico pubblico.
+La progettazione preferita prevede l'integrazione di un servizio di bilanciamento del carico interno con il firewall di Azure, poiché si tratta di una progettazione molto più semplice. È possibile usare un servizio di bilanciamento del carico pubblico se ne è già stato distribuito uno e si vuole mantenerlo. È tuttavia necessario tenere presente un problema di routing asimmetrico che può interrompere la funzionalità con lo scenario di bilanciamento del carico pubblico.
 
 Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
@@ -28,11 +28,11 @@ Un servizio di bilanciamento del carico pubblico viene distribuito con un indiri
 
 ### <a name="asymmetric-routing"></a>Routing asimmetrico
 
-Nel routing asimmetrico un pacchetto segue un percorso fino alla destinazione e un altro per tornare all'origine. Questo problema si verifica quando una subnet ha una route predefinita all'indirizzo IP privato del firewall e si usa un servizio di bilanciamento del carico pubblico. In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, elimina il pacchetto restituito perché il firewall non è a conoscenza di tale sessione stabilita.
+Nel routing asimmetrico un pacchetto segue un percorso fino alla destinazione e un altro per tornare all'origine. Questo problema si verifica quando una subnet ha una route predefinita all'indirizzo IP privato del firewall e si usa un servizio di bilanciamento del carico pubblico. In questo caso, il traffico del servizio di bilanciamento del carico in ingresso viene ricevuto tramite l'indirizzo IP pubblico, ma il percorso di ritorno passa attraverso l'indirizzo IP privato del firewall. Poiché il firewall è con stato, Elimina il pacchetto restituito perché il firewall non è a conoscenza di tale sessione stabilita.
 
 ### <a name="fix-the-routing-issue"></a>Risolvere il problema di routing
 
-Quando si distribuisce un firewall di Azure in una subnet, un passaggio consiste nel creare una route predefinita per la subnet che indirizza i pacchetti tramite l'indirizzo IP privato del firewall che si trova in AzureFirewallSubnet. Per altre informazioni, vedere [Esercitazione: Distribuire e configurare Firewall](tutorial-firewall-deploy-portal.md#create-a-default-route)di Azure usando il portale di Azure.For more information, see Tutorial: Deploy and configure Azure Firewall using the Azure portal .
+Quando si distribuisce un firewall di Azure in una subnet, un passaggio consiste nel creare una route predefinita per la subnet che indirizza i pacchetti tramite l'indirizzo IP privato del firewall che si trova in AzureFirewallSubnet. Per altre informazioni, vedere [esercitazione: distribuire e configurare il firewall di Azure usando il portale di Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
 Quando si introduce il firewall nello scenario di bilanciamento del carico, si vuole che il traffico Internet in ingresso passi attraverso l'indirizzo IP pubblico del firewall, da cui il firewall applica le proprie regole e invia tramite NAT i pacchetti all'indirizzo IP pubblico del servizio di bilanciamento del carico. L'origine del problema è questa. I pacchetti giungono all'indirizzo IP pubblico del firewall, ma tornano al firewall tramite l'indirizzo IP privato (usando la route predefinita).
 Per evitare questo problema, creare una route host aggiuntiva per l'indirizzo IP pubblico del firewall. I pacchetti trasmessi all'indirizzo IP pubblico del firewall vengono instradati tramite Internet. Questo evita di usare la route predefinita per indirizzo IP privato del firewall.
@@ -41,21 +41,21 @@ Per evitare questo problema, creare una route host aggiuntiva per l'indirizzo IP
 
 ### <a name="route-table-example"></a>Esempio di tabella di route
 
-Ad esempio, le route seguenti sono per un firewall all'indirizzo IP pubblico 20.185.97.136 e indirizzo IP privato 10.0.1.4.For example, the following routes are for a firewall at public IP address 20.185.97.136, and private IP address 10.0.1.4.
+Ad esempio, le route seguenti sono per un firewall all'indirizzo IP pubblico 20.185.97.136 e l'indirizzo IP privato 10.0.1.4.
 
 > [!div class="mx-imgBorder"]
 > ![Tabella di route](media/integrate-lb/route-table.png)
 
 ### <a name="nat-rule-example"></a>Esempio di regola NAT
 
-Nell'esempio seguente, una regola NAT converte il traffico RDP al firewall in 20.185.97.136 nel servizio di bilanciamento del carico in 20.42.98.220:
+Nell'esempio seguente una regola NAT converte il traffico RDP nel firewall in 20.185.97.136 al servizio di bilanciamento del carico in 20.42.98.220:
 
 > [!div class="mx-imgBorder"]
 > ![Regola NAT](media/integrate-lb/nat-rule-02.png)
 
 ### <a name="health-probes"></a>Probe di integrità
 
-Tenere presente che è necessario disporre di un servizio Web in esecuzione negli host nel pool di bilanciamento del carico se si usano probe di integrità TCP per la porta 80 o probe HTTP/HTTPS.
+Tenere presente che è necessario disporre di un servizio Web in esecuzione negli host nel pool di bilanciamento del carico se si usano Probe di integrità TCP per la porta 80 o Probe HTTP/HTTPS.
 
 ## <a name="internal-load-balancer"></a>Servizio di bilanciamento del carico interno
 
@@ -73,7 +73,7 @@ Per migliorare ulteriormente la sicurezza dello scenario con bilanciamento del c
 
 ![Gruppo di sicurezza di rete](media/integrate-lb/nsg-01.png)
 
-Per ulteriori informazioni sui gruppi di sicurezza di rete, vedere [Gruppi](../virtual-network/security-overview.md)di sicurezza .
+Per ulteriori informazioni su gruppi, vedere [gruppi di sicurezza](../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,12 +1,12 @@
 ---
-title: Creare un cluster privato con Azure Red Hat OpenShift 3.11 Documenti Microsoft
-description: Creare un cluster privato con Azure Red Hat OpenShift 3.11Create a private cluster with Azure Red Hat OpenShift 3.11
+title: Creare un cluster privato con Azure Red Hat OpenShift 3,11 | Microsoft Docs
+description: Creare un cluster privato con Azure Red Hat OpenShift 3,11
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
-keywords: aro, openshift, cluster privato, cappello rosso
+keywords: Aro, OpenShift, cluster privato, Red Hat
 ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
 ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
@@ -14,22 +14,22 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399419"
 ---
-# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Creare un cluster privato con Azure Red Hat OpenShift 3.11Create a private cluster with Azure Red Hat OpenShift 3.11
+# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Creare un cluster privato con Azure Red Hat OpenShift 3,11
 
 > [!IMPORTANT]
-> I cluster privati Azure Red Hat OpenShift (ARO) sono attualmente disponibili solo in anteprima privata negli Stati Uniti orientali 2. L'accettazione dell'anteprima privata è solo su invito. Assicurati di registrare l'abbonamento prima di tentare di abilitare questa funzionalità.
+> I cluster privati di Azure Red Hat OpenShift (ARO) sono attualmente disponibili solo in anteprima privata nell'area Stati Uniti orientali 2. L'accettazione dell'anteprima privata è riservata a un invito. Assicurarsi di registrare la sottoscrizione prima di provare ad abilitare questa funzionalità.
 
-I cluster privati offrono i vantaggi seguenti:Private clusters provide the following benefits:
+I cluster privati offrono i vantaggi seguenti:
 
-* I cluster privati non espongono i componenti del piano di controllo del cluster (ad esempio i server API) su un indirizzo IP pubblico.
-* La rete virtuale di un cluster privato è configurabile dai clienti, consentendo di configurare la rete per consentire il peering con altre reti virtuali, inclusi gli ambienti ExpressRoute.The virtual network of a private cluster is configurable by customers, allowing you to set up networking to allow peering with other virtual networks, including ExpressRoute environments. È inoltre possibile configurare DNS personalizzato nella rete virtuale per l'integrazione con i servizi interni.
+* I cluster privati non espongono i componenti del piano di controllo cluster, ad esempio i server API, in un indirizzo IP pubblico.
+* La rete virtuale di un cluster privato può essere configurata dai clienti, consentendo di configurare la rete per consentire il peering con altre reti virtuali, inclusi gli ambienti ExpressRoute. È anche possibile configurare un DNS personalizzato nella rete virtuale per l'integrazione con i servizi interni.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 > [!NOTE]
-> Questa funzionalità richiede la versione 2019-10-27-anteprima dell'API HTTP ARO. Non è ancora supportato nell'interfaccia della riga di comando di Azure.It is not yet supported in the Azure CLI.
+> Questa funzionalità richiede la versione 2019-10-27-Preview dell'API HTTP ARO. Non è ancora supportata nell'interfaccia della riga di comando di Azure.
 
-I campi nel frammento di configurazione seguente sono nuovi e devono essere inclusi nella configurazione del cluster. `managementSubnetCidr`deve trovarsi all'interno della rete virtuale del cluster e viene usato da Azure per gestire il cluster.
+I campi nel seguente frammento di configurazione sono nuovi e devono essere inclusi nella configurazione del cluster. `managementSubnetCidr`deve trovarsi all'interno della rete virtuale del cluster e viene usato da Azure per gestire il cluster.
 
 ```json
 properties:
@@ -40,11 +40,11 @@ properties:
      privateApiServer: true
 ```
 
-Un cluster privato può essere distribuito utilizzando gli script di esempio forniti di seguito. Una volta distribuito il `cluster get` cluster, `properties.FQDN` eseguire il comando e visualizzare la proprietà per determinare l'indirizzo IP privato del server API OpenShift.
+Un cluster privato può essere distribuito usando gli script di esempio indicati di seguito. Una volta distribuito il cluster, eseguire il `cluster get` comando e visualizzare la `properties.FQDN` proprietà per determinare l'indirizzo IP privato del server dell'API OpenShift.
 
-La rete virtuale del cluster verrà creata con autorizzazioni in modo che sia possibile modificarla. È quindi possibile configurare la rete per accedere alla rete virtuale (ExpressRoute, VPN, peering della rete virtuale) in base alle proprie esigenze.
+La rete virtuale del cluster verrà creata con le autorizzazioni in modo che sia possibile modificarla. È quindi possibile configurare la rete per accedere alla rete virtuale (ExpressRoute, VPN, peering di rete virtuale) in base alle esigenze.
 
-Se si modificano i server dei nomi DNS nella rete virtuale del cluster, sarà necessario eseguire un aggiornamento nel cluster con la `properties.RefreshCluster` proprietà impostata su `true` in modo che le macchine virtuali possano essere ricreate. Questo aggiornamento consentirà loro di prelevare i nuovi server dei nomi.
+Se si modificano i server dei nomi DNS nella rete virtuale del cluster, sarà necessario eseguire un aggiornamento nel cluster con la `properties.RefreshCluster` proprietà impostata su, in `true` modo che sia possibile ricreare l'immagine delle macchine virtuali. Questo aggiornamento consente di scegliere i nuovi server dei nomi.
 
 ## <a name="sample-configuration-scripts"></a>Script di configurazione di esempio
 
@@ -52,10 +52,10 @@ Usare gli script di esempio in questa sezione per configurare e distribuire il c
 
 ### <a name="environment"></a>Environment
 
-Compilare le variabili di ambiente riportate di seguito come utilizzando i propri valori.
+Specificare le variabili di ambiente seguenti come usando i propri valori.
 
 > [!NOTE]
-> Il percorso deve `eastus2` essere impostato su poiché attualmente è l'unica posizione supportata per i cluster privati.
+> Il percorso deve essere impostato su `eastus2` perché è attualmente l'unica posizione supportata per i cluster privati.
 
 ``` bash
 export CLUSTER_NAME=
@@ -68,9 +68,9 @@ export CLIENT_ID=
 export SECRET=
 ```
 
-### <a name="private-clusterjson"></a>private-cluster.json
+### <a name="private-clusterjson"></a>privato-cluster. JSON
 
-Utilizzando le variabili di ambiente definite in precedenza, ecco una configurazione cluster di esempio con cluster privato abilitato.
+Usando le variabili di ambiente definite in precedenza, ecco una configurazione cluster di esempio con cluster privato abilitato.
 
 ```json
 {
@@ -133,7 +133,7 @@ Utilizzando le variabili di ambiente definite in precedenza, ecco una configuraz
 }
 ```
 
-## <a name="deploy-a-private-cluster"></a>Distribuire un cluster privatoDeploy a private cluster
+## <a name="deploy-a-private-cluster"></a>Distribuire un cluster privato
 
 Dopo aver configurato il cluster privato con gli script di esempio precedenti, eseguire il comando seguente per distribuire il cluster privato.
 
@@ -147,4 +147,4 @@ cat private-cluster.json | envsubst | curl -v -X PUT \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come accedere alla console OpenShift, vedere Procedura dettagliata della [console Web](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).
+Per informazioni su come accedere alla console di OpenShift, vedere [procedura dettagliata della console Web](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).

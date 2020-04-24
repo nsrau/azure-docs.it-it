@@ -1,6 +1,6 @@
 ---
 title: Come gestire i dispositivi non aggiornati in Azure AD | Microsoft Docs
-description: Informazioni su come rimuovere i dispositivi non aggiornati dal database dei dispositivi registrati in Azure Active Directory.Learn how to remove stale devices from your database of registered devices in Azure Active Directory.
+description: Informazioni su come rimuovere i dispositivi non aggiornati dal database dei dispositivi registrati in Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672320"
 ---
-# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: Gestire i dispositivi non aggiornati in Azure ADHow To: Manage stale devices in Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
 In teoria, per completare il ciclo di vita, è necessario annullare la registrazione dei dispositivi registrati quando non sono più necessari. Tuttavia, in seguito ad esempio allo smarrimento o al furto di dispositivi, alla presenza di dispositivi guasti o alle reinstallazioni del sistema operativo, nell'ambiente in uso potrebbero essere presenti dispositivi non aggiornati. Gli amministratori IT hanno bisogno di un metodo per rimuovere i dispositivi non aggiornati, in modo da concentrare le risorse sulla gestione di quelli che necessitano effettivamente di gestione.
 
@@ -30,7 +30,7 @@ In questo articolo si imparerà a gestire in modo efficiente i dispositivi non a
 Un dispositivo non aggiornato è un dispositivo che è stato registrato con Azure AD, ma che non è stato usato per accedere ad app cloud per un intervallo di tempo specifico. La presenza di dispositivi non aggiornati si ripercuote sulla possibilità di gestire e supportare i dispositivi e gli utenti nel tenant perché: 
 
 - I dispositivi duplicati possono rendere difficile l'identificazione del dispositivo attualmente attivo da parte del personale del supporto tecnico.
-- Un numero maggiore di dispositivi crea writeback di dispositivi non necessari aumentando il tempo per le sincronizzazioni di connessione di Azure AD.
+- Un numero maggiore di dispositivi crea writeback dei dispositivi non necessari che aumentano il tempo per Azure AD la sincronizzazione della connessione.
 - Per ragioni di ordine e conformità, è preferibile avere uno stato pulito dei dispositivi. 
 
 I dispositivi non aggiornati in Azure AD possono interferire con i criteri generali per il ciclo di vita adottati dall'organizzazione.
@@ -43,11 +43,11 @@ Dal momento che un dispositivo non aggiornato è definito come dispositivo regis
 
 La valutazione del timestamp dell'attività viene attivata da un tentativo di autenticazione di un dispositivo. Azure AD valuta il timestamp dell'attività quando:
 
-- È stato attivato criteri di accesso condizionale che richiedono [dispositivi gestiti](../conditional-access/require-managed-devices.md) o [app client approvate.](../conditional-access/app-based-conditional-access.md)
+- È stato attivato un criterio di accesso condizionale che richiede [dispositivi gestiti](../conditional-access/require-managed-devices.md) o [app client approvate](../conditional-access/app-based-conditional-access.md) .
 - I dispositivi Windows 10 che sono aggiunti ad Azure AD o aggiunti ad Azure AD ibrido sono attivi nella rete. 
 - I dispositivi gestiti da Intune sono stati archiviati nel servizio.
 
-Se il delta compreso tra il valore esistente del timestamp dell'attività e il valore corrente è maggiore di 14 giorni (varianza di 5 giorni), il valore esistente viene sostituito con il nuovo valore.
+Se il delta tra il valore esistente del timestamp dell'attività e il valore corrente è maggiore di 14 giorni (varianza +/-5 giorni), il valore esistente viene sostituito con il nuovo valore.
 
 ## <a name="how-do-i-get-the-activity-timestamp"></a>Come si ottiene il timestamp dell'attività?
 
@@ -77,7 +77,7 @@ Nel criterio di pulizia selezionare gli account con i ruoli richiesti assegnati.
 
 ### <a name="timeframe"></a>Intervallo di tempo
 
-Definire un intervallo di tempo che è l'indicatore per un dispositivo non aggiornato. Quando si definisce l'intervallo di tempo, fattorizzare la finestra nota per aggiornare il timestamp dell'attività nel valore. Ad esempio, non è consigliabile considerare un timestamp inferiore a 21 giorni (include la varianza) come indicatore per un dispositivo non aggiornato. Esistono scenari in cui un dispositivo può sembrare non aggiornato ma non lo è. Ad esempio, il proprietario del dispositivo interessato potrebbe essere in vacanza o in malattia.  che supera l'intervallo di tempo per i dispositivi non aggiornati.
+Definire un intervallo di tempo che è l'indicatore per un dispositivo non aggiornato. Quando si definisce l'intervallo di tempo, fattorizzare la finestra indicata per l'aggiornamento del timestamp dell'attività nel valore. Ad esempio, non è consigliabile considerare un timestamp minore di 21 giorni (inclusa la varianza) come indicatore per un dispositivo non aggiornato. Esistono scenari in cui un dispositivo può sembrare non aggiornato ma non lo è. Ad esempio, il proprietario del dispositivo interessato potrebbe essere in vacanza o in malattia.  che supera l'intervallo di tempo per i dispositivi non aggiornati.
 
 ### <a name="disable-devices"></a>Disabilitare i dispositivi
 
@@ -89,7 +89,7 @@ Se il dispositivo è sotto il controllo di Intune o di qualsiasi altra soluzione
 
 ### <a name="system-managed-devices"></a>Dispositivi gestiti dal sistema
 
-Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi come Autopilot. Una volta eliminati, questi dispositivi non possono essere nuovamente sottoposti a provisioning. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
+Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi, ad esempio Autopilot. Una volta eliminati, non è possibile effettuare nuovamente il provisioning di questi dispositivi. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
 
@@ -98,13 +98,13 @@ I dispositivi aggiunti ad Azure AD ibrido devono seguire i criteri per la gestio
 Per eseguire la pulizia di Azure AD:
 
 - **Dispositivi Windows 10**: disabilitare o eliminare i dispositivi Windows 10 nell'istanza di AD locale e consentire ad Azure AD Connect di sincronizzare lo stato del dispositivo modificato in Azure AD.
-- **Windows 7/8** - Disabilita o elimina prima i dispositivi Windows 7/8 in Active Directory locale. Non è possibile usare Azure AD Connect per disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD. Al contrario, quando si apporta la modifica in locale, è necessario disabilitare/eliminare in Azure AD.
+- **Windows 7/8** : disabilitare o eliminare prima i dispositivi Windows 7/8 in Active Directory locale. Non è possibile usare Azure AD Connect per disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD. Al contrario, quando si apportano le modifiche in locale, è necessario disabilitare/eliminare in Azure AD.
 
 > [!NOTE]
->* L'eliminazione dei dispositivi in Active Directory o Azure AD locale non comporta la rimozione della registrazione nel client. Impedirà solo l'accesso alle risorse utilizzando il dispositivo come identità (ad esempio, l'accesso condizionale). Leggere ulteriori informazioni su come [rimuovere la registrazione sul client](faq.md#hybrid-azure-ad-join-faq).
->* L'eliminazione di un dispositivo Windows 10 solo in Azure AD sincronizzerà nuovamente il dispositivo dall'ambiente locale usando la connessione di Azure AD ma come nuovo oggetto nello stato "In sospeso". È necessaria una nuova registrazione sul dispositivo.
->* La rimozione del dispositivo dall'ambito di sincronizzazione per i dispositivi Windows 10/Server 2016 eliminerà il dispositivo Azure AD. Aggiungendolo di nuovo all'ambito di sincronizzazione, un nuovo oggetto verrà collocato nello stato "In sospeso". È necessaria una nuova registrazione del dispositivo.
->* Se non si usa Azure AD Connect per i dispositivi Windows 10 per la sincronizzazione (ad esempio, SOLO per la registrazione di ADFS), è necessario gestire un ciclo di vita simile ai dispositivi Windows 7/8.
+>* L'eliminazione dei dispositivi nell'istanza locale di AD o Azure AD non rimuove la registrazione nel client. L'accesso alle risorse verrà impedito solo usando il dispositivo come identità, ad esempio l'accesso condizionale. Leggere altre informazioni su come [rimuovere la registrazione nel client](faq.md#hybrid-azure-ad-join-faq).
+>* L'eliminazione di un dispositivo Windows 10 solo in Azure AD sincronizza nuovamente il dispositivo dal locale usando Azure AD Connect ma come nuovo oggetto in stato "in sospeso". Nel dispositivo è necessaria una nuova registrazione.
+>* La rimozione del dispositivo dall'ambito di sincronizzazione per i dispositivi Windows 10/server 2016 eliminerà il dispositivo Azure AD. Se si aggiunge di nuovo all'ambito di sincronizzazione, verrà inserito un nuovo oggetto in stato "in sospeso". È necessaria una nuova registrazione del dispositivo.
+>* Se non si usa Azure AD Connect per sincronizzare i dispositivi Windows 10, ad esempio usando solo AD FS per la registrazione, è necessario gestire il ciclo di vita in modo analogo ai dispositivi Windows 7/8.
 
 
 ### <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
@@ -112,20 +112,20 @@ Per eseguire la pulizia di Azure AD:
 Disabilitare o eliminare i dispositivi aggiunti ad Azure AD in Azure AD.
 
 > [!NOTE]
->* L'eliminazione di un dispositivo Azure AD non comporta la rimozione della registrazione nel client. Impedirà solo l'accesso alle risorse usando il dispositivo come identità (ad esempio l'accesso condizionale). 
->* Altre informazioni su [come annullare l'iscrizione in Azure ADRead](faq.md#azure-ad-join-faq) more on how to unjoin on Azure AD 
+>* L'eliminazione di un dispositivo Azure AD non comporta la rimozione della registrazione nel client. L'accesso alle risorse verrà impedito solo usando il dispositivo come identità, ad esempio l'accesso condizionale. 
+>* Ulteriori informazioni su [come separare il Azure ad](faq.md#azure-ad-join-faq) 
 
 ### <a name="azure-ad-registered-devices"></a>Dispositivi registrati in Azure AD
 
 Disabilitare o eliminare i dispositivi registrati in Azure AD in Azure AD.
 
 > [!NOTE]
->* L'eliminazione di un dispositivo registrato di Azure AD in Azure AD non rimuove la registrazione nel client. Impedirà solo l'accesso alle risorse utilizzando il dispositivo come identità (ad esempio, l'accesso condizionale).
->* Per saperne di più su [come rimuovere una registrazione sul client](faq.md#azure-ad-register-faq)
+>* L'eliminazione di un dispositivo registrato Azure AD in Azure AD non comporta la rimozione della registrazione nel client. L'accesso alle risorse verrà impedito solo usando il dispositivo come identità, ad esempio l'accesso condizionale.
+>* Altre informazioni su [come rimuovere una registrazione nel client](faq.md#azure-ad-register-faq)
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Eseguire la pulizia dei dispositivi non aggiornati nel portale di Azure  
 
-Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azure, è più efficiente gestire questo processo tramite uno script di PowerShell. Utilizzare il modulo PowerShell V1 più recente per usare il filtro timestamp e per filtrare i dispositivi gestiti dal sistema, ad esempio Autopilot. A questo punto, non è consigliabile usare PowerShell V2.
+Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azure, è più efficiente gestire questo processo tramite uno script di PowerShell. Usare il modulo PowerShell v1 più recente per usare il filtro timestamp e per filtrare i dispositivi gestiti dal sistema, ad esempio Autopilot. A questo punto, non è consigliabile usare PowerShell V2.
 
 Una tipica routine comprende i passaggi seguenti:
 
@@ -144,7 +144,7 @@ Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, De
 mateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
-Se nella directory è presente un numero elevato di dispositivi, utilizzare il filtro timestamp per limitare il numero di dispositivi restituiti. Per ottenere tutti i dispositivi con un timestamp precedente a una data specifica e archiviare i dati restituiti in un file CSV: 
+Se nella directory è presente un numero elevato di dispositivi, usare il filtro timestamp per limitare il numero di dispositivi restituiti. Per ottenere tutti i dispositivi con un timestamp precedente a una data specifica e archiviare i dati restituiti in un file CSV: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
@@ -161,12 +161,12 @@ Il timestamp viene aggiornato per supportare scenari del ciclo di vita dei dispo
 
 Quando sono configurate, le chiavi BitLocker per i dispositivi Windows 10 vengono archiviate nell'oggetto dispositivo in Azure AD. Se si elimina un dispositivo non aggiornato, vengono eliminate anche le chiavi BitLocker archiviate nel dispositivo. È necessario determinare se i criteri di pulizia sono allineati con l'effettivo ciclo di vita del dispositivo prima di eliminare un dispositivo non aggiornato. 
 
-### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Perché dovrei preoccuparmi dei dispositivi Windows Autopilot?
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Perché è necessario preoccuparsi dei dispositivi Windows Autopilot?
 
-Quando un dispositivo Azure AD è stato associato a un oggetto Windows Autopilot, i tre scenari seguenti possono verificarsi se il dispositivo verrà riutilizzato in futuro:When a Azure AD device was associated with a Windows Autopilot object, the following three scenarios can occur if the device will be repurposed in future:
-- Con le distribuzioni guidate dall'utente di Windows Autopilot senza usare il guanto bianco, verrà creato un nuovo dispositivo Azure AD, ma non verrà contrassegnato con il file TDID.
-- Con le distribuzioni in modalità di distribuzione automatica di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo Azure AD associato.  Si tratta di un meccanismo di sicurezza per assicurarsi che nessun dispositivo "imposter" tenti di aggiungere Azure AD senza credenziali. L'errore indicherà una mancata corrispondenza di TDID.
-- Con le distribuzioni di guanti bianchi di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo Azure AD associato. Dietro le quinte, le distribuzioni di guanti bianchi utilizzano lo stesso processo in modalità di distribuzione automatica, in modo da applicare gli stessi meccanismi di sicurezza.
+Quando un dispositivo Azure AD è stato associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà reimpiegato in futuro:
+- Con le distribuzioni basate sugli utenti di Windows Autopilot senza usare il guanto bianco, viene creato un nuovo dispositivo Azure AD, che però non verrà contrassegnato con ZTDID.
+- Con le distribuzioni in modalità self-Deploying di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo associato Azure AD.  (Si tratta di un meccanismo di sicurezza per assicurarsi che nessun dispositivo "imposto" provi a partecipare Azure AD senza credenziali). L'errore indicherà una mancata corrispondenza ZTDID.
+- Con le distribuzioni del guanto bianco di Windows Autopilot, non riusciranno perché non è possibile trovare un dispositivo Azure AD associato. (In background, le distribuzioni di guanti bianchi usano lo stesso processo di distribuzione automatica, quindi applicano gli stessi meccanismi di sicurezza).
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Come si riconoscono tutti i tipi di dispositivi aggiunti?
 

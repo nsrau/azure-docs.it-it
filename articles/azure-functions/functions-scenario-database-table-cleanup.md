@@ -1,5 +1,5 @@
 ---
-title: Usare Funzioni di Azure per eseguire un'attività di pulizia del databaseUse Azure Functions to perform a database cleanup task
+title: Usare funzioni di Azure per eseguire un'attività di pulizia del database
 description: Usare Funzioni di Azure per pianificare un'attività che si connette al database SQL di Azure per eseguire una pulizia periodica delle righe.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
@@ -13,13 +13,13 @@ ms.locfileid: "79366811"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 
-Questo articolo illustra come usare Funzioni di Azure per creare un processo pianificato che si connette a un database SQL di Azure o a un'istanza gestita SQL di Azure.This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. Il codice della funzione pulisce le righe in una tabella nel database. La nuova funzione di C , viene creata in base a un modello di trigger timer predefinito in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Per l'istanza gestita SQL di Azure è necessario [abilitare l'endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) per potersi connettere da Funzioni di Azure.For Azure SQL Managed Instance you need to enable public endpoint to be able to connect from Azure Functions. Questo scenario esegue un'operazione in blocco sul database. 
+Questo articolo illustra come usare funzioni di Azure per creare un processo pianificato che si connette a un database SQL di Azure o a un Istanza gestita SQL di Azure. Il codice della funzione pulisce le righe in una tabella nel database. La nuova funzione C# viene creata in base a un modello di trigger timer predefinito in Visual Studio 2019. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Per il Istanza gestita SQL di Azure è necessario [abilitare l'endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) per potersi connettere da funzioni di Azure. Questo scenario esegue un'operazione in blocco sul database. 
 
 Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile leggere la [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Completare i passaggi nell'articolo [Creare la prima funzione usando Visual Studio](functions-create-your-first-function-visual-studio.md) per creare un'app per funzioni locali destinata alla versione 2.x o a una versione successiva del runtime. È anche necessario aver pubblicato il progetto in un'app per le funzioni in Azure.
++ Completare la procedura descritta nell'articolo [creare la prima funzione usando Visual Studio](functions-create-your-first-function-visual-studio.md) per creare un'app per le funzioni locale destinata alla versione 2. x o a una versione successiva del runtime. È anche necessario aver pubblicato il progetto in un'app per le funzioni in Azure.
 
 + Questo articolo illustra un comando Transact-SQL che esegue un'operazione di pulizia in blocco nella tabella **SalesOrderHeader** nel database di esempio AdventureWorksLT. Per creare il database di esempio AdventureWorksLT, completare la procedura nell'articolo [Creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started-portal.md).
 
@@ -29,11 +29,11 @@ Se si tratta della prima esperienza di utilizzo di funzioni C#, è consigliabile
 
 È necessario ottenere la stringa di connessione per il database creato dopo avere completato [Creare un database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started-portal.md).
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Scegliere **Database SQL** dal menu a sinistra, quindi scegliere il database nella pagina **Database SQL**.
 
-1. Selezionare **Stringhe di connessione** in **Impostazioni** e copiare la stringa di connessione **ADO.NET** completa. Per la copia della stringa di connessione della copia dell'istanza gestita di Azure per l'endpoint pubblico.
+1. Selezionare **Stringhe di connessione** in **Impostazioni** e copiare la stringa di connessione **ADO.NET** completa. Per Azure SQL Istanza gestita Copiare la stringa di connessione per l'endpoint pubblico.
 
     ![Copiare la stringa di connessione ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -43,7 +43,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aver precedentemente pubblicato l'app in Azure. Se non è già stato fatto, [pubblicare l'app per le funzioni in Azure](functions-develop-vs.md#publish-to-azure).
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell'app per le funzioni e scegliere Pubblica**impostazioni servizio app** **modifica** > Azure . Selezionare **Aggiungi impostazione**, in **Nome nuova impostazione app** digitare `sqldb_connection` e selezionare **OK**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **pubblica** > **modifica app Azure impostazioni del servizio**. Selezionare **Aggiungi impostazione**, in **Nome nuova impostazione app** digitare `sqldb_connection` e selezionare **OK**.
 
     ![Impostazioni applicazioni per l'app per le funzioni.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -57,7 +57,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Come procedu
 
 È necessario aggiungere il pacchetto NuGet che contiene la libreria SqlClient. Questa libreria di accesso ai dati è necessaria per connettersi a un database SQL.
 
-1. Aprire il progetto di app per le funzioni locale in Visual Studio 2019.Open your local function app project in Visual Studio 2019.
+1. Aprire il progetto di app per le funzioni locali in Visual Studio 2019.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Gestisci pacchetti NuGet**.
 
@@ -73,7 +73,7 @@ A questo punto, è possibile aggiungere il codice della funzione C# che si conne
 
 ## <a name="add-a-timer-triggered-function"></a>Aggiungere una funzione attivata da un timer
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto dell'app per le funzioni e scegliere **Aggiungi** > **nuova funzione di Azure**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto di app per le funzioni e scegliere **Aggiungi** > **nuova funzione di Azure**.
 
 1. Con il modello **Funzioni di Azure** selezionato, assegnare al nuovo elemento un nome simile a `DatabaseCleanup.cs` e selezionare **Aggiungi**.
 

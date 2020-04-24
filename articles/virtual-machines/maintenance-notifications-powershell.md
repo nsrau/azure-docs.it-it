@@ -1,6 +1,6 @@
 ---
-title: Ricevere notifiche di manutenzione per le macchine virtuali di Azure tramite PowerShellGet maintenance notifications for Azure VMs using PowerShell
-description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione self-service tramite PowerShell.View maintenance notifications for virtual machines running in Azure and start self-service maintenance using PowerShell.
+title: Ottenere le notifiche di manutenzione per le macchine virtuali di Azure con PowerShell
+description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione Self-Service usando PowerShell.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77916083"
 ---
-# <a name="handling-planned-maintenance-using-powershell"></a>Gestione della manutenzione pianificata tramite PowerShellHandling planned maintenance using PowerShell
+# <a name="handling-planned-maintenance-using-powershell"></a>Gestione della manutenzione pianificata con PowerShell
 
-**Questo articolo si applica alle macchine virtuali che eseguono sia Linux che Windows.This article applies to virtual machines running both Linux and Windows.**
+**Questo articolo si applica alle macchine virtuali che eseguono sia Linux che Windows.**
 
-È possibile usare Azure PowerShell per vedere quando le macchine virtuali sono pianificate per [la manutenzione.](maintenance-notifications.md) Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), usando il parametro `-status`.
+È possibile usare Azure PowerShell per vedere quando le macchine virtuali sono pianificate per la [manutenzione](maintenance-notifications.md). Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), usando il parametro `-status`.
   
 Le informazioni vengono restituite solo se è presente una manutenzione pianificata. Se non è presente alcuna manutenzione pianificata per la macchina virtuale, il cmdlet non restituisce informazioni. 
 
@@ -29,7 +29,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 MaintenanceRedeployStatus restituisce le proprietà seguenti: 
 
-| valore | Descrizione   |
+| Valore | Descrizione   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale |
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM |
@@ -46,7 +46,7 @@ MaintenanceRedeployStatus restituisce le proprietà seguenti:
 Get-AzVM -ResourceGroupName myResourceGroup -Status
 ```
 
-L'esempio di PowerShell seguente accetta l'ID sottoscrizione e restituisce un elenco di macchine virtuali pianificate per la manutenzione.
+Nell'esempio di PowerShell seguente viene preso l'ID sottoscrizione e viene restituito un elenco di macchine virtuali pianificate per la manutenzione.
 
 ```powershell
 
@@ -102,4 +102,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile gestire la manutenzione pianificata usando [l'interfaccia della riga di comando](maintenance-notifications-cli.md) o il portale di Azure.You can also handle planned maintenance using the Azure CLI or [portal](maintenance-notifications-portal.md).
+È anche possibile gestire la manutenzione pianificata usando l'interfaccia della riga di comando di [Azure](maintenance-notifications-cli.md) o il [portale](maintenance-notifications-portal.md).

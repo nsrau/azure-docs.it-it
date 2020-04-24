@@ -1,5 +1,5 @@
 ---
-title: Domande comuni per Azure Service Fabric Mesh
+title: Domande comuni per Azure Service Fabric mesh
 description: Informazioni sulle domande frequenti e sulle risposte relative a Azure Service Fabric Mesh.
 ms.author: pepogors
 ms.date: 4/23/2019
@@ -23,17 +23,17 @@ Per inviare domande, ottenere risposte dagli esperti Microsoft e segnalare probl
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quanto costa partecipare all'anteprima?
 
-Attualmente non sono previsti costi per la distribuzione di applicazioni o contenitori nell'anteprima mesh. Si prega di guardare per gli aggiornamenti in maggio per l'abilitazione per la fatturazione. Tuttavia, ti invitiamo a eliminare le risorse che distribuisci e a non lasciarle in esecuzione a meno che tu non le stia testando attivamente.
+Non sono attualmente previsti addebiti per la distribuzione di applicazioni o contenitori nell'anteprima mesh. Per abilitare la fatturazione, controllare la disponibilità di aggiornamenti in. Tuttavia, si consiglia di eliminare le risorse distribuite senza lasciarle in esecuzione, a meno che non vengano testate attivamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>È previsto un limite di quota per il numero di core e la RAM?
 
 Sì. Per ogni sottoscrizione sono previste le quote seguenti:
 
-- Numero di domande: 5
-- Core per applicazione: 12Cores per application: 12
+- Numero di applicazioni: 5
+- Core per applicazione: 12
 - RAM totale per applicazione: 48 GB
 - Endpoint di rete e ingresso: 5
-- Volumi di Azure che è possibile collegare: 10Azure Volumes that you can attach: 10
+- Volumi di Azure che è possibile aggiungere: 10
 - Numero di repliche del servizio: 3
 - Il contenitore maggiore che è possibile distribuire è limitato a 4 core e 16 GB di RAM.
 - È possibile allocare core parziali ai contenitori con incrementi di 0,5 core fino a un massimo di 6 core.
@@ -87,17 +87,17 @@ Per distribuire i servizi, possono essere usate le immagini del sistema operativ
 - Windows: windowsservercore e nanoserver
     - Windows Server 1709
     - Windows Server 1803
-    - Windows Server 1809 (in windows Server)
+    - Windows Server 1809
     - Windows Server 2019 LTSC
 - Linux
     - Nessuna limitazione nota
 
 > [!NOTE]
-> Gli strumenti di Visual Studio per Mesh non supportano ancora la distribuzione nei contenitori di Windows Server 2019 e 1809.Visual Studio tooling for Mesh does not yet support deploying into Windows Server 2019 and 1809 containers.
+> Gli strumenti di Visual Studio per mesh non supportano ancora la distribuzione nei contenitori di Windows Server 2019 e 1809.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Quali tipi di applicazioni è possibile distribuire? 
 
-È possibile distribuire tutto ciò che viene eseguito in contenitori che rientrano nelle restrizioni applicate a una risorsa dell'applicazione (vedere sopra per ulteriori informazioni sulle quote). Se rileviamo che stai usando Mesh per l'esecuzione di carichi di lavoro illegali o l'abuso del sistema (ad es. estrazione), ci riserviamo il diritto di terminare le distribuzioni e bloccare l'esecuzione della sottoscrizione nel servizio. Contattaci se hai domande sull'esecuzione di un carico di lavoro specifico. 
+È possibile distribuire tutto ciò che viene eseguito nei contenitori che rientrano nelle limitazioni inserite in una risorsa dell'applicazione (vedere sopra per altre informazioni sulle quote). Se si rileva che si sta usando la rete mesh per eseguire carichi di lavoro non validi o si abusa del sistema (ad esempio, mining), si riserva il diritto di terminare le distribuzioni e di bloccare l'esecuzione della sottoscrizione nel servizio. Rivolgersi a Microsoft per eventuali domande sull'esecuzione di un carico di lavoro specifico. 
 
 ## <a name="developer-experience-issues"></a>Problemi relativi all'esperienza di sviluppatore
 
@@ -106,7 +106,7 @@ Per distribuire i servizi, possono essere usate le immagini del sistema operativ
 Le query DNS in uscita da un contenitore al servizio DNS di Service Fabric DNS potrebbero non riuscire in determinate circostanze. Il problema è in fase di analisi. Per attenuare il problema:
 
 - Usare Windows Fall Creators Update (versione 1709) o versione successiva come immagine del contenitore di base.
-- Se il nome del servizio da solo non funziona, provare il nome completo: ServiceName.ApplicationName.If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
+- Se il nome del servizio da solo non funziona, provare il nome completo: ServiceName. ApplicationName.
 - Nel file Docker per il servizio aggiungere `EXPOSE <port>`, dove "port" indica la porta a cui si espone il servizio. Ad esempio:
 
 ```Dockerfile
@@ -121,7 +121,7 @@ Nel cluster di sviluppo locale usare `{serviceName}.{applicationName}`. In Azure
 
 Azure Service Fabric Mesh attualmente non supporta la risoluzione DNS tra le applicazioni.
 
-Per altri problemi DNS noti relativi all'esecuzione di un cluster di sviluppo di Service Fabric in Windows 10, vedere: [Eseguire il debug di contenitori Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e problemi DNS [noti.](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)
+Per altri problemi noti relativi a DNS con l'esecuzione di un cluster di sviluppo Service Fabric in Windows 10, vedere: [eseguire il debug di contenitori Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemi DNS noti](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### <a name="networking"></a>Rete
 
@@ -141,7 +141,7 @@ Più applicazioni non possono essere distribuite in un cluster con un solo nodo.
 - Usare un cluster con cinque nodi durante la distribuzione di più app in un cluster locale.
 - Rimuovere le app attualmente non in fase di test.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Strumenti VS ha un supporto limitato per i contenitori di Windows
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Gli strumenti di Visual Studio hanno un supporto limitato per i contenitori di Windows
 
 Gli strumenti di Visual Studio supportano solo la distribuzione di contenitori di Windows con una versione del sistema operativo di base di Windows Server 1709 e 1803 oggi. 
 

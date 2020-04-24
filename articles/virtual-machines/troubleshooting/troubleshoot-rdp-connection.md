@@ -25,7 +25,7 @@ ms.locfileid: "77916609"
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
 La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. 
 
-Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
+Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
 
  
 
@@ -67,16 +67,16 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Impostare la **Modalità** su **Reset configuration only **(Reimposta solo configurazione) quindi fare clic sul pulsante **Aggiorna**:
    
     ![Ripristinare la configurazione della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verificare le regole del gruppo di sicurezza di rete**. Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare se una regola in un gruppo di sicurezza di rete blocca il traffico da o verso una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere Uso di regole di [sicurezza valide per risolvere i problemi relativi al flusso](../../virtual-network/diagnose-network-traffic-filter-problem.md)di traffico delle macchine virtuali.
+2. **Verificare le regole del gruppo di sicurezza di rete**. Usare la [Verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare se una regola in un gruppo di sicurezza di rete blocca il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [uso di regole di sicurezza effettive per risolvere i problemi relativi al flusso del traffico VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Rivedere la diagnostica di avvio della macchina virtuale**. Questa procedura di risoluzione dei problemi esamina i log della console della macchina virtuale per stabilire se la macchina virtuale segnala un problema. Poiché la diagnostica di avvio non è abilitata su tutte le macchine virtuali, la procedura può essere facoltativa.
    
     Le procedure di risoluzione dei problemi specifici non rientrano nell'ambito di questo articolo, ma potrebbero segnalare un problema di più ampia portata che ha effetto sulla connessione RDP. Per altre informazioni sull'esame dei log della console e delle schermate della macchina virtuale, vedere l'articolo sulla [diagnostica di avvio per le macchine virtuali](boot-diagnostics.md).
 
 4. **Reimpostare la scheda di interfaccia di rete per la macchina virtuale**. Per altre informazioni, vedere [How to reset NIC for Azure Windows VM](../windows/reset-network-interface.md) (Come reimpostare la scheda di interfaccia di rete per la VM Windows di Azure).
-5. **Controllare l'integrità delle risorse della macchina virtuale**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
+5. **Controllare la integrità risorse della macchina virtuale**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
    
-    Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Integrità risorse.** Una macchina virtuale integra viene indicata come **Disponibile**:
+    Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **integrità risorsa** . Una macchina virtuale integra viene indicata come **Disponibile**:
    
     ![Controllare l'integrità della risorsa VM nel portale di Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
 6. **Reimpostare le credenziali utente**. Questa procedura di risoluzione dei problemi consente di reimpostare la password di un account amministratore locale se non si è sicuri o si sono dimenticate le credenziali.  Dopo aver eseguito l'accesso alla VM, è necessario reimpostare la password per l'utente.
@@ -86,7 +86,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     ![Reimpostare le credenziali utente nel portale di Azure](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **Riavviare la macchina virtuale**. Questa procedura di risoluzione dei problemi consente di correggere eventuali problemi sottostanti riscontrati dalla macchina virtuale.
    
-    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica.Fare** clic sul pulsante **Riavvia:Select** your VM in the Azure portal and click the Overview tab.
+    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica** . fare clic sul pulsante **Riavvia** :
    
     ![Riavviare la macchina virtuale nel portale di Azure](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **Ridistribuire la macchina virtuale**. Questa procedura di risoluzione dei problemi ripete la distribuzione della macchina virtuale in un altro host all'interno di Azure per correggere eventuali problemi relativi alla rete o alla piattaforma sottostante.
@@ -216,7 +216,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 3. **Rivedere la diagnostica di avvio della macchina virtuale**. Questa procedura di risoluzione dei problemi esamina i log della console della macchina virtuale per stabilire se la macchina virtuale segnala un problema. Poiché la diagnostica di avvio non è abilitata su tutte le macchine virtuali, la procedura può essere facoltativa.
    
     Le procedure di risoluzione dei problemi specifici non rientrano nell'ambito di questo articolo, ma potrebbero segnalare un problema di più ampia portata che ha effetto sulla connessione RDP. Per altre informazioni sull'esame dei log della console e delle schermate della macchina virtuale, vedere l'articolo sulla [diagnostica di avvio per le macchine virtuali](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
-4. **Controllare l'integrità delle risorse della macchina virtuale**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
+4. **Controllare la integrità risorse della macchina virtuale**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Integrità delle risorse**. Una macchina virtuale integra viene indicata come **Disponibile**:
    
@@ -228,7 +228,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
     ![Reimpostare le credenziali utente nel portale di Azure](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **Riavviare la macchina virtuale**. Questa procedura di risoluzione dei problemi consente di correggere eventuali problemi sottostanti riscontrati dalla macchina virtuale.
    
-    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica.Fare** clic sul pulsante **Riavvia:Select** your VM in the Azure portal and click the Overview tab.
+    Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica** . fare clic sul pulsante **Riavvia** :
    
     ![Riavviare la macchina virtuale nel portale di Azure](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
@@ -239,7 +239,7 @@ Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di su
 ## <a name="troubleshoot-specific-rdp-errors"></a>Risolvere errori specifici della connessione RDP
 Quando si tenta di connettersi alla VM tramite RDP, potrebbe essere visualizzato un messaggio di errore specifico. Di seguito sono riportati i messaggi di errore più comuni:
 
-* [La sessione remota è stata disconnessa perché non sono disponibili server licenze Desktop remoto per fornire una licenza.](troubleshoot-specific-rdp-errors.md#rdplicense)
+* [La sessione remota è stata disconnessa perché non sono disponibili server licenze Desktop remoto per fornire una licenza](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [Desktop remoto: impossibile rilevare il "nome" del computer](troubleshoot-specific-rdp-errors.md#rdpname).
 * [Si è verificato un errore di autenticazione. Impossibile contattare l'autorità di sicurezza locale](troubleshoot-specific-rdp-errors.md#rdpauth).
 * [Errore di sicurezza di Windows: Le credenziali specificate non funzionano](troubleshoot-specific-rdp-errors.md#wincred).

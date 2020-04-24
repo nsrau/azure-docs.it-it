@@ -1,6 +1,6 @@
 ---
-title: Esaminare l'accesso di un pacchetto di accesso nella gestione dei diritti di Azure ADReview access of an access package in Azure AD entitlement management
-description: Informazioni su come completare una verifica di accesso dei pacchetti di accesso alla gestione dei diritti nelle verifiche di accesso ad Azure Active Directory (anteprima).
+title: Verificare l'accesso di un pacchetto di accesso in Azure AD gestione dei diritti
+description: Informazioni su come completare una verifica di accesso dei pacchetti di accesso alla gestione dei diritti in Azure Active Directory le verifiche di accesso (anteprima).
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -23,84 +23,84 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968737"
 ---
-# <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Esaminare l'accesso di un pacchetto di accesso nella gestione dei diritti di Azure ADReview access of an access package in Azure AD entitlement management
+# <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Verificare l'accesso di un pacchetto di accesso in Azure AD gestione dei diritti
 
-La gestione dei diritti di Azure AD semplifica il modo in cui le aziende gestiscono l'accesso a gruppi, applicazioni e siti di SharePoint.Azure AD entitlement management simplifies how enterprises manage access to groups, applications, and SharePoint sites. In questo articolo viene descritto come eseguire revisioni di accesso per altri utenti assegnati a un pacchetto di accesso come revisore designato.
+Azure AD gestione dei diritti semplifica il modo in cui le aziende gestiscono l'accesso a gruppi, applicazioni e siti di SharePoint. Questo articolo descrive come eseguire verifiche di accesso per altri utenti assegnati a un pacchetto di accesso come revisore designato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per esaminare le assegnazioni dei pacchetti di accesso attivo degli utenti, è necessario soddisfare i prerequisiti per eseguire una verifica di accesso:To review users' active access package assignments, you must meet the prerequisites to do an access review:
+Per esaminare le assegnazioni dei pacchetti di accesso attivi degli utenti, è necessario soddisfare i prerequisiti per eseguire una verifica di accesso:
 - Azure AD Premium P2
 - Amministratore globale
-- Amministratore utente designato, proprietario del catalogo o gestore di pacchetti di Access
+- Amministratore utente designato, proprietario del catalogo o gestione pacchetti di accesso
 
 Per altre informazioni, vedere [Requisiti relativi alle licenze](entitlement-management-overview.md#license-requirements).
 
 
 ## <a name="open-the-access-review"></a>Aprire la verifica di accesso
 
-Attenersi alla seguente procedura per trovare e aprire la verifica di accesso:
+Per trovare e aprire la verifica di accesso, attenersi alla procedura seguente:
 
-1. È possibile ricevere un messaggio di posta elettronica da Microsoft che chiede di controllare l'accesso. Individuare l'e-mail per aprire la verifica di accesso. Di seguito è riportato un esempio di posta elettronica per la revisione dell'accesso:Here is an example email to review access:
+1. Il licenziatario potrà ricevere un messaggio di posta elettronica da Microsoft che richiede di verificare l'accesso. Individuare il messaggio di posta elettronica per aprire la verifica di accesso. Di seguito è riportato un messaggio di posta elettronica di esempio per verificare l'accesso:
     
-    ![Accedere alla posta elettronica del revisore](./media/entitlement-management-access-reviews-review-access/review-access-reviewer-email.png)
+    ![Indirizzo di posta elettronica del revisore della verifica di accesso](./media/entitlement-management-access-reviews-review-access/review-access-reviewer-email.png)
 
-1. Fare clic sul collegamento **Controlla accesso utente** per aprire la verifica di accesso. 
+1. Fare clic sul collegamento **Verifica accesso utente** per aprire la verifica di accesso. 
 
-1. Se non si dispone dell'e-mail, è possibile trovare https://myaccess.microsoft.comle verifiche di accesso in sospeso passando direttamente a .  (Per il governo `https://myaccess.microsoft.us` degli Stati Uniti, utilizzare invece.)
+1. Se non si dispone del messaggio di posta elettronica, è possibile trovare le verifiche di accesso in sospeso passando https://myaccess.microsoft.comdirettamente a.  Per il governo degli Stati Uniti `https://myaccess.microsoft.us` , usare invece.
 
-1. Fare clic su **Revisioni** di accesso sulla barra di spostamento sinistra per visualizzare un elenco di verifiche di accesso in sospeso assegnate all'utente.
+1. Fare clic su verifiche di **accesso** sulla barra di spostamento a sinistra per visualizzare un elenco delle verifiche di accesso in sospeso assegnate all'utente.
     
-    ![Selezionare le verifiche di accesso in My Access](./media/entitlement-management-access-reviews-review-access/review-access-myaccess-select-access-review.png)
+    ![Selezionare le verifiche di accesso per l'accesso](./media/entitlement-management-access-reviews-review-access/review-access-myaccess-select-access-review.png)
 
-1. Fai clic sulla recensione che desideri iniziare.
+1. Fare clic sulla revisione che si desidera avviare.
     
     ![Selezionare la verifica di accesso](./media/entitlement-management-access-reviews-review-access/review-access-select-access-review.png)
 
 ## <a name="perform-the-access-review"></a>Eseguire la verifica di accesso
 
-Una volta aperta la verifica di accesso, verranno visualizzati i nomi degli utenti per i quali è necessario esaminare. È possibile approvare o negare l'accesso in due modi:
+Una volta aperta la verifica di accesso, vengono visualizzati i nomi degli utenti per i quali è necessario esaminarli. È possibile approvare o negare l'accesso in due modi:
 - È possibile approvare o negare manualmente l'accesso per uno o più utenti
-- È possibile accettare i consigli di sistema
+- È possibile accettare le raccomandazioni di sistema
 
-### <a name="manually-approve-or-deny-access-for-one-or-more-users"></a>Approvare o negare manualmente l'accesso a uno o più utenti
-1. Esaminare l'elenco degli utenti e determinare quali utenti devono continuare ad avere accesso.
+### <a name="manually-approve-or-deny-access-for-one-or-more-users"></a>Approva o nega manualmente l'accesso per uno o più utenti
+1. Esaminare l'elenco degli utenti e determinare gli utenti che devono continuare ad accedere.
 
-    ![Elenco di utenti da esaminare](./media/entitlement-management-access-reviews-review-access/review-access-list-of-users.png)
+    ![Elenco di utenti da rivedere](./media/entitlement-management-access-reviews-review-access/review-access-list-of-users.png)
 
 1. Per approvare o negare l'accesso, selezionare il pulsante di opzione a sinistra del nome dell'utente.
 
-1. Selezionare **Approva** o **Nega** nella barra sopra i nomi utente.
+1. Selezionare **approva** o **Nega** nella barra sopra i nomi utente.
 
     ![Selezionare l'utente](./media/entitlement-management-access-reviews-review-access/review-access-select-users.png)
 
-1. In caso di dubbi, è possibile fare clic sul pulsante **Non si conosce.**
+1. Se non si è certi, è possibile fare clic sul pulsante **non so** .
 
-    Se si effettua questa selezione, l'utente mantiene l'accesso e questa opzione viene effettuata nei registri di controllo. Il registro mostra tutti gli altri revisori che hai ancora completato la revisione.
+    Se si effettua questa selezione, l'utente mantiene l'accesso e questa selezione viene inserita nei log di controllo. Il log Mostra gli altri revisori ancora completati per la revisione.
 
-1. Potrebbe esserti richiesto di fornire un motivo per la tua decisione. Digitare un motivo e fare clic su **Invia**.
+1. Potrebbe essere necessario fornire un motivo per la decisione. Digitare un motivo e fare clic su **Invia**.
 
     ![Approvare o negare l'accesso](./media/entitlement-management-access-reviews-review-access/review-access-decision-approve.png)
 
-1. Puoi modificare la tua decisione in qualsiasi momento prima della fine della revisione. A tale scopo, selezionare l'utente dall'elenco e modificare la decisione. Ad esempio, è possibile approvare l'accesso per un utente precedentemente negato.
+1. È possibile modificare la decisione in qualsiasi momento prima della fine della verifica. A tale scopo, selezionare l'utente dall'elenco e modificare la decisione. Ad esempio, è possibile approvare l'accesso per un utente negato in precedenza.
 
-Se sono presenti più revisori, viene registrata l'ultima risposta inviata. Si consideri un esempio in cui un amministratore designa due revisori: Alice e Bob.Consider an example where an administrator designates two reviewers – Alice and Bob. Alice apre prima la revisione e approva l'accesso. Prima del termine della revisione, Bob apre la revisione e nega l'accesso. In questo caso, viene registrata l'ultima decisione di negazione dell'accesso.
+Se sono presenti più revisori, viene registrata l'ultima risposta inviata. Si consideri un esempio in cui un amministratore designa due revisori: Alice e Bob. Alice apre prima di tutto la revisione e approva l'accesso. Prima della fine della verifica, Bob apre la revisione e nega l'accesso. In questo caso, viene registrata l'ultima decisione di negazione dell'accesso.
 
 >[!NOTE]
->Se a un utente viene negato l'accesso, non viene rimosso immediatamente dal pacchetto di accesso. L'utente verrà rimosso dal pacchetto di accesso al termine della revisione o un amministratore termina la revisione.
+>Se a un utente viene negato l'accesso, questi non vengono rimossi immediatamente dal pacchetto di accesso. L'utente verrà rimosso dal pacchetto di accesso al termine della verifica oppure un amministratore conclude la revisione.
 
-### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Approvare o negare l'accesso utilizzando i suggerimenti generati dal sistema
+### <a name="approve-or-deny-access-using-the-system-generated-recommendations"></a>Approva o nega l'accesso usando le raccomandazioni generate dal sistema
 
-Per esaminare più rapidamente l'accesso per più utenti, è possibile utilizzare i consigli generati dal sistema, accettando i suggerimenti con un solo clic. I consigli vengono generati in base all'attività di accesso dell'utente.
+Per esaminare più rapidamente l'accesso per più utenti, è possibile usare le raccomandazioni generate dal sistema, accettando le raccomandazioni con un solo clic. Le indicazioni vengono generate in base all'attività di accesso dell'utente.
 
-1.  Nella barra nella parte superiore della pagina fare clic su **Accetta suggerimenti**.
+1.  Nella barra nella parte superiore della pagina fare clic su **accetta raccomandazioni**.
     
-    ![Selezionare Accetta raccomandazioni](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
+    ![Selezionare accetta raccomandazioni](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
     
     Verrà visualizzato un riepilogo delle azioni consigliate.
 
-1.  Fare clic su **Invia** per accettare i suggerimenti.
+1.  Fare clic su **Submit (Invia** ) per accettare le raccomandazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Auto-revisione dei pacchetti di accesso](entitlement-management-access-reviews-self-review.md)
+- [Revisione automatica dei pacchetti di accesso](entitlement-management-access-reviews-self-review.md)

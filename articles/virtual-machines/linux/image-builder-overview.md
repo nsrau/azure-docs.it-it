@@ -1,6 +1,6 @@
 ---
-title: Informazioni su Azure Image Builder (anteprima)Learn about Azure Image Builder (preview)
-description: Altre informazioni su Azure Image Builder per macchine virutal in Azure.Learn more about Azure Image Builder for virutal machines in Azure.
+title: Informazioni su Generatore immagini di Azure (anteprima)
+description: Scopri di più su Azure Image Builder per computer virutal in Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -14,6 +14,6 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2020
 ms.locfileid: "78944984"
 ---
-# <a name="preview-azure-image-builder-overview"></a>Anteprima: Panoramica di Generatore immagini di AzurePreview: Azure Image Builder overview
+# <a name="preview-azure-image-builder-overview"></a>Anteprima: Panoramica di Azure Image Builder
 
 [!INCLUDE [virtual-machines-image-builder-overview](../../../includes/virtual-machines-image-builder-overview.md)]

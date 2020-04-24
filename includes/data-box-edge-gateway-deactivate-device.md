@@ -11,15 +11,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128872"
 ---
-Per ripristinare il dispositivo, è necessario cancellare in modo sicuro tutti i dati sul disco dati e sul disco di avvio del dispositivo. 
+Per reimpostare il dispositivo, è necessario eliminare in modo sicuro tutti i dati sul disco dati e sul disco di avvio del dispositivo. 
 
-Utilizzare `Reset-HcsAppliance` il cmdlet per eliminare sia i dischi dati che il disco di avvio o solo i dischi dati. Gli `ClearData` `BootDisk` interruttori e consentono di cancellare rispettivamente i dischi dati e il disco di avvio.
+Usare il `Reset-HcsAppliance` cmdlet per eliminare i dischi dati e il disco di avvio o solo i dischi dati. Le `ClearData` opzioni `BootDisk` e consentono di rimuovere rispettivamente i dischi dati e il disco di avvio.
 
-L'interruttore `BootDisk` cancella il disco di avvio e rende il dispositivo inutilizzabile. Deve essere utilizzato solo quando il dispositivo deve essere restituito a Microsoft. Per ulteriori informazioni, vedere [Restituire il dispositivo a Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+Il `BootDisk` Commuter Cancella il disco di avvio e rende inutilizzabile il dispositivo. Deve essere usato solo quando il dispositivo deve essere restituito a Microsoft. Per ulteriori informazioni, vedere [la pagina relativa alla restituzione del dispositivo a Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
 
-Se si utilizza la reimpostazione del dispositivo nell'interfaccia utente Web locale, solo i dischi dati vengono cancellati in modo sicuro, ma il disco di avvio viene mantenuto intatto. Il disco di avvio contiene la configurazione del dispositivo.
+Se si usa la reimpostazione del dispositivo nell'interfaccia utente Web locale, solo i dischi dati vengono cancellati in modo sicuro, ma il disco di avvio rimane intatto. Il disco di avvio contiene la configurazione del dispositivo.
 
-1. [Connettersi all'interfaccia](#connect-to-the-powershell-interface)di PowerShell .
+1. [Connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
 2. Al prompt dei comandi digitare:
 
     `Reset-HcsAppliance -ClearData -BootDisk`

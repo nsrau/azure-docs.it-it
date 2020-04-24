@@ -1,6 +1,6 @@
 ---
-title: Usare criteri di scalabilità in verticale personalizzati con i set di scalabilità di macchine virtuali di AzureUse custom scale-in policies with Azure virtual machine scale sets
-description: Informazioni su come usare criteri di scalabilità orizzontale personalizzati con i set di scalabilità di macchine virtuali di Azure che usano la configurazione di scalabilità automatica per gestire il numero di istanzeLearn how to use custom scale-in policies with Azure virtual machine scale sets that use autoscale configuration to manage instance count
+title: Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
+description: Informazioni su come usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure che usano la configurazione di scalabilità automatica per gestire il numero di istanze
 services: virtual-machine-scale-sets
 author: avirishuv
 manager: vashan
@@ -18,56 +18,56 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919839"
 ---
-# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usare criteri di scalabilità in verticale personalizzati con i set di scalabilità di macchine virtuali di AzureUse custom scale-in policies with Azure virtual machine scale sets
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
 
-La distribuzione di un set di scalabilità di macchine virtuali può essere scalata orizzontalmente o con scalabilità orizzontale in base a una matrice di metriche, tra cui metriche personalizzate definite dalla piattaforma e dall'utente. Mentre una scalabilità orizzontale crea nuove macchine virtuali basate sul modello di set di scalabilità, una scalabilità orizzontale influisce sulle macchine virtuali in esecuzione che possono avere configurazioni e/o funzioni diverse con l'evoluzione del carico di lavoro del set di scalabilità. 
+Una distribuzione del set di scalabilità di macchine virtuali può essere scalata orizzontalmente o ridimensionata in base a una matrice di metriche, incluse le metriche personalizzate definite dall'utente e della piattaforma. Mentre una scalabilità orizzontale crea nuove macchine virtuali in base al modello del set di scalabilità, una riduzione influiscono sulle macchine virtuali in esecuzione che possono avere configurazioni e/o funzioni diverse durante l'evoluzione del carico di lavoro del set di scalabilità. 
 
-La funzionalità dei criteri di scalabilità verticale offre agli utenti un modo per configurare l'ordine in cui le macchine virtuali vengono ridimensionate, tramite tre configurazioni con scalabilità verticale:The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in, by way of three scale-in configurations: 
+La funzionalità per i criteri di scalabilità consente agli utenti di configurare l'ordine in cui le macchine virtuali vengono ridimensionate in base a tre configurazioni con scalabilità orizzontale: 
 
-1. Predefinito
-2. Nuovo VM
-3. Vm meno recente
+1. Impostazione predefinita
+2. NewestVM
+3. OldestVM
 
-### <a name="default-scale-in-policy"></a>Criteri di scalabilità verticale predefiniti
+### <a name="default-scale-in-policy"></a>Criteri di ridimensionamento predefiniti
 
-Per impostazione predefinita, il set di scalabilità delle macchine virtuali applica questo criterio per determinare in quali istanze verrà ridimensionata. Con il criterio *predefinito,* le macchine virtuali vengono selezionate per la scalabilità verticale nell'ordine seguente:With the Default policy, VMs are selected for scale-in in in the following order:
+Per impostazione predefinita, il set di scalabilità di macchine virtuali applica questo criterio per determinare quali istanze verranno ridimensionate. Con i criteri *predefiniti* , le macchine virtuali vengono selezionate per il ridimensionamento nell'ordine seguente:
 
-1. Bilanciare le macchine virtuali tra le zone di disponibilità (se il set di scalabilità viene distribuito nella configurazione zonale)Balance virtual machines across availability zones (if the scale set is deployed in zonal configuration)
-2. Bilanciare le macchine virtuali tra domini di errore (massimo sforzo)
-3. Eliminare la macchina virtuale con l'ID istanza più altoDelete virtual machine with the highest instance ID
+1. Bilanciare le macchine virtuali tra le zone di disponibilità (se il set di scalabilità viene distribuito nella configurazione di zona)
+2. Bilanciare le macchine virtuali tra domini di errore (lavoro ottimale)
+3. Elimina la macchina virtuale con l'ID istanza più elevato
 
-Non è necessario che gli utenti specifichino un criterio di scalabilità verticale se desiderano solo che venga seguito l'ordinamento predefinito.
+Gli utenti non devono specificare un criterio di ridimensionamento se desiderano solo che venga eseguito l'ordinamento predefinito.
 
-Si noti che il bilanciamento tra zone di disponibilità o domini di errore non comporta lo spostamento delle istanze tra zone di disponibilità o domini di errore. Il bilanciamento viene ottenuto tramite l'eliminazione di macchine virtuali dalle zone di disponibilità non bilanciate o dai domini di errore fino a quando la distribuzione delle macchine virtuali non diventa bilanciata.
+Si noti che il bilanciamento tra le zone di disponibilità o i domini di errore non sposta le istanze tra le zone di disponibilità o i domini di errore. Il bilanciamento viene effettuato tramite l'eliminazione di macchine virtuali dalle zone di disponibilità non bilanciate o dai domini di errore fino a quando la distribuzione delle macchine virtuali non viene bilanciata.
 
-### <a name="newestvm-scale-in-policy"></a>Criteri di scalabilità verticale più recente
+### <a name="newestvm-scale-in-policy"></a>Criteri di ridimensionamento NewestVM
 
-Questo criterio eliminerà la macchina virtuale creata più recente nel set di scalabilità, dopo il bilanciamento delle macchine virtuali tra le zone di disponibilità (per le distribuzioni zonali). L'abilitazione di questo criterio richiede una modifica della configurazione nel modello di set di scalabilità della macchina virtuale.
+Questo criterio eliminerà la macchina virtuale creata più recente nel set di scalabilità, dopo aver bilanciato le VM tra le zone di disponibilità (per le distribuzioni di zona). L'abilitazione di questo criterio richiede una modifica della configurazione nel modello del set di scalabilità di macchine virtuali.
 
-### <a name="oldestvm-scale-in-policy"></a>Criteri di scalabilità verticale OldestVM
+### <a name="oldestvm-scale-in-policy"></a>Criteri di ridimensionamento OldestVM
 
-Questo criterio eliminerà la macchina virtuale creata meno recente nel set di scalabilità, dopo il bilanciamento delle macchine virtuali tra le zone di disponibilità (per le distribuzioni zonali). L'abilitazione di questo criterio richiede una modifica della configurazione nel modello di set di scalabilità della macchina virtuale.
+Questo criterio eliminerà la macchina virtuale meno recente creata nel set di scalabilità, dopo aver bilanciato le macchine virtuali tra le zone di disponibilità (per le distribuzioni di zona). L'abilitazione di questo criterio richiede una modifica della configurazione nel modello del set di scalabilità di macchine virtuali.
 
-## <a name="enabling-scale-in-policy"></a>Abilitazione dei criteri di scalabilità orizzontaleEnabling scale-in policy
+## <a name="enabling-scale-in-policy"></a>Abilitazione dei criteri di scalabilità
 
-Un criterio di scalabilità verticale viene definito nel modello di set di scalabilità delle macchine virtuali. Come indicato nelle sezioni precedenti, è necessaria una definizione dei criteri di scalabilità verticale quando si utilizzano i criteri 'NewestVM' e 'OldestVM'. Il set di scalabilità delle macchine virtuali utilizzerà automaticamente i criteri di scalabilità verticale 'Predefinito' se nel modello del set di scalabilità non viene trovata alcuna definizione di criteri di scalabilità verticale. 
+Un criterio di ridimensionamento viene definito nel modello del set di scalabilità di macchine virtuali. Come indicato nelle sezioni precedenti, quando si usano i criteri ' NewestVM ' è OldestVM ' è necessaria una definizione dei criteri di scalabilità. Il set di scalabilità di macchine virtuali userà automaticamente i criteri di scalabilità "predefiniti" Se nel modello del set di scalabilità non è presente alcuna definizione dei criteri di scalabilità. 
 
-Un criterio di scalabilità verticale può essere definito nel modello di set di scalabilità delle macchine virtuali nei modi seguenti:A scale-in policy can be defined on the virtual machine scale set model in the following ways:
+Un criterio di scalabilità orizzontale può essere definito nel modello di set di scalabilità di macchine virtuali nei modi seguenti:
 
 ### <a name="azure-portal"></a>Portale di Azure
  
-I passaggi seguenti definiscono i criteri di scalabilità verticale durante la creazione di un nuovo set di scalabilità. 
+I passaggi seguenti definiscono i criteri di scalabilità quando si crea un nuovo set di scalabilità. 
  
-1. Passare a Set di **scalabilità macchine virtuali**.
-1. Selezionare **: Aggiungi** per creare un nuovo set di scalabilità.
-1. Passare alla scheda **Ridimensionamento.** 
-1. Individuare la sezione **Dei criteri di scalabilità verticale.**
-1. Selezionare un criterio di scalabilità verticale dall'elenco a discesa.
-1. Al termine della creazione del nuovo set di scalabilità, selezionare il pulsante **Rivedi e crea.**
+1. Passare a **set di scalabilità di macchine virtuali**.
+1. Selezionare **+ Aggiungi** per creare un nuovo set di scalabilità.
+1. Passare alla scheda **scalabilità** . 
+1. Individuare la sezione dei **criteri di ridimensionamento** .
+1. Selezionare un criterio di ridimensionamento nell'elenco a discesa.
+1. Al termine della creazione del nuovo set di scalabilità, selezionare il pulsante **Verifica + crea** .
 
 ### <a name="using-api"></a>Uso dell'API
 
-Eseguire un PUT nel set di scalabilità della macchina virtuale usando API 2019-03-01:Execute a PUT on the virtual machine scale set using API 2019-03-01:
+Eseguire un'istruzione PUT sul set di scalabilità di macchine virtuali usando l'API 2019-03-01:
 
 ```
 PUT
@@ -84,7 +84,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Creare un gruppo di risorse, quindi creare un nuovo set di scalabilità orizzontale con i criteri di scalabilità verticale impostati come *OldestVM*.
+Creare un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità impostati come *OldestVM*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
@@ -97,7 +97,7 @@ New-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-L'esempio seguente aggiunge un criterio di scalabilità orizzontale durante la creazione di un nuovo set di scalabilità. Creare innanzitutto un gruppo di risorse, quindi creare un nuovo set di scalabilità orizzontale con i criteri di scalabilità verticale come *OldestVM*. 
+Nell'esempio seguente viene aggiunto un criterio di scalabilità in durante la creazione di un nuovo set di scalabilità. Creare prima di tutto un gruppo di risorse, quindi creare un nuovo set di scalabilità con i criteri di scalabilità in *OldestVM*. 
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -110,9 +110,9 @@ az vmss create \
   --scale-in-policy OldestVM
 ```
 
-### <a name="using-template"></a>Utilizzo del modello
+### <a name="using-template"></a>Uso del modello
 
-Nel modello, in "proprietà", aggiungere quanto segue:
+Nel modello, in "Properties", aggiungere quanto segue:
 
 ```json
 "scaleInPolicy": {  
@@ -120,30 +120,30 @@ Nel modello, in "proprietà", aggiungere quanto segue:
 }
 ```
 
-I blocchi precedenti specificano che il set di scalabilità della macchina virtuale eliminerà la macchina virtuale meno recente in un set di scalabilità bilanciato per zona, quando viene attivata una scalabilità verticale (tramite scalabilità automatica o eliminazione manuale).
+I blocchi precedenti specificano che il set di scalabilità di macchine virtuali eliminerà la macchina virtuale meno recente in un set di scalabilità con bilanciamento della zona, quando viene attivata una riduzione delle prestazioni (tramite la scalabilità automatica o l'eliminazione manuale).
 
-Quando un set di scalabilità di macchine virtuali non è bilanciato in una zona, il set di scalabilità eliminerà innanzitutto le macchine virtuali nelle zone sbilanciate. All'interno delle zone sbilanciate, il set di scalabilità utilizzerà i criteri di scalabilità in di scalabilità specificati in precedenza per determinare in quale macchina virtuale ridimensionare. In questo caso, all'interno di una zona sbilanciata, il set di scalabilità selezionerà la macchina virtuale meno recente in tale zona da eliminare.
+Quando un set di scalabilità di macchine virtuali non è bilanciato, il set di scalabilità eliminerà prima le macchine virtuali tra le zone sbilanciate. All'interno delle zone sbilanciate, il set di scalabilità userà i criteri di scalabilità specificati sopra per determinare la macchina virtuale di cui eseguire il ridimensionamento. In questo caso, all'interno di una zona sbilanciata, il set di scalabilità selezionerà la macchina virtuale meno recente che si trova in tale zona da eliminare.
 
 Per il set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale meno recente nel set di scalabilità per l'eliminazione.
 
-Lo stesso processo si applica quando si utilizza 'NewestVM' nei criteri di scalabilità precedenti.
+Lo stesso processo si applica quando si usa ' NewestVM ' nei criteri di scalabilità precedenti.
 
-## <a name="modifying-scale-in-policies"></a>Modifica dei criteri di scalabilità verticale
+## <a name="modifying-scale-in-policies"></a>Modifica di criteri di scalabilità
 
-La modifica dei criteri di scalabilità verticale segue lo stesso processo di applicazione dei criteri di scalabilità verticale. Ad esempio, se nell'esempio precedente si desidera modificare il criterio da "OldestVM" a "NewestVM", è possibile farlo:
+La modifica dei criteri di ridimensionamento segue lo stesso processo di applicazione dei criteri di scalabilità. Se, ad esempio, nell'esempio precedente si desidera modificare il criterio da' OldestVM ' a' NewestVM ', è possibile eseguire questa operazione in base a quanto segue:
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-È possibile modificare i criteri di scalabilità verticale di un set di scalabilità esistente tramite il portale di Azure.You can modify the scale-in policy of an existing scale set through the Azure portal. 
+È possibile modificare i criteri di scalabilità di un set di scalabilità esistente tramite il portale di Azure. 
  
-1. In un set di scalabilità di macchine virtuali esistente selezionare **Scalabilità** dal menu a sinistra.
-1. Selezionare la scheda **Criteri di scalabilità verticale.**
-1. Selezionare un criterio di scalabilità verticale dall'elenco a discesa.
+1. In un set di scalabilità di macchine virtuali esistente selezionare **scalabilità** dal menu a sinistra.
+1. Selezionare la scheda **criteri di ridimensionamento** .
+1. Selezionare un criterio di ridimensionamento nell'elenco a discesa.
 1. Al termine, selezionare **Salva**. 
 
 ### <a name="using-api"></a>Uso dell'API
 
-Eseguire un PUT nel set di scalabilità della macchina virtuale usando API 2019-03-01:Execute a PUT on the virtual machine scale set using API 2019-03-01:
+Eseguire un'istruzione PUT sul set di scalabilità di macchine virtuali usando l'API 2019-03-01:
 
 ```
 PUT
@@ -160,7 +160,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Aggiornare i criteri di scalabilità verticale di un set di scalabilità esistente:Update the scale-in policy of an existing scale set:
+Aggiornare i criteri di scalabilità di un set di scalabilità esistente:
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -171,7 +171,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Di seguito è riportato un esempio per l'aggiornamento dei criteri di scalabilità verticale di un set di scalabilità esistente:The following is an example for updating the scale-in policy of an existing scale set: 
+Di seguito è riportato un esempio per l'aggiornamento dei criteri di scalabilità di un set di scalabilità esistente: 
 
 ```azurecli-interactive
 az vmss update \  
@@ -180,9 +180,9 @@ az vmss update \
   --scale-in-policy OldestVM
 ```
 
-### <a name="using-template"></a>Utilizzo del modello
+### <a name="using-template"></a>Uso del modello
 
-Nel modello, in "proprietà", modificare il modello come indicato di seguito e ridistribuire: 
+Nel modello, in "Properties", modificare il modello come riportato di seguito e ridistribuire: 
 
 ```json
 "scaleInPolicy": {  
@@ -190,56 +190,56 @@ Nel modello, in "proprietà", modificare il modello come indicato di seguito e r
 } 
 ```
 
-Lo stesso processo si applicherà se si decide di modificare 'NewestVM' su 'Default' o 'OldestVM'
+Se si decide di modificare ' NewestVM ' in ' default ' o ' OldestVM ', viene applicato lo stesso processo
 
-## <a name="instance-protection-and-scale-in-policy"></a>Protezione delle istanze e criteri di scalabilità verticale
+## <a name="instance-protection-and-scale-in-policy"></a>Criteri di protezione dell'istanza e di ridimensionamento
 
-I set di scalabilità delle macchine virtuali forniscono due tipi di [protezione dell'istanza:](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection)
+I set di scalabilità di macchine virtuali forniscono due tipi di [protezione dell'istanza](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection):
 
-1. Proteggere dalla scalabilità verticale
-2. Proteggere dalle azioni predefinite
+1. Proteggi dalla scalabilità
+2. Proteggi da azioni di set di scalabilità
 
-Una macchina virtuale protetta non viene eliminata tramite un'azione di scalabilità verticale, indipendentemente dal criterio di scalabilità verticale applicato. Ad esempio, se VM_0 (la macchina virtuale meno recente nel set di scalabilità) è protetta dalla scalabilità verticale e il set di scalabilità è abilitato per i criteri di scalabilità 'OldestVM', VM_0 non verrà considerato per la scalabilità, anche se è la macchina virtuale meno recente nel set di scalabilità. 
+Una macchina virtuale protetta non viene eliminata tramite un'azione di riduzione delle prestazioni, a prescindere dai criteri di scalabilità applicati. Se, ad esempio, VM_0 (macchina virtuale meno recente nel set di scalabilità) è protetta dal ridimensionamento e nel set di scalabilità sono abilitati i criteri di scalabilità "OldestVM", VM_0 non verranno presi in considerazione per la scalabilità in, anche se si tratta della macchina virtuale meno recente nel set di scalabilità. 
 
-Una macchina virtuale protetta può essere eliminata manualmente dall'utente in qualsiasi momento, indipendentemente dai criteri di scalabilità verticale abilitati nel set di scalabilità. 
+Una macchina virtuale protetta può essere eliminata manualmente dall'utente in qualsiasi momento, indipendentemente dai criteri di ridimensionamento abilitati nel set di scalabilità. 
 
 ## <a name="usage-examples"></a>Esempi di utilizzo 
 
-Gli esempi seguenti illustrano come un set di scalabilità di macchine virtuali selezionerà le macchine virtuali da eliminare quando viene attivato un evento di scalabilità verticale. Si presuppone che le macchine virtuali con gli ID istanza più elevati siano le macchine virtuali più recenti nel set di scalabilità e che le macchine virtuali con ID istanza più piccolo siano le macchine virtuali meno recenti nel set di scalabilità. 
+Gli esempi seguenti illustrano come un set di scalabilità di macchine virtuali selezioni le VM da eliminare quando viene attivato un evento di scalabilità. Si presuppone che le macchine virtuali con gli ID istanza più elevati siano le VM più recenti nel set di scalabilità e che le VM con gli ID di istanza più piccoli siano le macchine virtuali meno recenti del set di scalabilità. 
 
-### <a name="oldestvm-scale-in-policy"></a>Criteri di scalabilità verticale OldestVM
+### <a name="oldestvm-scale-in-policy"></a>Criteri di ridimensionamento OldestVM
 
-| Event                 | ID istanza nella zona 1  | ID istanza nella zona 2  | ID istanza nella zona 3  | Selezione scale-in                                                                                                               |
+| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Scalabilità verticale              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Scegliere tra la zona 1 e 2, anche se la zona 3 ha la macchina virtuale meno recente. Eliminare VM2 dalla zona 2 perché è la macchina virtuale meno recente in tale zona.   |
-| Scalabilità verticale              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Scegliere la zona 1 anche se la zona 3 include la macchina virtuale meno recente. Eliminare VM3 dalla zona 1 poiché è la macchina virtuale meno recente in tale zona.                  |
-| Scalabilità verticale              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Le zone sono equilibrate. Eliminare VM1 nella zona 3 poiché è la macchina virtuale meno recente nel set di scalabilità.                                               |
-| Scalabilità verticale              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Scegliere tra la zona 1 e la zona 2. Eliminare VM4 nella zona 1 poiché è la macchina virtuale meno recente nelle due zone.                              |
-| Scalabilità verticale              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Scegliere la zona 2 anche se la zona 1 include la macchina virtuale meno recente. Eliminare VM6 nella zona 1 poiché è la macchina virtuale meno recente in tale zona.                    |
-| Scalabilità verticale              | ***5***, 10            | 9, 11                  | 7, 8                   | Le zone sono equilibrate. Eliminare VM5 nella zona 1 poiché è la macchina virtuale meno recente nel set di scalabilità.                                                |
+| Ridimensionamento              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Scegliere tra Zona 1 e 2, anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM2 da Zona 2 perché si tratta della macchina virtuale meno recente in tale zona.   |
+| Ridimensionamento              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Scegliere Zona 1 anche se Zona 3 dispone della macchina virtuale meno recente. Eliminare VM3 da Zona 1 perché si tratta della macchina virtuale meno recente in tale zona.                  |
+| Ridimensionamento              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Le zone sono bilanciate. Eliminare VM1 in Zona 3 perché si tratta della macchina virtuale meno recente nel set di scalabilità.                                               |
+| Ridimensionamento              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Scegliere tra Zona 1 e Zona 2. Eliminare VM4 in Zona 1 perché si tratta della macchina virtuale meno recente tra le due zone.                              |
+| Ridimensionamento              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Scegliere Zona 2 anche se Zona 1 dispone della macchina virtuale meno recente. Eliminare la VM6 È in Zona 1 perché si tratta della macchina virtuale meno recente in tale zona.                    |
+| Ridimensionamento              | ***5***, 10            | 9, 11                  | 7, 8                   | Le zone sono bilanciate. Eliminare VM5 in Zona 1 perché si tratta della macchina virtuale meno recente nel set di scalabilità.                                                |
 
-Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale meno recente nel set di scalabilità per l'eliminazione. Qualsiasi macchina virtuale "protetta" verrà ignorata per l'eliminazione.
+Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale meno recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione.
 
-### <a name="newestvm-scale-in-policy"></a>Criteri di scalabilità verticale più recente
+### <a name="newestvm-scale-in-policy"></a>Criteri di ridimensionamento NewestVM
 
-| Event                 | ID istanza nella zona 1  | ID istanza nella zona 2  | ID istanza nella zona 3  | Selezione scale-in                                                                                                               |
+| Event                 | ID istanza in zona 1  | ID istanza in zona 2  | ID istanza in zona 3  | Selezione con scalabilità                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Scalabilità verticale              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Scegliere tra le zone 1 e 2. Eliminare VM11 dalla zona 2 in quanto è la macchina virtuale più recente nelle due aree.                                |
-| Scalabilità verticale              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Scegliere la zona 1 in quanto contiene più macchine virtuali rispetto alle altre due zone. Eliminare VM10 dalla zona 1 in quanto è la macchina virtuale più recente in tale zona.          |
-| Scalabilità verticale              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Le zone sono equilibrate. Eliminare VM9 nella zona 2 in quanto è la macchina virtuale più recente nel set di scalabilità.                                                |
-| Scalabilità verticale              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Scegliere tra la zona 1 e la zona 3. Eliminare VM8 nella zona 3 in quanto è la macchina virtuale più recente in tale zona.                                      |
-| Scalabilità verticale              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Scegliere la zona 1 anche se la zona 3 contiene la macchina virtuale più recente. Eliminare VM5 nella zona 1 in quanto è la macchina virtuale più recente in tale zona.                    |
-| Scalabilità verticale              | 3, 4                   | 2, 6                   | 1, ***7***             | Le zone sono equilibrate. Eliminare VM7 nella zona 3 in quanto è la macchina virtuale più recente nel set di scalabilità.                                                |
+| Ridimensionamento              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Scegliere tra Zona 1 e 2. Eliminare da VM11 da Zona 2 perché è la macchina virtuale più recente tra le due zone.                                |
+| Ridimensionamento              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Scegliere Zona 1 perché contiene più macchine virtuali rispetto alle altre due zone. Eliminare VM10 da Zona 1 perché è la macchina virtuale più recente in tale zona.          |
+| Ridimensionamento              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Le zone sono bilanciate. Eliminare VM9 in Zona 2 perché è la macchina virtuale più recente nel set di scalabilità.                                                |
+| Ridimensionamento              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Scegliere tra Zona 1 e Zona 3. Eliminare VM8 in Zona 3 perché è la macchina virtuale più recente in tale zona.                                      |
+| Ridimensionamento              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Scegliere Zona 1 anche se Zona 3 dispone della VM più recente. Eliminare VM5 in Zona 1 perché è la macchina virtuale più recente in tale zona.                    |
+| Ridimensionamento              | 3, 4                   | 2, 6                   | 1, ***7***             | Le zone sono bilanciate. Eliminare VM7 in Zona 3 perché è la macchina virtuale più recente nel set di scalabilità.                                                |
 
-Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale più recente nel set di scalabilità per l'eliminazione. Qualsiasi macchina virtuale "protetta" verrà ignorata per l'eliminazione. 
+Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale più recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione. 
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
-1. Impossibile abilitare scaleInPolicy Se viene visualizzato un errore 'BadRequest' con un messaggio di errore che indica che non è possibile trovare il membro 'scaleInPolicy' nell'oggetto di tipo 'properties'", quindi controllare la versione dell'API utilizzata per il set di scalabilità della macchina virtuale. Per questa funzionalità è necessaria la versione API 2019-03-01 o successiva.
+1. Errore di abilitazione di scaleInPolicy se viene visualizzato un errore ' richiesta non valida ' con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scaleInPolicy ' nell'oggetto di tipo ' Properties '", quindi controllare la versione dell'API usata per il set di scalabilità di macchine virtuali. Per questa funzionalità è necessaria l'API versione 2019-03-01 o successiva.
 
-2. Selezione errata di macchine virtuali per la scalabilità verticale Fare riferimento agli esempi precedenti. Se il set di scalabilità di macchine virtuali è una distribuzione zonale, i criteri di scalabilità verticale vengono applicati prima alle zone sbilanciate e quindi nel set di scalabilità una volta bilanciato la zona. Se l'ordine di scalabilità orizzontale non è coerente con gli esempi precedenti, generare una query con il team del set di scalabilità della macchina virtuale per la risoluzione dei problemi.
+2. Selezione errata delle VM per la scalabilità. vedere gli esempi precedenti. Se il set di scalabilità di macchine virtuali è una distribuzione di zona, i criteri di riduzione delle prestazioni vengono applicati per primi alle zone sbilanciate e quindi al set di scalabilità quando viene bilanciato con la zona. Se l'ordine di ridimensionamento non è coerente con gli esempi precedenti, generare una query con il team del set di scalabilità di macchine virtuali per la risoluzione dei problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

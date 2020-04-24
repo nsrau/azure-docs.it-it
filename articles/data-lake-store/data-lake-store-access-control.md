@@ -124,7 +124,7 @@ L'utente che ha creato l'elemento ne è automaticamente l'utente proprietario. U
 
 ### <a name="the-owning-group"></a>Gruppo proprietario
 
-**Priorità bassa**
+**Background**
 
 Negli ACL POSIX ogni utente è associato a un "gruppo primario". L'utente "alice", ad esempio, può appartenere al gruppo "finanza". Alice può anche appartenere a più gruppi, ma uno solo è sempre designato come il suo gruppo primario. Quando Alice crea un file in POSIX, come gruppo proprietario del file viene impostato il gruppo primario di Alice, in questo caso "finanza". Il gruppo proprietario si comporta in modo analogo alle autorizzazioni assegnate per altri utenti o gruppi.
 
@@ -216,9 +216,9 @@ Quando si crea un nuovo file o una nuova cartella in una cartella esistente, l'A
 
 ### <a name="umask"></a>umask
 
-Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit nelle cartelle padre che contiene un valore RWX per **il proprietario dell'utente**, il **gruppo**proprietario e **altri**file .
+Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit per le cartelle padre che contiene un valore RWX per l' **utente proprietario**, il **gruppo proprietario**e **altro**.
 
-Umask per Azure Data Lake Storage Gen1 è un valore costante impostato su 007.The umask for Azure Data Lake Storage Gen1 is a constant value set to 007. Questo valore viene convertito in
+Umask per Azure Data Lake Storage Gen1 è un valore costante impostato su 007. Questo valore viene convertito in
 
 | componente umask     | Forma numerica | Forma breve | Significato |
 |---------------------|--------------|------------|---------|
@@ -297,6 +297,6 @@ No, ma gli ACL predefiniti possono essere usati per impostare gli ACL per i file
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)

@@ -17,9 +17,9 @@ ms.locfileid: "79129397"
 ---
 ## <a name="resources-for-development-with-net"></a>Risorse per lo sviluppo con .NET
 
-I collegamenti seguenti forniscono risorse utili per gli sviluppatori che usano la libreria client di Archiviazione di Azure per .NET.
+I collegamenti seguenti forniscono risorse utili per gli sviluppatori che usano la libreria client di archiviazione di Azure per .NET.
 
-### <a name="azure-storage-common-apis"></a>API comuni di Archiviazione di AzureAzure Storage common APIs
+### <a name="azure-storage-common-apis"></a>API comuni di archiviazione di Azure
 
 - [Documentazione di riferimento delle API](/dotnet/api/overview/azure/storage)
 - [Codice sorgente della libreria](https://github.com/Azure/azure-storage-net/tree/master/Common)
@@ -29,8 +29,8 @@ I collegamenti seguenti forniscono risorse utili per gli sviluppatori che usano 
 
 - [Documentazione di riferimento delle API](/dotnet/api/overview/azure/storage)
 - [Codice sorgente della libreria](https://github.com/Azure/azure-storage-net/tree/master/Blob)
-- [Pacchetto (NuGet) per la versione 11.xPackage (NuGet) for version 11.x](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-- [Pacchetto (NuGet) per la versione 12.xPackage (NuGet) for version 12.x](https://www.nuget.org/packages/Azure.Storage.Blobs)
+- [Pacchetto (NuGet) per la versione 11. x](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+- [Pacchetto (NuGet) per la versione 12. x](https://www.nuget.org/packages/Azure.Storage.Blobs)
 - [Esempi](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 ### <a name="net-tools"></a>Strumenti .NET

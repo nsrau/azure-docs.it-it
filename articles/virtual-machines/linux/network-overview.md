@@ -1,5 +1,5 @@
 ---
-title: Virtual networks and Linux virtual machines in Azure
+title: Reti virtuali e macchine virtuali Linux in Azure
 description: Informazioni di base sulle reti per la creazione di macchine virtuali Linux in Azure.
 services: virtual-machines
 author: cynthn

@@ -1,6 +1,6 @@
 ---
-title: Azure Queue storage trigger for Azure Functions
-description: Informazioni sull'esecuzione di una funzione di Azure quando cambiano i dati di archiviazione della coda di Azure.Learn to run an Azure Function as Azure Queue storage data changes.
+title: Trigger di archiviazione code di Azure per funzioni di Azure
+description: Informazioni su come eseguire una funzione di Azure come modifiche ai dati di archiviazione di Accodamento di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
@@ -13,9 +13,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277375"
 ---
-# <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Queue storage trigger for Azure Functions
+# <a name="azure-queue-storage-trigger-for-azure-functions"></a>Trigger di archiviazione code di Azure per funzioni di Azure
 
-Il trigger di archiviazione della coda esegue una funzione quando i messaggi vengono aggiunti all'archiviazione delle code di Azure.The queue storage trigger runs a function as messages are added to Azure Queue storage.
+Il trigger di archiviazione code esegue una funzione quando i messaggi vengono aggiunti all'archiviazione code di Azure.
 
 ## <a name="encoding"></a>Codifica
 
@@ -25,7 +25,7 @@ Le funzioni richiedono una stringa codificata *base64*. Le modifiche al tipo di 
 
 Usare il trigger della coda per avviare una funzione quando viene ricevuto un nuovo elemento in una coda. Il messaggio in coda viene fornito come input alla funzione.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
@@ -97,7 +97,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 Nella sezione [usage](#usage) è illustrato `myQueueItem`, denominato dalla proprietà `name` in function.json.  Nella sezione [message metadata](#message-metadata) sono illustrate tutte le altre variabili indicate.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
@@ -146,7 +146,7 @@ Nella sezione [usage](#usage) è illustrato `myQueueItem`, denominato dalla prop
 
 Nell'esempio seguente viene illustrato come leggere un messaggio della coda passato a una funzione tramite un trigger.
 
-Un trigger della coda di archiviazione *type* viene definito `queueTrigger`in *function.json* dove type è impostato su .
+Un trigger della coda di archiviazione è definito in *Function. JSON,* dove *Type* è impostato su `queueTrigger`.
 
 ```json
 {
@@ -163,7 +163,7 @@ Un trigger della coda di archiviazione *type* viene definito `queueTrigger`in *f
 }
 ```
 
-Il codice * _ \_init_\_.py* dichiara `func.ServiceBusMessage`un parametro come , che consente di leggere il messaggio della coda nella funzione.
+Il codice * _ \_init_\_. py* dichiara un parametro come `func.ServiceBusMessage`, che consente di leggere il messaggio della coda nella funzione.
 
 ```python
 import logging
@@ -192,7 +192,7 @@ def main(msg: func.QueueMessage):
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nell'esempio Java riportato di seguito viene illustrata una `myqueuename`funzione di trigger della coda di archiviazione, che registra il messaggio attivato inserito nella coda.
+Nell'esempio Java seguente viene illustrata una funzione trigger della coda di archiviazione che registra il messaggio attivato inserito `myqueuename`nella coda.
 
  ```java
  @FunctionName("queueprocessor")
@@ -210,7 +210,7 @@ Nell'esempio Java riportato di seguito viene illustrata una `myqueuename`funzion
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare i seguenti attributi per configurare un trigger di coda:
 
@@ -228,7 +228,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare i seguent
   }
   ```
 
-  È possibile `Connection` impostare la proprietà per specificare l'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione da usare, come illustrato nell'esempio seguente:You can set the property to specify the app setting that contains the storage account connection string to use, as shown in the following example:
+  È possibile impostare la `Connection` proprietà per specificare l'impostazione dell'app che contiene la stringa di connessione dell'account di archiviazione da usare, come illustrato nell'esempio seguente:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -240,7 +240,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare i seguent
   }
   ```
 
-  Per un esempio completo, vedere [esempio](#example).
+  Per un esempio completo, vedere l' [esempio](#example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -268,9 +268,9 @@ L'account di archiviazione da usare è determinato nell'ordine seguente:
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script di C.
+Gli attributi non sono supportati dallo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -280,7 +280,7 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione `QueueTrigger` consente di accedere alla coda che attiva la funzione. L'esempio seguente rende il messaggio della `message` coda disponibile per la funzione tramite il parametro .
+L' `QueueTrigger` annotazione consente di accedere alla coda che attiva la funzione. Nell'esempio seguente il messaggio della coda viene reso disponibile alla funzione tramite `message` il parametro.
 
 ```java
 package com.function;
@@ -301,7 +301,7 @@ public class QueueTriggerDemo {
 
 | Proprietà    | Descrizione |
 |-------------|-----------------------------|
-|`name`       | Dichiara il nome del parametro nella firma della funzione. Quando la funzione viene attivata, il valore di questo parametro ha il contenuto del messaggio della coda. |
+|`name`       | Dichiara il nome del parametro nella firma della funzione. Quando la funzione viene attivata, il valore di questo parametro presenta il contenuto del messaggio della coda. |
 |`queueName`  | Dichiara il nome della coda nell'account di archiviazione. |
 |`connection` | Punta alla stringa di connessione dell'account di archiviazione. |
 
@@ -309,49 +309,49 @@ public class QueueTriggerDemo {
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `QueueTrigger` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `QueueTrigger` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d| Il valore deve essere impostato su `queueTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direction**| n/d | Solo nel file *function.json*. Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**direzione**| n/d | Solo nel file *function.json*. Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**name** | n/d |Nome della variabile che contiene il payload dell'elemento della coda nel codice della funzione.  |
-|**Queuename** | **QueueName**| Nome della coda sulla quale eseguire il polling. |
-|**Connessione** | **Connessione** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se `connection` si imposta "MyStorage", il runtime di Funzioni cerca un'impostazione dell'app denominata "MyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**queueName** | **QueueName**| Nome della coda sulla quale eseguire il polling. |
+|**connection** | **Connessione** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Accedere ai dati del messaggio `string paramName`utilizzando un parametro del metodo, ad esempio . È possibile definire associazioni con uno dei seguenti tipi:
+Accedere ai dati del messaggio usando un parametro di metodo, `string paramName`ad esempio. È possibile definire associazioni con uno dei seguenti tipi:
 
 * Object: il runtime di Funzioni deserializza un payload JSON in un'istanza di una classe arbitraria definita nel codice. 
 * `string`
 * `byte[]`
-* [Messaggio relativo a CloudQueueMessage]
+* [CloudQueueMessage]
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Accedere ai dati del messaggio `string paramName`utilizzando un parametro del metodo, ad esempio . Il `paramName` è il valore `name` specificato nella proprietà di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+Accedere ai dati del messaggio usando un parametro di metodo, `string paramName`ad esempio. `paramName` È il valore specificato nella `name` proprietà di *Function. JSON*. È possibile definire associazioni con uno dei seguenti tipi:
 
 * Object: il runtime di Funzioni deserializza un payload JSON in un'istanza di una classe arbitraria definita nel codice. 
 * `string`
 * `byte[]`
-* [Messaggio relativo a CloudQueueMessage]
+* [CloudQueueMessage]
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il payload dell'elemento `context.bindings.<NAME>` `<NAME>` della coda è disponibile tramite il punto in cui corrisponde al nome definito in *function.json*. Se il payload è JSON, il valore viene deserializzato in un oggetto.
+Il payload dell'elemento della coda è `context.bindings.<NAME>` disponibile `<NAME>` tramite dove corrisponde al nome definito in *Function. JSON*. Se il payload è JSON, il valore viene deserializzato in un oggetto.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Accedere al messaggio della coda tramite il parametro tipizzato [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+Accedere al messaggio della coda tramite il parametro tipizzato come [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -359,13 +359,13 @@ L'annotazione [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.a
 
 ---
 
-## <a name="message-metadata"></a>Metadati del messaggioMessage metadata
+## <a name="message-metadata"></a>Metadati del messaggio
 
-Il trigger della coda fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Le proprietà sono membri della classe [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
+Il trigger della coda fornisce diverse [proprietà di metadati](./functions-bindings-expressions-patterns.md#trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Le proprietà sono membri della classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
 |Proprietà|Type|Descrizione|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Payload della coda, se si tratta di una stringa valida. Se il payload del messaggio `QueueTrigger` della coda è una stringa, ha lo stesso valore della variabile denominata dalla `name` proprietà in *function.json*.|
+|`QueueTrigger`|`string`|Payload della coda, se si tratta di una stringa valida. Se il payload del messaggio della coda è una `QueueTrigger` stringa, ha lo stesso valore della variabile denominata dalla `name` proprietà in *Function. JSON*.|
 |`DequeueCount`|`int`|Il numero di volte in cui questo messaggio è stato rimosso dalla coda.|
 |`ExpirationTime`|`DateTimeOffset`|Ora di scadenza del messaggio.|
 |`Id`|`string`|ID del messaggio in coda.|
@@ -375,7 +375,7 @@ Il trigger della coda fornisce diverse [proprietà di metadati](./functions-bind
 
 ## <a name="poison-messages"></a>Messaggi non elaborabili
 
-Quando una funzione di trigger della coda ha esito negativo, Funzioni di Azure ritenta l'esecuzione fino a cinque volte per un dato messaggio della coda, incluso il primo tentativo. Se tutti e cinque i tentativi hanno esito negativo, il runtime delle funzioni aggiunge un messaggio a una coda denominata * &lt;originalqueuename>-poison*. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
+Quando una funzione di trigger della coda ha esito negativo, Funzioni di Azure ritenta l'esecuzione fino a cinque volte per un dato messaggio della coda, incluso il primo tentativo. Se tutti i cinque tentativi hanno esito negativo, il runtime di funzioni aggiunge un messaggio a una coda denominata * &lt;nomecodaoriginale>-Poison*. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
 
 Per gestire manualmente i messaggi non elaborabili, controllare [dequeueCount](#message-metadata) nel messaggio della coda.
 
@@ -383,16 +383,16 @@ Per gestire manualmente i messaggi non elaborabili, controllare [dequeueCount](#
 
 Il trigger della coda implementa un algoritmo di backoff esponenziale casuale per ridurre l'effetto del polling delle code inattive sui costi delle transazioni di archiviazione.
 
-L'algoritmo utilizza la logica seguente:The algorithm uses the following logic:
+L'algoritmo usa la logica seguente:
 
-- Quando viene trovato un messaggio, il runtime attende due secondi e quindi verifica la presenza di un altro messaggio
-- Quando non viene trovato alcun messaggio, attende circa quattro secondi prima di riprovare.
+- Quando viene trovato un messaggio, il runtime attende due secondi e quindi controlla la presenza di un altro messaggio
+- Quando non viene trovato alcun messaggio, resta in attesa circa quattro secondi prima di riprovare.
 - Dopo alcuni tentativi non riusciti per ottenere un messaggio nella coda, il tempo di attesa continua ad aumentare finché non raggiunge il tempo massimo di attesa, che per impostazione predefinita è di un minuto.
 - Il tempo di attesa massimo può essere configurato tramite la proprietà `maxPollingInterval` nel [file host.json](functions-host-json.md#queues).
 
-Per lo sviluppo locale l'intervallo di polling massimo per impostazione predefinita è di due secondi.
+Per lo sviluppo locale, l'intervallo di polling massimo viene impostato su due secondi.
 
-Per quanto riguarda la fatturazione, il tempo trascorso dal polling da parte del runtime è "gratuito" e non conteggiato con il tuo account.
+Per quanto riguarda la fatturazione, il polling del tempo impiegato dal runtime è "gratuito" e non viene conteggiato per l'account.
 
 ## <a name="concurrency"></a>Concorrenza
 
@@ -402,14 +402,14 @@ La dimensione del batch e la soglia ottenere un nuovo batch possono essere confi
 
 Il trigger della coda impedisce automaticamente a una funzione di elaborare un messaggio della coda più volte. Le funzioni non devono essere scritte per essere idempotenti.
 
-## <a name="hostjson-properties"></a>proprietà host.json
+## <a name="hostjson-properties"></a>Proprietà host. JSON
 
-Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che controllano il comportamento del trigger della coda. Vedere la sezione [impostazioni host.json](functions-bindings-storage-queue-output.md#hostjson-settings) per informazioni dettagliate sulle impostazioni disponibili.
+Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che controllano il comportamento del trigger della coda. Per informazioni dettagliate sulle impostazioni disponibili, vedere la sezione [impostazioni di host. JSON](functions-bindings-storage-queue-output.md#hostjson-settings) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scrivere i messaggi di archiviazione della coda (associazione di output)Write queue storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Scrivi messaggi di archiviazione code (associazione di output)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 
-[Messaggio relativo a CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

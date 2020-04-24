@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop host pool load-balancing - Azure
-description: Metodi di bilanciamento del carico del pool host per un ambiente Windows Virtual Desktop.Host pool load-balancing methods for a Windows Virtual Desktop environment.
+title: Bilanciamento del carico del pool host del desktop virtuale Windows-Azure
+description: Metodi di bilanciamento del carico del pool host per un ambiente desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -17,26 +17,26 @@ ms.locfileid: "79127866"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Metodo di bilanciamento del carico per i pool di host
 
-Windows Virtual Desktop supporta due metodi di bilanciamento del carico. Ogni metodo determina quale host di sessione ospiterà la sessione di un utente quando si connette a una risorsa in un pool host.
+Il desktop virtuale Windows supporta due metodi di bilanciamento del carico. Ogni metodo determina quale host sessione ospiterà la sessione di un utente quando si connetteranno a una risorsa in un pool host.
 
-In Windows Virtual Desktop sono disponibili i seguenti metodi di bilanciamento del carico:
+Nel desktop virtuale di Windows sono disponibili i metodi di bilanciamento del carico seguenti:
 
-- Il bilanciamento del carico breadth-first consente di distribuire uniformemente le sessioni utente tra gli host di sessione in un pool host.
-- Il bilanciamento del carico con profondità consente di saturare un host di sessione con sessioni utente in un pool host. Quando la prima sessione raggiunge la soglia del limite di sessione, il servizio di bilanciamento del carico indirizza tutte le nuove connessioni utente all'host della sessione successiva nel pool host fino a quando non raggiunge il limite e così via.
+- Il bilanciamento del carico con il primo livello consente di distribuire uniformemente le sessioni utente tra gli host della sessione in un pool host.
+- Il bilanciamento del carico depth-first consente di saturare un host sessione con sessioni utente in un pool host. Una volta che la prima sessione raggiunge la soglia di limite della sessione, il servizio di bilanciamento del carico indirizza le nuove connessioni utente all'host della sessione successiva nel pool host fino al raggiungimento del limite e così via.
 
-Ogni pool host può configurare un solo tipo di bilanciamento del carico specifico. Tuttavia, entrambi i metodi di bilanciamento del carico condividono i comportamenti seguenti indipendentemente dal pool host in cui si trovano:However, both load-balancing methods share the following behaviors indipendentemente dal pool host in cui si trovano:
+Ogni pool host può configurare solo un tipo di bilanciamento del carico specifico. Tuttavia, entrambi i metodi di bilanciamento del carico condividono i comportamenti seguenti indipendentemente dal pool host in cui si trovano:
 
-- Se un utente ha già una sessione nel pool host e si riconnette a tale sessione, il servizio di bilanciamento del carico li reindirizzerà correttamente all'host della sessione con la sessione esistente. Questo comportamento si applica anche se la proprietà AllowNewConnections dell'host di sessione è impostata su False.This behavior applies even if that session host's AllowNewConnections property is set to False.
-- Se un utente non dispone già di una sessione nel pool host, il servizio di bilanciamento del carico non considererà gli host di sessione la cui proprietà AllowNewConnections è impostata su False durante il bilanciamento del carico.
+- Se un utente dispone già di una sessione nel pool host e si sta riconnettendo a tale sessione, il servizio di bilanciamento del carico reinstallerà correttamente l'host sessione con la sessione esistente. Questo comportamento si applica anche se la proprietà AllowNewConnections dell'host sessione è impostata su false.
+- Se un utente non dispone già di una sessione nel pool host, il servizio di bilanciamento del carico non considera gli host di sessione la cui proprietà AllowNewConnections è impostata su false durante il bilanciamento del carico.
 
-## <a name="breadth-first-load-balancing-method"></a>Metodo di bilanciamento del carico Breadth-first
+## <a name="breadth-first-load-balancing-method"></a>Metodo di bilanciamento del carico di primo respiro
 
-Il metodo di bilanciamento del carico in base all'ampiezza consente di distribuire le connessioni utente da ottimizzare per questo scenario. Questo metodo è ideale per le organizzazioni che desiderano offrire la migliore esperienza per gli utenti che si connettono al proprio ambiente desktop virtuale in pool.
+Il metodo di bilanciamento del carico con la prima larghezza consente di distribuire le connessioni utente per ottimizzare questo scenario. Questo metodo è ideale per le organizzazioni che desiderano offrire la migliore esperienza per gli utenti che si connettono al proprio ambiente di desktop virtuale in pool.
 
-Il metodo breadth-first esegue prima una query su host di sessione che consentono nuove connessioni. Il metodo seleziona quindi l'host della sessione con il minor numero di sessioni. Se è presente un pareggio, il metodo seleziona il primo host di sessione nella query.
+Il metodo di primo respiro esegue prima una query sugli host di sessione che consentono nuove connessioni. Il metodo seleziona quindi l'host della sessione con il minor numero di sessioni. Se è presente una cravatta, il metodo seleziona il primo host sessione nella query.
 
-## <a name="depth-first-load-balancing-method"></a>Metodo di bilanciamento del carico con primo profondità
+## <a name="depth-first-load-balancing-method"></a>Metodo di bilanciamento del carico depth-first
 
-Il metodo di bilanciamento del carico con priorità di primo utilizzo consente di saturare un host di sessione alla volta per ottimizzare questo scenario. Questo metodo è ideale per le organizzazioni consapevoli dei costi che desiderano un controllo più granulare sul numero di macchine virtuali allocate per un pool host.
+Il metodo di bilanciamento del carico depth-first consente di saturare un host di sessione alla volta per l'ottimizzazione per questo scenario. Questo metodo è ideale per le organizzazioni con costi ridotti che vogliono un controllo più granulare sul numero di macchine virtuali allocate per un pool host.
 
-Il metodo depth-first esegue innanzitutto una query sugli host di sessione che consentono nuove connessioni e non hanno superato il limite massimo di sessioni. Il metodo seleziona quindi l'host della sessione con il maggior numero di sessioni. Se è presente un pareggio, il metodo seleziona il primo host di sessione nella query.
+Il metodo depth-first esegue prima una query sugli host di sessione che consentono nuove connessioni e non hanno superato il limite massimo di sessioni. Il metodo seleziona quindi l'host della sessione con il numero più elevato di sessioni. Se è presente una cravatta, il metodo seleziona il primo host della sessione nella query.

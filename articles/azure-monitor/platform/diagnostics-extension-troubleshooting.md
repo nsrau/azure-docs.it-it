@@ -33,7 +33,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\ |
 | **Archivio locale dei dati di diagnostica** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<NomeRuolo>.DiagnosticStore\WAD0107\Tables |
 | **File di configurazione dell'agente di monitoraggio** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<NomeRuolo>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Pacchetto di estensione di Diagnostica di AzureAzure Diagnostics extension package** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione> |
+| **Pacchetto di estensione Diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione> |
 | **Percorso dell'utilità di raccolta dei log** | %SystemDrive%\Packages\GuestAgent\ |
 | **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
@@ -45,18 +45,18 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **Archivio locale dei dati di diagnostica** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>\WAD0107\Tables |
 | **File di configurazione dell'agente di monitoraggio** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>\WAD0107\Configuration\MaConfig.xml |
 | **File di stato** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\Status |
-| **Pacchetto di estensione di Diagnostica di AzureAzure Diagnostics extension package** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>|
-| **Percorso dell'utilità di raccolta dei log** | File di registro C: |
+| **Pacchetto di estensione Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>|
+| **Percorso dell'utilità di raccolta dei log** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mancata visualizzazione dei dati relativi alle metriche nel portale di Azure
-Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi con la visualizzazione\* dei dati nel portale, controllare la tabella WADMetrics nell'account di archiviazione di Diagnostica di Azure per verificare se i record di metrica corrispondenti sono presenti e verificare che il provider di [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft.Insights sia registrato.
+Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi durante la visualizzazione dei dati nel portale, controllare\* la tabella WADMetrics nell'account di archiviazione diagnostica di Azure per verificare se sono presenti i record delle metriche corrispondenti e assicurarsi che il [provider di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. Insights sia registrato.
 
 Il valore **PartitionKey** della tabella è l'ID risorsa, la macchina virtuale o il set di scalabilità di macchine virtuali. **RowKey** è il nome della metrica (detto anche nome del contatore delle prestazioni).
 
 Se l'ID risorsa non è corretto, controllare in **Diagnostics** **Configuration** (Configurazione di diagnostica) > **Metriche** > **ResourceId** se l'ID risorsa è impostato correttamente.
 
-Se non sono presenti dati per la metrica specifica, controllare**PerformanceCounter** di **configurazione** > della diagnostica per verificare se la metrica (contatore delle prestazioni) è inclusa. Per impostazione predefinita sono abilitati i contatori seguenti:
+Se non sono presenti dati per la metrica specifica, controllare la **configurazione** > della diagnostica**PerformanceCounter** per verificare se la metrica (contatore delle prestazioni) è inclusa. Per impostazione predefinita sono abilitati i contatori seguenti:
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
@@ -70,7 +70,7 @@ Se non sono presenti dati per la metrica specifica, controllare**PerformanceCoun
 - \Process(WaWorkerHost)\% Processor Time
 - \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page Faults/sec
-- \.Net CLR_Global_Memory(\% Global ) Tempo in GC
+- \.Tempo di memoria CLR_Global_.NET (\% globale) in GC
 - \LogicalDisk(C:)\Disk Write Bytes/sec
 - \LogicalDisk(C:)\Disk Read Bytes/sec
 - \LogicalDisk(D:)\Disk Write Bytes/sec
@@ -79,7 +79,7 @@ Se non sono presenti dati per la metrica specifica, controllare**PerformanceCoun
 Se la configurazione è impostata correttamente ma i dati relativi alle metriche non vengono comunque visualizzati, usare le linee guida seguenti per risolvere il problema.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Diagnostica di Azure non viene avviataAzure Diagnostics is not starting
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnostica di Azure non viene avviato
 Per informazioni sui motivi per cui non è stato possibile avviare Diagnostica di Azure, vedere i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** nel percorso dei file di log riportati in precedenza.
 
 Se questi log indicano `Monitoring Agent not reporting success after launch`, significa che si è verificato un errore di avvio di MonAgentHost.exe. Esaminare i log nel percorso indicato per `MonAgentHost log file` nella sezione precedente.
@@ -102,15 +102,15 @@ La causa più comune per cui non viene visualizzato alcun dato di eventi è la d
 
 Soluzione: correggere la configurazione della diagnostica e reinstallare Diagnostica.
 
-Se l'account di archiviazione è configurato correttamente, l'accesso remoto nel computer e verificare che *DiagnosticsPlugin.exe* e *MonAgentCore.exe* siano in esecuzione. Se non sono in esecuzione, seguire i passaggi descritti in [Diagnostica di Azure non viene avviato.](#azure-diagnostics-is-not-starting)
+Se l'account di archiviazione è configurato correttamente, accedere in remoto al computer e verificare che *DiagnosticsPlugin. exe* e *MonAgentCore. exe* siano in esecuzione. Se non sono in esecuzione, attenersi alla procedura descritta in [diagnostica di Azure non viene avviato](#azure-diagnostics-is-not-starting).
 
 Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale?](#is-data-getting-captured-locally) e seguire le istruzioni riportate in tale sottoparagrafo.
 
 Se il problema persiste, provare a:
 
 1. Disinstallare l'agente
-2. Rimuovere la directory C:.
-3. Installare nuovamente l'agente
+2. Rimuovi directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Installare di nuovo Agent
 
 
 ### <a name="part-of-the-data-is-missing"></a>Alcuni dati sono mancanti
@@ -125,7 +125,7 @@ La configurazione di Diagnostica contiene istruzioni per la raccolta di un deter
 - **Log di traccia**: accedere in remoto alla VM e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere https://msdn.microsoft.com/library/sk36c28t.aspx per configurare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
 Se non risulta che i log di traccia vengano generati, consultare la sezione Altre informazioni sui log di traccia mancanti.
 
-- **Tracce ETW**: accedere in remoto alla VM e installare PerfView.  In PerfView eseguire **File** > **User Command** > **Listen etwprovder1** > **etwprovider2**e così via. Nel **comando di ascolto** viene fatta distinzione tra maiuscole e minuscole e nell'elenco separato da virgole dei provider ETW non possono essere presenti spazi. Se l'esecuzione del comando ha esito negativo, è possibile selezionare il pulsante **Log** in basso a destra nello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Se l'input è corretto, verrà aperta una nuova finestra. Dopo pochi secondi inizieranno a essere visualizzate le tracce ETW.
+- **Tracce ETW**: accedere in remoto alla VM e installare PerfView.  In PerfView, eseguire il**comando** >  **file** > User,**Listen etwprovder1** > **etwprovider2 (** e così via. Nel **comando di ascolto** viene fatta distinzione tra maiuscole e minuscole e nell'elenco separato da virgole dei provider ETW non possono essere presenti spazi. Se l'esecuzione del comando ha esito negativo, è possibile selezionare il pulsante **Log** in basso a destra nello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Se l'input è corretto, verrà aperta una nuova finestra. Dopo pochi secondi inizieranno a essere visualizzate le tracce ETW.
 
 - **Log eventi**: accedere in remoto alla VM. Aprire `Event Viewer` e quindi verificare che gli eventi siano presenti.
 
@@ -207,10 +207,10 @@ Questo codice genera quattro tabelle:
 
 | Event | Nome tabella |
 | --- | --- |
-| provider: "prov1" &lt;ID evento "1" /&gt; |WADEvent- MD5("prov1") |
-| provider : "prov1" &lt;ID evento "2" eventDestination "dest1" /&gt; |WADdest1 |
-| provider: "prov1" &lt;DefaultEvents /&gt; |WADDefault: MD5("prov1") |
-| provider: "prov2" &lt;DefaultEvents eventDestination " dest2" /&gt; |WADdest2 |
+| provider = "ProV1" &lt;Event ID = "1"/&gt; |WADEvent + MD5 ("ProV1") + "1" |
+| provider = "ProV1" &lt;Event ID = "2" eventDestination = "DesT1"/&gt; |WADdest1 |
+| provider = "ProV1" &lt;DefaultEvents/&gt; |WADDefault + MD5 ("ProV1") |
+| provider = "prov2" &lt;DefaultEvents eventDestination = "Dest2"/&gt; |WADdest2 |
 
 ## <a name="references"></a>Riferimenti
 
@@ -266,13 +266,13 @@ Un nuovo file denominato `<relevantLogFile>.csv` verrà creato nello stesso perc
 >[!NOTE]
 > Le informazioni seguenti si applicano prevalentemente a Servizi cloud di Azure, a meno che non si sia configurato DiagnosticsMonitorTraceListener in un'applicazione eseguita nella VM IaaS.
 
-- Assicurarsi che **DiagnosticMonitorTraceListener** sia configurato nel file web.config o app.config.  Questa operazione è configurata per impostazione predefinita nei progetti di servizio cloud. ma viene impostato come commento da alcuni clienti e in questo caso le istruzioni di traccia non verranno raccolte da Diagnostica.
+- Verificare che **DiagnosticMonitorTraceListener** sia configurato in Web. config o app. config.  Questa configurazione viene configurata per impostazione predefinita nei progetti di servizio cloud. ma viene impostato come commento da alcuni clienti e in questo caso le istruzioni di traccia non verranno raccolte da Diagnostica.
 
-- Se i log non vengono scritti dal metodo **OnStart** o **Run,** assicurarsi che **DiagnosticMonitorTraceListener** sia nel file app.config.  Per impostazione predefinita è nel file web.config, ma ciò si applica solo al codice in esecuzione all'interno di w3wp.exe. Per acquisire le tracce in esecuzione in WaIISHost.exe è necessario che sia presente in app.config.
+- Se i log non vengono scritti dal metodo **OnStart** o **Run** , assicurarsi che **DiagnosticMonitorTraceListener** sia in app. config.  Per impostazione predefinita, si trova nel file Web. config, ma questo vale solo per il codice in esecuzione in w3wp. exe. Per acquisire le tracce in esecuzione in WaIISHost.exe è necessario che sia presente in app.config.
 
 - Verificare di usare **Diagnostics.Trace.TraceXXX** anziché **Diagnostics.Debug.WriteXXX**. Le istruzioni di debug vengono rimosse da una build di versione.
 
-- Assicurarsi che il codice compilato abbia effettivamente le **righe Diagnostics.Trace** (utilizzare Reflector, ildasm o ILSpy per verificare). I comandi **Diagnostics.Trace** vengono rimossi dal file binario compilato, a meno che non si utilizzi il simbolo di compilazione condizionale TRACE. Questo problema comune si verifica quando si usa msbuild per compilare un progetto.   
+- Verificare che il codice compilato includa effettivamente le **righe Diagnostics. Trace** (usare Reflector, Ildasm o ILSpy per verificare). I comandi **Diagnostics. Trace** vengono rimossi dal file binario compilato a meno che non si usi il simbolo di compilazione condizionale Trace. Questo problema comune si verifica quando si usa msbuild per compilare un progetto.   
 
 ## <a name="known-issues-and-mitigations"></a>Problemi noti e procedure di prevenzione
 Di seguito è riportato un elenco di problemi noti con le relative misure di prevenzione:
@@ -290,11 +290,11 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 **Prevenzione:** installare .NET 4.5 o versione successiva nel computer.
 
-**2. I dati dei contatori delle prestazioni sono disponibili nell'archiviazione ma non vengono visualizzati nel portale**
+**2. i dati dei contatori delle prestazioni sono disponibili nella risorsa di archiviazione ma non vengono visualizzati nel portale**
 
 Nell'esperienza del portale per le macchine virtuali vengono visualizzati per impostazione predefinita determinati contatori delle prestazioni. Se i contatori non vengono visualizzati e si è certi che i dati vengano generati perché sono disponibili nella risorsa di archiviazione, controllare quanto segue:
 
-- Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare**Impostazioni copia****amministrativa** > **area** >  **del Pannello di** > controllo . Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
+- Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello** > di controllo**area** > **Administrative** > **Impostazioni copia**amministrativa. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
 
-- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Mitigazione**: per assicurarsi di poter usare i\*caratteri jolly e fare in modo che il portale espanda il controllo ( ), instrada i contatori delle prestazioni al sink di Monitoraggio di Azure.Mitigation : To make sure you can use wildcards and have the portal expand the ( ), route your performance counters to the Azure Monitor sink.
+- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Attenuazione**: per assicurarsi che sia possibile usare i caratteri jolly e che il portale espande (\*), indirizzare i contatori delle prestazioni al sink di monitoraggio di Azure.
 

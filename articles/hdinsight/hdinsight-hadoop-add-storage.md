@@ -1,6 +1,6 @@
 ---
-title: Aggiungere altri account di archiviazione di Azure a HDInsightAdd additional Azure Storage accounts to HDInsight
-description: Informazioni su come aggiungere altri account di Archiviazione di Azure a un cluster HDInsight esistente.
+title: Aggiungere altri account di archiviazione di Azure a HDInsight
+description: Informazioni su come aggiungere altri account di archiviazione di Azure a un cluster HDInsight esistente.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -16,16 +16,16 @@ ms.locfileid: "78206708"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
-Informazioni su come usare le azioni script per aggiungere altri account di Archiviazione di Azure a HDInsight.Learn how to use script actions to add additional Azure Storage *accounts* to HDInsight. I passaggi descritti in questo documento aggiungono un *account* di archiviazione a un cluster HDInsight esistente. Questo articolo si applica agli *account* di archiviazione (non all'account di archiviazione cluster predefinito) e non all'archiviazione aggiuntiva, ad esempio [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) e Azure Data Lake Storage [Gen2.](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+Informazioni su come usare le azioni script per aggiungere altri *account* di archiviazione di Azure a HDInsight. La procedura descritta in questo documento consente di aggiungere un *account* di archiviazione a un cluster HDInsight esistente. Questo articolo si applica agli *account* di archiviazione (non all'account di archiviazione del cluster predefinito) e non a una risorsa di archiviazione aggiuntiva, ad esempio [Azure Data Lake storage Gen1](hdinsight-hadoop-use-data-lake-store.md) e [Azure Data Lake storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
-> Le informazioni contenute in questo documento riguardano l'aggiunta di account di archiviazione aggiuntivi a un cluster dopo che è stato creato. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).
+> Le informazioni contenute in questo documento illustrano come aggiungere altri account di archiviazione a un cluster dopo che è stato creato. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Hadoop in HDInsight.A Hadoop cluster on HDInsight. Vedere [Introduzione a HDInsight su Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nome e chiave dell'account di archiviazione. Vedere Gestire le chiavi di [accesso dell'account di archiviazione.](../storage/common/storage-account-keys-manage.md)
-* Se si usa PowerShell, è necessario il modulo A.A.If using PowerShell, you'll need the A A.A.If using PowerShell, you'll need the A A  Vedere [Panoramica di Azure PowerShell.See Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Un cluster Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Nome e chiave dell'account di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-keys-manage.md).
+* Se si usa PowerShell, è necessario il modulo AZ.  Vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -46,27 +46,27 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 ## <a name="add-storage-account"></a>Aggiungere l’account di archiviazione
 
-Utilizzare [l'azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:Use Script Action to apply the changes with the following considerations:
+Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:
 
-|Proprietà | valore |
+|Proprietà | Valore |
 |---|---|
 |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Tipo/i di nodo|Head|
-|Parametri|`ACCOUNTNAME``ACCOUNTKEY` `-p` (opzionale)|
+|Parametri|`ACCOUNTNAME``ACCOUNTKEY` `-p`|
 
 * `ACCOUNTNAME`è il nome dell'account di archiviazione da aggiungere al cluster HDInsight.
-* `ACCOUNTKEY`è la chiave `ACCOUNTNAME`di accesso per .
-* `-p` è facoltativo. Se specificato, la chiave non è crittografata e viene archiviata nel file core-site.xml come testo normale.
+* `ACCOUNTKEY`è il tasto di accesso `ACCOUNTNAME`per.
+* `-p` è facoltativo. Se specificato, la chiave non è crittografata e viene archiviata nel file core-site. XML come testo normale.
 
 ## <a name="verification"></a>Verifica
 
-Quando si visualizza il cluster HDInsight nel portale di Azure, selezionare la voce __Account di archiviazione__ in __Proprietà__ non visualizza gli account di archiviazione aggiunti tramite questa azione di script. Azure PowerShell e l'interfaccia della riga di comando di Azure non visualizzano neanche l'account di archiviazione aggiuntivo. Le informazioni di archiviazione non vengono visualizzate perché lo `core-site.xml` script modifica solo la configurazione per il cluster. Queste informazioni non vengono usate durante il recupero delle informazioni del cluster usando le API di gestione di Azure.This information isn't used when retrieving the cluster information using Azure management APIs.
+Quando si Visualizza il cluster HDInsight nel portale di Azure, selezionando la voce __account di archiviazione__ in __Proprietà__ non vengono visualizzati gli account di archiviazione aggiunti tramite questa azione script. Azure PowerShell e l'interfaccia della riga di comando di Azure non visualizzano l'account di archiviazione aggiuntivo. Le informazioni di archiviazione non vengono visualizzate perché lo script modifica `core-site.xml` solo la configurazione per il cluster. Queste informazioni non vengono usate quando si recuperano le informazioni del cluster usando le API di gestione di Azure.
 
-Per verificare l'archiviazione aggiuntiva, utilizzare uno dei metodi illustrati di seguito:
+Per verificare lo spazio di archiviazione aggiuntivo, usare uno dei metodi indicati di seguito:
 
 ### <a name="powershell"></a>PowerShell
 
-Lo script restituirà i nomi degli account di archiviazione associati al cluster specificato. Sostituire `CLUSTERNAME` con il nome effettivo del cluster e quindi eseguire lo script.
+Lo script restituirà i nomi degli account di archiviazione associati al cluster specificato. Sostituire `CLUSTERNAME` con il nome effettivo del cluster, quindi eseguire lo script.
 
 ```powershell
 # Update values
@@ -94,39 +94,39 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="apache-ambari"></a>Apache Ambari
 
-1. Da un Web browser `https://CLUSTERNAME.azurehdinsight.net`passare `CLUSTERNAME` a , dove è il nome del cluster.
+1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
 
-1. Passare a **HDFS** > **Configs** > **Advanced** > Custom**core-site**.
+1. Passare a **HDFS** > **configs** > **Advanced** > **Custom Core-site**.
 
-1. Osservare i tasti `fs.azure.account.key`che iniziano con . Il nome dell'account farà parte della chiave, come illustrato in questa immagine di esempio:
+1. Osservare le chiavi che iniziano con `fs.azure.account.key`. Il nome dell'account sarà parte della chiave, come illustrato in questa immagine di esempio:
 
-   ![verifica tramite Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
+   ![Verifica tramite Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
 ## <a name="remove-storage-account"></a>Rimuovere account di archiviazione
 
-1. Da un Web browser `https://CLUSTERNAME.azurehdinsight.net`passare `CLUSTERNAME` a , dove è il nome del cluster.
+1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
 
-1. Passare a **HDFS** > **Configs** > **Advanced** > Custom**core-site**.
+1. Passare a **HDFS** > **configs** > **Advanced** > **Custom Core-site**.
 
-1. Rimuovere le seguenti chiavi:
+1. Rimuovere le chiavi seguenti:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
     * `fs.azure.account.keyprovider.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
 
-Dopo aver rimosso queste chiavi e salvato la configurazione, è necessario riavviare Oozie, Yarn, MapReduce2, HDFS e Hive uno per uno.
+Dopo aver rimosso queste chiavi e salvato la configurazione, è necessario riavviare oozie, Yarn, MapReduce2, HDFS e hive uno alla volta.
 
 ## <a name="known-issues"></a>Problemi noti
 
 ### <a name="storage-firewall"></a>Firewall di archiviazione
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni **Firewall e reti virtuali** in Reti **selezionate**, assicurarsi di abilitare l'eccezione Consenti servizi **Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione.
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Non è possibile accedere alla risorsa di archiviazione dopo la modifica della chiave
 
 Se si modifica la chiave per un account di archiviazione, HDInsight non potrà più accedere all'account di archiviazione. HDInsight usa una copia memorizzata nella cache della chiave in core-site.xml per il cluster. Questa copia memorizzata nella cache deve essere aggiornata in modo che corrisponda alla nuova chiave.
 
-La ripetizione dell'esecuzione dell'azione script __non__ aggiorna la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se esiste già una voce, non apporta alcuna modifica.
+La ripetizione dell'esecuzione dell'azione script __non__ aggiorna la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se una voce esiste già, non viene apportata alcuna modifica.
 
-Per risolvere questo problema:  
+Per risolvere il problema:  
 1. Rimuovere l'account di archiviazione.
 1. Aggiungere l'account di archiviazione.
 

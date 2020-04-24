@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56a3478f1c0dbc05eba07a5109f5bb6ba89b79d0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
-ms.translationtype: HT
+ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079877"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473677"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -24,15 +24,18 @@ ms.locfileid: "79079877"
 
 In questo articolo viene raccolto un nuovo attributo durante il percorso di iscrizione in Azure Active Directory B2C (Azure AD B2C). Si otterrà la città degli utenti, la si configura come un elenco a discesa e si definisce se è necessario fornirla.
 
+> [!NOTE]
+> Questo esempio usa l'attestazione predefinita "City". In alternativa, è possibile scegliere uno degli [attributi predefiniti Azure ad B2C](user-profile-attributes.md) supportati o un attributo personalizzato. Per usare un attributo personalizzato, [abilitare gli attributi personalizzati nei criteri](custom-policy-custom-attributes.md). Per usare un attributo predefinito o personalizzato diverso, sostituire ' City ' con l'attributo desiderato, ad esempio l'attributo predefinito *JobTitle* o un attributo personalizzato come *extension_loyaltyId*.  
+
 È possibile raccogliere i dati iniziali dagli utenti usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, il Framework dell'esperienza di gestione delle identità usa il [profilo tecnico autocertificato](self-asserted-technical-profile.md). In questo esempio, è possibile:
 
-1. Definire un'attestazione "City".
+1. Definire un'attestazione "City". 
 1. Chiedere all'utente la città.
 1. Salvare la città nel profilo utente nella directory Azure AD B2C.
 1. Leggere l'attestazione City dalla directory Azure AD B2C a ogni accesso.
 1. Restituire la città all'applicazione relying party dopo l'accesso o l'iscrizione.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md). È necessario avere un criterio personalizzato funzionante per l'iscrizione e l'accesso con account social e locali.
 
@@ -45,7 +48,7 @@ Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzio
 - **UserHelpText**: consente all'utente di identificare i requisiti.
 - [Tipo](claimsschema.md#userinputtype) : tipo di controllo di input, ad esempio casella di testo, selezione di Radio, elenco a discesa o selezioni multiple.
 
-Aprire il file delle estensioni dei criteri. Ad esempio, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
 
 1. Cercare l'elemento [BuildingBlocks](buildingblocks.md). Se l'elemento non esiste, aggiungerlo.
 1. Individuare l'elemento [ClaimsSchema](claimsschema.md) . Se l'elemento non esiste, aggiungerlo.
@@ -72,7 +75,7 @@ I seguenti profili tecnici sono [autofirmati](self-asserted-technical-profile.md
 - **SelfAsserted-** accesso utente per la prima volta all'account di social network federato.
 - **SelfAsserted-ProfileUpdate** -modifica flusso del profilo.
 
-Per raccogliere l'attestazione City durante l'iscrizione, è necessario aggiungerla come attestazione di output al profilo tecnico `LocalAccountSignUpWithLogonEmail`. Eseguire l'override di questo profilo tecnico nel file di estensione. Specificare l'intero elenco di attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
+Per raccogliere l'attestazione City durante l'iscrizione, è necessario aggiungerla come attestazione di output al `LocalAccountSignUpWithLogonEmail` profilo tecnico. Eseguire l'override di questo profilo tecnico nel file di estensione. Specificare l'intero elenco di attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
 
 ```xml
 <ClaimsProvider>
@@ -95,7 +98,7 @@ Per raccogliere l'attestazione City durante l'iscrizione, è necessario aggiunge
 <ClaimsProvider>
 ```
 
-Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al profilo tecnico `SelfAsserted-Social`. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un secondo momento, aggiungere l'attestazione di output al profilo tecnico `SelfAsserted-ProfileUpdate`. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
+Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al `SelfAsserted-Social` profilo tecnico. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un `SelfAsserted-ProfileUpdate` secondo momento, aggiungere l'attestazione di output al profilo tecnico. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -125,7 +128,7 @@ Per raccogliere l'attestazione City dopo l'accesso iniziale con un account feder
 ## <a name="read-and-write-a-claim"></a>Lettura e scrittura di un'attestazione
 
 I profili tecnici seguenti sono [Active Directory profili tecnici](active-directory-technical-profile.md)che leggono e scrivono i dati Azure Active Directory.  
-Usare `PersistedClaims` per scrivere i dati nel profilo utente e `OutputClaims` per leggere i dati dal profilo utente all'interno dei rispettivi profili tecnici di Active Directory.
+Utilizzare `PersistedClaims` per scrivere i dati nel profilo utente e `OutputClaims` per leggere i dati dal profilo utente all'interno dei rispettivi Active Directory profili tecnici.
 
 Eseguire l'override di questi profili tecnici nel file di estensione. Trovare l'elemento **ClaimsProviders**.  Aggiungere un nuovo ClaimsProviders come segue:
 
@@ -169,7 +172,7 @@ Eseguire l'override di questi profili tecnici nel file di estensione. Trovare l'
 
 ## <a name="include-a-claim-in-the-token"></a>Includere un'attestazione nel token 
 
-Per riportare l'attestazione della città all'applicazione relying party, aggiungere un'attestazione di output al file di <em>**`SignUpOrSignIn.xml`**`SocialAndLocalAccounts/`</em>. L'attestazione di output verrà aggiunta al token dopo un percorso utente completato e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere la città come attestazione di output.
+Per riportare l'attestazione della città all'applicazione relying party, aggiungere un'attestazione <em> `SocialAndLocalAccounts/` </em> di output al file. L'attestazione di output verrà aggiunta al token dopo un percorso utente completato e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungere la città come attestazione di output.
  
 ```xml
 <RelyingParty>
@@ -197,7 +200,7 @@ Per riportare l'attestazione della città all'applicazione relying party, aggiun
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
+4. Selezionare **Framework esperienza di identità**.
 5. Selezionare **Carica criteri personalizzati**e caricare i file dei due criteri modificati.
 2. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.

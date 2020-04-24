@@ -1,6 +1,6 @@
 ---
-title: Sintassi ed espressioni del modello
-description: Descrive la sintassi JSON dichiarativa per i modelli di Azure Resource Manager.Describes the declarative JSON syntax for Azure Resource Manager templates.
+title: Sintassi e espressioni del modello
+description: Descrive la sintassi JSON dichiarativa per i modelli Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: 172838fa24709eb60fbcb6a68277f44bbd42f01e
@@ -18,7 +18,7 @@ Un'espressione modello non può superare i 24.576 caratteri.
 
 ## <a name="use-functions"></a>Usare le funzioni
 
-Azure Resource Manager offre [funzioni](template-functions.md) che è possibile usare in un modello. Nell'esempio seguente viene illustrata un'espressione che usa una funzione nel valore predefinito di un parametro:The following example shows an expression that uses a function in the default value of a parameter:
+Azure Resource Manager fornisce [funzioni](template-functions.md) che è possibile utilizzare in un modello. Nell'esempio seguente viene illustrata un'espressione che utilizza una funzione nel valore predefinito di un parametro:
 
 ```json
 "parameters": {
@@ -29,39 +29,39 @@ Azure Resource Manager offre [funzioni](template-functions.md) che è possibile 
 },
 ```
 
-All'interno dell'espressione, la sintassi `resourceGroup()` chiama una delle funzioni fornite da Resource Manager per l'utilizzo all'interno di un modello. In questo caso, è la funzione [resourceGroup.In](template-functions-resource.md#resourcegroup) this case, it's the resourceGroup function. Proprio come in JavaScript, le chiamate di funzione sono formattate come `functionName(arg1,arg2,arg3)`. La `.location` sintassi recupera una proprietà dall'oggetto restituito da tale funzione.
+All'interno dell'espressione, la `resourceGroup()` sintassi chiama una delle funzioni che Gestione risorse fornisce per l'utilizzo all'interno di un modello. In questo caso, si tratta della funzione [resourceGroup](template-functions-resource.md#resourcegroup) . Proprio come in JavaScript, le chiamate di funzione sono formattate come `functionName(arg1,arg2,arg3)`. La sintassi `.location` recupera una proprietà dall'oggetto restituito dalla funzione.
 
-Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la funzione mantiene invariato l'uso delle maiuscole/minuscole, a meno che queste non vengano modificate espressamente dalla funzione, ad esempio toUpper o toLower. Alcuni tipi di risorse possono avere requisiti di distinzione tra maiuscole e minuscole separati dal modo in cui vengono valutate le funzioni.
+Le funzioni del modello e i relativi parametri non hanno la distinzione tra maiuscole e minuscole. Ad esempio, Gestione risorse consente di risolvere allo stesso modo le **variables('var1')** e le **VARIABLES('VAR1')**. Durante la valutazione, la funzione mantiene invariato l'uso delle maiuscole/minuscole, a meno che queste non vengano modificate espressamente dalla funzione, ad esempio toUpper o toLower. Alcuni tipi di risorse possono presentare requisiti del case distinti rispetto alla valutazione delle funzioni.
 
-Per passare un valore stringa come parametro a una funzione, usare virgolette singole.
+Per passare un valore di stringa come parametro a una funzione, usare le virgolette singole.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-La maggior parte delle funzioni funziona allo stesso modo indipendentemente dal fatto che sia distribuita a un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Le seguenti funzioni hanno restrizioni basate sull'ambito:
+La maggior parte delle funzioni funziona allo stesso modo se distribuite in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Le funzioni seguenti presentano restrizioni basate sull'ambito:
 
-* [resourceGroup](template-functions-resource.md#resourcegroup) - può essere usato solo nelle distribuzioni in un gruppo di risorse.resourceGroup - can only be used in deployments to a resource group.
-* [resourceId](template-functions-resource.md#resourceid) - può essere utilizzato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.
-* [sottoscrizione](template-functions-resource.md#subscription) - può essere usato solo nelle distribuzioni in un gruppo di risorse o in una sottoscrizione.subscription - can only be used in deployments to a resource group or subscription.
+* [resourceGroup](template-functions-resource.md#resourcegroup) : può essere usato solo nelle distribuzioni in un gruppo di risorse.
+* [resourceId](template-functions-resource.md#resourceid) : può essere usato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.
+* [Subscription](template-functions-resource.md#subscription) -può essere usato solo nelle distribuzioni in un gruppo di risorse o in una sottoscrizione.
 
 ## <a name="escape-characters"></a>Caratteri di escape
 
-Per fare in modo che `[` una stringa letterale `]`inizi con una parentesi quadra aperta e termini con `[[`una parentesi quadra chiusa, ma non che venga interpretata come un'espressione, aggiungere una parentesi quadra aggiuntiva per iniziare la stringa con . Ad esempio, la variabile:
+Per avere una stringa letterale che inizia con una `[` parentesi quadra aperta e termina con `]`una parentesi quadra chiusa, ma non deve essere interpretata come espressione, aggiungere una parentesi aggiuntiva `[[`per avviare la stringa con. Ad esempio, la variabile:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Risolve in `[test value]`.
+Viene risolto in `[test value]`.
 
-Tuttavia, se la stringa letterale non termina con una parentesi quadra, non eseguire l'escape della prima parentesi quadra. Ad esempio, la variabile:
+Tuttavia, se la stringa letterale non termina con una parentesi, non usare caratteri di escape per la prima parentesi. Ad esempio, la variabile:
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-Risolve in `[test] value`.
+Viene risolto in `[test] value`.
 
 Per eseguire l'escape delle virgolette doppie in un'espressione, ad esempio l'aggiunta di un oggetto JSON nel modello, usare la barra rovesciata.
 
@@ -71,7 +71,7 @@ Per eseguire l'escape delle virgolette doppie in un'espressione, ad esempio l'ag
 },
 ```
 
-Quando si passano i valori dei parametri, l'utilizzo dei caratteri di escape dipende da dove viene specificato il valore del parametro. Se si imposta un valore predefinito nel modello, è necessaria la parentesi quadra aperta aggiuntiva.
+Quando si passano i valori dei parametri, l'uso di caratteri di escape dipende dalla posizione in cui viene specificato il valore del parametro. Se si imposta un valore predefinito nel modello, è necessario disporre della parentesi sinistra aggiuntiva.
 
 ```json
 {
@@ -93,7 +93,7 @@ Quando si passano i valori dei parametri, l'utilizzo dei caratteri di escape dip
 }
 ```
 
-Se si utilizza il valore `[test value]`predefinito, il modello restituisce .
+Se si usa il valore predefinito, il modello restituisce `[test value]`.
 
 Tuttavia, se si passa un valore di parametro tramite la riga di comando, i caratteri vengono interpretati letteralmente. Distribuzione del modello precedente con:
 
@@ -101,13 +101,13 @@ Tuttavia, se si passa un valore di parametro tramite la riga di comando, i carat
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
 ```
 
-Restituisce `[[test value]`. Utilizzare invece:
+Restituisce `[[test value]`. Usare invece:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-La stessa formattazione si applica quando si passano valori da un file di parametri. I caratteri vengono interpretati letteralmente. Se utilizzato con il modello precedente, `[test value]`il seguente file di parametri restituisce:
+La stessa formattazione si applica quando si passano valori in da un file di parametri. I caratteri vengono interpretati letteralmente. Quando viene usato con il modello precedente, il file di parametri `[test value]`seguente restituisce:
 
 ```json
 {
@@ -123,7 +123,7 @@ La stessa formattazione si applica quando si passano valori da un file di parame
 
 ## <a name="null-values"></a>Valori Null
 
-Per impostare una proprietà su null, è possibile utilizzare **null** o **[json('null')]**. La [funzione json](template-functions-array.md#json) restituisce un `null` oggetto vuoto quando si fornisce come parametro. In entrambi i casi, i modelli di Resource Manager lo considerano come se la proprietà non fosse presente.
+Per impostare una proprietà su null, è possibile usare **null** o **[JSON (' null ')]**. La [funzione JSON](template-functions-array.md#json) restituisce un oggetto vuoto quando si specifica `null` come parametro. In entrambi i casi, Gestione risorse modelli lo considerano come se la proprietà non fosse presente.
 
 ```json
 "stringValue": null,
@@ -133,4 +133,4 @@ Per impostare una proprietà su null, è possibile utilizzare **null** o **[json
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per l’elenco completo delle funzioni del modello, vedere [Funzioni del modello di Gestione risorse di Azure](template-functions.md).
-* Per altre informazioni sui file di modello, vedere Informazioni sulla struttura e la [sintassi dei modelli di Azure Resource Manager.](template-syntax.md)
+* Per ulteriori informazioni sui file modello, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).

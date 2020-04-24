@@ -20,11 +20,11 @@ ms.locfileid: "79218057"
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio (versione classica)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-Questo argomento illustra come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
+In questo argomento viene illustrato come visualizzare e interpretare i risultati della stima in Azure Machine Learning Studio (classico). Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
 
 
 
-Esistono quattro tipi principali di modelli di Machine Learning in Azure Machine Learning Studio (classico):There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):
+Sono disponibili quattro tipi principali di modelli di Machine Learning in Azure Machine Learning Studio (classico):
 
 * Classificazione
 * Clustering
@@ -37,11 +37,11 @@ I moduli usati per eseguire stime sulla base di questi modelli sono:
 * Modulo [Assign to Clusters][assign-to-clusters] per il clustering
 * Modulo [Score Matchbox Recommender][score-matchbox-recommender] per i sistemi di raccomandazione
 
-Questo documento illustra come interpretare i risultati di stima per ognuno di questi moduli. Per una panoramica di questi moduli, vedere [Come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (classico).](algorithm-parameters-optimize.md)
+Questo documento illustra come interpretare i risultati di stima per ognuno di questi moduli. Per una panoramica di questi moduli, vedere [come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio (classico)](algorithm-parameters-optimize.md).
 
-Questo argomento illustra l'interpretazione delle stime, non la valutazione dei modelli. Per altre informazioni su come valutare il modello, vedere Come valutare le prestazioni del [modello in Azure Machine Learning Studio (classico).](evaluate-model-performance.md)
+Questo argomento illustra l'interpretazione delle stime, non la valutazione dei modelli. Per ulteriori informazioni su come valutare il modello, vedere [come valutare le prestazioni del modello in Azure Machine Learning Studio (classico)](evaluate-model-performance.md).
 
-Se non si ha familiarità con Azure Machine Learning Studio (classico) e si ha bisogno di aiuto per creare un semplice esperimento per iniziare, vedere [Creare un semplice esperimento in Azure Machine Learning Studio (classico).](create-experiment.md)
+Se non si ha familiarità con Azure Machine Learning Studio (classico) ed è necessario contribuire alla creazione di un esperimento semplice per iniziare, vedere [creare un esperimento semplice in Azure Machine Learning Studio (classico)](create-experiment.md).
 
 ## <a name="classification"></a>Classificazione
 I problemi di classificazione possono essere suddivisi in:
@@ -49,12 +49,12 @@ I problemi di classificazione possono essere suddivisi in:
 * Problemi con solo due classi (classificazione a due classi o binaria)
 * Problemi con più di due classi (classificazione multiclasse)
 
-Azure Machine Learning Studio (classico) ha moduli diversi per gestire ognuno di questi tipi di classificazione, ma i metodi per interpretare i risultati della stima sono simili.
+Azure Machine Learning Studio (classico) presenta moduli diversi per gestire ognuno di questi tipi di classificazione, ma i metodi per interpretare i risultati della stima sono simili.
 
 ### <a name="two-class-classification"></a>Classificazione a due classi
 **Esperimento di esempio**
 
-Un esempio di un problema di classificazione a due classi è costituito dalla classificazione dei fiori Iris, ovvero dalla necessità di classificare i fiori Iris in base alle loro caratteristiche. Il set di dati Iris fornito in Azure Machine Learning Studio (classico) è un sottoinsieme del set di [dati Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popolare contenente istanze di sole due specie di fiori (classi 0 e 1). Ciascun fiore presenta quattro caratteristiche: lunghezza del sepalo, larghezza del sepalo, lunghezza del petalo e larghezza del petalo.
+Un esempio di un problema di classificazione a due classi è costituito dalla classificazione dei fiori Iris, ovvero dalla necessità di classificare i fiori Iris in base alle loro caratteristiche. Il set di dati Iris fornito in Azure Machine Learning Studio (classico) è un subset del [set di dati Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) più diffusi che contiene le istanze di due sole specie di fiori (classi 0 e 1). Ciascun fiore presenta quattro caratteristiche: lunghezza del sepalo, larghezza del sepalo, lunghezza del petalo e larghezza del petalo.
 
 ![Schermata dell'esperimento relativo ai fiori Iris](./media/interpret-model-results/1.png)
 
@@ -76,7 +76,7 @@ Nella tabella dei risultati sono presenti sei colonne: le quattro colonne di sin
 
 **Pubblicazione come servizio Web**
 
-Dopo aver compreso e approvato i risultati della stima, è possibile pubblicare l'esperimento come servizio Web, in modo che possa essere distribuito in varie applicazioni e chiamato per ottenere stime di classe su un nuovo fiore Iris. Per informazioni su come modificare un esperimento di training in un esperimento di assegnazione del punteggio e pubblicarlo come servizio Web, vedere [Esercitazione 3: Distribuire](tutorial-part3-credit-risk-deploy.md)il modello di rischio di credito . Questa procedura consente di ottenere un esperimento di assegnazione dei punteggi, come illustrato nella figura 3.
+Dopo aver compreso e approvato i risultati della stima, è possibile pubblicare l'esperimento come servizio Web, in modo che possa essere distribuito in varie applicazioni e chiamato per ottenere stime di classe su un nuovo fiore Iris. Per informazioni su come modificare un esperimento di training in un esperimento di assegnazione dei punteggi e pubblicarlo come servizio Web, vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md). Questa procedura consente di ottenere un esperimento di assegnazione dei punteggi, come illustrato nella figura 3.
 
 ![Schermata dell'esperimento di assegnazione dei punteggi](./media/interpret-model-results/3.png)
 
@@ -117,7 +117,7 @@ Per visualizzare i risultati del modulo [Score Model][score-model] come illustra
 
 **Interpretazione dei risultati**
 
-Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le colonne denominate Scored Probabilities for Class "XX" (Probabilità con punteggio per classe "XX") corrispondono alla colonna Scored Probabilities (Probabilità con punteggio) nella classificazione a due classi. Indicano infatti la probabilità che la voce corrispondente appartenga a una determinata classe. Ad esempio, per la prima voce, è presente 0,003571 probabilità che si tratti di una probabilità "A", 0,000451 probabilità che sia una "B" e così via. L'ultima colonna, denominata Scored Labels (Etichette con punteggio), corrisponde alla colonna Scored Labels (Etichette con punteggio) nella classificazione a due classi: seleziona la classe con il valore Scored Probability più elevato come classe stimata per la voce corrispondente. Ad esempio, per la prima voce, l'etichetta con punteggio è "F" poiché ha la probabilità maggiore di essere una "F" (0,916995).
+Le 16 colonne di sinistra rappresentano i valori funzione del set di test. Le colonne denominate Scored Probabilities for Class "XX" (Probabilità con punteggio per classe "XX") corrispondono alla colonna Scored Probabilities (Probabilità con punteggio) nella classificazione a due classi. Indicano infatti la probabilità che la voce corrispondente appartenga a una determinata classe. Per la prima voce, ad esempio, è presente 0,003571 probabilità che si tratta di una "A", 0,000451 probabilità che si tratta di una "B" e così via. L'ultima colonna, denominata Scored Labels (Etichette con punteggio), corrisponde alla colonna Scored Labels (Etichette con punteggio) nella classificazione a due classi: seleziona la classe con il valore Scored Probability più elevato come classe stimata per la voce corrispondente. Per la prima voce, ad esempio, l'etichetta con punteggio è "F" poiché la probabilità più grande è "F" (0,916995).
 
 **Pubblicazione come servizio Web**
 
@@ -131,7 +131,7 @@ Figura 8. Codice R per l'estrazione delle etichette con punteggio e delle probab
 
 Figura 9. Esperimento finale di assegnazione dei punteggi per un problema di classificazione multiclasse relativo al riconoscimento delle lettere
 
-Dopo aver pubblicato ed eseguito il servizio Web, nonché aver immesso alcuni valori funzione di input, verrà restituito un risultato simile a quello della figura 10. Questa lettera scritta a mano, con le sue 16 caratteristiche estratte, si prevede che sia una "T" con probabilità di 0,9715.
+Dopo aver pubblicato ed eseguito il servizio Web, nonché aver immesso alcuni valori funzione di input, verrà restituito un risultato simile a quello della figura 10. Questa lettera scritta con le relative 16 funzionalità estratte è stimata come "T" con probabilità 0,9715.
 
 ![Modulo del test di interpretazione del punteggio](./media/interpret-model-results/9_1.png)
 
@@ -179,13 +179,13 @@ Figura 14. Risultato del servizio Web del problema di regressione relativo al pr
 ## <a name="clustering"></a>Clustering
 **Esperimento di esempio**
 
-Usiamo di nuovo il set di dati Iris per creare un esperimento di clustering. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.
+Si userà di nuovo il set di dati Iris per compilare un esperimento di clustering. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.
 
 ![Esperimento del problema relativo al clustering dei fiori Iris](./media/interpret-model-results/15.png)
 
 Figura 15. Esperimento del problema relativo al clustering dei fiori Iris
 
-Il clustering è diverso dalla classificazione in quanto il set di dati di training non dispone di etichette di verità di base. Il clustering raggruppa le istanze di set di dati di training in cluster distinti. Durante il processo di training, il modello etichetta le voci man mano che apprende le differenze tra le relative caratteristiche. In questo modo, il modello di training potrà essere usato per classificare ulteriormente voci future. In un problema di clustering, sono due le parti del risultato di particolare interesse ai fini dell'esperimento: la prima è etichettare il set di dati di training e la seconda classificare un nuovo set di dati nel modello di training.
+Il clustering è diverso dalla classificazione perché il set di dati di training non dispone di etichette di base. Il clustering raggruppa le istanze di set di dati di training in cluster distinti. Durante il processo di training, il modello etichetta le voci man mano che apprende le differenze tra le relative caratteristiche. In questo modo, il modello di training potrà essere usato per classificare ulteriormente voci future. In un problema di clustering, sono due le parti del risultato di particolare interesse ai fini dell'esperimento: la prima è etichettare il set di dati di training e la seconda classificare un nuovo set di dati nel modello di training.
 
 Per visualizzare la prima parte del risultato, fare clic sulla porta di output sinistra di [Train Clustering Model][train-clustering-model] e quindi su **Visualize** (Visualizza). La visualizzazione è illustrata nella figura 16.
 
@@ -228,7 +228,7 @@ Per illustrare i sistemi di raccomandazione viene usato come esempio un problema
 * Dati sulle caratteristiche dei clienti
 * Restaurant feature data
 
-Esistono diverse operazioni che è possibile eseguire con il modulo Train Matchbox Recommender in Azure Machine Learning Studio (classico):There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning Studio (classic):
+È possibile eseguire diverse operazioni con il modulo Train componition [Recommender][train-matchbox-recommender] in Azure Machine Learning Studio (versione classica):
 
 * Stimare le valutazioni per un determinato utente ed elemento
 * Raccomandare elementi a un determinato utente
@@ -239,7 +239,7 @@ Esistono diverse operazioni che è possibile eseguire con il modulo Train Matchb
 
 ![Matchbox Recommender](./media/interpret-model-results/19_1.png)
 
-Un tipico esperimento di Azure Machine Learning Studio (classico) per un sistema di consigli è simile alla figura 20.A typical Azure Machine Learning Studio (classic) experiment for a recommender system looks like Figure 20. Per informazioni su come usare i moduli del sistema di raccomandazione, vedere [Train matchbox recommender][train-matchbox-recommender] e [Score matchbox recommender][score-matchbox-recommender].
+Un tipico esperimento di Azure Machine Learning Studio (classico) per un sistema di raccomandazione è simile a quello illustrato nella figura 20. Per informazioni su come usare i moduli del sistema di raccomandazione, vedere [Train matchbox recommender][train-matchbox-recommender] e [Score matchbox recommender][score-matchbox-recommender].
 
 ![Esperimento per il sistema di raccomandazione](./media/interpret-model-results/20.png)
 

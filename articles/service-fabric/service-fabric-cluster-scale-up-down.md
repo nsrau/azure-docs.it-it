@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare o ridurre la scalabilità di un cluster di Service Fabric
-description: Ridimensionare o esaurire un cluster di Service Fabric per soddisfare la domanda impostando regole di scalabilità automatica per ogni tipo di nodo/set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric
+title: Ridimensionare un cluster Service Fabric
+description: Ridimensionare un cluster Service Fabric in modo che corrisponda alla domanda impostando regole di scalabilità automatica per ogni tipo di nodo o set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 26ef13f38d525e4e493ad933bfb906dd36ed0070
@@ -13,7 +13,7 @@ ms.locfileid: "79258733"
 # <a name="scale-a-cluster-in-or-out"></a>Aumentare o ridurre un cluster
 
 > [!WARNING]
-> Leggere questa sezione prima della scalabilità
+> Leggere questa sezione prima di ridimensionare
 
 Il ridimensionamento di risorse di calcolo per originare il carico di lavoro dell'applicazione richiede una pianificazione intenzionale, che quasi sempre richiede più di un'ora in un ambiente di produzione e richiede la comprensione del carico di lavoro e del contesto di business. Se non hai mai eseguito questa attività in precedenza, è consigliabile iniziare leggendo e comprendendo le [considerazioni sulla pianificazione della capacità del cluster Service Fabric](service-fabric-cluster-capacity.md), prima di continuare con il resto di questo documento. Questo suggerimento intende evitare problemi LiveSite non intenzionali. Inoltre, si consiglia di testare correttamente le operazioni che si decide di eseguire su un ambiente non di produzione. È possibile [segnalare, in qualsiasi momento, problemi di produzione o richiedere supporto a pagamento per Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Per i tecnici assegnati all’esecuzione di queste operazioni che conoscono il contesto di esecuzione appropriato, questo articolo descrive le operazioni di scalabilità, ma è necessario stabilire e comprendere quali operazioni siano appropriate per il caso d'uso in questione; ad esempio le risorse da ridimensionare (CPU, archiviazione, memoria), la direzione di ridimensionamento (orizzontale o verticale) e le operazioni da eseguire (distribuzione modelli delle risorse, portale, PowerShell/CLI).
 
@@ -21,7 +21,7 @@ Il ridimensionamento di risorse di calcolo per originare il carico di lavoro del
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di ridimensionamento automatico o manualmente
-I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere documento Tipi di [nodo di Service Fabric.Read](service-fabric-cluster-nodetypes.md) more about it in the Service Fabric node types document. Poiché i tipi di nodo di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare le regole di scalabilità automatica per ogni tipo di nodo/set di scalabilità di macchine virtuali.
+I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per ulteriori informazioni, vedere il documento relativo ai [tipi di nodo Service Fabric](service-fabric-cluster-nodetypes.md) . Poiché i tipi di nodo Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare regole di scalabilità automatica per ogni tipo di nodo o set di scalabilità di macchine virtuali.
 
 > [!NOTE]
 > È necessario che nella sottoscrizione sia incluso un numero di core sufficienti per aggiungere le nuove VM che costituiranno il cluster. Non esiste attualmente una funzionalità di convalida del modello quindi, se viene raggiunto uno dei limiti della quota, verrà visualizzato un errore in fase di distribuzione. Anche un tipo di nodo singolo non può superare 100 nodi per VMSS. Potrebbe essere necessario aggiungere VMSS per ottenere le il ridimensionamento di destinazione e la scalabilità automatica non può aggiungere VMSS in automatico. L'aggiunta di VMSS sul posto a un cluster in tempo reale è un'attività complessa che di norma spinge gli utenti a effettuare il provisioning di nuovi cluster con i tipi di nodo appropriati al momento della creazione; [pianifica la capacità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) di conseguenza. 
@@ -39,8 +39,8 @@ Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/Virtu
 Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Impostare le regole di scalabilità automatica per il tipo di nodo/set di scalabilità di macchine virtualiSet auto-scale rules for the node type/virtual machine scale set
-Se il cluster ha più tipi di nodo, ripetere questa operazione per ogni tipo di nodo/set di scalabilità di macchine virtuali che si desidera ridimensionare (in ingresso o in uscita). Considerare il numero di nodi che essere disponibili prima di configurare il ridimensionamento automatico. Il numero minimo di nodi necessari per il tipo di nodo primario è determinato dal livello di affidabilità scelto. Per altre informazioni, vedere la sezione relativa ai [livelli di affidabilità](service-fabric-cluster-capacity.md).
+## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Impostare le regole di scalabilità automatica per il tipo di nodo o il set di scalabilità di macchine virtuali
+Se il cluster ha più tipi di nodo, ripetere questa operazione per ogni tipo di nodo o set di scalabilità di macchine virtuali che si vuole ridimensionare (in o in uscita). Considerare il numero di nodi che essere disponibili prima di configurare il ridimensionamento automatico. Il numero minimo di nodi necessari per il tipo di nodo primario è determinato dal livello di affidabilità scelto. Per altre informazioni, vedere la sezione relativa ai [livelli di affidabilità](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > La riduzione delle istanze del tipo di nodo primario, impostando un valore inferiore al numero minimo, renderà il cluster instabile o lo arresterà. In questo caso, è possibile che si verifichi una perdita di dati per le applicazioni e per i servizi di sistema.
@@ -49,25 +49,25 @@ Se il cluster ha più tipi di nodo, ripetere questa operazione per ogni tipo di 
 
 Attualmente la funzionalità di ridimensionamento automatico non è determinata dai carichi che le applicazioni segnalano a Service Fabric. Al momento, il ridimensionamento automatico che si ottiene dipende esclusivamente dai contatori delle prestazioni generati da ognuna delle istanze del set di scalabilità di macchine virtuali.  
 
-Seguire queste istruzioni per configurare la [scalabilità automatica per ogni set](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)di scalabilità di macchine virtuali .
+Seguire queste istruzioni [per configurare la scalabilità automatica per ogni set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> In uno scenario di scalabilità ridotta, a meno che il tipo di nodo non abbia un livello di [durabilità][durability] Gold o Silver, è necessario chiamare il [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) con il nome del nodo appropriato. Per la durata Bronze, non è consigliabile ridurre più di un nodo alla volta.
+> In uno scenario di riduzione delle prestazioni, a meno che il tipo di nodo non disponga di un [livello di durabilità][durability] Gold o Silver, è necessario chiamare il [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) con il nome del nodo appropriato. Per la durabilità Bronze, non è consigliabile ridimensionare più di un nodo alla volta.
 > 
 > 
 
-## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Aggiungere manualmente le macchine virtuali a un tipo di nodo/set di scalabilità di macchine virtualiManually add VMs to a node type/virtual machine scale set
+## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Aggiungere manualmente le VM a un tipo di nodo/set di scalabilità di macchine virtuali
 
 Quando si aumenta il numero di istanze, si aggiungono altre istanze di una macchina virtuale al set di scalabilità. Queste istanze diventano i nodi usati da Service Fabric. Service Fabric determina quando vengono aggiunte altre istanze al set di scalabilità e reagisce automaticamente. 
 
 > [!NOTE]
-> L'aggiunta di macchine virtuali richiede tempo, quindi non aspettatevi che le aggiunte siano istantanee. Pianificare quindi di aggiungere la capacità con largo anticipo, per consentire oltre 10 minuti prima che la capacità della macchina virtuale sia disponibile per l'inserimento delle repliche/istanze del servizio.
+> L'aggiunta di macchine virtuali richiede tempo, pertanto non è necessario che le aggiunte siano istantanee. Quindi, pianificare l'aggiunta di capacità in anticipo, per consentire più di 10 minuti prima che la capacità della macchina virtuale sia disponibile per le repliche o le istanze del servizio da inserire.
 > 
 
-### <a name="add-vms-using-a-template"></a>Aggiungere macchine virtuali usando un modelloAdd VMs using a template
-Seguire l'esempio o le istruzioni nella raccolta di modelli di [avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare il numero di macchine virtuali in ogni tipo di nodo. 
+### <a name="add-vms-using-a-template"></a>Aggiungere VM usando un modello
+Seguire l'esempio o le istruzioni nella [raccolta di modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare il numero di macchine virtuali in ogni tipo di nodo. 
 
-### <a name="add-vms-using-powershell-or-cli-commands"></a>Aggiungere macchine virtuali usando i comandi di PowerShell o dell'interfaccia della riga di comandoAdd VMs using PowerShell or CLI commands
+### <a name="add-vms-using-powershell-or-cli-commands"></a>Aggiungere VM usando i comandi PowerShell o CLI
 Il codice seguente ottiene un set di scalabilità in base al nome e aumenta di 1 la **capacità** del set di scalabilità.
 
 ```powershell
@@ -87,16 +87,16 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Rimuovere manualmente le macchine virtuali da un tipo di nodo/set di scalabilità di macchine virtualiManually remove VMs from a node type/virtual machine scale set
-Quando si esegue la scalabilità in un tipo di nodo, si rimuovono le istanze della macchina virtuale dal set di scalabilità. Se il tipo di nodo è il livello di durabilità del bronzo, Service Fabric non è a conoscenza di ciò che è accaduto e segnala che un nodo è scomparso. Service Fabric segnala quindi uno stato non integro per il cluster. Per evitare che lo stato non valido, è necessario rimuovere in modo esplicito il nodo dal cluster e rimuovere lo stato del nodo.
+## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Rimuovere manualmente le VM da un tipo di nodo/set di scalabilità di macchine virtuali
+Quando si esegue la scalabilità in un tipo di nodo, vengono rimosse le istanze di VM dal set di scalabilità. Se il tipo di nodo è livello di durabilità Bronze, Service Fabric non è a conoscenza di ciò che si è verificato e segnala che un nodo è scomparso. Service Fabric segnala quindi uno stato non integro per il cluster. Per evitare che lo stato sia errato, è necessario rimuovere in modo esplicito il nodo dal cluster e rimuovere lo stato del nodo.
 
-I servizi di sistema dell'infrastruttura del servizio vengono eseguiti nel tipo di nodo primario del cluster. Quando si riduce il tipo di nodo primario, non ridurre mai il numero di istanze a un numero inferiore a quello garantito dal livello di [affidabilità.](service-fabric-cluster-capacity.md) 
+I servizi di sistema di Service Fabric vengono eseguiti nel tipo di nodo primario del cluster. Quando si esegue il ridimensionamento del tipo di nodo primario, non ridurre mai il numero di istanze a un livello inferiore rispetto a quello garantito dal [livello di affidabilità](service-fabric-cluster-capacity.md) . 
  
 Per un servizio con stato, è necessario un determinato numero di nodi per essere sempre in grado di assicurare la disponibilità e mantenere lo stato del servizio. Come minimo, è necessario un numero di nodi uguale al conteggio dei set di repliche di destinazione della partizione o dei servizi.
 
 ### <a name="remove-the-service-fabric-node"></a>Rimuovere il nodo di Service Fabric
 
-I passaggi per la rimozione manuale dello stato del nodo si applicano solo ai tipi di nodo con un livello di durabilità *Bronzo.The* steps for manually removing node state apply only to node types with a Bronze durability tier.  Per il livello di durabilità *Silver* e *Gold,* questi passaggi vengono eseguiti automaticamente dalla piattaforma. Per altre informazioni sulla durabilità, vedere [Pianificazione della capacità dei cluster di Service Fabric][durability].
+I passaggi per la rimozione manuale dello stato del nodo si applicano solo ai tipi di nodo con un livello di durabilità *bronzo* .  Per il livello di durabilità *Silver* e *Gold* , questi passaggi vengono eseguiti automaticamente dalla piattaforma. Per altre informazioni sulla durabilità, vedere [Pianificazione della capacità dei cluster di Service Fabric][durability].
 
 Per garantire la distribuzione uniforme dei nodi del cluster tra i domini di aggiornamento e di errore e consentirne quindi un utilizzo uniforme, è opportuno rimuovere per primo l'ultimo nodo creato. In altre parole, i nodi devono essere rimossi in ordine inverso rispetto a quello in cui sono stati creati. L'ultimo nodo creato è quello che presenta il valore più elevato per la proprietà `virtual machine scale set InstanceId`. Negli esempi di codice seguenti viene restituito l'ultimo nodo creato.
 
@@ -203,7 +203,7 @@ sfctl node remove-state --node-name _nt1vm_5
 > **Controllare lo stato di disattivazione**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Controllare lo stato di arresto**
+> **Controlla stato di arresto**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
@@ -251,7 +251,7 @@ Fare riferimento ai [i dettagli sui livelli di durabilità qui](service-fabric-c
 Per altre informazioni sulla pianificazione della capacità del cluster, l'aggiornamento di un cluster e il partizionamento dei servizi, vedere gli articoli seguenti:
 
 * [Considerazioni sulla pianificazione della capacità del cluster di Service Fabric](service-fabric-cluster-capacity.md)
-* [Aggiornamenti del cluster](service-fabric-cluster-upgrade.md)
+* [Aggiornamenti cluster](service-fabric-cluster-upgrade.md)
 * [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->

@@ -14,7 +14,7 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128379"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
-Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB,](https://azure.microsoft.com/services/cosmos-db/)l'app Web [del servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
+Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), l'app Web del [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
 
 Con il modello di Azure Resource Manager è possibile automatizzare facilmente la distribuzione e la configurazione delle risorse di Azure.  Questa esercitazione illustra come distribuire un'applicazione Web e configurare automaticamente le informazioni relative alla connessione dell'account Azure Cosmos DB.
 
@@ -56,7 +56,7 @@ Si procederà ora alla distribuzione del primo modello.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment3.png)
 4. Fare clic su **Modifica parametri**, specificare i valori per ogni parametro obbligatorio e fare clic su **OK**.  I parametri sono i seguenti:
    
-   1. SITENAME: specifica il nome dell'app Web del servizio app e viene utilizzato per costruire l'URL utilizzato per accedere all'app Web (ad esempio, `mydemodocdbwebapp.azurewebsites.net`se si specifica "mydemodocdbwebapp", l'URL con cui si accede all'app Web è ).
+   1. SITEname: specifica il nome dell'app Web del servizio app e viene usato per costruire l'URL usato per accedere all'app Web (ad esempio, se si specifica "mydemodocdbwebapp", l'URL con cui si accede all'app Web è `mydemodocdbwebapp.azurewebsites.net`).
    2. HOSTINGPLANNAME: specifica il nome del piano di hosting del servizio app da creare.
    3. LOCATION: specifica la posizione di Azure in cui creare le risorse di Azure Cosmos DB e dell'app Web.
    4. DATABASEACCOUNTNAME: specifica il nome dell'account Azure Cosmos DB da creare.   
@@ -69,7 +69,7 @@ Si procederà ora alla distribuzione del primo modello.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment6.png)
 7. Al termine della distribuzione, viene aperto il riquadro del gruppo di risorse.
    ![Screenshot del riquadro del gruppo di risorse](./media/create-website/TemplateDeployment7.png)  
-8. Per utilizzare l'applicazione, passare all'URL dell'app Web `http://mydemodocdbwebapp.azurewebsites.net`(nell'esempio precedente, l'URL sarebbe ).  Verrà visualizzata l'applicazione Web seguente:
+8. Per usare l'applicazione, passare all'URL dell'app Web (nell'esempio precedente l'URL sarebbe `http://mydemodocdbwebapp.azurewebsites.net`).  Verrà visualizzata l'applicazione Web seguente:
    
    ![Applicazione di esempio](./media/create-website/image2.png)
 9. Proseguire e creare qualche attività nell'app Web, quindi tornare al riquadro del gruppo di risorse nel portale di Azure. Fare clic sulla risorsa dell'account Azure Cosmos DB nell'elenco delle risorse e quindi su **Esplora dati**.
@@ -122,7 +122,7 @@ Congratulazioni! È stata completata la distribuzione di Azure Cosmos DB, di un'
 * Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Modifiche apportate
-* Per una guida alla modifica da siti Web a servizio app, vedere: [Servizio app di Azure e il relativo impatto sui servizi di Azure esistentiFor](https://go.microsoft.com/fwlink/?LinkId=529714) a guide to the change from Websites to App Service see: Azure App Service and Its Impact on Existing Azure Services
+* Per una guida relativa al passaggio da siti Web al servizio app, vedere: [app Azure servizio e il suo effetto sui servizi di Azure esistenti](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.

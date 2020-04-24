@@ -1,6 +1,6 @@
 ---
-title: Azure Blob storage output binding for Azure Functions
-description: Informazioni su come fornire dati di archiviazione BLOB di Azure a una funzione di Azure.Learn how to provide Azure Blob storage data to an Azure Function.
+title: Binding di output di archiviazione BLOB di Azure per funzioni di Azure
+description: Informazioni su come fornire dati di archiviazione BLOB di Azure a una funzione di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
@@ -12,15 +12,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277245"
 ---
-# <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Blob storage output binding for Azure Functions
+# <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Binding di output di archiviazione BLOB di Azure per funzioni di Azure
 
-L'associazione di output consente di modificare ed eliminare i dati di archiviazione BLOB in una funzione di Azure.The output binding allows you to modify and delete blob storage data in an Azure Function.
+L'associazione di output consente di modificare ed eliminare i dati di archiviazione BLOB in una funzione di Azure.
 
-Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-blob.md).
+Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-storage-blob.md).
 
 ## <a name="example"></a>Esempio
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente è una [funzione in C#](functions-dotnet-class-library.md) che usa un trigger di BLOB di input e due associazioni di BLOB di output. La funzione viene attivata dalla creazione di un BLOB dell'immagine nel contenitore *sample-images*. Crea copie di piccole e medie dimensioni del BLOB dell'immagine.
 
@@ -77,7 +77,7 @@ public class ResizeImages
 
 <!--Same example for input and output. -->
 
-L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [script C# (.csx)](functions-reference-csharp.md) che usa le associazioni. La funzione crea una copia di un BLOB di testo. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *"originalblobname"-Copy*.
+L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [script C# (.csx)](functions-reference-csharp.md) che usa le associazioni. La funzione crea una copia di un BLOB di testo. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
 
 Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
 
@@ -122,11 +122,11 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 <!--Same example for input and output. -->
 
-L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [JavaScript](functions-reference-node.md) che usa le associazioni. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *"originalblobname"-Copy*.
+L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [JavaScript](functions-reference-node.md) che usa le associazioni. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
 
 Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
 
@@ -175,7 +175,7 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [Python](functions-reference-python.md) che usa le associazioni. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *"originalblobname"-Copy*.
+L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [Python](functions-reference-python.md) che usa le associazioni. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
 
 Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
 
@@ -295,7 +295,7 @@ Questa sezione contiene gli esempi seguenti:
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
@@ -325,9 +325,9 @@ public static void Run(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati dallo script di C.
+Gli attributi non sono supportati dallo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -337,32 +337,32 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'attributo `@BlobOutput` consente di accedere al BLOB che ha attivato la funzione. Se si utilizza una matrice di `dataType` `binary`byte con l'attributo , impostare su . Fare riferimento [all'esempio](#example) di output per i dettagli.
+L' `@BlobOutput` attributo consente di accedere al BLOB che ha attivato la funzione. Se si usa una matrice di byte con l'attributo, `dataType` impostare `binary`su. Per informazioni dettagliate, vedere l' [esempio di output](#example) .
 
 ---
 
-Per un esempio completo, vedere [Esempio di output](#example).
+Per un esempio completo, vedere [esempio di output](#example).
 
 È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere [Trigger - attributi](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Blob` .
+La tabella seguente illustra le proprietà di configurazione dell'associazione impostate nel file *Function. JSON* e nell' `Blob` attributo.
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `blob`. |
-|**direction** | n/d | Deve essere impostato su `out` per un'associazione di output. Le eccezioni sono indicate nella sezione [usage](#usage). |
+|**direzione** | n/d | Deve essere impostato su `out` per un'associazione di output. Le eccezioni sono indicate nella sezione [usage](#usage). |
 |**name** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione.  Impostare su `$return` per fare riferimento al valore restituito della funzione.|
-|**Percorso** |**BlobPath** | Percorso del contenitore BLOB. |
-|**Connessione** |**Connessione**| Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**path** |**BlobPath** | Percorso del contenitore BLOB. |
+|**connection** |**Connessione**| Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/d | **Accesso** | Indica se eseguire la lettura o la scrittura. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
@@ -370,28 +370,28 @@ Nella tabella seguente vengono illustrate le proprietà di configurazione dell'a
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name from function.json>`.
 
 # <a name="python"></a>[Python](#tab/python)
 
-È possibile dichiarare i parametri di funzione come i tipi seguenti da scrivere nell'archiviazione BLOB:You can declare function parameters as the following types to write out to blob storage:
+È possibile dichiarare i parametri della funzione come i seguenti tipi per scrivere nell'archivio BLOB:
 
 * Stringhe come`func.Out(str)`
 * Flussi come`func.Out(func.InputStream)`
 
-Fare riferimento [all'esempio](#example) di output per i dettagli.
+Per informazioni dettagliate, vedere l' [esempio di output](#example) .
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'attributo `@BlobOutput` consente di accedere al BLOB che ha attivato la funzione. Se si utilizza una matrice di `dataType` `binary`byte con l'attributo , impostare su . Fare riferimento [all'esempio](#example) di output per i dettagli.
+L' `@BlobOutput` attributo consente di accedere al BLOB che ha attivato la funzione. Se si usa una matrice di byte con l'attributo, `dataType` impostare `binary`su. Per informazioni dettagliate, vedere l' [esempio di output](#example) .
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  Riferimento |
+| Associazione |  Informazioni di riferimento |
 |---|---|
 | BLOB | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Table, Queue |  [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
@@ -399,5 +399,5 @@ L'attributo `@BlobOutput` consente di accedere al BLOB che ha attivato la funzio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire una funzione quando vengono modificati i dati di archiviazione BLOBRun a function when blob storage data changes](./functions-bindings-storage-blob-trigger.md)
-- [Leggere i dati di archiviazione BLOB durante l'esecuzione di una funzioneRead blob storage data when a function runs](./functions-bindings-storage-blob-input.md)
+- [Eseguire una funzione quando i dati dell'archivio BLOB cambiano](./functions-bindings-storage-blob-trigger.md)
+- [Leggere i dati di archiviazione BLOB quando viene eseguita una funzione](./functions-bindings-storage-blob-input.md)

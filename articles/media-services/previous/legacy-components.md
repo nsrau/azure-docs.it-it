@@ -1,6 +1,6 @@
 ---
-title: Componenti legacy di Servizi multimediali di Azure Documenti Microsoft
-description: Questo argomento illustra i componenti legacy di Servizi multimediali di Azure.This topic discusses Azure Media Services legacy components.
+title: Componenti legacy di servizi multimediali di Azure | Microsoft Docs
+description: Questo argomento illustra i componenti legacy di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -20,28 +20,28 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921080"
 ---
-# <a name="azure-media-services-legacy-components"></a>Componenti legacy di Servizi multimediali di AzureAzure Media Services legacy components
+# <a name="azure-media-services-legacy-components"></a>Componenti legacy di servizi multimediali di Azure
 
-Nel corso del tempo, ci sono stati miglioramenti e miglioramenti costanti ai componenti di Media Service. Di conseguenza, alcuni componenti legacy sono stati ritirati. Le istruzioni su come eseguire la migrazione dell'applicazione dal componente legacy a un componente corrente sono disponibili negli articoli seguenti.
+Nel corso del tempo sono stati apportati miglioramenti e miglioramenti costanti ai componenti di servizi multimediali. Di conseguenza, alcuni componenti legacy sono stati ritirati. È possibile trovare le istruzioni su come eseguire la migrazione dell'applicazione dal componente legacy a un componente corrente negli articoli seguenti.
  
-## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>Piani di pensionamento dei componenti legacy e linee guida per la migrazione
+## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>Piani di ritiro dei componenti legacy e informazioni aggiuntive sulla migrazione
 
-Stiamo annunciando la deprecazione dei processori multimediali Windows *Azure Media Encoder* (WAME) e Azure Media Encoder *(AME).* Questi processori sono in pensione il 31 marzo 2020.
+Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME). Questi processori verranno ritirati il 31 marzo 2020.
 
-* [Eseguire la migrazione da Windows Azure Media Encoder a Media Encoder StandardMigrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
-* [Eseguire la migrazione da Azure Media Encoder a Media Encoder StandardMigrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)
+* [Eseguire la migrazione da Azure Media Encoder Windows a Media Encoder Standard](migrate-windows-azure-media-encoder.md)
+* [Eseguire la migrazione da Azure Media Encoder a Media Encoder Standard](migrate-azure-media-encoder.md)
 
-Annunciamo anche il ritiro dei seguenti processori multimediali di Media Analytics: 
+Viene inoltre annunciato il ritiro dei seguenti Analisi Servizi multimediali processori di contenuti multimediali: 
  
 |Nome processore di contenuti multimediali|Data di ritiro|Note aggiuntive|
 |---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)|1 gennaio 2020|Questo processore multimediale viene sostituito [dall'indicizzatore video di Servizi multimediali](https://docs.microsoft.com/azure/media-services/video-indexer/)di Azure. Per altre informazioni, vedere [Eseguire la migrazione dall'indicizzatore multimediale di Azure 2 all'indicizzatore video di Servizi multimediali di Azure.For](migrate-indexer-v1-v2.md)more information, see Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer .|
-|[Azure Media Indexer](media-services-index-content.md)|1o marzo 2023|Questo processore multimediale viene sostituito [dall'indicizzatore video di Servizi multimediali](https://docs.microsoft.com/azure/media-services/video-indexer/)di Azure. Per altre informazioni, vedere [Eseguire la migrazione dall'indicizzatore multimediale di Azure all'indicizzatore video di Servizi multimediali](migrate-indexer-v1-v2.md) di AzureFor more information, see Migrate from Azure Media Indexer to Azure Media Services Video Indexer|
-|[Rilevamento del movimento](media-services-motion-detection.md)|1o giugno 2020|Nessun piano di sostituzione in questo momento.|
-|[Riepilogo video](media-services-video-summarization.md)|1o giugno 2020|Nessun piano di sostituzione in questo momento.|
-|[Riconoscimento ottico dei caratteri video](media-services-video-optical-character-recognition.md)|1o giugno 2020|Questo processore multimediale viene sostituito [dall'indicizzatore video di Servizi multimediali](https://docs.microsoft.com/azure/media-services/video-indexer/)di Azure. Considerare inoltre l'uso [dell'API di Servizi multimediali di Azure.](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept) <br/>Vedere Confronto tra i predefiniti di [Servizi multimediali di Azure e l'indicizzatore video](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets)|
-|[Rilevamento facciale](media-services-face-and-emotion-detection.md)|1o giugno 2020|Questo processore multimediale viene sostituito [dall'indicizzatore video di Servizi multimediali](https://docs.microsoft.com/azure/media-services/video-indexer/)di Azure. Considerare inoltre l'uso [dell'API di Servizi multimediali di Azure.](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept) <br/>Vedere Confronto tra i predefiniti di [Servizi multimediali di Azure e l'indicizzatore video](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets)|
-|[Moderatore dei contenuti](media-services-content-moderation.md)|1o giugno 2020|Questo processore multimediale viene sostituito [dall'indicizzatore video di Servizi multimediali](https://docs.microsoft.com/azure/media-services/video-indexer/)di Azure. Considerare inoltre l'uso [dell'API di Servizi multimediali di Azure.](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept) <br/>Vedere Confronto tra i predefiniti di [Servizi multimediali di Azure e l'indicizzatore video](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets)|
+|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)|1 ° gennaio 2020|Questo processore di contenuti multimediali viene sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).|
+|[Azure Media Indexer](media-services-index-content.md)|1 marzo 2023|Questo processore di contenuti multimediali viene sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md)|
+|[Rilevamento movimento](media-services-motion-detection.md)|1 ° giugno 2020|Al momento non sono disponibili piani di sostituzione.|
+|[Riepilogo video](media-services-video-summarization.md)|1 ° giugno 2020|Al momento non sono disponibili piani di sostituzione.|
+|[Riconoscimento ottico dei caratteri video](media-services-video-optical-character-recognition.md)|1 ° giugno 2020|Questo processore di contenuti multimediali viene sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept). <br/>Vedere [confrontare i set di impostazioni di servizi multimediali di Azure V3 e video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets)|
+|[Rilevamento facciale](media-services-face-and-emotion-detection.md)|1 ° giugno 2020|Questo processore di contenuti multimediali viene sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept). <br/>Vedere [confrontare i set di impostazioni di servizi multimediali di Azure V3 e video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets)|
+|[Content Moderator](media-services-content-moderation.md)|1 ° giugno 2020|Questo processore di contenuti multimediali viene sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept). <br/>Vedere [confrontare i set di impostazioni di servizi multimediali di Azure V3 e video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

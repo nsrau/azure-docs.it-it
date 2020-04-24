@@ -1,5 +1,5 @@
 ---
-title: Cluster SAP ASCS/SCS su WSFC tramite condivisione file in Azure . Documenti Microsoft
+title: Cluster SAP ASC/SCS in WSFC usando la condivisione file in Azure | Microsoft Docs
 description: Informazioni sul clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite un una condivisione file in Azure.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -205,7 +205,7 @@ ms.locfileid: "77918666"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file in Azure
 
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 
 Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di SAP a disponibilità elevata e di un sistema DBMS in Windows.
@@ -291,11 +291,11 @@ Una condivisione file di tipo scale-out offre una condivisione file SAPMNT a dis
 
 Il servizio Spazi di archiviazione diretta viene usato come disco condiviso per una condivisione file di tipo scale-out. È possibile usare Spazi di archiviazione diretta per creare spazi di archiviazione scalabili e a disponibilità elevata che usano server con risorse di archiviazione locali. Lo spazio di archiviazione condiviso usato per una condivisione file di tipo scale-out, come per i file dell'host globale SAP, non è un singolo punto di errore.
 
-Quando scegli Spazi di archiviazione diretta, considera questi casi d'uso:
+Quando si sceglie Spazi di archiviazione diretta, prendere in considerazione i casi d'uso seguenti:
 
-- Le macchine virtuali usate per creare il cluster Storage Spaces Direct devono essere distribuite in un set di disponibilità di Azure.The virtual machines used to build the Storage Spaces Direct cluster need to be deployed in an Azure availability set.
-- Per il ripristino di emergenza di un cluster diretto di spazi di archiviazione, è possibile usare Servizi di [Azure Site Recovery.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage)
-- Non è supportato per estendere il cluster di spazio di archiviazione diretto in diverse zone di disponibilità di Azure.It is not supported to stretch the Storage Space Direct Cluster across different Azure Availability zones.
+- Le macchine virtuali usate per compilare il cluster di Spazi di archiviazione diretta devono essere distribuite in un set di disponibilità di Azure.
+- Per il ripristino di emergenza di un cluster di Spazi di archiviazione diretta, è possibile usare [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- Non è supportata l'estensione del cluster con spazio di archiviazione diretta tra zone di disponibilità di Azure diversi.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Prerequisiti SAP per le condivisioni file di tipo scale-out in Azure
 
@@ -338,7 +338,7 @@ Per usare una condivisione file di tipo scale-out, il sistema deve soddisfare i 
 _**Figura 5:** Istanza ASCS/SCS di SAP e condivisione file di tipo scale-out distribuite in due cluster_
 
 > [!IMPORTANT]
-> In the Azure cloud, each cluster that is used for SAP and scale-out file shares must be deployed in its own Azure availability set or across Azure Availability Zones. In questo modo viene garantita la distribuzione delle VM del cluster nell'infrastruttura di Azure sottostante. Le distribuzioni delle zone di disponibilità sono supportate con questa tecnologia.
+> Nel cloud di Azure ogni cluster usato per SAP e le condivisioni file di scalabilità orizzontale deve essere distribuito nel proprio set di disponibilità di Azure o tra zone di disponibilità di Azure. In questo modo viene garantita la distribuzione delle VM del cluster nell'infrastruttura di Azure sottostante. Le distribuzioni di zone di disponibilità sono supportate con questa tecnologia.
 >
 
 ## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Condivisione file generica con SIOS DataKeeper come dischi condivisi del cluster
@@ -352,6 +352,6 @@ In questo caso è possibile usare una soluzione SIOS di terze parti come disco c
 
 * [Preparazione dell'infrastruttura di Azure per la disponibilità elevata di SAP con il cluster di failover Windows e la condivisione file per l'istanza ASCS/SCS di SAP][sap-high-availability-infrastructure-wsfc-file-share]
 * [Installazione della disponibilità elevata di SAP NetWeaver nel cluster di failover Windows e nei dischi condivisi per l'istanza ASCS/SCS di SAP in Azure][sap-high-availability-installation-wsfc-shared-disk]
-* [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure][deploy-sofs-s2d-in-azure] (Distribuire un file server di scalabilità orizzontale a due nodi di Spazi di archiviazione diretta per l'archiviazione UPD in Azure)
-* [Spazi di archiviazione diretti in Windows Server 2016][s2d-in-win-2016]
+* [Distribuire un file server di scalabilità orizzontale di Spazi di archiviazione diretta a due nodi per l'archiviazione di dischi profili utente in Azure][deploy-sofs-s2d-in-azure]
+* [Spazi di archiviazione diretta in Windows Server 2016][s2d-in-win-2016]
 * [Approfondimento sui volumi in Spazi di archiviazione diretta][deep-dive-volumes-in-s2d]

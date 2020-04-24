@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva di Azure Cloud Shell - Bash
-description: Informazioni su come usare la riga di comando Bash nel browser con Azure Cloud Shell.
+title: Guida introduttiva Azure Cloud Shell-bash
+description: Informazioni su come usare la riga di comando bash nel browser con Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
@@ -25,7 +25,7 @@ Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell 
 > È disponibile anche una guida introduttiva a [PowerShell in Azure Cloud Shell](quickstart-powershell.md).
 
 ## <a name="start-cloud-shell"></a>Avviare Cloud Shell
-1. Avviare Cloud Shell dalla barra di spostamento superiore del portale di Azure.Launch **Cloud Shell** from the top navigation of the Azure portal. <br>
+1. Avviare **cloud Shell** dall'esplorazione superiore del portale di Azure. <br>
 ![](media/quickstart/shell-icon.png)
 
 2. Selezionare una sottoscrizione per creare un account di archiviazione e una condivisione File di Microsoft Azure.

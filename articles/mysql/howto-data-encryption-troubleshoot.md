@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi alla crittografia dei dati - Database di Azure per MySQLTroubleshoot data encryption - Azure Database for MySQL
-description: Informazioni su come risolvere i problemi relativi alla crittografia dei dati nel database di Azure per MySQL
+title: Risolvere i problemi di crittografia dei dati-database di Azure per MySQL
+description: Informazioni su come risolvere i problemi di crittografia dei dati in database di Azure per MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
@@ -13,50 +13,50 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297041"
 ---
-# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Risolvere i problemi di crittografia dei dati nel database di Azure per MySQLTroubleshoot data encryption in Azure Database for MySQL
+# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Risolvere i problemi di crittografia dei dati in database di Azure per MySQL
 
-Questo articolo descrive come identificare e risolvere i problemi comuni che possono verificarsi nel database di Azure per MySQL quando viene configurato con la crittografia dei dati usando una chiave gestita dal cliente.
+Questo articolo descrive come identificare e risolvere i problemi comuni che possono verificarsi nel database di Azure per MySQL se configurati con la crittografia dei dati usando una chiave gestita dal cliente.
 
 ## <a name="introduction"></a>Introduzione
 
-Quando si configura la crittografia dei dati per usare una chiave gestita dal cliente in Archiviazione delle chiavi di Azure, i server richiedono l'accesso continuo alla chiave. Se il server perde l'accesso alla chiave gestita dal cliente nell'insieme di chiavi di Azure, negherà tutte le connessioni, restituirà il messaggio di errore appropriato e ne modificherà lo stato in ***Inaccessibile*** nel portale di Azure.If the server loses access to the customer-managed key in Azure Key Vault, it will deny all connections, return the appropriate error message, and change its state to Inaccessible in the Azure portal.
+Quando si configura la crittografia dei dati per l'uso di una chiave gestita dal cliente in Azure Key Vault, i server richiedono l'accesso continuo alla chiave. Se il server perde l'accesso alla chiave gestita dal cliente in Azure Key Vault, rifiuterà tutte le connessioni, restituirà il messaggio di errore appropriato e lo stato sarà ***inaccessibile*** nella portale di Azure.
 
-Se non è più necessario un database di Azure inaccessibile per il server MySQL, è possibile eliminarlo per interrompere i costi. Non sono consentite altre azioni sul server fino a quando non è stato ripristinato l'accesso all'insieme di credenziali delle chiavi e il server è disponibile. Non è inoltre possibile modificare l'opzione `Yes`di crittografia dei `No` dati da (gestito dal cliente) a (gestito dal servizio) in un server inaccessibile quando viene crittografato con una chiave gestita dal cliente. Sarà necessario riconvalidare manualmente la chiave prima che il server sia nuovamente accessibile. Questa azione è necessaria per proteggere i dati da accessi non autorizzati mentre le autorizzazioni per la chiave gestita dal cliente vengono revocate.
+Se non è più necessario un database di Azure inaccessibile per il server MySQL, è possibile eliminarlo per arrestare i costi. Non sono consentite altre azioni nel server finché non viene ripristinato l'accesso all'insieme di credenziali delle chiavi e il server non è disponibile. Non è inoltre possibile modificare l'opzione di crittografia dei dati da `Yes`(gestito dal cliente) a `No` (gestito dal servizio) in un server non accessibile quando viene crittografato con una chiave gestita dal cliente. È necessario riconvalidare manualmente la chiave prima che il server sia nuovamente accessibile. Questa azione è necessaria per proteggere i dati da accessi non autorizzati, mentre le autorizzazioni per la chiave gestita dal cliente vengono revocate.
 
-## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Errori comuni che causano l'inaccessibilità del server
+## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Errori comuni che fanno sì che il server diventi inaccessibile
 
-Gli errori di configurazione seguenti causano la maggior parte dei problemi di crittografia dei dati che usano le chiavi dell'insieme di credenziali delle chiavi di Azure:The following misconfigurations cause most issues with data encryption that use Azure Key Vault keys:
+Gli errori di configurazione seguenti provocano la maggior parte dei problemi con la crittografia dei dati che usano chiavi di Azure Key Vault:
 
 - L'insieme di credenziali delle chiavi non è disponibile o non esiste:
   - L'insieme di credenziali delle chiavi è stato eliminato per errore.
   - Un errore di rete intermittente rende non disponibile l'insieme di credenziali delle chiavi.
 
-- Non si dispone delle autorizzazioni per accedere all'insieme di credenziali delle chiavi o la chiave non esiste:
+- Non si è autorizzati ad accedere all'insieme di credenziali delle chiavi o la chiave non esiste:
   - La chiave è scaduta o è stata accidentalmente eliminata o disabilitata.
-  - L'identità gestita del database di Azure per l'istanza MySQL è stata eliminata accidentalmente.
-  - L'identità gestita del database di Azure per l'istanza MySQL non dispone di autorizzazioni sufficienti per le chiavi. Ad esempio, le autorizzazioni non includono Get, Wrap e Unwrap.
-  - Le autorizzazioni dell'identità gestita per l'istanza del database di Azure per MySQL sono state revocate o eliminate.
+  - L'identità gestita dell'istanza del database di Azure per MySQL è stata eliminata accidentalmente.
+  - L'identità gestita dell'istanza del database di Azure per MySQL non ha autorizzazioni di chiave sufficienti. Ad esempio, le autorizzazioni non includono Get, wrap e unwrap.
+  - Le autorizzazioni di identità gestite per l'istanza del database di Azure per MySQL sono state revocate o eliminate.
 
 ## <a name="identify-and-resolve-common-errors"></a>Identificare e risolvere gli errori comuni
 
 ### <a name="errors-on-the-key-vault"></a>Errori nell'insieme di credenziali delle chiavi
 
-#### <a name="disabled-key-vault"></a>Insieme di credenziali delle chiavi disabilitati
+#### <a name="disabled-key-vault"></a>Key Vault disabilitato
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Spiegazione:** Impossibile completare l'operazione nel server perché la chiave dell'insieme di credenziali delle chiavi di Azure è disabilitata.
+- **Spiegazione**: non è stato possibile completare l'operazione nel server perché la chiave Azure Key Vault è disabilitata.
 
-#### <a name="missing-key-vault-permissions"></a>Autorizzazioni dell'insieme di credenziali delle chiavi mancanti
+#### <a name="missing-key-vault-permissions"></a>Autorizzazioni Key Vault mancanti
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Spiegazione:** il server non dispone delle autorizzazioni Get, Wrap e Unwrap necessarie per Azure Key Vault. Concedere tutte le autorizzazioni mancanti all'entità servizio con ID.
+- **Spiegazione**: il server non dispone delle autorizzazioni Get, wrap e unwrap necessarie per Azure Key Vault. Concedere le autorizzazioni mancanti all'entità servizio con ID.
 
-### <a name="mitigation"></a>Strategia di riduzione del rischio
+### <a name="mitigation"></a>Misura di prevenzione
 
 - Verificare che la chiave gestita dal cliente sia presente nell'insieme di credenziali delle chiavi.
 - Identificare l'insieme di credenziali delle chiavi, quindi passare all'insieme di credenziali delle chiavi nel portale di Azure.
-- Assicurarsi che l'URI della chiave identifichi una chiave presente.
+- Verificare che l'URI della chiave identifichi una chiave presente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Usare il portale di Azure per configurare la crittografia dei dati con una chiave gestita dal cliente nel database di Azure per MySQLUse the Azure portal to set up data encryption with a customer-managed key on Azure Database for MySQL](howto-data-encryption-portal.md)
+[Usare il portale di Azure per configurare la crittografia dei dati con una chiave gestita dal cliente nel database di Azure per MySQL](howto-data-encryption-portal.md)

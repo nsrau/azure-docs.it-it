@@ -1,7 +1,7 @@
 ---
 title: Operazioni di Microsoft Graph supportate
 titleSuffix: Azure AD B2C
-description: Indice delle operazioni di Microsoft Graph supportate per la gestione delle risorse B2C di Azure AD, inclusi utenti, flussi utente, provider di identità, criteri personalizzati, chiavi dei criteri e altro ancora.
+description: Indice delle operazioni di Microsoft Graph supportate per la gestione di risorse Azure AD B2C, inclusi utenti, flussi utente, provider di identità, criteri personalizzati, chiavi dei criteri e altro ancora.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -18,90 +18,90 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184249"
 ---
-# <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operazioni di Microsoft Graph disponibili per Azure AD B2C
+# <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
 
-Le seguenti operazioni API di Microsoft Graph sono supportate per la gestione delle risorse B2C di Azure AD, inclusi utenti, provider di identità, flussi utente, criteri personalizzati e chiavi di criteri.
+Per la gestione delle risorse Azure AD B2C, inclusi gli utenti, i provider di identità, i flussi utente, i criteri personalizzati e le chiavi dei criteri, sono supportate le seguenti operazioni di Microsoft Graph API.
 
-Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente all'interno del riferimento all'API Microsoft Graph per tale operazione.
+Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente all'interno del Microsoft Graph riferimento API per l'operazione.
 
 ## <a name="user-management"></a>Gestione utente
 
 - [Elencare gli utenti](https://docs.microsoft.com/graph/api/user-list)
-- [Creare un utente consumerCreate a consumer user](https://docs.microsoft.com/graph/api/user-post-users)
-- [Ottenere un utenteGet a user](https://docs.microsoft.com/graph/api/user-get)
+- [Creazione di un utente consumer](https://docs.microsoft.com/graph/api/user-post-users)
+- [Ottenere un utente](https://docs.microsoft.com/graph/api/user-get)
 - [Aggiornare un utente](https://docs.microsoft.com/graph/api/user-update)
 - [Eliminare un utente](https://docs.microsoft.com/graph/api/user-delete)
 
-Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l'API Microsoft Graph, vedere [Gestire gli account utente B2C](manage-user-accounts-graph-api.md)di Azure AD con Microsoft Graph.
+Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l'API Microsoft Graph, vedere [gestire gli account utente di Azure ad B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ## <a name="identity-providers-user-flow"></a>Provider di identità (flusso utente)
 
-Gestire i provider di identità disponibili per i flussi utente nel tenant B2C di Azure AD.
+Gestire i provider di identità disponibili per i flussi utente nel tenant del Azure AD B2C.
 
-- [Provider di identità di elenco registrati nel tenant B2C di Azure ADList identity providers registered in the Azure AD B2C tenant](https://docs.microsoft.com/graph/api/identityprovider-list)
-- [Creare un provider di identitàCreate an identity provider](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
-- [Ottenere un provider di identitàGet an identity provider](https://docs.microsoft.com/graph/api/identityprovider-get)
-- [Aggiornare il provider di identitàUpdate identity provider](https://docs.microsoft.com/graph/api/identityprovider-update)
-- [Eliminare un provider di identitàDelete an identity provider](https://docs.microsoft.com/graph/api/identityprovider-delete)
+- [Elencare i provider di identità registrati nel tenant di Azure AD B2C](https://docs.microsoft.com/graph/api/identityprovider-list)
+- [Creazione di un provider di identità](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
+- [Ottenere un provider di identità](https://docs.microsoft.com/graph/api/identityprovider-get)
+- [Aggiorna provider di identità](https://docs.microsoft.com/graph/api/identityprovider-update)
+- [Eliminare un provider di identità](https://docs.microsoft.com/graph/api/identityprovider-delete)
 
 ## <a name="user-flow"></a>Flusso utente
 
-Configurare criteri predefiniti per l'iscrizione, l'accesso, l'accesso combinato e l'accesso, la reimpostazione della password e l'aggiornamento del profilo.
+Configurare criteri predefiniti per l'iscrizione, l'accesso, l'iscrizione e l'accesso combinati, la reimpostazione della password e l'aggiornamento del profilo.
 
 - [Elencare i flussi utente](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Creare un flusso utenteCreate a user flow](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [Ottenere un flusso utenteGet a user flow](https://docs.microsoft.com/graph/api/identityuserflow-get)
-- [Eliminare un flusso utenteDelete a user flow](https://docs.microsoft.com/graph/api/identityuserflow-delete)
+- [Creare un flusso utente](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
+- [Ottenere un flusso utente](https://docs.microsoft.com/graph/api/identityuserflow-get)
+- [Eliminare un flusso utente](https://docs.microsoft.com/graph/api/identityuserflow-delete)
 
 ## <a name="custom-policies"></a>Criteri personalizzati
 
-Le operazioni seguenti consentono di gestire i criteri di Azure AD B2C Trust Framework, noti come [criteri personalizzati.](custom-policy-overview.md)
+Le operazioni seguenti consentono di gestire i criteri di Azure AD B2C Trust Framework, noti come [criteri personalizzati](custom-policy-overview.md).
 
-- [Elencare tutti i criteri del framework di attendibilità configurati in un tenantList all trust framework policies configured in a tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
-- [Creare criteri del framework di attendibilitàCreate trust framework policy](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
-- [Leggere le proprietà di un criterio del framework di attendibilità esistenteRead properties of an existing trust framework policy](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
-- [Aggiornare o creare criteri del framework di attendibilità.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
-- [Eliminare un criterio del framework di attendibilità esistenteDelete an existing trust framework policy](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
+- [Elencare tutti i criteri di Framework attendibilità configurati in un tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
+- [Creare criteri di Framework attendibilità](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
+- [Leggere le proprietà di un criterio di Framework attendibilità esistente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
+- [Aggiornare o creare criteri di Framework attendibilità.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
+- [Eliminare un criterio di Framework attendibilità esistente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
 
 ## <a name="policy-keys"></a>Chiavi dei criteri
 
-Identity Experience Framework archivia i segreti a cui si fa riferimento in un criterio personalizzato per stabilire l'attendibilità tra i componenti. Questi segreti possono essere chiavi/valori simmetrici o asimmetrici. Nel portale di Azure queste entità vengono visualizzate come **Chiavi dei criteri**.
+Il Framework dell'esperienza di identità Archivia i segreti a cui si fa riferimento in un criterio personalizzato per stabilire una relazione di trust tra i componenti. Questi segreti possono essere chiavi/valori simmetriche o asimmetriche. Nel portale di Azure queste entità vengono visualizzate come chiavi dei **criteri**.
 
-La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph è l'insieme di [chiavi Trusted Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Ogni **Keyset** contiene almeno una **chiave**. Per creare una chiave, creare innanzitutto un set di chiavi vuoto, quindi generare una chiave nel keyset. È possibile creare un segreto manuale, caricare un certificato o una chiave PKCS12. La chiave può essere un segreto generato, una stringa definita dall'utente (ad esempio il segreto dell'applicazione Facebook) o un certificato caricato. Se un keyset dispone di più chiavi, solo uno dei tasti è attivo.
+La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph è il [keyset del Framework attendibile](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Ogni **Keyset** contiene almeno una **chiave**. Per creare una chiave, creare prima un keyset vuoto e quindi generare una chiave nel keyset. È possibile creare un segreto manuale, caricare un certificato o una chiave PKCS12. La chiave può essere un segreto generato, una stringa definita dall'utente, ad esempio il segreto dell'applicazione Facebook, oppure un certificato caricato. Se un keyset dispone di più chiavi, solo una delle chiavi è attiva.
 
-### <a name="trust-framework-policy-keyset"></a>Keyset dei criteri di Framework di attendibilità
+### <a name="trust-framework-policy-keyset"></a>Keyset criteri di Framework attendibilità
 
-- [Elencare i set di chiavi del framework di attendibilitàList the trust framework keysets](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
-- [Creare un set di chiavi del framework di attendibilitàCreate a trust framework keysets](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
-- [Ottenere un set di tastiGet a keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
-- [Aggiornare un set di chiavi del framework di attendibilitàUpdate a trust framework keysets](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
-- [Eliminare un set di chiavi del framework di attendibilitàDelete a trust framework keysets](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
+- [Elencare i set di impostazioni del Framework di attendibilità](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
+- [Creare set di impostazioni di un Framework attendibilità](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
+- [Ottenere un keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
+- [Aggiornare i set di impostazioni di un Framework attendibilità](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
+- [Eliminare i set di impostazioni di un Framework attendibilità](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
 
-### <a name="trust-framework-policy-key"></a>Chiave dei criteri del framework di attendibilità
+### <a name="trust-framework-policy-key"></a>Chiave dei criteri di Framework attendibilità
 
-- [Ottenere la chiave attualmente attiva nel keysetGet currently active key in the keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
-- [Generare una chiave nel keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
-- [Caricare un segreto basato su stringaUpload a string based secret](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
-- [Caricare un certificato X.509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Caricare un certificato in formato PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Ottenere la chiave attualmente attiva nel keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
+- [Generare una chiave in keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
+- [Carica un segreto basato su stringa](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
+- [Caricare un certificato X. 509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Carica un certificato in formato PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
 
-## <a name="applications"></a>APPLICAZIONI
+## <a name="applications"></a>Applicazioni
 
 - [Elencare le applicazioni](https://docs.microsoft.com/graph/api/application-list)
-- [Creare un'applicazioneCreate an application](https://docs.microsoft.com/graph/api/resources/application)
+- [Creare un'applicazione](https://docs.microsoft.com/graph/api/resources/application)
 - [Aggiorna applicazione](https://docs.microsoft.com/graph/api/application-update)
-- [Creare servicePrincipalCreate servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
+- [Crea servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
 - [Crea concessione oauth2Permission](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
 - [Eliminare l'applicazione](https://docs.microsoft.com/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Proprietà dell'estensione dell'applicazione
 
-- [Elencare le proprietà dell'estensioneList extension properties](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
+- [Elencare le proprietà dell'estensione](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C fornisce una directory che può contenere 100 attributi personalizzati per utente. Per i flussi utente, queste proprietà di estensione vengono [gestite tramite il portale](custom-policy-custom-attributes.md)di Azure.For user flows, these extension properties are managed by using the Azure portal . Per i criteri personalizzati, Azure AD B2C crea automaticamente la proprietà la prima volta che il criterio scrive un valore nella proprietà di estensione.
+Azure AD B2C fornisce una directory che può contenere 100 attributi personalizzati per utente. Per i flussi utente, queste proprietà di estensione vengono [gestite tramite il portale di Azure](custom-policy-custom-attributes.md). Per i criteri personalizzati, Azure AD B2C crea la proprietà per la prima volta che il criterio scrive un valore nella proprietà di estensione.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-- [Elencare i registri di controllo](https://docs.microsoft.com/graph/api/directoryaudit-list)
+- [Elencare i log di controllo](https://docs.microsoft.com/graph/api/directoryaudit-list)
 
-Per altre informazioni sull'accesso ai log di controllo B2C di Azure AD con l'API Microsoft Graph, vedere Accesso ai log di [controllo B2C](view-audit-logs.md)di Azure AD.
+Per ulteriori informazioni sull'accesso ai log di controllo di Azure AD B2C con l'API Microsoft Graph, vedere [accesso ai log di controllo di Azure ad B2C](view-audit-logs.md).

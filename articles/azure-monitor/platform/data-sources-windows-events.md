@@ -21,14 +21,14 @@ I log eventi di Windows rappresentano una delle più comuni [origini dati](agent
 ## <a name="configuring-windows-event-logs"></a>Configurazione dei log eventi di Windows
 Configurare i log eventi di Windows nel [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources).
 
-Monitoraggio di Azure raccoglie solo gli eventi dai log eventi di Windows che vengono specificati nelle impostazioni.  È possibile aggiungere un registro eventi digitando il **+** nome del registro e facendo clic su .  Per ogni log vengono raccolti solo gli eventi con i livelli di gravità selezionati.  Controllare i livelli di gravità del log specifico da raccogliere.  Non è possibile specificare altri criteri per filtrare gli eventi.
+Monitoraggio di Azure raccoglie solo gli eventi dai log eventi di Windows che vengono specificati nelle impostazioni.  È possibile aggiungere un log eventi digitando il nome del log e facendo clic **+** su.  Per ogni log vengono raccolti solo gli eventi con i livelli di gravità selezionati.  Controllare i livelli di gravità del log specifico da raccogliere.  Non è possibile specificare altri criteri per filtrare gli eventi.
 
 Mentre si digita il nome di un registro eventi, Monitoraggio di Azure fornisce suggerimenti sui nomi comunemente usati per il registro eventi. Se il registro che si desidera aggiungere non viene visualizzato nell'elenco, è possibile aggiungerlo digitandone il nome completo. È possibile trovare il nome completo del registro tramite il Visualizzatore eventi. Nel Visualizzatore eventi, aprire la pagina *Proprietà* del registro e copiare la stringa dal campo *Nome completo*.
 
 ![Configurare gli eventi di Windows](media/data-sources-windows-events/configure.png)
 
 > [!NOTE]
-> Gli eventi critici del log eventi di Windows avranno la gravità "Errore" nei log di Monitoraggio di Azure.Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
+> Gli eventi critici del registro eventi di Windows avranno un livello di gravità "errore" nei log di monitoraggio di Azure.
 
 ## <a name="data-collection"></a>Raccolta dati
 Monitoraggio di Azure raccoglie ogni evento corrispondente a un livello di gravità selezionato da un registro eventi monitorato quando viene creato l'evento.  L'agente registra la propria posizione in ogni registro eventi da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, raccoglie gli eventi dal momento in cui è stato interrotto, anche se gli eventi sono stati creati mentre l'agente era offline.  Esiste la possibilità che questi eventi non vengano raccolti se il registro eventi esegue il wrapping con eventi non raccolti che vengono sovrascritti mentre l'agente è offline.
@@ -38,7 +38,7 @@ Monitoraggio di Azure raccoglie ogni evento corrispondente a un livello di gravi
 >
 
 ## <a name="windows-event-records-properties"></a>Proprietà dei record eventi di Windows
-I record degli eventi di Windows hanno un tipo di **evento** e le proprietà nella tabella seguente:
+I record degli eventi di Windows hanno un tipo di **evento** e hanno le proprietà riportate nella tabella seguente:
 
 | Proprietà | Descrizione |
 |:--- |:--- |
@@ -52,7 +52,7 @@ I record degli eventi di Windows hanno un tipo di **evento** e le proprietà nel
 | ParameterXml |Valori dei parametri dell'evento in formato XML. |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è`AOI-<workspace ID>` |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
-| Source (Sorgente) |Origine dell'evento. |
+| Origine |Origine dell'evento. |
 | SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
 | UserName |Nome utente dell'account che ha registrato l'evento. |

@@ -1,6 +1,6 @@
 ---
-title: Inviare eventi a un endpoint Web usando La configurazione delle app di AzureSend Events to a web endpoint using Azure App Configuration
-description: Informazioni sull'uso delle sottoscrizioni di eventi di configurazione delle app di Azure per inviare eventi di modifica chiave-valore a un endpoint WebLearn to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
+title: Inviare eventi a un endpoint Web usando la configurazione di app Azure
+description: Informazioni su come usare le sottoscrizioni di eventi di configurazione app Azure per inviare eventi di modifica chiave-valore a un endpoint Web
 services: azure-app-configuration
 author: lisaguthrie
 ms.assetid: ''
@@ -18,15 +18,15 @@ ms.locfileid: "78672147"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Instradare gli eventi di Configurazione app di Azure a un endpoint Web con l'interfaccia della riga di comando di Azure
 
-In questo articolo viene illustrato come configurare le sottoscrizioni di eventi di configurazione delle app di Azure per inviare eventi di modifica chiave-valore a un endpoint Web.In this article, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Gli utenti di Configurazione app di Azure possono sottoscrivere eventi generati ogni volta che vengono modificate le coppie chiave-valore. Questi eventi possono attivare hook Web, Funzioni di Azure, Code di Archiviazione di Azure o qualsiasi altro gestore eventi supportato da Griglia di eventi di Azure.These events can trigger web hooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
+In questo articolo viene illustrato come configurare le sottoscrizioni di eventi di configurazione app Azure per inviare eventi di modifica chiave-valore a un endpoint Web. App Azure configurazione gli utenti possono sottoscrivere gli eventi generati ogni volta che vengono modificati i valori chiave. Questi eventi possono attivare gli hook Web, le funzioni di Azure, le code di archiviazione di Azure o qualsiasi altro gestore eventi supportato da griglia di eventi di Azure. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Sottoscrizione di Azure: [crearne una gratuitamente.](https://azure.microsoft.com/free/) È anche possibile usare Azure Cloud Shell.
+- Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/). È anche possibile usare Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede l'esecuzione della versione più recente dell'interfaccia della riga di comando di Azure (2.0.70 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione più recente dell'interfaccia della riga di comando di Azure (2.0.70 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
 
@@ -44,7 +44,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 
-Sostituire `<appconfig_name>` con un nome univoco per `<resource_group_name>` l'archivio di configurazione e con il gruppo di risorse creato in precedenza. Il nome deve essere univoco perché viene usato come nome DNS.
+Sostituire `<appconfig_name>` con un nome univoco per l'archivio di configurazione e `<resource_group_name>` con il gruppo di risorse creato in precedenza. Il nome deve essere univoco perché viene usato come nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -75,7 +75,7 @@ Il sito dovrebbe essere visibile senza messaggi attualmente visualizzati.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration-store"></a>Iscriviti al tuo app Configuration Store
+## <a name="subscribe-to-your-app-configuration-store"></a>Sottoscrivere l'archivio di configurazione dell'app
 
 Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui si vuole tenere traccia e dove inviare tali eventi. L'esempio seguente sottoscrive l'istanza di Configurazione app creata e passa l'URL dell'app Web come endpoint per la notifica di eventi. Sostituire `<event_subscription_name>` con un nome per la sottoscrizione di eventi. Per `<resource_group_name>` e `<appconfig_name>` usare i valori creati in precedenza.
 

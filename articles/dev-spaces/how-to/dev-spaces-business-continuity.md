@@ -5,7 +5,7 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: Informazioni su come usare Azure Dev Spaces e Azure Kubernetes Services per garantire la continuità aziendale e prepararsi per il ripristino di emergenzaLearn to use Azure Dev Spaces and Azure Kubernetes Services to provide business continuity and prepare for disaster recovery
+description: Informazioni su come usare Azure Dev Spaces e i servizi Kubernetes di Azure per garantire la continuità aziendale e prepararsi per il ripristino di emergenza
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
@@ -29,7 +29,7 @@ Per informazioni generali sulle distribuzioni in più aree del servizio Azure Ku
 
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Abilitare Dev Spaces tramite il portale di Azure
 
-Selezionare la voce di menu Spazi di sviluppo sotto le impostazioni di ogni cluster nel portale di Azure.Select the **Dev Spaces** menu item under the settings of each cluster in the Azure portal. Quindi scegliere l'opzione per abilitare Spazi di sviluppo e salvare.
+Selezionare la voce di menu **dev Spaces** sotto le impostazioni di ogni cluster nella portale di Azure. Quindi scegliere l'opzione Abilita spazi di sviluppo e Salva.
 
 ![Abilitare Dev Spaces tramite il portale di Azure](../media/common/enable-dev-spaces.jpg)
 
@@ -51,7 +51,7 @@ Quando si lavora con Dev Spaces, si distribuisce l'intera applicazione negli spa
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Selezionare il cluster del servizio Azure Kubernetes corretto da usare per Dev Spaces
 
-Dopo aver configurato correttamente un cluster di backup su cui è in esecuzione la baseline del proprio team, è possibile passare rapidamente al cluster di backup in qualsiasi momento. È quindi possibile eseguire nuovamente i singoli servizi su cui si sta lavorando negli spazi di sviluppo figlio.
+Dopo aver configurato correttamente un cluster di backup su cui è in esecuzione la baseline del proprio team, è possibile passare rapidamente al cluster di backup in qualsiasi momento. Sarà quindi possibile eseguire di nuovo i singoli servizi su cui si sta lavorando negli spazi di sviluppo figlio.
 
 Selezionare un altro cluster con il comando interfaccia della riga di comando seguente:
 

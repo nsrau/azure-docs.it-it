@@ -1,5 +1,5 @@
 ---
-title: Che cos'è un dispositivo aggiunto ad Azure AD?
+title: Che cos'è un dispositivo Azure AD aggiunto?
 description: Informazioni su come le identità dei dispositivi semplificano la gestione dei dispositivi che accedono alle risorse nell'ambiente.
 services: active-directory
 ms.service: active-directory
@@ -20,36 +20,36 @@ ms.locfileid: "78672672"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
 
-L'aggiunta ad Azure AD è destinata alle organizzazioni che vogliono essere con la prima del cloud o solo nel cloud. Qualsiasi organizzazione può distribuire dispositivi aggiunti ad Azure AD indipendentemente dalle dimensioni o dal settore. L'aggiunta ad Azure AD funziona anche in un ambiente ibrido, consentendo l'accesso alle app e alle risorse cloud e locali.
+Azure AD join è destinato alle organizzazioni che vogliono essere cloud-First o solo cloud. Qualsiasi organizzazione può distribuire Azure AD dispositivi aggiunti indipendentemente dalle dimensioni o dal settore. Azure AD join funziona anche in un ambiente ibrido, consentendo l'accesso alle risorse e alle app cloud e locali.
 
 |   | Aggiunta ad Azure AD |
 | --- | --- |
-| **Definizione** | Aggiunta solo ad Azure AD che richiede l'accesso al dispositivo da parte dell'account aziendale |
-| **Destinatari principali** | Adatto sia per le organizzazioni solo cloud che per le organizzazioni ibride. |
+| **Definizione** | Aggiunto solo a Azure AD che richiede l'account aziendale per accedere al dispositivo |
+| **Destinatari primari** | Adatto per organizzazioni ibride e solo cloud. |
 |   | Applicabile a tutti gli utenti di un'organizzazione |
 | **Proprietà del dispositivo** | Organization |
 | **Sistemi operativi** | Tutti i dispositivi Windows 10 |
-| **Provisioning** | Self-service: Configurazione configurazione o impostazioni di Windows |
+| **Provisioning** | Self-Service: impostazioni o OOBE di Windows |
 |   | Registrazione in blocco |
 |   | Windows Autopilot |
-| **Opzioni di accesso al dispositivo** | Account dell'organizzazione che utilizzano: |
+| **Opzioni di accesso del dispositivo** | Account aziendali con: |
 |   | Password |
 |   | Windows Hello for Business |
-|   | Chiavi di protezione FIDO2.0 (anteprima)FIDO2.0 security keys (preview) |
-| **Gestione del dispositivo** | Gestione dei dispositivi mobili (esempio: Microsoft Intune)Mobile Device Management (example: Microsoft Intune) |
-|   | Co-gestione con Microsoft Intune e Gestione configurazione endpoint Microsoft |
+|   | Chiavi di sicurezza di FIDO 2.0 (anteprima) |
+| **Gestione dei dispositivi** | Gestione dei dispositivi mobili (ad esempio: Microsoft Intune) |
+|   | Co-gestione con Microsoft Intune e Microsoft endpoint Configuration Manager |
 | **Funzionalità principali** | SSO per le risorse cloud e locali |
-|   | Accesso condizionale tramite la registrazione MDM e la valutazione della conformità MDMConditional Access through MDM enrollment and MDM compliance evaluation |
-|   | Reimpostazione password self-service e reimpostazione del PIN di Windows Hello nella schermata di blocco |
-|   | Enterprise State Roaming tra più dispositivi |
+|   | Accesso condizionale tramite la registrazione MDM e la valutazione della conformità MDM |
+|   | Reimpostazione della password self-service e ripristino del PIN di Windows Hello nella schermata di blocco |
+|   | Enterprise State Roaming tra dispositivi |
 
-I dispositivi aggiunti ad Azure AD hanno eseguito l'accesso all'uso di un account Azure AD dell'organizzazione. L'accesso alle risorse nell'organizzazione può essere ulteriormente limitato in base all'account di Azure AD e [ai criteri](../conditional-access/overview.md) di accesso condizionale applicati all'identità del dispositivo.
+Azure AD dispositivi aggiunti sono connessi a utilizzando un account di Azure AD aziendale. L'accesso alle risorse dell'organizzazione può essere ulteriormente limitato in base al Azure AD account e ai [criteri di accesso condizionale](../conditional-access/overview.md) applicati all'identità del dispositivo.
 
-Gli amministratori possono proteggere e controllare ulteriormente i dispositivi aggiunti ad Azure AD usando strumenti di gestione dei dispositivi mobili (MDM) come Microsoft Intune o in scenari di co-gestione tramite Microsoft Endpoint Configuration Manager.Administrators can secure and further control Azure AD joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Endpoint Configuration Manager. Questi strumenti forniscono un mezzo per applicare le configurazioni richieste dall'organizzazione, ad esempio richiedere la crittografia dell'archiviazione, la complessità delle password, le installazioni software e gli aggiornamenti software. Gli amministratori possono rendere le applicazioni dell'organizzazione disponibili per i dispositivi aggiunti ad Azure AD usando Configuration Manager per [gestire le app da Microsoft Store per le aziende e la formazione](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Gli amministratori possono proteggere e controllare ulteriormente Azure AD dispositivi aggiunti usando strumenti di gestione di dispositivi mobili (MDM) come Microsoft Intune o in scenari di co-gestione usando Microsoft endpoint Configuration Manager. Questi strumenti forniscono un mezzo per applicare le configurazioni necessarie per l'organizzazione, ad esempio la necessità di crittografare l'archiviazione, la complessità delle password, le installazioni software e gli aggiornamenti software. Gli amministratori possono rendere disponibili le applicazioni dell'organizzazione per Azure AD i dispositivi aggiunti usando Configuration Manager per [gestire le app dal Microsoft Store per le aziende e la formazione](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-L'aggiunta ad Azure AD può essere eseguita usando opzioni self-service come la Configurazione in conto lavoro, la registrazione in blocco o [Windows Autopilot](/intune/enrollment-autopilot).
+Azure AD join può essere eseguito usando opzioni self-service come la configurazione guidata, la registrazione in blocco o [Windows Autopilot](/intune/enrollment-autopilot).
 
-I dispositivi aggiunti ad Azure AD possono comunque mantenere l'accesso Single Sign-On alle risorse locali quando si trovano nella rete dell'organizzazione. I dispositivi aggiunti ad Azure AD possono comunque eseguire l'autenticazione in server locali, ad esempio file, stampa e altre applicazioni.
+Azure AD dispositivi aggiunti possono comunque mantenere Single Sign-On l'accesso alle risorse locali quando si trovano nella rete dell'organizzazione. I dispositivi Azure AD aggiunti possono comunque eseguire l'autenticazione nei server locali, ad esempio file, stampa e altre applicazioni.
 
 ## <a name="scenarios"></a>Scenari
 
@@ -58,7 +58,7 @@ Anche se l'aggiunta ad Azure AD è destinata soprattutto alle organizzazioni pri
 - Si vuole passare all'infrastruttura basata su cloud mediante Azure AD e MDM come Intune.
 - Non è possibile usare un'aggiunta a un dominio locale, ad esempio se è necessario avere il controllo di dispositivi mobili come tablet e telefoni.
 - Gli utenti hanno soprattutto necessità di accedere a Office 365 o ad altre app SaaS integrate con Azure AD.
-- Si vuole gestire un gruppo di utenti in Azure AD invece che in Active Directory, Questo scenario può essere applicato, ad esempio, a lavoratori stagionali, appaltatori o studenti.
+- Si vuole gestire un gruppo di utenti in Azure AD invece che in Active Directory, Questo scenario può essere applicato, ad esempio, a lavoratori stagionali, terzisti o studenti.
 - Si vogliono fornire funzionalità di join ai lavoratori in succursali remote con un'infrastruttura locale limitata.
 
 È possibile configurare dispositivi aggiunti ad Azure AD per dispositivi Windows 10.
@@ -68,7 +68,7 @@ L'obiettivo dei dispositivi aggiunti ad Azure AD è di semplificare:
 - Distribuzioni Windows di dispositivi di proprietà dell'azienda
 - Accesso ad app e risorse aziendali da qualsiasi dispositivo Windows
 - Gestione basata su cloud di dispositivi di proprietà dell'azienda
-- Gli utenti possono accedere ai propri dispositivi con i propri account aziendali o aziendali di Active Directory sincronizzati.
+- Gli utenti possono accedere ai propri dispositivi con la loro Azure AD o sincronizzati Active Directory account aziendali o dell'Istituto di istruzione.
 
 ![Dispositivi aggiunti ad Azure AD](./media/concept-azure-ad-join/azure-ad-joined-device.png)
 
@@ -82,5 +82,5 @@ L'obiettivo dei dispositivi aggiunti ad Azure AD è di semplificare:
 
 - [Pianificare l'implementazione dell'aggiunta ad Azure AD](azureadjoin-plan.md)
 - [Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD](assign-local-admin.md)
-- [Gestire le identità dei dispositivi tramite il portale di AzureManage device identities using the Azure portal](device-management-azure-portal.md)
+- [Gestire le identità dei dispositivi usando il portale di Azure](device-management-azure-portal.md)
 - [Gestire i dispositivi non aggiornati in Azure AD](manage-stale-devices.md)

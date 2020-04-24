@@ -12,14 +12,14 @@ ms.locfileid: "79408761"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
-[Backup](backup-overview.md) di Azure offre una soluzione specializzata basata sul flusso per eseguire il backup di SQL Server in esecuzione nelle macchine virtuali di Azure.Azure Backup offers a stream-based, specialized solution to back up SQL Server running in Azure VMs. Questa soluzione è in linea con i vantaggi di Backup di Azure per il backup dell'infrastruttura zero, la conservazione a lungo termine e la gestione centralizzata. Fornisce inoltre i seguenti vantaggi specifici per SQL Server:
+[Backup di Azure](backup-overview.md) offre una soluzione specializzata basata sul flusso per eseguire il backup SQL Server in esecuzione in macchine virtuali di Azure. Questa soluzione è allineata ai vantaggi del backup con infrastruttura zero, alla conservazione a lungo termine e alla gestione centrale del backup di Azure. Offre inoltre i seguenti vantaggi specifici per SQL Server:
 
-1. Backup in grado di riconoscere il carico di lavoro che supportano tutti i tipi di backup, completi, differenziali e logWorkload aware backup that support all types- full, differential, and log
-2. RPO 15 min (obiettivo punto di ripristino) con backup frequenti del log
-3. Ripristino temporizzato fino a un secondo
-4. Backup e ripristino a livello di singolo database
+1. Backup con supporto del carico di lavoro che supportano tutti i tipi di backup: completo, differenziale e log
+2. 15-min RPO (obiettivo del punto di ripristino) con backup del log frequenti
+3. Recupero temporizzato fino a un secondo
+4. Backup e ripristino a livello di database singolo
 
-Per visualizzare gli scenari di backup e ripristino supportati oggi, fare riferimento alla matrice di [supporto](sql-support-matrix.md#scenario-support).
+Per visualizzare gli scenari di backup e ripristino attualmente supportati, fare riferimento alla [matrice di supporto](sql-support-matrix.md#scenario-support).
 
 ## <a name="backup-process"></a>Processo di backup
 
@@ -58,11 +58,11 @@ Per concedere le autorizzazioni in caso di **SQL 2008** e **2008 R2** in esecuzi
 Per tutte le altre versioni, correggere le autorizzazioni con i passaggi seguenti:
 
   1. Usare un account con le autorizzazioni sysadmin SQL Server per accedere a SQL Server Management Studio (SSMS). A meno che non siano necessarie autorizzazioni speciali, l'autenticazione di Windows dovrebbe funzionare.
-  2. In SQL Server aprire la cartella **Sicurezza/Accesso.**
+  2. Nella SQL Server aprire la cartella **Security/Logins** .
 
       ![Aprire la cartella Sicurezza/Account di accesso per vedere gli account](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. Fare clic con il pulsante destro del mouse sulla cartella **Account di accesso** e scegliere Nuovo account di **accesso**. In **Account di accesso - Nuovo** selezionare **Cerca**.
+  3. Fare clic con il pulsante destro del mouse sulla cartella **accessi** e scegliere **nuovo account di accesso**. In **Account di accesso - Nuovo** selezionare **Cerca**.
 
       ![Nella finestra di dialogo Account di accesso - Nuovo selezionare Cerca](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -109,7 +109,7 @@ Aggiungere gli account di accesso **NT AUTHORITY\SYSTEM** e **NT Service\AzureWL
 
 7. Fare clic su OK.
 8. Ripetere la stessa procedura (passaggi da 1 a 7 precedenti) per aggiungere l'account di accesso NT Service\AzureWLBackupPluginSvc all'istanza di SQL Server. Se l'account di accesso esiste già, assicurarsi che abbia il ruolo del server sysadmin e che in Stato siano selezionate l'opzione Concedi per Autorizzazione per la connessione al motore di database e l'opzione Abilitato per Account di accesso.
-9. Dopo aver concesso l'autorizzazione, riscoprire **->** i **->** database nel portale: Carico di lavoro dell'infrastruttura di backup del vault nella macchina virtuale di Azure:After granting permission, **Rediscover DBs** in the portal: Vault Backup Infrastructure Workload in Azure VM:
+9. Dopo aver concesso l'autorizzazione, **riindividuare** i database nel portale: **->** carico di **->** lavoro infrastruttura di backup dell'insieme di credenziali nella macchina virtuale di Azure:
 
     ![Opzione Individua di nuovo i database nel portale di Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

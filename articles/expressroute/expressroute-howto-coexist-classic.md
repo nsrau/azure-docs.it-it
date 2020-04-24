@@ -1,5 +1,5 @@
 ---
-title: 'Configurare le connessioni coesistenti ExpressRoute e S2S VPN: classicoConfigure ExpressRoute and S2S VPN coexisting connections: classic'
+title: 'Configurare connessioni coesistenti VPN ExpressRoute e S2S: versione classica'
 description: Questo articolo illustra come configurare connessioni ExpressRoute e VPN da sito a sito ai fini della coesistenza per il modello di distribuzione classica.
 documentationcenter: na
 services: expressroute
@@ -18,7 +18,7 @@ ms.locfileid: "79272929"
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito (versione classica)
 > [!div class="op_single_selector"]
 > * [PowerShell - Gestione risorse](expressroute-howto-coexist-resource-manager.md)
-> * [PowerShell - Classico](expressroute-howto-coexist-classic.md)
+> * [PowerShell-classico](expressroute-howto-coexist-classic.md)
 > 
 > 
 
@@ -226,5 +226,5 @@ Se la subnet del gateway è /27 o superiore e la rete virtuale è connessa trami
 6. A questo punto, si avrà una rete virtuale senza gateway. Per creare nuovi gateway e completare le connessioni, è possibile procedere con il [Passaggio 4: Creare un gateway ExpressRoute](#gw), disponibile nel set di passaggi precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su ExpressRoute, vedere Domande frequenti su [ExpressRouteFor more information about ExpressRoute,](expressroute-faqs.md) see the ExpressRoute FAQ
+Per ulteriori informazioni su ExpressRoute, vedere le [domande frequenti su ExpressRoute](expressroute-faqs.md)
 

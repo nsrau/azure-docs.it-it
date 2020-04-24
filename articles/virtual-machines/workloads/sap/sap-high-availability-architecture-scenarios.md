@@ -1,5 +1,5 @@
 ---
-title: Architettura e scenari a vendita di macchine virtuali di Azure per SAP NetWeaver Documenti Microsoft
+title: Architettura e scenari di disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver | Microsoft Docs
 description: Architettura e scenari di disponibilità elevata per SAP NetWeaver in Macchine virtuali di Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -239,15 +239,15 @@ ms.locfileid: "79279910"
 ## <a name="overview-of-high-availability"></a>Panoramica della disponibilità elevata
 La disponibilità elevata di SAP in Azure può essere di tre tipi:
 
-* **Disponibilità elevata dell'infrastruttura di Azure:** 
+* **Disponibilità elevata dell'infrastruttura di Azure**: 
 
     la disponibilità elevata può includere, ad esempio, l'infrastruttura di calcolo (macchine virtuali), rete o archiviazione e i relativi vantaggi per aumentare la disponibilità delle applicazioni SAP.
 
-* **Utilizzo del riavvio della macchina virtuale dell'infrastruttura di Azure per ottenere una *maggiore disponibilità* delle applicazioni SAP:Usingzing Azure infrastructure VM restart to achieve higher availability of SAP applications:** 
+* **Uso del riavvio delle macchine virtuali dell'infrastruttura di Azure per ottenere una *maggiore disponibilità* delle applicazioni SAP**: 
 
     se si decide di non usare funzionalità come Windows Server Failover Clustering (WSFC) o Pacemaker in Linux, viene usato il riavvio delle macchine virtuali di Azure. Questa funzionalità protegge i sistemi SAP da tempi di inattività pianificati e non pianificati dell'infrastruttura di server fisici di Azure e della piattaforma Azure sottostante nel suo complesso.
 
-* **Disponibilità elevata dell'applicazione SAP**: 
+* **Disponibilità elevata delle applicazioni SAP**: 
 
     Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio:
     * Server di applicazioni SAP ridondanti.
@@ -315,12 +315,12 @@ I dati dell'account di archiviazione vengono sempre replicati per assicurare dur
 
 Dato che Archiviazione di Azure mantiene tre immagini dei dati per impostazione predefinita, l'uso di RAID 5 o RAID 1 su più dischi di Azure non è necessario.
 
-Per altre informazioni, vedere Replica di [Archiviazione di Azure.For][azure-storage-redundancy]more information, see Azure Storage replication .
+Per altre informazioni, vedere [replica di archiviazione di Azure][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 I dischi offerti dal servizio Managed Disks sono un tipo di risorsa in Azure Resource Manager di cui è consigliato l'uso al posto dei dischi rigidi virtuali (VHD) archiviati negli account di archiviazione di Azure. I dischi gestiti vengono allineati automaticamente al set di disponibilità di Azure della macchina virtuale a cui sono collegati e aumentano la disponibilità della macchina virtuale e dei servizi eseguiti su di essa.
 
-Per altre informazioni, vedere [Panoramica dei dischi gestiti][azure-storage-managed-disks-overview]di Azure.For more information, see Azure Managed Disks overview .
+Per altre informazioni, vedere [Panoramica di Managed Disks di Azure][azure-storage-managed-disks-overview].
 
 Si consiglia di usare i dischi gestiti, perché semplificano la distribuzione e la gestione delle macchine virtuali.
 
@@ -344,7 +344,7 @@ Le sezioni seguenti illustrano come ottenere la disponibilità elevata per tutti
 
 > Questa sezione si applica a:
 >
-> ![WINDOWS][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
+> ![Windows][Logo_Windows] Windows e ![Linux][Logo_Linux] Linux
 >
 
 In genere non è necessaria una specifica soluzione a disponibilità elevata per le istanze del server applicazioni SAP e le istanze di dialogo. La disponibilità elevata si ottiene tramite la ridondanza e si dovranno configurare più istanze di dialogo in varie istanze di macchine virtuali di Azure. È necessario avere almeno due istanze dell'applicazione SAP installate in due istanze di macchine virtuali di Azure.
@@ -382,7 +382,7 @@ Per altre informazioni, vedere la sezione [Set di disponibilità di Azure][plann
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architettura di disponibilità elevata per un'istanza di SAP ASCS/SCS in Windows
 
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 
 È possibile usare una soluzione WSFC per proteggere l'istanza di SAP ASCS/SCS. La soluzione presenta due varianti:
@@ -391,24 +391,24 @@ Per altre informazioni, vedere la sezione [Set di disponibilità di Azure][plann
 
 * **Inserire l'istanza di SAP ASCS/SCS in un cluster usando una condivisione file**: per altre informazioni su questa architettura, vedere [Clustering dell'istanza di SAP ASCS/SCS nel cluster di failover di Windows usando la condivisione file di Azure][sap-high-availability-guide-wsfc-file-share].
 
-* **Cluster l'istanza SAP ASCS/SCS utilizzando una condivisione SMB ANF:** per ulteriori informazioni su questa architettura, vedere [Cluster di un'istanza SAP ASCS/SCS in un cluster di failover di Windows tramite la condivisione file SMB ANF](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+* **Cluster dell'istanza di SAP ASC/SCS tramite condivisione SMB e**: per ulteriori informazioni su questa architettura, vedere cluster cluster [an SAP ASC/SCS instance in a Windows failover clustering using e SMB file share](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architettura di disponibilità elevata per un'istanza di SAP ASCS/SCS in Linux
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Per altre informazioni sul clustering dell'istanza di SAP ASCS/SCS tramite il framework di clustering SLES, vedere [Disponibilità elevata per SAP NetWeaver su macchine virtuali di Azure in SUSE Linux Enterprise Server per le applicazioni SAP][sap-suse-ascs-ha]. Per l'architettura HA alternativa in SLES, che non richiede NFS a disponibilità elevata, vedere [Guida alla disponibilità elevata per SAP NetWeaver in SUSE Linux Enterprise Server con file NetApp][sap-suse-ascs-ha-anf]di Azure per applicazioni SAP.
+> Per altre informazioni sul clustering dell'istanza di SAP ASCS/SCS tramite il framework di clustering SLES, vedere [Disponibilità elevata per SAP NetWeaver su macchine virtuali di Azure in SUSE Linux Enterprise Server per le applicazioni SAP][sap-suse-ascs-ha]. Per un'architettura a disponibilità elevata in SLES, che non richiede NFS a [disponibilità elevata, vedere la guida alla disponibilità elevata per SAP NetWeaver in SUSE Linux Enterprise Server con Azure NetApp files per le applicazioni SAP][sap-suse-ascs-ha-anf].
 
 Per altre informazioni sul clustering dell'istanza ASCS/SCS di SAP usando il framework del cluster Red Hat, vedere [Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel).
 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configurazione multi-SID dell'istanza di SAP ASCS/SCS con cluster di SAP NetWeaver
 
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 > 
-> Multi-SID è supportato con WSFC, utilizzando la condivisione file e il disco condiviso.
+> La funzionalità multisid è supportata con WSFC, usando la condivisione file e il disco condiviso.
 > 
-> Per altre informazioni sull'architettura a disponibilità elevata con più SID in Windows, vedere:For more information about multi-SID high-availability architecture on Windows, see:
+> Per ulteriori informazioni sull'architettura a disponibilità elevata a più SID in Windows, vedere:
 
 * [Disponibilità elevata multi-SID dell'istanza di SAP ASCS/SCS con Windows Server Failover Clustering e condivisione file][sap-ascs-ha-multi-sid-wsfc-file-share]
 
@@ -416,11 +416,11 @@ Per altre informazioni sul clustering dell'istanza ASCS/SCS di SAP usando il fra
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Il clustering multi-SID è supportato nei cluster Pacemaker Linux per SAP ASCS/ERS, limitati a **cinque** SID SAP nello stesso cluster.
-> Per altre informazioni sull'architettura a disponibilità elevata multi-SID in Linux, vedere:For more information about multi-SID high-availability architecture on Linux, see:
+> Il clustering a più SID è supportato nei cluster Pacemaker Linux per SAP ASC/ERS, limitato a **cinque** SID SAP nello stesso cluster.
+> Per ulteriori informazioni sull'architettura a disponibilità elevata a più SID in Linux, vedere:
 
-* [HA per SAP NW in macchine virtuali di Azure su SLES per applicazioni SAP multi-SID guida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [HA per SAP NW in macchine virtuali di Azure su RHEL per applicazioni SAP multi-SID guida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES per applicazioni SAP guida a più SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+* [Disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per applicazioni SAP guida a più SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>Istanza di DBMS a disponibilità elevata
 

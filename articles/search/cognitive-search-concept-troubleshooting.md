@@ -1,7 +1,7 @@
 ---
-title: Suggerimenti per il design dell'arricchimento dell'IA
+title: Suggerimenti per la progettazione dell'arricchimento di intelligenza artificiale
 titleSuffix: Azure Cognitive Search
-description: Suggerimenti e risoluzione dei problemi per la configurazione di pipeline di arricchimento AI in Ricerca cognitiva di Azure.Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
+description: Suggerimenti e risoluzione dei problemi per la configurazione di pipeline di arricchimento AI in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -15,11 +15,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245486"
 ---
-# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento dell'iaformazione aico in Ricerca cognitiva di AzureTips for AI enrichment in Azure Cognitive Search
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
-Questo articolo contiene un elenco di suggerimenti e suggerimenti per continuare a muoverti quando inizi a usare le funzionalità di arricchimento dell'iaformazione a io a portata di mano in Ricerca cognitiva di Azure.This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
+Questo articolo contiene un elenco di suggerimenti e consigli per proseguire con l'introduzione delle funzionalità di arricchimento di intelligenza artificiale in Azure ricerca cognitiva. 
 
-Se non è già stato fatto, eseguire [l'esercitazione: informazioni su come chiamare le API di arricchimento AI](cognitive-search-quickstart-blob.md) per la pratica nell'applicazione di arricchimenti AI a un'origine dati BLOB.
+Se non è già stato fatto, eseguire l' [esercitazione: informazioni su come chiamare le API di arricchimento di intelligenza artificiale](cognitive-search-quickstart-blob.md) per la pratica nell'applicazione di arricchimenti di intelligenza artificiale a un'origine dati BLOB.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Suggerimento 1: avviare un set di dati di piccole dimensioni
 Il modo migliore per rilevare rapidamente i problemi è aumentarne la velocità di risoluzione. Il modo migliore per ridurre il tempo di indicizzazione è diminuire il numero di documenti da indicizzare. 
@@ -30,7 +30,7 @@ Analizzare l'esempio di documento tramite la pipeline end-to-end e verificare ch
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Suggerimento 2: verificare che le credenziali dell'origine dati siano corrette
 La connessione all'origine dati non viene convalidata fino a quando non viene definito un indicizzatore che la utilizza. Se vengono visualizzati errori che specificano che l'indicizzatore non ha accesso ai dati, assicurarsi che:
-- La stringa di connessione sia corretta. Specialmente quando si creano token di firma di accesso condiviso, assicurarsi di usare il formato previsto da Ricerca cognitiva di Azure.Special when you are creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. Vedere [Come specificare la sezione delle credenziali](
+- La stringa di connessione sia corretta. In particolare quando si creano token SAS, assicurarsi di usare il formato previsto da Azure ricerca cognitiva. Vedere [Come specificare la sezione delle credenziali](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) per informazioni sui diversi formati supportati.
 - Il nome del contenitore nell'indicizzatore sia corretto.
 
@@ -81,7 +81,7 @@ Aggiungere un campo ```enriched``` come parte della definizione di indice per sc
 
 Il contenuto mancante potrebbe essere il risultato di documenti eliminati durante l'indicizzazione. I livelli gratuiti e di base hanno un limite basso per quanto riguarda le dimensioni del documento. Qualsiasi file che superi il limite viene eliminato durante l'indicizzazione. È possibile controllare i documenti eliminati nel portale di Azure. Nel dashboard del servizio di ricerca, fare doppio clic sul riquadro degli indicizzatori. Esaminare la percentuale di esiti positivi dei documenti indicizzati. Se non è al 100%, è possibile selezionare la percentuale per ottenere maggiori dettagli. 
 
-Se il problema è correlato alle dimensioni del file, è \<possibile che venga visualizzato \<un errore simile al seguente: "il nome del file BLOB>" ha la dimensione del file> byte, che supera la dimensione massima per l'estrazione del documento per il livello di servizio corrente". Per ulteriori informazioni sui limiti degli indicizzatori, vedere i [Limiti del servizio](search-limits-quotas-capacity.md).
+Se il problema è correlato alle dimensioni del file, è possibile che venga visualizzato un errore simile al \<seguente: "il nome del file BLOB> \<" ha la dimensione delle dimensioni del file> byte, che supera le dimensioni massime per l'estrazione del documento per il livello di servizio corrente. " Per ulteriori informazioni sui limiti degli indicizzatori, vedere i [Limiti del servizio](search-limits-quotas-capacity.md).
 
 Una secondo motivo per cui il contenuto non viene visualizzato potrebbe risiedere negli errori di mapping di input/output correlati. Ad esempio, il nome di destinazione di output è "Persone" ma il nome del campo indice è in minuscolo, "persone". Il sistema potrebbe restituire messaggi di operazione riuscita 201 per l'intera pipeline, pertanto si potrebbe ritenere che l'indicizzazione ha avuto esito positivo, quando in realtà un campo è vuoto. 
 
@@ -91,10 +91,10 @@ L’analisi delle immagini è complessa a livello computazionale anche per i cas
 
 Il tempo di esecuzione massimo varia in base al livello: alcuni minuti per il livello gratuito, indicizzazione di 24 ore per i livelli fatturabili. Se l'elaborazione non viene completata entro un periodo di 24 ore per l'elaborazione a richiesta, passare a una pianificazione per consentire all'indicizzatore di riprendere l'elaborazione dove era stata interrotta. 
 
-Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido noto viene ripresa nei termini previsti. Tramite una pianificazione ricorrente, l'indicizzatore può concentrarsi sul backlog immagine per svariate ore o giorni, fino a quando è completa l’elaborazione di tutte le immagini. Per altre informazioni sulla sintassi della pianificazione, vedere Passaggio 3: Creare un indicizzatore o vedere [Come pianificare gli indicizzatori per Ricerca cognitiva](search-howto-schedule-indexers.md)di Azure.For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) or see How to schedule indexers for Azure Cognitive Search .
+Per gli indicizzatori pianificati, l'indicizzazione dell'ultimo documento valido noto viene ripresa nei termini previsti. Tramite una pianificazione ricorrente, l'indicizzatore può concentrarsi sul backlog immagine per svariate ore o giorni, fino a quando è completa l’elaborazione di tutte le immagini. Per altre informazioni sulla sintassi Schedule, vedere [Step 3: Create-an-Indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o vedere [How to Schedule Indexers for Azure ricerca cognitiva](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> Se un indicizzatore è impostato su una determinata pianificazione ma ripetutamente non riesce sullo stesso documento più e più volte ogni volta che viene eseguito, l'indicizzatore inizierà l'esecuzione su un intervallo meno frequente (fino a un massimo di almeno una volta ogni 24 ore) fino a quando non progredisce correttamente di nuovo.  Se si ritiene di aver risolto il problema che causava il blocco dell'indicizzatore in un determinato punto, è possibile eseguire un'esecuzione su richiesta dell'indicizzatore e, se l'operazione viene eseguita correttamente, l'indicizzatore tornerà nuovamente all'intervallo di pianificazione impostato.
+> Se un indicizzatore è impostato su una determinata pianificazione ma ha ripetutamente esito negativo sullo stesso documento più volte ogni volta che viene eseguito, l'indicizzatore inizierà a essere eseguito in un intervallo meno frequente (fino al massimo almeno una volta ogni 24 ore) finché non ripeterà correttamente lo stato di avanzamento.  Se si ritiene di aver risolto il problema che causava il blocco dell'indicizzatore in un determinato momento, è possibile eseguire un'esecuzione su richiesta dell'indicizzatore e, se l'operazione ha esito positivo, l'indicizzatore tornerà nuovamente all'intervallo di pianificazione impostato.
 
 Per l’indicizzazione basata sul portale (come descritto nella Guida introduttiva), selezionare l’opzione dell'indicizzatore "Esegui una volta" comporta la limitazione dell’elaborazione a 1 ora (`"maxRunTime": "PT1H"`). È possibile estendere la finestra di elaborazione a un valore maggiore.
 
@@ -103,9 +103,9 @@ Per l’indicizzazione basata sul portale (come descritto nella Guida introdutti
 Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Creare quindi più coppie di origine dati e di indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
 Per altre informazioni, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Vedere anche
-+ [Guida introduttiva: Creare una pipeline di arricchimento AI nel portale](cognitive-search-quickstart-blob.md)
-+ [Esercitazione: Imparare le API REST di arricchimento AITutorial: Learn AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
+## <a name="see-also"></a>Vedi anche
++ [Guida introduttiva: creare una pipeline di arricchimento di intelligenza artificiale nel portale](cognitive-search-quickstart-blob.md)
++ [Esercitazione: informazioni sulle API REST per l'arricchimento di intelligenza artificiale](cognitive-search-tutorial-blob.md)
 + [Specificare le credenziali dell'origine dati](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)

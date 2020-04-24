@@ -1,6 +1,6 @@
 ---
-title: Creare contenitori e database Cosmos di Azure in modalità pilota automatico.
-description: Informazioni sui vantaggi, i casi d'uso e su come eseguire il provisioning di database e contenitori di Azure Cosmos in modalità pilota automatico.
+title: Creare contenitori e database di Azure Cosmos in modalità Autopilot.
+description: Informazioni sui vantaggi, sui casi d'uso e su come eseguire il provisioning di database e contenitori di Azure Cosmos in modalità Autopilot.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
@@ -18,84 +18,84 @@ ms.locfileid: "79246656"
 Azure Cosmos DB consente di effettuare il provisioning della velocità effettiva nei contenitori in modalità manuale o Autopilot. Questo articolo descrive i vantaggi e i casi d'uso della modalità Autopilot.
 
 > [!NOTE]
-> La modalità Pilota automatico è attualmente disponibile nell'anteprima pubblica. È possibile abilitare il pilota automatico solo [per nuovi database e contenitori.](#create-a-database-or-a-container-with-autopilot-mode) Non è disponibile per i contenitori e i database esistenti.
+> La modalità Autopilot è attualmente disponibile in anteprima pubblica. È possibile [abilitare Autopilot solo per i nuovi database e per i contenitori](#create-a-database-or-a-container-with-autopilot-mode) . Non è disponibile per i contenitori e i database esistenti.
 
-Oltre al provisioning manuale della velocità effettiva, è ora possibile configurare i contenitori di Azure Cosmos in modalità pilota automatico. I contenitori e i database configurati in modalità pilota automatico scaleranno automaticamente e istantaneamente la velocità effettiva di cui è stato eseguito **il provisioning in base alle esigenze dell'applicazione senza influire sulla disponibilità, la latenza, la velocità effettiva o le prestazioni del carico di lavoro a livello globale.**
+Oltre al provisioning manuale della velocità effettiva, è ora possibile configurare i contenitori di Azure Cosmos in modalità Autopilot. I contenitori e i database configurati in modalità Autopilot consentono **di ridimensionare automaticamente e immediatamente la velocità effettiva con provisioning in base alle esigenze dell'applicazione senza influito sulla disponibilità, sulla latenza, sulla velocità effettiva o sulle prestazioni del carico di lavoro a livello globale.**
 
-Quando si configurano contenitori e database in modalità `Tmax` pilota automatico, è necessario specificare la velocità effettiva massima da non superare. I contenitori possono quindi `0.1*Tmax < T < Tmax`ridimensionare la velocità effettiva in modo che . In altre parole, i contenitori e i database vengono scalati istantaneamente in base alle esigenze del carico di lavoro, a partire dal 10% del valore di velocità effettiva massima configurato fino al valore di velocità effettiva massima configurato. È possibile modificare l'impostazione della velocità effettiva massima (`Tmax`) in un database o in un contenitore di pilota automatico in qualsiasi momento. Con l'opzione autopilot, la velocità effettiva minima di 400 RU/s per contenitore o database non è più applicabile.
+Quando si configurano i contenitori e i database in modalità Autopilot, è necessario `Tmax` specificare la velocità effettiva massima che non deve essere superata. I contenitori possono quindi ridimensionare la velocità `0.1*Tmax < T < Tmax`effettiva in modo tale che. In altre parole, i contenitori e i database si ridimensionano immediatamente in base alle esigenze del carico di lavoro, dal minimo del 10% del valore di velocità effettiva massimo configurato fino al valore massimo della velocità effettiva configurata. È possibile modificare l'impostazione relativa alla`Tmax`velocità effettiva massima () in un database o in un contenitore Autopilot in qualsiasi momento. Con l'opzione Autopilot la velocità effettiva minima 400 ur/s per ogni contenitore o database non è più applicabile.
 
-Durante l'anteprima del pilota automatico, per la velocità effettiva massima specificata nel contenitore o nel database, il sistema consente di operare entro il limite di archiviazione calcolato. Se il limite di archiviazione viene superato, la velocità effettiva massima viene regolata automaticamente su un valore superiore. Quando si utilizza la velocità effettiva a livello di database con la `0.001*TMax`modalità pilota automatico, il numero di contenitori consentiti all'interno di un database viene calcolato come: . Ad esempio, se si esegue il provisioning di 20.000 RU/s con pilota automatico, il database può avere 20 contenitori.
+Durante l'anteprima di Autopilot, per la velocità effettiva massima specificata nel contenitore o nel database, il sistema consente il funzionamento entro il limite di archiviazione calcolato. Se viene superato il limite di archiviazione, la velocità effettiva massima viene regolata automaticamente in un valore superiore. Quando si usa la velocità effettiva a livello di database con la modalità Autopilot, il numero di contenitori consentiti all'interno di un database viene calcolato come: `0.001*TMax`. Se, ad esempio, si esegue il provisioning di 20.000 Autopilot ur/sec, il database può contenere 20 contenitori.
 
-## <a name="benefits-of-autopilot-mode"></a>Vantaggi della modalità pilota automatico
+## <a name="benefits-of-autopilot-mode"></a>Vantaggi della modalità Autopilot
 
-I contenitori Cosmos di Azure configurati in modalità pilota automatico presentano i vantaggi seguenti:Azure Cosmos containers that are configured in autopilot mode have the following benefits:
+I contenitori di Azure Cosmos configurati in modalità Autopilot offrono i vantaggi seguenti:
 
-* **Semplice:** I contenitori in modalità pilota automatico eliminano manualmente la complessità per gestire la velocità effettiva con provisioning e la capacità per vari contenitori.
+* **Semplice:** I contenitori in modalità Autopilot eliminano la complessità per la gestione manuale della velocità effettiva con provisioning (UR) e della capacità per diversi contenitori.
 
-* **Scalabile:** I contenitori in modalità pilota automatico scalano senza soluzione di continuità la capacità di produzione di cui è stato eseguito il provisioning in base alle esigenze. Non si verifica alcuna interruzione delle connessioni client, delle applicazioni e non influiscono sui contratti di servizio esistenti.
+* **Scalabile:** I contenitori in modalità Autopilot ridimensionano la capacità di velocità effettiva con provisioning in base alle esigenze. Non vi sono rotture per le connessioni client, le applicazioni e non influiscano sui contratti di contratto esistenti.
 
-* **Conveniente:** Quando si usano contenitori configurati in modalità pilota automatico, si paga solo per le risorse necessarie per i carichi di lavoro in base all'ora.
+* **Conveniente:** Quando si usano i contenitori configurati in modalità Autopilot, si paga solo per le risorse necessarie per i carichi di lavoro su base oraria.
 
-* **Altamente disponibile:** I contenitori in modalità pilota automatico utilizzano lo stesso back-end a livello globale, a tolleranza di errore e a disponibilità elevata per garantire la durata dei dati e l'elevata disponibilità.
+* **Disponibilità elevata:** I contenitori in modalità Autopilot utilizzano lo stesso back-end distribuito a livello globale, a tolleranza di errore e a disponibilità elevata per garantire la durabilità e la disponibilità elevata dei dati.
 
-## <a name="use-cases-of-autopilot-mode"></a>Casi d'uso della modalità pilota automatico
+## <a name="use-cases-of-autopilot-mode"></a>Casi d'uso della modalità Autopilot
 
-I casi d'uso per i contenitori Cosmos di Azure configurati in modalità pilota automatico includono:The use cases for Azure Cosmos containers configured in autopilot mode include:
+I casi d'uso per i contenitori di Azure Cosmos configurati in modalità Autopilot includono:
 
-* **Carichi di lavoro variabili:Variable workloads:** Quando si esegue un'applicazione leggermente utilizzata con utilizzo di picco di 1 ora a diverse ore un paio di volte ogni giorno o più volte all'anno. Gli esempi includono le applicazioni per le risorse umane, l'impostazione del budget e la creazione di report operativi. Per tali scenari, è possibile utilizzare i contenitori configurati in modalità pilota automatico e non è più necessario eseguire manualmente il provisioning per la capacità di picco o media.
+* **Carichi di lavoro variabili:** Quando si esegue un'applicazione di uso leggero con utilizzo massimo di 1 ora per diverse ore ogni giorno o più volte all'anno. Gli esempi includono le applicazioni per le risorse umane, il budget e la creazione di report operativi. Per questi scenari, è possibile usare i contenitori configurati in modalità Autopilot e non è più necessario eseguire manualmente il provisioning per una capacità massima o media.
 
-* **Carichi di lavoro imprevedibili:** Quando si eseguono carichi di lavoro in cui è presente l'utilizzo del database durante il giorno, ma anche picchi di attività difficili da prevedere. Un esempio include un sito di traffico che vede un aumento dell'attività quando le previsioni del tempo cambiano. I contenitori configurati in modalità pilota automatico regolano la capacità per soddisfare le esigenze del carico di picco dell'applicazione e la scalabilità verso il basso quando l'ondata di attività è finita.
+* **Carichi di lavoro imprevedibili:** Quando si eseguono i carichi di lavoro in cui è presente un utilizzo del database durante il giorno, ma anche picchi di attività difficili da stimare. Un esempio include un sito di traffico che rileva un picco di attività quando le previsioni meteorologiche cambiano. I contenitori configurati in modalità Autopilot consentono di regolare la capacità in base alle esigenze del carico massimo dell'applicazione e di ridurne la scalabilità quando si verifica il sovraccarico dell'attività.
 
-* **Nuove applicazioni:** Se si distribuisce una nuova applicazione e non si è certi della velocità effettiva di cui è stato eseguito il provisioning, ovvero il numero di RU necessarie. Con i contenitori configurati in modalità pilota automatico, è possibile eseguire automaticamente la scalabilità in base alle esigenze di capacità e ai requisiti dell'applicazione.
+* **Nuove applicazioni:** Se si distribuisce una nuova applicazione e non si è certi della velocità effettiva con provisioning (ad esempio, quante UR) è necessario. Con i contenitori configurati in modalità Autopilot è possibile ridimensionare automaticamente le esigenze e i requisiti di capacità dell'applicazione.
 
-* **Applicazioni usate raramente:** Se si dispone di un'applicazione che viene utilizzata solo per alcune ore più volte al giorno o alla settimana o al mese, ad esempio un sito di applicazioni/web/blog a basso volume.
+* **Applicazioni usate raramente:** Se si dispone di un'applicazione che viene utilizzata solo per alcune ore diverse volte al giorno o alla settimana o al mese, ad esempio un sito Web/Blog/applicazione a volume ridotto.
 
-* **Database di sviluppo e test:** Se si dispone di sviluppatori che utilizzano i contenitori durante l'orario di lavoro, ma non sono necessari durante la notte o nei fine settimana. Con i contenitori configurati in modalità pilota automatico, si riduce al minimo quando non sono in uso.
+* **Database di sviluppo e test:** Se gli sviluppatori usano contenitori durante le ore lavorative, ma non sono necessari nelle notti o nei fine settimana. Con i contenitori configurati in modalità Autopilot, il ridimensionamento viene ridotto al minimo quando non è in uso.
 
-* **Carichi di lavoro/query di produzione pianificati:Scheduled production workloads/queries:** Quando si dispone di una serie di richieste/operazioni/query pianificate in un singolo contenitore e se sono presenti periodi di inattività in cui si desidera eseguire a una velocità effettiva bassa assoluta, è ora possibile farlo facilmente. Quando una query/richiesta pianificata viene inviata a un contenitore configurato in modalità pilota automatico, verrà automaticamente aumentato quanto necessario ed eseguire l'operazione.
+* **Carichi di lavoro/query di produzione pianificati:** Quando si dispone di una serie di richieste/operazioni/query pianificate su un singolo contenitore e in caso di periodi di inattività in cui si desidera eseguire con una velocità effettiva bassa assoluta, è ora possibile eseguire questa operazione in modo semplice. Quando una query o una richiesta pianificata viene inviata a un contenitore configurato in modalità Autopilot, il ridimensionamento viene eseguito automaticamente in base alle esigenze e viene eseguita l'operazione.
 
-Le soluzioni ai problemi precedenti non solo richiedono un'enorme quantità di tempo nell'implementazione, ma introducono anche complessità nella configurazione o nel codice e spesso richiedono un intervento manuale per risolverli. La modalità pilota automatico consente gli scenari di cui sopra fuori dalla scatola, in modo che non c'è bisogno di preoccuparsi di questi problemi più.
+Le soluzioni ai problemi precedenti non solo richiedono una quantità di tempo molto elevata nell'implementazione, ma introducono anche complessità nella configurazione o nel codice e spesso richiedono interventi manuali per risolverli. La modalità Autopilot consente di abilitare gli scenari precedenti, in modo che non sia più necessario preoccuparsi di questi problemi.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Confronto – Contenitori configurati in modalità manuale rispetto alla modalità pilota automatico
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Confronto: contenitori configurati in modalità manuale rispetto alla modalità Autopilot
 
-|  | Contenitori configurati in modalità manuale  | Contenitori configurati in modalità pilota automatico |
+|  | Contenitori configurati in modalità manuale  | Contenitori configurati in modalità Autopilot |
 |---------|---------|---------|
-| **Velocità effettiva di provisioning** | Provisioning manuale. | Scalabilità automatica e istantanea in base ai modelli di utilizzo del carico di lavoro. |
-| **Limitare la frequenza delle richieste/operazioni (429)**  | Può accadere, se il consumo supera la capacità di cui è stato eseguito il provisioning. | Non si verifica se la velocità effettiva consumata rientra nella velocità effettiva massima scelta con la modalità di pilota automatico.   |
-| **Pianificazione della capacità** |  È necessario eseguire una pianificazione iniziale della capacità e la fornitura della velocità effettiva necessaria. |    Non devi preoccuparti della pianificazione della capacità. Il sistema si occupa automaticamente della pianificazione della capacità e della gestione della capacità. |
-| **Prezzi** | Aggiornamento/s all'ora con provisioning manuale. | Per i conti con singole aree di scrittura, si paga la velocità effettiva utilizzata su base oraria, utilizzando la tariffa RU/s per ora del pilota automatico. <br/><br/>Per gli account con più aree di scrittura, non è previsto alcun costo aggiuntivo per il pilota automatico. Si paga per la velocità effettiva utilizzata su base oraria utilizzando la stessa ora/RU/s multimaster/i. |
+| **Velocità effettiva con provisioning** | Provisioning manuale. | Ridimensionato automaticamente e istantaneamente in base ai modelli di utilizzo del carico di lavoro. |
+| **Limitazione della frequenza delle richieste/operazioni (429)**  | Potrebbe verificarsi se il consumo supera la capacità sottoposta a provisioning. | Non si verificherà se la velocità effettiva utilizzata rientra nella velocità effettiva massima scelta con la modalità Autopilot.   |
+| **Pianificazione della capacità** |  È necessario eseguire una pianificazione iniziale della capacità e il provisioning della velocità effettiva necessaria. |    Non è necessario preoccuparsi della pianificazione della capacità. Il sistema occupa automaticamente la pianificazione della capacità e la gestione della capacità. |
+| **Prezzi** | UR/sec di cui è stato effettuato manualmente il provisioning all'ora. | Per gli account con singola area di scrittura, si paga per la velocità effettiva usata su base oraria, usando la tariffa di Autopilot ur/sec per ora. <br/><br/>Per gli account con più aree di scrittura, non sono previsti costi aggiuntivi per Autopilot. Paghi per la velocità effettiva usata su base oraria usando la stessa tariffa per più master ur/sec per ogni ora. |
 | **Ideale per i tipi di carico di lavoro** |  Carichi di lavoro prevedibili e stabili|   Carichi di lavoro imprevedibili e variabili  |
 
-## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Creare un database o un contenitore con la modalità pilota automaticoCreate a database or a container with autopilot mode
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Creazione di un database o di un contenitore con la modalità Autopilot
 
-È possibile configurare il pilota automatico per nuovi database o contenitori durante la creazione tramite il portale di Azure.You can configure autopilot for new databases or containers when creating them through the Azure portal. Utilizzare la procedura seguente per creare un nuovo database o contenitore, abilitare il pilota automatico e specificare la velocità effettiva massima (RU/s).
+È possibile configurare Autopilot per nuovi database o contenitori durante la creazione tramite la portale di Azure. Usare la procedura seguente per creare un nuovo database o contenitore, abilitare Autopilot e specificare la velocità effettiva massima (UR/sec).
 
-1. Accedere al [portale di Azure](https://portal.azure.com) o all'esploratore di database [di Azure Cosmos.Sign](https://cosmos.azure.com/) in to the Azure portal or the Azure Cosmos DB explorer.
+1. Accedere al [portale di Azure](https://portal.azure.com) o al [Azure Cosmos DB Explorer.](https://cosmos.azure.com/)
 
-1. Passare all'account azure Cosmos DB e aprire la scheda **Esplora dati.**
+1. Passare all'account di Azure Cosmos DB e aprire la scheda **Esplora dati** .
 
-1. Selezionare **Nuovo contenitore.** Immettere un nome per il database, il contenitore e una chiave di partizione. In **Velocità effettiva**selezionare l'opzione **Autopilot** e scegliere la velocità effettiva massima (RU/s) che il database o il contenitore non può superare quando si utilizza l'opzione autopilot.
+1. Selezionare **nuovo contenitore.** Immettere un nome per il database, il contenitore e una chiave di partizione. In **velocità effettiva**selezionare l'opzione **Autopilot** e scegliere la velocità effettiva massima (UR/sec) che il database o il contenitore non può superare quando si usa l'opzione Autopilot.
 
-   ![Creazione di un contenitore e configurazione della velocità effettiva di AutopilotCreating a container and configuring Autopilot throughput](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Creazione di un contenitore e configurazione della velocità effettiva di Autopilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
-1. Selezionare **OK**.
+1. Fare clic su **OK**.
 
-È possibile creare un database della velocità effettiva condivisa con la modalità pilota automatico selezionando l'opzione Effettuare il **provisioning della velocità effettiva del database.**
+È possibile creare un database con velocità effettiva condivisa con la modalità Autopilot selezionando l'opzione **provisioning database throughput** .
 
-## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a>Limiti di velocità effettiva e archiviazione per il pilota automatico
+## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a>Limiti di velocità effettiva e archiviazione per Autopilot
 
-La tabella seguente mostra i limiti massimi di intutto e di archiviazione per le diverse opzioni in modalità pilota automatico:
+Nella tabella seguente vengono indicati i limiti massimi per l'intero e l'archiviazione per le diverse opzioni in modalità Autopilot:
 
 |Limite massimo di velocità effettiva  |Limite massimo di archiviazione  |
 |---------|---------|
-|4000 RU/s  |   50 GB    |
-|20.000 RU/s  |  200 GB  |
-|100.000 RU/s    |  1 TB   |
-|500.000 RU/s    |  5 TB  |
+|4000 ur/sec  |   50 GB    |
+|20.000 UR/sec  |  200 GB  |
+|100.000 UR/sec    |  1 TB   |
+|500.000 UR/sec    |  5 TB  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Consultare le [domande frequenti sul pilota automatico](autopilot-faq.md).
-* Ulteriori informazioni sulle [partizioni logiche](partition-data.md).
+* Vedere le [domande frequenti su AUTOPILOT](autopilot-faq.md).
+* Altre informazioni sulle [partizioni logiche](partition-data.md).
 * [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)

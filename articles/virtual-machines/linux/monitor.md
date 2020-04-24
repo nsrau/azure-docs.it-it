@@ -1,6 +1,6 @@
 ---
-title: Monitorare le macchine virtuali in AzureMonitor your VMs in Azure
-description: Informazioni sulle opzioni di monitoraggio per le macchine virtuali in Azure.Learn about monitoring options for virtual machines in Azure.
+title: Monitorare le VM in Azure
+description: Informazioni sulle opzioni di monitoraggio per le macchine virtuali in Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: monitoring

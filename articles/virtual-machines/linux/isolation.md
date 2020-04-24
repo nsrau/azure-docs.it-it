@@ -1,6 +1,6 @@
 ---
-title: Isolamento per le macchine virtuali in AzureIsolation for VMs in Azure
-description: Informazioni sul funzionamento dell'isolamento delle macchine virtuali in Azure.Learn about VM isolation works in Azure.
+title: Isolamento per le macchine virtuali in Azure
+description: Informazioni sull'isolamento delle macchine virtuali in Azure.
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944848"
 ---
-# <a name="virtual-machine-isolation-in-azure"></a>Isolamento della macchina virtuale in AzureVirtual machine isolation in Azure
+# <a name="virtual-machine-isolation-in-azure"></a>Isolamento della macchina virtuale in Azure
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 

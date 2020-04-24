@@ -1,6 +1,6 @@
 ---
-title: Usare Windows PowerShell per connettersi e gestire il dispositivo Azure Data Box GatewayUse Windows PowerShell to connect to and manage Azure Data Box Gateway device
-description: Viene descritto come connettersi e quindi gestire Gateway casella dati tramite l'interfaccia di Windows PowerShell.
+title: Usare Windows PowerShell per connettersi e gestire Azure Data Box Gateway dispositivo
+description: Viene descritto come connettersi e gestire Data Box Gateway tramite l'interfaccia di Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,21 +15,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260215"
 ---
-# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gestire un dispositivo Azure Data Box Gateway tramite Windows PowerShellManage an Azure Data Box Gateway device via Windows PowerShell
+# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gestire un dispositivo Azure Data Box Gateway tramite Windows PowerShell
 
-Azure Data Box Gateway solution lets you send data over the network to Azure. In questo articolo vengono descritte alcune delle attività di configurazione e gestione per il dispositivo Gateway dati. È possibile usare il portale di Azure, l'interfaccia utente Web locale o l'interfaccia di Windows PowerShell per gestire il dispositivo.
+Azure Data Box Gateway soluzione consente di inviare dati attraverso la rete ad Azure. Questo articolo descrive alcune delle attività di configurazione e gestione per il dispositivo Data Box Gateway. È possibile usare la portale di Azure, l'interfaccia utente Web locale o l'interfaccia di Windows PowerShell per gestire il dispositivo.
 
-Questo articolo è incentrato sulle attività eseguite tramite l'interfaccia di PowerShell.This article focuses on the tasks you do using the PowerShell interface.
+Questo articolo è incentrato sulle attività da eseguire usando l'interfaccia di PowerShell.
 
-In questo articolo sono incluse le seguenti procedure:
+Questo articolo include le procedure seguenti:
 
-- Connettersi all'interfaccia di PowerShellConnect to the PowerShell interface
+- Connettersi all'interfaccia di PowerShell
 - Creare un pacchetto di supporto
 - Caricamento del certificato
 - Avvio in un ambiente non DHCP
-- Visualizzare le informazioni sul dispositivo
+- Visualizza informazioni sul dispositivo
 
-## <a name="connect-to-the-powershell-interface"></a>Connettersi all'interfaccia di PowerShellConnect to the PowerShell interface
+## <a name="connect-to-the-powershell-interface"></a>Connettersi all'interfaccia di PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
@@ -45,7 +45,7 @@ In questo articolo sono incluse le seguenti procedure:
 
 [!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-edge-gateway-boot-non-dhcp.md)]
 
-## <a name="view-device-information"></a>Visualizzare le informazioni sul dispositivo
+## <a name="view-device-information"></a>Visualizza informazioni sul dispositivo
 
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 

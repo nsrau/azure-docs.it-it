@@ -1,5 +1,5 @@
 ---
-title: Sostituire la batteria nel dispositivo della serie Microsoft Azure StorSimple 8000
+title: Sostituire la batteria sul dispositivo Microsoft Azure StorSimple serie 8000
 description: Viene descritto come rimuovere, sostituire e mantenere il modulo della batteria di backup nel dispositivo StorSimple.
 author: alkohli
 ms.service: storsimple
@@ -32,14 +32,14 @@ In questa esercitazione viene illustrato come:
 Il modulo della batteria di backup per il dispositivo StorSimple è un'unità sostituibile sul campo. Prima di installarlo nel PCM, il modulo della batteria deve essere archiviato nel pacchetto originale. Eseguire i seguenti passaggi per rimuovere la batteria di backup.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Per rimuovere il modulo della batteria di backup:
-1. Nel portale di Azure passare al pannello del servizio Gestione dispositivi StorSimple. Passare a **Dispositivi** e selezionare il dispositivo dall'elenco dei dispositivi. Passare a **Monitor** > **Hardware health**. Sotto **Componenti condivisi**, controllare lo stato della batteria.
+1. Nel portale di Azure passare al pannello del servizio Gestione dispositivi StorSimple. Passare a **Dispositivi** e selezionare il dispositivo dall'elenco dei dispositivi. Passare a **monitoraggio** > **integrità hardware**. Sotto **Componenti condivisi**, controllare lo stato della batteria.
 2. Identificare il PCM in cui la batteria è guasta. Nella Figura 1 viene mostrata la parte posteriore del dispositivo StorSimple.
    
     ![Backplane dei moduli dello chassis principale del dispositivo](./media/storsimple-battery-replacement/IC740994.png)
    
     **Figura 1** Parte posteriore del dispositivo principale in cui vengono mostrati il PCM e i moduli del controller
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -52,7 +52,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    
     **Figura 2** Parte posteriore del PCM in cui vengono mostrati gli indicatori LED di monitoraggio
    
-   | Etichetta | Descrizione |
+   | Label | Descrizione |
    |:--- |:--- |
    | 1 |Guasto dell’alimentazione CA |
    | 2 |Guasto alla ventola |
@@ -76,7 +76,7 @@ Eseguire i passaggi seguenti per installare il modulo della batteria sostitutiva
 1. Inserire il modulo della batteria di backup con l'orientamento appropriato nel PCM.
 2. Premere completamente il punto di manipolazione del modulo della batteria per alloggiare il connettore.
 3. Sostituire il PCM nello chassis principale seguendo le linee guida descritte in [Sostituzione del modulo di alimentazione e raffreddamento nel dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md).
-4. Al termine della sostituzione, passare al dispositivo e quindi passare a Monitoraggio**dell'integrità dell'hardware** nel portale di Azure.After the replacement is complete, go to your device and then go to **Monitor** > Hardware health in the Azure portal. Verificare lo stato della batteria per assicurarsi che l'installazione abbia avuto esito positivo. Uno stato verde indica che la batteria è integra.
+4. Al termine della sostituzione, passare al dispositivo e quindi fare clic su **monitora** > **integrità hardware** nel portale di Azure. Verificare lo stato della batteria per assicurarsi che l'installazione abbia avuto esito positivo. Uno stato verde indica che la batteria è integra.
 
 ## <a name="maintain-the-backup-battery-module"></a>Mantenimento del modulo della batteria di backup
 Nel dispositivo StorSimple, il modulo della batteria di backup fornisce alimentazione al controller durante un evento di perdita dell'alimentazione. Consente al dispositivo StorSimple di salvare i dati critici prima dell'arresto in modo controllato. Con due batterie completamente cariche nei PCM, il sistema può gestire due eventi di perdita consecutivi.

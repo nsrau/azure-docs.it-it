@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio di metriche e log nel servizio front door di Azure | Microsoft Docs
-description: Questo articolo descrive le diverse metriche e i registri di accesso supportati dal servizio front door di Azure
+title: Monitoraggio di metriche e log nella porta anteriore di Azure | Microsoft Docs
+description: Questo articolo descrive le diverse metriche e i log di accesso supportati da Azure front door
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: e379e67fb733c968a755afd245d079239f559c89
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471728"
 ---
-# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoraggio di metriche e log nel servizio front-end di Azure
+# <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
-Con il servizio front door di Azure è possibile monitorare le risorse nei modi seguenti:
+Con l'uso di Azure front door è possibile monitorare le risorse nei modi seguenti:
 
-- **Metrics** (Metriche). Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+- **Metriche**. Il front-end di Azure dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
 - **Log**. I log attività e di diagnostica consentono di salvare o utilizzare le prestazioni, l'accesso e altri dati da una risorsa a scopo di monitoraggio.
 
 ### <a name="metrics"></a>Metriche
 
 Le metriche sono una funzionalità per alcune risorse di Azure che consentono di visualizzare i contatori delle prestazioni nel portale. Di seguito sono riportate le metriche front-end disponibili:
 
-| Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | Description |
+| Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | Descrizione |
 | --- | --- | --- | --- | --- |
 | RequestCount | Conteggio richieste | Conteggio | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di richieste client gestite da Frontdoor.  |
 | RequestSize | Dimensioni della richiesta | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di byte inviati come richieste dai client a Frontdoor. |
@@ -40,14 +40,14 @@ Le metriche sono una funzionalità per alcune risorse di Azure che consentono di
 | BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
 | WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
 
-## <a name="activity-log"></a>Log attività
+## <a name="activity-logs"></a><a name="activity-log"></a>Log attività
 
-I log attività forniscono informazioni sulle operazioni eseguite sul servizio front door. Determinano anche gli elementi What, who e when per qualsiasi operazione di scrittura (Put, post o DELETE) eseguita sul servizio front door.
+I log attività forniscono informazioni sulle operazioni eseguite sull'anta anteriore. Determinano anche gli elementi What, who e when per qualsiasi operazione di scrittura (Put, post o DELETE) eseguita sulla porta anteriore.
 
 >[!NOTE]
 >I log attività non includono le operazioni di lettura (Get). Non includono inoltre le operazioni eseguite tramite l'portale di Azure o l'API di gestione originale.
 
-Accedere ai log attività nel servizio front door o a tutti i log delle risorse di Azure in monitoraggio di Azure. Per visualizzare i log di attività:
+Accedere ai log attività nel front-end o a tutti i log delle risorse di Azure in monitoraggio di Azure. Per visualizzare i log di attività:
 
 1. Selezionare l'istanza della porta anteriore.
 2. Selezionare **log attività**.
@@ -56,41 +56,55 @@ Accedere ai log attività nel servizio front door o a tutti i log delle risorse 
 
 3. Scegliere un ambito di filtro e quindi fare clic su **applica**.
 
-## <a name="diagnostic-logging"></a>Log di diagnostica
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Log di diagnostica
 I log di diagnostica forniscono informazioni dettagliate sulle operazioni e sugli errori importanti per il controllo e la risoluzione dei problemi. I log di diagnostica sono diversi dai log attività.
 
 I log attività forniscono informazioni approfondite sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Log di diagnostica](./media/front-door-diagnostics/diagnostic-log.png)
 
-Per configurare i log di diagnostica per il servizio front-door:
+Per configurare i log di diagnostica per la porta anteriore:
 
-1. Selezionare il servizio front door di Azure.
+1. Selezionare la porta di ingresso di Azure.
 
 2. Scegliere **impostazioni di diagnostica**.
 
 3. Selezionare **Attiva diagnostica**. Archiviare i log di diagnostica insieme alle metriche in un account di archiviazione, trasmetterli a un hub eventi o inviarli ai log di monitoraggio di Azure.
 
-Il servizio front door fornisce attualmente log di diagnostica (in batch ogni ora). I log di diagnostica forniscono singole richieste API a ogni voce con lo schema seguente:
+La porta anteriore fornisce attualmente log di diagnostica (in batch ogni ora). I log di diagnostica forniscono singole richieste API a ogni voce con lo schema seguente:
 
-| Proprietà  | Description |
+| Proprietà  | Descrizione |
 | ------------- | ------------- |
-| ClientIp | Indirizzo IP del client che ha eseguito la richiesta. |
+| BackendHostname | Se la richiesta è stata trasmessa a un back-end, questo campo rappresenta il nome host del back-end. Questo campo sarà vuoto se la richiesta è stata reindirizzata o inoltrata a una cache a livello di area (quando la memorizzazione nella cache è abilitata per la regola di routing). |
+| CacheStatus | Per gli scenari di memorizzazione nella cache, questo campo definisce l'hit/miss della cache al POP |
+| ClientIp | Indirizzo IP del client che ha eseguito la richiesta. Se nella richiesta è presente un'intestazione X-Inoltred-for, l'indirizzo IP del client viene selezionato dallo stesso. |
 | ClientPort | Porta IP del client che ha effettuato la richiesta. |
 | HttpMethod | Metodo HTTP usato dalla richiesta. |
 | HttpStatusCode | Codice di stato HTTP restituito dal proxy. |
 | HttpStatusDetails | Stato risultante della richiesta. Il significato di questo valore stringa è reperibile in una tabella di riferimento sullo stato. |
 | HttpVersion | Tipo della richiesta o della connessione. |
+| POP | Nome breve del perimetro in cui è stata sbarcata la richiesta. |
 | RequestBytes | Dimensioni del messaggio di richiesta HTTP in byte, incluse le intestazioni della richiesta e il corpo della richiesta. |
 | RequestUri | URI della richiesta ricevuta. |
 | ResponseBytes | Byte inviati dal server back-end come risposta.  |
 | RoutingRuleName | Nome della regola di routing a cui corrisponde la richiesta. |
 | SecurityProtocol | Versione del protocollo TLS/SSL utilizzata dalla richiesta o null se non è presente alcuna crittografia. |
+| SentToOriginShield | Campo booleano che rappresenta se si è verificato un mancato riscontro nella cache sul primo ambiente e la richiesta è stata inviata alla cache regionale. Ignorare questo campo se la regola di routing è un reindirizzamento o quando la memorizzazione nella cache non è abilitata. |
 | TimeTaken | Periodo di tempo impiegato dall'azione, in millisecondi. |
-| UserAgent | Tipo di browser utilizzato dal client |
 | TrackingReference | Stringa di riferimento univoca che identifica una richiesta servita dalla porta anteriore, inviata anche come intestazione X-Azure-Ref al client. Obbligatorio per la ricerca dei dettagli nei log di accesso per una richiesta specifica. |
+| UserAgent | Tipo di browser utilizzato dal client. |
+
+**Nota:** Per diverse configurazioni di routing e comportamenti del traffico, alcuni dei campi come backendHostname, cacheStatus, sentToOriginShield e POP Field possono rispondere con valori diversi. La tabella seguente illustra i diversi valori. questi campi avranno per diversi scenari:
+
+| Scenari | Numero di voci di log | POP | BackendHostname | SentToOriginShield | CacheStatus |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Regola di routing senza caching abilitato | 1 | Codice POP perimetrale | Back-end in cui la richiesta è stata trasmessa | False | CONFIG_NOCACHE |
+| Regola di routing con memorizzazione nella cache abilitata. Riscontro nella cache al POP perimetrale | 1 | Codice POP perimetrale | Empty | False | COLPITO |
+| Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache al POP perimetrale, ma riscontro nella cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. vuoto | 1. true</br>2. false | 1. MISS</br>2. PARTIAL_HIT |
+| Regola di routing con memorizzazione nella cache abilitata. Mancato riscontro nella cache dei bordi e della cache padre | 2 | 1. codice POP perimetrale</br>2. codice POP della cache padre | 1. nome host POP della cache padre</br>2. back-end che consente di popolare la cache | 1. true</br>2. false | 1. MISS</br>2. MISS |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un profilo di porta anteriore](quickstart-create-front-door.md)
+- [Creare un profilo Frontdoor](quickstart-create-front-door.md)
 - [Funzionamento della porta anteriore](front-door-routing-architecture.md)

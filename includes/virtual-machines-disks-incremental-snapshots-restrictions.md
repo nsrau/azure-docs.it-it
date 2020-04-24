@@ -15,8 +15,8 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299175"
 ---
-- Gli snapshot incrementali attualmente non possono essere spostati tra le sottoscrizioni.
-- Attualmente è possibile generare solo URI di accesso sas fino a cinque snapshot di una determinata famiglia di snapshot in un determinato momento.
-- Non è possibile creare uno snapshot incrementale per un determinato disco esterno alla sottoscrizione del disco.
-- È possibile creare fino a sette snapshot incrementali per disco ogni cinque minuti.
-- È possibile creare un totale di 200 snapshot incrementali per un singolo disco.
+- Non è attualmente possibile spostare gli snapshot incrementali tra le sottoscrizioni.
+- Attualmente, è possibile generare solo URI SAS di un massimo di cinque snapshot di una particolare famiglia di snapshot in un determinato momento.
+- Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco.
+- È possibile creare fino a sette snapshot incrementali per ogni disco ogni cinque minuti.
+- Per un singolo disco è possibile creare un totale di 200 snapshot incrementali.

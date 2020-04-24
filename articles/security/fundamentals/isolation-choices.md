@@ -1,6 +1,6 @@
 ---
 title: Isolamento nel cloud pubblico di Azure | Microsoft Docs
-description: Informazioni su come Azure offre isolamento da utenti malintenzionati e non dannosi e offre varie scelte di isolamento agli architetti.
+description: Scopri in che modo Azure fornisce l'isolamento contro utenti malintenzionati e non dannosi e offre diverse opzioni di isolamento agli architetti.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -23,9 +23,9 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280313"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
-Azure consente di eseguire applicazioni e macchine virtuali (VM) nell'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
+Azure consente di eseguire applicazioni e macchine virtuali (VM) in un'infrastruttura fisica condivisa. Uno dei motivi economici principali per l'esecuzione di applicazioni in un ambiente cloud è la possibilità di distribuire il costo delle risorse condivise tra più clienti. Questa pratica di multi-tenancy aumenta l'efficienza grazie al multiplexing delle risorse tra i diversi clienti a costi ridotti, ma introduce purtroppo i rischi correlati alla condivisione di server fisici e altre risorse dell'infrastruttura per l'esecuzione di applicazioni sensibili del cliente insieme a VM che possono appartenere a un utente qualsiasi, potenzialmente malintenzionato.
 
-Questo articolo descrive in che modo Azure fornisce l'isolamento contro utenti malintenzionati e non dannosi e funge da guida per l'architettura di soluzioni cloud offrendo varie opzioni di isolamento agli architetti.
+Questo articolo illustra come Azure fornisce l'isolamento contro utenti malintenzionati e non dannosi e funge da guida per l'architettura di soluzioni cloud offrendo diverse opzioni di isolamento agli architetti.
 
 ## <a name="tenant-level-isolation"></a>Isolamento a livello di tenant
 Uno dei vantaggi principali del cloud computing è il concetto di un'infrastruttura comune condivisa tra numerosi clienti contemporaneamente, determinando economie di scala. Questo concetto è denominato "multi-tenancy". Microsoft lavora costantemente per garantire che l'architettura multi-tenant dei servizi cloud di Microsoft Azure supporti gli standard di sicurezza, riservatezza, privacy, integrità e disponibilità.
@@ -52,7 +52,7 @@ Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le riso
 
 - Gli utenti di Azure AD non hanno accesso a posizioni o risorse fisiche e non possono quindi ignorare le verifiche dei criteri del controllo degli accessi in base al ruolo indicate di seguito.
 
-Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. Azure AD Privileged Identity Management (PIM) introduce il concetto di amministratore idoneo. [Gli amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano di accesso con privilegi di tanto in tanto, ma non tutti i giorni. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
+Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. In Azure AD Privileged Identity Management (PIM) è stato introdotto il concetto di amministratore idoneo. Gli [amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano di accesso con privilegi ora, ma non tutti i giorni. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
 
 ![Gestione identità con privilegi di Azure AD](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -67,9 +67,9 @@ Il [controllo degli accessi in base al ruolo di Azure (RBAC)](../../role-based-a
 
 Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di base che si applicano a tutti i tipi di risorsa:
 
-- **Il proprietario** ha accesso completo a tutte le risorse, incluso il diritto di delegare l'accesso ad altri utenti.
+- Il **proprietario** ha accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti.
 
-- **Collaboratore** può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri.
+- Il **collaboratore** può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri utenti.
 
 - **Lettore** può visualizzare le risorse di Azure esistenti.
 
@@ -80,7 +80,7 @@ Il resto dei ruoli RBAC in Azure consente la gestione di risorse di Azure specif
 [Ruoli predefiniti per il controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/custom-roles.md).
 
 Altre funzionalità di Azure Active Directory includono:
-- Azure AD abilita SSO nelle applicazioni SaaS, indipendentemente da dove vengono ospitate. Alcune applicazioni sono federate con Azure AD e altre usano SSO basato su password. Le applicazioni federate possono inoltre supportare il provisioning degli utenti e il vaulting delle [password.](https://www.techopedia.com/definition/31415/password-vault)
+- Azure AD abilita SSO nelle applicazioni SaaS, indipendentemente da dove vengono ospitate. Alcune applicazioni sono federate con Azure AD e altre usano SSO basato su password. Le applicazioni federate possono anche supportare il provisioning utenti e l'insieme di credenziali delle [password](https://www.techopedia.com/definition/31415/password-vault).
 
 - L'accesso ai dati in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è controllato dall'autenticazione. Ogni account di archiviazione ha una chiave primaria ([chiave dell'account di archiviazione](../../storage/common/storage-create-storage-account.md)) e una chiave privata secondaria (firma di accesso condiviso).
 
@@ -113,7 +113,7 @@ Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### <a name="dedicated-hosts"></a>Host dedicati
-Oltre agli host isolati descritti nella sezione precedente, Azure offre anche host dedicati. Gli host dedicati in Azure sono un servizio che fornisce server fisici che possono ospitare una o più macchine virtuali e che sono dedicati a una singola sottoscrizione di Azure.Dedicated hosts in Azure is a service that provides physical servers that can host one or more virtual machines, and which are dedicated to a single Azure subscription. Gli host dedicati forniscono l'isolamento hardware a livello di server fisico. Nessun'altra macchine virtuali verrà inserita nei host. Gli host dedicati vengono distribuiti negli stessi data center e condividono la stessa rete e la stessa infrastruttura di archiviazione sottostante di altri host non isolati. Per altre informazioni, vedere panoramica dettagliata degli host dedicati di Azure.For more information, see the detailed overview of [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Oltre agli host di tipo isolato descritti nella sezione precedente, Azure offre anche host dedicati. Host dedicati in Azure è un servizio che fornisce server fisici che possono ospitare una o più macchine virtuali e che sono dedicate a una singola sottoscrizione di Azure. Gli host dedicati forniscono l'isolamento hardware a livello di server fisico. Non verranno inserite altre macchine virtuali negli host. Gli host dedicati vengono distribuiti negli stessi Data Center e condividono la stessa rete e l'infrastruttura di archiviazione sottostante come altri host non isolati. Per altre informazioni, vedere la panoramica dettagliata degli [host dedicati di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento Hyper-V e del sistema operativo radice tra VM radice e VM guest
 La piattaforma di calcolo di Azure si basa sulla virtualizzazione dei computer, ovvero tutto il codice del cliente viene eseguito in una macchina virtuale Hyper-V. In ogni nodo o endpoint di rete di Azure è presente un hypervisor che viene eseguito direttamente sull'hardware e suddivide il nodo in un numero variabile di macchine virtuali guest.
@@ -160,9 +160,9 @@ Per impostazione predefinita, tutto il traffico viene bloccato quando viene crea
 
 Sono previste due categorie di regole:
 
--   Regole di **configurazione o infrastruttura del computer:** Per impostazione predefinita, tutte le comunicazioni sono bloccate. Alcune eccezioni consentono a una macchina virtuale di inviare e ricevere il traffico DHCP e DNS. Le macchine virtuali possono anche inviare il traffico a Internet "pubblico" e ad altre macchine virtuali nella stessa rete virtuale di Azure e nel server di attivazione del sistema operativo. L'elenco di destinazioni in uscita consentite delle macchine virtuali non include subnet di router di Azure, la gestione di Azure e altre proprietà Microsoft.
+-   **Configurazione computer o regole infrastruttura:** Per impostazione predefinita, tutte le comunicazioni sono bloccate. Alcune eccezioni consentono a una macchina virtuale di inviare e ricevere il traffico DHCP e DNS. Le macchine virtuali possono anche inviare il traffico a Internet "pubblico" e ad altre macchine virtuali nella stessa rete virtuale di Azure e nel server di attivazione del sistema operativo. L'elenco di destinazioni in uscita consentite delle macchine virtuali non include subnet di router di Azure, la gestione di Azure e altre proprietà Microsoft.
 
--   **File di configurazione del ruolo:** In questo modo vengono definiti gli elenchi di controllo di accesso (ACL) in ingresso in base al modello di servizio del tenant.
+-   **File di configurazione del ruolo:** Definisce gli elenchi di controllo di accesso (ACL) in ingresso in base al modello di servizio del tenant.
 
 ### <a name="vlan-isolation"></a>Isolamento VLAN
 In ogni cluster sono presenti tre VLAN:
@@ -206,18 +206,18 @@ Azure offre i tipi di crittografia seguenti per proteggere i dati:
 #### <a name="encryption-in-transit"></a>Crittografia in transito
 La crittografia in transito è un meccanismo di protezione dei dati durante la trasmissione tra le reti. Con Archiviazione di Azure è possibile proteggere i dati con:
 
--   Crittografia a livello di trasporto, ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di [Azure.Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
+-   [Crittografia a livello di trasporto](../../storage/blobs/security-recommendations.md), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di archiviazione di Azure.
 
--   [Crittografia wire](../../storage/blobs/security-recommendations.md), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.Wire encryption , such as SMB 3.0 encryption for Azure File shares.
+-   [Crittografia di rete](../../storage/blobs/security-recommendations.md), ad esempio la crittografia SMB 3,0 per le condivisioni file di Azure.
 
--   [Crittografia lato client](../../storage/blobs/security-recommendations.md), per crittografare i dati prima che vengano trasferiti nell'archivio e per decrittografarli dopo che sono stati trasferiti all'esterno dello spazio di archiviazione.
+-   [Crittografia lato client](../../storage/blobs/security-recommendations.md), per crittografare i dati prima che vengano trasferiti nella risorsa di archiviazione e decrittografare i dati dopo che sono stati trasferiti fuori dallo spazio di archiviazione.
 
 #### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
-Per molte organizzazioni, la crittografia dei [dati inattivi](isolation-choices.md) è un passo obbligatorio verso la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
+Per molte organizzazioni, la [crittografia dei dati](isolation-choices.md) inattivi è un passaggio obbligatorio per la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
 
 -   [Crittografia del servizio di archiviazione](../../storage/blobs/security-recommendations.md) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 
--   [La crittografia lato client](../../storage/blobs/security-recommendations.md) offre anche la funzionalità di crittografia inattivi.
+-   La [crittografia lato client](../../storage/blobs/security-recommendations.md) fornisce anche la funzionalità di crittografia dei componenti inattivi.
 
 -   [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
@@ -297,7 +297,7 @@ Quando viene creato un server logico e viene registrato il relativo nome DNS, qu
 Dietro l'indirizzo VIP (indirizzo IP virtuale) è presente una raccolta di servizi di gateway senza stato. In generale, i gateway vengono coinvolti quando è necessario coordinare più origini dati, ovvero database master, database utente e così via. I servizi gateway implementano gli elementi seguenti:
 -   **Inoltro dei dati tramite connessione TDS.** Comprende l'identificazione del database utente nel cluster back-end, l'implementazione della sequenza di accesso e quindi l'inoltro dei pacchetti TDS al back-end e viceversa.
 
--   **Gestione di database.** Comprende l'implementazione di una raccolta di flussi di lavoro per eseguire operazioni di database CREATE/ALTER/DROP. Le operazioni di database possono essere richiamate analizzando pacchetti TDS o API OData esplicite.
+-   **Gestione del database.** Comprende l'implementazione di una raccolta di flussi di lavoro per eseguire operazioni di database CREATE/ALTER/DROP. Le operazioni di database possono essere richiamate analizzando pacchetti TDS o API OData esplicite.
 
 -   Operazioni CREATE/ALTER/DROP per account di accesso/utenti
 
@@ -310,7 +310,7 @@ Il livello dietro il gateway è denominato "back-end". Qui vengono archiviati tu
 In genere, il sistema back-end non comunica in uscita con altri sistemi come misura di sicurezza. Questo tipo di comunicazione è riservata ai sistemi nel livello front-end (gateway). Le macchine di livello gateway hanno privilegi limitati per le macchine back-end per ridurre al minimo la superficie di attacco come meccanismo di difesa avanzata.
 
 ### <a name="isolation-by-machine-function-and-access"></a>Isolamento in base all'accesso e alla funzione della macchina
-SQL Azure è composto da servizi in esecuzione in funzioni differenti della macchina. SQL Azure è suddiviso in ambienti di database cloud "back-end" e "front-end" (Gateway/Management), con il principio generale del traffico che passa solo al back-end e non all'esterno. L'ambiente front-end può comunicare con il mondo esterno di altri servizi e, in generale, dispone solo di autorizzazioni limitate nel back-end (abbastanza per chiamare i punti di ingresso che deve richiamare).
+SQL Azure è composto da servizi in esecuzione in funzioni differenti della macchina. SQL Azure è suddiviso in ambienti di database cloud "back-end" e "front-end" (Gateway/gestione), con il principio generale di traffico che entra solo nel back-end e non in uscita. L'ambiente front-end può comunicare con il mondo esterno di altri servizi e, in generale, dispone solo di autorizzazioni limitate nel back-end (sufficiente per chiamare i punti di ingresso da richiamare).
 
 ## <a name="networking-isolation"></a>Isolamento della rete
 La distribuzione di Azure offre più livelli di isolamento della rete. Il diagramma seguente mostra i vari livelli di isolamento della rete che Azure offre ai clienti. Questi livelli sono costituiti sia da funzionalità native della piattaforma Azure, sia da funzionalità definite dal cliente. Per il traffico in ingresso da Internet, Azure DDoS fornisce l'isolamento da attacchi su larga scala contro Azure. Il livello di isolamento successivo è costituito da indirizzi IP pubblici (endpoint) definiti dall'utente, usati per determinare il traffico che può passare alla rete virtuale attraverso il servizio cloud. L'isolamento nativo della rete virtuale di Azure assicura l'isolamento completo da tutte le altre reti e il flusso di traffico solo tramite percorsi e metodi configurati dall'utente. Questi percorsi e metodi costituiscono il livello successivo, in cui è possibile usare NSG, UDR e appliance virtuali di rete per creare limiti di isolamento e proteggere le distribuzioni delle applicazioni nella rete protetta.
@@ -323,6 +323,6 @@ La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulle opzioni di isolamento rete [per le macchine nelle reti virtuali](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)di Windows Azure . Ciò include lo scenario front-end e back-end classico in cui i computer in una particolare rete back-end o subnet possono consentire solo a determinati client o altri computer di connettersi a un endpoint specifico in base a un elenco Consenti di indirizzi IP.
+- Informazioni sulle [Opzioni di isolamento rete per i computer nelle reti virtuali di Microsoft Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Sono inclusi gli scenari di front-end e back-end classici in cui i computer in una rete back-end particolare o in una subnet possono consentire solo a determinati client o altri computer di connettersi a un determinato endpoint in base a un elenco di indirizzi IP consentiti.
 
-- Informazioni [sull'isolamento delle macchine virtuali in Azure.](../../virtual-machines/windows/isolation.md) Azure Compute offre dimensioni di macchine virtuali isolate per un tipo di hardware specifico e dedicate a un singolo cliente.
+- Informazioni sull' [isolamento delle macchine virtuali in Azure](../../virtual-machines/windows/isolation.md). Calcolo di Azure offre dimensioni di macchine virtuali isolate a un tipo di hardware specifico e dedicate a un singolo cliente.

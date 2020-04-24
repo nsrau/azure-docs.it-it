@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183168"
 ---
 > [!NOTE]
-> In Azure Active Directory B2C i [criteri personalizzati](../articles/active-directory-b2c/custom-policy-get-started.md) sono progettati principalmente per risolvere scenari complessi. Per la maggior parte degli scenari, è consigliabile utilizzare [flussi utente](../articles/active-directory-b2c/user-flow-overview.md)incorporati.
+> In Azure Active Directory B2C i [criteri personalizzati](../articles/active-directory-b2c/custom-policy-get-started.md) sono progettati principalmente per risolvere scenari complessi. Per la maggior parte degli scenari, è consigliabile usare i [flussi utente](../articles/active-directory-b2c/user-flow-overview.md)predefiniti.

@@ -1,6 +1,6 @@
 ---
-title: Snapshot incrementali per i dischi gestiti
-description: Informazioni sugli snapshot incrementali per i dischi gestiti, incluso come crearli tramite l'interfaccia della riga di comando e Azure Resource Manager.Learn about incremental snapshots for managed disks, including how to create them using CLI and Azure Resource Manager.
+title: Snapshot incrementali per Managed Disks
+description: Informazioni sugli snapshot incrementali per Managed disks, incluse le procedure per crearli usando l'interfaccia della riga di comando e Azure Resource Manager.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -14,5 +14,5 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370866"
 ---
-# <a name="create-an-incremental-snapshot-for-managed-disks---cli"></a>Creare uno snapshot incrementale per i dischi gestiti - CLICreate an incremental snapshot for managed disks - CLI
+# <a name="create-an-incremental-snapshot-for-managed-disks---cli"></a>Creare uno snapshot incrementale per Managed disks-CLI
 [!INCLUDE [virtual-machines-disks-incremental-snapshot-cli](../../../includes/virtual-machines-disks-incremental-snapshot-cli.md)]

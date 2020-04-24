@@ -1,7 +1,7 @@
 ---
 title: Esportare o eliminare i dati dell'area di lavoro
 titleSuffix: Azure Machine Learning
-description: Informazioni su come esportare o eliminare l'area di lavoro con le API REST, l'interfaccia della riga di comando, l'interfaccia della riga di comando, l'SDK e le API REST autenticate di Azure.Learn how to export or delete your workspace with the Azure Machine Learning studio, CLI, SDK, and authenticated REST APIs.
+description: Informazioni su come esportare o eliminare l'area di lavoro con Azure Machine Learning Studio, l'interfaccia della riga di comando, l'SDK e le API REST autenticate.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -30,7 +30,7 @@ In Azure Machine Learning è possibile esportare o eliminare i dati dell'area di
 
 ## <a name="control-your-workspace-data"></a>Controllare i dati dell'area di lavoro
 
-I dati in-product archiviati da Azure Machine Learning sono disponibili per l'esportazione e l'eliminazione tramite Azure Machine Learning Studio, CLI, SDK e API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. 
+I dati del prodotto archiviati da Azure Machine Learning sono disponibili per l'esportazione e l'eliminazione tramite Azure Machine Learning Studio, l'interfaccia della riga di comando, l'SDK e le API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. 
 
 In Azure Machine Learning i dati personali sono costituiti dalle informazioni utente dei documenti della cronologia di esecuzione e dai record dei dati di telemetria di alcune interazioni dell'utente con il servizio.
 
@@ -38,7 +38,7 @@ In Azure Machine Learning i dati personali sono costituiti dalle informazioni ut
 
 Per eliminare i dati, è possibile effettuare le chiamate API seguenti con il verbo HTTP DELETE. L'autorizzazione delle chiamate API deriva dalla presenza di un'intestazione `Authorization: Bearer <arm-token>` nella richiesta, dove `<arm-token>` è il token di accesso AAD per l'endpoint `https://management.core.windows.net/`.  
 
-Per informazioni su come ottenere questo token e chiamare gli endpoint di Azure, vedere Usare REST per gestire le risorse di ML e la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/azure/)di Azure.To learn how to get this token and call Azure endpoints, see [Use REST to manage ML resources](how-to-manage-rest.md) and Azure REST API documentation.  
+Per informazioni su come ottenere questo token e chiamare gli endpoint di Azure, vedere [usare REST per gestire le risorse ml](how-to-manage-rest.md) e la [documentazione sull'API REST di Azure](https://docs.microsoft.com/rest/api/azure/).  
 
 Negli esempi seguenti sostituire il testo in {} con i nomi delle istanze che determinano la risorsa associata.
 
@@ -94,7 +94,7 @@ I singoli servizi possono essere eliminati con:
 
 Per esportare i dati, è possibile effettuare le chiamate API seguenti con il verbo HTTP GET. L'autorizzazione delle chiamate API deriva dalla presenza di un'intestazione`Authorization: Bearer <arm-token>` nella richiesta, dove `<arm-token>` è il token di accesso AAD per l'endpoint `https://management.core.windows.net/`.  
 
-Per informazioni su come ottenere questo token e chiamare gli endpoint di Azure, vedere Usare REST per gestire le risorse di ML e la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/azure/)di Azure.To learn how to get this token and call Azure endpoints, see [Use REST to manage ML resources](how-to-manage-rest.md) and Azure REST API documentation ..   
+Per informazioni su come ottenere questo token e chiamare gli endpoint di Azure, vedere [usare REST per gestire le risorse ml](how-to-manage-rest.md) e la [documentazione sull'API REST di Azure](https://docs.microsoft.com/rest/api/azure/).   
 
 Negli esempi seguenti sostituire il testo in {} con i nomi delle istanze che determinano la risorsa associata.
 
@@ -236,28 +236,28 @@ Le origini dati possono essere ottenute con:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-assets-in-the-designer"></a>Eliminare risorse nella finestra di progettazioneDelete assets in the designer
+## <a name="delete-assets-in-the-designer"></a>Elimina asset nella finestra di progettazione
 
-Nella finestra di progettazione in cui hai creato l'esperimento, elimina le singole risorse:
+Nella finestra di progettazione in cui è stato creato l'esperimento, eliminare i singoli asset:
 
-1. Vai alla finestra di progettazione
+1. Vai a finestra di progettazione
 
     ![Eliminare gli asset](./media/how-to-export-delete-data/delete-experiment.png)
 
-1. Nell'elenco selezionare la singola bozza della pipeline da eliminare.
+1. Nell'elenco selezionare la bozza della singola pipeline da eliminare.
 
 1. Selezionare **Elimina**.
 
-### <a name="delete-datasets-in-the-designer"></a>Eliminare i set di dati nella finestra di progettazioneDelete datasets in the designer
+### <a name="delete-datasets-in-the-designer"></a>Eliminare i set di impostazioni nella finestra di progettazione
 
-Per eliminare i set di dati nella finestra di progettazione, usare il portale di Azure o Esplora archiviazione per passare agli account di archiviazione connessi ed eliminarvi i set di dati. L'annullamento della registrazione dei set di dati nella finestra di progettazione rimuove solo il punto di riferimento nell'archiviazione.
+Per eliminare i set di impostazioni nella finestra di progettazione, usare il portale di Azure o Storage Explorer per passare agli account di archiviazione connessi ed eliminare i set di impostazioni. L'annullamento della registrazione dei set di impostazioni nella finestra di progettazione rimuove solo il punto di riferimento nell'archivio.
 
-## <a name="export-data-in-the-designer"></a>Esportare dati nella finestra di progettazioneExport data in the designer
+## <a name="export-data-in-the-designer"></a>Esportare i dati nella finestra di progettazione
 
-Nella finestra di progettazione in cui hai creato l'esperimento, esporta i dati che hai aggiunto:
+Nella finestra di progettazione in cui è stato creato l'esperimento, esportare i dati aggiunti:
 
-1. A sinistra, selezionare **Set di dati**.
+1. A sinistra selezionare set di **Impostazioni**.
 
-1. Nell'elenco, selezionare il set di dati da esportare
+1. Nell'elenco selezionare il set di dati da esportare
 
     ![Scaricare i dati](./media/how-to-export-delete-data/unregister-dataset.png)

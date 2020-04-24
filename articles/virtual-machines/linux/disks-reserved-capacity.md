@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare i costi per Archiviazione disco di Azure con prenotazioni
-description: Informazioni sull'acquisto di prenotazioni di Archiviazione disco di Azure per risparmiare sui costi dei dischi gestiti SSD premium.
+title: Ottimizzare i costi per archiviazione su disco di Azure con prenotazioni
+description: Informazioni sull'acquisto di archiviazione su disco di Azure prenotazioni per ridurre i costi dei dischi gestiti da unità SSD Premium.
 author: roygara
 ms.author: rogarana
 ms.date: 01/30/2020
@@ -14,5 +14,5 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970395"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Riduci i costi con la prenotazione dei dischi di AzureReduce costs with Azure Disks Reservation
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Riduci i costi con la prenotazione di dischi di Azure
 [!INCLUDE [disk-reserved-capacity-shared](../../../includes/disk-reserved-capacity-shared.md)]

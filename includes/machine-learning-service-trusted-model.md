@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79477290"
 ---
 > [!IMPORTANT]
-> È consigliabile utilizzare solo i modelli creati o ottenuti da una fonte attendibile. È necessario considerare i modelli serializzati come codice, perché le vulnerabilità di sicurezza sono state individuate in una serie di formati popolari. Inoltre, i modelli potrebbero essere sottoposti a training intenzionale con intento dannoso per fornire un output parziale o impreciso.
+> È consigliabile utilizzare solo i modelli creati o ottenuti da un'origine attendibile. È consigliabile considerare i modelli serializzati come codice, perché le vulnerabilità di sicurezza sono state individuate in diversi formati diffusi. Inoltre, è possibile che i modelli siano stati intenzionalmente sottoposti a training con finalità dannose per fornire output distorto o non accurato.

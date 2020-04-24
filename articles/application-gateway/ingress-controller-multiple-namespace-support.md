@@ -1,6 +1,6 @@
 ---
-title: Abilitare più supporti dello spazio dei nomi per il controller di ingresso del gateway applicazioneEnable multiple namespace supports for Application Gateway Ingress Controller
-description: In questo articolo vengono fornite informazioni su come abilitare il supporto di più spazi dei nomi in un cluster Kubernetes con un controller di ingresso del gateway applicazione.
+title: Abilitare più supporti dello spazio dei nomi per il controller di ingresso del gateway applicazione
+description: Questo articolo fornisce informazioni su come abilitare più supporto dello spazio dei nomi in un cluster Kubernetes con un controller di ingresso del gateway applicazione.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -14,37 +14,37 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279923"
 ---
-# <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Abilitare il supporto di più spazi dei nomi in un cluster AKS con il controller di ingresso del gateway applicazioneEnable multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller
+# <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Abilitare più supporto dello spazio dei nomi in un cluster AKS con il controller di ingresso del gateway applicazione
 
 ## <a name="motivation"></a>Motivazione
-Gli spazi dei [nomi](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) Kubernetes consentono di partizionare e allocare un cluster Kubernetes ai sottogruppi di un team più ampio. Questi sottoteam possono quindi distribuire e gestire l'infrastruttura con controlli più precisi di risorse, sicurezza, configurazione e così via. Kubernetes consente di definire una o più risorse in ingresso in modo indipendente all'interno di ogni spazio dei nomi.
+Gli [spazi dei nomi](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) Kubernetes rendono possibile il partizionamento e l'allocazione di un cluster Kubernetes a sottogruppi di un team più grande. Questi sottoteam possono quindi distribuire e gestire l'infrastruttura con controlli più precisi delle risorse, della sicurezza, della configurazione e così via. Kubernetes consente di definire una o più risorse in ingresso in modo indipendente all'interno di ogni spazio dei nomi.
 
-A partire dalla versione 0.7 [Azure Application Gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) può ingerire eventi da e osservare più spazi dei nomi. Se l'amministratore di AKS decide di usare [app Gateway](https://azure.microsoft.com/services/application-gateway/) come ingresso, tutti gli spazi dei nomi utilizzeranno la stessa istanza del gateway applicazione. Una singola installazione di Ingress Controller monitorerà gli spazi dei nomi accessibili e configurerà il gateway applicazione a cui è associato.
+A partire dalla versione 0,7 [applicazione Azure gateway Kubernetes IngressController](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) può inserire eventi da e osservare più spazi dei nomi. Se l'amministratore AKS decide di usare il [gateway app](https://azure.microsoft.com/services/application-gateway/) come ingresso, tutti gli spazi dei nomi utilizzeranno la stessa istanza del gateway applicazione. Una singola installazione del controller di ingresso monitorerà gli spazi dei nomi accessibili e configurerà il gateway applicazione a cui è associato.
 
-La versione 0.7 di AGIC continuerà a osservare esclusivamente lo `default` spazio dei nomi, a meno che non venga esplicitamente modificato in uno o più spazi dei nomi diversi nella configurazione Helm (vedere la sezione seguente).
+La versione 0,7 di AGIC continuerà a osservare esclusivamente `default` lo spazio dei nomi, a meno che questo non venga esplicitamente modificato in uno o più spazi dei nomi diversi nella configurazione Helm (vedere la sezione seguente).
 
 ## <a name="enable-multiple-namespace-support"></a>Abilitare il supporto per più spazi dei nomi
 Per abilitare il supporto di più spazi dei nomi:
-1. modificare il file [helm-config.yaml](#sample-helm-config-file) in uno dei seguenti modi:
-   - eliminare `watchNamespace` completamente la chiave da [helm-config.yaml](#sample-helm-config-file) - AGIC osserverà tutti gli spazi dei nomi
-   - impostato `watchNamespace` su una stringa vuota - AGIC osserverà tutti gli spazi dei nomi
-   - aggiungere più spazi dei nomi`watchNamespace: default,secondNamespace`separati da una virgola ( ) - AGIC osserverà questi spazi dei nomi in modo esclusivo
+1. modificare il file [Helm-config. YAML](#sample-helm-config-file) in uno dei modi seguenti:
+   - eliminare la `watchNamespace` chiave interamente da [Helm-config. YAML](#sample-helm-config-file) -AGIC osserverà tutti gli spazi dei nomi
+   - impostare `watchNamespace` su una stringa vuota-AGIC osserverà tutti gli spazi dei nomi
+   - Aggiunta di più spazi dei nomi separati da una`watchNamespace: default,secondNamespace`virgola ()-AGIC osserverà questi spazi dei nomi in modo esclusivo
 2. applicare le modifiche al modello Helm con:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
-Una volta distribuito con la possibilità di osservare più spazi dei nomi, AGIC:
-  - elenca le risorse in ingresso da tutti gli spazi dei nomi accessibili
-  - filtrare per entrare risorse annotato con`kubernetes.io/ingress.class: azure/application-gateway`
-  - comporre la configurazione combinata [del gateway applicazione](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
+Una volta distribuita con la possibilità di osservare più spazi dei nomi, AGIC:
+  - elencare le risorse in ingresso da tutti gli spazi dei nomi accessibili
+  - filtrare per le risorse in ingresso annotate con`kubernetes.io/ingress.class: azure/application-gateway`
+  - comporre la [configurazione del gateway applicazione](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744) combinato
   - applicare la configurazione al gateway applicazione associato tramite [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
 ## <a name="conflicting-configurations"></a>Configurazioni in conflitto
-Più [risorse in ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) con spazi dei nomi possono indicare ad AGIC di creare configurazioni in conflitto per un singolo gateway applicazione. (Due in ingresso che rivendicano lo stesso dominio per esempio.)
+Più risorse di [ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) con spazio dei nomi possono indicare a AGIC di creare configurazioni in conflitto per un singolo gateway applicazione. (Due ingress che rivendicano lo stesso dominio per l'istanza).
 
-Nella parte superiore della gerarchia: **i listener** (indirizzo IP, porta e host) e le regole di **routing** (listener di associazione, pool back-end e impostazioni HTTP) possono essere creati e condivisi da più spazi dei nomi/iningresso.
+Nella parte superiore dei **listener** della gerarchia (indirizzo IP, porta e host) e **le regole di routing** (listener di binding, pool back-end e impostazioni http) potrebbero essere create e condivise da più spazi dei nomi/Ingres.
 
-D'altra parte: i percorsi, i pool back-end, le impostazioni HTTP e i certificati TLS possono essere creati da un solo spazio dei nomi e i duplicati verranno rimossi.
+Negli altri percorsi, i pool back-end, le impostazioni HTTP e i certificati TLS possono essere creati solo da uno spazio dei nomi e i duplicati verranno rimossi.
 
-Si considerino ad esempio le seguenti `staging` `production` risorse `www.contoso.com`in ingresso duplicate definite spazi dei nomi e per:For example, consider the following duplicate ingress resources defined namespaces and for :
+Si considerino, ad esempio, gli spazi dei nomi definiti seguenti per `staging` le `production` risorse `www.contoso.com`di ingresso duplicate e per:
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,24 +81,24 @@ spec:
               servicePort: 80
 ```
 
-Nonostante le due risorse in `www.contoso.com` ingresso che richiedono il traffico per essere instradato ai rispettivi spazi dei nomi Kubernetes, solo un back-end può servire il traffico. AGIC creerebbe una configurazione su base "primo arrivato, primo servito" per una delle risorse. Se due risorse in ingresso vengono create contemporaneamente, quella precedente nell'alfabeto avrà la precedenza. Dall'esempio precedente saremo in grado di `production` creare solo le impostazioni per l'ingresso. Il gateway applicazione verrà configurato con le risorse seguenti:Application Gateway will be configured with the following resources:
+Nonostante le due risorse `www.contoso.com` in ingresso che richiedono che il traffico venga indirizzato ai rispettivi spazi dei nomi Kubernetes, solo un back-end può servire il traffico. AGIC creerebbe una configurazione in base a una delle risorse per la prima volta. Se vengono create contemporaneamente due risorse in ingresso, quella precedente nell'alfabeto avrà la precedenza. Dall'esempio precedente, sarà possibile creare le impostazioni per il `production` traffico in ingresso. Il gateway applicazione verrà configurato con le risorse seguenti:
 
-  - Listener:`fl-www.contoso.com-80`
+  - Listener`fl-www.contoso.com-80`
   - Regola di routing:`rr-www.contoso.com-80`
   - Pool back-end:`pool-production-contoso-web-service-80-bp-80`
   - Impostazioni HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
-  - Sonda di salute:`pb-production-contoso-web-service-80-websocket-ingress`
+  - Probe di integrità:`pb-production-contoso-web-service-80-websocket-ingress`
 
-Si noti che, ad eccezione del *listener* e della`production`regola di *routing,* le risorse del gateway applicazione create includono il nome dello spazio dei nomi ( ) per il quale sono state create.
+Si noti che, ad eccezione del *listener* e della *regola di routing*, le risorse del gateway applicazione create includono`production`il nome dello spazio dei nomi () per il quale sono state create.
 
-Se le due risorse in ingresso vengono introdotte nel cluster AKS in momenti diversi nel tempo, è probabile che AGIC `namespace-B` finisca in uno scenario in cui riconfigura il gateway applicazione e reindirizza il traffico da a `namespace-A`.
+Se le due risorse in ingresso vengono introdotte nel cluster AKS in momenti diversi, è probabile che AGIC si trovi in uno scenario in cui riconfigura il gateway applicazione e reindirizza il traffico da `namespace-B` a. `namespace-A`
 
-Ad esempio, `staging` se è stato aggiunto per primo, AGIC configurerà il gateway applicazione per instradare il traffico al pool back-end di gestione temporanea. In una fase `production` successiva, l'introduzione in ingresso causerà AGIC riprogrammare `production` il gateway applicazione, che avvierà il routing del traffico al pool back-end.
+Se ad esempio è stato `staging` aggiunto per primo, AGIC configurerà il gateway applicazione per instradare il traffico al pool back-end di gestione temporanea. In una fase successiva, introducendo `production` il traffico in ingresso, AGIC riprogramma il gateway applicazione, che avvierà il routing del `production` traffico al pool back-end.
 
 ## <a name="restrict-access-to-namespaces"></a>Limitare l'accesso agli spazi dei nomi
-Per impostazione predefinita, AGIC configurerà il gateway applicazione in base all'ingresso con annotato all'interno di qualsiasi spazio dei nomi. Se si desidera limitare questo comportamento sono disponibili le opzioni seguenti:
-  - limitare gli spazi dei nomi, definendo in `watchNamespace` modo esplicito gli spazi dei nomi che AGIC deve osservare tramite la chiave YAML in [helm-config.yaml](#sample-helm-config-file)
-  - utilizzare [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) per limitare AGIC a spazi dei nomi specifici
+Per impostazione predefinita, AGIC configurerà il gateway applicazione in base all'ingresso con annotazioni all'interno di qualsiasi spazio dei nomi. Se si desidera limitare questo comportamento, sono disponibili le opzioni seguenti:
+  - limitare gli spazi dei nomi, definendo in modo esplicito gli spazi dei nomi AGIC `watchNamespace` dovrebbe osservare tramite la chiave YAML in [Helm-config. YAML](#sample-helm-config-file)
+  - utilizzare [Role/Role](https://docs.microsoft.com/azure/aks/azure-ad-rbac) per limitare AGIC a spazi dei nomi specifici
 
 ## <a name="sample-helm-config-file"></a>File di configurazione Helm di esempio
 ```yaml

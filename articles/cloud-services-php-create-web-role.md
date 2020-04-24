@@ -32,7 +32,7 @@ Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo 
 
 ## <a name="download-the-azure-sdk-for-php"></a>Download di Azure SDK per PHP
 
-[Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell.For](/powershell/azure/overview)more information, see How to install and configure Azure PowerShell .
+[Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php) è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Creare un progetto di servizi cloud
 
@@ -171,8 +171,8 @@ Per pubblicare l'applicazione, è necessario prima importare le impostazioni di 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[definizione del servizio (con estensione csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[configurazione del servizio (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[definizione del servizio (. csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[configurazione del servizio (. cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv

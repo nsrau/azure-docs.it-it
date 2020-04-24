@@ -1,6 +1,6 @@
 ---
-title: Opzioni di disponibilità per le macchine virtuali LinuxAvailability options for Linux VMs
-description: Informazioni sulle funzionalità di disponibilità per l'esecuzione di macchine virtuali Linux in AzureLearn about the availability features for running Linux virtual machines in Azure
+title: Opzioni di disponibilità per le macchine virtuali Linux
+description: Informazioni sulle funzionalità di disponibilità per l'esecuzione di macchine virtuali Linux in Azure
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines

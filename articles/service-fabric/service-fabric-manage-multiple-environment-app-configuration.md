@@ -40,9 +40,9 @@ Si prendano in considerazione due semplici esempi:
 
 Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha la possibilità di passare parametri. La modalità di esecuzione di questa operazione dipende da come si crea l'istanza dell'applicazione.
 
-  - In PowerShell, [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) il cmdlet accetta i parametri dell'applicazione come tabella hash.
-  - Usando sfctl, [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) il comando accetta parametri come stringa JSON. Lo script install.sh usa sfctl.
-  - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono usati durante la pubblicazione da Visual Studio, usando i servizi DevOps di Azure o il server DevOps di Azure.These parameter files are used when publishing from Visual Studio, using Azure DevOps Services or Azure DevOps Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
+  - In PowerShell, il [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet accetta i parametri dell'applicazione come Hashtable.
+  - Usando sfctl, il [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) comando accetta parametri come stringa JSON. Lo script install.sh usa sfctl.
+  - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono usati per la pubblicazione da Visual Studio, usando Azure DevOps Services o Azure DevOps Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti illustrano come applicare alcuni dei concetti descritti in questo articolo:

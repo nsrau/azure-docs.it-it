@@ -12,16 +12,16 @@ ms.locfileid: "79257771"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
-Questo articolo offre una panoramica dei piani di ripristino in [Azure Site Recovery.](site-recovery-overview.md)
+Questo articolo fornisce una panoramica dei piani di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
 Un piano di ripristino raccoglie i computer in gruppi di ripristino ai fini del failover. Un piano di ripristino consente di definire un processo di ripristino sistematico creando piccole unità indipendenti che è possibile usare per il failover. Un'unità rappresenta in genere un'app nell'ambiente.
 
 - Un piano di ripristino definisce la modalità di failover dei computer e la sequenza di avvio dopo il failover.
-- I piani di ripristino vengono usati per il failover in Azure, ma non possono essere usati per il failback da Azure.Recovery plans are used for failover to Azure, but can't be used for failback from Azure.
+- I piani di ripristino vengono usati per il failover in Azure, ma non possono essere usati per il failback da Azure.
 - È possibile aggiungere fino a 100 istanze protette a un piano di ripristino.
 - È possibile personalizzare un piano aggiungendovi un ordine, istruzioni e attività.
 - Dopo aver definito un piano, è possibile eseguire un failover per esso.
-- È possibile fare riferimento alle macchine in più piani di ripristino, in cui i piani successivi ignorano la distribuzione/avvio di un computer se è stato distribuito in precedenza utilizzando un altro piano di ripristino.
+- È possibile fare riferimento ai computer in più piani di ripristino, in cui i piani successivi ignorano la distribuzione o l'avvio di un computer se è stato distribuito in precedenza con un altro piano di ripristino.
 
 
 
@@ -32,7 +32,7 @@ Usare i piani di ripristino per:
 * Modellare un'app in base alle relative dipendenze.
 * Automatizzare le attività di ripristino per ridurre l'obiettivo del tempo di ripristino (RTO).
 * Verificare di essere pronti per la migrazione o il ripristino di emergenza, assicurandosi che le app facciano parte di un piano di ripristino.
-* Eseguire i failover di test nei piani di ripristino per assicurarsi che il ripristino di emergenza o la migrazione funzioni come previsto.
+* Eseguire failover di test nei piani di ripristino per assicurarsi che il ripristino di emergenza o la migrazione funzioni come previsto.
 
 
 ## <a name="model-apps"></a>Modellare le app 
@@ -44,7 +44,7 @@ Usare i piani di ripristino per:
 - Tale ordine aiuta anche ad assicurare che il server front-end venga avviato per ultimo, in modo che gli utenti finali non si connettano all'URL dell'app prima che tutti i componenti siano operativi e che l'app sia pronta per accettare le richieste.
 
 Per creare questo ordine, aggiungere gruppi al gruppo di ripristino e aggiungere computer ai gruppi.
-- Se l'ordine è specificato, viene usata la sequenziazione. Le azioni vengono eseguite in parallelo, in base alle esigenze, per migliorare il recupero dell'applicazione RTO.
+- Se l'ordine è specificato, viene usata la sequenziazione. Le azioni vengono eseguite in parallelo nel modo appropriato, per migliorare il ripristino dell'applicazione RTO.
 - Il failover dei computer che fanno parte di un unico gruppo avviene in parallelo.
 - Il failover dei computer in gruppi diversi avviene in base all'ordine dei gruppi, quindi i computer del gruppo 2 iniziano il failover solo dopo il failover e l'avvio di tutti i computer del gruppo 1.
 
@@ -71,21 +71,21 @@ Il ripristino di applicazioni di grandi dimensioni può essere un'attività comp
     * Modificare la configurazione o le regole del server Web.
 
 
-### <a name="run-a-test-failover-on-recovery-plans"></a>Eseguire un failover di test sui piani di ripristinoRun a test failover on recovery plans
+### <a name="run-a-test-failover-on-recovery-plans"></a>Eseguire un failover di test nei piani di ripristino
 
 È possibile usare un piano di ripristino per attivare un failover di test. Attenersi alle procedure consigliate seguenti:
 
 - Completare sempre un failover di test su un'app prima di eseguire un failover completo. I failover di test aiutano a controllare se l'app diventa disponibile nel sito di ripristino.
-- Se si è perso qualcosa, attivare una pulizia e quindi eseguire nuovamente il failover di test. 
+- Se si verifica un problema, attivare una pulizia e quindi eseguire di nuovo il failover di test. 
 - Eseguire un failover di test più volte fino a quando non si è certi che il ripristino dell'app avvenga senza problemi.
 - Poiché ogni app è diversa, è necessario creare piani di ripristino personalizzati per ogni applicazione ed eseguire un failover di test per ognuno di essi.
-- Le app e le relative dipendenze cambiano spesso. Per assicurarsi che i piani di ripristino siano aggiornati, eseguire un failover di test per ogni app ogni trimestre.
+- Le app e le relative dipendenze cambiano spesso. Per assicurarsi che i piani di ripristino siano aggiornati, eseguire un failover di test per ogni applicazione ogni trimestre.
 
     ![Schermata di un piano di ripristino di esempio di test in Site Recovery](./media/recovery-plan-overview/rptest.png)
 
-## <a name="watch-a-recovery-plan-video"></a>Guarda il video di un piano di recupero
+## <a name="watch-a-recovery-plan-video"></a>Guarda un video del piano di ripristino
 
-Guarda un breve video di esempio che mostra un failover su clic per un piano di recupero per un'app WordPress a due livelli.
+Guarda un breve video di esempio che mostra un failover su un clic per un piano di ripristino per un'app WordPress a due livelli.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
@@ -94,4 +94,4 @@ Guarda un breve video di esempio che mostra un failover su clic per un piano di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare](site-recovery-create-recovery-plans.md) un piano di ripristino.
-- [Eseguire](site-recovery-failover.md) failover. 
+- [Eseguire](site-recovery-failover.md) i failover. 

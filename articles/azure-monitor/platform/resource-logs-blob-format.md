@@ -1,6 +1,6 @@
 ---
-title: Preparare la modifica del formato nei log delle risorse di Azure MonitorPrepare for format change to Azure Monitor resource logs
-description: Log delle risorse di Azure spostati per usare i BLOB di aggiunta in 1 novembre 2018.Azure resource logs moved to use append blobs on November 1, 2018.
+title: Preparare la modifica del formato ai log delle risorse di monitoraggio di Azure
+description: I log delle risorse di Azure sono stati spostati per usare i BLOB di Accodamento il 1 ° novembre 2018.
 author: johnkemnetz
 services: monitoring
 ms.topic: conceptual
@@ -14,36 +14,36 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096787"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparare la modifica del formato ai log della piattaforma di Monitoraggio di Azure archiviati in un account di archiviazionePrepare for format change to Azure Monitor platform logs archived to a storage account
+# <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Preparare la modifica del formato ai log della piattaforma di monitoraggio di Azure archiviati in un account di archiviazione
 
 > [!WARNING]
-> Se si inviano [log delle risorse o metriche](resource-logs-collect-storage.md) di Azure a un account di archiviazione usando le impostazioni di diagnostica o i log attività a un account di archiviazione usando i profili di [log,](resource-logs-collect-storage.md)il formato dei dati nell'account di archiviazione è cambiato in Linee JSON il 1 novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato.
+> Se si inviano [log delle risorse di Azure o metriche a un account di archiviazione usando le impostazioni di diagnostica](resource-logs-collect-storage.md) o i [log attività in un account di archiviazione usando profili di log](resource-logs-collect-storage.md), il formato dei dati nell'account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Le impostazioni di seguito descrivono l'impatto della modifica e come aggiornare gli strumenti per gestire il nuovo formato.
 >
 
 ## <a name="what-changed"></a>Cosa è cambiato
 
-Azure Monitor offers a capability that enables you to send resource logs and activity logs into an Azure storage account, Event Hubs namespace, or into a Log Analytics workspace in Azure Monitor. Per risolvere un problema di prestazioni del sistema, il **1 novembre 2018 alle 12:00 mezzanotte UTC** il formato dei dati di log inviati all'archiviazione BLOB è cambiato. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
+Monitoraggio di Azure offre una funzionalità che consente di inviare log delle risorse e log attività in un account di archiviazione di Azure, in uno spazio dei nomi di hub eventi o in un'area di lavoro Log Analytics in monitoraggio di Azure. Per risolvere un problema di prestazioni del sistema, il **1 ° novembre 2018 alle 12:00 mezzanotte UTC** il formato di invio dei dati di log all'archiviazione BLOB è cambiato. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
 
-* Giovedì 1 novembre 2018 alle 12:00 mezzanotte UTC, il formato BLOB è cambiato in [JSON Lines.](http://jsonlines.org/) Ciò significa che ogni record sarà delimitato da una nuova riga, senza matrice di record esterna e senza virgola tra i record JSON.
-* Il formato BLOB è stato modificato per tutte le impostazioni di diagnostica in tutte le sottoscrizioni contemporaneamente. Il primo file PT1H.json generato per il 1 novembre utilizzava questo nuovo formato. I nomi di blob e contenitore rimangono invariati.
-* L'impostazione di un'impostazione diagnostica tra le precedenti del 1 novembre ha continuato a generare dati nel formato corrente fino al 1 novembre.
-* Questa modifica si è verificata contemporaneamente in tutte le aree del cloud pubblico. La modifica non si verificherà ancora in Microsoft Azure gestito da 21Vianet, Azure Germania o cloud di Azure per enti pubblici.
+* Il 1 ° novembre 2018 alle 12:00 mezzanotte UTC il formato BLOB è stato modificato in modo da essere [righe JSON](http://jsonlines.org/). Ciò significa che ogni record sarà delimitato da una nuova riga, senza matrice di record esterna e senza virgola tra i record JSON.
+* Il formato BLOB è stato modificato per tutte le impostazioni di diagnostica in tutte le sottoscrizioni contemporaneamente. Il primo file PT1H. JSON emesso per il 1 ° novembre usava questo nuovo formato. I nomi di blob e contenitore rimangono invariati.
+* L'impostazione di un'impostazione di diagnostica tra prima del 1 ° novembre ha continuato a emettere i dati nel formato corrente fino al 1 ° novembre.
+* Questa modifica si è verificata in una sola volta in tutte le aree del cloud pubblico. La modifica non si verificherà ancora nei Microsoft Azure gestiti da 21Vianet, Azure Germania o cloud di Azure per enti pubblici.
 * Questa modifica interessa i tipi di dati seguenti:
-  * [Log delle risorse](archive-diagnostic-logs.md) di Azure[(vedere l'elenco delle risorse qui](diagnostic-logs-schema.md))
+  * [Log delle risorse di Azure](archive-diagnostic-logs.md) ([vedere l'elenco di risorse qui](diagnostic-logs-schema.md))
   * [Metriche delle risorse di Azure esportate da impostazioni di diagnostica](diagnostic-settings.md)
   * [Dati del log attività Azure esportati tramite i profili di log](activity-log-collect.md)
 * Questa modifica non interessa:
   * Log dei flussi di rete
-  * Log di servizio di Azure non ancora resi disponibili tramite Monitoraggio di Azure (ad esempio, log delle risorse del servizio app di Azure, log di analisi di archiviazione)Azure service logs not made available through Azure Monitor yet (for example, Azure App Service resource logs, storage analytics logs)
-  * Routing of Azure resource logs and activity logs to other destinations (Event Hubs, Log Analytics)
+  * I log dei servizi di Azure non sono ancora disponibili tramite monitoraggio di Azure (ad esempio, log delle risorse del servizio app Azure, log di analisi archiviazione)
+  * Routing dei log attività e dei log delle risorse di Azure ad altre destinazioni (hub eventi, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Come verificare se si è coinvolti dalla modifica
 
 Questa modifica interessa l'utente solo se:
-1. L'invio di dati di log a un account di archiviazione di Azure tramite un'impostazione di diagnostica
+1. Inviare i dati di log a un account di archiviazione di Azure usando un'impostazione di diagnostica e
 2. Dispone di strumenti che dipendono dalla struttura JSON di questi log nell'archiviazione.
  
-Per identificare se si dispone di impostazioni di diagnostica che inviano dati a un account di archiviazione di Azure, è possibile passare alla sezione **Monitoraggio** del portale, fare clic su **Impostazioni di diagnostica**e identificare le risorse con Stato **diagnostica** impostato su **Abilitato**:
+Per identificare se sono presenti impostazioni di diagnostica che inviano dati a un account di archiviazione di Azure, è possibile passare alla sezione **monitoraggio** del portale, fare clic su **impostazioni di diagnostica**e identificare le risorse con **stato di diagnostica** impostato su **abilitato**:
 
 ![Pannello Impostazioni di diagnostica di Monitoraggio di Azure](media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 
@@ -133,6 +133,6 @@ Gli strumenti personalizzati devono essere aggiornati per gestire il formato cor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni [sull'archiviazione dei log](./../../azure-monitor/platform/archive-diagnostic-logs.md) delle risorse in un account di archiviazioneLearn about archiving resource logs to a storage account
+* Informazioni sull' [archiviazione dei log delle risorse delle risorse in un account di archiviazione](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Informazioni sull'[archiviazione dei dati del log attività a un account di archiviazione](./../../azure-monitor/platform/archive-activity-log.md)
 

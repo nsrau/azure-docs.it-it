@@ -1,6 +1,6 @@
 ---
-title: Utilizzare gli strumenti di automazione dell'infrastruttura
-description: Informazioni su come usare strumenti di automazione dell'infrastruttura come Ansible, Chef, Puppet, Terraform e Packer per creare e gestire macchine virtuali in Azure.Learn how to use infrastructure automation tools such as Ansible, Chef, Puppet, Terraform, and Packer to create and manage virtual machines in Azure.
+title: Usare gli strumenti di automazione dell'infrastruttura
+description: Informazioni su come usare gli strumenti di automazione dell'infrastruttura, ad esempio Ansible, chef, Puppet, bonifica e Packer, per creare e gestire macchine virtuali in Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article

@@ -31,7 +31,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="string-resources"></a><a name="strings"></a>Risorse stringa  
+##  <a name="string-resources"></a><a name="strings"></a>Risorse di stringa  
  Gestione API offre un set completo di risorse di tipo stringa da usare nel portale per sviluppatori. Tali risorse sono localizzate in tutte le lingue supportate da Gestione API. Il set predefinito di modelli usa queste risorse per le intestazioni di pagina, le etichette e per ogni altra stringa costante visualizzata nel portale per sviluppatori. Per usare una risorsa di tipo stringa nei modelli, specificare il prefisso della stringa della risorsa seguito dal nome della stringa, come illustrato nell'esempio seguente.  
   
 ```  
@@ -46,28 +46,28 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ```  
   
-Sono supportate le seguenti opzioni di localizzazione:
+Sono supportate le opzioni di localizzazione seguenti:
 
 | Impostazioni locali    | Linguaggio               |
 |-----------|------------------------|
-| "en"      | "Inglese"              |
-| "cs"      | "E'e'tina"              |
-| "de"      | "Deutsch"              |
-| "es"      | "Espanol"              |
-| "fr"      | "Francesco"             |
-| "hu"      | "Magyar"               |
-| "è"      | "Italiano"             |
-| "ja-JP"   | "" e ""                |
-| "ko"      | "" s" "                |
-| "nl"      | "Terre Neder"           |
-| "pl"      | "Polski"               |
-| "pt-br"   | "Portuguàs (Brasile)"   |
-| "pt-pt"   | "Portuguàs (Portogallo)" |
-| "ru"      | "e' s.p.a. s.r.l."              |
-| "sv"      | "Svenska"              |
-| "tr"      | "Tarke"               |
-| "zh-hans" | "Z( ss)"           |
-| "zh-hant" | "Z( ss)"           |
+| "en"      | Inglese              |
+| CS      | Čeština              |
+| de      | Deutsch              |
+| es      | Spagnolo              |
+| fr      | Français             |
+| Hu      | Magyar               |
+| è      | Italiano             |
+| "ja-JP"   | 日本語                |
+| "ko"      | 한국어                |
+| nl      | Nederlands           |
+| pl      | Polski               |
+| "pt-br"   | "Português (Brasil)"   |
+| "PT-PT"   | "Português (Portogallo)" |
+| ru      | Русский              |
+| SV      | Svenska              |
+| TR      | Türkçe               |
+| "zh-Hans" | "中文 (简体)"           |
+| "zh-Hant" | "中文 (繁體)"           |
 
  Fare riferimento alle tabelle seguenti per le risorse di tipo stringa da usare nei modelli del portale per sviluppatori. Usare il nome della tabella come prefisso per le risorse stringa in tale tabella.  
   
@@ -111,7 +111,7 @@ Sono supportate le seguenti opzioni di localizzazione:
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings (Stringhe api)  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -142,13 +142,13 @@ Sono supportate le seguenti opzioni di localizzazione:
 |WebDevelopersSubmitLink|Submit|  
 |WebDevelopersYourApplicationsHeader|Applicazioni|  
   
-###  <a name="appstrings"></a><a name="AppStrings"></a>Stringhe di App  
+###  <a name="appstrings"></a><a name="AppStrings"></a>AppStrings  
   
 |Nome|Testo|  
 |----------|----------|  
-|WebApplicationsHeader|APPLICAZIONI|  
+|WebApplicationsHeader|Applicazioni|  
   
-###  <a name="commonresources"></a><a name="CommonResources"></a>Risorse comuniCommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a>CommonResources  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -211,7 +211,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |OAuth2TokenEndpointName|Token endpoint (Endpoint di token)|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Description|<p\>The client initiates the flow by directing the resource owner's user-agent to the authorization endpoint. (Il client avvia il flusso indirizzando l'agente utente del proprietario delle risorse all'endpoint di autorizzazione.)  The client includes its client identifier, requested scope, local state, and a redirection URI to which the authorization server will send the user-agent back once access is granted (or denied). (Il client include il proprio identificatore client, l'ambito richiesto, lo stato locale e un URI di reindirizzamento a cui il server di autorizzazione invia l'agente utente una volta concesso o negato l'accesso.)     </p\>     <p\>The authorization server authenticates the resource owner (via the user-agent) and establishes whether the resource owner grants or denies the client's access request. (Il server di autorizzazione autentica il proprietario delle risorse tramite l'agente utente e stabilisce se il proprietario concede o nega la richiesta di accesso del client.)     </p\>     <p\>Assuming the resource owner grants access, the authorization server redirects the user-agent back to the client using the redirection URI provided earlier (in the request or during         client registration). (Supponendo che il proprietario delle risorse conceda l'accesso, il server di autorizzazione reindirizza l'agente utente al client mediante l'URI fornito in precedenza, nella richiesta o durante la registrazione del client.)  The redirection URI includes an authorization code and any local state provided by the client earlier. (L'URI di reindirizzamento include un codice di autorizzazione e qualsiasi stato locale fornito in precedenza dal client.)     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ErrorDescription|<p\>If the user denies the access request of if the request is invalid, the client will be informed using the following parameters added on to the redirect: </p\> (Se l'utente rifiuta la richiesta di accesso o se la richiesta non è valida, il client verrà informato mediante l'aggiunta dei seguenti parametri al reindirizzamento:)|  
-|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Authorization request (Richiesta di autorizzazione)|  
+|OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_Name|Richiesta di autorizzazione|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_RequestDescription|<p\>The client app must send the user to the authorization endpoint in order to initiate the OAuth process. (Per avviare il processo OAuth, l'applicazione client deve inviare l'utente all'endpoint di autorizzazione.)          At the authorization endpoint, the user authenticates and then grants or denies access to the app. (L'utente esegue l'autenticazione nell'endpoint di autorizzazione e quindi concede o nega l'accesso all'app.)     </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_AuthorizationRequest_ResponseDescription|<p\> Assuming the resource owner grants access, authorization server     redirects the user-agent back to the client using the   redirection URI provided earlier (in the request or during client registration). (Supponendo che il proprietario delle risorse conceda l'accesso, il server di autorizzazione reindirizza l'agente utente al client usando l'URI fornito in precedenza, nella richiesta o durante la registrazione del client).  The redirection URI includes an authorization code and any local state provided by the client earlier. (L'URI di reindirizzamento include un codice di autorizzazione e qualsiasi stato locale fornito in precedenza dal client.) </p\>|  
 |OAuth2Flow_AuthorizationCodeGrant_Step_TokenRequest_Description|<p\>The client requests an access token from the authorization server''s token endpoint by including the authorization code received in the previous step. (Il client richiede un token di accesso all'endpoind di token del server di autorizzazione, includendo il codice di autorizzazione ricevuto nel passaggio precedente.)  When making the request, the client authenticates with the authorization server. (Al momento della richiesta, il client esegue l'autenticazione nel server di autorizzazione.)  The client includes the redirection URI used to obtain the authorization code for verification. (Il client include l'URI di reindirizzamento usato per ottenere il codice di autorizzazione per la verifica.) </p\> <p\>The authorization server authenticates the client, validates the     authorization code, and ensures that the redirection URI received matches the URI used to redirect the client in step (C). (Il server di autorizzazione autentica il client, convalida il codice di autorizzazione e assicura che l'URI di reindirizzamento ricevuto corrisponde all'URI usato per reindirizzare il client nel passaggio (C).)  If valid, the authorization server responds back with an access token and, optionally, a refresh token. (Se è valido, il server di autorizzazione risponde con un token di accesso e, facoltativamente, un token di aggiornamento.) </p\>|  
@@ -239,7 +239,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_RequestDescription|<p\> The client makes a request to the token endpoint by adding the     following parameters using the "application/x-www-form-urlencoded"  format with a character encoding of UTF-8 in the HTTP request entity-body. (Il client esegue una richiesta all'endpoint di token aggiungendo i parametri seguenti nel formato "application/x-www-form-urlencoded" con una codifica dei caratteri UTF-8 nel corpo della richiesta HTTP.) </p\>|  
 |OAuth2Flow_ResourceOwnerPasswordCredentialsGrant_Step_TokenRequest_ResponseDescription|<p\> If the access token request is valid and authorized, the authorization server issues an access token and optional refresh     token, and constructs the response by adding the following parameters to the entity-body of the HTTP response with a 200 (OK) status code. (Se la richiesta del token di accesso è valida e autorizzata, il server di autorizzazione genera un token di accesso e un token di aggiornamento facoltativo e costruisce la risposta aggiungendo i parametri seguenti al corpo della risposta HTTP con un codice di stato 200 (OK).) </p\>|  
 |OAuth2Step_AccessTokenRequest_Name|Access token request (Richiesta di token di accesso)|  
-|OAuth2Step_AuthorizationRequest_Name|Authorization request (Richiesta di autorizzazione)|  
+|OAuth2Step_AuthorizationRequest_Name|Richiesta di autorizzazione|  
 |OAuth2AccessToken_AuthorizationCodeGrant_TokenResponse|OBBLIGATORIO. The access token issued by the authorization server. (Il token di accesso generato dal server di autorizzazione.)|  
 |OAuth2AccessToken_ClientCredentialsGrant_TokenResponse|OBBLIGATORIO. The access token issued by the authorization server. (Il token di accesso generato dal server di autorizzazione.)|  
 |OAuth2AccessToken_ImplicitGrant_AuthorizationResponse|OBBLIGATORIO. The access token issued by the authorization server. (Il token di accesso generato dal server di autorizzazione.)|  
@@ -303,7 +303,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |OAuth2InvalidState|Invalid response from authorization server (Risposta non valida dal server di autorizzazione)|  
 |OAuth2GrantType_AuthorizationCode|Authorization code (Codice di autorizzazione)|  
 |OAuth2GrantType_Implicit|Implicito|  
-|OAuth2GrantType_ClientCredentials|Credenziali del client|  
+|OAuth2GrantType_ClientCredentials|Credenziali client|  
 |OAuth2GrantType_ResourceOwnerPassword|Resource owner password. (Password del proprietario delle risorse.)|  
 |WebDocumentation302Code|302 - Trovato|  
 |WebDocumentation400Code|400 - Richiesta non valida|  
@@ -327,11 +327,11 @@ Sono supportate le seguenti opzioni di localizzazione:
 |SectionHeadingRequestUrl|URL richiesta|  
 |SectionHeadingResponse|Risposta|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
-|FormLabelSubtextOptional|facoltativo|  
+|FormLabelSubtextOptional|facoltative|  
 |SectionHeadingCodeSamples|Esempi di codice|  
-|TextblockOpenidConnectHeaderDescription|Il token ID Connect OpenID ottenuto da <i\> {0}</i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|Token ID OpenID Connect ottenuto da <i\> {0}</i\>. Tipi di concessione supportati: <i\>{1}</i\>.|  
   
-###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings (Stringhe di ErrorPage)  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -349,7 +349,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|It's possibly just a temporary issue, a few things to try (Potrebbe trattarsi di un problema temporaneo, alcune soluzioni da provare)|  
   
-###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>Stringhe di problemi  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>IssuesStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -397,7 +397,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |TextblockSubscriptionDescription|A new subscription will be created as follows: (Verrà creata la nuova sottoscrizione indicata di seguito:)|  
 |TextblockSubscriptionLimitReached|Subscriptions limit reached. (È stato raggiunto il limite di sottoscrizioni.)|  
   
-###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProductsStrings (Stringhe di prodotti)  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProductsStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -432,7 +432,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |WebAuthenticationEmailHasBeenRevertedNotice|You email already exist. (Indirizzo di posta elettronica già esistente.) Request has been reverted (La richiesta è stata ripristinata)|  
 |ValidationErrorEmailAlreadyExists|Email already exist. (Indirizzo di posta elettronica già esistente)|  
 |ValidationErrorEmailInvalid|Invalid e-mail address (Indirizzo di posta elettronica non valido)|  
-|TextboxLabelEmail|Email|  
+|TextboxLabelEmail|Posta elettronica|  
 |ValidationErrorEmailRequired|L'indirizzo di posta elettronica è obbligatorio.|  
 |WebAuthenticationErrorNoticeHeader|Errore|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve avere una lunghezza massima di {1}|  
@@ -483,14 +483,14 @@ Sono supportate le seguenti opzioni di localizzazione:
 |WebAuthenticationUserIsNotConfirm|Please confirm your registration before attempting to sign in. (Confermare la registrazione prima di tentare l'accesso.)|  
 |WebAuthenticationInvalidEmailFormated|L'indirizzo di posta elettronica non è valido: {0}|  
 |WebAuthenticationUserNotFound|Utente non trovato|  
-|WebAuthenticationTenantNotRegistered|L'account appartiene a un tenant di Azure Active Directory che non è autorizzato ad accedere a questo portale.|  
+|WebAuthenticationTenantNotRegistered|L'account appartiene a un tenant di Azure Active Directory non autorizzato ad accedere a questo portale.|  
 |WebAuthenticationAuthenticationFailed|Authentication has failed. (Autenticazione non riuscita.)|  
 |WebAuthenticationGooglePlusNotEnabled|Authentication has failed. (Autenticazione non riuscita.) If you authorized the application then please contact the admin to make sure that Google authentication is configured correctly. (Se l'applicazione è stata autorizzata, contattare l'amministratore per assicurarsi che l'autenticazione di Google sia configurata correttamente.)|  
 |ValidationErrorAllowedTenantIsRequired|Allowed Tenant is required (Il campo Tenant consentito è obbligatorio)|  
 |ValidationErrorTenantIsNotValid|Il tenant Azure Active Directory "{0}" non è valido.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
 |WebAuthenticationLoginUsingYourProvider|Accedere usando il proprio account {0}|  
-|WebAuthenticationUserLimitNotice|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Si `<a href="mailto:{0}"\>contact the administrator</a\>` prega di aggiornare il servizio e riattivare la registrazione dell'utente.|  
+|WebAuthenticationUserLimitNotice|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) `<a href="mailto:{0}"\>contact the administrator</a\>` Per aggiornare il servizio e riabilitare la registrazione dell'utente.|  
 |WebAuthenticationUserLimitNoticeHeader|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationUserLimitNoticeTitle|User registration disabled (Registrazione utente disabilitata)|  
 |WebAuthenticationUserRegistrationDisabledNotice|Registration of users has been disabled by the administrator. (La registrazione degli utenti è stata disabilitata dall'amministratore.) Please login with external identity provider. (Accedere con un provider di identità esterno.)|  
@@ -502,24 +502,24 @@ Sono supportate le seguenti opzioni di localizzazione:
 |WebAuthenticationSignupConfirmationEmailSent|Un messaggio di posta elettronica è stato inviato a {0}. Please follow the instructions inside the e-mail to activate your account. (Seguire le istruzioni contenute nel messaggio per attivare l'account.) If the e-mail doesn't arrive within the next few minutes, please check your junk email folder. (Se non si riceve il messaggio entro pochi minuti, controllare la cartella della posta indesiderata.)|  
 |WebAuthenticationEmailSentNotificationMessage|Messaggio di posta elettronica inviato a {0} con successo|  
 |WebAuthenticationNoAadTenantConfigured|No Azure Active Directory tenant configured for the service. (Nessun tenant Azure Active Directory configurato per il servizio.)|  
-|CheckboxLabelUserRegistrationTermsConsentRequired|Sono d'accordo con il `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`file .|  
-|TextblockUserRegistrationTermsProvided|Si prega di rivedere`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
+|CheckboxLabelUserRegistrationTermsConsentRequired|Accetto il `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`.|  
+|TextblockUserRegistrationTermsProvided|Verificare`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
 |DialogHeadingTermsOfUse|Condizioni per l'utilizzo|  
 |ValidationMessageConsentNotAccepted|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
   
-###  <a name="signinstrings"></a><a name="SigninStrings"></a>Stringhe di accessoSigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a>SigninStrings  
   
 |Nome|Testo|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Password dimenticata?|  
-|WebAuthenticationIfAdministrator|Se si è un amministratore `<a href="{0}"\>here</a\>`è necessario accedere .|  
+|WebAuthenticationIfAdministrator|Se si è un amministratore `<a href="{0}"\>here</a\>`, è necessario accedere.|  
 |WebAuthenticationNotAMember|Not a member yet? (Non si è ancora membri?) `<a href="/signup"\>Sign up now</a\>`|  
 |WebAuthenticationRemember|Remember me on this computer (Memorizza utente su questo computer)|  
 |WebAuthenticationSigininWithPassword|Sign in with your username and password (Immettere il proprio nome utente e la password)|  
 |WebAuthenticationSigninTitle|Accesso|  
 |WebAuthenticationSignUpNow|Effettua l'iscrizione ora|  
   
-###  <a name="signupstrings"></a><a name="SignupStrings"></a>Stringhe di iscrizione  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a>SignupStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -529,7 +529,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |WebAuthenticationSigninNow|Sign in now (Accedere ora)|  
 |ButtonLabelSignup|Iscrizione|  
   
-###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>SubscriptionListStringsSubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>SubscriptionListStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -552,7 +552,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |PageTitleRenameSubscription|Rename subscription (Rinomina sottoscrizione)|  
 |SubscriptionPropertyLabelName|Nome sottoscrizione|  
   
-###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>SubscriptionStringsSubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>SubscriptionStrings  
   
 |Nome|Testo|  
 |----------|----------|  
@@ -563,21 +563,21 @@ Sono supportate le seguenti opzioni di localizzazione:
 |InformationMessageKeyWasRegenerated|Are you sure that you want to regenerate this key? (Rigenerare la chiave?)|  
 |ButtonLabelShowKey|Mostra|  
   
-###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings (Stringhe di UpdateProfileStrings)  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings  
   
 |Nome|Testo|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  
   
-###  <a name="userprofile"></a><a name="UserProfile"></a>Userprofile  
+###  <a name="userprofile"></a><a name="UserProfile"></a>UserProfile  
   
 |Nome|Testo|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
 |ButtonLabelChangePassword|Cambia password|  
 |ButtonLabelCloseAccount|Close account (Chiudi account)|  
-|TextboxLabelEmail|Email|  
+|TextboxLabelEmail|Posta elettronica|  
 |TextboxLabelEmailFirstName|Nome|  
 |TextboxLabelEmailLastName|Cognome|  
 |TextboxLabelNotificationsSenderEmail|Notifications sender email (Indirizzo di posta elettronica del mittente delle notifiche)|  
@@ -594,7 +594,7 @@ Sono supportate le seguenti opzioni di localizzazione:
 |ValidationMessageSubscriptionNameRequired|Il nome della sottoscrizione non può essere vuoto.|  
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please upgrade to a higher pricing tier. (Eseguire l'aggiornamento a un piano tariffario superiore.)|  
   
-##  <a name="glyph-resources"></a><a name="glyphs"></a>Risorse per glifi  
+##  <a name="glyph-resources"></a><a name="glyphs"></a>Risorse glifo  
  Nei modelli del portale per sviluppatori di Gestione API è possibile usare i glifi presenti in [Glyphicons da Bootstrap](https://getbootstrap.com/components/#glyphicons). Si tratta di un set di oltre 250 glifi in formato carattere dal set Halflings di [Glyphicon](https://glyphicons.com/). Per usare uno dei glifi del set, applicare la sintassi seguente.  
   
 ```html  

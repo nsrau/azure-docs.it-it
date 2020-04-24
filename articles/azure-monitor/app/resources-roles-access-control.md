@@ -15,7 +15,7 @@ ms.locfileid: "79473133"
 È possibile controllare chi ha eseguito la lettura e aggiornare l'accesso ai dati in Azure [Application Insights][start] mediante il [controllo degli accessi in base al ruolo in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
-> Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Scopri di più](#access).
+> Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Altre informazioni](#access)
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -26,7 +26,7 @@ Innanzitutto prendere nota di alcune definizioni:
 
 * **Risorse** : un'istanza di un servizio di Microsoft Azure. La risorsa di Application Insights raccoglie, analizza e visualizza i dati di telemetria inviati dall'applicazione.  Altri tipi di risorse di Azure includono app Web, database e macchine virtuali.
   
-    Per visualizzare le risorse, aprire il [portale di Azure][portal], accedere e fare clic su Tutte le risorse. Per trovare una risorsa, digitare parte del nome nel campo del filtro.
+    Per visualizzare le risorse, aprire il [portale di Azure][portal], accedere e fare clic su tutte le risorse. Per trovare una risorsa, digitare parte del nome nel campo del filtro.
   
     ![Elenco di risorse di Azure](./media/resources-roles-access-control/10-browse.png)
 
@@ -39,7 +39,7 @@ Innanzitutto prendere nota di alcune definizioni:
 
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Controllare l'accesso nel gruppo di risorse
 
-È importante comprendere che oltre la risorsa creata per l'applicazione, sono disponibili anche risorse nascoste distinte per avvisi e i test Web. Sono collegati allo stesso gruppo di risorse della risorsa di Application Insights.They are attached to the same resource [group](#resource-group) as your Application Insights resource. È anche possibile che siano stati inseriti altri servizi di Azure in tale posizione, ad esempio siti Web o risorsa di archiviazione.
+È importante comprendere che oltre la risorsa creata per l'applicazione, sono disponibili anche risorse nascoste distinte per avvisi e i test Web. Sono collegati allo stesso gruppo di [risorse](#resource-group) della risorsa Application Insights. È anche possibile che siano stati inseriti altri servizi di Azure in tale posizione, ad esempio siti Web o risorsa di archiviazione.
 
 Per controllare l'accesso a queste risorse, è quindi consigliabile:
 
@@ -76,7 +76,7 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 | --- | --- |
 | [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Può apportare qualsiasi modifica, incluso l'accesso utente. |
 | [Collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Può apportare qualsiasi modifica, incluse tutte le risorse. |
-| [Collaboratore del componente Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |È possibile modificare le risorse di Application Insights.Can edit Application Insights resources. |
+| [Collaboratore componente Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Consente di modificare Application Insights risorse. |
 | [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Può visualizzare qualsiasi oggetto ma non può apportare alcuna modifica. |
 | [Debugger di snapshot di Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per l'uso delle funzionalità di Snapshot Debugger di Application Insights. Si noti che questo ruolo non è incluso nei ruoli Proprietario e Collaboratore. |
 | Collaboratore alla gestione delle versioni di distribuzione dei servizi di Azure | Ruolo di collaboratore per i servizi di distribuzione tramite la distribuzione dei servizi di Azure. |
@@ -89,7 +89,7 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 | [Autore delle metriche di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Abilita la pubblicazione di metriche delle risorse di Azure. |
 | [Lettore di monitoraggio](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Può leggere tutti i dati di monitoraggio. |
 | Collaboratore ai criteri delle risorse (anteprima) | Utenti di cui sono state recuperate informazioni da EA, con diritti per la creazione/modifica di criteri delle risorse, la creazione di ticket di supporto e la lettura di risorse/gerarchia.  |
-| [Amministratore Accesso utenti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Consente a un utente gestire l'accesso per altri utenti alle risorse di Azure.|
+| [Amministratore accessi utente](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Consente a un utente gestire l'accesso per altri utenti alle risorse di Azure.|
 | [Collaboratore siti Web](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Consente di gestire i siti Web (non i piani Web), ma non di accedervi.|
 
 'Modifica' include la creazione, l'eliminazione e l'aggiornamento:

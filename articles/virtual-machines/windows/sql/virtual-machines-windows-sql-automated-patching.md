@@ -30,7 +30,7 @@ ms.locfileid: "79127673"
 L'applicazione automatica delle patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure su cui è in esecuzione SQL Server. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, questa restrizione verifica che gli aggiornamenti di sistema e i riavvii associati vengano eseguiti nel momento migliore per il database. 
 
 > [!IMPORTANT]
-> Vengono installati solo gli aggiornamenti di Windows e SQL Server contrassegnati come **Importanti** o **Critici.** Altri aggiornamenti di SQL Server, ad esempio service pack e aggiornamenti cumulativi non contrassegnati come **Importante** o **Critico,** devono essere installati manualmente. 
+> Vengono installati solo gli aggiornamenti di Windows e SQL Server contrassegnati come **importanti** o **critici** . Altri aggiornamenti di SQL Server, ad esempio i Service Pack e gli aggiornamenti cumulativi che non sono contrassegnati come **importanti** o **critici** , devono essere installati manualmente. 
 
 L'applicazione automatica delle patch dipende dall' [estensione dell'agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
@@ -44,7 +44,7 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 * Windows Server 2012 R2
 * Windows Server 2016
 
-**Versione di SQL Server**:
+**Versione SQL Server**:
 
 * SQL Server 2008 R2
 * SQL Server 2012
@@ -52,7 +52,7 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 * SQL Server 2016
 * SQL Server 2017
 
-**Azure PowerShell:**
+**Azure PowerShell**:
 
 * [Installare i comandi di Azure PowerShell più recenti](/powershell/azure/overview) se si prevede di configurare l'applicazione automatica delle patch con PowerShell.
 
@@ -80,7 +80,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 ### <a name="new-vms"></a>Nuove VM
 Usare il portale di Azure per configurare l'applicazione automatica delle patch quando si crea una nuova macchina virtuale di SQL Server nel modello di distribuzione di Resource Manager.
 
-Nella scheda Impostazioni di **SQL Server** selezionare **Modifica configurazione** in Applicazione automatica **di patch**. Nella seguente schermata del Portale di Azure viene mostrato il pannello **Applicazione automatica delle patch di SQL** .
+Nella scheda **impostazioni SQL Server** selezionare **modifica configurazione** in applicazione **automatica di patch**. Nella seguente schermata del Portale di Azure viene mostrato il pannello **Applicazione automatica delle patch di SQL** .
 
 ![Applicazione automatizzata di patch SQL nel portale di Azure](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
@@ -90,7 +90,7 @@ Per il contesto, vedere l'argomento completo sul [provisioning di una macchina v
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le macchine virtuali di SQL Server esistenti, aprire la [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selezionare Applicazione di **patch** in **Impostazioni**. 
+Per le macchine virtuali SQL Server esistenti, aprire la [risorsa macchine virtuali SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selezionare **patch** in **Impostazioni**. 
 
 ![Applicazione automatizzata di patch SQL per le VM esistenti](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
@@ -107,7 +107,7 @@ Nell'esempio seguente, PowerShell viene utilizzato per configurare l'applicazion
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-s Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+s set-AzVMSqlServerExtension-AutoPatchingSettings $aps-VMName $vmname-ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Se non è già stata eseguita, l'installazione dell'estensione riavvia il servizio SQL Server.
@@ -116,14 +116,14 @@ In base a questo esempio, nella tabella seguente vengono descritti gli effetti p
 
 | Parametro | Effetto |
 | --- | --- |
-| **Dayofweek** |Patch installate ogni giovedì. |
+| **DayOfWeek** |Patch installate ogni giovedì. |
 | **MaintenanceWindowStartingHour** |Inizio degli aggiornamenti alle ore 11:00. |
 | **MaintenanceWindowsDuration** |Le patch devono essere installate entro 120 minuti. In base all'ora di inizio, devono essere completate entro le ore 13:00. |
-| **PatchCategory** |L'unica impostazione possibile per questo parametro è **Importante**. In questo modo vengono installati gli aggiornamenti di Windows contrassegnati con la dicitura Importante, ma non gli aggiornamenti di SQL Server che non sono inclusi in questa categoria. |
+| **PatchCategory** |L'unica impostazione possibile per questo parametro è **importante**. In questo modo vengono installati gli aggiornamenti di Windows contrassegnati con la dicitura Importante, ma non gli aggiornamenti di SQL Server che non sono inclusi in questa categoria. |
 
 Potrebbero essere necessari diversi minuti per installare e configurare l'agente IaaS di SQL Server.
 
-Per disabilitare l'applicazione automatica dell'applicazione di patch, eseguire lo stesso script senza il parametro **-Enable** su **New-AzVMSqlServerAutoPatchingConfig**. L'assenza del parametro **-Enable** segnala il comando per disabilitare la funzionalità.
+Per disabilitare l'applicazione automatica delle patch, eseguire lo stesso script senza il parametro **-Enable** per **New-AzVMSqlServerAutoPatchingConfig**. L'assenza del parametro **-Enable** segnala il comando per disabilitare la funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

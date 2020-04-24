@@ -1,6 +1,6 @@
 ---
-title: Funzioni definite dall'utente nei modelliUser-defined functions in templates
-description: Viene descritto come definire e usare funzioni definite dall'utente in un modello di Azure Resource Manager.Describes how to define and use user-defined functions in an Azure Resource Manager template.
+title: Funzioni definite dall'utente nei modelli
+description: Viene descritto come definire e utilizzare funzioni definite dall'utente in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
@@ -10,15 +10,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943209"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funzioni definite dall'utente nel modello di Azure Resource ManagerUser-defined functions in Azure Resource Manager template
+# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funzioni definite dall'utente nel modello di Azure Resource Manager
 
-Nel modello è possibile creare funzioni personalizzate. Tali funzioni sono disponibili per usare il modello. Le funzioni definite dall'utente sono separate dalle [funzioni del modello standard](template-functions.md) che sono automaticamente disponibili all'interno del modello. Creare funzioni personalizzate quando si hanno espressioni complesse che vengono utilizzate ripetutamente nel modello.
+Nel modello è possibile creare funzioni personalizzate. Tali funzioni sono disponibili per usare il modello. Le funzioni definite dall'utente sono separate dalle [funzioni di modello standard](template-functions.md) che sono automaticamente disponibili all'interno del modello. Creare funzioni personalizzate quando si hanno espressioni complesse che vengono usate più volte nel modello.
 
-Questo articolo descrive come aggiungere funzioni definite dall'utente nel modello di Azure Resource Manager.This article describes how to add user-defined functions in your Azure Resource Manager template.
+Questo articolo descrive come aggiungere funzioni definite dall'utente nel modello di Azure Resource Manager.
 
 ## <a name="define-the-function"></a>Definire la funzione
 
-Le funzioni richiedono che sia definito un valore dello spazio dei nomi per evitare conflitti di denominazione con le funzioni del modello. Nell'esempio seguente viene illustrata una funzione che restituisce un nome univoco:The following example shows a function that returns a unique name:
+Le funzioni richiedono che sia definito un valore dello spazio dei nomi per evitare conflitti di denominazione con le funzioni del modello. Nell'esempio seguente viene illustrata una funzione che restituisce un nome univoco:
 
 ```json
 "functions": [
@@ -42,9 +42,9 @@ Le funzioni richiedono che sia definito un valore dello spazio dei nomi per evit
 ],
 ```
 
-## <a name="use-the-function"></a>Utilizzare la funzione
+## <a name="use-the-function"></a>Usare la funzione
 
-Nell'esempio seguente viene illustrato un modello che include una funzione definita dall'utente. Usa tale funzione per ottenere un nome univoco per un account di archiviazione. Il modello ha un parametro denominato **storageNamePrefix** che passa come parametro alla funzione.
+Nell'esempio seguente viene illustrato un modello che include una funzione definita dall'utente. USA tale funzione per ottenere un nome univoco per un account di archiviazione. Il modello contiene un parametro denominato **storageNamePrefix** che viene passato come parametro alla funzione.
 
 ```json
 {
@@ -98,13 +98,13 @@ Nell'esempio seguente viene illustrato un modello che include una funzione defin
 Quando si crea una funzione definita dall'utente, è necessario tenere presente alcune restrizioni:
 
 * La funzione non può accedere alle variabili.
-* La funzione può usare solo i parametri definiti in essa. Quando si utilizza la funzione [parameters](template-functions-deployment.md#parameters) all'interno di una funzione definita dall'utente, si è limitati ai parametri per tale funzione.
+* La funzione può usare solo i parametri definiti in essa. Quando si usa la funzione [Parameters](template-functions-deployment.md#parameters) in una funzione definita dall'utente, si è limitati ai parametri della funzione.
 * La funzione non può chiamare altre funzioni definite dall'utente.
-* La funzione non può utilizzare la funzione [di riferimento](template-functions-resource.md#reference) o una delle funzioni [di elenco.](template-functions-resource.md#list)
+* La funzione non può utilizzare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) .
 * I parametri della funzione non possono avere valori predefiniti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle proprietà disponibili per le funzioni definite dall'utente, vedere Informazioni sulla struttura e la [sintassi dei modelli di Azure Resource Manager.](template-syntax.md)
-* Per un elenco delle funzioni di modello disponibili, vedere Funzioni del modello di [Azure Resource Manager](template-functions.md).
+* Per informazioni sulle proprietà disponibili per le funzioni definite dall'utente, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
+* Per un elenco delle funzioni di modello disponibili, vedere [Azure Resource Manager funzioni di modello](template-functions.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Creare un peering della rete virtuale: sottoscrizioni diverseCreate a VNet peering - different subscriptions'
+title: Creare un peering VNet-sottoscrizioni diverse
 titlesuffix: Azure Virtual Network
 description: Informazioni su come creare un peering di rete virtuale tra reti virtuali distribuite tramite Resource Manager e incluse in sottoscrizioni di Azure diverse.
 services: virtual-network
@@ -35,11 +35,11 @@ Non è possibile creare un peering di rete virtuale tra due reti virtuali distri
 
 Questa esercitazione consente di eseguire il peering di due reti virtuali nella stessa area. È anche possibile eseguire il peering di reti virtuali in diverse [aree supportate](virtual-network-manage-peering.md#cross-region). È consigliabile acquisire familiarità con [i requisiti e i vincoli del peering](virtual-network-manage-peering.md#requirements-and-constraints) prima di eseguire il peering di reti virtuali.
 
-È possibile usare il portale di [Azure,](#portal) [l'interfaccia della riga](#cli) di comando di Azure, Azure [PowerShell](#powershell)o un modello di [Azure Resource Manager](#template) per creare un peering di rete virtuale. Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con lo strumento specifico.
+Per creare un peering di rete virtuale, è possibile usare la [portale di Azure](#portal), l' [interfaccia della riga di comando](#cli) di Azure, Azure [PowerShell](#powershell)o un [modello di Azure Resource Manager](#template) . Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con lo strumento specifico.
 
-Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni sono associate a tenant di Azure Active Directory diversi, completare i passaggi seguenti prima di continuare:If the virtual networks are in different subscriptions, and the subscriptions are associated with different Azure Active Directory tenants, complete the following steps before continuing:
+Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni sono associate a tenant Azure Active Directory diversi, completare la procedura seguente prima di continuare:
 1. Aggiungere l'utente di ogni tenant di Active Directory come [utente guest](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) nel tenant di Azure Active Directory opposto.
-1. Ogni utente deve accettare l'invito dell'utente guest dal tenant di Azure Active Directory opposto.
+1. Ogni utente deve accettare l'invito dell'utente guest dall'Azure Active Directory tenant opposto.
 
 ## <a name="create-peering---azure-portal"></a><a name="portal"></a>Creare un peering - Portale di Azure
 
@@ -49,9 +49,9 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 2. Selezionare **+ Crea una risorsa**, quindi **Rete** e infine **Rete virtuale**.
 3. Selezionare o immettere i valori di esempio seguenti per le impostazioni elencate di seguito e quindi selezionare **Crea**:
     - **Nome**: *myVnetA*
-    - **Spazio indirizzo**: *10.0.0.0/16Address space : 10.0.0.0/16*
+    - **Spazio di indirizzi**: *10.0.0.0/16*
     - **Nome subnet**: *predefinito*
-    - **Intervallo di indirizzi subnet**: *10.0.0.0/24Subnet address range : 10.0.0.0/24*
+    - **Intervallo di indirizzi subnet**: *10.0.0.0/24*
     - **Sottoscrizione**: selezionare la sottoscrizione A.
     - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupA*
     - **Località**: *Stati Uniti orientali*
@@ -61,20 +61,20 @@ La procedura seguente usa account diversi per ogni sottoscrizione. Se si usa un 
 7. Selezionare **Collaboratore Rete** nella casella **Ruolo**.
 8. Nella casella **Seleziona** selezionare *UserB* o digitare l'indirizzo di posta elettronica di UserB per cercare l'utente.
 9. Selezionare **Salva**.
-10. In **myVnetA - Controllo di accesso (IAM)** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`all'esempio seguente: .
+10. In **myVnetA - Controllo di accesso (IAM)** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Disconnettersi dal portale come UserA e quindi accedere come UserB.
 12. Completare i passaggi 2 e 3, immettendo o selezionando i valori seguenti nel passaggio 3:
 
     - **Nome**: *myVnetB*
     - **Spazio di indirizzi**: *10.1.0.0/16*
     - **Nome subnet**: *predefinito*
-    - **Intervallo di indirizzi subnet**: *10.1.0.0/24Subnet address range : 10.1.0.0/24*
+    - **Intervallo di indirizzi subnet**: *10.1.0.0/24*
     - **Sottoscrizione**: selezionare la sottoscrizione B.
     - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupB*
     - **Località**: *Stati Uniti orientali*
 
 13. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Selezionare la voce **myVnetB** quando viene visualizzata nei risultati della ricerca.
-14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`all'esempio seguente: .
+14. In **myVnetB** selezionare **Proprietà** nell'elenco di opzioni a sinistra. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Selezionare **Controllo di accesso (IAM)** in **myVnetB** e quindi completare i passaggi da 5 a 10 per myVnetB immettendo **UserA** al passaggio 8.
 16. Disconnettersi dal portale come UserB e accedere come UserA.
 17. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Selezionare la voce **myVnetA** quando viene visualizzata nei risultati della ricerca.
@@ -109,7 +109,7 @@ Lo script seguente:
 Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è possibile usare Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per richiamare un'istanza di Cloud Shell a cui è possibile accedere con l'account di Azure.
 
 1. Aprire una sessione dell'interfaccia della riga di comando e accedere ad Azure come UserA usando il comando `azure login`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
-2. Copiare lo script seguente in un editor di testo nel PC, sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA, quindi copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **id** nell'output è l'ID sottoscrizione.
+2. Copiare lo script seguente in un editor di testo nel PC, sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA, quindi copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **ID** nell'output è l'ID sottoscrizione.
 
     ```azurecli-interactive
     # Create a resource group.
@@ -165,7 +165,7 @@ Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è
 
 8. Disconnettere UserA da Azure e accedere come UserB.
 9. Creare il peering da myVnetB a myVnetA. Copiare il contenuto dello script riportato nel passaggio 6 in un editor di testo nel PC. Sostituire `<SubscriptionB-Id>` con l'ID per SubscriptionA e modificare tutte le A in B e tutte le B in A. Dopo avere apportato le modifiche, copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`.
-10. Visualizzare lo stato di peering di myVnetB. Copiare il contenuto dello script del passaggio 7 in un editor di testo nel PC. Modificare A in B per i nomi del gruppo di risorse e della rete virtuale, copiare lo script, incollare lo script modificato nell'interfaccia della riga di comando e quindi premere `Enter`. Lo stato di peering è **Connesso**. Lo stato di peering di myVnetA viene modificato in **Connesso** dopo la creazione del peering da myVnetB a myVnetA. È possibile accedere ad Azure di nuovo come UserA e ripetere il passaggio 7 per verificare lo stato di peering di myVnetA. 
+10. Visualizzare lo stato di peering di myVnetB. Copiare il contenuto dello script del passaggio 7 in un editor di testo nel PC. Modificare A in B per i nomi del gruppo di risorse e della rete virtuale, copiare lo script, incollare lo script modificato nell'interfaccia della riga di comando e quindi premere `Enter`. Lo stato di peering è **Connesso**. Lo stato di peering di myVnetA viene modificato in **connesso** dopo la creazione del peering da MyVnetB a myVnetA. È possibile accedere ad Azure di nuovo come UserA e ripetere il passaggio 7 per verificare lo stato di peering di myVnetA. 
 
     > [!NOTE]
     > Il peering viene stabilito correttamente solo dopo che lo stato di peering per entrambe le reti virtuali è **Connesso**.
@@ -181,7 +181,7 @@ Tutte le risorse di Azure create in una delle reti virtuali possono ora comunica
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB.
 
-1. Verificare di disporre di Azure PowerShell versione 1.0.0 o successiva. A tale scopo, `Get-Module -Name Az` eseguire il comando Si consiglia di installare la versione più recente del [modulo PowerShell Az](/powershell/azure/install-az-ps). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell). 
+1. Confermare di avere Azure PowerShell versione 1.0.0 o successiva. Per eseguire questa operazione, `Get-Module -Name Az` è consigliabile installare la versione più recente di PowerShell [AZ Module](/powershell/azure/install-az-ps). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell). 
 2. Avviare una sessione di PowerShell.
 3. In PowerShell accedere ad Azure come UserA immettendo il comando `Connect-AzAccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
 4. Creare un gruppo di risorse e una rete virtuale A. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionA-Id>` con l'ID di SubscriptionA. Se l'ID della sottoscrizione non è noto, immettere il comando `Get-AzSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID della sottoscrizione. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
@@ -284,7 +284,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 6. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
 7. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare i passaggi della sezione [Eliminare risorse](#delete) di questo articolo usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-## <a name="delete-resources"></a><a name="delete"></a>Eliminare risorse
+## <a name="delete-resources"></a><a name="delete"></a>Elimina risorse
 Al termine di questa esercitazione, è necessario eliminare le risorse create, per non incorrere in costi di utilizzo. Se si elimina un gruppo di risorse, vengono eliminate anche tutte le risorse all'interno di esso.
 
 ### <a name="azure-portal"></a><a name="delete-portal"></a>Portale di Azure
@@ -296,7 +296,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 5. Disconnettersi dal portale come UserA e accedere come UserB.
 6. Completare i passaggi da 2 a 4 per myResourceGroupB.
 
-### <a name="azure-cli"></a><a name="delete-cli"></a>Interfaccia della riga di comando di AzureAzure
+### <a name="azure-cli"></a><a name="delete-cli"></a>Interfaccia della riga di comando di Azure
 
 1. Accedere ad Azure come UserA ed eseguire il comando seguente:
 
@@ -311,7 +311,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
    az group delete --name myResourceGroupB --yes
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>Powershell
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. Accedere ad Azure come UserA ed eseguire il comando seguente:
 

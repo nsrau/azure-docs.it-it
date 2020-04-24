@@ -57,7 +57,7 @@ Per creare un servizio, attenersi alla procedura seguente.
 
 Per ogni servizio Gestione dispositivi StorSimple, sono disponibili gli attributi seguenti:
 
-* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominati nel portale di Azure.This is also true for other entities such as devices, volumes, volume containers, and backup policies that cannot be renamed in the Azure portal.**
+* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
 * **Stato** - Stato del servizio, che può essere **Attivo**, **In fase di creazione** oppure **Online**.
 * **Posizione** : posizione geografica in cui verrà distribuito il dispositivo StorSimple.
 * **Sottoscrizione** - Sottoscrizione di fatturazione associata al servizio.

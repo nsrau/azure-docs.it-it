@@ -1,6 +1,6 @@
 ---
-title: Ottenere i log delle istanze del contenitore & gli eventiGet container instance logs & events
-description: Informazioni su come recuperare i log e gli eventi del contenitore nelle istanze del contenitore di Azure per risolvere i problemi relativi ai contenitori
+title: Ottenere i log dell'istanza di contenitore & eventi
+description: Informazioni su come recuperare gli eventi e i log del contenitore in istanze di contenitore di Azure per risolvere i problemi del contenitore
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
@@ -13,13 +13,13 @@ ms.locfileid: "78250004"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperare log ed eventi dei contenitori in Istanze di Azure Container
 
-Quando si dispone di un contenitore con errori nelle istanze del contenitore di Azure, iniziare visualizzando i relativi log con [i log del contenitore az][az-container-logs]e trasmetterne l'uscita standard e gli errori standard con az container [attach][az-container-attach]. È anche possibile visualizzare i log e gli eventi per le istanze del contenitore nel portale di Azure oppure inviare i dati di log ed eventi per i gruppi di contenitori ai log di [Monitoraggio di Azure.You](container-instances-log-analytics.md)can also view logs and events for container instances in the Azure portal, or send log and event data for container groups to Azure Monitor logs .
+Quando si dispone di un contenitore errato in istanze di contenitore di Azure, iniziare visualizzando i log con il comando [AZ container logs][az-container-logs]e trasmettere il relativo standard e l'errore standard con [AZ container Connetti][az-container-attach]. È anche possibile visualizzare i log e gli eventi per le istanze di contenitore nel portale di Azure o inviare i dati di log e degli eventi per i gruppi di contenitori ai [log di monitoraggio di Azure](container-instances-log-analytics.md).
 
 ## <a name="view-logs"></a>Visualizzare i log
 
 Per visualizzare i log generati dal codice dell'applicazione all'interno di un contenitore, è possibile usare il comando [az container logs][az-container-logs].
 
-Di seguito è riportato l'output del contenitore basato su attività di esempio in Impostare la riga di [comando in un'istanza del contenitore,](container-instances-start-command.md#azure-cli-example)dopo aver fornito un URL non valido utilizzando un override della riga di comando:
+Di seguito è riportato l'output del log del contenitore basato su attività di esempio in [impostare la riga di comando in un'istanza di contenitore](container-instances-start-command.md#azure-cli-example), dopo aver fornito un URL non valido utilizzando un override della riga di comando:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -50,7 +50,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 Il comando [az container attach][az-container-attach] fornisce informazioni diagnostiche durante l'avvio del contenitore. Dopo l'avvio, il contenitore trasmette STDOUT e STDERR alla console locale.
 
-Ad esempio, di seguito è riportato l'output del contenitore basato su attività in Impostare la riga di [comando in un'istanza del contenitore,](container-instances-start-command.md#azure-cli-example)dopo aver fornito un URL valido di un file di testo di grandi dimensioni da elaborare:
+Ad esempio, di seguito è riportato l'output del contenitore basato su attività in [impostare la riga di comando in un'istanza di contenitore](container-instances-start-command.md#azure-cli-example), dopo aver fornito un URL valido di un file di testo di grandi dimensioni da elaborare:
 
 ```azurecli
 az container attach --resource-group myResourceGroup --name mycontainer
@@ -82,7 +82,7 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>Recuperare gli eventi di diagnostica
 
-Se la distribuzione del contenitore non riesce, esaminare le informazioni di diagnostica fornite dal provider di risorse Istanze del contenitore di Azure.If your container fails to deploy successfully, review the diagnostic information provided by the Azure Container Instances resource provider. Per visualizzare gli eventi per il proprio contenitore, eseguire il comando [az container show][az-container-show]:
+Se il contenitore non viene distribuito correttamente, esaminare le informazioni di diagnostica fornite dal provider di risorse istanze di contenitore di Azure. Per visualizzare gli eventi per il proprio contenitore, eseguire il comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -151,7 +151,7 @@ L'output include le proprietà principali del contenitore e gli eventi di distri
 ## <a name="next-steps"></a>Passaggi successivi
 Scoprire come [risolvere i problemi comuni dei contenitori e delle distribuzioni](container-instances-troubleshooting.md) per Istanze di Azure Container.
 
-Informazioni su come inviare i dati del log e degli eventi per i gruppi di contenitori ai [log di Monitoraggio di Azure.](container-instances-log-analytics.md)
+Informazioni su come inviare i dati di log e degli eventi per i gruppi di contenitori ai [log di monitoraggio di Azure](container-instances-log-analytics.md).
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

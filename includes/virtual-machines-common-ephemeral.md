@@ -15,48 +15,48 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78155403"
 ---
-I dischi del sistema operativo effimeri vengono creati nell'archiviazione della macchina virtuale (VM) locale e non vengono salvati nell'archiviazione di Azure remota. I dischi del sistema operativo effimeri funzionano bene per i carichi di lavoro senza stato, in cui le applicazioni sono tolleranti agli errori delle singole macchine virtuali, ma sono più interessati dal tempo di distribuzione della macchina virtuale o dal reimaging delle singole istanze della macchina virtuale. Con il disco Del sistema operativo effimero, si ottiene una latenza di lettura/scrittura inferiore sul disco del sistema operativo e una nuova immagine della macchina virtuale. 
+I dischi del sistema operativo temporaneo vengono creati nell'archivio della macchina virtuale (VM) locale e non vengono salvati nell'archiviazione di Azure remota. I dischi del sistema operativo temporaneo funzionano bene per i carichi di lavoro senza stato, in cui le applicazioni sono a tolleranza di singoli errori delle macchine virtuali, ma sono più interessate dal tempo di distribuzione delle VM o dalla ricreazione dell'immagine delle singole istanze Con il disco del sistema operativo temporaneo si ottiene una latenza di lettura/scrittura più bassa per il disco del sistema operativo e una ricreazione più veloce della macchina virtuale 
  
-Le caratteristiche principali dei dischi effimeri sono: 
-- Ideale per applicazioni senza stato.
-- Possono essere utilizzati sia con Marketplace che con immagini personalizzate.
-- Possibilità di reimpostare o ricreare rapidamente l'immagine delle macchine virtuali e delle istanze del set di scalabilità sullo stato di avvio originale.  
+Le funzionalità principali dei dischi temporanei sono: 
+- Ideale per le applicazioni senza stato.
+- Possono essere usati con le immagini del Marketplace e personalizzate.
+- Possibilità di reimpostare rapidamente o ricreare l'immagine delle macchine virtuali e delle istanze del set di scalabilità sullo stato di avvio originale.  
 - Latenza inferiore, simile a un disco temporaneo. 
-- I dischi del sistema operativo effimero sono gratuiti, non si ha alcun costo di archiviazione per il disco del sistema operativo.
-- Sono disponibili in tutte le aree di Azure.They are available in all Azure regions. 
-- Il disco del sistema operativo effimero è supportato da [Shared Image Gallery](/azure/virtual-machines/linux/shared-image-galleries). 
+- I dischi del sistema operativo temporaneo sono gratuiti e non vengono addebitati costi di archiviazione per il disco del sistema operativo.
+- Sono disponibili in tutte le aree di Azure. 
+- Il disco del sistema operativo temporaneo è supportato dalla [raccolta immagini condivise](/azure/virtual-machines/linux/shared-image-galleries). 
  
 
  
-Differenze principali tra dischi del sistema operativo persistenti ed effimeri:
+Differenze principali tra dischi del sistema operativo permanenti e temporanei:
 
-|                             | Disco del sistema operativo persistente                          | Disco del sistema operativo temporaneo                              |    |
+|                             | Disco del sistema operativo permanente                          | Disco del sistema operativo temporaneo                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Limite di dimensione per il disco del sistema operativo      | 2 TiB                                                                                        | Dimensioni della cache per la dimensione della macchina virtuale o 2TiB, a seconda del valore più piccolo. Per la dimensione della **cache in GiB**, vedere [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| Dimensioni delle macchine virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| Limite di dimensioni per il disco del sistema operativo      | 2 TiB                                                                                        | Dimensioni della cache per le dimensioni della macchina virtuale o 2TiB, a seconda del numero minore. Per le **dimensioni della cache in Gib**, vedere [DS](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| Dimensioni delle macchine virtuali supportate          | Tutti                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | Supporto del tipo di disco           | Disco del sistema operativo gestito e non gestito                                                                | Solo disco del sistema operativo gestito                                                               |
 | Supporto di area              | Tutte le aree                                                                                  | Tutte le aree                              |
-| Salvataggio permanente dei dati            | I dati del disco del sistema operativo scritti sul disco del sistema operativo vengono archiviati in Archiviazione di AzureOS disk disk written to OS disk are stored in Azure Storage                                  | I dati scritti sul disco del sistema operativo vengono archiviati nell'archivio macchina virtuale locale e non vengono salvati in modo permanente in Archiviazione di Azure.Data written to OS disk is stored to the local VM storage and is not persisted to Azure Storage. |
-| Stato di stop deallocato      | Le macchine virtuali e le istanze del set di scalabilità possono essere deallocate e riavviate dallo stato di arresto deallocato | Le macchine virtuali e le istanze del set di scalabilità non possono essere deallocate                                  |
+| Salvataggio permanente dei dati            | I dati del disco del sistema operativo scritti nel disco del sistema operativo vengono archiviati in archiviazione di Azure                                  | I dati scritti nel disco del sistema operativo vengono archiviati nella risorsa di archiviazione locale della macchina virtuale e non vengono salvati in modo permanente in archiviazione di Azure. |
+| Arresta-stato deallocato      | Le macchine virtuali e le istanze del set di scalabilità possono essere arrestate e riavviate dallo stato stop-deallocato | Non è possibile arrestare la deallocazione delle VM e delle istanze del set di scalabilità                                  |
 | Supporto del disco del sistema operativo specializzato | Sì                                                                                          | No                                                                                 |
-| Ridimensionamento del disco del sistema operativo              | Supportato durante la creazione della macchina virtuale e dopo l'arresto della macchina virtuale deallocatoSupported during VM creation and after VM is stop-deallocated                                | Supportato solo durante la creazione della macchina virtualeSupported during VM creation only                                                  |
-| Ridimensionamento in una nuova dimensione della macchina virtualeResizing to a new VM size   | I dati del disco del sistema operativo vengono mantenuti                                                                    | I dati sul disco del sistema operativo vengono eliminati, il provisioning del sistema operativo viene                                      |
+| Ridimensionamento del disco del sistema operativo              | Supportato durante la creazione della macchina virtuale e dopo la deallocazione della macchina virtuale                                | Supportato solo durante la creazione della macchina virtuale                                                  |
+| Ridimensionamento in una nuova dimensione della macchina virtuale   | I dati del disco del sistema operativo vengono conservati                                                                    | I dati nel disco del sistema operativo vengono eliminati, viene effettuato di nuovo il provisioning del sistema operativo                                      |
 
 ## <a name="size-requirements"></a>Requisiti di dimensione
 
-È possibile distribuire immagini di macchine virtuali e istanze fino alle dimensioni della cache della macchina virtuale. Ad esempio, le immagini standard di Windows Server dal marketplace sono circa 127 GiB, il che significa che è necessaria una dimensione della macchina virtuale con una cache superiore a 127 GiB. In questo caso, il [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) ha una dimensione della cache di 86 GiB, che non è abbastanza grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è abbastanza grande. In questo caso, il Standard_DS3_v2 è la dimensione più piccola della serie DSv2 che è possibile utilizzare con questa immagine. Le immagini Linux di base nelle immagini Marketplace `[smallsize]` e Windows Server, indicate da, tendono a essere di circa 30 GiB e possono utilizzare la maggior parte delle dimensioni delle macchine virtuali disponibili.
+È possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Ad esempio, le immagini standard di Windows Server del Marketplace sono circa 127 GiB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 127 GiB. In questo caso, il [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) ha una dimensione della cache di 86 GIB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è sufficientemente grande. In questo caso, il Standard_DS3_v2 è la dimensione minima della serie DSv2 che è possibile usare con questa immagine. Le immagini Linux di base nel Marketplace e le immagini di Windows Server che sono indicate `[smallsize]` da tendono a essere circa 30 GiB e possono usare la maggior parte delle dimensioni disponibili per le macchine virtuali.
 
-I dischi effimeri richiedono inoltre che la dimensione della macchina virtuale supporti l'archiviazione Premium.Ephemeral disks also require that the VM size supports Premium storage. Le dimensioni di solito (ma `s` non sempre) hanno un nel nome, come DSv2 ed EsV3. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/linux/sizes.md) di Azure per informazioni dettagliate sulle dimensioni che supportano l'archiviazione Premium.For more information, see Azure VM sizes for details around which sizes support Premium storage.
+I dischi temporanei richiedono anche che le dimensioni della VM supportino l'archiviazione Premium. Le dimensioni in genere (ma non sempre) hanno `s` un nel nome, ad esempio DSv2 e EsV3. Per altre informazioni, vedere [dimensioni delle VM di Azure](../articles/virtual-machines/linux/sizes.md) per informazioni dettagliate su quali dimensioni supportano archiviazione Premium.
 
 ## <a name="powershell"></a>PowerShell
 
-Per usare un disco effimero per una distribuzione di vm di PowerShell, usare [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) nella configurazione della macchina virtuale. Impostare `-DiffDiskSetting` `Local` l'impostazione di su e `-Caching` su `ReadOnly`.     
+Per usare un disco temporaneo per una distribuzione di VM PowerShell, usare [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) nella configurazione della macchina virtuale. Impostare `-DiffDiskSetting` su `Local` e `-Caching` su. `ReadOnly`     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-Per le distribuzioni di set di scalabilità, usare il cmdlet [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) nella configurazione. Impostare `-DiffDiskSetting` `Local` l'impostazione di su e `-Caching` su `ReadOnly`.
+Per le distribuzioni di set di scalabilità, usare il cmdlet [set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) nella configurazione. Impostare `-DiffDiskSetting` su `Local` e `-Caching` su. `ReadOnly`
 
 
 ```powershell
@@ -65,7 +65,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-Per utilizzare un disco effimero per una `--ephemeral-os-disk` distribuzione di macchine `true` virtuali `--os-disk-caching` CLI, impostare il parametro in az [vm create](/cli/azure/vm#az-vm-create) to e il parametro su `ReadOnly`.
+Per usare un disco temporaneo per una distribuzione di VM CLI, impostare il `--ephemeral-os-disk` parametro in [AZ VM create](/cli/azure/vm#az-vm-create) su `true` e il `--os-disk-caching` parametro su `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -78,22 +78,22 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Per i set di `--ephemeral-os-disk true` scalabilità, si utilizza lo stesso `--os-disk-caching` parametro `ReadOnly`per [az-vmss-create](/cli/azure/vmss#az-vmss-create) e si imposta il parametro su .
+Per i set di scalabilità si usa `--ephemeral-os-disk true` lo stesso parametro per [AZ-vmss-create](/cli/azure/vmss#az-vmss-create) e `--os-disk-caching` si imposta `ReadOnly`il parametro su.
 
 ## <a name="portal"></a>Portale   
 
-Nel portale di Azure è possibile scegliere di usare dischi effimeri durante la distribuzione di una macchina virtuale aprendo la sezione **Avanzate** della scheda **Dischi.** Per **Usa disco oS effimero** selezionare **Sì**.
+Nella portale di Azure è possibile scegliere di usare dischi temporanei quando si distribuisce una macchina virtuale aprendo la sezione **Avanzate** della scheda **dischi** . Per **Usa disco del sistema operativo temporaneo** selezionare **Sì**.
 
-![Screenshot che mostra il pulsante di opzione per scegliere l'utilizzo di un disco del sistema operativo effimero](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+![Screenshot che mostra il pulsante di opzione per scegliere di usare un disco del sistema operativo temporaneo](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
-Se l'opzione per l'utilizzo di un disco effimero è disattivata, è possibile che sia stata selezionata una dimensione della macchina virtuale che non ha una dimensione della cache maggiore dell'immagine del sistema operativo o che non supporta l'archiviazione Premium.If the option for using an ephemeral disk is greyed out, you might have selected a VM size that does not have a cache size larger than the OS image or that doesn't support Premium storage. Tornare alla pagina **Nozioni di base** e provare a scegliere un'altra dimensione della macchina virtuale.
+Se l'opzione per l'uso di un disco temporaneo è disattivata, è possibile che sia stata selezionata una dimensione della macchina virtuale che non dispone di una dimensione della cache superiore a quella dell'immagine del sistema operativo o che non supporta l'archiviazione Premium. Tornare alla pagina **nozioni di base** e provare a scegliere le altre dimensioni della macchina virtuale.
 
-È inoltre possibile creare set di scalabilità con dischi del sistema operativo effimeri usando il portale. È sufficiente assicurarsi di selezionare una dimensione di macchina virtuale con una dimensione della cache sufficientemente grande e quindi in Usa disco del sistema **operativo effimero** selezionare **Sì**.
+È anche possibile creare set di scalabilità con dischi del sistema operativo temporanei usando il portale. Assicurarsi di selezionare una dimensione di macchina virtuale con dimensioni della cache sufficienti e quindi in **Usa disco del sistema operativo temporaneo** selezionare **Sì**.
 
-![Screenshot che mostra il pulsante di opzione per scegliere di utilizzare un disco del sistema operativo effimero per il set di scalabilità](./media/virtual-machines-common-ephemeral/scale-set.png)
+![Screenshot che mostra il pulsante di opzione per scegliere di usare un disco del sistema operativo temporaneo per il set di scalabilità](./media/virtual-machines-common-ephemeral/scale-set.png)
 
-## <a name="scale-set-template-deployment"></a>Distribuzione del modello del set di scalabilitàScale set template deployment  
-Il processo per creare un set di scalabilità che usa un `diffDiskSettings` disco `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` del sistema operativo effimero consiste nell'aggiungere la proprietà al tipo di risorsa nel modello. Inoltre, il criterio di memorizzazione nella cache deve essere impostato `ReadOnly` su per il disco del sistema operativo effimero. 
+## <a name="scale-set-template-deployment"></a>Distribuzione del modello del set di scalabilità  
+Il processo per creare un set di scalabilità che usa un disco del sistema operativo temporaneo consiste `diffDiskSettings` nell'aggiungere la `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` proprietà al tipo di risorsa nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere `ReadOnly` impostati su per il disco del sistema operativo temporaneo. 
 
 
 ```json
@@ -136,8 +136,8 @@ Il processo per creare un set di scalabilità che usa un `diffDiskSettings` disc
 }  
 ```
 
-## <a name="vm-template-deployment"></a>Distribuzione del modello di macchina virtuale 
-È possibile distribuire una macchina virtuale con un disco del sistema operativo effimero usando un modello. Il processo per creare una macchina virtuale che usa dischi `diffDiskSettings` del sistema operativo effimeri consiste nell'aggiungere la proprietà al tipo di risorsa Microsoft.Compute/virtualMachines nel modello. Inoltre, il criterio di memorizzazione nella cache deve essere impostato `ReadOnly` su per il disco del sistema operativo effimero. 
+## <a name="vm-template-deployment"></a>Distribuzione modello di macchina virtuale 
+È possibile distribuire una macchina virtuale con un disco del sistema operativo temporaneo usando un modello. Il processo di creazione di una VM che usa dischi del sistema operativo temporanei consiste `diffDiskSettings` nell'aggiungere la proprietà al tipo di risorsa Microsoft. Compute/virtualMachines nel modello. Inoltre, i criteri di memorizzazione nella cache devono essere `ReadOnly` impostati su per il disco del sistema operativo temporaneo. 
 
 ```json
 { 
@@ -174,8 +174,8 @@ Il processo per creare un set di scalabilità che usa un `diffDiskSettings` disc
 ```
 
 
-## <a name="reimage-a-vm-using-rest"></a>Riutilizzare un'immagine di una macchina virtuale usando RESTReimage a VM using REST
-È possibile ricreare l'immagine di un'istanza di macchina virtuale con disco del sistema operativo effimero usando l'API REST come descritto di seguito e tramite il portale di Azure accedendo al riquadro Panoramica della macchina virtuale. Per i set di scalabilità, la ricreazione dell'immagine è già disponibile tramite Powershell, l'interfaccia della riga di comando e il portale.
+## <a name="reimage-a-vm-using-rest"></a>Ricreare l'immagine di una VM con REST
+È possibile ricreare l'immagine di un'istanza di macchina virtuale con un disco del sistema operativo temporaneo usando l'API REST, come descritto di seguito e tramite il portale di Azure passando al riquadro Panoramica della macchina virtuale. Per i set di scalabilità la ricreazione dell'immagine è già disponibile tramite PowerShell, l'interfaccia della riga di comando e il portale.
 
 ```
 POST https://management.azure.com/subscriptions/{sub-
@@ -184,40 +184,40 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
  
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**D: Qual è la dimensione dei dischi del sistema operativo locale?**
+**D: qual è la dimensione dei dischi del sistema operativo locale?**
 
-R: La piattaforma e le immagini personalizzate sono supportate, fino alle dimensioni della cache della macchina virtuale, in cui tutte le operazioni di lettura/scrittura sul disco del sistema operativo saranno locali nello stesso nodo della macchina virtuale. 
+R: sono supportate le piattaforme e le immagini personalizzate, fino alla dimensione della cache della VM, in cui tutte le operazioni di lettura/scrittura nel disco del sistema operativo saranno locali nello stesso nodo della macchina virtuale. 
 
-**D: È possibile ridimensionare il disco oS effimero?**
+**D: è possibile ridimensionare il disco del sistema operativo temporaneo?**
 
-R: No, una volta eseguito il provisioning del disco del sistema operativo effimero, il disco del sistema operativo non può essere ridimensionato. 
+R: No, una volta eseguito il provisioning del disco del sistema operativo temporaneo, il disco del sistema operativo non può essere ridimensionato. 
 
-**D: È possibile collegare un disco gestito a una macchina virtuale effimera?**
+**D: è possibile aggiungere una Managed Disks a una VM temporanea?**
 
-R: Sì, è possibile collegare un disco dati gestito a una macchina virtuale che usa un disco del sistema operativo effimero. 
+R: Sì, è possibile aggiungere un disco dati gestito a una macchina virtuale che usa un disco del sistema operativo temporaneo. 
 
-**D: Tutte le dimensioni delle macchine virtuali saranno supportate per i dischi del sistema operativo effimero?**
+**D: tutte le dimensioni delle VM sono supportate per i dischi del sistema operativo temporaneo?**
 
-R: No, sono supportate tutte le dimensioni di macchine virtuali di Archiviazione Premium (DS, ES, FS, GS e M), ad eccezione delle dimensioni serie B, serie N e serie H.  
+R: No, sono supportate tutte le dimensioni delle macchine virtuali di archiviazione Premium (DS, ES, FS, GS e M) ad eccezione delle dimensioni della serie B, della serie N e della serie H.  
  
-**D: Il disco del sistema operativo effimero può essere applicato alle macchine virtuali e ai set di scalabilità esistenti?**
+**D: è possibile applicare il disco del sistema operativo temporaneo alle macchine virtuali esistenti e ai set di scalabilità?**
 
-R: No, il disco oS effimero può essere utilizzato solo durante la creazione di macchine virtuali e set di scalabilità. 
+R: No, il disco del sistema operativo temporaneo può essere usato solo durante la creazione della macchina virtuale e del set di scalabilità. 
 
-**D: È possibile combinare dischi del sistema operativo effimeri e normali in un set di scalabilità?**
+**D: è possibile combinare dischi del sistema operativo temporanei e normali in un set di scalabilità?**
 
-R: No, non è possibile avere una combinazione di istanze del disco del sistema operativo effimere e persistenti all'interno dello stesso set di scalabilità. 
+R: No, non è possibile avere una combinazione di istanze del disco del sistema operativo effimere e persistenti nello stesso set di scalabilità. 
 
-**D: È possibile creare il disco del sistema operativo effimero utilizzando Powershell o l'interfaccia della riga di comando?**
+**D: è possibile creare il disco del sistema operativo temporaneo usando PowerShell o l'interfaccia della riga di comando?**
 
-R: Sì, è possibile creare macchine virtuali con il disco del sistema operativo effimero usando REST, modelli, PowerShell e CLI.
+R: Sì, è possibile creare macchine virtuali con disco del sistema operativo temporaneo usando REST, modelli, PowerShell e l'interfaccia della riga di comando.
 
-**D: Quali funzionalità non sono supportate con il disco oS effimero?**
+**D: quali funzionalità non sono supportate con il disco del sistema operativo temporaneo?**
 
-R: I dischi effimeri non supportano:
-- Acquisizione di immagini VM
+R: i dischi temporanei non supportano:
+- Acquisizione di immagini di VM
 - Snapshot dei dischi 
 - Azure Disk Encryption 
 - Backup di Azure
 - Azure Site Recovery  
-- Scambio disco del sistema operativo 
+- Scambio del disco del sistema operativo 

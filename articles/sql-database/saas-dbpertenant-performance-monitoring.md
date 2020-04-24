@@ -52,15 +52,15 @@ I pool e i database nei pool devono essere monitorati per assicurarsi che rimang
 * Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database o i pool escono dai normali intervalli**.
 * Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo aggregate di un pool, è possibile **scegliere un livello superiore o inferiore di eDTU per il pool**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del pool**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
 * Per rispondere a fluttuazioni a lungo termine o a modifiche del numero di database, **è possibile spostare singoli database in altri pool**.
-* Per rispondere ad aumenti a breve termine del carico per *singoli* database, **è possibile rimuovere singoli database da un pool e assegnare loro dimensioni di calcolo singole**. Quando il carico si riduce di nuovo, il database può essere reinserito nel pool. Quando questo è noto in anticipo, i database possono essere spostati preventivamente per garantire che il database disponga sempre delle risorse necessarie ed evitare l'impatto sugli altri database nel pool. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
+* Per rispondere ad aumenti a breve termine del carico per *singoli* database, **è possibile rimuovere singoli database da un pool e assegnare loro dimensioni di calcolo singole**. Quando il carico si riduce di nuovo, il database può essere reinserito nel pool. Quando questo è noto in anticipo, i database possono essere spostati preventivamente per garantire che il database disponga sempre delle risorse necessarie e per evitare un effetto sugli altri database nel pool. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, il monitoraggio e gli avvisi sono disponibili per database e pool. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
 
-Per scenari con volumi elevati, in cui si usa molte risorse, è possibile usare i log di Monitoraggio di [Azure.For](saas-dbpertenant-log-analytics.md) high-volume scenarios, where you're working with many resources, Azure Monitor logs can be used. Si tratta di un servizio di Azure separato che fornisce analisi sui log generati raccolti in un'area di lavoro di Log Analytics.This is a separate Azure service that provides analytics over emitted logs gathered in a Log Analytics workspace. I log di Monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi ed essere usati per eseguire query e impostare avvisi.
+Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare i [log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) . Si tratta di un servizio di Azure separato che fornisce analisi su log emessi raccolti in un'area di lavoro Log Analytics. I log di monitoraggio di Azure possono raccogliere dati di telemetria da molti servizi e possono essere usati per eseguire query e impostare avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Gli script di database a tenant multi-tenant Wingtip SaaS e il codice sorgente dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
+Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS Wingtip Tickets sono disponibili nel repository GitHub [repository wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="provision-additional-tenants"></a>Eseguire il provisioning di altri tenant
 
@@ -69,7 +69,7 @@ Anche se i pool possono essere una soluzione conveniente anche con solo due data
 Se è già stato effettuato il provisioning di un batch di tenant in un'esercitazione precedente, saltare la sezione [Simulare l'utilizzo in tutti i database tenant](#simulate-usage-on-all-tenant-databases).
 
 1. In **PowerShell ISE** aprire …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenere lo script aperto durante l'esecuzione dei vari scenari presentati in questa esercitazione.
-1. Impostare **$DemoScenario** = 1 , **Effettuare il provisioning di un batch di tenantSet to** **1**, Provision a batch of tenants
+1. Impostare **$DemoScenario** = **1**, effettuare **il provisioning di un batch di tenant**
 1. Premere **F5** per eseguire lo script.
 
 Lo script distribuirà 17 tenant in meno di cinque minuti.
@@ -82,16 +82,16 @@ Lo script *New-TenantBatch* usa un set annidato o collegato di modelli di [Resou
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generare un carico di intensità normale (circa 40 DTU) |
+| 2 | Genera un carico di intensità normale (approssimativamente 40 DTU) |
 | 3 | Generare un carico con picchi più lunghi e più frequenti per ogni database|
-| 4 | Generare il carico con burst DTU più elevati per database (circa 80 DTU)|
-| 5 | Generare un carico normale più un carico elevato su un singolo tenant (circa 95 DTU)|
+| 4 | Genera il carico con picchi di DTU più elevati per ogni database (approssimativamente 80 DTU)|
+| 5 | Generare un carico normale e un carico elevato in un singolo tenant (circa 95 DTU)|
 | 6 | Generare un carico non bilanciato su più pool|
 
 Il generatore di carico applica un carico di solo CPU *sintetico* a ogni database tenant. Il generatore avvia un processo per ogni database tenant, che chiama periodicamente una stored procedure che genera il carico. I livelli di carico (espressi in eDTU), la durata e gli intervalli sono diversi per i vari database, in modo da simulare un'attività imprevedibile dei tenant.
 
 1. In **PowerShell ISE** aprire …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenere lo script aperto durante l'esecuzione dei vari scenari presentati in questa esercitazione.
-1. Impostare **$DemoScenario** = **2**, Generare un carico di *intensità normale.*
+1. Impostare **$DemoScenario** = **2**, *generare un carico di intensità normale*.
 1. Premere **F5** per applicare un carico a tutti i database tenant.
 
 L'app di database per tenant SaaS Wingtip Tickets è un'app SaaS e il carico di lavoro reale sulle app di questo tipo è in genere sporadico e imprevedibile. Per simulare questa situazione, il generatore produce un carico casuale distribuito tra tutti i tenant. Servono alcuni minuti perché emerga il modello di carico, quindi eseguire il generatore di carico per 3-5 minuti prima di provare a monitorare il carico come descritto nelle sezioni seguenti.
@@ -129,7 +129,7 @@ Impostare un avviso per il pool da attivare quando l'utilizzo è \>75%, come ind
 1. Specificare un nome, ad esempio **DTU elevate**.
 1. Impostare i valori seguenti:
    * **Metrica = Percentuale eDTU**
-   * **Condizione: maggiore di**
+   * **Condizione = maggiore di**
    * **Soglia = 75**
    * **Periodo = Negli ultimi 30 minuti**
 1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK**.
@@ -147,7 +147,7 @@ Se il livello di carico aggregato per un pool aumenta fino a superarne la capaci
 
 È possibile simulare le condizioni di carico eccessivo per un pool aumentando il carico prodotto dal generatore di carico. Creando picchi più frequenti e di lunga durata per i database si aumenta il carico aggregato del pool senza modificare i requisiti dei singoli database. È facile aumentare le prestazioni del pool nel portale o da PowerShell. In questo esercizio viene usato il portale.
 
-1. Impostare *$DemoScenario* = **3**, _Generare il carico con burst più lunghi e frequenti per database_ per aumentare l'intensità del carico aggregato nel pool senza modificare il carico di picco richiesto da ogni database.
+1. Impostare *$DemoScenario* = **3**, _generare un carico con picchi più lunghi e più frequenti_ per ogni database per aumentare l'intensità del carico aggregato del pool senza modificare il carico di picco richiesto da ogni database.
 1. Premere **F5** per applicare un carico a tutti i database tenant.
 
 1. Passare a **Pool1** nel portale di Azure.
@@ -158,7 +158,7 @@ Monitorare il maggiore utilizzo di eDTU del pool nel grafico superiore. Sono nec
 1. Impostare **eDTU pool** su **100**. La modifica del numero di eDTU del pool non cambia le impostazioni per i singoli database, che è ancora pari a un massimo di 50 eDTU per database. Le impostazioni per i singoli database sono visibili sul lato destro della pagina **Configura pool**.
 1. Fare clic su **Salva** per inviare la richiesta di ridimensionamento del pool.
 
-Tornare a**Panoramica** di **Pool1** > per visualizzare i grafici di monitoraggio. Monitorare l'effetto dell'assegnazione di altre risorse al pool, anche se, con pochi database e un carico casuale, non sempre è facile notare conseguenze lampanti finché non si prolunga l'esecuzione per un periodo minimo. Mentre si analizzano i grafici tenere che presente che il valore 100% nel grafico superiore rappresenta ora 100 eDTU, mentre 100% nel grafico inferiore corrisponde ancora a 50 eDTU perché il numero massimo di eDTU per database è ancora 50.
+Tornare a **pool1** > **Panoramica** per visualizzare i grafici di monitoraggio. Monitorare l'effetto dell'assegnazione di altre risorse al pool, anche se, con pochi database e un carico casuale, non sempre è facile notare conseguenze lampanti finché non si prolunga l'esecuzione per un periodo minimo. Mentre si analizzano i grafici tenere che presente che il valore 100% nel grafico superiore rappresenta ora 100 eDTU, mentre 100% nel grafico inferiore corrisponde ancora a 50 eDTU perché il numero massimo di eDTU per database è ancora 50.
 
 I database rimango online e pienamente disponibili durante l'intero processo. All'ultimo momento, quando ogni database è pronto per essere abilitato con il nuovo numero di eDTU del pool, le eventuali connessioni attive vengono interrotte. Il codice delle applicazioni dovrebbe sempre essere scritto in modo da prevedere tentativi di riattivazione delle connessioni interrotte, quindi l'applicazione si riconnetterà al database nel pool potenziato.
 
@@ -195,7 +195,7 @@ Se un singolo database in un pool è sottoposto a un carico elevato prolungato, 
 Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall in concomitanza con l'inizio della vendita dei biglietti per un concerto di grande richiamo.
 
 1. Aprire lo script...\\*Demo-PerformanceMonitoringAndManagement.ps1* in **PowerShell ISE**.
-1. Impostare **$DemoScenario n. 5, Generare un carico normale più un carico elevato su un singolo tenant (circa 95 DTU).**
+1. Impostare **$DemoScenario = 5, generare un carico normale e un carico elevato in un singolo tenant (circa 95 DTU).**
 1. Impostare **$SingleTenantDatabaseName = contosoconcerthall**
 1. Eseguire lo script con **F5**.
 
@@ -218,7 +218,7 @@ Quando il carico elevato per il database contosoconcerthall diminuisce, è neces
 
 ## <a name="other-performance-management-patterns"></a>Altri modelli di gestione delle prestazioni
 
-**Scalabilità preventiva** Nell'esercizio precedente è stato illustrato come ridimensionare un database isolato quando si conosce il database su cui intervenire. Se la direzione di Contoso Concert Hall avesse informato Wingtips dell'imminente vendita dei biglietti, il database avrebbe potuto essere spostato fuori dal pool preventivamente. In caso contrario, sarebbe stato probabilmente necessario un avviso per il pool o il database per ricevere una segnalazione della situazione. È meglio evitare di venire a conoscenza di un problema di questo tipo quando gli altri tenant nel pool si lamentano del calo di prestazioni. Se il tenant può prevedere il tempo per cui saranno necessarie risorse aggiuntive, inoltre, è possibile configurare un runbook di Automazione di Azure per spostare il database fuori dal pool e reinserirlo in base a una pianificazione definita.
+**Scalabilità preventiva** Nell'esercizio precedente è stato illustrato come ridimensionare un database isolato quando si conosce il database su cui intervenire. Se la gestione di Contoso Concert Hall avesse informato wingtips della vendita di biglietti imminenti, il database potrebbe essere stato spostato all'esterno del pool preventivamente. In caso contrario, sarebbe stato probabilmente necessario un avviso per il pool o il database per ricevere una segnalazione della situazione. È meglio evitare di venire a conoscenza di un problema di questo tipo quando gli altri tenant nel pool si lamentano del calo di prestazioni. Se il tenant può prevedere il tempo per cui saranno necessarie risorse aggiuntive, inoltre, è possibile configurare un runbook di Automazione di Azure per spostare il database fuori dal pool e reinserirlo in base a una pianificazione definita.
 
 **Scalabilità self-service dei tenant** Dato che la scalabilità richiede attività facilmente richiamabili tramite l'API di gestione, è possibile integrare in modo semplice funzioni di scalabilità dei database tenant nell'applicazione che interagisce con i tenant e offrirle come funzionalità del servizio SaaS. Ad esempio, fare in modo che i tenant possano amministrare in autonomia l'aumento o la riduzione delle prestazioni, eventualmente collegando anche queste operazioni in modo diretto alla fatturazione.
 
@@ -245,5 +245,5 @@ In questa esercitazione si apprenderà come:
 
 * Altre [esercitazioni basate sulla distribuzione dell'applicazione del database per tenant SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pool elastici SQL](sql-database-elastic-pool.md)
-* [Automazione di AzureAzure automation](../automation/automation-intro.md)
-* [Esercitazione](saas-dbpertenant-log-analytics.md) sui log di Monitoraggio di Azure - Impostazione e uso dei log di Monitoraggio di AzureAzure Monitor logs - Setting up and using Azure Monitor logs tutorial
+* [Automazione di Azure](../automation/automation-intro.md)
+* [Log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) : esercitazione sulla configurazione e l'uso dei log di monitoraggio di Azure

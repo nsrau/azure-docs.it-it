@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti e problemi noti con le identità gestite - Azure AD
+title: Domande frequenti e problemi noti relativi alle identità gestite-Azure AD
 description: Problemi noti relativi alle identità gestite per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
@@ -38,7 +38,7 @@ No, non sono previste iniziative per supportare le identità gestite per le riso
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Le identità gestite per le risorse di Azure funzionano con Active Directory Authentication Library (ADAL) o con Microsoft Authentication Library (MSAL)?
 
-No, le identità gestite per le risorse di Azure non sono ancora integrate con ADAL o MSAL. Per informazioni dettagliate sull'acquisizione di un token per le identità gestite per le risorse di Azure usando l'endpoint REST, vedere [Come usare le identità gestite per le risorse](how-to-use-vm-token.md)di Azure in una macchina virtuale di Azure per acquisire un token di accesso.
+No, le identità gestite per le risorse di Azure non sono ancora integrate con ADAL o MSAL. Per informazioni dettagliate sull'acquisizione di un token per le identità gestite per le risorse di Azure usando l'endpoint REST, vedere [come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](how-to-use-vm-token.md).
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Cosa si intende per limite di sicurezza delle identità gestite per le risorse di Azure?
 
@@ -50,25 +50,25 @@ Il limite di sicurezza dell'identità è la risorsa a cui è collegata. Ad esemp
 - Se non è abilitata l'identità gestita assegnata dal sistema ed esiste solo un'identità gestita assegnata dall'utente, IMDS userà come predefinita quella singola identità gestita assegnata dall'utente. 
 - Se non è abilitata l'identità gestita assegnata dal sistema ed esistono più identità gestite assegnate dall'utente, è necessario allora specificare un'identità gestita nella richiesta.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>È consigliabile usare le identità gestite per l'endpoint IMDS delle risorse di Azure o l'endpoint di estensione della macchina virtuale?
+### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>È consigliabile usare le identità gestite per l'endpoint IMDS per le risorse di Azure o l'endpoint dell'estensione della macchina virtuale?
 
-Quando si usano le identità gestite per le risorse di Azure con le macchine virtuali, è consigliabile usare l'endpoint IMDS.When using managed identities for Azure resources with VMs, we recommend using the IMDS endpoint. Il Servizio metadati dell'istanza di Azure è un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. 
+Quando si usano le identità gestite per le risorse di Azure con le macchine virtuali, è consigliabile usare l'endpoint IMDS. Il Servizio metadati dell'istanza di Azure è un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. 
 
 Alcuni vantaggi dell'uso delle identità gestite per le risorse di Azure nel servizio metadati dell'istanza sono:
 - Tutti i sistemi operativi supportati da IaaS di Azure possono usare le identità gestite per le risorse di Azure sul servizio metadati dell'istanza.
 - Non è più necessario installare un'estensione nella macchina virtuale per abilitare le identità per le risorse di Azure. 
 - I certificati usati dalle identità gestite per le risorse di Azure non sono più presenti nella macchina virtuale.
 - L'endpoint IMDS è un indirizzo IP non instradabile noto disponibile solo dalla macchina virtuale.
-- È possibile assegnare 1000 identità gestite assegnate dall'utente a una singola macchina virtuale. 
+- 1000 le identità gestite assegnate dall'utente possono essere assegnate a una singola macchina virtuale. 
 
-L'estensione della macchina virtuale delle identità gestite per le risorse di Azure è ancora disponibile. tuttavia, non stiamo più sviluppando nuove funzionalità su di esso. È consigliabile passare per utilizzare l'endpoint IMDS. 
+L'estensione della macchina virtuale identità gestite per le risorse di Azure è ancora disponibile. Tuttavia, non vengono più sviluppate nuove funzionalità. È consigliabile passare a usare l'endpoint IMDS. 
 
-Alcune delle limitazioni relative all'uso dell'endpoint di estensione della macchina virtuale sono:Some of the limitations of using the VM extension endpoint are:
-- Supporto limitato per le distribuzioni Linux: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
-- Solo 32 identità gestite assegnate dall'utente possono essere assegnate alla macchina virtuale.
+Di seguito sono riportate alcune delle limitazioni dell'uso dell'endpoint di estensione della macchina virtuale:
+- Supporto limitato per le distribuzioni Linux: CoreOS stable, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
+- Alla VM è possibile assegnare solo 32 identità gestite assegnate dall'utente.
 
 
-Nota: l'estensione della macchina virtuale delle identità gestite per le risorse di Azure non sarà supportata a gennaio 2019.Note: The managed identities for Azure resources VM extension will be out of support in January 2019. 
+Nota: l'estensione della macchina virtuale identità gestite per le risorse di Azure non sarà supportata nel 2019 gennaio. 
 
 Per altre informazioni sul servizio metadati dell'istanza di Azure, vedere la [documentazione di IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -82,10 +82,10 @@ No. Se si sposta una sottoscrizione in un'altra directory, sarà necessario ricr
 
 No. Le identità gestite attualmente non supportano gli scenari tra directory. 
 
-### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quali autorizzazioni di Controllo degli accessi in base al ruolo di Azure sono necessarie per l'identità gestita in una risorsa? 
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quali autorizzazioni RBAC di Azure sono necessarie per gestire l'identità in una risorsa? 
 
-- Identità gestita assegnata dal sistema: sono necessarie autorizzazioni di scrittura sulla risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Questa azione è inclusa nei ruoli predefiniti specifici delle risorse, ad esempio [Collaboratore macchina virtuale](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identità gestita assegnata dall'utente: sono necessarie autorizzazioni di scrittura sulla risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Oltre all'assegnazione di ruolo [Operatore identità gestita](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sull'identità gestita.
+- Identità gestita assegnata dal sistema: sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Questa azione è inclusa in ruoli predefiniti specifici della risorsa come [collaboratore macchina virtuale](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identità gestita assegnata dall'utente: sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Oltre all'assegnazione di ruolo di [operatore di identità gestita](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sull'identità gestita.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Come riavviare l'estensione relativa alle identità gestite per le risorse di Azure
 In Windows e alcune versioni di Linux, se si arresta l'estensione, è possibile usare il cmdlet seguente per riavviarla manualmente:
@@ -114,7 +114,7 @@ Quando la funzione di esportazione dello schema sarà disponibile per l'estensio
 
 Se si sposta una macchina virtuale in esecuzione, questa continuerà a eseguire durante lo spostamento. Tuttavia, dopo lo spostamento, se la macchina virtuale viene arrestata e riavviata, non si avvierà. Questo problema si verifica perché la macchina virtuale non aggiorna il riferimento alle identità gestite per le risorse di Azure e continua a puntare a questa nel gruppo di risorse precedente.
 
-**Soluzione** 
+**Soluzione alternativa** 
  
 Attivare un aggiornamento nella macchina virtuale così da poter ottenere i valori corretti per le identità gestite per le risorse di Azure. È possibile apportare una modifica alla proprietà della macchina virtuale per aggiornare il riferimento alle identità gestite per le risorse di Azure. Ad esempio, è possibile impostare un nuovo valore di tag nella macchina virtuale con il comando seguente:
 
@@ -143,11 +143,11 @@ Il provisioning dell'estensione VM potrebbe non riuscire a causa di errori di ri
 
 Le identità gestite non vengono aggiornate quando una sottoscrizione viene spostata/trasferita a un'altra directory. Di conseguenza, tutte le identità gestite assegnate dal sistema o assegnate dall'utente saranno interrotte. 
 
-Soluzione alternativa per le identità gestite in una sottoscrizione spostata in un'altra directory:
+Soluzione alternativa per le identità gestite in una sottoscrizione che è stata spostata in un'altra directory:
 
  - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo. 
  - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
 
-### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Spostamento di un'identità gestita assegnata dall'utente in un gruppo di risorse/sottoscrizione diverso
+### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Trasferimento di un'identità gestita assegnata dall'utente a una sottoscrizione o a un gruppo di risorse diverso
 
-Lo spostamento di un'identità gestita assegnata dall'utente a un gruppo di risorse diverso causerà l'interruzione dell'identità. Di conseguenza, le risorse (ad esempio la macchina virtuale) che usano tale identità non saranno in grado di richiedere token per tale IDentità. 
+Lo spostamento di un'identità gestita assegnata dall'utente a un gruppo di risorse diverso causerà l'interruzione dell'identità. Di conseguenza, le risorse (ad esempio VM) che usano tale identità non saranno in grado di richiedere token. 

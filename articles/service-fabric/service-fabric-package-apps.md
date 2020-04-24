@@ -1,6 +1,6 @@
 ---
-title: Creare un pacchetto di un'app di Azure Service FabricPackage an Azure Service Fabric app
-description: Informazioni sulla creazione del pacchetto di un'applicazione Azure Service Fabric e su come prepararsi per la distribuzione in un cluster.
+title: Creare un pacchetto di un'app Service Fabric di Azure
+description: Informazioni su come creare un pacchetto di un'applicazione Service Fabric di Azure e su come prepararsi per la distribuzione in un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
@@ -48,17 +48,17 @@ Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessar
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
 
-Per ulteriori informazioni su come configurare **SetupEntryPoint,** vedere Configurare i criteri per un punto di ingresso per [l'installazione](service-fabric-application-runas-security.md) del servizio
+Per altre informazioni su come configurare **SetupEntryPoint**, vedere [configurare i criteri per un punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configurare
+## <a name="configure"></a>Configura
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 
-Se è stato usato Visual Studio per creare l'applicazione, è possibile usare il comando *Package* per creare automaticamente un pacchetto che corrisponda al layout descritto in precedenza.
+Se è stato usato Visual Studio per creare l'applicazione, è possibile usare il comando *pacchetto* per creare automaticamente un pacchetto corrispondente al layout descritto in precedenza.
 
-Per creare un pacchetto, fare clic con il pulsante destro del mouse sul progetto dell'applicazione in *Esplora soluzioni* e scegliere il comando Pacchetto:To create a **package,** right-click the application project in Solution Explorer and choose the Package command:
+Per creare un pacchetto, fare clic con il pulsante destro del mouse sul progetto di applicazione in *Esplora soluzioni* e scegliere il comando **pacchetto** :
 
 ![Inserire un'applicazione in un pacchetto con Visual Studio][vs-package-command]
 
@@ -226,7 +226,7 @@ Per eseguire il provisioning del pacchetto, usare il provisioning esterno, che r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire e rimuovere applicazioni][10] descrive come usare PowerShell per gestire le istanze dell'applicazioneDeploy and remove applications describes how to use PowerShell to manage application instances
+[Distribuire e rimuovere applicazioni][10] descrive come usare PowerShell per gestire le istanze dell'applicazione
 
 [Gestire i parametri dell'applicazione per più ambienti][11]: descrive come configurare parametri e variabili di ambiente per istanze di applicazione diverse.
 

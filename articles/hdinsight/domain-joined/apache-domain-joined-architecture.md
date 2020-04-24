@@ -37,7 +37,7 @@ Gli elementi seguenti vengono creati automaticamente:
 
 In sintesi, è necessario configurare un ambiente con gli elementi seguenti:
 
-- Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services). **Il nome di dominio deve essere di 39 caratteri o meno per funzionare con Azure HDInsight.The domain name must be 39 characters or less to work with Azure HDInsight.**
+- Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services). **Il nome di dominio deve contenere 39 caratteri o meno per lavorare con Azure HDInsight.**
 - Secure LDAP (LDAPS) abilitato in Azure Active Directory Domain Services.
 - Connettività di rete adeguata dalla rete virtuale HDInsight alla rete virtuale di Azure Active Directory Domain Services, se si scelgono reti virtuali separate. Una macchina virtuale all'interno della rete virtuale HDInsight dovrebbe avere una linea visiva verso Azure Active Directory Domain Services attraverso il peering di rete virtuale. Se HDInsight e Azure Active Directory Domain Services sono distribuiti nella stessa rete virtuale, la connettività viene stabilita automaticamente e non sono necessarie altre operazioni.
 
@@ -59,13 +59,13 @@ Se si dispone di un'istanza di Active Directory locale o di configurazioni più 
 
 Poiché Kerberos si basa sugli hash delle password, è necessario [abilitare la sincronizzazione degli hash delle password in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
 
-Se si utilizza la federazione con Active Directory Federation Services (ADFS), è necessario abilitare la sincronizzazione dell'hash delle password. (Per una configurazione consigliata, vedere [questo video](https://youtu.be/qQruArbu2Ew).) La sincronizzazione dell'hash delle password aiuta con il ripristino di emergenza nel caso in cui l'infrastruttura ADFS si guasti e fornisce anche la protezione delle credenziali perse. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+Se si usa la Federazione con Active Directory Federation Services (AD FS), è necessario abilitare la sincronizzazione dell'hash delle password. Per un'installazione consigliata, vedere [questo video](https://youtu.be/qQruArbu2Ew). La sincronizzazione dell'hash delle password consente il ripristino di emergenza nel caso in cui l'infrastruttura di AD FS abbia esito negativo e contribuisca anche a garantire la protezione delle credenziali perse. Per altre informazioni, vedere l'articolo [Abilitare la sincronizzazione degli hash delle password con la sincronizzazione di Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
 L'uso di Active Directory locale o di Active Directory sulle sole macchine virtuali IaaS, senza Azure AD e Azure Active Directory Domain Services, non è una configurazione supportata per i cluster HDInsight con ESP.
 
-Se viene utilizzata la federazione e gli hashe di password vengono sincronizzati correttamente, ma si stanno ottenendo errori di autenticazione, verificare se l'autenticazione con password cloud è abilitata per l'entità servizio di PowerShell.If federation is being used and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. In caso negativo, sarà necessario impostare [criteri di individuazione dell'area di autenticazione principale](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant di Azure AD. Per verificare e impostare i criteri di individuazione dell'area di autenticazione principale:
+Se viene usata la Federazione e gli hash delle password sono sincronizzati correttamente, ma si verificano errori di autenticazione, controllare se l'autenticazione della password cloud è abilitata per l'entità servizio di PowerShell. In caso negativo, sarà necessario impostare [criteri di individuazione dell'area di autenticazione principale](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant di Azure AD. Per verificare e impostare i criteri di individuazione dell'area di autenticazione principale:
 
-1. Installare il [modulo di Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)di anteprima.
+1. Installare il modulo di anteprima [Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

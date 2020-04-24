@@ -1,6 +1,6 @@
 ---
-title: Macchine virtuali Windows 7 Desktop virtuale di Windows - Azure
-description: Come risolvere i problemi per le macchine virtuali (VM) di Windows 7 in un ambiente Windows Virtual Desktop.
+title: Macchine virtuali Windows 7-desktop virtuale Windows-Azure
+description: Come risolvere i problemi per le macchine virtuali (VM) Windows 7 in un ambiente desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -17,33 +17,33 @@ ms.locfileid: "79127382"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Risolvere i problemi relativi alle macchine virtuali Windows 7 in Desktop virtuale Windows
 
-Usare questo articolo per risolvere i problemi riscontrati durante la configurazione delle macchine virtuali (VM) host sessione Desktop virtuale di Windows.Use this article to troubleshoot issues you're having've when configuring the Windows Virtual Desktop session host virtual machines (VMs).
+Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
 ## <a name="known-issues"></a>Problemi noti
 
-Windows 7 su Desktop virtuali di Windows non supporta le seguenti funzionalità:
+Windows 7 nei desktop virtuali Windows non supporta le funzionalità seguenti:
 
-- Applicazioni virtualizzate (RemoteApps)Virtualized applications (RemoteApps)
-- Reindirizzamento fuso orario
+- Applicazioni virtualizzate (RemoteApps)
+- Reindirizzamento del fuso orario
 - Ridimensionamento DPI automatico
 
-Windows Virtual Desktop può virtualizzare solo desktop completi per Windows 7.
+Desktop virtuale Windows può virtualizzare solo desktop completi per Windows 7.
 
-Sebbene il ridimensionamento DPI automatico non sia supportato, è possibile modificare manualmente la risoluzione nella macchina virtuale facendo clic con il pulsante destro del mouse sull'icona nel client Desktop remoto e selezionando **Risoluzione**.
+Mentre la scalabilità DPI automatica non è supportata, è possibile modificare manualmente la risoluzione nella macchina virtuale facendo clic con il pulsante destro del mouse sull'icona nel client Desktop remoto e selezionando **risoluzione**.
 
-## <a name="error-cant-access-the-remote-desktop-user-group"></a>Errore: Impossibile accedere al gruppo Utente Desktop remoto
+## <a name="error-cant-access-the-remote-desktop-user-group"></a>Errore: Impossibile accedere al gruppo di utenti Desktop remoto
 
-Se Windows Virtual Desktop non riesce a trovare le credenziali dell'utente nel gruppo Utenti Desktop remoto, è possibile che venga visualizzato uno dei seguenti messaggi di errore:
+Se il desktop virtuale di Windows non riesce a trovare le credenziali degli utenti nel gruppo di utenti Desktop remoto, potrebbe essere visualizzato uno dei messaggi di errore seguenti:
 
-- "Questo utente non è un membro del gruppo Utenti desktop remoto"
+- "L'utente non è un membro del gruppo di utenti Desktop remoto"
 - "È necessario disporre delle autorizzazioni per accedere tramite Servizi Desktop remoto"
 
-Per correggere questo errore, aggiungere l'utente al gruppo Utente Desktop remoto:
+Per correggere l'errore, aggiungere l'utente al gruppo di utenti Desktop remoto:
 
 1. Aprire il portale di Azure.
 2. Selezionare la macchina virtuale in cui è stato visualizzato il messaggio di errore.
 3. Selezionare **Esegui un comando**.
-4. Eseguire il comando `<username>` seguente con sostituito dal nome dell'utente che si desidera aggiungere:
+4. Eseguire il comando seguente con `<username>` sostituito dal nome dell'utente che si desidera aggiungere:
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

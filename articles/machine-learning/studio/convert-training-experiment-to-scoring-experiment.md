@@ -1,7 +1,7 @@
 ---
 title: Preparare il modello per la distribuzione
 titleSuffix: ML Studio (classic) - Azure
-description: Come preparare il modello sottoposto a training per la distribuzione come servizio Web convertendo l'esperimento di formazione di Machine Learning Studio (classico) in un esperimento predittivo.
+description: Come preparare il modello sottoposto a training per la distribuzione come servizio Web convertendo l'esperimento di training Machine Learning Studio (classico) in un esperimento predittivo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -16,15 +16,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204512"
 ---
-# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)How to prepare your model for deployment in Azure Machine Learning Studio (classic)
+# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Azure Machine Learning Studio (classico) offre gli strumenti necessari per sviluppare un modello di analisi predittiva e quindi renderlo operativo distribuendolo come servizio Web di Azure.Azure Machine Learning Studio (classic) gives you the tools you need to develop a predictive analytics model and then operationalize it by deploying it as an Azure web service.
+Azure Machine Learning Studio (classico) offre gli strumenti necessari per sviluppare un modello di analisi predittiva e quindi rendere operativorlo distribuendo il modello come servizio Web di Azure.
 
-A tale scopo, si usa Studio (classico) per creare un esperimento, denominato esperimento di *training,* in cui eseguire il training, il punteggio e la modifica del modello. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
+A tale scopo, è possibile usare Studio (classico) per creare un esperimento, denominato *esperimento di training* , in cui si esegue il training, il punteggio e la modifica del modello. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
 
-È possibile visualizzare un esempio di questo processo [nell'Esercitazione 1: Prevedere il rischio](tutorial-part1-credit-risk.md)di credito .
+È possibile vedere un esempio di questo processo in [esercitazione 1: prevedere il rischio di credito](tutorial-part1-credit-risk.md).
 
 Questo articolo contiene informazioni approfondite su come convertire un esperimento di training in un esperimento predittivo e successivamente distribuirlo. La comprensione di questi dettagli è fondamentale per imparare a configurare il modello distribuito in modo da renderlo più efficace.
 

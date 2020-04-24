@@ -1,5 +1,5 @@
 ---
-title: Creare & query analisi di Azure Data Lake - interfaccia della riga di comando di AzureCreate to query Azure Data Lake Analytics - Azure CLI
+title: Creare & query Azure Data Lake Analytics-interfaccia della riga di comando di Azure
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -22,14 +22,14 @@ Questo articolo descrive come usare l'interfaccia della riga di comando di Azure
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0 o successive. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0 o successive. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Per accedere alla sottoscrizione di Azure:To sign in to your Azure subscription:
+Per accedere alla sottoscrizione di Azure:
 
 ```azurecli
 az login
@@ -62,9 +62,9 @@ Per creare un nuovo gruppo di risorse:
 az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
-* **Nome dell'account Data Lake Analytics**. Ogni account Data Lake Analytics ha un nome.
+* **Nome account data Lake Analytics**. Ogni account Data Lake Analytics ha un nome.
 * **Posizione**. Usare uno dei data center di Azure che supporta Data Lake Analytics.
-* **Account Data Lake Store predefinito:** ogni account Data Lake Analytics dispone di un account Data Lake Store predefinito.
+* **Account data Lake Store predefinito**: ogni account di data Lake Analytics dispone di un account di data Lake Store predefinito.
 
 Per elencare l'account Data Lake Store esistente:
 
@@ -146,7 +146,7 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 > Il contenitore BLOB di Azure con contenitori pubblici non è supportato.      
 >
 
-**Per inviare lavori**
+**Per inviare i processi**
 
 Per inviare un processo, usare la sintassi seguente:
 

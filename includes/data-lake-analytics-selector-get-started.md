@@ -17,8 +17,8 @@ ms.locfileid: "79474493"
 ---
 > [!div class="op_single_selector"]
 > * [Portale](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)
-> * [Powershell](../articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)
+> * [PowerShell](../articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)
 > * [Visual Studio](../articles/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)
-> * [Interfaccia della riga di comando di AzureAzure](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
+> * [Interfaccia della riga di comando di Azure](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
 > 
 > 

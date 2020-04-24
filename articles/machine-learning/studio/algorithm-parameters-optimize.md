@@ -21,11 +21,11 @@ ms.locfileid: "79218277"
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Questo argomento descrive come scegliere il set di iperparametri corretto per un algoritmo in Azure Machine Learning Studio (classico). Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
+In questo argomento viene descritto come scegliere il set di iperparametri corretti per un algoritmo in Azure Machine Learning Studio (classico). Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 
 
 
-Ci sono vari modi per selezionare un modello. Nell'apprendimento automatico, la convalida incrociata è uno dei metodi più utilizzati per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning Studio (classico). Poiché Azure Machine Learning Studio (classico) supporta sia R che Python, è sempre possibile implementare i propri meccanismi di selezione dei modelli usando R o Python.Because Azure Machine Learning Studio (classic) supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
+Ci sono vari modi per selezionare un modello. In Machine Learning la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning Studio (classico). Poiché Azure Machine Learning Studio (classico) supporta sia R che Python, è sempre possibile implementare i propri meccanismi di selezione del modello tramite R o Python.
 
 Il processo per trovare il migliore set di parametri è costituito da quattro passaggi:
 
@@ -34,7 +34,7 @@ Il processo per trovare il migliore set di parametri è costituito da quattro pa
 3. **Definire la metrica**: decidere quale metrica usare per determinare il migliore set di parametri, ad esempio, l'accuratezza, l'errore quadratico medio, la precisione, il richiamo, o il punteggio f.
 4. **Eseguire il training, valutare e confrontare**: per ogni combinazione univoca dei valori dei parametri, la convalida incrociata viene eseguita e basata sulla metrica di errore definita dall'utente. Dopo valutazione e confronto, è possibile scegliere il modello con le prestazioni migliori.
 
-L'immagine seguente illustra come questo può essere raggiunto in Azure Machine Learning Studio (classico).
+Nell'immagine seguente viene illustrato come è possibile ottenere questo risultato in Azure Machine Learning Studio (classico).
 
 ![Trovare il miglior set di parametri](./media/algorithm-parameters-optimize/fig1.png)
 
@@ -43,7 +43,7 @@ Il set di parametri può essere definito nella fase di inizializzazione del mode
 
 ![Albero delle decisioni a due classi con innalzamento, parametro singolo](./media/algorithm-parameters-optimize/fig2.png)
 
- In alternativa è possibile definire il punto massimo e minimo della griglia e il numero totale dei punti da generare con **Use Range Builder**. Per impostazione predefinita, i valori dei parametri vengono generati su una scala lineare. Ma se è selezionata l'opzione **Scala logaritmica**, i valori vengono generati in scala logaritmica (ovvero, il rapporto dei punti adiacenti è costante invece di rappresentare la loro differenza). Per i parametri Integer, è possibile definire un intervallo tramite un segno meno. Ad esempio, "1-10" significa che tutti i numeri interi compresi tra 1 e 10 (entrambi inclusi) formano il set di parametri. È supportata anche una modalità mista. Ad esempio, il set di parametri "1-10, 20, 50" includerà numeri interi 1-10, 20 e 50.
+ In alternativa è possibile definire il punto massimo e minimo della griglia e il numero totale dei punti da generare con **Use Range Builder**. Per impostazione predefinita, i valori dei parametri vengono generati su una scala lineare. Ma se è selezionata l'opzione **Scala logaritmica**, i valori vengono generati in scala logaritmica (ovvero, il rapporto dei punti adiacenti è costante invece di rappresentare la loro differenza). Per i parametri Integer, è possibile definire un intervallo tramite un segno meno. Ad esempio, "1-10" significa che tutti i numeri interi compresi tra 1 e 10 (entrambi inclusi) formano il set di parametri. È supportata anche una modalità mista. Ad esempio, il set di parametri "1-10, 20, 50" includerà i numeri interi 1-10, 20 e 50.
 
 ![Albero delle decisioni a due classi con innalzamento, intervallo di parametri](./media/algorithm-parameters-optimize/fig3.png)
 

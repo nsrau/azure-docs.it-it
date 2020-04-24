@@ -1,6 +1,6 @@
 ---
-title: Dischi del sistema operativo effimeri per macchine virtuali Di Azure Linux
-description: Altre informazioni sui dischi del sistema operativo effimeri per le macchine virtuali di Azure.Learn more about ephemeral OS disks for Azure VMs.
+title: Dischi del sistema operativo temporaneo per Azure macchine virtuali Linux
+description: Altre informazioni sui dischi del sistema operativo temporaneo per le macchine virtuali di Azure.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -15,10 +15,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945195"
 ---
-# <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo effimeri per macchine virtuali di AzureEphemeral OS disks for Azure VMs
+# <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo temporaneo per le macchine virtuali di Azure
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../../includes/virtual-machines-common-ephemeral.md)]
  
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile creare una macchina virtuale con un disco del sistema operativo effimero usando l'interfaccia della riga di comando di [Azure.](https://docs.microsoft.com/cli/azure/vm#az-vm-create)
+È possibile creare una macchina virtuale con un disco del sistema operativo temporaneo usando l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
 

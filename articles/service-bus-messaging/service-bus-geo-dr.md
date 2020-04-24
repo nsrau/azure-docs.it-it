@@ -64,14 +64,14 @@ Il processo di configurazione si articola nelle fasi seguenti:
 3. Creare l'associazione tra lo spazio dei nomi primario e quello secondario in modo da ottenere l'***alias***.
 
     >[!NOTE] 
-    > Se è stata [eseguita la migrazione dello spazio dei](service-bus-migrate-standard-premium.md)nomi Standard del bus di servizio di Azure a Azure Service Bus Premium , è necessario usare l'alias preesistente (ad esempio la stringa di connessione dello spazio dei nomi Standard del bus di servizio) per creare la configurazione di ripristino di emergenza tramite l'API **PS/CLI** o **REST.**
+    > Se è stata [eseguita la migrazione dello spazio dei nomi standard del bus di servizio di Azure a Premium di Azure Service Bus](service-bus-migrate-standard-premium.md), è necessario usare l'alias preesistente, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio, per creare la configurazione del ripristino di emergenza tramite l' **API REST** **/CLI** o REST.
     >
     >
-    > Questo perché, durante la migrazione, la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure o il nome DNS stesso diventa un alias per lo spazio dei nomi Premium del bus di servizio di Azure.This is because, during migration, your Azure Service Bus Standard namespace connection string or DNS name itself becomes an alias to your Azure Service Bus Premium namespace.
+    > Questo perché, durante la migrazione, la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure o il nome DNS stesso diventa un alias dello spazio dei nomi premium del bus di servizio di Azure.
     >
-    > Le applicazioni client devono utilizzare questo alias (ad esempio la stringa di connessione dello spazio dei nomi Standard del bus di servizio di Azure) per connettersi allo spazio dei nomi Premium in cui è stata configurata l'associazione di ripristino di emergenza.
+    > Le applicazioni client devono usare questo alias, ad esempio la stringa di connessione dello spazio dei nomi standard del bus di servizio di Azure, per connettersi allo spazio dei nomi premium in cui è stata configurata l'associazione del ripristino di emergenza.
     >
-    > Se si utilizza il portale per configurare la configurazione di ripristino di emergenza, il portale astrarrà questo'avvertenza dall'utente.
+    > Se si usa il portale per configurare la configurazione del ripristino di emergenza, il portale astrarre questa avvertenza dall'utente.
 
 
 4. Usare l'***alias*** ottenuto nel passaggio 3 per connettere le applicazioni client allo spazio dei nomi primario abilitato per il ripristino di emergenza geografico. Inizialmente, l'alias fa riferimento allo spazio dei nomi primario.
@@ -105,7 +105,7 @@ Dopo aver avviato il failover:
 
 ![2][]
 
-## <a name="management"></a>Gestione
+## <a name="management"></a>Management
 
 Se si commette un errore, ad esempio associando le aree non corrette durante la configurazione iniziale, è possibile interrompere l'associazione dei due spazi dei nomi in qualsiasi momento. Per usare gli spazi dei nomi associati come normali spazi dei nomi, eliminare l'alias.
 
@@ -157,7 +157,7 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli artic
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* [API di riposo](/rest/api/servicebus/) 
+* [API REST](/rest/api/servicebus/) 
 
 [1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png

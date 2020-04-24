@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di configurazione di Azure Front DoorTroubleshoot Azure Front Door configuration issues
+title: Risolvere i problemi di configurazione di Azure front door
 description: In questa esercitazione viene descritto come risolvere autonomamente alcuni dei problemi comuni che si potrebbero riscontrare per Frontdoor.
 services: frontdoor
 documentationcenter: ''
@@ -21,31 +21,31 @@ ms.locfileid: "79471507"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Risoluzione dei più frequenti problemi di routing
 
-In questo articolo viene descritto come risolvere alcuni dei problemi di routing comuni che è possibile affrontare per la configurazione di Azure Front Door.This article describes how to troubleshoot some of the common routing issues you may face to your Azure Front Door configuration.
+Questo articolo descrive come risolvere alcuni problemi di routing comuni che è possibile affrontare per la configurazione di Azure front door.
 
-## <a name="503-response-from-front-door-after-a-few-seconds"></a>503 risposta da Front Door dopo pochi secondi
+## <a name="503-response-from-front-door-after-a-few-seconds"></a>503 risposta dalla porta anteriore dopo alcuni secondi
 
 ### <a name="symptom"></a>Sintomo
 
-- Le normali richieste inviate al back-end senza passare attraverso Front Door hanno successo, ma passando tramite Front Door genera risposte di errore 503.
+- Le richieste normali inviate al back-end senza passare attraverso la porta anteriore hanno esito positivo, ma passano attraverso la porta anteriore in risposte di errore 503.
 
-- Il guasto dalla porta anteriore mostra dopo pochi secondi (in genere intorno dopo 30 secondi)
+- L'errore dalla porta anteriore viene visualizzato dopo alcuni secondi (in genere intorno a 30 secondi)
 
 ### <a name="cause"></a>Causa
 
-Questo sintomo si verifica quando il back-end supera la configurazione di timeout (il valore predefinito è 30 secondi) per ricevere la richiesta da Front Door o se supera questo valore di timeout per inviare una risposta alla richiesta da Front Door. 
+Questo sintomo si verifica quando il back-end supera la configurazione del timeout (il valore predefinito è 30 secondi) per ricevere la richiesta dall'sportello anteriore o se il valore di timeout non è più necessario per inviare una risposta alla richiesta da sportello anteriore. 
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
-- Invia direttamente la richiesta al back-end (senza passare attraverso Front Door) e scopri qual è il tempo abituale necessario perché il back-end risponda.
-- Invia la richiesta tramite Front Door e verifica se visualizzi 503 risposte. In caso contrario, questo potrebbe non essere un problema di timeout. Contattare il supporto tecnico.
-- Se si passa tramite Front Door risulta in codice di risposta di errore 503, quindi configurare il campo sendReceiveTimeout per il front Door per estendere il timeout predefinito fino a 4 minuti (240 secondi). L'impostazione `backendPoolSettings` si trova `sendRecvTimeoutSeconds`sotto il e viene chiamato . 
+- Inviare la richiesta al back-end direttamente (senza passare attraverso la porta anteriore) e vedere qual è il tempo usuale necessario per la risposta del back-end.
+- Inviare la richiesta tramite la porta anteriore e verificare se sono state visualizzate risposte 503. In caso contrario, potrebbe non essere un problema di timeout. Contattare il supporto tecnico.
+- Se si passa attraverso la porta anteriore nel codice di risposta di errore 503, configurare il campo sendReceiveTimeout per la porta anteriore per estendere il timeout predefinito fino a 4 minuti (240 secondi). L'impostazione è sotto `backendPoolSettings` e viene chiamato. `sendRecvTimeoutSeconds` 
 
-## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>Le richieste inviate al dominio personalizzato restituiscono 400 codice di statoRequests sent to the custom domain returns 400 Status Code
+## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>Le richieste inviate al dominio personalizzato restituiscono il codice di stato 400
 
 ### <a name="symptom"></a>Sintomo
 
-- È stata creata una porta anteriore, ma una richiesta al dominio o all'host front-end restituisce un codice di stato HTTP 400.
+- È stata creata una porta anteriore, ma una richiesta al dominio o all'host front-end sta restituendo un codice di stato HTTP 400.
 
 - È stato creato un mapping DNS da un dominio personalizzato all'host del front-end che è stato configurato. Tuttavia, l'invio di una richiesta al nome host del dominio personalizzato restituisce un codice di stato HTTP 400 e non viene visualizzata per indirizzare il back-end che è stato configurato.
 
@@ -57,15 +57,15 @@ Questo problema può verificarsi se non è stata configurata una regola di gesti
 
 Aggiungere una regola di gestione dal dominio personalizzato per il pool back-end desiderato.
 
-## <a name="front-door-is-not-redirecting-http-to-https"></a>Front Door non reindirizza HTTP a HTTPS
+## <a name="front-door-is-not-redirecting-http-to-https"></a>La porta anteriore non reindirizza il protocollo HTTP a HTTPS
 
 ### <a name="symptom"></a>Sintomo
 
-La porta frontale ha una regola di routing che dice reindirizzare HTTP a HTTPS, ma l'accesso al dominio mantiene ancora HTTP come protocollo.
+Per la porta anteriore è presente una regola di routing che indica il Reindirizzamento da HTTP a HTTPS, ma l'accesso al dominio mantiene comunque HTTP come protocollo.
 
 ### <a name="cause"></a>Causa
 
-Questo comportamento può verificarsi se le regole di routing per la porta frontale non sono state configurate correttamente. Fondamentalmente, la configurazione corrente non è specifica e può avere regole in conflitto.
+Questo comportamento può verificarsi se le regole di routing non sono state configurate correttamente per la porta anteriore. In pratica, la configurazione corrente non è specifica e potrebbe avere regole in conflitto.
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
@@ -80,7 +80,7 @@ Questo comportamento può verificarsi se le regole di routing per la porta front
 Le cause del problema possono essere diverse:
 
 - Il back-end non è un back-end pubblico e non è visibile alla porta anteriore.
-- Il back-end non è configurato correttamente, causando l'invio della richiesta errata da parte della porta anteriore, ovvero il back-end accetta solo HTTP, ma non è stato deselezionato l'autorizzazione HTTPS in modo che Front Door stia tentando di inoltrare le richieste HTTPS).
+- Il back-end è configurato in modo errato, che causa la porta principale per inviare la richiesta errata, ovvero il back-end accetta solo HTTP, ma non è stato deselezionato che consente HTTPS, quindi il front-end sta tentando di inoltrare le richieste HTTPS.
 - Il back-end rifiuta l'intestazione host che è stata inoltrata con la richiesta al back-end.
 - La configurazione per il back-end non è ancora stata completamente distribuita.
 
@@ -98,7 +98,7 @@ Le cause del problema possono essere diverse:
 
 
 3. Controllare le impostazioni delle regole di gestione
-    - Passare alla regola di gestione che deve indirizzare a un pool di back-end dal nome host front-end in questione. Assicurarsi che i protocolli consentiti siano configurati correttamente, o in caso contrario, assicurarsi che il protocollo che verrà utilizzato dal Frontdoor per l'inoltro della richiesta sia configurato correttamente. Il campo _Protocolli accettati_ determina quali richieste Front Door deve accettare e il _protocollo di inoltro_ determina il protocollo che Front Door deve utilizzare per inoltrare la richiesta al back-end.
+    - Passare alla regola di gestione che deve indirizzare a un pool di back-end dal nome host front-end in questione. Assicurarsi che i protocolli consentiti siano configurati correttamente, o in caso contrario, assicurarsi che il protocollo che verrà utilizzato dal Frontdoor per l'inoltro della richiesta sia configurato correttamente. Il campo _protocolli accettati_ determina le richieste che devono essere accettate dal front-end e il _protocollo di invio_ determina quale sportello anteriore del protocollo deve usare per inviare la richiesta al back-end.
          - Ad esempio, se il back-end accetta solo richieste HTTP, le configurazioni seguenti saranno valide:
             - _I protocolli accettati_ sono HTTP e HTTPS. _Il protocollo di trasmissione_ è HTTP. La corrispondenza richiesta non funziona, poiché HTTPS è un protocollo consentito e se una richiesta è arrivata come HTTPS, il Frontdoor cercherà di inoltrarla usando HTTPS.
 

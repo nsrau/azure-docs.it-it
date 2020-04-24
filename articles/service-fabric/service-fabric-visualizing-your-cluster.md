@@ -1,5 +1,5 @@
 ---
-title: Visualizzazione del cluster tramite Azure Service Fabric Explorer
+title: Visualizzazione del cluster con Service Fabric Explorer di Azure
 description: Service Fabric Explorer è un'applicazione per analizzare e gestire nodi e applicazioni cloud in un cluster di Microsoft Azure Service Fabric.
 author: mikkelhegn
 ms.topic: conceptual
@@ -20,7 +20,7 @@ Service Fabric Explorer (SFX) è uno strumento open source per analizzare e gest
 
 Usare i collegamenti seguenti per scaricare Service Fabric Explorer come applicazione desktop:
 
-- WINDOWS
+- Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -37,7 +37,7 @@ Usare i collegamenti seguenti per scaricare Service Fabric Explorer come applica
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Esecuzione di Service Fabric Explorer dal cluster
 
-Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un Web browser, passare all'endpoint di gestione\/HTTP del cluster da qualsiasi browser, ad esempio https: /clusterFQDN:19080.To launch SFX in a web browser, browse to the cluster's HTTP management endpoint from any browser - for example https: /clusterFQDN:19080.
+Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un Web browser, passare all'endpoint di gestione HTTP del cluster da qualsiasi browser, ad esempio https:\//clusterFQDN: 19080.
 
 Per la configurazione della workstation di sviluppo, è possibile avviare Service Fabric Explorer sul cluster locale passando a https://localhost:19080/Explorer. Vedere l'articolo [Preparare l'ambiente di sviluppo](service-fabric-get-started.md).
 
@@ -47,12 +47,12 @@ Per la configurazione della workstation di sviluppo, è possibile avviare Servic
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Connettersi a un cluster di Service Fabric
-Per connettersi a un cluster di Service Fabric, è necessario specificare l'endpoint di gestione dei cluster (FQDN/IP) e la porta dell'endpoint di gestione HTTP (19080 per impostazione predefinita). Ad esempio\:https //mysfcluster.westus.cloudapp.azure.com:19080. Usare la casella di controllo "Connetti a localhost" per connettersi a un cluster locale sulla propria workstation.
+Per connettersi a un cluster di Service Fabric, è necessario specificare l'endpoint di gestione dei cluster (FQDN/IP) e la porta dell'endpoint di gestione HTTP (19080 per impostazione predefinita). Ad esempio https\://mysfcluster.westus.cloudapp.Azure.com:19080. Usare la casella di controllo "Connetti a localhost" per connettersi a un cluster locale sulla propria workstation.
 
 ### <a name="connect-to-a-secure-cluster"></a>Connettersi a un cluster sicuro
 È possibile controllare l'accesso al cluster di Service Fabric con certificati oppure usando Azure Active Directory (AAD).
 
-Se si tenta di connettersi a un cluster protetto, a seconda della configurazione del cluster verrà richiesto di presentare un certificato client o di accedere utilizzando AAD.
+Se si tenta di connettersi a un cluster sicuro, a seconda della configurazione del cluster sarà necessario presentare un certificato client o accedere con AAD.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Comprendere il layout di Service Fabric Explorer
 È possibile spostarsi all'interno di Service Fabric Explorer seguendo la struttura ad albero a sinistra. Nella radice dell'albero, il dashboard del cluster fornisce una panoramica del cluster, inclusi un riepilogo dell'applicazione e l'integrità del nodo.
@@ -83,7 +83,7 @@ La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determin
 ## <a name="actions"></a>Azioni
 Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, applicazioni e servizi all'interno del cluster.
 
-Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione dalla struttura ad albero a sinistra, quindi scegliere **Azioni** > **Elimina applicazione**.
+Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione dall'albero a sinistra, quindi scegliere **azioni** > **Elimina applicazione**.
 
 ![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]
 
@@ -115,26 +115,26 @@ EventStore è una funzionalità offerta dalla piattaforma che rende disponibili 
 >A partire da Service Fabric versione 6.4. le API di EventStore sono disponibili solo per i cluster Windows eseguiti in Azure. Questa funzionalità sarà presto disponibile anche per Linux e per i cluster autonomi.
 
 ## <a name="image-store-viewer"></a>Visualizzatore archivio immagini
-Visualizzatore archivio immagini è una funzionalità offerta se si utilizza l'archivio immagini nativo che consente di visualizzare il contenuto corrente dell'archivio immagini e ottenere informazioni su file e cartelle, insieme alla rimozione di file/cartelle.
+Image Store Viewer è una funzionalità offerta se si usa archivio immagini nativi che consente di visualizzare il contenuto corrente dell'archivio immagini e ottenere informazioni su file e cartelle, insieme alla rimozione di file/cartelle.
 
 ![Mappa del cluster di Service Fabric Explorer][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
-Service Fabric Explorer offre la possibilità di interfacciarsi con [Backup e ripristino](./service-fabric-reliable-services-backup-restore.md). Per visualizzare le funzionalità di backup e ripristino in SFX, è necessario attivare la modalità avanzata.
+Service Fabric Explorer offre la possibilità di interfacciarsi con il [backup e il ripristino](./service-fabric-reliable-services-backup-restore.md). Per visualizzare le funzionalità di backup e ripristino in SFX, è necessario abilitare la modalità avanzata.
 
-![Attivare la modalità avanzata][0]
+![Abilita modalità avanzata][0]
  
-Sono possibili le seguenti operazioni:
+Sono possibili le operazioni seguenti:
 
 * Creare, modificare ed eliminare un criterio di backup.
-* Abilitare e disabilitare Backup per un'applicazione, un servizio o una partizione.
-* Sospendere e riprendere Backup per un'applicazione, un servizio o una partizione.
+* Abilitare e disabilitare il backup per un'applicazione, un servizio o una partizione.
+* Sospendere e riprendere il backup per un'applicazione, un servizio o una partizione.
 * Attivare e tenere traccia del backup di una partizione.
 * Attivare e tenere traccia del ripristino per una partizione.
 
-Per altre informazioni sul servizio Backup e ripristino, vedere informazioni di [riferimento sull'API REST.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+Per altre informazioni sul servizio di backup e ripristino, vedere le informazioni di [riferimento sull'API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Passaggi successivi
-* [Gestione delle applicazioni Service Fabric in Visual StudioManaging your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Gestione delle applicazioni di Service Fabric in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Distribuzione di un'applicazione di Infrastruttura di servizi mediante PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->

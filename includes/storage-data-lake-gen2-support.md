@@ -16,5 +16,5 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79365364"
 ---
 > [!NOTE]
-> Questa funzionalità non è ancora supportata negli account con uno spazio dei nomi gerarchico (Azure Data Lake Storage Gen2). Per altre informazioni, vedere Funzionalità di archiviazione BLOB disponibili in Archiviazione dati di Azure2.To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features).
+> Questa funzionalità non è ancora supportata negli account che dispongono di uno spazio dei nomi gerarchico (Azure Data Lake Storage Gen2). Per altre informazioni, vedere [funzionalità di archiviazione BLOB disponibili in Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features).
 

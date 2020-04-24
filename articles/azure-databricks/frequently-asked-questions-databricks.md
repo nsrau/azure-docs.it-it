@@ -27,28 +27,28 @@ Sì. È possibile usare Azure Key Vault per archiviare chiavi/segreti da usare c
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>È possibile usare reti virtuali di Azure con Databricks?
 Sì. È possibile usare una rete virtuale di Azure (VNET) con Azure Databricks. Per altre informazioni, vedere [Deploying Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) (Distribuzione di Azure Databricks nella rete virtuale di Azure).
 
-## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Come si accede ad Azure Data Lake Storage da un blocco appunti? 
+## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Ricerca per categorie accedere Azure Data Lake Storage da un notebook? 
 
 A tale scopo, seguire questa procedura:
 1. In Azure Active Directory (Azure AD) eseguire il provisioning di un'entità servizio e registrare la relativa chiave.
-1. Assegnare le autorizzazioni necessarie all'entità servizio in Archiviazione dati.Assign the necessary permissions to the service principal in Data Lake Storage.
-1. Per accedere a un file in Archiviazione data lake, usare le credenziali dell'entità servizio in Notebook.To access a file in Data Lake Storage, use the service principal credentials in Notebook.
+1. Assegnare le autorizzazioni necessarie all'entità servizio in Data Lake Storage.
+1. Per accedere a un file in Data Lake Storage, usare le credenziali dell'entità servizio in notebook.
 
-Per altre informazioni, vedere Usare Azure Data Lake Storage con Azure Databricks.For more information, see [Use Azure Data Lake Storage with Azure Databricks.](/azure/databricks/data/data-sources/azure/azure-datalake)
+Per ulteriori informazioni, vedere [utilizzare Azure Data Lake storage con Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## <a name="fix-common-problems"></a>Risolvere i problemi frequenti
 
 Ecco alcuni problemi che possono verificarsi con Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: questa sottoscrizione non è registrata per utilizzare lo spazio dei nomi 'Microsoft.Databricks'
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: questa sottoscrizione non è registrata per l'uso dello spazio dei nomi ' Microsoft. databricks '
 
 #### <a name="error-message"></a>Messaggio di errore
 
-"Questa sottoscrizione non è registrata per utilizzare lo spazio dei nomi 'Microsoft.Databricks'. Vedere https://aka.ms/rps-not-found per informazioni su come registrare le sottoscrizioni. (codice: MissingSubscriptionRegistration)"
+"Questa sottoscrizione non è registrata per l'uso dello spazio dei nomi ' Microsoft. databricks '. Vedere https://aka.ms/rps-not-found per informazioni su come registrare le sottoscrizioni. (codice: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Soluzione
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Sottoscrizioni**, la sottoscrizione in uso e quindi **Provider di risorse**. 
 1. Nell'elenco di provider di risorse selezionare **Registra** per **Microsoft.Databricks**. Per registrare il provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
 
@@ -67,7 +67,7 @@ Di seguito sono riportate due soluzioni a questo problema:
 
 * Questo errore può verificarsi anche se il nome di dominio di posta elettronica viene assegnato a più directory in Azure AD. Come soluzione alternativa di questo problema, creare un nuovo utente nella directory che contiene la sottoscrizione con l'area di lavoro Databricks.
 
-    a. Nel portale di Azure passare ad Azure AD. Selezionare **Utenti e gruppi** > **Aggiungere un utente**.
+    a. Nel portale di Azure passare ad Azure AD. Selezionare **utenti e gruppi** > **aggiungere un utente**.
 
     b. Aggiungere un utente con indirizzo di posta elettronica `@<tenant_name>.onmicrosoft.com` invece di `@<your_domain>`. È possibile trovare questa opzione in **Domini personalizzati** in Azure AD nel portale di Azure.
     
@@ -88,20 +88,20 @@ Se l'utente non ha creato l'area di lavoro e viene aggiunto come utente, contatt
 
 #### <a name="error-message"></a>Messaggio di errore
 
-"Errore di avvio del provider di servizi cloud: si è verificato un errore del provider di servizi cloud durante la configurazione del cluster. Per altre informazioni, vedere la guida di Databricks. Codice di errore di Azure: PublicIPCountLimitReached. Messaggio di errore di Azure: Impossibile creare più di 10 indirizzi IP pubblici per questa sottoscrizione in questa area."
+"Errore di avvio del provider di servizi cloud: si è verificato un errore del provider di servizi cloud durante la configurazione del cluster. Per altre informazioni, vedere la guida di Databricks. Codice di errore di Azure: PublicIPCountLimitReached. Messaggio di errore di Azure: non è possibile creare più di 10 indirizzi IP pubblici per questa sottoscrizione in questa area. "
 
-#### <a name="background"></a>Background
+#### <a name="background"></a>Informazioni
 
-I cluster Databrick utilizzano un indirizzo IP pubblico per nodo (incluso il nodo driver). Le sottoscrizioni di Azure hanno [limiti di indirizzi IP pubblici](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) per ogni area. Di conseguenza, le operazioni di creazione e scalabilità verticale del cluster potrebbero non riuscire se il numero di indirizzi IP pubblici allocati a tale sottoscrizione in tale area superi il limite. Questo limite include anche gli indirizzi IP pubblici allocati per l'utilizzo non Databrick, ad esempio macchine virtuali personalizzate definite dall'utente.
+I cluster databricks usano un indirizzo IP pubblico per nodo, incluso il nodo driver. Le sottoscrizioni di Azure hanno [limiti di indirizzi IP pubblici](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) per area. Pertanto, le operazioni di creazione e scalabilità verticale del cluster possono avere esito negativo se causano il superamento del numero di indirizzi IP pubblici allocati a tale sottoscrizione in tale area. Questo limite include anche indirizzi IP pubblici allocati per l'utilizzo non databricks, ad esempio macchine virtuali personalizzate definite dall'utente.
 
-In generale, i cluster utilizzano solo indirizzi IP pubblici mentre sono attivi. Tuttavia, `PublicIPCountLimitReached` gli errori possono continuare a verificarsi per un breve periodo di tempo anche dopo la chiusura di altri cluster. Ciò è dovuto al fatto che Databricks memorizza temporaneamente nella cache le risorse di Azure quando un cluster viene terminato. La memorizzazione nella cache delle risorse è in base alla progettazione, poiché riduce significativamente la latenza di avvio e scalabilità automatica del cluster in molti scenari comuni.
+In generale, i cluster utilizzano solo indirizzi IP pubblici mentre sono attivi. Tuttavia, `PublicIPCountLimitReached` gli errori possono continuare a verificarsi per un breve periodo di tempo anche dopo che altri cluster sono stati terminati. Questo perché databricks memorizza temporaneamente nella cache le risorse di Azure quando viene terminato un cluster. La memorizzazione nella cache delle risorse è basata sulla progettazione, poiché riduce significativamente la latenza di avvio e scalabilità automatica del cluster in molti scenari comuni.
 
 #### <a name="solution"></a>Soluzione
 
-Se la sottoscrizione ha già raggiunto il limite di indirizzi IP pubblici per una determinata area, è necessario eseguire l'una o l'altra delle operazioni seguenti.
+Se la sottoscrizione ha già raggiunto il limite di indirizzi IP pubblici per una determinata area, è necessario eseguire una delle operazioni seguenti.
 
-- Creare nuovi cluster in un'area di lavoro Databricks diversa. L'altra area di lavoro deve trovarsi in un'area in cui non è stato raggiunto il limite di indirizzi IP pubblici della sottoscrizione.
-- [Richiesta di aumentare il limite di indirizzi IP pubblici](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Scegliere **Quota** come **Tipo di problema** e **Rete: ARM** come **Tipo di quota**. In **Dettagli**, richiedere un aumento della quota dell'indirizzo IP pubblico. Se ad esempio il limite corrente è 60 e si vuole creare un cluster a 100 nodi, richiedere l'aumento del limite a 160.
+- Creare nuovi cluster in un'area di lavoro di databricks diversa. L'altra area di lavoro deve trovarsi in un'area in cui non è stato raggiunto il limite di indirizzi IP pubblici della sottoscrizione.
+- [Richiedere l'aumento del limite di indirizzi IP pubblici](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Scegliere **Quota** come **Tipo di problema** e **Rete: ARM** come **Tipo di quota**. In **Dettagli**, richiedere un aumento della quota dell'indirizzo IP pubblico. Se ad esempio il limite corrente è 60 e si vuole creare un cluster a 100 nodi, richiedere l'aumento del limite a 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: un secondo tipo di errore di avvio del provider dei servizi cloud durante la configurazione del cluster (MissingSubscriptionRegistration)
 
@@ -112,7 +112,7 @@ Codice di errore di Azure: messaggio di errore di MissingSubscriptionRegistratio
 
 #### <a name="solution"></a>Soluzione
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare **Sottoscrizioni**, la sottoscrizione in uso e quindi **Provider di risorse**. 
 1. Nell'elenco di provider di risorse selezionare **Registra** per **Microsoft.Compute**. Per registrare il provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
 
@@ -120,7 +120,7 @@ Per istruzioni più dettagliate, vedere [Provider e tipi di risorse](../azure-re
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problema: per accedere alle risorse dell'organizzazione, Azure Databricks necessita di autorizzazioni che solo un amministratore può concedere.
 
-#### <a name="background"></a>Background
+#### <a name="background"></a>Informazioni
 
 Azure Databricks è integrato con Azure Active Directory. È possibile impostare le autorizzazioni in Azure Databricks (ad esempio, per notebook o cluster) specificando gli utenti da Azure AD. Per elencare i nomi degli utenti da Azure AD, Azure Databricks richiede il consenso e l'autorizzazione di lettura per tali informazioni. Se il consenso non è ancora disponibile, viene visualizzato l'errore.
 
@@ -131,4 +131,4 @@ Accedere come amministratore globale al portale di Azure. Per Azure Active Direc
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Guida introduttiva: Introduzione ad Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-- [Che cos'è Azure Databricks?](what-is-azure-databricks.md)
+- [Informazioni su Azure Databricks](what-is-azure-databricks.md)

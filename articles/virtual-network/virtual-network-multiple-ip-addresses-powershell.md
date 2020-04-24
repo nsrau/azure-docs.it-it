@@ -1,6 +1,6 @@
 ---
 title: Più indirizzi IP per le macchine virtuali di Azure - PowerShell | Documentazione Microsoft
-description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando PowerShell.Learn how to assign multiple IP addresses to a virtual machine using PowerShell. | Gestione risorse
+description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale tramite PowerShell. | Gestione risorse
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -95,9 +95,9 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
     -SecurityRules $NSGRule
     ```
 
-6. Definire la configurazione IP primaria della scheda di interfaccia di rete. Modificare 10.0.0.4 in un indirizzo valido nella subnet creata, se il valore definito in precedenza non è stato usato. Prima di assegnare un indirizzo IP statico, è consigliabile verificare che non sia già in uso. Immettere il comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se l'indirizzo è disponibile, l'output restituisce *True*. Se non è disponibile, l'output restituisce *False* e un elenco di indirizzi disponibili. 
+6. Definire la configurazione IP primaria della scheda di interfaccia di rete. Modificare 10.0.0.4 in un indirizzo valido nella subnet creata, se il valore definito in precedenza non è stato usato. Prima di assegnare un indirizzo IP statico, è consigliabile verificare che non sia già in uso. Immettere il comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se l'indirizzo è disponibile, l'output restituisce *True*. Se non è disponibile, l'output restituisce *false* e un elenco di indirizzi disponibili. 
 
-    Nei comandi seguenti sostituire ** \<replace-with-your-unique-name> con il nome DNS univoco da utilizzare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo parametro è facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
+    Nei comandi seguenti **sostituire \<Sostituisci con il nome univoco> con il nome DNS univoco da usare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo parametro è facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
 
     ```powershell
     
@@ -162,7 +162,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
    ```
 
    >[!NOTE]
-   >Anche se in questo articolo tutte le configurazioni vengono assegnate a una sola scheda di interfaccia di rete, è possibile assegnare più configurazioni IP a ogni scheda di interfaccia di rete collegata alla macchina virtuale. Per informazioni su come creare una macchina virtuale con più schede di interfaccia di rete, leggere l'articolo Creare una macchina virtuale con più schede di interfaccia di [rete.](../virtual-machines/windows/multiple-nics.md)
+   >Anche se in questo articolo tutte le configurazioni vengono assegnate a una sola scheda di interfaccia di rete, è possibile assegnare più configurazioni IP a ogni scheda di interfaccia di rete collegata alla macchina virtuale. Per informazioni su come creare una VM con più schede di rete, vedere l'articolo [creare una VM con più schede](../virtual-machines/windows/multiple-nics.md) di rete.
 
 9. Creare la macchina virtuale immettendo i comandi seguenti:
 

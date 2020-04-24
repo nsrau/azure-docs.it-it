@@ -23,7 +23,7 @@ ms.locfileid: "79266169"
 
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>Politiche avanzate
+## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>Criteri avanzati
 
 -   [Controlla flusso](api-management-advanced-policies.md#choose): applica in modo condizionale le istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni](api-management-policy-expressions.md) booleane.
 -   [Inoltra richiesta](#ForwardRequest) : inoltra la richiesta al servizio back-end.
@@ -38,8 +38,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   [Imposta metodo di richiesta](#SetRequestMethod) : consente di modificare il metodo HTTP per una richiesta.
 -   [Imposta codice di stato](#SetStatus): modifica il codice di stato HTTP per il valore specificato.
 -   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) denominata e consente di accedervi in un momento successivo.
--   [Traccia:](#Trace) aggiunge tracce personalizzate nell'output di [Controllo API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) nelle telemetrie di Application Insights e nei log di diagnostica.
--   [Attendi:](#Wait) attende il completamento dei criteri [Invia richiesta,](api-management-advanced-policies.md#SendRequest) [Ottieni valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey)o Flusso di [controllo](api-management-advanced-policies.md#choose) prima di procedere.
+-   [Trace](#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrie e log di diagnostica.
+-   [Wait](#Wait) : attende il completamento dei criteri di [invio della richiesta](api-management-advanced-policies.md#SendRequest), [del valore della cache o del](api-management-caching-policies.md#GetFromCacheByKey)flusso di [controllo](api-management-advanced-policies.md#choose) prima di procedere.
 
 ## <a name="control-flow"></a><a name="choose"></a>Flusso di controllo
 
@@ -106,7 +106,7 @@ Il secondo criterio di flusso di controllo si trova nella sezione in uscita e ap
 
 #### <a name="example"></a>Esempio
 
-Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovendo elementi di dati dalla risposta ricevuta dal servizio back-end quando si usa il prodotto `Starter`. Per una dimostrazione relativa alla configurazione e all'uso di questo criterio, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 34:30. Inizia alle 31:50 per vedere una panoramica [dell'API Dark Sky Forecast](https://developer.forecast.io/) usata per questa demo.
+Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovendo elementi di dati dalla risposta ricevuta dal servizio back-end quando si usa il prodotto `Starter`. Per una dimostrazione relativa alla configurazione e all'uso di questo criterio, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 34:30. Iniziare da 31:50 per visualizzare una panoramica dell' [API per le previsioni del cielo scuro](https://developer.forecast.io/) usate per questa demo.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -126,15 +126,15 @@ Questo esempio mostra come eseguire operazioni di filtro sui contenuti rimuovend
 
 ### <a name="elements"></a>Elementi
 
-| Elemento   | Descrizione                                                                                                                                                                                                                                                               | Obbligatoria |
+| Elemento   | Descrizione                                                                                                                                                                                                                                                               | Obbligatorio |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | choose    | Elemento radice.                                                                                                                                                                                                                                                             | Sì      |
 | when      | La condizione da usare per le parti `if` o `ifelse` del criterio `choose`. Se il criterio `choose` ha più sezioni `when`, vengono valutate in modo sequenziale. Una volta che la `condition` di un elemento when risulta `true`, non vengono valutate altre condizioni `when`. | Sì      |
 | otherwise | Contiene il frammento di criterio da usare se nessuna delle condizioni `when` viene valutata `true`.                                                                                                                                                                               | No       |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo                                              | Descrizione                                                                                               | Obbligatoria |
+| Attributo                                              | Descrizione                                                                                               | Obbligatorio |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Boolean expression &#124; Boolean constant" | La costante o espressione booleana da valutare quando viene valutata l'istruzione del criterio contenente `when`. | Sì      |
 
@@ -146,9 +146,9 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="forward-request"></a><a name="ForwardRequest"></a>Inoltra richiesta
+## <a name="forward-request"></a><a name="ForwardRequest"></a>Invia richiesta
 
-Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-end specificato nel [contesto](api-management-policy-expressions.md#ContextVariables) della richiesta. L'URL del servizio back-end viene specificato nelle [impostazioni](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) dell'API e può essere modificato usando il criterio del [servizio back-end di impostazione.](api-management-transformation-policies.md)
+Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-end specificato nel [contesto](api-management-policy-expressions.md#ContextVariables) della richiesta. L'URL del servizio back-end viene specificato nelle [Impostazioni](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) dell'API e può essere modificato usando i criteri di [impostazione del servizio back-end](api-management-transformation-policies.md) .
 
 > [!NOTE]
 > Se questo criterio viene rimosso, la richiesta non viene inoltrata al servizio back-end e i criteri nella sezione in uscita vengono valutati immediatamente dopo il completamento dei criteri nella sezione in ingresso.
@@ -163,7 +163,7 @@ Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-
 
 #### <a name="example"></a>Esempio
 
-Il criterio a livello di API seguente inoltra tutte le richieste API al servizio back-end con un intervallo di timeout di 60 secondi.
+Il criterio a livello API seguente invia tutte le richieste API al servizio back-end con un intervallo di timeout di 60 secondi.
 
 ```xml
 <!-- api level -->
@@ -203,7 +203,7 @@ Questo criterio a livello di operazione usa l'elemento `base` per ereditare il c
 
 #### <a name="example"></a>Esempio
 
-Questo criterio a livello di operazione inoltra in modo esplicito tutte le richieste al servizio back-end con un timeout di 120 e non eredita il criterio di back-end a livello API padre. Se il servizio back-end risponde con un codice di stato di errore compreso tra 400 e 599 inclusi, verrà attivata la sezione relativa [all'errore.](api-management-error-handling-policies.md)
+Questo criterio a livello di operazione inoltra in modo esplicito tutte le richieste al servizio back-end con un timeout di 120 e non eredita il criterio di back-end a livello API padre. Se il servizio back-end risponde con un codice di stato di errore compreso tra 400 e 599, la sezione [On-Error](api-management-error-handling-policies.md) verrà attivata.
 
 ```xml
 <!-- operation level -->
@@ -244,18 +244,18 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 
 ### <a name="elements"></a>Elementi
 
-| Elemento         | Descrizione   | Obbligatoria |
+| Elemento         | Descrizione   | Obbligatorio |
 | --------------- | ------------- | -------- |
 | forward-request | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo                                     | Descrizione                                                                                                                                                                                                                                                                                                    | Obbligatoria | Predefinito |
+| Attributo                                     | Descrizione                                                                                                                                                                                                                                                                                                    | Obbligatorio | Impostazione predefinita |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | Periodo di tempo in secondi di attesa per la restituzione delle intestazioni di risposta HTTP da parte del servizio back-end prima che venga generato un errore di timeout. Il valore minimo è 0 secondi. I valori maggiori di 240 secondi potrebbero non essere rispettati poiché l'infrastruttura di rete sottostante può rilasciare le connessioni inattive dopo questo periodo di tempo. | No       | nessuno    |
-| follow-redirects: "false &#124; vero"          | Specifica se i reindirizzamenti dal servizio back-end sono seguiti dal gateway o restituiti al chiamante.                                                                                                                                                                                                    | No       | false   |
-| buffer-request-body: "false &#124; vero"       | Se impostato su "true" richiesta viene memorizzata nel buffer e verrà riutilizzata in [caso di nuovo.](api-management-advanced-policies.md#Retry)                                                                                                                                                                                               | No       | false   |
-| fail-on-error-status-code "false &#124; vero" | Se impostato su true triggers [on-error](api-management-error-handling-policies.md) sezione per i codici di risposta nell'intervallo da 400 a 599 inclusi.                                                                                                                                                                      | No       | false   |
+| timeout="integer"                             | Quantità di tempo in secondi di attesa per la restituzione delle intestazioni di risposta HTTP da parte del servizio back-end prima che venga generato un errore di timeout. Il valore minimo è 0 secondi. I valori maggiori di 240 secondi potrebbero non essere rispettati perché l'infrastruttura di rete sottostante può rilasciare le connessioni inattive dopo questo periodo di tempo. | No       | nessuno    |
+| follow-redirects = "false &#124; true"          | Specifica se i reindirizzamenti dal servizio back-end sono seguiti dal gateway o restituiti al chiamante.                                                                                                                                                                                                    | No       | false   |
+| buffer-request-body = "false &#124; true"       | Se impostata su "true", la richiesta viene memorizzata nel buffer e verrà riutilizzata al [nuovo tentativo](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| Fail-on-Error-Status-Code = "false &#124; true" | Quando è impostato su true [, la sezione On-Error](api-management-error-handling-policies.md) per i codici di risposta nell'intervallo compreso tra 400 e 599 inclusi.                                                                                                                                                                      | No       | false   |
 
 ### <a name="usage"></a>Uso
 
@@ -296,13 +296,13 @@ Nell'esempio seguente viene illustrato come limitare il numero di richieste inol
 
 ### <a name="elements"></a>Elementi
 
-| Elemento           | Descrizione   | Obbligatoria |
+| Elemento           | Descrizione   | Obbligatorio |
 | ----------------- | ------------- | -------- |
 | limita concorrenza | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo | Descrizione                                                                                        | Obbligatoria | Predefinito |
+| Attributo | Descrizione                                                                                        | Obbligatorio | Impostazione predefinita |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Key       | Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri. | Sì      | N/D     |
 | numero max | Valore intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.           | Sì      | N/D     |
@@ -333,7 +333,7 @@ Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub ev
 
 ### <a name="example"></a>Esempio
 
-È possibile usare qualsiasi stringa come valore da registrare in Hub eventi. In questo esempio la data e l'ora, il nome del servizio di distribuzione, l'ID richiesta, `contoso-logger` l'indirizzo IP e il nome dell'operazione per tutte le chiamate in ingresso vengono registrati nell'hub eventi Logger registrato con l'ID
+È possibile usare qualsiasi stringa come valore da registrare in Hub eventi. In questo esempio la data e l'ora, il nome del servizio di distribuzione, l'ID richiesta, l'indirizzo IP e il nome dell'operazione per tutte le chiamate in ingresso vengono registrati `contoso-logger` nel logger dell'hub eventi registrato con l'ID
 
 ```xml
 <policies>
@@ -349,17 +349,17 @@ Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub ev
 
 ### <a name="elements"></a>Elementi
 
-| Elemento         | Descrizione                                                                     | Obbligatoria |
+| Elemento         | Descrizione                                                                     | Obbligatorio |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Elemento radice. Il valore di questo elemento è la stringa per la registrazione all'hub eventi. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo     | Descrizione                                                               | Obbligatoria                                                             |
+| Attributo     | Descrizione                                                               | Obbligatorio                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | ID del logger registrato con il servizio Gestione API.         | Sì                                                                  |
-| partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | Facoltativa. Questo attributo non può essere usato se si usa `partition-key`. |
-| partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | Facoltativa. Questo attributo non può essere usato se si usa `partition-id`.  |
+| logger-id     | ID del logger registrato con il servizio gestione API.         | Sì                                                                  |
+| partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | Facoltativo. Questo attributo non può essere usato se si usa `partition-key`. |
+| partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | Facoltativo. Questo attributo non può essere usato se si usa `partition-id`.  |
 
 ### <a name="usage"></a>Uso
 
@@ -394,13 +394,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementi
 
-| Elemento       | Descrizione   | Obbligatoria |
+| Elemento       | Descrizione   | Obbligatorio |
 | ------------- | ------------- | -------- |
 | mock-response | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo    | Descrizione                                                                                           | Obbligatoria | Predefinito |
+| Attributo    | Descrizione                                                                                           | Obbligatorio | Impostazione predefinita |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | status-code  | Specifica il codice di stato della risposta e viene usato per selezionare l'esempio o lo schema corrispondente.                 | No       | 200     |
 | content-type | Specifica il valore di intestazione della risposta `Content-Type` e viene usato per selezionare l'esempio o lo schema corrispondente. | No       | nessuno    |
@@ -413,9 +413,9 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="retry"></a><a name="Retry"></a>Riprova
+## <a name="retry"></a><a name="Retry"></a>Tentativi
 
-Il `retry` criterio esegue i criteri figlio una sola volta `condition` e `false` quindi `count` tenta nuovamente l'esecuzione fino a quando il nuovo tentativo non diventa o ritenta non viene esaurito.
+Il `retry` criterio esegue i criteri figlio una sola volta e quindi ne tenta l'esecuzione fino `condition` a `false` quando il `count` nuovo tentativo non diventa o si esaurisce.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -453,20 +453,20 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 
 ### <a name="elements"></a>Elementi
 
-| Elemento | Descrizione                                                         | Obbligatoria |
+| Elemento | Descrizione                                                         | Obbligatorio |
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Elemento radice. Può contenere tutti gli altri criteri come elementi figlio. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo        | Descrizione                                                                                                                                           | Obbligatoria | Predefinito |
+| Attributo        | Descrizione                                                                                                                                           | Obbligatorio | Impostazione predefinita |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condizione        | Valore letterale booleano o [espressione](api-management-policy-expressions.md) che specifica se i tentativi devono essere interrotti (`false`) o devono continuare (`true`).      | Sì      | N/D     |
 | count            | Numero positivo che specifica il numero massimo di tentativi da eseguire.                                                                                | Sì      | N/D     |
 | interval         | Numero positivo in secondi che specifica l'intervallo di attesa tra i tentativi di ripetizione.                                                                 | Sì      | N/D     |
 | max-interval     | Un numero positivo che specifica l'intervallo di attesa massimo tra i tentativi di ripetizione. Viene usato per implementare un algoritmo di ripetizione esponenziale. | No       | N/D     |
 | delta            | Numero positivo in secondi che specifica l'incremento dell'intervallo di attesa. Viene usato per implementare gli algoritmi di ripetizione lineari ed esponenziali.             | No       | N/D     |
-| first-fast-retry | Se impostato `true` su , il primo tentativo viene eseguito immediatamente.                                                                                  | No       | `false` |
+| first-fast-retry | Se impostato su `true` , il primo tentativo viene eseguito immediatamente.                                                                                  | No       | `false` |
 
 > [!NOTE]
 > Se è specificato solo `interval`, vengono eseguiti tentativi a intervallo **fisso**.
@@ -510,18 +510,18 @@ Il criterio `return-response` interrompe l'esecuzione della pipeline e restituis
 
 ### <a name="elements"></a>Elementi
 
-| Elemento         | Descrizione                                                                               | Obbligatoria |
+| Elemento         | Descrizione                                                                               | Obbligatorio |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | return-response | Elemento radice.                                                                             | Sì      |
 | set-header      | Istruzione del criterio.[set-header](api-management-transformation-policies.md#SetHTTPheader). | No       |
 | set-body        | Istruzione del criterio.[set-body](api-management-transformation-policies.md#SetBody).         | No       |
 | set-status      | Istruzione del criterio [set-status](api-management-advanced-policies.md#SetStatus).           | No       |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo              | Descrizione                                                                                                                                                                          | Obbligatoria  |
+| Attributo              | Descrizione                                                                                                                                                                          | Obbligatorio  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | Facoltativa. |
+| response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | Facoltativo. |
 
 ### <a name="usage"></a>Uso
 
@@ -580,7 +580,7 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 
 ### <a name="elements"></a>Elementi
 
-| Elemento                    | Descrizione                                                                                                 | Obbligatoria                        |
+| Elemento                    | Descrizione                                                                                                 | Obbligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento radice.                                                                                               | Sì                             |
 | url                        | URL della richiesta.                                                                                     | No if mode=copy; otherwise yes. |
@@ -589,13 +589,13 @@ Questo criterio di esempio illustra come usare il criterio `send-one-way-request
 | Corpo                       | Corpo della richiesta.                                                                                           | No                              |
 | authentication-certificate | [Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo     | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito  |
+| Attributo     | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Impostazione predefinita  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuovo      |
+| mode="string" | Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuova      |
 | name          | Specifica il nome dell'intestazione da impostare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sì      | N/D      |
-| exists-action | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> - override - sostituisce il valore dell'intestazione esistente.<br />- skip - non sostituisce il valore dell'intestazione esistente.<br />- append - aggiunge il valore al valore di intestazione esistente.<br />- delete - rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
+| exists-action | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -override-sostituisce il valore dell'intestazione esistente.<br />-Skip-non sostituisce il valore dell'intestazione esistente.<br />-Append-aggiunge il valore al valore dell'intestazione esistente.<br />-Delete: rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
 
 ### <a name="usage"></a>Uso
 
@@ -664,7 +664,7 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 
 ### <a name="elements"></a>Elementi
 
-| Elemento                    | Descrizione                                                                                                 | Obbligatoria                        |
+| Elemento                    | Descrizione                                                                                                 | Obbligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento radice.                                                                                               | Sì                             |
 | url                        | URL della richiesta.                                                                                     | No if mode=copy; otherwise yes. |
@@ -673,16 +673,16 @@ Questo esempio mostra un metodo per verificare un token di riferimento con un se
 | Corpo                       | Corpo della richiesta.                                                                                           | No                              |
 | authentication-certificate | [Certificato da usare per l'autenticazione client](api-management-authentication-policies.md#ClientCertificate) | No                              |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo                       | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito  |
+| Attributo                       | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obbligatorio | Impostazione predefinita  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuovo      |
-| response-variable-name="string" | Il nome della variabile di contesto che riceverà un oggetto risposta. Se la variabile non esiste, verrà creata al termine dell'esecuzione [`context.Variable`](api-management-policy-expressions.md#ContextVariables) del criterio e diventerà accessibile tramite raccolta.                                                                                                                                                                                                                                                                                                                          | Sì      | N/D      |
+| mode="string"                   | Determina se questa è una nuova richiesta o una copia della richiesta corrente. In modalità in uscita, mode=copy non avvia il corpo della richiesta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuova      |
+| response-variable-name="string" | Il nome della variabile di contesto che riceverà un oggetto risposta. Se la variabile non esiste, verrà creata al completamento dell'esecuzione del criterio e diventerà accessibile tramite [`context.Variable`](api-management-policy-expressions.md#ContextVariables) la raccolta.                                                                                                                                                                                                                                                                                                                          | Sì      | N/D      |
 | timeout="integer"               | Intervallo di timeout in secondi prima che la chiamata all'URL abbia esito negativo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
-| ignore-error                    | Se impostato su true e la richiesta restituisce un errore:<br /><br /> - Se è stato specificato response-variable-name, conterrà un valore null.- If response-variable-name was specified it will contain a null value.<br />- Se response-variable-name non è stato specificato, context.- If response-variable-name was not specified, context. La richiesta non verrà aggiornata.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
+| ignore-error                    | Se impostato su true e la richiesta restituisce un errore:<br /><br /> -Se è stato specificato Response-variable-name, questo conterrà un valore null.<br />-Se Response-variable-name non è stato specificato, context. La richiesta non verrà aggiornata.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
 | name                            | Specifica il nome dell'intestazione da impostare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sì      | N/D      |
-| exists-action                   | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> - override - sostituisce il valore dell'intestazione esistente.<br />- skip - non sostituisce il valore dell'intestazione esistente.<br />- append - aggiunge il valore al valore di intestazione esistente.<br />- delete - rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
+| exists-action                   | Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -override-sostituisce il valore dell'intestazione esistente.<br />-Skip-non sostituisce il valore dell'intestazione esistente.<br />-Append-aggiunge il valore al valore dell'intestazione esistente.<br />-Delete: rimuove l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati. | No       | override |
 
 ### <a name="usage"></a>Uso
 
@@ -714,13 +714,13 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
 
 ### <a name="elements"></a>Elementi
 
-| Elemento | Descrizione  | Obbligatoria |
+| Elemento | Descrizione  | Obbligatorio |
 | ------- | ------------ | -------- |
 | proxy   | Elemento radice | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo         | Descrizione                                            | Obbligatoria | Predefinito |
+| Attributo         | Descrizione                                            | Obbligatorio | Impostazione predefinita |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | url="string"      | URL del proxy nel formato http://host:port.             | Sì      | N/D     |
 | username="string" | Nome utente da usare per l'autenticazione con il proxy. | No       | N/D     |
@@ -777,7 +777,7 @@ Questo criterio di esempio che usa il criterio `set-method` mostra un esempio di
 
 ### <a name="elements"></a>Elementi
 
-| Elemento    | Descrizione                                                       | Obbligatoria |
+| Elemento    | Descrizione                                                       | Obbligatorio |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-method | Elemento radice. Il valore dell'elemento specifica il metodo HTTP. | Sì      |
 
@@ -820,13 +820,13 @@ Questo esempio illustra come restituire una risposta 401 se il token di autorizz
 
 ### <a name="elements"></a>Elementi
 
-| Elemento    | Descrizione   | Obbligatoria |
+| Elemento    | Descrizione   | Obbligatorio |
 | ---------- | ------------- | -------- |
 | set-status | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo       | Descrizione                                                | Obbligatoria | Predefinito |
+| Attributo       | Descrizione                                                | Obbligatorio | Impostazione predefinita |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | code="integer"  | Il codice di stato HTTP da restituire.                            | Sì      | N/D     |
 | reason="string" | Descrizione del motivo per la restituzione del codice di stato. | Sì      | N/D     |
@@ -858,13 +858,13 @@ L'esempio seguente illustra un criterio di impostazione della variabile nella se
 
 ### <a name="elements"></a>Elementi
 
-| Elemento      | Descrizione   | Obbligatoria |
+| Elemento      | Descrizione   | Obbligatorio |
 | ------------ | ------------- | -------- |
 | set-variable | Elemento radice. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo | Descrizione                                                              | Obbligatoria |
+| Attributo | Descrizione                                                              | Obbligatorio |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nome della variabile.                                                | Sì      |
 | value     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
@@ -914,11 +914,11 @@ Le espressioni usate nel criterio `set-variable` devono restituire uno dei segue
 
 ## <a name="trace"></a><a name="Trace"></a>Traccia
 
-Il `trace` criterio aggiunge una traccia personalizzata nell'output di Controllo API, nelle telemetrie di Application Insights e/o nei log di diagnostica.
+Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo API, Application Insights telemetria e/o nei log di diagnostica.
 
--   Il criterio aggiunge una traccia personalizzata all'output di [Controllo](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) `Ocp-Apim-Trace` API quando viene attivata `Ocp-Apim-Subscription-Key` la traccia, ovvero l'intestazione della richiesta è presente e impostata su true e l'intestazione della richiesta è presente e contiene una chiave valida che consente la traccia.
--   I criteri creano dati di telemetria di [traccia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) in `severity` Application Insights, quando l'integrazione di [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) è abilitata e il livello specificato nei criteri è pari o superiore al `verbosity` livello specificato nell'impostazione di diagnostica.
--   Il criterio aggiunge una proprietà nella voce del log quando [i log di diagnostica](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sono abilitati e il livello di gravità specificato nel criterio è pari o superiore al livello di dettaglio specificato nell'impostazione di diagnostica.
+-   Il criterio aggiunge una traccia personalizzata all'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quando viene attivata la traccia, ad esempio `Ocp-Apim-Trace` l'intestazione della richiesta è presente e impostata su `Ocp-Apim-Subscription-Key` true e l'intestazione della richiesta è presente e include una chiave valida che consente la traccia.
+-   Il criterio crea una telemetria di [traccia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) in Application Insights, quando è abilitata l' `severity` integrazione con [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) e il livello specificato nei criteri è maggiore `verbosity` o pari al livello specificato nell'impostazione di diagnostica.
+-   I criteri aggiungono una proprietà nella voce di log quando i [log di diagnostica](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sono abilitati e il livello di gravità specificato nei criteri è maggiore o uguale al livello di dettaglio specificato nell'impostazione di diagnostica.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -942,18 +942,18 @@ Il `trace` criterio aggiunge una traccia personalizzata nell'output di Controllo
 
 ### <a name="elements"></a>Elementi
 
-| Elemento  | Descrizione                                                                                                                                          | Obbligatoria |
+| Elemento  | Descrizione                                                                                                                                          | Obbligatorio |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | traccia    | Elemento radice.                                                                                                                                        | Sì      |
 | message  | Stringa o espressione da registrare.                                                                                                                 | Sì      |
-| metadata | Aggiunge una proprietà personalizzata ai dati di telemetria di traccia di Application Insights.Adds a custom property to the Application Insights [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) telemetry. | No       |
+| metadata | Aggiunge una proprietà personalizzata alla telemetria della [traccia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | No       |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo | Descrizione                                                                                                               | Obbligatoria | Predefinito |
+| Attributo | Descrizione                                                                                                               | Obbligatorio | Impostazione predefinita |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.                                   | Sì      | N/D     |
-| severity  | Specifica il livello di gravità della traccia. I valori `verbose` `information`consentiti sono , , `error` (dal più basso al più alto). | No       | Dettagliato |
+| severity  | Specifica il livello di gravità della traccia. I valori consentiti sono `verbose`, `information`, `error` (dal più basso al più alto). | No       | Dettagliato |
 | name      | Nome della proprietà.                                                                                                     | Sì      | N/D     |
 | value     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
 
@@ -965,7 +965,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="wait"></a><a name="Wait"></a>Aspettare
+## <a name="wait"></a><a name="Wait"></a>Attendere
 
 Il criterio `wait` esegue i criteri figlio immediati in parallelo e attende che tutti o uno dei relativi criteri figlio immediati vengano completati prima di terminare la sua attività. I criteri di attesa possono avere come criteri figlio immediati i criteri [Invio della richiesta](api-management-advanced-policies.md#SendRequest), [Recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) e [Flusso di controllo](api-management-advanced-policies.md#choose).
 
@@ -1017,15 +1017,15 @@ L'esempio seguente contiene due criteri `choose` come criteri figlio immediato d
 
 ### <a name="elements"></a>Elementi
 
-| Elemento | Descrizione                                                                                                   | Obbligatoria |
+| Elemento | Descrizione                                                                                                   | Obbligatorio |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | wait    | Elemento radice. Può contenere come elementi figlio solo i criteri `send-request`, `cache-lookup-value` e `choose`. | Sì      |
 
-### <a name="attributes"></a>Attributi
+### <a name="attributes"></a>Attributes
 
-| Attributo | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatoria | Predefinito |
+| Attributo | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                            | Obbligatorio | Impostazione predefinita |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> - `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />- any - attendere il completamento di qualsiasi criterio figlio immediato. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata. | No       | all     |
+| for       | Determina se il criterio `wait` attende il completamento di tutti o solo uno dei criteri figlio immediati. I valori consentiti sono i seguenti:<br /><br /> - `all`: consente di attendere il completamento di tutti i criteri figlio immediati<br />-any-attendi il completamento di qualsiasi criterio figlio immediato. Dopo il completamento del primo criterio figlio immediato, il criterio `wait` si completa e l'esecuzione di qualsiasi altro criterio figlio immediato viene arrestata. | No       | all     |
 
 ### <a name="usage"></a>Uso
 

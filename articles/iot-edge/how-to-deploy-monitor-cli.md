@@ -1,5 +1,5 @@
 ---
-title: Distribuire moduli su larga scala usando l'interfaccia della riga di comando di Azure - Azure IoT EdgeDeploy modules at scale using Azure CLI - Azure IoT Edge
+title: Distribuire moduli su larga scala usando l'interfaccia della riga di comando di Azure-Azure IoT Edge
 description: Usare l'estensione IoT dell'interfaccia della riga di comando di Azure per creare distribuzioni automatiche per i gruppi di dispositivi IoT Edge
 keywords: ''
 author: kgremban
@@ -18,24 +18,24 @@ ms.locfileid: "79271473"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
-Creare una **distribuzione automatica di IoT Edge** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per molti dispositivi contemporaneamente. Le distribuzioni automatiche per IoT Edge fanno parte della funzionalità di gestione automatica dei dispositivi dell'hub IoT.Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, tenere traccia dello stato e dell'integrità dei moduli e apportare modifiche quando necessario.
+Creare una **IOT Edge distribuzione automatica** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per molti dispositivi contemporaneamente. Le distribuzioni automatiche per IoT Edge fanno parte della funzionalità di [gestione automatica dei dispositivi](/azure/iot-hub/iot-hub-automatic-device-management) dell'hub Internet. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli a più dispositivi, tenere traccia dello stato e dell'integrità dei moduli e apportare modifiche quando necessario.
 
-Per ulteriori informazioni, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
+Per altre informazioni, vedere [comprendere IOT Edge distribuzioni automatiche per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
 
-In questo articolo vengono configurate l'interfaccia della riga di comando di Azure e l'estensione IoT. Si apprenderà quindi come distribuire i moduli in un set di dispositivi IoT Edge e monitorare lo stato di avanzamento utilizzando i comandi dell'interfaccia della riga di comando disponibili.
+In questo articolo vengono configurate l'interfaccia della riga di comando di Azure e l'estensione IoT. Si apprenderà quindi come distribuire i moduli in un set di dispositivi IoT Edge e monitorare lo stato di avanzamento usando i comandi dell'interfaccia della riga di comando disponibili.
 
 ## <a name="cli-prerequisites"></a>Prerequisiti dell'interfaccia della riga di comando
 
-* Un hub IoT nella sottoscrizione di Azure.An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
+* Un [Hub](../iot-hub/iot-hub-create-using-cli.md) Internet delle cose nella sottoscrizione di Azure.
 * [Dispositivi IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) con il runtime IoT Edge installato.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o superiore. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
-* [L'estensione IoT per l'interfaccia della riga di comando](https://github.com/Azure/azure-iot-cli-extension)di Azure.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* Estensione Internet per l'interfaccia della riga [di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per ulteriori informazioni, consultate [Informazioni su come distribuire moduli e stabilire percorsi in IoT Edge.](module-composition.md)
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per ulteriori informazioni, vedere informazioni [su come distribuire moduli e definire route in IOT Edge](module-composition.md).
 
-Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure, salvare il manifesto della distribuzione a livello locale come file con estensione txt. Utilizzare il percorso del file nella sezione successiva quando si esegue il comando per applicare la configurazione al dispositivo.
+Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure, salvare il manifesto della distribuzione a livello locale come file con estensione txt. Usare il percorso del file nella sezione successiva quando si esegue il comando per applicare la configurazione al dispositivo.
 
 Di seguito è riportato un esempio di manifesto della distribuzione di base con un solo modulo:
 
@@ -110,13 +110,13 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
 
 ## <a name="layered-deployment"></a>Distribuzione a più livelli
 
-Le distribuzioni a più livelli sono un tipo di distribuzione automatica che può essere impilato l'uno sull'altro. Per ulteriori informazioni sulle distribuzioni a più livelli, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
+Le distribuzioni sovrapposte sono un tipo di distribuzione automatica che può essere sovrapposta l'una all'altra. Per altre informazioni sulle distribuzioni a più livelli, vedere informazioni sulle [distribuzioni automatiche IOT Edge per singoli dispositivi o su larga scala](module-deployment-monitoring.md).
 
-Le distribuzioni a più livelli possono essere create e gestite con l'interfaccia della riga di comando di Azure come qualsiasi distribuzione automatica, con poche differenze. Dopo aver creato una distribuzione a più livelli, lo stesso lavoro dell'interfaccia della riga di comando di Azure per le distribuzioni a più livelli è uguale a qualsiasi distribuzione. Per creare una distribuzione a `--layered` più livelli, aggiungere il flag al comando create.
+Le distribuzioni a più livelli possono essere create e gestite con l'interfaccia della riga di comando di Azure come qualsiasi distribuzione automatica, con poche differenze. Una volta creata una distribuzione a più livelli, la stessa interfaccia della riga di comando di Azure funziona per le distribuzioni su più livelli, come qualsiasi altra distribuzione. Per creare una distribuzione a più livelli, aggiungere `--layered` il flag al comando create.
 
-La seconda differenza è nella costruzione del manifesto di distribuzione. Mentre la distribuzione automatica standard deve contenere i moduli di runtime del sistema oltre a tutti i moduli utente, le distribuzioni a più livelli possono contenere solo moduli utente. Al contrario, le distribuzioni a più livelli richiedono una distribuzione automatica standard anche in un dispositivo, per fornire i componenti necessari di ogni dispositivo IoT Edge, ad esempio i moduli di runtime del sistema.
+La seconda differenza consiste nella costruzione del manifesto della distribuzione. Sebbene la distribuzione automatica standard debba contenere i moduli di runtime di sistema oltre ai moduli utente, le distribuzioni a più livelli possono contenere solo moduli utente. Al contrario, le distribuzioni a più livelli richiedono una distribuzione automatica standard anche in un dispositivo, per fornire i componenti necessari di ogni dispositivo IoT Edge, come i moduli di runtime di sistema.
 
-Ecco un manifesto di distribuzione a più livelli di base con un modulo come esempio:Here's a basic layered deployment manifest with one module as an example:
+Ecco un manifesto di distribuzione di base su più livelli con un modulo come esempio:
 
 ```json
 {
@@ -148,7 +148,7 @@ Ecco un manifesto di distribuzione a più livelli di base con un modulo come ese
 }
 ```
 
-Nell'esempio precedente è stata `properties.desired` mostrata una distribuzione a più livelli che ha impostato l'impostazione di per un modulo. Se questa distribuzione a più livelli fosse destinata a un dispositivo in cui è già stato applicato lo stesso modulo, sovrascriverebbe tutte le proprietà desiderate esistenti. Per aggiornare, invece di sovrascrivere, le proprietà desiderate, è possibile definire una nuova sottosezione. Ad esempio:
+Nell'esempio precedente è stata illustrata un'impostazione di `properties.desired` distribuzione su più livelli per un modulo. Se questa distribuzione a più livelli è destinata a un dispositivo in cui è già stato applicato lo stesso modulo, sovrascrive eventuali proprietà desiderate esistenti. Per aggiornare, anziché sovrascrivere, le proprietà desiderate, è possibile definire una nuova sottosezione. Ad esempio:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -159,7 +159,7 @@ Nell'esempio precedente è stata `properties.desired` mostrata una distribuzione
 }
 ```
 
-Per altre informazioni sulla configurazione dei moduli gemelli nelle distribuzioni a più livelli, vedere [Distribuzione a più livelliFor more](module-deployment-monitoring.md#layered-deployment) information about configuring module twins in layered deployments, see Layered deployment
+Per altre informazioni sulla configurazione dei moduli gemelli nelle distribuzioni a più livelli, vedere distribuzione a più [livelli](module-deployment-monitoring.md#layered-deployment)
 
 ## <a name="identify-devices-using-tags"></a>Identificare i dispositivi tramite tag
 
@@ -182,56 +182,56 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 
 Per distribuire moduli nei dispositivi di destinazione, si crea una distribuzione costituita dall'apposito manifesto e da altri parametri.
 
-Usare il comando az iot edge deployment create per creare una distribuzione:Use the [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) command to create a deployment:
+Usare il comando [AZ all Edge Deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) per creare una distribuzione:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
-Utilizzare lo stesso `--layered` comando con il flag per creare una deploymet a più livelli.
+Usare lo stesso comando con il `--layered` flag per creare un deploymet a più livelli.
 
-Il comando deployment create accetta i parametri seguenti:The deployment create command takes the following parameters:
+Il comando Deployment create accetta i parametri seguenti:
 
-* **--layered** - Un flag facoltativo per identificare la distribuzione come distribuzione a più livelli.
+* **--Layered** -un flag facoltativo per identificare la distribuzione come una distribuzione a più livelli.
 * **--deployment-id**: nome della distribuzione che verrà creata nell'hub IoT. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`. Parametro obbligatorio.
 * **--content**: percorso file del manifesto della distribuzione JSON. Parametro obbligatorio.
-* **--hub-name**: nome dell'hub IoT in cui verrà creata la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Modificare l'abbonamento `az account set -s [subscription name]` corrente con il comando.
+* **--hub-name**: nome dell'hub IoT in cui verrà creata la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Modificare la sottoscrizione corrente con il `az account set -s [subscription name]` comando.
 * **--labels**: aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie nome-valore che descrivono la distribuzione. Le etichette richiedono la formattazione JSON per nomi e valori. Ad esempio, usare `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione.La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.Ad esempio: `tags.environment='test' and properties.reported.devicemodel='4000x'`.
-* **--priority** - Un numero intero positivo. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
-* **--metrics:** crea metriche che eseguono query sulle proprietà segnalate di edgeHub per tenere traccia dello stato di una distribuzione. Le metriche accettano input JSON o un percorso di file. Ad esempio: `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
+* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione.La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.Ad esempio, `tags.environment='test' and properties.reported.devicemodel='4000x'`
+* **--Priority** : un numero intero positivo. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
+* **--metrics** : consente di creare metriche che eseguono query sulle proprietà segnalate da edgeHub per tenere traccia dello stato di una distribuzione. Le metriche accettano input JSON o FilePath. Ad esempio, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`
 
 ## <a name="monitor-a-deployment"></a>Monitorare una distribuzione
 
-Utilizzare il comando az iot edge deployment show per visualizzare i dettagli di una singola distribuzione:Use the [az iot edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) command to display the details of a single deployment:
+Usare il comando [AZ all Edge Deployment Show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) per visualizzare i dettagli di una singola distribuzione:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
-Il comando deployment show accetta i parametri seguenti:The deployment show command takes the following parameters:
+Il comando Deployment Show accetta i parametri seguenti:
 
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT. Parametro obbligatorio.
-* **--hub-name** - Nome dell'hub IoT in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* **--Hub-Name** -nome dell'hub Internet delle cose in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 Ispezionare la distribuzione nella finestra di comando.La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
 
 * **targetedCount**: metrica di sistema che specifica il numero di dispositivi gemelli presenti nell'hub IoT che corrispondono alla condizione di destinazione.
 * **appliedCount**: metrica di sistema che specifica il numero di dispositivi ai cui moduli gemelli nell'hub IoT è stato applicato il contenuto della distribuzione.
-* **reportedSuccessfulCount:** metrica del dispositivo che specifica il numero di dispositivi IoT Edge nella distribuzione che segnala l'esito positivo dal runtime del client IoT Edge.reportedSuccessfulCount - A device metric that specifies the number of IoT Edge devices in the deployment reporting success from the IoT Edge client runtime.
-* **reportedFailedCount:** metrica di dispositivo che specifica il numero di dispositivi perimetrali IoT nell'errore di segnalazione della distribuzione dal runtime del client IoT Edge.reportedFailedCount - A device metric that specifies the number of IoT Edge devices in the deployment reporting failure from the IoT Edge client runtime.
+* **reportedSuccessfulCount** : metrica del dispositivo che specifica il numero di dispositivi IOT Edge nella distribuzione che segnalano l'esito positivo del runtime del client IOT Edge.
+* **reportedFailedCount** : metrica del dispositivo che specifica il numero di dispositivi IOT Edge nell'errore di segnalazione della distribuzione dal runtime del client IOT Edge.
 
-È possibile visualizzare un elenco di ID dispositivo o oggetti per ognuna delle metriche usando il comando [show-metricdi distribuzione t iot edge:](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric)
+È possibile visualizzare un elenco di ID dispositivo o oggetti per ogni metrica usando il comando [AZ Internet Edge Deployment Show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) :
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 
-Il comando show-metric di distribuzione accetta i parametri seguenti:The deployment show-metric command takes the following parameters:
+Il comando Deployment Show-Metric accetta i parametri seguenti:
 
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT.
-* **--metric-id** - Nome della metrica per la quale si desidera visualizzare `reportedFailedCount`l'elenco degli ID dispositivo, ad esempio .
-* **--hub-name** - Nome dell'hub IoT in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* **--Metric-ID** : nome della metrica per cui si vuole visualizzare l'elenco di ID dispositivo, ad esempio `reportedFailedCount`.
+* **--Hub-Name** -nome dell'hub Internet delle cose in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Modificare una distribuzione
 
@@ -243,40 +243,40 @@ Se si aggiorna la condizione di destinazione, vengono eseguiti gli aggiornamenti
 * Se un dispositivo che esegue la distribuzione non soddisfa più la condizione di destinazione, disinstalla questa distribuzione e riceve la distribuzione successiva nell'ordine di priorità.
 * Se un dispositivo che esegue la distribuzione non soddisfa più la condizione di destinazione e non soddisfa la condizione di destinazione di tutte le altre distribuzioni, nel dispositivo non viene apportata alcuna modifica. Il dispositivo continua a eseguire i moduli corrente nello stato corrente, ma non è più gestito come parte di questa distribuzione. Quando soddisfa la condizione di destinazione di qualsiasi altra distribuzione, disinstalla questa distribuzione e riceve quella nuova.
 
-Non è possibile aggiornare il contenuto di una distribuzione, che include i moduli e le route definiti nel manifesto di distribuzione. Se si desidera aggiornare il contenuto di una distribuzione, è possibile farlo creando una nuova distribuzione destinata agli stessi dispositivi con una priorità più alta. È possibile modificare determinate proprietà di un modulo esistente, tra cui la condizione di destinazione, le etichette, le metriche e la priorità.
+Non è possibile aggiornare il contenuto di una distribuzione, che include i moduli e le route definiti nel manifesto della distribuzione. Se si desidera aggiornare il contenuto di una distribuzione, è necessario creare una nuova distribuzione destinata agli stessi dispositivi con una priorità più alta. È possibile modificare determinate proprietà di un modulo esistente, tra cui la condizione di destinazione, le etichette, le metriche e la priorità.
 
-Utilizzare il comando az iot edge deployment update per aggiornare una distribuzione:Use the [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) command to update a deployment:
+Usare il comando [AZ all Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) per aggiornare una distribuzione:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
-Il comando deployment update accetta i parametri seguenti:
+Il comando di aggiornamento della distribuzione accetta i parametri seguenti:
 
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT.
-* **--hub-name** - Nome dell'hub IoT in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* **--Hub-Name** -nome dell'hub Internet delle cose in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 * **--set**: aggiorna una proprietà nella distribuzione. È possibile aggiornare le proprietà seguenti:
   * targetCondition, ad esempio `targetCondition=tags.location.state='Oregon'`
   * Etichette
   * priority
-* **--add** - Aggiunge una nuova proprietà alla distribuzione, incluse le condizioni di destinazione o le etichette.
-* **--remove** - Rimuove una proprietà esistente, incluse le condizioni di destinazione o le etichette.
+* **--Add** -aggiunge una nuova proprietà alla distribuzione, incluse le condizioni di destinazione o le etichette.
+* **--Remove** : rimuove una proprietà esistente, incluse le condizioni di destinazione o le etichette.
 
 ## <a name="delete-a-deployment"></a>Eliminare una distribuzione
 
 Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzione successiva nell'ordine di priorità. Se i dispositivi non soddisfano la condizione di destinazione di qualsiasi altra distribuzione, i moduli non vengono rimossi in seguito all'eliminazione della distribuzione.
 
-Usare il comando az iot edge deployment delete per eliminare una distribuzione:Use the [az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) command to delete a deployment:
+Usare il comando [AZ all Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) per eliminare una distribuzione:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
 ```
 
-Il comando deployment delete accetta i parametri seguenti:
+Il comando Deployment Delete accetta i parametri seguenti:
 
 * **--deployment-id**: nome della distribuzione esistente nell'hub IoT.
-* **--hub-name** - Nome dell'hub IoT in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
+* **--Hub-Name** -nome dell'hub Internet delle cose in cui è presente la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sulla [distribuzione di moduli nei dispositivi IoT Edge](module-deployment-monitoring.md).
+Altre informazioni sulla [distribuzione di moduli per IOT Edge dispositivi](module-deployment-monitoring.md).

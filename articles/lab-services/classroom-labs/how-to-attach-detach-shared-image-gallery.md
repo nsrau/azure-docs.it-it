@@ -1,6 +1,6 @@
 ---
-title: Collegare o scollegare una raccolta di immagini condivise in Azure Lab Services Documenti Microsoft
-description: Questo articolo descrive come collegare una raccolta di immagini condivise a un lab della classe in Azure Lab Services.This article describes how to attach a shared image gallery to a classroom lab in Azure Lab Services.
+title: Connettere o scollegare una raccolta di immagini condivise in Azure Lab Services | Microsoft Docs
+description: Questo articolo descrive come aggiungere una raccolta di immagini condivise a un Lab della classe in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -20,75 +20,75 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284317"
 ---
-# <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Collegare o scollegare una raccolta di immagini condivise in Azure Lab ServicesAttach or detach a shared image gallery in Azure Lab Services
-Insegnanti/lab admin può salvare un'immagine di macchina virtuale modello in una raccolta di [immagini condivise](../../virtual-machines/windows/shared-image-galleries.md) di Azure per poter essere riutilizzata da altri utenti. Come primo passaggio, l'amministratore del lab allega una raccolta di immagini condivise esistente all'account lab. Una volta allegata la raccolta di immagini condivise, i lab creati nell'account lab possono salvare le immagini nella raccolta di immagini condivise. Altri insegnanti possono selezionare questa immagine dalla galleria di immagini condivise per creare un modello per le loro classi. 
+# <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Collegamento o scollegamento di una raccolta di immagini condivise in Azure Lab Services
+Insegnanti/amministratori Lab possono salvare un'immagine di macchina virtuale modello in una [raccolta di immagini condivise](../../virtual-machines/windows/shared-image-galleries.md) di Azure perché venga riutilizzata da altri utenti. Come primo passaggio, l'amministratore del Lab connette una raccolta di immagini condivise esistente all'account Lab. Una volta collegata la raccolta di immagini condivise, i Lab creati nell'account Lab possono salvare le immagini nella raccolta di immagini condivise. Altri docenti possono selezionare questa immagine dalla raccolta di immagini condivise per creare un modello per le classi. 
 
-Quando un'immagine viene salvata in una raccolta di immagini condivisa, Azure Lab Services replica l'immagine salvata in altre aree disponibili nella stessa [area geografica.](https://azure.microsoft.com/global-infrastructure/geographies/) Garantisce che l'immagine sia disponibile per i lab creati in altre aree nella stessa area geografica. Il salvataggio delle immagini in una raccolta di immagini condivise comporta un costo aggiuntivo, che include il costo per tutte le immagini replicate. Questo costo è separato dal costo di utilizzo di Azure Lab Services.This cost is separate from the Azure Lab Services usage cost. Per ulteriori informazioni sui prezzi di Shared Image Gallery, vedere [Shared Image Gallery – Billing]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+Quando un'immagine viene salvata in una raccolta di immagini condivise, Azure Lab Services replica l'immagine salvata in altre aree disponibili nella stessa area [geografica](https://azure.microsoft.com/global-infrastructure/geographies/). Assicura che l'immagine sia disponibile per i Lab creati in altre aree nella stessa area geografica. Il salvataggio di immagini in una raccolta di immagini condivise comporta un costo aggiuntivo, che include il costo per tutte le immagini replicate. Questo costo è separato dal costo di utilizzo del Azure Lab Services. Per altre informazioni sui prezzi di raccolta immagini condivise, vedere [raccolta immagini condivise-fatturazione]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
 
-Questo articolo illustra come allegare o scollegare una raccolta di immagini condivise a un account lab. 
+Questo articolo illustra come connettere o scollegare una raccolta di immagini condivise a un account Lab. 
 
 > [!NOTE]
-> Attualmente, Azure Lab Services supporta la creazione di macchine virtuali modello basate solo su immagini di macchine virtuali **generalizzate** (immagini non specializzate) in una raccolta di immagini condivise. 
+> Attualmente, Azure Lab Services supporta la creazione di VM modello basate solo su immagini di VM **generalizzate** (non immagini specializzate) in una raccolta di immagini condivise. 
 
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account lab
-Quando si crea un account lab, è possibile allegare una raccolta di immagini condivise all'account lab. È possibile selezionare una raccolta di immagini condivise esistente dall'elenco a discesa o crearne una nuova. Per creare e allegare una raccolta di immagini condivise all'account lab, selezionare **Crea nuovo**, immettere un nome per la raccolta e immettere **OK**. 
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account Lab
+Quando si crea un account Lab, è possibile alleghi una raccolta di immagini condivise all'account Lab. È possibile selezionare una raccolta di immagini condivise esistente dall'elenco a discesa o crearne una nuova. Per creare e alleghi una raccolta di immagini condivise all'account Lab, selezionare **Crea nuovo**, immettere un nome per la raccolta e immettere **OK**. 
 
-![Configurare la raccolta di immagini condivise al momento della creazione dell'account lab](../media/how-to-use-shared-image-gallery/new-lab-account.png)
+![Configurare la raccolta di immagini condivise al momento della creazione dell'account Lab](../media/how-to-use-shared-image-gallery/new-lab-account.png)
 
-## <a name="configure-after-the-lab-account-is-created"></a>Configurare dopo la creazione dell'account lab
-Dopo aver creato l'account lab, è possibile eseguire le attività seguenti:After the lab account is created, you can do the following tasks:
+## <a name="configure-after-the-lab-account-is-created"></a>Configurare dopo la creazione dell'account Lab
+Dopo aver creato l'account Lab, è possibile eseguire le attività seguenti:
 
-- Creare e allegare una raccolta di immagini condivise
-- Allegare una raccolta di immagini condivise all'account lab
-- Scollegare una raccolta di immagini condivise dall'account lab
+- Creare e alleghi una raccolta di immagini condivise
+- Alleghi una raccolta di immagini condivise all'account Lab
+- Scollegare una raccolta di immagini condivise dall'account Lab
 
-## <a name="create-and-attach-a-shared-image-gallery"></a>Creare e allegare una raccolta di immagini condivise
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+## <a name="create-and-attach-a-shared-image-gallery"></a>Creare e alleghi una raccolta di immagini condivise
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere **Tutti i servizi** dal menu a sinistra. Selezionare **Lab Services** nella sezione **DEVOPS**. Se si seleziona l'asterisco (`*`) accanto a **Lab Services**, l'opzione verrà aggiunta alla sezione **PREFERITI** nel menu a sinistra. Da questo momento in poi, selezionare **Lab Services** in **PREFERITI**.
 
     ![Tutti i servizi -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Selezionare l'account lab per visualizzare la pagina **Account lab.** 
-4. Selezionare **Raccolta immagini condivise** nel menu a sinistra, quindi selezionare **Crea** sulla barra degli strumenti.  
+3. Selezionare l'account Lab per visualizzare la pagina dell' **account Lab** . 
+4. Scegliere **raccolta immagini condivise** dal menu a sinistra e quindi fare clic su **+ Crea** sulla barra degli strumenti.  
 
     ![Pulsante Crea raccolta immagini condivise](../media/how-to-use-shared-image-gallery/new-shared-image-gallery-button.png)
-5. Nella finestra **Crea raccolta immagini condivise** immettere un **nome** per la raccolta e scegliere **OK**. 
+5. Nella finestra **Crea raccolta immagini condivise** immettere un **nome** per la raccolta e immettere **OK**. 
 
-    ![Crea finestra della raccolta immagini condivise](../media/how-to-use-shared-image-gallery/create-shared-image-gallery-window.png)
+    ![Finestra Crea raccolta immagini condivise](../media/how-to-use-shared-image-gallery/create-shared-image-gallery-window.png)
 
-    Azure Lab Services crea la raccolta di immagini condivise e la associa all'account lab. Tutti i lab creati in questo account lab hanno accesso alla raccolta di immagini condivise allegata. 
+    Azure Lab Services crea la raccolta di immagini condivise e la collega all'account Lab. Tutti i Lab creati in questo account Lab hanno accesso alla raccolta di immagini condivise collegata. 
 
-    ![Raccolta immagini allegate](../media/how-to-use-shared-image-gallery/image-gallery-in-list.png)
+    ![Raccolta immagini collegata](../media/how-to-use-shared-image-gallery/image-gallery-in-list.png)
 
-    Nel riquadro inferiore vengono visualizzate le immagini nella raccolta immagini condivise. In questa nuova galleria, non ci sono immagini. Quando carichi le immagini nella galleria, le vedi in questa pagina.     
+    Nel riquadro inferiore vengono visualizzate le immagini nella raccolta immagini condivise. In questa nuova raccolta non sono presenti immagini. Quando si caricano immagini nella raccolta, queste vengono visualizzate in questa pagina.     
 
-    Tutte le immagini nella galleria di immagini condivise allegate sono abilitate per impostazione predefinita. È possibile attivare o disattivare le immagini selezionate selezionandole nell'elenco e utilizzando il **pulsante Abilita immagini selezionate** o **Disattiva immagini selezionate.**
+    Tutte le immagini nella raccolta di immagini condivise collegate sono abilitate per impostazione predefinita. È possibile abilitare o disabilitare le immagini selezionate selezionandola nell'elenco e usando il pulsante **Abilita immagini selezionate** o **Disabilita immagini selezionate** .
 
-## <a name="attach-an-existing-shared-image-gallery"></a>Allegare una raccolta di immagini condivise esistente
-Nella procedura seguente viene illustrato come allegare una raccolta di immagini condivise esistente a un account lab. 
+## <a name="attach-an-existing-shared-image-gallery"></a>Alleghi una raccolta di immagini condivise esistente
+La procedura seguente illustra come aggiungere una raccolta di immagini condivise esistente a un account Lab. 
 
-1. Nella pagina **Account lab** selezionare Raccolta **immagini condivise** nel menu a sinistra e quindi **Selezionare Allega** sulla barra degli strumenti. 
+1. Nella pagina **account Lab** selezionare **raccolta immagini condivise** dal menu a sinistra e selezionare **Connetti** sulla barra degli strumenti. 
 
-    ![Raccolta immagini condivise - pulsante Aggiungi](../media/how-to-use-shared-image-gallery/sig-attach-button.png)
-5. Nella pagina **Allega una raccolta immagini condivise esistente** selezionare la raccolta immagini condivise e scegliere **OK**.
+    ![Raccolta immagini condivise-pulsante Aggiungi](../media/how-to-use-shared-image-gallery/sig-attach-button.png)
+5. Nella pagina **alleghi una raccolta di immagini condivise esistente** selezionare raccolta immagini condivise e quindi fare clic su **OK**.
 
     ![Selezionare una raccolta esistente](../media/how-to-use-shared-image-gallery/select-image-gallery.png)
-6. Viene visualizzata la seguente schermata: 
+6. Viene visualizzata la schermata seguente: 
 
-    ![La mia galleria nell'elenco](../media/how-to-use-shared-image-gallery/my-gallery-in-list.png)
+    ![Raccolta nell'elenco](../media/how-to-use-shared-image-gallery/my-gallery-in-list.png)
     
-    In questo esempio, non ci sono ancora immagini nella galleria di immagini condivise.
+    In questo esempio non sono ancora presenti immagini nella raccolta immagini condivise.
 
-    L'identità di Azure Lab Services viene aggiunta come collaboratore alla raccolta di immagini condivise associata al lab. Consente agli insegnanti/amministratore IT di salvare le immagini delle macchine virtuali nella raccolta di immagini condivise. Tutti i lab creati in questo account lab hanno accesso alla raccolta di immagini condivise allegata. 
+    Azure Lab Services identità viene aggiunta come collaboratore alla raccolta di immagini condivise collegata al Lab. Consente agli insegnanti/amministratori IT di salvare le immagini di macchine virtuali nella raccolta di immagini condivise. Tutti i Lab creati in questo account Lab hanno accesso alla raccolta di immagini condivise collegata. 
 
-    Tutte le immagini nella galleria di immagini condivise allegate sono abilitate per impostazione predefinita. È possibile attivare o disattivare le immagini selezionate selezionandole nell'elenco e utilizzando il **pulsante Abilita immagini selezionate** o **Disattiva immagini selezionate.** 
+    Tutte le immagini nella raccolta di immagini condivise collegate sono abilitate per impostazione predefinita. È possibile abilitare o disabilitare le immagini selezionate selezionandola nell'elenco e usando il pulsante **Abilita immagini selezionate** o **Disabilita immagini selezionate** . 
 
-## <a name="detach-a-shared-image-gallery"></a>Scollegare una raccolta immagini condivise
-A un lab è possibile allegare una sola raccolta di immagini condivisa. Se si desidera allegare un'altra raccolta di immagini condivise, scollegare quella corrente prima di allegare quella nuova. Per scollegare una raccolta di immagini condivise dal lab, selezionare **Scollega** sulla barra degli strumenti e confermare l'operazione di scollegamento. 
+## <a name="detach-a-shared-image-gallery"></a>Scollegare una raccolta di immagini condivise
+È possibile collegare solo una raccolta di immagini condivise a un Lab. Per allontanare un'altra raccolta di immagini condivise, scollegare quella corrente prima di alleghine una nuova. Per scollegare una raccolta di immagini condivise dal Lab, selezionare **Disconnetti** sulla barra degli strumenti e confermare l'operazione di scollegamento. 
 
-![Scollegare la raccolta di immagini condivise dall'account lab](../media/how-to-use-shared-image-gallery/detach.png)
+![Scollegare la raccolta di immagini condivise dall'account Lab](../media/how-to-use-shared-image-gallery/detach.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come salvare un'immagine del laboratorio nella raccolta di immagini condivise o usare un'immagine dalla raccolta di immagini condivise per creare una macchina virtuale, vedere Come usare la [raccolta immagini condivise.](how-to-use-shared-image-gallery.md)
+Per informazioni su come salvare un'immagine del Lab nella raccolta di immagini condivise o usare un'immagine dalla raccolta di immagini condivise per creare una macchina virtuale, vedere [come usare la raccolta di immagini condivise](how-to-use-shared-image-gallery.md).
 
-Per ulteriori informazioni sulle raccolte di immagini condivise in generale, consultate [Raccolta immagini condivise.](../../virtual-machines/windows/shared-image-galleries.md)
+Per altre informazioni sulle raccolte di immagini condivise in generale, vedere [raccolta di immagini condivise](../../virtual-machines/windows/shared-image-galleries.md).

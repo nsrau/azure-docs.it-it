@@ -1,7 +1,7 @@
 ---
-title: Riqualificare un servizio Web classicoRetrain a classic web service
+title: Ripetere il training di un servizio Web classico
 titleSuffix: ML Studio (classic) - Azure
-description: Informazioni su come eseguire nuovamente il training di un modello e aggiornare un servizio Web classico per usare il modello appena sottoposto a training in Azure Machine Learning Studio (classico).
+description: Informazioni su come ripetere il training di un modello e aggiornare un servizio Web classico per usare il modello appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -17,11 +17,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204240"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Riqualificare e distribuire un servizio Web classico di Studio (classico)
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo ti mostrerà come riqualificare un servizio Web classico di Studio (classico). Per una guida su come riqualificare un nuovo servizio Web di Studio (classico), [vedere questo articolo di procedure.](retrain-machine-learning-model.md)
+La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,12 +46,12 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Usare il portale dei servizi Web di Azure per aggiungere un endpoint
 
-1. In Machine Learning Studio (classico) nella colonna di spostamento sinistra fare clic su Servizi Web.In Machine Learning Studio (classic, on the left navigation column, click Web Services.
-1. Nella parte inferiore del dashboard del servizio Web fare clic su **Gestisci anteprima endpoint.**
+1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
+1. Nella parte inferiore del dashboard del servizio Web fare clic su **Gestisci endpoint anteprima**.
 1. Fare clic su **Aggiungi**.
-1. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per](web-services-logging.md)i servizi Web di Machine Learning.
+1. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [abilitare la registrazione per i servizi web Machine Learning](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello di training dell'endpoint aggiuntoUpdate the added endpoint's trained model
+## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto
 
 ### <a name="retrieve-patch-url"></a>Recuperare l'URL PATCH
 
@@ -60,12 +60,12 @@ Seguire questa procedura per ottenere l'URL PATCH corretto tramite il portale We
 1. Accedere al [portale dei servizi Web di Azure Machine Learning](https://services.azureml.net/).
 1. Fare clic su **Servizi Web** o **Servizi Web classici** nella parte superiore.
 1. Fare clic sul servizio Web di assegnazione dei punteggi in uso (se il nome predefinito del servizio Web non è stato modificato, terminerà in "[Scoring Exp.]").
-1. Fare clic su **NUOVO**.
+1. Fare clic su **+ nuovo**.
 1. Una volta aggiunto l'endpoint, fare clic sul nome dell'endpoint.
 1. Sotto all'URL **patch** fare clic su **API Help** (Guida API) per aprire la pagina della Guida relativa all'applicazione di patch.
 
 > [!NOTE]
-> Se l'endpoint è stato aggiunto al servizio Web di formazione anziché al servizio Web predittivo, quando si fa clic sul collegamento **Aggiorna risorsa** verrà visualizzato l'endpoint: "Risorsa spiacente, ma questa funzionalità non è supportata o disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
+> Se l'endpoint è stato aggiunto al servizio Web di training invece che al servizio Web predittivo, si riceverà l'errore seguente quando si fa clic sul collegamento **Aggiorna risorsa** : "si è verificato un errore, ma questa funzionalità non è supportata o non è disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
 >
 
 La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codice di esempio che è possibile usare per chiamarlo.
@@ -118,12 +118,12 @@ Il codice di esempio seguente mostra come usare *BaseLocation*, *RelativeLocatio
 
 I valori di *apiKey* e *endpointUrl* per la chiamata possono essere ottenuti dal dashboard dell'endpoint.
 
-Il valore del parametro *Name* in *Resources* deve corrispondere al nome della risorsa del modello sottoposto a training salvato nell'esperimento predittivo. Per ottenere il nome della risorsa:
+Il valore del parametro *Name* in *Resources* deve corrispondere al nome della risorsa del modello con training salvato nell'esperimento predittivo. Per ottenere il nome della risorsa:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel menu a sinistra fare clic su **Machine Learning**.
 1. In Nome fare clic sull'area di lavoro e quindi su **Servizi Web**.
-1. In Nome fare clic su **Modello di censimento [exp predittivo]**.
+1. In nome fare clic su **census Model [Predictive exp.]**.
 1. Fare clic sul nuovo endpoint aggiunto.
 1. Nel dashboard dell'endpoint fare clic su **Aggiorna risorsa**.
 1. Nella pagina della documentazione sull'aggiornamento dell'API di risorsa per il servizio Web è possibile trovare **Nome risorsa** in **Risorse aggiornabili**.

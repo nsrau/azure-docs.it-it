@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell Quickstart - PowerShell
+title: Guida introduttiva Azure Cloud Shell-PowerShell
 description: Informazioni su come usare PowerShell nel browser con Azure Cloud Shell.
 author: maertendmsft
 ms.author: damaerte
@@ -261,7 +261,7 @@ Per eseguire l'autenticazione a server o macchine virtuali tramite SSH, generare
 
 ### <a name="using-ssh"></a>Uso di SSH
 
-Seguire le istruzioni qui per creare una nuova configurazione di macchina virtuale usando i cmdlet di Azure PowerShell.Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using Azure PowerShell cmdlets.
+Seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) per creare una nuova configurazione di macchina virtuale usando i cmdlet di Azure PowerShell.
 Prima di chiamare `New-AzVM` per avviare la distribuzione, aggiungere la chiave pubblica SSH alla configurazione di macchina virtuale.
 La nuova macchina virtuale conterrà la chiave pubblica nel percorso `~\.ssh\authorized_keys`, abilitando quindi le sessioni SSH senza credenziali nella macchina virtuale.
 
@@ -332,7 +332,7 @@ Per informazioni su come creare un profilo, fare riferimento a [Informazioni sui
 
 ## <a name="use-git"></a>Usare Git
 
-Per clonare un repository Git in Cloud Shell, è necessario creare un token di [accesso personale][githubtoken] e utilizzarlo come nome utente. Dopo avere ottenuto il token, clonare il repository come indicato di seguito:
+Per clonare un repository git nella Cloud Shell, è necessario creare un [token di accesso personale][githubtoken] e usarlo come nome utente. Dopo avere ottenuto il token, clonare il repository come indicato di seguito:
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

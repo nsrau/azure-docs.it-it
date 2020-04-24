@@ -1,5 +1,5 @@
 ---
-title: Impostare le variabili di ambiente nell'istanza del contenitoreSet environment variables in container instance
+title: Impostare le variabili di ambiente nell'istanza del contenitore
 description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti in Istanze di Azure Container
 ms.topic: article
 ms.date: 04/17/2019
@@ -10,13 +10,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247228"
 ---
-# <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente nelle istanze del contenitoreSet environment variables in container instances
+# <a name="set-environment-variables-in-container-instances"></a>Impostare le variabili di ambiente nelle istanze di contenitore
 
 L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. È simile all'argomento della riga di comando `--env` per `docker run`. 
 
-Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza del contenitore. Questo articolo mostra esempi di impostazione delle variabili di ambiente quando si avvia un contenitore con l'interfaccia della riga di comando di [Azure,](#azure-cli-example) [Azure PowerShell](#azure-powershell-example)e il portale di [Azure.](#azure-portal-example) 
+Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza del contenitore. Questo articolo illustra esempi di impostazione delle variabili di ambiente quando si avvia un contenitore con l'interfaccia della riga di comando di [Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e il [portale di Azure](#azure-portal-example). 
 
-Ad esempio, se si esegue l'immagine del contenitore Microsoft [aci-wordcount,][aci-wordcount] è possibile modificarne il comportamento specificando le seguenti variabili di ambiente:
+Se ad esempio si esegue l'immagine del contenitore Microsoft [ACI-WordCount][aci-wordcount] , è possibile modificarne il comportamento specificando le seguenti variabili di ambiente:
 
 *NumWords*: il numero di parole inviate a STDOUT.
 
@@ -28,7 +28,7 @@ Se è necessario passare segreti come variabili di ambiente, Istanze di Azure Co
 
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
-Per visualizzare l'output predefinito del contenitore [aci-wordcount,][aci-wordcount] eseguirlo prima con questo comando az container create (nessuna variabile di ambiente specificata):To see the default output of the aci-wordcount container, run it first with this [az container create][az-container-create] command (no environment variables specified):
+Per visualizzare l'output predefinito del contenitore [ACI-WordCount][aci-wordcount] , eseguirlo prima con il comando [AZ container create][az-container-create] (nessuna variabile di ambiente specificata):
 
 ```azurecli-interactive
 az container create \
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Per modificare l'output, avviare `--environment-variables` un secondo contenitore con l'argomento aggiunto, specificando i valori per le variabili *NumWords* e *MinLength.* (In questo esempio si presuppone che l'interfaccia della riga di comando sia eseguita in una shell di Bash o in Azure Cloud Shell. Se si usa il prompt dei comandi di Windows, specificare le variabili con le virgolette doppie, ad esempio `--environment-variables "NumWords"="5" "MinLength"="8"`.)
+Per modificare l'output, avviare un secondo contenitore con l' `--environment-variables` argomento aggiunto, specificando i valori per le variabili *NumWords* e *minLength* . (In questo esempio si presuppone che l'interfaccia della riga di comando sia eseguita in una shell di Bash o in Azure Cloud Shell. Se si usa il prompt dei comandi di Windows, specificare le variabili con le virgolette doppie, ad esempio `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +58,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 L'output dei contenitori mostra come si è modificato il comportamento di script del secondo contenitore impostando le variabili di ambiente.
 
-**miocontenitore1**
+**mycontainer1**
 ```output
 [('the', 990),
  ('and', 702),
@@ -72,7 +72,7 @@ L'output dei contenitori mostra come si è modificato il comportamento di script
  ('HAMLET', 386)]
 ```
 
-**mycontainer2**
+**che come mycontainer2**
 ```output
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
@@ -85,7 +85,7 @@ L'output dei contenitori mostra come si è modificato il comportamento di script
 
 L'impostazione delle variabili di ambiente in PowerShell è simile all'interfaccia della riga di comando, ma usa l'argomento della riga di comando `-EnvironmentVariable`.
 
-In primo luogo, avviare il contenitore aci-wordcount nella configurazione predefinita con questo comando New-AzContainerGroup:First, launch the [aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] command:
+Per prima cosa, avviare il contenitore [ACI-WordCount][aci-wordcount] nella configurazione predefinita con il comando [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Eseguire ora il comando [New-AzContainerGroup][new-Azcontainergroup] seguente. che specifica le variabili di ambiente *NumWords* e *MinLength* dopo avere popolato un variabile di matrice, `envVars`:
+Eseguire quindi il comando [New-AzContainerGroup][new-Azcontainergroup] seguente. che specifica le variabili di ambiente *NumWords* e *MinLength* dopo avere popolato un variabile di matrice, `envVars`:
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -106,7 +106,7 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Una volta terminato lo stato di entrambi i contenitori (usare [Get-AzContainerInstanceLog][azure-instance-log] per controllare lo stato), eseguire il pull dei log con il comando [Get-AzContainerInstanceLog.Once][azure-instance-log] both containers' state is *Terminated* (use Get-AzContainerInstanceLog to check state), pull their logs with the Get-AzContainerInstanceLog command.
+Quando lo stato di entrambi i contenitori viene *terminato* (usare [Get-AzContainerInstanceLog][azure-instance-log] per controllare lo stato), eseguire il pull dei log con il comando [Get-AzContainerInstanceLog][azure-instance-log] .
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -141,15 +141,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Esempio del portale di Azure
 
-Per impostare le variabili di ambiente quando si avvia un contenitore nel portale di Azure, specificarle nella pagina **Avanzate** quando si crea il contenitore.
+Per impostare le variabili di ambiente quando si avvia un contenitore nella portale di Azure, specificarle nella pagina **Avanzate** quando si crea il contenitore.
 
-1. Nella pagina **Avanzate** impostare il **criterio di riavvio su** In caso di *errore*
-2. In **Variabili di ambiente**immettere `NumWords` con un valore di `5` per la prima variabile e `MinLength` con un valore di `8` per la seconda variabile. 
-1. Selezionare **Revisione e creare** per verificare e quindi distribuire il contenitore.
+1. Nella pagina **Avanzate** impostare il criterio di **riavvio** *su in* caso di errore
+2. In **variabili di ambiente**immettere `NumWords` un valore `5` per la prima variabile e immettere `MinLength` il valore `8` per la seconda variabile. 
+1. Selezionare **Verifica + crea** per verificare e quindi distribuire il contenitore.
 
 ![Pagina del portale che mostra il pulsante di abilitazione e le caselle di testo delle variabili di ambiente][portal-env-vars-01]
 
-Per visualizzare i log del contenitore, in **Impostazioni** selezionare **Contenitori**, quindi **Registri**. Analogamente all'output illustrato nelle sezioni precedenti sull'interfaccia della riga di comando e PowerShell, è possibile visualizzare come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ognuna con una lunghezza minima di otto caratteri.
+Per visualizzare i log del contenitore, in **Impostazioni** selezionare **contenitori**, quindi **log**. Analogamente all'output illustrato nelle sezioni precedenti sull'interfaccia della riga di comando e PowerShell, è possibile visualizzare come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ognuna con una lunghezza minima di otto caratteri.
 
 ![Portale che visualizza l'output del log del contenitore][portal-env-vars-02]
 
@@ -238,7 +238,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per ulteriori informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori con criteri](container-instances-restart-policy.md)di riavvio .
+Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [eseguire attività in contenitori con i criteri di riavvio](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

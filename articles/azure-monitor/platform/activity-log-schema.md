@@ -1,6 +1,6 @@
 ---
 title: Schema degli eventi del log attività di Azure
-description: Descrive lo schema eventi per ogni categoria nel log attività di Azure.Describes the event schema for each category in the Azure Activity log.
+description: Descrive lo schema dell'evento per ogni categoria nel log attività di Azure.
 author: bwren
 services: azure-monitor
 ms.topic: reference
@@ -15,9 +15,9 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79472742"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
-Il log attività di Azure fornisce informazioni dettagliate su tutti gli eventi a livello di sottoscrizione che si sono verificati in Azure.The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. In questo articolo viene descritto lo schema di eventi per ogni categoria. 
+Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema dell'evento per ogni categoria. 
 
-Gli esempi seguenti mostrano lo schema quando si accede al log attività dal portale, powerShell, l'interfaccia della riga di comando e l'API REST. Lo schema è diverso quando si [trasmette il log attività all'archiviazione o agli hub eventi](resource-logs-stream-event-hubs.md). Alla fine dell'articolo viene fornito un mapping delle proprietà allo schema dei [registri](diagnostic-logs-schema.md) risorse.
+Gli esempi seguenti illustrano lo schema quando si accede al log attività dal portale, da PowerShell, dall'interfaccia della riga di comando e dall'API REST. Lo schema è diverso quando si esegue [lo streaming del log attività in hub eventi o di archiviazione](resource-logs-stream-event-hubs.md). Alla fine dell'articolo viene fornito un mapping delle proprietà allo [schema dei log delle risorse](diagnostic-logs-schema.md) .
 
 ## <a name="administrative"></a>Administrative
 Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Administrative. Questa categoria include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
@@ -121,12 +121,12 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 | description |Testo statico che descrive un evento. |
 | eventDataId |Identificatore univoco di un evento. |
 | eventName | Nome descrittivo dell'evento amministrativo. |
-| category | Sempre "Amministrativo" |
+| category | Sempre "amministrativo" |
 | httpRequest |BLOB che descrive la richiesta HTTP. In genere include "clientRequestId", "clientIpAddress" e "method" (metodo HTTP, ad esempio PUT). |
 | level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata. |
-| resourceType | Tipo di risorsa interessata da un evento amministrativo. |
+| resourceType | Tipo di risorsa interessato da un evento amministrativo. |
 | resourceId |ID della risorsa interessata. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
@@ -359,7 +359,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 | correlationId | GUID in formato stringa. |
 | description |Testo statico che descrive l'evento dell'avviso. |
 | eventDataId |Identificatore univoco dell'evento dell'avviso. |
-| category | Sempre "Alert" |
+| category | Sempre "avviso" |
 | level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del gruppo di risorse contenente l'avviso stesso. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del provider di risorse per l'avviso stesso. |
@@ -487,7 +487,7 @@ Questa categoria contiene il record degli eventi correlati all'operazione del mo
 | submissionTimestamp |Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query. |
 | subscriptionId |ID sottoscrizione di Azure. |
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 Questa categoria contiene il record degli avvisi generati dal Centro sicurezza di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Suspicious double extension file executed".
 
 ### <a name="sample-event"></a>Evento di esempio
@@ -558,7 +558,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 | description |Testo statico che descrive l'evento di sicurezza. |
 | eventDataId |Identificatore univoco dell'evento di sicurezza. |
 | eventName |Nome descrittivo dell'evento di sicurezza. |
-| category | Sempre "Sicurezza" |
+| category | Sempre "sicurezza" |
 | ID |Identificatore di risorsa univoco dell'evento di sicurezza. |
 | level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
@@ -576,7 +576,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 | subscriptionId |ID sottoscrizione di Azure. |
 
 ## <a name="recommendation"></a>Recommendation
-Questa categoria include il record di tutte le nuove raccomandazioni che vengono generate per i servizi. Un esempio di raccomandazione potrebbe essere "Per una migliore tolleranza di errore, usare i set di disponibilità". È possibile generare quattro tipi di eventi di raccomandazione: disponibilità elevata, prestazioni, sicurezza e ottimizzazione dei costi. 
+Questa categoria include il record di tutte le nuove raccomandazioni che vengono generate per i servizi. Un esempio di raccomandazione potrebbe essere "Per una migliore tolleranza di errore, usare i set di disponibilità". Sono disponibili quattro tipi di eventi di raccomandazione che possono essere generati: disponibilità elevata, prestazioni, sicurezza e ottimizzazione dei costi. 
 
 ### <a name="sample-event"></a>Evento di esempio
 ```json
@@ -655,9 +655,9 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 | properties.recommendationImpact| Impatto della raccomandazione. I valori possibili sono "High", "Medium", "Low" |
 | properties.recommendationRisk| Rischio della raccomandazione. I valori possibili sono "Error", "Warning", "None" |
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Condizione
 
-Questa categoria include i record di tutte le operazioni relative ad azioni effetto eseguite da [Criteri di Azure](../../governance/policy/overview.md). Esempi dei tipi di eventi che si vedrebbero in questa categoria includono _Audit_ e _Deny_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa.
+Questa categoria include i record di tutte le operazioni relative ad azioni effetto eseguite da [Criteri di Azure](../../governance/policy/overview.md). Esempi di tipi di eventi visualizzati in questa categoria includono _Audit_ e _Deny_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa.
 
 ### <a name="sample-policy-event"></a>Evento di Criteri di esempio
 
@@ -773,11 +773,11 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 | relatedEvents | Questo campo è vuoto per gli eventi di Criteri. |
 
 
-## <a name="schema-from-storage-account-and-event-hubs"></a>Schema dall'account di archiviazione e dagli hub eventi
-Quando si trasmette il log attività di Azure a un account di archiviazione o a un hub eventi, i dati seguono lo schema del [log delle risorse.](diagnostic-logs-schema.md) Nella tabella seguente viene fornito un mapping delle proprietà dallo schema precedente allo schema dei registri risorse.
+## <a name="schema-from-storage-account-and-event-hubs"></a>Schema dall'account di archiviazione e hub eventi
+Quando si trasmette il log attività di Azure a un account di archiviazione o a un hub eventi, i dati seguono lo [schema del log delle risorse](diagnostic-logs-schema.md). La tabella seguente fornisce un mapping delle proprietà dello schema precedente allo schema dei log delle risorse.
 
 > [!IMPORTANT]
-> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in JSON Lines il 1 novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere Preparare la modifica del [formato ai log delle risorse](diagnostic-logs-append-blobs.md) di Azure Monitor archiviati in un account di archiviazione.
+> Il formato dei dati del log attività scritti in un account di archiviazione è stato modificato in righe JSON il 1 ° novembre 2018. Per informazioni dettagliate su questa modifica del formato, vedere [preparare la modifica del formato ai log delle risorse di monitoraggio di Azure archiviati in un account di archiviazione](diagnostic-logs-append-blobs.md) .
 
 
 | Proprietà dello schema dei log delle risorse | Proprietà dello schema API REST del log attività | Note |
@@ -794,14 +794,14 @@ Quando si trasmette il log attività di Azure a un account di archiviazione o a 
 | correlationId | correlationId |  |
 | identity | attestazioni e proprietà di autorizzazione |  |
 | Level | Level |  |
-| posizione | N/D | Posizione in cui è stato elaborato l'evento. *Questa non è la posizione della risorsa, ma piuttosto dove è stato elaborato l'evento. Questa proprietà verrà rimossa in un aggiornamento futuro.* |
+| posizione | N/D | Posizione in cui è stato elaborato l'evento. *Non si tratta della posizione della risorsa, ma piuttosto del punto in cui l'evento è stato elaborato. Questa proprietà verrà rimossa in un aggiornamento futuro.* |
 | Proprietà | properties.eventProperties |  |
 | properties.eventCategory | category | Se properties.eventCategory non è presente, la categoria è "Administrative" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
-Di seguito è riportato un esempio di evento che utilizza questo schema..
+Di seguito è riportato un esempio di un evento che utilizza questo schema.
 
 ``` JSON
 {
@@ -864,6 +864,6 @@ Di seguito è riportato un esempio di evento che utilizza questo schema..
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Ulteriori informazioni sul Log attività](platform-logs-overview.md)
-* [Creare un'impostazione di diagnostica per inviare Log attività all'area di lavoro Log Analytics, all'archiviazione di Azure o agli hub eventiCreate a diagnostic setting to send Activity Log to Log Log Analytics workspace, Azure storage, or event hubs](diagnostic-settings.md)
+* [Altre informazioni sul log attività](platform-logs-overview.md)
+* [Creare un'impostazione di diagnostica per inviare il log attività a Log Analytics area di lavoro, archiviazione di Azure o hub eventi](diagnostic-settings.md)
 

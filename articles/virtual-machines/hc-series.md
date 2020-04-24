@@ -1,5 +1,5 @@
 ---
-title: Serie HC - Macchine virtuali di Azure
+title: Serie HC-macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie HC.
 services: virtual-machines
 author: jonbeck7
@@ -16,7 +16,7 @@ ms.locfileid: "78164781"
 ---
 # <a name="hc-series"></a>Serie HC
 
-I VM della serie HC sono ottimizzati per le applicazioni guidate da un calcolo denso, ad esempio l'analisi implicita degli elementi finiti, la dinamica molecolare e la chimica computazionale. Le macchine virtuali HC dispongono di 44 core del processore Intel Xeon Platinum 8168, 8 GB di RAM per core CPU e nessun hyperthreading. La piattaforma Intel Xeon Platinum supporta il ricco ecosistema di strumenti software Intel come Intel Math Kernel Library.
+Le macchine virtuali della serie HC sono ottimizzate per le applicazioni basate su un calcolo denso, ad esempio l'analisi degli elementi limitati implicita, le dinamiche molecolari e la chimica computazionale. Macchine virtuali HC funzionalità 44 Core processore Intel Xeon Platinum 8168, 8 GB di RAM per core CPU e nessun hyperthreading. La piattaforma Intel Xeon Platinum supporta il ricco ecosistema di strumenti software di Intel, ad esempio la libreria del kernel matematico di Intel.
 
 ACU: 297-315
 
@@ -26,17 +26,17 @@ Memorizzazione nella cache Archiviazione Premium: supportata
 
 Live Migration: non supportato
 
-Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Updates: Not Supported
+Aggiornamenti con mantenimento della memoria: non supportato
 
-| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda della memoria GB/s | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza monocore (GHz, picco) | Prestazioni RDMA (Gb/s) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | Schede di interfaccia di rete Max Ethernet |
+| Dimensione | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HC44rs | 44 | Intel Xeon Platino 8168 | 352 | 191 | 2.7 | 3.4 | 3,7 | 100 | Tutti | 700 | 4 | 1 |
+| Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3,7 | 100 | Tutti | 700 | 4 | 1 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Finalità generale](sizes-general.md)
+- [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

@@ -12,7 +12,7 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79472410"
 ---
 > [!TIP]
-> Se viene visualizzato un messaggio di errore che indica che l'estensione ml non è installata, utilizzare il comando seguente per installarlo:
+> Se viene visualizzato un messaggio di errore che informa che l'estensione ML non è installata, usare il comando seguente per installarla:
 >
 > ```azurecli-interactive
 > az extension add -n azure-cli-ml

@@ -1,6 +1,6 @@
 ---
-title: Gestire i processi di backup usando l'API RESTManage Backup Jobs using REST API
-description: In questo articolo viene illustrato come tenere traccia e gestire i processi di backup e ripristino di Backup di Azure usando l'API REST.
+title: Gestire i processi di backup con l'API REST
+description: Questo articolo illustra come tenere traccia e gestire i processi di backup e ripristino di backup di Azure usando l'API REST.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
@@ -13,11 +13,11 @@ ms.locfileid: "79273527"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 
-Il servizio Backup di Azure attiva i processi che vengono eseguiti in background in vari scenari, ad esempio l'attivazione di operazioni di backup, ripristino e la disabilitazione del backup. Questi processi possono essere registrati tramite i relativi ID.
+Il servizio backup di Azure attiva i processi eseguiti in background in diversi scenari, ad esempio l'attivazione del backup, le operazioni di ripristino e la disabilitazione del backup. Questi processi possono essere registrati tramite i relativi ID.
 
 ## <a name="fetch-job-information-from-operations"></a>Recuperare informazioni sui processi dalle operazioni
 
-Un'operazione come l'attivazione del backup restituirà sempre un jobID. Ad esempio: la risposta finale di [un'operazione dell'API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) di backup del trigger è la seguente:For example: The final response of a trigger backup REST API operation is as follows:
+Un'operazione come l'attivazione del backup restituirà sempre un jobID. Ad esempio, la risposta finale di un' [operazione dell'API REST di backup del trigger](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) è la seguente:
 
 ```http
 {

@@ -1,5 +1,5 @@
 ---
-title: Gestire lo schema in un'app single-tenantManage schema in a single-tenant app
+title: Gestire lo schema in un'app a tenant singolo
 description: Gestire lo schema per più tenant in un'app a singolo tenant che usa database SQL di Azure
 services: sql-database
 ms.service: sql-database
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare il database Wingtip Tickets SaaS per ogni applicazione tenant](saas-dbpertenant-get-started-deploy.md)
+* È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * La versione più recente di SQL Server Management Studio (SSMS) è installata. [Scaricare e installare SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -59,7 +59,7 @@ Il modello con un database per ogni tenant consente di isolare i dati del tenant
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Il codice sorgente dell'applicazione e gli script di gestione sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub.The application source code and management scripts are available in the WingtipTicketsSaaS-DbPerTenant GitHub repo. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
+Il codice sorgente dell'applicazione e gli script di gestione sono disponibili nel repository GitHub [repository wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database dell'agente processo e un nuovo agente processo
 
@@ -105,12 +105,12 @@ Questo esercizio usa un processo per ricompilare l'indice sulla chiave primaria 
 Creare un processo usando le stesse stored procedure di sistema per i processi.
 
 1. Aprire SSMS e connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_
-1. Aprire il file _... Moduli\\di\\apprendimento Schema Management OnlineReindex.sql \\_
+1. Apri il file _... Learning modules\\schema\\Management OnlineReindex. SQL \\_
 1. Fare clic con il pulsante destro del mouse, scegliere Connessione e quindi connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_, se non si è già connessi
 1. Verificare di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
 Esaminare gli elementi seguenti nello script _OnlineReindex.sql_:
-* **sp\_\_add job** crea un nuovo lavoro\_\_denominato "Online Reindex PK VenueTyp\_\_265E44FD7FD4C885"
+* **SP\_Add\_Job** crea un nuovo processo denominato "online REINDEX PK\_\_VenueTyp\_\_265E44FD7FD4C885"
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare l'indice.
 * Le viste rimaste nello script monitorano l'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare quando il processo viene completato su tutti i membri del gruppo di destinazione.
 
@@ -126,10 +126,10 @@ In questa esercitazione si è appreso come:
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
-Provare quindi [l'esercitazione sui report ad hoc](saas-tenancy-cross-tenant-reporting.md) per esplorare l'esecuzione di query distribuite tra database tenant.
+Successivamente, provare l' [esercitazione per la creazione di report ad hoc](saas-tenancy-cross-tenant-reporting.md) per esplorare l'esecuzione di query distribuite tra database tenant.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Esercitazioni aggiuntive basate sulla distribuzione dell'applicazione Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Altre esercitazioni basate sulla distribuzione dell'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gestione dei database cloud con scalabilità orizzontale](elastic-jobs-overview.md)

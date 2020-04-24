@@ -1,6 +1,6 @@
 ---
-title: Monitorare le app per la logica usando i log di Monitoraggio di AzureMonitor logic apps by using Azure Monitor logs
-description: Risolvere i problemi relativi alle app per la logica configurando i log di Monitoraggio di Azure e raccogliendo dati di diagnostica per le app per la logica di AzureTroubleshoot logic apps by setting up Azure Monitor logs and collecting diagnostics data for Azure Logic Apps
+title: Monitorare le app per la logica usando i log di monitoraggio di Azure
+description: Risolvere i problemi relativi alle app per la logica configurando i log di monitoraggio di Azure e raccogliendo i dati di diagnostica
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
@@ -13,99 +13,99 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270238"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurare i log di Monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di AzureSet up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure
 
-Per ottenere informazioni di debug più complete sulle app per la logica durante il runtime, è possibile impostare e usare [i log](../azure-monitor/platform/data-platform-logs.md) di Monitoraggio di Azure per registrare e archiviare informazioni su eventi e dati di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi azione in un'area di lavoro di Log [Analytics.](../azure-monitor/platform/resource-logs-collect-workspace.md) [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da poterne gestire più facilmente la disponibilità e le prestazioni. Usando i log di Monitoraggio di Azure, è possibile creare query di [log](../azure-monitor/log-query/log-query-overview.md) che consentono di raccogliere ed esaminare queste informazioni. È anche possibile usare questi dati di diagnostica con altri servizi di [Azure,](#extend-data)ad esempio Archiviazione di Azure e Hub eventi di Azure.You can also use this diagnostics data with other Azure services , such as Azure Storage and Azure Event Hubs.
+Per ottenere informazioni di debug più complete sulle app per la logica in fase di esecuzione, è possibile configurare e usare i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md) per registrare e archiviare le informazioni relative a eventi e dati di runtime, ad esempio eventi trigger, eventi di esecuzione ed eventi di azione in un'area di [lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). [Monitoraggio di Azure](../azure-monitor/overview.md) consente di monitorare gli ambienti cloud e locali in modo da mantenere la disponibilità e le prestazioni più semplici. Usando i log di monitoraggio di Azure, è possibile creare [query di log](../azure-monitor/log-query/log-query-overview.md) che consentono di raccogliere ed esaminare queste informazioni. È anche possibile [usare questi dati di diagnostica con altri servizi di Azure](#extend-data), ad esempio archiviazione di Azure e hub eventi di Azure.
 
-Per configurare la registrazione per l'app per la logica, è possibile [abilitare Log Analytics quando si crea l'app](#logging-for-new-logic-apps)per la logica oppure [installare la soluzione di gestione](#install-management-solution) delle app per la logica nell'area di lavoro di Log Analytics per le app per la logica esistenti. Questa soluzione fornisce informazioni aggregate per l'esecuzione dell'app per la logica e include dettagli specifici, ad esempio stato, tempo di esecuzione, stato di nuovo invio e ID di correlazione. Quindi, per abilitare la registrazione e la creazione di query per queste informazioni, configurare i log di [Monitoraggio di Azure.](#set-up-resource-logs)
+Per configurare la registrazione per l'app per la logica, è possibile [abilitare log Analytics quando si crea l'app](#logging-for-new-logic-apps)per la logica oppure è possibile [installare la soluzione di gestione delle app](#install-management-solution) per la logica nell'area di lavoro log Analytics per le app per la logica esistenti. Questa soluzione fornisce informazioni aggregate per le esecuzioni dell'app per la logica e include dettagli specifici, ad esempio stato, tempo di esecuzione, stato di reinvio e ID correlazione. Quindi, per abilitare la registrazione e la creazione di query per queste informazioni, [configurare i log di monitoraggio di Azure](#set-up-resource-logs).
 
-Questo articolo illustra come abilitare Log Analytics quando si creano app per la logica, come installare e configurare la soluzione di gestione delle app per la logica e come configurare e creare query per i log di Monitoraggio di Azure.This article shows how to enable Log Analytics when you create logic apps, how to install and set up the Logic Apps Management solution, and how to set up and create queries for Azure Monitor logs.
+Questo articolo illustra come abilitare Log Analytics quando si creano app per la logica, come installare e configurare la soluzione di gestione delle app per la logica e come impostare e creare query per i log di monitoraggio di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessaria [un'area di lavoro](../azure-monitor/platform/resource-logs-collect-workspace.md)di Log Analytics. Se non si dispone di un'area di lavoro, vedere [come creare un'area](../azure-monitor/learn/quick-create-workspace.md)di lavoro di Log Analytics.
+Prima di iniziare, è necessario disporre di un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Se non si dispone di un'area di lavoro, vedere la pagina relativa [alla creazione di un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
-## <a name="enable-log-analytics-for-new-logic-apps"></a>Abilitare Log Analytics per le nuove app per la logicaEnable Log Analytics for new logic apps
+## <a name="enable-log-analytics-for-new-logic-apps"></a>Abilitare Log Analytics per le nuove app per la logica
 
 È possibile attivare Log Analytics quando si crea l'app per la logica.
 
-1. Nel [portale di Azure](https://portal.azure.com), nel riquadro in cui si forniscono le informazioni per creare l'app per la logica, eseguire la procedura seguente:In the Azure portal , on the pane where you provide the information to create your logic app, follow these steps:
+1. Nel [portale di Azure](https://portal.azure.com), nel riquadro in cui vengono fornite le informazioni per creare l'app per la logica, attenersi alla procedura seguente:
 
-   1. In **Log Analytics**selezionare On **(Attivato).**
+   1. In **log Analytics**selezionare **on**.
 
-   1. Nell'elenco **Area di lavoro** di Log Analytics selezionare l'area di lavoro in cui si desidera inviare i dati dall'esecuzione dell'app per la logica.
+   1. Dall'elenco **log Analytics area di lavoro** selezionare l'area di lavoro a cui si vogliono inviare i dati dalle esecuzioni dell'app per la logica.
 
       ![Specificare le informazioni sull'app per la logica](./media/monitor-logic-apps-log-analytics/create-logic-app-details.png)
 
-      Al termine di questo passaggio, Azure crea l'app per la logica, che ora è associata all'area di lavoro Log Analytics personale. Inoltre, questo passaggio installa automaticamente la soluzione di gestione delle app per la logica nell'area di lavoro.
+      Al termine di questo passaggio, Azure crea l'app per la logica, che ora è associata all'area di lavoro Log Analytics personale. In questo passaggio viene inoltre installata automaticamente la soluzione di gestione delle app per la logica nell'area di lavoro.
 
 1. Al termine, selezionare **Crea**.
 
-1. Dopo aver eseguito l'app per la logica, per visualizzare l'esecuzione dell'app per la [logica, continuare con questi passaggi.](#view-logic-app-runs)
+1. Dopo aver eseguito l'app per la logica, per visualizzare le esecuzioni dell'app per la logica [continuare con questi passaggi](#view-logic-app-runs).
 
 <a name="install-management-solution"></a>
 
 ## <a name="install-logic-apps-management-solution"></a>Installare la soluzione di gestione delle app per la logica
 
-Se hai attivato Log Analytics durante la creazione dell'app per la logica, ignora questo passaggio. La soluzione di gestione delle app per la logica è già installata nell'area di lavoro di Log Analytics.You already have the Logic Apps Management solution installed in your Log Analytics workspace.
+Se è stato attivato Log Analytics quando è stata creata l'app per la logica, ignorare questo passaggio. È già installata la soluzione di gestione delle app per la logica nell'area di lavoro Log Analytics.
 
-1. Nella casella di ricerca del `log analytics workspaces`portale di [Azure](https://portal.azure.com)immettere e quindi selezionare **Aree di lavoro**di Log Analytics .
+1. Nella casella di ricerca del [portale di Azure](https://portal.azure.com)immettere `log analytics workspaces`e quindi selezionare **log Analytics aree di lavoro**.
 
-   ![Selezionare "Aree di lavoro di Log Analytics"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
+   ![Selezionare "aree di lavoro Log Analytics"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. In **Aree di lavoro**di Log Analytics selezionare l'area di lavoro.
+1. In **log Analytics aree di lavoro**selezionare l'area di lavoro.
 
    ![Selezionare l'area di lavoro Log Analytics](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
-1. Nel riquadro **Panoramica,** in **Introduzione a Log Analytics** > **Configura soluzioni**di monitoraggio, selezionare **Visualizza soluzioni**.
+1. Nel riquadro **Panoramica** , in Introduzione **a log Analytics** > **configurare le soluzioni di monitoraggio**, selezionare **Visualizza soluzioni**.
 
-   ![Nel riquadro Panoramica, selezionare "Visualizza soluzioni"](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
+   ![Nel riquadro Panoramica selezionare "Visualizza soluzioni".](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
 1. In **Panoramica**selezionare **Aggiungi**.
 
    ![Nel riquadro Panoramica aggiungere una nuova soluzione](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
-1. Dopo l'apertura del **Marketplace,** `logic apps management`nella casella di ricerca immettere e selezionare **Gestione app per la logica**.
+1. Dopo l'apertura del **Marketplace** , nella casella di ricerca immettere `logic apps management`e selezionare **gestione app**per la logica.
 
-   ![Su Marketplace, seleziona "Gestione app per la logica"](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
+   ![Da Marketplace selezionare "gestione app per la logica"](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
 
-1. Nel riquadro descrizione soluzione selezionare **Crea**.
+1. Nel riquadro Descrizione soluzione selezionare **Crea**.
 
-   ![Selezionare "Crea" per aggiungere la soluzione "Gestione app per la logica"Select "Create" to add "Logic Apps Management" solution](./media/monitor-logic-apps-log-analytics/create-logic-apps-management-solution.png)
+   ![Selezionare "Crea" per aggiungere la soluzione di gestione delle app per la logica](./media/monitor-logic-apps-log-analytics/create-logic-apps-management-solution.png)
 
-1. Esaminare e confermare l'area di lavoro di Log Analytics in cui si desidera installare la soluzione e selezionare di nuovo **Crea.**
+1. Verificare e confermare l'area di lavoro Log Analytics in cui si vuole installare la soluzione e selezionare di nuovo **Crea** .
 
-   ![Selezionare "Crea" per "Gestione app per la logica"](./media/monitor-logic-apps-log-analytics/confirm-log-analytics-workspace.png)
+   ![Selezionare "Crea" per "gestione app per la logica"](./media/monitor-logic-apps-log-analytics/confirm-log-analytics-workspace.png)
 
-   Dopo che Azure distribuisce la soluzione nel gruppo di risorse di Azure che contiene l'area di lavoro di Log Analytics, la soluzione viene visualizzata nel riquadro di riepilogo dell'area di lavoro.
+   Quando Azure distribuisce la soluzione al gruppo di risorse di Azure che contiene l'area di lavoro Log Analytics, la soluzione viene visualizzata nel riquadro di riepilogo dell'area di lavoro.
 
-   ![Riquadro di riepilogo dell'area di lavoro](./media/monitor-logic-apps-log-analytics/workspace-summary-pane-logic-apps-management.png)
+   ![Riquadro di riepilogo area di lavoro](./media/monitor-logic-apps-log-analytics/workspace-summary-pane-logic-apps-management.png)
 
 <a name="set-up-resource-logs"></a>
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurare i log di Monitoraggio di Azure
 
-Quando si archiviano informazioni sugli eventi e i dati di runtime nei log di Monitoraggio di [Azure,](../azure-monitor/platform/data-platform-logs.md)è possibile creare query di [log](../azure-monitor/log-query/log-query-overview.md) che consentono di trovare ed esaminare queste informazioni.
+Quando si archiviano informazioni sugli eventi e i dati di runtime nei [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md), è possibile creare query di [log](../azure-monitor/log-query/log-query-overview.md) che consentono di trovare e rivedere tali informazioni.
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica.
 
-1. Nel menu dell'app per la logica, in **Monitoraggio,** selezionare **Impostazioni** > di**diagnostica Aggiungi impostazione diagnostica**.
+1. Nel menu dell'app per la logica, in **monitoraggio**, selezionare **Impostazioni** > di diagnostica**Aggiungi impostazione di diagnostica**.
 
-   ![In "Monitoraggio", seleziona "Impostazioni di diagnostica" > "Aggiungi impostazione diagnostica"](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
+   ![In "monitoraggio" selezionare "impostazioni di diagnostica" > "Aggiungi impostazione di diagnostica".](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
 1. Per creare l'impostazione, attenersi alla seguente procedura:
 
-   1. Specificare un nome per l'impostazione.
+   1. Consente di specificare un nome per l'impostazione.
 
    1. Selezionare **Invia a Log Analytics**.
 
-   1. In Sottoscrizione selezionare la sottoscrizione di Azure associata all'area di lavoro di Log Analytics.For **Subscription**, select the Azure subscription that's associated with your Log Analytics workspace.
+   1. Per **Subscription (sottoscrizione**) selezionare la sottoscrizione di Azure associata all'area di lavoro log Analytics.
 
-   1. Per **Log Analytics Workspace**, selezionare l'area di lavoro che si desidera utilizzare.
+   1. Per **log Analytics area di lavoro**, selezionare l'area di lavoro che si desidera utilizzare.
 
-   1. In **Log**selezionare la categoria **WorkflowRuntime,** che specifica la categoria di eventi che si desidera registrare.
+   1. In **log**selezionare la categoria **WorkflowRuntime** , che specifica la categoria di eventi che si desidera registrare.
 
    1. Per selezionare tutte le metriche, in **metrica**selezionare **AllMetrics**.
 
@@ -117,50 +117,50 @@ Quando si archiviano informazioni sugli eventi e i dati di runtime nei log di Mo
 
 <a name="view-logic-app-runs"></a>
 
-## <a name="view-logic-app-runs-status"></a>L'app per la logica di visualizzazione esegue lo statoView logic app runs status
+## <a name="view-logic-app-runs-status"></a>Visualizza lo stato delle esecuzioni dell'app per la logica
 
-Dopo l'esecuzione dell'app per la logica, è possibile visualizzare i dati relativi a tali esecuzioni nell'area di lavoro di Log Analytics.After your logic app runs, you can view the data about those runs in your Log Analytics workspace.
+Dopo l'esecuzione dell'app per la logica, è possibile visualizzare i dati relativi a tali esecuzioni nell'area di lavoro Log Analytics.
 
-1. Nel portale di Azure individuare e aprire l'area di lavoro Log Analytics.In the [Azure portal,](https://portal.azure.com)find and open your Log Analytics workspace.
+1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'area di lavoro log Analytics.
 
-1. Nel menu dell'area di lavoro selezionare**Gestione app per la logica**di riepilogo >  **dell'area di lavoro**.
+1. Nel menu dell'area di lavoro selezionare **Riepilogo** > area di lavoro**gestione app**per la logica.
 
    ![Stato e numero di esecuzioni dell'app per la logica](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
 
    > [!NOTE]
-   > Se il riquadro Gestione app per la logica non mostra immediatamente i risultati dopo un'esecuzione, provare a selezionare **Aggiorna** o attendere un breve periodo di tempo prima di riprovare.
+   > Se il riquadro Gestione app per la logica non visualizza immediatamente i risultati dopo un'esecuzione, provare a selezionare **Aggiorna** o attendere un breve periodo di tempo prima di riprovare.
 
    In questo riquadro le esecuzioni dell'app per la logica vengono raggruppate in base al nome o allo stato di esecuzione. Questa pagina mostra anche i dettagli sugli errori di azioni o trigger per le esecuzioni delle app per la logica.
 
    ![Riepilogo dello stato per le esecuzioni dell'app per la logica](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary-details.png)
 
-1. Per visualizzare tutte le esecuzioni per un'app o uno stato per la logica specifico, selezionare la riga per l'app per la logica o lo stato.
+1. Per visualizzare tutte le esecuzioni per un'app per la logica o uno stato specifico, selezionare la riga per l'app per la logica o lo stato.
 
    Nell'esempio seguente sono visualizzate tutte le esecuzioni per un'app per la logica specifica:
 
-   ![Visualizza l'app per la logica viene eseguita e lo stato](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
+   ![Visualizzare le esecuzioni e lo stato delle app per la logica](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
-   Per le azioni in cui si [impostano le proprietà rilevate,](#extend-data)è inoltre possibile visualizzarle selezionando **Visualizza** nella colonna **Proprietà rilevate.** Per cercare le proprietà rilevate, usare il filtro di colonna.
+   Per le azioni in cui si [impostano le proprietà rilevate](#extend-data), è anche possibile visualizzare tali proprietà selezionando **Visualizza** nella colonna **proprietà rilevate** . Per cercare le proprietà rilevate, usare il filtro di colonna.
 
    ![Visualizzare le proprietà rilevate per un'app per la logica](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
 
    > [!NOTE]
-   > Le proprietà rilevate o gli eventi completati potrebbero subire ritardi di 10-15 minuti prima di essere visualizzati nell'area di lavoro di Log Analytics.
-   > Inoltre, la funzionalità **Invia di nuovo** in questa pagina non è attualmente disponibile.
+   > Le proprietà rilevate o gli eventi completati potrebbero subire ritardi di 10-15 minuti prima che vengano visualizzati nell'area di lavoro Log Analytics.
+   > Inoltre, la funzionalità di **reinvio** in questa pagina non è attualmente disponibile.
 
-1. Per filtrare i risultati, è possibile eseguire sia il filtro sul lato client che sul lato server.
+1. Per filtrare i risultati, è possibile eseguire il filtro lato client e lato server.
 
-   * **Filtro lato client:** per ogni colonna selezionare i filtri desiderati, ad esempio:
+   * **Filtro lato client**: per ogni colonna, selezionare i filtri desiderati, ad esempio:
 
      ![Esempi di filtri di colonna](./media/monitor-logic-apps-log-analytics/filters.png)
 
-   * **Filtro lato server**: Per selezionare un intervallo di tempo specifico o per limitare il numero di esecuzioni visualizzate, utilizzare il controllo dell'ambito nella parte superiore della pagina. Per impostazione predefinita, vengono visualizzati contemporaneamente solo 1.000 record.
+   * **Filtro lato server**: per selezionare un intervallo di tempo specifico o per limitare il numero di esecuzioni visualizzate, usare il controllo ambito nella parte superiore della pagina. Per impostazione predefinita, vengono visualizzati contemporaneamente solo 1.000 record.
 
      ![Modificare l'intervallo di tempo](./media/monitor-logic-apps-log-analytics/change-interval.png)
 
 1. Per visualizzare tutte le azioni e i relativi dettagli per un'esecuzione specifica, selezionare la riga per l'esecuzione di un'app per la logica.
 
-   Ecco un esempio che mostra tutte le azioni e i trigger per l'esecuzione di un'app per la logica specifica:Here is an example that shows all the actions and triggers for a specific logic app run:
+   Di seguito è riportato un esempio in cui vengono illustrate tutte le azioni e i trigger per un'esecuzione di app per la logica specifica:
 
    ![Visualizzare le azioni per un'esecuzione dell'app per la logica](./media/monitor-logic-apps-log-analytics/logic-app-action-details.png)
 
@@ -172,33 +172,33 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare i dati relat
 
 <a name="extend-data"></a>
 
-## <a name="send-diagnostic-data-to-azure-storage-and-azure-event-hubs"></a>Inviare dati di diagnostica ad Archiviazione di Azure e Hub eventi di AzureSend diagnostic data to Azure Storage and Azure Event Hubs
+## <a name="send-diagnostic-data-to-azure-storage-and-azure-event-hubs"></a>Inviare i dati di diagnostica ad archiviazione di Azure e hub eventi di Azure
 
-Insieme ai log di Monitoraggio di Azure, è possibile estendere la modalità di utilizzo dei dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio:Along with Azure Monitor logs, you can extend how you use your logic app's diagnostic data with other Azure services, for example:
+Insieme ai log di monitoraggio di Azure, è possibile estendere il modo in cui si usano i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio:
 
 * [Archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs-collect-storage.md)
-* [Trasmettere i log della piattaforma Azure agli hub eventi di AzureStream Azure platform logs to Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Trasmettere i log della piattaforma Azure a hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio:
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-In base alle posizioni in cui si desidera inviare i dati di diagnostica, assicurarsi di creare prima [un account di archiviazione](../storage/common/storage-create-storage-account.md) di Azure o un hub eventi di [Azure.](../event-hubs/event-hubs-create.md) È quindi possibile selezionare le destinazioni a cui si desidera inviare i dati. I periodi di conservazione si applicano solo quando si usa un account di archiviazione.
+In base alle posizioni in cui si vogliono inviare i dati di diagnostica, assicurarsi di [creare prima un account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) o [creare un hub eventi di Azure](../event-hubs/event-hubs-create.md). È quindi possibile selezionare le destinazioni in cui si desidera inviare i dati. I periodi di conservazione si applicano solo quando si usa un account di archiviazione.
 
 ![Inviare i dati all'hub di eventi o all'account di archiviazione di Azure](./media/monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
 
 <a name="diagnostic-event-properties"></a>
 
-## <a name="azure-monitor-diagnostics-events"></a>Eventi di diagnostica di Monitoraggio di AzureAzure Monitor diagnostics events
+## <a name="azure-monitor-diagnostics-events"></a>Eventi di diagnostica di monitoraggio di Azure
 
-Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stesso, ad esempio lo stato, l'ora di inizio, l'ora di fine e così via. Per configurare a livello di codice il monitoraggio, il rilevamento e la registrazione, è possibile usare queste informazioni con [l'API REST per le app per](https://docs.microsoft.com/rest/api/logic) la logica di Azure e l'API REST per Monitoraggio di Azure.To programmatically set up monitoring, tracking, and logging, you can use this information with the REST API for Azure Logic Apps and the REST API for Azure [Monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). È inoltre possibile `clientTrackingId` `trackedProperties` utilizzare le proprietà e , 
+Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stesso, ad esempio lo stato, l'ora di inizio, l'ora di fine e così via. Per configurare il monitoraggio, il rilevamento e la registrazione a livello di codice, è possibile usare queste informazioni con l' [API REST per app per la logica di Azure](https://docs.microsoft.com/rest/api/logic) e l' [API REST per monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). È anche possibile usare le `clientTrackingId` proprietà `trackedProperties` e, che vengono visualizzate in 
 
-* `clientTrackingId`: se non specificata, Azure genera automaticamente questo ID e correla gli eventi in un'esecuzione dell'app per la logica, inclusi eventuali flussi di lavoro annidati chiamati dall'app per la logica. È possibile specificare manualmente questo ID `x-ms-client-tracking-id` in un trigger passando un'intestazione con il valore ID personalizzato nella richiesta del trigger. È possibile usare un trigger di richiesta, un trigger HTTP o un trigger webhook.
+* `clientTrackingId`: se non specificata, Azure genera automaticamente questo ID e correla gli eventi in un'esecuzione dell'app per la logica, inclusi eventuali flussi di lavoro annidati chiamati dall'app per la logica. È possibile specificare manualmente questo ID in un trigger passando un' `x-ms-client-tracking-id` intestazione con il valore ID personalizzato nella richiesta del trigger. È possibile usare un trigger di richiesta, un trigger HTTP o un trigger webhook.
 
-* `trackedProperties`: per tenere traccia di input o output `trackedProperties` nei dati di diagnostica, è possibile aggiungere una sezione a un'azione usando Progettazione app per la logica o direttamente nella definizione JSON dell'app per la logica. Le proprietà rilevate possono tenere traccia solo di singoli input e output di azioni, ma è possibile usare le proprietà `correlation` degli eventi per correlare più azioni in un'esecuzione. Per tenere traccia di più proprietà, una `trackedProperties` o più proprietà, aggiungere la sezione e le proprietà desiderate alla definizione dell'azione.
+* `trackedProperties`: Per tenere traccia degli input o degli output nei dati di diagnostica, `trackedProperties` è possibile aggiungere una sezione a un'azione usando la finestra di progettazione dell'app per la logica o direttamente nella definizione JSON dell'app per la logica. Le proprietà rilevate possono tenere traccia solo di singoli input e output di azioni, ma è possibile usare le proprietà `correlation` degli eventi per correlare più azioni in un'esecuzione. Per tenere traccia di più di una proprietà, una o più proprietà, `trackedProperties` aggiungere la sezione e le proprietà desiderate alla definizione dell'azione.
 
-  Ecco un esempio che mostra come la definizione di **Azione variabile di inizializza** include le proprietà rilevate dall'input dell'azione in cui l'input è una matrice, non un record.
+  Di seguito è riportato un esempio che illustra come la definizione di azione della **variabile Initialize** includa le proprietà rilevate dall'input dell'azione in cui l'input è una matrice, non un record.
 
   ``` json
   {
@@ -221,7 +221,7 @@ Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stes
   }
   ```
 
-  Questo esempio mostra più proprietà rilevate:This example show multiple tracked properties:
+  Questo esempio Mostra più proprietà rilevate:
 
   ``` json
   "HTTP": {
@@ -243,7 +243,7 @@ Ogni evento di diagnostica ha dettagli sull'app per la logica e sull'evento stes
   }
   ```
 
-In questo esempio `ActionCompleted` viene `clientTrackingId` illustrato `trackedProperties` come l'evento include gli attributi e :
+Questo esempio Mostra come l' `ActionCompleted` evento includa `clientTrackingId` gli `trackedProperties` attributi e:
 
 ```json
 {

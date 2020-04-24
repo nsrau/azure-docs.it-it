@@ -1,6 +1,6 @@
 ---
 title: Spostare un'app in un'altra area
-description: Informazioni su come spostare le risorse del servizio app da un'area all'altra.
+description: Informazioni su come spostare le risorse del servizio app da un'area a un'altra.
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
@@ -13,15 +13,15 @@ ms.locfileid: "77925709"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Spostare un'app del servizio app in un'altra area
 
-Questo articolo descrive come spostare le risorse del servizio app in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area di Azure, per distribuire funzionalità o servizi disponibili solo in aree specifiche, per soddisfare i requisiti di governance e criteri interni o in risposta ai requisiti di pianificazione della capacità.
+Questo articolo descrive come spostare le risorse del servizio app in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area di Azure, per distribuire le funzionalità o i servizi disponibili solo in aree specifiche, per soddisfare i requisiti di governance e criteri interni oppure in risposta ai requisiti della pianificazione della capacità.
 
-Le risorse del servizio app sono specifiche dell'area e non possono essere spostate tra aree. È necessario creare una copia delle risorse del servizio app esistenti nell'area di destinazione, spostare il contenuto nella nuova app. Se l'app di origine usa un dominio personalizzato, puoi [eseguirne la migrazione alla nuova app nell'area](manage-custom-dns-migrate-domain.md) di destinazione al termine dell'operazione.
+Le risorse del servizio app sono specifiche dell'area e non possono essere spostate tra le aree. È necessario creare una copia delle risorse esistenti del servizio app nell'area di destinazione, spostare il contenuto nella nuova app. Se l'app di origine usa un dominio personalizzato, è possibile [eseguirne la migrazione alla nuova app nell'area di destinazione](manage-custom-dns-migrate-domain.md) al termine dell'operazione.
 
-Per semplificare la copia [dell'app,](app-service-web-app-cloning.md) puoi clonare una singola app del servizio app in un piano di servizio app in un'altra area, ma ha delle [limitazioni,](app-service-web-app-cloning.md#current-restrictions)in particolare perché non supporta le app Linux.
+Per semplificare la copia dell'app, è possibile [clonare una singola app del servizio app](app-service-web-app-cloning.md) in un piano di servizio app in un'altra area, ma presenta alcune [limitazioni](app-service-web-app-cloning.md#current-restrictions), in particolare in quanto non supporta le app Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Assicurarsi che l'app del servizio app si trovi nell'area di Azure da cui si vuole spostare.
+- Assicurarsi che l'app del servizio app si trovi nell'area di Azure da cui si vuole eseguire lo spostamento.
 - Assicurarsi che l'area di destinazione supporti il servizio app e qualsiasi servizio correlato, di cui si desidera spostare le risorse.
 <!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
 
@@ -32,23 +32,23 @@ Identificare tutte le risorse del servizio app attualmente in uso. Ad esempio:
 - App del servizio app
 - [Piani di servizio app](overview-hosting-plans.md)
 - [Slot di distribuzione](deploy-staging-slots.md)
-- [Domini personalizzati acquistati in AzureCustom domains purchased in Azure](manage-custom-dns-buy-domain.md)
+- [Domini personalizzati acquistati in Azure](manage-custom-dns-buy-domain.md)
 - [Certificati SSL](configure-ssl-certificate.md)
-- [Integrazione della rete virtuale di AzureAzure Virtual Network integration](web-sites-integrate-with-vnet.md)
+- [Integrazione della rete virtuale di Azure](web-sites-integrate-with-vnet.md)
 - [Connessioni ibride](app-service-hybrid-connections.md).
 - [Identità gestite](overview-managed-identity.md)
 - [Impostazioni di backup](manage-backup.md)
 
-Alcune risorse, ad esempio i certificati importati o le connessioni ibride, contengono l'integrazione con altri servizi di Azure.Certain resources, such as imported certificates or hybrid connections, contain integration with other Azure services. Per informazioni su come spostare tali risorse tra aree, vedere la documentazione relativa ai rispettivi servizi.
+Alcune risorse, ad esempio i certificati importati o le connessioni ibride, contengono l'integrazione con altri servizi di Azure. Per informazioni su come spostare tali risorse tra le aree, vedere la documentazione relativa ai rispettivi servizi.
 
 ## <a name="move"></a>Spostamento
 
-1. [Creare un backup dell'app di origine.](manage-backup.md)
-1. [Creare un'app in un nuovo piano di servizio app, nell'area di destinazione.](app-service-plan-manage.md#create-an-app-service-plan)
+1. [Creare un backup dell'app di origine](manage-backup.md).
+1. [Creare un'app in un nuovo piano di servizio app nell'area di destinazione](app-service-plan-manage.md#create-an-app-service-plan).
 2. [Ripristinare il backup nell'app di destinazione](web-sites-restore.md)
-2. Se usi un dominio personalizzato, [associalo preventivamente all'app](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) di destinazione con `awverify.` e abilita il dominio [nell'app di destinazione.](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app)
-3. Configura tutti gli altri elementi dell'app di destinazione in modo che siano uguali all'app di origine e verifica la configurazione.
-4. Quando si è pronti affinché il dominio personalizzato punti all'app di destinazione, [rimappare il nome di dominio.](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name)
+2. Se si usa un dominio personalizzato, [associarlo preventivamente all'app](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) di destinazione `awverify.` con e [abilitare il dominio nell'app di destinazione](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+3. Configurare tutto il resto nell'app di destinazione in modo che corrisponda all'app di origine e verificare la configurazione.
+4. Quando si è pronti per il dominio personalizzato in modo che punti all'app di destinazione, [modificare il mapping del nome di dominio](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 
 <!-- 1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source App Service resources and click on it.
@@ -102,7 +102,7 @@ Alcune risorse, ad esempio i certificati importati o le connessioni ibride, cont
 8. Click **BASICS** > **Create new** to create a new resource group. Type the group name and click **OK**.
 9. In **BASICS** > **Location**, select the region you want.   -->
 
-## <a name="clean-up-source-resources"></a>Pulire le risorse di origineClean up source resources
+## <a name="clean-up-source-resources"></a>Pulire le risorse di origine
 
 Eliminare l'app di origine e il piano di servizio app. [Un piano di servizio app nel livello non gratuito comporta un addebito, anche se non è in esecuzione alcuna app.](app-service-plan-manage.md#delete-an-app-service-plan)
 

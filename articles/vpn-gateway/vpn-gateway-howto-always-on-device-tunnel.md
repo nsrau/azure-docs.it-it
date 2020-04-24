@@ -1,7 +1,7 @@
 ---
-title: Configurare un tunnel VPN Always-On
+title: Configurare un tunnel VPN always on
 titleSuffix: Azure VPN Gateway
-description: Procedura per configurare il tunnel VPN Always On per il gateway VPN
+description: Procedura per configurare Always On tunnel VPN per il gateway VPN
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -21,7 +21,7 @@ ms.locfileid: "79371747"
 
 ## <a name="configure-the-gateway"></a>Configurare il gateway
 
-Configurare il gateway VPN per l'utilizzo di IKEv2 e l'autenticazione basata su certificati utilizzando l'articolo [Configurare una connessione VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) da punto a sito.
+Configurare il gateway VPN per l'uso di IKEv2 e l'autenticazione basata su certificati usando l'articolo [configurare una connessione VPN da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md) .
 
 ## <a name="configure-the-device-tunnel"></a>Configurare il tunnel del dispositivo
 
@@ -35,4 +35,4 @@ Per rimuovere il profilo, eseguire il comando seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per la risoluzione dei problemi, vedere Problemi di [connessione da punto ad azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+Per la risoluzione dei problemi, vedere [problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

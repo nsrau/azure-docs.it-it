@@ -1,6 +1,6 @@
 ---
-title: Convertire una macchina virtuale Linux da dischi non gestiti a dischi gestitiConvert a Linux VM from unmanaged disks to managed disks
-description: Come convertire una macchina virtuale Linux da dischi non gestiti a dischi gestiti tramite l'interfaccia della riga di comando di Azure.How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI.
+title: Convertire una macchina virtuale Linux da dischi non gestiti a Managed Disks
+description: Come convertire una VM Linux da dischi non gestiti a Managed disks usando l'interfaccia della riga di comando di Azure.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -25,10 +25,10 @@ Questo articolo illustra come convertire le macchine virtuali usando l'interfacc
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* I dischi rigidi virtuali originali e l'account di archiviazione usato dalla macchina virtuale prima della conversione non verranno eliminati e i costi correlati continueranno a essere addebitati. Per evitare addebiti per questi elementi, eliminare i BLOB VHD originali dopo aver verificato che la conversione sia stata completata. Se è necessario trovare questi dischi non collegati per eliminarli, vedere l'articolo [Trovare ed eliminare dischi gestiti e non gestiti](find-unattached-disks.md)di Azure non collegati .
+* I dischi rigidi virtuali originali e l'account di archiviazione usato dalla macchina virtuale prima della conversione non verranno eliminati e i costi correlati continueranno a essere addebitati. Per evitare addebiti per questi elementi, eliminare i BLOB VHD originali dopo aver verificato che la conversione sia stata completata. Se è necessario trovare questi dischi non collegati per eliminarli, vedere l'articolo [trovare ed eliminare dischi gestiti e non gestiti di Azure non collegati](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Convertire VM a istanza singola
-Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le macchine virtuali si trovano in un set di disponibilità, vedere la sezione successiva. È possibile usare questo processo per convertire le macchine virtuali da dischi non gestiti Premium (SSD) a dischi gestiti Premium o da dischi non gestiti standard (HDD) a dischi gestiti standard.
+Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le macchine virtuali si trovano in un set di disponibilità, vedere la sezione successiva. È possibile usare questo processo per convertire le VM da dischi non gestiti Premium (SSD) a Managed disks Premium o da dischi non gestiti standard (HDD) a Managed disks standard.
 
 1. Deallocare la macchina virtuale con il comando [az vm deallocate](/cli/azure/vm). L'esempio seguente dealloca la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
 
@@ -94,7 +94,7 @@ Tutte le macchine virtuali nel set di disponibilità devono essere deallocate pr
 
 È anche possibile convertire i dischi non gestiti in dischi gestiti usando il portale di Azure.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la macchina virtuale dall'elenco di macchine virtuali nel portale.
 3. Nel pannello della macchina virtuale selezionare **Dischi** dal menu.
 4. Nella parte superiore del pannello **Dischi** selezionare **Eseguire la migrazione a Managed Disks**.
@@ -104,4 +104,4 @@ La macchina virtuale verrà arrestata e riavviata al termine della migrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle opzioni di archiviazione, vedere Panoramica dei [dischi gestiti](../windows/managed-disks-overview.md)di Azure.For more information about storage options, see Azure Managed Disks overview .
+Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Managed Disks di Azure](../windows/managed-disks-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Configurare l'interfaccia della riga di comando di Azure Service Fabric MeshSet up the Azure Service Fabric Mesh CLI
-description: L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Ecco come configurarlo.
+title: Configurare l'interfaccia della riga di comando di Azure Service Fabric mesh
+description: L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Di seguito viene illustrato come configurarlo.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
@@ -13,7 +13,7 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259188"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurare l'interfaccia della riga di comando di mesh Service Fabric
-L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Ecco come configurarlo.
+L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per distribuire e gestire risorse in locale e in Azure Service Fabric Mesh. Di seguito viene illustrato come configurarlo.
 
 È possibile usare tre tipi di interfaccia della riga di comando, riepilogati nella tabella seguente.
 
@@ -21,7 +21,7 @@ L'interfaccia della riga di comando di Service Fabric Mesh è necessaria per dis
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Interfaccia della riga di comando principale, che consente di distribuire le applicazioni e gestire le risorse nell'ambiente di Azure Service Fabric Mesh. 
 | sfctl | Cluster locali | Interfaccia della riga di comando di Service Fabric, che consente di distribuire e testare le risorse di Service Fabric sui cluster locali.  
-| Interfaccia della riga di comando di Maven | Cluster locali e Azure Service Fabric Mesh | Un wrapper `az mesh` `sfctl` e che consente agli sviluppatori Java di usare un'esperienza familiare della riga di comando per l'esperienza di sviluppo locale e di Azure.A wrapper around and that allows Java developers to use a familiar command line experience for local and Azure development experience.  
+| Interfaccia della riga di comando di Maven | Cluster locali e Azure Service Fabric Mesh | Un wrapper per `az mesh` e `sfctl` che consente agli sviluppatori Java di usare un'esperienza familiare da riga di comando per l'esperienza di sviluppo locale e Azure.  
 
 Per l'anteprima l'interfaccia della riga di comando di Azure Service Fabric Mesh viene scritta come estensione dell'interfaccia della riga di comando di Azure. È possibile installarla in Azure Cloud Shell oppure in un'installazione locale dell'interfaccia della riga di comando di Azure. 
 

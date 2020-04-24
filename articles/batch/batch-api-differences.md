@@ -1,5 +1,5 @@
 ---
-title: Differenze tra le API di gestione e le API del servizio - Azure Batch Documenti Microsoft
+title: Differenze tra API di gestione e API del servizio-Azure Batch | Microsoft Docs
 description: Le API funzionano sui diversi livelli del servizio Azure Batch.
 services: batch
 author: LauraBrenner
@@ -16,13 +16,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672767"
 ---
-# <a name="service-level-and-management-level-apis"></a>API a livello di servizio e di gestioneService level and management level APIs
+# <a name="service-level-and-management-level-apis"></a>API del livello di servizio e di gestione
 
-Azure Batch include due set di API, uno per il livello di servizio e uno per il livello di gestione. La denominazione è spesso simile, ma restituisce risultati diversi. Se si desidera che i log attività, è necessario usare le API di gestione. Le API del livello di servizio ignorano il livello di gestione delle risorse di Azure e non vengono registrate.
+Azure Batch dispone di due set di API, uno per il livello di servizio e uno per il livello di gestione. La denominazione è spesso simile, ma restituiscono risultati diversi. Se si desiderano i log attività, è necessario utilizzare le API di gestione. Le API del livello di servizio ignorano il livello di gestione delle risorse di Azure e non vengono registrate.
 
 
-La gestione batch e il servizio Batch dispongono entrambi di API per il pool, ad esempio. 
-- Questa API per eliminare il pool è destinata direttamente all'account batch:This API to delete pool is targeted directly on the batch account:https://docs.microsoft.com/rest/api/batchservice/pool/delete 
+Gestione batch e il servizio batch sono entrambi dotati di API per il pool, ad esempio. 
+- Questa API per eliminare il pool è destinata direttamente all'account batch:https://docs.microsoft.com/rest/api/batchservice/pool/delete 
 
-- Questa API per https://docs.microsoft.com/rest/api/batchmanagement/pool/delete eliminare il pool è destinata al livello management.azure.com.
+- Questa API per eliminare il https://docs.microsoft.com/rest/api/batchmanagement/pool/delete pool è destinata al livello Management.Azure.com.
 

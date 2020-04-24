@@ -15,20 +15,20 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371748"
 ---
-Per stabilire correttamente un tunnel per dispositivi, è necessario soddisfare i seguenti requisiti:
+Per stabilire correttamente un tunnel del dispositivo, è necessario soddisfare i requisiti seguenti:
 
 * Il dispositivo deve essere un computer aggiunto a un dominio che esegue Windows 10 Enterprise o Education versione 1809 o successiva.
-* Il tunnel è configurabile solo per la soluzione VPN integrata di Windows e viene stabilito utilizzando IKEv2 con l'autenticazione del certificato del computer.
-* È possibile configurare un solo tunnel del dispositivo per dispositivo.
+* Il tunnel è configurabile solo per la soluzione VPN incorporata di Windows e viene stabilito usando IKEv2 con l'autenticazione del certificato computer.
+* È possibile configurare un solo tunnel del dispositivo per ogni dispositivo.
 
-1. Installare i certificati client nel client Windows 10 usando l'articolo del [client VPN da punto a sito.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) Il certificato deve trovarsi nell'archivio del computer locale.
-1. Creare un profilo VPN e configurare il tunnel del dispositivo nel contesto dell'account LOCAL SYSTEM utilizzando [queste istruzioni.](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration)
+1. Installare i certificati client nel client Windows 10 usando l'articolo [client VPN da punto a sito](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Il certificato deve trovarsi nell'archivio del computer locale.
+1. Creare un profilo VPN e configurare il tunnel del dispositivo nel contesto dell'account di sistema locale seguendo [queste istruzioni](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
 
-### <a name="configuration-example-for-device-tunnel"></a>Esempio di configurazione per il tunnel del dispositivoConfiguration example for device tunnel
+### <a name="configuration-example-for-device-tunnel"></a>Esempio di configurazione per il tunnel del dispositivo
 
-Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio computer locale nel client Windows 10, usare gli esempi seguenti per configurare un tunnel del dispositivo client:
+Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio del computer locale nel client Windows 10, usare gli esempi seguenti per configurare un tunnel del dispositivo client:
 
-1. Copiare il testo seguente e salvarlo come ***devicecert.ps1***.
+1. Copiare il testo seguente e salvarlo come ***devicecert. ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiare il testo seguente e salvarlo come ***VPNProfile.xml*** nella stessa cartella di **devicecert.ps1**. Modificare il testo seguente in base all'ambiente.
+1. Copiare il testo seguente e salvarlo come ***la. XML*** nella stessa cartella di **devicecert. ps1**. Modificare il testo seguente in modo che corrisponda all'ambiente.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -115,8 +115,8 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. Scaricare **PsExec** da [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) ed estrarre i file in **C:**
-1. Da un prompt ADMIN CMD, avviare PowerShell eseguendo:
+1. Scaricare **PsExec** da [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) ed estrarre i file in **C:\PSTools**.
+1. Da un prompt dei comandi amministratore avviare PowerShell eseguendo:
 
    ```
    PsExec.exe Powershell for 32-bit Windows
@@ -124,17 +124,17 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    ```
 
    ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. In PowerShell passare alla cartella in cui si trovano **devicecert.ps1** e **VPNProfile.xml** ed eseguire il comando seguente:
+1. In PowerShell passare alla cartella in cui si trovano **devicecert. ps1** e **la. XML** ed eseguire il comando seguente:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest (Verifica computer)](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
-1. Eseguire **rasphone**.
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+1. Eseguire **RASPHONE**.
 
-   ![rasfono](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![RASPHONE](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Cercare la voce **MachineCertTest** e fare clic su **Connetti**.
 
    ![Connessione](./media/vpn-gateway-vwan-always-on-device/connect.png)
-1. Se la connessione ha esito positivo, riavviare il computer. Il tunnel si collegherà automaticamente.
+1. Se la connessione ha esito positivo, riavviare il computer. Il tunnel si connetterà automaticamente.

@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti (FAQ) per Azure Active Directory B2C
-description: Risposte alle domande frequenti su Azure Active Directory B2C.
+description: Risposte alle domande più frequenti su Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -19,7 +19,7 @@ ms.locfileid: "79264401"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
-Questa pagina risponde alle domande frequenti su Azure Active Directory B2C (Azure AD B2C). Controllarla costantemente per eventuali aggiornamenti.
+In questa pagina vengono fornite le risposte alle domande frequenti sulla Azure Active Directory B2C (Azure AD B2C). Controllarla costantemente per eventuali aggiornamenti.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Perché non riesco ad accedere all'estensione Azure AD B2C nel portale di Azure?
 
@@ -27,25 +27,25 @@ Esistono due motivi comuni per cui l'estensione di Azure AD non funziona per l'u
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>È possibile usare le funzionalità di Azure AD B2C nel tenant di Azure AD esistente per dipendenti aziendali?
 
-Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant. Un tenant di Azure AD rappresenta un'organizzazione. Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Aggiungendo **il nuovo provider OpenID Connect** in **Azure AD B2C > provider** di identità o con criteri personalizzati, Azure AD B2C può federarsi ad Azure AD consentendo l'autenticazione dei dipendenti in un'organizzazione.
+Azure AD e Azure AD B2C vengono offerti come prodotti separati e non possono coesistere nello stesso tenant. Un tenant di Azure AD rappresenta un'organizzazione. Un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Con l'aggiunta di un **nuovo provider OpenID Connect** in **Azure ad B2C > provider di identità** o con criteri personalizzati, Azure AD B2C possibile federare Azure ad consentire l'autenticazione dei dipendenti in un'organizzazione.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>È possibile usare Azure AD B2C per fornire l'accesso a piattaforme di social networking (Facebook e Google+) in Office 365?
 
-Azure AD B2C non può essere usato per autenticare gli utenti per Microsoft Office 365. Azure AD è la soluzione Microsoft per la gestione dell'accesso dei dipendenti alle app SaaS e dispone di funzionalità progettate per questo scopo, ad esempio la gestione delle licenze e dell'accesso condizionale. Azure AD B2C offre una piattaforma di gestione di identità e accessi per la compilazione di applicazioni web e per dispositivi mobili. Quando Azure AD B2C è configurato per eseguire la federazione di un tenant di Azure AD, il tenant di Azure AD gestisce l'accesso dei dipendenti alle applicazioni che si basano su Azure AD B2C.
+Azure AD B2C non può essere usato per autenticare gli utenti per Microsoft Office 365. Azure AD è la soluzione Microsoft per la gestione dell'accesso dei dipendenti alle app SaaS e include funzionalità progettate per questo scopo, ad esempio le licenze e l'accesso condizionale. Azure AD B2C offre una piattaforma di gestione di identità e accessi per la compilazione di applicazioni web e per dispositivi mobili. Quando Azure AD B2C è configurato per eseguire la federazione di un tenant di Azure AD, il tenant di Azure AD gestisce l'accesso dei dipendenti alle applicazioni che si basano su Azure AD B2C.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Che cosa sono gli account locali in Azure AD B2C? In che cosa differiscono dagli account aziendali o dell'istituto di istruzione in Azure AD?
 
 In un tenant di Azure AD, gli utenti che vi appartengono effettuano l'accesso con un indirizzo di posta elettronica del modulo `<xyz>@<tenant domain>`. `<tenant domain>` è uno dei domini verificati nel tenant o nel dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un account aziendale o dell'istituto di istruzione.
 
-In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Sono supportati anche nomi utente arbitrari come account locali (ad esempio, joe, bob, sarah o jim). È possibile scegliere uno di questi due tipi di account locale durante la configurazione dei provider di identità per Azure AD B2C nel portale di Azure. Nel tenant B2C di Azure AD selezionare Provider di **identità**, account **locale**e quindi **Nome utente**.
+In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Sono supportati anche nomi utente arbitrari come account locali (ad esempio, joe, bob, sarah o jim). È possibile scegliere uno di questi due tipi di account locale durante la configurazione dei provider di identità per Azure AD B2C nel portale di Azure. Nel tenant di Azure AD B2C selezionare **provider di identità**, selezionare **account locale**e quindi fare clic su **nome utente**.
 
-Gli account utente per le applicazioni possono essere creati tramite un flusso utente di iscrizione, un flusso utente di iscrizione o di accesso, l'API Microsoft Graph o nel portale di Azure.User accounts for applications can be created through a sign-up user flow, sign-up or sign-in user flow, the Microsoft Graph API, or in the Azure portal.
+Gli account utente per le applicazioni possono essere creati tramite un flusso utente di iscrizione, un flusso utente di iscrizione o accesso, l'API Microsoft Graph o nel portale di Azure.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 
-Attualmente supportiamo diversi provider di identità social tra cui Amazon, Facebook, GitHub (anteprima), Google, LinkedIn, Microsoft Account (MSA), QQ (anteprima), Twitter, WeChat (anteprima) e Weibo (anteprima). Valutiamo l'aggiunta di supporto per altri provider di identità social popolari in base alla domanda dei clienti.
+Attualmente sono supportati diversi provider di identità basati su social network, tra cui Amazon, Facebook, GitHub (Preview), Google, LinkedIn, account Microsoft (MSA), QQ (anteprima), Twitter, WeChat (anteprima) e Weibo (anteprima). Viene valutato l'aggiunta del supporto per altri provider di identità di social networking comuni in base alla domanda dei clienti.
 
-Azure AD B2C supporta anche [criteri personalizzati.](custom-policy-overview.md) I criteri personalizzati consentono di creare criteri personalizzati per qualsiasi provider di identità che supporti [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML. Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+Azure AD B2C supporta anche [criteri personalizzati](custom-policy-overview.md). I criteri personalizzati consentono di creare criteri personalizzati per qualsiasi provider di identità che supporta [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) o SAML. Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>È possibile configurare ambiti per raccogliere altre informazioni sugli utenti da diversi provider di identità di social networking?
 
@@ -69,7 +69,7 @@ Prima di aprire "Azure AD B2C" nel menu sul lato sinistro del portale di Azure, 
 
 È possibile usare la [funzionalità di personalizzazione della società](../active-directory/fundamentals/customize-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. In particolare, è possibile personalizzare i due elementi di posta elettronica seguenti:
 
-* **Logo banner**: Mostrato in basso a destra.
+* **Logo banner**: visualizzato in basso a destra.
 * **Colore di sfondo**: in alto.
 
     ![Screenshot di un messaggio di posta elettronica di verifica personalizzato](./media/faq/company-branded-verification-email.png)
@@ -77,7 +77,7 @@ Prima di aprire "Azure AD B2C" nel menu sul lato sinistro del portale di Azure, 
 La firma della posta elettronica contiene il nome del tenant di Azure AD B2C fornito al momento della creazione del tenant di Azure AD B2C. È possibile modificare il nome seguendo queste istruzioni:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale.
-1. Aprire il pannello **di Azure Active Directory.Open** the Azure Active Directory blade.
+1. Aprire il pannello **Azure Active Directory** .
 1. Fare clic sulla scheda **Proprietà**.
 1. Modificare il valore del campo **Nome**.
 1. Fare clic su **Salva** nella parte superiore della pagina.
@@ -86,17 +86,17 @@ Attualmente non è possibile modificare il campo "Da:" del messaggio di posta el
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Come si esegue la migrazione di nomi utente, password e profili esistenti dal database personale in Azure AD B2C?
 
-È possibile utilizzare l'API Microsoft Graph per scrivere lo strumento di migrazione. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
+È possibile usare l'API Microsoft Graph per scrivere lo strumento di migrazione. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Qual è il flusso di password utente usato per gli account locali in Azure AD B2C?
 
-Il flusso di password utente di AAD B2C per gli account locali si basa sui criteri di Azure AD. L'iscrizione ad Azure AD B2C, i flussi di iscrizione o di accesso e di reset delle password utenti usano un livello di complessità sicuro e le password non scadono. Per altre informazioni, vedere Criteri e restrizioni delle password [in Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)
+Il flusso di password utente di AAD B2C per gli account locali si basa sui criteri di Azure AD. L'iscrizione ad Azure AD B2C, i flussi di iscrizione o di accesso e di reset delle password utenti usano un livello di complessità sicuro e le password non scadono. Per informazioni dettagliate, vedere [criteri e restrizioni per le password in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
 
 Per informazioni su blocchi automatici e password degli account, vedere [Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C](threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>È possibile usare Azure AD Connect per eseguire la migrazione in Azure AD B2C delle identità utente archiviate in Active Directory locale?
 
-No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. Prendere in considerazione l'utilizzo [dell'API Microsoft Graph](manage-user-accounts-graph-api.md) per la migrazione degli utenti. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
+No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. Prendere in considerazione l'uso dell' [API Microsoft Graph](manage-user-accounts-graph-api.md) per la migrazione degli utenti. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>L'applicazione può aprire le pagine di Azure AD B2C all'interno di un iFrame?
 
@@ -112,7 +112,7 @@ Azure AD B2C non è concepito per lo scenario di condivisione esterna con i part
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>È necessario usare Azure AD B2C o B2B per gestire le identità esterne?
 
-Per altre informazioni sull'applicazione delle funzionalità appropriate agli scenari di identità esterna, vedere Confrontare la [collaborazione B2B e B2C in Azure AD.](../active-directory/b2b/compare-with-b2c.md)
+Per altre informazioni sull'applicazione delle funzionalità appropriate agli scenari di identità esterni, vedere [confrontare collaborazione B2B e B2C in Azure ad](../active-directory/b2b/compare-with-b2c.md) .
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quali funzionalità di reporting e controllo offre Azure AD B2C? Offre le stesse funzionalità di Azure AD Premium?
 
@@ -124,58 +124,58 @@ No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Esist
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>È possibile localizzare l'interfaccia utente delle pagine servite da Azure AD B2C? Quali lingue sono supportate?
 
-Sì, vedere [Personalizzazione della lingua](user-flow-language-customization.md). Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
+Sì, vedere [personalizzazione della lingua](user-flow-language-customization.md). Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
 
-### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? Ad esempio, posso modificare l'URL da contoso.b2clogin.com a login.contoso.com?
+### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? Ad esempio, è possibile modificare l'URL da contoso.b2clogin.com a login.contoso.com?
 
-No, per il momento. Questa funzionalità verrà implementata in futuro. Questo non si ottiene verificando il dominio nella scheda **Domini** nel portale di Azure. Tuttavia, con b2clogin.com, offriamo un [dominio neutro](b2clogin.md)di primo livello , e quindi l'aspetto esterno può essere implementato senza la menzione di Microsoft.
+No, per il momento. Questa funzionalità verrà implementata in futuro. Questo non si ottiene verificando il dominio nella scheda **Domini** nel portale di Azure. Tuttavia, con b2clogin.com, viene offerto un [dominio di livello superiore neutro](b2clogin.md)e, di conseguenza, l'aspetto esterno può essere implementato senza il riferimento a Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Come si elimina il tenant di Azure AD B2C?
 
-Seguire questi passaggi per eliminare il tenant B2C di Azure AD.
+Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 
-Puoi utilizzare l'esperienza **corrente di Applicazioni** o la nostra nuova esperienza di registrazione unificata delle app **(anteprima).** [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+È possibile usare l'esperienza di **applicazioni** correnti o la nuova esperienza Unified **registrazioni app (Preview)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
-1. Accedere al [portale](https://portal.azure.com/) di Azure come *amministratore della sottoscrizione.* Usare lo stesso account aziendale o dell'istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. Eliminare tutti i **flussi utente (criteri)** nel tenant B2C di Azure AD.
-1. Eliminare tutte le **applicazioni** registrate nel tenant B2C di Azure AD.
-1. Selezionare **Azure Active Directory** nel menu a sinistra.
+1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
+1. Eliminare tutte le **applicazioni** registrate nel tenant del Azure ad B2C.
+1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. In **Gestisci** selezionare **Utenti**.
-1. Selezionare ogni utente a turno (escludere l'utente *amministratore della sottoscrizione* con cui è stato eseguito l'accesso). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
-1. In **Gestisci**selezionare **Registrazioni app** (o **Registrazioni app (legacy)**.
+1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
+1. In **Gestisci**selezionare **Registrazioni app** (o **registrazioni app (legacy)**).
 1. Selezionare **Visualizza tutte le applicazioni**
-1. Selezionare l'applicazione denominata **b2c-extensions-app**, selezionare **Elimina**e quindi selezionare **Sì** quando richiesto.
-1. In **Gestisci**selezionare **Impostazioni utente**.
-1. Se presente, in **Connessioni account LinkedIn**selezionare **No**, quindi **Salva**.
+1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina**e quindi fare clic su **Sì** quando richiesto.
+1. In **Gestisci**selezionare **impostazioni utente**.
+1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
-1. Selezionare **Azure Active Directory** nel menu a sinistra.
-1. Nella pagina **Panoramica** selezionare **Elimina directory**. Seguire le istruzioni visualizzate per completare il processo.
+1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
-1. Accedere al [portale](https://portal.azure.com/) di Azure come *amministratore della sottoscrizione.* Usare lo stesso account aziendale o dell'istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
-1. Eliminare tutti i **flussi utente (criteri)** nel tenant B2C di Azure AD.
-1. Selezionare **Registrazioni app (anteprima)**, quindi selezionare la scheda **Tutte le applicazioni.**
+1. Eliminare tutti i **flussi utente (criteri)** nel tenant del Azure ad B2C.
+1. Selezionare **registrazioni app (anteprima)**, quindi selezionare la scheda **tutte le applicazioni** .
 1. Eliminare tutte le applicazioni registrate.
-1. Eliminare **l'app b2c-extensions**.
+1. Eliminare **B2C-Extensions-app**.
 1. In **Gestisci** selezionare **Utenti**.
-1. Selezionare ogni utente a turno (escludere l'utente *amministratore della sottoscrizione* con cui è stato eseguito l'accesso). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
-1. Selezionare **Azure Active Directory** nel menu a sinistra.
-1. In **Gestisci**selezionare **Impostazioni utente**.
-1. Se presente, in **Connessioni account LinkedIn**selezionare **No**, quindi **Salva**.
+1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
+1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. In **Gestisci**selezionare **impostazioni utente**.
+1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
-1. Selezionare **Azure Active Directory** nel menu a sinistra.
-1. Nella pagina **Panoramica** selezionare **Elimina directory**. Seguire le istruzioni visualizzate per completare il processo.
+1. Selezionare **Azure Active Directory** dal menu a sinistra.
+1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
 
 * * *
 
