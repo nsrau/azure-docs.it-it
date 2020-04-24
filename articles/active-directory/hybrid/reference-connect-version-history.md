@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1377023af9d4f153671f15e214516ac29536638
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100074"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112202"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -47,6 +47,14 @@ Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornament
 >Se è stata abilitata Azure AD Connect per la sincronizzazione, si inizierà automaticamente a ricevere notifiche di integrità che segnalano eventuali deprecazioni imminenti quando si esegue una delle versioni precedenti.
 >
 >Per ulteriori informazioni su come aggiornare Azure AD Connect alla versione più recente, fare riferimento a [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
+## <a name="15290"></a>1.5.29.0
+
+### <a name="release-status"></a>Stato della versione
+04/23/2020: rilasciato per il download
+
+### <a name="fixed-issues"></a>Problemi risolti
+Questa build di hotfix corregge un problema introdotto in Build 1.5.20.0, in cui un amministratore tenant con autenticazione a più fattori non è stato in grado di abilitare ICTAMMOLO.
 
 ## <a name="15220"></a>1.5.22.0
 
@@ -551,7 +559,7 @@ Type     | Nome                          | Accesso               | Si applica a
 Allow    | SYSTEM                        | Controllo completo         | Questo oggetto  |
 Allow    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
 Allow    | Domain Admins                 | Controllo completo         | Questo oggetto  |
-Allow    | Amministratori                | Controllo completo         | Questo oggetto  |
+Allow    | Administrators                | Controllo completo         | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
 Allow    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
@@ -571,7 +579,7 @@ Per usare lo script di PowerShell per applicare queste impostazioni a un account
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+Dove 
 
 **$ObjectDN** = account Active Directory di cui restringere le autorizzazioni.
 
@@ -890,7 +898,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Select|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|Dove|
     |||With|
 
 * Le modifiche seguenti dello schema sono state introdotte per consentire ai clienti di creare regole di sincronizzazione personalizzate per includere nel flusso gli attributi sAMAccountName, domainNetBios e domainFQDN per gli oggetti gruppo e l'attributo distinguishedName per gli oggetti utente:

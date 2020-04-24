@@ -1,25 +1,15 @@
 ---
 title: Salvare in modo permanente i dati di output in archiviazione di Azure con la libreria file Conventions .NET-Azure Batch
 description: Informazioni su come usare Azure Batch libreria file Conventions per .NET per salvare in modo permanente l'attività batch & l'output del processo in archiviazione di Azure e visualizzare l'output nella portale di Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e331dcfc9acf7a5e8a83be788b566cf92eaeb8f4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548038"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116435"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET
 

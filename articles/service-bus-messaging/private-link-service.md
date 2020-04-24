@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: b8c4248b7275ac96acce96f890f6ff0148116f48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478006"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116707"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrare il bus di servizio di Azure con collegamento privato di Azure (anteprima)
 
@@ -22,7 +22,21 @@ Un endpoint privato è un'interfaccia di rete che si connette privatamente e in 
 
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
-> [!NOTE]
+>[!WARNING]
+> L'implementazione di endpoint privati può impedire ad altri servizi di Azure di interagire con il bus di servizio.
+>
+> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
+>
+> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
+> - Integrazione con Griglia di eventi di Azure
+> - Route dell'hub IoT di Azure
+> - Azure IoT Device Explorer
+>
+> I servizi Microsoft seguenti devono essere in una rete virtuale
+> - Servizio app di Azure
+> - Funzioni di Azure
+
+> [!IMPORTANT]
 > Questa funzionalità è supportata con il livello **Premium** del bus di servizio di Azure. Per ulteriori informazioni sul livello Premium, vedere l'articolo relativo ai [livelli di messaggistica standard e Premium del bus di servizio](service-bus-premium-messaging.md) .
 >
 > Questa funzionalità è attualmente disponibile in **Anteprima**. 

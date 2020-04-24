@@ -1,22 +1,14 @@
 ---
-title: Monitorare Batch con Azure Application Insights | Microsoft Docs
+title: Monitorare batch con applicazione Azure Insights
 description: Informazioni su come instrumentare un'applicazione .NET di Azure Batch con la libreria di Azure Application Insights.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
-ms.devlang: .NET
 ms.topic: article
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: labrenne
-ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022461"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115466"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
@@ -27,11 +19,11 @@ Questo articolo illustra come aggiungere e configurare la libreria di Applicatio
 In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo. 
 
 > [!TIP]
-> In alternativa, configurare la soluzione Batch per visualizzare i dati di Application Insights, ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. Scaricare un pacchetto di installazione per Mac, Linux o Windows.Download an installation [package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows. Vedere il [repository di informazioni dettagliate su Batch](https://github.com/Azure/batch-insights) per azioni rapide per abilitare i dati di Application Insights in Batch Explorer. 
+> In alternativa, configurare la soluzione Batch per visualizzare i dati di Application Insights, ad esempio i contatori delle prestazioni delle macchine virtuali in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) è uno strumento client autonomo, gratuito e ricco di funzionalità che consente di creare, eseguire il debug e monitorare le applicazioni di Azure Batch. Scaricare un [pacchetto di installazione](https://azure.github.io/BatchExplorer/) per Mac, Linux o Windows. Vedere il [repository di informazioni dettagliate su Batch](https://github.com/Azure/batch-insights) per azioni rapide per abilitare i dati di Application Insights in Batch Explorer. 
 >
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Visual Studio 2017 o versione successiva](https://www.visualstudio.com/vs)
+* [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs)
 
 * [Un account Batch e un account di archiviazione collegato](batch-account-create-portal.md)
 
@@ -288,7 +280,7 @@ Lo screenshot seguente mostra come vengono registrate le eccezioni generate dall
 Anche le metriche personalizzate sono uno strumento prezioso nel portale. Ad esempio, è possibile visualizzare il tempo medio impiegato per scaricare il file di testo richiesto per l'elaborazione da ogni nodo di calcolo.
 
 Per creare un grafico di esempio:
-1. Nella risorsa Di Application Insights fare clic su **Esplora** > metriche Aggiungi**grafico**.
+1. Nella risorsa Application Insights fare clic su **Esplora metriche** > **Aggiungi grafico**.
 2. Fare clic su **Modifica** nel grafico aggiunto.
 2. Aggiornare i dettagli del grafico come segue:
    * Impostare **Tipo di grafico** su **Griglia**.

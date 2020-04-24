@@ -1,25 +1,15 @@
 ---
-title: Integrazione con i criteri di Azure-Azure Batch | Microsoft Docs
-description: ''
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
+title: Integrazione con i criteri di Azure
+description: Criteri di Azure è un servizio di Azure che consente di creare, assegnare e gestire criteri che applicano regole sulle risorse.
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 9a306457f838fc79d12be3217d96cc8fb25c9c1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77618373"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116078"
 ---
 # <a name="integration-with-azure-policy"></a>Integrazione con criteri di Azure
 

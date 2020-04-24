@@ -1,18 +1,16 @@
 ---
-title: Funzionalità di rendering - Azure Batch
-description: Le funzionalità standard di Azure Batch vengono usate per eseguire carichi di lavoro e app di rendering. Batch include funzionalità specifiche per supportare i carichi di lavoro di rendering.
-services: batch
-ms.service: batch
+title: Funzionalità di rendering
+description: Le funzionalità di Azure Batch standard vengono usate per eseguire i carichi di lavoro e le app di rendering. Batch include funzionalità specifiche per il supporto dei carichi di lavoro di rendering.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449716"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115755"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
@@ -30,16 +28,16 @@ Sono disponibili un'immagine Windows 2016 e un'immagine CentOS.  In [Azure Marke
 
 Per una configurazione pool di esempio, vedere l'[esercitazione sul rendering nell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Il portale di Azure e Batch Explorer forniscono strumenti dell'interfaccia utente grafica per selezionare un'immagine di VM di rendering quando si crea un pool.  Se si usa un'API Batch, specificare i valori della proprietà seguenti per [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) quando si crea un pool:
 
-| Editore | Offerta | Sku | Versione |
+| Editore | Offerta | Sku | Version |
 |---------|---------|---------|--------|
 |  o batch | rendering-centos73 | rendering | più recenti |
 |  o batch | rendering-windows2016 | rendering | più recenti |
 
 Sono disponibili altre opzioni se sono necessarie applicazioni aggiuntive nelle VM del pool:
 
-* Un'immagine personalizzata dalla Galleria immagini condivise:
-  * Con questa opzione, è possibile configurare la macchina virtuale esattamente con le applicazioni e le versioni specifiche necessarie. Per ulteriori informazioni, consultate [Creare un pool con la Raccolta immagini condivise.](batch-sig-images.md) Autodesk e Chaos Group hanno modificato, rispettivamente, Arnold e V-Ray per eseguire la convalida in base al servizio di licenze di Azure Batch. Verificare di avere le versioni di queste applicazioni con questo supporto. In caso contrario, le licenze con pagamento in base al consumo non funzioneranno. Le versioni correnti di Maya o 3ds Max non richiedono un server licenze durante l'esecuzione headless (in modalità batch/riga di comando). In caso di dubbi su come procedere con questa opzione, contattare il supporto di Azure.
-* [Pacchetti applicativi](https://docs.microsoft.com/azure/batch/batch-application-packages):
+* Un'immagine personalizzata dalla raccolta immagini condivise:
+  * Con questa opzione, è possibile configurare la macchina virtuale esattamente con le applicazioni e le versioni specifiche necessarie. Per altre informazioni, vedere [creare un pool con la raccolta di immagini condivise](batch-sig-images.md). Autodesk e Chaos Group hanno modificato, rispettivamente, Arnold e V-Ray per eseguire la convalida in base al servizio di licenze di Azure Batch. Verificare di avere le versioni di queste applicazioni con questo supporto. In caso contrario, le licenze con pagamento in base al consumo non funzioneranno. Le versioni correnti di Maya o 3ds Max non richiedono un server licenze durante l'esecuzione headless (in modalità batch/riga di comando). In caso di dubbi su come procedere con questa opzione, contattare il supporto di Azure.
+* [Pacchetti di applicazioni](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Includere in un pacchetto i file dell'applicazione usando uno o più file ZIP, caricarlo tramite il portale di Azure e specificare il pacchetto nella configurazione pool. Quando vengono create le VM del pool, i file ZIP vengono scaricati e i file vengono estratti.
 * File di risorse:
   * I file dell'applicazione vengono caricati nell'archivio BLOB di Azure, quindi si specificano i riferimenti ai file nell'[attività di avvio del pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Quando vengono create le VM del pool, i file di risorse vengono scaricati in ogni VM.
@@ -95,4 +93,4 @@ Quando vengono usate le immagini di VM di Azure Marketplace, la procedura consig
 Per esempi del rendering di Batch provare le due esercitazioni:
 
 * [Eseguire il rendering con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Eseguire il rendering con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Rendering con Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)

@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a1440dcda27a487c89be4ac63e624a2bb6b393a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79129703"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111879"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creare flussi di lavoro di machine learning basati su eventi (anteprima)
 
@@ -87,15 +87,13 @@ Quando si configurano gli eventi, è possibile applicare filtri per attivare sol
 
 1. Passare alla portale di Azure, selezionare una nuova sottoscrizione o una nuova sottoscrizione esistente. 
 
-1. Selezionare la scheda filtri e scorrere verso il basso fino a filtri avanzati. Nella **chiave** e nel **valore** specificare i tipi di proprietà che si desidera filtrare in base a. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un passaggio della pipeline.  
+1. Selezionare la scheda filtri e scorrere verso il basso fino a filtri avanzati. Per la **chiave** e il **valore**, specificare i tipi di proprietà che si desidera filtrare in base a. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un passaggio della pipeline.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrare gli eventi":::
 
-## <a name="sample-scenarios"></a>Scenari di esempio
+## <a name="sample-send-email-alerts"></a>Esempio: inviare avvisi di posta elettronica
 
-### <a name="use-a-logic-app-to-send-email-alerts"></a>Usare un'app per la logica per inviare avvisi di posta elettronica
-
-Sfrutta le [app](https://docs.microsoft.com/azure/logic-apps/) per la logica di Azure per configurare i messaggi di posta elettronica per tutti gli eventi. Personalizzare con le condizioni e specificare i destinatari per consentire la collaborazione e la consapevolezza tra i team che interagiscono.
+Usare [app](https://docs.microsoft.com/azure/logic-apps/) per la logica di Azure per configurare i messaggi di posta elettronica per tutti gli eventi. Personalizzare con le condizioni e specificare i destinatari per consentire la collaborazione e la consapevolezza tra i team che interagiscono.
 
 1. Nella portale di Azure passare all'area di lavoro Azure Machine Learning e selezionare la scheda eventi nella barra a sinistra. Da qui selezionare app per la __logica__. 
 
@@ -126,7 +124,7 @@ Sfrutta le [app](https://docs.microsoft.com/azure/logic-apps/) per la logica di 
     ![conferma-logica-app-crea](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-### <a name="use-a-logic-app-to-trigger-retraining-workflows-when-data-drift-occurs"></a>Usare un'app per la logica per attivare i flussi di lavoro di ripetizione del training quando si verifica la tendenza
+## <a name="sample-trigger-retraining-when-data-drift-occurs"></a>Esempio: attivare la ripetizione del training quando si verifica la tendenza dei dati
 
 I modelli diventano obsoleti nel tempo e non rimangono utili nel contesto in cui è in esecuzione. Un modo per stabilire se è il momento di ripetere il training del modello è il rilevamento della tendenza dei dati. 
 
@@ -173,7 +171,7 @@ A questo punto la pipeline data factory viene attivata quando si verifica la ten
 
 ![visualizzazione in area di lavoro](./media/how-to-use-event-grid/view-in-workspace.png)
 
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Usare funzioni di Azure per distribuire un modello basato sui tag
+## <a name="sample-deploy-a-model-based-on-tags"></a>Esempio: distribuire un modello basato sui tag
 
 Un oggetto modello di Azure Machine Learning contiene parametri in cui è possibile trasformare le distribuzioni tramite pivot, ad esempio il nome del modello, la versione, il tag e la proprietà. L'evento di registrazione del modello può attivare un endpoint ed è possibile usare una funzione di Azure per distribuire un modello in base al valore di tali parametri.
 

@@ -1,25 +1,15 @@
 ---
-title: Creare dipendenze tra attività per eseguire attività - Azure BatchCreate task dependencies to run tasks - Azure Batch
+title: Creare relazioni tra attività per eseguire attività-Azure Batch
 description: Creare attività che dipendono dal completamento di altre attività per l'elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca771117e889afc8e143c4ca4626ab2d3bb4da2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022903"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116486"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
 
@@ -210,7 +200,7 @@ Il progetto di esempio [TaskDependencies][github_taskdependencies] è uno degli 
 - Come eseguire queste attività in un pool di nodi di calcolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-### <a name="application-deployment"></a>Distribuzione delle applicazioni
+### <a name="application-deployment"></a>Distribuzione dell'applicazione
 La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch offre un modo semplice per distribuire e controllare le versioni delle applicazioni eseguite dalle attività nei nodi di calcolo.
 
 ### <a name="installing-applications-and-staging-data"></a>Installazione delle applicazioni e staging dei dati
@@ -238,4 +228,4 @@ Per una panoramica dei metodi di preparazione dei nodi per l'esecuzione di attiv
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagramma: relazione uno-a-uno"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagramma: relazione uno-a-molti"
-[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: dipendenza dell'intervallo di ID attività"
+[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: dipendenza intervallo ID attività"

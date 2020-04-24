@@ -1,14 +1,14 @@
 ---
-title: Monitorare le istanze del contenitoreMonitor container instances
+title: Monitorare le istanze di contenitore
 description: Come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria, da parte dei contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250023"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116368"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
 
@@ -17,7 +17,7 @@ ms.locfileid: "78250023"
 Questo documento illustra in dettaglio la raccolta delle metriche di Monitoraggio di Azure per le istanze di contenitore tramite il portale di Azure e l'interfaccia della riga di comando di Azure.
 
 > [!IMPORTANT]
-> Le metriche di Monitoraggio di Azure in Istanze di Azure Container sono attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Le metriche di Monitoraggio di Azure in Istanze di Azure Container sono attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
@@ -25,13 +25,13 @@ In questo momento, le metriche di Monitoraggio di Azure sono disponibili solo pe
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
-Monitoraggio di Azure fornisce le [metriche per Istanze di Azure Container][supported-metrics] seguenti. Queste metriche sono disponibili per un gruppo di contenitori e per singoli contenitori.
+Monitoraggio di Azure fornisce le [metriche per Istanze di Azure Container][supported-metrics] seguenti. Queste metriche sono disponibili per un gruppo di contenitori e per singoli contenitori. Per impostazione predefinita, le metriche vengono aggregate come medie.
 
-* **Utilizzo CPU**: misurato in **millicore**. Un millicore equivale a 1/1.000° di core della CPU, quindi 500 millicore, o 500 m, rappresentano il 50% di utilizzo di un core della CPU. Aggregato come **utilizzo medio** tra tutti i core.
+* **Utilizzo CPU**: misurato in **millicore**. Uno millicore è 1/1000 di un core CPU, quindi 500 millicore rappresenta l'utilizzo di 0,5 core CPU.
 
-* **Utilizzo memoria**: valore aggregato come **media byte**.
+* **Utilizzo memoria** : in byte.
 
-* **Byte di rete ricevuti al secondo** e **Byte di rete trasmessi al secondo**: valore aggregato come **media byte al secondo**. 
+* **Byte di rete ricevuti al secondo** e **byte di rete trasmessi al secondo**. 
 
 ## <a name="get-metrics---azure-portal"></a>Ottenere le metriche: portale di Azure
 

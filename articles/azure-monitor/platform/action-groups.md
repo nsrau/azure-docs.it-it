@@ -3,15 +3,15 @@ title: Creare e gestire gruppi di azione nel portale di Azure
 description: Informazioni su come creare e gestire gruppi di azione nel portale di Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 2/18/2020
+ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520899"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116214"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -196,14 +196,20 @@ Write-Host $myApp.AppRoles
 ```
 
 ### <a name="sms"></a>sms
-Per ulteriori informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) e il comportamento degli [avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md) .
+Per ulteriori informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) e il comportamento degli [avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md) . 
 
-Un gruppo di azioni può contenere un numero limitato di azioni SMS.  
+Un gruppo di azioni può contenere un numero limitato di azioni SMS.
+
+Se l'interfaccia utente del gruppo di azioni portale di Azure non consente di selezionare il codice paese, SMS non è supportato per il proprio paese. I prezzi per i paesi supportati sono elencati nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Se il codice paese non è disponibile, è possibile votare per aggiungere il paese alla [voce utente](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+
+  
 
 ### <a name="voice"></a>Chiamata vocale
 Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 Un gruppo di azioni può contenere un numero limitato di azioni vocali.
+
+Se l'interfaccia utente del gruppo di azioni portale di Azure non consente di selezionare il codice paese, le chiamate vocali non sono supportate per il proprio paese. I prezzi per i paesi supportati sono elencati nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Se il codice paese non è disponibile, è possibile votare per aggiungere il paese alla [voce utente](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
 
 ### <a name="webhook"></a>webhook
 I webhook vengono ripetuti usando le regole seguenti. La chiamata al webhook viene ritentata fino a due volte quando vengono restituiti i codici di stato HTTP seguenti: 408, 429, 503, 504 o l'endpoint HTTP non risponde. La prima ripetizione del tentativo avviene dopo 10 secondi. la seconda dopo 100 secondi. Dopo due errori, nessun gruppo di azione chiamerà l'endpoint per 30 minuti. 

@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentazione degli assistenti vocali
-summary: Gli assistenti vocali che utilizzano il servizio di riconoscimento vocale consentono agli sviluppatori di creare interfacce conversazionali naturali e simili a come l'uomo per le loro applicazioni ed esperienze.
+summary: Gli assistenti vocali che usano il servizio riconoscimento vocale consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per le proprie applicazioni ed esperienze.
 metadata:
-  title: Documentazione degli assistenti vocali - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
+  title: Documentazione degli assistenti vocali-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: cbef289ebc79e20b928db684af01a4eaeb1c0ce8
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
+  ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401453"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82106203"
 landingContent:
 - title: Informazioni sugli assistenti vocali
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: Che cos'è un assistente vocale?
       url: voice-assistants.md
-    - text: Che cos'è un'app Comandi personalizzati?
+    - text: Che cos'è un'app comandi personalizzata?
       url: custom-commands.md
     - text: Che cos'è Direct Line Speech?
       url: direct-line-speech.md
@@ -34,7 +34,11 @@ landingContent:
       url: faq-voice-assistants.md
     - text: Prezzi degli assistenti vocali
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
-- title: Sviluppare con comandi personalizzatiDevelop with Custom Commands
+  - linkListType: get-started
+    links:
+    - text: Creare e distribuire un assistente vocale di esempio nella sottoscrizione di Azure (GitHub)
+      url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
+- title: Sviluppare con comandi personalizzati
   linkLists:
   - linkListType: quickstart
     links:
@@ -56,7 +60,7 @@ landingContent:
       url: how-to-custom-speech-commands-confirmations.md
     - text: Aggiungere una correzione in un singolo passaggio
       url: how-to-custom-speech-commands-one-step-correction.md
-- title: Sviluppa con Direct Line Speech
+- title: Sviluppare con la voce Direct Line
   linkLists:
   - linkListType: quickstart
     links:
@@ -70,13 +74,13 @@ landingContent:
     links:
     - text: Abilitare il bot per la voce con Speech SDK
       url: tutorial-voice-enable-your-bot-speech-sdk.md
-- title: Sviluppa con parole chiave personalizzateDevelop with Custom Keyword
+- title: Sviluppare con la parola chiave Custom
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creare una parola chiave personalizzataCreate a Custom Keyword
+    - text: Creare una parola chiave personalizzata
       url: speech-devices-sdk-create-kws.md
   - linkListType: reference
     links:
-    - text: Linee guida per la denominazione delle parole chiave personalizzateCustom Keyword naming guidelines
+    - text: Linee guida per la denominazione delle parole chiave personalizzate
       url: speech-devices-sdk-kws-guidelines.md

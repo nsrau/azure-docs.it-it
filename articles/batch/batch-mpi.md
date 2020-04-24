@@ -1,24 +1,15 @@
 ---
-title: 'Usare attività a istanze multiple per eseguire applicazioni MPI: Azure Batch | Documentazione Microsoft'
+title: Usare attività a istanze diverse per eseguire applicazioni MPI
 description: Informazioni su come eseguire applicazioni MPI (Message Passing Interface) usando il tipo di attività a istanze multiple in Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1896fea3c401299b4f77235ab3c02d85708b7041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023668"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115976"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -280,7 +271,7 @@ Il codice di esempio [MultiInstanceTasks][github_mpi] su GitHub illustra come us
 
 ### <a name="execution"></a>Esecuzione
 1. Scaricare [azure-batch-samples][github_samples_zip] da GitHub.
-2. Aprire la soluzione MultiInstanceTasks in Visual Studio 2019.Open the MultiInstanceTasks **solution** in Visual Studio 2019. Il `MultiInstanceTasks.sln` file della soluzione si trova:
+2. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2019. Il `MultiInstanceTasks.sln` file della soluzione si trova:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Immettere le credenziali dell'account di archiviazione e Batch in `AccountSettings.settings` nel progetto **Microsoft.Azure.Batch.Samples.Common**.

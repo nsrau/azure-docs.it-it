@@ -1,31 +1,20 @@
 ---
-title: Utilizzare la libreria .NET di gestione batch per gestire le risorse account
+title: Usare la libreria di gestione .NET per batch per gestire le risorse dell'account
 description: Creare, eliminare e modificare le risorse dell'account Batch tramite la libreria Batch Management .NET.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 79916d769ad8a7228aec8db965c29506ccd78ece
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69e3eb04352feff11ee50acab11328adb7900539
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023685"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115993"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gestire le quote e gli account Batch con la libreria client di gestione Batch per .NET
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](batch-account-create-portal.md)
+> * [Azure portal](batch-account-create-portal.md)
 > * [.NET per la gestione di Batch](batch-management-dotnet.md)
 > 
 > 
@@ -177,8 +166,8 @@ Per eseguire correttamente l'applicazione di esempio, è innanzitutto necessario
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Che cos'è Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Scenari di autenticazione per Azure ADAuthentication Scenarios for Azure AD"
-[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrazione di applicazioni con Azure Active DirectoryIntegrating Applications with Azure Active Directory"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Scenari di autenticazione per Azure AD"
+[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrazione di applicazioni con Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx

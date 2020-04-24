@@ -1,20 +1,15 @@
 ---
-title: 'Rendering di Azure: architetture di riferimento - Azure Batch'
+title: Architetture di riferimento per il rendering di Azure
 description: Architetture per l'uso di Azure Batch e altri servizi di Azure per estendere un farm di rendering locale tramite burst nel cloud
-services: batch
-ms.service: batch
-author: davefellows
-manager: evansma
-ms.author: labrenne
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022954"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115772"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Architetture di riferimento per il rendering di Azure
 
@@ -28,7 +23,7 @@ Il diagramma seguente illustra uno scenario ibrido che include i servizi di Azur
 
 * **Rete**: locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
 
-* **Archiviazione**: file di input e output: NFS o CFS usando macchine virtuali di Azure, sincronizzati con l'archiviazione locale tramite Sincronizzazione file di Azure o RSync. In alternativa: Avere vFXT per l'input o l'output di file da dispositivi NAS locali utilizzando NFS.
+* **Archiviazione**: file di input e output: NFS o CFS usando macchine virtuali di Azure, sincronizzati con l'archiviazione locale tramite Sincronizzazione file di Azure o RSync. In alternativa, è possibile eseguire l'vFXT dei file di input o di output da dispositivi NAS locali usando NFS.
 
   ![Bursting del cloud: configurazione ibrida con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 

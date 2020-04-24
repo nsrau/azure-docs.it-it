@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12a1cd3c170fd7444362d1eabba1541cefb37d1a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651475"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115551"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi X12 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -34,7 +34,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-x12-agreement"></a>Creare un contratto X12
 
-1. Accedere al [portale](https://portal.azure.com "Portale di Azure")di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com "Portale di Azure"). 
 
 2. Nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.  
@@ -93,18 +93,18 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-![Impostare le proprietà dell'identificatore](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
+![Imposta proprietà identificatore](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
 | Proprietà | Descrizione |
 | --- | --- |
 | ISA1 (Qualificatore di autorizzazione) |Selezionare il valore relativo al qualificatore di autorizzazione nell'elenco a discesa. |
-| ISA2 |Facoltativa. Immettere il valore relativo alle informazioni di autorizzazione. Se il valore immesso per ISA1 è diverso da 00, immettere almeno uno e al massimo 10 caratteri alfanumerici. |
+| ISA2 |Facoltativo. Immettere il valore relativo alle informazioni di autorizzazione. Se il valore immesso per ISA1 è diverso da 00, immettere almeno uno e al massimo 10 caratteri alfanumerici. |
 | Qualificatore di sicurezza (ISA3) |Selezionare il valore relativo al qualificatore di sicurezza nell'elenco a discesa. |
-| ISA4 |Facoltativa. Immettere il valore relativo alle informazioni di sicurezza. Se il valore immesso per ISA3 è diverso da 00, immettere almeno uno e al massimo 10 caratteri alfanumerici. |
+| ISA4 |Facoltativo. Immettere il valore relativo alle informazioni di sicurezza. Se il valore immesso per ISA3 è diverso da 00, immettere almeno uno e al massimo 10 caratteri alfanumerici. |
 
 ### <a name="acknowledgment"></a>Acknowledgment (Riconoscimento)
 
-![Impostare le proprietà di conferma](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+![Imposta proprietà di riconoscimento](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -134,7 +134,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare **Separatore ripetizioni** per specificare il separatore per le occorrenze ripetute di un elemento dati semplice o di una struttura di dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
+| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare il **Separatore ripetizioni** per specificare il separatore per occorrenze ripetute di un elemento dati semplice o di una struttura di dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
 
@@ -189,7 +189,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-![Impostare le proprietà dell'identificatore](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
+![Imposta proprietà identificatore](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -200,7 +200,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ### <a name="acknowledgment"></a>Acknowledgment (Riconoscimento)
 
-![Impostare le proprietà di conferma](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Imposta proprietà di riconoscimento](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -227,11 +227,11 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare **Separatore ripetizioni** per specificare il separatore per le occorrenze ripetute di un elemento dati semplice o di una struttura di dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
+| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare il **Separatore ripetizioni** per specificare il separatore per occorrenze ripetute di un elemento dati semplice o di una struttura di dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
 
-![Specificare le proprietà dei numeri di controllo](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![Specificare le proprietà del numero di controllo](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -298,10 +298,10 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per ulteriori dettagli tecnici su questo connettore, ad esempio azioni e limiti, come descritto dal file Swagger del connettore, vedere la [pagina di riferimento del connettore.](https://docs.microsoft.com/connectors/x12/) 
+Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/x12/). 
 
 > [!NOTE]
-> Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione con etichetta ISE del connettore usa i [limiti dei messaggi B2B per ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

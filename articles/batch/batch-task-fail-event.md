@@ -1,22 +1,14 @@
 ---
-title: Evento di esito negativo attività batch di AzureAzure Batch task fail event
+title: Evento Azure Batch attività non riuscita
 description: Riferimento per l'evento di fallimento dell'attività batch. Questo evento verrà generato in aggiunta a un evento di completamento attività e può essere usato per rilevare quando un'attività non è riuscita.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: labrenne
-ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e973a7e0a2ab67300a0f6762c837336e12bae3b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022886"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116452"
 ---
 # <a name="task-fail-event"></a>Evento di attività non riuscita
 
@@ -53,12 +45,12 @@ ms.locfileid: "77022886"
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
-|`jobId`|string|ID del processo contenente l'attività.|
+|`jobId`|string|ID del processo che contiene l'attività.|
 |`id`|string|ID dell'attività.|
 |`taskType`|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
 |`systemTaskVersion`|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Vedi [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) per i dettagli.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) informazioni dettagliate, vedere.|
 |[`constraints`](#constraints)|Tipo complesso|Vincoli di esecuzione che si applicano a questa attività.|
 |[`executionInfo`](#executionInfo)|Tipo complesso|Contiene informazioni sull'esecuzione dell'attività.|
 
@@ -69,20 +61,20 @@ ms.locfileid: "77022886"
 |`poolId`|string|ID del pool in cui è stata eseguita l'attività.|
 |`nodeId`|string|ID del nodo in cui è stata eseguita l'attività.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiIstanzaImpostazioni
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Numero di nodi di calcolo richiesti dall'attività.|
 
-###  <a name="constraints"></a><a name="constraints"></a>Vincoli
+###  <a name="constraints"></a><a name="constraints"></a>vincoli
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Numero massimo di tentativi consentiti per l'attività. Il servizio Batch ripete un'attività se il relativo codice di uscita è diverso da zero.<br /><br /> Si noti che questo valore controlla specificamente il numero di tentativi. Il servizio Batch eseguirà l'attività una volta e quindi ripeterà l'esecuzione fino al limite di tentativi specificato. Ad esempio, se il numero massimo di tentativi è 3, il servizio Batch eseguirà l'attività 4 volte, ovvero una iniziale e 3 ulteriori tentativi.<br /><br /> Se il numero massimo di tentativi è 0, il servizio Batch non eseguirà ulteriori tentativi.<br /><br /> Se il numero massimo di tentativi è -1, il servizio Batch continuerà a eseguire tentativi senza limiti.<br /><br /> Il valore predefinito è 0, ovvero nessun tentativo.|
 
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a>Executioninfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
 
 |Nome dell'elemento|Type|Note|
 |------------------|----------|-----------|

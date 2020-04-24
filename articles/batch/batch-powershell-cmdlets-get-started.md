@@ -1,26 +1,15 @@
 ---
-title: Introduzione a PowerShell - Azure Batch | Microsoft Docs
+title: Introduzione a PowerShell
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: powershell
-ms.workload: big-compute
 ms.date: 01/15/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79473c5fb63a5f5ad29194c65cd8094ea444dbd8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023005"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115840"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 
@@ -171,7 +160,7 @@ In alternativa a un filtro OData, è possibile usare il parametro **Id** . Per e
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
-Il parametro **Id** supporta solo la ricerca con ID completo. non i caratteri jolly o i filtri di tipo OData.
+Il parametro **ID** supporta solo la ricerca con ID completo; non caratteri jolly o filtri di tipo OData.
 
 ### <a name="use-the-maxcount-parameter"></a>Usare il parametro MaxCount
 
@@ -203,7 +192,7 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 I pacchetti dell'applicazione semplificano la distribuzione di applicazioni nei nodi di calcolo dei pool. Con i cmdlet di PowerShell per Batch, è possibile caricare e gestire pacchetti dell'applicazione nell'account Batch e distribuire versioni dei pacchetti nei nodi di calcolo.
 
-**Creare** un'applicazione:Create an application:
+**Creare** un'applicazione:
 
 ```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
@@ -248,7 +237,7 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 
 Quando si crea un pool è possibile specificare uno o più pacchetti dell'applicazione da distribuire. Quando si specifica un pacchetto al momento della creazione del pool, il pacchetto viene distribuito in ogni nodo quando questo viene aggiunto al pool. I pacchetti vengono distribuiti anche quando un nodo viene riavviato o ne viene ricreata l'immagine.
 
-Specificare l'opzione `-ApplicationPackageReference` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. Creare innanzitutto un oggetto PSApplicationPackageReference e configurarlo con l'ID applicazione e la versione del pacchetto che si desidera distribuire nei nodi di calcolo del pool:First, create a **PSApplicationPackageReference** object, and configure it with the application ID and package version you want to deploy to the pool's compute nodes:
+Specificare l'opzione `-ApplicationPackageReference` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. Prima di tutto, creare un oggetto **PSApplicationPackageReference** e configurarlo con l'ID applicazione e la versione del pacchetto che si vuole distribuire nei nodi di calcolo del pool:
 
 ```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference

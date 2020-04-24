@@ -1,18 +1,16 @@
 ---
-title: Verificare la presenza di errori in pool e nodi - Azure Batch
+title: Verificare la presenza di errori in pool e nodi
 description: Questo articolo illustra le operazioni in background che possono verificarsi, insieme agli errori da verificare e come evitarli durante la creazione di pool e nodi.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472946"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115908"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificare la presenza di errori in pool e nodi
 

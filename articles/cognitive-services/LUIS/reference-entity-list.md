@@ -1,14 +1,14 @@
 ---
-title: Tipo di entità elenco - LUISList entity type - LUIS
+title: Elencare il tipo di entità-LUIS
 description: Le entità elenco rappresentano un set chiuso e fisso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione consigliata per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente.
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297238"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097575"
 ---
 # <a name="list-entity"></a>Entità elenco
 
@@ -19,15 +19,15 @@ Un'entità list non è appresa in modo automatico. Si tratta di una corrisponden
 **Questa entità è idonea quando i dati di testo:**
 
 * Sono un set noto.
-* Non cambia spesso. Se è necessario modificare spesso l'elenco o si desidera che l'elenco si espanda autonomamente, una semplice entità potenziata con un elenco di frasi è una scelta migliore.
-* Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
-* Il testo nell'espressione è una corrispondenza senza distinzione tra maiuscole e minuscole con un sinonimo o il nome canonico. LUIS non utilizza l'elenco oltre la partita. La corrispondenza fuzzy, lo stemming, il plurale e altre varianti non vengono risolti con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
+* Non cambia spesso. Se è necessario modificare spesso l'elenco o si desidera che l'elenco si espanda in modo automatico, è preferibile usare un'entità semplice con boosting con un elenco di frasi.
+* Il set non supera i [limiti](luis-limits.md) massimi di LUIS per questo tipo di entità.
+* Il testo nell'espressione è una corrispondenza senza distinzione tra maiuscole e minuscole con un sinonimo o il nome canonico. LUIS non usa l'elenco oltre la corrispondenza. La corrispondenza fuzzy, lo stemming, i plurali e altre varianti non vengono risolti con un'entità List. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo.
 
 ![entità elenco](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json-to-import-into-list-entity"></a>Esempio .json da importare nell'entità elencoExample .json to import into list entity
+## <a name="example-json-to-import-into-list-entity"></a>Esempio. JSON da importare nell'entità elenco
 
-  È possibile importare valori in un'entità elenco esistente utilizzando il formato json seguente:You can import values into an existing list entity using the following .json format:
+  È possibile importare i valori in un'entità List esistente usando il formato JSON seguente:
 
   ```JSON
   [
@@ -84,7 +84,7 @@ Nell'espressione precedente la parola `paris` viene mappata all'elemento parigi 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
 
-Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:
 }
 ```
 
-Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -127,9 +127,9 @@ Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:T
 
 |Oggetto dati|Nome dell'entità|valore|
 |--|--|--|
-|Entità elenco|`Cities`|`paris`|
+|Elenca entità|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa [esercitazione](tutorial-list-entity.md)viene illustrato come utilizzare **un'entità elenco** per estrarre corrispondenze esatte di testo da un elenco di elementi noti.
+In questa [esercitazione](tutorial-list-entity.md)si apprenderà come usare un' **entità list** per estrarre corrispondenze esatte del testo da un elenco di elementi noti.

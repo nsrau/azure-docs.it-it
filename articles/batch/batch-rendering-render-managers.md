@@ -1,18 +1,16 @@
 ---
-title: Supporto per le applicazioni di gestione del rendering - Azure Batch
+title: Supporto gestione rendering
 description: Uso dell'integrazione di Azure Batch Render Manager. Informazioni sul supporto incorporato o sui componenti aggiuntivi per i gestori di rendering più diffusi.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9921c68bf6ebe44d6d2a6b7b74afbe3fa98e0803
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449690"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115738"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso di Azure Batch con le applicazioni di gestione delle farm di rendering
 

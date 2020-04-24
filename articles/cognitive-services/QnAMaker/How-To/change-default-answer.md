@@ -1,20 +1,20 @@
 ---
-title: Ottenere la risposta predefinita - QnA MakerGet default answer - QnA Maker
-description: La risposta predefinita viene restituita quando non vi è alcuna corrispondenza alla domanda. È possibile modificare la risposta predefinita rispetto alla risposta predefinita standard.
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+title: Ottenere la risposta predefinita QnA Maker
+description: Quando non esiste alcuna corrispondenza con la domanda, viene restituita la risposta predefinita. Potrebbe essere necessario modificare la risposta predefinita dalla risposta predefinita standard.
+ms.topic: how-to
+ms.date: 04/22/2020
+ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76843277"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097099"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Impostare la risposta predefinita per una Knowledge Base
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>Modificare la risposta predefinita per una risorsa QnA Maker
 
-La risposta predefinita viene restituita quando non vi è alcuna corrispondenza alla domanda. È possibile modificare la risposta predefinita rispetto alla risposta predefinita standard.
+Quando non esiste alcuna corrispondenza con la domanda, viene restituita la risposta predefinita. Potrebbe essere necessario modificare la risposta predefinita dalla risposta predefinita standard.
 
-## <a name="change-default-answer"></a>Modificare la risposta predefinita
+## <a name="change-default-answer-in-the-azure-portal"></a>Modificare la risposta predefinita nel portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che rappresenta il servizio QnA Maker creato.
 
@@ -22,7 +22,7 @@ La risposta predefinita viene restituita quando non vi è alcuna corrispondenza 
 
     ![Nel portale di Azure, accedere al servizio app per QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. Fare clic su **Impostazioni applicazione** e modificare il campo **DefaultAnswer** con la risposta predefinita desiderata. Fare clic su **Salva**.
+3. Fare clic su **Impostazioni applicazione** e modificare il campo **DefaultAnswer** con la risposta predefinita desiderata. Fare clic su **Save**.
 
     ![Selezionare Impostazioni applicazione e quindi modificare il valore di DefaultAnswer per QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
@@ -32,4 +32,4 @@ La risposta predefinita viene restituita quando non vi è alcuna corrispondenza 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un bot con QnA Maker e LUISCreate a bot with QnA Maker and LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Creare una knowledge base](../How-to/manage-knowledge-bases.md)

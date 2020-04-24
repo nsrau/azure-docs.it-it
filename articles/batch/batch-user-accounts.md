@@ -1,34 +1,21 @@
 ---
-title: Eseguire attività con account utente - Azure BatchRun tasks under user accounts - Azure Batch
+title: Eseguire attività in account utente-Azure Batch
 description: È utile essere in grado di configurare l'account utente con cui si desidera eseguire un'attività. Informazioni sui tipi di account utente e su come configurarli.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252272"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111743"
 ---
 > [!NOTE] 
-> Gli account utente descritti in questo articolo sono diversi dagli account utente utilizzati per Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza. 
+> Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza. 
 >
 > Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Per connettersi a un nodo che esegue la configurazione del servizio cloud tramite RDP, vedere [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
->
->
-
 
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
@@ -159,7 +146,7 @@ Un account utente non anonimo è utile quando si vuole che tutte le attività in
 
 È anche possibile usare un account utente non anonimo per eseguire un'attività che imposta le autorizzazioni in risorse esterne, ad esempio in condivisioni di file. Con un account utente non anonimo è possibile controllare l'identità dell'utente e usare tale identità per impostare le autorizzazioni.  
 
-Gli account utente non anonimi consentono di abilitare il protocollo SSH senza password tra i nodi Linux. È possibile usare un account utente non anonimo con nodi Linux per cui è necessario eseguire attività a istanze multiple. Ogni nodo nel pool può eseguire attività con un account utente definito nell'intero pool. Per ulteriori informazioni sulle attività a più [\-istanze, vedere Usare attività a più istanze per eseguire applicazioni MPI.](batch-mpi.md)
+Gli account utente non anonimi consentono di abilitare il protocollo SSH senza password tra i nodi Linux. È possibile usare un account utente non anonimo con nodi Linux per cui è necessario eseguire attività a istanze multiple. Ogni nodo nel pool può eseguire attività con un account utente definito nell'intero pool. Per altre informazioni sulle attività a istanze diverse, vedere [usare le\-attività a istanze diverse per eseguire applicazioni MPI](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Creare account utente non anonimi
 

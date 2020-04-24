@@ -1,25 +1,15 @@
 ---
-title: Creare attività per preparare processi & completi nei nodi di calcolo - Azure BatchCreate tasks to prepare these complete jobs on compute nodes - Azure Batch
+title: Creare attività per preparare & processi completi nei nodi di calcolo
 description: Usare le attività di preparazione a livello di processo per ridurre al minimo il trasferimento dei dati ai nodi di calcolo di Azure Batch e le attività di rilascio per la pulizia del nodo al completamento del processo.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/17/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586785"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116061"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch
 
@@ -60,7 +50,7 @@ In un ambiente con "pool condivisi", in cui i nodi di calcolo di un pool non son
 ## <a name="job-preparation-task"></a>attività di preparazione del processo
 
 
-Prima dell'esecuzione delle attività di un processo, Batch esegue l'attività di preparazione del processo su ogni nodo di calcolo pianificato per eseguire un'attività. Per impostazione predefinita, Batch attende il completamento dell'attività di preparazione del processo prima di eseguire le attività pianificate per l'esecuzione nel nodo. ma è possibile configurare il servizio affinché venga annullata la fase di attesa. Se il nodo viene riavviato, l'attività di preparazione del processo viene eseguita nuovamente. È inoltre possibile disattivare questo comportamento. Se si dispone di un processo con un'attività di preparazione del processo e un'attività di gestione dei processi configurata, l'attività di preparazione del processo viene eseguita prima dell'attività di gestione dei processi, come avviene per tutte le altre attività. L'attività di preparazione del processo viene sempre eseguita per prima.
+Prima dell'esecuzione delle attività di un processo, batch esegue l'attività di preparazione del processo in ogni nodo di calcolo pianificato per l'esecuzione di un'attività. Per impostazione predefinita, batch attende il completamento dell'attività di preparazione del processo prima di eseguire le attività pianificate per l'esecuzione nel nodo. ma è possibile configurare il servizio affinché venga annullata la fase di attesa. Se il nodo viene riavviato, l'attività di preparazione del processo viene eseguita nuovamente. È anche possibile disabilitare questo comportamento. Se si dispone di un processo con un'attività di preparazione del processo e un'attività del gestore di processi configurata, l'attività di preparazione del processo viene eseguita prima dell'attività del gestore di processi, così come per tutte le altre attività. L'attività di preparazione del processo viene sempre eseguita per prima.
 
 L'attività di preparazione del processo viene eseguita solo su nodi pianificati per l'esecuzione di un'attività. Ciò impedisce l'esecuzione di un'attività di preparazione non necessaria nel caso in cui a un nodo non venga assegnata un'attività. Questa situazione può verificarsi quando il numero di attività per un processo è inferiore al numero di nodi in un pool o quando è abilitata l'[esecuzione di attività simultanee](batch-parallel-node-tasks.md). In quest'ultimo caso, alcuni nodi rimangono inattivi se il numero delle attività è inferiore a quello totale delle attività simultanee possibili. Se non si esegue l'attività di preparazione dei processi sui inattivi nodi, è possibile risparmiare sui costi di trasferimento dati.
 
@@ -76,7 +66,7 @@ Dopo aver contrassegnato un processo come completato , viene eseguita l'attivit�
 > [!NOTE]
 > Anche l'eliminazione del processo esegue l'attività di rilascio del processo. Tuttavia, se un processo è già stato terminato, l'attività di rilascio non viene eseguita una seconda volta se il processo viene eliminato in seguito.
 
-Le attività di rilascio dei processi possono essere eseguite per un massimo di 15 minuti prima di essere terminate dal servizio Batch. Per altre informazioni, vedere la [documentazione di riferimento dell'API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
+Le attività di rilascio dei processi possono essere eseguite per un massimo di 15 minuti prima di essere interrotte dal servizio batch. Per ulteriori informazioni, vedere la [documentazione di riferimento dell'API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 

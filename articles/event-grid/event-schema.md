@@ -1,6 +1,6 @@
 ---
 title: Schema di eventi di Griglia di eventi di Azure
-description: Vengono descritte le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio.
+description: Descrive le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,21 +8,18 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244836"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114004"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
 Questo articolo descrive le proprietà e lo schema presenti per tutti gli eventi.Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto di dati contiene le proprietà specifiche per ogni editore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione di Azure o Hub eventi di Azure.
 
-Le origini degli eventi inviano gli eventi a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nell'array è limitato a 64 KB (disponibilità generale) o 1 MB (anteprima). Se un evento o una matrice supera i limiti delle dimensioni, si riceve la risposta **413 Payload Too Large** (413 Playload troppo grande).
-
-> [!NOTE]
-> Un evento di dimensioni fino a 64 KB è coperto dal contratto di servizio (SLA) di disponibilità generale (GA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in anteprima. Gli eventi superiori a 64 KB vengono addebitati in incrementi di 64 KB. 
+Le origini degli eventi inviano gli eventi a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 1 MB. Se un evento o una matrice supera i limiti delle dimensioni, si riceve la risposta **413 Payload Too Large** (413 Playload troppo grande). Tuttavia, le operazioni vengono addebitate in incrementi di 64 KB. Quindi, gli eventi oltre 64 KB comporteranno addebiti per le operazioni come se fossero più eventi. Ad esempio, un evento 130 KB comporterebbe operazioni come se si trattasse di 3 eventi distinti.
 
 Griglia di eventi invia gli eventi ai sottoscrittori in una matrice che contiene un singolo evento. Questo comportamento può cambiare in futuro.
 
@@ -85,14 +82,14 @@ Tutti gli eventi contengono gli stessi dati di livello principale indicati di se
 
 | Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | -------- | ----------- |
-| argomento | string | No, ma se incluso, deve corrispondere esattamente all'argomento Griglia di eventi ID Azure Resource Manager. Se non è incluso, Griglia di eventi contrassegnerà l'evento. | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | No, ma se incluso, deve corrispondere all'argomento della griglia di eventi Azure Resource Manager ID esattamente. Se non è incluso, griglia di eventi viene timbrato sull'evento. | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Sì | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Sì | Identificatore univoco dell'evento. |
 | data | object | No | Dati dell'evento specifici del provider di risorse. |
 | dataVersion | string | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Non obbligatorio, ma se incluso, `metadataVersion` deve corrispondere esattamente `1`allo schema della griglia di eventi (attualmente, solo ). Se non è incluso, Griglia di eventi contrassegnerà l'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema `metadataVersion` di griglia di eventi (attualmente `1`, solo). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'evento:
 
@@ -100,11 +97,11 @@ Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'event
 * [Registro Container](event-schema-container-registry.md)
 * [Archiviazione BLOB](event-schema-blob-storage.md)
 * [Hub eventi](event-schema-event-hubs.md)
-* [IoT Hub](event-schema-iot-hub.md)
+* [Hub IoT](event-schema-iot-hub.md)
 * [Servizi multimediali](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Gruppi di risorse (operazioni di gestione)](event-schema-resource-groups.md)
 * [Bus di servizio](event-schema-service-bus.md)
-* [Servizio Azure SignalR](event-schema-azure-signalr.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
 * [Azure Machine Learning](event-schema-machine-learning.md)
 
 Per gli argomenti personalizzati, l'autore dell'evento stabilisce l'oggetto dati. I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse.

@@ -1,20 +1,15 @@
 ---
-title: Conteggiare attività e nodi in base allo stato - Azure Batch | Microsoft Docs
+title: Conteggio degli Stati per attività e nodi
 description: Conteggiare le attività e i nodi di calcolo di Azure Batch in base allo stato per gestire e monitorare le soluzioni Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.topic: article
 ms.date: 09/07/2018
-ms.author: labrenne
+ms.topic: article
 ms.custom: seodec18
-ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023923"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116095"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorare le soluzioni Batch conteggiando attività e nodi in base allo stato
 

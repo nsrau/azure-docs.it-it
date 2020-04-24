@@ -1,52 +1,63 @@
 ---
-title: Come controllare le operazioni del piano di controllo di Azure Cosmos DBHow to audit Azure Cosmos DB control plane operations
-description: Informazioni su come controllare le operazioni del piano di controllo, ad esempio aggiungere un'area, aggiornare la velocità effettiva, il failover dell'area, aggiungere una rete virtuale e così via in Azure Cosmos DB
+title: Come controllare le operazioni del piano di controllo Azure Cosmos DB
+description: Informazioni su come controllare le operazioni del piano di controllo, ad esempio aggiungere un'area, aggiornare la velocità effettiva, il failover dell'area, aggiungere un VNet e così via in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: sngun
-ms.openlocfilehash: 64ad8e6b1101d8486268c857b3a7752e1801f52c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 32dd598b8fc62c0ec68f86f95b02f9f3d98cedd2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420264"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116299"
 ---
-# <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Come controllare le operazioni del piano di controllo di Azure Cosmos DBHow to audit Azure Cosmos DB control plane operations
+# <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Come controllare le operazioni del piano di controllo Azure Cosmos DB
 
-Le operazioni del piano di controllo includono modifiche all'account o al contenitore Cosmos di Azure.Control plane operations include changes to the Azure Cosmos account or container. Ad esempio, creare un account Azure Cosmos, aggiungere un'area, aggiornare la velocità effettiva, il failover dell'area, aggiungere una rete virtuale e così via sono alcune delle operazioni del piano di controllo. Questo articolo illustra come controllare le operazioni del piano di controllo in Azure Cosmos DB.
+Il piano di controllo in Azure Cosmos DB è un servizio RESTful che consente di eseguire un set diversificato di operazioni nell'account Azure Cosmos. Espone un modello di risorse pubblico, ad esempio database, account, e varie operazioni agli utenti finali per eseguire azioni sul modello di risorse. Le operazioni del piano di controllo includono le modifiche apportate all'account o al contenitore Azure Cosmos. Ad esempio, operazioni come la creazione di un account Azure Cosmos, l'aggiunta di un'area, la velocità effettiva degli aggiornamenti, il failover dell'area, l'aggiunta di un VNet e così via sono alcune delle operazioni del piano di controllo. Questo articolo illustra come controllare le operazioni del piano di controllo in Azure Cosmos DB. È possibile eseguire le operazioni del piano di controllo sugli account Azure Cosmos usando l'interfaccia della riga di comando di Azure, PowerShell o portale di Azure, mentre per i contenitori usare l'interfaccia della riga di comando di Azure o PowerShell.
 
-## <a name="disable-key-based-metadata-write-access"></a>Disabilitare l'accesso in scrittura ai metadati basati su chiaveDisable key based metadata write
- 
-Prima di controllare le operazioni del piano di controllo in Azure Cosmos DB, disabilitare l'accesso in scrittura dei metadati basato su chiave nell'account. Quando l'accesso in scrittura ai metadati basati su chiave è disabilitato, ai client che si connettono all'account Cosmos di Azure tramite le chiavi dell'account viene impedito l'accesso all'account. È possibile disabilitare l'accesso in scrittura impostando la `disableKeyBasedMetadataWriteAccess` proprietà su true. Dopo aver impostato questa proprietà, le modifiche a qualsiasi risorsa possono verificarsi da un utente con il ruolo di controllo di accesso basato sui ruoli (RBAC) appropriato solo le credenziali. Per altre informazioni su come impostare questa proprietà, vedere l'articolo [Impedire le modifiche da SDK.](role-based-access-control.md#preventing-changes-from-cosmos-sdk)
+Di seguito sono riportati alcuni scenari di esempio in cui sono utili le operazioni del piano di controllo di controllo:
 
- Quando si disattiva l'accesso in scrittura ai metadati, considerare i punti seguenti:Consider the following points when off the metadata write access:
+* Si desidera ricevere un avviso quando vengono modificate le regole del firewall per l'account Azure Cosmos. L'avviso è necessario per individuare le modifiche non autorizzate alle regole che regolano la sicurezza di rete dell'account Azure Cosmos e intraprendere un'azione rapida.
 
-* Valutare e assicurarsi che le applicazioni non esecano chiamate ai metadati che modificano le risorse precedenti (ad esempio, creare una raccolta, aggiornare la velocità effettiva, ...) usando le chiavi SDK o account.
+* Si vuole ricevere un avviso se viene aggiunta o rimossa una nuova area dall'account Azure Cosmos. L'aggiunta o la rimozione di aree implica la fatturazione e i requisiti di sovranità dei dati. Questo avviso consente di rilevare un'aggiunta o una rimozione accidentale dell'area nell'account.
 
-* Attualmente, il portale di Azure usa le chiavi dell'account per le operazioni sui metadati e pertanto queste operazioni verranno bloccate. In alternativa, usare l'interfaccia della riga di comando di Azure, gli SDK o le distribuzioni dei modelli di Resource Manager per eseguire tali operazioni.
+* Si desidera ottenere altri dettagli dai log di diagnostica su ciò che è stato modificato. Ad esempio, un VNet è stato modificato.
 
-## <a name="enable-diagnostic-logs-for-control-plane-operations"></a>Abilitare i registri diagnostici per le operazioni del piano di controlloEnable diagnostic logs for control plane operations
+## <a name="disable-key-based-metadata-write-access"></a>Disabilitare l'accesso in scrittura ai metadati basati su chiave
 
-È possibile abilitare i log di diagnostica per le operazioni del piano di controllo usando il portale di Azure.You can enable diagnostic logs for control plane operations by using the Azure portal. Utilizzare la procedura seguente per abilitare la registrazione sulle operazioni del piano di controllo:
+Prima di controllare le operazioni del piano di controllo in Azure Cosmos DB, disabilitare l'accesso in scrittura ai metadati basati su chiave per l'account. Quando l'accesso in scrittura ai metadati basati su chiave è disabilitato, non è consentito l'accesso ai client che si connettono all'account Azure Cosmos tramite chiavi dell'account. È possibile disabilitare l'accesso in scrittura impostando la `disableKeyBasedMetadataWriteAccess` proprietà su true. Dopo aver impostato questa proprietà, le modifiche apportate a qualsiasi risorsa possono verificarsi da un utente con il ruolo di controllo degli accessi in base al ruolo (RBAC) e le credenziali appropriate. Per altre informazioni su come impostare questa proprietà, vedere l'articolo [Impedisci modifiche da SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Dopo avere disabilitato l'accesso in scrittura, le modifiche basate su SDK sulla velocità effettiva, l'indice continuerà a funzionare.
 
-1. Accedere al portale di Azure e passare all'account Cosmos di Azure.Sign into [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos account.
+Quando si disattiva l'accesso in scrittura ai metadati, tenere presente quanto segue:
 
-1. Aprire il riquadro **Impostazioni di diagnostica,** specificare un **nome** per i log da creare.
+* Valutare e assicurarsi che le applicazioni non effettuino chiamate di metadati che modifichino le risorse precedenti (ad esempio, creare una raccolta, aggiornare la velocità effettiva,...) usando l'SDK o le chiavi dell'account.
 
-1. Selezionare ControlPlaneRequests per il tipo di registro e selezionare l'opzione **Invia a Log Analytics.Select** **ControlPlaneRequests** for log type and select the Send to Log Analytics option.
+* Attualmente, il portale di Azure usa le chiavi dell'account per le operazioni sui metadati e pertanto queste operazioni verranno bloccate. In alternativa, usare l'interfaccia della riga di comando di Azure, gli SDK o le distribuzioni del modello di Gestione risorse per eseguire tali operazioni.
 
-È anche possibile archiviare i log in un account di archiviazione o in un flusso in un hub eventi. In questo articolo viene illustrato come inviare i log per registrare l'analisi e quindi eseguire query su di essi. Dopo l'abilitazione, sono necessari alcuni minuti per attivare i log di diagnostica. Tutte le operazioni del piano di controllo eseguite dopo tale punto possono essere monitorate. Nella schermata seguente viene illustrato come abilitare i registri piano di controllo:The following screenshot shows how to enable control plane logs:
+## <a name="enable-diagnostic-logs-for-control-plane-operations"></a>Abilitare i log di diagnostica per le operazioni del piano di controllo
 
-![Abilitare la registrazione delle richieste del piano di controlloEnable control plane requests logging](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+È possibile abilitare i log di diagnostica per le operazioni del piano di controllo usando il portale di Azure. Dopo l'abilitazione, i log di diagnostica registreranno l'operazione come coppia di eventi di avvio e di completamento con i dettagli pertinenti. Ad esempio, *RegionFailoverStart* e *RegionFailoverComplete* completano l'evento di failover dell'area.
+
+Per abilitare la registrazione sulle operazioni del piano di controllo, attenersi alla procedura seguente:
+
+1. Accedere a [portale di Azure](https://portal.azure.com) e passare all'account Azure Cosmos.
+
+1. Aprire il riquadro **impostazioni di diagnostica** e specificare un **nome** per i log da creare.
+
+1. Selezionare **ControlPlaneRequests** per tipo di log e selezionare l'opzione **Invia a log Analytics** .
+
+È anche possibile archiviare i log in un account di archiviazione o in un flusso in un hub eventi. Questo articolo illustra come inviare i log a log Analytics ed eseguire query su di essi. Dopo l'abilitazione, per rendere effettive le registrazioni di diagnostica sono necessari alcuni minuti. È possibile tenere traccia di tutte le operazioni del piano di controllo eseguite dopo tale punto. Lo screenshot seguente mostra come abilitare i log del piano di controllo:
+
+![Abilitare la registrazione delle richieste del piano di controllo](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
 
 ## <a name="view-the-control-plane-operations"></a>Visualizzare le operazioni del piano di controllo
 
-Dopo aver attivato la registrazione, utilizzare la procedura seguente per tenere traccia delle operazioni per un account specifico:
+Dopo l'abilitazione della registrazione, attenersi alla procedura seguente per tenere traccia delle operazioni per un account specifico:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Aprire la scheda **Monitoraggio** nel riquadro di spostamento a sinistra, quindi selezionare il riquadro **Registri.** Si apre un'interfaccia utente in cui è possibile eseguire facilmente query con tale account specifico nell'ambito. Eseguire la query seguente per visualizzare i registri piano di controllo:
+1. Accedere [portale di Azure](https://portal.azure.com).
+
+1. Aprire la scheda **monitoraggio** dal riquadro di spostamento a sinistra e quindi selezionare il riquadro **log** . Viene aperta un'interfaccia utente in cui è possibile eseguire facilmente query con tale account specifico nell'ambito. Eseguire la query seguente per visualizzare i log del piano di controllo:
 
    ```kusto
    AzureDiagnostics
@@ -54,21 +65,94 @@ Dopo aver attivato la registrazione, utilizzare la procedura seguente per tenere
    | where TimeGenerated >= ago(1h)
    ```
 
-Le schermate seguenti acquisiscono i log quando una rete virtuale viene aggiunta a un account Azure Cosmos:The following screenshots capture logs when a VNET is added to an Azure Cosmos account:
+Gli screenshot seguenti acquisiscono i log quando viene aggiunto un VNET a un account Azure Cosmos:
 
-![Controllare i registri aerei quando viene aggiunta una rete virtualeControl plane logs when a VNet is added](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+![Controllare i log del piano quando viene aggiunto un VNet](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
-Le schermate seguenti acquisiscono i log quando la velocità effettiva di una tabella di Cassandra viene aggiornata:The following screenshots capture logs when throughput of a Cassandra table is updated:
+Gli screenshot seguenti acquisiscono i log quando viene aggiornata la velocità effettiva di una tabella Cassandra:
 
-![Controllare i registri piano quando viene aggiornata la velocità effettivaControl plane logs when throughput is updated](./media/audit-control-plane-logs/throughput-update-logs.png)
+![Controllare i log del piano quando viene aggiornata la velocità effettiva](./media/audit-control-plane-logs/throughput-update-logs.png)
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificare l'identità associata a un'operazione specifica
 
-Se si desidera eseguire ulteriormente il debug, è possibile identificare un'operazione specifica nel **log attività** utilizzando l'ID attività o il timestamp dell'operazione. Timestamp viene utilizzato per alcuni client di Resource Manager in cui l'ID attività non viene passato in modo esplicito. Il log attività fornisce dettagli sull'identità con cui è stata avviata l'operazione. La schermata seguente mostra come usare l'ID attività e trovare le operazioni ad esso associate nel log attività:
+Se si desidera eseguire ulteriormente il debug, è possibile identificare un'operazione specifica nel **log attività** utilizzando l'ID attività o il timestamp dell'operazione. Timestamp viene utilizzato per alcuni Gestione risorse client in cui l'ID attività non viene passato in modo esplicito. Il log attività fornisce informazioni dettagliate sull'identità con la quale è stata avviata l'operazione. Lo screenshot seguente mostra come usare l'ID attività e individuare le operazioni associate nel log attività:
 
-![Utilizzare l'ID attività e trovare le operazioni](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+![Usare l'ID attività e trovare le operazioni](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+
+## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operazioni del piano di controllo per l'account Azure Cosmos
+
+Di seguito sono riportate le operazioni del piano di controllo disponibili a livello di account. La maggior parte delle operazioni viene rilevata a livello di account. Queste operazioni sono disponibili come metriche in monitoraggio di Azure:
+
+* Area aggiunta
+* Area rimossa
+* Account eliminato
+* Area sottoposta a failover
+* Account creato
+* Rete virtuale eliminata
+* Impostazioni di rete account aggiornate
+* Impostazioni di replica dell'account aggiornate
+* Chiavi dell'account aggiornate
+* Impostazioni di backup dell'account aggiornate
+* Impostazioni di diagnostica dell'account aggiornate
+
+## <a name="control-plane-operations-for-database-or-containers"></a>Operazioni del piano di controllo per database o contenitori
+
+Di seguito sono riportate le operazioni del piano di controllo disponibili a livello di database e di contenitore. Queste operazioni sono disponibili come metriche in monitoraggio di Azure:
+
+* Database SQL aggiornato
+* Contenitore SQL aggiornato
+* Velocità effettiva del database SQL aggiornata
+* Velocità effettiva del contenitore SQL aggiornata
+* Database SQL eliminato
+* Contenitore SQL eliminato
+* Spazio del tasto Cassandra aggiornato
+* Tabella Cassandra aggiornata
+* Velocità effettiva del tasto di Cassandra aggiornata
+* Velocità effettiva della tabella Cassandra aggiornata
+* Spazio di portadi Cassandra eliminato
+* Tabella Cassandra eliminata
+* Database Gremlin aggiornato
+* Grafico Gremlin aggiornato
+* Velocità effettiva del database Gremlin aggiornata
+* Velocità effettiva del grafo Gremlin aggiornata
+* Database Gremlin eliminato
+* Grafo Gremlin eliminato
+* Database Mongo aggiornato
+* Raccolta Mongo aggiornata
+* Velocità effettiva del database Mongo aggiornata
+* Velocità effettiva raccolta Mongo aggiornata
+* Database Mongo eliminato
+* Raccolta Mongo eliminata
+* Tabella AzureTable aggiornata
+* Velocità effettiva della tabella AzureTable aggiornata
+* Tabella AzureTable eliminata
+
+## <a name="diagnostic-log-operations"></a>Operazioni del log di diagnostica
+
+Di seguito sono riportati i nomi di operazione nei log di diagnostica per operazioni diverse:
+
+* RegionAddStart, RegionAddComplete
+* RegionRemoveStart, RegionRemoveComplete
+* AccountDeleteStart, AccountDeleteComplete
+* RegionFailoverStart, RegionFailoverComplete
+* AccountCreateStart, AccountCreateComplete
+* AccountUpdateStart, AccountUpdateComplete
+* VirtualNetworkDeleteStart, VirtualNetworkDeleteComplete
+* DiagnosticLogUpdateStart, DiagnosticLogUpdateComplete
+
+Per le operazioni specifiche dell'API, l'operazione viene denominata con il formato seguente:
+
+* Tipologia API + ApiKindResourceType + OperationType + Start/completato
+* Tipologia API + ApiKindResourceType + "velocità effettiva" + operationType + Start/completato
+
+**Esempio** 
+
+* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
+* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+
+La proprietà *ResourceDetails* contiene l'intero corpo della risorsa come payload della richiesta e contiene tutte le proprietà richieste per l'aggiornamento
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esplora Monitoraggio di Azure per il database Cosmos di AzureExplore Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* [Esplora monitoraggio di Azure per Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB](use-metrics.md)

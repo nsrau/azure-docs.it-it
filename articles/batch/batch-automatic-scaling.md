@@ -1,25 +1,16 @@
 ---
-title: Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch | Microsoft Docs
+title: Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
 description: Abilitare il ridimensionamento automatico in un pool cloud per adeguare dinamicamente il numero di nodi di calcolo nel pool.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054005"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113562"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
@@ -102,7 +93,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere e impostare i valori di queste variabili definite dal servizio per gestire il numero di nodi di calcolo in un pool:
 
-| Variabili in lettura/scrittura definite dal servizio | Descrizione |
+| Variabili in lettura/scrittura definite dal servizio | Description |
 | --- | --- |
 | $TargetDedicatedNodes |Numero di destinazione dei nodi di calcolo dedicati per il pool. Il numero di nodi dedicati viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi dedicati di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. <br /><br /> Un pool in un account creato con la configurazione del servizio Batch potrebbe non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. Un pool in un account creato con la configurazione di sottoscrizione utente potrebbe non raggiungere il valore di destinazione se supera la quota condivisa di nodi per la sottoscrizione.|
 | $TargetLowPriorityNodes |Numero di destinazione dei nodi di calcolo con priorità bassa per il pool. Il numero di nodi con priorità bassa viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi con priorità bassa di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. Un pool potrebbe anche non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. <br /><br /> Per altre informazioni sui nodi di calcolo con priorità bassa, vedere [usare macchine virtuali con priorità bassa con batch](batch-low-pri-vms.md). |
@@ -115,7 +106,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
-| Variabili di sola lettura definite dal servizio | Descrizione |
+| Variabili di sola lettura definite dal servizio | Description |
 | --- | --- |
 | $CPUPercent |Percentuale media di utilizzo della CPU. |
 | $WallClockSeconds |Numero di secondi utilizzati. |
@@ -200,7 +191,7 @@ Durante il test di un valore double con un operatore ternario (`double ? stateme
 ## <a name="functions"></a>Funzioni
 Queste **funzioni** predefinite sono disponibili per consentire la definizione di una formula di ridimensionamento automatico.
 
-| Funzione | Tipo restituito | Descrizione |
+| Funzione | Tipo restituito | Description |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Restituisce il valore medio per tutti i valori in doubleVecList. |
 | len(doubleVecList) |double |Restituisce la lunghezza del vettore creato da doubleVecList. |
@@ -295,7 +286,7 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 <table>
   <tr>
     <th>Metrica</th>
-    <th>Descrizione</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><b>Risorsa</b></td>

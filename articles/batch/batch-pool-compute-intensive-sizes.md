@@ -1,23 +1,15 @@
 ---
 title: Usare macchine virtuali di Azure a elevato utilizzo di calcolo con batch
 description: Come sfruttare i vantaggi delle dimensioni delle macchine virtuali HPC e GPU nei pool di Azure Batch. Informazioni sulle dipendenze del sistema operativo e vedere diversi esempi di scenario.
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: d0238e0b5b882748218835d7f06a147d435a9f90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245056"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115959"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -106,10 +98,10 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario i
 3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *GPUDriver*, e una versione, ad esempio *411,82*.
 1. Usando l'API Batch o il portale di Azure, creare un pool nella configurazione della macchina virtuale con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio per installare i driver NVIDIA GPU automaticamente usando un'attività di avvio:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ----- | 
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
-| **Editore** | MicrosoftWindowsServer |
+| **Autore** | MicrosoftWindowsServer |
 | **Offerta** | WindowsServer |
 | **SKU** | 2016-Datacenter |
 | **Dimensioni nodo** | NC6 Standard |
@@ -127,7 +119,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, si devono install
 4. Creare un account in un'area che supporta le VM NC.
 5. Usando le API di batch o portale di Azure, creare un pool [usando l'immagine personalizzata](batch-sig-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
@@ -145,7 +137,7 @@ Per eseguire le applicazioni Windows MPI in un pool di nodi di macchine virtuali
 1. Seguire i passaggi per creare un' [immagine della raccolta di immagini condivise](batch-sig-images.md) per batch.
 1. Usando le API o portale di Azure batch, creare un pool [usando la raccolta di immagini condivise](batch-sig-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
@@ -160,10 +152,10 @@ Per eseguire le applicazioni MPI in un pool di nodi Linux della serie H, è poss
 
 Usando l'API Batch o il portale di Azure, creare un pool usando questa immagine, con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
-| **Editore** | OpenLogic |
+| **Autore** | OpenLogic |
 | **Offerta** | CentOS-HPC |
 | **SKU** | 7.4 |
 | **Dimensioni nodo** | H16r Standard |

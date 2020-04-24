@@ -1,6 +1,6 @@
 ---
 title: Architettura di connettività
-description: Questo documento illustra l'architettura di connettività SQL di Azure per le connessioni al database da Azure o dall'esterno di Azure.This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
+description: Questo documento illustra l'architettura di connettività SQL di Azure per le connessioni di database da Azure o all'esterno di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,21 +12,21 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b4e7d827536245a22d168c7d9923c2e5b82830b0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419264"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111794"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 > [!NOTE]
 > Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Fare riferimento a [Architettura di connettività per un'istanza gestita](sql-database-managed-instance-connectivity-architecture.md).
+> Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. [Per un'istanza gestita](sql-database-managed-instance-connectivity-architecture.md), vedere Architettura di connettività.
 
-In questo articolo viene illustrata l'architettura di vari componenti che indirizzano il traffico di rete al database SQL di Azure o al data warehouse SQL. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure. 
+Questo articolo illustra l'architettura di diversi componenti che indirizzano il traffico di rete al database SQL di Azure o SQL Data Warehouse. Vengono inoltre illustrati i diversi criteri di connessione e il modo in cui i client si connettono da Azure e i client che si connettono dall'esterno di Azure. 
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
@@ -44,15 +44,15 @@ I passaggi seguenti descrivono come viene stabilita una connessione a un databas
 
 Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei criteri di connessione di un server di database SQL.
 
-- **Reindirizzamento (consigliato):** I client stabiliscono connessioni direttamente al nodo che ospita il database, riducendo la latenza e riducendo la velocità effettiva. Affinché le connessioni utilizzino questa modalità, i client devono:
-   - Consentire la comunicazione in uscita dal client a tutti gli indirizzi IP SQL di Azure nell'area sulle porte nell'intervallo 11000 11999.Allow outbound communication from the client to all Azure SQL IP addresses in the region on ports in the range of 11000 11999. Usare i tag del servizio per SQL per semplificare la gestione.  
-   - Consentire la comunicazione in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.Allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
+- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con conseguente riduzione della latenza e della velocità effettiva migliorata. Per le connessioni per l'utilizzo di questa modalità, i client devono:
+   - Consentire le comunicazioni in uscita dal client a tutti gli indirizzi IP SQL di Azure nell'area sulle porte nell'intervallo 11000 11999. Usare i tag di servizio per SQL per semplificare la gestione.  
+   - Consentire le comunicazioni in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
-- **Proxy:** In questa modalità, tutte le connessioni vengono propaied tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e riduzione della velocità effettiva. Affinché le connessioni utilizzino questa modalità, i client devono consentire la comunicazione in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.For connections to use this mode, clients need to allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
+- **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e della velocità effettiva ridotta. Per le connessioni a usare questa modalità, i client devono consentire le comunicazioni in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
-- **Impostazione predefinita:** Si tratta dei criteri di connessione in vigore su tutti i `Proxy` `Redirect`server dopo la creazione, a meno che il criterio di connessione non venga modificato in modo esplicito in uno o su . Il criterio`Redirect` predefinito è per tutte le connessioni client che hanno origine all'interno di Azure (ad esempio, da una macchina virtuale di Azure) e `Proxy`per tutte le connessioni client che hanno origine all'esterno (ad esempio, le connessioni dalla workstation locale).
+- **Impostazione predefinita:** Questo è il criterio di connessione attivo in tutti i server dopo la creazione, a meno che non si modifichi in modo `Proxy` esplicito i criteri di connessione a o `Redirect`. Il criterio predefinito è`Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy`per tutte le connessioni client che hanno origine all'esterno, ad esempio le connessioni dalla workstation locale.
 
- È consigliabile `Redirect` consigliare `Proxy` i criteri di connessione sui criteri di connessione per la latenza più bassa e la velocità effettiva più alta. Tuttavia, è necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando i gruppi di sicurezza di rete (NSG) con [i tag del servizio.](../virtual-network/security-overview.md#service-tags) Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
+ Si consiglia `Redirect` vivamente di utilizzare i criteri di `Proxy` connessione per i criteri di connessione per la latenza più bassa e la velocità effettiva massima. Tuttavia, sarà necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando i gruppi di sicurezza di rete (NSG) con i [tag del servizio](../virtual-network/security-overview.md#service-tags). Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
 
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
@@ -67,20 +67,20 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Aprire inoltre le porte 14000-14999 per abilitare [la connessione con l'applicazione](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) livello dati
+> Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 
-Nella tabella seguente sono elencati gli indirizzi IP dei gateway per area. Per connettersi a un database SQL di Azure, è necessario consentire il traffico di rete a & da **tutti i** gateway per l'area.
+La tabella seguente elenca gli indirizzi IP dei gateway per area. Per connettersi a un database SQL di Azure, è necessario consentire al traffico di rete di & da **tutti** i gateway per l'area.
 
-I dettagli su come deve essere eseguita la migrazione del traffico ai nuovi gateway in aree specifiche sono riportati nell'articolo seguente: Migrazione del traffico del database SQL di Azure ai gateway più recentiDetails of how how ing traffic to migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
+Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del traffico ai nuovi gateway in aree specifiche, fare quanto segue: [migrazione del traffico del database SQL di Azure ai gateway più recenti](sql-database-gateway-migration.md)
 
 
-| Nome area          | Indirizzi IP gateway |
+| Nome area          | Indirizzi IP del gateway |
 | --- | --- |
 | Australia centrale    | 20.36.105.0 |
-| Australia Centrale2   | 20.36.113.0 |
+| Central2 Australia   | 20.36.113.0 |
 | Australia orientale       | 13.75.149.87, 40.79.161.1 |
 | Australia sud-orientale | 191.239.192.109, 13.73.109.251 |
 | Brasile meridionale         | 104.41.11.5, 191.233.200.14 |
@@ -107,9 +107,9 @@ I dettagli su come deve essere eseguita la migrazione del traffico ai nuovi gate
 | Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Norvegia orientale          | 51.120.96.0        |
-| Norvegia Ovest          | 51.120.216.0       |
+| Norvegia occidentale          | 51.120.216.0       |
 | Sudafrica settentrionale   | 102.133.152.0      |
-| Sudafrica Ovest    | 102.133.24.0       |
+| Sudafrica occidentale    | 102.133.24.0       |
 | Stati Uniti centro-meridionali     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Asia sud-orientale      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Emirati Arabi Uniti centrali          | 20.37.72.64        |

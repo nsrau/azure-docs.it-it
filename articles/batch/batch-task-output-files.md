@@ -1,23 +1,15 @@
 ---
-title: Rendere persistenti i dati di output in Archiviazione di Azure con l'API del servizio Batch - Azure BatchPersist output data to Azure Storage with Batch service API - Azure Batch
-description: Informazioni su come usare l'API del servizio Batch per rendere persistenti i dati di output di processi e attività Batch in Archiviazione di Azure.Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.service: batch
+title: Salvare in modo permanente i dati di output in archiviazione di Azure con l'API del servizio batch Azure Batch
+description: Informazioni su come usare l'API del servizio batch per salvare in modo permanente i dati di output di processi e attività batch in archiviazione di Azure.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 11bd8bc427dd3da35ec5aa0f728f6b04b7d4527d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fbbf75defcfe976e59d38ae76341e71feee9f53
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022852"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116469"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -71,7 +63,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Per specificare i file di output per un'attività, creare una raccolta di oggetti [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e assegnarla alla proprietà [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) quando si crea l'attività.
 
-L'esempio di codice C# seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. Nell'esempio vengono inoltre creati file di output `std*.txt` per tutti i `stderr.txt`file di log che corrispondono al modello di file ( ad_esempio_, `stdout.txt` e ). L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore:
+L'esempio di codice C# seguente crea un'attività che scrive numeri casuali in un file denominato `output.txt`. Nell'esempio viene creato un file di output per `output.txt` da scrivere nel contenitore. Nell'esempio vengono inoltre creati i file di output per tutti i file di log `std*.txt` che corrispondono al modello `stdout.txt` di `stderr.txt`file,_ad esempio_e. L'URL del contenitore richiede la firma di accesso condiviso creata in precedenza per il contenitore. Il servizio Batch usa la firma di accesso condiviso per autenticare l'accesso al contenitore:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")

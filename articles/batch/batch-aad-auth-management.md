@@ -1,25 +1,14 @@
 ---
-title: Usare Azure Active Directory per autenticare le soluzioni di gestione batchUse Azure Active Directory to authenticate Batch Management solutions
-description: Esplorare l'uso di Azure Active Directory per eseguire l'autenticazione dalle applicazioni che usano la libreria .NET di gestione batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: batch
+title: Usare Azure Active Directory per autenticare le soluzioni di gestione di batch
+description: Esplorare l'uso di Azure Active Directory per eseguire l'autenticazione dalle applicazioni che usano la libreria di gestione .NET per batch.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: labrenne
-ms.openlocfilehash: 5c217971bd213c97a2ee31a0a1f513b601d14df9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aa95aa440303d1577b7646c1a9f1bc5b6e69ac2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472980"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114786"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticare le soluzioni di gestione Batch con Active Directory
 
@@ -133,8 +122,8 @@ Per eseguire l'autenticazione di applicazioni del servizio Batch con Azure AD, v
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Che cos'è Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Scenari di autenticazione per Azure ADAuthentication Scenarios for Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrazione di applicazioni con Azure Active DirectoryIntegrating Applications with Azure Active Directory"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Scenari di autenticazione per Azure AD"
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrazione di applicazioni con Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: https://portal.azure.com
 [resman_overview]: ../azure-resource-manager/management/overview.md

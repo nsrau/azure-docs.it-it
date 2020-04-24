@@ -1,5 +1,5 @@
 ---
-title: Aggiornare l'agente Linux di Azure da GitHubUpdate the Azure Linux Agent from GitHub
+title: Aggiornare l'agente Linux di Azure da GitHub
 description: Informazioni su come aggiornare l'agente Linux di Azure per macchine virtuali Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: e3b2819b33feba52c3b02f0e2104d4106bd04cbb
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: ab846eeb09c4f3d2db71abf58ef5d55dc74962a9
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770066"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112049"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Come aggiornare l'agente Linux di Azure in una macchina virtuale
 
@@ -30,7 +30,8 @@ Per aggiornare l' [agente Linux di Azure](https://github.com/Azure/WALinuxAgent)
 
 È sempre consigliabile cercare prima un pacchetto nel repository di distribuzione di Linux. È possibile che il pacchetto disponibile non sia la versione più recente; abilitando la funzione di aggiornamento automatico, si avrà la certezza di ottenere sempre la versione più recente dell'agente Linux. In caso di problemi durante l'installazione da Gestione pacchetti, è consigliabile rivolgersi al servizio di supporto del fornitore della distribuzione.
 
-> ! [NOTA] Per altre informazioni, vedere [Distribuzioni Linux approvate in AzureFor](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) more information see Endorsed Linux distributions on Azure
+> [!NOTE]
+> Per altre informazioni, vedere [distribuzioni di Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 
 ## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Supporto della versione minima dell'agente di macchina virtuale in Azure
 Vedere [Supporto per la versione minima per gli agenti di macchina virtuale in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) prima di procedere.
@@ -282,7 +283,7 @@ sudo systemctl restart waagent.service
 
 ## <a name="debian"></a>Debian
 
-### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 "Jesse"/ Debian 7 "Stretch"
+### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 "Jesse"/Debian 7 "Stretch"
 
 #### <a name="check-your-current-package-version"></a>Verificare la versione corrente del pacchetto
 
@@ -396,7 +397,7 @@ Questo è in genere sufficiente, ma se per qualche motivo è necessario installa
 
 Installare wget (in alcune distribuzioni non viene installato per impostazione predefinita, ad esempio in Red Hat, CentOS e Oracle Linux versione 6.4 e 6.5) digitando `sudo yum install wget` nella riga di comando.
 
-### <a name="1-download-the-latest-version"></a>1. Scarica l'ultima versione
+### <a name="1-download-the-latest-version"></a>1. scaricare la versione più recente
 Aprire [la versione dell’agente Linux di Azure in Github](https://github.com/Azure/WALinuxAgent/releases) in una pagina Web e trovare il numero di versione più recente. (È possibile individuare la versione corrente digitando `waagent --version`.)
 
 #### <a name="for-version-22x-or-later-type"></a>Per la versione 2.2.x o successiva, digitare:
@@ -414,7 +415,7 @@ unzip v2.2.14.zip
 cd WALinuxAgent-2.2.14
 ```
 
-### <a name="2-install-the-azure-linux-agent"></a>2. Installare l'agente Linux di Azure
+### <a name="2-install-the-azure-linux-agent"></a>2. installare l'agente Linux di Azure
 
 #### <a name="for-version-22x-use"></a>Per la versione 2.2.x, usare:
 Potrebbe essere necessario installare prima il pacchetto `setuptools`. Vedere [qui](https://pypi.python.org/pypi/setuptools). Eseguire quindi:
@@ -444,7 +445,7 @@ Per abilitarla, eseguire:
 sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="3-restart-the-waagent-service"></a>3. Riavviare il servizio waagent
+### <a name="3-restart-the-waagent-service"></a>3. riavviare il servizio waagent
 Per la maggior parte delle distribuzioni Linux:
 
 ```bash
@@ -463,7 +464,7 @@ Per CoreOS, usare:
 sudo systemctl restart waagent
 ```
 
-### <a name="4-confirm-the-azure-linux-agent-version"></a>4. Confermare la versione di Azure Linux Agent
+### <a name="4-confirm-the-azure-linux-agent-version"></a>4. confermare la versione dell'agente Linux di Azure
     
 ```bash
 waagent -version
