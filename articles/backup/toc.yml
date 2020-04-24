@@ -60,6 +60,8 @@
           href: sql-support-matrix.md
         - name: Matrice di supporto del backup di SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: Matrice di supporto del backup per condivisioni file di Azure
+          href: azure-file-share-support-matrix.md
         - name: SKU di macchine virtuali supportate per Criteri di Azure
           href: backup-azure-policy-supported-skus.md
     - name: Domande frequenti
@@ -346,6 +348,8 @@
           href: backup-azure-security-feature.md
         - name: Criteri di sicurezza integrati
           href: backup-security-controls.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Risolvere problemi
       items:
         - name: Macchina virtuale di Azure

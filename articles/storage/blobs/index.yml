@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: f937c88b70e60b7613cc08ba9d3f91748e3f0bd2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 9db4921b6f0b8382b69dbac658536b5151bdd653
+  ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75981864"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82117251"
 landingContent:
 - title: Informazioni sull'archiviazione BLOB
   linkLists:
@@ -97,8 +97,10 @@ landingContent:
       url: storage-quickstart-blobs-java.md
     - text: Archiviazione BLOB di Azure per Python
       url: storage-quickstart-blobs-python.md
-    - text: Archiviazione BLOB di Azure per JavaScript
+    - text: Archiviazione BLOB di Azure per JavaScript con Node.js
       url: storage-quickstart-blobs-nodejs.md
+    - text: Archiviazione BLOB di Azure per JavaScript in un browser
+      url: quickstart-blobs-javascript-browser.md
     - text: Instradare eventi a un endpoint Web
       url: ../../event-grid/blob-event-quickstart-portal.md
     - text: Ospitare un sito Web statico

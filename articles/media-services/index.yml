@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: a1c31725883204f473a46a3d20ca6fd4bbd741e8
-  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+  ms.openlocfilehash: 2f2049f710dcdbb210594331fa69e6743f5e431e
+  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81755345"
+  ms.locfileid: "81869320"
 highlightedContent:
   items:
   - title: Informazioni su Servizi multimediali di Azure v3
@@ -39,9 +39,6 @@ highlightedContent:
   - title: Eseguire la migrazione di Servizi multimediali da v2 a v3
     itemType: concept
     url: ./latest/migrate-from-v2-to-v3.md
-  - title: Specifiche di Servizi multimediali di Azure
-    itemType: concept
-    url: media-services-specifications-live-timed-metadata.md
   - title: Azure Media Player
     itemType: overview
     url: azure-media-player/azure-media-player-overview.md
@@ -55,6 +52,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
       itemType: sample
       text: Esempi di codice
+    - url: ./latest/release-notes.md
+      itemType: concept
+      text: Novità di Servizi multimediali v3
   - title: Streaming live
     links:
     - url: ./latest/live-streaming-overview.md
@@ -99,6 +99,17 @@ conceptualContent:
     - url: ./latest/analyze-videos-tutorial-with-api.md
       itemType: tutorial
       text: Analizzare i video
+  - title: Informazioni sulle specifiche di Servizi multimediali
+    links:
+    - url: media-services-specifications-live-timed-metadata.md
+      itemType: concept
+      text: Metadati temporizzati in streaming live (RTMP e Smooth Streaming)
+    - url: media-services-specifications-ms-sstr-amendment-hevc.md
+      itemType: concept
+      text: Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC
+    - url: media-services-fmp4-live-ingest-overview.md
+      itemType: concept
+      text: Protocollo di inserimento Smooth Streaming
 additionalContent:
   sections:
   - items:

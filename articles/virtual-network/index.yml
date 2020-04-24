@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 08/28/2019
-  ms.openlocfilehash: f96f011eedc297b3f48d8b8dda177198809bb564
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: a6c0bee32fbeb50c1eef0a9625706bcee9e1ae17
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70142951"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82086471"
 landingContent:
 - title: Informazioni su Rete virtuale
   linkLists:
@@ -64,6 +64,10 @@ landingContent:
     links:
     - text: Proteggere e isolare l'accesso alle risorse di Azure
       url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+  - linkListType: video
+    links:
+    - text: Accedere in sicurezza alle risorse PaaS di Azure con Collegamento privato di Azure
+      url: https://www.youtube.com/watch?v=PWKM5KXjWno
 - title: Connettere reti virtuali
   linkLists:
   - linkListType: concept
@@ -160,7 +164,7 @@ landingContent:
       url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - text: Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico
       url: manage-public-ip-address-prefix.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:

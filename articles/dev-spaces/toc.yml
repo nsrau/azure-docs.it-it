@@ -21,6 +21,8 @@
               href: quickstart-netcore-visualstudio.md
         - name: Sviluppare con l'interfaccia della riga di comando
           href: quickstart-cli.md
+        - name: Sviluppare con un grafico Helm esistente
+          href: quickstart-existing-helm-chart.md
     - name: Esercitazioni
       items:
         - name: Java (Visual Studio Code & interfaccia della riga di comando)

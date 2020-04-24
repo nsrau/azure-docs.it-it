@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Machine Learning
-summary: Informazioni su come usare Azure Machine Learning per eseguire il training, la distribuzione e la gestione di modelli e pipeline di Machine Learning su larga scala. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
+summary: Informazioni su come usare Azure Machine Learning per eseguire il training, la distribuzione e la gestione di modelli di Machine Learning, esperimenti di AutoML e pipeline su larga scala. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
 metadata:
   title: Documentazione di Azure Machine Learning
-  description: Informazioni su come usare Azure Machine Learning per eseguire il training, la distribuzione e la gestione di modelli e pipeline di Machine Learning su larga scala. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
+  description: Informazioni su come usare Azure Machine Learning per eseguire il training, la distribuzione e la gestione di modelli di Machine Learning, esperimenti di AutoML e pipeline su larga scala. Esercitazioni, esempi di codice, informazioni di riferimento sulle API e altre risorse illustrano come fare.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/18/2020
-  ms.openlocfilehash: 5855d523bf32798166ab32b6ff336cae95e81ca1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/22/2020
+  ms.openlocfilehash: 174c5b1164505900345e35ff58d2970bf119cc82
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80063966"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82084210"
 landingContent:
 - title: Introduzione a Machine Learning
   linkLists:
@@ -27,16 +27,28 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Finestra di progettazione (trascinamento della selezione)
       url: tutorial-designer-automobile-price-train-score.md
+    - text: AutoML (nessun codice/poco codice)
+      url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-    - text: ML automatizzato
-      url: tutorial-first-experiment-automated-ml.md
+- title: Usare l'esperienza Web di Studio
+  linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è Azure Machine Learning?
-      url: overview-what-is-azure-ml.md
-    - text: Architettura e concetti
-      url: concept-azure-machine-learning-architecture.md
+    - text: Che cos'è la finestra di progettazione (trascinamento della selezione)?
+      url: concept-designer.md
+    - text: Informazioni sulle funzionalità automatizzate di Machine Learning
+      url: concept-automated-ml.md
+  - linkListType: tutorial
+    links:
+    - text: 'AutoML: creare un modello di classificazione'
+      url: tutorial-first-experiment-automated-ml.md
+    - text: 'AutoML: eseguire il training e distribuire modelli ML'
+      url: how-to-use-automated-ml-for-ml-models.md
+    - text: 'Finestra di progettazione: prevedere i prezzi delle auto'
+      url: tutorial-designer-automobile-price-train-score.md
+    - text: Creare un progetto di etichettatura di immagini
+      url: tutorial-labeling.md
 - title: Usare Python SDK
   linkLists:
   - linkListType: tutorial
@@ -45,8 +57,10 @@ landingContent:
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Classificare le immagini
       url: tutorial-train-models-with-aml.md
-    - text: Prevedere le tariffe dei taxi con ML automatizzato
+    - text: Prevedere le tariffe dei taxi con AutoML
       url: tutorial-auto-train-models.md
+    - text: Creare pipeline di ML di Azure
+      url: tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Configurare l'ambiente
@@ -59,20 +73,8 @@ landingContent:
       url: how-to-train-pytorch.md
     - text: Eseguire il training con Keras
       url: how-to-train-keras.md
-- title: Creare pipeline di ML
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Creare pipeline di Machine Learning (Python)
-      url: tutorial-pipeline-batch-scoring-classification.md
-    - text: Regressione lineare per prevedere i prezzi (finestra di progettazione)
-      url: tutorial-designer-automobile-price-train-score.md
-  - linkListType: overview
-    links:
     - text: Che cosa sono le pipeline di Machine Learning?
       url: concept-ml-pipelines.md
-    - text: Che cos'è la finestra di progettazione?
-      url: concept-designer.md
 - title: Distribuire e gestire i modelli
   linkLists:
   - linkListType: how-to-guide
@@ -81,27 +83,25 @@ landingContent:
       url: concept-model-management-and-deployment.md
     - text: Come e dove eseguire la distribuzione
       url: how-to-deploy-and-where.md
-    - text: Esempi di MLOps
-      url: https://github.com/microsoft/MLOps
     - text: Stima in tempo reale
       url: how-to-consume-web-service.md
     - text: Stima in batch
       url: how-to-use-parallel-run-step.md
-    - text: Authentication
-      url: how-to-setup-authentication.md
 - title: Passare alla documentazione di riferimento
   linkLists:
   - linkListType: reference
     links:
     - text: SDK per Python
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
-    - text: SDK per R
-      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: Algoritmi e moduli della finestra di progettazione
+      url: algorithm-module-reference/module-reference.md
+    - text: Repository di esempi di MLOps
+      url: https://github.com/microsoft/MLOps
     - text: API REST
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: Interfaccia della riga di comando di Machine Learning
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-    - text: Algoritmi e moduli della finestra di progettazione
-      url: algorithm-module-reference/module-reference.md
     - text: Architetture di riferimento di intelligenza artificiale (GitHub)
       url: https://github.com/Microsoft/AI
+    - text: SDK per R
+      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html

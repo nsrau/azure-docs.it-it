@@ -7,10 +7,12 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare un membro - Portale
+    - name: Creare un membro con il portale
       href: create-member.md
-    - name: Creare un membro - Interfaccia della riga di comando
+    - name: Creare un membro con l'interfaccia della riga di comando
       href: create-member-cli.md
+    - name: Creare un membro con un modello
+      href: create-member-template.md
     - name: Connettersi al nodo della transazione
       items:
         - name: Uso di VS Code

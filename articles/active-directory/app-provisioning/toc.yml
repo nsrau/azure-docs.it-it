@@ -75,10 +75,12 @@
       href: use-scim-to-provision-users-and-groups.md
     - name: Automatizzare la configurazione con MS Graph
       href: application-provisioning-configure-api.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Conformità al protocollo SCIM 2.0
       href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Scenari di SCIM e Graph
+      href: scim-graph-scenarios.md
     - name: Scegliere un metodo di provisioning
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Provisioning HR nel cloud

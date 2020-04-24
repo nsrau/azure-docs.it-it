@@ -61,6 +61,8 @@
     - name: Procedure consigliate
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
+    - name: Uso di QnA Maker e LUIS
+      href: choose-natural-language-processing-service.md
 - name: Guide pratiche
   items:
     - name: Gestire le risorse di Azure
@@ -74,6 +76,8 @@
           href: How-To/collaborate-knowledge-base.md
         - name: Attivare l'apprendimento attivo
           href: How-To/use-active-learning.md
+        - name: Cambiare la risposta predefinita
+          href: How-To/change-default-answer.md
     - name: Gestire la knowledge base
       items:
         - name: Creare la knowledge base

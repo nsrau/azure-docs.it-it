@@ -20,10 +20,28 @@
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
     - name: Azure PowerShell
       href: samples-powershell.md
+      items:
+        - name: Aggiungere un utente esterno a un lab
+          href: scripts/add-external-user-to-lab.md
+        - name: Aggiungere immagini del Marketplace a un lab
+          href: scripts/add-marketplace-images-to-lab.md
+        - name: Creare un'immagine personalizzata da un disco rigido virtuale
+          href: scripts/create-custom-image-from-vhd.md
+        - name: Creare un ruolo personalizzato in un lab
+          href: scripts/create-custom-role-in-lab.md
+        - name: Impostare le dimensioni di VM consentite in un lab
+          href: scripts/set-allowed-vm-sizes-in-lab.md
     - name: Azure PowerShell - Modulo Az.DevTestLabs2
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: Interfaccia della riga di comando di Azure
       href: samples-cli.md
+      items:
+        - name: Creare e verificare la disponibilità di una VM
+          href: scripts/create-verify-virtual-machine-in-lab-cli.md
+        - name: Avviare una macchina virtuale
+          href: scripts/start-connect-virtual-machine-in-lab-cli.md
+        - name: Arrestare ed eliminare una VM
+          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
 - name: Concetti
   items:
     - name: Concetti di Lab di sviluppo e test
@@ -243,7 +261,7 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Risolvere gli errori relativi agli artefatti
           href: devtest-lab-troubleshoot-artifact-failure.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: CLI
       href: /cli/azure/lab

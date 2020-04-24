@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: c388f08ae3e1323af48f486730699aee4f205468
-  ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+  ms.openlocfilehash: 216dbd52531807d471066b01151fba841df308b6
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80348320"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82084975"
 landingContent:
 - title: Informazioni sul servizio Azure Blockchain
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
       url: create-member.md
     - text: Creare un membro della blockchain - Interfaccia della riga di comando
       url: create-member-cli.md
+    - text: Creare con un modello di Resource Manager
+      url: create-member-template.md
   - linkListType: quickstart
     links:
     - text: Usare Visual Studio Code per connettersi alla rete di un consorzio

@@ -45,9 +45,13 @@
       href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b - Integrare Jenkins con Azure DevOps
       href: ../../jenkins/tutorial-build-deploy-jenkins.md
-    - name: 15a - DevOps per IaaS e PaaS in Azure
+    - name: 15a - Configurare la strategia di distribuzione in sequenza
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b - CI/CD con Azure Pipelines (YAML)
+    - name: 15b - Configurare la strategia di distribuzione canary
+      href: tutorial-azure-devops-canary-strategy.md
+    - name: 15c - Configurare la strategia di distribuzione blu-verde
+      href: tutorial-azure-devops-blue-green-strategy.md
+    - name: 15d - CI/CD con Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Creare uno stack LAMP
       href: tutorial-lamp-stack.md
@@ -230,7 +234,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: infrastructure-automation.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: security-policy.md

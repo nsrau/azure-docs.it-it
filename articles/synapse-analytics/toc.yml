@@ -20,8 +20,8 @@
       href: quickstart-synapse-studio.md
     - name: Creare pool
       items:
-        - name: Creare il pool di Apache Spark con gli strumenti Web
-          href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+        - name: Creare un notebook di Apache Spark con gli strumenti Web
+          href: quickstart-apache-spark-notebook.md
         - name: Creare il pool di Apache Spark con il portale di Azure
           href: quickstart-create-apache-spark-pool.md
         - name: Creare il pool SQL

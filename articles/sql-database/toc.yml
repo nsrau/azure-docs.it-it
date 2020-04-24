@@ -108,7 +108,7 @@
           items:
             - name: Controllo di Azure SQL
               href: sql-database-auditing.md
-            - name: Archiviazione dietro rete virtuale o firewall
+            - name: Controllare l'account di archiviazione dietro rete virtuale o firewall
               href: create-auditing-storage-account-vnet-firewall.md
             - name: Formato del log di controllo
               href: sql-database-audit-log-format.md

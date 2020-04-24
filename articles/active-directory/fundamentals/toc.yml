@@ -21,7 +21,7 @@
 - name: Concetti
   expanded: true
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Abilitare MFA
           href: concept-fundamentals-mfa-get-started.md
@@ -31,6 +31,8 @@
           href: concept-fundamentals-block-legacy-authentication.md
         - name: Punteggio di sicurezza delle identità
           href: identity-secure-score.md
+        - name: Valutazione continua dell'accesso
+          href: concept-fundamentals-continuous-access-evaluation.md
     - name: Gruppi e utenti
       items:
         - name: Gestione dei gruppi e dell'accesso

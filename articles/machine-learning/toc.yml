@@ -149,8 +149,9 @@
             - name: Usare Collegamento privato
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Proteggere il servizio Web con SSL
+            - name: Proteggere i servizi Web con TLS
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: Usare l'identità di Azure AD nelle distribuzioni del servizio Azure Kubernetes
               href: how-to-use-azure-ad-identity.md
             - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
