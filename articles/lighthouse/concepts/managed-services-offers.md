@@ -3,12 +3,12 @@ title: Offerte di servizi gestiti in Azure Marketplace
 description: Le offerte del servizio gestito consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti di Azure Marketplace.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: a0670bd74971132dcf243736bdf882a00154a942
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 13e1825ae6eb50b1b376e3bd3de908a545fbe023
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672433"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144902"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offerte di servizi gestiti in Azure Marketplace
 
@@ -18,7 +18,7 @@ Questo articolo descrive il tipo di offerta del **servizio gestito** in [Azure M
 
 Il servizio gestito offre una semplificazione del processo di onboarding dei clienti per la gestione delle risorse delegate di Azure. Quando un cliente acquista un'offerta in Azure Marketplace, può specificare le sottoscrizioni e/o i gruppi di risorse di cui deve essere eseguito l'onboarding.
 
-Successivamente, gli utenti dell'organizzazione saranno in grado di lavorare su tali risorse dall'interno del tenant dell'organizzazione, in base all'accesso definito durante la creazione dell'offerta nel [portale cloud partner](https://cloudpartner.azure.com/). A tale scopo si usa un manifesto che specifica gli utenti, i gruppi e le entità servizio di Azure AD che avranno accesso alle risorse del cliente con la gestione risorse delegate di Azure, insieme ai ruoli che ne definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
+Successivamente, gli utenti dell'organizzazione potranno lavorare su tali risorse dall'interno del tenant dell'organizzazione, in base all'accesso definito durante la creazione dell'offerta. A tale scopo si usa un manifesto che specifica gli utenti, i gruppi e le entità servizio di Azure AD che avranno accesso alle risorse del cliente con la gestione risorse delegate di Azure, insieme ai ruoli che ne definiscono il livello di accesso. Assegnando le autorizzazioni a un gruppo di Azure AD invece che a una serie di singoli account utente o applicazione, è possibile aggiungere o rimuovere singoli utenti quando cambiano i requisiti di accesso.
 
 ## <a name="public-and-private-offers"></a>Offerte pubbliche e private
 
@@ -31,11 +31,11 @@ I piani pubblici consentono di promuovere i servizi presso i nuovi clienti. Ques
 Se necessario, è possibile includere nella stessa offerta piani sia pubblici che privati.
 
 > [!IMPORTANT]
-> Quando un piano è stato pubblicato come pubblico, non è possibile modificarlo in privato. Per controllare quali clienti possono accettare l'offerta e delegare le risorse, usare un piano privato. Con un piano pubblico, non è possibile limitare la disponibilità a determinati clienti o anche a un certo numero di clienti (sebbene sia possibile smettere completamente di vendere il piano se si sceglie di farlo). È possibile [rimuovere l'accesso a una delega](../how-to/onboard-customer.md#remove-access-to-a-delegation) dopo che un cliente accetta un'offerta solo se è stata inclusa un' **autorizzazione** con la **definizione del ruolo** impostata sul [ruolo eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando è stata pubblicata l'offerta. È anche possibile contattare il cliente e chiedere di [rimuovere l'accesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Quando un piano è stato pubblicato come pubblico, non è possibile modificarlo in privato. Per controllare quali clienti possono accettare l'offerta e delegare le risorse, usare un piano privato. Con un piano pubblico, non è possibile limitare la disponibilità a determinati clienti o anche a un certo numero di clienti (sebbene sia possibile smettere completamente di vendere il piano se si sceglie di farlo). È possibile [rimuovere l'accesso a una delega](../how-to/remove-delegation.md) dopo che un cliente accetta un'offerta solo se è stata inclusa un' **autorizzazione** con la **definizione del ruolo** impostata sul [ruolo eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando è stata pubblicata l'offerta. È anche possibile contattare il cliente e chiedere di [rimuovere l'accesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Pubblicare offerte di servizi gestiti
 
-Per informazioni su come pubblicare un'offerta di servizi gestiti, vedere [Pubblicare un'offerta di servizi gestiti in Azure Marketplace](../how-to/publish-managed-services-offers.md). Per informazioni generali sulla pubblicazione in Azure Marketplace con il portale Cloud Partner, vedere la [Guida alla pubblicazione di Azure Marketplace e AppSource](../../marketplace/marketplace-publishers-guide.md).
+Per informazioni su come pubblicare un'offerta di servizi gestiti, vedere [Pubblicare un'offerta di servizi gestiti in Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

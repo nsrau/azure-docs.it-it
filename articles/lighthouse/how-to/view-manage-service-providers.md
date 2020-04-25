@@ -1,37 +1,48 @@
 ---
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
-ms.date: 02/25/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e0522d1cd13ab1a4be589bc0c22c4ebfcf24d3f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270628"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144321"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
 I clienti possono utilizzare la pagina dei **provider di servizi** nella [portale di Azure](https://portal.azure.com) per visualizzare informazioni sui provider di servizi e le offerte del provider di servizi, delegare risorse specifiche tramite la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md)e acquistare nuove offerte di provider di servizi. Nonostante qui si faccia riferimento ai provider di servizi e ai clienti, le aziende che gestiscono più tenant possono usare lo stesso processo per consolidare l'esperienza di gestione.
 
-Per accedere alla pagina **Provider di servizi** nel portale di Azure, il cliente può selezionare **Tutti i servizi**, quindi cercare **Provider di servizi** e selezionarlo. Può trovarlo anche immettendo "Provider di servizi" nella casella di ricerca nella parte superiore del portale di Azure.
+Per accedere alla pagina **Provider di servizi** nel portale di Azure, il cliente può selezionare **Tutti i servizi**, quindi cercare **Provider di servizi** e selezionarlo. Possono anche trovarlo immettendo "Service Providers" o "Azure Lighthouse" nella casella di ricerca nella parte superiore della portale di Azure.
+
+> [!NOTE]
+> Per visualizzare la pagina dei **provider di servizi** , un utente nel tenant del cliente deve avere il [ruolo predefinito Reader](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura).
+>
+> Per aggiungere offerte, delegare risorse e rimuovere offerte, l'utente deve disporre del [ruolo predefinito proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione.
 
 Tenere presente che la pagina **provider di servizi** Mostra solo le informazioni sui provider di servizi che hanno accesso alle sottoscrizioni o ai gruppi di risorse del cliente tramite la gestione delle risorse delegate di Azure. Se un cliente lavora con provider di servizi aggiuntivi che non usano la gestione risorse delegate di Azure per accedere alle risorse del cliente, le informazioni su tali provider di servizi non vengono visualizzate qui.
 
-> [!NOTE]
+> [!TIP]
 > I provider di servizi possono visualizzare le informazioni sui clienti passando a **Clienti personali** nel portale di Azure. Per altre informazioni, vedere [Visualizzare e gestire clienti e risorse delegate](view-manage-customers.md).
 
 ## <a name="view-service-provider-details"></a>Visualizzare i dettagli dei provider di servizi
 
-Per visualizzare informazioni sui provider di servizi, il cliente può selezionare **offerte del provider** sul lato sinistro della pagina provider di **Servizi** .
+Per visualizzare informazioni sui provider di servizi, il cliente può selezionare le **offerte del provider di servizi** sul lato sinistro della pagina provider di **Servizi** .
 
 Per ogni offerta di un provider di servizi, il cliente vedrà il nome del provider di servizi e l'offerta associata, con il nome immesso dal cliente durante il processo di onboarding.
 
 Nella colonna **Deleghe** il cliente visualizza quante sottoscrizioni e/o gruppi di risorse sono stati delegati al provider di servizi per tale offerta. Il provider di servizi potrà accedere a queste sottoscrizioni e/o gruppi di risorse e gestirli a seconda dei livelli di accesso specificati nell'offerta.
 
+## <a name="add-or-remove-service-provider-offers"></a>Aggiungere o rimuovere le offerte di provider di servizi
+
+Un cliente può aggiungere una nuova offerta del provider di servizi dalla pagina delle **offerte del provider di servizi** selezionando **Aggiungi offerta**. Il provider di servizi deve avere pubblicato un'offerta per questo cliente. Il cliente può quindi selezionare tale offerta dalla schermata **Offerte private** e infine selezionare **Crea**.
+
+Se il cliente vuole rimuovere un'offerta di provider di servizi, può selezionare l'icona del cestino nella riga relativa all'offerta. Dopo la conferma dell'eliminazione, il provider di servizi non avrà più accesso alle risorse del cliente precedentemente delegate per l'offerta.
+
 ## <a name="delegate-resources"></a>Risorse delegate
 
-Prima che un provider di servizi possa accedere alle risorse di un cliente e gestirle, le risorse devono essere delegate. Se un cliente ha accettato un'offerta, ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione **Provider offers** (Offerte di provider). In questo modo, il cliente saprà che è necessario intervenire prima che il provider di servizi possa accedere a qualsiasi risorsa del cliente.
+Prima che un provider di servizi possa accedere alle risorse di un cliente e gestirle, le risorse devono essere delegate. Se un cliente ha accettato un'offerta ma non ha ancora delegato alcuna risorsa, vedrà una nota nella parte superiore della sezione delle offerte del **provider di servizi** . In questo modo, il cliente saprà che è necessario intervenire prima che il provider di servizi possa accedere a qualsiasi risorsa del cliente.
 
 Per delegare sottoscrizioni o gruppi di risorse:
 
@@ -41,15 +52,9 @@ Per delegare sottoscrizioni o gruppi di risorse:
 1. Scegliere le sottoscrizioni e/o i gruppi di risorse che si vuole delegare per questa offerta, quindi selezionare **Aggiungi**.
 1. Selezionare la casella di controllo nella parte inferiore della pagina per confermare che si vuole concedere a questo provider di servizi l'accesso alle risorse selezionate, quindi selezionare **Delega**.
 
-## <a name="add-or-remove-service-provider-offers"></a>Aggiungere o rimuovere le offerte di provider di servizi
-
-Un cliente può aggiungere una nuova offerta di provider di servizi dalla pagina **Provider offers** (Offerte di provider) selezionando **Aggiungi offerta**. Il provider di servizi deve avere pubblicato un'offerta per questo cliente. Il cliente può quindi selezionare tale offerta dalla schermata **Offerte private** e infine selezionare **Crea**.
-
-Se il cliente vuole rimuovere un'offerta di provider di servizi, può selezionare l'icona del cestino nella riga relativa all'offerta. Dopo la conferma dell'eliminazione, il provider di servizi non avrà più accesso alle risorse del cliente precedentemente delegate per l'offerta.
-
 ## <a name="update-service-provider-offers"></a>Aggiornare le offerte dei provider di servizi
 
-Dopo che un cliente ha aggiunto un'offerta, un provider di servizi può pubblicare una versione aggiornata della stessa offerta in Azure Marketplace. Ad esempio, potrebbe voler aggiungere una nuova definizione di ruolo. Se è stata pubblicata una nuova versione dell'offerta, la pagina relativa alle **offerte del provider** visualizzerà un'icona di aggiornamento nella riga relativa all'offerta. Il cliente può selezionare questa icona per visualizzare le differenze tra la versione corrente e la nuova versione dell'offerta.
+Dopo che un cliente ha aggiunto un'offerta, un provider di servizi può pubblicare una versione aggiornata della stessa offerta in Azure Marketplace. Ad esempio, potrebbe voler aggiungere una nuova definizione di ruolo. Se è stata pubblicata una nuova versione dell'offerta, nella pagina **offerte del provider di servizi** viene visualizzata un'icona "Aggiorna" nella riga relativa all'offerta. Il cliente può selezionare questa icona per visualizzare le differenze tra la versione corrente e la nuova versione dell'offerta.
 
  ![Icona dell'offerta di aggiornamento](../media/update-offer.jpg)
 
@@ -73,6 +78,6 @@ Viene fornita una [definizione dei criteri incorporata in criteri di Azure](../.
 Per altre informazioni su come assegnare un criterio e visualizzare i risultati dello stato di conformità, vedere [Guida introduttiva: creare un'assegnazione di criteri](../../governance/policy/assign-policy-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
- 
+
 - Altre informazioni su [Azure Lighthouse](../overview.md).
-- Per informazioni su come i provider di servizi possono [visualizzare e gestire i clienti](view-manage-customers.md), passare a **Clienti personali** nel portale di Azure.
+- Informazioni su come i provider di servizi possono [visualizzare e gestire i clienti](view-manage-customers.md) nella pagina **clienti** del portale di Azure.

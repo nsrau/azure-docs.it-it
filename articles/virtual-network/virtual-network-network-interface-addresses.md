@@ -3,24 +3,25 @@ title: Configurare gli indirizzi IP per un'interfacia di rete di Azure | Microso
 description: Informazioni su come aggiungere, modificare e rimuovere indirizzi IP pubblici e privati per un'interfaccia di rete.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
-ms.author: kumud
-ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.author: allensu
+ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473226"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142511"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -53,7 +54,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
    |Impostazione|Obbligatorio?|Dettagli|
    |---|---|---|
-   |Nome|Sì|Deve essere univoco per l'interfaccia di rete|
+   |Name|Sì|Deve essere univoco per l'interfaccia di rete|
    |Type|Sì|Dato che si aggiunge una configurazione IP a un'interfaccia di rete esistente e ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary), l'unica opzione possibile è **Secondaria**.|
    |Metodo di assegnazione di indirizzi IP privati|Sì|[**Dinamico**](#dynamic): Azure assegna l'indirizzo successivo disponibile per l'intervallo di indirizzi della subnet in cui viene distribuita l'interfaccia di rete. [**Statico**](#static): assegnare un indirizzo non usato per l'intervallo di indirizzi di subnet in cui viene distribuita l'interfaccia di rete.|
    |Indirizzo IP pubblico|No|**Disabilitato:** nessuna risorsa di indirizzo IP pubblico è attualmente associata alla configurazione IP. **Abilitato:** selezionare un indirizzo IPv4 pubblico esistente o crearne uno nuovo. Per informazioni su come creare un indirizzo IP pubblico, vedere l'articolo [Indirizzi IP](virtual-network-public-ip-address.md#create-a-public-ip-address).|

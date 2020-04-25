@@ -1,17 +1,17 @@
 ---
-title: Dump e ripristino - Database di Azure per PostgreSQL - Server singolo
-description: Viene descritto come estrarre un database PostgreSQL in un file di dump e ripristinarlo da un file creato da pg_dump nel database di Azure per PostgreSQL - Singolo server.
+title: Dump e ripristino-database di Azure per PostgreSQL-server singolo
+description: Viene descritto come estrarre un database PostgreSQL in un file dump ed eseguire il ripristino da un file creato da pg_dump nel database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 4365338efa56593e80edcc19cba5944b213d2b72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90a014e44c728c1881c1fd3d9e189554ed8f44da
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74770238"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146338"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Eseguire la migrazione del database PostgreSQL usando dump e ripristino
 È possibile usare [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di dump e [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) per ripristinare il database PostgreSQL da un file di archivio creato da pg_dump.
@@ -42,7 +42,7 @@ pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@ser
 Se si include il parametro --no-owner, tutti gli oggetti creati durante il ripristino saranno di proprietà dell'utente specificato con --username. Per altre informazioni, vedere la documentazione ufficiale di PostgreSQL per [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
-> Se il server PostgreSQL richiede connessioni SSL (attive per impostazione predefinita nel Database di Azure per i server PostgreSQL), impostare una variabile di ambiente `PGSSLMODE=require` in modo che lo strumento pg_restore si connetta a SSL. Senza SSL, l'errore può riportare `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> Se il server PostgreSQL richiede connessioni TLS/SSL (per impostazione predefinita nel database di Azure per i server PostgreSQL), impostare una `PGSSLMODE=require` variabile di ambiente in modo che lo strumento di pg_restore si connetta con TLS. Senza TLS, l'errore può essere letto`FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
 > Nella riga di comando di Windows, eseguire il comando `SET PGSSLMODE=require` prima di eseguire il comando pg_restore. Nella riga di comando di Linux o Bash, eseguire il comando `export PGSSLMODE=require` prima di eseguire il comando pg_restore.
 >
@@ -72,7 +72,7 @@ Un modo per eseguire la migrazione di un database PostgreSQL esistente al serviz
 
 - Deve essere già eseguito per impostazione predefinita, ma aprire il file di dump per verificare che le istruzioni CREATE INDEX siano effettuate dopo l'inserimento dei dati. In caso contrario, spostare le istruzioni CREATE INDEX dopo aver inserito i dati.
 
-- Eseguire il ripristino con le *#* opzioni -Fc e -j per parallelizzare il ripristino. *#* è il numero di core nel server di destinazione. È anche possibile *#* provare con impostato su due volte il numero di core del server di destinazione per vedere l'impatto. Ad esempio:
+- Ripristinare con le opzioni-FC e-j *#* per parallelizzare il ripristino. *#* è il numero di core nel server di destinazione. È anche possibile provare con *#* impostato su due volte il numero di core del server di destinazione per verificarne l'effetto. Ad esempio:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump

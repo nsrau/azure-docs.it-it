@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 14a596d78fb1f560c62013e7e439ed60d3a29b8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366144"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148346"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Creare un host di Azure Bastion usando il portale
 
@@ -47,9 +47,9 @@ Questa sezione consente di creare una nuova risorsa di Azure Bastion dalla porta
     * **Nome**: il nome della nuova risorsa Bastion
     * **Region**: area pubblica di Azure in cui verrà creata la risorsa.
     * **Rete virtuale**: la rete virtuale in cui verrà creata la risorsa Bastion. È possibile creare una nuova rete virtuale nel portale durante questo processo oppure usare una rete virtuale esistente. Se si usa una rete virtuale esistente, assicurarsi che la rete virtuale esistente disponga di spazio di indirizzi libero sufficiente per soddisfare i requisiti della subnet Bastion.
-    * **Subnet**: la subnet nella rete virtuale in cui verrà distribuita la nuova risorsa host Bastion. È necessario creare una subnet usando il valore nome **AzureBastionSubnet**. Questo valore consente ad Azure di stabilire la subnet in cui distribuire le risorse Bastion. Questa operazione è diversa rispetto a una subnet del gateway. È necessario usare una subnet di almeno/27 o più grande (/27,/26 e così via).
+    * **Subnet**: la subnet nella rete virtuale in cui verrà distribuito il nuovo host Bastion. La subnet verrà dedicata all'host Bastion e deve essere denominata **AzureBastionSubnet**. Questa subnet deve essere almeno/27 o superiore.
     
-       Creare **AzureBastionSubnet** senza alcuna tabella o delega di route. Se si usano gruppi di sicurezza di rete in **AzureBastionSubnet**, vedere l'articolo [lavorare con gruppi](bastion-nsg.md) .
+       **AzureBastionSubnet** non supporta le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md#custom-routes), ma supporta i [gruppi di sicurezza di rete](bastion-nsg.md).
     * **Indirizzo IP pubblico: Indirizzo**IP pubblico della risorsa Bastion a cui verrà eseguito l'accesso a RDP/SSH (sulla porta 443). Creare un nuovo indirizzo IP pubblico o utilizzarne uno esistente. L'indirizzo IP pubblico deve trovarsi nella stessa area della risorsa Bastion che si sta creando.
     * **Nome dell'indirizzo IP pubblico**: il nome della risorsa indirizzo IP pubblico.
     * **Indirizzo IP pubblico SKU**: questa impostazione viene prepopolata per impostazione predefinita in **standard**. Azure Bastion USA/supporta solo lo SKU IP pubblico standard.

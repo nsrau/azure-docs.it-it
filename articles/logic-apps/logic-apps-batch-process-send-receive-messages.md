@@ -1,6 +1,6 @@
 ---
-title: Elaborare i messaggi batch come gruppoBatch process messages as a group
-description: Inviare e ricevere messaggi in gruppi tra i flussi di lavoro tramite l'elaborazione batch in App per la logica di AzureSend and receive messages in groups between your workflows by using batch processing in Azure Logic Apps
+title: Elaborare i messaggi in batch come gruppo
+description: Inviare e ricevere messaggi in gruppi tra i flussi di lavoro usando l'elaborazione batch in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75666755"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144350"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
 
@@ -31,13 +31,15 @@ Assicurarsi che il ricevitore del batch e il mittente del batch condividano la s
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per seguire questo esempio, è necessario disporre di questi elementi:
-
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/).
+In alternativa, [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Un account di posta elettronica con un [provider di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md)
 
-* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+  > [!IMPORTANT]
+  > Se si vuole usare il connettore Gmail, solo gli account aziendali G-Suite possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account utente Gmail, è possibile usare questo connettore solo con specifici servizi approvati da Google oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [sicurezza dei dati e criteri di privacy per i connettori Google in app per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Per usare Visual Studio anziché il portale di Azure, assicurarsi di [configurare Visual Studio per l'uso di App per la logica](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -59,10 +61,10 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
    |----------|-------------|
    | **Modalità batch** | - **Inline**: per la definizione di criteri di rilascio all'interno del trigger batch <br>- **Account di integrazione**: per la definizione di più configurazioni di criteri di rilascio tramite un'[account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con un account di integrazione, è possibile gestire queste configurazioni in un'unica posizione invece che nell'App per la logica separata. | 
    | **Nome batch** | Il nome per il batch, che è "TestBatch" in questo esempio, si applica solo al **Inline** modalità batch |  
-   | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **Conteggio messaggi basato**: Rilasciare il batch in base al numero di messaggi raccolti dal batch. <br>- **Basato sulle dimensioni**: Rilascia il batch in base alla dimensione totale in byte per tutti i messaggi raccolti da tale batch. <br>- **Pianificazione**: Rilascio del batch in base a una pianificazione di ricorrenza, che specifica un intervallo e una frequenza. Nelle opzioni avanzate è anche possibile selezionare un fuso orario e specificare una data e un'ora di inizio. <br>- **Seleziona tutto**: usare tutti i criteri specificati. | 
-   | **Conteggio messaggi** | Il numero di messaggi da raccogliere nel batch, ad esempio 10 messaggi. Per un batch è previsto un limite di 8000 messaggi. | 
+   | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **Basato sul conteggio dei messaggi**: rilascia il batch in base al numero di messaggi raccolti dal batch. <br>- **Basato su dimensioni**: rilascia il batch in base alla dimensione totale in byte per tutti i messaggi raccolti dal batch. <br>- **Schedule**: rilascia il batch in base a una pianificazione di ricorrenza, che specifica un intervallo e una frequenza. Nelle opzioni avanzate è anche possibile selezionare un fuso orario e specificare una data e un'ora di inizio. <br>- **Seleziona tutto**: usare tutti i criteri specificati. | 
+   | **Numero messaggi** | Il numero di messaggi da raccogliere nel batch, ad esempio 10 messaggi. Per un batch è previsto un limite di 8000 messaggi. | 
    | **Dimensioni batch** | Dimensione totale in byte per i messaggi raccolti nel batch, ad esempio 10 MB. Per un batch è prevista una dimensione massima di 80 MB. | 
-   | **Programma** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
+   | **Pianificazione** | Intervallo e frequenza tra i rilasci di batch, ad esempio 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari dei minuti vengono arrotondati per eccesso a 1 minuto. Per specificare un fuso orario e una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. | 
    ||| 
 
    > [!NOTE]
@@ -83,9 +85,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
    2. Nella casella di ricerca immettere "invia messaggio di posta elettronica" come filtro.
    In base al provider di posta elettronica in uso, selezionare un connettore di posta elettronica.
 
-      Ad esempio, se hai un account personale, ad esempio @outlook.com o @hotmail.com, selezionare il connettore Outlook.com. 
-      Se si dispone di un account Gmail, selezionare il connettore Gmail. 
-      Questo esempio usa Outlook per Office 365. 
+      Ad esempio, se hai un account personale, ad esempio @outlook.com o @hotmail.com, selezionare il connettore Outlook.com. Questo esempio usa il connettore Office 365 Outlook.
 
    3. Selezionare questa azione: **inviare un messaggio di posta elettronica - <*provider di posta elettronica*>**
 
@@ -100,7 +100,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
    * Nella casella **A** immettere l'indirizzo di posta elettronica del destinatario. 
    AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica.
 
-   * Nella casella **Oggetto,** quando viene visualizzato l'elenco del contenuto dinamico, selezionare il campo **Nome partizione.**
+   * Nella casella **oggetto** , quando viene visualizzato l'elenco contenuto dinamico, selezionare il campo **nome partizione** .
 
      ![Nell'elenco contenuto dinamico selezionare "Nome partizione"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
@@ -111,7 +111,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
      > [!IMPORTANT]
      > Una partizione ha un limite di 5.000 messaggi o di 80 MB. Se viene soddisfatta la condizione, l’app per la logica può rilasciare il batch, anche quando non viene soddisfatta la condizione di rilascio.
 
-   * Nella casella **Corpo,** quando viene visualizzato l'elenco del contenuto dinamico, selezionare il campo **ID messaggio.** 
+   * Nella casella **corpo** , quando viene visualizzato l'elenco contenuto dinamico, selezionare il campo **ID messaggio** . 
 
      Progettazione app per la logica aggiunge automaticamente un ciclo "For each" intorno all'azione di invio di posta elettronica. Questa azione, infatti, tratta l'output dell'azione precedente come raccolta, anziché come batch. 
 
@@ -178,7 +178,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
 
    1. Fare clic all'interno della casella **contenuto messaggio**. 
 
-   2. Quando viene visualizzato l'elenco di contenuto dinamico, scegliere **Espressione**. 
+   2. Quando viene visualizzato l'elenco di contenuto dinamico, scegliere **espressione**. 
 
    3. Immettere l'espressione `utcnow()` e scegliere **OK**. 
 
@@ -189,7 +189,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
    | Proprietà | Descrizione | 
    |----------|-------------| 
    | **Nome partizione** | Una chiave di partizione univoca facoltativa da usare per la suddivisione del batch di destinazione in subset logici e raccogliere i messaggi in base a tale chiave | 
-   | **ID del messaggio** | Un identificatore di messaggio facoltativo che rappresenta l'identificatore univoco globale generato (GUID) se non viene specificato | 
+   | **ID messaggio** | Un identificatore di messaggio facoltativo che rappresenta l'identificatore univoco globale generato (GUID) se non viene specificato | 
    ||| 
 
    Per questo esempio aggiungere un'espressione nella casella **Nome della partizione** che genera un numero casuale compreso tra uno e cinque. Lasciare la casella **Id del messaggio** vuota.

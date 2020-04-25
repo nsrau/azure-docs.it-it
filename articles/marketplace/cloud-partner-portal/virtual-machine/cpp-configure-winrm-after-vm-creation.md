@@ -1,5 +1,5 @@
 ---
-title: Configurare Gestione remota Windows dopo la creazione della macchina virtuale di Azure Azure Marketplace
+title: Configurare WinRM dopo la creazione della macchina virtuale di Azure | Azure Marketplace
 description: Illustra come configurare Gestione remota Windows (WinRM) dopo la creazione di una macchina virtuale ospitata in Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: dsindona
-ms.openlocfilehash: b80325594eedb87293c31de3236bb4690eb89e05
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 3a67371ce6f951a9e446ab639ea5b59248b79565
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273019"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144132"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurare WinRM dopo la creazione della macchina virtuale
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di macchina virtuale di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 Questo articolo illustra come configurare una macchina virtuale (VM) esistente ospitata in Azure per abilitare WinRM tramite HTTPS.  Questa configurazione si applica solo alle macchine virtuali basate su Windows e richiede il processo in due passaggi riportato di seguito:
 
@@ -27,9 +27,9 @@ Questo articolo illustra come configurare una macchina virtuale (VM) esistente o
 
 ## <a name="enabling-port-traffic"></a>Abilitazione del traffico di porta
 
-Il protocollo Gestione remota Windows su HTTPS usa la porta 5986, che non è abilitata per impostazione predefinita nelle macchine virtuali Windows preconfigurate offerte in Azure Marketplace. Per abilitare questo protocollo, usare la procedura seguente per aggiungere una nuova regola al gruppo di sicurezza di rete (NSG) con il [portale di Azure](https://portal.azure.com).  Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview).
+Il protocollo WinRM over HTTPS utilizza la porta 5986, che non è abilitata per impostazione predefinita nelle VM Windows preconfigurate offerte in Azure Marketplace. Per abilitare questo protocollo, usare la procedura seguente per aggiungere una nuova regola al gruppo di sicurezza di rete (NSG) con il [portale di Azure](https://portal.azure.com).  Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1. Passare al pannello **Macchine virtuali >**   < *nome* >   vm **> Impostazioni/Rete**.
+1. Passare al pannello **macchine virtuali >**   < *nome* >   -VM **> impostazioni/rete**.
 2. Fare clic sul nome del gruppo sicurezza di rete (in questo esempio **testvm11002**) per visualizzare le relative proprietà:
 
     ![Proprietà del gruppo di sicurezza di rete](./media/nsg-properties.png)

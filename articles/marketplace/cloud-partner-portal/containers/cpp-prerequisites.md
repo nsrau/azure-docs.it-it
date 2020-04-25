@@ -1,5 +1,5 @@
 ---
-title: 'I contenitori di Azure offrono prerequisiti: Azure Marketplace'
+title: Prerequisiti per l'offerta di contenitori di Azure | Azure Marketplace
 description: Prerequisiti per la pubblicazione di un contenitore di Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dsindona
-ms.openlocfilehash: 0453117ee2984e0b8ebee60145353584a02a359a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2a5d82af609ab5eafbbc29dc95b8b6e4c8aa32df
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270129"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146245"
 ---
 # <a name="container-publishing-prerequisites"></a>Prerequisiti per la pubblicazione di un contenitore
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di contenitore](https://aka.ms/CreateContainerOffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del contenitore di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Seguire le istruzioni riportate in [creare un'offerta di contenitore di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) per gestire le offerte migrate.
 
-Questo articolo descrive i prerequisiti per la pubblicazione dell'offerta di un contenitore in Azure Marketplace.  Se non è già stato fatto, è necessario consultare la Guida alla [pubblicazione dell'offerta di contenitori](../../marketplace-containers.md).
+Questo articolo descrive i prerequisiti per la pubblicazione dell'offerta di un contenitore in Azure Marketplace.  Se non è già stato fatto, è consigliabile consultare la [Guida alla pubblicazione dell'offerta di contenitori](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Prerequisiti per la pubblicazione
 
@@ -32,10 +32,10 @@ Per pubblicare una nuova immagine contenitore, è necessario soddisfare i prereq
   - Un titolo
   - Una descrizione (in formato HTML)
   - Un'immagine del logo (in formato png) e in queste dimensioni delle immagini fisse: 40x40 px, 90x90 px, 115x 115 px e 255x115 px.
-- Le *condizioni per l'utilizzo* e le informative *sulla privacy*
-- Documentazione della soluzione contenitoreContainer solution documentation
+- Condizioni per l' *utilizzo* e istruzioni per l' *informativa sulla privacy*
+- Documentazione della soluzione contenitore
 - Contatti del supporto tecnico
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, è necessario preparare le risorse tecniche del [contenitore](./cpp-create-technical-assets.md) prima di [creare l'offerta contenitore.](./cpp-create-offer.md)  
+Se non è già stato fatto, è necessario [preparare le risorse tecniche del contenitore](./cpp-create-technical-assets.md) prima di [creare l'offerta del contenitore](./cpp-create-offer.md).  

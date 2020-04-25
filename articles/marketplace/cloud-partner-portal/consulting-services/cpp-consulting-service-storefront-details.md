@@ -1,30 +1,30 @@
 ---
-title: Inserisci i dettagli della vetrina per l'offerta di consulenza . Azure Marketplace
-description: Definire i dettagli della vetrina in un'offerta di servizio di consulenza di Azure o Dynamics 365 nel portale Cloud Partner.
+title: Immettere i dettagli della vetrina per l'offerta di consulenza | Azure Marketplace
+description: Definire i dettagli della vetrina in un'offerta di servizio di consulenza di Azure o Dynamics 365 nella portale Cloud Partner.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 65713eaf1651a6c02084751471504b5d022dfe14
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9fd1330e0ca0a49556e79044570173adaf458e13
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985049"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148153"
 ---
 # <a name="storefront-details-tab"></a>Scheda Dettagli vetrina
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del servizio di consulenza al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [Panoramica della creazione di servizi di consulenza](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) .
 
 Questo articolo illustra come immettere i dettagli relativi alla vetrina. La scheda **Dettagli vetrina** è costituita dalle sezioni seguenti:
 
 -   **Dettagli offerta**
 -   **Informazioni sul server di pubblicazione**
--   **Dettagli inserzione**
--   **Artefatti di marketing**
+-   **Dettagli elenco**
+-   **Elementi di marketing**
 
 ![Creare una nuova offerta di servizi di consulenza - Scheda Dettagli vetrina](media/consultingoffer-storefront-details.png)
 
@@ -34,7 +34,7 @@ Questo articolo illustra come immettere i dettagli relativi alla vetrina. La sch
 La sezione **Dettagli offerta** contiene le caselle seguenti:
 
 -   **Riepilogo offerta\***
--   **Descrizione dell'offerta\***
+-   **Descrizione offerta\***
 
 
 ### <a name="offer-summary"></a>Riepilogo offerta\*
@@ -43,28 +43,28 @@ Il riepilogo dell'offerta è una breve descrizione dell'offerta visualizzata imm
 
 *Esempio 1*
 
--   **Nome dell'offerta**: Cloud Analytics: Workshop di 3 giorni
--   **Riepilogo dell'offerta:** panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini POC.
+-   **Nome offerta**: analisi cloud: workshop di 3 giorni
+-   **Riepilogo dell'offerta**: panoramica di Microsoft Azure e Power bi, valutazione dell'ambiente corrente e mini poc.
 
 *Esempio 2*
 
--   **Nome dell'offerta**: Industrial Azure IoT: Prova di concetto di 30 giorni
--   **Riepilogo dell'offerta:** creare un progetto pilota di prodotto connesso all'industriale per connettere in modo sicuro le apparecchiature sul campo a una soluzione Hub IoT di Azure con dashboard, report e notifiche.
+-   **Nome offerta**: Industrial Azure Internet: modello di verifica per 30 giorni
+-   **Riepilogo dell'offerta**: creare un progetto pilota di prodotto connesso industrialmente per connettere in modo sicuro le apparecchiature nel campo a una soluzione hub Azure Internet con dashboard, report e notifiche.
 
 *Esempio 3*
 
--   **Nome dell'offerta**: Servizi professionali: 1-Hr Briefing
--   **Riepilogo dell'offerta:** panoramica e demo della soluzione Dynamics 365 for Operations estesa e preconfigurata che fornisce una gestione avanzata dei progetti, la fatturazione e le risorse per i servizi professionali.
+-   **Nome offerta**: Servizi professionali: Briefing 1-hr
+-   **Riepilogo dell'offerta**: panoramica e demo di una soluzione preconfigurata di Dynamics 365 per le operazioni che offre una gestione avanzata di progetti, fatturazione e risorse per servizi professionali.
 
 *Esempio 4*
 
--   **Nome dell'offerta**: Power BI nel mondo: Workshop di 4 ore
--   **Riepilogo dell'offerta:** iniziare a usare il primo dashboard e apprendere le procedure consigliate. Per un massimo di 12 studenti, in loco.
+-   **Nome offerta**: Power bi nel mondo: workshop di 4 ore
+-   **Riepilogo dell'offerta**: iniziare a usare il primo dashboard e apprendere le procedure consigliate. Per un massimo di 12 studenti, in loco.
 
 *Esempio 5*
 
--   **Nome dell'offerta**: Dynamics and Projects: Valutazione di 3 giorni
--   **Riepilogo dell'offerta**: Raccolta e valutazione dei requisiti per una soluzione ERP progettata per aziende di servizi professionali e aziende basate su progetti.
+-   **Nome dell'offerta**: Dynamics e Projects: valutazione di 3 giorni
+-   **Riepilogo dell'offerta**: raccolta e valutazione dei requisiti per una soluzione ERP progettata per le aziende di servizi professionali e per le aziende basate su progetti.
 
 
 ### <a name="offer-description"></a>Descrizione dell'offerta\*
@@ -81,11 +81,11 @@ La descrizione dell'offerta deve essere breve e rispettare il limite di caratter
 
 L'esempio che segue illustra una descrizione dell'offerta ben composta e il relativo nome e riepilogo:
 
-**Nome dell'offerta**: Cloud Analytics: Workshop di 3 giorni
+**Nome offerta**: analisi cloud: workshop di 3 giorni
 
-**Riepilogo dell'offerta:** panoramica di Microsoft Azure e Power BI, valutazione dell'ambiente corrente e mini POC.
+**Riepilogo dell'offerta**: panoramica di Microsoft Azure e Power bi, valutazione dell'ambiente corrente e mini poc.
 
-**Descrizione dell'offerta**: Questo workshop di 3 giorni è per i leader tecnici e aziendali e si svolge in loco presso la struttura del cliente.
+**Descrizione dell'offerta**: questo workshop di 3 giorni è per i leader tecnici e aziendali e viene mantenuto in sede presso la struttura del client.
 
 Agenda
 
@@ -155,20 +155,20 @@ Microsoft si concentra esclusivamente su offerte con ambito fisso, durata fissa,
 
 Sono inclusi i seguenti cinque tipi di offerte:
 
--   **Valutazione**: Una valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e dei tempi.
+-   **Valutazione**: valutazione dell'ambiente di un cliente per determinare l'applicabilità di una soluzione e fornire una stima dei costi e delle tempistiche.
 -   **Briefing**: introduzione a una soluzione o a un servizio di consulenza per suscitare l'interesse del cliente con framework, demo ed esempi di clienti. I briefing devono essere condotti in loco.
--   **Implementazione**: Un'installazione completa che si traduce in una soluzione completamente funzionante. Per questo progetto pilota, Microsoft raccomanda di limitarsi a soluzioni che possono essere implementate in una settimana o meno.
--   **Proof of concept**: Un'implementazione con ambito limitato per determinare se una soluzione soddisfa i requisiti di un cliente.
--   **Workshop**: Un coinvolgimento interattivo condotto nei locali del cliente che può includere sessioni di formazione, briefing, valutazioni o demo basate sui dati o sull'ambiente del cliente.
+-   **Implementazione**: un'installazione completa che produce una soluzione completamente funzionante. Per questo progetto pilota, Microsoft raccomanda di limitarsi a soluzioni che possono essere implementate in una settimana o meno.
+-   Modello **di prova**: implementazione con ambito limitato per determinare se una soluzione soddisfa i requisiti di un cliente.
+-   **Workshop**: impegno interattivo condotto su un cliente locale che può includere sessioni di formazione, briefing, valutazioni o demo basate sui dati o sull'ambiente del cliente.
 
-**Disponibilità paese/area geografica**
+**Disponibilità per Paese/area geografica**
 
 Selezionare il paese e l'area geografica in cui è disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o area, è necessario creare una nuova offerta.
 
 >[!Note]
->I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. Puoi inviare un'offerta per un paese/area geografica non ancora attiva e verrà esaminata e preparata per essere diretta. Un numero minimo di offerte pronte per essere live sono necessarie per aprire un nuovo paese /regione, quindi le offerte per i paesi / regioni che non sono in diretta sono incoraggiati.
+>I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. È possibile inviare un'offerta per un paese o un'area geografica non ancora attiva e che verrà esaminata e preparata per l'uso. Per aprire un nuovo paese/area geografica è necessario un numero minimo di offerte pronte per l'uso, quindi le offerte per paesi/aree geografiche non attive sono consigliate.
 
-**Industrie**
+**Settori**
 
 Selezionare i settori a cui si adatta maggiormente la propria offerta di servizi di consulenza.
 

@@ -3,20 +3,20 @@ title: Criteri per l'assegnazione di tag alle risorse
 description: Descrive i criteri di Azure che è possibile assegnare per garantire la conformità dei tag.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e7febe4c833cefd0ee9a5c49b4b70f4901fea8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80147018"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147857"
 ---
-# <a name="assign-policies-for-tag-compliance"></a>Assegnare criteri per la conformità dei tagAssign policies for tag compliance
+# <a name="assign-policies-for-tag-compliance"></a>Assegnare criteri per la conformità dei tag
 
-Usare [Criteri](../../governance/policy/overview.md) di Azure per applicare regole e convenzioni di tagging. Creando un criterio, si evita lo scenario di distribuzione delle risorse nella sottoscrizione che non dispongono dei tag previsti per l'organizzazione. Anziché applicare manualmente i tag o cercare risorse non conformi, si crea un criterio che applica automaticamente i tag necessari durante la distribuzione. I tag possono ora essere applicati anche alle risorse esistenti con il nuovo effetto [Modifica](../../governance/policy/concepts/effects.md#modify) e [un'attività](../../governance/policy/how-to/remediate-resources.md)di correzione. La sezione seguente illustra i criteri di esempio per i tag.
+Usare i [criteri di Azure](../../governance/policy/overview.md) per applicare le regole e le convenzioni per l'assegnazione di tag. La creazione di un criterio consente di evitare lo scenario di distribuzione delle risorse nella sottoscrizione che non dispongono dei tag previsti per l'organizzazione. Anziché applicare manualmente i tag o cercare le risorse non conformi, è necessario creare un criterio che applichi automaticamente i tag necessari durante la distribuzione. I tag possono essere ora applicati anche alle risorse esistenti con il nuovo effetto [modifica](../../governance/policy/concepts/effects.md#modify) e un' [attività di correzione](../../governance/policy/how-to/remediate-resources.md). La sezione seguente illustra i criteri di esempio per i tag.
 
 ## <a name="policies"></a>Criteri
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

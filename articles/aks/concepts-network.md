@@ -4,12 +4,12 @@ description: Informazioni sulle funzionalità di rete nel servizio Azure Kuberne
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253936"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146064"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -131,7 +131,7 @@ Nel servizio Azure Kubernetes è possibile creare una risorsa di ingresso usando
 
 Un'altra funzionalità comune per il traffico in ingresso è la terminazione SSL/TLS. In applicazioni Web di grandi dimensioni a cui si accede tramite HTTPS, la terminazione TLS può essere gestita dalla risorsa di ingresso invece che all'interno dell'applicazione stessa. Per garantire la generazione e la configurazione automatiche della certificazione TLS, è possibile configurare la risorsa di ingresso per l'uso di provider, ad esempio Let's Encrypt. Per altre informazioni sulla configurazione di un controller di ingresso NGINX con Let's Encrypt, vedere [Traffico in ingresso e TLS][aks-ingress-tls].
 
-È anche possibile configurare il controller di ingresso per mantenere l'IP di origine del client nelle richieste ai contenitori nel cluster AKS. Quando la richiesta di un client viene indirizzata a un contenitore nel cluster AKS tramite il controller di ingresso, l'indirizzo IP di origine della richiesta non sarà disponibile per il contenitore di destinazione. Quando si Abilita la *conservazione dell'indirizzo IP di origine client*, l'indirizzo IP di origine per il client è disponibile nell'intestazione della richiesta in *X-inoltred-for*. Se si usa la conservazione dell'indirizzo IP di origine client sul controller di ingresso, non è possibile usare il pass-through SSL. La conservazione IP di origine client e il pass-through SSL possono essere usati con altri servizi, ad esempio il tipo *LoadBalancer* .
+È anche possibile configurare il controller di ingresso per mantenere l'IP di origine del client nelle richieste ai contenitori nel cluster AKS. Quando la richiesta di un client viene indirizzata a un contenitore nel cluster AKS tramite il controller di ingresso, l'indirizzo IP di origine della richiesta non sarà disponibile per il contenitore di destinazione. Quando si Abilita la *conservazione dell'indirizzo IP di origine client*, l'indirizzo IP di origine per il client è disponibile nell'intestazione della richiesta in *X-inoltred-for*. Se si usa la conservazione dell'indirizzo IP di origine client sul controller di ingresso, non è possibile usare il pass-through TLS. La conservazione IP di origine client e il pass-through TLS possono essere usati con altri servizi, ad esempio il tipo *LoadBalancer* .
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 

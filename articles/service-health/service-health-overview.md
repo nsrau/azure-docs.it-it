@@ -3,12 +3,12 @@ title: Panoramica di integrità dei servizi di Azure | Microsoft Docs
 description: Informazioni personalizzate su come le app di Azure sono interessate dalla manutenzione e dai problemi attuali e futuri dei servizi di Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097252"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146931"
 ---
 # <a name="service-health-overview"></a>Panoramica sull'integrità del servizio
 
@@ -41,6 +41,12 @@ La visualizzazione **Problemi del servizio** indica eventuali problemi presenti 
 Scegliere la scheda **Impatto potenziale** per visualizzare l'elenco specifico delle risorse di cui si è proprietari che potrebbero essere interessate dal problema. È possibile scaricare un elenco in formato CSV delle risorse per condividerle con il team.
 
 ![Gestire il problema del servizio - Impatto](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Vedere i problemi emergenti che possono influito sui servizi
+
+In alcuni casi è possibile che si verifichino problemi di servizio diffusi nella [pagina stato di Azure](https://status.azure.com) prima che le comunicazioni mirate possano essere inviate ai clienti interessati. Per assicurarsi che l'integrità dei servizi di Azure fornisca una panoramica completa dei problemi che potrebbero interessare l'utente, i problemi relativi alle pagine di stato di Azure attive vengono esposti nell'integrità del servizio come *problemi emergenti*. Quando un evento è attivo nella pagina stato di Azure, l'intestazione di un problema emergente sarà presente nell'integrità del servizio. Fare clic sul banner per visualizzare i dettagli completi del problema.
+
+![Problema del servizio emergente](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Ottenere i collegamenti e spiegazioni scaricabili 
 

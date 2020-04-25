@@ -1,5 +1,5 @@
 ---
-title: Problemi comuni durante la creazione di disco rigido virtuale (domande frequenti) per Azure MarketplaceCommon issues during VHD creation (FAQ) for the Azure Marketplace
+title: Problemi comuni durante la creazione del disco rigido virtuale (FAQ) per Azure Marketplace
 description: Domande frequenti sulla creazione di dischi rigidi virtuali e sui problemi associati.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: df219ad7428eed5283c7a30a232308dca84fd25f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273444"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146981"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Domande frequenti sui problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare domande frequenti](https://aka.ms/VHDcreationIssues) sul disco rigido virtuale per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare domande frequenti su VHD](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation) .
 
 Le domande frequenti seguenti sono relative a problemi comuni che si sono verificati durante la creazione di dischi rigidi virtuali e di macchine virtuali per le offerte di macchine virtuali. 
 

@@ -1,5 +1,5 @@
 ---
-title: SKU per un'immagine di Azure Containers Azure Marketplace
+title: SKU per un'immagine di contenitori di Azure | Azure Marketplace
 description: Configurare SKU per un contenitore di Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c5cf218632c720fd042cc5f5d4ed95d5096b5b5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 5f37d157e11b8cd7cf093fa558e81d9a1ce345a9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270197"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146194"
 ---
 # <a name="container-skus-tab"></a>Scheda SKU del contenitore
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di contenitore](https://aka.ms/CreateContainerOffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del contenitore di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Seguire le istruzioni riportate in [creare un'offerta di contenitore di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) per gestire le offerte migrate.
 
 La scheda **SKU** della pagina **Nuova offerta** consente di creare uno o più SKU e di associarli alla nuova offerta.  È possibile usare vari SKU per differenziare una soluzione per set di funzionalità, modelli di fatturazione o altre caratteristiche.
 
@@ -48,14 +48,14 @@ I metadati del contenitore includono informazioni di riferimento dei dettagli de
 
 ![Metadati del contenitore](./media/containers-image-repository.png)
     
-I **dettagli dell'archivio immagini** nella schermata precedente contengono i campi seguenti.  I campi obbligatori sono indicati da un asterisco (*).
+I **Dettagli dell'archivio immagini** nell'acquisizione schermo precedente contengono i campi seguenti.  I campi obbligatori sono indicati da un asterisco (*).
 
--   **\* ID sottoscrizione:** ID sottoscrizione di Azure in cui è presente il file ACR.
--   Nome gruppo di **\* risorse:** il nome del gruppo di risorse del gruppo DiCR.
--   **Nome\* del Registro di sistema** - Il nome ACR.
--   **Nome\* repository** - Il nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
--   **Nome\* utente** - Il nome utente (nome utente amministratore) associato all'immagine ACR.
--   **Password\* ** - La password associata all'immagine ACR.
+-   **ID\* sottoscrizione** : ID sottoscrizione di Azure in cui è presente il record di registro di Azure.
+-   **Nome\* del gruppo di risorse** : nome del gruppo di risorse del registro contenitori di registro.
+-   **Nome\* del registro di sistema** : nome dell'ACR.
+-   **Nome\* ** del repository: il nome del repository. Dopo aver impostato il nome, questo valore non può più essere modificato. Usare un nome univoco per evitare conflitti con altre offerte nell'account.
+-   **Username\* ** : nome utente (nome utente amministratore) associato all'immagine ACR.
+-   **Password\* ** : la password associata all'immagine di ACR.
 
     >[!NOTE]
     >Il nome utente e la password sono necessari per garantire che i partner abbiano accesso al Registro Azure Container indicato nel processo di pubblicazione.

@@ -1,23 +1,23 @@
 ---
-title: Pubblicazione dell'offerta di consulenza Azure e Dynamics 365 Azure Marketplace
-description: Pubblicare un'offerta di servizi di consulenza Azure o Dynamics 365 nel portale cloud per i partner cloud per Azure Marketplace o AppSource.
+title: Pubblicazione dell'offerta di Azure e Dynamics 365 Consulting Service | Azure Marketplace
+description: Pubblicare un'offerta di servizio di consulenza Azure o Dynamics 365 nella portale Cloud Partner per Azure Marketplace o AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a06bae941c75e43a0e4ea2b66cc420e7a2467c3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c602bbee128c3338d841cb4564add26ba1c9e841
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985083"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146638"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Pubblicare l'offerta di un servizio di consulenza
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del servizio di consulenza al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [Panoramica della creazione di servizi di consulenza](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) .
 
 Dopo aver completato le **impostazioni dell'offerta**, i **dettagli della vetrina** e i **contatti**, selezionare **Pubblica** e specificare un indirizzo di posta elettronica. Quando Microsoft è pronto a pubblicare l'offerta, si riceve un messaggio di posta elettronica per visualizzare un'anteprima prima della pubblicazione. È possibile tornare al portale per controllare lo stato dell'offerta in qualsiasi momento.
 

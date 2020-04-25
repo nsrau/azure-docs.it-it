@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106475"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148209"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrare Hub eventi di Azure con collegamento privato di Azure (anteprima)
 Il servizio di collegamento privato di Azure consente di accedere ai servizi di Azure (ad esempio, Hub eventi di Azure, archiviazione di Azure e Azure Cosmos DB) e ai servizi cliente/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -29,7 +29,7 @@ Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../pr
 >[!WARNING]
 > L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con hub eventi.
 >
-> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
+> I servizi Microsoft attendibili non sono supportati quando si usano reti virtuali.
 >
 > Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
 > - Monitoraggio di Azure (impostazione di diagnostica)
@@ -86,7 +86,7 @@ Se è già presente uno spazio dei nomi di hub eventi, è possibile creare una c
         
             ![Crea endpoint privato-pagina delle risorse](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Se si seleziona **Connetti a una risorsa di Azure in base all'ID risorsa o alias**, seguire questa procedura:
-        1. Immettere l' **ID risorsa** o l' **alias**. Può trattarsi dell'ID risorsa o dell'alias che alcuni hanno condiviso con l'utente.
+        1. Immettere l' **ID risorsa** o l' **alias**. Può trattarsi dell'ID risorsa o dell'alias che qualcuno ha condiviso con l'utente. Il modo più semplice per ottenere l'ID risorsa è passare allo spazio dei nomi di hub eventi nel portale di Azure e copiare la parte dell'URI a `/subscriptions/`partire da. Per un esempio, vedere la figura seguente. 
         2. Per **risorsa secondaria di destinazione**immettere **spazio dei nomi**. È il tipo della sottorisorsa a cui l'endpoint privato può accedere.
         3. opzionale Immettere un **messaggio di richiesta**. Il proprietario della risorsa Visualizza questo messaggio durante la gestione della connessione all'endpoint privato.
         4. Quindi, fare clic su **Next: Configuration >** pulsante nella parte inferiore della pagina.

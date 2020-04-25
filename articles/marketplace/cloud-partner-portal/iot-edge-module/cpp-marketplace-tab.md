@@ -1,5 +1,5 @@
 ---
-title: Descrizione del Marketplace per un modulo Di Azure IoT Edge Azure Marketplace
+title: Descrizione del Marketplace per un modulo di Azure IoT Edge | Azure Marketplace
 description: Creare la descrizione del marketplace per un modulo IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: df51a408cc47908a240ceb66bf510fe3df3ce87f
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b4a3aa4e92fcabf354de7d550ec53ead5872596d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983399"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144789"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Scheda Marketplace del modulo IoT Edge
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del modulo IoT Edge al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di modulo IOT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) .
 
 La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
@@ -33,10 +33,10 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
 | **Titolo\***                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Summary\***               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Riassunto lungo\***          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
+| **Riepilogo\***               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. <!--ADD PICTURE IN ACTION-->|
+| **Riepilogo lungo\***          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
-| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  È consentita una selezione massima di 10 elementi. Assicurarsi di aggiungere almeno un collegamento alla documentazione e un collegamento ai dispositivi IoT Edge compatibili dal [catalogo di dispositivi Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Categorie suggerite\*** | Scegliere fino a cinque categorie. Verranno visualizzati nella pagina dei dettagli del prodotto. Nelle pagine del browser tutti i moduli IoT Edge vengono visualizzati nella categoria *Internet delle cose \> Modulo IoT Edge*.|
@@ -89,9 +89,9 @@ Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot*
 |  ---------                |     ---------------                                                          |
 | *Loghi*  | Vedere le schermate precedenti per scoprire come e dove verranno usati i logo.  |
 | **Piccolo\***                 | Formato PNG 40x40 pixel                                                     |
-| **Medium\***                | Formato PNG 90x90 pixel                                                     |
-| **Grande\***                 | Formato PNG 115x115 pixel                                                  |
-| **Ampia\***                  | Formato PNG 255x115 pixel                                                   |
+| **Medio\***                | Formato PNG 90x90 pixel                                                     |
+| **large\***                 | Formato PNG 115x115 pixel                                                  |
+| **Wide\***                  | Formato PNG 255x115 pixel                                                   |
 | **Hero** (Banner)                  | Formato PNG 815x290 pixel  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Gli screenshot vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa il modulo IoT Edge e come funziona. Ad esempio, è possibile mostrare diagrammi di architettura o illustrazioni di casi d'uso. Facoltativi, ma non più di cinque per SKU. |
 | **Nome**                  | Nome o titolo. La lunghezza massima consentita è di 100 caratteri.                             |
@@ -168,8 +168,8 @@ Questa sezione consente di specificare i due documenti legali necessari per ogni
 |  **Campo**                    |     **Descrizione**                                                          |
 |  ---------                    |     ---------------                                                          |
 | **URL dell'Informativa sulla privacy\***      | URL dell'informativa sulla privacy pubblicata                                            |
-| **Usa constrazione standard\***  | Se utilizzare il modello di contratto standard Microsoft.  Per ulteriori informazioni, vedere [Contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Condizioni d'uso\***            | *Condizioni per l'utilizzo* come HTML semplice in linea o link alla tua pagina delle condizioni per l'utilizzo pubblicate     |
+| **USA constract standard\***  | Indica se utilizzare il modello di contratto Microsoft standard.  Per ulteriori informazioni, vedere [contratto standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Condizioni per l'utilizzo\***            | *Condizioni per l'utilizzo* come HTML semplice inline o collegamento alla pagina delle condizioni per l'utilizzo pubblicate     |
 |  |  |
 
 

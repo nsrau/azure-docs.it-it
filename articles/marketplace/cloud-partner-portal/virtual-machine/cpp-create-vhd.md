@@ -1,5 +1,5 @@
 ---
-title: Creare un disco rigido virtuale compatibile con Azure per Azure MarketplaceCreate an Azure-compatible VHD for the Azure Marketplace
+title: Creare un VHD compatibile con Azure per Azure Marketplace
 description: Questo articolo illustra come creare un disco rigido virtuale per un'offerta di macchina virtuale in Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,22 +7,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 99d2bc95c1dd837bfc3bcabcead28777b7e6f746
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 642c6964aaad8d6e8750fca67efb11eb3feaf19d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273937"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147020"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Creare un disco rigido virtuale compatibile con Azure
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, inizieremo la gestione in corso delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare risorse tecniche per le macchine virtuali di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 Questo articolo descrive in dettaglio i passaggi necessari per creare un disco rigido virtuale per un'offerta di macchina virtuale in Azure Marketplace.  Include inoltre le procedure consigliate per diversi aspetti, ad esempio l'uso di Remote Desktop Protocol (RDP), la selezione di una dimensione per la macchina virtuale, l'installazione degli aggiornamenti di Windows più recenti e la generalizzazione dell'immagine del disco rigido virtuale.  Le sezioni seguenti sono dedicate principalmente sui dischi rigidi virtuali basati su Windows. Per altre informazioni sulla creazione di dischi rigidi virtuali basati su Linux, vedere [Linux in distribuzioni approvate da Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> È consigliabile seguire le indicazioni presenti in questo argomento per usare Azure per la creazione di una macchina virtuale che contiene un sistema operativo pre-configurato e approvato.  Se non è compatibile con la soluzione, è possibile creare e configurare una macchina virtuale locale usando un sistema operativo approvato.  È quindi possibile configurare e prepararla per il caricamento, come descritto in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> È consigliabile seguire le indicazioni presenti in questo argomento per usare Azure per la creazione di una macchina virtuale che contiene un sistema operativo pre-configurato e approvato.  Se questo non è compatibile con la soluzione, è possibile creare e configurare una macchina virtuale locale usando un sistema operativo approvato.  È quindi possibile configurare e prepararla per il caricamento, come descritto in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Selezionare una base approvata
@@ -30,8 +30,8 @@ Il VHD del sistema operativo per l'immagine di macchina virtuale deve essere bas
 Per iniziare, creare una macchina virtuale da una delle immagini seguenti, disponibili nel portale di Microsoft Azure:
 
 -    Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
--    [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
--    [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
+-    [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
+-    [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
 
 > [!TIP]
 > Se si usa l'attuale portale di Azure o PowerShell, sono approvate le immagini di Windows Server pubblicate a partire dall'8 settembre 2014.
@@ -52,7 +52,7 @@ Nel [portale di Microsoft Azure](https://ms.portal.azure.com/) creare l'immagine
 
 5. Dopo aver selezionato l'immagine virtuale appropriata, specificare i valori seguenti:
    * Nel pannello **Informazioni di base** immettere un valore in **Nome** per la macchina virtuale con lunghezza compresa tra 1 e 15 caratteri alfanumerici. Questo esempio usa `DemoVm009`.
-   * Immettere un valore in **Nome utente** e una password complessa in **Password**, da usare per creare un account locale nella macchina virtuale.  (Qui `adminUser` viene utilizzato.)  La password deve essere lunga 8-123 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: un carattere minuscolo, un carattere maiuscolo, un numero e un carattere speciale. Per altre informazioni, vedere i [requisiti relativi a nome utente e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Immettere un valore in **Nome utente** e una password complessa in **Password**, da usare per creare un account locale nella macchina virtuale.  (Qui `adminUser` viene usato).  La password deve avere una lunghezza di 8-123 caratteri e soddisfare tre dei quattro requisiti di complessità seguenti: un carattere minuscolo, un carattere maiuscolo, un numero e un carattere speciale. Per altre informazioni, vedere [requisiti per nome utente e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
    * Selezionare il gruppo di risorse creato in precedenza (in questo caso `DemoResourceGroup`).
    * Selezionare un valore di **Località** per il data center di Azure (in questo caso `West US`).
    * Fare clic su **OK** per salvare questi valori. 
@@ -64,7 +64,7 @@ Nel [portale di Microsoft Azure](https://ms.portal.azure.com/) creare l'immagine
 
    ![Pannello delle dimensioni della nuova macchina virtuale](./media/publishvm_015.png)
 
-7. Nel pannello **Impostazioni** impostare l'opzione **Usa dischi gestiti** su **No**.  Ciò consente di gestire manualmente il nuovo disco rigido virtuale. Il pannello **Impostazioni** consente inoltre di modificare altre opzioni di archiviazione e rete, ad esempio la selezione di **Premium (SSD)** in Tipo di **disco.**  Fare clic **su OK** per continuare.
+7. Nel pannello **Impostazioni** impostare l'opzione **Usa dischi gestiti** su **No**.  Ciò consente di gestire manualmente il nuovo disco rigido virtuale. Il pannello **Impostazioni** consente inoltre di modificare le altre opzioni di archiviazione e di rete, ad esempio selezionando **Premium (SSD)** nel **tipo di disco**.  Fare clic su **OK** per continuare.
 
     ![Pannello Impostazioni della nuova macchina virtuale](./media/publishvm_016.png)
 

@@ -3,12 +3,12 @@ title: Guida di riferimento per sviluppatori Java per funzioni di Azure
 description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4b1f39ff4fd48a3ed99b34391e9cc6efdad86a5d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 19a290fe7717d7838e8fcd1d1f5cddb3f54eb812
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673011"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145322"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -159,6 +159,9 @@ Funzioni consente di personalizzare Java Virtual Machine (JVM) usato per eseguir
 
 È possibile fornire argomenti aggiuntivi in un'impostazione dell'app `JAVA_OPTS`denominata. È possibile aggiungere le impostazioni dell'app all'app per le funzioni distribuite in Azure nell'portale di Azure o nell'interfaccia della riga di comando di Azure.
 
+> [!IMPORTANT]  
+> Nel piano a consumo, è necessario aggiungere anche l'impostazione WEBSITE_USE_PLACEHOLDER con un valore pari a 0 per il funzionamento della personalizzazione. Questa impostazione consente di aumentare l'ora di avvio a freddo per le funzioni Java.
+
 ### <a name="azure-portal"></a>Portale di Azure
 
 Nella [portale di Azure](https://portal.azure.com)usare la [scheda Impostazioni applicazione](functions-how-to-use-azure-function-app-settings.md#settings) per aggiungere l' `JAVA_OPTS` impostazione.
@@ -167,16 +170,22 @@ Nella [portale di Azure](https://portal.azure.com)usare la [scheda Impostazioni 
 
 È possibile usare il comando [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings) per impostare `JAVA_OPTS`, come nell'esempio seguente:
 
+#### <a name="consumption-plan"></a>[Piano a consumo](#tab/consumption)
 ```azurecli-interactive
-az functionapp config appsettings set --name <APP_NAME> \
---resource-group <RESOURCE_GROUP> \
---settings "JAVA_OPTS=-Djava.awt.headless=true"
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+"WEBSITE_USE_PLACEHOLDER=0" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-Questo esempio Abilita la modalità Head. Sostituire `<APP_NAME>` con il nome dell'app per le funzioni e `<RESOURCE_GROUP>` con il gruppo di risorse.
+#### <a name="dedicated-plan--premium-plan"></a>[Piano dedicato/piano Premium](#tab/dedicated+premium)
+```azurecli-interactive
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+---
 
-> [!WARNING]  
-> Nel [piano a consumo](functions-scale.md#consumption-plan)è necessario aggiungere l' `WEBSITE_USE_PLACEHOLDER` impostazione con il valore. `0`  
-Questa impostazione consente di aumentare l'ora di avvio a freddo per le funzioni Java.
+Questo esempio Abilita la modalità Head. Sostituire `<APP_NAME>` con il nome dell'app per le funzioni e `<RESOURCE_GROUP>` con il gruppo di risorse. 
 
 ## <a name="third-party-libraries"></a>Librerie di terze parti 
 
@@ -446,6 +455,9 @@ public class Function {
 }
 
 ```
+
+> [!NOTE]
+> Il valore di AppSetting FUNCTIONS_EXTENSION_VERSION deve essere ~ 2 o ~ 3 per un'esperienza di avvio a freddo ottimizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

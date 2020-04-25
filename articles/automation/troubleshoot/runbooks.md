@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 73f79145f63e0d8afee7596f1f8231a054ef1c2e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: a407461e20eefe29dd410ac6ed547b33287a5be8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097694"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145419"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Risolvere gli errori di Runbook
 
@@ -180,11 +180,11 @@ At line:16 char:1
 
 ### <a name="cause"></a>Causa
 
-Questo errore è causato dall'uso dei cmdlet AzureRM e AZ Module in un Runbook. Si verifica quando si importa il modulo AZ prima di importare il modulo AzureRM.
+Questo errore è probabilmente causato dall'uso di una migrazione incompleta da AzureRM a AZ Modules in Runbook. In questo modo automazione di Azure può avviare un processo Runbook usando solo moduli AzureRM, quindi avviare un altro processo usando solo AZ Modules, causando un arresto anomalo della sandbox. 
 
 ### <a name="resolution"></a>Risoluzione
 
-I cmdlet AZ e AzureRM non possono essere importati e usati nello stesso Runbook. Per altre informazioni sui cmdlet AZ in automazione di Azure, vedere [gestire i moduli in automazione di Azure](../shared-resources/modules.md).
+Non è consigliabile usare i cmdlet AZ e AzureRM nella stessa Runbook. Per ulteriori informazioni sull'utilizzo corretto di questi moduli, vedere la pagina relativa alla [migrazione a AZ Modules](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>Scenario: il runbook ha esito negativo con errore "Un'attività è stata annullata"
 
@@ -581,7 +581,7 @@ Esistono due modi per risolvere l'errore.
 * Invece di usare [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), usare [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) per avviare il Runbook.
 * Provare a eseguire Runbook in un ruolo di lavoro ibrido per Runbook.
 
-Per altre informazioni su questo comportamento e altri comportamenti dei manuali operativi di automazione di Azure, vedere [comportamento di Runbook](../automation-runbook-execution.md#runbook-behavior).
+Per altre informazioni su questo comportamento e altri comportamenti dei manuali operativi di automazione di Azure, vedere [esecuzione di Runbook in automazione di Azure](../automation-runbook-execution.md).
 
 ## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Scenario: il ruolo di lavoro ibrido per Runbook di Linux riceve una richiesta di password quando firma un Runbook
 
@@ -645,11 +645,11 @@ Possibili cause del problema:
 
 #### <a name="not-using-run-as-account"></a>Non uso dell'account RunAs
 
-Eseguire i passaggi descritti in [passaggio 5: aggiungere l'autenticazione per gestire le risorse di Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) per assicurarsi di usare un account RunAs per accedere a Key Vault. 
+Seguire il [passaggio 5: aggiungere l'autenticazione per gestire le risorse di Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) per assicurarsi di usare un account RunAs per accedere Key Vault. 
 
 #### <a name="insufficient-permissions"></a>Autorizzazioni insufficienti
 
-Per assicurarsi che l'account RunAs disponga di autorizzazioni sufficienti per accedere a Key Vault, attenersi alla procedura descritta in [aggiungere autorizzazioni a Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) . 
+[Aggiungere le autorizzazioni per Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) per assicurarsi che l'account RunAs disponga di autorizzazioni sufficienti per accedere a Key Vault. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>il problema non è incluso in questo elenco
 
@@ -669,7 +669,7 @@ Per informazioni sul passaggio di parametri ai webhook, vedere [avviare un Runbo
 
 ### <a name="issues-using-az-modules"></a>Problemi con AZ Modules
 
-Non è supportato l'uso dei moduli AZ modules e AzureRM nello stesso account di automazione. Per altri dettagli, vedere [AZ Modules in manuali operativi](https://docs.microsoft.com/azure/automation/az-modules) .
+L'uso di una migrazione incompleta dei moduli Runbook da AzureRM a AZ può causare arresti anomali della sandbox e errori Runbook. Vedere [uso dei moduli nella manuali operativi](../automation-runbook-execution.md#using-modules-in-your-runbooks).
 
 ### <a name="inconsistent-behavior-in-runbooks"></a>Comportamento incoerente nei runbook
 
@@ -688,10 +688,6 @@ Gli account RunAs potrebbero non avere le stesse autorizzazioni per le risorse d
 
 Per informazioni sul passaggio di parametri ai webhook, vedere [avviare un Runbook da un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
-### <a name="using-az-modules"></a>Uso dei moduli Az
-
-Non è supportato l'uso dei moduli AZ modules e AzureRM nello stesso account di automazione. Vedere [AZ Modules in manuali operativi](https://docs.microsoft.com/azure/automation/az-modules).
-
 ### <a name="using-self-signed-certificates"></a>Utilizzo di certificati autofirmati
 
 Per usare i certificati autofirmati, vedere [creazione di un nuovo certificato](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
@@ -702,6 +698,7 @@ Azure sandbox impedisce l'accesso a tutti i server COM out-of-process. Ad esempi
 
 ## <a name="recommended-documents"></a>Documenti consigliati
 
+* [Esecuzione di runbook in Automazione di Azure](../automation-runbook-execution.md)
 * [Avvio di un Runbook in automazione di Azure](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Esecuzione di runbook in Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 04ef72f7ec70b370305395ae8de8180f4594b43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277340"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145118"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrare Cloud Foundry con Azure
 
@@ -38,9 +38,9 @@ La zona di disponibilità di Azure consente di ottenere la disponibilità elevat
 > La zona di disponibilità di Azure non viene offerta ancora in tutte le aree. Vedere il più recente [annuncio per l'elenco delle aree supportate](https://docs.microsoft.com/azure/availability-zones/az-overview). Per Cloud Foundry open source, vedere [Azure Availability Zone for open source Cloud Foundry guidance](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone) (Informazioni sulla zona di disponibilità di Azure per Cloud Foundry open source).
 
 ## <a name="2-network-routing"></a>2. routing di rete
-Per impostazione predefinita, viene usato il servizio Azure Load Balancer Basic per le richieste di API/app CF in ingresso, che vengono inoltrate a Gorouter. I componenti di CF come Diego Brain, MySQL, ERT, possono anche usare il servizio Load Balancer per bilanciare il traffico per la disponibilità elevata. Azure fornisce anche un set di soluzioni di bilanciamento del carico completamente gestite. Se si sta cercando la terminazione TLS ("offload SSL") o per l'elaborazione del livello applicazione di richiesta HTTP/HTTPS, prendere in considerazione il gateway applicazione. Per il bilanciamento del carico di livello 4 per la disponibilità elevata e la scalabilità, prendere in considerazione il servizio Load Balancer Standard.
+Per impostazione predefinita, viene usato il servizio Azure Load Balancer Basic per le richieste di API/app CF in ingresso, che vengono inoltrate a Gorouter. I componenti di CF come Diego Brain, MySQL, ERT, possono anche usare il servizio Load Balancer per bilanciare il traffico per la disponibilità elevata. Azure fornisce anche un set di soluzioni di bilanciamento del carico completamente gestite. Se si sta cercando la terminazione TLS/SSL ("offload SSL") o per l'elaborazione del livello applicazione di richiesta HTTP/HTTPS, prendere in considerazione il gateway applicazione. Per il bilanciamento del carico di livello 4 per la disponibilità elevata e la scalabilità, prendere in considerazione il servizio Load Balancer Standard.
 ### <a name="azure-application-gateway-"></a>Gateway applicazione di Azure*
-Il [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offre diverse funzionalità di bilanciamento del carico di livello 7, tra cui offload SSL, SSL end-to-end, web application firewall, affinità di sessione basata su cookie e molto altro. È possibile [configurare il gateway applicazione in Cloud Foundry open source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). Per PCF, vedere le [note sulla versione di PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) per il test POC.
+[Applicazione Azure gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offre diverse funzionalità di bilanciamento del carico di livello 7, tra cui offload SSL, TLS end-to-end, Web Application Firewall, affinità di sessione basata su cookie e altro ancora. È possibile [configurare il gateway applicazione in Cloud Foundry open source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). Per PCF, vedere le [note sulla versione di PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) per il test POC.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure Load Balancer Standard*
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4. Viene usato per distribuire il traffico tra le istanze dei servizi in un set con carico bilanciato. La versione Standard fornisce [funzionalità avanzate](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) in aggiunta a quanto disponibile nella versione Basic. Ad esempio: 1. Il limite massimo per il pool back-end passa da 100 a 1000 macchine virtuali.  2. Gli endpoint supportano ora più set di disponibilità invece di un unico set di disponibilità.  3. Funzionalità aggiuntive, ad esempio le porte a disponibilità elevata, i dati di monitoraggio più completi e così via. Se si passa alla zona di disponibilità di Azure, è necessario il bilanciamento del carico standard. Per una nuova distribuzione, è consigliabile iniziare con il servizio Load Balancer Standard. 

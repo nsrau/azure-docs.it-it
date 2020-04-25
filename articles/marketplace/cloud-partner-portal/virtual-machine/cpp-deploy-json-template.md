@@ -1,5 +1,5 @@
 ---
-title: Modello di distribuzione di Azure VHD - Azure Marketplace
+title: Modello di distribuzione del disco rigido virtuale di Azure | Azure Marketplace
 description: Elenca il modello di Azure Resource Manager necessario per distribuire una nuova macchina virtuale di Azure da un disco rigido virtuale dell'utente.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f3e3dc6e0d73627f49ba04a8b861253bafcddfa9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273920"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148041"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>Modello di distribuzione di disco rigido virtuale
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [certificazione delle immagini di VM di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) .
 
-Il modello di Azure Resource Manager seguente definisce una nuova istanza di macchina virtuale di Azure, creata da un disco rigido virtuale locale.  Questo modello viene usato nell'articolo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Distribuire una macchina virtuale di Azure da un disco rigido virtuale dell'utente). 
+Il modello di Azure Resource Manager seguente definisce una nuova istanza di macchina virtuale di Azure, creata da un disco rigido virtuale locale.  Questo modello viene usato nell'articolo [Deploy an Azure VM from a user VHD](./cpp-deploy-vm-user-image.md) (Distribuire una macchina virtuale di Azure da un disco rigido virtuale dell'utente).
 
 ```json
 {

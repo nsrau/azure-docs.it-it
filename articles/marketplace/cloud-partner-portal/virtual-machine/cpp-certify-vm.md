@@ -1,5 +1,5 @@
 ---
-title: Certificare l'immagine della macchina virtuale per Azure MarketplaceCertify your VM image for the Azure Marketplace
+title: Certificare l'immagine di macchina virtuale per Azure Marketplace
 description: L'articolo illustra come testare e inviare un'immagine di macchina virtuale per la certificazione di Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
-ms.openlocfilehash: ce1e001b9cafff83a3f9bf546d6903cc4a4f450f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 81dec159a8a84adce97750666baba455ae3fdd93
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273495"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147084"
 ---
 # <a name="certify-your-vm-image"></a>Certificare l'immagine di macchina virtuale
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [certificazione delle immagini di VM di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) .
 
 Dopo aver creato e distribuire la macchina virtuale, è necessario testarla e inviarla per la certificazione di Azure Marketplace. Questo articolo illustra come ottenere lo *strumento di test di certificazione per Azure Certified*, come usarlo per certificare l'immagine di macchina virtuale e come caricare i risultati della verifica nel contenitore di Azure in cui è presente il disco rigido virtuale in uso. 
 

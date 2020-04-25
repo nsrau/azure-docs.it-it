@@ -1,5 +1,5 @@
 ---
-title: Scheda Marketplace delle macchine virtuali nel portale per i cloud partner per Azure MarketplaceVirtual machine Marketplace tab in the Cloud Partner Portal for Azure Marketplace
+title: Scheda Marketplace della macchina virtuale nel portale Cloud Partner per Azure Marketplace
 description: Descrive la scheda Marketplace usata nella creazione di un'offerta di macchina virtuale in Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 156a405d93aeac27f27fe617e1a5485044309846
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2c3d316d0d2810cb2a25ffd3bc4e34cf3454c10d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273818"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146866"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di macchina virtuale di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
@@ -33,13 +33,13 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 |  ---------                |     ---------------                                                          |
 | **Titolo\***                 | Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace.  La lunghezza massima consentita è di 50 caratteri. |
 | **Riepilogo\***               | Descrizione breve dello scopo o della funzione della soluzione.  La lunghezza massima consentita è di 100 caratteri. |
-| **Riassunto lungo\***          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
+| **Riepilogo lungo\***          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
 | **Descrizione\***           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
-| **Canale Microsoft CSP rivenditore\*** | L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](../../cloud-solution-providers.md) |
-| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Anteprima degli ID sottoscrizione\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
+| **Canale rivenditore Microsoft CSP\*** | Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](../../cloud-solution-providers.md) . |
+| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Anteprima ID sottoscrizione\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Aggiungere gli URL per la documentazione, le note sulla versione, le domande frequenti e così via. |
-| **Categorie suggerite\*** | Selezionare fino a due (2) categorie, tra cui una categoria primaria e una secondaria (facoltativo). Selezionare fino a due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo nella categoria selezionata. |
+| **Categorie suggerite\*** | Selezionare un massimo di due (2) categorie, tra cui una categoria primaria e una secondaria (facoltativo). Selezionare un massimo di due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo per la categoria selezionata. |
 |  |  |
 
 
@@ -55,9 +55,9 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 |  ---------                |     ---------------                                                          |
 | *Loghi*  |  |
 | **Piccolo\***                 | Bitmap con estensione ico, 40x40 pixel                                                      |
-| **Medium\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
-| **Grande\***                 | Bitmap con estensione ico, 115x115 pixel                                                   |
-| **Ampia\***                  | Bitmap con estensione ico, 255x115 pixel                                                    |
+| **Medio\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
+| **large\***                 | Bitmap con estensione ico, 115x115 pixel                                                   |
+| **Wide\***                  | Bitmap con estensione ico, 255x115 pixel                                                    |
 | **Hero** (Banner)                  | Bitmap, 815x290.  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Facoltativi, ma non più di cinque per SKU. |
 | **Nome**                  | Nome o titolo  <!-- TODO - max char length? none specified in UI -->                               |
@@ -119,13 +119,13 @@ Dopo aver pubblicato l'offerta, verrà convalidata la connessione al cliente pot
 
 ## <a name="legal-section"></a>Sezione legale
 
-Quest'ultima sezione consente di fornire i documenti legali necessari per ogni offerta.  
+Questa ultima sezione consente di fornire i documenti legali richiesti per ogni offerta.  
 
 |  **Campo**                    |     **Descrizione**                                        |
 |  ---------                    |     ---------------                                        |
 | **URL dell'Informativa sulla privacy\***      | URL dell'informativa sulla privacy pubblicata                          |
-| **Utilizzare il contratto standard?\***  |   |
-| **Condizioni d'uso\***            | Norme in testo normale o HTML semplice.                       |
+| **Usare il contratto standard?\***  |   |
+| **Condizioni per l'utilizzo\***            | Norme in testo normale o HTML semplice.                       |
 |  |  |
 
 

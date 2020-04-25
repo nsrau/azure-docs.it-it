@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 04/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe7b375ebafb1e8194b29061430d956e48f2c441
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100755"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147736"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -111,6 +111,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 04/24/2020: le modifiche apportate all' [SAP Hana con scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con e in SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), in [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con e in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SLES con e](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [disponibilità elevata per SAP NETWEAVER in macchine virtuali di Azure in RHEL con e](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) per aggiungere il chiarimento
 - 04/22/2020: modificare la [disponibilità elevata delle SAP Hana nelle macchine virtuali di Azure su SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) per rimuovere `is-managed` meta attributo dalle istruzioni, perché è in conflitto con l'inserimento o la modalità di manutenzione del cluster
 - 04/21/2020: aggiunto SQL Azure DB come DBMS supportato per SAP (hybris) Commerce platform 1811 e versioni successive negli articoli [quali software SAP è supportato per le distribuzioni di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) e le [configurazioni e le certificazioni SAP in esecuzione in Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 04/16/2020: aggiunta SAP HANA come piattaforma di Commerce supportata per SAP (hybris) per gli articoli [che software SAP è supportato per le distribuzioni di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) e le [configurazioni e le certificazioni SAP in esecuzione in Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

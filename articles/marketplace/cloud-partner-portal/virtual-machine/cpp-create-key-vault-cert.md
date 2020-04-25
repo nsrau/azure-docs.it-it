@@ -1,5 +1,5 @@
 ---
-title: Creare un certificato dell'insieme di credenziali delle chiavi di Azure Azure Marketplace
+title: Creare un certificato di Azure Key Vault | Azure Marketplace
 description: Questo articolo illustra come registrare una macchina virtuale da un disco rigido virtuale distribuito in Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9981f8eda174bbe04b54933528d20d270d360824
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274022"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148249"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creare certificati per Azure Key Vault
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Certificazione dell'immagine della macchina virtuale](https://aks.ms/CertifyVMimage) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [certificazione delle immagini di VM di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) .
 
 Questo articolo illustra come effettuare il provisioning dei certificati autofirmati richiesti per stabilire una connettività di Gestione remota Windows (WinRM) a una macchina virtuale (VM) ospitata in Azure. Questo processo si articola in tre passaggi:
 
@@ -79,7 +79,7 @@ Modificare ed eseguire lo script di Azure PowerShell seguente per creare il file
 
 ## <a name="create-the-key-vault"></a>Creare l'insieme di credenziali delle chiavi
 
-Copiare il contenuto del [modello di distribuzione dell'insieme di credenziali delle chiavi](./cpp-key-vault-deploy-template.md) in un file nel computer locale. (nello script di esempio riportato di seguito, questa risorsa è `C:\certLocation\keyvault.json`.)  Modificare ed eseguire lo script di Azure Powershell seguente per creare un'istanza dell'insieme di credenziali delle chiavi di Azure e il gruppo di risorse associato.  Sarà necessario sostituire i valori per i parametri seguenti:
+Copiare il contenuto del [modello di distribuzione dell'insieme di credenziali delle chiavi](./cpp-key-vault-deploy-template.md) in un file nel computer locale. nello script di esempio seguente questa risorsa è `C:\certLocation\keyvault.json`.  Modificare ed eseguire lo script di Azure PowerShell seguente per creare un'istanza di Azure Key Vault e il gruppo di risorse associato.  Sarà necessario sostituire i valori per i parametri seguenti:
 
 |  **Parametro**        |   **Descrizione**                                                               |
 |  -------------        |   ---------------                                                               |

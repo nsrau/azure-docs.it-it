@@ -1,5 +1,5 @@
 ---
-title: Configurare la macchina virtuale ospitata da Microsoft Azure per Azure MarketplaceConfigure the Microsoft Azure-hosted VM for the Azure Marketplace
+title: Configurare la macchina virtuale ospitata da Microsoft Azure per Azure Marketplace
 description: Illustra come ridimensionare, aggiornare e generalizzare una macchina virtuale ospitata in Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: f20beced7d977668d12c06375ceb8a2554c6d335
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4cb247a3e64f8d44cc64010dde40963f4e9a1993
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273427"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146086"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurare la macchina virtuale ospitata in Azure
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, inizieremo la gestione in corso delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare risorse tecniche per le macchine virtuali di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 Questo articolo illustra come ridimensionare, aggiornare e generalizzare una macchina virtuale (VM, Virtual Machine) ospitata in Azure.  Questa procedura è necessaria per preparare la macchina virtuale alla distribuzione da Azure Marketplace.
 
 ## <a name="sizing-the-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Se è stata selezionata una delle macchine virtuali preconfigurata con un sistema operativo (e facoltativamente servizi aggiuntivi), è già stata scelta una dimensione standard della macchina virtuale di Azure, come descritto nella [scheda SKU macchina virtuale](./cpp-skus-tab.md).  L'avvio della soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
+Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo e, facoltativamente, altri servizi, è già stata selezionata una dimensione standard di VM di Azure, come descritto nella [scheda SKU macchina virtuale](./cpp-skus-tab.md).  L'approccio consigliato è quello di avviare la soluzione con un sistema operativo preconfigurato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
 
 - Per Windows, il disco rigido virtuale del sistema operativo deve essere creato come disco rigido virtuale con formato fisso da 127-128 GB. 
 - Per Linux, questo disco rigido virtuale deve essere creato come disco rigido virtuale con formato fisso da 30-50 GB.
@@ -68,11 +68,11 @@ La generalizzazione dei dischi con sistema operativo Windows viene eseguita con 
 > [!WARNING]
 >  Poiché gli aggiornamenti possono essere eseguiti automaticamente, dopo aver eseguito sysprep, è necessario arrestare la macchina virtuale finché non viene distribuita.  Questo arresto eviterà che gli aggiornamenti successivi possano apportare modifiche specifiche di istanza al sistema operativo o ai servizi installati nel disco rigido virtuale.
 
-Per altre informazioni sull'esecuzione di sysprep, vedere [Procedura per generalizzare un disco rigido virtualeFor more](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) information about running sysprep, see Steps to generalize a VHD
+Per ulteriori informazioni sull'esecuzione di Sysprep, vedere la pagina relativa [alla procedura per generalizzare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
-Il processo in due passaggi seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata. Questi due passaggi sono solo l'essenziale del processo. Per altre informazioni su questi due passaggi e sul motivo per cui è necessario eseri, vedere [Come creare un'immagine di una macchina virtuale o](../../../virtual-machines/linux/capture-image.md)di un disco rigido virtuale. Ai fini della creazione del disco rigido virtuale per l'offerta di Azure Marketplace, è possibile interrompersi quando si raggiunge la sezione "Creare una macchina virtuale dall'immagine acquisita".
+Il processo in due passaggi seguente generalizza una VM Linux e la ridistribuisce come macchina virtuale separata. Questi due passaggi sono solo gli elementi essenziali del processo. Per ulteriori informazioni su questi due passaggi e sul motivo per cui è necessario eseguire questa operazione, vedere [come creare un'immagine di una macchina virtuale o di un disco rigido](../../../virtual-machines/linux/capture-image.md)virtuale. Ai fini della creazione del disco rigido virtuale per l'offerta di Azure Marketplace, è possibile arrestare quando si raggiunge la sezione "creare una macchina virtuale dall'immagine acquisita".
 
 #### <a name="remove-the-azure-linux-agent"></a>Rimuovere l'agente Linux di Azure
 1.  Connettersi alla VM Linux tramite un client SSH.
@@ -97,4 +97,4 @@ La creazione di copie della macchina virtuale è spesso utile a scopo di backup,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo che la macchina virtuale è stata generalizzata, è stata deallocata ed è stata creata un'immagine della macchina virtuale, è possibile [distribuire una macchina virtuale da un disco rigido virtuale.](./cpp-deploy-vm-vhd.md)
+Dopo che la macchina virtuale è stata generalizzata, è stata deallocata ed è stata creata un'immagine della VM, si è pronti per [distribuire una macchina virtuale da un disco rigido virtuale](./cpp-deploy-vm-vhd.md).

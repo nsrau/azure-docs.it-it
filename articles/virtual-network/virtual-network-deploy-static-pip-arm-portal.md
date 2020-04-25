@@ -3,24 +3,22 @@ title: Creare una VM con un indirizzo IP pubblico statico - Portale di Azure | D
 description: Informazioni su come creare una VM con un indirizzo IP pubblico statico mediante il portale di Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: kumud
-ms.openlocfilehash: 66050c16f40e0a06117327ef53e3aae87d03c5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 0de28fc75d5eb1b0867e4ba6d8eda9f0f42c8498
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76043535"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148012"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando il portale di Azure
 
@@ -34,7 +32,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Selezionare **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 VM** o un altro sistema operativo a scelta.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti, quindi selezionare **OK:**
+3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le restanti impostazioni e quindi fare clic su **OK**:
 
     |Impostazione|valore|
     |---|---|
@@ -73,13 +71,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 > [!WARNING]
 > Non modificare le impostazioni dell'indirizzo IP all'interno del sistema operativo della macchina virtuale. Il sistema operativo non rileva gli indirizzi IP pubblici di Azure. Anche se è possibile aggiungere al sistema operativo impostazioni relative a indirizzi IP privati, è consigliabile farlo solo se necessario e solo dopo aver letto [Aggiungere un indirizzo IP privato a un sistema operativo](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
 1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale. Selezionare **myResourceGroup** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare **Elimina gruppo di risorse**.
-3. Immettere *myResourceGroup* per **TYPE THE RESOURCE GROUP NAME:** e selezionare **Delete**.
+3. Immettere *myResourceGroup* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

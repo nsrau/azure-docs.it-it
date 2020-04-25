@@ -5,66 +5,68 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 09122581a3ade4e741a29996b7202ce0f96d074b
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405632"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145538"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
-L'automazione dei processi in Automazione di Azure consente di creare e gestire PowerShell, il flusso di lavoro di PowerShell e i runbook grafici. Per informazioni dettagliate, vedere [Runbook di Automazione di Azure](automation-runbook-types.md).For details, see Azure Automation runbooks . 
+Automazione dei processi in automazione di Azure consente di creare e gestire PowerShell, il flusso di lavoro PowerShell e manuali operativi grafici. Per informazioni dettagliate, vedere [manuali operativi di automazione di Azure](automation-runbook-types.md). 
 
-L'automazione esegue i runbook in base alla logica definita al loro interno. Se un runbook viene interrotto, viene riavviato all'inizio. Questo comportamento richiede la scrittura di runbook che supportano il riavvio in caso di problemi temporanei.
+L'automazione esegue il manuali operativi in base alla logica definita al suo interno. Se un Runbook viene interrotto, viene riavviato all'inizio. Questo comportamento richiede la scrittura di manuali operativi che supportano il riavvio se si verificano problemi temporanei.
 
-L'avvio di un runbook in Automazione di Azure crea un processo, ovvero una singola istanza di esecuzione del runbook. Ogni processo accede alle risorse di Azure effettuando una connessione alla sottoscrizione di Azure.Each job accesses Azure resources by making a connection to your Azure subscription. Il processo può accedere alle risorse nel data center solo se tali risorse sono accessibili dal cloud pubblico.
+L'avvio di un Runbook in automazione di Azure crea un processo, ovvero una singola istanza di esecuzione di Runbook. Ogni processo accede alle risorse di Azure effettuando una connessione alla sottoscrizione di Azure. Il processo può accedere solo alle risorse presenti nel data center se tali risorse sono accessibili dal cloud pubblico.
 
-Automazione di Azure assegna a un worker l'esecuzione di ogni processo durante l'esecuzione del runbook. I computer di lavoro sono condivisi da molti account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non è possibile controllare quali servizi di lavoro le richieste di lavoro.
+Automazione di Azure assegna a un thread di lavoro l'esecuzione di ogni processo durante l'esecuzione del Runbook. I computer di lavoro sono condivisi da molti account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non è possibile controllare quali servizi del ruolo di lavoro richiedono.
 
-Quando si visualizza l'elenco dei runbook nel portale di Azure, viene visualizzato lo stato di ogni processo avviato per ogni runbook. Automazione di Azure archivia i log dei processi per un massimo di 30 giorni.
+Quando si visualizza l'elenco di manuali operativi nella portale di Azure, viene visualizzato lo stato di ogni processo avviato per ogni Runbook. Automazione di Azure archivia i log dei processi per un massimo di 30 giorni.
 
-Nel diagramma seguente viene illustrato il ciclo di vita di un processo di runbook per [i runbook](automation-runbook-types.md#powershell-runbooks)di PowerShell , i [runbook del flusso di lavoro](automation-runbook-types.md#powershell-workflow-runbooks)di PowerShell e i [runbook grafici.](automation-runbook-types.md#graphical-runbooks)
+Il diagramma seguente mostra il ciclo di vita di un processo Runbook per [PowerShell manuali operativi](automation-runbook-types.md#powershell-runbooks), [manuali operativi del flusso](automation-runbook-types.md#powershell-workflow-runbooks)di lavoro PowerShell e [manuali operativi grafici](automation-runbook-types.md#graphical-runbooks).
 
 ![Stati del processo - Flusso di lavoro PowerShell](./media/automation-runbook-execution/job-statuses.png)
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per istruzioni sull'installazione del modulo Az nel ruolo di lavoro ibrido per runbook, vedere [Installare il modulo di Azure PowerShell.For](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)Az module installation instructions on your Hybrid Runbook Worker, see Install the Azure PowerShell Module . Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando Come aggiornare i moduli di [Azure PowerShell in Automazione di Azure.](automation-update-azure-modules.md)
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="where-to-run-your-runbooks"></a>Posizione di esecuzione dei runbook
 
-I runbook in Automazione di Azure possono essere eseguiti in una sandbox di Azure o in un ruolo di lavoro ibrido per [runbook.](automation-hybrid-runbook-worker.md) Quando i runbook sono progettati per autenticare ed eseguire sulle risorse in Azure, vengono eseguiti in una sandbox di Azure, ovvero un ambiente condiviso che possono usare più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox.
+Manuali operativi in automazione di Azure può essere eseguito in una sandbox di Azure o in un ruolo di [lavoro ibrido per Runbook](automation-hybrid-runbook-worker.md). Quando manuali operativi sono progettati per l'autenticazione e l'esecuzione di risorse in Azure, vengono eseguiti in una sandbox di Azure, un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox.
 
 >[!NOTE]
->L'ambiente sandbox di Azure non supporta le operazioni interattive. Richiede inoltre l'utilizzo di file MOF locali per i runbook che effettuano chiamate Win32.
+>L'ambiente sandbox di Azure non supporta operazioni interattive. Richiede anche l'uso di file MOF locali per manuali operativi che effettuano chiamate Win32.
 
-È possibile usare un ruolo di lavoro ibrido per runbook per eseguire runbook direttamente nel computer che ospita il ruolo e in base alle risorse locali nell'ambiente. Automazione di Azure archivia e gestisce i runbook e quindi li recapita a uno o più computer assegnati.
+È possibile usare un ruolo di lavoro ibrido per Runbook per eseguire manuali operativi direttamente sul computer che ospita il ruolo e sulle risorse locali nell'ambiente. Automazione di Azure archivia e gestisce manuali operativi e li recapita a uno o più computer assegnati.
 
-Nella tabella seguente sono elencate alcune attività di esecuzione del runbook con l'ambiente di esecuzione consigliato elencato per ognuna di esse.
+Nella tabella seguente sono elencate alcune attività di esecuzione di runbook con l'ambiente di esecuzione consigliato elencato per ciascuna di esse.
 
 |Attività|Recommendation|Note|
 |---|---|---|
-|Integrazione con le risorse di Azure|Sandbox di Azure|Ospitato in Azure, l'autenticazione è più semplice. Se si usa un ruolo di lavoro ibrido per runbook in una macchina virtuale di Azure, è possibile usare le identità gestite per le risorse di Azure.If you're using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources.](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Ottenere prestazioni ottimali per gestire le risorse di AzureObtain optimal performance to manage Azure resources|Sandbox di Azure|Lo script viene eseguito nello stesso ambiente, con una latenza inferiore.|
-|Ridurre al minimo i costi operativi|Sandbox di Azure|Non è presente alcun sovraccarico di calcolo e non è necessario una macchina virtuale.|
-|Esegui script a esecuzione prolungata|ruolo di lavoro ibrido per runbook|I Sandbox di Azure hanno [limiti di risorse.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Integrazione con le risorse di Azure|Sandbox di Azure|Ospitata in Azure, l'autenticazione è più semplice. Se si usa un ruolo di lavoro ibrido per Runbook in una macchina virtuale di Azure, è possibile usare [le identità gestite per le risorse di Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
+|Ottenere prestazioni ottimali per la gestione delle risorse di Azure|Sandbox di Azure|Lo script viene eseguito nello stesso ambiente, con minore latenza.|
+|Ridurre al minimo i costi operativi|Sandbox di Azure|Non è previsto alcun overhead di calcolo e non è necessaria alcuna macchina virtuale.|
+|Esegui script con esecuzione prolungata|ruolo di lavoro ibrido per runbook|Le sandbox di Azure hanno [limiti di risorse](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Interagire con i servizi locali|ruolo di lavoro ibrido per runbook|Può accedere direttamente al computer host o alle risorse in altri ambienti cloud o nell'ambiente locale. |
-|Richiedere software ed eseguibili di terze parti|ruolo di lavoro ibrido per runbook|È possibile gestire il sistema operativo e installare il software.|
-|Monitorare un file o una cartella con un runbook|ruolo di lavoro ibrido per runbook|Usare [un'attività Watcher](automation-watchers-tutorial.md) in un ruolo di lavoro ibrido per runbook.|
-|Eseguire uno script a elevato utilizzo di risorseRun a resource-intensive script|ruolo di lavoro ibrido per runbook| I Sandbox di Azure hanno [limiti di risorse.](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
-|Utilizzare i moduli con requisiti specifici| ruolo di lavoro ibrido per runbook|Ad esempio:</br> WinSCP - dipendenza da winscp.exe </br> Amministrazione IIS - dipendenza dall'abilitazione o dalla gestione di IIS.|
+|Richiedi software e file eseguibili di terze parti|ruolo di lavoro ibrido per runbook|È possibile gestire il sistema operativo e installare il software.|
+|Monitorare un file o una cartella con un runbook|ruolo di lavoro ibrido per runbook|Usare un' [attività Watcher](automation-watchers-tutorial.md) in un ruolo di lavoro ibrido per Runbook.|
+|Eseguire uno script con utilizzo intensivo delle risorse|ruolo di lavoro ibrido per runbook| Le sandbox di Azure hanno [limiti di risorse](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Usare moduli con requisiti specifici| ruolo di lavoro ibrido per runbook|Ad esempio:</br> WinSCP - dipendenza da winscp.exe </br> Amministrazione di IIS: dipendenza dall'abilitazione o dalla gestione di IIS.|
 |Installare un modulo con un programma di installazione|ruolo di lavoro ibrido per runbook|I moduli per sandbox devono supportare la copia.|
-|Usare runbook o moduli che richiedono una versione di .NET Framework diversa dalla versione 4.7.2Use runbooks or modules that require .NET Framework version different from 4.7.2|ruolo di lavoro ibrido per runbook|Le sandbox di automazione supportano .NET Framework 4.7.2 e l'aggiornamento a una versione diversa non è supportato.|
-|Eseguire script che richiedono l'elevazione dei privilegiRun scripts that require elevation|ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione. Con un ruolo di lavoro ibrido per runbook, è possibile disattivare il controllo dell'account utente e usare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) quando si esegue il comando che richiede l'elevazione dei privilegi.|
+|Usare manuali operativi o moduli che richiedono la versione di .NET Framework diversa da 4.7.2|ruolo di lavoro ibrido per runbook|Le sandbox di automazione supportano .NET Framework 4.7.2 e l'aggiornamento a una versione diversa non è supportato.|
+|Eseguire script che richiedono l'elevazione dei privilegi|ruolo di lavoro ibrido per runbook|Le sandbox non consentono l'elevazione dei privilegi. Con un ruolo di lavoro ibrido per Runbook è possibile disattivare il controllo dell'account utente e usare [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) quando si esegue il comando che richiede l'elevazione dei privilegi.|
 |Eseguire script che richiedono l'accesso a Strumentazione gestione Windows (WMI)|ruolo di lavoro ibrido per runbook|I processi in esecuzione in sandbox nel cloud non possono accedere al provider WMI. |
 
-## <a name="runbook-behavior"></a>Comportamento dei runbook
+## <a name="using-modules-in-your-runbooks"></a>Uso dei moduli in manuali operativi
 
-### <a name="creating-resources"></a>Creazione di risorse
+Automazione di Azure supporta una serie di moduli predefiniti, inclusi i moduli AzureRM (AzureRM. Automation) e un modulo che contiene diversi cmdlet interni. Sono inoltre supportati moduli installabili, tra cui AZ Modules (AZ. Automation), attualmente in uso in preferenza ai moduli AzureRM. Per informazioni dettagliate sui moduli disponibili per le configurazioni manuali operativi e DSC, vedere gestire i [moduli in automazione di Azure](shared-resources/modules.md).
 
-Se il runbook crea una risorsa, lo script deve verificare se la risorsa esiste già prima di tentare di crearla. Ecco un esempio di base.
+## <a name="creating-resources"></a>Creazione di risorse
+
+Se il Runbook crea una risorsa, lo script deve verificare se la risorsa esiste già prima di tentare di crearla. Di seguito è riportato un esempio di base.
 
 ```powershell
 $vmName = "WindowsVM1"
@@ -83,22 +85,22 @@ else
     }
 ```
 
-### <a name="supporting-time-dependent-scripts"></a>Supporto di script dipendenti dal tempoSupporting time-dependent scripts
+## <a name="supporting-time-dependent-scripts"></a>Supporto di script dipendenti dal tempo
 
-I runbook devono essere affidabili e in grado di gestire errori temporanei che possono causare il riavvio o l'esito negativo. Se un runbook ha esito negativo, Automazione di Azure ritenta.
+La manuali operativi deve essere affidabile e in grado di gestire gli errori temporanei che possono causare il riavvio o l'esito negativo. Se un Runbook ha esito negativo, automazione di Azure la ripete.
 
-Se il runbook viene in genere eseguito entro un vincolo di tempo, fare in modo che lo script implementi la logica per controllare il tempo di esecuzione. Questo controllo garantisce l'esecuzione di operazioni quali avvio, arresto o scalabilità orizzontale solo in orari specifici.
+Se il Runbook viene eseguito in genere all'interno di un vincolo temporale, fare in modo che lo script implementi la logica per controllare il tempo di esecuzione. Questo controllo garantisce l'esecuzione di operazioni come l'avvio, l'arresto o la scalabilità orizzontale solo in momenti specifici.
 
 > [!NOTE]
-> L'ora locale nel processo sandbox di Azure è impostata su UTC. I calcoli per la data e l'ora nei runbook devono prendere in considerazione questo fatto.
+> L'ora locale nel processo Azure sandbox è impostata su UTC. I calcoli relativi a data e ora nella manuali operativi devono prendere in considerazione questo fatto.
 
-### <a name="tracking-progress"></a>Tenere traccia dello stato di avanzamento
+## <a name="tracking-progress"></a>Tenere traccia dello stato di avanzamento
 
-È buona norma creare i runbook per essere modulari in natura, con una logica che può essere riutilizzata e riavviata facilmente. Il rilevamento dello stato di avanzamento in un runbook è un buon modo per garantire che la logica del runbook venga eseguita correttamente in caso di problemi. È possibile tenere traccia dello stato di avanzamento di un runbook usando un'origine esterna, ad esempio un account di archiviazione, un database o file condivisi. È possibile creare la logica nel runbook per controllare innanzitutto lo stato dell'ultima azione eseguita. Quindi, in base al risultato del controllo, la logica può ignorare o continuare attività specifiche nel runbook.
+È consigliabile creare la manuali operativi per la natura modulare, con la logica che può essere riutilizzata e riavviata facilmente. Tenere traccia dello stato di avanzamento in un Runbook è un modo efficace per garantire che la logica Runbook venga eseguita correttamente in caso di problemi. È possibile tenere traccia dello stato di avanzamento di un Runbook usando un'origine esterna, ad esempio un account di archiviazione, un database o file condivisi. È possibile creare la logica nel Runbook per verificare innanzitutto lo stato dell'ultima azione eseguita. Quindi, in base al risultato del controllo, la logica può ignorare o continuare attività specifiche in Runbook.
 
-### <a name="preventing-concurrent-jobs"></a>Prevenzione di processi simultanei
+## <a name="preventing-concurrent-jobs"></a>Impedisci processi simultanei
 
-Alcuni runbook si comportano in modo strano se vengono eseguiti in più processi contemporaneamente. In questo caso, è importante che un runbook implementi la logica per determinare se esiste già un processo in esecuzione. Ecco un esempio di base.
+Alcuni manuali operativi si comportano in modo strano se vengono eseguiti contemporaneamente a più processi. In questo caso, è importante che un Runbook implementi la logica per determinare se esiste già un processo in esecuzione. Di seguito è riportato un esempio di base.
 
 ```powershell
 # Authenticate to Azure
@@ -126,9 +128,9 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
-### <a name="working-with-multiple-subscriptions"></a>Uso di più sottoscrizioni
+## <a name="working-with-multiple-subscriptions"></a>Uso di più sottoscrizioni
 
-Per gestire più sottoscrizioni, il runbook deve utilizzare il cmdlet [Disable-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Questo cmdlet assicura che il contesto di autenticazione non venga recuperato da un altro runbook in esecuzione nella stessa sandbox. Il runbook utilizza`AzContext` inoltre il parametro nei cmdlet del modulo Az e gli passa il contesto corretto.
+Per gestire più sottoscrizioni, Runbook deve usare il cmdlet [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Questo cmdlet garantisce che il contesto di autenticazione non venga recuperato da un altro Runbook in esecuzione nella stessa sandbox. Runbook usa anche il`AzContext` parametro sui cmdlet AZ Module e lo passa al contesto appropriato.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -153,15 +155,15 @@ Start-AzAutomationRunbook `
     -DefaultProfile $context
 ```
 
-### <a name="handling-exceptions"></a>Gestione delle eccezioni
+## <a name="handling-exceptions"></a>Gestione delle eccezioni
 
-In questa sezione vengono descritti alcuni modi per gestire le eccezioni o i problemi intermittenti nei runbook.
+Questa sezione descrive alcuni modi per gestire le eccezioni o i problemi intermittenti nei manuali operativi. Un esempio è un'eccezione WebSocket. La corretta gestione delle eccezioni impedisce che gli errori di rete temporanei causino un errore di manuali operativi. 
 
-#### <a name="erroractionpreference"></a>ErrorActionPreference
+### <a name="erroractionpreference"></a>ErrorActionPreference
 
-La variabile [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non di terminazione. Gli errori di terminazione terminano sempre e non sono interessati da `ErrorActionPreference`.
+La variabile [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina il modo in cui PowerShell risponde a un errore non fatale. Gli errori di terminazione terminano sempre e non `ErrorActionPreference`sono interessati da.
 
-Quando il runbook utilizza `ErrorActionPreference`, un errore `PathNotFound` normalmente non di terminazione, ad esempio dal cmdlet [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) interrompe il completamento del runbook. L'esempio seguente illustra l'uso di `ErrorActionPreference`. Il comando [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) finale non viene mai eseguito, poiché lo script si interrompe.
+Quando Runbook USA `ErrorActionPreference`, un errore normalmente non fatale, ad esempio `PathNotFound` dal cmdlet [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , impedisce il completamento di Runbook. L'esempio seguente illustra l'uso di `ErrorActionPreference`. Il comando [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) finale non viene mai eseguito, perché lo script viene arrestato.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -169,9 +171,9 @@ Get-ChildItem -path nofile.txt
 Write-Output "This message will not show"
 ```
 
-#### <a name="try-catch-finally"></a>Prova Catch finalmente
+### <a name="try-catch-finally"></a>Try catch finally
 
-[Try Catch Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) viene usato negli script di PowerShell per gestire gli errori di terminazione. Lo script può utilizzare questo meccanismo per intercettare eccezioni specifiche o eccezioni generali. L'istruzione `catch` deve essere utilizzata per tenere traccia o tentare di gestire gli errori. Nell'esempio seguente si tenta di scaricare un file che non esiste. Rileva l'eccezione `System.Net.WebException` e restituisce l'ultimo valore per qualsiasi altra eccezione.
+[Try catch finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) viene usato negli script di PowerShell per gestire gli errori di terminazione. Lo script può utilizzare questo meccanismo per intercettare eccezioni specifiche o eccezioni generali. L' `catch` istruzione deve essere utilizzata per rilevare o tentare di gestire gli errori. Nell'esempio seguente viene tentato di scaricare un file che non esiste. Viene intercettata l' `System.Net.WebException` eccezione e viene restituito l'ultimo valore per qualsiasi altra eccezione.
 
 ```powershell-interactive
 try
@@ -189,9 +191,9 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Throw
+### <a name="throw"></a>Throw
 
-[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere utilizzato per generare un errore di terminazione. Questo meccanismo può essere utile quando si definisce la logica personalizzata in un runbook. Se lo script soddisfa un criterio che deve interromperlo, può utilizzare l'istruzione `throw` per interrompere. Nell'esempio seguente viene utilizzata questa istruzione per visualizzare un parametro di funzione obbligatorio.
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) può essere usato per generare un errore di terminazione. Questo meccanismo può essere utile quando si definisce la logica personalizzata in un Runbook. Se lo script soddisfa un criterio che dovrebbe arrestarlo, può utilizzare l' `throw` istruzione per arrestare. Nell'esempio seguente viene utilizzata l'istruzione per visualizzare un parametro di funzione obbligatorio.
 
 ```powershell-interactive
 function Get-ContosoFiles
@@ -201,27 +203,27 @@ function Get-ContosoFiles
 }
 ```
 
-### <a name="using-executables-or-calling-processes"></a>Uso di file eseguibili o chiamata di processi
+## <a name="using-executables-or-calling-processes"></a>Uso di file eseguibili o chiamata di processi
 
-I runbook eseguiti nelle sandbox di Azure non supportano la chiamata di processi, ad esempio eseguibili (file con estensione**exe)** o sottoprocessi. Il motivo è che una sandbox di Azure è un processo condiviso eseguito in un contenitore che potrebbe non essere in grado di accedere a tutte le API sottostanti. Per gli scenari che richiedono software di terze parti o chiamate a processi secondari, è necessario eseguire un runbook in un ruolo di lavoro [ibrido per runbook.](automation-hybrid-runbook-worker.md)
+Manuali operativi eseguiti in sandbox di Azure non supportano processi di chiamata, ad esempio file eseguibili (file con**estensione exe** ) o sottoprocessi. Il motivo è che Azure sandbox è un processo condiviso eseguito in un contenitore che potrebbe non essere in grado di accedere a tutte le API sottostanti. Per gli scenari che richiedono software di terze parti o chiamate a sottoprocessi, è consigliabile eseguire un Runbook in un ruolo di [lavoro ibrido per Runbook](automation-hybrid-runbook-worker.md).
 
-### <a name="accessing-device-and-application-characteristics"></a>Accesso alle caratteristiche del dispositivo e dell'applicazione
+## <a name="accessing-device-and-application-characteristics"></a>Accesso alle caratteristiche del dispositivo e dell'applicazione
 
-I processi runbook eseguiti nelle Sandbox di Azure non possono accedere alle caratteristiche di alcun dispositivo o applicazione. L'API più comune utilizzata per eseguire query sulle metriche delle prestazioni in Windows è WMI, con alcune delle metriche comuni che sono l'utilizzo della memoria e della CPU. Tuttavia, non importa quale API viene utilizzata, come i processi in esecuzione nel cloud non possono accedere all'implementazione Microsoft di Web-Based Enterprise Management (WBEM). Questa piattaforma si basa sul Common Information Model (CIM), fornendo gli standard di settore per la definizione delle caratteristiche dei dispositivi e delle applicazioni.
+I processi Runbook eseguiti in sandbox di Azure non possono accedere alle caratteristiche del dispositivo o dell'applicazione. L'API più comune utilizzata per eseguire query sulle metriche delle prestazioni in Windows è WMI e alcune delle metriche comuni sono l'utilizzo della memoria e della CPU. Tuttavia, non importa quale API viene usata, perché i processi in esecuzione nel cloud non possono accedere all'implementazione Microsoft di Web-Based Enterprise Management (WBEM). Questa piattaforma è basata sulla Common Information Model (CIM), che fornisce gli standard di settore per la definizione delle caratteristiche del dispositivo e dell'applicazione.
 
 ## <a name="handling-errors"></a>Gestione degli errori
 
-I tuoi runbook devono essere in grado di gestire gli errori. In PowerShell sono disponibili due tipi di errori, terminazione e non terminata. Gli errori di terminazione interrompono l'esecuzione del runbook quando si verificano. Il runbook si interrompe con lo stato del processo Non riuscito.
+Il manuali operativi deve essere in grado di gestire gli errori. PowerShell presenta due tipi di errori, che terminano e non terminano. Gli errori di chiusura interrompono l'esecuzione del runbook quando si verificano. Il Runbook si interrompe con lo stato del processo non riuscito.
 
-Gli errori non terminati consentono a uno script di continuare anche dopo che si sono verificati. Un esempio di errore non di terminazione è quello `Get-ChildItem` che si verifica quando un runbook utilizza il cmdlet con un percorso che non esiste. PowerShell rileva che il percorso non esiste, genera un errore e passa alla cartella successiva. L'errore in questo caso non imposta lo stato del processo del runbook su Non riuscito e il processo potrebbe anche essere completato. Per forzare l'arresto di un runbook in caso di errore non fatale, è possibile usare `ErrorAction Stop` nel cmdlet.
+Gli errori non fatali consentono a uno script di continuare anche dopo essersi verificati. Un esempio di errore non fatale è quello che si verifica quando un Runbook utilizza il `Get-ChildItem` cmdlet con un percorso che non esiste. PowerShell rileva che il percorso non esiste, genera un errore e passa alla cartella successiva. L'errore in questo caso non imposta lo stato del processo Runbook su Failed e il processo potrebbe anche essere completato. Per forzare l'arresto di un runbook in caso di errore non fatale, è possibile usare `ErrorAction Stop` nel cmdlet.
 
-## <a name="handling-jobs"></a>Gestione dei lavori
+## <a name="handling-jobs"></a>Gestione dei processi
 
 È possibile riutilizzare l'ambiente di esecuzione per i processi dallo stesso account di automazione. In un singolo runbook possono venire eseguiti molti processi contemporaneamente. Quanti più processi vengono eseguiti contemporaneamente, tanto più spesso questi possono essere inviati allo stesso ambiente sandbox.
 
-I processi in esecuzione nello stesso processo sandbox possono influire l'uno sull'altro. Un esempio è l'esecuzione del cmdlet [Disconnect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) L'esecuzione di questo cmdlet disconnette ogni processo runbook nel processo sandbox condiviso.
+I processi in esecuzione nello stesso processo sandbox possono interessare l'uno con l'altro. Un esempio è l'esecuzione del cmdlet [Disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) . L'esecuzione di questo cmdlet disconnette tutti i processi del Runbook nel processo sandbox condiviso.
 
-I processi di PowerShell avviati da un runbook eseguito in una sandbox di Azure potrebbero non essere eseguiti in [modalità lingua PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes)completa. Per altre informazioni sull'interazione con i processi in Automazione di Azure, vedere Recupero dello stato dei processi con PowerShell.For more information on interacting with jobs in Azure Automation, see [Retrieving job status with PowerShell.](#retrieving-job-status-using-powershell)
+I processi di PowerShell avviati da un Runbook eseguito in una sandbox di Azure potrebbero non essere eseguiti nella [modalità del linguaggio PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes)completo. Per altre informazioni sull'interazione con i processi in automazione di Azure, vedere [recupero dello stato dei processi con PowerShell](#retrieving-job-status-using-powershell).
 
 ### <a name="job-statuses"></a>Stati dei processi
 
@@ -230,57 +232,57 @@ Nella tabella seguente vengono descritti gli stati possibili per un processo.
 | Stato | Descrizione |
 |:--- |:--- |
 | Completi |Il processo è stato completato. |
-| Operazione non riuscita |Impossibile compilare un runbook grafico o del flusso di lavoro di PowerShell.A graphical or PowerShell Workflow runbook failed to compile. Impossibile avviare un runbook di script di PowerShell o il processo ha avuto un'eccezione. Vedere [Tipi di runbook di Automazione di Azure.](automation-runbook-types.md)|
+| Operazione non riuscita |Impossibile compilare un Runbook grafico o un flusso di lavoro PowerShell. Non è stato possibile avviare uno script di PowerShell Runbook oppure il processo ha restituito un'eccezione. Vedere [tipi di Runbook di automazione di Azure](automation-runbook-types.md).|
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |
-| Queued |Il processo è in attesa che le risorse in un worker di automazione diventino disponibili in modo che possa essere avviato. |
+| Queued |Il processo è in attesa che le risorse di un ruolo di lavoro di automazione diventino disponibili per poter essere avviate. |
 | Avvio in corso |Il processo è stato assegnato a un computer di lavoro e il sistema lo sta avviando. |
 | Resuming |Il sistema sta riprendendo il processo dopo che è stato sospeso. |
 | In esecuzione |Il processo è in esecuzione. |
 | Running, waiting for resources |Il processo è stato scaricato perché ha raggiunto il limite di condivisione equa . Riprenderà a breve dall'ultimo checkpoint. |
 | Arrestato |Il processo è stato arrestato dall'utente prima del completamento. |
 | Stopping |Il sistema sta arrestando il processo. |
-| Suspended |Si applica solo [ai runbook grafici e al flusso di lavoro di PowerShell.Applies to graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Se un runbook non dispone di un checkpoint, inizia dall'inizio. Se ha un checkpoint, può essere nuovamente avviato e riprendere dall'ultimo checkpoint. Il sistema sospende il runbook solo quando si verifica un'eccezione. Per impostazione `ErrorActionPreference` predefinita, la variabile è impostata su Continua, a indicare che il processo continua a essere eseguito in caso di errore. Se la variabile di preferenza è impostata su Stop, il processo viene sospeso in caso di errore.  |
-| Suspending |Si applica solo [ai runbook grafici e al flusso di lavoro di PowerShell.Applies to graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. Il sistema sta provando a sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, viene completato prima di poter essere sospeso. |
+| Suspended |Si applica solo a [manuali operativi grafico e del flusso di lavoro PowerShell](automation-runbook-types.md) . Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Se un Runbook non ha un checkpoint, inizia dall'inizio. Se ha un checkpoint, può essere nuovamente avviato e riprendere dall'ultimo checkpoint. Il sistema sospende il Runbook solo quando si verifica un'eccezione. Per impostazione predefinita, `ErrorActionPreference` la variabile è impostata su continue (continua), a indicare che il processo viene mantenuto in un errore. Se la variabile di preferenza è impostata su Stop, il processo viene sospeso in caso di errore.  |
+| Suspending |Si applica solo a [manuali operativi grafico e del flusso di lavoro PowerShell](automation-runbook-types.md) . Il sistema sta provando a sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, viene completato prima di poter essere sospeso. |
 
 ### <a name="viewing-job-status-from-the-azure-portal"></a>Visualizzazione dello stato del processo dal portale di Azure
 
-È possibile visualizzare un riepilogo dello stato per tutti i processi del runbook o esaminare i dettagli di un processo di runbook specifico nel portale di Azure.You can view a status summary for all runbook jobs or drill into details of a specific runbook job in the Azure portal. È anche possibile configurare l'integrazione con l'area di lavoro Log Analytics per inoltrare lo stato del processo del runbook e i flussi di processo. Per altre informazioni sull'integrazione con i log di Monitoraggio di Azure, vedere [Inoltrare lo stato dei processi e i flussi di lavoro dall'automazione ai log](automation-manage-send-joblogs-log-analytics.md)di Monitoraggio di Azure.For more information about integrating with Azure Monitor logs, see Forward job status and job streams from Automation to Azure Monitor logs.
+È possibile visualizzare un riepilogo dello stato per tutti i processi di Runbook o esaminare i dettagli di uno specifico processo del Runbook nel portale di Azure. È anche possibile configurare l'integrazione con l'area di lavoro Log Analytics per inoltrare lo stato del processo del runbook e i flussi di processo. Per altre informazioni sull'integrazione con i log di monitoraggio di Azure, vedere [trasmettere lo stato del processo e i flussi del processo dall'automazione ai log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
 
-A destra dell'account di automazione selezionato, è possibile visualizzare un riepilogo di tutti i processi del runbook nel riquadro **Statistiche processo.**
+A destra dell'account di automazione selezionato è possibile visualizzare un riepilogo di tutti i processi del Runbook nel riquadro **statistiche processi** .
 
 ![Riquadro Statistiche del processo](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
-Questo riquadro visualizza un conteggio e una rappresentazione grafica dello stato del processo per ogni processo eseguito.
+Questo riquadro Visualizza un conteggio e una rappresentazione grafica dello stato del processo per ogni processo eseguito.
 
-Facendo clic sul riquadro viene visualizzata la pagina Processi, che include un elenco riepilogativo di tutti i processi eseguiti. Questa pagina mostra lo stato, il nome del runbook, l'ora di inizio e l'ora di completamento di ogni processo.
+Facendo clic sul riquadro viene visualizzata la pagina Processi, che include un elenco riepilogativo di tutti i processi eseguiti. In questa pagina vengono visualizzati lo stato, il nome Runbook, l'ora di inizio e l'ora di completamento di ogni processo.
 
 ![Pagina Processi dell'account di Automazione](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
-È possibile filtrare l'elenco dei processi selezionando **Filtra processi**. Filtrare in base a un runbook specifico, allo stato del processo o a una scelta dall'elenco a discesa e specificare l'intervallo di tempo per la ricerca.
+È possibile filtrare l'elenco dei processi selezionando **Filtra processi**. Filtrare in base a un Runbook specifico, allo stato del processo o a una scelta dall'elenco a discesa e specificare l'intervallo di tempo per la ricerca.
 
 ![Filtrare lo stato del processo](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionando il runbook dalla pagina Runbooks dell'account di automazione e quindi selezionando il riquadro **Processi.** Questa azione presenta la pagina Processi. Da qui, è possibile fare clic sul record del processo per visualizzarne i dettagli e l'output.
+In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per uno specifico Runbook selezionando tale Runbook dalla pagina manuali operativi nell'account di automazione e quindi selezionando il riquadro **processi** . Questa azione Visualizza la pagina processi. Da qui è possibile fare clic sul record del processo per visualizzarne i dettagli e l'output.
 
 ![Pagina Processi dell'account di Automazione](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
-### <a name="viewing-the-job-summary"></a>Visualizzazione del riepilogo del lavoro
+### <a name="viewing-the-job-summary"></a>Visualizzazione del riepilogo dei processi
 
-Il riepilogo dei processi descritto in precedenza consente di esaminare un elenco di tutti i processi creati per un runbook specifico e dei relativi stati più recenti. Per visualizzare informazioni dettagliate e output per un processo, fare clic sul relativo nome nell'elenco. La visualizzazione dettagliata del processo include i valori per i parametri del runbook forniti a tale processo.
+Il riepilogo del processo descritto in precedenza consente di esaminare un elenco di tutti i processi creati per un determinato Runbook e i relativi stati più recenti. Per visualizzare informazioni dettagliate e l'output di un processo, fare clic sul relativo nome nell'elenco. La visualizzazione dettagliata del processo include i valori per i parametri Runbook che sono stati forniti al processo.
 
 Per visualizzare i processi per un runbook, seguire questa procedura.
 
 1. Nel portale di Azure, selezionare **Automazione** e selezionare il nome di un account di automazione.
-2. Dall'hub, selezionare **Runbook** in **Process Automation**.
-3. Nella pagina Runbooks selezionare un runbook dall'elenco.
+2. Dall'hub selezionare **manuali operativi** in **automazione processi**.
+3. Nella pagina manuali operativi selezionare un Runbook dall'elenco.
 3. Nella pagina del runbook selezionato fare clic sul riquadro **Processi**.
-4. Fare clic su uno dei processi nell'elenco e visualizzarne i dettagli e l'output nella pagina dei dettagli del processo del runbook.
+4. Fare clic su uno dei processi nell'elenco e visualizzarne i dettagli e l'output nella pagina dei dettagli del processo Runbook.
 
-### <a name="retrieving-job-status-using-powershell"></a>Recupero dello stato del processo tramite PowerShellRetrieving job status using PowerShell
+### <a name="retrieving-job-status-using-powershell"></a>Recupero dello stato del processo tramite PowerShell
 
-Utilizzare il cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) per recuperare i processi creati per un runbook e i dettagli di un determinato processo. Se si avvia un runbook `Start-AzAutomationRunbook`con PowerShell usando PowerShell, viene restituito il processo risultante. Utilizzare [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) per recuperare l'output del processo.
+Usare il cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) per recuperare i processi creati per un Runbook e i dettagli di un determinato processo. Se si avvia un runbook con PowerShell usando `Start-AzAutomationRunbook`, viene restituito il processo risultante. Usare [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) per recuperare l'output del processo.
 
-Nell'esempio seguente viene ottenuto l'ultimo processo per un runbook di esempio e ne vengono visualizzati lo stato, i valori forniti per i parametri del runbook e l'output del processo.
+Nell'esempio seguente viene ottenuto l'ultimo processo per un Runbook di esempio e ne vengono visualizzati lo stato, i valori specificati per i parametri Runbook e l'output del processo.
 
 ```azurepowershell-interactive
 $job = (Get-AzAutomationJob –AutomationAccountName "MyAutomationAccount" `
@@ -311,7 +313,7 @@ foreach($item in $output)
 
 ## <a name="getting-details-from-the-activity-log"></a>Recupero dei dettagli dal log attività
 
-È possibile recuperare i dettagli del runbook, ad esempio la persona o l'account che ha avviato il runbook, dal registro attività per l'account di automazione. L'esempio di PowerShell seguente fornisce l'ultimo utente che esegue il runbook specificato.
+È possibile recuperare i dettagli di Runbook, ad esempio la persona o l'account che ha avviato il Runbook, dal log attività per l'account di automazione. L'esempio di PowerShell seguente fornisce l'ultimo utente per eseguire il Runbook specificato.
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
@@ -341,20 +343,20 @@ foreach ($log in $JobActivityLogs)
 $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
-## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Condivisione delle risorse tra i runbook
+## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Condivisione di risorse tra manuali operativi
 
-Per condividere le risorse tra tutti i runbook nel cloud, Automazione di Azure scarica temporaneamente o arresta qualsiasi processo eseguito per più di tre ore. I processi per i runbook di PowerShell e i runbook Python vengono arrestati e non riavviati e lo stato del processo diventa Arrestato.Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
+Per condividere le risorse tra tutti manuali operativi nel cloud, automazione di Azure Scarica temporaneamente o arresta qualsiasi processo eseguito per più di tre ore. I processi per [manuali operativi di PowerShell](automation-runbook-types.md#powershell-runbooks) e [manuali operativi Python](automation-runbook-types.md#python-runbooks) vengono arrestati e non riavviati e lo stato del processo viene arrestato.
 
-Per le attività a esecuzione prolungata, è consigliabile usare un ruolo di lavoro ibrido per runbook. I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Anche se i ruoli di lavoro ibridi per runbook non sono limitati dal limite di condivisione equa di 3 ore, è consigliabile sviluppare runbook per l'esecuzione sui ruoli di lavoro che supportano il riavvio da problemi imprevisti dell'infrastruttura locale.
+Per le attività a esecuzione prolungata, è consigliabile usare un ruolo di lavoro ibrido per Runbook. I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Sebbene i ruoli di lavoro ibridi per Runbook non siano limitati dal limite di tre ore, è necessario sviluppare manuali operativi per l'esecuzione nei ruoli di lavoro che supportano i riavvii da problemi di infrastruttura locale imprevisti.
 
-Un'altra opzione consiste nell'ottimizzare un runbook utilizzando i runbook figlio. Ad esempio, il runbook potrebbe scorrere la stessa funzione su diverse risorse, ad esempio un'operazione di database in diversi database. È possibile spostare questa funzione in un [runbook figlio](automation-child-runbooks.md) e fare in modo che il runbook la chiami utilizzando [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). I runbook figlio vengono eseguiti in parallelo in processi separati.
+Un'altra opzione consiste nell'ottimizzare un Runbook usando manuali operativi figlio. Ad esempio, il Runbook potrebbe eseguire il ciclo della stessa funzione su diverse risorse, ad esempio un'operazione di database su diversi database. È possibile spostare questa funzione in un [Runbook figlio](automation-child-runbooks.md) e fare in modo che Runbook la chiami usando [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). I manuali operativi figlio vengono eseguiti in parallelo in processi distinti.
 
-L'utilizzo di runbook figlio riduce la quantità totale di tempo per il completamento del runbook padre. Il runbook può utilizzare il cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) per controllare lo stato del processo per un runbook figlio se ha ancora più operazioni dopo il completamento del figlio.
+L'uso di manuali operativi figlio riduce la quantità totale di tempo necessario per il completamento del Runbook padre. Il Runbook può usare il cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) per controllare lo stato del processo per un Runbook figlio se dispone ancora di più operazioni dopo il completamento del figlio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come usare un runbook, vedere [Gestire i runbook in Automazione di Azure.To](manage-runbooks.md)find out how to work with a runbook, see Manage runbooks in Azure Automation.
-* Per altre informazioni sui metodi che possono essere usati per avviare un runbook in Automazione di Azure, vedere [Avvio di un runbook in Automazione di Azure.To](automation-starting-a-runbook.md)learn more about the methods that can be used to start a runbook in Azure Automation, see Starting a runbook in Azure Automation.
-* Per altre informazioni su PowerShell, inclusi i moduli di riferimento e apprendimento del linguaggio, vedere la documentazione di [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* Per informazioni sull'uso di un Runbook, vedere [gestire manuali operativi in automazione di Azure](manage-runbooks.md).
+* Per altre informazioni sui metodi che possono essere usati per avviare un Runbook in automazione di Azure, vedere [avvio di un Runbook in automazione di Azure](automation-starting-a-runbook.md).
+* Per altre informazioni su PowerShell, inclusi i riferimenti al linguaggio e i moduli di formazione, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

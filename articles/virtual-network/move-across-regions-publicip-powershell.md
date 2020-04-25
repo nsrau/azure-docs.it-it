@@ -3,15 +3,16 @@ title: Spostare l'IP pubblico di Azure in un'altra area di Azure usando Azure Po
 description: Usare il modello di Azure Resource Manager per spostare l'IP pubblico di Azure da un'area di Azure a un'altra usando Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: c55b6011381d385fed7c7b8175ff02ec9be66fdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76924705ff801ce3be6a5c76f7ae276bdbf93def
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75641554"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147887"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-azure-powershell"></a>Spostare l'IP pubblico di Azure in un'altra area usando Azure PowerShell
 

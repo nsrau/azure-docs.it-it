@@ -1,7 +1,7 @@
 ---
-title: Dati in Azure Machine Learning
+title: Proteggere l'accesso ai dati nel cloud
 titleSuffix: Azure Machine Learning
-description: Informazioni su come Azure Machine Learning si connette in modo sicuro ai dati e usa tali dati per le attività di machine learning.
+description: Informazioni su come connettersi in modo sicuro ai dati da Azure Machine Learning e come usare i set di dati e gli archivi dati per le attività ML. Gli archivi dati possono archiviare i dati da un BLOB di Azure, Azure Data Lake generazione 1 & 2, database SQL, databricks,...
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/20/2020
-ms.openlocfilehash: 982c9c9eadec4403c8116430e1e25092de99f1d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 614cc866529cd4ead8a6ea798526d59aff13d4d0
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128481"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144477"
 ---
-# <a name="data-access-in-azure-machine-learning"></a>Accesso ai dati in Azure Machine Learning
+# <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
 Azure Machine Learning semplifica la connessione ai dati nel cloud.  Fornisce un livello di astrazione sul servizio di archiviazione sottostante, quindi è possibile accedere in modo sicuro ai dati e utilizzarli senza dover scrivere codice specifico per il tipo di archiviazione. Azure Machine Learning fornisce anche le funzionalità dei dati seguenti:
 
@@ -37,7 +37,7 @@ Quando si è pronti per usare i dati nella soluzione di archiviazione basata su 
 3. Per usare tale set di dati nell'esperimento di Machine Learning, è possibile
     1. Montarlo nella destinazione di calcolo dell'esperimento per il training del modello.
 
-        **O** 
+        **OR** 
 
     1. È sufficiente utilizzarlo direttamente in soluzioni Azure Machine Learning come, esecuzioni di esperimenti automatizzati di Machine Learning (automatico ML), pipeline di Machine Learning o [progettazione Azure Machine Learning](concept-designer.md).
 
@@ -59,7 +59,7 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 + Condivisione file di Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Database SQL di Azure
++ database SQL di Azure
 + Database di Azure per PostgreSQL
 + File system di Databricks
 + Database di Azure per MySQL

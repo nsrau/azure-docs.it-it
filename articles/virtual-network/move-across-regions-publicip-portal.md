@@ -3,15 +3,16 @@ title: Spostare l'IP pubblico di Azure in un'altra area di Azure usando il porta
 description: Usare il modello di Azure Resource Manager per spostare l'IP pubblico di Azure da un'area di Azure a un'altra usando il portale di Azure.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75641402"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147834"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Spostare l'IP pubblico di Azure in un'altra area usando il portale di Azure
 

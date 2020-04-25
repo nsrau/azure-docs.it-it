@@ -1,23 +1,23 @@
 ---
-title: Crea un'offerta di consulenza Azure Marketplace
-description: Creare un'offerta di servizio di consulenza Azure o Dynamics 365 nel portale Cloud Partner per Azure Marketplace.
+title: Creare un'offerta di consulenza | Azure Marketplace
+description: Creare un'offerta di servizio di consulenza di Azure o Dynamics 365 nella portale Cloud Partner per Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ed744cfbb49393980c2622b00233fca373b32019
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a9fbf402bb8de11ae0353ef05d2a526d686c5884
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985134"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148164"
 ---
-# <a name="create-a-consulting-offer"></a>Crea un'offerta di consulenza
+# <a name="create-a-consulting-offer"></a>Creare un'offerta di consulenza
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a trasferire la gestione delle offerte di servizi di consulenza al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in Panoramica sulla creazione di servizi di [consulenza](https://aka.ms/AzureCreateConsultingService) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del servizio di consulenza al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [Panoramica della creazione di servizi di consulenza](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) .
 
 Questo articolo descrive come creare e pubblicare un'offerta di un servizio di consulenza.
 

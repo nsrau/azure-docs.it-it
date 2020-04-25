@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui contatti per un'offerta di Power BI App Azure Marketplace
+title: Informazioni sui contatti per un'offerta di app Power BI | Azure Marketplace
 description: Configurare i campi dei contatti per un'offerta di app Power BI per Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,35 +7,35 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7365babd9a6cdba28da59a9113edf32d2974fb0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f3c6f3b07f878bac6e67be90947fb7109b840a3c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984828"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146755"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Scheda Contacts (Contatti) per l'app Power BI
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte di Power BI App al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [Power bi panoramica sulla creazione di app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) .
 
-La scheda **Contacts** (Contatti) nella pagina **New Offer** (Nuova offerta) consente di specificare le risorse di supporto tecnico e di assistenza clienti per la propria offerta. È diviso in due sezioni: **Engineering** e **Customer Support.**
+La scheda **Contacts** (Contatti) nella pagina **New Offer** (Nuova offerta) consente di specificare le risorse di supporto tecnico e di assistenza clienti per la propria offerta. È suddiviso in due sezioni: **tecnico** e **supporto**tecnico.
 
 ![Scheda Contacts (Contatti)](media/contacts-tab.png)
 
 
 ## <a name="contacts-fields"></a>Campi dei contatti 
 
-Nella tabella seguente viene descritto lo scopo di ogni campo.  I campi obbligatori sono indicati da un asterisco (*). 
+La tabella seguente descrive lo scopo di ogni campo.  I campi obbligatori sono indicati da un asterisco (*). 
 
 |   Campo               |   Descrizione                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Engineering Contact (Contatto tecnico)* | Svolge la funzione di contatto tecnico tra AppSource e l'organizzazione dell'editore.    |
-| **Nome\***              | Nome della persona o del gruppo che funge da supporto tecnico o di progettazione. |
+| **Name\***              | Nome della persona o del gruppo che funge da supporto tecnico o di progettazione. |
 | **Posta elettronica\***             | Indirizzo di posta elettronica del contatto tecnico.                                  |
-| **Telefono\***             | Numero di telefono per il supporto tecnico.                                       |
+| **Phone\***             | Numero di telefono per il supporto tecnico.                                       |
 | *Support Contact* (Contatto clienti)     | Riceve i ticket di supporto aperti dai clienti all'interno di AppSource.            |
-| **Nome\***              | Nome della persona o del gruppo che assiste il cliente.              |
+| **Name\***              | Nome della persona o del gruppo che assiste il cliente.              |
 | **Posta elettronica\***             | Indirizzo di posta elettronica dell'assistenza clienti.                                        |
 |   |   |
 

@@ -1,5 +1,5 @@
 ---
-title: Creare asset tecnici per le immagini di Azure Containers Azure Marketplace
+title: Creare risorse tecniche per immagini di contenitori di Azure | Azure Marketplace
 description: Creare gli asset tecnici per un contenitore di Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 1116bd03cf0ef734b74b387ff8f3cff74b29b215
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 68db606c9a01c4b1122f9b0cce620762485ca40a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270316"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148268"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparare gli asset tecnici del contenitore
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Preparare gli asset tecnici di Azure Container](https://aka.ms/CreateContainerTechAssets) per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del contenitore di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [preparare le risorse tecniche del contenitore di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) .
 
 Questo articolo descrive i passaggi e i requisiti per configurare un'offerta per un contenitore in Azure Marketplace.
 
@@ -46,7 +46,7 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 È anche consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo in uso:
 
--    [Esplora archivi Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -    [Visual Studio Code](https://code.visualstudio.com/)
     *    Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *    Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -58,8 +58,8 @@ Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambie
 
 Per altre informazioni, vedere quanto segue:
 
-* [Esercitazione: Creare un'immagine del contenitore per la distribuzione in istanze del contenitore di AzureTutorial: Create a container image for deployment to Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Esercitazione: Creare e distribuire immagini del contenitore nel cloud con le attività del Registro di sistema contenitori di AzureTutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Esercitazione: creare un'immagine del contenitore per la distribuzione in istanze di contenitore di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Esercitazione: creare e distribuire immagini del contenitore nel cloud con le attività di Container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

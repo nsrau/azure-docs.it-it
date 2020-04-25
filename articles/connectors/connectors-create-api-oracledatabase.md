@@ -1,5 +1,5 @@
 ---
-title: Connettersi al database Oracle
+title: Connetti a Oracle Database
 description: Inserire e gestire i record con le API REST di Oracle Database e App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789427"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147808"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -72,7 +72,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole provare a recuperare i dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati di Oracle usando uno dei connettori di invio di posta elettronica, ad esempio Office 365 o Gmail. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
+7. Nel passaggio successivo è possibile usare uno qualsiasi degli altri connettori per creare il flusso di lavoro. Se si vuole testare il recupero dei dati da Oracle, inviare a se stessi un messaggio di posta elettronica con i dati Oracle usando uno dei connettori Send email, ad esempio Office 365 Outlook. Usare i token dinamici della tabella Oracle per creare `Subject` e `Body` del messaggio di posta elettronica:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -123,7 +123,7 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 Il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) è il posto ideale per porre domande, fornire risposte e vedere cosa stanno facendo gli altri utenti di App per la logica. 
 
-È possibile contribuire a migliorare le app per la [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)logica e i connettori votando e inviando le proprie idee all'indirizzo . 
+È possibile contribuire a migliorare le app per la logica e i connettori votando [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)e inviando le idee all'indirizzo. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

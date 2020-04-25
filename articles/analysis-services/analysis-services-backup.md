@@ -1,18 +1,18 @@
 ---
 title: Backup e ripristino del database di Azure Analysis Services | Microsoft Docs
-description: Questo articolo descrive come eseguire il backup e il ripristino dei metadati e dei dati del modello da un database di Azure Analysis Services.This article describes how to backup and restore model metadata and data from an Azure Analysis Services database.
+description: Questo articolo descrive come eseguire il backup e il ripristino dei dati e dei metadati del modello da un database di Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408664"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145442"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -23,7 +23,10 @@ Il backup dei database modello tabulare in Azure Analysis Services è molto simi
 > 
 > 
 
-I backup vengono salvati con estensione .abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
+> [!NOTE]
+> Se l'account di archiviazione si trova in un'area diversa, è necessario configurare le impostazioni del firewall per consentire l'accesso da **tutte le reti**. Le impostazioni del firewall configurate per le reti selezionate con indirizzi IP consentiti e Consenti eccezione dei servizi Microsoft attendibili non sono supportate.
+
+I backup vengono salvati con estensione abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
 
 
 ## <a name="configure-storage-settings"></a>Configurare le impostazioni di archiviazione
@@ -55,7 +58,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 1. In SSMS fare clic con il pulsante destro del mouse su un database > **Backup**.
 
-2. In **Backup Database** > **Backup file**, fare clic su **Sfoglia**.
+2. In **backup database** > **backup file**fare clic su **Sfoglia**.
 
 3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. 
 

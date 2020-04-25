@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale dai dischi rigidi virtuali per Azure MarketplaceDeploy a VM from your VHDs for the Azure Marketplace
+title: Distribuire una macchina virtuale dai dischi rigidi virtuali per Azure Marketplace
 description: Questo articolo illustra come registrare una macchina virtuale da un disco rigido virtuale distribuito in Azure.
 author: qianw211
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273903"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147957"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo la gestione mobile delle offerte di Macchine virtuali di Azure al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare gli asset tecnici della macchina virtuale](https://aka.ms/AzureVMTechAsset) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, inizieremo la gestione in corso delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare risorse tecniche per le macchine virtuali di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 Questa sezione illustra come distribuire una macchina virtuale (VM) da un Azure distribuito disco rigido virtuale (VHD).  Elenca gli strumenti necessari e indica come usarli per creare un'immagine di macchina virtuale dell'utente e quindi distribuirla in Azure usando script di PowerShell.
 
@@ -26,7 +26,7 @@ Dopo aver caricato uno o più dischi rigidi virtuali, ovvero il disco rigido vir
 Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blog seguenti:
 
 - [Immagine VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [IMMAGINE della macchina virtuale PowerShell 'Procedura'VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Immagine di macchina virtuale PowerShell ' procedura '](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -34,11 +34,11 @@ Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blo
 
 Se non è già stato fatto, installare Azure PowerShell e l'interfaccia della riga di comando di Azure, usando queste istruzioni:
 
-- [Installare Azure PowerShellInstall Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Installare l'interfaccia da riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="deployment-steps"></a>Passaggi di distribuzione
+## <a name="deployment-steps"></a>Fasi di distribuzione
 
 È necessario usare la procedura seguente per creare e distribuire un'immagine di macchina virtuale dell'utente:
 
@@ -62,10 +62,10 @@ Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine
    |  -------------              |   ---------------                                                            |
    | Nome account di archiviazione utente   | Nome dell'account di archiviazione in cui si trova il disco rigido virtuale generalizzato                    |
    | Nome contenitore di archiviazione utente | Nome del contenitore in cui si trova il disco rigido virtuale generalizzato                          |
-   | Nome DNS per indirizzo IP pubblico      | Nome DNS IP pubblico. Il nome DNS è della macchina virtuale, lo si definirà nel portale di Azure, una volta distribuita l'offerta.  |
+   | Nome DNS per indirizzo IP pubblico      | Nome DNS IP pubblico. Il nome DNS è della VM, che verrà definito nel portale di Azure, una volta distribuita l'offerta.  |
    | Nome utente amministratore             | Nome utente dell'account di amministratore per la nuova macchina virtuale                                  |
    | Password amministratore              | Password dell'account di amministratore per la nuova macchina virtuale                                  |
-   | Tipo di sistema operativo                     | Sistema operativo `Windows` \| VM:`Linux`                                    |
+   | Tipo di sistema operativo                     | Sistema operativo VM: `Windows` \|`Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
    | Location                    | Località geografica della distribuzione                                        |
    | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
