@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: Associare un criterio a un gateway applicazione esistente
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: Log di diagnostica
+        - name: Log risorse
           href: ./ag/web-application-firewall-logs.md
         - name: Risolvere i problemi di WAF
           href: ./ag/web-application-firewall-troubleshoot.md

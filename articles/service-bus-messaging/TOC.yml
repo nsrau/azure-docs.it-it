@@ -187,7 +187,7 @@
           href: service-bus-metrics-azure-monitor.md
         - name: Librerie di gestione del bus di servizio
           href: service-bus-management-libraries.md
-        - name: Log di diagnostica
+        - name: Log risorse
           href: service-bus-diagnostic-logs.md
         - name: Sospendere e riattivare entità di messaggistica
           href: entity-suspend.md

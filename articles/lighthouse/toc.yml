@@ -44,6 +44,9 @@
     - name: Visualizzare e gestire i clienti
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Rimuovere l'accesso a una delega
+      displayName: 'delete, undelegate'
+      href: ./how-to/remove-delegation.md
     - name: Integrazione di Monitoraggio di Azure
       items:
         - name: Usare i log di Monitoraggio di Azure su larga scala
