@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099870"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143786"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|Verifica se l'account Administrator locale è disabilitato e, in tal caso, lo Abilita.|
 |**IPConfig**| Mostra informazioni dettagliate per l'indirizzo IP, il subnet mask e il gateway predefinito per ogni adapter associato a TCP/IP.|
 |**RDPSettings**|Controlla le impostazioni del Registro e le impostazioni dei criteri di dominio. Suggerisce le azioni dei criteri se il computer fa parte di un dominio o modifica le impostazioni in valori predefiniti.|
-|**ResetRDPCert**|Rimuove il certificato SSL associato al listener RDP e ripristina la sicurezza del listener RDP per impostazione predefinita. Usare questo script se vengono visualizzati eventuali problemi con il certificato.|
+|**ResetRDPCert**|Rimuove il certificato TLS/SSL associato al listener RDP e ripristina la sicurezza del listener RDP per impostazione predefinita. Usare questo script se vengono visualizzati eventuali problemi con il certificato.|
 |**SetRDPPort**|Imposta il numero di porta predefinito o specificato dall'utente per le connessioni Desktop remoto. Abilita le regole del firewall per l'accesso in ingresso alla porta.|
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

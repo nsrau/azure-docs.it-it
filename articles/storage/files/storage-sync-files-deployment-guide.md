@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c4e762ebf10a5ca2120c13a52750a7781d60b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268067"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137723"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -410,7 +410,7 @@ Questo consente uno scenario potente, comunemente definito ripristino self-servi
 Gli snapshot VSS e le versioni precedenti funzionano indipendentemente dal Sincronizzazione file di Azure. Tuttavia, la suddivisione in livelli cloud deve essere impostata su una modalità compatibile. Molti Sincronizzazione file di Azure endpoint server possono esistere nello stesso volume. È necessario effettuare la chiamata di PowerShell seguente per volume con un solo endpoint server in cui si prevede o si usa la suddivisione in livelli nel cloud.
 
 ```powershell
-Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
 Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]] 
 ```
 
@@ -426,7 +426,7 @@ Gli snapshot VSS vengono presi da un intero volume. Per impostazione predefinita
 Per verificare se è abilitata la compatibilità di ripristino self-service, è possibile eseguire il cmdlet seguente.
 
 ```powershell
-    Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
+Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 ```
 
 Vengono elencati tutti i volumi nel server e il numero di giorni compatibili con la suddivisione in livelli nel cloud per ciascuno di essi. Questo numero viene calcolato automaticamente in base al numero massimo di snapshot possibili per volume e alla pianificazione predefinita dello snapshot. Pertanto, per impostazione predefinita, tutte le versioni precedenti presentate a un Information Worker possono essere utilizzate per eseguire il ripristino da. Lo stesso vale se si modifica la pianificazione predefinita per eseguire più snapshot.

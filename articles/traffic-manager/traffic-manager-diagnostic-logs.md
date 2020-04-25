@@ -1,6 +1,6 @@
 ---
-title: Abilitare la registrazione diagnostica in Gestione traffico di Azure
-description: Informazioni su come abilitare la registrazione diagnostica per il profilo personale di Gestione traffico e accedere ai file di log creati come risultato.
+title: Abilitare la registrazione delle risorse in gestione traffico di Azure
+description: Informazioni su come abilitare la registrazione delle risorse per il profilo di gestione traffico e accedere ai file di log creati come risultato.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938681"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133911"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Abilitare la registrazione diagnostica in Gestione traffico di Azure
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Abilitare la registrazione delle risorse in gestione traffico di Azure
 
-Questo articolo descrive come abilitare la registrazione diagnostica e accedere ai dati di log per un profilo di Gestione traffico.
+Questo articolo descrive come abilitare la raccolta dei log delle risorse di diagnostica e accedere ai dati di log per un profilo di gestione traffico.
 
-I log di diagnostica di Gestione traffico di Azure possono offrire informazioni dettagliate sul comportamento della risorsa del profilo di Gestione traffico. È possibile, ad esempio, usare i dati di log del profilo per determinare il motivo per cui si è verificato il timeout di singoli probe rispetto a un endpoint.
+I log delle risorse di gestione traffico di Azure possono fornire informazioni sul comportamento della risorsa del profilo di gestione traffico. È possibile, ad esempio, usare i dati di log del profilo per determinare il motivo per cui si è verificato il timeout di singoli probe rispetto a un endpoint.
 
-## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
+## <a name="enable-resource-logging"></a>Abilitare la registrazione delle risorse
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,15 +32,15 @@ I log di diagnostica di Gestione traffico di Azure possono offrire informazioni 
 
 1. **Recuperare il profilo di Gestione traffico:**
 
-    Per abilitare la registrazione diagnostica, è necessario l'ID di un profilo di Gestione traffico. Recuperare il profilo di Gestione traffico per il quale si vuole abilitare la registrazione diagnostica con [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). Nell'output sono incluse informazioni sull'ID del profilo di Gestione traffico.
+    Per abilitare la registrazione delle risorse, è necessario l'ID di un profilo di gestione traffico. Recuperare il profilo di gestione traffico per cui si vuole abilitare la registrazione delle risorse con [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). Nell'output sono incluse informazioni sull'ID del profilo di Gestione traffico.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Abilitare la registrazione diagnostica per il profilo di Gestione traffico:**
+2. **Abilitare la registrazione delle risorse per il profilo di gestione traffico:**
 
-    Abilitare la registrazione diagnostica per il profilo di Gestione traffico usando l'ID ottenuto nel passaggio precedente con [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Il comando seguente consente di archiviare i log dettagliati relativi al profilo di Gestione traffico in uno specifico account di archiviazione di Azure. 
+    Abilitare la registrazione delle risorse per il profilo di gestione traffico usando l'ID ottenuto nel passaggio precedente con [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Il comando seguente consente di archiviare i log dettagliati relativi al profilo di Gestione traffico in uno specifico account di archiviazione di Azure. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -55,7 +55,7 @@ I log di diagnostica di Gestione traffico di Azure possono offrire informazioni 
       Assicurarsi che tutte le categorie di log associate alla risorsa del profilo di Gestione traffico vengano visualizzate come abilitate. Verificare inoltre che l'account di archiviazione sia configurato correttamente.
 
 ## <a name="access-log-files"></a>Accedere ai file di log
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare all'account di archiviazione di Azure nel portale.
 2. Nella pagina **Panoramica** dell'account di archiviazione di Azure, in **Servizi**, selezionare **BLOB**.
 3. Per **Contenitori** selezionare **insights-log-probehealthstatusevents** e scorrere verso il basso fino al file PT1H.json e fare clic su **Download** per scaricare e salvare una copia di questo file di log.
@@ -65,7 +65,7 @@ I log di diagnostica di Gestione traffico di Azure possono offrire informazioni 
 
 ## <a name="traffic-manager-log-schema"></a>Schema dei log di Gestione traffico
 
-Tutti i log di diagnostica disponibili tramite Monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità necessaria affinché ogni servizio crei proprietà univoche per i propri eventi. Per lo schema dei log di diagnostica di primo livello, vedere [Servizi, schemi e categorie supportati per i log di Diagnostica di Azure](../azure-monitor/platform/tutorial-dashboards.md).
+Tutti i log delle risorse disponibili tramite monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità che consente a ogni servizio di emettere proprietà univoche per gli eventi. Per lo schema dei log delle risorse di livello superiore, vedere [servizi, schemi e categorie supportati per i log delle risorse di Azure](../azure-monitor/platform/tutorial-dashboards.md).
 
 La tabella seguente include lo schema dei log specifico della risorsa del profilo di Gestione traffico di Azure.
 

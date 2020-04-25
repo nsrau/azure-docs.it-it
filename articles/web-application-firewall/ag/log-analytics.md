@@ -7,20 +7,20 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: e1bc3b58f425b374e4cae1da6e9800579e503f0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d6b984fd451a835afaa51482f0158e9f315f8fc
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73516591"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82130922"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Usare l'analisi dei log per esaminare i log di web application firewall del gateway applicazione
 
-Quando il gateway applicazione WAF è operativo, è possibile abilitare i log per controllare cosa accade con ogni richiesta. I log del firewall forniscono informazioni sulle attività di valutazione, corrispondenza e blocco del WAF. Con Log Analytics, è possibile esaminare i dati all'interno dei log del firewall per ottenere informazioni ancora più dettagliate. Per ulteriori informazioni sulla creazione di un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
+Quando il gateway applicazione WAF è operativo, è possibile abilitare i log per controllare cosa accade con ogni richiesta. I log del firewall forniscono informazioni sulle attività di valutazione, corrispondenza e blocco del WAF. Con monitoraggio di Azure Log Analytics, è possibile esaminare i dati all'interno dei log del firewall per fornire informazioni ancora più dettagliate. Per ulteriori informazioni sulla creazione di un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md). Per altre informazioni sulle query di log, vedere [Panoramica delle query di log in monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importa log WAF
 
-Per importare i log del firewall in Log Analytics, vedere [integrità back-end, log di diagnostica e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging). Quando i log del firewall si trovino nell'area di lavoro Log Analytics, è possibile visualizzare i dati, scrivere query, creare visualizzazioni e aggiungerle al dashboard del portale.
+Per importare i log del firewall in Log Analytics, vedere [integrità back-end, log delle risorse e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging). Quando i log del firewall si trovino nell'area di lavoro Log Analytics, è possibile visualizzare i dati, scrivere query, creare visualizzazioni e aggiungerle al dashboard del portale.
 
 ## <a name="explore-data-with-examples"></a>Esplorare i dati con esempi
 
@@ -83,4 +83,4 @@ Dopo aver creato una query, è possibile aggiungerla al dashboard.  Selezionare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Integrità back-end, log di diagnostica e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md)
+[Integrità back-end, log delle risorse e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md)

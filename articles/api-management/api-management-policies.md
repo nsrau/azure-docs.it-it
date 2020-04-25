@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71219478"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128725"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
   
  I criteri di Gestione API sono una potente funzionalità del sistema che consente all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale in caso di richiesta o risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare la quantità di chiamate in ingresso da uno sviluppatore. Sono disponibili molti altri criteri predefiniti.  
   
- Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](api-management-advanced-policies.md#choose) e [set variable](api-management-advanced-policies.md#set-variable), sono basati su espressioni di criteri. Per ulteriori informazioni, vedere [Criteri avanzati](api-management-advanced-policies.md#AdvancedPolicies) ed [Espressioni dei criteri](api-management-policy-expressions.md).  
+ Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](api-management-advanced-policies.md#choose) e [set variable](api-management-advanced-policies.md#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [criteri avanzati](api-management-advanced-policies.md#AdvancedPolicies) ed [espressioni di criteri](api-management-policy-expressions.md).  
   
-##  <a name="policies"></a><a name="ProxyPolicies"></a>Politiche  
+##  <a name="policies"></a><a name="ProxyPolicies"></a>Criteri  
   
 -   [Criteri di restrizione di accesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) : impone l'esistenza e/o il valore di un'intestazione HTTP.  
@@ -50,13 +50,13 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Imposta variabile](api-management-advanced-policies.md#set-variable): rende persistente un valore in una variabile context denominata e consente di accedervi in un momento successivo.  
     -   [Imposta metodo di richiesta](api-management-advanced-policies.md#SetRequestMethod) : consente di modificare il metodo HTTP per una richiesta.  
     -   [Imposta codice di stato](api-management-advanced-policies.md#SetStatus): modifica il codice di stato HTTP per il valore specificato.  
-    -   [Traccia:](api-management-advanced-policies.md#Trace) aggiunge tracce personalizzate nell'output di [Controllo API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) nelle telemetrie di Application Insights e nei log di diagnostica.  
-    -   [Attendi:](api-management-advanced-policies.md#Wait) attende il completamento dei criteri [Invia richiesta,](api-management-advanced-policies.md#SendRequest) [Ottieni valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey)o Flusso di [controllo](api-management-advanced-policies.md#choose) prima di procedere.  
+    -   [Trace](api-management-advanced-policies.md#Trace) : aggiunge tracce personalizzate nell'output di [controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrie e i log delle risorse.  
+    -   [Wait](api-management-advanced-policies.md#Wait) : attende il completamento dei criteri di [invio della richiesta](api-management-advanced-policies.md#SendRequest), [del valore della cache o del](api-management-caching-policies.md#GetFromCacheByKey)flusso di [controllo](api-management-advanced-policies.md#choose) prima di procedere.  
 -   [Criteri di autenticazione](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
     -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
-    -   [Eseguire l'autenticazione con identità gestita:](api-management-authentication-policies.md#ManagedIdentity) eseguire l'autenticazione con un servizio back-end utilizzando [un'identità gestita.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)  
--   [Criteri di memorizzazione nella cacheCaching policies](api-management-caching-policies.md#CachingPolicies)  
+    -   [Eseguire l'autenticazione con identità gestita](api-management-authentication-policies.md#ManagedIdentity) : eseguire l'autenticazione con un servizio back-end usando un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+-   [Criteri di memorizzazione nella cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Recupera dalla cache](api-management-caching-policies.md#GetFromCache) : esegue una ricerca nella cache e restituisce una risposta valida memorizzata nella cache, se disponibile.  
     -   [cache-lookup](api-management-caching-policies.md#StoreToCache) : memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.  
     -   [Recupera valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) : recupera un elemento memorizzato nella cache per chiave.  

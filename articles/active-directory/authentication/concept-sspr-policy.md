@@ -1,6 +1,6 @@
 ---
 title: Criteri di reimpostazione della password self-service - Azure Active Directory
-description: Informazioni sulle diverse opzioni dei criteri di reimpostazione della password self-service di Azure Active Directory
+description: Informazioni sulle diverse opzioni dei criteri di reimpostazione della password self-service Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,20 +11,20 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e8b6d08dd2073de80ac0f7fd08f510d9cda80545
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393044"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143245"
 ---
-# <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Criteri e restrizioni di reimpostazione della password self-service in Azure Active Directory
+# <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Limitazioni e criteri di reimpostazione della password self-service in Azure Active Directory
 
 Questo articolo descrive i criteri password e i requisiti di complessità associati agli account utente nel tenant di Azure Active Directory (Azure AD).
 
 ## <a name="administrator-reset-policy-differences"></a>Differenze dei criteri di reimpostazione degli amministratori
 
-Microsoft applica un criterio di **reimpostazione della password a *due porte* predefinito per qualsiasi ruolo**di amministratore di Azure. Questo criterio potrebbe essere diverso da quello definito per gli utenti e non può essere modificato. È necessario verificare sempre la funzionalità di reimpostazione della password come utente senza ruoli di amministratore di Azure assegnati.
+**Microsoft applica un criterio di reimpostazione della password di *due Gate* predefinito sicuro per qualsiasi ruolo di amministratore di Azure**. Questo criterio può essere diverso da quello definito per gli utenti e questo criterio non può essere modificato. È necessario verificare sempre la funzionalità di reimpostazione della password come utente senza ruoli di amministratore di Azure assegnati.
 
 Con il criterio a doppio controllo, gli **amministratori non hanno la possibilità di usare le domande di sicurezza**.
 
@@ -36,25 +36,25 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Amministratore fatturazione
   * Supporto partner - Livello 1
   * Supporto partner - Livello 2
-  * Amministratore di Exchange
+  * Amministratori di Exchange
   * Amministratore di Skype for Business
-  * Amministratore utenti
+  * Amministratore degli utenti
   * Writer di directory
   * Amministratore globale o amministratore aziendale
   * Amministratore di SharePoint
   * Amministratore di conformità
   * Amministratore di applicazioni
-  * Amministratore della sicurezza
+  * Amministratore della protezione
   * Amministratore dei ruoli con privilegi
   * Amministratore di Intune
   * Amministratore del servizio proxy di applicazione
   * Amministratore di Dynamics 365
   * Amministratore del servizio Power BI
-  * Amministratore dell'autenticazione
-  * Amministratore dell'autenticazione con privilegi
+  * Amministratore autenticazione
+  * Amministratore di autenticazione con privilegi
 
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o
-* È stato configurato un dominio personalizzato per il tenant di Azure AD, ad esempio *contoso.com;* O
+* Un dominio personalizzato è stato configurato per il tenant di Azure AD, ad esempio *contoso.com*; o
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
 ### <a name="exceptions"></a>Eccezioni
@@ -62,12 +62,12 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
 Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un indirizzo di posta elettronica o un numero di telefono. Un criterio a un gate si applica nelle circostanze seguenti:
 
 * Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione o
-* Un dominio personalizzato non è stato configurato per il tenant di Azure AD, pertanto viene usato il valore predefinito ,*ovvero onmicrosoft.com*. Il dominio predefinito con*estensione onmicrosoft.com* non è consigliato per l'utilizzo in produzione. E
+* Un dominio personalizzato non è stato configurato per il tenant di Azure AD, quindi usa il valore predefinito **. onmicrosoft.com*. Il dominio predefinito **. onmicrosoft.com* non è consigliato per l'uso in ambiente di produzione; e
 * Azure AD Connect non sincronizza le identità
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Criteri UserPrincipalName che si applicano a tutti gli account utente
 
-A ogni account utente che deve eseguire l'accesso ad Azure AD è necessario che sia associato un valore di attributo UPN. Nella tabella seguente vengono descritti i criteri che si applicano sia agli account utente di Servizi di dominio Active Directory locali sincronizzati con il cloud e agli account utente solo cloud:
+A ogni account utente che deve eseguire l'accesso ad Azure AD è necessario che sia associato un valore di attributo UPN. La tabella seguente descrive i criteri che si applicano sia agli account utente Active Directory Domain Services locali sincronizzati con il cloud sia agli account utente solo cloud:
 
 | Proprietà | Requisiti di UserPrincipalName |
 | --- | --- |
@@ -77,23 +77,23 @@ A ogni account utente che deve eseguire l'accesso ad Azure AD è necessario che 
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Criteri password che si applicano solo agli account utente del cloud
 
-The following table describes the password policy settings applied to user accounts that are created and managed in Azure AD:
+La tabella seguente descrive le impostazioni dei criteri password applicate agli account utente creati e gestiti in Azure AD:
 
 | Proprietà | Requisiti |
 | --- | --- |
-| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! &#124; : ', . ? / \`~ " ( ) ;</li> <li>spazio vuoto</li></ul> |
+| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \:',. ? / \`~ " ( ) ;</li> <li>spazio vuoto</li></ul> |
 | Caratteri non consentiti | Caratteri Unicode. |
 | Restrizioni per le password |<ul><li>Un minimo di 8 caratteri e un massimo di 256 caratteri.</li><li>è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
 | Durata scadenza password (validità massima password) |<ul><li>Valore predefinito: **90** giorni.</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy` del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
-| Notifica di scadenza della password (quando gli utenti ricevono una notifica di scadenza della password) |<ul><li>Valore predefinito: **14** giorni (prima della scadenza della password).</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
-| Scadenza password (non lasciare che le password scadano mai) |<ul><li>Valore predefinito: **false** (indica che la password ha una data di scadenza).</li><li>Il valore può essere configurato per singoli account utente con il cmdlet `Set-MsolUser`.</li></ul> |
+| Notifica della scadenza della password (quando gli utenti ricevono una notifica della scadenza della password) |<ul><li>Valore predefinito: **14** giorni (prima della scadenza della password).</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
+| Scadenza password (Let password non scadono mai) |<ul><li>Valore predefinito: **false** (indica che la password ha una data di scadenza).</li><li>Il valore può essere configurato per singoli account utente con il cmdlet `Set-MsolUser`.</li></ul> |
 | Cronologia delle modifiche della password | Al cambio della password, l'utente *non può* usare di nuovo la password più recente. |
 | Cronologia delle reimpostazioni della password | Alla reimpostazione di una password dimenticata, l'utente *può* usare di nuovo la password più recente. |
-| Blocco dell'account | Dopo 10 tentativi di accesso non riusciti a causa della password errata, l'utente viene bloccato per un minuto. Altri tentativi di accesso non riusciti bloccano l'utente per periodi sempre più lunghi. Il [blocco intelligente](howto-password-smart-lockout.md) tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi per la stessa password. Se qualcuno immette la stessa password errata più volte, questo comportamento non causerà la chiusura dell'account. |
+| Blocco dell'account | Dopo 10 tentativi di accesso non riusciti a causa della password errata, l'utente viene bloccato per un minuto. Altri tentativi di accesso non riusciti bloccano l'utente per periodi sempre più lunghi. Il [blocco intelligente](howto-password-smart-lockout.md) tiene traccia degli ultimi tre hash delle password non validi per evitare l'incremento del contatore dei blocchi per la stessa password. Se un utente immette la stessa password errata più volte, questo comportamento non comporterà il blocco dell'account. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Impostare i criteri di scadenza della password in Azure AD
 
-Un *amministratore globale* o un amministratore *utente* per un servizio cloud Microsoft può usare il modulo Microsoft Azure AD per *Windows PowerShell per* impostare le password utente in modo che non scadano. È inoltre possibile usare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate in modo da non scadere mai.
+Un amministratore *globale* o un *amministratore utente* per un servizio cloud Microsoft può utilizzare il *modulo di Microsoft Azure ad per Windows PowerShell* per impostare le password utente in modo che non scadano. È inoltre possibile usare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate in modo da non scadere mai.
 
 Queste indicazioni si applicano ad altri provider, ad esempio Intune e Office 365, che si basano sempre su Azure AD per i servizi di identità e directory. La scadenza della password è l'unica parte dei criteri a poter essere modificata.
 
@@ -102,14 +102,14 @@ Queste indicazioni si applicano ad altri provider, ad esempio Intune e Office 36
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Impostare o verificare i criteri password con PowerShell
 
-Per iniziare, [scaricare e installare il modulo Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Dopo aver installato il modulo, utilizzare la procedura seguente per configurare ogni campo.
+Per iniziare, [scaricare e installare il modulo Azure ad PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0) e [connetterlo al tenant di Azure ad](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples). Dopo aver installato il modulo, attenersi alla procedura seguente per configurare ogni campo.
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Controllare i criteri di scadenza per una password
 
-1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore utente o dell'amministratore aziendale.
+1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore dell'utente o dell'amministratore della società.
 1. Eseguire uno dei comandi seguenti:
 
-   * Per verificare se la password di un singolo utente è impostata in modo che non scada mai, eseguire il cmdlet seguente utilizzando l'UPN (ad esempio, *aprilr\@contoso.onmicrosoft.com*) o l'ID utente dell'utente che si desidera controllare:
+   * Per verificare se la password di un singolo utente è impostata in modo da non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr\@contoso.onmicrosoft.com*) o l'ID utente dell'utente che si vuole controllare:
 
    ```powershell
    Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
@@ -123,7 +123,7 @@ Per iniziare, [scaricare e installare il modulo Azure AD PowerShell](https://doc
 
 ### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
 
-1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore utente o dell'amministratore aziendale.
+1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore dell'utente o dell'amministratore della società.
 1. Eseguire uno di questi comandi:
 
    * Per impostare la password di un utente in modo che scada, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: 
@@ -140,7 +140,7 @@ Per iniziare, [scaricare e installare il modulo Azure AD PowerShell](https://doc
 
 ### <a name="set-a-password-to-never-expire"></a>Impostare una password senza scadenza
 
-1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore utente o dell'amministratore aziendale.
+1. Connettersi a Windows PowerShell utilizzando le credenziali dell'amministratore dell'utente o dell'amministratore della società.
 1. Eseguire uno di questi comandi:
 
    * Per impostare la password di un utente in modo che non scada mai, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: 
@@ -160,6 +160,6 @@ Per iniziare, [scaricare e installare il modulo Azure AD PowerShell](https://doc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare SSPR, vedere [Esercitazione: Consentire agli utenti di sbloccare l'account o reimpostare le password usando la reimpostazione della password self-service](tutorial-enable-sspr.md)di Azure Active Directory.
+Per iniziare a usare SSPR, vedere [esercitazione: consentire agli utenti di sbloccare l'account o reimpostare le password con Azure Active Directory la reimpostazione della password self-service](tutorial-enable-sspr.md).
 
-Se l'utente o gli utenti hanno problemi con SSPR, vedere Risolvere i problemi relativi alla [reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
+Se gli utenti hanno problemi con SSPR, vedere risolvere i problemi di [reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)

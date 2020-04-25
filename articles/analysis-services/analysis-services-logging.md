@@ -1,24 +1,24 @@
 ---
 title: Registrazione diagnostica per Azure Analysis Services | Microsoft Docs
-description: Viene descritto come configurare la registrazione diagnostica delle risorse di Azure per il monitoraggio del server Azure Analysis Services.
+description: Viene descritto come configurare la registrazione per il monitoraggio del server Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0f13f297facedceb50920c0f6afca63fe1df0b48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266182"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128920"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. Con i [log delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md)è possibile monitorare e inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in log di monitoraggio di [Azure](../azure-monitor/azure-monitor-log-hub.md).
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. Azure Analysis Services è integrato con monitoraggio di Azure. Con i [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md), è possibile monitorare e inviare log ad archiviazione di [Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in log di monitoraggio di [Azure](../azure-monitor/azure-monitor-log-hub.md).
 
-![Registrazione diagnostica in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
+![Registrazione delle risorse in archiviazione, Hub eventi o log di monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,9 +72,9 @@ La categoria metrica registra le stesse [metriche del server](analysis-services-
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com) > server fare clic su **Log di diagnostica** nel riquadro di sinistra e quindi fare clic su **Abilita diagnostica**.
+1. In [portale di Azure](https://portal.azure.com) server > fare clic su **impostazioni di diagnostica** nel percorso di spostamento a sinistra, quindi fare clic **su attiva diagnostica**.
 
-    ![Abilitare la registrazione diagnostica per Azure Cosmos DB nel portale di Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
+    ![Attivare la registrazione delle risorse per Azure Cosmos DB nel portale di Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
 2. In **Impostazioni di diagnostica** specificare le opzioni seguenti: 
 
@@ -84,23 +84,23 @@ La categoria metrica registra le stesse [metriche del server](analysis-services-
     * **Trasmettere a un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
     * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - area di lavoro Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
 
-    * **Motore**. Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Metriche**. Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Motore**. Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di memorizzazione per i log delle risorse. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di memorizzazione per i log delle risorse. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Metriche**. Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di memorizzazione per i log delle risorse. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
 3. Fare clic su **Save**.
 
     Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
-    Se in seguito si vuole modificare la modalità di salvataggio dei log di diagnostica, è possibile tornare in questa pagina e modificare le impostazioni.
+    Se si vuole modificare la modalità di salvataggio dei log delle risorse in qualsiasi momento in futuro, è possibile tornare a questa pagina per modificare le impostazioni.
 
 ### <a name="powershell"></a>PowerShell
 
 Ecco i comandi di base per iniziare. Se si desiderano istruzioni dettagliate su come configurare la registrazione per un account di archiviazione usando PowerShell, vedere l'esercitazione più avanti in questo articolo.
 
-Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i comandi seguenti:
+Per abilitare le metriche e la registrazione delle risorse usando PowerShell, usare i comandi seguenti:
 
-- Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
+- Per abilitare l'archiviazione dei log delle risorse in un account di archiviazione, usare questo comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -108,7 +108,7 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
 
    L'ID account di archiviazione è l'ID risorsa per l'account di archiviazione a cui devono essere inviati i log.
 
-- Per abilitare lo streaming dei log di diagnostica in un Hub eventi, usare questo comando:
+- Per abilitare lo streaming dei log delle risorse in un hub eventi, usare questo comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
@@ -120,7 +120,7 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
    {service bus resource ID}/authorizationrules/{key name}
    ``` 
 
-- Per consentire l'invio dei log di diagnostica a un'area di lavoro Log Analytics, usare questo comando:
+- Per abilitare l'invio dei log delle risorse a un'area di lavoro Log Analytics, usare questo comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md).
+Altre informazioni sulla [registrazione delle risorse di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Vedere [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.

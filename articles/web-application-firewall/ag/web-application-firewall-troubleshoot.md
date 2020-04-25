@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74046201"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131262"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Risolvere i problemi di Web Application Firewall (WAF) per il gateway applicazione Azure
 
@@ -178,7 +178,7 @@ Si tratta di un campo che è possibile escludere. Per ulteriori informazioni sug
 
 ![Esclusione WAF](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-È anche possibile esaminare i log del firewall per ottenere le informazioni necessarie per visualizzare gli elementi da aggiungere all'elenco di esclusione. Per abilitare la registrazione, vedere [integrità back-end, log di diagnostica e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md).
+È anche possibile esaminare i log del firewall per ottenere le informazioni necessarie per visualizzare gli elementi da aggiungere all'elenco di esclusione. Per abilitare la registrazione, vedere [integrità back-end, log delle risorse e metriche per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md).
 
 Esaminare il registro del firewall e visualizzare il file PT1H. JSON per l'ora in cui si è verificata la richiesta da ispezionare.
 

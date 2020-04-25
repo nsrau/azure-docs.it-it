@@ -1,5 +1,5 @@
 ---
-title: Creare un'offerta dell'app Power BI Azure Marketplace
+title: Creare un'offerta di app Power BI | Azure Marketplace
 description: Come creare un'offerta di app Power BI per Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c8273025b92a74286d3f918289ef9f21bd992182
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984845"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143132"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creare un'offerta di app Power BI
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte di Power BI App al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [Power bi panoramica sulla creazione di app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) .
 
 Questo articolo indica i passaggi da seguire per creare una nuova offerta di app Power BI per [AppSource](https://appsource.microsoft.com). Ogni offerta viene visualizzata come entità a sé stante in AppSource. Quando si crea una nuova offerta nel [portale Cloud Partner](https://cloudpartner.azure.com/), è necessario specificare quattro gruppi di asset per l'offerta.
 
@@ -26,7 +26,7 @@ I gruppi di asset sono descritti nella tabella seguente:
 |   Gruppo di asset      | Descrizione                                                                         |
 | ----------------   | ----------------                                                                    |
 | Impostazioni dell'offerta     | Identificatori principali e nome dell'offerta.                                      |
-| Informazioni tecniche     | URL del programma di installazione usato per installare l'app nell'area di lavoro di Power BI del client. Per altre informazioni su come generare questo URL, vedere la [documentazione relativa alle app Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Informazioni tecniche     | URL del programma di installazione usato per installare l'app nell'area di lavoro Power BI del client. Per altre informazioni su come generare questo URL, vedere la [documentazione relativa alle app Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
 | Dati da visualizzare nella vetrina | Contiene gli asset di marketing, di carattere legale e di gestione dei clienti potenziali. Gli asset di marketing includono la descrizione dell'offerta e i logo. Gli asset di carattere legale includono l'informativa sulla privacy, le condizioni per l'utilizzo e altra documentazione legale. I criteri di gestione dei clienti potenziali consentono di specificare come gestire i clienti potenziali dal portale AppSource per gli utenti. |
 | Contatti           | Contiene informazioni sui criteri e sui contatti di supporto.                                     |
 

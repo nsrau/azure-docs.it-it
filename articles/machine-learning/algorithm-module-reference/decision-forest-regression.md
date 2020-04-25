@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 63d90a5239e6bf350d8a6b66f35157e4c7d15aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456540"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137026"
 ---
 # <a name="decision-forest-regression-module"></a>Modulo di regressione della foresta delle decisioni
 
@@ -78,9 +78,19 @@ Per altre informazioni sul framework teorico per questo algoritmo e sulla relati
      Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.
 
 
-9. Connettere un set di dati con etichetta, selezionare una singola colonna di etichetta che non contenga più di due risultati e connettersi al [modello di training](./train-model.md).
+9. Eseguire il training del modello:
 
-    - Se si imposta l'opzione **create Trainer Mode** su un **singolo parametro**, eseguire il training del modello usando il modulo [Train Model](./train-model.md) .
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se si passa un intervallo di parametri a [Training Model](train-model.md), viene utilizzato solo il valore predefinito nell'elenco di parametri singoli.  
+    > 
+    > Se si passa un singolo set di valori di parametro al modulo [Tune Model iperparameters](tune-model-hyperparameters.md) , quando si prevede un intervallo di impostazioni per ogni parametro, i valori vengono ignorati e vengono usati i valori predefiniti per lo Learner.  
+    > 
+    > Se si seleziona l'opzione **Parameter range** e si immette un solo valore per qualsiasi parametro, il singolo valore specificato viene usato durante lo sweep, anche se altri parametri cambiano in un intervallo di valori.
 
    
 

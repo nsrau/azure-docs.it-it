@@ -1,5 +1,5 @@
 ---
-title: Aggiornare un'offerta di macchine virtuali esistente in Azure MarketplaceUpdate an existing VM offer in the Azure Marketplace
+title: Aggiornare un'offerta di VM esistente in Azure Marketplace
 description: Spiega come aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: a15ccb1de2a9ce0072d032e624ead3b4d730763b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 934be24d07c01c76c8caf5e16af4b765df79c964
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273053"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142907"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di macchina virtuale di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
-Questo articolo descrive in dettaglio i diversi aspetti dell'aggiornamento di un'offerta di macchina virtuale (VM) nel [portale Cloud Partner](https://cloudpartner.azure.com/) e della successiva ripubblicazione dell'offerta. 
+Questo articolo descrive in dettaglio i diversi aspetti dell'aggiornamento di un'offerta di macchina virtuale (VM) nel [portale Cloud Partner](https://cloudpartner.azure.com/) e della successiva ripubblicazione dell'offerta.
 
 I motivi più comuni dell'aggiornamento dell'offerta sono svariati, ad esempio:
 
@@ -32,7 +32,7 @@ I motivi più comuni dell'aggiornamento dell'offerta sono svariati, ad esempio:
 Per semplificare queste modifiche, il portale offre le funzionalità **Confronta** e **Cronologia**.  
 
 >[!Note]
->L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](../../cloud-solution-providers.md)
+>Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](../../cloud-solution-providers.md) .
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Modifiche all'offerta di macchina virtuale o allo SKU non consentite
 
@@ -78,7 +78,7 @@ Per modificare la disponibilità, seguire questa procedura:
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  In **Tutte le offerte** trova l'offerta che desideri aggiornare.
+2.  In **tutte le offerte** trovare l'offerta che si vuole aggiornare.
 
 3.  Nella scheda **SKU** fare clic sullo SKU di cui si vuole modificare la disponibilità.
 
@@ -97,7 +97,7 @@ Per rendere disponibile un nuovo SKU in un'offerta esistente, seguire questa pro
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  In **Tutte le offerte** trova l'offerta che desideri aggiornare.
+2.  In **tutte le offerte** trovare l'offerta che si vuole aggiornare.
 
 3.  Nella scheda **SKU** fare clic su **Add new SKU** (Aggiungi nuovo SKU) e specificare un **ID SKU** nella finestra popup.
 
@@ -112,7 +112,7 @@ Per aggiornare i metadati del marketplace, ad esempio società nome, logo e cos�
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  In **Tutte le offerte** trova l'offerta che desideri aggiornare.
+2.  In **tutte le offerte** trovare l'offerta che si vuole aggiornare.
 
 3.  Passare alla scheda **Marketplace** e quindi per eseguire le modifiche ai metadati seguire le istruzioni nell'articolo [Pubblicare una macchina virtuale in Azure Marketplace](./cpp-publish-offer.md).
 
@@ -121,7 +121,7 @@ Per aggiornare i metadati del marketplace, ad esempio società nome, logo e cos�
 
 ### <a name="update-pricing-on-published-offers"></a>Aggiornamento dei prezzi di offerte pubblicate
 
-Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è possibile aumentare direttamente i prezzi dello SKU.  È tuttavia possibile creare un nuovo SKU con la stessa offerta, eliminare lo SKU precedente e quindi ripubblicare l'offerta per i nuovi clienti.  Al contrario, è possibile ridurre il prezzo di un'offerta pubblicata attenendosi alla seguente procedura:
+Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è possibile aumentare direttamente i prezzi dello SKU.  È tuttavia possibile creare un nuovo SKU nella stessa offerta, eliminare lo SKU precedente e quindi ripubblicare l'offerta per i nuovi clienti.  Al contrario, è possibile ridurre il prezzo di un'offerta pubblicata attenendosi alla procedura seguente:
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -131,7 +131,7 @@ Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è pos
 
 4.  Se i prezzi sono stati impostati nell'interfaccia utente grafica 1x1, è possibile modificare il prezzo direttamente nell'interfaccia utente. Se i prezzi vengono impostati tramite un foglio di calcolo di importazione/esportazione, è possibile diminuire i prezzi solo tramite la funzionalità di importazione/esportazione.
 
-3.  Fare clic su **Salva**.
+3.  Fare clic su **Save**.
 
 4.  Fare clic su **Pubblica** per avviare il flusso di lavoro di pubblicazione delle modifiche.
 

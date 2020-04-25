@@ -1,37 +1,37 @@
 ---
-title: Azure SingnalR come origine griglia di eventiAzure SingnalR as Event Grid source
-description: Descrive le proprietà fornite per gli eventi SignalR di Azure con Griglia di eventi di AzureDescribes the properties that are provided for Azure SignalR events with Azure Event Grid
+title: Azure SignalR come origine griglia di eventi
+description: Descrive le proprietà fornite per gli eventi di Azure SignalR con griglia di eventi di Azure
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393402"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133727"
 ---
-# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid event schema for SignalR Service
+# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schema di eventi di griglia di eventi di Azure per il servizio SignalR
 
-In questo articolo vengono fornite le proprietà e lo schema per gli eventi del servizio SignalR.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Fornisce inoltre un elenco di guide introduttive ed esercitazioni per usare Azure SignalR come origine eventi.
+Questo articolo fornisce le proprietà e lo schema per gli eventi del servizio SignalR.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Viene anche visualizzato un elenco di guide introduttive ed esercitazioni per usare Azure SignalR come origine evento.
 
 ## <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 
-SignalR Service genera i seguenti tipi di evento:
+Il servizio SignalR emette i tipi di evento seguenti:
 
-| Tipo di evento | Descrizione |
+| Tipo di evento | Description |
 | ---------- | ----------- |
-| Microsoft.SignalRService.ClientConnectionConnected | Generato quando si è connessa una connessione client. |
-| Microsoft.SignalRService.ClientConnectionDisconnected | Generato quando una connessione client è stata disconnessa. |
+| Microsoft. SignalRService. ClientConnectionConnected | Generato quando una connessione client si connette. |
+| Microsoft. SignalRService. ClientConnectionDisconnected | Generato quando una connessione client viene disconnessa. |
 
 ### <a name="example-event"></a>Evento di esempio
 
-Nell'esempio seguente viene illustrato lo schema di un evento connesso di connessione client:The following example shows the schema of a client connection connected event: 
+Nell'esempio seguente viene illustrato lo schema di un evento connesso della connessione client: 
 
 ```json
 [{
@@ -51,7 +51,7 @@ Nell'esempio seguente viene illustrato lo schema di un evento connesso di connes
 }]
 ```
 
-Lo schema per un evento disconnesso di connessione client è simile:The schema for a client connection disconnected event is similar: 
+Lo schema per un evento di connessione client disconnessa è simile: 
 
 ```json
 [{
@@ -76,32 +76,32 @@ Lo schema per un evento disconnesso di connessione client è simile:The schema f
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
-| data | object | Dati dell'evento SignalR Service. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
+| data | oggetto | Dati degli eventi del servizio SignalR. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
-|  timestamp | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| hubName | string | Hub a cui appartiene la connessione client. |
-| connectionId | string | Identificatore univoco della connessione client. |
-| userId | string | Identificatore utente definito nell'attestazione. |
-| errorMessage | string | Errore che causa la connessione disconnessa. |
+| timestamp | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| hubName | stringa | Hub a cui appartiene la connessione client. |
+| connectionId | stringa | Identificatore univoco per la connessione client. |
+| userId | stringa | Identificatore utente definito nell'attestazione. |
+| errorMessage | stringa | Errore che causa la disconnessione della connessione. |
 
-## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 |Titolo | Descrizione |
 |---------|---------|
-| [Reagire agli eventi del servizio SignalR di Azure usando Griglia di eventiReact to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Panoramica dell'integrazione del servizio SignalR di Azure con La griglia di eventi. |
-| [Come inviare eventi del servizio SignalR di Azure alla griglia di eventiHow to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Viene illustrato come inviare eventi del servizio SignalR di Azure a un'applicazione tramite Griglia di eventi. |
+| [Reagire agli eventi del servizio Azure SignalR usando griglia di eventi](../azure-signalr/signalr-concept-event-grid-integration.md) | Panoramica dell'integrazione del servizio SignalR di Azure con griglia di eventi. |
+| [Come inviare eventi del servizio Azure SignalR a griglia di eventi](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra come inviare eventi del servizio Azure SignalR a un'applicazione tramite griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

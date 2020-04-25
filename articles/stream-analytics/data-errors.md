@@ -1,27 +1,27 @@
 ---
-title: Errori dei dati del log di diagnostica di Analisi di flusso di AzureAzure Stream Analytics diagnostic log data errors
-description: Questo articolo illustra i diversi errori dei dati di input e output che possono verificarsi quando si usa Analisi di flusso di Azure.This article explains the different input and output data errors that can occur when using Azure Stream Analytics.
+title: Errori dati del log delle risorse di analisi di flusso di Azure
+description: Questo articolo illustra i diversi errori di dati di input e output che possono verificarsi quando si usa analisi di flusso di Azure.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 5457308d577b95201fa31bfad0a6634a7a79eda3
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398122"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133811"
 ---
-# <a name="azure-stream-analytics-data-errors"></a>Errori dei dati di Analisi di flusso di AzureAzure Stream Analytics data errors
+# <a name="azure-stream-analytics-data-errors"></a>Errori dei dati di analisi di flusso di Azure
 
-Gli errori di dati sono errori che si verificano durante l'elaborazione dei dati.  Questi errori si verificano più spesso durante la deserializzazione dei dati, la serializzazione e le operazioni di scrittura.  Quando si verificano errori di dati, Analisi di flusso scrive informazioni dettagliate ed eventi di esempio nei log di diagnostica.  In alcuni casi, il riepilogo di queste informazioni viene fornito anche tramite le notifiche del portale.
+Gli errori relativi ai dati sono errori che si verificano durante l'elaborazione dei dati.  Questi errori si verificano più spesso durante le operazioni di deserializzazione, serializzazione e scrittura dei dati.  Quando si verificano errori di dati, analisi di flusso scrive informazioni dettagliate ed eventi di esempio nei log delle risorse.  In alcuni casi, il riepilogo di queste informazioni viene fornito anche tramite le notifiche del portale.
 
-In questo articolo vengono descritti i diversi tipi di errore, le cause e i dettagli del log di diagnostica per gli errori dei dati di input e output.
+Questo articolo descrive i diversi tipi di errore, le cause e i dettagli del log delle risorse per gli errori relativi ai dati di input e di output.
 
-## <a name="diagnostic-log-schema"></a>Schema dei log di diagnostica
+## <a name="resource-logs-schema"></a>Schema dei log delle risorse
 
-Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) di diagnostica per visualizzare lo schema per i log di diagnostica. Il codice JSON seguente è un valore di esempio per il campo **Proprietà** di un log di diagnostica per un errore di dati.
+Vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagnostica](stream-analytics-job-diagnostic-logs.md#resource-logs-schema) per visualizzare lo schema per i log delle risorse. Il codice JSON seguente è un valore di esempio per il campo delle **Proprietà** di un log delle risorse per un errore di dati.
 
 ```json
 {
@@ -41,12 +41,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
-* Causa: il tipo di compressione di input selezionato non corrisponde ai dati.
+* Motivo: il tipo di compressione di input selezionato non corrisponde ai dati.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: i messaggi con eventuali errori di deserializzazione, incluso il tipo di compressione non valido, vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: i messaggi con eventuali errori di deserializzazione, incluso il tipo di compressione non valido, vengono eliminati dall'input.
 * Dettagli del log
-   * Identificatore del messaggio di input. Per l'hub eventi, l'identificatore è PartitionId, Offset e Numero sequenza.
+   * Identificatore del messaggio di input. Per l'hub eventi, l'identificatore è PartitionId, offset e numero di sequenza.
 
 **Messaggio di errore**
 
@@ -56,10 +56,10 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
-* Causa: l'intestazione dei dati di input non è valida. Ad esempio, un file CSV ha colonne con nomi duplicati.
+* Motivo: l'intestazione dei dati di input non è valida. Ad esempio, un file CSV contiene colonne con nomi duplicati.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: i messaggi con eventuali errori di deserializzazione, inclusa l'intestazione non valida, vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: i messaggi con eventuali errori di deserializzazione, incluse le intestazioni non valide, vengono eliminati dall'input.
 * Dettagli del log
    * Identificatore del messaggio di input. 
    * Payload effettivo fino a pochi kilobyte.
@@ -72,10 +72,10 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
-* Causa: le colonne di input definite con CREATE TABLE o tramite TIMESTAMP BY non esistono.
+* Cause: le colonne di input definite con CREATE TABLE o tramite TIMESTAMP BY non esistono.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: gli eventi con colonne mancanti vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: gli eventi con colonne mancanti vengono eliminati dall'input.
 * Dettagli del log
    * Identificatore del messaggio di input. 
    * Nomi delle colonne mancanti. 
@@ -93,10 +93,10 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
-* Causa: impossibile convertire l'input nel tipo specificato nell'istruzione CREATE TABLE.
+* Cause: non è possibile convertire l'input nel tipo specificato nell'istruzione CREATE TABLE.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: gli eventi con errore di conversione del tipo vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: gli eventi con errore di conversione del tipo vengono eliminati dall'input.
 * Dettagli del log
    * Identificatore del messaggio di input. 
    * Nome della colonna e tipo previsto.
@@ -111,12 +111,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "Message": "Unable to convert column: dateColumn to expected type."
 ```
 
-### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
+### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError. InvalidData
 
-* Causa: i dati di input non sono nel formato corretto. Ad esempio, l'input non è JSON valido.
+* Motivo: i dati di input non sono nel formato corretto. Ad esempio, l'input non è un JSON valido.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: tutti gli eventi nel messaggio dopo che si è verificato un errore di dati non validi vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: tutti gli eventi nel messaggio dopo un errore di dati non valido sono stati rilasciati dall'input.
 * Dettagli del log
    * Identificatore del messaggio di input. 
    * Payload effettivo fino a pochi kilobyte.
@@ -131,12 +131,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "Message": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
 ```
 
-### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp (Schema NonInputTimeStamp)
+### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
-* Causa: il valore dell'espressione TIMESTAMP BY non può essere convertito in datetime.
+* Motivo: il valore dell'espressione TIMESTAMP BY non può essere convertito in DateTime.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: gli eventi con timestamp di input non valido vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: gli eventi con timestamp di input non valido vengono eliminati dall'input.
 * Dettagli del log
    * Identificatore del messaggio di input. 
    * Messaggio di errore. 
@@ -148,12 +148,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "BriefMessage": "Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'"
 ```
 
-### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey (Chiave NonInputTimeStampKey)
+### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
-* Causa: il valore di TIMESTAMP BY OVER timestampColumn è NULL.
+* Cause: il valore di TIMESTAMP BY OVER timestampColumn è NULL.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: gli eventi con chiave timestamp di input non valida vengono eliminati dall'input.
+* Livello di log delle risorse: avviso
+* Impact: gli eventi con chiave timestamp di input non valida vengono eliminati dall'input.
 * Dettagli del log
    * Il payload effettivo fino a pochi kilobyte.
 
@@ -163,14 +163,14 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "BriefMessage": "Unable to get value of TIMESTAMP BY OVER COLUMN"
 ```
 
-### <a name="lateinputevent"></a>Evento LateInput
+### <a name="lateinputevent"></a>LateInputEvent
 
-* Causa: la differenza tra l'ora di applicazione e l'ora di arrivo è maggiore della finestra di tolleranza all'arrivo in ritardo.
+* Motivo: la differenza tra il tempo applicazione e l'ora di arrivo è maggiore della finestra di tolleranza per arrivo in ritardo.
 * Notifica del portale fornita: No
-* Livello di log di diagnostica: Informazioni
-* Impatto: gli eventi di input in ritardo vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione Ordinamento eventi della configurazione del processo. Per ulteriori informazioni, vedere [Criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Livello di log delle risorse: informazioni
+* Impact: gli eventi di input tardivi vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Dettagli del log
-   * Ora di applicazione e ora di arrivo. 
+   * Tempo applicazione e ora di arrivo. 
    * Payload effettivo fino a pochi kilobyte.
 
 **Messaggio di errore**
@@ -179,14 +179,14 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "BriefMessage": "Input event with application timestamp '2019-01-01' and arrival time '2019-01-02' was sent later than configured tolerance."
 ```
 
-### <a name="earlyinputevent"></a>EarlyInputEvent (Evento Input anticipato)
+### <a name="earlyinputevent"></a>EarlyInputEvent
 
-* Causa: la differenza tra l'ora di applicazione e l'ora di arrivo è maggiore di 5 minuti.
+* Motivo: la differenza tra il tempo applicazione e l'ora di arrivo è maggiore di 5 minuti.
 * Notifica del portale fornita: No
-* Livello di log di diagnostica: Informazioni
-* Impatto: gli eventi di input anticipati vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione Ordinamento eventi della configurazione del processo. Per ulteriori informazioni, vedere [Criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Livello di log delle risorse: informazioni
+* Impact: gli eventi di input iniziali vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Dettagli del log
-   * Ora di applicazione e ora di arrivo. 
+   * Tempo applicazione e ora di arrivo. 
    * Payload effettivo fino a pochi kilobyte.
 
 **Messaggio di errore**
@@ -195,12 +195,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "BriefMessage": "Input event arrival time '2019-01-01' is earlier than input event application timestamp '2019-01-02' by more than 5 minutes."
 ```
 
-### <a name="outoforderevent"></a>Evento OutOfOrder
+### <a name="outoforderevent"></a>OutOfOrderEvent
 
-* Causa: l'evento viene considerato non in ordine in base alla finestra di tolleranza fuori ordine definita.
+* Motivo: l'evento viene considerato non in ordine in base alla finestra di tolleranza per elementi non in ordine definita.
 * Notifica del portale fornita: No
-* Livello di log di diagnostica: Informazioni
-* Impatto: gli eventi fuori ordine vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione Ordine eventi della configurazione del processo. Per ulteriori informazioni, vedere [Criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Livello di log delle risorse: informazioni
+* Impact: gli eventi non in ordine vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Dettagli del log
    * Payload effettivo fino a pochi kilobyte.
 
@@ -210,14 +210,14 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 "Message": "Out of order event(s) received."
 ```
 
-## <a name="output-data-errors"></a>Errori dei dati di output
+## <a name="output-data-errors"></a>Errori dati di output
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
-* Causa: la colonna richiesta per l'output non esiste. Ad esempio, una colonna definita come Azure Table PartitionKey non esiste.
+* Motivo: la colonna necessaria per l'output non esiste. Ad esempio, è presente una colonna definita come tabella di Azure PartitionKey richiesto non.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: tutti gli errori di conversione dei dati di output, inclusa la colonna obbligatoria mancante, vengono gestiti in base all'impostazione Criterio dati di [output.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Livello di log delle risorse: avviso
+* Impact: tutti gli errori di conversione dei dati di output, inclusa la colonna mancante obbligatoria, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
 * Dettagli del log
    * Nome della colonna e identificatore del record o parte del record.
 
@@ -229,12 +229,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
-* Causa: il valore della colonna non è conforme all'output. Ad esempio, il nome della colonna non è una colonna di tabella di Azure valida.
+* Motivo: il valore della colonna non è conforme all'output. Ad esempio, il nome della colonna non è una colonna di tabella di Azure valida.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: tutti gli errori di conversione dei dati di output, incluso il nome di colonna non valido, vengono gestiti in base all'impostazione Criterio dati di [output.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Livello di log delle risorse: avviso
+* Impact: tutti gli errori di conversione dei dati di output, incluso il nome di colonna non valido, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
 * Dettagli del log
-   * Nome della colonna e identificatore di record o parte del record.
+   * Nome della colonna e identificatore del record o parte del record.
 
 **Messaggio di errore**
 
@@ -244,13 +244,13 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
-* Causa: una colonna non può essere convertita in un tipo valido nell'output. Ad esempio, il valore di column non è compatibile con i vincoli o il tipo definito nella tabella SQL.
+* Motivo: una colonna non può essere convertita in un tipo valido nell'output. Il valore della colonna, ad esempio, non è compatibile con i vincoli o il tipo definito nella tabella SQL.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: tutti gli errori di conversione dei dati di output, incluso l'errore di conversione dei tipi, vengono gestiti in base all'impostazione Criterio dati di [output.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Livello di log delle risorse: avviso
+* Impact: tutti gli errori di conversione dei dati di output, incluso l'errore di conversione del tipo, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
 * Dettagli del log
    * Nome della colonna.
-   * Identificatore di record o parte del record.
+   * Identificatore del record o parte del record.
 
 **Messaggio di errore**
 
@@ -260,12 +260,12 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
-* Causa: il valore del messaggio è maggiore della dimensione di output supportata. Ad esempio, un record è maggiore di 1 MB per un output dell'hub eventi.
+* Motivo: il valore del messaggio è maggiore della dimensione di output supportata. Ad esempio, un record è più grande di 1 MB per un output di hub eventi.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: tutti gli errori di conversione dei dati di output, incluso il limite di dimensioni superato dai record, vengono gestiti in base all'impostazione Criterio dati di [output.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Livello di log delle risorse: avviso
+* Impact: tutti gli errori di conversione dei dati di output, incluso il limite massimo delle dimensioni del record, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
 * Dettagli del log
-   * Identificatore di record o parte del record.
+   * Identificatore del record o parte del record.
 
 **Messaggio di errore**
 
@@ -275,13 +275,13 @@ Vedere [Risolvere i problemi di Analisi di flusso di Azure usando i log](stream-
 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
-* Causa: un record contiene già una colonna con lo stesso nome di una colonna di sistema. Ad esempio, l'output CosmosDB con una colonna denominata ID quando la colonna ID è a una colonna diversa.
+* Motivo: un record contiene già una colonna con lo stesso nome di una colonna di sistema. Ad esempio, CosmosDB output con una colonna denominata ID quando la colonna ID corrisponde a una colonna diversa.
 * Notifica del portale fornita: Sì
-* Livello del registro di diagnostica: Avviso
-* Impatto: tutti gli errori di conversione dei dati di output, inclusa la chiave duplicata, vengono gestiti in base all'impostazione Criterio dati di [output.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Livello di log delle risorse: avviso
+* Impact: tutti gli errori di conversione dei dati di output, inclusa la chiave duplicata, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
 * Dettagli del log
    * Nome della colonna.
-   * Identificatore di record o parte del record.
+   * Identificatore del record o parte del record.
 
 ```json
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."

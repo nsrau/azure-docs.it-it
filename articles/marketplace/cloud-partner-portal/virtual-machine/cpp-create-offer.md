@@ -1,5 +1,5 @@
 ---
-title: Creare un'offerta di macchine virtuali in Azure MarketplaceCreate Virtual Machine offer in Azure Marketplace
+title: Creare un'offerta di macchina virtuale in Azure Marketplace
 description: Elenca i passaggi necessari per creare una nuova offerta di macchina virtuale (VM, Virtual Machine) per Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a25f6877f1fb4940fb1de127b81d83975c8e835c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273988"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142716"
 ---
 # <a name="create-virtual-machine-offer"></a>Creare l'offerta di una macchina virtuale
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di macchina virtuale di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 Questa sezione elenca i passaggi necessari per creare una nuova richiesta di offerta di macchina virtuale (VM, Virtual Machine) per Azure Marketplace.  Ogni offerta viene visualizzata come entità a sé stante in Azure Marketplace ed è associata a uno o più SKU.  Un'offerta di macchina virtuale è composta dai gruppi di risorse e servizi di supporto seguenti: 
 
@@ -36,7 +36,7 @@ dove:
 
 ## <a name="new-offer-form"></a>Modulo Nuova offerta
 
-Una volta effettuato l'accesso al [portale Cloud Partner,](https://cloudpartner.azure.com/)fai clic sull'elemento **Nuova offerta** nella barra dei menu a sinistra. Nel menu risultante, fare clic su **Macchine virtuali** per visualizzare il modulo **Nuova offerta** e avviare il processo di definizione delle risorse per una nuova offerta di macchina virtuale. 
+Una volta effettuato l'accesso al [portale cloud partner](https://cloudpartner.azure.com/), fare clic sull'elemento **+ nuova offerta** sulla barra dei menu a sinistra. Nel menu risultante, fare clic su **Macchine virtuali** per visualizzare il modulo **Nuova offerta** e avviare il processo di definizione delle risorse per una nuova offerta di macchina virtuale. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![Selezione dell'interfaccia utente della nuova offerta di macchina virtuale](./media/publishvm_003.png)

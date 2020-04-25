@@ -1,23 +1,23 @@
 ---
 title: Monitorare le query
 titleSuffix: Azure Cognitive Search
-description: Monitorare le metriche delle query per le prestazioni e la velocità effettiva. Raccogliere e analizzare gli input della stringa di query nei log di diagnostica.
+description: Monitorare le metriche delle query per le prestazioni e la velocità effettiva. Raccogliere e analizzare gli input della stringa di query nei log delle risorse.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462523"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127689"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorare le richieste di query in Azure ricerca cognitiva
 
-Questo articolo illustra come misurare le prestazioni e il volume delle query usando le metriche e la registrazione diagnostica. Viene inoltre illustrato come raccogliere i termini di input utilizzati nelle query: informazioni necessarie quando è necessario valutare l'utilità e l'efficacia del corpus di ricerca.
+Questo articolo illustra come misurare le prestazioni e il volume delle query usando le metriche e la registrazione delle risorse. Viene inoltre illustrato come raccogliere i termini di input utilizzati nelle query: informazioni necessarie quando è necessario valutare l'utilità e l'efficacia del corpus di ricerca.
 
 I dati cronologici che vengono inseriti in metriche vengono conservati per 30 giorni. Per un periodo di conservazione più lungo o per creare report sui dati operativi e sulle stringhe di query, assicurarsi di abilitare un' [impostazione di diagnostica](search-monitor-logs.md) che specifichi un'opzione di archiviazione per rendere permanente le metriche e gli eventi registrati.
 
@@ -36,7 +36,7 @@ Il volume viene misurato come **query di ricerca al secondo** (query al secondo)
 
 In genere, le query vengono eseguite in millisecondi, quindi solo le query che misurano come secondi verranno visualizzate nelle metriche.
 
-| Tipo di aggregazione | Descrizione |
+| Tipo di aggregazione | Description |
 |------------------|-------------|
 | Media | Numero medio di secondi in un minuto durante i quali si è verificata l'esecuzione della query.|
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
@@ -118,7 +118,7 @@ Per un'esplorazione più approfondita, aprire Esplora metriche dal menu **monito
 
 ## <a name="identify-strings-used-in-queries"></a>Identificare le stringhe usate nelle query
 
-Quando si Abilita la registrazione diagnostica, il sistema acquisisce le richieste di query nella tabella **AzureDiagnostics** . Come prerequisito, è necessario avere già abilitato la [registrazione diagnostica](search-monitor-logs.md), specificando un'area di lavoro di log Analytics o un'altra opzione di archiviazione.
+Quando si Abilita la registrazione delle risorse, il sistema acquisisce le richieste di query nella tabella **AzureDiagnostics** . Come prerequisito, è necessario avere già abilitato la [registrazione delle risorse](search-monitor-logs.md), specificando un'area di lavoro di log Analytics o un'altra opzione di archiviazione.
 
 1. Nella sezione monitoraggio selezionare **registri** per aprire una finestra di query vuota in log Analytics.
 

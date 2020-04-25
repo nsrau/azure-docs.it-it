@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: f049dc6d1261a8201cf79d1779e522b30d13c4b0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409448"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133319"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
 
 Questo articolo descrive problemi comuni di sviluppo delle query di Analisi di flusso di Azure e la risoluzione di questi.
 
-Questo articolo descrive i problemi comuni relativi allo sviluppo di query di analisi di flusso di Azure, come risolvere i problemi di query e come risolvere i problemi. Molti passaggi per la risoluzione dei problemi richiedono l'abilitazione dei log di diagnostica per il processo di analisi di flusso. Se i log di diagnostica non sono abilitati, vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagnostica](stream-analytics-job-diagnostic-logs.md).
+Questo articolo descrive i problemi comuni relativi allo sviluppo di query di analisi di flusso di Azure, come risolvere i problemi di query e come risolvere i problemi. Molti passaggi per la risoluzione dei problemi richiedono che i log delle risorse siano abilitati per il processo di analisi di flusso. Se i log delle risorse non sono abilitati, vedere [risolvere i problemi di analisi di flusso di Azure usando i log delle risorse](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="query-is-not-producing-expected-output"></a>La query non genera l'output previsto
 
@@ -43,9 +43,9 @@ Questo articolo descrive i problemi comuni relativi allo sviluppo di query di an
 
 5.  Assicurarsi che i criteri di ordinamento degli eventi siano configurati come previsto. Passare a **Impostazioni** e selezionare [**ordinamento evento**](stream-analytics-out-of-order-and-late-events.md). Il criterio *non* viene applicato quando si usa il pulsante **Test** per testare la query. Questo aspetto rappresenta una differenza tra il test nel browser e l'esecuzione del processo in produzione. 
 
-6. Eseguire il debug usando i log di controllo e diagnostica:
-    - Usare i [log di controllo](../azure-resource-manager/resource-group-audit.md) e filtrare per identificare gli errori ed eseguirne il debug.
-    - Usare i [log di diagnostica del processo](stream-analytics-job-diagnostic-logs.md) per identificare gli errori ed eseguirne il debug.
+6. Eseguire il debug usando i log di attività e risorse:
+    - Usare i [log attività](../azure-resource-manager/resource-group-audit.md)e filtrare per identificare ed eseguire il debug degli errori.
+    - Usare i [log delle risorse dei processi](stream-analytics-job-diagnostic-logs.md) per identificare ed eseguire il debug degli errori.
 
 ## <a name="resource-utilization-is-high"></a>L'utilizzo delle risorse è elevato
 

@@ -1,5 +1,5 @@
 ---
-title: Prerequisiti del modulo Azure IoT Edge Azure Marketplace
+title: Prerequisiti del modulo Azure IoT Edge | Azure Marketplace
 description: Prerequisiti per la pubblicazione di un modulo IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 9a54b31725d14a3ff54bd2d945cd69f4b8769b87
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d1bfc29a0cb031421b4017454bc8a2cdd8be09f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983178"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142376"
 ---
 # <a name="iot-edge-module-publishing-prerequisites"></a>Prerequisiti per la pubblicazione di un modulo IoT Edge
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del modulo IoT Edge al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di modulo IOT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) .
 
-Questo articolo descrive i prerequisiti per la pubblicazione di un'offerta di modulo IoT Edge.  Se non è già stato fatto, consultare la guida alla pubblicazione dei [moduli IoT Edge](../..//iot-edge-module.md).
+Questo articolo descrive i prerequisiti per la pubblicazione di un'offerta di modulo IoT Edge.  Se non è già stato fatto, consultare la [Guida alla pubblicazione dei moduli IOT Edge](../..//iot-edge-module.md).
 
 
 ## <a name="publishing-prerequisites"></a>Prerequisiti per la pubblicazione
@@ -30,7 +30,7 @@ Per pubblicare un modulo IoT Edge in Azure Marketplace, è necessario soddisfare
 - Accedere al [portale Cloud Partner (CPP)](https://cloudpartner.azure.com/). Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Contratto per le [Condizioni di Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace-terms/)
 - Ospitare l'asset tecnico del modulo IoT Edge in un'istanza di Registro Azure Container.  Per altre informazioni, vedere [come preparare gli asset tecnici del modulo IoT Edge](./cpp-create-technical-assets.md)
-- Preparare i metadati del modulo IoT Edge all'uso. Ad esempio, preparare le seguenti risorse:
+- Preparare i metadati del modulo IoT Edge all'uso. Ad esempio, preparare le risorse seguenti:
     - Un titolo
     - Una descrizione (in formato HTML)
     - Un'immagine del logo (formato PNG e dimensioni delle immagini fisse, tra cui 40x40px, 90x90px, 115x115px, 255x115px)
@@ -42,4 +42,4 @@ Per pubblicare un modulo IoT Edge in Azure Marketplace, è necessario soddisfare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta preparato il tuo asset tecnico del [modulo IoT Edge,](./cpp-create-technical-assets.md)sarai pronto per creare la tua offerta del [modulo IoT Edge.](./cpp-create-offer.md) 
+Dopo aver [preparato l'asset tecnico del modulo IOT Edge](./cpp-create-technical-assets.md), sarà possibile [creare l'offerta del modulo di IOT Edge](./cpp-create-offer.md). 

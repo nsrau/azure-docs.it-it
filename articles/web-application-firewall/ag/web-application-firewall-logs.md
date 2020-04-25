@@ -1,22 +1,22 @@
 ---
-title: Monitorare i log per Firewall applicazione Web di AzureMonitor logs for Azure Web Application Firewall
-description: Informazioni su come abilitare e gestire i log e per Firewall applicazione Web di Azure
+title: Monitorare i log per il firewall applicazione Web di Azure
+description: Informazioni su come abilitare e gestire i log e per il firewall applicazione Web di Azure
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: cb1af86e04c0b4ba0b59398161fa111fd8065042
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310059"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133875"
 ---
-# <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Log di diagnostica per Il firewall delle applicazioni Web di AzureDiagnostic logs for Azure Web Application Firewall
+# <a name="resource-logs-for-azure-web-application-firewall"></a>Log delle risorse per il Web Application Firewall di Azure
 
-È possibile monitorare le risorse di Web Application Firewall utilizzando i log. È possibile salvare le prestazioni, l'accesso e altri dati o utilizzarli da una risorsa a scopo di monitoraggio.
+È possibile monitorare le risorse del Web Application Firewall usando i log. È possibile salvare le prestazioni, l'accesso e altri dati o utilizzarli da una risorsa a scopo di monitoraggio.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -24,10 +24,10 @@ ms.locfileid: "81310059"
 
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili tramite il portale. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in strumenti diversi, ad esempio i [log di Monitoraggio di Azure](../../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
 
-* **Log attività**: è possibile usare i [log attività di Azure](../../azure-resource-manager/management/view-activity-logs.md), chiamati in precedenza log operativi e log di controllo, per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure e il relativo stato. Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
-* **Registro di accesso**: È possibile utilizzare questo registro per visualizzare i modelli di accesso del gateway applicazione e analizzare le informazioni importanti. Sono inclusi l'indirizzo IP del chiamante, l'URL richiesto, la latenza di risposta, il codice restituito e i byte in uscita e in uscita. Ogni 300 secondi viene raccolto un log di accesso. Il log contiene un record per ogni istanza del gateway applicazione. L'istanza del gateway applicazione può essere identificata dalla proprietà instanceId.
-* **Log delle prestazioni**: è possibile usare questo log per visualizzare le prestazioni delle istanze del gateway applicazione. Questo log acquisisce le informazioni sulle prestazioni di ogni istanza, inclusi il totale delle richieste servite, la velocità effettiva in byte, il totale delle richieste non riuscite e il numero delle istanze back-end integre e non integre. Il log delle prestazioni viene raccolto ogni 60 secondi. Il log delle prestazioni è disponibile solo per lo SKU v1. Per lo SKU v2, usare [le metriche](../../application-gateway/application-gateway-metrics.md) per i dati sulle prestazioni.
-* **Log del firewall**: è possibile usare questo log per visualizzare le richieste registrate tramite la modalità di rilevamento o prevenzione di un gateway applicazione configurato con il web application firewall.
+* **Log attività**: è possibile usare i [log attività di Azure](../../azure-resource-manager/management/view-activity-logs.md) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure e il relativo stato. Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
+* **Accesso al log delle risorse**: è possibile usare questo log per visualizzare i modelli di accesso del gateway applicazione e analizzare informazioni importanti. Sono inclusi l'indirizzo IP del chiamante, l'URL richiesto, la latenza della risposta, il codice restituito e i byte in uscita e in uscita. Un log di accesso viene raccolto ogni 300 secondi. Il log contiene un record per ogni istanza del gateway applicazione. L'istanza del gateway applicazione può essere identificata dalla proprietà instanceId.
+* **Log delle risorse delle prestazioni**: è possibile usare questo log per visualizzare le prestazioni delle istanze del gateway applicazione. Questo log acquisisce le informazioni sulle prestazioni di ogni istanza, inclusi il totale delle richieste servite, la velocità effettiva in byte, il totale delle richieste non riuscite e il numero delle istanze back-end integre e non integre. Il log delle prestazioni viene raccolto ogni 60 secondi. Il log delle prestazioni è disponibile solo per lo SKU V1. Per lo SKU V2, usare le [metriche](../../application-gateway/application-gateway-metrics.md) per i dati sulle prestazioni.
+* **Log delle risorse del firewall**: è possibile usare questo log per visualizzare le richieste registrate tramite la modalità di rilevamento o prevenzione di un gateway applicazione configurato con il Web Application Firewall.
 
 > [!NOTE]
 > I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Azure Resource Manager. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sulla distribuzione di Resource Manager e la distribuzione classica](../../azure-resource-manager/management/deployment-models.md).
@@ -35,8 +35,8 @@ In Azure è possibile usare diversi tipi di log per gestire e risolvere i proble
 Sono disponibili tre opzioni di archiviazione dei log:
 
 * **Account di archiviazione**: ideali quando i log vengono archiviati per un periodo più lungo ed esaminati quando necessario.
-* **Hub eventi:** gli hub eventi sono un'ottima opzione per l'integrazione con altre informazioni di sicurezza e strumenti SIEM (Gestione eventi) per ricevere avvisi sulle risorse.
-* Log di **Monitoraggio di Azure:** i log di Monitoraggio di Azure sono ottimali per il monitoraggio generale in tempo reale dell'applicazione o per l'esborrazione delle tendenze.
+* **Hub eventi**: gli hub eventi sono un'ottima opzione per l'integrazione con altri strumenti di gestione di informazioni ed eventi di sicurezza (Siem) per ricevere avvisi sulle risorse.
+* **Log di monitoraggio di Azure**: i log di monitoraggio di Azure sono ideali per il monitoraggio generale in tempo reale dell'applicazione o l'analisi delle tendenze.
 
 ### <a name="enable-logging-through-powershell"></a>Abilitare la registrazione tramite PowerShell
 
@@ -50,7 +50,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
     ![Portale: ID risorsa del gateway applicazione](../media/web-application-firewall-logs/diagnostics2.png)
 
-3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente:
+3. Abilitare la registrazione delle risorse usando il cmdlet di PowerShell seguente:
 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
@@ -61,7 +61,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Abilitare la registrazione tramite il portale di Azure
 
-1. Nel portale di Azure individuare la risorsa e selezionare **Impostazioni di diagnostica**.
+1. Nella portale di Azure trovare la risorsa e selezionare impostazioni di **diagnostica**.
 
    Per il gateway applicazione sono disponibili tre log:
 
@@ -69,11 +69,11 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
    * Log delle prestazioni
    * Log del firewall
 
-2. Per avviare la raccolta dei dati, selezionare **Attiva diagnostica**.
+2. Per avviare la raccolta dei dati, selezionare **attiva diagnostica**.
 
    ![Attivare la diagnostica][1]
 
-3. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica. In questo esempio viene usato Log Analytics per archiviare i log. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
+3. La pagina **impostazioni di diagnostica** fornisce le impostazioni per i log delle risorse. In questo esempio viene usato Log Analytics per archiviare i log. Per salvare i log delle risorse, è anche possibile usare hub eventi e un account di archiviazione.
 
    ![Avvio del processo di configurazione][2]
 
@@ -85,7 +85,7 @@ Azure genera il log attività per impostazione predefinita. I log vengono conser
 
 ### <a name="access-log"></a>Log di accesso
 
-Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso al gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per la versione 1:Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
+Il log di accesso viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Ogni accesso del gateway applicazione viene registrato in formato JSON, come illustrato nell'esempio seguente per V1:
 
 |valore  |Descrizione  |
 |---------|---------|
@@ -101,8 +101,8 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 |receivedBytes     | Dimensione del pacchetto ricevuto, espressa in byte.        |
 |sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
 |timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
-|sslEnabled| Se la comunicazione con i pool back-end utilizzava TLS/SSL. I valori validi sono on e off.|
-|host| Nome host con cui la richiesta è stata inviata al server back-end. Se viene eseguito l'override del nome host back-end, questo nome lo rifletterà.|
+|sslEnabled| Indica se la comunicazione con i pool back-end usava TLS/SSL. I valori validi sono on e off.|
+|host| Nome host a cui è stata inviata la richiesta al server back-end. Se viene eseguito l'override del nome host back-end, questo nome rifletterà tale nome.|
 |originalHost| Nome host con cui la richiesta è stata ricevuta dal gateway applicazione dal client.|
 ```json
 {
@@ -129,7 +129,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
     }
 }
 ```
-Per il gateway applicazione e WAF v2, i registri mostrano ulteriori informazioni:
+Per il gateway applicazione e WAF V2, i log mostrano alcune altre informazioni:
 
 |valore  |Descrizione  |
 |---------|---------|
@@ -144,12 +144,12 @@ Per il gateway applicazione e WAF v2, i registri mostrano ulteriori informazioni
 |receivedBytes     | Dimensione del pacchetto ricevuto, espressa in byte.        |
 |sentBytes| Dimensione del pacchetto inviato, espressa in byte.|
 |timeTaken| Periodo di tempo in millisecondi impiegato per l'elaborazione di una richiesta e l'invio della risposta. Questo valore corrisponde all'intervallo di tempo intercorso dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al termine dell'operazione di invio della risposta. È importante notare che il campo Tempo impiegato include in genere il tempo della trasmissione in rete dei pacchetti di richiesta e risposta. |
-|sslEnabled| Se la comunicazione con i pool back-end ha utilizzato TLS. I valori validi sono on e off.|
-|sslCipher| Suite di crittografia utilizzata per la comunicazione TLS (se TLS è abilitato).|
-|sslProtocol| Protocollo TLS in uso (se TLS è abilitato).|
-|serverRouted (in modo inquestoendo)| Il server back-end a cui il gateway applicazione instrada la richiesta.|
+|sslEnabled| Indica se la comunicazione con i pool back-end usava TLS. I valori validi sono on e off.|
+|sslCipher| Pacchetto di crittografia usato per la comunicazione TLS (se TLS è abilitato).|
+|sslProtocol| Protocollo TLS usato (se TLS è abilitato).|
+|serverRouted| Il server back-end a cui il gateway applicazione instrada la richiesta.|
 |serverStatus| Codice di stato HTTP del server back-end.|
-|serverResponseLatency (Latenzaserver)| Latenza della risposta dal server back-end.|
+|serverResponseLatency| Latenza della risposta dal server back-end.|
 |host| Indirizzo elencato nell'intestazione host della richiesta.|
 ```json
 {
@@ -182,7 +182,7 @@ Per il gateway applicazione e WAF v2, i registri mostrano ulteriori informazioni
 
 ### <a name="performance-log"></a>Log delle prestazioni
 
-Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. È disponibile solo per lo SKU v1. Per lo SKU v2, usare [le metriche](../../application-gateway/application-gateway-metrics.md) per i dati sulle prestazioni. Vengono registrati i dati seguenti:
+Il log delle prestazioni viene generato solo se è stato abilitato in ogni istanza del gateway applicazione, come descritto nei passaggi precedenti. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. I dati del log delle prestazioni vengono generati a intervalli di un minuto. È disponibile solo per lo SKU V1. Per lo SKU V2, usare le [metriche](../../application-gateway/application-gateway-metrics.md) per i dati sulle prestazioni. Vengono registrati i dati seguenti:
 
 
 |valore  |Descrizione  |
@@ -240,10 +240,10 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |details.file     | File di configurazione che conteneva la regola.        |
 |details.line     | Numero di riga nel file di configurazione che ha attivato l'evento.       |
 |hostname   | Nome host o indirizzo IP del gateway applicazione.    |
-|transactionId  | ID univoco per una determinata transazione che consente di raggruppare più violazioni delle regole che si sono verificate all'interno della stessa richiesta.   |
-|policyId   | ID univoco dei criteri firewall associati al gateway applicazione, al listener o al percorso.   |
-|PolicyScope    | La posizione del criterio - i valori possono essere "Global", "Listener" o "Location".   |
-|NomeambitoCriteri   | Nome dell'oggetto a cui viene applicato il criterio.    |
+|transactionId  | ID univoco per una transazione specifica che consente di raggruppare più violazioni delle regole che si sono verificate nella stessa richiesta.   |
+|policyId   | ID univoco del criterio firewall associato al gateway applicazione, al listener o al percorso.   |
+|policyScope    | Il percorso dei valori dei criteri può essere "Global", "listener" o "location".   |
+|policyScopeName   | Nome dell'oggetto a cui vengono applicati i criteri.    |
 
 ```json
 {
@@ -285,7 +285,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
 * **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
-* **Power BI:** se non si dispone già di un account [Power BI,](https://powerbi.microsoft.com/pricing) è possibile provarlo gratuitamente. Utilizzando le app modello di [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)è possibile analizzare i dati.
+* **Power bi**: se non si ha già un account [Power bi](https://powerbi.microsoft.com/pricing) , è possibile provarlo gratuitamente. Usando le [app modello di Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview), è possibile analizzare i dati.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualizzare e analizzare i log di accesso, delle prestazioni e del firewall
 

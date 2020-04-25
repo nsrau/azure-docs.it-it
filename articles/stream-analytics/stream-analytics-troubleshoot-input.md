@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d88123b3dd79e5707c5c19cbbae13c30cbdeb84
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409407"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133267"
 ---
 # <a name="troubleshoot-input-connections"></a>Risolvere i problemi delle connessioni di input
 
-Questo articolo descrive i problemi comuni relativi alle connessioni di input di Analisi di flusso di Azure, come risolvere i problemi di input e come correggerli. Molti passaggi per la risoluzione dei problemi richiedono l'abilitazione dei log di diagnostica per il processo di Analisi di flusso. Se i log di diagnostica non sono abilitati, vedere Risolvere i problemi di Analisi di flusso di Azure usando i log di [diagnostica.](stream-analytics-job-diagnostic-logs.md)
+Questo articolo descrive i problemi comuni relativi alle connessioni di input di analisi di flusso di Azure, come risolvere i problemi di input e come risolvere i problemi. Molti passaggi per la risoluzione dei problemi richiedono che i log delle risorse siano abilitati per il processo di analisi di flusso. Se i log delle risorse non sono abilitati, vedere [risolvere i problemi di analisi di flusso di Azure usando i log delle risorse](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="input-events-not-received-by-job"></a>Eventi di input non ricevuti dal processo 
 
@@ -25,31 +25,31 @@ Questo articolo descrive i problemi comuni relativi alle connessioni di input di
 
 2.  Esaminare i dati di input.
 
-    1. Utilizzare il pulsante [**Dati di esempio**](stream-analytics-sample-data-input.md) per ogni input. Scaricare i dati di esempio di input.
+    1. Usare il pulsante [**Sample Data**](stream-analytics-sample-data-input.md) per ogni input. Scaricare i dati di esempio di input.
         
-    1. Esaminare i dati di esempio per comprendere lo schema e i [tipi di dati.](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+    1. Esaminare i dati di esempio per comprendere lo schema e i [tipi di dati](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
     
-    1. Controllare [le metriche dell'Hub eventi](../event-hubs/event-hubs-metrics-azure-monitor.md) per verificare che gli eventi vengano inviati. Le metriche dei messaggi devono essere maggiori di zero se hub eventi riceve messaggi.
+    1. Controllare le [metriche dell'hub eventi](../event-hubs/event-hubs-metrics-azure-monitor.md) per assicurarsi che gli eventi vengano inviati. La metrica del messaggio deve essere maggiore di zero se Hub eventi riceve messaggi.
 
-3.  Assicurarsi di aver selezionato un intervallo di tempo nell'anteprima di input. Scegliere **Seleziona intervallo**di tempo , quindi immettere una durata di esempio prima di testare la query.
+3.  Assicurarsi di aver selezionato un intervallo di tempo nell'anteprima di input. Scegliere **Seleziona intervallo di tempo**, quindi immettere una durata di esempio prima di testare la query.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventi di input in formato non valido determinano errori di deserializzazione 
 
-Quando il flusso di input del processo di Analisi di flusso di Azure contiene messaggi in formato non valido, si verificano problemi di deserializzazione. Ad esempio, un messaggio in formato non corretto potrebbe essere causato da una parentesi o parentesi graffa mancante in un oggetto JSON o da un formato timestamp non corretto nel campo dell'ora. 
+Quando il flusso di input del processo di Analisi di flusso di Azure contiene messaggi in formato non valido, si verificano problemi di deserializzazione. Un messaggio in formato non valido, ad esempio, potrebbe essere causato da una parentesi mancante o da una parentesi graffa, in un oggetto JSON o un formato di timestamp errato nel campo relativo all'ora. 
  
-Quando un processo di Analisi di flusso di Azure riceve un messaggio in formato non valido da un input, elimina il messaggio e visualizza un messaggio di avviso. Nel riquadro **Input** del processo di Analisi di flusso viene visualizzato un simbolo di avviso. Il simbolo di avviso seguente esiste finché il processo è in esecuzione:
+Quando un processo di Analisi di flusso di Azure riceve un messaggio in formato non valido da un input, elimina il messaggio e visualizza un messaggio di avviso. Viene visualizzato un simbolo di avviso nel riquadro **input** del processo di analisi di flusso. Il simbolo di avviso seguente esiste finché lo stato del processo è in esecuzione:
 
 ![Riquadro degli input di Analisi di flusso di Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Abilitare i log di diagnostica per visualizzare i dettagli dell'errore e il messaggio (payload) che ha causato l'errore. Esistono diversi motivi per cui possono verificarsi errori di deserializzazione. Per ulteriori informazioni su errori di deserializzazione specifici, vedere [Errori relativi ai dati](data-errors.md#input-data-errors)di input . Se i log di diagnostica non sono abilitati, nel portale di Azure sarà disponibile una breve notifica.
+Abilitare i log delle risorse per visualizzare i dettagli dell'errore e il messaggio (payload) che ha causato l'errore. Esistono diversi motivi per cui possono verificarsi errori di deserializzazione. Per ulteriori informazioni sugli errori di deserializzazione specifici, vedere [errori dei dati di input](data-errors.md#input-data-errors). Se i log delle risorse non sono abilitati, nella portale di Azure sarà disponibile una breve notifica.
 
-![Notifica di avviso dettagli di input](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+![Notifica di avviso dettagli input](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-Nei casi in cui il payload del messaggio è maggiore di 32 KB o è in formato binario, eseguire il codice CheckMalformedEvents.cs disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
+Nei casi in cui il payload del messaggio è superiore a 32 KB o è in formato binario, eseguire il codice CheckMalformedEvents.cs disponibile nel [repository degli esempi di GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Questo codice legge l'ID della partizione, l'offset e stampa i dati presenti nell'offset. 
 
-## <a name="job-exceeds-maximum-event-hub-receivers"></a>Il processo supera il numero massimo di ricevitori dell'hub eventi
+## <a name="job-exceeds-maximum-event-hub-receivers"></a>Il processo supera il numero massimo di ricevitori di hub eventi
 
-Una procedura consigliata per l'utilizzo di Hub eventi consiste nell'utilizzare più gruppi di consumer per la scalabilità dei processi. Il numero di lettori del processo di Analisi di flusso di Azure per uno specifico input influisce sul numero dei lettori di un singolo gruppo di consumer. Il numero esatto di ricevitori si basa sui dettagli di implementazione interna per la logica della topologia con scale-out e non viene esposto esternamente. Il numero di lettori può cambiare al momento di avvio del processo o durante gli aggiornamenti del processo.
+Una procedura consigliata per l'uso di hub eventi consiste nell'usare più gruppi di consumer per la scalabilità dei processi. Il numero di lettori del processo di Analisi di flusso di Azure per uno specifico input influisce sul numero dei lettori di un singolo gruppo di consumer. Il numero esatto di ricevitori si basa sui dettagli di implementazione interna per la logica della topologia con scale-out e non viene esposto esternamente. Il numero di lettori può cambiare al momento di avvio del processo o durante gli aggiornamenti del processo.
 
 L'errore visualizzato quando la quantità di ricevitori supera il numero massimo è: 
 
@@ -64,7 +64,7 @@ Per aggiungere un nuovo gruppo di consumer all'istanza dell'hub eventi, seguire 
 
 1. Accedere al portale di Azure.
 
-2. Individuare l'Hub eventi.
+2. Individuare l'hub eventi.
 
 3. Selezionare **Hub eventi** nell'intestazione **Entità**.
 
@@ -76,7 +76,7 @@ Per aggiungere un nuovo gruppo di consumer all'istanza dell'hub eventi, seguire 
 
    ![Aggiungere un gruppo di consumer negli hub eventi](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
-7. Quando l'utente ha creato l'input in Analisi di flusso affinché puntasse all'hub eventi, ha specificato il gruppo di consumer. **$Default** viene utilizzato quando non ne è specificato alcuno. Dopo aver creato un nuovo gruppo di consumer, modificare l'input dell'hub eventi nel processo Analisi di flusso e specificare il nome del nuovo gruppo di consumer.
+7. Quando l'utente ha creato l'input in Analisi di flusso affinché puntasse all'hub eventi, ha specificato il gruppo di consumer. **$Default** viene utilizzato quando non è specificato alcun valore. Dopo aver creato un nuovo gruppo di consumer, modificare l'input dell'hub eventi nel processo Analisi di flusso e specificare il nome del nuovo gruppo di consumer.
 
 ## <a name="readers-per-partition-exceeds-event-hubs-limit"></a>Il numero di lettori per partizione supera il limite impostato in Hub eventi di Azure
 
@@ -132,12 +132,12 @@ Per le query in cui tre o più input sono connessi allo stesso gruppo di consume
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, prova il forum di Analisi di Flusso di [Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

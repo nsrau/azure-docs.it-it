@@ -1,53 +1,22 @@
 ---
-title: Controllo della manutenzione
-description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione.
+title: Controllo di manutenzione per macchine virtuali di Azure con CLI
+description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione e l'interfaccia della riga di comando.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250179"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137502"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Anteprima: controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
+# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
 
-Gestire gli aggiornamenti della piattaforma, che non richiedono un riavvio, usando il controllo di manutenzione. Azure aggiorna spesso l'infrastruttura per migliorare l'affidabilità, le prestazioni, la sicurezza o avviare nuove funzionalità. La maggior parte degli aggiornamenti è trasparente per gli utenti. Alcuni carichi di lavoro sensibili, ad esempio giochi, flussi multimediali e transazioni finanziarie, non possono tollerare persino pochi secondi di blocco o disconnessione di una macchina virtuale per la manutenzione. Il controllo di manutenzione offre la possibilità di attendere gli aggiornamenti della piattaforma e di applicarli in una finestra in sequenza di 35 giorni. 
-
-Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti alle VM isolate e agli host dedicati di Azure.
-
-Con il controllo di manutenzione, è possibile:
-- Aggiornamenti batch in un unico pacchetto di aggiornamento.
-- Attendere fino a 35 giorni per l'applicazione degli aggiornamenti. 
-- Automatizzare gli aggiornamenti della piattaforma per la finestra di manutenzione con funzioni di Azure.
-- Le configurazioni di manutenzione funzionano tra le sottoscrizioni e i gruppi di risorse. 
-
-> [!IMPORTANT]
-> Il controllo della manutenzione è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-## <a name="limitations"></a>Limitazioni
-
-- Le macchine virtuali devono trovarsi in un [host dedicato](./linux/dedicated-hosts.md)o essere create con una [dimensione di macchina virtuale isolata](./linux/isolation.md).
-- Dopo 35 giorni, verrà applicato automaticamente un aggiornamento.
-- L'utente deve disporre dell'accesso **collaboratore risorse** .
-
-
-## <a name="install-the-maintenance-extension"></a>Installare l'estensione di manutenzione
-
-Se si sceglie di installare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga di comando di Azure in locale, è necessaria la versione 2.0.76 o successiva.
-
-Installare l' `maintenance` estensione dell'interfaccia della riga di comando di anteprima localmente o in cloud Shell. 
-
-```azurecli-interactive
-az extension add -n maintenance
-```
-
+Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti alle VM isolate e agli host dedicati di Azure. Questo argomento descrive le opzioni dell'interfaccia della riga di comando di Azure per il controllo manutenzione. Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del controllo manutenzione, delle relative limitazioni e di altre opzioni di gestione, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Creare una configurazione di manutenzione
 
@@ -61,7 +30,7 @@ az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
    --maintenanceScope host\
-   --location  eastus
+   --location eastus
 ```
 
 Copiare l'ID configurazione dall'output da usare in un secondo momento.

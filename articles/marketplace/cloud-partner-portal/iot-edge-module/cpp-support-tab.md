@@ -1,5 +1,5 @@
 ---
-title: Supporto per un modulo Di Azure IoT Edge Azure Marketplace
+title: Supporto per un modulo di Azure IoT Edge | Azure Marketplace
 description: Opzioni di supporto per un modulo IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 45304e12bf959cb1f695384535360af283ee3f10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 59469aaa0a63cd56debe6af84d48bafa727df88c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981869"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142308"
 ---
 # <a name="iot-edge-module-support-tab"></a>Scheda Support (Supporto) del modulo IoT Edge
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureCreateIoT) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del modulo IoT Edge al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di modulo IOT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) .
 
 La scheda **Support** (Supporto) nella pagina **Nuova offerta** consente di specificare le risorse di supporto utente e tecniche della propria offerta.  Nel modulo Support (Supporto) sono presenti le aree di input seguenti: **Engineering Contact** (Contatto tecnico), **Customer Support** (Assistenza clienti) e **Support Urls** (URL del supporto). Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 
@@ -30,13 +30,13 @@ La tabella seguente descrive i campi del modulo e l'input richiesto per ogni cam
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
 | ***Engineering Contact (Contatto tecnico)***  |  *Funge da contatto tecnico tra Microsoft e l'organizzazione* | 
-| **Nome\***                  | Nome della persona o del gruppo che funge da supporto tecnico/progettazione     |
+| **Name\***                  | Nome della persona o del gruppo che funge da supporto tecnico/progettazione     |
 | **Posta elettronica\***                 | Indirizzo di posta elettronica del contatto tecnico                                      |
-| **Telefono\***                 | Numero di telefono per il supporto tecnico                                           |
+| **Phone\***                 | Numero di telefono per il supporto tecnico                                           |
 | ***Customer Support*** (Assistenza clienti)  | *Riceve i ticket di supporto aperti dai clienti all'interno di Azure* |
-| **Nome\***                  | Nome della persona o del gruppo che assiste il cliente                  |
+| **Name\***                  | Nome della persona o del gruppo che assiste il cliente                  |
 | **Posta elettronica\***                 | Indirizzo di posta elettronica dell'assistenza clienti                                            |
-| **Telefono\***                 | Numero di telefono dell'assistenza clienti                                            |
+| **Phone\***                 | Numero di telefono dell'assistenza clienti                                            |
 | ***Support Urls*** (URL del supporto)  | *Siti di supporto che Microsoft usa quando i clienti aprono ticket di supporto* |
 | **Public Azure (Azure pubblico)**          | URL per il sito di supporto di Internet pubblico                                         |
 | **Azure Government Cloud (Cloud Azure per enti pubblici)**| URL del sito del supporto tecnico cloud per enti pubblici                                        |

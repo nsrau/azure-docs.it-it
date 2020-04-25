@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5b94a97f1286e1273300014e4eef140be412436b
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 45224625cfc828227708247d082a1aab1aef8469
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637172"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142649"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 
@@ -158,7 +158,11 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
  Oltre a usare il portale di Azure o i cmdlet Azure PowerShell per controllare la registrazione dell'archiviazione, è anche possibile usare una delle API di archiviazione di Azure. Se, ad esempio, si usa un linguaggio .NET, è possibile usare la libreria client di archiviazione.  
 
- Le classi **CloudBlobClient**, **CloudQueueClient** e **CloudTableClient** dispongono tutte di metodi quali **SetServiceProperties** e **SetServicePropertiesAsync** che accettano un oggetto **ServiceProperties** come parametro. È possibile usare l'oggetto **ServiceProperties** per configurare Registrazione archiviazione. Il seguente frammento di codice C#, ad esempio, mostra come cambiare i dati da registrare e il periodo di conservazione per la registrazione della coda:  
+# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
+
+# <a name="net-v11-sdk"></a>[\.NET V11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -170,6 +174,9 @@ serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
+
+---
+
 
  Per altre informazioni sull'uso di un linguaggio .NET per configurare la registrazione dell'archiviazione, vedere informazioni di [riferimento sulla libreria client di archiviazione](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
 

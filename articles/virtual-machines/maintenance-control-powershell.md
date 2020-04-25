@@ -7,37 +7,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: dc47afe9cb6eca1b10f8caca7b85087023c5eadf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060125"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136533"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Anteprima: controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
+# <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
 
-Gestire gli aggiornamenti della piattaforma, che non richiedono un riavvio, usando il controllo di manutenzione. Azure aggiorna spesso l'infrastruttura per migliorare l'affidabilità, le prestazioni, la sicurezza o avviare nuove funzionalità. La maggior parte degli aggiornamenti è trasparente per gli utenti. Alcuni carichi di lavoro sensibili, ad esempio giochi, flussi multimediali e transazioni finanziarie, non possono tollerare persino pochi secondi di blocco o disconnessione di una macchina virtuale per la manutenzione. Il controllo di manutenzione offre la possibilità di attendere gli aggiornamenti della piattaforma e di applicarli in una finestra in sequenza di 35 giorni. 
-
-Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti alle VM isolate.
-
-Con il controllo di manutenzione, è possibile:
-- Aggiornamenti batch in un unico pacchetto di aggiornamento.
-- Attendere fino a 35 giorni per l'applicazione degli aggiornamenti. 
-- Automatizzare gli aggiornamenti della piattaforma per la finestra di manutenzione con funzioni di Azure.
-- Le configurazioni di manutenzione funzionano tra le sottoscrizioni e i gruppi di risorse. 
-
-> [!IMPORTANT]
-> Il controllo della manutenzione è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
-## <a name="limitations"></a>Limitazioni
-
-- Le macchine virtuali devono trovarsi in un [host dedicato](./linux/dedicated-hosts.md)o essere create con una [dimensione di macchina virtuale isolata](./linux/isolation.md).
-- Dopo 35 giorni, verrà applicato automaticamente un aggiornamento.
-- L'utente deve disporre dell'accesso **collaboratore risorse** .
-
-
+Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti alle VM isolate e agli host dedicati di Azure. In questo argomento vengono illustrate le opzioni di Azure PowerShell per il controllo di manutenzione. Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del controllo manutenzione, delle relative limitazioni e di altre opzioni di gestione, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](maintenance-control.md).
+ 
 ## <a name="enable-the-powershell-module"></a>Abilitare il modulo PowerShell
 
 Assicurarsi che `PowerShellGet` sia aggiornato.
@@ -46,16 +26,9 @@ Assicurarsi che `PowerShellGet` sia aggiornato.
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
 ```
 
-I cmdlet di PowerShell AZ. Maintenance sono in anteprima, quindi è necessario installare il modulo con il `AllowPrerelease` parametro in cloud Shell o l'installazione di PowerShell locale.   
-
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
-
 Se si sta installando localmente, assicurarsi di aprire il prompt di PowerShell come amministratore.
 
 Potrebbe anche essere richiesto di confermare che si vuole eseguire l'installazione da un *repository non attendibile*. Digitare `Y` o selezionare **Sì per** installare il modulo.
-
 
 
 ## <a name="create-a-maintenance-configuration"></a>Creare una configurazione di manutenzione

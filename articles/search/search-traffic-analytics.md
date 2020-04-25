@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: db8c1781061f038cc90310fcd00c220fa6f5d1a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258210"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128098"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Raccogliere i dati di telemetria per analisi del traffico di ricerca
 
@@ -22,7 +22,7 @@ Analisi del traffico di ricerca è un modello per la raccolta di dati di telemet
 Questo modello prende una dipendenza da [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (una funzionalità di [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/)) per raccogliere i dati dell'utente. È necessario aggiungere la strumentazione al codice client, come descritto in questo articolo. Infine, sarà necessario un meccanismo di creazione di report per analizzare i dati. È consigliabile Power BI ma è possibile usare il dashboard dell'applicazione o qualsiasi strumento che si connette a Application Insights.
 
 > [!NOTE]
-> Il modello descritto in questo articolo è relativo agli scenari avanzati e ai dati clickstream generati dal codice aggiunto al client. Al contrario, i log del servizio sono facili da configurare, offrono una gamma di metriche e possono essere eseguiti nel portale senza che sia necessario alcun codice. L'abilitazione della registrazione diagnostica è consigliata per tutti gli scenari. Per altre informazioni, vedere [raccogliere e analizzare i dati di log](search-monitor-logs.md).
+> Il modello descritto in questo articolo è relativo agli scenari avanzati e ai dati clickstream generati dal codice aggiunto al client. Al contrario, i log del servizio sono facili da configurare, offrono una gamma di metriche e possono essere eseguiti nel portale senza che sia necessario alcun codice. L'abilitazione della registrazione è consigliata per tutti gli scenari. Per altre informazioni, vedere [raccogliere e analizzare i dati di log](search-monitor-logs.md).
 
 ## <a name="identify-relevant-search-data"></a>Identificare i dati di ricerca rilevanti
 

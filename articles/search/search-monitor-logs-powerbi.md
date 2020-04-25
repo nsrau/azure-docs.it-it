@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 618033e24236d26601fafaf7b0678ee83ec973e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e01ac332e61f51909ff1617f1716cd719b67c319
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650154"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127877"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualizzare i log e le metriche di ricerca cognitiva di Azure con Power BI
 [Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-what-is-azure-search) consente di archiviare i log delle operazioni e le metriche dei servizi relativi al servizio di ricerca in un account di archiviazione di Azure. In questa pagina vengono fornite istruzioni su come è possibile visualizzare tali informazioni tramite un'app modello di Power BI. L'app fornisce informazioni dettagliate sul servizio di ricerca, incluse informazioni su ricerca, indicizzazione, operazioni e metriche del servizio.
@@ -20,7 +20,9 @@ ms.locfileid: "77650154"
 È possibile trovare l'app modello di Power BI **Azure ricerca cognitiva: analizzare i log e le metriche** nel [Marketplace delle app di Power bi](https://appsource.microsoft.com/marketplace/apps).
 
 ## <a name="how-to-get-started-with-the-app"></a>Come iniziare a usare l'app
-1. Abilitare la registrazione diagnostica per il servizio di ricerca:
+
+1. Abilitare le metriche e la registrazione delle risorse per il servizio di ricerca:
+
     1. Creare o identificare un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) esistente in cui è possibile archiviare i log
     1. Passare al servizio ricerca cognitiva di Azure nella portale di Azure
     1. Nella sezione monitoraggio della colonna a sinistra selezionare impostazioni di **diagnostica** .

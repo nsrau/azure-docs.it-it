@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac9b76dd8d3c950b14f6d7b331f15647427ac89
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652728"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143215"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -134,7 +134,7 @@ Il servizio Microsoft Azure AD Connect Agent Updater è installato side-by-side 
 * Il servizio di aggiornamento dell'agente di Microsoft Azure AD Connect richiede anche la procedura TLS 1,2 specificata nei [requisiti TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
 > [!WARNING]
-> Azure AD proxy di protezione delle password e Azure AD proxy di applicazione installano versioni diverse del servizio Microsoft Azure AD Connect Agent Updater, motivo per cui le istruzioni fanno riferimento al contenuto del proxy di applicazione. Queste versioni diverse sono incompatibili quando vengono installate side-by-Side, quindi non è consigliabile installare Azure AD proxy di protezione delle password e il proxy di applicazione nello stesso computer.
+> Azure AD proxy di protezione delle password e Azure AD proxy di applicazione installano versioni diverse del servizio Microsoft Azure AD Connect Agent Updater, motivo per cui le istruzioni fanno riferimento al contenuto del proxy di applicazione. Queste versioni diverse sono incompatibili quando vengono installate side-by-side e questa operazione impedirà al servizio Agent Updater di contattare Azure per gli aggiornamenti software, pertanto è consigliabile non installare mai Azure AD proxy e proxy di applicazione della protezione delle password nello stesso computer.
 
 ## <a name="download-required-software"></a>Scaricare il software necessario
 

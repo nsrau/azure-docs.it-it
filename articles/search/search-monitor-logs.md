@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462361"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127822"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
@@ -66,7 +66,7 @@ Per l'archiviazione BLOB, è necessaria un'ora prima che i contenitori vengano v
 
 ## <a name="query-log-information"></a>Informazioni sul log di query
 
-Nei log di diagnostica, due tabelle contengono log e metriche per Azure ricerca cognitiva: **AzureDiagnostics** e **AzureMetrics**.
+Due tabelle contengono log e metriche per ricerca cognitiva di Azure: **AzureDiagnostics** e **AzureMetrics**.
 
 1. In **monitoraggio**selezionare **log**.
 
@@ -97,19 +97,19 @@ Le strutture di dati che contengono dati di log di Azure ricerca cognitiva sono 
 
 Per l'archiviazione BLOB, ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
 
-La tabella seguente è un elenco parziale dei campi comuni alla registrazione diagnostica.
+La tabella seguente è un elenco parziale dei campi comuni alla registrazione delle risorse.
 
 | Nome | Type | Esempio | Note |
 | --- | --- | --- | --- |
 | timeGenerated |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
-| operationName |string |"Query.Search" |Nome dell'operazione |
-| operationVersion |string |"2019-05-06" |api-version usata |
-| category |string |"OperationLogs" |constant |
-| resultType |string |"Esito positivo" |Valori possibili: esito positivo o negativo |
+| resourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| operationName |stringa |"Query.Search" |Nome dell'operazione |
+| operationVersion |stringa |"2019-05-06" |api-version usata |
+| category |stringa |"OperationLogs" |constant |
+| resultType |stringa |"Esito positivo" |Valori possibili: esito positivo o negativo |
 | resultSignature |INT |200 |Codice risultato HTTP |
 | durationMS |INT |50 |Durata dell'operazione in millisecondi |
-| properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
+| properties |oggetto |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
 
 ### <a name="properties-schema"></a>Schema delle proprietà
 
@@ -117,10 +117,10 @@ Le proprietà seguenti sono specifiche per ricerca cognitiva di Azure.
 
 | Nome | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| Description_s |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
+| Description_s |stringa |"GET /indexes('content')/docs" |Endpoint dell'operazione |
 | Documents_d |INT |42 |Numero di documenti elaborati |
-| IndexName_s |string |"test-index" |Nome dell'indice associato all'operazione |
-| Query_s |string |"? Search = AzureSearch&$count = true&API-Version = 2019-05-06" |Parametri della query |
+| IndexName_s |stringa |"test-index" |Nome dell'indice associato all'operazione |
+| Query_s |stringa |"? Search = AzureSearch&$count = true&API-Version = 2019-05-06" |Parametri della query |
 
 ## <a name="metrics-schema"></a>Schema delle metriche
 
@@ -128,15 +128,15 @@ Le metriche vengono acquisite per le richieste di query e misurate in intervalli
 
 | Nome | Type | Esempio | Note |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa |
-| metricName |string |"Latenza" |Nome della metrica |
+| resourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa |
+| metricName |stringa |"Latenza" |Nome della metrica |
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | average |INT |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi o percentuale, a seconda della metrica. |
 | minimum |INT |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi. |
 | maximum |INT |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi.  |
 | total |INT |258 |Il valore totale degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi.  |
 | count |INT |4 |Numero di metriche emesse da un nodo al log entro l'intervallo di un minuto.  |
-| timegrain |string |"PT1M" |Granularità temporale della metrica in ISO 8601. |
+| timegrain |stringa |"PT1M" |Granularità temporale della metrica in ISO 8601. |
 
 In genere, le query vengono eseguite in millisecondi, quindi solo le query che vengono misurate come secondi verranno visualizzate in metriche come query al secondo.
 

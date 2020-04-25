@@ -1,14 +1,14 @@
 ---
 title: Tipi di risorse Gestione risorse supportati
 description: Fornire un elenco dei tipi di risorse Gestione risorse supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.topic: reference
-ms.openlocfilehash: 021a0d595a34bc132aa0e67f2b5485ae9c321ef3
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116639"
+ms.locfileid: "82141888"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Riferimento al tipo di risorsa e alla tabella del grafico delle risorse di Azure
 
@@ -65,6 +65,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/configurazioni
 - Microsoft. Automation/automationaccounts/manuali operativi
+- Microsoft. autonomoussystems/Workspaces
 - Microsoft. azconfig/configurationstores
 - Microsoft. azureactivedirectory/b2cdirectories
 - Microsoft. azuredata/datacontrollers
@@ -104,6 +105,7 @@ Azure Resource Graph supporta i **tipi di risorse** [Azure Resource Manager](../
 - Microsoft. cognizione/syntheticsaccounts
 - Microsoft. cognitiveservices/accounts
 - Microsoft. Compute/availabilitysets
+- Microsoft. Compute/diskaccesses
 - Microsoft. Compute/diskencryptionsets
 - Microsoft. Compute/Disks
 - Microsoft. Compute/Galleries

@@ -1,48 +1,48 @@
 ---
-title: 'Endpoint HTTPS : Azure Marketplace'
-description: Configurare la gestione dei clienti potenziali per un endpoint HTTPS.
+title: Microsoft Commercial Marketplace Lead Management con HTTPS
+description: Configurare la gestione dei lead di Microsoft Commercial Marketplace per un endpoint HTTPS.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262614"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133744"
 ---
-# <a name="configure-lead-management-using-an-https-endpoint"></a>Configurare la gestione dei clienti potenziali usando un endpoint HTTPS
+# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Configurare la gestione dei lead tramite un endpoint HTTPS
 
->[!Note]
->Il connettore Power Automate utilizzato in queste istruzioni richiede una sottoscrizione a pagamento a Power Automate. Si prega di tenere conto di questo prima di seguire le istruzioni in questo documento.
+>[!NOTE]
+>Il connettore Power automatizzate usato in queste istruzioni richiede una sottoscrizione a pagamento per l'automazione dell'energia elettrica. Prima di seguire le istruzioni riportate in questo articolo, assicurarsi di tenere conto di questo problema.
 
-Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel Centro per i partner per la ricezione dei lead di Azure Marketplace e AppSource, è possibile usare un endpoint HTTPS in Power Automate per gestire questi lead. Con un endpoint HTTPS, questi lead possono essere inviati come notifica tramite posta elettronica o possono essere scritti in un sistema CRM (Customer Relationship Management) supportato da Power Automate. Le istruzioni contenute in questo articolo illustrano il processo di base per creare un nuovo flusso usando Power Automate, che genererà l'URL HTTP POST che verrà immesso nel portale di pubblicazione per il campo **URL dell'endpoint HTTPS** di Lead Management >. Inoltre, sono incluse le istruzioni su come testare il flusso con l'aiuto di uno strumento chiamato [Postman](https://www.getpostman.com/downloads/) che può essere trovato online.
+Se il sistema CRM (Customer Relationship Management) non è supportato in modo esplicito nel centro per i partner per ricevere Microsoft AppSource e i lead di Azure Marketplace, è possibile usare un endpoint HTTPS in Power automatizzate per gestire questi lead. Con un endpoint HTTPS, questi lead possono essere inviati come notifica tramite posta elettronica oppure possono essere scritti in un sistema CRM supportato da Power Automate. Le istruzioni riportate in questo articolo illustrano il processo di base per creare un nuovo flusso usando Power Automate, che genera l'URL http post che verrà immesso nel portale di pubblicazione per il campo dell'**URL dell'endpoint HTTPS** per la **gestione** > dei lead. Sono inoltre incluse istruzioni su come testare il flusso con l'ausilio di uno strumento denominato [post](https://www.getpostman.com/downloads/), disponibile online.
 
-## <a name="create-a-flow-using-power-automate"></a>Creare un flusso usando Power Automate
+## <a name="create-a-flow-by-using-power-automate"></a>Creare un flusso usando Power Automate
 
-1. Aprire la pagina Web di [Flow](https://flow.microsoft.com/). Seleziona **Accedi**o, se non hai già un account, seleziona **Iscriviti gratuitamente** per creare un account Flow gratuito.
+1. Aprire la pagina Web [Power automatizzate](https://flow.microsoft.com/) . Selezionare **Accedi**. Se non si dispone già di un account, selezionare **iscrizione gratuita** per creare un account di Power automatizzato gratuito.
 
-2. Accedere e selezionare **Flussi personali** nella barra dei menu.
+1. Accedere e selezionare **flussi personali** nel menu.
 
-3. Selezionare **"Automatico - da vuoto.**
+1. Selezionare **+ automatizzato--da zero**.
 
-    ![I miei flussi - automatizzati - da vuoto](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+    ![Flussi personali + automatizzato--da zero](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-4. Nella finestra *Crea flusso automatizzato* selezionare **Ignora**. 
+1. Nella finestra **Compila un flusso automatizzato** selezionare **Ignora**. 
 
-    ![Crea flusso automatizzato - Salta](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+    ![Pulsante per la creazione di una finestra di flusso automatica](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
 
-5. Nel campo **Cerca connettori e trigger** digitare "richiesta" per trovare il connettore di richiesta.
-6. In *Trigger* selezionare **Alla ricezione di una richiesta HTTP**. 
+1. Nel campo **Cerca connettori e trigger** immettere **richiesta** per trovare il connettore della richiesta.
+1. In **Trigger** selezionare **Alla ricezione di una richiesta HTTP**. 
 
-    ![connettore di richiesta - Trigger](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+    ![Menu trigger](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
 
-7. Nella casella di testo *Quando viene ricevuta una richiesta HTTP* copiare e incollare lo schema JSON riportato di seguito nella casella di testo Schema JSON corpo **richiesta.** Questo schema viene utilizzato da Microsoft per contenere i dati del lead.
+1. Nella finestra **quando viene ricevuta una richiesta http** , copiare e incollare lo schema JSON seguente nella casella di testo **dello schema JSON del corpo della richiesta** . Questo schema viene usato da Microsoft per contenere i dati dei lead.
 
-    ![connettore di richiesta - Trigger](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+    ![Casella di testo dello schema JSON del corpo della richiesta](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
 
     **Schema JSON**
 
@@ -103,121 +103,120 @@ Se il sistema CRM (Customer Relationship Management) non è supportato in modo e
     }
     ```
 
->[!Note]
->A questo punto della configurazione è possibile scegliere di connettersi a un sistema CRM o configurare una notifica di posta elettronica. Seguire le istruzioni rimanenti in base alla scelta.
+>[!NOTE]
+>A questo punto della configurazione è possibile scegliere di connettersi a un sistema CRM o configurare una notifica di posta elettronica. Seguire le istruzioni rimanenti in base alla scelta effettuata.
 
-### <a name="to-connect-to-a-crm-system"></a>Per connettersi a un sistema CRM
+### <a name="connect-to-a-crm-system"></a>Connettersi a un sistema CRM
 
 1. Selezionare **+ nuovo passaggio**.
-2. Scegliere il sistema CRM desiderato cercandolo nel punto in cui è indicato *Cerca connettori e azioni*e selezionarlo nella sezione *Azioni* con l'azione per creare un nuovo record. L'acquisizione schermo seguente mostra **Dynamics 365 - Crea** un nuovo record come esempio.
+1. Scegliere il sistema CRM di propria scelta eseguendo una ricerca nel punto in cui viene indicato i **connettori e le azioni di ricerca**. Selezionarlo nella scheda **azioni** con l'azione per creare un nuovo record. La schermata seguente mostra come esempio **creare un nuovo record (Dynamics 365)** .
 
     ![Crea un nuovo record](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
-3. Specificare il **nome dell'organizzazione** associato al sistema CRM. Selezionare **Leads** dall'elenco a discesa **Nome entità**.
+1. Specificare il **nome dell'organizzazione** associato al sistema CRM. Selezionare **Lead** dall'elenco a discesa **nome entità** .
 
     ![Selezionare i clienti potenziali](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
 
-4. Flow visualizza un modulo per l'immissione delle informazioni sui clienti potenziali. È possibile mappare gli elementi dalla richiesta di input scegliendo di aggiungere contenuto dinamico. L'acquisizione di schermata seguente mostra **OfferTitle** come esempio.
+1. Power automatizzate Mostra un modulo per fornire informazioni sui lead. È possibile mappare elementi dalla richiesta di input scegliendo di aggiungere contenuto dinamico. La schermata seguente mostra **OfferTitle** come esempio.
 
     ![Aggiungere contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mappare i campi prescelti e quindi selezionare **Salva** per salvare il flusso. Viene creato un URL HTTP POST ed è accessibile nella finestra *Quando viene ricevuta una richiesta HTTP.* Copiare questo URL utilizzando il controllo di copia che si trova a destra dell'URL HTTP POST - questo è importante in modo da non perdere per errore qualsiasi parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
+1. Eseguire il mapping dei campi desiderati e quindi selezionare **Save (Salva** ) per salvare il flusso. Un URL HTTP POST viene creato ed è accessibile nella finestra **quando viene ricevuta una richiesta http** . Copiare questo URL usando il controllo di copia, che si trova a destra dell'URL HTTP POST. L'uso del controllo Copy è importante, in modo da non perdere alcuna parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
 
-    ![Quando viene ricevuta una richiesta HTTP.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
+    ![Quando viene ricevuta una richiesta HTTP](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
-### <a name="to-set-up-email-notification"></a>Per configurare la notifica di posta elettronica
+### <a name="set-up-email-notification"></a>Configurare la notifica tramite posta elettronica
 
-1. Dopo aver completato lo schema JSON, selezionare **Nuovo passaggio**.
-2. In **Scegliere un'azione** selezionare **Azioni**.
-3. In **Azioni**selezionare **Invia un messaggio di posta elettronica (Office 365 Outlook)**.
+1. Ora che è stato completato lo schema JSON, selezionare **+ nuovo passaggio**.
+1. In **Scegliere un'azione** selezionare **Azioni**.
+1. Nella scheda **azioni** selezionare **Invia un messaggio di posta elettronica (Office 365 Outlook)**.
 
-    >[!Note]
-    >Se si desidera utilizzare una ricerca di un provider di posta elettronica diverso e selezionare Invia una *notifica tramite posta elettronica (Posta)* come azione.
+    >[!NOTE]
+    >Se si vuole usare un provider di posta elettronica diverso, cercare e selezionare **Invia una notifica di posta elettronica (mail)** come azione.
 
     ![Aggiungere un'azione di posta elettronica](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
-4. Nella finestra **Invia un messaggio di posta elettronica** configurare i seguenti campi obbligatori:
+1. Nella finestra **Invia un messaggio di posta elettronica** configurare i campi obbligatori seguenti:
 
-   - **A:** immettere almeno un indirizzo di posta elettronica valido, a cui verranno inviati i lead.
-   - **Oggetto**: Flow offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource** nell'acquisizione di schermata seguente. Iniziare digitando il nome di un campo seguito facendo clic sull'elenco di selezione Contenuto dinamico dalla finestra popup. 
+   - **Per**: immettere almeno un indirizzo di posta elettronica valido a cui verranno inviati i lead.
+   - **Oggetto**: Power automatizzate offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource** , come illustrato nella schermata seguente. Per iniziare, immettere un nome di campo. Selezionare quindi l'elenco di selezione contenuto dinamico dalla finestra popup. 
 
-        >[!Note] 
-        > Quando si aggiungono nomi di campo, è possibile seguire ciascuno con un ":" e quindi INVIO per creare una nuova riga. Una volta aggiunti i nomi dei campi, è possibile aggiungere ogni parametro associato dall'elenco di selezione dinamico.
+        >[!NOTE] 
+        > Quando si aggiungono i nomi dei campi, è possibile seguire ogni nome con i due punti (:) quindi premere **invio** per creare una nuova riga. Una volta aggiunti i nomi di campo, è possibile aggiungere ogni parametro associato dall'elenco di selezione dinamica.
 
-        ![Aggiungere un'azione di posta elettronica usando contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
+        ![Aggiungere un'azione di posta elettronica usando il contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Corpo:** dall'elenco di selezione Contenuto dinamico, aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica. Ad esempio, LastName, FirstName, Email e Company. <br> <br> Al termine della configurazione, la notifica di posta elettronica, avrà un aspetto simile all'esempio nell'acquisizione di schermata seguente.
+   - **Corpo**: dall'elenco di selezione contenuto dinamico aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica. Usare, ad esempio, LastName, FirstName, email e Company. Al termine della configurazione della notifica di posta elettronica, l'esempio sarà simile a quello riportato nella schermata seguente.
 
 
-       ![Aggiungere un'azione di posta elettronica](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
+       ![Esempio di notifica tramite posta elettronica](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Selezionare **Salva** per completare il flusso. Viene creato un URL HTTP POST ed è accessibile nella finestra *Quando viene ricevuta una richiesta HTTP.* Copiare questo URL utilizzando il controllo di copia che si trova a destra dell'URL HTTP POST - questo è importante in modo da non perdere per errore qualsiasi parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
+1. Selezionare **Salva** per completare il flusso. Un URL HTTP POST viene creato ed è accessibile nella finestra **quando viene ricevuta una richiesta http** . Copiare questo URL usando il controllo di copia, che si trova a destra dell'URL HTTP POST. L'uso di questo controllo è importante per evitare di perdere parte dell'intero URL. Salvare questo URL perché sarà necessario quando si configura la gestione dei lead nel portale di pubblicazione.
 
-   ![URL POST HTTP ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
+   ![URL POST HTTP](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
 ### <a name="testing"></a>Test
 
-È possibile verificare che tutto funzioni come previsto utilizzando i seguenti passaggi utilizzando uno strumento chiamato [Postman](https://app.getpostman.com/app/download/win64), che può essere scaricato online. Questa opzione è disponibile per Windows. 
+È possibile verificare che tutto funzioni come previsto usando uno strumento denominato [post](https://app.getpostman.com/app/download/win64), che può essere scaricato online. Questo strumento è disponibile per Windows. 
 
-1. Avviare Postman e selezionare **Nuova** > **richiesta** per impostare lo strumento di test. 
+1. Avviare il post e selezionare **nuova** > **richiesta** per configurare lo strumento di test. 
 
    ![Richiesta di configurazione dello strumento di test](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
-2. Compilare il modulo *Di richiesta* di salvataggio e quindi **salvare** nella cartella creata.
+1. Compilare il modulo **Salva richiesta** e quindi salvare nella cartella creata.
 
-   ![Salvare la richiesta](./media/commercial-marketplace-lead-management-instructions-https/postman-save-to-test.png)
+   ![Salva modulo di richiesta](./media/commercial-marketplace-lead-management-instructions-https/postman-save-to-test.png)
 
-3. Selezionare **POST** dall'elenco a discesa. 
+1. Selezionare **post** nell'elenco a discesa. 
 
-   ![Testare il flussoTest my flow](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
+   ![Testare il flusso](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Incollare l'URL HTTP POST dal flusso creato in Power Automate in cui è indicato *Immettere l'URL della richiesta*.
+1. Incollare l'URL HTTP POST dal flusso creato in Power automatizzate, in cui viene indicato **immettere l'URL della richiesta**.
 
    ![Incollare l'URL HTTP POST](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
-5. Tornare a [Flusso](https://flow.microsoft.com/) e trovare il flusso creato per inviare i lead, passando a **Flussi personali** dalla barra dei menu Flusso.  Selezionare i 3 puntini accanto al nome del flusso e selezionare **Modifica**.
+1. Tornare a [Power automatizzate](https://flow.microsoft.com/). Trovare il flusso creato per inviare i lead passando a **flussi personali** dalla barra dei menu di Power Automate. Selezionare i puntini di sospensione accanto al nome del flusso per visualizzare altre opzioni e selezionare **modifica**.
 
-   ![I miei flussi - Modifica](./media/commercial-marketplace-lead-management-instructions-https/my-flows-edit.png)
 
-6. Selezionare **Test** nell'angolo superiore destro, selezionare "Eseguirò l'azione trigger", quindi selezionare **Test**. Vedrai un'indicazione nella parte superiore dello schermo che indica che il test è iniziato
+1. Selezionare **test** nell'angolo in alto a destra, selezionare **eseguirò l'azione trigger**, quindi selezionare **test**. Verrà visualizzata un'indicazione nella parte superiore della schermata in cui è stato avviato il test.
 
-   ![Flusso di test - trigger](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
+   ![Eseguo l'opzione trigger Action](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 
-7. Tornare all'app Postman e selezionare **Invia** accanto alla posizione in cui è stato incollato l'URL HTTPS.
+1. Tornare all'app post, quindi selezionare **Send (Invia**).
 
-   ![Testare il flusso - InviaTest my flow - Send](./media/commercial-marketplace-lead-management-instructions-https/postman-send.png)
+   ![Pulsante Invia](./media/commercial-marketplace-lead-management-instructions-https/postman-send.png)
 
-8. Torna al tuo flusso e controlla il risultato. Se tutto funziona come previsto, verrà visualizzato un messaggio che indica che è stato eseguito correttamente.
+1. Tornare al flusso e verificare il risultato. Se tutto funziona come previsto, verrà visualizzato un messaggio che indica che il flusso è stato completato correttamente.
 
-   ![Flusso - Controlla i risultati](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
+   ![Controllare i risultati](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
 
-9. Avresti dovuto anche ricevere un'e-mail. Controlla la tua casella di posta elettronica. 
+1. Si dovrebbe ricevere anche un messaggio di posta elettronica. Controllare la posta in arrivo. 
 
-    >[!Note] 
-    >Se non vedi un'email del test, controlla le cartelle di spam e posta indesiderata. Qui di seguito si noterà solo le etichette dei campi che hai aggiunto quando si configura la notifica e-mail. Se si trattasse di un lead effettivo generato dall'offerta, è necessario visualizzare anche le informazioni effettive del contatto del lead nel corpo e nella riga Oggetto.
+    >[!NOTE] 
+    >Se non viene visualizzato un messaggio di posta elettronica dal test, controllare le cartelle della posta indesiderata. Nella schermata seguente si noteranno solo le etichette di campo aggiunte al momento della configurazione della notifica tramite posta elettronica. Se si trattasse di un lead effettivo generato dall'offerta, si vedranno anche le informazioni effettive del contatto lead nel corpo e nella riga dell'oggetto.
 
-   ![E-mail ricevuta](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
+   ![Posta elettronica ricevuta](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Configurare l'offerta per inviare clienti potenziali all'endpoint HTTPS
 
-Quando si è pronti a configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, attenersi alla seguente procedura:
+Quando si è pronti per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione, seguire questa procedura.
 
-1. Accedi alla pagina **Configurazione offerta** per la tua offerta.
-2. Selezionare **Connetti** nella sezione Gestione lead.
-3. Nella finestra popup Dettagli connessione selezionare **Endpoint HTTPS** per Destinazione **lead** e incollare l'URL HTTP POST dal flusso creato seguendo i passaggi precedenti nel campo URL **endpoint HTTPS.**
-4. **Email di contatto:** fornisci email alle persone della tua azienda che devono ricevere notifiche e-mail quando viene ricevuto un nuovo lead. È possibile fornire più messaggi di posta elettronica separandoli con un punto e virgola.
-5. Selezionare **OK**.
+1. Passare alla pagina di **installazione dell'offerta** per l'offerta.
+1. Selezionare **Connetti** nella sezione **gestione dei lead** .
+1. Nella finestra popup **Dettagli connessione** selezionare **endpoint HTTPS** per la **destinazione principale**. Incollare l'URL HTTP POST dal flusso creato seguendo i passaggi precedenti nel campo **URL endpoint HTTPS** .
+1. In **Contact email**immettere gli indirizzi di posta elettronica per gli utenti della società che devono ricevere notifiche tramite posta elettronica quando viene ricevuto un nuovo lead. È possibile specificare più messaggi di posta elettronica separandoli con un punto e virgola.
+1. Fare clic su **OK**.
 
-Per assicurarsi di aver eseguito correttamente la connessione a una destinazione lead, fare clic sul pulsante di convalida. In caso di esito positivo, si avrà un lead di test nella destinazione del lead.
+Per assicurarsi di avere effettuato la connessione a una destinazione principale, selezionare il pulsante **convalida** . In caso di esito positivo, sarà presente un lead di test nella destinazione principale.
 
->[!Note] 
+>[!NOTE] 
 >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.
 
-Quando vengono generati i clienti potenziali, Microsoft li invia al flusso, che viene instradato al sistema CRM o all'indirizzo e-mail configurato.
+Quando vengono generati i lead, Microsoft invia lead al flusso. I lead vengono indirizzati al sistema CRM o all'indirizzo di posta elettronica configurati.
 
-![Gestione dei lead - connessione](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+![Pulsante Connetti Gestione lead](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
 
-![Dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
+![Destinazione lead dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Dettagli della connessione](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+![Indirizzo di posta elettronica contatto dettagli connessione](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

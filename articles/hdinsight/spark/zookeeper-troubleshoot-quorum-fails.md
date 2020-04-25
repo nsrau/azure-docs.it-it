@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41ac109e5c5379e6085dd57a3fcd8119915558fb
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250229"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133280"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper server non riesce a creare un quorum in Azure HDInsight
 
@@ -42,11 +42,11 @@ Quando il volume dei file di snapshot è di grandi dimensioni o i file di snapsh
 
 Controllare la directory `/hadoop/zookeeper/version-2` dei dati `/hadoop/hdinsight-zookeeper/version-2` di ZooKeeper e per verificare se le dimensioni del file degli snapshot sono elevate. Se sono presenti snapshot di grandi dimensioni, seguire questa procedura:
 
-1. Eseguire il backup degli snapshot `/hadoop/zookeeper/version-2` in `/hadoop/hdinsight-zookeeper/version-2`e.
+1. Verificare lo stato di altri server ZooKeeper nello stesso quorum per assicurarsi che funzionino correttamente con il comando "`echo stat | nc {zk_host_ip} 2181 (or 2182)`".  
 
-1. Pulire gli snapshot in `/hadoop/zookeeper/version-2` e. `/hadoop/hdinsight-zookeeper/version-2`
+1. Accedere all'host ZooKeeper problematico, eseguire il backup degli snapshot e `/hadoop/zookeeper/version-2` dei `/hadoop/hdinsight-zookeeper/version-2`log delle transazioni in e quindi pulire i file nelle due directory. 
 
-1. Riavviare tutti i server ZooKeeper dall'interfaccia utente di Apache Ambari.
+1. Riavviare il server ZooKeeper problematico in Ambari o nell'host ZooKeeper. Riavviare quindi il servizio con problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

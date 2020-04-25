@@ -1,54 +1,54 @@
 ---
-title: Abilitare e usare i log di diagnostica di Azure BastionEnable and work with Azure Bastion diagnostic logs
-description: In questo articolo viene illustrato come abilitare e usare i log di diagnostica di Azure Bastion.In this article, learn how to enable and work with Azure Bastion diagnostic logs.
+title: Abilitare e usare i log delle risorse di Azure Bastion
+description: Questo articolo illustra come abilitare e usare i log di diagnostica di Azure Bastion.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619270"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131267"
 ---
-# <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Abilitare e utilizzare i log di diagnostica di BastionEnable and work with Bastion diagnostic logs
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Abilitare e usare i log delle risorse Bastion
 
-Quando gli utenti si connettono ai carichi di lavoro usando Azure Bastion, Bastion può registrare la diagnostica delle sessioni remote. È quindi possibile usare la diagnostica per visualizzare gli utenti connessi a i carichi di lavoro, a quale ora, da dove e altre informazioni di registrazione pertinenti. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. Questo articolo consente di abilitare i log di diagnostica e quindi visualizzare i log.
+Poiché gli utenti si connettono ai carichi di lavoro con Azure Bastion, Bastion può registrare la diagnostica delle sessioni remote. È quindi possibile usare la diagnostica per visualizzare gli utenti connessi ai carichi di lavoro, al momento, da dove e altre informazioni di registrazione rilevanti. Per usare la diagnostica, è necessario abilitare i log di diagnostica in Azure Bastion. Questo articolo consente di abilitare i log di diagnostica e di visualizzare i log.
 
-## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Abilitare il log di diagnosticaEnable the diagnostics log
+## <a name="enable-the-resource-log"></a><a name="enable"></a>Abilitare il log delle risorse
 
-1. Nel [portale di Azure](https://portal.azure.com)passare alla risorsa Bastion di Azure e selezionare **Impostazioni di diagnostica** nella pagina Bastione di Azure.In the Azure portal , navigate to your Azure Bastion resource and select Diagnostics settings from the Azure Bastion page.
+1. Nella [portale di Azure](https://portal.azure.com)passare alla risorsa di Azure Bastion e selezionare impostazioni di **diagnostica** dalla pagina del Bastion di Azure.
 
    ![impostazioni di diagnostica](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Selezionare **Impostazioni di diagnostica**, quindi selezionare Aggiungi **impostazione di diagnostica** per aggiungere una destinazione per i log.
+2. Selezionare **impostazioni di diagnostica**, quindi selezionare **+ Aggiungi** impostazioni di diagnostica per aggiungere una destinazione per i log.
 
-   ![aggiungere l'impostazione diagnostica](./media/diagnostic-logs/2add-diagnostic-setting.png)
-3. Nella pagina **Impostazioni di diagnostica** selezionare il tipo di account di archiviazione da usare per l'archiviazione dei log di diagnostica.
+   ![Aggiungi impostazione di diagnostica](./media/diagnostic-logs/2add-diagnostic-setting.png)
+3. Nella pagina **impostazioni di diagnostica** selezionare il tipo di account di archiviazione da usare per l'archiviazione dei log di diagnostica.
 
-   ![selezionare la posizione di archiviazione](./media/diagnostic-logs/3add-storage-account.png)
-4. Una volta completate le impostazioni, sarà simile a questo esempio:When you complete the settings, it will look similar to this example:
+   ![Selezionare il percorso di archiviazione](./media/diagnostic-logs/3add-storage-account.png)
+4. Una volta completate le impostazioni, l'aspetto sarà simile a questo esempio:
 
    ![impostazioni di esempio](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view-diagnostics-log"></a><a name="view"></a>Visualizzare il registro di diagnosticaView diagnostics log
+## <a name="view-diagnostics-log"></a><a name="view"></a>Visualizza log di diagnostica
 
 Per accedere ai log di diagnostica, è possibile usare direttamente l'account di archiviazione specificato durante l'abilitazione delle impostazioni di diagnostica.
 
-1. Passare alla risorsa dell'account di archiviazione, quindi a **Contenitori**. Viene visualizzato il BLOB **insights-logs-bastionauditlogs** creato nel contenitore BLOB dell'account di archiviazione.
+1. Passare alla risorsa dell'account di archiviazione e quindi ai **contenitori**. Viene visualizzato il BLOB **Insights-logs-bastionauditlogs** creato nel contenitore BLOB dell'account di archiviazione.
 
    ![impostazioni di diagnostica](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. Mentre navighi all'interno del contenitore, vedrai varie cartelle nel tuo blog. Queste cartelle indicano la gerarchia di risorse per la risorsa Bastione di Azure.These folders indicate the resource hierarchy for your Azure Bastion resource.
+2. Quando ci si sposta all'interno del contenitore, nel Blog vengono visualizzate diverse cartelle. Queste cartelle indicano la gerarchia delle risorse per la risorsa di Azure Bastion.
 
-   ![aggiungere l'impostazione diagnostica](./media/diagnostic-logs/2-resource-h.png)
-3. Passare alla gerarchia completa della risorsa di Azure Bastion di cui si desidera accedere/visualizzare la diagnostica. I valori 'y'' , 'm', 'd', 'h' e 'm' indicano rispettivamente l'anno, il mese, il giorno, l'ora e i minuti per i log di diagnostica.
+   ![Aggiungi impostazione di diagnostica](./media/diagnostic-logs/2-resource-h.png)
+3. Passare alla gerarchia completa della risorsa di Azure Bastion i cui log di diagnostica si vuole accedere/visualizzare. ' Y =',' m'=',' d'=',' h =' è m'=' indicano rispettivamente l'anno, il mese, il giorno, l'ora e il minuto per i log delle risorse.
 
-   ![selezionare la posizione di archiviazione](./media/diagnostic-logs/3-resource-location.png)
-4. Individuare il file json creato da Azure Bastion che contiene i dati del log di diagnostica per il periodo di tempo in cui ci si è spostati.
+   ![Selezionare il percorso di archiviazione](./media/diagnostic-logs/3-resource-location.png)
+4. Individuare il file JSON creato da Azure Bastion che contiene i dati del log di diagnostica per il periodo di tempo a cui si è passati.
 
-5. Scaricare il file json dal contenitore del BLOB di archiviazione. Una voce di esempio dal file json è mostrata di seguito per riferimento:An example entry from the json file is shown below for reference:
+5. Scaricare il file JSON dal contenitore BLOB di archiviazione. Di seguito è riportata una voce di esempio del file JSON per riferimento:
 
    ```json
    { 
@@ -79,4 +79,4 @@ Per accedere ai log di diagnostica, è possibile usare direttamente l'account di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggi le domande frequenti sul [Bastione](bastion-faq.md).
+Leggere le [domande frequenti su Bastion](bastion-faq.md).

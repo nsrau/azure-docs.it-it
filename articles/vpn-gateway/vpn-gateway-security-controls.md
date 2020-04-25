@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6fc5b4c901254decdb2d34281a10ababd4d79d45
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972286"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127863"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Controlli di sicurezza per il gateway VPN di Azure
 
@@ -21,7 +21,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel gateway VPN di
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-## <a name="network"></a>Network
+## <a name="network"></a>Rete
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
@@ -34,9 +34,9 @@ Questo articolo descrive i controlli di sicurezza incorporati nel gateway VPN di
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Vedere [log di diagnostica di monitoraggio di Azure/avvisi](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & /[metriche di monitoraggio di Azure](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Vedere avviso [log](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & di monitoraggio di Azure-[avviso metriche di monitoraggio di Azure](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Registrazione e controllo del piano di gestione e controllo| Sì | Azure Resource Manager log attività. |
-| Registrazione e controllo del piano dati | Sì | [Log di diagnostica di monitoraggio di Azure](../azure-resource-manager/management/view-activity-logs.md) per la registrazione e il controllo della connettività VPN. |
+| Registrazione e controllo del piano dati | Sì | [Log attività di monitoraggio di Azure](../azure-resource-manager/management/view-activity-logs.md) per la registrazione e il controllo della connettività VPN. |
 
 ## <a name="identity"></a>Identità
 

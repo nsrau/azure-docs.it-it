@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477562"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137456"
 ---
 # <a name="linear-regression-module"></a>Modulo di regressione lineare
 Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
@@ -127,9 +127,19 @@ Al termine del training:
 10. Per il valore di **inizializzazione del numero casuale**, è possibile digitare facoltativamente un valore per inizializzare il generatore di numeri casuali usato dal modello. L'uso di un valore di inizializzazione è utile se si desidera mantenere gli stessi risultati in esecuzioni diverse della stessa pipeline.
 
 
-12. Aggiungere un set di dati con etichetta e uno dei moduli di training.
+12. Eseguire il training del modello:
 
-    Se non si usa uno sweep di parametri, usare il modulo [Train Model](train-model.md) .
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se si passa un intervallo di parametri a [Training Model](train-model.md), viene utilizzato solo il valore predefinito nell'elenco di parametri singoli.  
+    > 
+    > Se si passa un singolo set di valori di parametro al modulo [Tune Model iperparameters](tune-model-hyperparameters.md) , quando si prevede un intervallo di impostazioni per ogni parametro, i valori vengono ignorati e vengono usati i valori predefiniti per lo Learner.  
+    > 
+    > Se si seleziona l'opzione **Parameter range** e si immette un solo valore per qualsiasi parametro, il singolo valore specificato viene usato durante lo sweep, anche se altri parametri cambiano in un intervallo di valori.
 
 13. Inviare la pipeline.
 

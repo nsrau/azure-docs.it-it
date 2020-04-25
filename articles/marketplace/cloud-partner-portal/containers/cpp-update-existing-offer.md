@@ -1,5 +1,5 @@
 ---
-title: Aggiornare un'offerta di contenitori di Azure esistente. Azure Marketplace
+title: Aggiornare un'offerta di contenitori di Azure esistente | Azure Marketplace
 description: Informazioni su come aggiornare l'offerta di un contenitore esistente in Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 650ef45e56184b67efba67810580d9d6e763a4d0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: cc378dcc1d5f777f4e81825e2f99dedd37a87f96
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271268"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143812"
 ---
 # <a name="update-an-existing-container-offer"></a>Aggiornare l'offerta di un contenitore esistente
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Contenitore di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di contenitore](https://aka.ms/CreateContainerOffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del contenitore di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Seguire le istruzioni riportate in [creare un'offerta di contenitore di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) per gestire le offerte migrate.
 
 Questo articolo illustra i diversi aspetti dell'aggiornamento dell'offerta del contenitore nel [portale Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -70,12 +70,12 @@ Per aggiornare i metadati del marketplace associati all'offerta, seguire questa 
 
 1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 2. In **Tutte le offerte** trovare l'offerta che si vuole aggiornare.
-3. Passare alla scheda **Marketplace.** [Publish container offer](./cpp-publish-offer.md)
+3. Passare alla scheda **Marketplace** . per apportare modifiche ai metadati, seguire le istruzioni disponibili nell'articolo pubblicare l'offerta del [contenitore](./cpp-publish-offer.md) .
 4. Selezionare **Pubblica** per avviare il flusso di lavoro per pubblicare le modifiche.
 
 ## <a name="compare-feature"></a>Funzionalità Confronta
 
-Quando si apportano modifiche a un'offerta pubblicata, è possibile utilizzare la funzionalità **Confronta** per controllare le modifiche apportate.
+Quando si apportano modifiche a un'offerta pubblicata, è possibile usare la funzionalità di **confronto** per controllare le modifiche apportate.
 
 ### <a name="to-use-the-compare-feature"></a>Per usare la funzionalità Confronta:
 

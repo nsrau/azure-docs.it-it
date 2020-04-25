@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01704030ee3142cac9a328e1a3edc024651919a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67605224"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127916"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurare gli avvisi per le metriche del gateway VPN
 
@@ -71,4 +71,4 @@ L'esempio seguente illustra come creare un avviso su un gateway per:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare gli avvisi per i log di diagnostica del tunnel, vedere [configurare gli avvisi nei log di diagnostica del gateway VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Per configurare gli avvisi per i log delle risorse del tunnel, vedere [configurare gli avvisi nei log delle risorse del gateway VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

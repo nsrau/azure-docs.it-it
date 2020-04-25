@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74133425"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131182"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
 Questo articolo descrive come monitorare i computer replicati da Azure [Site Recovery](site-recovery-overview.md), usando i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md)e [log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
-I log di monitoraggio di Azure offrono una piattaforma di dati di log che raccoglie attività e log di diagnostica, oltre ad altri dati di monitoraggio. Nei log di monitoraggio di Azure è possibile usare Log Analytics per scrivere e testare le query di log e per analizzare in modo interattivo i dati di log. È possibile visualizzare ed eseguire query sui risultati del log e configurare gli avvisi per eseguire azioni in base ai dati monitorati.
+I log di monitoraggio di Azure offrono una piattaforma di dati di log che raccoglie le attività e i log delle risorse, insieme ad altri dati di monitoraggio. Nei log di monitoraggio di Azure è possibile usare Log Analytics per scrivere e testare le query di log e per analizzare in modo interattivo i dati di log. È possibile visualizzare ed eseguire query sui risultati del log e configurare gli avvisi per eseguire azioni in base ai dati monitorati.
 
 Per Site Recovery, è possibile usare i log di monitoraggio di Azure per eseguire le operazioni seguenti:
 
@@ -36,7 +36,7 @@ Ecco gli elementi necessari:
 
 - Almeno un computer protetto in un insieme di credenziali di servizi di ripristino.
 - Area di lavoro Log Analytics per archiviare i log di Site Recovery. Informazioni sulla configurazione di un'area [di](../azure-monitor/learn/quick-create-workspace.md) lavoro.
-- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/get-started-portal.md)
+- Conoscenza di base di come scrivere, eseguire e analizzare le query del log in Log Analytics. [Altre informazioni](../azure-monitor/log-query/get-started-portal.md).
 
 Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più comuni](monitoring-common-questions.md) .
 
@@ -44,7 +44,7 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
 
 1. Nell'insieme di credenziali fare clic su **Impostazioni** > di diagnostica Aggiungi impostazioni di**diagnostica**.
 
-    ![Selezione registrazione diagnostica](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Selezionare la registrazione delle risorse](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. In **impostazioni di diagnostica**specificare un nome e selezionare la casella **Invia a log Analytics**.
 3. Selezionare la sottoscrizione dei log di monitoraggio di Azure e l'area di lavoro Log Analytics.

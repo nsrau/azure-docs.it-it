@@ -7,14 +7,8 @@
       href: Overview.md
 - name: Avvi rapidi
   items:
-    - name: Uso dell'SDK client
-      items:
-        - name: .NET SDK
-          href: Quickstarts/csharp-sdk.md
-        - name: Python SDK
-          href: QuickStarts/python-sdk.md
-        - name: Go SDK
-          href: QuickStarts/go-sdk.md
+    - name: Uso della libreria client
+      href: Quickstarts/client-libraries.md
     - name: Utilizzo dell'API REST
       items:
         - name: Rilevare i visi in un'immagine
@@ -79,7 +73,7 @@
           href: face-resource-container-config.md
         - name: Usare istanze di contenitore
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Viso
       href: APIReference.md
@@ -111,7 +105,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

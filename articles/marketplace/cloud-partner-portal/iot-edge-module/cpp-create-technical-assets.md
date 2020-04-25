@@ -1,5 +1,5 @@
 ---
-title: Creazione di asset tecnici del modulo Azure IoT Edge Azure Marketplace
+title: Creare asset tecnici del modulo Azure IoT Edge | Azure Marketplace
 description: Creare gli asset tecnici per un modulo IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b36d03695c107054549fba716f4cc27ecb7bba26
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1a523872bb15981958eeb1678caa1d911a9cbbba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983484"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142400"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte del modulo IoT Edge al Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta del modulo IoT Edge](https://aka.ms/AzureIoTTechAsset) per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte del modulo IoT Edge al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di modulo IOT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset) .
 
 Questo articolo descrive i requisiti che devono soddisfare gli asset tecnici del modulo IoT Edge prima della pubblicazione in Azure Marketplace.
 
@@ -41,7 +41,7 @@ Il modulo IoT Edge deve supportare una delle opzioni di piattaforma seguenti.
 Supporto per tutte le piattaforme di livello 1 supportate da IoT Edge (registrate nel [supporto di Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Questa è l'opzione consigliata, poiché offre un'esperienza utente di livello superiore. Vengono presentati i moduli che soddisfano questi criteri. Un modulo che usa questa opzione di piattaforma deve:
 
 - Specificare un tag `latest` e un tag di versione (ad esempio, `1.0.1`), ovvero tag di manifesto creati con [manifest-tool](https://github.com/estesp/manifest-tool) di GitHub.
-- Usare la [scheda Marketplace](./cpp-marketplace-tab.md) per aggiungere un collegamento ai [dispositivi con certificazione IoT Edge compatibili](https://aka.ms/iot-edge-certified). Questo collegamento viene risolto in `https://aka.ms/iot-edge-certified`, un sito Web in cui i clienti possono esplorare o cercare i dispositivi certificati. Questo sito Web è noto anche come catalogo dei dispositivi [con certificazione Azure IoT Edge](https://catalog.azureiotsolutions.com/).
+- Usare la [scheda Marketplace](./cpp-marketplace-tab.md) per aggiungere un collegamento a [IOT Edge certificato](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}), un sito Web in cui i clienti possono sfogliare o cercare i dispositivi certificati. Questo sito Web è noto anche come catalogo dei dispositivi [con certificazione Azure IoT Edge](https://catalog.azureiotsolutions.com/).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Subset di piattaforme di livello 1 supportate da IoT Edge
   
@@ -70,9 +70,9 @@ Include anche le impostazioni di configurazione predefinite per rendere la distr
 I moduli IoT Edge devono iniziare con le impostazioni predefinite indicate nella [scheda SKU del portale Cloud Partner](./cpp-skus-tab.md). Sono disponibili le impostazioni predefinite seguenti:
 
 - Default **routes** (Route predefinite)
-- Proprietà **predefinite doppie desiderate**
-- Variabili **di ambiente** predefinite
-- CreazionePredefinita **predefinita**
+- **Proprietà desiderate del dispositivo gemello** predefinito
+- **Variabili di ambiente** predefinite
+- **CreateOptions** predefinito
 
 In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), aggiungere un parametro come valore predefinito. Questo valore è racchiuso tra parentesi quadre e indicato in caratteri maiuscoli. Per questo esempio viene configurata la variabile di ambiente predefinita seguente:
 
@@ -82,11 +82,11 @@ In uno scenario in cui un parametro obbligatorio per un valore predefinito non h
 
 #### <a name="configuration-documentation"></a>Documentazione della configurazione
 
-Tutte le impostazioni di configurazione di un modulo IoT Edge devono essere chiaramente documentate (come usare le route, le proprietà desiderate gemelle, le variabili di ambiente, createOptions e così via). Fornire un collegamento alla documentazione o la documentazione deve far parte della descrizione dell'offerta/sku.
+Tutte le impostazioni di configurazione di un modulo di IoT Edge devono essere chiaramente documentate (come usare le route, le proprietà desiderate del dispositivo gemello, le variabili di ambiente, createOptions e così via). Fornire un collegamento alla documentazione o la documentazione deve far parte della descrizione dell'offerta o dello SKU.
 
 ### <a name="tags-and-versioning"></a>Tag e controllo delle versioni
 
-I clienti devono essere in grado di distribuire facilmente un modulo e ottenere automaticamente gli aggiornamenti dal marketplace (in uno scenario per sviluppatori). Devono inoltre essere in grado di utilizzare e bloccare una versione esatta che hanno testato (in uno scenario di produzione).
+I clienti devono essere in grado di distribuire facilmente un modulo e ottenere automaticamente gli aggiornamenti dal Marketplace (in uno scenario di sviluppo). Devono inoltre essere in grado di utilizzare e bloccare una versione esatta testata (in uno scenario di produzione).
 
 Per soddisfare queste aspettative del cliente ed essere pubblicati nel marketplace, i moduli IoT Edge devono soddisfare i requisiti seguenti:
 

@@ -2,19 +2,19 @@
 title: Come usare Hudson con l'archiviazione BLOB | Microsoft Docs
 description: Descrive come usare Hudson con l'archiviazione BLOB di Azure come archivio per gli elementi di compilazione.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: tarcher
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3b76e9ded7031ce104df9251a851e5e8e430ee4
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77201386"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133776"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
 ## <a name="overview"></a>Panoramica

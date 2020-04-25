@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116707"
+ms.locfileid: "82141938"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrare il bus di servizio di Azure con collegamento privato di Azure (anteprima)
 
@@ -25,7 +25,7 @@ Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../pr
 >[!WARNING]
 > L'implementazione di endpoint privati può impedire ad altri servizi di Azure di interagire con il bus di servizio.
 >
-> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
+> I servizi Microsoft attendibili non sono supportati quando si usano reti virtuali.
 >
 > Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
 > - Integrazione con Griglia di eventi di Azure
@@ -85,7 +85,7 @@ Se si dispone già di uno spazio dei nomi esistente, è possibile creare un endp
         
             ![Crea endpoint privato-pagina delle risorse](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Se si seleziona **Connetti a una risorsa di Azure in base all'ID risorsa o alias**, seguire questa procedura:
-        1. Immettere l' **ID risorsa** o l' **alias**. Può trattarsi dell'ID risorsa o dell'alias che alcuni hanno condiviso con l'utente.
+        1. Immettere l' **ID risorsa** o l' **alias**. Può trattarsi dell'ID risorsa o dell'alias che qualcuno ha condiviso con l'utente. Il modo più semplice per ottenere l'ID risorsa è passare allo spazio dei nomi del bus di servizio nel portale di Azure e copiare la parte dell'URI `/subscriptions/`a partire da. Per un esempio, vedere la figura seguente. 
         2. Per **risorsa secondaria di destinazione**immettere **spazio dei nomi**. È il tipo della sottorisorsa a cui l'endpoint privato può accedere. 
         3. opzionale Immettere un **messaggio di richiesta**. Il proprietario della risorsa Visualizza questo messaggio durante la gestione della connessione all'endpoint privato. 
         4. Quindi, fare clic su **Next: Configuration >** pulsante nella parte inferiore della pagina. 

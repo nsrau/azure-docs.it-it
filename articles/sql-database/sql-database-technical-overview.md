@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411165"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133247"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -99,7 +99,7 @@ Il database SQL di Azure offre funzionalità avanzate di monitoraggio e risoluzi
 
 [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), una funzionalità predefinita di monitoraggio SQL Server, registra le prestazioni delle query in tempo reale e consente di identificare i potenziali problemi di prestazioni e i principali consumer di risorse. Le indicazioni e l'ottimizzazione automatica forniscono consigli sulle query con prestazioni regressioni e indici mancanti o duplicati. L'ottimizzazione automatica nel database SQL consente di applicare manualmente gli script che possono risolvere i problemi o consentire al database SQL di applicare la correzione. Il database SQL può anche testare e verificare che la correzione offra un certo vantaggio e mantenere o annullare la modifica a seconda del risultato. Oltre a Query Store e alle funzionalità di ottimizzazione automatica, è possibile usare [DMV e XEvent](sql-database-monitoring-with-dmvs.md) standard per monitorare le prestazioni del carico di lavoro.
 
-Azure offre strumenti [integrati di monitoraggio delle prestazioni](sql-database-performance-guidance.md) e [avvisi](sql-database-insights-alerts-portal.md) , combinati con valutazioni delle prestazioni, che consentono di monitorare lo stato di migliaia di database. Grazie a questi strumenti, è possibile valutare rapidamente l'effetto della scalabilità verso l'alto o verso il basso, in base alle esigenze di prestazioni correnti o proiettate. Database SQL può anche [generare log di metrica e diagnostica](sql-database-metrics-diag-logging.md) per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
+Azure offre strumenti [integrati di monitoraggio delle prestazioni](sql-database-performance-guidance.md) e [avvisi](sql-database-insights-alerts-portal.md) , combinati con valutazioni delle prestazioni, che consentono di monitorare lo stato di migliaia di database. Grazie a questi strumenti, è possibile valutare rapidamente l'effetto della scalabilità verso l'alto o verso il basso, in base alle esigenze di prestazioni correnti o proiettate. Inoltre, il database SQL può [emettere metriche e log delle risorse](sql-database-metrics-diag-logging.md) per semplificare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
 
 - **Archiviazione di Azure**: per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente.
 - **Hub eventi di Azure**: per l'integrazione dei dati di telemetria del database SQL con la soluzione di monitoraggio personalizzata o le pipeline sensibili.

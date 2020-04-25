@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: eb8e06370ecbe2b104a19c4e420b5d3ae013a00e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116316"
+ms.locfileid: "82127575"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -40,6 +40,23 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
 
 ## <a name="installation-and-import"></a>Installazione e importazione
 
+* **Installazione PIP: le dipendenze non sono necessariamente coerenti con l'installazione di una sola riga**: 
+
+   Si tratta di un limite noto di PIP, in quanto non dispone di un resolver di dipendenza funzionante quando si installa come una singola riga. La prima dipendenza univoca è l'unica che esamina. 
+
+   Nel codice `azure-ml-datadrift` seguente e `azureml-train-automl` sono entrambi installati usando un'installazione PIP a riga singola. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   Per questo esempio, supponiamo che `azure-ml-datadrift` sia richiesta la versione > `azureml-train-automl` 1,0 e che sia richiesta la versione < 1,2. Se la versione più recente `azure-ml-datadrift` di è 1,3, entrambi i pacchetti vengono aggiornati a 1,3, indipendentemente dal `azureml-train-automl` requisito del pacchetto per una versione precedente. 
+
+   Per assicurarsi che le versioni appropriate siano installate per i pacchetti, installare usando più righe, come nel codice seguente. L'ordine non è un problema, poiché PIP esegue il downgrade esplicito come parte della chiamata alla riga successiva. Quindi, vengono applicate le dipendenze della versione appropriate.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
 * **Messaggio di errore: Impossibile installare "PyYAML"**
 
     Azure Machine Learning SDK per Python: PyYAML è un `distutils` progetto installato. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
@@ -83,20 +100,6 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
     * Aggiungere `azureml-dataprep` la versione 1.1.8 o successiva.
     * Aggiungere `pyarrow` la versione 0,11 o successiva.
     
-* **Installazione PIP: non è garantito che Dependecies sia coerente con l'installazione di una sola riga**: si tratta di un limite noto di PIP poiché non dispone di un resolver di dipendenza funzionante quando si installa come una singola riga. La prima dipendenza univoca è l'unica che esamina. Ad esempio, se si installa Azure-ml-datadrift che richiede la versione > 1,0 e azureml-Train-automl che richiede la versione < 1,2 e se la versione più recente è 1,3, quando l'utente installa i pacchetti in una singola riga come illustrato di seguito, tutto viene aggiornato a 1,3 anche se il pacchetto azureml-Train-automl richiede una versione precedente. 
-
-    * Si noterà dependecies incoerenti con l'installazione di una sola riga.
-    ```python
-       pip install azure-ml-datadrift, azureml-train-automl
-     ```
-   
-    * Per assicurarsi che le versioni appropriate siano installate per i pacchetti, installare usando più righe, come nel codice seguente. L'ordine non è rilevante.
-    
-     ```python
-        pip install azure-ml-datadrift
-        pip install azureml-train-automl 
-     ```
-     
 ## <a name="create-and-manage-workspaces"></a>Creare e gestire aree di lavoro
 
 > [!WARNING]
@@ -104,7 +107,7 @@ Informazioni sulle [quote di risorse](how-to-manage-quotas.md) che si potrebbero
 
 * **Portale di Azure**: se si passa direttamente a visualizzare l'area di lavoro da un collegamento di condivisione dall'SDK o dal portale, non sarà possibile visualizzare la pagina **Panoramica** normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
 
-## <a name="set-up-your-environment"></a>Configura il tuo ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 * **Problemi di creazione di AmlCompute**: esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 

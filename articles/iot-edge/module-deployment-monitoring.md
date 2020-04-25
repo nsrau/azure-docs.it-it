@@ -8,18 +8,18 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76895973"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127596"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni automatiche IoT Edge per singoli dispositivi o su vasta scala
 
 Le distribuzioni automatiche e la distribuzione su più livelli consentono di gestire e configurare moduli su un numero elevato di dispositivi IoT Edge.
 
-Azure IoT Edge offre due modi per configurare i moduli da eseguire nei dispositivi IoT Edge. Il primo metodo consiste nel distribuire i moduli per ogni singolo dispositivo. Si crea un manifesto di distribuzione e quindi lo si applica a un determinato dispositivo in base al nome. Il secondo metodo consiste nel distribuire automaticamente i moduli a qualsiasi dispositivo registrato che soddisfi un set di condizioni definite. Si crea un manifesto di distribuzione e quindi si definiscono i dispositivi a cui si applicano in base ai [tag](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) nel dispositivo gemello.
+Azure IoT Edge offre due modi per configurare i moduli da eseguire nei dispositivi IoT Edge. Il primo metodo consiste nel distribuire i moduli per ogni singolo dispositivo. Si crea un manifesto di distribuzione e quindi lo si applica a un determinato dispositivo in base al nome. Il secondo metodo consiste nel distribuire automaticamente i moduli a qualsiasi dispositivo registrato che soddisfi un set di condizioni definite. Si crea un manifesto di distribuzione e quindi si definiscono i dispositivi a cui si applicano in base ai [tag](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) nel dispositivo gemello.
 
 Questo articolo è incentrato sulla configurazione e il monitoraggio di flotte di dispositivi, chiamati collettivamente *IOT Edge distribuzioni automatiche*.I passaggi di base per la distribuzione sono i seguenti:
 
@@ -28,7 +28,7 @@ Questo articolo è incentrato sulla configurazione e il monitoraggio di flotte d
 3. Il servizio Hub IoT recupera informazioni sullo stato dai dispositivi IoT Edge e li rende disponibili all’operatore.Un operatore, ad esempio, può vedere quando un dispositivo perimetrale non è configurato correttamente o se un modulo ha esito negativo durante il Runtime.
 4. In qualsiasi momento, i nuovi dispositivi IoT Edge che soddisfano le condizioni di destinazione vengono configurati per la distribuzione.
 
-Questo articolo descrive ogni componente coinvolto nella configurazione e nel monitoraggio di una distribuzione. Per istruzioni dettagliate sulla creazione e l'aggiornamento di una distribuzione, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
+Questo articolo descrive ogni componente coinvolto nella configurazione e nel monitoraggio di una distribuzione. Per istruzioni dettagliate sulla creazione e l'aggiornamento di una distribuzione, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Distribuzione
 
@@ -197,5 +197,5 @@ Eseguire i rollback con la sequenza seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Eseguire le procedure per creare, aggiornare o eliminare una distribuzione in [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
+* Eseguire le procedure per creare, aggiornare o eliminare una distribuzione in [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-at-scale.md).
 * Ulteriori informazioni su altri concetti di IoT Edge come il [runtime di IoT Edge](iot-edge-runtime.md) e i [moduli di IoT Edge](iot-edge-modules.md).

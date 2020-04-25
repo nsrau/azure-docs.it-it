@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271447"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133927"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
-Questo articolo illustra come il portale di Azure consente di creare un manifesto della distribuzione ed eseguire il push della distribuzione a un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai tag condivisi, vedere [distribuire e monitorare IOT Edge moduli su larga scala](how-to-deploy-monitor.md).
+Questo articolo illustra come il portale di Azure consente di creare un manifesto della distribuzione ed eseguire il push della distribuzione a un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai tag condivisi, vedere [distribuire e monitorare IOT Edge moduli su larga scala](how-to-deploy-at-scale.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -106,4 +106,4 @@ Selezionare **Avanti: instrada** e continua con la distribuzione come descritto 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md)
+Informazioni su come [distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-at-scale.md)

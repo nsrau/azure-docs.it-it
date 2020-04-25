@@ -1,6 +1,6 @@
 ---
-title: Filtrare i dati usando l'accelerazione delle query di Azure Data Lake Storage (anteprima)Filter data by using Azure Data Lake Storage query acceleration (preview) Documenti Microsoft
-description: Usare l'accelerazione delle query (anteprima) per recuperare un subset di dati dall'account di archiviazione.
+title: Filtrare i dati usando Azure Data Lake Storage Acceleration query (anteprima) | Microsoft Docs
+description: Usare l'accelerazione query (anteprima) per recuperare un subset di dati dall'account di archiviazione.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: ae3dfc7681ef0d8ce3fcf679bddbd0ff195f4e3b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 22776d9498676ec77cd71845ca5e39f01926259d
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771846"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137570"
 ---
-# <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrare i dati usando l'accelerazione delle query di Azure Data Lake Storage (anteprima)Filter data by using Azure Data Lake Storage query acceleration (preview)
+# <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrare i dati usando Azure Data Lake Storage Acceleration query (anteprima)
 
 Questo articolo illustra come usare l'accelerazione delle query (anteprima) per recuperare un subset di dati dall'account di archiviazione. 
 
-L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Data Lake Storage che consente alle applicazioni e ai framework di analisi di ottimizzare notevolmente l'elaborazione dei dati recuperando solo i dati necessari per eseguire una determinata operazione. Per altre informazioni, vedere Accelerazione delle query di [Archiviazione di Azure Data Lake (anteprima).](data-lake-storage-query-acceleration.md)
+Accelerazione query (anteprima) è una nuova funzionalità per Azure Data Lake Storage che consente alle applicazioni e ai Framework di analisi di ottimizzare in modo significativo l'elaborazione dei dati recuperando solo i dati necessari per eseguire una determinata operazione. Per altre informazioni, vedere [Azure Data Lake storage Acceleration query (anteprima)](data-lake-storage-query-acceleration.md).
 
 > [!NOTE]
-> La funzionalità di accelerazione delle query è disponibile nell'anteprima pubblica ed è disponibile nelle aree centrali canadesi e francesi. Per esaminare le limitazioni, vedere l'articolo [Problemi noti.](data-lake-storage-known-issues.md) Per iscriversi all'anteprima, vedere [questo modulo.](https://aka.ms/adls/qa-preview-signup)  
+> La funzionalità di accelerazione delle query è in anteprima pubblica ed è disponibile nelle aree Canada centrale e Francia centrale. Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) . Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adls/qa-preview-signup).  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,7 +30,7 @@ L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Dat
 
 - Per accedere ad Archiviazione di Azure è necessaria una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Un account di archiviazione **v2 generico.** vedere [Creare un account di archiviazione](../common/storage-quickstart-create-account.md).
+- Un account di archiviazione per **utilizzo generico V2** . vedere [creare un account di archiviazione](../common/storage-quickstart-create-account.md).
 
 - [.NET SDK](https://dotnet.microsoft.com/download). 
 
@@ -38,14 +38,14 @@ L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Dat
 
 - Per accedere ad Archiviazione di Azure è necessaria una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Un account di archiviazione **v2 generico.** vedere [Creare un account di archiviazione](../common/storage-quickstart-create-account.md).
+- Un account di archiviazione per **utilizzo generico V2** . vedere [creare un account di archiviazione](../common/storage-quickstart-create-account.md).
 
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versione 8 o successiva.
 
 - [Apache Maven](https://maven.apache.org/download.cgi). 
 
   > [!NOTE] 
-  > In questo articolo si presuppone che sia stato creato un progetto Java utilizzando Apache Maven. Per un esempio di creazione di un progetto utilizzando Apache Maven, vedere [Impostazione](storage-quickstart-blobs-java.md#setting-up).
+  > Questo articolo presuppone che sia stato creato un progetto Java usando Apache Maven. Per un esempio di come creare un progetto usando Apache Maven, vedere [configurazione](storage-quickstart-blobs-java.md#setting-up).
   
 ---
 
@@ -53,11 +53,11 @@ L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Dat
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file .zip compresso contenente [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net)questi pacchetti utilizzando questo collegamento: . 
+1. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file con estensione zip compresso che contiene questi pacchetti usando il collegamento seguente [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net):. 
 
 2. Estrarre il contenuto di questo file nella directory del progetto.
 
-3. Aprire il file di progetto (*con estensione csproj*) in \<\> un editor di testo e aggiungere questi riferimenti al pacchetto all'interno dell'elemento Project .
+3. Aprire il file di progetto (con*estensione csproj*) in un editor di testo e aggiungere i riferimenti al \<pacchetto all'\> interno dell'elemento Project.
 
    ```xml
    <ItemGroup>
@@ -67,7 +67,7 @@ L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Dat
    </ItemGroup>
    ```
 
-4. Ripristinare i pacchetti SDK di anteprima. Questo comando di esempio ripristina i `dotnet restore` pacchetti SDK di anteprima utilizzando il comando . 
+4. Ripristinare i pacchetti dell'SDK di anteprima. Questo comando di esempio consente di ripristinare i pacchetti dell'SDK di anteprima `dotnet restore` usando il comando. 
 
    ```console
    dotnet restore --source C:\Users\contoso\myProject
@@ -81,14 +81,14 @@ L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Dat
 
 ### <a name="java"></a>[Java](#tab/java)
 
-1. Creare una directory nella radice del progetto. La directory principale è la directory che contiene il file **pom.xml.**
+1. Creare una directory nella radice del progetto. La directory radice è la directory che contiene il file **POM. XML** .
 
    > [!NOTE]
-   > Negli esempi di questo articolo si presuppone che il nome della directory sia **lib**.
+   > Gli esempi in questo articolo presuppongono che il nome della directory sia **lib**.
 
-2. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file .zip compresso contenente [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java)questi pacchetti utilizzando questo collegamento: . 
+2. Scaricare i pacchetti di accelerazione delle query. È possibile ottenere un file con estensione zip compresso che contiene questi pacchetti usando il collegamento seguente [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java):. 
 
-3. Estrarre i file in questo file .zip nella directory creata. In questo esempio, tale directory è denominata **lib**. 
+3. Estrarre i file nel file con estensione zip nella directory creata. In questo esempio, la directory è denominata **lib**. 
 
 4. Aprire il file *pom.xml* nell'editor di testo. Aggiungere gli elementi di dipendenza seguenti al gruppo di dipendenze. 
 
@@ -145,7 +145,7 @@ L'accelerazione delle query (anteprima) è una nuova funzionalità per Azure Dat
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Aggiungere `using` queste istruzioni all'inizio del file di codice.
+Aggiungere queste `using` istruzioni all'inizio del file di codice.
 
 ```csharp
 using Azure.Storage.Blobs;
@@ -155,14 +155,14 @@ using Azure.Storage.QuickQuery;
 using Azure.Storage.QuickQuery.Models;
 ```
 
-L'accelerazione delle query recupera i dati in formato CSV e Json. Pertanto, assicurarsi di aggiungere istruzioni using per tutte le librerie di analisi CSV o Json che si sceglie di utilizzare. Gli esempi visualizzati in questo articolo analizzano un file CSV usando la libreria CsvHelper disponibile in NuGet.The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Pertanto, aggiungeremmo `using` queste istruzioni all'inizio del file di codice.
+L'accelerazione query recupera i dati in formato CSV e JSON. Assicurarsi quindi di aggiungere istruzioni using per qualsiasi libreria CSV o di analisi JSON che si sceglie di usare. Gli esempi riportati in questo articolo analizzano un file CSV usando la libreria [CsvHelper](https://www.nuget.org/packages/CsvHelper/) disponibile in NuGet. Quindi, aggiungeremo queste `using` istruzioni all'inizio del file di codice.
 
 ```csharp
 using CsvHelper;
 using CsvHelper.Configuration;
 ```
 
-Per compilare esempi presentati in questo articolo, `using` è inoltre necessario aggiungere anche queste istruzioni.
+Per compilare gli esempi presentati in questo articolo, è necessario anche aggiungere queste `using` istruzioni.
 
 ```csharp
 using System.Threading.Tasks;
@@ -174,7 +174,7 @@ using System.Linq;
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Aggiungere `import` queste istruzioni all'inizio del file di codice.
+Aggiungere queste `import` istruzioni all'inizio del file di codice.
 
 ```java
 import com.azure.storage.blob.*;
@@ -188,17 +188,17 @@ import org.apache.commons.csv.*;
 
 ---
 
-## <a name="retrieve-data-by-using-a-filter"></a>Recuperare i dati utilizzando un filtroRetrieve data by using a filter
+## <a name="retrieve-data-by-using-a-filter"></a>Recuperare i dati tramite un filtro
 
-È possibile utilizzare SQL per specificare i predicati del filtro di riga e le proiezioni di colonna in una richiesta di accelerazione delle query. Il codice seguente esegue una query su un file CSV nell'archivio e restituisce tutte le righe di dati in cui la terza colonna corrisponde al valore `Hemingway, Ernest`. 
+È possibile utilizzare SQL per specificare i predicati del filtro di riga e le proiezioni di colonna in una richiesta di accelerazione della query. Nel codice seguente viene eseguita una query su un file CSV nell'archivio e vengono restituite tutte le righe di dati `Hemingway, Ernest`in cui la terza colonna corrisponde al valore. 
 
-- Nella query SQL, `BlobStorage` la parola chiave viene utilizzata per indicare il file su cui viene eseguita la query.
+- Nella query SQL, la parola chiave `BlobStorage` viene usata per indicare il file su cui viene eseguita la query.
 
-- I riferimenti di `_N` colonna vengono `_1`specificati come dove si trova la prima colonna. Se il file di origine contiene una riga di intestazione, è possibile fare riferimento alle colonne in base al nome specificato nella riga di intestazione. 
+- I riferimenti di colonna vengono `_N` specificati come dove la prima `_1`colonna è. Se il file di origine contiene una riga di intestazione, è possibile fare riferimento alle colonne in base al nome specificato nella riga di intestazione. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Il metodo `BlobQuickQueryClient.QueryAsync` asincrono invia la query all'API di accelerazione delle query e quindi trasmette i risultati all'applicazione come oggetto [Stream.](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8)
+Il metodo `BlobQuickQueryClient.QueryAsync` asincrono invia la query all'API di accelerazione della query e quindi trasmette nuovamente i risultati all'applicazione come oggetto [flusso](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -260,7 +260,7 @@ class ProgressHandler : IProgress<long>
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Il `BlobQuickQueryClient.openInputStream()` metodo invia la query all'API di accelerazione delle query `InputStream` e quindi trasmette i risultati all'applicazione come oggetto che può essere letto come qualsiasi altro oggetto InputStream.
+Il metodo `BlobQuickQueryClient.openInputStream()` Invia la query all'API di accelerazione delle query e quindi trasmette nuovamente i risultati all'applicazione come `InputStream` oggetto che può essere letto come qualsiasi altro oggetto InputStream.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {
@@ -312,11 +312,11 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 
 ---
 
-## <a name="retrieve-specific-columns"></a>Recuperare colonne specificheRetrieve specific columns
+## <a name="retrieve-specific-columns"></a>Recuperare colonne specifiche
 
-È possibile definire l'ambito dei risultati in un sottoinsieme di colonne. In questo modo si recuperano solo le colonne necessarie per eseguire un determinato calcolo. Ciò migliora le prestazioni dell'applicazione e riduce i costi perché meno dati vengono trasferiti in rete. 
+È possibile definire l'ambito dei risultati in un subset di colonne. In questo modo è possibile recuperare solo le colonne necessarie per eseguire un calcolo specificato. Ciò migliora le prestazioni dell'applicazione e riduce i costi perché i dati vengono trasferiti in rete. 
 
-Questo codice recupera `PublicationYear` solo la colonna per tutti i libri nel set di dati. Vengono inoltre utilizzate le informazioni della riga di intestazione nel file di origine per fare riferimento alle colonne nella query.
+Questo codice recupera solo la `PublicationYear` colonna per tutti i libri del set di dati. Vengono inoltre utilizzate le informazioni della riga di intestazione del file di origine per fare riferimento alle colonne nella query.
 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
@@ -341,7 +341,7 @@ static void QueryPublishDates(BlobClient blobClient)
 
 ---
 
-Il codice seguente combina il filtro di riga e le proiezioni di colonna nella stessa query. 
+Il codice seguente combina le proiezioni di colonne e filtri di riga nella stessa query. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -367,7 +367,6 @@ static void QueryMysteryBooks(BlobClient blobClient)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modulo di registrazione per l'accelerazione delle query](https://aka.ms/adls/queryaccelerationpreview)    
-- [Accelerazione delle query di Azure Data Lake Storage (anteprima)Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
-- [Riferimento al linguaggio SQL per l'accelerazione delle query (anteprima)Query acceleration SQL language reference (preview)](query-acceleration-sql-reference.md)
-- Informazioni di riferimento sull'API REST per l'accelerazione delle queryQuery acceleration REST
+- [Modulo di registrazione accelerazione query](https://aka.ms/adls/queryaccelerationpreview)    
+- [Accelerazione query Azure Data Lake Storage (anteprima)](data-lake-storage-query-acceleration.md)
+- [Guida di riferimento al linguaggio SQL per l'accelerazione delle query (anteprima)](query-acceleration-sql-reference.md)

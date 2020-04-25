@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71129686"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82132269"
 ---
 Quando si clona la configurazione da un altro slot di distribuzione, la configurazione clonata è modificabile. Alcuni elementi di configurazione seguono il contenuto in uno scambio (non specifico dello slot), mentre altri elementi di configurazione si mantengono nello stesso slot dopo uno scambio (specifico dello slot). Negli elenchi seguenti sono riportate le impostazioni che vengono modificate durante lo scambio degli slot.
 
@@ -37,9 +37,9 @@ Le funzionalità contrassegnate con un asterisco (*) sono pianificate per lo sca
 * Utilità di pianificazione WebJobs
 * Restrizioni IP
 * Always On
-* Impostazioni del log di diagnostica
+* Impostazioni di diagnostica
 * Condivisione di risorse tra le origini (CORS)
 
 > [!NOTE]
-> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni del log di diagnostica non vengono scambiate, le `WEBSITE_HTTPLOGGING_RETENTION_DAYS` impostazioni `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` dell'app correlate come e non vengono scambiate anche se non vengono visualizzate come impostazioni dello slot.
+> Anche alcune impostazioni di app che si applicano alle impostazioni non scambiate non vengono scambiate. Ad esempio, poiché le impostazioni di diagnostica non vengono scambiate, le impostazioni `WEBSITE_HTTPLOGGING_RETENTION_DAYS` dell' `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` app correlate come e non vengono scambiate anche se non vengono visualizzate come impostazioni degli slot.
 >

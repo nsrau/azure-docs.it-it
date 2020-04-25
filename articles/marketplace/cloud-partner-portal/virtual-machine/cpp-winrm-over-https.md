@@ -1,31 +1,31 @@
 ---
-title: Gestione remota Di Windows su HTTPS per Azure Azure Marketplace
-description: Viene illustrato come configurare una macchina virtuale ospitata in Azure basata su Windows in modo che possa essere gestita in remoto con PowerShell.Explains how to configure an Azure-hosted, Windows-based VM so that it can be managed remotely with PowerShell.
+title: Gestione remota Windows su HTTPS per Azure | Azure Marketplace
+description: Viene illustrato come configurare una macchina virtuale basata su Windows ospitata in Azure in modo che possa essere gestita in remoto con PowerShell.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 88941b334a9c218365bd2d97046dbb6c32d50f35
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273036"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142759"
 ---
 # <a name="windows-remote-management-over-https"></a>Gestione remota Windows tramite HTTPS
 
 > [!IMPORTANT]
-> A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte di Macchine virtuali di Azure nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Creare un'offerta di macchina virtuale](https://aka.ms/CreateAzureVMoffer) di Azure per gestire le offerte migrate.
+> A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte della macchina virtuale di Azure al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [creare un'offerta di macchina virtuale di Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) .
 
 Questa sezione spiega come configurare una macchina virtuale basata su Windows e ospitata in Azure, in modo che possa essere gestita e distribuita in modalità remota con PowerShell.  Per abilitare la comunicazione remota tramite PowerShell, la macchina virtuale di destinazione deve esporre un endpoint HTTPS di Gestione remota Windows (WinRM).  Per altre informazioni sulla comunicazione remota tramite PowerShell, vedere [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands) (Esecuzione di comandi remoti).  Per altre informazioni su WinRM, vedere [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal) (Gestione remota Windows).
 
-Se è stata creata una macchina virtuale usando uno degli approcci di Azure "classici", ovvero il portale di Azure Service Manager o [l'API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))di gestione dei servizi di Azure deprecata, questa viene configurata automaticamente con un endpoint Gestione remota Windows.  Tuttavia, se si crea una macchina virtuale usando uno degli approcci di Azure "moderni" elencati di seguito, la macchina virtuale *non* sarà configurata per WinRM tramite HTTPS.
+Se è stata creata una VM usando uno degli approcci "classici" di Azure, ovvero il portale di Azure Service Manager o la [API Gestione dei servizi di Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))deprecata, viene automaticamente configurata con un endpoint WinRM.  Tuttavia, se si crea una macchina virtuale usando uno degli approcci di Azure "moderni" elencati di seguito, la macchina virtuale *non* sarà configurata per WinRM tramite HTTPS.
 
 - Uso del [portale di Azure](https://portal.azure.com/), in genere da una base approvata, come descritto nella sezione [Creare un disco rigido virtuale compatibile con Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Uso dei modelli di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Uso della shell dei comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure.  Per alcuni esempi, vedere [Guida introduttiva: Creare una macchina virtuale Windows in Azure con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [Guida introduttiva: Creare una macchina virtuale Linux con l'interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)di Azure.For examples, see Quickstart: Create a Windows virtual machine in Azure with PowerShell and Quickstart: Create a Linux virtual machine with the Azure CLI .
+- Uso della shell dei comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure.  Per esempi, vedere [Guida introduttiva: creare una macchina virtuale Windows in Azure con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [Guida introduttiva: creare una macchina virtuale Linux con l'interfaccia della](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)riga di comando di Azure.
 
 Questo endpoint WinRM è richiesto anche per eseguire lo strumento di certificazione per l'onboarding della macchina virtuale, come descritto in [Certificare l'immagine di macchina virtuale](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 

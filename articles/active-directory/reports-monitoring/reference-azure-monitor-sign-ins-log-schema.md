@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 6d7c9713f27643e792ea381e1a2419cbc4b67a99
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748675"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129193"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretare lo schema dei log di accesso Azure AD in monitoraggio di Azure
 
@@ -143,31 +143,31 @@ Questo articolo illustra lo schema del log di accesso di Azure Active Directory 
 
 ## <a name="field-descriptions"></a>Descrizioni dei campi
 
-| Nome campo | Description |
+| Nome campo | Descrizione |
 |------------|-------------|
-| Durata | Data e ora in formato UTC. |
+| Tempo | Data e ora in formato UTC. |
 | ResourceId | Questo valore non è mappato, è quindi possibile ignorare questo campo.  |
 | OperationName | Per gli accessi, questo valore è sempre *Attività di accesso*. |
 | OperationVersion | Versione dell'API REST richiesta dal client. |
-| Categoria | Per gli accessi, questo valore è sempre *Accesso*. | 
+| Category | Per gli accessi, questo valore è sempre *Accesso*. | 
 | TenantId | GUID del tenant associato ai log. |
 | ResultType | Il risultato dell'operazione di accesso può essere *Operazione completata* o *Errore*. | 
 | ResultSignature | Contiene il codice di errore, se esistente, per l'operazione di accesso. |
 | ResultDescription | Fornisce la descrizione dell'errore per l'operazione di accesso. |
-| riskDetail | riskDetail | Fornisce il "motivo" dietro uno stato specifico di un utente rischioso, un accesso o un rilevamento dei rischi. I valori possibili sono: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. Il valore `none` indica che non è stata eseguita alcuna azione sull'utente o sull'accesso fino a questo momento. <br>**Nota:** Per informazioni dettagliate su questa proprietà, è necessaria una licenza Azure AD Premium P2. Altre licenze restituiscono il valore `hidden`. |
-| riskEventTypes | riskEventTypes | Tipi di rilevamento dei rischi associati all'accesso. I valori possibili sono: `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic`e `unknownFutureValue`. |
-| riskLevelAggregated | riskLevel | Livello di rischio aggregato. I valori possibili sono: `none`, `low`, `medium`, `high`, `hidden`e `unknownFutureValue`. Il valore `hidden` indica che l'utente o l'accesso non è stato abilitato per l'Azure AD Identity Protection. **Nota:** I dettagli di questa proprietà sono disponibili solo per i clienti Azure AD Premium P2. Tutti gli altri clienti verranno restituiti `hidden`. |
-| riskLevelDuringSignIn | riskLevel | Livello di rischio durante l'accesso. I valori possibili sono: `none`, `low`, `medium`, `high`, `hidden`e `unknownFutureValue`. Il valore `hidden` indica che l'utente o l'accesso non è stato abilitato per l'Azure AD Identity Protection. **Nota:** I dettagli di questa proprietà sono disponibili solo per i clienti Azure AD Premium P2. Tutti gli altri clienti verranno restituiti `hidden`. |
+| riskDetail | riskDetail | Fornisce il "motivo" dietro uno stato specifico di un utente rischioso, un accesso o un rilevamento dei rischi. I valori possibili sono: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. Il valore `none` indica che non è stata eseguita alcuna azione sull'utente o sull'accesso fino a questo momento. <br>**Nota:** Per informazioni dettagliate su questa proprietà, è necessaria una licenza Azure AD Premium P2. Altre licenze restituiscono il `hidden`valore. |
+| riskEventTypes | riskEventTypes | Tipi di rilevamento dei rischi associati all'accesso. I valori possibili sono: `unlikelyTravel`, `anonymizedIPAddress` `maliciousIPAddress`,, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic`e `unknownFutureValue`. |
+| riskLevelAggregated | riskLevel | Livello di rischio aggregato. I valori possibili sono: `none`, `low`, `medium`, `high`, `hidden`e `unknownFutureValue`. Il valore `hidden` indica che l'utente o l'accesso non è stato abilitato per Azure ad Identity Protection. **Nota:** I dettagli di questa proprietà sono disponibili solo per i clienti Azure AD Premium P2. Verranno restituiti `hidden`tutti gli altri clienti. |
+| riskLevelDuringSignIn | riskLevel | Livello di rischio durante l'accesso. I valori possibili sono: `none`, `low`, `medium`, `high`, `hidden`e `unknownFutureValue`. Il valore `hidden` indica che l'utente o l'accesso non è stato abilitato per Azure ad Identity Protection. **Nota:** I dettagli di questa proprietà sono disponibili solo per i clienti Azure AD Premium P2. Verranno restituiti `hidden`tutti gli altri clienti. |
 | riskState | riskState | Segnala lo stato dell'utente rischioso, l'accesso o il rilevamento dei rischi. I valori possibili sono: `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
 | DurationMs |  Questo valore non è mappato, è quindi possibile ignorare questo campo. |
 | CallerIpAddress | Indirizzo IP del client che ha eseguito la richiesta. | 
 | CorrelationId | GUID facoltativo passato dal client. Questo valore consente di correlare le operazioni lato client con le operazioni lato server ed è utile durante l'analisi dei log che si estendono tra i servizi. |
 | Identità | Identità del token presentato al momento dell'esecuzione della richiesta. Può essere un account utente, un account di sistema o un'entità servizio. |
-| Livello | Fornisce il tipo di messaggio. Per il controllo, è sempre *Informativo*. |
-| Percorso | Fornisce il percorso dell'attività di accesso. |
+| Level | Fornisce il tipo di messaggio. Per il controllo, è sempre *Informativo*. |
+| Location | Fornisce il percorso dell'attività di accesso. |
 | Proprietà | Elenca tutte le proprietà associate agli accessi. Per altre informazioni, vedere [Microsoft Graph riferimento all'API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Questo schema usa gli stessi nomi di attributi usati nella risorsa di accesso, per migliorare la leggibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
-* [Altre informazioni sui log di diagnostica di Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Interpretare lo schema dei log di controllo in monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
+* [Scopri di più sui log della piattaforma Azure](../../azure-monitor/platform/platform-logs-overview.md)

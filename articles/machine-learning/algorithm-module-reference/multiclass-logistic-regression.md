@@ -1,5 +1,5 @@
 ---
-title: 'Regressione logistica multiclasse: riferimento al moduloMulticlass Logistic Regression: Module Reference'
+title: 'Regressione logistica multiclasse: riferimento al modulo'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare il modulo di regressione logistica multiclasse in Azure Machine Learning per creare un modello di regressione logistica che può essere usato per stimare più valori.
 services: machine-learning
@@ -8,55 +8,65 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: ca446b0ab67a8a202c1f4d505262660ac55f42db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 2c62dd2591ca9ccfc4266862578279573598d0c7
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456166"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137774"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Modulo di regressione logistica multiclasse
 
-Questo articolo descrive un modulo nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
-Utilizzare questo modulo per creare un modello di regressione logistica che può essere utilizzato per stimare più valori.
+Usare questo modulo per creare un modello di regressione logistica che può essere usato per stimare più valori.
 
-La classificazione tramite regressione logistica è un metodo di apprendimento supervisionato e pertanto richiede un set di dati con etichetta. È possibile eseguire il training del modello fornendo il modello e il set di dati etichettati come input per un modulo, ad esempio [Train Model](./train-model.md). Il modello sottoposto a training può quindi essere utilizzato per stimare i valori per i nuovi esempi di input.
+La classificazione che usa la regressione logistica è un metodo di apprendimento supervisionato e pertanto richiede un set di dati con etichetta. Per eseguire il training del modello, fornire il modello e il set di dati con etichetta come input per un modulo, ad esempio [Train Model](./train-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input.
 
-Azure Machine Learning fornisce anche un modulo di regressione logistica a [due classi,](./two-class-logistic-regression.md) adatto per la classificazione di variabili binarie o dicotomiche.
+Azure Machine Learning fornisce anche un modulo di [regressione logistica a due classi](./two-class-logistic-regression.md) , adatto per la classificazione di variabili binarie o dicotomica.
 
 ## <a name="about-multiclass-logistic-regression"></a>Informazioni sulla regressione logistica multiclasse
 
-La regressione logistica è un metodo noto nelle statistiche che viene utilizzato per prevedere la probabilità di un risultato ed è popolare per le attività di classificazione. L'algoritmo stima la probabilità di occorrenza di un evento adattando i dati a una funzione logistica. 
+La regressione logistica è un metodo noto nelle statistiche usato per stimare la probabilità di un risultato ed è molto diffuso per le attività di classificazione. L'algoritmo consente di stimare la probabilità di occorrenza di un evento mediante l'inserimento di dati in una funzione logistica. 
 
-Nella regressione logistica multiclasse, il classificatore può essere utilizzato per stimare più risultati.
+Nella regressione logistica multiclasse è possibile usare il classificatore per stimare più risultati.
 
 ## <a name="configure-a-multiclass-logistic-regression"></a>Configurare una regressione logistica multiclasse
 
-1. Aggiungere il modulo **Regressione logistica multiclasse** alla pipeline.
+1. Aggiungere il modulo di **regressione logistica multiclasse** alla pipeline.
 
-2. Specificare la modalità di training del modello impostando l'opzione **Crea modalità trainer.**
+2. Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .
 
-    + **Parametro singolo**: Utilizzare questa opzione se si conosce la configurazione del modello e si fornisce un set specifico di valori come argomenti.
+    + **Singolo parametro**: usare questa opzione se si è in grado di configurare il modello e fornire un set di valori specifico come argomenti.
 
-    + **Intervallo parametri**: Selezionare questa opzione se non si è sicuri dei parametri migliori e si desidera eseguire una sweep di parametro. Selezionare un intervallo di valori su cui eseguire l'iterazione e gli [Hyperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) scorrono tutte le possibili combinazioni delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
+    + **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
 
-3. **Tolleranza di ottimizzazione**, specificare il valore di soglia per la convergenza dell'ottimizzatore. Se il miglioramento tra le iterazioni è inferiore alla soglia, l'algoritmo si interrompe e restituisce il modello corrente.
+3. **Tolleranza di ottimizzazione**, specificare il valore soglia per la convergenza dell'ottimizzatore. Se il miglioramento tra le iterazioni è inferiore alla soglia, l'algoritmo si interrompe e restituisce il modello corrente.
 
-4. **Peso regolarizzazione L1**, **Peso regolarizzazione L2**: Digitare un valore da utilizzare per i parametri di regolarizzazione L1 e L2. È consigliabile usare per entrambi un valore diverso da zero.
+4. **Peso regolarizzazione L1**, **peso regolarizzazione L2**: digitare un valore da usare per i parametri di regolarizzazione L1 e L2. È consigliabile usare per entrambi un valore diverso da zero.
 
-    La regolarizzazione è un metodo per prevenire l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Un modello accurato con valori di coefficienti estremi verrebbe penalizzato di più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.
+    La regolarizzazione è un metodo per evitare l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Un modello accurato con valori di coefficienti estremi verrebbe penalizzato più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.
 
-     Le regolarizzazioni di tipo L1 e L2 hanno effetti e usi differenti. La regolarizzazione L1 può essere applicata a modelli di tipo sparse, caratteristica utile quando si lavora con dati a elevata dimensionalità. La regolarizzazione L2, al contrario, è preferibile per i dati non di tipo sparse.  Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione `y = L2` `ax + by = c` L1 e L2: ovvero if `x = L1` e , definisce l'intervallo lineare dei termini di regolarizzazione.
+     Le regolarizzazioni di tipo L1 e L2 hanno effetti e usi differenti. La regolarizzazione L1 può essere applicata a modelli di tipo sparse, caratteristica utile quando si lavora con dati a elevata dimensionalità. La regolarizzazione L2, al contrario, è preferibile per i dati non di tipo sparse.  Questo algoritmo supporta una combinazione lineare di valori di regolarizzazione L1 e L2, ovvero se `x = L1` e `y = L2`, `ax + by = c` definisce la portata lineare dei termini di regolarizzazione.
 
-     Sono state ideate diverse combinazioni lineari di termini L1 e L2 per i modelli di regressione logistica, come la [regolarizzazione della rete elastica.](https://wikipedia.org/wiki/Elastic_net_regularization)
+     Sono state concepite diverse combinazioni lineari di termini L1 e L2 per i modelli di regressione logistica, ad esempio la [regolarizzazione di reti elastiche](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Valore di errore casuale seme**: digitare un valore intero da utilizzare come valore di errore di serie per l'algoritmo se si desidera che i risultati siano ripetibili nelle esecuzioni. In caso contrario, un valore di clock di sistema viene utilizzato come valore di serie, che può produrre risultati leggermente diversi nelle esecuzioni della stessa pipeline.
+6. Valore di **inizializzazione numero casuale**: digitare un valore intero da utilizzare come valore di inizializzazione per l'algoritmo se si desidera che i risultati vengano ripetuti rispetto alle esecuzioni. In caso contrario, viene usato un valore clock di sistema come valore di inizializzazione, che può produrre risultati leggermente diversi in esecuzioni della stessa pipeline.
 
-8. Collegare un set di dati con etichetta e uno dei moduli del treno:
+8. Connettere un set di dati con etichetta ed eseguire il training del modello:
 
-    + Se si imposta **La modalità Crea trainer** su **Parametro singolo**, utilizzare il modulo Modello di [treno.](./train-model.md)
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se si passa un intervallo di parametri a [Training Model](train-model.md), viene utilizzato solo il valore predefinito nell'elenco di parametri singoli.  
+    > 
+    > Se si passa un singolo set di valori di parametro al modulo [Tune Model iperparameters](tune-model-hyperparameters.md) , quando si prevede un intervallo di impostazioni per ogni parametro, i valori vengono ignorati e vengono usati i valori predefiniti per lo Learner.  
+    > 
+    > Se si seleziona l'opzione **Parameter range** e si immette un solo valore per qualsiasi parametro, il singolo valore specificato viene usato durante lo sweep, anche se altri parametri cambiano in un intervallo di valori.
 
 9. Inviare la pipeline.
 
@@ -64,4 +74,4 @@ Nella regressione logistica multiclasse, il classificatore può essere utilizzat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

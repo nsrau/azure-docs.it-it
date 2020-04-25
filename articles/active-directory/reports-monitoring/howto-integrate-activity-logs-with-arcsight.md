@@ -1,6 +1,6 @@
 ---
-title: Integrazione dei log con ArcSight con Monitoraggio di Azure . Documenti Microsoft
-description: Informazioni su come integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure
+title: Integrare i log con ArcSight usando monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come integrare i log di Azure Active Directory con ArcSight usando monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608381"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129238"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure
 
@@ -53,7 +53,7 @@ Scaricare e aprire la [Guida alla configurazione di ArcSight SmartConnector per 
     * Le impostazioni dell'applicazione nella distribuzione di vengono rese persistenti nelle impostazioni dell'applicazione nelle app per le funzioni di Azure. 
     * In Azure viene creato un nuovo gruppo di risorse per ArcSight, con un'applicazione Azure AD per il connettore ArcSight e gli account di archiviazione contenenti i file con mapping in formato CEF.
 
-4. Infine, completare le fasi successive alla distribuzione nella sezione **Configurazioni post-distribuzione** della Guida alla configurazione. In questa sezione viene spiegato come eseguire una configurazione aggiuntiva se ci si trova su un piano di servizio app per evitare che le app per le funzioni si disattivino dopo un periodo di timeout, configurare lo streaming dei log diagnostici dall'Hub eventi e aggiornare il certificato di archivio chiavi SysLog NG Daemon SmartConnector per associarlo all'account di archiviazione appena creato.
+4. Infine, completare le fasi successive alla distribuzione nella sezione **Configurazioni post-distribuzione** della Guida alla configurazione. Questa sezione illustra come eseguire una configurazione aggiuntiva se si sta usando un piano di servizio app per impedire che le app per le funzioni siano inattive dopo un periodo di timeout, configurare lo streaming dei log delle risorse dall'hub eventi e aggiornare il certificato SysLog NG daemon SmartConnector keystore per associarlo all'account di archiviazione appena creato.
 
 5. Nella Guida alla configurazione viene inoltre illustrato come personalizzare le proprietà del connettore in Azure e come aggiornare e disinstallare il connettore. È inoltre disponibile una sezione sul miglioramento delle prestazioni, tra cui l'aggiornamento a un [piano a consumo Azure](https://azure.microsoft.com/pricing/details/functions) e la configurazione di ArcSight Load Balancer se il carico dell'evento è maggiore di quello che può gestire un singolo Syslog NG Daemon SmartConnector.
 

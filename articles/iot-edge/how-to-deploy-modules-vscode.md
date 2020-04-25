@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e1b2e2a80670cf0409f8f8477563b9a209cc8706
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4ac1a6e56cdbf47fd174d5244fc6ab51c63fb07
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77209206"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133890"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuire i moduli di Azure IoT Edge da Visual Studio Code
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne l'uso a livello perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono.
 
-Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai tag condivisi, vedere [distribuire IOT Edge moduli su larga scala con Visual Studio Code](how-to-deploy-monitor-vscode.md).
+Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione destinata a più dispositivi in base ai tag condivisi, vedere [distribuire IOT Edge moduli su larga scala con Visual Studio Code](how-to-deploy-vscode-at-scale.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -150,4 +150,4 @@ Fare clic con il pulsante destro del mouse sul nome di un modulo per visualizzar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [distribuire e monitorare IOT Edge moduli su larga scala usando Visual Studio Code](how-to-deploy-monitor.md)
+Informazioni su come [distribuire e monitorare IOT Edge moduli su larga scala usando Visual Studio Code](how-to-deploy-at-scale.md)

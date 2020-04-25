@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5992726893b722b0aa46c976a0167793f5ee6bb4
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76845996"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131609"
 ---
-I limiti seguenti si applicano agli argomenti di sistema di Griglia di eventi di Azure e agli argomenti personalizzati, *non ai* domini di evento.
+I limiti seguenti si applicano agli argomenti del sistema di griglia di eventi di Azure e agli argomenti personalizzati, *non* ai domini di eventi.
 
 | Risorsa | Limite |
 | --- | --- |
 | Argomenti personalizzati per sottoscrizione di Azure | 100 |
 | Sottoscrizioni di eventi per argomento | 500 |
 | Velocità di pubblicazione per un argomento personalizzato (ingresso) | 5.000 eventi al secondo per argomento |
-| Richieste di pubblicazione | 250 al secondo |
-| Dimensioni evento | 1 MB (caricato in come più eventi da 64 KB) |
+| Pubblica richieste | 250 al secondo |
+| Dimensioni evento | 1 MB. Tuttavia, le operazioni vengono addebitate in incrementi di 64 KB. Quindi, gli eventi oltre 64 KB comporteranno addebiti per le operazioni come se fossero più eventi. Ad esempio, un evento 130 KB comporterebbe operazioni come se si trattasse di 3 eventi distinti.  |
 
 I limiti seguenti si applicano solo ai domini di evento.
 
 | Risorsa | Limite |
 | --- | --- |
-| Argomenti per dominio di eventi | 100,000 |
-| Sottoscrizioni di eventi per argomento all'interno di un dominioEvent subscriptions per topic within a domain | 500 |
-| Sottoscrizioni di eventi con ambito di dominio | 50 |
-| Frequenza di pubblicazione per un dominio evento (ingresso) | 5.000 eventi al secondo |
-| Richieste di pubblicazione | 250 al secondo |
-| Domini di eventi per sottoscrizione di AzureEvent Domains per Azure Subscription | 100 |
+| Argomenti per dominio evento | 100,000 |
+| Sottoscrizioni di eventi per argomento all'interno di un dominio | 500 |
+| Sottoscrizioni di eventi ambito dominio | 50 |
+| Frequenza di pubblicazione per un dominio di evento (in ingresso) | 5.000 eventi al secondo |
+| Pubblica richieste | 250 al secondo |
+| Domini di eventi per ogni sottoscrizione di Azure | 100 |

@@ -8,28 +8,28 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
-ms.translationtype: MT
+ms.openlocfilehash: 5652df0cf142af2ff96590368892530abcb3d667
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409260"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133222"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
-Questo articolo descrive i problemi comuni relativi alle connessioni di output di Analisi di flusso di Azure, come risolvere i problemi di output e come correggerli. Molti passaggi per la risoluzione dei problemi richiedono l'abilitazione dei log di diagnostica per il processo di Analisi di flusso. Se i log di diagnostica non sono abilitati, vedere Risolvere i problemi di Analisi di flusso di Azure usando i log di [diagnostica.](stream-analytics-job-diagnostic-logs.md)
+Questo articolo descrive i problemi comuni relativi alle connessioni di output di analisi di flusso di Azure, come risolvere i problemi di output e come risolvere i problemi. Molti passaggi per la risoluzione dei problemi richiedono che la risorsa e altri log di diagnostica siano abilitati per il processo di analisi di flusso. Se i log delle risorse non sono abilitati, vedere [risolvere i problemi di analisi di flusso di Azure usando i log delle risorse](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="output-not-produced-by-job"></a>Output non prodotto dal processo
 
 1.  Verificare la connettività agli output con il pulsante **Verifica connessione** per ogni output.
 
-2.  Esaminare [**le metriche**](stream-analytics-monitoring.md) di monitoraggio nella scheda **Monitoraggio.Look** at Monitoring Metrics on the Monitor tab. Poiché i valori sono aggregati, le metriche vengono ritardate di alcuni minuti.
-   * Se gli eventi di input sono maggiori di 0, il processo è in grado di leggere i dati di input. Se gli eventi di input non sono maggiori di 0, si verifica un problema con l'input del processo. Per informazioni su come risolvere i problemi di connessione di input, vedere Risolvere i problemi di connessione di [input.](stream-analytics-troubleshoot-input.md)
-   * Se errori di conversione dei dati sono maggiori di 0 e si arrampicano, vedere Errori dei dati di [Azure Stream Analytics](data-errors.md) per informazioni dettagliate sugli errori di conversione dei dati.
-   * Se gli errori di runtime sono maggiori di 0, il processo può ricevere dati ma genera errori durante l'elaborazione della query. Per trovare gli errori, consultare i [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e filtrare lo stato *non riuscito*.
-   * Se InputEvents è maggiore di 0 e OutputEvents è uguale a 0, si verifica una delle seguenti condizioni:
+2.  Esaminare le [**metriche di monitoraggio**](stream-analytics-monitoring.md) nella scheda **monitoraggio** . Poiché i valori vengono aggregati, le metriche vengono posticipate di pochi minuti.
+   * Se gli eventi di input sono maggiori di 0, il processo è in grado di leggere i dati di input. Se gli eventi di input non sono maggiori di 0, si verifica un problema con l'input del processo. Vedere [risolvere](stream-analytics-troubleshoot-input.md) i problemi relativi alle connessioni di input per informazioni su come risolvere i problemi di connessione di input.
+   * Se gli errori di conversione dei dati sono maggiori di 0 e la scalabilità, vedere [errori di dati di analisi di flusso di Azure](data-errors.md) per informazioni dettagliate sugli errori di conversione dei dati.
+   * Se gli errori di runtime sono maggiori di 0, il processo può ricevere dati, ma genera errori durante l'elaborazione della query. Per trovare gli errori, consultare i [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e filtrare lo stato *non riuscito*.
+   * Se InputEvents è maggiore di 0 e eventi è uguale a 0, viene soddisfatta una delle condizioni seguenti:
       * L'elaborazione della query non ha prodotto eventi di output.
-      * Gli eventi o i campi potrebbero essere in formato non corretto, generando output pari a zero dopo l'elaborazione delle query.
+      * È possibile che gli eventi o i campi non siano in formato corretto, restituendo quindi zero output dopo l'elaborazione della query
       * Il processo non è riuscito a eseguire il push dei dati al sink di output per motivi di connettività o autenticazione.
 
    In tutti i casi di errore menzionati sopra, i messaggi di log delle operazioni specificano altri dettagli e la spiegazione della situazione, tranne nei casi in cui la logica della query ha filtrato tutti gli eventi. Se l'elaborazione di più eventi genera errori, gli errori vengono aggregati ogni 10 minuti.
@@ -84,17 +84,17 @@ Quando si configura IGNORE_DUP_KEY per diversi tipi di indici, tenere presente l
 
 * L'opzione IGNORE_DUP_KEY non è valida per gli indici columnstore perché non è possibile applicare l'univocità in tali indici.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi di colonna sono minuscoli da Analisi di flusso di AzureColumn names are lower-cased by Azure Stream Analytics
-Quando si usa il livello di compatibilità originale (1.0), Analisi di flusso di Azure ha usato per modificare i nomi delle colonne in lettere minuscole. Questo comportamento è stato risolto nei livelli di compatibilità successivi. Al fine di preservare il caso, si consiglia ai clienti di passare al livello di compatibilità 1.1 e versioni successive. Per altre informazioni sul [livello di compatibilità per](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)i processi di Analisi di flusso di Azure, è possibile trovare altre informazioni sul livello di compatibilità per i processi di Analisi di flusso di Azure.You can find more information on
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi delle colonne sono in lettere minuscole da analisi di flusso di Azure
+Quando si usa il livello di compatibilità originale (1,0), analisi di flusso di Azure usata per modificare i nomi di colonna in lettere minuscole. Questo comportamento è stato corretto nei livelli di compatibilità successivi. Per mantenere il caso, si consiglia ai clienti di passare al livello di compatibilità 1,1 e versioni successive. È possibile trovare altre informazioni sul [livello di compatibilità per i processi di analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, prova il forum di Analisi di Flusso di [Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

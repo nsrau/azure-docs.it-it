@@ -6,14 +6,15 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280495"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131227"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
+
 Database di Azure per PostgreSQL consente di configurare e accedere ai log standard di postgres. I log possono essere usati per identificare, risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. Le informazioni di registrazione che è possibile configurare e l'accesso includono errori, informazioni sulle query, record autovacuum, connessioni e Checkpoint. (L'accesso ai log delle transazioni non è disponibile).
 
 La registrazione di controllo viene resa disponibile tramite un'estensione Postgres, pgaudit. Per altre informazioni, vedere l'articolo relativo ai [concetti relativi al controllo](concepts-audit.md) .
@@ -46,7 +47,8 @@ Per la conservazione a lungo termine dei log e dell'analisi dei log, è possibil
 
 È possibile interrompere la generazione dei file con estensione log impostando il parametro `logging_collector` su disattivato. Disattivazione. la generazione di file di log è consigliata se si usano le impostazioni di diagnostica di monitoraggio di Azure. Questa configurazione ridurrà l'effetto sulle prestazioni della registrazione aggiuntiva.
 
-## <a name="diagnostic-logs"></a>Log di diagnostica
+## <a name="resource-logs"></a>Log risorse
+
 Database di Azure per PostgreSQL è integrato con le impostazioni di diagnostica di monitoraggio di Azure. Le impostazioni di diagnostica consentono di inviare i log Postgres in formato JSON ai log di monitoraggio di Azure per l'analisi e gli avvisi, gli hub eventi per lo streaming e l'archiviazione di Azure per l'archiviazione. 
 
 > [!IMPORTANT]
@@ -54,9 +56,10 @@ Database di Azure per PostgreSQL è integrato con le impostazioni di diagnostica
 
 
 ### <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
+
 È possibile abilitare le impostazioni di diagnostica per il server Postgres usando il portale di Azure, l'interfaccia della riga di comando, l'API REST e PowerShell. La categoria di log da selezionare è **PostgreSQLLogs**. Se si usa [query Store](concepts-query-store.md), è possibile configurare altri log.
 
-Per abilitare i log di diagnostica usando il portale di Azure:
+Per abilitare i log delle risorse usando il portale di Azure:
 
    1. Nel portale passare a impostazioni di *diagnostica* nel menu di navigazione del server postgres.
    2. Selezionare *Aggiungi impostazioni di diagnostica*.
@@ -65,9 +68,9 @@ Per abilitare i log di diagnostica usando il portale di Azure:
    5. Selezionare il tipo di log **PostgreSQLLogs**.
    7. Salvare l’impostazione.
 
-Per abilitare i log di diagnostica tramite PowerShell, l'interfaccia della riga di comando o l'API REST, vedere l'articolo [impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) .
+Per abilitare i log delle risorse usando PowerShell, l'interfaccia della riga di comando o l'API REST, vedere l'articolo [impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) .
 
-### <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
+### <a name="access-resource-logs"></a>Accedere ai log delle risorse
 
 Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/platform/resource-logs-collect-storage.md) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651296"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133758"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Criteri dell'endpoint del servizio rete virtuale per archiviazione di Azure
 
@@ -90,7 +90,7 @@ Diamo un'occhiata all'oggetto criteri dell'endpoint di servizio.
 - **Filtro del traffico dall'ambiente locale ai servizi di Azure**: i criteri degli endpoint di servizio si applicano solo al traffico dalle subnet associate ai criteri. Per consentire l'accesso a risorse dei servizi di Azure specifiche dall'ambiente locale, il traffico deve essere filtrato tramite firewall o appliance virtuali di rete.
 
 ## <a name="logging-and-troubleshooting"></a>Registrazione e risoluzione dei problemi
-Non sono disponibili funzionalità di registrazione centralizzata per i criteri degli endpoint di servizio. Per i log di diagnostica del servizio, vedere [Registrazione degli endpoint di servizio](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
+Non sono disponibili funzionalità di registrazione centralizzata per i criteri degli endpoint di servizio. Per i log delle risorse del servizio, vedere [registrazione degli endpoint di servizio](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
 
 ### <a name="troubleshooting-scenarios"></a>Scenari di risoluzione dei problemi
 - Accesso negato agli account di archiviazione che stavano lavorando in anteprima (non in un'area geografica)

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 512efa959ccb78533845cd1f376318394b5c377b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266273"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129174"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -291,7 +291,7 @@ Usare Privileged identity Management con i ruoli di amministratore di Azure AD p
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Usare le integrazioni log di Azure per inviare i log di Azure rilevanti ai sistemi di informazioni di sicurezza e gestione degli eventi 
 
-Il servizio Integrazione log di Azure consente di integrare i log non elaborati delle risorse di Azure nei sistemi di informazioni di sicurezza e gestione degli eventi dell'organizzazione. [Integrazione log di Azure](../../security/fundamentals/azure-log-integration-overview.md) raccoglie gli eventi di Windows dai log del Visualizzatore eventi di Windows e quelli delle risorse di Azure dai log attività di Azure, dagli avvisi del Centro sicurezza di Azure e dai log di Diagnostica di Azure. 
+Il servizio Integrazione log di Azure consente di integrare i log non elaborati delle risorse di Azure nei sistemi di informazioni di sicurezza e gestione degli eventi dell'organizzazione. [Integrazione log di Azure](../../security/fundamentals/azure-log-integration-overview.md) raccoglie gli eventi di Windows dai log di Windows Visualizzatore eventi e dalle risorse di Azure dai log attività di Azure, dagli avvisi del Centro sicurezza di Azure e dai log delle risorse di Azure. 
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passaggi aggiuntivi per le organizzazioni che gestiscono l'accesso ad altre app cloud tramite Azure AD

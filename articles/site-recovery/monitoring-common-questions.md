@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1d30a9cdd2cd6ca288edd609a2e2e7bee9174d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66ce267581d4748ea51a3dcbd7caa61907115cc1
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68718262"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131151"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Domande comuni sul monitoraggio Site Recovery
 
@@ -52,7 +52,7 @@ Solo i computer per i quali è stata completata la replica iniziale sono inclusi
 ## <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
 
-### <a name="how-often-does-site-recovery-send-diagnostic-logs-to-azure-monitor-log"></a>Con quale frequenza Site Recovery inviare i log di diagnostica al log di monitoraggio di Azure? 
+### <a name="how-often-does-site-recovery-send-resource-logs-to-azure-monitor-log"></a>Con quale frequenza Site Recovery inviare i log delle risorse al log di monitoraggio di Azure? 
 
 - AzureSiteRecoveryReplicationStats e AzureSiteRecoveryRecoveryPoints vengono inviati ogni 15 minuti.  
 - AzureSiteRecoveryReplicationDataUploadRate e AzureSiteRecoveryProtectedDiskDataChurn vengono inviati ogni cinque minuti. 
@@ -64,7 +64,7 @@ Solo i computer per i quali è stata completata la replica iniziale sono inclusi
 
 Per impostazione predefinita, la conservazione è di 31 giorni. È possibile aumentare il periodo nella sezione **utilizzo e costo stimato** dell'area di lavoro log Analytics. Fare clic su **conservazione dei dati**e scegliere l'intervallo.
 
-### <a name="whats-the-size-of-the-diagnostic-logs"></a>Quali sono le dimensioni dei log di diagnostica? 
+### <a name="whats-the-size-of-the-resource-logs"></a>Quali sono le dimensioni dei log delle risorse? 
 
 In genere, le dimensioni di un log sono pari a 15-20 KB. 
 

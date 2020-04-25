@@ -1,9 +1,10 @@
 - name: Documentazione del Riconoscimento del parlante
+  href: Home.md
 - name: Panoramica
   items:
     - name: Informazioni su Riconoscimento del parlante
       href: Home.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'

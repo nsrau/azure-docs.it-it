@@ -1,62 +1,62 @@
 ---
-title: Pubblicare l'offerta dell'app Power BI - Azure Marketplace
-description: Pubblicare un'offerta power BI App nel marketplace Di Microsoft AppSource.
+title: Pubblicare Power BI offerta di app | Azure Marketplace
+description: Pubblicare un'offerta di app Power BI in Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: a5eb5b652f7a419c6c2d1b3e6880c3c3003fb679
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: eb31520c81a4064edbe54a0256b694c4ad88fb49
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985525"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141705"
 ---
-# <a name="publish-a-power-bi-app-offer"></a>Pubblicare un'offerta dell'app Power BI
+# <a name="publish-a-power-bi-app-offer"></a>Pubblicare un'offerta di app Power BI
 
 >[!Important]
->A partire dal 13 aprile 2020, inizieremo a spostare la gestione delle offerte dell'app Power BI nel Centro per i partner. Dopo la migrazione, potrai creare e gestire le tue offerte nel Centro per i partner. Seguire le istruzioni in [Panoramica](https://aka.ms/AzureCreatePBIServiceApp) sulla creazione di app Power BI per gestire le offerte migrate.
+>A partire dal 13 aprile 2020, si inizierà a trasferire la gestione delle offerte di Power BI App al centro per i partner. Dopo la migrazione, sarà possibile creare e gestire le offerte nel centro per i partner. Per gestire le offerte migrate, seguire le istruzioni riportate in [Power bi panoramica sulla creazione di app](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) .
 
-L'ultimo passaggio, dopo aver definito un'offerta nel portale Cloud Partner e aver creato le risorse tecniche associate, consiste nell'inviare l'offerta per la pubblicazione. Per avviare questo processo, nel riquadro sinistro della finestra **Nuova offerta** selezionare **Pubblica**. Per altre informazioni, vedere [Pubblicare offerte di Azure Marketplace e AppSource](../manage-offers/cpp-publish-offer.md).
+L'ultimo passaggio, dopo aver definito un'offerta nel portale Cloud Partner e aver creato le risorse tecniche associate, consiste nell'inviare l'offerta per la pubblicazione. Per avviare questo processo, nel riquadro sinistro della finestra **nuova offerta** selezionare **pubblica**. Per altre informazioni, vedere [Pubblicare offerte di Azure Marketplace e AppSource](../manage-offers/cpp-publish-offer.md).
 
 
 ## <a name="publishing-steps"></a>Procedura per la pubblicazione
 
-Questi sono i passaggi principali del processo di pubblicazione:
+Di seguito sono riportati i passaggi principali del processo di pubblicazione:
 
-![Passaggi del processo di pubblicazione per l'offerta dell'app Power BI](./media/publishing-process-steps.png)
+![Procedura di pubblicazione per Power BI offerta di app](./media/publishing-process-steps.png)
 
-Questa tabella descrive ogni passaggio e fornisce il tempo di completamento stimato:This table describes each step and provides its estimated completion time:
+Questa tabella descrive ogni passaggio e fornisce il tempo di completamento stimato:
 
 |   Passaggio di pubblicazione            |   Tempo     |   Descrizione                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Convalida dei prerequisiti       | 15 minuti     | Vengono convalidate le informazioni e le impostazioni dell'offerta.                            |
-| Certificazione                | 1-7 giorni   | Il team di certificazione di Power BI analizza l'offerta. Il team esegue l'app Power BI tramite un test di verifica manuale installando l'app tramite l'URL di installazione fornito. Le convalide principali vengono eseguite come parte del processo di certificazione dell'app (descritto più avanti in questo documento).         |
-| Packaging                    | \< 1 ora  | Le risorse tecniche dell'offerta sono confezionate per l'uso da parte del cliente.                        |
-| Registrazione della generazione di lead | \< 1 ora  | I sistemi di registrazione di clienti potenziali vengono configurati e distribuiti.                                      |
-| Approvazione dell'editore            | \-         | Puoi completare una revisione finale e una conferma prima che l'offerta venga messa in diretta. Ora avrai anche un link per visualizzare in anteprima la tua offerta. Quando sei soddisfatto dell'aspetto dell'anteprima, seleziona Passa allo **stato** nella scheda **Stato.** In questo modo viene inviata una richiesta al team di onboarding per elencare l'app in AppSource.This sends a request to the onboarding team to list your app on AppSource.    |
-| Live                         | \< 3 ore | L'offerta è ora elencata pubblicamente ("live") in AppSource e i clienti possono visualizzare l'app e distribuirla nelle sottoscrizioni di Power BI. Riceverai anche un'email di conferma. Nella colonna di destra della scheda **Tutte le offerte,** puoi vedere lo stato di tutte le tue offerte. Nella scheda **Stato** è possibile visualizzare lo stato dettagliato del flusso di pubblicazione per l'offerta. |
+| Certificazione                | 1-7 giorni   | Il team di certificazione Power BI analizza l'offerta. Il team esegue l'app Power BI tramite un test di verifica manuale installando l'app tramite l'URL di installazione specificato. Le convalide primarie vengono eseguite come parte del processo di certificazione delle app (descritto più avanti in questo documento).         |
+| Packaging                    | \< 1 ora  | Gli asset tecnici dell'offerta sono inclusi nel pacchetto per l'uso da parte dei clienti.                        |
+| Registrazione generazione lead | \< 1 ora  | I sistemi di registrazione di clienti potenziali vengono configurati e distribuiti.                                      |
+| Approvazione dell'editore            | \-         | È possibile completare una verifica finale e una conferma prima che l'offerta venga avviata. È ora disponibile anche un collegamento per visualizzare l'anteprima dell'offerta. Quando si è soddisfatti dell'aspetto dell'anteprima, selezionare **Go Live** nella scheda **stato** . Viene inviata una richiesta al team di onboarding per elencare l'app in AppSource.    |
+| Live                         | \< 3 ore | L'offerta è ora elencata pubblicamente ("Live") in AppSource e i clienti possono visualizzare l'app e distribuirla nelle sottoscrizioni Power BI. Si riceverà anche un messaggio di posta elettronica di conferma. Nella colonna a destra della scheda **tutte le offerte** è possibile visualizzare lo stato di tutte le offerte. Nella scheda **stato** è possibile visualizzare lo stato dettagliato del flusso di pubblicazione per l'offerta. |
 |   |   |
 
-Attendere fino a otto giorni per completare il processo. Dopo aver eseguito questi passaggi di pubblicazione, l'offerta dell'app Power BI verrà elencata nella sezione [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) delle app Power BI.
+Attendere fino a otto giorni per il completamento del processo. Dopo aver eseguito questi passaggi di pubblicazione, l'offerta Power BI app verrà elencata nella sezione [AppSource](https://appsource.microsoft.com/marketplace/apps?product=power-bi%20) Power bi Apps.
 
 
 ### <a name="app-certification-process"></a>Procedura di certificazione dell'app
 
-Il team di onboarding Microsoft usa questo processo per convalidare l'invio dell'offerta di Power BI:The Microsoft onboarding team uses this process to validate your Power BI App offer submission:
+Il team di onboarding di Microsoft usa questo processo per convalidare l'invio dell'offerta Power BI App:
 
-1. Esaminare i documenti legali e i collegamenti della Guida.
-2. Convalidare le informazioni di contatto del supporto tecnico.
-3. Utilizzare l'URL del programma di installazione per verificare la corretta installazione.
-4. Eseguire la scansione dell'applicazione per malware e altri contenuti dannosi.
-5. Verifica che il contenuto visualizzato corrisponda alla descrizione dell'app.
+1. Esaminare i documenti legali e i collegamenti della guida.
+2. Verificare le informazioni di contatto per il supporto.
+3. Usare l'URL del programma di installazione per verificare l'installazione corretta.
+4. Analizzare l'app per individuare malware e altri contenuti dannosi.
+5. Verificare che il contenuto visualizzato corrisponda alla descrizione dell'app.
 6. Verificare che le operazioni relative alle app funzionino come previsto in Power BI. Il team apre report e dashboard con dati di esempio, si connette a origini dati personalizzate, aggiorna i dati e così via.
 
-Se identifica eventuali problemi, il team di certificazione fornisce il feedback appropriato.  Per altre informazioni sui requisiti dell'app Power BI, vedere la [documentazione dell'app Power BI.](https://go.microsoft.com/fwlink/?linkid=2028636)
+Se identifica eventuali problemi, il team di certificazione fornisce il feedback appropriato.  Per ulteriori informazioni sui requisiti delle app Power BI, vedere la [documentazione relativa all'app Power bi](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È consigliabile monitorare regolarmente l'app nel [marketplace AppSource.](https://appsource.microsoft.com)  Dovresti anche usare la funzionalità [Approfondimenti sul venditore](../../cloud-partner-portal-orig/si-getting-started.md) del [portale Cloud Partner](https://cloudpartner.azure.com/#insights) per ottenere informazioni dettagliate sui clienti del marketplace e sull'utilizzo delle app. Infine, è possibile [aggiornare l'offerta](./cpp-update-existing-offer.md).
+È consigliabile monitorare regolarmente l'app nel [Marketplace di AppSource](https://appsource.microsoft.com).  È inoltre consigliabile usare la funzionalità [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md) del [portale cloud partner](https://cloudpartner.azure.com/#insights) per ottenere informazioni dettagliate sui clienti del Marketplace e sull'utilizzo delle app. Infine, è possibile [aggiornare l'offerta](./cpp-update-existing-offer.md).

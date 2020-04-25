@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528729"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131174"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption SQL di Azure con chiave gestita dal cliente
 
@@ -81,7 +81,7 @@ Se la registrazione è abilitata, i revisori possono usare monitoraggio di Azure
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisiti per la configurazione della protezione Transparent Data Encryption
 
-- La protezione Transparent Data Encryption può essere solo asimmetrica, RSA 2048 o RSA HSM 2048 Key.
+- La protezione Transparent Data Encryption può essere solo una chiave HSM asimmetrica, RSA o RSA. Le lunghezze di chiave supportate sono 2048 e 3072 byte.
 
 - La data di attivazione della chiave (se impostata) deve essere una data e un'ora nel passato. La data di scadenza (se impostata) deve essere una data e un'ora future.
 

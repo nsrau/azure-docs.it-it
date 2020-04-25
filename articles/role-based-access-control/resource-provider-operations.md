@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 61fb8b53d7d109fefc002b387702a240353f0dca
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117608"
+ms.locfileid: "82133151"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -4284,7 +4284,7 @@ Servizio di Azure: [griglia di eventi](../event-grid/index.yml)
 > |  | **domini/privateLinkResources** |  |
 > | Azione | Microsoft. EventGrid/Domains/privateLinkResources/Read | Ottiene o elenca PrivateLinkResources per i domini |
 > |  | **domini/provider/Microsoft. Insights/logDefinitions** |  |
-> | Azione | Microsoft. EventGrid/Domains/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log di diagnostica |
+> | Azione | Microsoft. EventGrid/Domains/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log delle risorse |
 > |  | **domini/provider/Microsoft. Insights/metricDefinitions** |  |
 > | Azione | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | Recupera le metriche disponibili per i domini |
 > |  | **domains/topics** |  |
@@ -4352,7 +4352,7 @@ Servizio di Azure: [griglia di eventi](../event-grid/index.yml)
 > | Azione | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Read | Ottiene l'impostazione di diagnostica per gli argomenti di sistema |
 > | Azione | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti di sistema |
 > |  | **systemTopics/Providers/Microsoft. Insights/logDefinitions** |  |
-> | Azione | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log di diagnostica |
+> | Azione | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log delle risorse |
 > |  | **systemTopics/Providers/Microsoft. Insights/metricDefinitions** |  |
 > | Azione | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/metricDefinitions/Read | Ottiene la metrica disponibile per gli argomenti di sistema |
 > |  | **argomenti** |  |
@@ -4376,7 +4376,7 @@ Servizio di Azure: [griglia di eventi](../event-grid/index.yml)
 > | Azione | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per gli argomenti |
 > | Azione | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti |
 > |  | **argomenti/provider/Microsoft. Insights/logDefinitions** |  |
-> | Azione | Microsoft. EventGrid/topics/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log di diagnostica |
+> | Azione | Microsoft. EventGrid/topics/Providers/Microsoft. Insights/logDefinitions/Read | Consente l'accesso ai log delle risorse |
 > |  | **argomenti/provider/Microsoft. Insights/metricDefinitions** |  |
 > | Azione | Microsoft.EventGrid/topics/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per gli argomenti |
 > |  | **topictypes** |  |
@@ -5332,7 +5332,7 @@ Servizio di Azure: [azure Esplora dati](/azure/data-explorer/)
 > | Azione | Microsoft. kusto/Clusters/PrincipalAssignments/Delete | Elimina una risorsa assegnazioni entità cluster. |
 > |  | **Cluster/SKU** |  |
 > | Azione | Microsoft. kusto/Clusters/SKU/Read | Legge una risorsa SKU del cluster. |
-> |  | **Percorsi** |  |
+> |  | **Località** |  |
 > | Azione | Microsoft. kusto/locations/CheckNameAvailability/Action | Controlla la disponibilità del nome della risorsa. |
 > | Azione | Microsoft. kusto/locations/GetNetworkPolicies/Action | Ottiene i criteri per finalità di rete |
 > |  | **località/OperationResult** |  |
@@ -7966,7 +7966,7 @@ Servizio di Azure: [Site Recovery](../site-recovery/index.yml)
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.RecoveryServices/register/action | Registra la sottoscrizione per il provider di risorse specificato |
-> |  | **Percorsi** |  |
+> |  | **Località** |  |
 > | Azione | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
 > | Azione | Microsoft.RecoveryServices/Locations/backupStatus/action | Controlla lo stato del backup dell'insieme di credenziali di Servizi di ripristino |
 > | Azione | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Convalida le funzioni |
@@ -8368,7 +8368,7 @@ Servizio di Azure: [integrità del servizio di Azure](../service-health/index.ym
 > | Azione | Microsoft.ResourceHealth/impactedResources/read | Recupera le risorse interessate per la sottoscrizione specificata |
 > |  | **metadati** |  |
 > | Azione | Microsoft. ResourceHealth/Metadata/Read | Ottiene i metadati |
-> |  | **Notifications** |  |
+> |  | **Notifiche** |  |
 > | Azione | Microsoft. ResourceHealth/Notifications/Read | Riceve notifiche Azure Resource Manager |
 > |  | **Operazioni** |  |
 > | Azione | Microsoft.ResourceHealth/Operations/read | Recupera le operazioni disponibili per Integrità risorse Microsoft |

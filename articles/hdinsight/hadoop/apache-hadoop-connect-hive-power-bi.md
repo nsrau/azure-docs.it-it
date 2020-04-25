@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/02/2020
-ms.openlocfilehash: d9b64785dbd82842479eb3f313b8394f9f25b40b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: ad696f37c89bab87ce9854bc3ba2a995cd0ea569
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369999"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142171"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizzare i dati Apache Hive con Microsoft Power BI tramite ODBC in Azure HDInsight
 
-Informazioni su come connettere Microsoft Power BI Desktop ad Azure HDInsight tramite ODBC e visualizzare i dati Apache Hive.
+Informazioni su come connettere Microsoft Power BI Desktop ad Azure HDInsight usando ODBC e visualizzare i dati Apache Hive.
 
 > [!IMPORTANT]
 > È possibile sfruttare il driver ODBC Hive per eseguire l'importazione tramite il connettore ODBC generico in Power BI Desktop. Tuttavia, non è consigliato per i carichi di lavoro di BI considerata la natura non interattiva del motore di query Hive. Il [connettore HDInsight Interactive Query](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) e il [connettore HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) rappresentano una scelta migliore per le prestazioni.
 
-In questo articolo si caricano `hivesampletable` i dati da una tabella Hive a Power BI. La tabella Hive contiene alcuni dati relativi all'utilizzo dei cellulari. Si tracciano quindi i dati sull'utilizzo in una mappa del mondo:
+In questo articolo vengono caricati i dati da una `hivesampletable` tabella Hive a Power bi. La tabella Hive contiene alcuni dati relativi all'utilizzo dei cellulari. Si tracciano quindi i dati sull'utilizzo in una mappa del mondo:
 
 ![Report mappa di Power BI in HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
@@ -42,31 +42,31 @@ Vedere [Creare un'origine dati Hive ODBC](apache-hadoop-connect-excel-hive-odbc-
 
 ## <a name="load-data-from-hdinsight"></a>Caricare i dati da HDInsight
 
-La tabella Hive hivesampletable include tutti i cluster HDInsight.The **hivesampletable** Hive table comes with all HDInsight clusters.
+La tabella hive **hivesampletable** viene fornita con tutti i cluster HDInsight.
 
 1. Avviare Power BI Desktop.
 
-1. Dal menu in alto, vai a **Home** > **Ottieni dati** > **di più...**.
+1. Dal menu in alto passare a **Home** > **Ottieni dati** > **altro...**.
 
-    ![HDInsight Excel Power BI open data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Excel Power BI aprire i dati](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
-1. Nella finestra di dialogo **Ottieni dati** selezionare **Altro** da sinistra, selezionare **ODBC** da destra e quindi selezionare **Connetti** nella parte inferiore.
+1. Nella finestra di dialogo **Ottieni dati** selezionare **altro** a sinistra, selezionare **ODBC** a destra e quindi selezionare **Connetti** in basso.
 
-1. Nella finestra di dialogo **Da ODBC** selezionare il nome dell'origine dati creata nell'ultima sezione dall'elenco a discesa. Quindi selezionare **OK**.
+1. Nella finestra **di dialogo da ODBC** selezionare il nome dell'origine dati creato nell'ultima sezione dall'elenco a discesa. Selezionare **OK**.
 
-1. Per il primo utilizzo, si aprirà una finestra di dialogo **del driver ODBC.** Selezionare **Predefinito o Personalizzato** dal menu a sinistra. Quindi selezionare **Connetti** per aprire **Navigator**.
+1. Per il primo utilizzo, viene visualizzata una finestra di dialogo del **driver ODBC** . Selezionare **predefinito o personalizzato** dal menu a sinistra. Selezionare quindi **Connetti** per aprire lo **strumento di navigazione**.
 
-1. Nella finestra di dialogo **Navigatore** espandere **ODBC >HIVE > predefinita**, selezionare **hivesampletable**, quindi selezionare **Carica**.
+1. Nella finestra di dialogo **strumento di navigazione** espandere **ODBC > hive > default**, selezionare **hivesampletable**e quindi selezionare **Load**.
 
 ## <a name="visualize-data"></a>Visualizzare i dati
 
 Continuare dall'ultima procedura.
 
-1. Nel riquadro Visualizzazioni selezionare **Mappa**, è un'icona a forma di globo.
+1. Dal riquadro Visualizzazioni selezionare **mappa**, ovvero un'icona a globo.
 
     ![Personalizzazione del report in Power BI in HDInsight](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
 
-1. Nel riquadro **Campi** selezionare **country** e **devicemake**. È possibile visualizzare i dati tracciati sulla mappa.
+1. Dal riquadro **campi** selezionare **Country** e **devicemake**. È possibile visualizzare i dati tracciati sulla mappa.
 
 1. Espandere la mappa.
 
@@ -74,9 +74,6 @@ Continuare dall'ultima procedura.
 
 In questo articolo è stato illustrato come visualizzare i dati di HDInsight usando Power BI.  Per altre informazioni, vedere gli articoli seguenti:
 
-* [Usare Apache per eseguire query Apache Hive in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](./apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Connettere Excel ad Apache Hadoop utilizzando Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Connettersi ad Azure HDInsight ed eseguire query Apache Hive utilizzando Data Lake Tools per Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
-* [Usare lo strumento Azure HDInsight per il codice di Visual Studio](../hdinsight-for-vscode.md).
-* [Caricare i dati in HDInsight](./../hdinsight-upload-data.md).
+* [Connettere Excel a Apache Hadoop tramite Power query](apache-hadoop-connect-excel-power-query.md).
+* [Visualizzare i dati di Apache Hive Interactive query con Microsoft Power BI tramite query diretta](/interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)

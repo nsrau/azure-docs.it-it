@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f4cc5cefe8090e9e95f80b8b74bf15591cb7887
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845269"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133079"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leggere l'input in qualsiasi formato usando i deserializzatori personalizzati di .NET
 
@@ -65,11 +65,11 @@ Il parametro `stream` è il flusso contenente l'oggetto serializzato. `Deseriali
 
 `StreamingDiagnostics`diagnostica per gli operatori definiti dall'utente, tra cui serializzatore, deserializzatore e funzioni definite dall'utente.
 
-`WriteError`scrive un messaggio di errore nei log di diagnostica e invia l'errore alla diagnostica.
+`WriteError`scrive un messaggio di errore nei log delle risorse e invia l'errore alla diagnostica.
 
 `briefMessage`messaggio di errore breve. Questo messaggio viene visualizzato nella diagnostica e viene usato dal team del prodotto a scopo di debug. Non includere informazioni riservate e lasciare il messaggio con un numero di caratteri inferiore a 200
 
-`detailedMessage`è un messaggio di errore dettagliato che viene aggiunto solo ai log di diagnostica nell'archivio. Il messaggio deve essere composto da meno di 2000 caratteri.
+`detailedMessage`è un messaggio di errore dettagliato che viene aggiunto solo ai log delle risorse nell'archivio. Il messaggio deve essere composto da meno di 2000 caratteri.
 
 ```csharp
     public abstract class StreamingDiagnostics
