@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: 8aedbba5d65281753ca61f13e7e1a28c856948ec
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/17/2020
+ms.openlocfilehash: 4dba719453546337f9e5657cbe56755ac1ac9149
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417794"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686245"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
@@ -113,6 +113,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Ottimizzare in modo dinamico le dimensioni del cluster del flusso di dati in fase di esecuzione](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
+[Ottimizzare i tempi di avvio del flusso di dati](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
 ## <a name="mapping-data-flow-scenarios"></a>Scenari di flussi di dati per mapping
 
 [Ricerche fuzzy](http://youtu.be/7gdwExjHBbw)
@@ -156,3 +158,5 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Parametri e interpolazione di stringhe](https://youtu.be/hb3-cn2CMgM)
 
 [Introduzione allo script del flusso di dati: copiare, incollare, frammenti di codice](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
+
+[Espressioni Data Quality](https://www.youtube.com/watch?v=O8gmv5-lXhs)

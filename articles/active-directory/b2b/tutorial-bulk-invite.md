@@ -5,38 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 2/11/2020
+ms.date: 04/13/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77166447"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603385"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD (anteprima)
-
-|     |
-| --- |
-| Questo articolo descrive una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> A partire dal 22/12/2019, la funzionalità per l'invito di utenti in blocco (anteprima) è stata temporaneamente disabilitata.
-> Non è attualmente disponibile alcuna data certa per la riabilitazione della funzionalità nel portale di Azure. Per invitare gli utenti guest in blocco usando PowerShell, vedere l'esercitazione [Invitare in blocco utenti per B2B ](bulk-invite-powershell.md) o gli [esempi di PowerShell e di codice per B2B](code-samples.md).
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD
 
 Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborare con partner esterni, è possibile invitare nell'organizzazione più utenti guest contemporaneamente. Questa esercitazione descrive come usare il portale di Azure per inviare inviti in blocco a utenti esterni. In particolare, si eseguiranno le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Usare **Invita utenti in blocco (anteprima)**  per preparare un file con valori delimitati da virgole (CSV) contenente le informazioni utente e le preferenze di invito
-> * Caricare il file con estensione csv in Azure AD
-> * Verificare che gli utenti siano stati aggiunti alla directory
+> * Uso di **Invita utenti in blocco** per preparare un file con valori delimitati da virgole (CSV) contenente le informazioni utente e le preferenze di invito
+> * Caricamento del file con estensione csv in Azure AD
+> * Verifica dell'aggiunta degli utenti alla directory
 
-Se non si ha Azure Active Directory, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+Se non si ha Azure Active Directory, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +38,7 @@ Sono necessari almeno due account di posta elettronica di test a cui inviare gli
 1. Accedere al portale di Azure con un account di amministratore utenti nell'organizzazione.
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 3. In **Gestisci** selezionare **Utenti** > **Invita in blocco**.
-4. Nella pagina **Invita utenti in blocco (anteprima)** selezionare **Scarica** per scaricare un file CSV valido con le proprietà di invito.
+4. Nella pagina **Invita utenti in blocco** selezionare **Scarica** per scaricare un file CSV valido con le proprietà di invito.
 
     ![Pulsante di download in Invita in blocco](media/tutorial-bulk-invite/bulk-invite-button.png)
 
@@ -63,10 +54,10 @@ Sono necessari almeno due account di posta elettronica di test a cui inviare gli
    > Non usare virgole in **Messaggio di invito personalizzato** perché impediranno l'analisi corretta del messaggio.
 
 6. Salvare il file.
-7. Nella pagina **Invita utenti in blocco (anteprima)** individuare il file in **Caricare il file CSV**. Quando si seleziona il file, viene avviata la convalida del file CSV. 
+7. Nella pagina **Invita utenti in blocco** individuare il file in **Caricare il file CSV**. Quando si seleziona il file, viene avviata la convalida del file CSV. 
 8. Dopo la convalida del contenuto del file, viene visualizzato il messaggio **Il file è stato caricato**. Se sono presenti errori, è necessario correggerli prima di poter inviare il processo.
 9. Quando il file supera la convalida, selezionare **Invia** per avviare l'operazione in blocco di Azure per l'aggiunta degli inviti. 
-10. Per visualizzare lo stato del processo, selezionare **Fare clic qui per visualizzare lo stato di ogni operazione**. In alternativa, è possibile selezionare **Risultati dell'operazione in blocco (anteprima)** nella sezione **Attività**. Per informazioni dettagliate su ogni voce all'interno dell'operazione in blocco, selezionare i valori nelle colonne **N. operazioni riuscite**, **N. errori** o **Richieste totali**. Se si verificano errori, verranno elencati i motivi dell'errore.
+10. Per visualizzare lo stato del processo, selezionare **Fare clic qui per visualizzare lo stato di ogni operazione**. In alternativa, è possibile selezionare **Risultati dell'operazione in blocco** nella sezione **Attività**. Per informazioni dettagliate su ogni voce all'interno dell'operazione in blocco, selezionare i valori nelle colonne **N. operazioni riuscite**, **N. errori** o **Richieste totali**. Se si verificano errori, verranno elencati i motivi dell'errore.
 
     ![Esempio di risultati dell'operazione in blocco](media/tutorial-bulk-invite/bulk-operation-results.png)
 

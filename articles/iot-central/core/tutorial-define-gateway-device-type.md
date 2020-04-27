@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298836"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758123"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
 
-Questa esercitazione illustra come usare un modello di dispositivo gateway per definire un dispositivo gateway nell'applicazione IoT Central. Vengono quindi configurati diversi dispositivi downstream che si connettono all'applicazione IoT Central tramite il dispositivo gateway. 
+*Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
+
+Questa esercitazione, destinata a generatori di soluzioni, illustra come usare un modello di dispositivo gateway per definire un dispositivo gateway nell'applicazione IoT Central. Vengono quindi configurati diversi dispositivi downstream che si connettono all'applicazione IoT Central tramite il dispositivo gateway. 
 
 In questa esercitazione viene creato un modello di dispositivo gateway **Edifici intelligenti**. Un dispositivo gateway **Edifici intelligenti** ha relazioni con altri dispositivi downstream.
 
@@ -207,7 +209,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > [!NOTE]
 > La generazione di codice basata su VS Code non è attualmente supportata per i dispositivi gateway modellati in IoT Central.
 
-Successivamente, sarà possibile:
+Il passaggio successivo consigliato per gli sviluppatori di dispositivi è il seguente:
 
 > [!div class="nextstepaction"]
-> [Connettere un dispositivo](tutorial-connect-device.md)
+> [Aggiungere un dispositivo Azure IoT Edge nell'applicazione Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

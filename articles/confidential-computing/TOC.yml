@@ -1,0 +1,33 @@
+- name: Confidential computing di Azure
+  href: overview.md
+- name: Avvi rapidi
+  expanded: true
+  items:
+    - name: Creare nel portale di Azure
+      href: quick-create-portal.md
+    - name: Creare con Marketplace
+      href: quick-create-marketplace.md
+- name: Concetti
+  expanded: true
+  items:
+    - name: Soluzioni nelle macchine virtuali
+      href: virtual-machine-solutions.md
+- name: Risorse
+  expanded: true
+  items:
+    - name: Domande frequenti
+      href: faq.md
+    - name: Feedback sul confidential computing
+      href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
+    - name: StackOverflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
+    - name: Open Enclave SDK
+      href: 'https://aka.ms/oesdkGitHubRepo'
+    - name: Confidential Computing Consortium
+      href: 'https://confidentialcomputing.io/'
+    - name: Macchine virtuali in Azure
+      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
+    - name: Regioni
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines'

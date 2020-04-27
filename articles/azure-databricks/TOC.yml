@@ -39,6 +39,9 @@
         - name: Python
           href: /azure/databricks/languages/python
           maintainContext: true
+        - name: Koalas
+          href: /azure/databricks/languages/koalas
+          maintainContext: true
         - name: R
           items:
             - name: Guida di R
@@ -1058,6 +1061,8 @@
             - name: Esempio di flusso di lavoro dei segreti
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
+        - name: Procedure consigliate per il GDPR
+          href: /azure/databricks/security/privacy/gdpr-delta
         - name: Crittografare il traffico tra i nodi di lavoro del cluster
           href: /azure/databricks/security/encryption/encrypt-otw
         - name: Abilitare le chiavi gestite dal cliente per i notebook
@@ -1611,8 +1616,24 @@
               href: /azure/databricks/dev-tools/api/latest/examples
               maintainContext: true
             - name: Authentication
-              href: /azure/databricks/dev-tools/api/latest/authentication
-              maintainContext: true
+              items:
+                - name: Token di accesso personali
+                  href: /azure/databricks/dev-tools/api/latest/authentication
+                  maintainContext: true
+                - name: Token di Azure Active Directory (AAD)
+                  items:
+                    - name: Panoramica dell'autenticazione con token AAD
+                      href: /azure/databricks/dev-tools/api/latest/aad/index
+                      maintainContext: true
+                    - name: Ottenere un token AAD con la libreria di autenticazione di AAD
+                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
+                      maintainContext: true
+                    - name: Ottenere un token AAD con un'entità servizio
+                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
+                      maintainContext: true
+                    - name: Risolvere i problemi relativi ai token di accesso AAD
+                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
+                      maintainContext: true
             - name: Cluster
               href: /azure/databricks/dev-tools/api/latest/clusters
               maintainContext: true

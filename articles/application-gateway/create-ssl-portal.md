@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 04/22/2019
 ms.author: victorh
-ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312382"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024493"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Esercitazione: Configurare un gateway applicazione con la terminazione TLS tramite il portale di Azure
 
@@ -56,13 +56,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Usare [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato:
+Usare [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato. Assicurarsi che la lunghezza della password sia compresa tra 4 e 12 caratteri:
 
-> [!NOTE]
-> Non usare caratteri speciali nella password del file con estensione pfx. Sono supportati solo caratteri alfanumerici.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +148,7 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
    - **File di certificato PFX**: individuare e selezionare il file c:\appgwcert.pfx creato in precedenza.
    - **Nome del certificato**: immettere *mycert1* come nome del certificato.
-   - **Password**: digitare *Azure123456* come password.
+   - **Password**: digitare la password.
   
         Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
@@ -194,10 +192,10 @@ A questo scopo, è necessario:
     - **Gruppo di risorse**: selezionare **myResourceGroupAG** come nome del gruppo di risorse.
     - **Nome macchina virtuale**: immettere *myVM* come nome della macchina virtuale.
     - **Nome utente**: immettere *azureuser* come nome utente dell'amministratore.
-    - **Password**: immettere *Azure123456* come password dell'amministratore.
-4. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Dischi**.  
-5. Accettare le impostazioni predefinite della scheda **Dischi** e quindi selezionare **Avanti: Rete**.
-6. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Gestione**.
+    - **Password**: immettere la password dell'account amministratore.
+1. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Dischi**.  
+2. Accettare le impostazioni predefinite della scheda **Dischi** e quindi selezionare **Avanti: Rete**.
+3. Nella scheda **Rete** verificare che **myVNet** sia selezionato per la **Rete virtuale** e che la **Subnet** sia **myBackendSubnet**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Avanti: Gestione**.
 
    Il gateway applicazione può comunicare con le istanze all'esterno della rete virtuale in cui si trova, ma è necessario verificare che ci sia la connettività IP.
 1. Nella scheda **Gestione** impostare **Diagnostica di avvio** su **Off**. Accettare tutte le altre impostazioni predefinite e quindi selezionare **Rivedi e crea**.

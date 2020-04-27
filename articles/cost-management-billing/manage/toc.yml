@@ -107,7 +107,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: Carta rifiutata
       href: troubleshoot-declined-card.md
-    - name: Problemi di iscrizione
+    - name: Problemi di iscrizione all'account Azure
       href: troubleshoot-azure-sign-up.md
     - name: Problemi di accesso alla sottoscrizione
       href: troubleshoot-sign-in-issue.md
@@ -133,7 +133,7 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: Esempio di codice per l'API RateCard
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Scenari di automazione della fatturazione
       href: cost-management-automation-scenarios.md

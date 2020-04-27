@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399459"
+ms.locfileid: "81529893"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -92,7 +92,7 @@ Per altre informazioni, esplorare la [documentazione di riferimento dell'API RES
 
 I requisiti di input per il modello di ricevuta sono leggermente diversi.
 
-* Il formato deve essere JPEG, PNG, BMP, PDF (testo o digitalizzato) o TIFF.
+* Il formato deve essere JPEG, PNG, PDF (testo o digitalizzato) o TIFF.
 * Le dimensioni dei file devono essere minori di 20 MB.
 * Per le immagini, le dimensioni devono essere comprese tra 50 x 50 pixel e 10000 x 10000 pixel.
 * Le dimensioni dei PDF devono essere al massimo di 17 x 17 pollici, corrispondenti a formati della carta Legal o A3 e inferiori.

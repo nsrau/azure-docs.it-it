@@ -1,24 +1,16 @@
 ---
-title: 'Guida introduttiva: Ottenere la finalità tramite browser - LUIS'
-titleSuffix: Azure Cognitive Services
+title: 'Guida introduttiva: Eseguire query per la stima con un browser - LUIS'
 description: In questa guida introduttiva si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo in un browser.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/03/2020
-ms.author: diberry
-ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/21/2020
+ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76987955"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769976"
 ---
-# <a name="quickstart-get-intent-with-a-browser"></a>Guida introduttiva: Ottenere la finalità tramite un browser
+# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Guida introduttiva: Eseguire query sul runtime di stima con un testo dell'utente
 
 Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser.
 
@@ -26,13 +18,15 @@ Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un 
 
 Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
-* La chiave di creazione o di previsioni di LUIS (Language Understanding) che si può ottenere nel [portale LUIS (anteprima)](https://preview.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* L'ID dell'app pubblica: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
+* Informazioni sulla risorsa LUIS (Language Understanding):
+    * **Chiave di stima**, che è possibile ottenere dal [portale LUIS](https://www.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
+    * **Sottodominio dell'endpoint di stima**: il sottodominio è anche il **nome** della risorsa LUIS.
+* Un ID app LUIS: usare l'ID app IoT pubblica `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. La query utente usata nel codice di avvio rapido è specifica di tale app.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Usare il browser per visualizzare le previsioni
 
 1. Aprire un Web browser.
-1. Usare gli URL completi seguenti, sostituendo `YOUR-KEY` con la propria chiave di creazione o di previsioni LUIS. Le richieste sono richieste GET e includono l'autorizzazione, con la chiave di creazione o di previsioni LUIS, come parametro della stringa di query.
+1. Usare gli URL completi seguenti, sostituendo `YOUR-KEY` con la propria chiave di stima LUIS. Le richieste sono richieste GET e includono l'autorizzazione, con la chiave di stima LUIS, come parametro della stringa di query.
 
     #### <a name="v3-prediction-request"></a>[Richiesta di previsione V3](#tab/V3-1-1)
 
@@ -40,7 +34,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     Il formato dell'URL V3 per una richiesta dell'endpoint **GET** (per slot) è:
 
     `
-    https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
+    https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY
     `
 
     #### <a name="v2-prediction-request"></a>[Richiesta di previsione V2](#tab/V2-1-2)
@@ -48,7 +42,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     Il formato dell'URL V2 per una richiesta dell'endpoint **GET** è:
 
     `
-    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
+    https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-LUIS-PREDICTION-KEY&q=turn on all lights
     `
 
 1. Incollare l'URL in una finestra del browser e premere INVIO. Il browser visualizzerà un risultato JSON che indica che LUIS rileva la finalità `HomeAutomation.TurnOn` come finalità principale e l'entità `HomeAutomation.Operation` con il valore `on`.
@@ -104,7 +98,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     Aggiungere `show-all-intents=true` alla fine della stringa di query per **visualizzare tutte le finalità**:
 
     `
-    https://westus.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY&show-all-intents=true
+    https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
     `
 
     ```JSON
@@ -137,7 +131,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     Aggiungere `verbose=true` alla fine della stringa di query per **visualizzare tutte le finalità**:
 
     `
-    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
+    https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&verbose=true
     `
 
     ```json
@@ -173,12 +167,11 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     }
     ```
 
-
-<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
+Altre informazioni su:
+* [Endpoint di previsione V3](luis-migration-api-v3.md)
+* [Sottodomini personalizzati](../cognitive-services-custom-subdomains.md)
 
 > [!div class="nextstepaction"]
 > [Creare un'app nel portale LUIS](get-started-portal-build-app.md)

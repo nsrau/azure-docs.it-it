@@ -4,7 +4,7 @@
   items:
     - name: Gestione traffico di Azure
       href: traffic-manager-overview.md
-- name: Guida introduttiva
+- name: Avvio rapido
   items:
     - name: Creare un profilo di Gestione traffico - Portale
       href: quickstart-create-traffic-manager-profile.md
@@ -83,7 +83,7 @@
       href: traffic-manager-load-balancing-azure.md
     - name: Misurare le prestazioni di Gestione traffico
       href: traffic-manager-performance-considerations.md
-    - name: Abilitare i log di diagnostica
+    - name: Abilitare i log risorse
       href: traffic-manager-diagnostic-logs.md
     - name: Usare Azure PowerShell per gestire Gestione traffico
       href: traffic-manager-powershell-arm.md
@@ -99,7 +99,7 @@
       items:
         - name: Risolvere i problemi di stato danneggiato in Gestione traffico di Azure
           href: traffic-manager-troubleshooting-degraded.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'

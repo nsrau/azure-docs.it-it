@@ -4,12 +4,12 @@ description: Informazioni su come richiamare i processi aziendali dall'app del S
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 44f2dfb83e96e1d8fa31ee1acf350193b954dbd8
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892570"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604841"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Esercitazione: Inviare messaggi di posta elettronica e richiamare altri processi aziendali dal Servizio app
 
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Questo codice è stato scritto per una facile dimostrazione. In pratica, non creare un'istanza di un oggetto `HttpClient` per ogni richiesta. Seguire le indicazioni fornite in [Usare IHttpClientFactory per implementare richieste HTTP resilienti] (https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient -http-requests).
+> Questo codice è stato scritto per una facile dimostrazione. In pratica, non creare un'istanza di un oggetto `HttpClient` per ogni richiesta. Seguire le indicazioni fornite in [Usare IHttpClientFactory per implementare richieste HTTP resilienti](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Se si sta testando il codice nell'app di esempio per [Esercitazione: Creare un'app ASP.NET Core con un database SQL nel Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md), è possibile provare a inviare una conferma tramite posta elettronica in [Azione Crea](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), dopo aver aggiunto l'elemento `Todo`.
 

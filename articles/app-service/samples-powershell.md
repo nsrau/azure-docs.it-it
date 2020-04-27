@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f32db2a4dda0ceb69644b64a5c76155b448c5a28
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74687021"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532426"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Esempi di PowerShell per Servizio app di Azure
 
@@ -27,7 +27,7 @@ La tabella seguente include i collegamenti agli script PowerShell compilati tram
 | [Creare un'app e distribuire il codice in un ambiente di gestione temporanea](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app con uno slot di distribuzione per le modifiche al codice di gestione temporanea. |
 |**Configurare l'applicazione**||
 | [Eseguire il mapping di un dominio personalizzato a un'app](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app ed esegue il mapping di un nome di dominio personalizzato a essa. |
-| [Associare un certificato SSL personalizzato a un'app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app e associa a essa il certificato SSL di un nome di dominio personalizzato. |
+| [Associare un certificato TLS/SSL personalizzato a un'app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un'app del servizio app e vi associa il certificato TLS/SSL di un nome di dominio personalizzato. |
 |**Ridimensionare un'app**||
 | [Ridimensionare un'app manualmente](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un'app del servizio app e la ridimensiona su 2 istanze. |
 | [Ridimensionare un'app a livello globale con un'architettura a disponibilità elevata](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea due app del servizio app in due aree geografiche diverse e le rende disponibili tramite un singolo endpoint usando Gestione traffico di Azure. |

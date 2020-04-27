@@ -1,4 +1,4 @@
-- name: Documentazione del Servizio visione artificiale personalizzato
+- name: Documentazione del servizio Visione personalizzata
   href: index.yml
 - name: Panoramica
   expanded: true
@@ -13,30 +13,14 @@
       items:
         - name: Uso del portale Web
           href: getting-started-build-a-classifier.md
-        - name: Uso di .NET SDK
-          href: csharp-tutorial.md
-        - name: Uso di Python SDK
-          href: python-tutorial.md
-        - name: Uso di Java SDK
-          href: java-tutorial.md
-        - name: Uso di Node.js SDK
-          href: node-tutorial.md
-        - name: Uso di Go SDK
-          href: go-tutorial.md
+        - name: Uso di Custom Vision SDK
+          href: quickstarts/image-classification.md
     - name: Creare un rilevatore di oggetti
       items:
         - name: Uso del portale Web
           href: get-started-build-detector.md
-        - name: Uso di .NET SDK
-          href: csharp-tutorial-od.md
-        - name: Uso di Python SDK
-          href: python-tutorial-od.md
-        - name: Uso di Java SDK
-          href: java-tutorial-od.md
-        - name: Uso di Node.js SDK
-          href: node-tutorial-object-detection.md
-        - name: Uso di Go SDK
-          href: go-tutorial-object-detection.md
+        - name: Uso di Custom Vision SDK
+          href: quickstarts/object-detection.md
 - name: Esercitazioni
   items:
     - name: Segnalare gli stati visivi sul dispositivo IoT

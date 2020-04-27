@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331802"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024439"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -53,6 +53,9 @@ Per inserire un dispositivo in Azure AD, sono disponibili più opzioni:
 
 ![Dispositivi visualizzati nel pannello Dispositivi di Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> Uno stato ibrido non si riferisce solo allo stato di un dispositivo. Perché uno stato ibrido sia valido, è necessario anche un utente valido di Azure AD.
+
 ## <a name="device-management"></a>Gestione dei dispositivi
 
 In Azure AD i dispositivi possono essere gestiti usando strumenti per la gestione di dispositivi mobili (MDM), come Microsoft Intune, Microsoft Endpoint Configuration Manager, Criteri di gruppo (aggiunta ad Azure AD in modalità ibrida), strumenti per la gestione di applicazioni mobili (MAM) o altri strumenti di terze parti.
@@ -63,6 +66,8 @@ La registrazione e l'aggiunta di dispositivi ad Azure AD offrono agli utenti un 
 
 > [!NOTE]
 > I criteri di accesso condizionale basati sul dispositivo richiedono dispositivi aggiunti ad Azure AD ibrido oppure dispositivi conformi registrati in Azure AD o aggiunti ad Azure AD.
+
+Il token di aggiornamento primario contiene informazioni sul dispositivo ed è obbligatorio per l'accesso SSO. Se è presente un criterio di accesso condizionale basato su dispositivo impostato su un'applicazione, ma manca il token di aggiornamento primario, l'accesso viene negato. I criteri di accesso condizionale ibrido richiedono un dispositivo con stato ibrido e un utente valido che ha eseguito l'accesso.
 
 I dispositivi aggiunti ad Azure AD, o ad Azure AD in modalità ibrida, usufruiscono dell'accesso SSO alle risorse locali dell'organizzazione e alle risorse del cloud. Altre informazioni sono disponibili nell'articolo [Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD](azuread-join-sso.md).
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: 5bf405840de54c4e2399ee73e723201acca9e6bc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 04/20/2020
+ms.openlocfilehash: 76fcdb52df88be2c4033140f4bc71b28424d7f38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657024"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687785"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Informazioni su ML Services in Azure HDInsight
 
@@ -23,7 +23,7 @@ ML Services su HDInsight offre le più recenti funzionalità di analisi basate s
 
 Il nodo perimetrale offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Il nodo perimetrale consente di eseguire le funzioni distribuite parallelizzate di ScaleR tra i core del server. È anche possibile eseguirle tra i nodi del cluster usando Hadoop Map Reduce di ScaleR. È inoltre possibile usare i contesti di calcolo Apache Spark.
 
-I modelli e le previsioni che risultano dalle analisi possono essere scaricati per l'uso locale o anche essere operazionalizzati altrove in Azure, in particolare, tramite [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net) e il [servizio Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+I modelli o le previsioni che risultano dalle analisi possono essere scaricati per l'uso locale o anche essere impostati come `operationalized` in altre parti di Azure, in particolare, tramite [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net) e il [servizio Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
 
@@ -63,16 +63,16 @@ Le funzionalità seguenti sono incluse in ML Services su HDInsight.
 | Abilitazione per R | [Pacchetti R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) per soluzioni scritte in R, con una distribuzione open source di R e un'infrastruttura di runtime per l'esecuzione di script. |
 | Abilitazione per Python | [Moduli Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) per soluzioni scritte in Python, con una distribuzione open source di Python e un'infrastruttura di runtime per l'esecuzione di script.
 | [Modelli con training preliminare](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | Per analisi visiva e analisi del sentiment in messaggi di testo, idonei all'assegnazione dei punteggi ai dati immessi. |
-| [Distribuzione e utilizzo](r-server-operationalize.md) | Rendere operativo il server e distribuire soluzioni come servizio Web. |
+| [Distribuzione e utilizzo](r-server-operationalize.md) | Impostare il server con `Operationalize` e distribuire soluzioni come servizio Web. |
 | [Esecuzione remota](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Iniziare sessioni remote sul cluster ML Services nella rete dalla propria workstation client. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Opzioni di archiviazione dei dati per ML Services su HDInsight
 
-La risorsa di archiviazione predefinita per il file system HDFS può essere un account di Archiviazione di Azure o Azure Data Lake Storage. I dati caricati nell'archiviazione cluster durante l'analisi vengono resi persistenti e sono disponibili anche sopo l'eliminazione del cluster. Diversi strumenti possono gestire il trasferimento dei dati nell'archiviazione, tra cui la funzionalità basata sul portale di caricamento dell'account di archiviazione e l'utilità [AzCopy](../../storage/common/storage-use-azcopy.md).
+La risorsa di archiviazione predefinita per il file system HDFS può essere un account di Archiviazione di Azure o Azure Data Lake Storage. I dati caricati nell'archiviazione cluster durante l'analisi vengono resi persistenti e sono disponibili anche sopo l'eliminazione del cluster. Diversi strumenti possono gestire il trasferimento dei dati nell'archiviazione, tra cui la funzionalità basata sul portale di caricamento dell'account di archiviazione e l'utilità AzCopy.
 
 È possibile abilitare l'accesso ad altri archivi BLOB e data lake durante la creazione del cluster. L'opzione di archiviazione primaria in uso non costituisce un limite.  Per altre informazioni sull'uso di più account di archiviazione, vedere l'articolo [Opzioni di Archiviazione di Azure per ML Services su HDInsight](./r-server-storage.md).
 
-È anche possibile ricorrere a [File di Azure](../../storage/files/storage-how-to-use-files-linux.md) come opzione di archiviazione per l'uso sul nodo perimetrale. File di Azure rende disponibili nel file system Linux le condivisioni file create in Archiviazione di Azure. Per altre informazioni, vedere [Opzioni di Archiviazione di Azure per ML Services in HDInsight](r-server-storage.md).
+È anche possibile ricorrere a File di Azure come opzione di archiviazione per l'uso sul nodo perimetrale. File di Azure rende disponibili nel file system Linux le condivisioni file create in Archiviazione di Azure. Per altre informazioni, vedere [Opzioni di Archiviazione di Azure per ML Services in HDInsight](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>Accedere al nodo perimetrale di ML Services
 
@@ -82,9 +82,9 @@ La risorsa di archiviazione predefinita per il file system HDFS può essere un a
 
 Gli script R possono usare uno degli oltre 8000 pacchetti R open source disponibili. È anche possibile usare le routine distribuite e parallelizzate della libreria ScaleR. Nel nodo perimetrale gli script vengono eseguiti nel rispettivo interprete R. Fanno eccezione i passaggi che chiamano le funzioni ScaleR con un contesto di calcolo Map Reduce (RxHadoopMR) o Spark (RxSpark). Le funzioni vengono eseguite in modo distribuito tra i nodi dati associati ai dati. Per altre informazioni sulle opzioni relative al contesto, vedere [Opzioni del contesto di calcolo per ML Services su HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Rendere operativo un modello
+## <a name="operationalize-a-model"></a>Impostare un modello con `Operationalize`
 
-Dopo aver completato la modellazione dei dati, è possibile rendere operativo il modello per generare previsioni sui nuovi dati, sia in Azure sia in locale. Questo processo è noto come assegnazione di punteggi. L'assegnazione dei punteggi può essere eseguita in HDInsight, in Azure Machine Learning o in locale.
+Dopo aver completato la modellazione dei dati, è possibile impostare un modello con `operationalize` per generare previsioni per i nuovi dati, da Azure o in locale. Questo processo è noto come assegnazione di punteggi. L'assegnazione dei punteggi può essere eseguita in HDInsight, in Azure Machine Learning o in locale.
 
 ### <a name="score-in-hdinsight"></a>Assegnare punteggi in HDInsight
 
@@ -96,7 +96,7 @@ Per assegnare punteggi tramite Azure Machine Learning, usare il pacchetto R open
 
 ### <a name="score-on-premises"></a>Assegnare punteggi in locale
 
-Per assegnare punteggi in locale dopo aver creato il modello, serializzare il modello in R, scaricarlo, deserializzarlo e poi usarlo per assegnare punteggi ai nuovi dati. È possibile assegnare punteggi ai nuovi dati usando l'approccio descritto in precedenza in [Assegnare punteggi in HDInsight](#score-in-hdinsight) o tramite i [servizi Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Per assegnare punteggi in locale dopo aver creato il modello, serializzare il modello in R, scaricarlo, deserializzarlo e poi usarlo per assegnare punteggi ai nuovi dati. È possibile assegnare punteggi ai nuovi dati usando l'approccio descritto in precedenza in Assegnare punteggi in HDInsight o tramite i [servizi Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Eseguire la manutenzione del cluster
 
@@ -130,7 +130,7 @@ I processi in esecuzione potrebbero rallentare durante la manutenzione. ma comun
 
 Il nodo perimetrale Linux di un cluster HDInsight è la destinazione delle analisi basate su R. Le versioni recenti di HDInsight includono un IDE basato su browser di RStudio Server nel nodo perimetrale. RStudio Server è più produttivo della console R per lo sviluppo e l'esecuzione.
 
-Un IDE desktop può accedere al cluster tramite un contesto di calcolo MapReduce o Spark remoto. Le opzioni includono: Microsoft [R Tools per Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio e [StatET](http://www.walware.de/goto/statet) Walware basato su Eclipse.
+Un IDE desktop può accedere al cluster tramite un contesto di calcolo MapReduce o Spark remoto. Le opzioni includono: Microsoft [R Tools per Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio e StatET Walware basato su Eclipse.
 
 Accedere alla console di R nel nodo perimetrale digitando **R** al prompt dei comandi. Quando si usa l'interfaccia della console, è consigliabile sviluppare uno script R in un editor di testo. Quindi tagliare e incollare le sezioni dello script nella console di R in base alle esigenze.
 

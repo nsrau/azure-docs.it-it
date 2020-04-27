@@ -5,14 +5,14 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 08575164334db965a9e5592b761a06205208de9e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886620"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732779"
 ---
-# <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Guida di avvio rapido: Creare un progetto di Funzioni di Azure con Visual Studio Code
+# <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Guida introduttiva: Creare un progetto Funzioni di Azure con Visual Studio Code
 
 In questo articolo si userà Visual Studio Code per creare una funzione che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure. 
 
@@ -22,7 +22,7 @@ In questo articolo si userà Visual Studio Code per creare una funzione che risp
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Se si preferisce non usare VS Code come strumento di sviluppo, vedere le esercitazioni simili per sviluppatori Java che usano [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+> Se si preferisce non usare VS Code come strumento di sviluppo, vedere le esercitazioni simili per sviluppatori Java che usano [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) e [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>Configurare l'ambiente

@@ -7,16 +7,19 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe666359b9ed2773f615ff496f4032bda5e74dc2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313876"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767762"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure in Visual Studio Code (anteprima)
 
 Questo argomento di avvio rapido descrive come creare ed eseguire un processo di Analisi di flusso di Azure usando l'estensione di Strumenti Analisi di flusso di Azure per Visual Studio Code. Il processo di esempio legge i dati in streaming da un dispositivo hub IoT di Azure. Viene definito un processo che calcola la temperatura media quando supera i 27° e scrive gli eventi di output risultanti in un nuovo file nell'archiviazione BLOB.
+
+> [!NOTE]
+> Gli strumenti di Visual Studio e Visual Studio Code non supportano i processi nelle aree Cina orientale, Cina settentrionale, Germania centrale e Germania nord-orientale.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -140,14 +143,6 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
    FROM Input
    HAVING Temperature > 27
    ```
-
-## <a name="test-the-query-locally-with-sample-data"></a>Testare la query in locale con dati di esempio
-
-Prima di eseguire la query nel cloud, è possibile testarla localmente con un file di dati di esempio locale o con i dati acquisiti da input live per verificare la logica della query.
-
-Per altri dettagli, seguire le istruzioni in [Testare le query in locale con dati di esempio](visual-studio-code-local-run.md).
-
- ![Testare con dati di esempio in Visual Studio Code](./media/vscode-local-run/localrun-localinput.gif)
 
 ## <a name="define-a-live-input"></a>Definire un input live
 
@@ -279,6 +274,8 @@ Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviar
 In questo argomento di avvio rapido è stato distribuito un semplice processo di Analisi di flusso con Visual Studio Code. È possibile distribuire processi di Analisi di flusso anche usando il [portale di Azure](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md) e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Per informazioni sugli strumenti di Analisi di flusso di Azure per Visual Studio Code, vedere gli articoli seguenti:
+
+* [Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code](visual-studio-code-local-run.md)
 
 * [Testare i processi di Analisi di flusso di Azure in locale con input live tramite Visual Studio Code](visual-studio-code-local-run-live-input.md)
 

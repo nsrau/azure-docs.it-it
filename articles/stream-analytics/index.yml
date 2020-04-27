@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: dff33c61d67a25bfc5c1119e5408602df01e5e30
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 757c60487e4c4c7fedca4824cd40e86cbd9ca465
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "75359733"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82130946"
 landingContent:
 - title: Informazioni su Analisi di flusso di Azure
   linkLists:
@@ -95,7 +95,7 @@ landingContent:
       url: stream-analytics-monitor-jobs.md
     - text: Monitorare e gestire processi da Visual Studio
       url: stream-analytics-monitor-jobs-use-vs.md
-    - text: Risolvere i problemi usando i log di diagnostica
+    - text: Risolvere i problemi relativi all'uso dei log risorse
       url: stream-analytics-job-diagnostic-logs.md
     - text: Eseguire il debug con il diagramma del processo
       url: stream-analytics-job-diagram-with-metrics.md

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216734"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085026"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app Java Spring
 
@@ -140,6 +140,14 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Aggiornare il codice per usare un riferimento a Key Vault
 
+1. Creare una variabile di ambiente denominata **APP_CONFIGURATION_ENDPOINT**. Impostarne il valore sull'endpoint per l'archivio di Configurazione app. È possibile trovare l'endpoint nel pannello **Chiavi di accesso** nel portale di Azure.
+
+1. Aprire *bootstrap.properties* nella cartella *resources*. Aggiornare questo file per usare l'endpoint di Configurazione app anziché una stringa di connessione.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Aprire *MessageProperties.java*. Aggiungere una nuova variabile denominata *keyVaultMessage*:
 
     ```java
@@ -166,7 +174,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 1. Creare un nuovo file denominato *AzureCredentials.java* e aggiungere il codice seguente.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 1. Creare un nuovo file denominato *AppConfiguration.java*. E aggiungere il codice seguente.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Compilare l'applicazione Spring Boot con Maven ed eseguirla, ad esempio:

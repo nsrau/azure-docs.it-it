@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: a7ab79fe7ccfbf6d292b6ba7be58026955a06516
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: f2d7f1725623dcc031f3c2b36bacd6dbc9ad339d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519275"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639944"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services con opzioni di configurazione avanzate
 
@@ -207,7 +207,7 @@ La procedura per generare e archiviare questi hash delle password è diversa per
 > [!TIP]
 > Se il tenant di Azure AD include una combinazione di utenti solo cloud e utenti dell'istanza locale di AD, è necessario eseguire entrambe le serie di passaggi.
 
-Per gli account utente solo cloud, gli utenti devono cambiare le loro password prima di poter usare Azure AD DS. Con questo processo di modifica delle password, in Azure AD vengono generati e archiviati gli hash delle password per l'autenticazione Kerberos e NTLM. È possibile impostare come scadute le password per tutti gli utenti del tenant che devono usare Azure AD DS, il che forza una modifica delle password al successivo avvio, oppure chiedere a tali utenti di cambiare manualmente le loro password. Per questa esercitazione, verrà cambiata manualmente la password di un utente.
+Per gli account utente solo cloud, gli utenti devono cambiare le loro password prima di poter usare Azure AD DS. Con questo processo di modifica delle password, in Azure AD vengono generati e archiviati gli hash delle password per l'autenticazione Kerberos e NTLM. L'account non viene sincronizzato da Azure AD ad Azure AD DS fino a quando non si cambia la password. Impostare come scadute le password per tutti gli utenti cloud del tenant che devono usare Azure AD DS, in modo da forzare una modifica delle password al successivo avvio, oppure chiedere agli utenti cloud di cambiare manualmente le loro password. Per questa esercitazione, verrà cambiata manualmente la password di un utente.
 
 Prima che un utente possa reimpostare la propria password, è necessario che il tenant di Azure AD venga [configurato per la reimpostazione delle password self-service][configure-sspr].
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398002"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529868"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -104,7 +104,7 @@ Compilare i campi con i valori seguenti:
 Nello strumento di etichettatura campioni vengono archiviate le configurazioni e le impostazioni dei progetti. Creare un nuovo progetto e compilare i campi con i valori seguenti:
 
 * **Nome visualizzato**: il nome visualizzato del progetto
-* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nell'angolo in basso della barra di spostamento sinistra.
+* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nella parte inferiore della barra di spostamento sinistra.
 * **Connessione protetta**: la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
 * **Percorso cartella** (facoltativo): se i moduli di origine si trovano in una cartella del contenitore BLOB, specificare qui il relativo nome
 * **URI del servizio Riconoscimento modulo**: l'URL dell'endpoint di Riconoscimento modulo.
@@ -130,9 +130,9 @@ Fare clic su **Run OCR on all files** (Esegui OCR su tutti i file) nel riquadro 
 Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno essere riconosciuti dal modello.
 
 1. Usare prima di tutto il riquadro dell'editor di tag per creare i tag da identificare.
-  1. Fare clic su **+** per creare un nuovo tag.
-  1. Immettere il nome del tag.
-  1. Premere INVIO per salvare il tag.
+   1. Fare clic su **+** per creare un nuovo tag.
+   1. Immettere il nome del tag.
+   1. Premere INVIO per salvare il tag.
 1. Nell'editor principale fare clic e trascinare una o più parole dagli elementi di testo evidenziati per selezionarle.
 1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
     > [!Tip]
@@ -144,15 +144,30 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
     > * Non includere le chiavi nei campi etichettati, ma solo i valori.
     > * I dati delle tabelle dovrebbero essere rilevati automaticamente e saranno disponibili nel file JSON finale di output. Tuttavia, se il modello non riesce a rilevare tutti i dati di una tabella, è anche possibile etichettare manualmente questi campi. Assegnare un'etichetta diversa a ogni cella della tabella. Se i moduli includono tabelle con un numero variabile di righe, assicurarsi di etichettare almeno un modulo con la tabella più grande possibile.
 
-
-Seguire la procedura descritta sopra per etichettare cinque moduli, quindi procedere con il passaggio successivo.
-
 ![Finestra dell'editor principale dello strumento di etichettatura campioni](../media/label-tool/main-editor.png)
 
+Seguire i passaggi precedenti per etichettare almeno cinque moduli.
+
+### <a name="specify-tag-value-types"></a>Specificare i tipi di valore di tag
+
+Facoltativamente, è possibile impostare il tipo di dati previsto per ogni tag. Aprire il menu di scelta rapida a destra di un tag e selezionare un tipo dal menu. Questa funzionalità consente all'algoritmo di rilevamento di creare determinati presupposti che consentiranno di migliorare l'accuratezza del rilevamento del testo. Garantisce inoltre che i valori rilevati vengano restituiti in un formato standardizzato nell'output JSON finale. 
+
+> [!div class="mx-imgBorder"]
+> ![Selezione del tipo di valore con lo strumento di etichettatura di esempio](../media/whats-new/formre-value-type.png)
+
+Sono attualmente supportati i tipi di valore e le varianti seguenti:
+* `string`
+    * predefinito, `no-whitespaces`, `alphanumeric`
+* `number`
+    * predefinito, `currency`
+* `date` 
+    * predefinito, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Eseguire il training di un modello personalizzato
 
-Fare clic sull'icona del training (il vagone di treno) nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
+Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
 
 * **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'API REST.
 * **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. È possibile migliorare l'accuratezza del modello etichettando altri moduli ed eseguendo di nuovo il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
@@ -167,7 +182,7 @@ Al termine del training, esaminare il valore di **Average Accuracy** (Accuratezz
 
 ## <a name="analyze-a-form"></a>Analizzare un modulo
 
-Fare clic sull'icona Previsioni (rettangoli) a sinistra per testare il modello. Caricare un documento modulo che non è stato usato nel processo di training. Fare quindi clic sul pulsante **Previsioni** a destra per ottenere le previsioni relative alle coppie chiave-valore per il modulo. Lo strumento applicherà i tag nei riquadri di selezione e segnalerà l'attendibilità di ognuno.
+Fare clic sull'icona Previsioni (lampadina) a sinistra per testare il modello. Caricare un documento modulo che non è stato usato nel processo di training. Fare quindi clic sul pulsante **Previsioni** a destra per ottenere le previsioni relative alle coppie chiave-valore per il modulo. Lo strumento applicherà i tag nei riquadri di selezione e segnalerà l'attendibilità di ognuno.
 
 > [!TIP]
 > È anche possibile eseguire l'API di analisi con una chiamata REST. Per informazioni su come eseguire questa operazione, vedere [Eseguire il training con le etichette usando Python](./python-labeled-data.md).

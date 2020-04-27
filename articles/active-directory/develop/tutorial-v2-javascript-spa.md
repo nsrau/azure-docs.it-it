@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ec47850ce4cccb6a891c7e5aef2644550bc3e39a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 52b7c582848dd24f6d9963a9d37c8f12c5db6149
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990957"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678016"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
 Questa guida illustra come un'applicazione a pagina singola JavaScript consente di:
-- Accedere agli account personali, nonché agli account aziendali e dell'istituto di istruzione 
+- Accedere agli account personali, nonché agli account aziendali e dell'istituto di istruzione
 - Acquisire un token di accesso
 - Chiamare l'API Microsoft Graph o altre API che richiedono token di accesso generati dall'*endpoint di Microsoft Identity Platform*
 
@@ -48,10 +48,6 @@ Questa guida usa la libreria seguente:
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per JavaScript|
 
-> [!NOTE]
-> *Msal.js* specifica come destinazione l'endpoint di Microsoft Identity Platform, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'endpoint di Microsoft Identity Platform presenta [alcune limitazioni](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
-> Per capire le differenze tra gli endpoint v1.0 e v2.0, vedere la [guida al confronto tra gli endpoint](../azuread-dev/azure-ad-endpoint-comparison.md).
-
 <!--end-collapse-->
 
 ## <a name="set-up-your-web-server-or-project"></a>Impostare il server Web o il progetto
@@ -68,7 +64,7 @@ Questa guida usa la libreria seguente:
 
 ## <a name="create-your-project"></a>Creare il progetto
 
-Assicurarsi che [Node.js](https://nodejs.org/en/download/) sia installato e quindi creare una cartella in cui ospitare l'applicazione. Qui viene implementato un semplice server Web [Express](https://expressjs.com/) per gestire il file `index.html`. 
+Assicurarsi che [Node.js](https://nodejs.org/en/download/) sia installato e quindi creare una cartella in cui ospitare l'applicazione. Qui viene implementato un semplice server Web [Express](https://expressjs.com/) per gestire il file `index.html`.
 
 1. Per prima cosa, usando il terminale integrato di Visual Studio Code, individuare la cartella del progetto e quindi installare Express con NPM.
 
@@ -170,7 +166,7 @@ A questo punto si dispone di un server semplice per gestire l'applicazione a pag
 
        <!-- importing bootstrap.js and supporting js libraries -->
        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
        <!-- importing app scripts (load order is important) -->
@@ -188,7 +184,7 @@ A questo punto si dispone di un server semplice per gestire l'applicazione a pag
 
    > [!TIP]
    > È possibile sostituire la versione di MSAL.js nello script precedente con l'ultima versione rilasciata disponibile nella pagina delle [versioni di MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
-   
+
 2. A questo punto, creare un file js denominato `ui.js`, che consente di accedere e aggiornare gli elementi DOM e aggiungere il codice seguente:
 
    ```JavaScript
@@ -304,7 +300,7 @@ Creare un nuovo file js denominato `authConfig.js`, che conterrà i parametri di
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
   // Add here scopes for id token to be used at MS Identity Platform endpoints.
   const loginRequest = {
@@ -350,7 +346,7 @@ Creare un nuovo file js denominato `authPopup.js`, che conterrà la logica di au
    function signOut() {
      myMSALObj.logout();
    }
-   
+
    function callMSGraph(theUrl, accessToken, callback) {
        var xmlHttp = new XMLHttpRequest();
        xmlHttp.onreadystatechange = function () {
@@ -409,7 +405,7 @@ Creare un nuovo file js denominato `authPopup.js`, che conterrà la logica di au
 
 Quando un utente seleziona il pulsante **Accedi** per la prima volta, il metodo `signIn` chiama `loginPopup` per farlo accedere. Questo metodo apre una finestra popup con l'*endpoint di Microsoft Identity Platform* per la richiesta e la convalida delle credenziali dell'utente. Dopo aver eseguito l'accesso, l'utente viene reindirizzato alla pagina *index.html* originale. Un token viene ricevuto ed elaborato da `msal.js`, quindi le informazioni contenute nel token vengono memorizzate nella cache. Questo token è noto come *token ID* e contiene informazioni di base sull'utente, ad esempio il nome visualizzato. Se si prevede di usare per qualsiasi scopo i dati forniti da questo token, è necessario verificare che il token venga convalidato dal server back-end per garantire che il token sia stato rilasciato a un utente valido per l'applicazione.
 
-L'applicazione a pagina singola generata da questa guida chiama `acquireTokenSilent` e/o `acquireTokenPopup` per acquisire un *token di accesso* usato per cercare nell'API Microsoft Graph le informazioni sul profilo utente. Se è necessario un esempio che convalida il token ID, vedere [questa](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Esempio di GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2") applicazione di esempio in GitHub. L'esempio usa un'API Web ASP.NET per la convalida dei token.
+L'applicazione a pagina singola generata da questa guida chiama `acquireTokenSilent` e/o `acquireTokenPopup` per acquisire un *token di accesso* usato per cercare nell'API Microsoft Graph le informazioni sul profilo utente. Se è necessario un esempio che convalida il token ID, vedere [questa](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Esempio di GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2") applicazione di esempio in GitHub. Nell'esempio viene usata un'API Web ASP.NET per la convalida dei token.
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
@@ -430,7 +426,7 @@ Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token se
 1. Le applicazioni possono anche generare un'indicazione visiva per informare l'utente che è necessario un accesso interattivo, in modo da consentire di scegliere il momento più opportuno per accedere. In alternativa, l'applicazione riproverà a eseguire `acquireTokenSilent` in un secondo momento. Questa opzione viene in genere usata quando l'utente può usare altre funzionalità dell'applicazione senza subire interruzioni. Ad esempio, nell'applicazione potrebbe essere disponibile contenuto non autenticato. In questa situazione, l'utente può decidere se vuole eseguire l'accesso per accedere alla risorsa protetta oppure aggiornare le informazioni obsolete.
 
 > [!NOTE]
-> Questo avvio rapido usa i metodi `loginPopup` e `acquireTokenPopup` per impostazione predefinita. Se si usa Internet Explorer come browser, è consigliabile usare i metodi `loginRedirect` e `acquireTokenRedirect` a causa di un [problema noto](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) correlato al modo in cui Internet Explorer gestisce le finestre popup. Per informazioni su come ottenere lo stesso risultato usando `Redirect methods`, vedere [qui](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js). 
+> Questo avvio rapido usa i metodi `loginPopup` e `acquireTokenPopup` per impostazione predefinita. Se si usa Internet Explorer come browser, è consigliabile usare i metodi `loginRedirect` e `acquireTokenRedirect` a causa di un [problema noto](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) correlato al modo in cui Internet Explorer gestisce le finestre popup. Per informazioni su come ottenere lo stesso risultato usando `Redirect methods`, vedere [qui](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Chiamare l'API Microsoft Graph usando il token appena acquisito
@@ -462,7 +458,7 @@ Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token se
      };
 
      console.log('request made to Graph API at: ' + new Date().toString());
-  
+
      fetch(endpoint, options)
        .then(response => response.json())
        .then(response => callback(response, endpoint))

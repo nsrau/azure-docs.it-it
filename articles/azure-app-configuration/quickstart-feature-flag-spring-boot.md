@@ -4,14 +4,14 @@ description: Aggiungere flag funzionalità alle app Spring Boot e gestirli in Co
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6dc51250987e0282530209ffa13e52d6e75aa9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944347"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687356"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Guida introduttiva: Aggiungere flag di funzionalità a un'app Spring Boot
 
@@ -57,7 +57,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 1. Aprire il file *pom.xml* in un editor di testo e aggiungere quanto segue all'elenco di `<dependencies>`:
 
-### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
     </dependency>
     ```
 
-### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+    **Spring Cloud 1.2.x**
 
     ```xml
     <dependency>
@@ -103,7 +103,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 1. Passare alla directory `resources` dell'app e aprire `bootstrap.properties`.  Se il file non esiste, crearlo. Aggiungere al file la riga seguente.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. Nel portale di Configurazione app per l'archivio di configurazione selezionare `Access keys` nella barra laterale. Selezionare la scheda Chiavi di sola lettura. Copiare il valore della stringa di connessione primaria.
@@ -283,7 +283,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
     mvn spring-boot:run
     ```
 
-1. Aprire una finestra del browser e passare all'URL predefinito per l'app Web ospitata in locale: `https://localhost:8080`.
+1. Aprire una finestra del browser e passare all'URL: `http://localhost:8080/welcome`.
 
     ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

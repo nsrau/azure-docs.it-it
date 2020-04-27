@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.date: 03/03/2020
-ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/20/2020
+ms.openlocfilehash: 797767e0c463161f29e486aef7db0ccaf459e299
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78267710"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733560"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Panoramica della sicurezza aziendale in Azure HDInsight
 
-Azure HDInsight offre diversi metodi per soddisfare le esigenze dell'organizzazione in termini di sicurezza. La maggior parte di queste soluzioni non è attivata per impostazione predefinita. Grazie a questa flessibilità è possibile scegliere le funzionalità di sicurezza più appropriate per le proprie esigenze e di evitare di pagare per funzionalità non desiderate. In questo modo, però, spetta all'utente assicurarsi che siano abilitate le soluzioni corrette per la configurazione e l'ambiente.
+Azure HDInsight offre diversi metodi per soddisfare le esigenze dell'organizzazione in termini di sicurezza. La maggior parte di queste soluzioni non è attivata per impostazione predefinita. Grazie a questa flessibilità è possibile scegliere le funzionalità di sicurezza più pertinenti, evitando di pagare per funzionalità indesiderate. In questo modo, però, spetta all'utente assicurarsi che siano abilitate le soluzioni corrette per la configurazione e l'ambiente.
 
 Questo articolo esamina le soluzioni di sicurezza dividendole in base ai quattro pilastri di sicurezza tradizionali, ovvero protezione perimetrale, autenticazione, autorizzazione e crittografia.
 
@@ -24,33 +24,33 @@ Questo articolo introduce anche il pacchetto **Enterprise Security Package di Az
 
 ## <a name="enterprise-security-pillars"></a>Pilastri della sicurezza aziendale
 
-Un modo per esaminare la sicurezza aziendale consiste nel dividere le soluzioni di sicurezza in quattro gruppi principali in base al tipo di controllo. Questi gruppi, denominati pilastri della sicurezza, sono i seguenti: protezione perimetrale, autenticazione, autorizzazione e crittografia.
+Un modo per esaminare la sicurezza aziendale consiste nel dividere le soluzioni di sicurezza in quattro gruppi principali in base al tipo di controllo. Questi gruppi, denominati pilastri della sicurezza, rientrano nei tipi seguenti: protezione perimetrale, autenticazione, autorizzazione e crittografia.
 
 ### <a name="perimeter-security"></a>Protezione perimetrale
 
-Per la protezione perimetrale in HDInsight si usano le [reti virtuali](../hdinsight-plan-virtual-network-deployment.md). Un amministratore aziendale può creare un cluster all'interno di una rete virtuale e usare gruppi di sicurezza di rete per limitare l'accesso alla rete virtuale. Solo gli indirizzi IP consentiti nelle regole in ingresso dei gruppi di sicurezza di rete potranno comunicare con il cluster HDInsight. Questa configurazione offre sicurezza perimetrale.
+Per la protezione perimetrale in HDInsight si usano le [reti virtuali](../hdinsight-plan-virtual-network-deployment.md). Un amministratore aziendale può creare un cluster all'interno di una rete virtuale e usare gruppi di sicurezza di rete per limitare l'accesso alla rete virtuale. Solo gli indirizzi IP consentiti nelle regole in ingresso dei gruppi di sicurezza di rete possono comunicare con il cluster HDInsight. Questa configurazione offre sicurezza perimetrale.
 
-Tutti i cluster distribuiti in una rete virtuale includeranno anche un endpoint privato che viene risolto in un indirizzo IP privato all'interno della rete virtuale per l'accesso HTTP privato ai gateway del cluster.
+Tutti i cluster distribuiti in una rete virtuale avranno anche un endpoint privato. L'endpoint viene risolto in un indirizzo IP privato all'interno della rete virtuale per consentire accesso HTTP privato ai gateway del cluster.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
-Il pacchetto [Enterprise Security Package](apache-domain-joined-architecture.md) di HDInsight supporta l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo. Per l'integrazione di Active Directory si usa [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Con queste funzionalità è possibile creare un cluster HDInsight aggiunto a un dominio gestito di Active Directory. È quindi possibile configurare un elenco di dipendenti dell'azienda autorizzati a eseguire l'autenticazione e accedere al cluster.
+L'offerta [Enterprise Security Package](apache-domain-joined-architecture.md) di HDInsight supporta l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo. Per l'integrazione di Active Directory si usa [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Con queste funzionalità è possibile creare un cluster HDInsight aggiunto a un dominio di Active Directory. È quindi necessario configurare un elenco di dipendenti dell'azienda autorizzati a eseguire l'autenticazione al cluster.
 
-Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare le credenziali del dominio anche per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Apache Ambari, ODBC, JDBC, PowerShell e API REST per l'interazione con il cluster.
+Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Possono anche usare le proprie credenziali di dominio per eseguire l'autenticazione con altri endpoint approvati, ad esempio le visualizzazioni Apache Ambari, ODBC, JDBC, PowerShell e le API REST per interagire con il cluster.
 
 ### <a name="authorization"></a>Autorizzazione
 
-Una procedura consigliata seguita dalla maggior parte delle aziende è assicurarsi di limitare l'accesso a tutte le risorse aziendali da parte dei dipendenti. In modo analogo, l'amministratore può definire i criteri di controllo degli accessi in base al ruolo per le risorse del cluster. Questa operazione è disponibile solo nei cluster ESP.
+Una procedura consigliata seguita dalla maggior parte delle aziende è assicurarsi di non offrire a tutti i dipendenti accesso completo a tutte le risorse aziendali. In modo analogo, l'amministratore può definire i criteri di controllo degli accessi in base al ruolo per le risorse del cluster. Questa azione è disponibile solo nei cluster ESP.
 
-L'amministratore di Hadoop può configurare il controllo degli accessi in base al ruolo per proteggere Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) e [Kafka](apache-domain-joined-run-kafka.md) usando questi plug-in in Apache Ranger. La configurazione dei criteri del controllo degli accessi in base al ruolo consente di associare le autorizzazioni a un ruolo nell'organizzazione. Con questo livello di astrazione risulta ancor più semplice assicurarsi che le persone dispongano solo delle autorizzazioni necessarie per svolgere le proprie responsabilità lavorative. Ranger consente anche di controllare l'accesso ai dati da parte dei dipendenti e qualsiasi modifica apportata ai criteri di controllo di accesso.
+L'amministratore di Hadoop può configurare il controllo degli accessi in base al ruolo. Le configurazioni proteggono Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) e [Kafka](apache-domain-joined-run-kafka.md) con plug-in Apache Range. La configurazione dei criteri del controllo degli accessi in base al ruolo consente di associare le autorizzazioni a un ruolo nell'organizzazione. Con questo livello di astrazione risulta ancor più semplice assicurarsi che le persone dispongano solo delle autorizzazioni necessarie per completare le attività lavorative assegnate. Ranger consente anche di controllare l'accesso ai dati da parte dei dipendenti e qualsiasi modifica apportata ai criteri di controllo di accesso.
 
-Ad esempio, l'amministratore può configurare [Apache Ranger](https://ranger.apache.org/) per impostare criteri di controllo degli accessi per Hive. Questa funzionalità garantisce il filtro a livello di riga e di colonna (maschera dati) e filtra i dati sensibili impedendo l'accesso a utenti non autorizzati.
+Ad esempio, l'amministratore può configurare [Apache Ranger](https://ranger.apache.org/) per impostare criteri di controllo degli accessi per Hive. Questa funzionalità garantisce l'applicazione di filtri a livello di riga e di colonna (maschera dati) e impedisce a utenti non autorizzati di visualizzare dati sensibili.
 
 ### <a name="auditing"></a>Controllo
 
-Controllare tutti gli accessi per le risorse del cluster e i dati, è necessario per tenere traccia dell'accesso non autorizzato o non intenzionale delle risorse. È importante tanto quanto proteggere le risorse del cluster HDInsight da utenti non autorizzati e garantire la sicurezza dei dati.
+Il controllo dell'accesso alle risorse del cluster è necessario per tenere traccia di accessi non autorizzati o non intenzionali alle risorse. Questo tipo di controllo è importante tanto quanto proteggere le risorse del cluster da accessi non autorizzati.
 
-L'amministratore può visualizzare e segnalare tutti gli accessi ai dati e alle risorse del cluster HDInsight. L'amministratore può anche visualizzare e segnalare tutte le modifiche ai criteri di controllo degli accessi creati negli endpoint supportati da Apache Ranger.
+L'amministratore può visualizzare e segnalare tutti gli accessi ai dati e alle risorse del cluster HDInsight. L'amministratore può visualizzare e segnalare le modifiche ai criteri di controllo di accesso.
 
 Per accedere ai log di controllo di Apache Ranger e Ambari e ai log di accesso di SSH, [abilitare Monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e visualizzare le tabelle che forniscono i record di controllo.
 
@@ -58,15 +58,15 @@ Per accedere ai log di controllo di Apache Ranger e Ambari e ai log di accesso d
 
 La protezione dei dati è importante per rispettare i requisiti di sicurezza e conformità dell'organizzazione. Oltre a limitare l'accesso ai dati da parte di dipendenti non autorizzati, è necessario crittografarli.
 
-Entrambi gli archivi di dati per i cluster HDInsight, Archiviazione BLOB di Azure e Azure Data Lake Storage Gen1 e Gen2, supportano la [crittografia dei dati](../../storage/common/storage-service-encryption.md) inattivi trasparente lato server. La protezione dei cluster HDInsight sarà perfettamente compatibile con questa funzionalità di crittografia lato server dei dati inattivi.
+Archiviazione di Azure e Data Lake Storage Gen1 e Gen2 supportano la [crittografia dei dati inattivi](../../storage/common/storage-service-encryption.md) lato server in modo trasparente. La protezione dei cluster HDInsight sarà perfettamente compatibile con la crittografia lato server dei dati inattivi.
 
 ### <a name="compliance"></a>Conformità
 
-Le offerte di conformità di Azure si basano su vari tipi di garanzie, tra cui certificazioni formali, attestazioni, convalide, autorizzazioni e valutazioni generate da società di revisione indipendenti di terze parti, nonché modifiche contrattuali, autovalutazioni e documenti di indicazioni per i clienti prodotti da Microsoft. Per informazioni sulla conformità di HDInsight, vedere [Centro protezione Microsoft](https://www.microsoft.com/trust-center) e il documento [Panoramica della conformità di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+Le offerte di Azure relative alla conformità si basano su diversi tipi di garanzie, tra cui le certificazioni formali, nonché su attestazioni, convalide e autorizzazioni, valutazioni prodotte da società di controllo indipendenti di terze parti, emendamenti contrattuali, autovalutazioni e documenti delle linee guida per i clienti prodotti da Microsoft. Per informazioni sulla conformità di HDInsight, vedere [Centro protezione Microsoft](https://www.microsoft.com/trust-center) e il documento [Panoramica della conformità di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Modello di responsabilità condivisa
 
-Nell'immagine seguente sono riepilogate le principali aree di sicurezza del sistema e le soluzioni di sicurezza disponibili in ognuna di essi. Vengono inoltre indicate le aree di sicurezza di responsabilità dei clienti e quelle di HDInsight come provider di servizi.
+Nell'immagine seguente sono riepilogate le principali aree di sicurezza del sistema e le soluzioni di sicurezza disponibili in ognuna di essi. Vengono inoltre evidenziate le aree di sicurezza di responsabilità di un cliente, nonché quelle di responsabilità di HDInsight in quanto provider di servizi.
 
 ![Diagramma delle responsabilità condivise di HDInsight](./media/hdinsight-security-overview/hdinsight-shared-responsibility.png)
 

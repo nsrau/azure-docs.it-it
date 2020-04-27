@@ -2,20 +2,20 @@
 title: Usare Azure Key Vault nei modelli
 description: Informazioni su come usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione di modelli di Resource Manager
 author: mumian
-ms.date: 05/23/2019
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260701"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536701"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Azure Resource Manager
 
-Informazioni su come recuperare i segreti da Azure Key Vault e passarli come parametri quando si distribuisce un modello di Azure Resource Manager (ARM). Il valore dei parametri non viene mai esposto perché si fa riferimento solo al relativo ID dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
+Informazioni su come recuperare i segreti da Azure Key Vault e passarli come parametri quando si distribuisce un modello di Azure Resource Manager (ARM). Il valore dei parametri non viene mai esposto perché si fa riferimento solo al relativo ID dell'insieme di credenziali delle chiavi. Per fare riferimento al segreto dell'insieme di credenziali delle chiavi, è possibile usare un ID statico o un ID dinamico. In questa esercitazione viene usato un ID statico. Con l'approccio basato sull'ID statico, si fa riferimento all'insieme di credenziali delle chiavi nel file dei parametri del modello, non nel file del modello. Per altre informazioni su entrambi gli approcci, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./key-vault-parameter.md).
 
 Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./template-tutorial-create-templates-with-dependent-resources.md) viene creata una macchina virtuale. È necessario specificare il nome utente e la password dell'amministratore della macchina virtuale. Invece di immettere la password, è possibile archiviarla preventivamente in Azure Key Vault e quindi personalizzare il modello per recuperare la password dall'insieme di credenziali delle chiavi durante la distribuzione.
 
@@ -33,8 +33,6 @@ Questa esercitazione illustra le attività seguenti:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
@@ -49,7 +47,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="prepare-a-key-vault"></a>Preparare un insieme di credenziali delle chiavi
 
-In questa sezione si crea un insieme di credenziali delle chiavi e vi si aggiunge un segreto, per poter recuperare il segreto quando si distribuisce il modello. Esistono molti modi per creare un insieme di credenziali delle chiavi. In questa esercitazione si usa Azure PowerShell per distribuire un [modello di Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Questo modello consente di:
+In questa sezione si crea un insieme di credenziali delle chiavi e vi si aggiunge un segreto, per poter recuperare il segreto quando si distribuisce il modello. Esistono molti modi per creare un insieme di credenziali delle chiavi. In questa esercitazione si usa Azure PowerShell per distribuire un [modello di Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Questo modello consente di eseguire due operazioni:
 
 * Creare un insieme di credenziali delle chiavi con la proprietà `enabledForTemplateDeployment` abilitata. Affinché il processo di distribuzione del modello possa accedere ai segreti definiti nell'insieme di credenziali delle chiavi, impostare questa proprietà su *true*.
 * Aggiungere un segreto all'insieme di credenziali delle chiavi. Il segreto contiene la password dell'amministratore della macchina virtuale.
@@ -72,14 +70,16 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!IMPORTANT]
 > * Il nome del gruppo di risorse corrisponde al nome del progetto seguito da **rg**. Per semplificare la [pulizia delle risorse create in questa esercitazione](#clean-up-resources), usare lo stesso nome di progetto e di gruppo di risorse per la [distribuzione del modello seguente](#deploy-the-template).
 > * Il nome predefinito del segreto è **vmAdminPassword**. Tale nome è hardcoded nel modello.
-> * Affinché il modello possa recuperare il segreto, è necessario abilitare un criterio di accesso denominato "Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli" per l'insieme di credenziali delle chiavi. Questo criterio viene abilitato nel modello. Per altre informazioni sui criteri di accesso, vedere [Distribuire insiemi di credenziali delle chiavi e segreti](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
+> * Affinché il modello possa recuperare il segreto, è necessario abilitare un criterio di accesso denominato **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli** per l'insieme di credenziali delle chiavi. Questo criterio viene abilitato nel modello. Per altre informazioni sui criteri di accesso, vedere [Distribuire insiemi di credenziali delle chiavi e segreti](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-Il modello ha un valore di output denominato *keyVaultId*. Prendere nota del valore dell'ID da usare in seguito, quando si distribuisce la macchina virtuale. Il formato dell'ID della risorsa è il seguente:
+Il modello ha un valore di output denominato *keyVaultId*. Questo ID verrà usato insieme al nome del segreto per recuperare il valore del segreto più avanti nell'esercitazione. Il formato dell'ID della risorsa è il seguente:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -108,13 +108,14 @@ I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azu
     ```
 
 1. Selezionare **Apri** per aprire il file. Lo scenario è identico a quello usato in [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./template-tutorial-create-templates-with-dependent-resources.md).
-   Il modello definisce cinque risorse:
+   Il modello definisce sei risorse:
 
-   * `Microsoft.Storage/storageAccounts`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
    Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
 
@@ -128,7 +129,7 @@ I modelli di avvio rapido di Azure costituiscono un repository di modelli di Azu
 
 ## <a name="edit-the-parameters-file"></a>Modificare il file dei parametri
 
-Non è necessario apportare modifiche al file del modello.
+Con l'approccio basato sull'ID statico non è necessario apportare modifiche al file del modello. Il recupero del valore del segreto viene eseguito configurando il file dei parametri del modello.
 
 1. In Visual Studio Code aprire *azuredeploy.parameters.json*, se non è già aperto.
 1. Aggiornare il parametro `adminPassword` in:
@@ -145,7 +146,7 @@ Non è necessario apportare modifiche al file del modello.
     ```
 
     > [!IMPORTANT]
-    > Sostituire il valore di **id** con l'ID della risorsa dell'insieme di credenziali delle chiavi creato nella procedura precedente.
+    > Sostituire il valore di **id** con l'ID della risorsa dell'insieme di credenziali delle chiavi creato nella procedura precedente. Il valore hardcoded di secretName è **vmAdminPassword**.  Vedere [Preparare un insieme di credenziali delle chiavi](#prepare-a-key-vault).
 
     ![Integrare Key Vault e i modelli di Resource Manager - File dei parametri per la distribuzione di macchine virtuali](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 

@@ -4,17 +4,17 @@ description: Informazioni su come configurare i ruoli utente e amministratore di
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273690"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454255"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli utente e di amministratore del server
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli amministratore e utente del server
 
  In questa esercitazione si usa SQL Server Management Studio (SSMS) per connettersi al server in Azure per configurare i ruoli del database modello e di amministratore del server. Viene anche presentato [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL è un linguaggio di scripting basato su JSON per i modelli tabulari ai livelli di compatibilità 1200 e superiori. Può essere usato per automatizzare molte attività di modellazione tabulare. TMSL viene spesso usato con PowerShell, ma in questa esercitazione si usa l'editor di query XMLA in SSMS. Con questa esercitazione, si completano le attività seguenti: 
   
@@ -27,7 +27,7 @@ ms.locfileid: "78273690"
 
 Per altre informazioni sulla sicurezza utente in Azure Analysis Services, vedere [Autenticazione e autorizzazioni utente](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Azure Active Directory nella sottoscrizione.
 - Avere creato un [server di Azure Analysis Services](../analysis-services-create-server.md) nella sottoscrizione.
@@ -67,7 +67,7 @@ Per le restanti attività, si usa SSMS per connettersi al server e gestirlo.
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Aggiungere un account utente al ruolo di amministratore del server
 
-In questa attività si aggiunge un account utente o gruppo da Azure AD al ruolo di amministratore del server. Se si aggiunge un gruppo di sicurezza, la proprietà `MailEnabled` di questo gruppo di sicurezza deve essere impostata su `True`.
+In questa attività si aggiunge un account utente o gruppo da Azure AD al ruolo di amministratore del server. Se si specifica un gruppo di sicurezza, usare `obj:groupid@tenantid`.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul nome del server e quindi scegliere **Proprietà**. 
 2. Nella finestra **Proprietà computer Analysis Server** fare clic su **Sicurezza** > **Aggiungi**.

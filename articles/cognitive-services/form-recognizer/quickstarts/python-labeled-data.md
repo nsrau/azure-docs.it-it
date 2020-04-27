@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482310"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531101"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python
 
@@ -40,7 +40,7 @@ Assicurarsi che tutti i documenti di training abbiano lo stesso formato. Se si u
 
 Per eseguire il training di un modello usando i dati etichettati, saranno necessari i file seguenti come input nella sottocartella. Verrà descritto come creare questi file.
 
-* **Moduli di origine**: moduli da cui estrarre i dati. I tipi supportati sono JPEG, PNG, BMP, PDF o TIFF.
+* **Moduli di origine**: moduli da cui estrarre i dati. I tipi supportati sono JPEG, PNG, PDF o TIFF.
 * **File di layout OCR**: file JSON che descrivono le dimensioni e le posizioni di tutto il testo leggibile in ogni modulo di origine. Per generare questi dati verrà usata l'API di layout di Riconoscimento modulo. 
 * **File di etichette**: file JSON che descrivono le etichette dati immesse manualmente da un utente.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ Al termine del processo, si riceverà una risposta `202 (Success)` con contenuto
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

@@ -7,16 +7,18 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 493dcd71905970434dd2ab2997cfebd17b8e47ff
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891595"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758178"
 ---
-# <a name="tutorial-create-and-connect-a-python-client-application-to-your-azure-iot-central-application-python"></a>Esercitazione: Creare e connettere un'applicazione client Python all'applicazione Azure IoT Central (Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Esercitazione: Creare e connettere un'applicazione client all'applicazione Azure IoT Central (Python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
+
+*Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
 
 Questa esercitazione illustra agli sviluppatori di dispositivi come connettere un'applicazione client Python all'applicazione Azure IoT Central. L'applicazione Python simula il comportamento di un dispositivo sensore ambientale reale. Verrà usato un _modello di funzionalità di dispositivo_ di esempio per creare un _modello di dispositivo_ in IoT Central. È possibile aggiungere visualizzazioni al modello di dispositivo per consentire a un operatore di interagire con un dispositivo.
 
@@ -303,7 +305,12 @@ python3 environmental_sensor.py
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui modelli di funzionalità di dispositivo e su come creare modelli di dispositivo personalizzati, continuare con la guida pratica:
+A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Node.js, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
+
+- Articolo procedurale [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](./howto-connect-devkit.md) per informazioni su come connettere un dispositivo reale a IoT Central.
+- Articolo [Connettersi ad Azure IoT Central](./concepts-get-connected.md) per altre informazioni su come registrare dispositivi con IoT Central e sulla protezione delle connessioni ai dispositivi in IoT Central.
+
+Se si preferisce continuare il set di esercitazioni di IoT Central e saperne di più sulla creazione di una soluzione di IoT Central, vedere:
 
 > [!div class="nextstepaction"]
-> [Definire un nuovo tipo di dispositivo IoT](./howto-set-up-template.md)
+> [Creare un modello di dispositivo gateway](./tutorial-define-gateway-device-type.md)

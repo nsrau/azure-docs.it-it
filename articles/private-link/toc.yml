@@ -24,6 +24,8 @@
       href: private-endpoint-overview.md
     - name: Servizio Collegamento privato
       href: private-link-service-overview.md
+    - name: Integrazione DNS dell'endpoint privato
+      href: private-endpoint-dns.md
 - name: Procedure
   items:
     - name: Connettersi privatamente a un account di archiviazione
@@ -44,7 +46,7 @@
           href: troubleshoot-private-endpoint-connectivity.md
         - name: Risoluzione dei problemi di connettività al servizio Collegamento privato
           href: troubleshoot-private-link-connectivity.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network
