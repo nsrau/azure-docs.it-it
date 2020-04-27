@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60196534"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog
@@ -25,9 +25,9 @@ Questo articolo descrive come integrare Azure Data Lake Storage Gen1 con Azure D
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Abilitare la sottoscrizione di Azure** per Data Lake Storage Gen1. Vedere le [istruzioni](data-lake-store-get-started-portal.md).
-* **Un account Data Lake Storage Gen1**. Seguire le istruzioni in [Introduzione a Azure Data Lake Storage Gen1 usando il portale](data-lake-store-get-started-portal.md)di Azure . Per questa esercitazione, creare un account Data Lake Storage Gen1 denominato **datacatalogstore**.
+* **Un account data Lake storage Gen1**. Seguire le istruzioni [riportate in Introduzione all'Azure Data Lake storage Gen1 usando il portale di Azure](data-lake-store-get-started-portal.md). Per questa esercitazione, creare un account Data Lake Storage Gen1 denominato **datacatalogstore**.
 
     Dopo aver creato l'account, caricare un set di dati di esempio. Per questa esercitazione, caricare tutti i file con estensione csv nella cartella **AmbulanceData** del [repository Git di Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). È possibile usare vari tipi di client, ad esempio [Azure Storage Explorer](https://storageexplorer.com/), per caricare i dati in un contenitore BLOB.
 * **Azure Data Catalog**. È necessario che per l'organizzazione sia già stato creato un catalogo di Azure Data Catalog. Per ogni organizzazione è consentito un solo catalogo.
@@ -46,7 +46,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     ![Schermata iniziale](./media/data-lake-store-with-data-catalog/welcome.screen.png "Schermata iniziale")
 1. Nella pagina Selezionare un'origine dati selezionare **Azure Data Lake Store** e quindi fare clic su **Avanti**.
 
-    ![Selezionare l'origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezionare l'origine dati")
+    ![Seleziona origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezionare l'origine dati")
 1. Nella pagina successiva specificare il nome dell'account Data Lake Storage Gen1 che si vuole registrare in Data Catalog. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
 
     ![Connessione a un'origine dati](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connessione a un'origine dati")
@@ -65,7 +65,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
     ![Visualizzazione della struttura dei dati](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Visualizzazione della struttura dei dati")
 
-    Fare clic su **Registra**.
+    Fare clic su **Register**.
 1. La schermata seguente indica che i dati sono stati registrati correttamente nel catalogo dati.
 
     ![Registrazione completata](./media/data-lake-store-with-data-catalog/registration-complete.png "Visualizzazione della struttura dei dati")
@@ -77,7 +77,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrare Data Lake Storage Gen1 con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)
