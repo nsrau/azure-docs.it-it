@@ -4,18 +4,16 @@ description: Informazioni su come eseguire una migrazione di macchine virtuali V
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6855c3e81aece0358146608b6cf179fb923c54c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222028"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535333"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
 Questo articolo illustra come eseguire una migrazione basata su agente di macchine virtuali VMware locali in Azure con lo strumento Migrazione server di Azure Migrate.
-
-[Azure Migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione dei carichi di lavoro e delle app locali, nonché delle istanze di VM AWS/GCP, in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
 
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -78,7 +76,7 @@ Se è già stata eseguita una valutazione con lo strumento Valutazione server di
 Se non è stata eseguita una valutazione, è necessario configurare le autorizzazioni di Azure prima di eseguire la migrazione con Migrazione server di Azure Migrate.
 
 - **Creare un progetto**: l'account Azure deve avere le autorizzazioni per creare un progetto di Azure Migrate. 
-- **Registrare l'appliance di replica Azure Migrate**: l'appliance di replica crea e registra un'app Azure Active Directory nell'account Azure. È necessario delegare le autorizzazioni per queste operazioni.
+- **Registrare l'appliance di replica Azure Migrate**: l'appliance di replica crea e registra un'app Azure Active Directory nell'account Azure. Delegare le autorizzazioni per questa operazione.
 - **Creare un insieme di credenziali delle chiavi**: Per eseguire la migrazione delle macchine virtuali VMware con Migrazione server di Azure Migrate, Azure Migrate crea un insieme di credenziali delle chiavi nel gruppo di risorse per gestire le chiavi di accesso all'account di archiviazione di replica nella sottoscrizione. Per creare l'insieme di credenziali, sono necessarie autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto di Azure Migrate. 
 
 
@@ -147,8 +145,8 @@ Creare l'account come illustrato di seguito:
 
 **Attività** | **Ruolo/Autorizzazioni** | **Dettagli**
 --- | --- | ---
-**Individuazione di macchine virtuali** | Almeno un utente in sola lettura<br/><br/> Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
-**Replica completa, failover, failback** |  Creare un ruolo (Azure_Site_Recovery) con le autorizzazioni necessarie e quindi assegnare il ruolo a un utente o gruppo VMware<br/><br/> Data Center object (Oggetto data center) –> Propagate to Child Object (Propaga a oggetto figlio), role=Azure_Site_Recovery (ruolo=Azure_Site_Recovery)<br/><br/> Datastore (Archivio dati) -> Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)<br/><br/> Network (Rete) -> Network assign (Assegnazione rete)<br/><br/> Risorsa -> Assegnare VM al pool di risorse, migrare la VM spenta, migrare la VM accesa<br/><br/> Tasks (Attività) -> Create task (Crea attività), Update task (Aggiorna attività)<br/><br/> Virtual machine (Macchina virtuale) -> Configuration (Configurazione)<br/><br/> Virtual machine (Macchina virtuale) -> Interact (Interagisci) -> Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)<br/><br/> Virtual machine (Macchina virtuale) -> Inventory (Inventario) -> Create (Crea), Register (Registra), Unregister (Annulla registrazione)<br/><br/> Virtual machine (Macchina virtuale) -> Provisioning -> Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)<br/><br/> Macchina virtuale -> Snapshots -> Remove snapshots | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
+**Individuazione di macchine virtuali** | Almeno un utente in sola lettura<br/><br/> Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **Nessun accesso** con **Propagate to Child Object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
+**Replica completa, failover, failback** |  Creare un ruolo (Azure_Site_Recovery) con le autorizzazioni necessarie e quindi assegnare il ruolo a un utente o gruppo VMware<br/><br/> Data Center object (Oggetto data center) –> Propagate to Child Object (Propaga a oggetto figlio), role=Azure_Site_Recovery (ruolo=Azure_Site_Recovery)<br/><br/> Datastore (Archivio dati) -> Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)<br/><br/> Network (Rete) -> Network assign (Assegnazione rete)<br/><br/> Risorsa -> Assegnare VM al pool di risorse, migrare la VM spenta, migrare la VM accesa<br/><br/> Tasks (Attività) -> Create task (Crea attività), Update task (Aggiorna attività)<br/><br/> Virtual machine (Macchina virtuale) -> Configuration (Configurazione)<br/><br/> Virtual machine (Macchina virtuale) -> Interact (Interagisci) -> Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)<br/><br/> Virtual machine (Macchina virtuale) -> Inventory (Inventario) -> Create (Crea), Register (Registra), Unregister (Annulla registrazione)<br/><br/> Virtual machine (Macchina virtuale) -> Provisioning -> Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)<br/><br/> Macchina virtuale -> Snapshots -> Remove snapshots | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo**Nessun accesso** con **Propagate to Child Object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Preparare un account per l'installazione del servizio Mobility
 
@@ -191,23 +189,15 @@ Se non è stata seguita l'esercitazione per valutare le macchine virtuali VMware
 3. In **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server** .
 4. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server** .
 
-    ![Individuare e valutare i server](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ![Individuare e valutare i server](./media/tutorial-migrate-vmware-agent/assess-migrate.png
 
 1. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Aggiungi strumenti**.
 2. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.
-3. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare, quindi fare clic su **Avanti**.
+3. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare e quindi fare clic su **Avanti**. Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Creare un progetto di Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    È possibile creare un progetto di Azure Migrate in una delle aree geografiche seguenti.
 
-    **Area geografica** | **Area**
-    --- | ---
-    Asia | Asia sud-orientale
-    Europa | Europa settentrionale o Europa occidentale
-    Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
-
-    L'area geografica specificata per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali. Per la migrazione effettiva è possibile selezionare qualsiasi area di destinazione.
 4. In **Selezionare lo strumento di valutazione** selezionare **Ignora l'aggiunta di uno strumento di valutazione per adesso** > **Avanti**.
 5. In **Selezionare lo strumento di migrazione** selezionare **Azure Migrate: Migrazione server** > **Avanti**.
 6. In **Rivedi e aggiungi strumenti** rivedere le impostazioni e fare clic su **Aggiungi strumenti**
@@ -221,7 +211,10 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 - **Server di elaborazione** Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione cache in Azure. Il server di elaborazione installa anche l'agente del servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali VMware locali.
 
 
-Per configurare l'appliance di replica occorre scaricare un modello OVA (Open Virtualization Application) già preparato, importarlo in VMware e creare la VM appliance di replica. 
+Sono disponibili due modi per configurare l'appliance di replica.
+
+- Configurarla con un modello OVA (Open Virtualization Application) scaricato, importarlo in VMware e creare la VM appliance di replica. Questo è il metodo usato in questa esercitazione.
+- Configurala con uno script.
 
 ### <a name="download-the-replication-appliance-template"></a>Scaricare il modello di appliance di replica
 

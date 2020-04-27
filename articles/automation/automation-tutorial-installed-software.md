@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b93035fc7e315f8117516771236186f9d942a0aa
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223778"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604663"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Individuare il software installato nei computer Azure e non Azure
 
@@ -27,12 +27,12 @@ In questa esercitazione si apprenderà come:
 > * Visualizzare il software installato
 > * Cercare il software installato nei log di inventario
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
 * Una sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [account di Automazione](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
+* Un [account di automazione](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
 * Una [macchina virtuale](../virtual-machines/windows/quick-create-portal.md) da caricare.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -43,7 +43,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento modifiche e inventario. Se in precedenza è stata abilitata la soluzione **Rilevamento modifiche**, questo passaggio non è necessario.
 
-Passare all'account di Automazione e selezionare **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**.
+Passare all'account di Automazione e selezionare **Inventario** in **Gestione configurazione**.
 
 Scegliere l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
@@ -62,13 +62,13 @@ Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere
 
 ## <a name="onboard-a-vm"></a>Eseguire l'onboarding di una macchina virtuale
 
-Nell'account di Automazione passare a **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**.
+Nell'account di Automazione passare a **Inventario** in **Gestione configurazione**.
 
-Selezionare **+ Aggiungi macchina virtuale di Azure** per visualizzare la pagina **Macchine virtuali** che consente di selezionare una macchina virtuale esistente dall'elenco. Selezionare la macchina virtuale di cui si vuole eseguire l'onboarding. Nella pagina visualizzata fare clic su **Abilita** per abilitare la soluzione sulla macchina virtuale. L'agente di gestione Microsoft viene distribuito nella macchina virtuale e configura l'agente in modo che comunichi con l'area di lavoro Log Analytics configurata durante l'abilitazione della soluzione. L'onboarding potrebbe richiedere alcuni minuti. A questo punto è possibile selezionare una nuova macchina virtuale dall'elenco ed eseguire l'onboarding di un'altra macchina virtuale.
+Selezionare **+ Aggiungi macchina virtuale di Azure** per visualizzare la pagina Macchine virtuali che consente di selezionare una macchina virtuale esistente dall'elenco. Selezionare la macchina virtuale di cui si vuole eseguire l'onboarding. Nella pagina visualizzata fare clic su **Abilita** per abilitare la soluzione sulla macchina virtuale. L'agente di gestione Microsoft viene distribuito nella macchina virtuale e configura l'agente in modo che comunichi con l'area di lavoro Log Analytics configurata durante l'abilitazione della soluzione. L'onboarding potrebbe richiedere alcuni minuti. A questo punto è possibile selezionare una nuova macchina virtuale dall'elenco ed eseguire l'onboarding di un'altra macchina virtuale.
 
 ## <a name="onboard-a-non-azure-machine"></a>Eseguire l'onboarding di un computer non di Azure
 
-Per aggiungere computer non Azure, installare l'agente per [Windows](../azure-monitor/platform/agent-windows.md) o [Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. Dopo l'installazione dell'agente, passare all'account di Automazione e quindi a **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**. Quando si fa clic su **Gestisci computer**, viene visualizzato un elenco di computer che inviano report all'area di lavoro Log Analytics in cui non è abilitata la soluzione. Selezionare l'opzione appropriata per l'ambiente.
+Per aggiungere computer non di Azure, installare l'[agente di Log Analytics per Windows](../azure-monitor/platform/agent-windows.md) o l'[agente di Log Analytics per Linux](automation-linux-hrw-install.md), in base al sistema operativo in uso. Dopo l'installazione dell'agente, passare all'account di Automazione e quindi a **Inventario** in **Gestione configurazione**. Quando si fa clic su **Gestisci computer**, viene visualizzato un elenco di computer che inviano report all'area di lavoro Log Analytics in cui non è abilitata la soluzione. Selezionare l'opzione appropriata per l'ambiente.
 
 * **Abilita in tutti i computer disponibili**: questa opzione abilita la soluzione su tutti i computer che attualmente inviano report all'area di lavoro Log Analytics.
 * **Abilita in tutti i computer disponibili e futuri**: questa opzione abilita la soluzione su tutti i computer che inviano report all'area di lavoro Log Analytics e successivamente su tutti i computer futuri aggiunti all'area di lavoro.
@@ -78,11 +78,11 @@ Per aggiungere computer non Azure, installare l'agente per [Windows](../azure-mo
 
 ## <a name="view-installed-software"></a>Visualizzare il software installato
 
-Dopo avere abilitato la soluzione Rilevamento modifiche e inventario, è possibile visualizzare i risultati nella pagina **Inventario**.
+Dopo avere abilitato la soluzione Rilevamento modifiche e inventario, è possibile visualizzare i risultati nella pagina Inventario.
 
-Dall'account di Automazione selezionare **Inventario** in **GESTIONE DELLA CONFIGURAZIONE**.
+Nell'account di Automazione selezionare **Inventario** in **Gestione configurazione**.
 
-Nella pagina **Inventario** fare clic sulla scheda **Software**.
+Nella pagina Inventario fare clic sulla scheda **Software**.
 
 Nella scheda**Software** è presente una tabella che elenca il software trovato. Il software è raggruppato per nome e versione.
 
@@ -95,14 +95,14 @@ Fare clic su una riga per visualizzare le proprietà del record software e i nom
 Per cercare un software o un gruppo di software specifico, è possibile eseguire una ricerca nella casella di testo immediatamente sopra l'elenco di software.
 Il filtro consente di eseguire la ricerca in base al nome, alla versione o all'autore del software.
 
-Ad esempio, la ricerca di "Contoso" restituisce tutti i software con un nome, un autore o una versione contenente "Contoso".
+Ad esempio, la ricerca di **Contoso** restituisce tutti i software con un nome, un autore o una versione contenente **Contoso**.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Cercare il software installato nei log di inventario
 
-L'inventario genera dati di log che vengono inviati ai log di Monitoraggio di Azure. Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log Analytics** nella parte superiore della finestra **Inventario**.
+L'inventario genera dati di log che vengono inviati ai log di Monitoraggio di Azure. Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log Analytics** nella parte superiore della finestra Inventario.
 
-I dati di Inventario vengono archiviati sotto il tipo **ConfigurationData**.
-L'esempio seguente di query di Log Analytics restituisce i risultati dell'inventario in cui l'autore equivale a "Microsoft Corporation".
+I dati di Inventario vengono archiviati nel tipo `ConfigurationData`.
+La query di Log Analytics di esempio seguente restituisce i risultati dell'inventario in cui l'autore equivale a **Microsoft Corporation**.
 
 ```loganalytics
 ConfigurationData
@@ -116,7 +116,7 @@ Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro i
 ### <a name="single-machine-inventory"></a>Inventario di un singolo computer
 
 Per visualizzare l'inventario software per un solo computer, è possibile accedere all'inventario dalla pagina delle risorse della macchina virtuale di Azure o usare i log di Monitoraggio di Azure per filtrare i dati in base al computer corrispondente.
-La query di Log Analytics di esempio seguente restituisce l'elenco dei software per un computer di nome ContosoVM.
+La query di Log Analytics di esempio seguente restituisce l'elenco dei software per un computer denominato **ContosoVM**.
 
 ```loganalytics
 ConfigurationData

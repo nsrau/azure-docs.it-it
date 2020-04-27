@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677042"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604684"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -40,13 +40,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
-Dopo aver abilitato Gestione aggiornamenti, verrà visualizzata la pagina **Gestione aggiornamenti**. Se alcuni aggiornamenti vengono identificati come mancanti, il relativo elenco viene visualizzato nella scheda **Aggiornamenti mancanti**.
+Dopo aver abilitato Gestione aggiornamenti, verrà visualizzata la pagina Gestione aggiornamenti. Se alcuni aggiornamenti vengono identificati come mancanti, il relativo elenco viene visualizzato nella scheda **Aggiornamenti mancanti**.
 
 In **Collegamento alle informazioni** selezionare il collegamento per aprire l'articolo di supporto per l'aggiornamento. È possibile acquisire informazioni importanti sull'aggiornamento.
 
 ![Visualizzare lo stato degli aggiornamenti](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Facendo clic in altro punto dell'area dell'aggiornamento, viene aperto il riquadro **Ricerca log** per l'aggiornamento selezionato. La query per la ricerca log è predefinita per tale specifico aggiornamento. È possibile modificare questa query o crearne una nuova per visualizzare informazioni dettagliate sugli aggiornamenti distribuiti o mancanti nell'ambiente.
+Facendo clic in altro punto dell'area dell'aggiornamento, viene aperto il riquadro Ricerca log per l'aggiornamento selezionato. La query per la ricerca log è predefinita per tale specifico aggiornamento. È possibile modificare questa query o crearne una nuova per visualizzare informazioni dettagliate sugli aggiornamenti distribuiti o mancanti nell'ambiente.
 
 ![Visualizzare lo stato degli aggiornamenti](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ In questo passaggio si apprenderà come configurare un avviso per conoscere lo s
 
 Nella scheda **Monitoraggio** dell'account di Automazione passare ad **Avvisi** e fare clic su **+ Nuova regola di avviso**.
 
-L'account di Automazione è già selezionato come risorsa. Per modificarlo, fare clic su **Seleziona**. Nella pagina **Selezionare una risorsa**, scegliere **Account di Automazione** nell'elenco a discesa **Filtra per tipo di risorsa**. Selezionare l'account di Automazione e quindi fare clic su **Fine**.
+L'account di Automazione è già selezionato come risorsa. Per modificarlo, fare clic su **Seleziona**. Nella pagina Selezionare una risorsa, scegliere **Account di Automazione** nell'elenco a discesa **Filtra per tipo di risorsa**. Selezionare l'account di Automazione e quindi fare clic su **Fine**.
 
 Fare clic su **Aggiungi condizione** e selezionare il segnale appropriato per la distribuzione degli aggiornamenti. La tabella seguente mostra i dettagli dei due segnali disponibili.
 
@@ -85,11 +85,11 @@ Nel campo **Nome gruppo di azioni** immettere un nome per l'avviso e un nome bre
 
 In **Azioni** immettere un nome per l'azione, ad esempio **Notifica di posta elettronica**. In **Tipo di azione** selezionare **Messaggio di posta elettronica o SMS o Push/voce**. In **Dettagli** selezionare **Modifica dettagli**.
 
-Nel riquadro **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) immettere un nome. Selezionare la casella di controllo **Posta elettronica** e quindi immettere un indirizzo di posta elettronica valido.
+Nel riquadro Messaggio di posta elettronica o SMS o Push/voce specificare un nome. Selezionare la casella di controllo **Posta elettronica** e quindi immettere un indirizzo di posta elettronica valido.
 
 ![Configurare un gruppo di azioni di posta elettronica](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Nel riquadro **Messaggio di posta elettronica o SMS o Push/voce** fare clic su **OK**. Nel riquadro **Aggiungi gruppo di azioni** fare clic su **OK**.
+Nel riquadro Messaggio di posta elettronica o SMS o Push/voce fare clic su **OK**. Nel riquadro Aggiungi gruppo di azioni fare clic su **OK**.
 
 Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **Crea regola** selezionare **Oggetto del messaggio di posta elettronica** nella sezione **Personalizza azioni**. Al termine, selezionare **Crea regola di avviso**. L'avviso segnala quando una distribuzione di aggiornamenti ha esito positivo e indica i computer inclusi nell'esecuzione della distribuzione di aggiornamenti.
 
@@ -132,7 +132,7 @@ In **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti
 > Non è possibile specificare aggiornamenti che sono stati sostituiti per l'inclusione nella distribuzione degli aggiornamenti.
 >
 
-* **Impostazioni di pianificazione**: apre il riquadro **Impostazioni di pianificazione**. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
+* **Impostazioni di pianificazione**: apre il riquadro Impostazioni di pianificazione. L'ora di inizio predefinita è 30 minuti dopo il momento corrente. È possibile impostare l'ora di inizio su qualsiasi orario a partire da 10 minuti dal momento corrente.
 
    È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. In **Ricorrenza** selezionare **Una sola volta**. Lasciare l'impostazione predefinita su un 1 giorno e fare clic su **OK**. Queste voci configurano una pianificazione ricorrente.
 

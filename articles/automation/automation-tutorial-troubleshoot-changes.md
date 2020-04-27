@@ -7,16 +7,16 @@ keywords: modifica, rilevamento, automazione
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75420645"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604703"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
-Questa esercitazione illustra come risolvere i problemi relativi alle modifiche in una macchina virtuale di Azure. Abilitando il rilevamento delle modifiche è possibile tenere traccia delle modifiche apportate a software, file, daemon Linux, servizi di Windows e chiavi del Registro di sistema di Windows presenti nei computer.
+Questa esercitazione illustra come risolvere i problemi relativi alle modifiche in una macchina virtuale di Azure. Abilitando la soluzione Rilevamento modifiche è possibile tenere traccia delle modifiche apportate a software, file, daemon Linux, servizi di Windows e chiavi del Registro di sistema di Windows presenti nei computer.
 Identificando le modifiche apportate alla configurazione è possibile localizzare eventuali problemi operativi nell'ambiente.
 
 In questa esercitazione si apprenderà come:
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Visualizzare le modifiche
 > * Configurare gli avvisi
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
@@ -44,17 +44,19 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare Rilevamento modifiche e inventario
 
-Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento modifiche e inventario per la VM. Se è già stata abilitata un'altra soluzione di automazione per una VM, questo passaggio non è necessario.
+Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento modifiche e inventario per la macchina virtuale. Se è già stata abilitata un'altra soluzione di automazione per una VM, questo passaggio non è necessario.
 
-1. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare una macchina virtuale dall'elenco
-1. Nel menu a sinistra fare clic su **Inventario** nella sezione **OPERAZIONI**. Verrà visualizzata la pagina **Rilevamento modifiche**.
+1. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare una macchina virtuale dall'elenco.
+1. Nel menu a sinistra selezionare **Inventario** in **Operazioni**. Verrà aperta la pagina Inventario.
 
-![Abilitare Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Verrà visualizzata la schermata **Rilevamento modifiche**. Configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
+![Abilitare Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
+
+Configurare la posizione, l'area di lavoro Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
 
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Inventario.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
-Durante l'onboarding, il provisioning della macchina virtuale viene effettuato con Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
+Durante l'onboarding viene effettuato il provisioning della macchina virtuale con l'agente di Log Analytics per Windows e un ruolo di lavoro ibrido per runbook.
 L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sul software installato.
 
 L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo intervallo di tempo, non chiudere la finestra del browser.
@@ -63,11 +65,11 @@ Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Uso del rilevamento delle modifiche nei log di Monitoraggio di Azure
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Uso di Rilevamento modifiche nei log di Monitoraggio di Azure
 
 Il rilevamento delle modifiche genera dati di log che vengono inviati ai log di Monitoraggio di Azure.
-Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log Analytics** nella parte superiore della finestra **Rilevamento modifiche**.
-I dati di Rilevamento modifiche vengono archiviati sotto il tipo **ConfigurationChange**.
+Per eseguire ricerche nei log tramite query, selezionare **Log Analytics** nella parte superiore del riquadro Rilevamento modifiche.
+I dati di Rilevamento modifiche vengono archiviati nel tipo `ConfigurationChange`.
 L'esempio di query di Log Analytics seguente restituisce tutti i servizi di Windows arrestati.
 
 ```loganalytics
@@ -81,32 +83,31 @@ Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro i
 
 Rilevamento modifiche consente di tenere traccia delle modifiche apportate alla configurazione nella macchina virtuale. I passaggi seguenti illustrano come configurare il rilevamento di chiavi del Registro di sistema e file.
 
-Per scegliere i file e le chiavi del Registro di sistema di cui tenere traccia, selezionare **Modifica impostazioni** nella parte superiore della pagina **Rilevamento modifiche**.
+Per scegliere i file e le chiavi del Registro di sistema di cui tenere traccia, selezionare **Modifica impostazioni** nella parte superiore della pagina Rilevamento modifiche.
 
 > [!NOTE]
 > Inventario e Rilevamento modifiche usano le stesse impostazioni di raccolta e vengono configurati a livello di area di lavoro.
 
-Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del Registro di sistema di Windows, i file di Windows o Linux da rilevare, come descritto nelle tre sezioni successive.
+Nella pagina Configurazione dell'area di lavoro aggiungere le chiavi del Registro di sistema di Windows, i file di Windows o Linux da rilevare, come descritto nelle tre sezioni successive.
 
 ### <a name="add-a-windows-registry-key"></a>Aggiungere una chiave del Registro di sistema di Windows
 
-1. Nella scheda **Registro di sistema di Windows** selezionare **Aggiungi**.
-    Verrà visualizzata la finestra **Aggiungi Registro di sistema di Windows per Rilevamento modifiche**.
+1. Nella scheda **Registro di sistema di Windows** selezionare **Aggiungi**. 
 
-1. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**
+1. Nella pagina Aggiungi Registro di sistema di Windows per Rilevamento modifiche immettere le informazioni per la chiave da rilevare e fare clic su **Salva**
 
 |Proprietà  |Descrizione  |
 |---------|---------|
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Aggiungere un file di Windows
 
-1. Nella scheda **File Windows** selezionare **Aggiungi**. Verrà visualizzata la finestra **Aggiungi file Windows per Rilevamento modifiche**.
+1. Nella scheda **File Windows** selezionare **Aggiungi**. 
 
-1. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
+1. Nella pagina Aggiungi file Windows per Rilevamento modifiche immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
 
 |Proprietà  |Descrizione  |
 |---------|---------|
@@ -119,9 +120,9 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 
 ### <a name="add-a-linux-file"></a>Aggiungere un file di Linux
 
-1. Nella scheda **File Linux** selezionare **Aggiungi**. Verrà visualizzata la finestra **Aggiungi file Linux per Rilevamento modifiche**.
+1. Nella scheda **File Linux** selezionare **Aggiungi**. 
 
-1. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
+1. Nella pagina Aggiungi file Linux per Rilevamento modifiche immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**.
 
 |Proprietà  |Descrizione  |
 |---------|---------|
@@ -133,24 +134,24 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
 |Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: True o False.|
 
    > [!NOTE]
-   > Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
+   > L'opzione **Gestisci** per i collegamenti non è consigliata. Il recupero del contenuto del file non è supportato.
 
 ## <a name="enable-activity-log-connection"></a>Abilitare la connessione al log attività
 
-Dalla pagina **Rilevamento modifiche** della VM, selezionare **Gestisci connessione al log attività**. Si aprirà la pagina **Log attività di Azure**. Selezionare **Connetti** per connettere Rilevamento modifiche al log attività di Azure per la VM.
+Dalla pagina Rilevamento modifiche della macchina virtuale, selezionare **Gestisci connessione al log attività**. Verrà aperta la pagina Log attività di Azure. Fare clic su **Connetti** per connettere Rilevamento modifiche al log attività di Azure per la macchina virtuale.
 
-Con questa impostazione abilitata, passare alla pagina **Panoramica** della VM e selezionare **Arresta** per arrestare la macchina virtuale. Quando richiesto, selezionare **Sì** per arrestare la VM. Quando la VM è deallocata, selezionare **Avvia** per riavviarla.
+Con questa impostazione abilitata, passare alla pagina Panoramica della macchina virtuale e selezionare **Arresta** per arrestare la macchina virtuale. Quando richiesto, selezionare **Sì** per arrestare la VM. Quando la VM è deallocata, selezionare **Avvia** per riavviarla.
 
-Con l'arresto e l'avvio di una macchina virtuale viene registrato un evento nel log attività. Tornare alla pagina **Rilevamento modifiche**. Selezionare la scheda **Eventi** nella parte inferiore della pagina. Dopo poco, gli eventi verranno visualizzati nel grafico e nella tabella. Come nel passaggio precedente, è possibile selezionare ogni evento per visualizzare le relative informazioni dettagliate.
+Con l'arresto e l'avvio di una macchina virtuale viene registrato un evento nel log attività. Tornare alla pagina Rilevamento modifiche. Selezionare la scheda **Eventi** nella parte inferiore della pagina. Dopo poco, gli eventi verranno visualizzati nel grafico e nella tabella. Come nel passaggio precedente, è possibile selezionare ogni evento per visualizzare le relative informazioni dettagliate.
 
 ![Visualizzazione dei dettagli delle modifiche nel portale](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
 ## <a name="view-changes"></a>Visualizzare le modifiche
 
-Dopo avere abilitato la soluzione Rilevamento modifiche e inventario, è possibile visualizzare i risultati nella pagina **Rilevamento modifiche**.
+Dopo avere abilitato la soluzione Rilevamento modifiche e inventario, è possibile visualizzare i risultati nella pagina Rilevamento modifiche.
 
 Dalla VM selezionare **Rilevamento modifiche** in **OPERAZIONI**.
 
@@ -165,7 +166,7 @@ La tabella della scheda **Eventi** visualizza gli eventi del log attività conne
 
 Nei risultati è possibile vedere che sono state apportate più modifiche al sistema, incluse modifiche ai servizi e al software. È possibile usare i filtri nella parte superiore della pagina per filtrare i risultati per **tipo di modifica** o in base a un intervallo di tempo.
 
-Selezionare una modifica **WindowsServices** per aprire la finestra **Dettagli modifiche**. La finestra dei dettagli visualizza informazioni dettagliate sulla modifica e i valori prima e dopo la modifica stessa. In questo caso è stato arrestato il servizio di protezione software.
+Selezionare una modifica per **WindowsServices**. Questa selezione apre la pagina Dettagli modifiche che visualizza le informazioni dettagliate sulla modifica e i valori prima e dopo la modifica stessa. In questo caso è stato arrestato il servizio di protezione software.
 
 ![Visualizzazione dei dettagli delle modifiche nel portale](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
@@ -175,11 +176,11 @@ La visualizzazione delle modifiche nel portale di Azure può essere utile, ma la
 
 Per aggiungere un avviso per un arresto del servizio, nel portale di Azure passare a **Monitoraggio**. In **Servizi condivisi** selezionare **Avvisi** e fare clic su **+ Nuova regola di avviso**
 
-Fare clic su **Seleziona** per scegliere una risorsa. Nella pagina **Seleziona risorsa**, selezionare **Log Analytics** nell'elenco a discesa **Filter by resource type** (Filter by resource type). Selezionare l'area di lavoro Log Analytics e quindi selezionare **Fine**.
+Fare clic su **Seleziona** per scegliere una risorsa. Nella pagina Seleziona una risorsa selezionare **Log Analytics** nell'elenco a discesa **Filtra per tipo di risorsa**. Selezionare l'area di lavoro Log Analytics e quindi selezionare **Fine**.
 
 ![Selezionare una risorsa](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-In **Aggiungi condizione**, nella tabella contenuta nella pagina **Configure signal logic** (Configura logica segnale), selezionare **Custom log search** (Ricerca log personalizzata). Immettere la query seguente nella casella di testo Query di ricerca:
+In **Aggiungi condizione** nella tabella contenuta nella pagina Configura logica dei segnali selezionare **Ricerca log personalizzata**. Immettere la query seguente nella casella di testo Query di ricerca:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -201,7 +202,7 @@ In **Azioni** immettere un nome per l'azione, ad esempio **Amministratori posta 
 
 ![Aggiungere un gruppo di azioni](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
 
-Nel riquadro **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) immettere un nome. Selezionare la casella di controllo **Posta elettronica** e quindi immettere un indirizzo di posta elettronica valido. Fare clic su **OK** nella pagina **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce) e quindi fare clic su **OK** nella pagina **Aggiungi gruppo di azioni**.
+Nel riquadro Messaggio di posta elettronica o SMS o Push/voce specificare un nome. Selezionare la casella di controllo **Posta elettronica** e quindi immettere un indirizzo di posta elettronica valido. Fare clic su **OK** nel riquadro e quindi su **OK** nella pagina Aggiungi gruppo di azioni.
 
 Per personalizzare l'oggetto del messaggio di posta elettronica di avviso, in **Crea regola** selezionare **Oggetto del messaggio di posta elettronica** nella sezione **Personalizza azioni**. Al termine, selezionare **Crea regola di avviso**. L'avviso segnala quando una distribuzione di un aggiornamento ha esito positivo e indica i computer inclusi nella distribuzione.
 

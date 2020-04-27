@@ -1,16 +1,17 @@
 ---
-title: Valutare le VM VMware per la migrazione ad Azure
+title: Valutare le macchine virtuali VMware con Valutazione server di Azure Migrate
 description: Questo articolo descrive come valutare le macchine virtuali VMware locali per la migrazione ad Azure tramite Valutazione server di Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/23/2019
-ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.custom: mvc
+ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548752"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535367"
 ---
-# <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Valutare le macchine virtuali VMware con Valutazione server di Azure Migrate
+# <a name="assess-vmware-vms-with-server-assessment"></a>Valutare le VM VMware con Valutazione server
 
 Questo articolo illustra come valutare le macchine virtuali VMware locali usando lo strumento [Azure Migrate: Valutazione server](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
@@ -48,9 +49,7 @@ Per configurare un nuovo progetto di Azure Migrate, seguire questa procedura:
 
 1. In **Attività iniziali** selezionare **Aggiungi strumenti**.
 1. In **Progetto di migrazione** selezionare la sottoscrizione di Azure e creare un gruppo di risorse, se non se ne ha già uno.     
-1. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare. Sono supportate le aree Asia, Europa, Regno Unito e Stati Uniti.
-
-   L'area geografica del progetto viene usata solo per archiviare i metadati raccolti dalle macchine virtuali locali. Per la migrazione è possibile selezionare qualsiasi area di destinazione.
+1. In **Dettagli del progetto** specificare il nome del progetto e l'area geografica in cui lo si vuole creare. Esaminare le aree geografiche supportate per i cloud [pubblico](migrate-support-matrix.md#supported-geographies-public-cloud) e per [enti pubblici](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-assess-vmware/migrate-project.png)
 
@@ -65,12 +64,12 @@ Per configurare un nuovo progetto di Azure Migrate, seguire questa procedura:
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurare l'appliance di Azure Migrate
 
-Azure Migrate: Valutazione server si basa su un'appliance leggera di Azure Migrate. L'appliance esegue l'individuazione delle macchine virtuali e ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.
-- Per configurare l'appliance in una VM VMware, è possibile usare un modello OVA scaricato. In alternativa, è possibile configurarla in una VM o in un computer fisico con uno script di installazione di PowerShell.
-- In questa esercitazione si usa il modello OVA. Leggere [questo articolo](deploy-appliance-script.md) se si vuole configurare l'appliance usando uno script.
+Azure Migrate: Valutazione server si basa su un'appliance leggera di Azure Migrate. L'appliance esegue l'individuazione delle macchine virtuali e ne invia i metadati e i dati sulle prestazioni ad Azure Migrate. L'appliance può essere configurata in diversi modi.
+
+- Configurare l'appliance in una macchina virtuale VMware usando un modello OVA scaricato. Questo è il metodo usato in questa esercitazione.
+- Configurare l'appliance in una macchina virtuale VMware o in un computer fisico con uno script di installazione di PowerShell. [Questo metodo](deploy-appliance-script.md) deve essere usato se non è possibile configurare una macchina virtuale con un modello OVA o se si usa Azure per enti pubblici.
 
 Dopo aver creato l'appliance, verificare che sia in grado di connettersi ad Azure Migrate: Valutazione server, configurarla per la prima volta e registrarla nel progetto di Azure Migrate.
-
 
 
 ### <a name="download-the-ova-template"></a>Scaricare il modello OVA
@@ -115,9 +114,9 @@ Importare il file scaricato e creare una macchina virtuale:
 1. In **Mapping di rete** specificare la rete a cui si connetterà la macchina virtuale. La rete richiede la connettività Internet per l'invio dei metadati allo strumento Valutazione server di Azure Migrate.
 1. Rivedere e confermare le impostazioni e quindi selezionare **Fine**.
 
-### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
+## <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
-Assicurarsi che l'appliance VM sia in grado di connettersi agli [URL di Azure](migrate-appliance.md#url-access).
+Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configurare l'appliance
 
@@ -136,7 +135,7 @@ Configurare l'appliance per la prima volta.
    - **Connectivity** (Connettività): l'app verifica che la macchina virtuale abbia accesso a Internet. Se la VM usa un proxy:
      - Fare clic su **Impostazioni proxy** e specificare l'indirizzo e la porta di ascolto del proxy in formato http://ProxyIPAddress o http://ProxyFQDN.
      - Se il proxy richiede l'autenticazione, specificare le credenziali.
-     - Si noti che è supportato solo il proxy HTTP.
+     - È supportato solo il proxy HTTP.
    - **Time sync** (Sincronizzazione ora): Per il corretto funzionamento dell'individuazione delle macchine virtuali, l'ora dell'appliance deve essere sincronizzata con l'ora Internet.
    - **Install updates** (Installa aggiornamenti): l'appliance verifica che siano installati gli aggiornamenti più recenti.
    - **Install VDDK** (Installa VDDK): l'appliance verifica che VMWare vSphere Virtual Disk Development Kit (VDDK) sia installato. Se non è già installato, scaricare VDDK 6.7 da VMware ed estrarre il contenuto dello ZIP scaricato nel percorso specificato nell'appliance.

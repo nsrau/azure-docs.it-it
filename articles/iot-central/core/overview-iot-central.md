@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80157467"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025238"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -60,7 +60,7 @@ I generatori di soluzioni usano IoT Central per creare una soluzione IoT ospitat
 - Un'applicazione basata sul cloud che riceve i dati di telemetria dai dispositivi e consente di gestire tali dispositivi.
 - Più dispositivi che eseguono codice personalizzato connessi all'applicazione basata sul cloud.
 
-È possibile distribuire rapidamente una nuova applicazione IoT Central e quindi personalizzarla in base a requisiti specifici nel browser. È possibile iniziare con un _modello di applicazione_ generico o con uno dei modelli di applicazione specifici per settore come [Retail](../retail/overview-iot-central-retail-pnp.md), [Energia](../energy/overview-iot-central-energy.md), [Enti governativi](../government/overview-iot-central-government.md), [Servizi sanitari](../healthcare/overview-iot-central-healthcare.md).
+È possibile distribuire rapidamente una nuova applicazione IoT Central e quindi personalizzarla in base a requisiti specifici nel browser. È possibile iniziare con un _modello di applicazione_ generico o con uno dei modelli di applicazione specifici per settore come [Retail](../retail/overview-iot-central-retail.md), [Energia](../energy/overview-iot-central-energy.md), [Enti governativi](../government/overview-iot-central-government.md), [Servizi sanitari](../healthcare/overview-iot-central-healthcare.md).
 
 I generatori di soluzioni possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Un modello di dispositivo è il progetto che definisce le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
 
@@ -197,7 +197,7 @@ Le quote predefinite di ogni sottoscrizione di Azure possono influire sull'ambit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto, dopo aver letto la panoramica di IoT Central, vengono consigliati alcuni passaggi successivi:
+A questo punto, dopo aver ottenuto una panoramica di IoT Central, vengono consigliati alcuni passaggi successivi:
 
 - Conoscere le [tecnologie e i servizi di Azure disponibili per la creazione di soluzioni IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Acquisire familiarità con l'[interfaccia utente di Azure IoT Central](overview-iot-central-tour.md).
@@ -205,3 +205,5 @@ A questo punto, dopo aver letto la panoramica di IoT Central, vengono consigliat
 - Altre informazioni su [Plug and Play IoT (anteprima)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Informazioni su come [connettere un dispositivo Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Altre informazioni su [tecnologie e servizi Azure IoT](../../iot-fundamentals/iot-services-and-technologies.md).
+
+Per gli sviluppatori di dispositivi che desiderano approfondire il codice, il passaggio successivo suggerito consiste nel [Creare e connettere un'applicazione client all'applicazione Azure IoT Central](./tutorial-connect-device-nodejs.md).

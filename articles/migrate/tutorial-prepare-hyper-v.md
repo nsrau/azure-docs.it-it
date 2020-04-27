@@ -2,18 +2,18 @@
 title: Preparare le macchine virtuali Hyper-V per la valutazione e la migrazione con Azure Migrate
 description: Informazioni su come preparare la valutazione e la migrazione di macchine virtuali Hyper-V con Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436210"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641641"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparare le VM Hyper-V per la valutazione e la migrazione ad Azure
 
-Questo articolo descrive come preparare la valutazione delle VM Hyper-V locali con Azure Migrate: Valutazione server (migrate-services-overview.md#azure-migrate-server-assessment-tool) e la migrazione delle VM Hyper-V con [Azure Migrate: Migrazione server](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Questo articolo descrive come preparare la valutazione delle macchine virtuali Hyper-V locali con [Valutazione server di Azure Migrate](migrate-services-overview.md#azure-migrate-server-assessment-tool) e come preparare la migrazione delle macchine virtuali Hyper-V con [Migrazione server di Azure Migrate](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Questa esercitazione è la prima di una serie che illustra come valutare ed eseguire la migrazione di VM Hyper-V ad Azure. In questa esercitazione verranno illustrate le procedure per:
@@ -95,7 +95,7 @@ L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicaz
 - Configurare la comunicazione remota di PowerShell in ogni host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM.
 - Delegare le credenziali se i dischi delle macchine virtuali si trovano in condivisioni SMB remote.
 - Configurare un account che verrà usato dall'appliance per individuare le VM negli host Hyper-V.
-- Configurare i servizi di integrazione Hyper-V in ogni macchina virtuale che si vuole individuare e valutare. Quando si abilita Integration Services, le impostazioni predefinite sono sufficienti per Azure Migrate.
+- Configurare Integration Services Hyper-V in ogni macchina virtuale che si vuole individuare e valutare. Quando si abilita Integration Services, le impostazioni predefinite sono sufficienti per Azure Migrate.
 
     ![Abilitare Integration Services](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
@@ -214,9 +214,11 @@ Quando si configura l'appliance, si completa la configurazione di CredSSP [abili
 Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nella prossima esercitazione, preparare la distribuzione dell'appliance.
 
 1. [Verificare](migrate-appliance.md#appliance---hyper-v) i requisiti dell'appliance.
-2. [Rivedere](migrate-appliance.md#url-access) gli URL di Azure a cui l'appliance dovrà accedere.
+2. Esaminare gli URL di Azure a cui l'appliance dovrà accedere nei cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls). Se si usa un firewall o un proxy basato su URL, assicurarsi che consenta l'accesso agli URL necessari.
 3. Esaminare i dati che l'appliance raccoglierà durante l'individuazione e la valutazione.
-4. [Prendere nota](migrate-appliance.md#collected-data---hyper-v) dei requisiti di accesso alle porte per l'appliance.
+4. [Esaminare](migrate-appliance.md#collected-data---hyper-v) i requisiti di accesso alle porte per l'appliance.
+
+
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Preparare la migrazione di Hyper-V

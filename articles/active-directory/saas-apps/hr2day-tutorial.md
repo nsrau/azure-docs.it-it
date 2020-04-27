@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e HR2day by Merces.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442846"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Esercitazione: Integrazione di Azure Active Directory con HR2day by Merces
 
@@ -28,13 +28,13 @@ Questa esercitazione descrive come integrare HR2day by Merces con Azure Active D
 L'integrazione di HR2day by Merces con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a HR2day by Merces.
-* È possibile abilitare gli utenti per l'accesso automatico a HR2day by Merces (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a HR2day by Merces (Single Sign-On) con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con HR2day by Merces, sono necessari gli elementi seguenti:
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-hr2day-by-merces-from-the-gallery"></a>Aggiunta di HR2day by Merces dalla raccolta
 
-Per configurare l'integrazione di HR2day by Merces in Azure AD, è necessario aggiungere HR2day by Merces dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di HR2day by Merces in Azure AD, è necessario aggiungere HR2day by Merces dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere HR2day by Merces dalla raccolta, seguire questa procedura:**
 
@@ -67,29 +67,29 @@ Per configurare l'integrazione di HR2day by Merces in Azure AD, è necessario ag
 
 4. Nella casella di ricerca digitare **HR2day by Merces**, selezionare **HR2day by Merces** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![HR2day by Merces nell'elenco dei risultati](common/search-new-app.png)
+     ![HR2day by Merces nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con HR2day by Merces usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in HR2day by Merces.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con HR2day by Merces, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con HR2day by Merces, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Hr2day by Merces](#configure-hr2day-by-merces-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di HR2day Merces](#create-hr2day-by-merces-test-user)** : per avere una controparte di Britta Simon in HR2day by Merces collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di HR2day Merces](#create-hr2day-by-merces-test-user)** : per avere una controparte di Britta Simon in HR2day by Merces collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare Single Sign-On di Azure AD con HR2day by Merces, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con HR2day by Merces, seguire questa procedura:
 
-1. Selezionare [Single Sign-On](https://portal.azure.com/) nel **portale di Azure** nella pagina di integrazione dell'applicazione **HR2day by Merces**.
+1. Selezionare **Single Sign-On** nel [portale di Azure](https://portal.azure.com/) nella pagina di integrazione dell'applicazione **HR2day by Merces**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -148,26 +148,26 @@ Per configurare Single Sign-On di Azure AD con HR2day by Merces, seguire questa 
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-8. Nella sezione **Configura HR2day by Merces** copiare gli URL appropriati in base alle proprie esigenze.
+8. Nella sezione **Configura HR2day by Merces** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
-    c. URL di chiusura sessione
+    c. URL di disconnessione
 
 ### <a name="configure-hr2day-by-merces-single-sign-on"></a>Configurare l'accesso Single Sign-On di HR2day by Merces
 
 Per configurare l'accesso Single Sign-On sul lato **HR2day by Merces** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Hr2day by Merces](mailto:servicedesk@merces.nl). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!NOTE]
-> Segnalare al team Merces che questa integrazione richiede che l'ID entità sia impostato in base al modello **https://hr2day.force.com/INSTANCENAME** .
+> Segnalare al team Merces che questa integrazione richiede che l'ID entità sia impostato in base al modello **https:\//hr2day.force.com/NOMEISTANZA**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -192,13 +192,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HR2day by Merces.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HR2day by Merces.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **HR2day by Merces**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni, selezionare **HR2day by Merces**.
+2. Nell'elenco delle applicazioni selezionare **HR2day by Merces**.
 
     ![Collegamento a HR2day by Merces nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -216,7 +216,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-hr2day-by-merces-test-user"></a>Creare un utente test di HR2day by Merces
+### <a name="create-hr2day-by-merces-test-user"></a>Creare l'utente di test di HR2day by Merces
 
 In questa sezione viene creato un utente chiamato Britta Simon in HR2day by Merces. Collaborare con il [team di supporto di HR2day by Merces](mailto:servicedesk@merces.nl) per aggiungere utenti alla piattaforma HR2day by Merces. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
@@ -227,7 +227,7 @@ In questa sezione viene creato un utente chiamato Britta Simon in HR2day by Merc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di HR2day by Merces nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione HR2day by Merces per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di HR2day by Merces nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di HR2day by Merces per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

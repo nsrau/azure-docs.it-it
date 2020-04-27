@@ -1,19 +1,15 @@
 ---
 title: Preparare i server fisici per la valutazione/migrazione con Azure Migrate
 description: Informazioni su come preparare la valutazione e la migrazione di server fisici con Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f9048b08b3e77a0c8d5ae9a9d10c614a4e0af61
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336692"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535282"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -35,21 +31,18 @@ Questa esercitazione è la prima di una serie che illustra come valutare i serve
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 
-## <a name="prepare-azure"></a>Preparare Azure
+## <a name="prepare-azure-for-server-assessment"></a>Preparare Azure per la valutazione del server
 
-### <a name="azure-permissions"></a>Autorizzazioni di Azure
-
-È necessario configurare le autorizzazioni per la distribuzione di Azure Migrate.
+Configurare Azure per l'uso con Azure Migrate. 
 
 **Attività** | **Dettagli** 
 --- | --- 
-**Creare un progetto di Azure Migrate** | Per creare un progetto, è necessario che l'account Azure abbia autorizzazioni di Collaboratore o Proprietario. | 
-**Registrare i provider di risorse** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare le VM Hyper-V con lo strumento Valutazione server di Azure Migrate.<br/><br/> Durante la registrazione dell'appliance, i provider di risorse vengono registrati con la sottoscrizione scelta nell'appliance. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
-**Creare l'app di Azure AD** | Quando si registra l'appliance, Azure Migrate crea un'app di Azure Active Directory (Azure AD) usata per la comunicazione tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Sono necessarie le autorizzazioni per creare app di Azure AD (disponibili nel ruolo Sviluppatore applicazioni).
+**Creare un progetto di Azure Migrate** | Per creare un progetto, è necessario che l'account Azure abbia autorizzazioni di Collaboratore o Proprietario. 
+**Registrare i provider di risorse (solo valutazione)** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare le macchine virtuali con lo strumento Valutazione server di Azure Migrate.<br/><br/> Durante la registrazione dell'appliance, i provider di risorse vengono registrati con la sottoscrizione scelta nell'appliance. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
+**Creare l'app Azure AD (solo valutazione)** | Quando si registra l'appliance, Azure Migrate crea un'app di Azure Active Directory (Azure AD) usata per la comunicazione tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Sono necessarie le autorizzazioni per creare app di Azure AD (disponibili nel ruolo Sviluppatore applicazioni).
 
 
-
-### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
+### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto 
 
 Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
 
@@ -60,7 +53,7 @@ Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
     - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
 
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Assegnare le autorizzazioni per registrare l'appliance
+### <a name="assign-permissions-to-register-the-appliance"></a>Assegnare le autorizzazioni per registrare l'appliance 
 
 È possibile assegnare le autorizzazioni per consentire ad Azure Migrate di creare l'app Azure AD durante la registrazione dell'appliance usando uno dei metodi seguenti:
 
@@ -89,6 +82,39 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
 L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
 
+## <a name="prepare-azure-for-physical-server-migration"></a>Preparare Azure per la migrazione dei server fisici
+
+Preparare Azure per la migrazione dei server fisici tramite Migrazione server.
+
+**Attività** | **Dettagli**
+--- | ---
+**Creare un progetto di Azure Migrate** | Per creare un progetto, è necessario che l'account Azure abbia autorizzazioni di Collaboratore o Proprietario.
+**Verificare le autorizzazioni per l'account Azure** | L'account Azure necessita delle autorizzazioni per creare una macchina virtuale ed eseguire la scrittura su un disco gestito di Azure.
+**Creare una rete di Azure** | Configurare una rete in Azure.
+
+
+### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
+
+1. Nel portale di Azure aprire la sottoscrizione e selezionare **Controllo di accesso (IAM)** .
+2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.
+3. È necessario avere le autorizzazioni di **Collaboratore** o **Proprietario**.
+    - Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione.
+    - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
+
+
+### <a name="assign-azure-account-permissions"></a>Assegnare le autorizzazioni all'account Azure
+
+Assegnare il ruolo Collaboratore Macchina virtuale all'account Azure. Questo ruolo fornisce le autorizzazioni per:
+
+    - Creare una macchina virtuale nel gruppo di risorse selezionato.
+    - Creare una macchina virtuale nella rete virtuale selezionata.
+    - Scrivere in un disco gestito di Azure. 
+
+### <a name="create-an-azure-network"></a>Creare una rete di Azure
+
+[Configurare](../virtual-network/manage-virtual-network.md#create-a-virtual-network) una rete virtuale di Azure. Quando si esegue la replica in Azure, le macchine virtuali di Azure vengono create e aggiunte alla rete virtuale di Azure specificata durante la configurazione della migrazione.
+
+
 ## <a name="prepare-for-physical-server-assessment"></a>Effettuare la preparazione per la valutazione dei server fisici
 
 Per la preparazione per la valutazione dei server fisici, è necessario verificare le impostazioni dei server fisici e le impostazioni per la distribuzione dell'appliance:
@@ -104,7 +130,7 @@ Per la preparazione per la valutazione dei server fisici, è necessario verifica
 Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nella prossima esercitazione, preparare la distribuzione dell'appliance.
 
 1. [Verificare](migrate-appliance.md#appliance---physical) i requisiti dell'appliance per i server fisici.
-2. [Rivedere](migrate-appliance.md#url-access) gli URL di Azure a cui l'appliance dovrà accedere.
+2. Esaminare gli URL di Azure a cui l'appliance deve accedere nei cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 3. [Esaminare](migrate-appliance.md#collected-data---vmware) i dati che l'appliance raccoglierà durante l'individuazione e la valutazione.
 4. [Prendere nota](migrate-support-matrix-physical.md#port-access) dei requisiti di accesso alle porte per la valutazione dei server fisici.
 
@@ -113,17 +139,23 @@ Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nell
 
 Azure Migrate necessita delle autorizzazioni per individuare i server locali.
 
-- **Windows:** Configurare un account utente locale in tutti i server Windows che si vuole includere nell'individuazione. L'account utente deve essere aggiunto ai gruppi seguenti:       - Utenti gestione remota       - Performance Monitor Users       - Performance Log Users
+- **Windows:** Configurare un account utente locale in tutti i server Windows da includere nell'individuazione. L'account utente deve essere aggiunto ai gruppi seguenti: -Utenti gestione remota - Performance Monitor Users - Performance Log Users
 - **Linux:** È necessario un account radice nei server Linux che si desidera individuare.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparare i server fisici per la migrazione
 
 Esaminare i requisiti per la migrazione dei server fisici.
 
+> [!NOTE]
+> Per la migrazione dei computer fisici, lo strumento Migrazione server di Azure Migrate usa la stessa architettura di replica della funzionalità di ripristino di emergenza basata su agente del servizio Azure Site Recovery e alcuni componenti condividono la stessa codebase. Alcuni contenuti potrebbero includere collegamenti alla documentazione di Site Recovery.
+
 - [Esaminare](migrate-support-matrix-physical-migration.md#physical-server-requirements) requisiti dei server fisici per la migrazione.
-- Azure Migrate: Migrazione del server usa un server di replica per la migrazione di server fisici:
+- Migrazione server di Azure Migrate usa un server di replica per la migrazione dei server fisici:
     - [Esaminare](migrate-replication-appliance.md#appliance-requirements) i requisiti di distribuzione per l'appliance di replica e le [opzioni](migrate-replication-appliance.md#mysql-installation) per l'installazione di MySQL nell'appliance.
-    - Esaminare i requisiti di accesso agli [URL](migrate-replication-appliance.md#url-access) e alle [porte] (migrate-replication-appliance.md#port-access) per l'appliance di replica.
+    - Esaminare gli [URL di Azure](migrate-appliance.md#url-access) necessari all'appliance di replica per accedere ai cloud pubblico e per enti pubblici.
+    - Esaminare i requisiti di accesso alle [porte] (migrate-replication-appliance.md#port-access) per l'appliance di replica.
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

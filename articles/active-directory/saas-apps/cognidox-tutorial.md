@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad06d2f695109866bab60502a67f0d2c2f425477
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4280bd1385bbf936dc9188df259ca1a4b4a62d6a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68480264"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870393"
 ---
 # <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Esercitazione: Integrare Cognidox con Azure Active Directory
 
@@ -67,8 +67,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Cognidox, completare le 
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Cognidox](#configure-cognidox-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Cognidox](#create-cognidox-test-user)** : per avere una controparte di B.Simon in Cognidox collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     | Nome | Spazio dei nomi  |  Trasformazione | Parametro 1 |
     | ---------------| --------------- | --------- |
-    | wanshort | http://appinux.com/windowsaccountname2 | ExtractMailPrefix() | user.userprincipalname |
+    | wanshort | http:\//appinux.com/windowsaccountname2 | ExtractMailPrefix() | user.userprincipalname |
 
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
@@ -170,7 +170,7 @@ In questa sezione viene creato un utente di nome B.Simon in Cognidox. Cognidox s
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Cognidox nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Cognidox per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Cognidox nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Cognidox per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

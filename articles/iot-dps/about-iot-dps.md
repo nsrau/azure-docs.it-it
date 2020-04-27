@@ -8,12 +8,15 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216369"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683304"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. Consente di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
@@ -23,7 +26,7 @@ Esistono molti scenari in cui il servizio Device Provisioning rappresenta una sc
 
 * Provisioning automatico a una singola soluzione IoT senza informazioni di connessione hardcoded nell'hub IoT in fabbrica (configurazione iniziale)
 * Bilanciamento del carico dei dispositivi tra più hub
-* Connessione di dispositivi alla soluzione IoT del proprietario in base ai dati di transazione delle vendite (multi-tenancy)
+* Connessione di dispositivi alla soluzione IoT del proprietario in base ai dati delle transazioni di vendita (multi-tenancy)
 * Connessione di dispositivi a una soluzione IoT specifica a seconda del caso di utilizzo (isolamento della soluzione)
 * Connessione di un dispositivo all'hub IoT con latenza minima (partizionamento dell'area geografica)
 * Nuovo provisioning a seguito di una modifica nel dispositivo

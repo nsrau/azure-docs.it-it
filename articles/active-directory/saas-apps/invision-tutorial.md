@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300355"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682683"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con InVision
 
@@ -157,13 +157,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     e. Nella casella di testo **SAML Certificate** (Certificato SAML) aprire il **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo.
 
-    f. Selezionare **SHA-256** nell'elenco a discesa per **HASH Algorithm** (Algoritmo hash).
+    f. Nella casella di testo **Name ID Format** (Formato ID nome) usare `Unspecified` come valore di **Name ID Format**.
 
-    g. Immettere il nome appropriato per l'**etichetta del pulsante SSO**.
+    g. Selezionare **SHA-256** nell'elenco a discesa per **HASH Algorithm** (Algoritmo hash).
 
-    h. Attivare **Allow Just-in-Time provisioning** (Consenti provisioning JIT).
+    h. Immettere il nome appropriato per l'**etichetta del pulsante SSO**.
 
-    i. Fare clic su **Update**.
+    i. Attivare **Allow Just-in-Time provisioning** (Consenti provisioning JIT).
+
+    j. Fare clic su **Update**.
 
 ### <a name="create-invision-test-user"></a>Creare l'utente di test di InVision
 
@@ -201,6 +203,6 @@ Quando si fa clic sul riquadro di InVision nel pannello di accesso, si dovrebbe 
 
 - [Provare InVision con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessione in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Come proteggere InVision con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

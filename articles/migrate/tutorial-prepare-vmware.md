@@ -2,14 +2,14 @@
 title: Preparare le macchine virtuali VMware per la valutazione e la migrazione con Azure Migrate
 description: Informazioni su come preparare la valutazione e la migrazione di macchine virtuali VMware con Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a3f9716d6302c41f139d9a2a8b1f994b79afd199
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619418"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677291"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparare le macchine virtuali VMware per la valutazione e la migrazione ad Azure
 
@@ -123,7 +123,7 @@ Azure Migrate deve avere accesso al server vCenter per individuare le macchine v
 Prima di configurare l'appliance di Azure Migrate e iniziare la valutazione nella prossima esercitazione, preparare la distribuzione dell'appliance.
 
 1. [Verificare](migrate-appliance.md#appliance---vmware) i requisiti dell'appliance di Azure Migrate.
-2. [Rivedere](migrate-appliance.md#url-access) gli URL di Azure a cui l'appliance dovrà accedere. Se si usa un firewall o un proxy basato su URL, assicurarsi che consenta l'accesso agli URL necessari.
+2. Esaminare gli URL di Azure a cui l'appliance dovrà accedere nei cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 3. [Esaminare i dati](migrate-appliance.md#collected-data---vmware) che l'appliance raccoglierà durante l'individuazione e la valutazione.
 4. [Prendere nota](migrate-support-matrix-vmware.md#port-access) dei requisiti di accesso alle porte per l'appliance.
 
@@ -138,7 +138,8 @@ Rivedere i requisiti per la [migrazione senza agente](server-migrate-overview.md
 2. [Verificare le autorizzazioni](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) necessarie affinché Azure Migrate possa accedere al server vCenter.
 3. [Esaminare](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) i requisiti delle macchine virtuali VMware.
 4. [Esaminare](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) i requisiti dell'appliance di Azure Migrate.
-5. Notare i requisiti per [URL di accesso](migrate-appliance.md#url-access) e [Accesso porta](migrate-support-matrix-vmware-migration.md#agentless-ports).
+5. Prendere nota dell'accesso URL necessario per i cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
+6. Verificare i requisiti di [accesso alle porte](migrate-support-matrix-vmware-migration.md#agentless-ports).
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Preparare le macchine virtuali VMWare per la migrazione basata su agente
 
@@ -150,7 +151,8 @@ Rivedere i requisiti per la [migrazione basata su agente](server-migrate-overvie
 3. La migrazione basata su agente usa un'appliance di replica:
     - [Esaminare](migrate-replication-appliance.md#appliance-requirements) i requisiti di distribuzione per l'appliance di replica.
     - [Esaminare le opzioni](migrate-replication-appliance.md#mysql-installation) per l'installazione di MySQL nell'appliance.
-    - Esaminare i requisiti di accesso agli [URL](migrate-replication-appliance.md#url-access) e alle [porte](migrate-replication-appliance.md#port-access) per l'appliance di replica.
+    - Prendere nota dell'accesso URL necessario per i cloud [pubblico](migrate-replication-appliance.md#url-access) e per [enti pubblici](migrate-replication-appliance.md#azure-government-url-access).
+    - Esaminare i requisiti di [accesso alle porte](migrate-replication-appliance.md#port-access) per l'appliance di replica.
     
 ## <a name="next-steps"></a>Passaggi successivi
 

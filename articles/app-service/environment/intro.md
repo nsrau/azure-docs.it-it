@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9bc40e71c1da6eb60b62cd08c51df89a7f35af09
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057376"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770637"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
@@ -34,7 +34,7 @@ Gli ambienti del servizio app sono adatti ai carichi di lavoro dell'applicazione
 
 I clienti possono creare più ambienti del servizio app in una singola area di Azure o in più aree di Azure. Questa flessibilità rende gli ambienti del servizio app ideali per i livelli applicazione con scalabilità orizzontale senza stato, nel supportare i carichi di lavoro RPS elevati.
 
-Gli ambienti del servizio app sono isolati per eseguire solo le applicazioni di un singolo cliente e sono sempre distribuiti in una rete virtuale. I clienti hanno il controllo con granularità fine del traffico di rete in ingresso e in uscita dell'applicazione. Le applicazioni possono stabilire connessioni protette ad alta velocità tramite VPN a risorse aziendali locali.
+Gli ambienti del servizio app ospitano le applicazioni da un solo cliente in una delle relative reti virtuali. I clienti hanno il controllo con granularità fine del traffico di rete in ingresso e in uscita dell'applicazione. Le applicazioni possono stabilire connessioni protette ad alta velocità tramite VPN a risorse aziendali locali.
 
 * L'ambiente del servizio app viene fornito con un piano tariffario proprio. Vedere come l'[offerta Isolato](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) sia utile per promuovere iperscalabilità e sicurezza.
 * La [versione 2 degli ambienti del servizio app](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) offre un framework per la salvaguardia delle app in una subnet della rete e fornisce una distribuzione privata propria di Servizio app di Azure.
