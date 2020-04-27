@@ -3,14 +3,14 @@ title: "Guida introduttiva: Creare un'app ASP.NET Core in C#"
 description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo il modello predefinito di app Web ASP.NET Core in C# di Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313290"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086046"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Guida introduttiva: Creare un'app Web ASP.NET Core in Azure
 
@@ -107,7 +107,7 @@ Seguire questa procedura per aggiornare e ridistribuire l'app Web:
 
 1. Nel progetto in **Esplora soluzioni** aprire **Pagine** > **Index.cshtml**.
 
-1. Sostituire i due tag `<div>` con il codice seguente:
+1. Sostituire l'intero tag `<div>` con il codice seguente:
 
    ```HTML
    <div class="jumbotron">

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 075b55b5a798924b55ef9d901e4d2e9ecfc9dc1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77597576"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687633"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduzione all'API Cassandra di Azure Cosmos DB
 
@@ -25,17 +25,21 @@ L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB,
 
 **Nessuna gestione delle operazioni**: come un servizio cloud completamente gestito, l'API Cassandra di Azure Cosmos DB elimina il sovraccarico di gestione e il monitoraggio di innumerevoli impostazioni del sistema operativo, di JVM, dei file yaml e delle loro interazioni. Azure Cosmos DB consente di monitorare velocità effettiva, latenza, archiviazione, disponibilità e avvisi configurabili.
 
+**Standard open source**: nonostante sia un servizio completamente gestito, l'API Apache Cassandra supporta comunque un'estesa superficie di attacco del [protocollo di rete nativo Apache Cassandra](cassandra-support.md), di conseguenza è possibile creare applicazioni in uno standard open source indipendente dal cloud e ampiamente usato.
+
 **Gestione delle prestazioni**: Azure Cosmos DB offre lettura e scrittura a bassa latenza garantita al 99° percentile e supportata da contratti di servizio. Gli utenti non devono preoccuparsi del sovraccarico operativo per garantire prestazioni elevate, nonché scrittura e lettura a bassa latenza. Questo significa che gli utenti non devono occuparsi di eseguire manualmente la compattazione di dati, la gestione delle rimozioni definitive e l'impostazione di repliche e filtri bloom. Azure Cosmos DB elimina il sovraccarico operativo per gestire questi problemi e permette di concentrarsi sulla logica dell'applicazione.
 
 **Possibilità di usare codice e strumenti esistenti**: Azure Cosmos DB offre compatibilità a livello di protocollo di trasmissione con gli strumenti e gli SDK Cassandra esistenti. Questa compatibilità consente di usare la base di codici esistente con l'API Cassandra di Azure Cosmos DB apportando solo semplici modifiche.
 
-**Elasticità di velocità effettiva e archiviazione**: Azure Cosmos DB offre velocità effettiva garantita in tutte le aree geografiche e può ridimensionare la velocità effettiva fornita con il portale di Azure, PowerShell o l'interfaccia della riga di comando. È possibile scalare velocità effettiva e archiviazione in modo elastico per le tabelle in base alle esigenze con prestazioni prevedibili.
+**Elasticità di velocità effettiva e archiviazione**: Azure Cosmos DB offre velocità effettiva garantita in tutte le aree geografiche e può ridimensionare la velocità effettiva fornita con il portale di Azure, PowerShell o l'interfaccia della riga di comando. A seconda delle esigenze, è possibile adattare velocità effettiva e archiviazione [in modo elastico](manage-scale-cassandra.md) per le tabelle ottenendo prestazioni prevedibili.
 
 **Distribuzione globale e disponibilità**: Azure Cosmos DB offre la possibilità di distribuire i dati in tutte le aree di Azure a livello globale e servire i dati in locale, garantendo l'accesso ai dati a bassa latenza e disponibilità elevata. Azure Cosmos DB fornisce una disponibilità elevata del 99,99% all'interno di un'area e una disponibilità in lettura e scrittura al 99,999% tra più aree, senza sovraccarichi operativi. Per altre informazioni, vedere l'articolo [Distribuire i dati a livello globale](distribute-data-globally.md). 
 
 **Livelli di coerenza:** Azure Cosmos DB consente di scegliere tra cinque livelli di coerenza ben definiti, per ottenere un compromesso ottimale tra coerenza e prestazioni. I livelli di coerenza possibili sono: Strong, Bounded Staleness, Session, Consistent Prefix ed Eventual. Si tratta di livelli di coerenza ben definiti, pratici e intuitivi, che permettono agli sviluppatori di ottenere compromessi precisi tra coerenza, disponibilità e latenza. Vedere l'articolo [livelli di coerenza](consistency-levels.md) per altre informazioni. 
 
-**Classe enterprise**: Azure Cosmos DB offre [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possano usare la piattaforma in modo sicuro. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.
+**Livello enterprise**: Azure Cosmos DB offre [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possano usare la piattaforma in modo sicuro. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.
+
+**Origine eventi**: l'API Apache Cassandra permette di accedere a un log delle modifiche persistente, il cosiddetto [feed delle modifiche](cassandra-change-feed.md), in modo da facilitare l'individuazione dell'origine eventi direttamente dal database. In Apache Cassandra l'unico equivalente è Change Data Capture (CDC), ovvero un semplice meccanismo per contrassegnare tabelle specifiche per l'archiviazione e rifiutare operazioni di scrittura in tali tabelle quando viene raggiunta una dimensione configurabile su disco per il log CDC. Si tratta di funzionalità ridondanti in Cosmos DB perché gli aspetti pertinenti sono gestiti in modo automatico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -52,4 +56,4 @@ L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB,
 
 * Per altre informazioni sulle funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB, vedere l'articolo [Supporto Cassandra](cassandra-support.md).
 
-* Leggere le [Domande Frequenti](faq.md#cassandra).
+* Leggere le [Domande Frequenti](cassandra-faq.md).

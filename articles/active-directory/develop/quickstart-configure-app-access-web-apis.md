@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/09/2020
+ms.date: 04/22/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 5e628626f2db49ff67d6d7ab425a3a19870b1ebd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215969"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082323"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Guida introduttiva: Configurare un'applicazione client per accedere alle API Web
 
@@ -110,7 +110,10 @@ Per configurare le impostazioni dell'applicazione in base alla piattaforma o al 
    | **Web**              | Immettere l'**URI di reindirizzamento** per l'applicazione. |
    | **iOS/macOS**              | Immettere l'**ID bundle** dell'app, disponibile nell'ambiente XCode nel file Info.plist o nelle impostazioni di compilazione. L'aggiunta dell'ID bundle crea automaticamente un URI di reindirizzamento per l'applicazione. |
    | **Android**          | Specificare il **nome del pacchetto** dell'app, disponibile nel file AndroidManifest.xml.<br/>Generare e immettere l'**hash della firma**. L'aggiunta dell'hash della firma crea automaticamente un URI di reindirizzamento per l'applicazione.  |
-   | **Applicazioni per dispositivi mobili e desktop**  | Facoltativa. Selezionare uno degli **URI di reindirizzamento suggeriti** se si creano app per desktop e dispositivi.<br/>Facoltativa. Immettere un **URI di reindirizzamento personalizzato** che costituisce la posizione a cui Azure AD reindirizzerà gli utenti in risposta alle richieste di autenticazione. Ad esempio, per le applicazioni .NET Core che richiedono interazione, usare `https://localhost`. |
+   | **Applicazioni per dispositivi mobili e desktop**  | Facoltativa. Selezionare uno degli **URI di reindirizzamento suggeriti** se si creano app per desktop e dispositivi.<br/>Facoltativa. Immettere un **URI di reindirizzamento personalizzato** che costituisce la posizione a cui Azure AD reindirizzerà gli utenti in risposta alle richieste di autenticazione. Ad esempio, per le applicazioni .NET Core che richiedono interazione, usare `http://localhost`. |
+
+   > [!NOTE]
+   > In Active Directory Federation Services (AD FS) e Azure AD B2C è necessario specificare anche un numero di porta.  Ad esempio: `http://localhost:1234`. 
 
    > [!IMPORTANT]
    > Per le applicazioni per dispositivi mobili che non usano la libreria MSAL (Microsoft Authentication Library) più recente o che non usano un broker, è necessario configurare gli URI di reindirizzamento in **Desktop e dispositivi**.
@@ -148,7 +151,7 @@ Per aggiungere un segreto client:
 L'[autorizzazione Accedi e leggi il profilo di un altro utente dell'API Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) è selezionata per impostazione predefinita. È possibile selezionare tra [due tipi di autorizzazione](developer-glossary.md#permissions) per ogni API Web:
 
 * **Autorizzazioni dell'applicazione**. L'applicazione client deve accedere all'API Web direttamente come se stessa, senza contesto utente. Questo tipo di autorizzazione richiede il consenso dell'amministratore. Questa autorizzazione non è disponibile per le applicazioni client per dispositivi mobili e desktop.
-* **Autorizzazioni delegate**. L'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore.
+* **Autorizzazioni delegate**. l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore.
 
   > [!NOTE]
   > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive in fase di esecuzione, a meno che l'amministratore non conceda il consenso per conto di tutti gli utenti.

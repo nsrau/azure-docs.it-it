@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80059989"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084744"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Esercitazione: Creare un gateway NAT e testare il servizio NAT tramite il portale di Azure
 
@@ -46,9 +46,9 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetsource          |
 | **\<region-name>**          | Stati Uniti orientali 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
 | **\<subnet-name>**          | mySubnetsource        |
-| **\<subnet-address-range>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -169,9 +169,9 @@ In questa sezione è necessario sostituire i parametri seguenti delle procedure 
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | Stati Uniti orientali 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
 | **\<subnet-name>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0\24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

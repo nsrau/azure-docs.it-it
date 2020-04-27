@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18
-ms.date: 03/11/2020
-ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/22/2020
+ms.openlocfilehash: 5fa25f54faecbc7caf130ffeb0d24c3d8fef7e09
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79117225"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084805"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight
 
@@ -35,7 +35,7 @@ Al termine della procedura descritta in questo documento, eliminare i cluster pe
 
 * Familiarità nell'uso di [Jupyter Notebook](https://jupyter.org/) con Spark in HDInsight. Per altre informazioni, vedere il documento [Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight](spark/apache-spark-load-data-run-query.md).
 
-* Familiarità con il linguaggio di programmazione [Scala](https://www.scala-lang.org/). Il codice usato in questa esercitazione è scritto in Scala.
+* Familiarità con il linguaggio di programmazione Scala. Il codice usato in questa esercitazione è scritto in Scala.
 
 * Familiarità con la creazione di argomenti Kafka. Per altre informazioni, vedere il documento [Creare un cluster Apache Kafka in HDInsight](kafka/apache-kafka-get-started.md).
 
@@ -277,7 +277,7 @@ Questo esempio illustra come usare Spark Structured Streaming con Kafka in HDIns
     println("Schema declared")
     ```
 
-1. Selezionare i dati e avviare il flusso. Il comando seguente illustra come recuperare i dati da Kafka usando una query in batch e quindi scrivere i risultati in Hadoop Distributed File System nel cluster Spark. In questo esempio `select` recupera il messaggio (campo value) da Kafka e vi applica lo schema. I dati vengono quindi scritti in Hadoop Distributed File System (WASB o ADL) in formato Parquet. Immettere il comando nella cella successiva di Jupyter.
+1. Selezionare i dati e avviare il flusso. Il comando seguente illustra come recuperare dati da Kafka con una query batch e quindi scrivere i risultati in HDFS nel cluster Spark. In questo esempio `select` recupera il messaggio (campo value) da Kafka e vi applica lo schema. I dati vengono quindi scritti in Hadoop Distributed File System (WASB o ADL) in formato Parquet. Immettere il comando nella cella successiva di Jupyter.
 
     ```scala
     // Read a batch from Kafka
@@ -316,7 +316,7 @@ Questo esempio illustra come usare Spark Structured Streaming con Kafka in HDIns
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per pulire le risorse create da questa esercitazione, eliminare il gruppo di risorse. Se si elimina il gruppo di risorse, vengono eliminati anche il cluster HDInsight associato e tutte le altre risorse correlate al gruppo di risorse.
+Per pulire le risorse create da questa esercitazione, eliminare il gruppo di risorse. Se si elimina il gruppo di risorse, viene eliminato anche il cluster HDInsight associato ed eventuali altre risorse associate al gruppo di risorse.
 
 Per rimuovere il gruppo di risorse usando il portale di Azure:
 
@@ -331,7 +331,7 @@ Per rimuovere il gruppo di risorse usando il portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come usare lo [streaming strutturato di Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) per scrivere e leggere i dati da [Apache Kafka](./kafka/apache-kafka-introduction.md) in HDInsight. Usare il collegamento seguente per informazioni su come usare [Apache Storm](./storm/apache-storm-overview.md) con Kafka.
+In questa esercitazione si è appreso come usare il flusso strutturato Apache Spark per scrivere e leggere dati da Apache Kafka in HDInsight. Usare il collegamento seguente per informazioni su come usare Apache Storm con Kafka.
 
 > [!div class="nextstepaction"]
 > [Usare Apache Storm con Apache Kafka](hdinsight-apache-storm-with-kafka.md)

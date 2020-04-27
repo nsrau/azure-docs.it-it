@@ -1,23 +1,23 @@
 ---
-title: Esercitazione per C# su completamento automatico e suggerimenti
+title: Completamento automatico e suggerimenti
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione illustra il completamento automatico e i suggerimenti come un modo per raccogliere l'input del termine di ricerca dagli utenti usando l'elenco a discesa. Si basa su un progetto di hotel esistente.
+description: Questa esercitazione illustra come usare il completamento automatico e i suggerimenti per raccogliere l'input del termine di ricerca dagli utenti usando l'elenco a discesa. Si basa su un progetto di hotel esistente.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121543"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641068"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca cognitiva di Azure
+# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca cognitiva di Azure
 
-In questa esercitazione viene spiegato come implementare il completamento automatico e i suggerimenti quando un utente inizia a digitare nella casella di ricerca. Nell'esercitazione i risultati del completamento automatico e dei suggerimenti verranno mostrati separatamente. Verrà quindi illustrato un metodo per combinarli e ottenere un'esperienza utente migliore. È possibile che l'utente debba digitare solo due o tre lettere per individuare tutti i risultati disponibili. Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
+In questa esercitazione viene spiegato come implementare il completamento automatico (query di completamento automatico e documenti suggeriti) quando un utente inizia a digitare nella casella di ricerca. In questa esercitazione le query di completamento automatico e i risultati dei suggerimenti vengono visualizzate prima separatamente e quindi insieme. È possibile che l'utente debba digitare solo due o tre caratteri per individuare tutti i risultati disponibili.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -28,23 +28,21 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, è necessario:
+Questa esercitazione fa parte di una serie e si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
-Predisporre il progetto [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md) attiva e in esecuzione. Questo progetto può essere una versione personalizzata, completata nell'esercitazione precedente, oppure può essere installato da GitHub: [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+In alternativa, è possibile scaricare ed eseguire la soluzione per questa esercitazione specifica: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Aggiungere suggerimenti
 
 Per iniziare, esamineremo il caso più semplice per offrire alternative all'utente, ovvero un elenco a discesa di suggerimenti.
 
-1. Nel file index.cshtml modificare l'istruzione **TextBoxFor** nella seguente.
+1. Nel file index.cshtml modificare il parametro `@id` dell'istruzione **TextBoxFor** in **azureautosuggest**.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-    Notare che l'ID della casella di ricerca è stato impostato su **azureautosuggest**.
-
-2. Dopo questa istruzione inserire lo script seguente dopo l'elemento finale **&lt;/div&gt;** .
+2. Dopo questa istruzione inserire lo script seguente dopo l'elemento finale **&lt;/div&gt;** . Questo script usa il [widget di completamento automatico](https://api.jqueryui.com/autocomplete/) della libreria open source dell'interfaccia utente di jQuery per presentare l'elenco a discesa dei risultati suggeriti. 
 
     ```javascript
     <script>
@@ -59,13 +57,11 @@ Per iniziare, esamineremo il caso più semplice per offrire alternative all'uten
     </script>
     ```
 
-    Lo script è stato connesso alla casella di ricerca usando lo stesso ID. Per attivare la ricerca, sono inoltre necessari almeno due caratteri. L'azione **Suggest** viene chiamata nel controller home con due parametri di query, ovvero **highlights** e **fuzzy**, entrambi impostati su false in questa istanza.
+    L'ID "azureautosuggest" consente di connettere lo script precedente alla casella di ricerca. L'opzione source del widget è impostata su un metodo Suggest che chiama l'API Suggest con due parametri di query, ovvero **highlights** e **fuzzy**, entrambi impostati su false in questa istanza. Per attivare la ricerca, è inoltre necessario un minimo di due caratteri.
 
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Aggiungere alla visualizzazione i riferimenti a script jquery
+### <a name="add-references-to-jquery-scripts-to-the-view"></a>Aggiungere alla visualizzazione i riferimenti agli script jQuery
 
-La funzione di completamento automatico chiamata nello script precedente non deve essere creata manualmente perché è già disponibile nella libreria jquery. 
-
-1. Per accedere alla libreria jquery, modificare la sezione &lt;head&gt; del file della visualizzazione sostituendola con il codice seguente.
+1. Per accedere alla libreria jQuery, modificare la sezione &lt;head&gt; del file della visualizzazione sostituendola con il codice seguente:
 
     ```cs
     <head>
@@ -80,7 +76,7 @@ La funzione di completamento automatico chiamata nello script precedente non dev
     </head>
     ```
 
-2. È inoltre necessario rimuovere o impostare come commento una riga che fa riferimento a jquery nel file _Layout.cshtml (nella cartella **Views/Shared**). Individuare le righe seguenti e impostare come commento la prima riga dello script, come illustrato di seguito. Questa modifica consente di evitare riferimenti in conflitto a jquery.
+2. Dal momento che si sta introducendo un nuovo riferimento a jQuery, è anche necessario rimuovere o impostare come commento il riferimento a jQuery predefinito nel file _Layout.cshtml (nella cartella **Views/Shared**). Individuare le righe seguenti e impostare come commento la prima riga dello script, come illustrato di seguito. Questa modifica consente di evitare riferimenti in conflitto a jQuery.
 
     ```html
     <environment include="Development">
@@ -90,7 +86,7 @@ La funzione di completamento automatico chiamata nello script precedente non dev
     </environment>
     ```
 
-    A questo punto, è possibile usare le funzioni jquery di completamento automatico predefinite.
+    A questo punto, è possibile usare le funzioni jQuery di completamento automatico predefinite.
 
 ### <a name="add-the-suggest-action-to-the-controller"></a>Aggiungere l'azione Suggest al controller
 
@@ -114,7 +110,8 @@ La funzione di completamento automatico chiamata nello script precedente non dev
                 parameters.HighlightPostTag = "</b>";
             }
 
-            // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
+            // Only one suggester can be specified per index. It is defined in the index schema.
+            // The name of the suggester is set when the suggester is specified by other API calls.
             // The suggester for the hotel database is called "sg", and simply searches the hotel name.
             DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", parameters);
 
@@ -128,7 +125,7 @@ La funzione di completamento automatico chiamata nello script precedente non dev
 
     Il parametro **Top** specifica il numero di risultati da restituire. Se non è specificato, l'impostazione predefinita è 5. Viene inoltre specificato uno _strumento suggerimenti_ per l'indice di Azure. Questa operazione viene eseguita dopo la configurazione dei dati e non da un'app client, come nel caso di questa esercitazione. In questo caso, lo strumento suggerimenti si chiama "sg" e consente solo di eseguire ricerche nel campo **HotelName**. 
 
-    Con la corrispondenza fuzzy l'output include anche suggerimenti non completamente corretti. Se il parametro **highlights** è impostato su true, all'output vengono aggiunti i tag HTML del grassetto. Questi parametri verranno impostati su true nella sezione successiva.
+    Con la corrispondenza fuzzy l'output include anche suggerimenti non completamente corretti, fino a una distanza di edit. Se il parametro **highlights** è impostato su true, all'output vengono aggiunti i tag HTML del grassetto. Questi parametri verranno impostati su true nella sezione successiva.
 
 2. È possibile che vengano restituiti alcuni errori di sintassi. In tal caso, aggiungere le due istruzioni **using** seguenti all'inizio del file.
 
@@ -151,7 +148,7 @@ La funzione di completamento automatico chiamata nello script precedente non dev
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Aggiungere l'evidenziazione per i suggerimenti
 
-Per migliorare leggermente l'aspetto dei suggerimenti per l'utente, è possibile impostare il parametro **highlights** su true. È però prima necessario aggiungere alla visualizzazione il codice per visualizzare il testo in grassetto.
+Per migliorare l'aspetto dei suggerimenti per l'utente, è possibile impostare il parametro **highlights** su true. È però prima necessario aggiungere alla visualizzazione il codice per visualizzare il testo in grassetto.
 
 1. Nella visualizzazione (index.cshtml) aggiungere lo script seguente dopo lo script **azureautosuggest** inserito in precedenza.
 
@@ -194,11 +191,11 @@ Per migliorare leggermente l'aspetto dei suggerimenti per l'utente, è possibile
 
 4. La logica usata nello script di evidenziazione precedente non è infallibile. Se si immette un termine che è presente due volte nello stesso nome, i risultati in grassetto non corrispondono a quelli previsti. Provare a digitare "mo".
 
-    Una delle questioni che uno sviluppatore deve valutare è decidere quando uno script funziona in modo relativamente corretto e quando è necessario risolvere i comportamenti anomali. L'evidenziazione non verrà ulteriormente usata in questa esercitazione, ma è opportuno individuare un algoritmo preciso se si intende usarla ancora.
+    Una delle questioni che uno sviluppatore deve valutare è decidere quando uno script funziona in modo relativamente corretto e quando è necessario risolvere i comportamenti anomali. L'evidenziazione non verrà ulteriormente usata in questa esercitazione, ma è opportuno individuare un algoritmo preciso se l'evidenziazione non è efficace per i dati in uso. Per altre informazioni, vedere [Evidenziazione dei risultati](search-pagination-page-layout.md#hit-highlighting).
 
-## <a name="add-autocompletion"></a>Aggiungere il completamento automatico
+## <a name="add-autocomplete"></a>Aggiungere il completamento automatico
 
-Un'altra variante, leggermente diversa dai suggerimenti, è il cosiddetto completamento automatico. Anche in questo caso si inizierà con l'implementazione più semplice prima di passare al miglioramento dell'esperienza utente.
+Un'altra variante, leggermente diversa dai suggerimenti, è il cosiddetto completamento automatico, che consente di completare un termine di query. Anche in questo caso si inizierà con l'implementazione più semplice prima di migliorare l'esperienza utente.
 
 1. Immettere lo script seguente nella visualizzazione, dopo gli script precedenti.
 
@@ -246,7 +243,7 @@ Un'altra variante, leggermente diversa dai suggerimenti, è il cosiddetto comple
 
     Si noti che per la ricerca con completamento automatico viene usata la stessa funzione *strumento suggerimenti*, denominato "sg", già usato per i suggerimenti, quindi si intende solo provare il completamento automatico dei nomi degli alberghi.
 
-    Sono disponibili numerose impostazioni di **AutocompleteMode**. In questo caso verrà usata quella **OneTermWithContext**. Per una descrizione delle opzioni disponibili, vedere l'articolo su [Completamento automatico di Azure](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
+    Sono disponibili numerose impostazioni di **AutocompleteMode**. In questo caso verrà usata quella **OneTermWithContext**. Per una descrizione delle opzioni aggiuntive, vedere [API di completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
 
 4. Eseguire l'app. Notare che le opzioni visualizzate nell'elenco a discesa sono singole parole. Provare a digitare parole che iniziano con "re". Notare che il numero di opzioni si riduce via via che si digitano le lettere.
 
