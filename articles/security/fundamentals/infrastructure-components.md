@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727205"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componenti e limiti del sistema informativo di Azure
@@ -45,7 +45,7 @@ Ogni controller di infrastruttura gestisce il ciclo di vita delle applicazioni i
 
 Il data center è suddiviso in cluster. I cluster isolano gli errori a livello di controller di infrastruttura e impediscono che determinate classi di errori interessino i server del cluster in cui si verificano. I controller di infrastruttura che servono un determinato cluster di Azure sono raggruppati in un cluster di controller di infrastruttura.
 
-### <a name="hardware-inventory"></a>Inventario dell’hardware
+### <a name="hardware-inventory"></a>Inventario hardware
 
 Il controller di infrastruttura crea un inventario dell'hardware Azure e dei dispositivi di rete durante il processo di configurazione del bootstrap. Qualsiasi componente di nuovo hardware e di rete che accede all'ambiente di produzione di Azure deve seguire il processo di configurazione del bootstrap. Il controller di infrastruttura è responsabile della gestione dell'intero inventario intero elencato nel file di configurazione datacenter.xml.
 
@@ -77,7 +77,7 @@ Il supporto dell’assistenza di Azure è gestito da vari di gruppi di progettaz
 
 I team dei servizi sono:
 
-- Piattaforma applicativa
+- Piattaforma per applicazioni
 - Azure Active Directory
 - Calcolo di Azure
 - Azure Net
@@ -125,7 +125,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
 - [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

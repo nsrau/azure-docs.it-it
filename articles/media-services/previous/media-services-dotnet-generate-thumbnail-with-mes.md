@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61244230"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
@@ -281,7 +281,7 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
 
 Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di codifica che produce solo immagini, è anche possibile combinare la codifica audio/video con la generazione di anteprime. Il set di impostazioni JSON e XML seguenti indica a **Media Encoder Standard** di generare un'anteprima durante la codifica.
 
-### <a name="json-preset"></a><a id="json"></a>Predefinito JSON
+### <a name="json-preset"></a><a id="json"></a>Set di impostazioni JSON
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
 
 ```json
@@ -346,7 +346,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
     }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Predefinito XML
+### <a name="xml-preset"></a><a id="xml"></a>Set di impostazioni XML
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
 
 ```csharp
@@ -568,9 +568,9 @@ Mentre è in corso il processo di codifica, è possibile controllarne lo [stato 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
 

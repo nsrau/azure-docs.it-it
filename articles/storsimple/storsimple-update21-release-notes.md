@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60531068"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Note sulla versione dell'aggiornamento 2.2 di StorSimple serie 8000
@@ -56,7 +56,7 @@ Le seguenti tabelle forniscono un riepilogo dei problemi risolti nell’aggiorna
 | 4 |Creazione di snapshot |Si sono verificati problemi correlati alla creazione di snapshot incrementali in scenari con volumi di grandi dimensioni e varianza dati minima o nulla. Tali problemi sono stati risolti in questa versione. |Sì |Sì |
 | 5 |Autenticazione Openstack |Quando si usa Openstack come provider di servizi cloud, l'utente rileva un bug poco frequente correlato all'autenticazione, in cui il parser JSON ha provocato un arresto anomalo. Tale bug è stato risolto in questa versione. |Sì |No |
 | 6 |Copia lato host |Nelle versioni precedenti del software è stato rilevato un bug poco frequente correlato agli intervalli ODX durante la copia di dati da un volume a un altro. A causa di questo errore, si verifica il failover del controller ed è possibile che il sistema passi alla modalità di ripristino. Il bug è stato risolto in questa versione. |Sì |No |
-| 7 |Strumentazione gestione Windows (WMI) |Nelle versioni precedenti del software si sono verificate diverse\<istanze di errore del proxy Web con l'eccezione " ManagementException> errore di caricamento del provider". Questo bug è stato attribuito a una perdita di memoria di WMI ed è stato ora risolto. |Sì |No |
+| 7 |Strumentazione gestione Windows (WMI) |Nelle versioni precedenti del software erano presenti diverse istanze di un errore del proxy Web con l'eccezione "\<managementexception> errore di caricamento del provider". Questo bug è stato attribuito a una perdita di memoria di WMI ed è stato ora risolto. |Sì |No |
 | 8 |Aggiornamento |In alcuni rari casi, nelle versioni precedenti del software l'utente ha ricevuto un errore "CisPowershellHcsscripterror" durante il tentativo di analisi o di installazione di aggiornamenti. Tale problema è stato corretto in questa versione. |Sì |Sì |
 | 9 |Pacchetto di supporto |In questa versione sono stati apportati miglioramenti alla modalità di raccolta e caricamento di pacchetti per il supporto. |Sì |Sì |
 

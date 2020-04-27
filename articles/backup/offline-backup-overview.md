@@ -3,12 +3,12 @@ title: Panoramica del backup offline
 description: Informazioni sui componenti del backup offline. Includono il backup offline basato sul backup Azure Data Box e offline basato sul servizio importazione/esportazione di Azure.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4dae68c46e0072a726bba13139e405b44be0f008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196163"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160922"
 ---
 # <a name="overview-of-offline-backup"></a>Panoramica del backup offline
 
@@ -27,7 +27,7 @@ Il backup offline è disponibile in due modalità in base alla proprietà dei di
 
 ## <a name="offline-backup-based-on-azure-data-box-preview"></a>Backup offline basato su Azure Data Box (anteprima)
 
-Questa modalità è attualmente supportata con l'agente di Servizi di ripristino di Microsoft Azure (MARS), in anteprima. Questa opzione sfrutta i vantaggi offerti da [Azure Data Box](https://azure.microsoft.com/services/databox/) per fornire appliance di trasferimento Microsoft, sicure e resistenti alle manomissioni con connettori USB al proprio Data Center o a un ufficio remoto. I dati di backup vengono scritti direttamente su questi dispositivi. Questa opzione consente di risparmiare il lavoro richiesto per ottenere i dischi e i connettori compatibili con Azure o per eseguire il provisioning dell'archiviazione temporanea come percorso di gestione temporanea. Microsoft gestisce inoltre la logistica per il trasferimento end-to-end, che è possibile tenere traccia del portale di Azure. 
+Questa modalità è attualmente supportata con l'agente di Servizi di ripristino di Microsoft Azure (MARS), in anteprima. Questa opzione sfrutta i vantaggi offerti da [Azure Data Box](https://azure.microsoft.com/services/databox/) per fornire appliance di trasferimento Microsoft, sicure e resistenti alle manomissioni con connettori USB al proprio Data Center o a un ufficio remoto. I dati di backup vengono scritti direttamente su questi dispositivi. Questa opzione consente di risparmiare il lavoro richiesto per ottenere i dischi e i connettori compatibili con Azure o per eseguire il provisioning dell'archiviazione temporanea come percorso di gestione temporanea. Microsoft gestisce inoltre la logistica per il trasferimento end-to-end, che è possibile tenere traccia del portale di Azure.
 
 Di seguito è illustrata un'architettura che descrive lo spostamento dei dati di backup con questa opzione.
 
@@ -44,7 +44,7 @@ Per usare il backup offline basato su Azure Data Box, vedere [backup offline con
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Backup offline basato sul servizio importazione/esportazione di Azure
 
-Questa opzione è supportata da Backup di Microsoft Azure Server (MAB), da System Center Data Protection Manager (DPM) DPM-A e dall'agente MARS. Usa il [servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). È possibile trasferire i dati di backup iniziali in Azure usando dischi e connettori compatibili con Azure. Per questo approccio è necessario effettuare il provisioning dell'archiviazione temporanea nota come percorso di gestione temporanea e utilizzare le utilità predefinite per formattare e copiare i dati di backup nei dischi di proprietà del cliente. 
+Questa opzione è supportata da Backup di Microsoft Azure Server (MAB), da System Center Data Protection Manager (DPM) DPM-A e dall'agente MARS. Usa il [servizio importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). È possibile trasferire i dati di backup iniziali in Azure usando dischi e connettori compatibili con Azure. Per questo approccio è necessario effettuare il provisioning dell'archiviazione temporanea nota come percorso di gestione temporanea e utilizzare le utilità predefinite per formattare e copiare i dati di backup nei dischi di proprietà del cliente.
 
 Di seguito è illustrata un'architettura che descrive lo spostamento dei dati di backup con questa opzione.
 
@@ -81,6 +81,6 @@ Nella tabella seguente vengono confrontate le due opzioni disponibili, in modo d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Backup offline di backup di Azure tramite Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-* [Flusso di lavoro di backup offline in backup di Azure](backup-azure-backup-import-export.md) 
-* [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](backup-azure-backup-server-import-export-.md)
+- [Backup offline di backup di Azure tramite Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
+- [Flusso di lavoro di backup offline in backup di Azure](backup-azure-backup-import-export.md)
+- [Flusso di lavoro di backup offline per DPM e server di Backup di Azure](backup-azure-backup-server-import-export-.md)

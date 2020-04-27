@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60780822"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Memorizzazione nella cache personalizzata in Gestione API di Azure
@@ -28,7 +28,7 @@ Il servizio Gestione API di Azure prevede il supporto incorporato per la [memori
 Il servizio Gestione API usa una cache di dati condivisa per tenant. In questo modo, man mano che aumenta il numero di unità, è sempre possibile accedere agli stessi dati memorizzati nella cache. Quando si adotta una distribuzione in più aree, tuttavia, sono presenti cache indipendenti all'interno di ogni area. È importante non considerare la cache come un archivio dati e l'unica fonte di alcune informazioni. Così facendo, se successivamente si decide di usare la distribuzione in più aree, i clienti con utenti che viaggiano posso perdere l'accesso ai dati memorizzati nella cache.
 
 ## <a name="fragment-caching"></a>Memorizzazione di frammenti
-Esistono casi in cui le risposte restituite contengono una parte di dati costosa da determinare ma che rimane aggiornata per un periodo di tempo ragionevole. Ad esempio, si consideri un servizio costruito da una compagnia aerea che fornisce informazioni relative alle prenotazioni dei voli, allo stato del volo, ecc. Se l'utente è un membro del programma a punti compagnie aeree, avrebbe anche informazioni relative al loro stato attuale e chilometraggio accumulato. Le informazioni relative agli utenti possono essere archiviate in un sistema diverso, ma potrebbe essere utile includerle nelle risposte restituite con le informazioni sulle prenotazioni e lo stato dei voli. Questa operazione può essere eseguita attraverso un processo denominato memorizzazione di frammenti. La rappresentazione primaria può essere restituita dal server di origine usando un token per indicare la posizione per l'inserimento delle informazioni relative agli utenti. 
+Esistono casi in cui le risposte restituite contengono una parte di dati costosa da determinare ma che rimane aggiornata per un periodo di tempo ragionevole. Si consideri, ad esempio, un servizio creato da una compagnia aerea che fornisce informazioni relative alle prenotazioni dei voli, allo stato dei voli e così via. Se l'utente è membro del programma Airlines Points, avrà anche informazioni relative allo stato corrente e al chilometraggio accumulato. Le informazioni relative agli utenti possono essere archiviate in un sistema diverso, ma potrebbe essere utile includerle nelle risposte restituite con le informazioni sulle prenotazioni e lo stato dei voli. Questa operazione può essere eseguita attraverso un processo denominato memorizzazione di frammenti. La rappresentazione primaria può essere restituita dal server di origine usando un token per indicare la posizione per l'inserimento delle informazioni relative agli utenti. 
 
 Si consideri la seguente risposta JSON da un'API back-end.
 

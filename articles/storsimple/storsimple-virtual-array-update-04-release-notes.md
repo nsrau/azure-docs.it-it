@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60334795"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Note sulla versione dell'aggiornamento 0.4 per l'array virtuale StorSimple
@@ -85,7 +85,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **16.** |File server |I file protetti da Windows Encrypting File System (EFS), quando vengono copiati o archiviati in un file server StorSimple Virtual Array, restituiscono una configurazione non supportata.  | |
 
 ## <a name="next-step"></a>Passaggio successivo
-[Installare l'aggiornamento 0.4](storsimple-virtual-array-install-update-04.md) nella matrice virtuale StorSimple.
+[Installare l'aggiornamento 0,4](storsimple-virtual-array-install-update-04.md) nell'array virtuale StorSimple.
 
 ## <a name="references"></a>Riferimenti
 Si desidera consultare le note su una versione precedente? Passare a: 

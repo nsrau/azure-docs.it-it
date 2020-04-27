@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69016577"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificare un asset con Media Encoder Standard mediante .NET  
@@ -30,7 +30,7 @@ Questo articolo illustra come usare .NET per codificare gli asset con Media Enco
 
 È consigliabile codificare sempre i file di origine con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). 
 
-Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per ulteriori informazioni, consultate Configurazione dei criteri di [distribuzione degli asset.](media-services-dotnet-configure-asset-delivery-policy.md)
+Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
 > [!NOTE]
 > MES produce un file di output con un nome contenente i primi 32 caratteri del nome del file di input. Il nome è basato su quanto specificato nel file preimpostato. Ad esempio, "FileName": "{Basename}_{Index}{Extension}". {Basename} viene sostituito dai primi 32 caratteri del nome del file di input.
@@ -61,7 +61,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 * Creare un processo di codifica.
 * Ottenere un riferimento al codificatore Media Encoder Standard.
-* Specificare per utilizzare il predefinito [Adaptive Streaming.](media-services-autogen-bitrate-ladder-with-mes.md) 
+* Specificare per usare il set di impostazioni [flusso adattivo](media-services-autogen-bitrate-ladder-with-mes.md) . 
 * Aggiungere una singola attività di codifica al processo. 
 * Specificare l’asset di input da codificare.
 * Creare un asset di output che contenga l'asset codificato.
@@ -70,7 +70,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio 
 
@@ -206,10 +206,10 @@ namespace MediaEncoderStandardSample
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come generare l'anteprima utilizzando Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Come generare un'anteprima usando Media Encoder standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Media Services Encoding Overview](media-services-encode-asset.md)
 

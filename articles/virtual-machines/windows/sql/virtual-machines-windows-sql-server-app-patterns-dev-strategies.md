@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
 ms.openlocfilehash: cbc2bfbb68910c3eb12352bebb575c4548885a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70124020"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
@@ -185,7 +185,7 @@ Questo modello di applicazione è utile nei casi seguenti:
 * Il database SQL di Azure non supporta tutte le funzionalità di cui necessita l'applicazione in uso.
 * Si desidera eseguire test di stress per diversi livelli di carico di lavoro ma, allo stesso tempo, non si desidera essere proprietari di molte macchine fisiche di cui eseguire la manutenzione per tutto il tempo.
 
-Il diagramma seguente illustra uno scenario locale e la relativa soluzione abilitata per il cloud. In questo scenario il livello presentazione viene inserito in ruoli Web, il livello business in ruoli di lavoro e il livello dati in macchine virtuali in Azure. L'esecuzione di più copie del livello presentazione in diversi ruoli di lavoro assicura che si eseguirà il bilanciamento del carico delle richieste tra di essi. Quando si combinano i servizi cloud di Azure con le macchine virtuali di Azure si consiglia di configurare anche la [rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md) . Con la [Rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md)è possibile disporre di indirizzi IP privati stabili e persistenti nell'ambito dello stesso servizio cloud. Dopo avere definito una rete virtuale per le macchine virtuali e i servizi cloud, questi potranno cominciare a comunicare tra loro attraverso l'indirizzo IP privato. In aggiunta, se le macchine virtuali e i ruoli Web o di lavoro di Azure si trovano nella stessa [Rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md) si ottengono una latenza minima e una connettività più sicura. Per altre informazioni, vedere [Che cos'è un servizio cloud](../../../cloud-services/cloud-services-choose-me.md).
+Il diagramma seguente illustra uno scenario locale e la relativa soluzione abilitata per il cloud. In questo scenario il livello presentazione viene inserito in ruoli Web, il livello business in ruoli di lavoro e il livello dati in macchine virtuali in Azure. L'esecuzione di più copie del livello presentazione in diversi ruoli di lavoro assicura che si eseguirà il bilanciamento del carico delle richieste tra di essi. Quando si combinano i servizi cloud di Azure con le macchine virtuali di Azure si consiglia di configurare anche la [rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md) . Con la [Rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md)è possibile disporre di indirizzi IP privati stabili e persistenti nell'ambito dello stesso servizio cloud. Dopo avere definito una rete virtuale per le macchine virtuali e i servizi cloud, questi potranno cominciare a comunicare tra loro attraverso l'indirizzo IP privato. In aggiunta, se le macchine virtuali e i ruoli Web o di lavoro di Azure si trovano nella stessa [Rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md) si ottengono una latenza minima e una connettività più sicura. Per ulteriori informazioni, vedere [che cos'è un servizio cloud](../../../cloud-services/cloud-services-choose-me.md).
 
 Come osservato nel diagramma, il servizio di bilanciamento del carico di Azure distribuisce il traffico tra più macchine virtuali e inoltre determina a quale server Web o server applicazioni connettersi. La presenza di più istanze di server Web e applicazioni dietro il servizio di bilanciamento del carico assicura la disponibilità elevata dei livelli presentazione e business. Per altre informazioni, vedere [Procedure consigliate per i modelli di applicazione che richiedono disponibilità elevata e ripristino di emergenza (HADR) per SQL Server](#best-practices-for-application-patterns-requiring-sql-hadr).
 

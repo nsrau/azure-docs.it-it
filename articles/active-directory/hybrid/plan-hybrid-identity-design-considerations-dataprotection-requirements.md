@@ -18,16 +18,16 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64918785"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso una soluzione d'identità avanzata
 La prima azione da compiere per garantire la protezione dei dati è identificare gli utenti che possono accedere ad essi. Nell'ambito di questo processo, è necessario anche disporre di una soluzione di gestione delle identità in grado di integrarsi con l'infrastruttura aziendale per fornire funzionalità di autenticazione e autorizzazione. L'autenticazione e l'autorizzazione vengono spesso confuse e i rispettivi ruoli fraintesi. Come illustrato nella figura seguente, sono in realtà due concetti diversi:
 
-![ciclo di vita dei dispositivi mobili](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![ciclo di vita del dispositivo mobile](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Fasi del ciclo di vita di gestione dei dispositivi mobili**
 
@@ -87,6 +87,6 @@ I requisiti di conformità alle normative, le disposizioni e le regolamentazioni
 ## <a name="next-steps"></a>Passaggi successivi
  [Determinare i requisiti di gestione dei contenuti](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

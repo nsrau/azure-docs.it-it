@@ -1,6 +1,6 @@
 ---
 title: Problemi di accesso a un'applicazione personalizzata | Microsoft Docs
-description: Errori comuni che potrebbero non essere in grado di accedere a un'applicazione sviluppata con Azure ADCommon errors that could cause you to be not able to sign into an application you have developed with Azure AD
+description: Errori comuni che potrebbero non essere in grado di accedere a un'applicazione sviluppata con Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65825229"
 ---
 # <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemi di accesso a un'applicazione personalizzata

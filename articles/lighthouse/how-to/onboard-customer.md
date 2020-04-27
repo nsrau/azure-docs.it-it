@@ -3,12 +3,12 @@ title: Eseguire l'onboarding di un cliente nella gestione risorse delegate di Az
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9cadab966c4d9ae3ddbc12a75f42f69e0c12f
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146322"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161109"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure
 
@@ -199,6 +199,8 @@ Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile a
 
 > [!IMPORTANT]
 > Questa distribuzione a livello di sottoscrizione deve essere eseguita da un account non Guest nel tenant del cliente che dispone del [ruolo predefinito proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione sottoposto a onboarding (o che contiene i gruppi di risorse di cui è in corso l'onboarding). Per visualizzare tutti gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nel portale di Azure, aprire **Controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo Proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+>
+> Se la sottoscrizione è stata creata tramite il [programma Cloud Solution Provider (CSP)](../concepts/cloud-solution-provider.md), qualsiasi utente che disponga del ruolo di [amministratore](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) di servizi nel tenant del provider di servizi potrà eseguire la distribuzione.
 
 ### <a name="powershell"></a>PowerShell
 

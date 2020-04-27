@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: alkohli
 ms.openlocfilehash: 55103d6307614f8796c41c35d6345e1fc3aca261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60789638"
 ---
 # <a name="storsimple-virtual-array-update-11-release-notes"></a>Note sulla versione dell'aggiornamento 1.1 per l'array virtuale StorSimple
@@ -81,7 +81,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Installare l'aggiornamento 1.1](storsimple-virtual-array-install-update-11.md) nella matrice virtuale StorSimple.
+[Installare l'aggiornamento 1,1](storsimple-virtual-array-install-update-11.md) nell'array virtuale StorSimple.
 
 ## <a name="references"></a>Riferimenti
 Si desidera consultare le note su una versione precedente? Passare a:

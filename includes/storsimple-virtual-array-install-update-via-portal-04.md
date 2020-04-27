@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f2ad6426c2c93fa595648af374df5566c45e57f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180175"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Per installare gli aggiornamenti tramite il portale di Azure
@@ -61,4 +61,4 @@ ms.locfileid: "67180175"
 
     ![aggiornamento dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Dopo che gli aggiornamenti sono stati installati correttamente, viene visualizzato un messaggio in tal senso nel pannello **Aggiornamenti dispositivo.** 
+9. Una volta che gli aggiornamenti sono stati installati correttamente, nel pannello **aggiornamenti del dispositivo** viene visualizzato un messaggio di questo effetto. 

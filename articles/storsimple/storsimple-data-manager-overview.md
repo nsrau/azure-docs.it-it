@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876113"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
@@ -68,11 +68,11 @@ Questo set di aree è più ampio perché la distribuzione delle risorse in una d
  - L'account di archiviazione di origine, ovvero quello associato al dispositivo StorSimple, e l'account di archiviazione di destinazione, in cui i dati verranno archiviati in formato nativo, devono trovarsi nella stessa area di Azure.
  - Data Manager e la definizione del processo devono essere attivati nell'area che contiene l'account di archiviazione StorSimple. Se questo non è possibile, attivare Data Manager nell'area di Azure più vicina e quindi creare la definizione del processo nella stessa area dell'account di archiviazione StorSimple. 
 
-    Se l'account di archiviazione StorSimple non si trova nelle 26 aree che supportano la creazione di definizioni di processi, è consigliabile non eseguire StorSimple Data Manager in quanto vengono visualizzate lunghe latenze e potenziali costi in uscita.
+    Se l'account di archiviazione StorSimple non è presente nelle 26 aree che supportano la creazione della definizione del processo, è consigliabile non eseguire StorSimple Data Manager perché vengono visualizzate le latenze prolungate e i potenziali addebiti in uscita.
     
-Microsoft si impegna a garantire che i servizi di Azure siano sempre disponibili in tutte le aree. Tuttavia, le interruzioni del servizio non pianificate possono verificarsi per brevi periodi in una determinata area. In questi casi, è possibile visualizzare un Data Manager e una definizione del processo in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. È possibile riscontrare una latenza aggiuntiva in uno scenario di questo tipo, ma questa può essere la strategia di ripristino nel raro caso di un'interruzione a livello di area.
+Microsoft si impegna a garantire che i servizi di Azure siano sempre disponibili in tutte le aree geografiche. Tuttavia, le interruzioni del servizio non pianificate possono verificarsi per brevi periodi in una determinata area. In questi casi, è possibile visualizzare un Data Manager e la definizione di un processo in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. È possibile che si verifichi una latenza aggiuntiva in uno scenario di questo tipo, ma questa è la strategia di recupero nel raro caso di un'interruzione a livello di area.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 StorSimple Data Manager richiede la chiave di crittografia dei dati del servizio per eseguire la trasformazione dal formato StorSimple a quello nativo. La chiave di crittografia dei dati del servizio viene generata quando il primo dispositivo esegue la registrazione al servizio StorSimple. Per altre informazioni su questa chiave, vedere [Sicurezza di StorSimple](storsimple-8000-security.md).
 
@@ -98,4 +98,4 @@ Il servizio attualmente presenta le limitazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Utilizzare StorSimple Data Manager UI per trasformare i dati](storsimple-data-manager-ui.md).
+[Usare StorSimple Data Manager interfaccia utente per trasformare i dati](storsimple-data-manager-ui.md).

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60194945"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB del servizio di archiviazione di Azure a Data Lake Storage Gen1 usando Analisi di flusso di Azure
@@ -25,11 +25,11 @@ In questo articolo viene descritto come usare Azure Data Lake Storage Gen1 come 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Account di Archiviazione di Azure.** Per l'input dei dati per un processo di Analisi di flusso viene usato un contenitore BLOB da questo account. Per questa esercitazione, si supponga di disporre di un account di archiviazione **storageforasa** e di un contenitore incluso nell'account denominato **storageforasacontainer**. Dopo aver creato il contenitore, caricare un file di dati di esempio. 
+* **Account di archiviazione di Azure**. Per l'input dei dati per un processo di Analisi di flusso viene usato un contenitore BLOB da questo account. Per questa esercitazione, si supponga di disporre di un account di archiviazione **storageforasa** e di un contenitore incluso nell'account denominato **storageforasacontainer**. Dopo aver creato il contenitore, caricare un file di dati di esempio. 
   
-* **Un account Data Lake Storage Gen1**. Seguire le istruzioni in [Introduzione a Azure Data Lake Storage Gen1 usando il portale](data-lake-store-get-started-portal.md)di Azure . Si supponga di avere un account Data Lake Storage Gen1 denominato **myadlsg1**. 
+* **Un account data Lake storage Gen1**. Seguire le istruzioni [riportate in Introduzione all'Azure Data Lake storage Gen1 usando il portale di Azure](data-lake-store-get-started-portal.md). Si supponga di avere un account Data Lake Storage Gen1 denominato **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso
 Iniziare creando un processo di Analisi di flusso che include un'origine di input e una destinazione di output. Per questa esercitazione, l'origine è un contenitore BLOB di Azure e la destinazione è Data Lake Storage Gen1.
@@ -38,7 +38,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
 2. Nel riquadro sinistro, fare clic su **Processi di Analisi di flusso**, quindi fare clic su **Aggiungi**.
 
-    ![Creare un processo di Analisi di flusso](./media/data-lake-store-stream-analytics/create.job.png "Creare un processo di Analisi di flusso.")
+    ![Creare un processo di analisi di flusso](./media/data-lake-store-stream-analytics/create.job.png "Creare un processo di Analisi di flusso.")
 
     > [!NOTE]
     > Assicurarsi di creare il processo nella stessa area dell'account di archiviazione per non incorrere in costi aggiuntivi per lo spostamento dei dati tra le aree.
@@ -64,7 +64,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
    * Per **Delimitatore **selezionare **scheda**.
    * Per **Codifica** selezionare **UTF-8**.
 
-     Fare clic su **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
+     Scegliere **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Creare un output di Data Lake Storage Gen1 per il processo
@@ -92,11 +92,11 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
    * Per **Delimitatore **selezionare **scheda**.
    * Per **Codifica** selezionare **UTF-8**.
     
-     Fare clic su **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
+     Scegliere **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
     
 ## <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
-1. Per eseguire un processo di Analisi di flusso, è necessario eseguire una query dalla scheda **Query.** Per questa esercitazione, è possibile eseguire la query di esempio sostituendo i segnaposto con gli alias di input e output del processo, come illustrato nella schermata seguente.
+1. Per eseguire un processo di analisi di flusso, è necessario eseguire una query dalla scheda **query** . Per questa esercitazione, è possibile eseguire la query di esempio sostituendo i segnaposto con gli alias di input e output del processo, come illustrato nella schermata seguente.
 
     ![Esegui query](./media/data-lake-store-stream-analytics/run.query.png "Esegui query")
 
@@ -118,5 +118,5 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
 
     Nel riquadro Esplora dati l'output viene scritto in un percorso di cartella come specificato nelle impostazioni di output di Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965124"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
@@ -208,7 +208,7 @@ La deduplicazione riduce la quantità complessiva di dati archiviati eliminando 
 ## <a name="storsimple-workload-summary"></a>Riepilogo dei carichi di lavoro di StorSimple
 Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
 | --- | --- | --- | --- | --- |
 | Collaborazione |Condivisione di file |Sì | |Tutte le versioni |
 | Collaborazione |Condivisione di file distribuita |Sì | |Tutte le versioni |
@@ -235,7 +235,7 @@ I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple dell
 
 Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati da StorSimple.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
 | --- | --- | --- | --- | --- |
 | Generale |Express Route |Sì | |Tutte le versioni |
 | Generale |DataCore FC |Sì* |Supportato con DataCore SANsymphony |Tutte le versioni |

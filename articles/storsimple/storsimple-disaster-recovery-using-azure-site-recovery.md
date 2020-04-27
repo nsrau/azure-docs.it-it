@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67875385"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
@@ -99,12 +99,12 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
    1. Nelle macchine virtuali locali premere il tasto Windows + Q e cercare **iSCSI**.
    1. Selezionare **Iniziatore iSCSI**.
    1. Selezionare la scheda **Configurazione** e copiare il nome dell'iniziatore.
-   1. Accedere al [portale](https://portal.azure.com/)di Azure .
+   1. Accedere al [Portale di Azure](https://portal.azure.com/).
    1. Selezionare la scheda **StorSimple** e quindi selezionare il servizio StorSimple Manager che contiene il dispositivo fisico.
    1. Creare i contenitori di volumi e quindi creare i volumi (questi volumi sono destinati alle condivisione file nella macchine virtuali del file server). Copiare il nome dell'iniziatore e assegnare un nome appropriato per i record di controllo di accesso quando si creano i volumi.
    1. Selezionare la scheda **Configura** e prendere nota dell'indirizzo IP del dispositivo.
    1. Nelle macchine virtuali locali tornare a **Iniziatore iSCSI** e immettere l'indirizzo IP nella sezione connessione rapida. Fare clic su **Connessione rapida** (il dispositivo ora deve essere connesso).
-   1. Aprire il portale di Azure e selezionare la scheda **Volumi e dispositivi.** **Auto Configure** Viene visualizzato il volume appena creato.
+   1. Aprire il portale di Azure e selezionare la scheda **volumi e dispositivi** . fare clic su **configura automaticamente**. Viene visualizzato il volume appena creato.
    1. Nel portale selezionare la scheda **Dispositivi** e quindi selezionare **Create a New Virtual Device** (Crea un nuovo dispositivo virtuale)  (il dispositivo virtuale verrà usato se si verifica un failover). Il nuovo dispositivo virtuale può essere mantenuto in uno stato offline per evitare costi aggiuntivi. Per portare offline il dispositivo virtuale, passare alla sezione **Macchine virtuali** nel portale e arrestarlo.
    1. Tornare alle macchine virtuali locali e aprire Gestione disco (premere il tasto Windows + X, quindi selezionare **Gestione disco**).
    1. Si noteranno alcuni dischi aggiuntivi (a seconda del numero di volumi creati). Fare clic con il pulsante destro del mouse sul primo disco e scegliere **Inizializza disco**, quindi fare clic su **OK**. Fare doppio clic sulla sezione **Non allocato**, selezionare **Nuovo volume semplice**, assegnare una lettera di unità al volume e completare la procedura guidata.
@@ -170,17 +170,17 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    
 1. Nell'account di automazione fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
-   - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Ottenere l'utilizzo di **Get-AzEnvironment . Select-Object Name, cmdlet ResourceManagerUrl.**
-   - _RecoveryPlanName_**-ResourceGroupName:** gruppo di Resource Manager con la risorsa StorSimple.
-   - _RecoveryPlanName_**-ManagerName**: la risorsa StorSimple con il dispositivo StorSimple.
-   - _RecoveryPlanName_**-DeviceName**: Il dispositivo StorSimple di cui è necessario eseguire il failover.
+   - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Ottenere usando **Get-AzEnvironment | SELECT-nome oggetto, cmdlet ResourceManagerUrl** .
+   - _RecoveryPlanName_**-ResourceGroupName**: il gruppo di gestione risorse con la risorsa StorSimple.
+   - _RecoveryPlanName_**-ManagerName**: la risorsa StorSimple che contiene il dispositivo StorSimple.
+   - _RecoveryPlanName_**-DeviceName**: il dispositivo StorSimple di cui è necessario eseguire il failover.
    - _RecoveryPlanName_**-DeviceIpAddress**: l'indirizzo IP del dispositivo (reperibile nella scheda **Dispositivi** della sezione Gestione dispositivi StorSimple &gt; **Impostazioni** &gt; **Rete** &gt; **gruppo Impostazioni DNS Settings**).
-   - _RecoveryPlanName_**-VolumeContainers:** una stringa delimitata da virgole di contenitori di volumi presenti nel dispositivo di cui è necessario eseguire il failover. ad esempio: volcon1, volcon2, volcon3.
-   - _RecoveryPlanName_**-TargetDeviceName**: L'appliance StorSimple Cloud in cui devono essere sottoposti a failover i contenitori.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: L'indirizzo IP del dispositivo di destinazione &gt; (disponibile nella sezione **Impostazioni** **macchina virtuale** gruppo &gt; **rete** scheda).
-   - _RecoveryPlanName_**-StorageAccountName:** il nome dell'account di archiviazione in cui verrà archiviato lo script (che deve essere eseguito nella macchina virtuale di cui è stato eseguito il failover). Può trattarsi di qualsiasi account di archiviazione in cui sia disponibile spazio per l'archiviazione temporanea dello script.
-   - _RecoveryPlanName_**-StorageAccountKey:** chiave di accesso per l'account di archiviazione precedente.
-   - _RecoveryPlanName_**-VMGUIDS:** dopo aver protetto una macchina virtuale, Azure Site Recovery assegna a ogni macchina virtuale un ID univoco che fornisce i dettagli della macchina virtuale di cui è stato eseguito il failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
+   - _RecoveryPlanName_**-VolumeContainers**: stringa delimitata da virgole di contenitori di volumi presente nel dispositivo di cui è necessario eseguire il failover. ad esempio: volcon1, volcon2, volcon3.
+   - _RecoveryPlanName_**-TargetDeviceName**: l'appliance cloud StorSimple in cui deve essere eseguito il failover dei contenitori.
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: l'indirizzo IP del dispositivo di destinazione (disponibile nella scheda &gt; **rete** del gruppo di **Impostazioni** della &gt; **macchina virtuale** ).
+   - _RecoveryPlanName_**-StorageAccountName**: nome dell'account di archiviazione in cui verrà archiviato lo script (che deve essere eseguito nella macchina virtuale di cui è stato effettuato il failover). Può trattarsi di qualsiasi account di archiviazione in cui sia disponibile spazio per l'archiviazione temporanea dello script.
+   - _RecoveryPlanName_**-StorageAccountKey**: chiave di accesso per l'account di archiviazione precedente.
+   - _RecoveryPlanName_**-VMGUIDS**: quando si protegge una macchina virtuale, Azure Site Recovery assegna a ogni macchina virtuale un ID univoco che fornisce i dettagli della macchina virtuale sottoposta a failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
 
      Se, ad esempio, il nome del piano di ripristino è fileServerpredayRP, le schede **Variabili**, **Connessioni** e **Certificati** dovrebbero essere visualizzate come segue dopo aver aggiunto tutti gli asset.
 
@@ -262,9 +262,9 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
       - Runbook Mount-volumes-after-failover  
       - Runbook Uninstall-custom-script-extension  
         
-   - Aggiungere un'azione manuale dopo i quattro script precedenti nella stessa sezione **Gruppo 1: passaggi successivi** . Questa azione corrisponde al punto in cui è possibile verificare il corretto funzionamento. Questa azione deve essere aggiunta solo come parte del failover di test (quindi selezionare solo la casella di **controllo Failover di test).**
+   - Aggiungere un'azione manuale dopo i quattro script precedenti nella stessa sezione **Gruppo 1: passaggi successivi** . Questa azione corrisponde al punto in cui è possibile verificare il corretto funzionamento. Questa azione deve essere aggiunta solo come parte del failover di test, quindi selezionare solo la casella di **controllo failover di test** .
     
-   - Dopo l'azione manuale, aggiungere lo script **Cleanup** usando la stessa procedura usata per gli altri runbook. **Salvare** il piano di ripristino.
+   - Dopo l'azione manuale, aggiungere lo script di **pulizia** usando la stessa procedura usata per gli altri manuali operativi. **Salvare** il piano di ripristino.
     
    > [!NOTE]
    > Quando si esegue un failover di test, è necessario verificare tutti gli aspetti del passaggio relativo all'azione manuale perché i volumi StorSimple clonati sul dispositivo di destinazione verranno eliminati come parte della pulizia dopo il completamento dell'azione manuale.

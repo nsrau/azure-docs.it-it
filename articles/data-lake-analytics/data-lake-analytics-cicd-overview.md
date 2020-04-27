@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60333861"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
@@ -454,33 +454,33 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | Descrizione | Default Value | Obbligatorio |
+| Parametro | Descrizione | Default Value | Obbligatoria |
 |---------|-----------|-------------|--------|
-|Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|null|true|
+|Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
-|LogFile|Percorso del file per la registrazione. L'impostazione predefinita è l'output standard (console).|null|false|
+|LogFile|Percorso del file per la registrazione. L'impostazione predefinita è l'output standard (console).|Null|false|
 |LogLevel|Livello di log: dettagliato, normale, avviso o errore.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|Descrizione|Default Value|Obbligatorio|
+|Parametro|Descrizione|Default Value|Obbligatoria|
 |---------|-----------|-------------|--------|
-|DataRoot|Percorso della cartella radice dei dati locale.|null|true|
+|DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|Descrizione|Default Value|Obbligatorio|
+|Parametro|Descrizione|Default Value|Obbligatoria|
 |---------|-----------|-------------|--------|
-|Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|null|true|
-|ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|null|true|
-|SubscriptionId|ID sottoscrizione di Azure per l'account di Azure Data Lake Analytics.|null|true|
-|Tenant|Il nome del tenant è il nome di dominio di Azure Active Directory (Azure AD). È possibile individuarlo nella pagina di gestione della sottoscrizione nel portale di Azure.|null|true|
-|AzureSDKPath|Percorso di ricerca degli assembly dipendenti in Azure SDK.|null|true|
+|Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
+|ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|
+|SubscriptionId|ID sottoscrizione di Azure per l'account di Azure Data Lake Analytics.|Null|true|
+|Tenant|Il nome del tenant è il nome di dominio di Azure Active Directory (Azure AD). È possibile individuarlo nella pagina di gestione della sottoscrizione nel portale di Azure.|Null|true|
+|AzureSDKPath|Percorso di ricerca degli assembly dipendenti in Azure SDK.|Null|true|
 |Interactive (Interattivo)|Indica se usare o meno la modalità interattiva per l'autenticazione.|false|false|
-|ClientId|ID applicazione di Azure AD necessario per l'autenticazione non interattiva.|null|Necessario per l'autenticazione non interattiva.|
-|Secrete|Segreto o password per l'autenticazione non interattiva. Da usare solo in un ambiente sicuro e attendibile.|null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare SecreteFile.|
-|SecreteFile|File in cui viene salvato il segreto o la password per l'autenticazione non interattiva. Assicurarsi che possa essere letto solo dall'utente corrente.|null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare Secrete.|
-|CertFile|File in cui viene salvata la certificazione X.509 per l'autenticazione non interattiva. Per impostazione predefinita viene usata l'autenticazione con segreto client.|null|false|
+|ClientId|ID applicazione di Azure AD necessario per l'autenticazione non interattiva.|Null|Necessario per l'autenticazione non interattiva.|
+|Secrete|Segreto o password per l'autenticazione non interattiva. Da usare solo in un ambiente sicuro e attendibile.|Null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare SecreteFile.|
+|SecreteFile|File in cui viene salvato il segreto o la password per l'autenticazione non interattiva. Assicurarsi che possa essere letto solo dall'utente corrente.|Null|Obbligatorio per l'autenticazione non interattiva. In alternativa usare Secrete.|
+|CertFile|File in cui viene salvata la certificazione X.509 per l'autenticazione non interattiva. Per impostazione predefinita viene usata l'autenticazione con segreto client.|Null|false|
 | JobPrefix | Prefisso per la distribuzione di database di un processo DDL U-SQL. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60456182"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "60456182"
 Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'autenticazione pass-through di Azure AD.
 
 >[!IMPORTANT]
->Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni [sull'aggiunta di un account amministratore globale solo cloud.](../active-directory-users-create-azure-portal.md) L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
+>Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../active-directory-users-create-azure-portal.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
 
 ## <a name="general-issues"></a>Problemi generali
 
@@ -58,7 +58,7 @@ Se al tenant è associata una licenza di Azure AD Premium, è anche possibile es
 
 ![Interfaccia di amministrazione di Azure Active Directory - Report sugli accessi](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Passare ad**Accessi** ad **Azure Active Directory** -> nell'interfaccia di amministrazione di [Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
+Passare a **Azure Active Directory** -> **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
 |Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
 | --- | --- | ---
@@ -73,7 +73,7 @@ Passare ad**Accessi** ad **Azure Active Directory** -> nell'interfaccia di ammin
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
 
 >[!IMPORTANT]
->Gli agenti di autenticazione pass-through autenticano gli utenti di Azure AD convalidando i nomi utente e le password rispetto ad Active Directory chiamando [l'API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Di conseguenza, se è stata impostata l'impostazione "Accesso a" in Active Directory per limitare l'accesso all'accesso alla workstation, sarà necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through anche all'elenco dei server "Accedi a". In caso contrario, gli utenti non acquisiranno l'accesso ad Azure AD.
+>Gli agenti di autenticazione pass-through autenticano Azure AD utenti convalidando i nomi utente e le password rispetto Active Directory chiamando l' [API Win32 LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Di conseguenza, se è stata impostata l'impostazione "Logon to" (accesso a) in Active Directory per limitare l'accesso alla workstation, sarà necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through all'elenco dei server "Logon to". In caso contrario, gli utenti non riusciranno ad accedere Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemi di installazione dell'agente di autenticazione
 

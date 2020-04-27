@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60629758"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Risolvere i problemi relativi a un processo ricorrente anomalo
@@ -33,7 +33,7 @@ Per usare Related Job View (Visualizzazione processi correlati) per risolvere il
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Si dispone dell'URL per il processo ricorrente
 
-Tramite **Tools** > **Data Lake** > **Job View**, è possibile incollare l'URL del processo per aprire Visualizzazione processi in Visual Studio. Selezionare **View Related Jobs** (Visualizza processi correlati) per aprire la visualizzazione processi correlati.
+Tramite **strumenti** > **Data Lake** > **visualizzazione processi**, è possibile incollare l'URL del processo per aprire la visualizzazione processi in Visual Studio. Selezionare **View Related Jobs** (Visualizza processi correlati) per aprire la visualizzazione processi correlati.
 
 ![Collegamento View Related Jobs (Visualizza processi correlati) in Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  

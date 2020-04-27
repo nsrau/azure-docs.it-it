@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64868111"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si eseguono processi di codifica, spesso è necessario monitorarne l'avanzamento. È possibile configurare Servizi multimediali per recapitare le notifiche ad [archiviazione code di Azure](../../storage/storage-dotnet-how-to-use-queues.md). È possibile controllare l'avanzamento del processo ottenendo le notifiche da archiviazione code. 
 
@@ -61,13 +61,13 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 > [!NOTE]
 > Il modo migliore per monitorare lo stato di un processo è quello di essere in ascolto dei messaggi di notifica, come illustrato nell'esempio seguente:
 >
-> In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State** .  Un messaggio di notifica relativo al completamento del processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Operazione completata**. Il **IJob.State** proprietà riflette lo stato accurato con un leggero ritardo.
+> In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State** .  Un messaggio di notifica relativo al completamento del processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Operazione completata**. La proprietà **IJob. state** riflette lo stato esatto con un leggero ritardo.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+1. Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Creare una nuova cartella, in un punto qualsiasi nell'unità locale, e copiare un file con estensione mp4 di cui si vuole eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\Media".
 3. Aggiungere un riferimento alla libreria **System.Runtime.Serialization**.
 
@@ -375,5 +375,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

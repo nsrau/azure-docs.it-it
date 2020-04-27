@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965022"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
@@ -63,7 +63,7 @@ Questa sezione contiene l'elenco dei dispositivi che sono stati distribuiti corr
 | Marca ricetrasmettitore |Juniper |
 | Modello ricetrasmettitore |Codice 740-021308  <br></br>  Codice 740-030658 |
 | Versione firmware ricetrasmettitore |Rev 01 Versione 0.0 (segnalato) |
-| Modello cavo |Ponticello duplex LC/LC 50/125, OM3, LS -H |
+| Modello cavo |Ponticello duplex LC/LC 50/125μ, OM3, LSZH |
 | Modello StorSimple |8600 |
 | Versione software StorSimple |6.3.9600.17491 |
 

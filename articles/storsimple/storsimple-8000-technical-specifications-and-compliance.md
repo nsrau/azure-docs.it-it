@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965280"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
@@ -83,7 +83,7 @@ I dispositivi StorSimple usano una combinazione di unità disco rigido e unità 
 | Capacità utilizzabile totale* |~ 15 TB |~ 38 TB |
 | Capacità massima della soluzione (incluso il cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *La capacità utilizzabile totale include la capacità disponibile per dati, metadati e buffer. È possibile eseguire il provisioning di volumi aggiunti in locale fino a 8,5 TB nel dispositivo 8100 o fino a 22,5 TB nel dispositivo più grande da 8600. Per ulteriori informazioni, visitare I volumi aggiunti in locale a [StorSimple](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *La capacità totale utilizzabile include la capacità disponibile per i dati, i metadati e i buffer. È possibile eseguire il provisioning di volumi aggiunti in locale fino a 8,5 TB sul dispositivo 8100 o fino a 22,5 TB nel dispositivo 8600 più grande. Per altre informazioni, vedere [StorSimple volume aggiunto in locale](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Specifiche su peso e dimensioni dello chassis
 
@@ -175,7 +175,7 @@ Il dispositivo è conforme allo standard EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformità del cavo di alimentazione CA
 
-La spina e l'assemblaggio completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese o l'area geografica in cui viene utilizzato il dispositivo e devono disporre di approvazioni di sicurezza accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
+Il connettore e l'assembly completo del cavo di alimentazione devono soddisfare gli standard appropriati per il paese/area geografica in cui viene usato il dispositivo e devono avere approvazioni di sicurezza che sono accettabili in tale paese/area geografica. Nelle tabelle seguenti vengono elencati gli standard per gli Stati Uniti e l'Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cavi di alimentazione CA - Stati Uniti (devono essere elencati NRTL)
 

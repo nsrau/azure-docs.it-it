@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60386925"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per LocalDB
@@ -87,7 +87,7 @@ Per impostazione predefinita, Azure AD Connect conserva i dati della cronologia 
 
 3. In **Actions** (Azioni) selezionare **Clear Runs** (Cancella esecuzioni).
 
-4. È possibile scegliere **Cancella tutte le condutture** o **Cancella esecuzioni prima di... opzione \<di>data.** È consigliabile iniziare cancellando i dati della cronologia di esecuzione che risalgono a più di due giorni di prima. Se il problema delle dimensioni del database persiste, scegliere l'opzione **Clear all runs** (Cancella tutte le esecuzioni).
+4. È possibile scegliere **Cancella tutte le esecuzioni** o **Cancella esecuzioni prima... Data \<>** opzione. È consigliabile iniziare cancellando i dati della cronologia di esecuzione che risalgono a più di due giorni di prima. Se il problema delle dimensioni del database persiste, scegliere l'opzione **Clear all runs** (Cancella tutte le esecuzioni).
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Abbreviare il periodo di conservazione dei dati della cronologia di esecuzione
 Questo passaggio consente di ridurre la probabilità che si verifichi il problema del limite di 10 GB dopo più cicli di sincronizzazione.

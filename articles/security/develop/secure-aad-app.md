@@ -1,6 +1,6 @@
 ---
-title: Sviluppare un'applicazione Web di Azure AD sicura Documenti Microsoft
-description: Questa semplice app di esempio implementa procedure consigliate per la sicurezza che migliorano l'applicazione e la sicurezza dell'organizzazione durante lo sviluppo in Azure.This simple sample app implements security best practices that improve your application and your organization's security posture when you develop on Azure.
+title: Sviluppare un'applicazione Web Azure AD protetta | Microsoft Docs
+description: Questa semplice app di esempio implementa le procedure consigliate per la sicurezza che consentono di migliorare l'applicazione e il comportamento di sicurezza dell'organizzazione quando si sviluppa in Azure.
 keywords: na
 services: security
 documentationcenter: na
@@ -15,120 +15,120 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 599c4a31840b47294b43c4c4d1f0200b17f04540
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810542"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159899"
 ---
-# <a name="develop-secure-app-for-an-azure-ad-app"></a>Sviluppare un'app sicura per un'app Azure ADDevelop secure app for an Azure AD app
+# <a name="develop-secure-app-for-an-azure-ad-app"></a>Sviluppare un'app sicura per un'app Azure AD
 ## <a name="overview"></a>Panoramica
 
-Questo esempio è un semplice Azure Active Directory con app Web che si collega alle risorse di sicurezza per lo sviluppo di app in Azure.This sample is a simple Azure Active Directory with web app that links to security resources for developing apps on Azure. L'app implementa le procedure consigliate per la sicurezza che consentono di migliorare l'applicazione e la sicurezza dell'organizzazione quando si sviluppano app in Azure.The app implements security best practices that can help improve your application and your organization's security posture when you develop apps on Azure.
+Questo esempio è una semplice Azure Active Directory con app Web che si collega a risorse di sicurezza per lo sviluppo di app in Azure. L'app implementa le procedure consigliate per la sicurezza che consentono di migliorare l'applicazione e il comportamento di sicurezza dell'organizzazione quando si sviluppano app in Azure.
 
-Gli script di distribuzione configurano l'infrastruttura. Dopo aver eseguito gli script di distribuzione, è necessario eseguire alcune operazioni di configurazione manuale nel portale di Azure per collegare i componenti e i servizi. Questo esempio è destinato a sviluppatori esperti in Azure che lavorano nel settore retail e desiderano creare un Azure Active Directory protetto con un'infrastruttura di Azure sicura. 
+Gli script di distribuzione configurano l'infrastruttura. Dopo aver eseguito gli script di distribuzione, è necessario eseguire alcune operazioni di configurazione manuale nel portale di Azure per collegare insieme i componenti e i servizi. Questo esempio è destinato a sviluppatori esperti di Azure che operano nel settore della vendita al dettaglio e vogliono creare un Azure Active Directory protetto con l'infrastruttura di Azure sicura. 
 
 
-Nello sviluppo e nella distribuzione di questa app, imparerai come 
-- Creare un'istanza dell'insieme di credenziali delle chiavi di Azure, archiviare e recuperare segreti da essa.
+Durante lo sviluppo e la distribuzione di questa app, si apprenderà come 
+- Creare un'istanza Azure Key Vault, archiviare e recuperare i relativi segreti.
 - Distribuire l'app Web di Azure, dedicata isolata con accesso al firewall front-end. 
-- Creare e configurare un'istanza del gateway applicazione di Azure con un firewall che usa Set di regole OWASP Top 10.Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset. 
-- Abilitare la crittografia dei dati in transito e inattivi usando i servizi di Azure.Enable encryption of data in transit and at rest by using Azure services. 
-- Configurare i criteri e il centro sicurezza di Azure per valutare le funzionalità. 
+- Creare e configurare un'istanza di applicazione Azure gateway con un firewall che usa OWASP primi 10 RuleSet. 
+- Abilitare la crittografia dei dati in transito e a riposo usando i servizi di Azure. 
+- Configurare i criteri e il Centro sicurezza di Azure per valutare la compliancies. 
 
-Dopo aver sviluppato e distribuito questa app, sarà stata configurata l'app Web di esempio seguente insieme alle misure di configurazione e sicurezza descritte.
+Dopo aver sviluppato e distribuito l'app, è necessario configurare l'app Web di esempio seguente insieme alle misure di configurazione e sicurezza descritte.
 
 ## <a name="architecture"></a>Architecture
-L'app è una tipica applicazione a più livelli con tre livelli. Il livello front-end, back-end e database con componenti di monitoraggio e gestione segreta integrati sono illustrati di seguito:
+L'app è una tipica applicazione a più livelli con tre livelli. Il front-end, il back-end e il livello di database con componenti di monitoraggio e di gestione segreta integrati sono illustrati di seguito:
 
 ![Architettura dell'app](./media/secure-aad-app/architecture.png)
 
-Questa soluzione usa i servizi di Azure seguenti. I dettagli dell'architettura di distribuzione sono disponibili nella sezione Architettura di distribuzione. 
+Questa soluzione usa i servizi di Azure seguenti. I dettagli dell'architettura di distribuzione sono disponibili nella sezione architettura di distribuzione. 
 
 L'architettura è costituita da questi componenti
 
 - [Gateway applicazione di Azure](../../application-gateway/index.yml). Fornisce il gateway e il firewall per l'architettura dell'applicazione.
-- [Application Insights](../../azure-monitor/app/app-insights-overview.md). Fornisce un servizio APM (Application Performance Management) estensibile su più piattaforme.
-- [Archivio chiavi di Azure](../../key-vault/index.yml). Archivia e crittografa i segreti della nostra app e gestisce la creazione di criteri di accesso che li circondano.
-- [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Fornisce il servizio di gestione di identità e accessi basato su cloud, accesso e accesso alle risorse.
-- [Azure Domain Name System](../../dns/dns-overview.md). Fornire il servizio per ospitare il dominio.
-- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Fornisce per scalare le applicazioni e creare disponibilità elevata per i servizi.
+- [Application Insights](../../azure-monitor/app/app-insights-overview.md). Fornisce un servizio estendibile di gestione delle prestazioni delle applicazioni (APM) su più piattaforme.
+- [Azure Key Vault](../../key-vault/index.yml). Archivia e crittografa i segreti dell'app e gestisce la creazione di criteri di accesso.
+- [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Fornisce servizi di gestione delle identità e degli accessi basati sul cloud, accesso e risorse.
+- [Domain Name System di Azure](../../dns/dns-overview.md). Fornire il servizio per ospitare il dominio.
+- [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Consente di ridimensionare le applicazioni e di creare disponibilità elevata per i servizi.
 - [App Web di Azure](../../app-service/overview.md).  Fornisce un servizio basato su HTTP per l'hosting di applicazioni Web.
-- [Centro sicurezza di Azure](../../security-center/index.yml). fornisce una protezione avanzata dalle minacce tra i carichi di lavoro ibridi nel cloud.
-- [Criteri di Azure](../../governance/policy/overview.md). Fornisce la valutazione delle risorse per la non conformità con i criteri assegnati.
+- [Centro sicurezza di Azure](../../security-center/index.yml). offre protezione avanzata dalle minacce nei carichi di lavoro ibridi nel cloud.
+- [Criteri di Azure](../../governance/policy/overview.md). Fornisce la valutazione delle risorse per la mancata conformità con i criteri assegnati.
 
 ## <a name="threat-model"></a>Modello di minaccia
-La modellazione delle minacce è il processo di identificazione di potenziali minacce alla sicurezza per l'azienda e l'applicazione e quindi garantire che sia in atto un piano di attenuazione appropriato.
+La modellazione delle minacce è il processo di identificazione delle potenziali minacce per la sicurezza per l'azienda e l'applicazione e quindi per assicurarsi che sia presente un piano di mitigazione appropriato.
 
-In questo esempio è stato usato [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) per implementare la modellazione delle minacce per l'app di esempio sicura. Con la creazione di diagrammi dei componenti e dei flussi di dati, è possibile identificare i problemi e le minacce nelle prime fasi del processo di sviluppo. Il tempo e il denaro saranno risparmiati in un secondo momento utilizzando questo.
+Questo esempio ha usato le [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) per implementare la modellazione delle minacce per l'app di esempio protetta. Grazie alla creazione di diagrammi dei componenti e dei flussi di dati, è possibile identificare i problemi e le minacce nelle fasi iniziali del processo di sviluppo. Il tempo e il denaro verranno salvati in seguito utilizzando questo.
 
-Ecco il modello di minaccia per l'app di esempioHere is the threat model for the sample app
+Ecco il modello di minaccia per l'app di esempio
 
 ![Modello di minaccia](./media/secure-aad-app/threat-model.png)
 
-Alcune minacce di esempio e potenziali vulnerabilità generate dallo strumento di modellazione delle minacce sono illustrate nella schermata seguente. Il modello di minaccia fornisce una panoramica della superficie di attacco esposta e richiede agli sviluppatori di pensare a come mitigare i problemi.
+Nella schermata seguente vengono illustrate alcune minacce di esempio e potenziali vulnerabilità generate dallo strumento di modellazione delle minacce. Il modello di minaccia fornisce una panoramica della superficie di attacco esposta e chiede agli sviluppatori di considerare come mitigare i problemi.
 
 ![Output del modello di minaccia](./media/secure-aad-app/threat-model-output.png)
 
 ### <a name="prerequisites"></a>Prerequisiti
-Per mettere in funzione l'applicazione, è necessario installare questi strumenti:
+Per fare in modo che l'applicazione sia in esecuzione, è necessario installare gli strumenti seguenti:
 
-- Editor di codice per modificare e visualizzare il codice dell'applicazione. [Visual Studio Code](https://code.visualstudio.com/) è un'opzione open source.
-- [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) di Azure nel computer di sviluppo.
-- [Git](https://git-scm.com/) sul vostro sistema. Git viene utilizzato per clonare il codice sorgente in locale.
-- [jq](https://stedolan.github.io/jq/), uno strumento UNIX per l'esecuzione di query su JSON in modo semplice.
+- Un editor di codice per modificare e visualizzare il codice dell'applicazione. [Visual Studio Code](https://code.visualstudio.com/) è un'opzione open source.
+- [Interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) della riga di comando di Azure nel computer di sviluppo.
+- [Git](https://git-scm.com/) nel sistema. Git viene usato per clonare il codice sorgente localmente.
+- [JQ](https://stedolan.github.io/jq/), uno strumento UNIX per l'esecuzione di query su JSON in modo semplice e intuitivo.
 
-È necessaria una sottoscrizione di Azure per distribuire le risorse dell'app di esempio. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/) per testare l'app di esempio.
+Per distribuire le risorse dell'app di esempio, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/) per testare l'app di esempio.
 
-Dopo aver installato questi strumenti, è possibile distribuire l'app in Azure.After installing these tools, you're ready to deploy the app on Azure.
+Dopo l'installazione di questi strumenti, si è pronti per distribuire l'app in Azure.
 
 ### <a name="implementation-guidance"></a>Indicazioni relative all'implementazione
-Lo script di distribuzione è uno script che può essere suddiviso in quattro fasi. Ogni fase distribuisce e configura una risorsa di Azure presente nel [diagramma dell'architettura.](#architecture)
+Lo script di distribuzione è uno script che può essere suddiviso in quattro fasi. Ogni fase distribuisce e configura una risorsa di Azure che si trova nel [diagramma dell'architettura](#architecture).
 
 Le quattro fasi sono
 
-- Distribuire l'insieme di credenziali delle chiavi di Azure.Deploy Azure Key Vault.
-- Distribuire app Web di Azure.Deploy Azure Web Apps.
-- Distribuire il gateway applicazione con il firewall dell'applicazione Web.
-- Configurare azure AD con l'app distribuita.
+- Distribuire Azure Key Vault.
+- Distribuire app Web di Azure.
+- Distribuire il gateway applicazione con web application firewall.
+- Configurare un Azure AD con l'app distribuita.
 
-Ogni fase si basa su quella precedente utilizzando la configurazione delle risorse distribuite in precedenza.
+Ogni fase si basa su quella precedente usando la configurazione dalle risorse distribuite in precedenza.
 
-Per completare la procedura di implementazione, assicurarsi di aver installato gli strumenti elencati in [Prerequisiti](#prerequisites).
+Per completare i passaggi di implementazione, verificare di aver installato gli strumenti elencati in [prerequisiti](#prerequisites).
 
-#### <a name="deploy-azure-key-vault"></a>Distribuire l'insieme di credenziali delle chiavi di AzureDeploy Azure Key Vault
-In questa sezione viene creata e distribuita un'istanza di Archiviazione delle chiavi di Azure usata per archiviare segreti e certificati.
+#### <a name="deploy-azure-key-vault"></a>Distribuisci Azure Key Vault
+In questa sezione viene creata e distribuita un'istanza di Azure Key Vault utilizzata per archiviare segreti e certificati.
 
-Dopo aver completato la distribuzione, si dispone di un'istanza di Archiviazione delle chiavi di Azure distribuita in Azure.After you complete the deployment, you have an Azure Key Vault instance deployed on Azure.
+Dopo aver completato la distribuzione, è presente un'istanza di Azure Key Vault distribuita in Azure.
 
-Per distribuire l'insieme di credenziali delle chiavi di Azure tramite PowershellTo deploy Azure Key Vault by using Powershell
+Per distribuire Azure Key Vault tramite PowerShell
  
-1. Dichiarare le variabili per L'insieme di credenziali delle chiavi di Azure.Declare the variables for Azure Key Vault.
-2. Registrare il provider dell'insieme di credenziali delle chiavi di Azure.Register the Azure Key Vault provider.
+1. Dichiarare le variabili per Azure Key Vault.
+2. Registrare il provider di Azure Key Vault.
 3. Creare il gruppo di risorse per l'istanza.
-4. Creare l'istanza di Azure Key Vault nel gruppo di risorse creato nel passaggio 3.Create the Azure Key Vault instance in the resource group created in step 3.
+4. Creare l'istanza Azure Key Vault nel gruppo di risorse creato nel passaggio 3.
 
-#### <a name="the-below-azure-ad-user-will-have-admin-permissions-to-the-key-vault"></a>The below Azure AD user will have admin permissions to the Key Vault
+#### <a name="the-below-azure-ad-user-will-have-admin-permissions-to-the-key-vault"></a>Il seguente Azure AD utente avrà le autorizzazioni di amministratore per il Key Vault
     $keyVaultAdminUsers = @($user1,user2)
 
-#### <a name="register-the-az-providers"></a>Registrare i provider Az
+#### <a name="register-the-az-providers"></a>Registrare i provider AZ
     Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-#### <a name="create-the-azure-key-vault-instance"></a>Creare l'istanza di Azure Key VaultCreate the Azure Key Vault instance
+#### <a name="create-the-azure-key-vault-instance"></a>Creare l'istanza di Azure Key Vault
     New-AzKeyVault -Name $kvName 
                 -ResourceGroupName $ResourceGroup 
                 -Location 'East US'
                 -EnabledForDiskEncryption
 
-#### <a name="add-the-administrator-policies-to-the-key-vault"></a>Aggiungere i criteri di amministrazione all'insieme di credenziali delle chiavi
+#### <a name="add-the-administrator-policies-to-the-key-vault"></a>Aggiungere i criteri di amministratore al Key Vault
     foreach ($keyVaultAdminUser in $keyVaultAdminUsers) {
     $UserObjectId = (Get-AzADUser -SearchString $keyVaultAdminUser).Id
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -ObjectId $UserObjectId 
     -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all
     }
 
-#### <a name="to-create-an-access-policy-to-allow-a-user-to-get-and-list-cryptographic-keys-certificates-and-secrets-if-you-know-the-user-principal-name"></a>Per creare criteri di accesso per consentire a un utente di ottenere ed elencare chiavi crittografiche, certificati e segreti se si conosce il nome dell'entità utente:
+#### <a name="to-create-an-access-policy-to-allow-a-user-to-get-and-list-cryptographic-keys-certificates-and-secrets-if-you-know-the-user-principal-name"></a>Per creare un criterio di accesso per consentire a un utente di ottenere ed elencare le chiavi crittografiche, i certificati e i segreti se si conosce il nome dell'entità utente:
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName 
                            -ResourceGroupName $resourceGroupName 
                            -UserPrincipalName 'user1@contoso.com 
@@ -136,41 +136,41 @@ Per distribuire l'insieme di credenziali delle chiavi di Azure tramite Powershel
                            -PermissionsToKeys list, get 
                            -PermissionsToSecrets list, get 
 
-È consigliabile usare le identità gestite per le risorse di Azure nelle app che usano l'insieme di credenziali delle chiavi per accedere alle risorse. La sicurezza aumenta quando le chiavi di accesso all'insieme di credenziali delle chiavi non vengono archiviate nel codice o nella configurazione.
+È consigliabile usare identità gestite per le risorse di Azure nelle app che usano Key Vault per accedere alle risorse. Il comportamento di sicurezza aumenta quando le chiavi di accesso Key Vault non vengono archiviate nel codice o nella configurazione.
 
-Nel contenitore è incluso un certificato radice. Le misure adottate per ottenere il certificato sono
+Un certificato radice è incluso nel contenitore. I passaggi necessari per ottenere il certificato sono
 
-1. Scaricare il file del certificato [dall'autorità di certificazione](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. Decodificare il file del certificato:
+1. Scaricare il file del certificato dall' [autorità di certificazione](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
+2. Decodificare il file di certificato:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
-Questo script crea un'identità assegnata per l'istanza del servizio app che può essere usata con MSI per interagire con l'insieme di credenziali delle chiavi di Azure senza segreti di codifica rigida nel codice o nella configurazione.
+Questo script crea un'identità assegnata per l'istanza del servizio app che può essere usata con MSI per interagire con Azure Key Vault senza segreti di codifica rigidi nel codice o nella configurazione.
 
-Passare all'istanza dell'insieme di **credenziali**delle chiavi di Azure nel portale per autorizzare l'identità assegnata nella scheda dei criteri di accesso. In **Seleziona entità**cercare il nome dell'applicazione simile al nome dell'istanza del servizio app creata.
-Un'entità servizio collegata all'applicazione deve essere visibile. Selezionarlo e salvare la pagina dei criteri di accesso, come illustrato nella schermata seguente.
+Passare all'istanza di Azure Key Vault nel portale per autorizzare l'identità assegnata nella scheda criteri di accesso. Selezionare **Aggiungi nuovi criteri di accesso**. In **Seleziona entità**cercare il nome dell'applicazione simile al nome dell'istanza del servizio app creata.
+Un'entità servizio associata all'applicazione deve essere visibile. Selezionare la pagina e salvare i criteri di accesso, come illustrato nello screenshot seguente.
 
-Poiché l'applicazione deve solo recuperare le chiavi, selezionare l'autorizzazione **Get** nelle opzioni dei segreti, consentendo l'accesso riducendo i privilegi concessi.
+Poiché l'applicazione deve solo recuperare le chiavi, selezionare l'autorizzazione **Get** nelle opzioni Secrets, consentendo l'accesso, riducendo al contempo i privilegi concessi.
 
 ![Criteri di accesso insieme di credenziali delle chiavi](./media/secure-aad-app/kv-access-policy.png)
 
-*Creare un criterio di accesso dell'insieme di credenziali delle chiaviCreate a Key Vault access policy*
+*Creare un criterio di accesso Key Vault*
 
-Salvare i criteri di accesso e quindi salvare la nuova modifica nella scheda Criteri di **accesso** per aggiornare i criteri.
+Salvare i criteri di accesso, quindi salvare la nuova modifica nella scheda **criteri di accesso** per aggiornare i criteri.
 
-#### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Distribuire il gateway applicazione con il web application firewall abilitato
-Nelle app Web, non è consigliabile esporre i servizi direttamente al mondo esterno su Internet.
+#### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Distribuire il gateway applicazione con web application firewall abilitato
+Nelle app Web non è consigliabile esporre i servizi direttamente al mondo esterno su Internet.
 Il bilanciamento del carico e le regole del firewall forniscono maggiore sicurezza e controllo sul traffico in ingresso e consentono di gestirlo.
 
-Per distribuire un'istanza del gateway applicazioneTo deploy an Application Gateway instance
+Per distribuire un'istanza del gateway applicazione
 
 1. Creare il gruppo di risorse per ospitare il gateway applicazione.
-2. Effettuare il provisioning di una rete virtuale da collegare al gateway.
+2. Eseguire il provisioning di una rete virtuale per connettersi al gateway.
 3. Creare una subnet per il gateway nella rete virtuale.
 4. Effettuare il provisioning di un indirizzo IP pubblico.
-5. Effettuare il provisioning del gateway applicazione.
-6. Abilitare il firewall dell'applicazione Web sul gateway.
+5. Eseguire il provisioning del gateway applicazione.
+6. Abilitare web application firewall sul gateway.
 
 ```
 Connect-AzAccount
@@ -254,10 +254,10 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
 ```
 
-#### <a name="deploy-azure-web-apps"></a>Distribuire app Web di AzureDeploy Azure Web Apps
-Il servizio app di Azure consente di creare e ospitare app Web usando linguaggi come Python, Ruby, C'è e Java. Azure supporta anche contenitori personalizzati, che consentono praticamente l'esecuzione di tutti i linguaggi di programmazione nella piattaforma del servizio app di Azure.Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
+#### <a name="deploy-azure-web-apps"></a>Distribuire app Web di Azure
+App Azure servizio ti permette di creare e ospitare app Web usando linguaggi come Python, Ruby, C# e Java. Azure supporta anche i contenitori personalizzati, che possono consentire l'esecuzione praticamente di tutti i linguaggi di programmazione sulla piattaforma del servizio app Azure.
 
-#### <a name="create-an-app-service-plan-in-free-tier"></a>Creare un piano di servizio app nel livello GratuitoCreate an App Service plan in Free tier
+#### <a name="create-an-app-service-plan-in-free-tier"></a>Creare un piano di servizio app nel livello gratuito
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
 #### <a name="create-a-web-app"></a>Creare un'app Web
@@ -266,9 +266,9 @@ Il servizio app di Azure consente di creare e ospitare app Web usando linguaggi 
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Prima di continuare, passare all'interfaccia utente di configurazione del https://aka.ms/appservicecustomdns sistema dei nomi di dominio di Azure per il dominio personalizzato e seguire le istruzioni per configurare un record CNAME per il nome host "www" e puntare il nome di dominio predefinito dell'app Web
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>Prima di continuare, passare all'interfaccia utente di configurazione di Azure Domain Name System per il dominio personalizzato e seguire https://aka.ms/appservicecustomdns le istruzioni in per configurare un record CNAME per il nome host "www" e puntare al nome di dominio predefinito dell'app Web
 
-#### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Aggiornare il piano del servizio app al livello condiviso (minimo richiesto dai domini personalizzati)Upgrade App Service plan to Shared tier (minimum required by custom domains)
+#### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>Aggiornare il piano di servizio app al livello condiviso (minimo richiesto dai domini personalizzati)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
 
 #### <a name="add-a-custom-domain-name-to-the-web-app"></a>Aggiungere un nome di dominio personalizzato all'app Web
@@ -277,55 +277,55 @@ Il servizio app di Azure consente di creare e ospitare app Web usando linguaggi 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
 
 ### <a name="network"></a>Rete
-Dopo aver completato la distribuzione, è possibile avere un gateway applicazione con il firewall dell'applicazione Web abilitato.
+Dopo aver completato la distribuzione, è disponibile un gateway applicazione con web application firewall abilitata.
 
 L'istanza del gateway espone la porta 443 per HTTPS. Questa configurazione garantisce che l'app sia accessibile solo sulla porta 443 tramite HTTPS.
 
-Bloccare le porte inutilizzate e limitare l'esposizione alla superficie di attacco è una procedura consigliata per la sicurezza.
+Bloccare le porte inutilizzate e limitare l'esposizione alla superficie di attacco è una procedura di sicurezza consigliata.
 
-#### <a name="add-network-security-groups-to-the-app-service-instance"></a>Aggiungere gruppi di sicurezza di rete all'istanza del servizio appAdd network security groups to the App Service instance
+#### <a name="add-network-security-groups-to-the-app-service-instance"></a>Aggiungere gruppi di sicurezza di rete all'istanza del servizio app
 
-Le istanze del servizio app possono essere integrate con reti virtuali. Questa integrazione consente di configurarli con criteri di gruppo di sicurezza di rete che gestiscono il traffico in ingresso e in uscita dell'app.
+Le istanze del servizio app possono essere integrate con le reti virtuali. Questa integrazione consente di configurare i criteri del gruppo di sicurezza di rete che gestiscono il traffico in ingresso e in uscita dell'app.
 
-1. Per abilitare questa funzionalità, nel pannello Dell'istanza del servizio app di Azure, in **Impostazioni,** selezionare **Rete**. Nel riquadro destro configurare in **Integrazione rete virtuale**.
+1. Per abilitare questa funzionalità, nel pannello istanza servizio app Azure, in **Impostazioni**, selezionare **rete**. Nel riquadro destro configurare in **integrazione VNet**.
 
-   ![Nuova integrazione di rete virtuale](./media/secure-web-app/app-vnet-menu.png)
+   ![Nuova integrazione della rete virtuale](./media/secure-web-app/app-vnet-menu.png)
 
-    *Nuova integrazione di rete virtuale per il servizio app*
-1. Nella pagina successiva selezionare **Aggiungi vNET (anteprima)**.
+    *Nuova integrazione della rete virtuale per il servizio app*
+1. Nella pagina successiva selezionare **Aggiungi VNET (anteprima)**.
 
-1. Nel menu successivo selezionare la rete virtuale creata `aad-vnet`nella distribuzione che inizia con . È possibile creare una nuova subnet o selezionarne una esistente.
-   In questo caso, creare una nuova subnet. Impostare **l'intervallo** di indirizzi su **10.0.3.0/24** e denominare la subnet **dell'app**subnet della subnet.
+1. Nel menu successivo selezionare la rete virtuale creata nella distribuzione che inizia con `aad-vnet`. È possibile creare una nuova subnet o selezionarne una esistente.
+   In tal caso, creare una nuova subnet. Impostare l' **intervallo di indirizzi** su **10.0.3.0/24** e assegnare un nome alla subnet **app-subnet**.
 
    ![Configurazione della rete virtuale del servizio app](./media/secure-web-app/app-vnet-config.png)
 
-    *Configurazione della rete virtuale per il servizio appVirtual network configuration for App Service*
+    *Configurazione della rete virtuale per il servizio app*
 
-Dopo aver abilitato l'integrazione della rete virtuale, è possibile aggiungere gruppi di sicurezza di rete all'app.
+Ora che è stata abilitata l'integrazione della rete virtuale, è possibile aggiungere gruppi di sicurezza di rete all'app.
 
-1. Utilizzare la casella di ricerca , cercare i gruppi di sicurezza di **rete**. Selezionare Gruppi di sicurezza di **rete** nei risultati.
+1. Utilizzare la casella di ricerca per cercare **gruppi di sicurezza di rete**. Nei risultati selezionare **gruppi di sicurezza di rete** .
 
-    ![Cercare gruppi di sicurezza di reteSearch for network security groups](./media/secure-web-app/nsg-search-menu.png)
+    ![Cercare gruppi di sicurezza di rete](./media/secure-web-app/nsg-search-menu.png)
 
-    *Cercare gruppi di sicurezza di reteSearch for network security groups*
+    *Cercare gruppi di sicurezza di rete*
 
-2. Nel menu successivo selezionare **Aggiungi**. Immettere il **nome** del gruppo di sicurezza di rete e il **gruppo di** risorse in cui deve essere posizionato. Questo gruppo di sicurezza di rete verrà applicato alla subnet del gateway applicazione.
+2. Nel menu successivo selezionare **Aggiungi**. Immettere il **nome** del NSG e il **gruppo di risorse** in cui deve essere individuato. Questo NSG verrà applicato alla subnet del gateway applicazione.
 
-    ![Creare un gruppo di sicurezza di baseCreate an NSG](./media/secure-web-app/nsg-create-new.png)
+    ![Creare un NSG](./media/secure-web-app/nsg-create-new.png)
 
-    *Creare un gruppo di sicurezza di baseCreate an NSG*
+    *Creare un NSG*
 
-3. Dopo aver creato il gruppo di sicurezza di gruppo, selezionarlo. Nel pannello selezionare Regole di **sicurezza in ingresso**in **Impostazioni**. Configurare queste impostazioni per consentire le connessioni in ingresso nel gateway applicazione tramite la porta 443.Configure these settings to allow connections in the application gateway over port 443.
+3. Dopo aver creato il NSG, selezionarlo. Nel pannello in **Impostazioni**selezionare **regole di sicurezza in ingresso**. Configurare queste impostazioni per consentire le connessioni in ingresso nel gateway applicazione sulla porta 443.
 
-   ![Configurare il gruppo di sicurezza di gruppo](./media/secure-web-app/nsg-gateway-config.png)
+   ![Configurare NSG](./media/secure-web-app/nsg-gateway-config.png)
 
-   *Configurare il gruppo di sicurezza di gruppo*
+   *Configurare NSG*
 
-4. Nelle regole in uscita per il gruppo di sicurezza di rete del gateway aggiungere una regola che consenta le connessioni in uscita all'istanza del servizio app creando una regola destinata al tag del servizio`AppService`
+4. Nelle regole in uscita per il gateway NSG aggiungere una regola che consenta le connessioni in uscita all'istanza del servizio app creando una regola destinata al tag di servizio`AppService`
 
-   ![Aggiungere regole in uscita per il gruppo di sicurezza di gruppoAdd outbound rules for the NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
+   ![Aggiungere regole in uscita per NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
-   *Aggiungere regole in uscita per il gruppo di sicurezza di gruppoAdd outbound rules for the NSG*
+   *Aggiungere regole in uscita per NSG*
 
     Aggiungere un'altra regola in uscita per consentire al gateway di inviare regole in uscita a una rete virtuale.
 
@@ -333,75 +333,75 @@ Dopo aver abilitato l'integrazione della rete virtuale, è possibile aggiungere 
 
     *Aggiungere un'altra regola in uscita*
 
-5. Nel pannello subnet del gruppo di sicurezza di rete selezionare **Associa**, selezionare la rete virtuale creata nella distribuzione e selezionare la subnet del gateway denominata **gw-subnet**. Il gruppo di sicurezza di rete viene applicato alla subnet.
+5. Nel pannello subnet del NSG selezionare **associa**, selezionare la rete virtuale creata nella distribuzione e selezionare la subnet del gateway denominata **GW-Subnet**. NSG viene applicato alla subnet.
 
-6. Creare un altro gruppo di sicurezza di rete come nel passaggio precedente, questa volta per l'istanza del servizio app. Dagli un nome. Aggiungere la regola in ingresso per la porta 443 come per il gruppo di sicurezza di rete del gateway applicazione.
+6. Creare un'altra NSG come nel passaggio precedente, questa volta per l'istanza del servizio app. Assegnargli un nome. Aggiungere la regola in ingresso per la porta 443 come per il gateway applicazione NSG.
 
-   Se si dispone di un'istanza del servizio app distribuita in un'istanza dell'ambiente del servizio app, che non è il caso di questa app, è possibile aggiungere regole in ingresso per consentire i probe di integrità del servizio di Azure aprendo le porte 454-455 nei gruppi di sicurezza in ingresso del gruppo di sicurezza del servizio app. Di seguito è riportata la configurazione:
+   Se è stata distribuita un'istanza del servizio app in un'istanza di ambiente del servizio app, che non è il caso di questa app, è possibile aggiungere regole in ingresso per consentire i probe di integrità dei servizi di Azure aprendo le porte 454-455 nei gruppi di sicurezza in ingresso del servizio app NSG. Ecco la configurazione:
 
-   ![Aggiungere regole per i probe di Integrità dei servizi di AzureAdd rules for Azure Service Health probes](./media/secure-web-app/nsg-create-healthprobes.png)
+   ![Aggiungere regole per i probe di integrità dei servizi di Azure](./media/secure-web-app/nsg-create-healthprobes.png)
 
-    *Aggiungere regole per i probe di integrità del servizio di Azure (solo ambiente del servizio app)Add rules for Azure Service Health probes (App Service Environment only)*
+    *Aggiungere regole per i probe di integrità dei servizi di Azure (solo ambiente del servizio app)*
 
 Per limitare la superficie di attacco, modificare le impostazioni di rete del servizio app per consentire solo al gateway applicazione di accedere all'applicazione.
-Per applicare le impostazioni, passare alla scheda Rete del servizio app, selezionare la scheda **Restrizioni IP** e creare una regola di autorizzazione che consenta solo all'IP del gateway applicazione di accedere direttamente al servizio. È possibile recuperare l'indirizzo IP del gateway dalla relativa pagina di panoramica. Nella scheda **CIDR Indirizzo IP** immettere l'indirizzo IP nel seguente formato: `<GATEWAY_IP_ADDRESS>/32`.
+Per applicare le impostazioni, passare alla scheda rete del servizio app, selezionare la scheda **restrizioni IP** e creare una regola di autorizzazione che consenta solo all'indirizzo IP del gateway applicazione di accedere direttamente al servizio. È possibile recuperare l'indirizzo IP del gateway dalla relativa pagina di panoramica. Nella scheda **CIDR indirizzo IP** immettere l'indirizzo IP nel formato seguente: `<GATEWAY_IP_ADDRESS>/32`.
 
 ![Consenti solo il gateway](./media/secure-web-app/app-allow-gw-only.png)
 
-*Consentire solo all'IP del gateway di accedere al servizio appAllow only the gateway IP to access the App Service*
+*Consenti solo all'indirizzo IP del gateway di accedere al servizio app*
 
-### <a name="azure-domain-name-system"></a>Sistema di nomi di dominio di AzureAzure Domain Name System 
-Il sistema dei nomi di dominio di Azure o Azure Domain Name System è responsabile della traduzione (o risoluzione) del nome di un sito Web o di un servizio nel relativo indirizzo IP. Azure Domain Namehttps://docs.microsoft.com/azure/dns/dns-overview) System( è un servizio di hosting per i domini del sistema dei nomi di dominio che fornisce la risoluzione dei nomi usando l'infrastruttura di Azure.Azure Domain Name System( is a hosting service for Domain Name System domains that provides name resolution using Azure infrastructure. Ospitando domini in Azure, gli utenti possono gestire i record del sistema dei nomi di dominio usando le stesse credenziali, API, strumenti e fatturazione di altri servizi di Azure.By hosting domains in Azure, users can manage Domain Name System records using the same credentials, APIs, tools, and billing as other Azure services. Azure Domain Name System supporta anche domini privati di Domain Name System.Azure Domain Name System also supports private Domain Name System domains.
+### <a name="azure-domain-name-system"></a>Domain Name System di Azure 
+Il Domain Name System di Azure, o Domain Name System di Azure, è responsabile della conversione (o risoluzione) del nome di un sito Web o di un nome di servizio nel relativo indirizzo IP. Azure Domain Name System (https://docs.microsoft.com/azure/dns/dns-overview) è un servizio di hosting per domini Domain Name System che fornisce la risoluzione dei nomi usando l'infrastruttura di Azure. Ospitando i domini in Azure, gli utenti possono gestire i record Domain Name System usando le stesse credenziali, le stesse API, gli strumenti e la fatturazione degli altri servizi di Azure. Azure Domain Name System supporta anche domini Domain Name System privati.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 Crittografia dischi di Azure si avvale della funzionalità BitLocker di Windows per abilitare la crittografia del volume per i dischi dati. La soluzione si integra con Azure Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
 
 ### <a name="identity-management"></a>Gestione delle identità
-Le tecnologie seguenti offrono funzionalità per gestire l'accesso ai dati del titolare della carta nell'ambiente AzureThe following technologies provide capabilities to manage access to cardholder data in the Azure environment
-- Azure Active Directory  è il servizio Microsoft di gestione di identità e directory multi-tenant basato sul cloud. Tutti gli utenti per questa soluzione vengono creati in Azure Active Directory, inclusi gli utenti che accedono ad Azure WebApp.All users for this solution are created in Azure Active Directory, including users accessing the Azure WebApp.
+Le tecnologie seguenti forniscono funzionalità per gestire l'accesso ai dati dei titolari di carte nell'ambiente Azure
+- Azure Active Directory  è il servizio Microsoft di gestione di identità e directory multi-tenant basato sul cloud. Tutti gli utenti per questa soluzione vengono creati in Azure Active Directory, inclusi gli utenti che accedono alla WebApp di Azure.
 - Il controllo degli accessi in base al ruolo di Azure consente agli amministratori di definire autorizzazioni di accesso con granularità fine per concedere solo il livello di accesso necessario agli utenti per il proprio lavoro. Invece di concedere a ogni utente autorizzazioni senza limiti per le risorse di Azure, gli amministratori possono consentire solo determinate azioni per l'accesso ai dati dei possessori di carte. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione.
 - Azure Active Directory Privileged Identity Management consente ai clienti di ridurre al minimo il numero di utenti autorizzati ad accedere a determinate informazioni, ad esempio i dati dei possessori di carte. Gli amministratori possono usare Azure Active Directory Privileged Identity Management per individuare, limitare e monitorare le identità con privilegi e il rispettivo accesso alle risorse. Questa funzionalità può essere usata anche per applicare l'accesso amministrativo on demand e Just-In-Time quando necessario.
-- Azure Active Directory Identity Protection rileva potenziali vulnerabilità che interessano le identità di un'organizzazione, configura risposte automatiche alle azioni sospette rilevate relative alle identità di un'organizzazione e analizza gli eventi imprevisti sospetti per intraprendere le azioni appropriate per risolverli.
+- Azure Active Directory Identity Protection rileva le potenziali vulnerabilità che interessano le identità di un'organizzazione, configura le risposte automatiche per rilevare azioni sospette correlate alle identità di un'organizzazione ed esamina gli eventi imprevisti sospetti per intraprendere le azioni appropriate per risolverli.
 ### <a name="secrets-management"></a>Gestione dei segreti
 la soluzione usa Azure Key Vault per la gestione delle chiavi e dei segreti. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Le seguenti funzionalità di Azure Key Vault consentono ai clienti di proteggere e accedere a tali dati
    - I criteri di accesso avanzati vengono configurati in base alle necessità.
    - I criteri di accesso di Key Vault sono definiti con le autorizzazioni minime necessarie per le chiavi e i segreti.
    - Tutti i segreti e le chiavi in Key Vault hanno date di scadenza.
-   - Tutte le chiavi in Key Vault sono protette da moduli di protezione hardware specializzati. Il tipo di chiave è una chiave RSA a 2048 bit protetta da modulo di sicurezza hardware (HSM).
-   - Con Key Vault è possibile crittografare chiavi e segreti, ad esempio chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dei dati, . PFX) utilizzando chiavi protette da moduli di sicurezza hardware (HSM). 
-   - Utilizzare il controllo degli accessi in base al ruolo per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito.     
-   - Utilizzare Vault chiave per gestire i certificati TLS con il rinnovo automatico. 
+   - Tutte le chiavi in Key Vault sono protette da moduli di protezione hardware specializzati. Il tipo di chiave è un modulo di protezione hardware (HSM) protetto da una chiave RSA a 2048 bit.
+   - Con Key Vault, è possibile crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dei dati). File PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). 
+   - Usare il controllo degli accessi in base al ruolo (RBAC) per assegnare autorizzazioni a utenti, gruppi e applicazioni in un determinato ambito.     
+   - Usare Key Vault per gestire i certificati TLS con il rinnovo automatico. 
    - I log di diagnostica per Key Vault sono abilitati con un periodo di conservazione di almeno 365 giorni
    - Le operazioni di crittografia consentite per le chiavi sono limitate a quelle necessarie.
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
-con il Centro sicurezza di Azure i clienti possono applicare e gestire centralmente i criteri di sicurezza nei carichi di lavoro, limitare l'esposizione alle minacce e rilevare e rispondere agli attacchi. Inoltre 
-   - Il Centro sicurezza di Azure accede alle configurazioni esistenti dei servizi di Azure per fornire consigli di configurazione e di servizio per migliorare la sicurezza e proteggere i dati.
+con il Centro sicurezza di Azure i clienti possono applicare e gestire centralmente i criteri di sicurezza nei carichi di lavoro, limitare l'esposizione alle minacce e rilevare e rispondere agli attacchi. Inoltre, 
+   - Il Centro sicurezza di Azure accede alle configurazioni esistenti dei servizi di Azure per fornire consigli per la configurazione e il servizio per migliorare le posture della sicurezza e proteggere i dati.
    - Il Centro sicurezza di Azure usa una serie di funzionalità di rilevamento per avvisare i clienti riguardo a potenziali attacchi contro gli ambienti in cui operano. Questi avvisi contengono informazioni importanti relative a cosa ha attivato l'avviso, alle risorse interessate e all'origine dell'attacco. Il Centro sicurezza di Azure include un set di avvisi di sicurezza predefiniti che vengono attivati in caso di minaccia o di attività sospetta. Le regole di avviso personalizzate nel Centro sicurezza di Azure consentono ai clienti di definire nuovi avvisi di sicurezza in base ai dati già raccolti dall'ambiente.
    - Il Centro sicurezza di Azure offre avvisi di sicurezza e imprevisti classificati in ordine di priorità semplificando l'individuazione e gestione di potenziali problemi di sicurezza per i clienti. Viene generato un report di intelligence per le minacce per ogni minaccia rilevata per supportare i team di risposta agli eventi imprevisti a livello di indagine e reazione alle minacce.
 ### <a name="azure-application-gateway"></a>Gateway applicazione di Azure 
-   L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione di Azure con un web application firewall configurato e il set di regole OWASP abilitato. Le funzionalità aggiuntive includono
+   L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione di Azure con un web application firewall configurato e il set di regole OWASP abilitato. Funzionalità aggiuntive includono
    - TLS end-to-end.
    - Disabilitazione di TLS v1.0 e v1.1.
-   - Abilitare TLSv1.2.
-   - Firewall applicazione Web (modalità prevenzione).
-   - Modalità di prevenzione con set di regole OWASP 3.0.
+   - Abilitare TLSv 1.2.
+   - Web Application Firewall (modalità di prevenzione).
+   - Modalità di prevenzione con RuleSet OWASP 3,0.
    - Abilitare la registrazione diagnostica.
    - Probe di integrità personalizzati.
-   - Il Centro sicurezza di Azure e Azure Advisor forniscono protezione e notifiche aggiuntive. Centro sicurezza di Azure mette a disposizione anche un sistema di reputazione.
+   - Il Centro sicurezza di Azure e un Azure Advisor forniscono protezione e notifiche aggiuntive. Centro sicurezza di Azure mette a disposizione anche un sistema di reputazione.
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 I servizi di Azure registrano in modo completo le attività di sistema e degli utenti e l'integrità del sistema:
-   - Log attività: [i log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) forniscono informazioni dettagliate sulle operazioni eseguite sulle risorse in una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
-   - Log di diagnostica: [i log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i log del sistema di eventi di Windows, i log di Archiviazione di Azure, i log di controllo dell'insieme di credenziali delle chiavi e i log di accesso al gateway applicazione e Firewall.These logs include Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and Firewall logs. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+   - Log attività: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) forniscono informazioni approfondite sulle operazioni eseguite sulle risorse in una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
+   - Log di diagnostica: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri eventi del sistema di Windows, i log di archiviazione di Azure, i log di controllo Key Vault e l'accesso del gateway applicazione e i log del firewall. Tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
 ### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
-   Questi log vengono consolidati nei log di Monitoraggio di [Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per tipo nelle aree di lavoro di Log Analytics, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Inoltre, Il Centro sicurezza di Azure si integra con i log di Monitoraggio di Azure, consentendo ai clienti di usare le query Kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
+   Questi log vengono consolidati nei [log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) per l'elaborazione, l'archiviazione e la creazione di report del dashboard. Dopo la raccolta, i dati vengono organizzati in tabelle separate per tipo nelle aree di lavoro di Log Analytics, in modo che sia possibile analizzare tutti i dati insieme, indipendentemente dalla rispettiva origine. Il Centro sicurezza di Azure si integra inoltre con i log di monitoraggio di Azure, consentendo ai clienti di usare query kusto per accedere ai dati degli eventi di sicurezza e combinarli con i dati di altri servizi.
 
-   Le seguenti [soluzioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) di monitoraggio di Azure sono incluse come parte di questa architettura
+   Le soluzioni di [monitoraggio](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) di Azure seguenti sono incluse come parte di questa architettura
 
-   - [Valutazione di Active Directory:](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)la soluzione di controllo dell'integrità di Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e fornisce un elenco con priorità di consigli specifici per l'infrastruttura server distribuita.
-   - [Integrità agente:](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)la soluzione Integrità agenti segnala il numero di agenti distribuiti e la relativa distribuzione geografica, nonché il numero di agenti che non rispondono e il numero di agenti che inviano dati operativi.
+   - [Valutazione Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e fornisce un elenco con priorità di indicazioni specifiche per l'infrastruttura server distribuita.
+   - [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la soluzione integrità agente segnala il numero di agenti distribuiti e la relativa distribuzione geografica, nonché il numero di agenti che non rispondono e il numero di agenti, che inviano dati operativi.
    - [Analisi log attività](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): questa soluzione fornisce assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
-   [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)consente agli utenti di tenere traccia delle prestazioni, mantenere la sicurezza e identificare le tendenze consentendo alle organizzazioni di controllare, creare avvisi e archiviare dati, incluso il rilevamento delle chiamate API nelle risorse di Azure.Azure Monitor helps users track performance, maintain security, and identify trends by enablingorganizations to audit, create alerts, and archive data, including tracking API calls in their Azure resources.
+   [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)consente agli utenti di tenere traccia delle prestazioni, mantenere la sicurezza e identificare le tendenze consentendo alle organizzazioni di controllare, creare avvisi e archiviare dati, incluso il rilevamento delle chiamate API nelle risorse di Azure.
 ### <a name="application-insights"></a>Application Insights 
    [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme. Application Insights rileva eventuali anomalie nelle prestazioni e i clienti possono usarlo per monitorare l'applicazione Web in tempo reale. Include avanzati strumenti di analisi che consentono ai clienti di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità da parte dei clienti.
 
@@ -410,155 +410,157 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
 
    - I dati archiviati in Key Vault includono   
    - Chiave di Application Insights
-   - Chiave di accesso all'archiviazione datiData Storage Access key
+   - Chiave di accesso all'archiviazione dati
    - Stringa di connessione
    - Data table name
    - Credenziali dell'utente
    - I criteri di accesso avanzati vengono configurati in base alle necessità
-   - I criteri di accesso dell'Insieme di credenziali delle chiavi sono definiti con le autorizzazioni minime necessarie per chiavi e segretiKey Vault access policies are defined with minimum required permissions to keys and secrets
+   - I criteri di accesso Key Vault vengono definiti con le autorizzazioni minime necessarie per le chiavi e i segreti
    - Tutti i segreti e le chiavi in Key Vault hanno date di scadenza
-   - Tutte le chiavi in Key Vault sono protette dal modulo di sicurezza hardware (HSM) [Key Type - hardware security module (HSM) Protected       
+   - Tutte le chiavi nel Key Vault sono protette dal modulo di protezione hardware (HSM) [chiave Type = hardware Security Module (HSM) protetto       
      Chiave RSA a 2048 bit]
-   - A tutti gli utenti/identità vengono concesse le autorizzazioni minime necessarie tramite il controllo degli accessi in base al ruolo
+   - A tutti gli utenti e le identità vengono concesse le autorizzazioni minime necessarie tramite il controllo degli accessi in base al ruolo (RBAC)
    - Le applicazioni non condividono un'istanza di Key Vault a meno che non si considerino attendibili reciprocamente e non debbano accedere agli stessi segreti in fase di esecuzione
    - I log di diagnostica per Key Vault sono abilitati con un periodo di conservazione di almeno 365 giorni
    - Le operazioni di crittografia consentite per le chiavi sono limitate a quelle necessarie
 
 ### <a name="vpn-and-expressroute"></a>VPN ed ExpressRoute
-   Un tunnel VPN sicuro o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) doveva essere configurato stabilendo in modo sicuro una connessione alle risorse distribuite come parte di questa architettura di riferimento dell'applicazione Web PaaS. La configurazione corretta di una VPN o di una connessione ExpressRoute consente ai clienti di aggiungere un livello di protezione per i dati in transito.
+   È necessario configurare un tunnel VPN o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) sicuro per stabilire una connessione alle risorse distribuite come parte di questa architettura di riferimento dell'applicazione Web PaaS. La configurazione corretta di una VPN o di una connessione ExpressRoute consente ai clienti di aggiungere un livello di protezione per i dati in transito.
 
-   L'implementazione di un tunnel VPN sicuro con Azure consente di creare una connessione virtuale privata tra una rete locale e una rete virtuale di Azure. Questa connessione avviene tramite Internet e consente ai clienti di "tunnel" in modo sicuro le informazioni all'interno di un collegamento crittografato tra la rete del cliente e Azure.This connection takes place over the Internet and allows customers to securely "tunnel" information inside an encrypted link between the customer's network and Azure. La rete VPN da sito a sito è una tecnologia sicura e collaudata, che viene distribuita da aziende di ogni dimensione ormai da decenni. La modalità tunnel IPsec viene usata in questa opzione come meccanismo di crittografia.
+   L'implementazione di un tunnel VPN sicuro con Azure consente di creare una connessione virtuale privata tra una rete locale e una rete virtuale di Azure. Questa connessione viene eseguita su Internet e consente ai clienti di "effettuare il tunneling" in modo sicuro all'interno di un collegamento crittografato tra la rete del cliente e Azure. La rete VPN da sito a sito è una tecnologia sicura e collaudata, che viene distribuita da aziende di ogni dimensione ormai da decenni. La modalità tunnel IPsec viene usata in questa opzione come meccanismo di crittografia.
 
    Poiché il traffico entro il tunnel VPN attraversa Internet con una connessione VPN da sito a sito, Microsoft offre un'altra opzione di connessione ancora più sicura. Azure ExpressRoute è un collegamento WAN dedicato tra Azure e una posizione locale o un provider di hosting di Exchange. Poiché le connessioni ExpressRoute non sfruttano la rete Internet, queste connessioni offrono un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali. Poiché inoltre si tratta di una connessione diretta del provider di telecomunicazioni del cliente, i dati non vengono trasmessi su Internet e quindi non vengono esposti a Internet.
 
    Sono [disponibili](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) procedure consigliate per l'implementazione di una rete ibrida protetta che estende una rete locale in Azure.
 
-#### <a name="implement-azure-active-directory-oidc"></a>Implementare OIDC di Azure Active DirectoryImplement Azure Active Directory OIDC
+#### <a name="implement-azure-active-directory-oidc"></a>Implementare Azure Active Directory OIDC
 
-1. Per clonare il repository del codice sorgente, utilizzare questo comando GitTo clone the source code repository, use this Git command
+1. Per clonare il repository del codice sorgente, usare questo comando git
 
  ``` git
  git clone https://github.com/Azure-Samples/AAD-Security
    ```
-## <a name="update-the-redirect-urls"></a>Aggiornare gli URL di reindirizzamento
-1.  Ritornare al portale di Azure. Nel riquadro di spostamento a sinistra selezionare il servizio Azure Active Directory e quindi selezionare Registrazioni app.
-2.  Nella schermata risultante, selezionare l'applicazione WebApp-OpenIDConnect-DotNet-code-v2.
-3.  Nella scheda Autenticazione o Nella sezione URI di reindirizzamento selezionare Web nella casella combinata e aggiungere i seguenti URI di reindirizzamento.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.nethttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o Nella sezione Impostazioni avanzate impostare URL di disconnessione suhttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.  Nella scheda Personalizzazione o Aggiornare l'URL della home https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.netpage all'indirizzo del servizio app, ad esempio .
-        o Salvare la configurazione.
-5.  Se l'applicazione chiama un'API Web, assicurarsi di applicare le modifiche necessarie al progetto appsettings.json, in modo da chiamare l'URL dell'API pubblicata anziché localhost.
+## <a name="update-the-redirect-urls"></a>Aggiornare gli URL di Reindirizzamento
+1.  Ritornare al portale di Azure. Nel riquadro di spostamento a sinistra selezionare il servizio Azure Active Directory, quindi selezionare Registrazioni app.
+2.  Nella schermata risultante selezionare l'applicazione WebApp-OpenIDConnect-DotNet-code-V2.
+3.  Nella scheda autenticazione nella sezione URI di reindirizzamento selezionare Web nella casella combinata e aggiungere gli URI di reindirizzamento seguenti.
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`
+    `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc`
+    o nella sezione Impostazioni avanzate impostare Disconnetti URL su`https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc`
+4.  Nella scheda personalizzazione o aggiornare l'URL della Home page all'indirizzo del servizio app, ad esempio `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`.
+        o salvare la configurazione.
+5.  Se l'applicazione chiama un'API Web, assicurarsi di applicare le modifiche necessarie nel progetto appSettings. JSON, in modo che chiami l'URL dell'API pubblicata invece di localhost.
 Pubblicazione dell'esempio
     1.  Nella scheda Panoramica del servizio app, scaricare il profilo di pubblicazione facendo clic sul collegamento Recupera profilo di pubblicazione, quindi salvarlo. È anche possibile usare altri meccanismi di distribuzione, ad esempio dal controllo del codice sorgente.
-    2.  Passare a Visual Studio e passare al progetto WebApp-OpenIDConnect-DotNet-code-v2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Pubblica. Fare clic su Importa profilo sulla barra inferiore e importare il profilo di pubblicazione scaricato in precedenza.
-    3.  Fare clic su Configura e nella scheda Connessione aggiornare l'URL di destinazione https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.netin modo che sia un https nell'URL della home page, ad esempio . Scegliere Avanti.
-    4.  Nella scheda Impostazioni verificare che l'opzione Abilita autenticazione organizzativa NON sia selezionata. Fare clic su Salva. Fare clic su Pubblica nella schermata principale.
+    2.  Passare a Visual Studio e passare al progetto WebApp-OpenIDConnect-DotNet-code-V2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Pubblica. Fare clic su Importa profilo sulla barra inferiore e importare il profilo di pubblicazione scaricato in precedenza.
+    3.  Fare clic su Configura e nella scheda connessione aggiornare l'URL di destinazione in modo che sia un HTTPS nell'URL home page, ad esempio `https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net`. Scegliere Avanti.
+    4.  Nella scheda Impostazioni verificare che l'opzione Abilita autenticazione organizzativa non sia selezionata. Fare clic su Salva. Fare clic su Pubblica nella schermata principale.
     5.  Visual Studio pubblicherà il progetto e aprirà automaticamente un browser all'URL corrispondente. Se viene visualizzata la pagina Web predefinita del progetto, la pubblicazione ha avuto esito positivo.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementare Multi-Factor Authentication per Azure Active Directory
    Gli amministratori devono assicurarsi che gli account di sottoscrizione nel portale siano protetti. La sottoscrizione è vulnerabile agli attacchi perché gestisce le risorse create. Per proteggere la sottoscrizione, abilitare Multi-Factor Authentication nella scheda **Azure Active Directory** della sottoscrizione.
 
    Un Azure AD funziona in base ai criteri applicati a un utente o a gruppi di utenti che soddisfano determinati criteri.
-Azure crea un criterio predefinito che specifica che gli amministratori devono utilizzare l'autenticazione a due fattori per accedere al portale.
-Dopo aver abilitato questo criterio, potrebbe essere richiesto di disconnettersi e accedere di nuovo al portale di Azure.After enabling this policy, you might be prompted to sign out and sign back into the Azure portal.
+Azure crea un criterio predefinito che specifica che gli amministratori devono eseguire l'autenticazione a due fattori per accedere al portale.
+Dopo aver abilitato questo criterio, potrebbe essere richiesto di disconnettersi e accedere nuovamente al portale di Azure.
 
-Per abilitare l'autenticazione a più fattori per gli accessi amministratoreTo enable MFA for admin sign-ins
+Per abilitare l'autenticazione a più fattori per gli accessi amministrativi
 
-   1. Passare alla scheda Azure Active Directory nel portale di AzureGo to the **Azure Active Directory** tab in the Azure portal
-   2. Nella categoria di sicurezza selezionare accesso condizionale. Viene visualizzata questa schermata
+   1. Passare alla scheda **Azure Active Directory** nella portale di Azure
+   2. Nella categoria sicurezza selezionare accesso condizionale. Viene visualizzata questa schermata
 
-       ![Accesso condizionale - Criteri](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Accesso condizionale-criteri](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Se non è possibile creare un nuovo criterio
 
-   1. Passare alla scheda **MFA.**
-   2. Selezionare un collegamento di versione di **valutazione gratuita** di Azure AD Premium per sottoscrivere la versione di valutazione gratuita.
+   1. Passare **alla scheda autenticazione** a più fattori.
+   2. Selezionare un collegamento alla **versione di valutazione gratuita** di Azure ad Premium per sottoscrivere la versione di valutazione gratuita.
 
-   ![Una versione di valutazione gratuita di Azure AD PremiumAn Azure AD Premium free trial](./media/secure-aad-app/ad-trial-premium.png)
+   ![Una versione di valutazione gratuita di Azure AD Premium](./media/secure-aad-app/ad-trial-premium.png)
 
 Tornare alla schermata di accesso condizionale.
 
-   1. Selezionare la nuova scheda dei criteri.
+   1. Selezionare la scheda nuovo criterio.
    2. Immettere il nome del criterio.
-   3. Selezionare gli utenti o i gruppi per cui si desidera abilitare l'autenticazione a più fattori.
-   4. In **Controlli di accesso**selezionare la scheda **Concedi** e quindi selezionare **Richiedi autenticazione** a più fattori (e altre impostazioni, se lo si desidera).
+   3. Selezionare gli utenti o i gruppi per i quali si desidera abilitare l'autenticazione a più fattori.
+   4. In **controlli di accesso**selezionare la scheda **Concedi** , quindi selezionare **Richiedi autenticazione** a più fattori e altre impostazioni, se lo si desidera.
 
    ![Richiedere l'autenticazione MFA](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
-   È possibile abilitare il criterio selezionando la casella di controllo nella parte superiore dello schermo o eseguire questa operazione nella scheda **Accesso condizionale.** Quando il criterio è abilitato, gli utenti devono eseguire l'autenticazione a più fattori per accedere al portale.
+   È possibile abilitare il criterio selezionando la casella di controllo nella parte superiore della schermata oppure facendo clic sulla scheda **accesso condizionale** . Quando il criterio è abilitato, gli utenti devono avere l'autenticazione a più fattori per accedere al portale.
 
-   Esiste un criterio di base che richiede l'autenticazione a più fattori per tutti gli amministratori di Azure.There's a baseline policy that requires MFA for all Azure administrators. È possibile abilitarlo immediatamente nel portale. L'abilitazione di questo criterio potrebbe invalidare la sessione corrente e forzare l'accesso.
+   Sono disponibili criteri di base che richiedono l'autenticazione a più fattori per tutti gli amministratori di Azure. È possibile abilitarlo immediatamente nel portale. L'abilitazione di questo criterio potrebbe invalidare la sessione corrente e forzare l'accesso.
 
    Se il criterio di base non è abilitato
-   1.   Selezionare **Richiedi autenticazione a più fattori per gli amministratori**.
-   2.   Selezionare **Usa criterio immediatamente**.
+   1.   Selezionare **Richiedi autenticazione a**più fattori per gli amministratori.
+   2.   Selezionare **usa immediatamente i criteri**.
 
-   ![Selezionare Usa criterio immediatamente](./media/secure-aad-app/ad-mfa-conditional-enable.png)
+   ![Selezionare Usa immediatamente il criterio](./media/secure-aad-app/ad-mfa-conditional-enable.png)
 
-#### <a name="use-azure-sentinel-to-monitor-apps-and-resources"></a>Usare Azure Sentinel per monitorare app e risorseUse Azure Sentinel to monitor apps and resources
+#### <a name="use-azure-sentinel-to-monitor-apps-and-resources"></a>Usare Sentinel di Azure per monitorare le app e le risorse
 
-   Man mano che un'applicazione cresce, diventa difficile aggregare tutti i segnali di sicurezza e le metriche ricevute dalle risorse e renderli utili in modo orientato all'azione.
+   Man mano che un'applicazione cresce, diventa difficile aggregare tutti i segnali di sicurezza e le metriche ricevute dalle risorse e renderle utili in modo orientato alle azioni.
 
-   Azure Sentinel è progettato per raccogliere dati, rilevare i tipi di minacce possibili e fornire visibilità sugli incidenti di sicurezza.
-Durante l'attesa dell'intervento manuale, Azure Sentinel può fare affidamento su playbook prescritti per avviare avvisi e processi di gestione degli incidenti.
+   Azure Sentinel è progettato per raccogliere dati, rilevare i tipi di minacce possibili e fornire visibilità agli eventi imprevisti della sicurezza.
+Sebbene attenda l'intervento manuale, Azure Sentinel può basarsi su PlayBook pre-scritti per avviare gli avvisi e i processi di gestione degli eventi imprevisti.
 
-   L'app di esempio è composta da diverse risorse che Azure Sentinel può monitorare.
-Per configurare Azure Sentinel, è innanzitutto necessario creare un'area di lavoro di Log Analytics in cui sono archiviati tutti i dati raccolti dalle varie risorse.
+   L'app di esempio è costituita da diverse risorse che possono essere monitorate da Azure Sentinel.
+Per configurare Sentinel di Azure, è prima di tutto necessario creare un'area di lavoro di Log Analytics che archivia tutti i dati raccolti dalle varie risorse.
 
 Per creare questa area di lavoro
 
-   1. Nella casella di ricerca nel portale di Azure cercare **Log Analytics**. Selezionare **Aree di lavoro di Log Analytics**.
+   1. Nella casella di ricerca del portale di Azure cercare **log Analytics**. Selezionare **log Analytics aree di lavoro**.
 
-   ![Cercare aree di lavoro di Log AnalyticsSearch for Log Analytics workspaces](./media/secure-aad-app/sentinel-log-analytics.png)
+   ![Cerca aree di lavoro Log Analytics](./media/secure-aad-app/sentinel-log-analytics.png)
 
-   *Cercare aree di lavoro di Log AnalyticsSearch for Log Analytics workspaces*
+   *Cerca aree di lavoro Log Analytics*
 
    2. Nella pagina successiva selezionare **Aggiungi** e quindi specificare un nome, un gruppo di risorse e un percorso per l'area di lavoro.
    ![Creare un'area di lavoro Log Analytics](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
-   *Creare un'area di lavoro di Log AnalyticsCreate a Log Analytics workspace*
+   *Creare un'area di lavoro Log Analytics*
 
-   3. Usare la casella di ricerca per cercare **Azure Sentinel.**
+   3. Usare la casella di ricerca per cercare **Azure Sentinel**.
 
    ![Cercare Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
 
-   *Cercare Azure SentinelSearch for Azure Sentinel*
+   *Cercare Azure Sentinel*
 
-   4. Selezionare **Aggiungi** e quindi selezionare l'area di lavoro di Log Analytics creata in precedenza.
+   4. Selezionare **Aggiungi** e quindi selezionare l'area di lavoro log Analytics creata in precedenza.
 
-   ![Aggiungere un'area di lavoro di Log AnalyticsAdd a Log Analytics workspace](./media/secure-aad-app/sentinel-workspace-add.png)
+   ![Aggiungere un'area di lavoro Log Analytics](./media/secure-aad-app/sentinel-workspace-add.png)
 
-   *Aggiungere un'area di lavoro di Log AnalyticsAdd a Log Analytics workspace*
+   *Aggiungere un'area di lavoro Log Analytics*
 
-   5. Nella pagina **Azure Sentinel - Connettori dati,** in **Configurazione**, selezionare **Connettori dati**. You see an array of Azure services that you can link to the Log Analytics storage instance for analysis in Azure Sentinel.
+   5. Nella pagina **Sentinel di Azure-connettori dati** , in **configurazione**, selezionare **connettori dati**. Viene visualizzata una matrice di servizi di Azure che è possibile collegare all'istanza di archiviazione Log Analytics per l'analisi in Sentinel di Azure.
 
-   ![Connettori dati di Log AnalyticsLog Analytics data connectors](./media/secure-aad-app/sentinel-connectors.png)
+   ![Connettori di dati Log Analytics](./media/secure-aad-app/sentinel-connectors.png)
 
-      *Aggiungere un connettore dati ad Azure SentinelAdd a data connector to Azure Sentinel*
+      *Aggiungere un connettore dati ad Azure Sentinel*
 
-   Ad esempio, per connettere il gateway applicazione, eseguire la procedura seguente:For example, to connect the application gateway, take these steps:
+   Ad esempio, per connettere il gateway applicazione, seguire questa procedura:
 
-   1. Aprire il pannello dell'istanza del gateway applicazione di Azure.Open the Azure Application Gateway instance blade.
+   1. Aprire il pannello dell'istanza di applicazione Azure gateway.
    2. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
-   3. Selezionare **Aggiungi impostazione diagnostica**.
+   3. Selezionare **Aggiungi impostazioni di diagnostica**.
 
-   ![Aggiungere la diagnostica del gateway applicazioneAdd Application Gateway diagnostics](./media/secure-aad-app/sentinel-gateway-connector.png)
+   ![Aggiungere la diagnostica del gateway applicazione](./media/secure-aad-app/sentinel-gateway-connector.png)
          
-   *Aggiungere la diagnostica del gateway applicazioneAdd Application Gateway diagnostics*
+   *Aggiungere la diagnostica del gateway applicazione*
 
-   4. Nella pagina Impostazioni di diagnostica selezionare l'area di lavoro Log Analytics creata e quindi selezionare tutte le metriche che si desidera raccogliere e inviare ad Azure Sentinel.On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Selezionare **Salva**.
+   4. Nella pagina **impostazioni di diagnostica** selezionare l'area di lavoro log Analytics creata e quindi selezionare tutte le metriche che si desidera raccogliere e inviare a Sentinel di Azure. Selezionare **Salva**.
 
-   ![Impostazioni del connettore di Azure SentinelAzure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
+   ![Impostazioni del connettore Sentinel di Azure](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
 ## <a name="cost-considerations"></a>Considerazioni sul costo
-   Se non si dispone già di un account Azure, è possibile crearne uno gratuito. Vai alla [pagina dell'account gratuito](https://azure.microsoft.com/free/) per iniziare, scopri cosa puoi fare con un account Azure gratuito e scopri quali prodotti sono gratuiti per 12 mesi.
+   Se non si ha già un account Azure, è possibile crearne uno gratuito. Vai alla [pagina account gratuito](https://azure.microsoft.com/free/) per iniziare, Scopri cosa puoi fare con un account Azure gratuito e Scopri quali prodotti sono gratuiti per 12 mesi.
 
-   Per distribuire le risorse nell'app di esempio con le funzionalità di sicurezza, devi pagare alcune funzionalità premium. Man mano che l'app viene ridimensionata e i livelli e le versioni di valutazione gratuiti offerti da Azure devono essere aggiornati per soddisfare i requisiti dell'applicazione, i costi potrebbero aumentare. Usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) di Azure per stimare i costi.
+   Per distribuire le risorse nell'app di esempio con le funzionalità di sicurezza, è necessario pagare per alcune funzionalità Premium. Quando l'app viene ridimensionata e i livelli gratuiti e le versioni di valutazione offerte da Azure devono essere aggiornati per soddisfare i requisiti dell'applicazione, i costi potrebbero aumentare. Usa il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) di Azure per stimare i costi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-   Gli articoli seguenti consentono di progettare, sviluppare e distribuire applicazioni protette.
+   Gli articoli seguenti possono essere utili per progettare, sviluppare e distribuire applicazioni protette.
 
 - [Progettazione](secure-design.md)
 - [Sviluppo](secure-develop.md)
-- [Distribuire](secure-deploy.md)
+- [Distribuzione](secure-deploy.md)

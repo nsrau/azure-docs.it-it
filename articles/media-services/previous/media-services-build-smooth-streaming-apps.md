@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69016781"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming  
@@ -63,7 +63,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 ### <a name="to-create-a-windows-store-project"></a>Per creare un progetto Windows Store
 
 1. Eseguire Visual Studio. Sono supportate le versioni dalla 2012 alla 2015.
-1. Dal menu **FILE** , fare clic su **Nuovo**, quindi su **Progetto**.
+1. Scegliere **nuovo**dal menu **file** , quindi fare clic su **progetto**.
 1. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
     | Nome | valore |
@@ -85,7 +85,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
     | Nome | valore |
     | --- | --- |
     | Gruppo di riferimenti |Windows/Estensioni |
-    | Riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
+    | Informazioni di riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
 
 1. Fare clic su **OK**. 
 
@@ -94,7 +94,7 @@ Dopo avere aggiunto i riferimenti, è necessario selezionare la piattaforma di d
 ### <a name="to-design-the-player-user-interface"></a>Per progettare l'interfaccia utente del lettore
 
 1. In Esplora soluzioni fare doppio clic su **MainPage.xaml** per aprirlo in visualizzazione Progettazione.
-2. Individuare ** &lt;i&gt; ** tag Grid e ** &lt;/Grid&gt; ** del file XAML e incollare il codice seguente tra i due tag:
+2. Individuare la ** &lt;griglia&gt; ** e ** &lt;/Grid&gt; ** contrassegna il file XAML e incollare il codice seguente tra i due tag:
 
    ```xml
          <Grid.RowDefinitions>
@@ -507,7 +507,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
    ```
 
    > [!NOTE]
-   > Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di collo di bottiglia nel thread del dispatcher, lo sviluppatore può scegliere di usare il dispatcher fornito dall'elemento dell'interfaccia utente che intende aggiornare.  Ad esempio:
+   > Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di collo di bottiglia sul thread del dispatcher, lo sviluppatore può scegliere di usare Dispatcher fornito dall'elemento dell'interfaccia utente che intende aggiornare.  Ad esempio:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -819,7 +819,7 @@ Smooth Streaming consente di trasmettere contenuto in streaming con tracce audio
 
 La lezione 3 è stata completata.  In questa lezione è stata aggiunta la funzionalità per la selezione dei flussi.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lezione 4: Selezionare Tracce Smooth Streaming
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lezione 4: selezionare le tracce Smooth Streaming
 
 Una presentazione Smooth Streaming può contenere più file video codificati con livelli di qualità (velocità in bit) e risoluzioni diversi. In questa lezione verrà illustrato come abilitare gli utenti per la selezione delle tracce. In questa lezione sono incluse le procedure seguenti:
 
@@ -847,7 +847,7 @@ Una presentazione Smooth Streaming può contenere più file video codificati con
          </ListBox>
          </StackPanel>
    ```
-3. Per salvare le modifiche, premere **CTRL**
+3. Premere **CTRL + S** per salvare le modifiche
 
 ### <a name="to-modify-the-code-behind-file"></a>Per modificare il file code-behind
 
@@ -1027,7 +1027,7 @@ La lezione 4 è stata completata.  In questa lezione è stata aggiunta la funzio
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Altre risorse:

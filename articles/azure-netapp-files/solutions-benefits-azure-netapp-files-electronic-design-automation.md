@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 8a287ec5cd33c9f2a96af7ad8162f7c8f54df118
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134169"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160154"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Vantaggi dell'utilizzo di Azure NetApp Files per l'automazione della progettazione elettronica
 
@@ -77,9 +77,9 @@ Il carico di lavoro completo è costituito da una combinazione di fasi funzional
 
 La fase funzionale è costituita dalle specifiche iniziali e da una progettazione logica. La fase fisica si verifica quando la progettazione logica viene convertita in un chip fisico. Durante le fasi di disconnessione e di Tape-out, i controlli finali vengono completati e la progettazione viene recapitata a una fonderia per la produzione.  
 
-Le fasi funzionali includono una combinazione di I/O sequenziali e casuali di lettura e scrittura. Le fasi funzionali sono con utilizzo intensivo dei metadati, ad esempio le chiamate a file stat e Access. Sebbene le operazioni sui metadati siano effettivamente senza dimensioni, le operazioni di lettura e scrittura sono comprese tra meno di 1 K e 16 K. La maggior parte delle letture è compresa tra 4 K e 16 K.  La maggior parte delle Scritture è di 4 K o meno.  Le fasi fisiche sono costituite interamente da operazioni di lettura e scrittura sequenziali, con una combinazione di dimensioni di OP 32 K e 64 K.  
+La fase funzionale include una combinazione di I/O sequenziali e casuali di lettura e scrittura. La fase funzionale prevede un utilizzo intensivo dei metadati, ad esempio le chiamate a file stat e Access. Sebbene le operazioni sui metadati siano effettivamente senza dimensioni, le operazioni di lettura e scrittura sono comprese tra meno di 1 K e 16 K. La maggior parte delle letture è compresa tra 4 K e 16 K.  La maggior parte delle Scritture è di 4 K o meno. La fase fisica è costituita interamente da operazioni di lettura e scrittura sequenziali, con una combinazione di dimensioni di OP 32 K e 64 K.  
 
-Nei grafici precedenti, la maggior parte della velocità effettiva deriva dalle fasi fisiche sequenziali del carico di lavoro. L'i/O deriva dalla piccola fase funzionale casuale e a elevato utilizzo di metadati. Entrambe le fasi si verificano in parallelo. 
+Nei grafici precedenti, la maggior parte della velocità effettiva deriva dalla fase fisica sequenziale del carico di lavoro. L'i/O deriva dalla fase funzionale di piccole dimensioni casuale e a elevato utilizzo di metadati. Entrambe le fasi si verificano in parallelo. 
 
 In conclusione, è possibile associare le risorse di calcolo di Azure a Azure NetApp Files per la progettazione di EDA per ottenere una larghezza di banda scalabile. 
 

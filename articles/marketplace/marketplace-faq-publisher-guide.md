@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 1cd536f4a7c3751e2b85f40e582c1eb1c5bf2c74
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106679"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160512"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Domande frequenti sul marketplace commerciale di Microsoft
 
@@ -57,8 +57,9 @@ In Azure Marketplace i clienti possono trovare applicazioni tecniche create per 
 Le offerte di Azure Marketplace possono essere acquistate tramite:
 
 * [Vetrina basata sul Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure portal](https://portal.azure.com) <br>
-[!Note] Richiede un account Azure. Se non si dispone di un utente, si verrà reindirizzati alla pagina **Welcome to Azure** per crearne uno.  
+* [Azure portal](https://portal.azure.com) <br> 
+>[!Note]
+>Richiede un account Azure. Se non si dispone di un utente, si verrà reindirizzati alla pagina **Welcome to Azure** per crearne uno.  
 * [Interfaccia della riga di comando di Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -336,7 +337,7 @@ I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Che l'inser
 
 **Dove è possibile ottenere assistenza per configurare la destinazione dei lead?**
 
-Per altre informazioni, vedere la documentazione relativa ai [Lead dei clienti](./partner-center-portal/commercial-marketplace-get-customer-leads.md) o inviare un ticket di [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) supporto tramite selezionando il tipo di offerta e la gestione dei lead.
+Per altre informazioni, vedere la documentazione relativa ai [Lead dei clienti](./partner-center-portal/commercial-marketplace-get-customer-leads.md) oppure inviare un ticket di supporto tramite [Guida e supporto tecnico](https://partner.microsoft.com/support/v2/?stage=1) selezionando il tipo di offerta e la gestione dei lead.
 
 **È necessario configurare i lead destinatari per pubblicare un'offerta in Marketplace?**
 

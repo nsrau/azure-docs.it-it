@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "62116892"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.6 nell'array virtuale StorSimple
@@ -57,7 +57,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Per scaricare l'aggiornamento o l'hotfix
 
-1. Avviare Internet Explorer [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)e passare a .
+1. Avviare Internet Explorer e passare a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
@@ -67,7 +67,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
    
     ![Cercare nel catalogo](./media/storsimple-virtual-array-install-update-06/download1.png)
 
-4. Fare clic su **Download**
+4. Fare clic su **Download**.
 
 5. Vengono visualizzati cinque file da scaricare. Scaricare ognuno dei file in una cartella. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
 
@@ -94,7 +94,7 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Per installare l'aggiornamento o l'hotfix
 
-1. Nell'interfaccia utente Web locale, passare a**Aggiornamento software**di **manutenzione** > . Prendere nota della versione del software in esecuzione. Se si esegue la versione **10.0.10290.0**, non è necessario aggiornare l'agente MDS nel passaggio 6.
+1. Nell'interfaccia utente Web locale passare a **manutenzione** > **aggiornamento software**. Prendere nota della versione del software in esecuzione. Se si esegue la versione **10.0.10290.0**, non è necessario aggiornare l'agente MDS nel passaggio 6.
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -110,7 +110,7 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a**Aggiornamento software**di **manutenzione** > . Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10293** per l'aggiornamento 0.6.
+5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione** > **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10293** per l'aggiornamento 0.6.
    
    > [!NOTE]
    > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10293**, mentre il portale di Azure indica **10.0.10293.0** per la stessa versione.

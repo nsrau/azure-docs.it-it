@@ -4,12 +4,12 @@ description: Questo articolo descrive come usare Esplora backup per eseguire il 
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: fa30a061dfe0d9f7721bd2405280f8a01bea87fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131800"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160990"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorare i backup con Esplora backup
 
@@ -17,17 +17,18 @@ Poiché le organizzazioni eseguono il backup di più macchine virtuali nel cloud
 
 Esplora backup è una cartella di lavoro predefinita di monitoraggio di Azure che offre ai clienti di backup di Azure questa singola posizione centralizzata. Esplora backup consente di monitorare le attività operative nell'intero patrimonio di backup in Azure, con spanning di tenant, località, sottoscrizioni, gruppi di risorse e insiemi di credenziali. In generale, in Esplora backup sono disponibili le funzionalità seguenti:
 
-* **Prospettiva su larga scala**: ottenere una visualizzazione aggregata di elementi di backup, processi, avvisi, criteri e risorse che non sono ancora configurati per il backup nell'intera proprietà. 
+* **Prospettiva su larga scala**: ottenere una visualizzazione aggregata di elementi di backup, processi, avvisi, criteri e risorse che non sono ancora configurati per il backup nell'intera proprietà.
 * **Analisi di drill-down**: Visualizza informazioni dettagliate su ogni processo, avviso, criterio ed elementi di backup in un'unica posizione.
 * **Interfacce**utilizzabili: dopo l'identificazione di un problema, è possibile risolverlo facilmente nell'elemento di backup pertinente o nella risorsa di Azure.
 
 Queste funzionalità sono fornite dall'integrazione nativa con il grafico delle risorse di Azure e le cartelle di lavoro di monitoraggio di Azure.
 
 > [!NOTE]
+>
 > * Esplora backup è attualmente disponibile solo per i dati delle macchine virtuali (VM) di Azure.
 > * Backup Explorer deve essere un dashboard operativo per la visualizzazione delle informazioni sui backup negli ultimi 7 giorni (massimo).
 > * Esplora backup non è attualmente supportato nei cloud nazionali.
-> * Attualmente, la personalizzazione del modello di Esplora backup non è supportata. 
+> * Attualmente, la personalizzazione del modello di Esplora backup non è supportata.
 > * Non è consigliabile scrivere automazione personalizzate sui dati del grafico delle risorse di Azure.
 
 ## <a name="get-started"></a>Introduzione
@@ -48,13 +49,11 @@ In Esplora backup vengono visualizzate più schede, ognuna delle quali fornisce 
 
 La scheda **Summary (riepilogo** ) fornisce una rapida panoramica della condizione complessiva della proprietà backup. Ad esempio, è possibile visualizzare il numero di elementi protetti, il numero di elementi per cui non è stata abilitata la protezione o il numero di processi completati nelle ultime 24 ore.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYd]
 
 ### <a name="the-backup-items-tab"></a>Scheda elementi di backup
 
 È possibile filtrare e visualizzare ciascuno degli elementi di backup in base alla sottoscrizione, all'insieme di credenziali e ad altre caratteristiche. Selezionando il nome di un elemento di backup, è possibile aprire il riquadro Azure per l'elemento. Ad esempio, dalla tabella, è possibile osservare che l'ultimo backup non è riuscito per l'elemento *X*. Selezionando *X*, è possibile aprire il riquadro di **backup** dell'elemento, in cui è possibile attivare un'operazione di backup su richiesta.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
 
@@ -62,20 +61,17 @@ La scheda **Summary (riepilogo** ) fornisce una rapida panoramica della condizio
 
 Selezionare la scheda **processi** per visualizzare i dettagli di tutti i processi attivati negli ultimi 7 giorni. Qui è possibile filtrare in base all' *operazione del processo*, *allo stato del processo*e al codice di *errore* (per i processi non riusciti).
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
 ### <a name="the-alerts-tab"></a>Scheda avvisi
 
 Selezionare la scheda **avvisi** per visualizzare i dettagli di tutti gli avvisi generati negli insiemi di credenziali negli ultimi 7 giorni. È possibile filtrare gli avvisi per tipo *(errore di backup* o *ripristino*), stato corrente (*attivo* o *risolto*) e gravità (*critico*, *avviso*o *informazioni*). È anche possibile selezionare un collegamento per passare alla macchina virtuale di Azure ed eseguire le azioni necessarie.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 
 ### <a name="the-policies-tab"></a>Scheda criteri
 
 È possibile selezionare la scheda **criteri** per visualizzare le informazioni chiave su tutti i criteri di backup creati nell'area di backup. È possibile visualizzare il numero di elementi associati a ogni criterio, insieme al periodo di mantenimento dati e alla frequenza di backup specificati dal criterio.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
 
@@ -84,7 +80,6 @@ Selezionare la scheda **avvisi** per visualizzare i dettagli di tutti gli avvisi
 Il backup deve essere abilitato per tutti i computer che richiedono la protezione. Con Esplora backup, gli amministratori di backup possono identificare rapidamente quali computer di un'organizzazione non sono ancora protetti dal backup. Per visualizzare le informazioni, selezionare la scheda **backup non abilitato** .
 
 Il riquadro **backup non abilitato** Visualizza una tabella con un elenco di computer non protetti. L'organizzazione potrebbe assegnare tag diversi ai computer di produzione e ai computer di test o ai computer che svolgono una serie di funzioni. Poiché ogni classe di computer necessita di un criterio di backup separato, l'applicazione di filtri in base ai tag consente di visualizzare informazioni specifiche. Se si seleziona il nome di un computer, viene reindirizzato al riquadro **Configura backup** di tale computer, in cui è possibile scegliere di applicare un criterio di backup appropriato.
-
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 

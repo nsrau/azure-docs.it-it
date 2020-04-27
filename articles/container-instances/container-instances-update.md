@@ -1,29 +1,38 @@
 ---
-title: Aggiorna gruppo di contenitori
+title: Aggiornamento del gruppo di contenitori
 description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di Azure Container.
 ms.topic: article
-ms.date: 09/03/2019
-ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533310"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160103"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
-Durante il normale funzionamento delle istanze del contenitore, potrebbe essere necessario aggiornare i contenitori in esecuzione in un gruppo di [contenitori.](container-instances-container-groups.md) Ad esempio, è possibile aggiornare la versione dell'immagine, modificare un nome DNS, aggiornare le variabili di ambiente o aggiornare lo stato di un contenitore la cui applicazione si è arrestata in modo anomalo.
-
-> [!NOTE]
-> Non è possibile aggiornare i gruppi di contenitori terminati o eliminati. Una volta che un gruppo di contenitori è terminato (si trova in uno stato Riuscito o Non riuscito) o è stato eliminato, il gruppo deve essere distribuito come nuovo.
-
-## <a name="update-a-container-group"></a>Aggiornare un gruppo di contenitori
+Durante il normale funzionamento delle istanze di contenitore, può risultare necessario aggiornare i contenitori in esecuzione in un [gruppo di contenitori](container-instances-container-groups.md). Ad esempio, potrebbe essere necessario aggiornare una proprietà, ad esempio una versione dell'immagine, un nome DNS o una variabile di ambiente, oppure aggiornare una proprietà in un contenitore con l'arresto anomalo dell'applicazione.
 
 Aggiornare i contenitori in un gruppo di contenitori in esecuzione ridistribuendo un gruppo esistente con almeno una proprietà modificata. Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esecuzione nel gruppo vengono riavviati sul posto, in genere nello stesso host contenitore sottostante.
 
-Ridistribuire un gruppo di contenitori esistente eseguendo il comando Crea (o tramite il portale di Azure) e specificare il nome di un gruppo esistente. Modificare almeno una proprietà valida del gruppo quando si esegue il comando create per attivare la ridistribuzione e lasciare invariate le proprietà rimanenti (o continuare a utilizzare i valori predefiniti). Non tutte le proprietà del gruppo contenitore sono valide per la ridistribuzione. Per un elenco delle proprietà non supportate, vedere [Properties that require delete](#properties-that-require-container-delete) (Proprietà che richiedono l'eliminazione).
+> [!NOTE]
+> Non è possibile aggiornare i gruppi di contenitori terminati o eliminati. Dopo che un gruppo di contenitori è stato terminato (si trova nello stato SUCCEEDED o Failed) o è stato eliminato, il gruppo deve essere distribuito come nuovo. Vedere altre [limitazioni](#limitations).
 
-L'esempio di interfaccia della riga di comando di Azure seguente aggiorna un gruppo di contenitori con una nuova etichetta del nome DNS. Poiché la proprietà etichetta nome DNS del gruppo può essere aggiornata, il gruppo di contenitori viene ridistribuito e i relativi contenitori sono stati riavviati.
+## <a name="update-a-container-group"></a>Aggiornare un gruppo di contenitori
+
+Per aggiornare un gruppo di contenitori esistente:
+
+* Eseguire il comando Create (o usare il portale di Azure) e specificare il nome di un gruppo esistente 
+* Modificare o aggiungere almeno una proprietà del gruppo che supporta l'aggiornamento quando si esegue la ridistribuzione. Alcune proprietà [non supportano gli aggiornamenti](#properties-that-require-container-delete).
+* Impostare altre proprietà con i valori specificati in precedenza. Se non si imposta un valore per una proprietà, viene ripristinato il valore predefinito.
+
+> [!TIP]
+> Un [file YAML](/container-instances-container-groups.md#deployment) consente di mantenere la configurazione di distribuzione di un gruppo di contenitori e fornisce un punto di partenza per la distribuzione di un gruppo aggiornato. Se è stato usato un metodo diverso per creare il gruppo, è possibile esportare la configurazione in YAML usando [AZ container Export][az-container-export], 
+
+### <a name="example"></a>Esempio
+
+L'esempio di interfaccia della riga di comando di Azure seguente aggiorna un gruppo di contenitori con una nuova etichetta del nome DNS. Poiché la proprietà dell'etichetta del nome DNS del gruppo è una che può essere aggiornata, il gruppo di contenitori viene ridistribuito e i contenitori vengono riavviati.
 
 Distribuzione iniziale con l'etichetta del nome DNS *myapplication-staging*:
 
@@ -33,7 +42,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Aggiornare il gruppo di contenitori con una nuova etichetta di nome DNS, *myapplication*, e lasciare invariate le proprietà rimanenti:
+Aggiornare il gruppo di contenitori con una nuova etichetta del nome DNS, *MyApplication*e impostare le proprietà rimanenti con i valori usati in precedenza:
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -49,25 +58,21 @@ Le applicazioni basate su immagini del contenitore di dimensioni maggiori, ad es
 
 ## <a name="limitations"></a>Limitazioni
 
-Non tutte le proprietà di un gruppo di contenitori supportano gli aggiornamenti. Per modificare alcune proprietà di un gruppo di contenitori è necessario eliminare e ridistribuire il gruppo. Per informazioni dettagliate, vedere [Proprietà che richiedono l'eliminazione del contenitore](#properties-that-require-container-delete).
-
-Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esso presenti vengono riavviati. È possibile eseguire un aggiornamento o un riavvio sul posto di un contenitore specifico in un gruppo multi-contenitore.
-
-L'indirizzo IP di un contenitore in genere non cambia tra gli aggiornamenti, ma non è comunque detto che rimanga invariato. Se distribuito nello stesso host sottostante, il gruppo di contenitori mantiene il proprio indirizzo IP. Anche se raramente e anche se Istanze di Azure Container cerca sempre di eseguire la ridistribuzione nello stesso host, esistono alcuni eventi interni di Azure che possono causare la ridistribuzione in un host diverso. Per attenuare questo problema, usare sempre un'etichetta del nome DNS per le istanze di contenitore.
-
-Non è possibile aggiornare i gruppi di contenitori terminati o eliminati. Se arrestato (ovvero in stato *Terminated*) o eliminato, il gruppo di contenitori viene distribuito come nuovo.
+* Non tutte le proprietà di un gruppo di contenitori supportano gli aggiornamenti. Per modificare alcune proprietà di un gruppo di contenitori è necessario eliminare e ridistribuire il gruppo. Vedere [proprietà che richiedono l'eliminazione del contenitore](#properties-that-require-container-delete).
+* Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esso presenti vengono riavviati. È possibile eseguire un aggiornamento o un riavvio sul posto di un contenitore specifico in un gruppo multi-contenitore.
+* L'indirizzo IP di un gruppo di contenitori viene in genere mantenuto tra gli aggiornamenti, ma non è garantito che rimanga invariato. Se distribuito nello stesso host sottostante, il gruppo di contenitori mantiene il proprio indirizzo IP. Sebbene rare, esistono alcuni eventi interni di Azure che possono causare la ridistribuzione in un host diverso. Per attenuare questo problema, è consigliabile usare un'etichetta del nome DNS per le istanze di contenitore.
+* Non è possibile aggiornare i gruppi di contenitori terminati o eliminati. Quando un gruppo di contenitori viene arrestato (si trova nello stato *terminato* ) o eliminato, il gruppo viene distribuito come nuovo.
 
 ## <a name="properties-that-require-container-delete"></a>Proprietà che richiedono l'eliminazione del contenitore
 
-Come accennato in precedenza, non tutte le proprietà del gruppo di contenitori possono essere aggiornate. Ad esempio, per modificare le porte o riavviare i criteri di un contenitore, è necessario innanzitutto eliminare il gruppo di contenitori, per poi crearlo di nuovo.
+Non è possibile aggiornare tutte le proprietà del gruppo di contenitori. Per modificare il criterio di riavvio di un contenitore, ad esempio, è necessario innanzitutto eliminare il gruppo di contenitori, quindi crearlo di nuovo.
 
-Queste proprietà richiedono l'eliminazione del gruppo di contenitori prima della ridistribuzione:
+Le modifiche apportate a queste proprietà richiedono l'eliminazione del gruppo di contenitori prima della ridistribuzione:
 
 * Tipo di sistema operativo
-* CPU
-* Memoria
+* Risorse CPU, memoria o GPU
 * Criterio di riavvio
-* Porte
+* Profilo di rete
 
 Quando si elimina un gruppo di contenitori e lo si ricrea, questo non viene "ridistribuito", ma creato nuovo. Il pull di tutti i livelli dell'immagine viene eseguito dai dati aggiornati del registro, non da quelli memorizzati nella cache da una distribuzione precedente. L'indirizzo IP del contenitore può cambiare anche a causa della distribuzione in un altro host sottostante.
 
@@ -79,10 +84,11 @@ In questo articolo è menzionato più volte il **gruppo di contenitori**. Ogni c
 
 [Distribuire un gruppo multi-contenitore](container-instances-multi-container-group.md)
 
-[Arrestare o avviare manualmente i contenitori nelle istanze del contenitore di AzureManually stop or start containers in Azure Container Instances](container-instances-stop-start.md)
+[Arrestare o avviare manualmente i contenitori nelle istanze di contenitore di Azure](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-container-export]: /cli/azure/container#az-container-export

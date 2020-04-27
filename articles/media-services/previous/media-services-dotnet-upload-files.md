@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64869479"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Caricare file in un account di Servizi multimediali mediante .NET 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
-In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di miniature, tracce di testo e file di sottotitoli codificati (e i metadati relativi a questi file).  Una volta caricati i file, i contenuti vengono archiviati in modo sicuro nel cloud per un'ulteriore elaborazione e streaming.
+In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Una volta caricati i file, il contenuto viene archiviato in modo sicuro nel cloud per ulteriori operazioni di elaborazione e streaming.
 
 I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** e il file multimediale effettivo sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
 
@@ -34,14 +34,14 @@ I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** 
 
 Si applicano le considerazioni seguenti:
  
- * Servizi multimediali utilizza il valore della proprietà IAssetFile.Name durante la creazione di URL per il contenuto in streaming (ad esempio, http://AMSAccount.origin.mediaservices.windows.net/'GUID'/IAssetFile.Name'/streamingParameters).) Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può essere presente tra i seguenti [caratteri riservati](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)per la codifica percentuale : &! L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
+ * Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per il contenuto di streaming, ad esempio http://{AMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)seguenti:! *' ();: @ &= + $,/?% # [] ". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 * La lunghezza del nome non deve essere superare i 260 caratteri.
 * È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. Vedere [questo](media-services-quotas-and-limitations.md) articolo per informazioni dettagliate sulla limitazione per le dimensioni dei file.
 * È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
 Quando si creano asset, è possibile specificare le opzioni di crittografia seguenti:
 
-* **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+* **None** : non viene usata alcuna crittografia. Questo è il valore predefinito. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione: 
 * **CommonEncryption** : usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 * **EnvelopeEncrypted** : usare questa opzione se si sta caricando contenuto HLS crittografato con AES. I file devono essere stati codificati e crittografati da Transform Manager.
@@ -49,7 +49,7 @@ Quando si creano asset, è possibile specificare le opzioni di crittografia segu
   
     Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
   
-    Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per ulteriori informazioni, consultate Configurazione dei criteri di [distribuzione degli asset.](media-services-dotnet-configure-asset-delivery-policy.md)
+    Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
 Se si specifica che l'asset deve essere crittografato con un'opzione **CommonEncrypted** o **EnvelopeEncrypted**, sarà necessario associare l'asset a **ContentKey**. Per alte informazioni, vedere [Creare entità ContentKey mediante .NET](media-services-dotnet-create-contentkey.md). 
 
@@ -91,8 +91,8 @@ Il seguente codice illustra come creare un asset e caricare più file.
 Il codice esegue le seguenti attività:
 
 * Crea un'entità Asset vuota usando il metodo CreateEmptyAsset definito nel passaggio precedente.
-* Crea un'istanza **AccessPolicy** che definisce le autorizzazioni e la durata dell'accesso all'asset.
-* Crea un'istanza **Locator** che fornisce l'accesso all'asset.
+* Crea un'istanza di **AccessPolicy** che definisce le autorizzazioni e la durata dell'accesso all'asset.
+* Crea un'istanza del **localizzatore** che fornisce l'accesso all'asset.
 * Crea un'istanza di **BlobTransferClient** . Questo tipo rappresenta un client che agisce sugli oggetti BLOB di Azure. In questo esempio il client esegue il monitoraggio dello stato del caricamento. 
 * Enumera i file della directory specificata e crea un'istanza di **AssetFile** per ogni file.
 * Carica i file in Servizi multimediali usando il metodo **UploadAsync** . 
@@ -308,7 +308,7 @@ Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Passaggio successivo

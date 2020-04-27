@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60723307"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple
@@ -37,7 +37,7 @@ Una volta letto l'articolo, si sarà in grado di:
 Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure e si connette a più dispositivi StorSimple. Per gestire questi dispositivi, si usa un portale di Microsoft Azure centrale in esecuzione in un browser. Per connettersi al servizio Gestione dispositivi StorSimple, effettuare le operazioni seguenti.
 
 #### <a name="to-connect-to-the-service"></a>Per connettersi al servizio
-1. Passare [https://portal.azure.com/](https://portal.azure.com/)a .
+1. Passare a [https://portal.azure.com/](https://portal.azure.com/).
 2. Usando le credenziali dell'account Microsoft, accedere al portale di Microsoft Azure (in alto a destra del riquadro).
 3. Scorrere verso il basso il riquadro di spostamento sinistro per accedere al servizio Gestione dispositivi StorSimple.
 
@@ -63,7 +63,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 | Informazioni sugli account di archiviazione</br>Aggiungere un account di archiviazione</br>Modificare un account di archiviazione</br>Eliminare un account di archiviazione</br>Rotazione delle chiavi degli account di archiviazione |[Gestire gli account di archiviazione](storsimple-8000-manage-storage-accounts.md) |
 | Informazioni sui modelli di larghezza di banda</br>Aggiunta di un modello di larghezza di banda</br>Modifica di un modello di larghezza di banda</br>Eliminazione di un modello di larghezza di banda</br>Utilizzo di un modello di larghezza di banda predefinito</br>Creazione di un modello di larghezza di banda giornaliero che viene avviato a un determinato orario |[Gestire i modelli di larghezza di banda](storsimple-8000-manage-bandwidth-templates.md) |
 | Informazioni sui record di controllo di accesso</br>Creare un record di controllo di accesso</br>Modificare un record di controllo di accesso</br>Eliminare un record di controllo di accesso |[Gestire record di controllo di accesso](storsimple-8000-manage-acrs.md) |
-| Visualizza i dettagli dei processi</br>Annullare un processo |[Gestire i processi](storsimple-8000-manage-jobs-u2.md) |
+| Visualizzare i dettagli di un processo</br>Annullare un processo |[Gestire i processi](storsimple-8000-manage-jobs-u2.md) |
 | Ricevere notifiche di avviso</br>Gestisci avvisi</br>Esaminare gli avvisi |[Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md) |
 | Creare grafici di monitoraggio |[Monitoraggio del dispositivo StorSimple](storsimple-monitor-device.md) |
 | Aggiungere un contenitore di volumi</br>Modificare un contenitore di volumi</br>Eliminare un contenitore di volumi |[Gestisci contenitori dei volumi](storsimple-8000-manage-volume-containers.md) |

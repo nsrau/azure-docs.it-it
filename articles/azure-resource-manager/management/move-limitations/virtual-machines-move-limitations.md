@@ -1,47 +1,50 @@
 ---
-title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o gruppo di risorseMove Azure VMs to new subscription or resource group
-description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o in una nuova sottoscrizione.
+title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in un gruppo di risorse
+description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 144888c4a66ef68448ae8bc863f6aef0923dfb69
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478657"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160120"
 ---
-# <a name="move-guidance-for-virtual-machines"></a>Spostare le indicazioni per le macchine virtualiMove guidance for virtual machines
+# <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
-In questo articolo vengono descritti gli scenari attualmente non supportati e i passaggi per spostare le macchine virtuali con il backup.
+Questo articolo descrive gli scenari attualmente non supportati e i passaggi per spostare le macchine virtuali con il backup.
 
 ## <a name="scenarios-not-supported"></a>Scenari non supportati
 
 Non sono ancora supportati gli scenari seguenti:
 
-* I dischi gestiti nelle zone di disponibilità non possono essere spostati in una sottoscrizione diversa.
-* Non è possibile spostare i set di scalabilità di macchine virtuali con bilanciamento del carico SKU Standard o IP pubblico sKU standard.
-* Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Annullare il provisioning della macchina virtuale nella sottoscrizione corrente e distribuire nuovamente nella nuova sottoscrizione.
-* Le macchine virtuali in una rete virtuale esistente non possono essere spostate in una nuova sottoscrizione quando non si spostano tutte le risorse nella rete virtuale.
+* Non è possibile spostare Managed Disks in zone di disponibilità in una sottoscrizione diversa.
+* Non è possibile spostare i set di scalabilità di macchine virtuali con SKU standard Load Balancer o IP pubblico dello SKU standard.
+* Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Effettuare il deprovisioning della macchina virtuale nella sottoscrizione corrente e ridistribuirla nella nuova sottoscrizione.
+* Non è possibile spostare le macchine virtuali in una rete virtuale esistente in una nuova sottoscrizione quando non si spostano tutte le risorse nella rete virtuale.
 * Le macchine virtuali con priorità bassa e i set di scalabilità di macchine virtuali con priorità bassa non possono essere spostati tra gruppi di risorse o sottoscrizioni.
-* Le macchine virtuali in un set di disponibilità non possono essere spostate singolarmente.
+* Non è possibile spostare le macchine virtuali in un set di disponibilità singolarmente.
 
-## <a name="virtual-machines-with-azure-backup"></a>Macchine virtuali con Backup di AzureVirtual machines with Azure Backup
+## <a name="virtual-machines-with-azure-backup"></a>Macchine virtuali con backup di Azure
 
-Per spostare le macchine virtuali configurate con Backup di Azure, è necessario eliminare i punti di ripristino dall'insieme di credenziali.
+Per spostare le macchine virtuali configurate con backup di Azure, è necessario eliminare i punti di ripristino dall'insieme di credenziali.
 
-Se [l'eliminazione temporanea](../../../backup/backup-azure-security-feature-cloud.md) è abilitata per la macchina virtuale, non è possibile spostare la macchina virtuale mentre vengono mantenuti i punti di ripristino. Disabilitare [l'eliminazione temporanea](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) o attendere 14 giorni dopo l'eliminazione dei punti di ripristino.
+Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) temporanea è abilitata per la macchina virtuale, non è possibile spostare la macchina virtuale mentre vengono conservati i punti di ripristino. [Disabilitare l'eliminazione](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) temporanea o attendere 14 giorni dopo l'eliminazione dei punti di ripristino.
 
 ### <a name="portal"></a>Portale
 
-1. Selezionare la macchina virtuale configurata per il backup.
+1. Arrestare temporaneamente il backup e conservare i dati di backup.
+2. Per spostare le macchine virtuali configurate con backup di Azure, seguire questa procedura:
 
-1. Nel riquadro sinistro selezionare **Backup**.
+   1. Trovare il percorso della macchina virtuale.
+   2. Trovare un gruppo di risorse con il modello di denominazione `AzureBackupRG_<location of your VM>_1`seguente:. Ad esempio, *AzureBackupRG_westus2_1*
+   3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
+   4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello `AzureBackup_<name of your VM that you're trying to move>_###########`di denominazione.
+   5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+   6. Al termine dell'operazione di eliminazione, è possibile spostare la macchina virtuale.
 
-1. Selezionare **Interrompi backup**.
-
-1. Selezionare **Elimina dati inridati**.
-
-1. Al termine dell'eliminazione, è possibile spostare l'insieme di credenziali e la macchina virtuale nella sottoscrizione di destinazione. Dopo lo spostamento, è possibile continuare i backup.
+3. Spostare la macchina virtuale nel gruppo di risorse di destinazione.
+4. Riprendere il backup.
 
 ### <a name="powershell"></a>PowerShell
 

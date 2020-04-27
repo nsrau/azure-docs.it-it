@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65781103"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Applicazione non prevista nell'elenco delle applicazioni
@@ -30,7 +30,7 @@ Questo articolo illustra come vengono visualizzate le applicazioni nell'elenco *
 
 Per visualizzare tutte le applicazioni nel tenant, è necessario usare il controllo **Filtro** per visualizzare **Tutte le applicazioni** nell'elenco **Tutte le applicazioni**. A tale scopo, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -46,7 +46,7 @@ Per visualizzare tutte le applicazioni nel tenant, è necessario usare il contro
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Perché viene visualizzata un'applicazione specifica nell'elenco di tutte le applicazioni?
 
-Quando viene filtrato in **tutte le applicazioni**, l'elenco Tutte le **applicazioni** **List** mostra ogni oggetto entità servizio nel tenant. Gli oggetti entità servizio possono essere visualizzati in questo elenco in diversi modi:
+Quando viene applicato un filtro a **tutte le applicazioni**, l' **elenco** **tutte le applicazioni** Mostra ogni oggetto entità servizio nel tenant. Gli oggetti entità servizio possono essere visualizzati in questo elenco in diversi modi:
 
 1. Quando si aggiunge un'applicazione dalla raccolta di applicazioni, incluse:
 
@@ -56,7 +56,7 @@ Quando viene filtrato in **tutte le applicazioni**, l'elenco Tutte le **applicaz
 
    3. **Applicazioni personalizzate**: un'applicazione che l'organizzazione vuole sviluppare nella piattaforma di sviluppo di applicazioni di Azure AD ma che potrebbe non essere ancora disponibile.
 
-   4. **Applicazioni non-Gallery** – Porta le tue applicazioni! Qualsiasi collegamento Web o qualsiasi applicazione che usa un campo di nome utente e password supporta i protocolli SAML o OpenID Connect oppure supporta SCIM che può essere integrato per un accesso Single Sign-On con Azure AD.
+   4. **Applicazioni non della raccolta** : porta le tue applicazioni! Qualsiasi collegamento Web o qualsiasi applicazione che usa un campo di nome utente e password supporta i protocolli SAML o OpenID Connect oppure supporta SCIM che può essere integrato per un accesso Single Sign-On con Azure AD.
 
 2. Quando si effettua l'iscrizione o si esegue l'accesso a un'applicazione di terze parti integrata con Azure Active Directory<sup></sup>, ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
@@ -90,7 +90,7 @@ Per disabilitare tutti gli accessi utente a un'applicazione, seguire i passaggi 
 
 Per **eliminare un'applicazione**, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -100,7 +100,7 @@ Per **eliminare un'applicazione**, seguire questa procedura:
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione che si desidera eliminare.
 
@@ -112,15 +112,15 @@ La disabilitazione di consenso da parte dell'utente per l'intera directory imped
 
 Per **disabilitare tutte le future operazioni di consenso utente nell'intera directory**, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
-5.  fare clic su **Impostazioni utente**.
+5.  fare clic su **impostazioni utente**.
 
 6.  Disabilitare tutte le future operazioni di consenso degli utenti impostando l'opzione **Gli utenti possono consentire alle app di accedere ai propri dati** su **No** e facendo clic sul pulsante **Salva**.
 

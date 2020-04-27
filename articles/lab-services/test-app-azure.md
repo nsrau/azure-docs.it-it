@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65872529"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
-Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. Quindi, si usa Visual Studio 2019 per distribuire l'app nella condivisione file in modo da poter eseguire l'app nella macchina virtuale nel lab.  
+Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. Si usa quindi Visual Studio 2019 per distribuire l'app nella condivisione file, in modo che sia possibile eseguire l'app nella macchina virtuale nel Lab.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
 ## <a name="publish-your-app-from-visual-studio"></a>Pubblicare l'app Web da Visual Studio
 In questa sezione, verrà mostrato come pubblicare l'app da Visual Studio a una macchina virtuale di test nel cloud.
 
-1. Creare un'applicazione desktop/web utilizzando Visual Studio 2019.
+1. Creare un'applicazione desktop/Web utilizzando Visual Studio 2019.
 2. Creare l'app.
 3. Per pubblicare l'app, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**. 
 4. In **Pubblicazione guidata**, immettere l'**unità** mappata alla condivisione file.

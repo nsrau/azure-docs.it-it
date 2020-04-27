@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
 ms.openlocfilehash: e984531feced2d61332e4c399848c12cd245a34a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60870707"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>Note sulla versione dell'aggiornamento 0.6 per l'array virtuale StorSimple
@@ -54,7 +54,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 
 | No. | Funzionalità | Problema |
 | --- | --- | --- |
-| 1 |Security| Questa versione contiene aggiornamenti importanti per la sicurezza di Windows. Si consiglia di installare questo aggiornamento immediatamente.|
+| 1 |Sicurezza| Questa versione contiene aggiornamenti importanti per la sicurezza di Windows. Si consiglia di installare questo aggiornamento immediatamente.|
 | 2 |Restore| Durante il ripristino, si è verificato una race condition che potrebbe impedire il completamento del processo di ripristino. La correzione del bug consente di risolvere questa race condition.|
 
 

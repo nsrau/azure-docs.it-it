@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulle prestazioni delle applicazioni
-description: Risposte alle domande frequenti sulla disponibilità, le prestazioni e i problemi delle applicazioni nel servizio app di Azure.Get answers to frequently asked questions about availability, performance, and application issues in Azure App Service.
+description: Risposte alle domande frequenti su disponibilità, prestazioni e problemi dell'applicazione nel servizio app Azure.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259864"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159984"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
 > [!NOTE]
-> Alcune delle linee guida seguenti potrebbero funzionare solo su Windows o Linux App Services. Ad esempio, Linux App Services viene eseguito in modalità a 64 bit per impostazione predefinita.
+> Alcune delle linee guida seguenti possono funzionare solo nei servizi app Windows o Linux. Per impostazione predefinita, ad esempio, i servizi app Linux vengono eseguiti in modalità a 64 bit.
 >
 
 Questo articolo offre risposte alle domande frequenti sui problemi di prestazioni delle applicazioni per la [funzionalità App Web del servizio app di Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -46,8 +46,8 @@ In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realment
 
 Per visualizzare i log eventi dell'app Web:
 
-1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Nel menu , selezionare **Debug Console** > **CMD**.
+1. Accedere al **sito Web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+2. Nel menu selezionare **console di debug** > **cmd**.
 3. Selezionare la cartella **LogFiles**.
 4. Per visualizzare i log eventi, selezionare l'icona della matita accanto a **eventlog.xml**.
 5. Per scaricare i log, eseguire il cmdlet `Save-AzureWebSiteLog -Name webappname` di PowerShell.
@@ -56,10 +56,10 @@ Per visualizzare i log eventi dell'app Web:
 
 Per acquisire un dump della memoria in modalità utente per l'app Web:
 
-1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Accedere al **sito Web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Selezionare il menu **Process Explorer** (Esplora processi).
 3. Fare clic con il pulsante destro del mouse sul processo **w3wp.exe** o sul proprio processo Web.
-4. Selezionare **Scarica dump completo memoria** > **Full Dump**.
+4. Selezionare **download memory dump** > **completo dump**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Come si visualizzano le informazioni a livello di processo per l'app Web?
 
@@ -69,7 +69,7 @@ Sono disponibili due opzioni per la visualizzazione di informazioni a livello di
     1. Aprire **Process Explorer** (Esplora processi) per l'app Web.
     2. Per visualizzare i dettagli, selezionare il processo **w3wp.exe**.
 *   Nella console Kudu:
-    1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Accedere al **sito Web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Selezionare il menu **Process Explorer** (Esplora processi).
     3. Per il processo **w3wp.exe** selezionare **Properties** (Proprietà).
 
@@ -101,7 +101,7 @@ Per impostazione predefinita, le app Web vengono scaricate se restano inattive p
 Per abilitare la traccia delle richieste non riuscite:
 
 1. Nel portale di Azure passare all'app Web.
-3. Selezionare **Tutte le impostazioni** > **dei registri di diagnostica**.
+3. Selezionare **tutte le impostazioni** > **log di diagnostica**.
 4. Per **Traccia delle richieste non riuscite** selezionare **Sì**.
 5. Selezionare **Salva**.
 6. Nel pannello dell'app Web selezionare **Strumenti**.
@@ -142,8 +142,8 @@ Per abilitare la traccia delle richieste non riuscite:
     </tracing>
     ```
 13. Per scaricare le tracce di richieste non riuscite, nel [portale](https://portal.azure.com) passare al sito Web.
-15. Selezionare **Strumenti** > **Kudu** > **Go**.
-18. Nel menu , selezionare **Debug Console** > **CMD**.
+15. Selezionare **strumenti** > **Kudu** > **Vai**.
+18. Nel menu selezionare **console di debug** > **cmd**.
 19. Selezionare la cartella **LogFiles** e quindi la cartella con un nome che inizia con **W3SVC**.
 20. Per visualizzare il file XML, selezionare l'icona della matita.
 
@@ -174,7 +174,7 @@ Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclu
 
 Se si usa la funzionalità di cache locale del servizio app, la struttura delle cartelle LogFiles e Data per l'istanza di servizio App sono interessate. Quando si usa la cache locale, vengono create sottocartelle nelle cartelle LogFiles e Data dell'archivio. Le sottocartelle usano il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.
 
-Per determinare se si usa la cache locale, controllare la scheda **Impostazioni applicazione** di servizio app. Se viene utilizzata la cache `WEBSITE_LOCAL_CACHE_OPTION` locale, `Always`l'impostazione dell'app è impostata su .
+Per determinare se si sta usando la cache locale, controllare la scheda **impostazioni dell'applicazione** del servizio app. Se si usa la cache locale, l'impostazione `WEBSITE_LOCAL_CACHE_OPTION` dell'app è impostata `Always`su.
 
 Se non si usa la cache locale e si verifica questo problema, inviare una richiesta di supporto.
 

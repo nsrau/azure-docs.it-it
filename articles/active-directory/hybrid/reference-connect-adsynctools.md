@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60454660"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncTools
@@ -528,7 +528,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>DESCRIZIONE
-Query di funzione AAD Connect cronologia esecuzione ed esporta tutti gli utenti che segnalano l'errore: "SourceAnchor attributo è stato modificato."
+Funzione interroga la cronologia di esecuzione di AAD Connect ed Esporta tutti gli utenti che segnalano l'errore: "l'attributo SourceAnchor è stato modificato".
 
 ### <a name="examples"></a>ESEMPI
 
@@ -859,7 +859,7 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>RIEPILOGO
-(DA FARE) Ripristina l'attributo UserCertificate di Active Directory da un file di certificato
+(a) Ripristina l'attributo UserCertificate di Active Directory da un file di certificato
 
 ### <a name="syntax"></a>SYNTAX
 

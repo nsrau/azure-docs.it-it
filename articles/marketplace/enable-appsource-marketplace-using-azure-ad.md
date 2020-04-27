@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684634"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160614"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
 
@@ -45,7 +45,7 @@ Per altre informazioni sui requisiti tecnici SaaS, vedere la [Guida alla pubblic
 
 ## <a name="azure-ad-integration"></a>Integrazione di Azure AD
 
-- Per informazioni su come abilitare l'accesso Single Sign-On mediante l'integrazione di Azure AD nell'inserzione, vedere [Azure Active Directory per sviluppatori]( https://aka.ms/aaddev).
+- Per informazioni su come abilitare l'accesso Single Sign-On mediante l'integrazione di Azure AD nell'inserzione, vedere [Azure Active Directory per sviluppatori]( https://docs.microsoft.com/azure/active-directory/develop/).
 - Per informazioni dettagliate sull'accesso Single Sign-On di Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="enable-a-trial-listing"></a>Abilitare un'inserzione relativa a una versione di valutazione
@@ -73,7 +73,7 @@ Usare Azure AD per supportare le azioni seguenti:
 Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato di Azure AD, seguire questa procedura:
 
 1. Registrare l'app nel Marketplace.
-1. Sviluppare SSO con Azure AD usando [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)
+1. Sviluppare SSO con Azure AD usando [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
 1. Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per fornire un'esperienza di valutazione con un solo clic.
 
 ### <a name="single-tenant-solutions"></a>Soluzioni a tenant singolo
@@ -81,7 +81,7 @@ Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato d
 Usare Azure AD per supportare una delle azioni seguenti:
 
 - Aggiungere utenti guest alla directory tramite [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Impostare manualmente le versioni di valutazione per i clienti utilizzando l'opzione di pubblicazione **Contattami.**
+- Configurare manualmente le versioni di valutazione per i clienti tramite l'opzione di pubblicazione **Contact me** .
 - Sviluppare una test drive per ogni cliente.
 - Creare un'app demo di esempio multi-tenant che usa SSO.
 
@@ -89,8 +89,8 @@ Usare Azure AD per supportare una delle azioni seguenti:
 
 Se non è già stato fatto, 
 
-- [Scopri](https://azuremarketplace.microsoft.com/sell) di più sul mercato.
+- [Informazioni sul Marketplace](https://azuremarketplace.microsoft.com/sell) .
 
-Per registrarti al Centro per i partner, inizia a creare una nuova offerta o a lavorarla su una esistente:
+Per eseguire la registrazione al centro per i partner, iniziare a creare una nuova offerta o lavorare su una esistente:
 
-- [Accedi al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare la tua offerta.
+- [Accedere al centro](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per i partner per creare o completare l'offerta.

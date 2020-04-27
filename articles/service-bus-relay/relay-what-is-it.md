@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68422924"
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
@@ -43,7 +43,7 @@ Nel modello di trasferimento dei dati con inoltro i passaggi di base sono i segu
 ## <a name="features"></a>Funzionalità 
 Il servizio di inoltro di Azure include due funzionalità.
 
-- [Connessioni ibride:](#hybrid-connections) utilizza i socket Web standard aperti che consentono scenari multipiattaforma.
+- [Connessioni ibride](#hybrid-connections) : USA i socket Web standard aperti che consentono scenari multipiattaforma.
 - Inoltri WCF: questa funzionalità usa Windows Communication Foundation (WCF) per supportare chiamate RPC. L'inoltro WCF è la soluzione di inoltro legacy che molti clienti usano già con i modelli di programmazione WCF.
 
 ## <a name="hybrid-connections"></a>connessioni ibride
@@ -58,7 +58,7 @@ Per informazioni dettagliate sul protocollo Connessioni ibride, vedere [Protocol
 ## <a name="wcf-relay"></a>Inoltro WCF
 La funzionalità Inoltro WCF è compatibile con la versione completa di .NET Framework e con WCF. È possibile avviare una connessione tra il servizio locale e il servizio di inoltro usando un gruppo di binding di "inoltro" WCF. Viene eseguito il mapping dei binding di inoltro ai nuovi elementi di binding del trasporto progettati per creare i componenti del canale WCF che si integrano con il bus di servizio nel cloud. Per altre informazioni, vedere [Introduzione all'inoltro WCF](service-bus-relay-tutorial.md).
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>Connessioni ibride e inoltro WCFHybrid Connections vs.
+## <a name="hybrid-connections-vs-wcf-relay"></a>Confronto tra Connessioni ibride e Inoltro WCF
 Sia Connessioni ibride che Inoltro WCF consentono la connessione sicura ad asset presenti all'interno di una rete aziendale. L'uso dell'una o dell'altra funzionalità dipende dalle specifiche esigenze, come illustrato nella tabella seguente:
 
 |  | Inoltro WCF | connessioni ibride |
@@ -82,7 +82,7 @@ Il diagramma seguente mostra in che modo il servizio Inoltro di Azure gestisce l
 5. Il gateway inoltra la richiesta di connessione al gateway corretto indicato nell'archivio gateway. 
 6. Il gateway invia una richiesta al client in ascolto per creare un canale temporaneo con il nodo del gateway più vicino al client di invio. 
 7. Il client in ascolto crea un canale temporaneo per il gateway più vicino al client di invio. Ora che la connessione tra i client è stata stabilita tramite un gateway, i client possono scambiarsi messaggi. 
-8. Il gateway inoltra tutti i messaggi dal client in ascolto al client di invio. 
+8. Il gateway inoltra tutti i messaggi dal client in ascolto al client mittente. 
 9. Il gateway inoltra i messaggi dal client di invio al client in ascolto.  
 
 ## <a name="next-steps"></a>Passaggi successivi

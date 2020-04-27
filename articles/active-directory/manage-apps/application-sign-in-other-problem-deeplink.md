@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44825f32a13db0a221252c042dc9f23ec43a9c8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65825421"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemi di accesso a un'applicazione usando un collegamento diretto
@@ -57,7 +57,7 @@ I collegamenti diretti o gli URL di accesso utente sono collegamenti che gli ute
 
 Per verificare se il collegamento diretto è corretto, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -67,9 +67,9 @@ Per verificare se il collegamento diretto è corretto, seguire questa procedura:
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
-6. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+6. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 7. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -79,7 +79,7 @@ Per verificare se il collegamento diretto è corretto, seguire questa procedura:
 
 10. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-    * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+    * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 11. Selezionare l'applicazione di cui si desidera verificare il .collegamento diretto.
 
@@ -101,7 +101,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 6.  Al termine dell'installazione, **riavviare** la sessione del browser.
 
-7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni SSO con password
+7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni con accesso SSO basato su password
 
 È anche possibile scaricare l'estensione per Chrome e Firefox da questi collegamenti diretti:
 
@@ -121,7 +121,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa procedura:
 
-1.  Aprire il portale di [Azure](https://portal.azure.com) e accedere come **amministratore globale** o **coamministratore.**
+1.  Aprire il [portale di Azure](https://portal.azure.com) e accedere come **amministratore globale** o **coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -145,7 +145,7 @@ Dopo un breve periodo di tempo, sarà possibile visualizzare il riquadro di conf
 
 Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -155,7 +155,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
@@ -163,7 +163,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 8. Selezionare la modalità **Accesso basato su password**.
 
-9. [Assegnare utenti all'applicazione](#how-to-assign-a-user-to-an-application-directly).
+9. [Assegnare gli utenti all'applicazione](#how-to-assign-a-user-to-an-application-directly).
 
 10. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 
@@ -179,7 +179,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa procedura:
 
-1.  Aprire il portale di [Azure](https://portal.azure.com) e accedere come **amministratore globale** o **coamministratore.**
+1.  Aprire il [portale di Azure](https://portal.azure.com) e accedere come **amministratore globale** o **coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -191,7 +191,7 @@ Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa proced
 
 6.  Fare clic su**Applicazione non nella raccolta**.
 
-7.  Immettere il nome dell'applicazione nella casella di testo **Nome**. Fare clic su **Aggiungi**.
+7.  Immettere il nome dell'applicazione nella casella di testo **Nome**. Selezionare **Aggiungi.**
 
 Dopo un breve periodo di tempo, sarà possibile visualizzare il riquadro di configurazione dell'applicazione.
 
@@ -199,7 +199,7 @@ Dopo un breve periodo di tempo, sarà possibile visualizzare il riquadro di conf
 
 Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -209,7 +209,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-    1.  Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+    1.  Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6.  Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
@@ -227,7 +227,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -237,7 +237,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
@@ -249,7 +249,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo ** o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
-11. Passare il mouse **sull'utente** nell'elenco per visualizzare una **casella di controllo.** Per aggiungere l'utente all'elenco **Selezionato**, fare clic sulla casella di controllo accanto alla foto o al logo del profilo.
+11. Posizionare il puntatore del mouse sull' **utente** nell'elenco per visualizzare una **casella**di controllo. Per aggiungere l'utente all'elenco **Selezionato**, fare clic sulla casella di controllo accanto alla foto o al logo del profilo.
 
 12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
@@ -257,7 +257,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel riquadro **Aggiungi assegnazione** per scegliere un ruolo da assegnare agli utenti selezionati.
 
-15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
+15. Fare clic sul pulsante **assegna** per assegnare l'applicazione agli utenti selezionati.
 
 Dopo un breve periodo di tempo, gli utenti selezionati saranno in grado di avviare queste applicazioni nel pannello di accesso.
 

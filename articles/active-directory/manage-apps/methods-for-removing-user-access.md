@@ -16,10 +16,10 @@ ms.date: 10/17/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b69502995eff88df53af3671a8e611809f83e59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65826105"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Come rimuovere l'accesso di un utente a un'applicazione
@@ -38,17 +38,17 @@ Per disabilitare tutti gli accessi utente a un'applicazione, seguire i passaggi 
 
 Per **eliminare un'applicazione**, seguire queste istruzioni:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4. Fare clic su Applicazioni aziendali nel menu di spostamento a sinistra di Azure Active Directory.Click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. Fare clic su **applicazioni aziendali** nel menu di spostamento a sinistra Azure Active Directory.
 
-5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione che si desidera eliminare.
 
@@ -60,7 +60,7 @@ La disabilitazione di consenso da parte dell'utente per l'intera directory imped
 
 Per **disabilitare tutte le future operazioni di consenso utente nell'intera directory**, seguire queste istruzioni:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'estensione **Azure Active Directory** 
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64724111"
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questo articolo illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.
 
@@ -43,13 +43,13 @@ Questa sezione illustra come usare **NuGet** per aggiungere Media Services .NET 
 
 In alternativa, è possibile ottenere i bit più recenti di Media Services .NET SDK da GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) o [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilare la soluzione e quindi aggiungere i riferimenti al progetto client. Tutte le dipendenze necessarie vengono scaricate ed estratte automaticamente.
 
-1. Creare una nuova applicazione console C# in Visual Studio. Immettere il **nome**, **percorso**e **nome soluzione**, quindi fare clic su OK.
+1. Creare una nuova applicazione console C# in Visual Studio. Immettere il **nome**, il **percorso**e il **nome della soluzione**, quindi fare clic su OK.
 2. Compilare la soluzione.
-3. Usare il pacchetto **NuGet** per installare e aggiungere **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). L'installazione di questo pacchetto, installa anche **.NET SDK** di Servizi multimediali e aggiunge tutte le altre dipendenze necessarie.
+3. Usare il pacchetto **NuGet** per installare e aggiungere **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Installando questo pacchetto, viene installato anche l' **SDK di servizi multimediali per .NET** e vengono aggiunte tutte le altre dipendenze necessarie.
    
     Verificare di aver installato la versione più aggiornata di NuGet. Per altre informazioni e per istruzioni di installazione, vedere [NuGet](https://nuget.codeplex.com/).
 
-    1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e **scegliere Gestisci pacchetti NuGet**.
+    1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Gestisci pacchetti NuGet**.
 
     2. Viene visualizzata la finestra di dialogo Gestione pacchetti NuGet.
 
@@ -57,7 +57,7 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
    
     4. Il progetto viene modificato e vengono aggiunti riferimenti a Media Services .NET SDK, alle relative estensioni e ad altri assembly dipendenti.
 4. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](https://docs.nuget.org/consume/package-restore).
-5. Aggiungere un riferimento all'assembly **System.Configuration** . Questo assembly contiene il file System.Configuration. **Classe ConfigurationManager** utilizzata per accedere ai file di configurazione, ad esempio App.config.
+5. Aggiungere un riferimento all'assembly **System.Configuration** . Questo assembly contiene System. Configuration. Classe **ConfigurationManager** utilizzata per accedere ai file di configurazione (ad esempio, app. config).
    
     1. Per aggiungere riferimenti usando la finestra di dialogo Gestione riferimenti, fare clic sul nome del progetto in Esplora soluzioni. Fare clic su **Aggiungi** e quindi su **Riferimento**.
    
@@ -141,6 +141,6 @@ Ora [è possibile connettersi all'API AMS](media-services-use-aad-auth-to-access
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

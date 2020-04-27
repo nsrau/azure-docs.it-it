@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381465"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory 
@@ -64,5 +64,5 @@ Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver
 | Pianificare il ciclo di vita dell’identità ibrida |[Determinare le attività per la soluzione ibrida di gestione delle identità](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Gestione della sincronizzazione](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Determinare la strategia di adozione di una soluzione per la gestione di un'identità ibrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Determinare i requisiti d’identità](plan-hybrid-identity-design-considerations-business-needs.md)
+[Determinazione dei requisiti d’identità](plan-hybrid-identity-design-considerations-business-needs.md)
 

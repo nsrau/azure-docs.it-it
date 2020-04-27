@@ -9,16 +9,16 @@ ms.date: 04/11/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60326004"
 ---
 # <a name="encrypt-table-data"></a>Crittografare i dati delle tabelle
 La libreria client di Archiviazione di Azure per .NET supporta la crittografia di proprietà di entità stringa per le operazioni di inserimento e sostituzione. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.    
 
-Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [EncryptProperty] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client usa queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. Ad esempio, se X, crittografare le proprietà A; altrimenti crittografare le proprietà A e B. Non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
+Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [EncryptProperty] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client usa queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografare la proprietà A; in caso contrario, crittografare le proprietà A e B). Non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
 
 ## <a name="merge-support"></a>Supporto per l'unione
 
@@ -28,7 +28,7 @@ Per informazioni sulla crittografia dei dati di tabella, vedere [Crittografia la
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modelli di progettazione tabella](table-storage-design-patterns.md)
+- [Modelli di progettazione tabelle](table-storage-design-patterns.md)
 - [Modellazione di relazioni](table-storage-design-modeling.md)
 - [Modellazione di relazioni](table-storage-design-modeling.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

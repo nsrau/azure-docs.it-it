@@ -3,12 +3,12 @@ title: Eseguire il backup di SQL Server tramite server di Backup di Azure
 description: Questo articolo illustra la configurazione per eseguire il backup dei database SQL Server usando Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505955"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159251"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure usando server di Backup di Azure
 
@@ -24,7 +24,7 @@ Per eseguire il backup di un database di SQL Server e ripristinarlo da Azure:
 
 Prima di iniziare, assicurarsi di aver [installato e preparato server di backup di Azure](backup-azure-microsoft-azure-backup.md).
 
-## <a name="create-a-backup-policy"></a>Creare un criterio di backup 
+## <a name="create-a-backup-policy"></a>Creare un criterio di backup
 
 Per proteggere SQL Server database in Azure, creare prima di tutto un criterio di backup:
 
@@ -87,7 +87,6 @@ Per proteggere SQL Server database in Azure, creare prima di tutto un criterio d
     > Usare Data Protection Manager (DPM) per pianificare i backup di Azure al termine dei backup del disco locale. Quando si segue questa procedura, il backup su disco più recente viene copiato in Azure.
     >
 
-
 1. Scegliere la pianificazione per i criteri di conservazione. Per altre informazioni sul funzionamento dei criteri di conservazione, vedere [usare backup di Azure per sostituire l'infrastruttura](backup-azure-backup-cloud-as-tape.md)basata su nastro.
 
     ![Scegliere un criterio di conservazione in MAB](./media/backup-azure-backup-sql/pg-retentionschedule.png)
@@ -123,7 +122,7 @@ Quando si verifica il primo backup, viene creato un punto di ripristino. Anzich�
 1. Nel menu a discesa selezionare **protezione dati online**. Quindi selezionare **OK** per avviare la creazione di un punto di ripristino in Azure.
 
     ![Avviare la creazione di un punto di ripristino in Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-1. È possibile visualizzare lo stato di avanzamento del processo nell'area di lavoro **monitoraggio** . 
+1. È possibile visualizzare lo stato di avanzamento del processo nell'area di lavoro **monitoraggio** .
 
     ![Visualizzare lo stato di avanzamento del processo nella console di monitoraggio](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 

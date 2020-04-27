@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66399207"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creare elementi personalizzati per la macchina virtuale di DevTest Labs
@@ -90,7 +90,7 @@ I tipi consentiti sono:
 * array (tutte le matrici JSON valide)
 
 ## <a name="secrets-as-secure-strings"></a>Segreti come stringhe sicure
-Dichiarare i segreti come stringhe sicure. Di seguito è riportata la sintassi `parameters` per dichiarare un parametro di stringa protetta all'interno della sezione del file **artifactfile.json:**
+Dichiarare i segreti come stringhe sicure. Di seguito è illustrata la sintassi per dichiarare un parametro di stringa `parameters` sicuro all'interno della sezione del file **artifactfile. JSON** :
 
 ```json
 
@@ -102,7 +102,7 @@ Dichiarare i segreti come stringhe sicure. Di seguito è riportata la sintassi `
     },
 ```
 
-Per il comando di installazione dell'elemento, eseguire lo script di PowerShell che accetta la stringa sicura creata utilizzando il comando ConvertTo-SecureString. 
+Per il comando di installazione dell'artefatto, eseguire lo script di PowerShell che accetta la stringa sicura creata usando il comando ConvertTo-SecureString. 
 
 ```json
   "runCommand": {
@@ -110,9 +110,9 @@ Per il comando di installazione dell'elemento, eseguire lo script di PowerShell 
   }
 ```
 
-Per l'esempio completo artifactfile.json e artifact.ps1 (script PowerShell), vedere [questo esempio in GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+Per l'esempio completo artifactfile. JSON e il file artefatt. ps1 (script di PowerShell), vedere [questo esempio su GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-Un altro punto importante da notare è di non registrare i segreti nella console quando l'output viene acquisito per il debug dell'utente. 
+Un altro punto importante da tenere presente è la mancata registrazione dei segreti nella console perché l'output viene acquisito per il debug utente. 
 
 ## <a name="artifact-expressions-and-functions"></a>Espressioni e funzioni dell’elemento
 È possibile usare espressioni e funzioni per costruire il comando di installazione dell'elemento.

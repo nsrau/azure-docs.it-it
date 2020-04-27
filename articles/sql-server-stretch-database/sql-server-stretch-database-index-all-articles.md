@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66003034"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Tutti gli argomenti per il servizio Azure SQL Server Stretch Database
@@ -46,7 +46,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 10 |[Monitoraggio e risoluzione dei problemi di migrazione dei dati (Stretch Database)](sql-server-stretch-database-monitor.md) |Informazioni su come monitorare lo stato della migrazione dei dati. |
 | 11 |[Sospendere e riprendere la migrazione dei dati (Stretch Database)](sql-server-stretch-database-pause.md) |Informazioni su come sospendere o riprendere la migrazione dei dati in Azure. |
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 | &nbsp; | Titolo | Descrizione |
 | ---:|:--- |:--- |
 | 12 |[Abilitare Transparent Data Encryption (TDE) per Stretch Database su Azure](sql-server-stretch-database-encryption-tde.md) |Abilitare Transparent Data Encryption (TDE) per SQL Server Stretch Database in Azure |

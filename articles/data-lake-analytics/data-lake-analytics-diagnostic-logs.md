@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60616502"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
@@ -185,7 +185,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, JobSubmitted. |
 | resultType |string |Stato secondario per lo stato del processo (operationName). |
 | resultSignature |string |Informazioni aggiuntive sullo stato di processo (operationName). |
-| identity |string |L'utente che ha richiesto l'operazione. Ad esempio, susan@contoso.com |
+| identity |string |L'utente che ha richiesto l'operazione. Ad esempio: susan@contoso.com. |
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di controllo) |
 
 > [!NOTE]

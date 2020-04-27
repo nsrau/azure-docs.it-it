@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61294257"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs
@@ -28,9 +28,9 @@ In Azure DevTest Labs, un'immagine con licenza include le condizioni, in genere 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinare se rendere disponibile agli utenti un'immagine concessa in licenza
 Il primo passaggio per consentire agli utenti di creare macchine virtuali da un'immagine concessa in licenza è assicurarsi che siano state accettate le condizioni per tale immagine. I passaggi seguenti illustrano come visualizzare lo stato dell'offerta di un'immagine concessa in licenza e, se necessario, accettare le condizioni dell'immagine.
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **tutti i servizi**, quindi selezionare **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 

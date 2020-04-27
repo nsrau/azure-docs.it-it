@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64680290"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Confronto tra immagini personalizzate e formule nei lab di sviluppo/test
@@ -27,25 +27,25 @@ Sia le [immagini personalizzate](devtest-lab-create-template.md) che le [formule
 ## <a name="custom-image-pros-and-cons"></a>Vantaggi e svantaggi delle immagini personalizzate
 Le immagini personalizzate offrono un modo statico e non modificabile per creare macchine virtuali da un ambiente di propria scelta. 
 
-**Pro**
+**I professionisti**
 
 * Il provisioning della macchina virtuale da un'immagine personalizzata è veloce poiché non vengono apportate modifiche dopo che la macchina virtuale viene attivata dall'immagine. In altre parole, non vi sono impostazioni da applicare poiché l'immagine personalizzata è semplicemente un'immagine senza impostazioni. 
 * Le macchine virtuali create da un'unica immagine personalizzata sono identiche.
 
-**Contro**
+**Svantaggi**
 
 * Se è necessario aggiornare alcuni aspetti dell'immagine personalizzata, si dovrà ricreare l'immagine.  
 
 ## <a name="formula-pros-and-cons"></a>Vantaggi e svantaggi delle formule
 Le formule offrono un modo dinamico per creare macchine virtuali in base a una configurazione o alle impostazioni desiderate.
 
-**Pro**
+**I professionisti**
 
 * È possibile acquisire in tempo reale le modifiche apportate nell'ambiente in tempo reale usando gli elementi. Ad esempio, per installare una macchina virtuale con i bit più recenti della pipeline di rilascio o integrare il codice più recente dal repository, è possibile specificare semplicemente un elemento che consenta di distribuire i bit più recenti o integri il codice più recente nella formula insieme a un'immagine di base di destinazione. Ogni volta che la formula viene usata per creare macchine virtuali, il codice o i bit più recenti vengono integrati o distribuiti alla macchina virtuale. 
 * A differenza delle immagini personalizzate, le formule possono definire impostazioni predefinite come le dimensioni delle macchine virtuali e le impostazioni della rete virtuale. 
 * Le impostazioni salvate in una formula vengono visualizzate come valori predefiniti, ma possono essere modificate quando viene creata la macchina virtuale. 
 
-**Contro**
+**Svantaggi**
 
 * La creazione di una macchina virtuale da una formula può richiedere più tempo rispetto alla creazione da un'immagine personalizzata.
 

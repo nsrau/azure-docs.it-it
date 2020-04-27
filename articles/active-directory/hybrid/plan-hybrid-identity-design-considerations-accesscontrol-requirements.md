@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60295144"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
@@ -81,6 +81,6 @@ Sebbene l'autenticazione e l'autorizzazione costituiscano elementi essenziali pe
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare i requisiti di risposta agli eventi imprevisti](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
 

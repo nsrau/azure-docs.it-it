@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69015858"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 
-> [!div class="op_single_selector" title1="Selezionare la versione di Servizi multimediali in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 2](media-services-dynamic-manifest-overview.md)
 > * [Versione 3](../latest/filters-dynamic-manifest-overview.md)
 
@@ -125,7 +125,7 @@ Nell'esempio seguente si usa un codificatore per codificare un asset in formato 
 ![Filtro di rendering][renditions1]
 
 ## <a name="removing-language-tracks"></a>Rimozione delle tracce di lingua
-Le risorse potrebbero includere più lingue audio, ad esempio inglese, spagnolo, francese e così via. In genere, la selezione delle tracce audio predefinite dei gestori di Player SDK e le tracce audio disponibili per ogni selezione utente. Sviluppare questo tipo di SDK, tuttavia, è particolarmente difficile poiché richiede diverse implementazioni nel Player Framework specifico di ogni dispositivo. Inoltre, su alcune piattaforme, le API del lettore sono limitate e non includono la funzione di selezione audio in cui gli utenti non possono selezionare o modificare la traccia audio predefinita. Con i filtri delle risorse, puoi controllare il comportamento creando filtri che includono solo le lingue audio desiderate.
+Gli asset possono includere più lingue audio, ad esempio inglese, spagnolo, francese e così via. In genere, il lettore SDK gestisce la selezione della traccia audio predefinita e le tracce audio disponibili per ogni selezione utente. Sviluppare questo tipo di SDK, tuttavia, è particolarmente difficile poiché richiede diverse implementazioni nel Player Framework specifico di ogni dispositivo. In alcune piattaforme, inoltre, le API dei giocatori sono limitate e non includono funzionalità di selezione audio, in cui gli utenti non possono selezionare o modificare la traccia audio predefinita. Con i filtri di asset è possibile controllare il comportamento creando filtri che includono solo lingue audio desiderate.
 
 ![Filtro delle tracce di lingua][language_filter]
 
@@ -165,7 +165,7 @@ Oltre a fornire il supporto per gli annunci pubblicitari, l'impostazione LiveBac
 ## <a name="create-filters-programmatically"></a>Creare filtri a livello di codice
 L'articolo seguente descrive le entità di Servizi multimediali correlate ai filtri. L'articolo illustra anche come creare filtri a livello di codice.  
 
-[Creare filtri con API REST.](media-services-rest-dynamic-manifest.md)
+[Creare filtri con le API REST](media-services-rest-dynamic-manifest.md).
 
 ## <a name="combining-multiple-filters-filter-composition"></a>Combinazione di più filtri (filtro composizione)
 È inoltre possibile combinare più filtri in un singolo URL. 
@@ -182,7 +182,7 @@ Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifes
 
 È possibile combinare fino a tre filtri. 
 
-Per ulteriori informazioni, consultate [questo](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) Blog.
 
 ## <a name="know-issues-and-limitations"></a>Problemi noti e limitazioni
 * Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP. 
@@ -192,10 +192,10 @@ Per ulteriori informazioni, consultate [questo](https://azure.microsoft.com/blog
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Informazioni generali sulla distribuzione di contenuti ai clienti](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

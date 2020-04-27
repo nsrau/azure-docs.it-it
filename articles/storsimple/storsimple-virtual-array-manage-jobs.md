@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60302500"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple
@@ -43,7 +43,7 @@ Il pannello **Processi** fornisce un unico portale centralizzato per la visualiz
 
 L'elenco dei processi viene aggiornato ogni 30 secondi.
 
-## <a name="view-job-details"></a>Visualizza i dettagli dei processi
+## <a name="view-job-details"></a>Visualizzare i dettagli di un processo
 Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo.
 
 #### <a name="to-view-job-details"></a>Per visualizzare i dettagli dei processi
@@ -64,5 +64,5 @@ Verrà visualizzato un errore indicante che l'ora del dispositivo non è sincron
 Questi errori possono verificarsi con processi di backup, ripristino, aggiornamento e failover. Se il provisioning della macchina virtuale viene eseguito in Hyper-V, l'ora della macchina virtuale alla fine si sincronizza con l'hypervisor. Quando ciò accade, è possibile riavviare il processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni su come utilizzare l'interfaccia utente Web locale per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 

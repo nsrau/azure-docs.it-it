@@ -1,6 +1,6 @@
 ---
-title: Elaborazione ad alte prestazioni - Macchine virtuali di Azure Documenti Microsoft
-description: Informazioni sul calcolo ad alte prestazioni in Azure.Learn about High Performance Computing on Azure.
+title: Calcolo ad alte prestazioni-macchine virtuali di Azure | Microsoft Docs
+description: Informazioni sul calcolo ad alte prestazioni in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 10549abfbdacf1fc1ae6b99f4cab20a290c32a2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67707818"
 ---
 # <a name="optimization-for-linux"></a>Ottimizzazione per Linux
 
-Questo articolo illustra alcune tecniche chiave per ottimizzare l'immagine del sistema operativo. Ulteriori informazioni [sull'abilitazione di InfiniBand](enable-infiniband.md) e sull'ottimizzazione delle immagini del sistema operativo.
+Questo articolo illustra alcune tecniche chiave per ottimizzare l'immagine del sistema operativo. Altre informazioni su come [abilitare InfiniBand](enable-infiniband.md) e ottimizzare le immagini del sistema operativo.
 
 ## <a name="update-lis"></a>Aggiorna LIS
 
-Se si esegue la distribuzione usando un'immagine personalizzata, ad esempio un sistema operativo meno recente, ad esempio CentOS/RHEL 7.4 o 7.5, aggiornare LIS nella macchina virtuale.
+Se si esegue la distribuzione usando un'immagine personalizzata, ad esempio un sistema operativo meno recente, ad esempio CentOS/RHEL 7,4 o 7,5, aggiornare LIS nella macchina virtuale.
 
 ```bash
 wget https://aka.ms/lis
@@ -34,7 +34,7 @@ pushd LISISO
 ./upgrade.sh
 ```
 
-## <a name="reclaim-memory"></a>Recuperare la memoriaReclaim memory
+## <a name="reclaim-memory"></a>Recupera memoria
 
 Migliorare l'efficienza recuperando automaticamente la memoria per evitare l'accesso remoto alla memoria.
 
@@ -42,15 +42,15 @@ Migliorare l'efficienza recuperando automaticamente la memoria per evitare l'acc
 echo 1 >/proc/sys/vm/zone_reclaim_mode
 ```
 
-Per rendere persistente questa operazione dopo il riavvio della macchina virtuale:To make this persist after VM reboots:
+Per renderlo permanente dopo il riavvio della macchina virtuale:
 
 ```bash
 echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p
 ```
 
-## <a name="disable-firewall-and-selinux"></a>Disattivare il firewall e SELinux
+## <a name="disable-firewall-and-selinux"></a>Disabilitare il firewall e SELinux
 
-Disattivare firewall e SELinux.
+Disabilitare il firewall e SELinux.
 
 ```bash
 systemctl stop iptables.service
@@ -62,7 +62,7 @@ iptables -nL
 sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
 
-## <a name="disable-cpupower"></a>Disabilita cpupower
+## <a name="disable-cpupower"></a>Disabilitare cpupower
 
 Disabilitare cpupower.
 
@@ -75,6 +75,6 @@ sudo systemctl disable cpupower
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Ulteriori informazioni [sull'abilitazione di InfiniBand](enable-infiniband.md) e sull'ottimizzazione delle immagini del sistema operativo.
+* Altre informazioni su come [abilitare InfiniBand](enable-infiniband.md) e ottimizzare le immagini del sistema operativo.
 
-* Altre informazioni su HPC in Azure.Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+* Scopri di più su [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

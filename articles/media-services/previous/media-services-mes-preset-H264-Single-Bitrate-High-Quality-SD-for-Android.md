@@ -1,6 +1,6 @@
 ---
 title: Codec video H.264 a bitrate singolo con risoluzione SD di alta qualità per Android | Microsoft Docs
-description: L'argomento fornisce una panoramica del Preset di attività **H264 Single Bitrate High Quality SD per Android.**
+description: Questo argomento offre una panoramica del set di impostazioni dell'attività **SD a bitrate singolo H264 per Android** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 217c4874f0375aeb4d80162af1b8453a3f7f625f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61463515"
 ---
 # <a name="h264-single-bitrate-high-quality-sd-for-android"></a>Codec video H.264 a bitrate singolo con risoluzione SD di alta qualità per Android

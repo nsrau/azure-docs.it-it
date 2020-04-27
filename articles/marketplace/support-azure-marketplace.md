@@ -1,5 +1,5 @@
 ---
-title: Sostegno al mercato commerciale Azure Marketplace
+title: Supporto per il Marketplace commerciale | Azure Marketplace
 description: Informazioni sul supporto e collegamenti per Azure Marketplace e AppSource
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81681376"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159916"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace
 
@@ -22,13 +22,13 @@ Ecco un elenco delle opzioni di supporto per Marketplace.
 
 ## <a name="onboarding"></a>Onboarding
 
-Apri un ticket con [il supporto dell'editore](https://aka.ms/marketplacepublishersupport) di Microsoft Marketplace per problemi relativi all'onboarding e all'inizio.
+Aprire un ticket con il [supporto](https://partner.microsoft.com/support/v2/?stage=1) per la pubblicazione in Microsoft Marketplace per i problemi relativi al caricamento e all'introduzione.
 
 ## <a name="partner-center"></a>Centro per i partner   
 
 | Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
-| Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Supporto per il Centro per i partner. | Il supporto è fornito 24x5. |  
+| Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Supporto per il centro per i partner. | Viene fornito il supporto 24x5. |  
 
 ## <a name="technical"></a>Tecnici  
 
@@ -48,7 +48,7 @@ Apri un ticket con [il supporto dell'editore](https://aka.ms/marketplacepublishe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visita la [pagina della guida dell'editore](https://docs.microsoft.com/azure/marketplace/)del marketplace commerciale .
-* Ulteriori informazioni sul [supporto per il programma del marketplace commerciale nel Centro per](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)i partner .
+* Visitare la [pagina della Guida per la pubblicazione nel Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/).
+* Scopri di più sul [supporto per il programma Commercial Marketplace nel centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
 ---
