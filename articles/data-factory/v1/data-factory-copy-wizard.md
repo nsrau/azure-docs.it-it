@@ -1,5 +1,5 @@
 ---
-title: Copy data easily with Copy Wizard - Azure
+title: Copiare facilmente i dati con la copia guidata-Azure
 description: Informazioni su come usare Copia guidata di Data Factory per copiare i dati da origini dati supportate nei sink.
 services: data-factory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b872cc30ae66e83274f189138dad6d609e3f536
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74927059"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiare o spostare facilmente i dati con Copia guidata di Azure Data Factory
@@ -71,7 +71,7 @@ Si supponga di avere cartelle di input nel formato seguente:
     2016/03/01/03
     ...
 
-Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. A questo punto, sostituire **2016** con **l'anno**, **03** con **il mese**, **01** con **il giorno**e **02** con **l'ora**e premere TAB. Dovrebbero essere visualizzati elenchi a discesa per selezionare il formato per queste quattro variabili:
+Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato `2016/03/01/02`. A questo punto, sostituire **2016** con **{year}**, **03** con **{Month}**, **01** con **{Day}** e **02** con **{hour}** e premere TAB. Verranno visualizzati gli elenchi a discesa per selezionare il formato per le quattro variabili seguenti:
 
 ![Uso di variabili di sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

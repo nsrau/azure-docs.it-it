@@ -1,6 +1,6 @@
 ---
-title: Gestire le registrazioni dei dispositivi usando gli SDK di Azure DPSManage device enrollments using Azure DPS SDKs
-description: Come gestire le registrazioni dei dispositivi nel servizio DPS (Hub Device Provisioning Service) IoT usando gli SDK del servizioHow to manage device enrollments in the IoT Hub Device Provisioning Service (DPS) using the Service SDKs
+title: Gestire le registrazioni dei dispositivi con gli SDK di Azure DPS
+description: Come gestire le registrazioni dei dispositivi nel servizio Device provisioning in hub Internet (DPS) tramite gli SDK del servizio
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975075"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
@@ -20,10 +20,10 @@ La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di
 ## <a name="prerequisites"></a>Prerequisiti
 * Ottenere la stringa di connessione da un'istanza del servizio Device Provisioning.
 * Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-security.md#attestation-mechanism) in uso:
-    * [**TPM (Trusted Platform Module):**](/azure/iot-dps/concepts-security#trusted-platform-module)
+    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Registrazione singola: ID registrazione e chiave di verifica dell'autenticità del TPM da un dispositivo fisico o da un simulatore TPM.
         * Il gruppo di registrazioni non è valido per l'attestazione TPM.
-    * [**X.509**](/azure/iot-dps/concepts-security):
+    * [**X. 509**](/azure/iot-dps/concepts-security):
         * Registrazione singola: [certificato foglia](/azure/iot-dps/concepts-security) dal dispositivo fisico o dall'emulatore [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) dell'SDK.
         * Gruppo di registrazioni: [certificato della CA/radice](/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore DICE dell'SDK.
 * Le chiamate API possono essere diverse a seconda dei diversi linguaggi. Per i dettagli fare riferimento agli esempi disponibili su GitHub:
@@ -48,7 +48,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     
     1. Scegliere il meccanismo per ```attestation```, che può essere TPM o X.509.
         1. **TPM**: usando la chiave di verifica dell'autenticità da un dispositivo fisico o da simulatore TPM come input, è possibile chiamare l'API dell'SDK del servizio ```TpmAttestation``` per creare l'attestazione per la registrazione. 
-        2. **X.509**: utilizzando il certificato client come input, ```X509Attestation.createFromClientCertificate``` è possibile chiamare l'API dell'SDK del servizio per creare attestazione per la registrazione.
+        2. **X. 509**: usando il certificato client come input, è possibile chiamare l'API ```X509Attestation.createFromClientCertificate``` dell'SDK del servizio per creare l'attestazione per la registrazione.
     2. Creare una nuova variabile ```IndividualEnrollment``` usando il valore del parametro ```attestation``` creato e un valore univoco del parametro ```registrationId``` come input, disponibile nel dispositivo o generato dal simulatore TPM.  Facoltativamente, è possibile impostare parametri quali, ad esempio, ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     3. Chiamare l'API dell'SDK del servizio ```createOrUpdateIndividualEnrollment``` nell'applicazione back-end tramite ```IndividualEnrollment``` per creare una registrazione singola.
 
@@ -59,7 +59,7 @@ Dopo avere creato una registrazione, il servizio Device Provisioning restituirà
 Dopo aver creato una voce di registrazione, potrebbe essere necessario aggiornare la registrazione.  I potenziali scenari includono l'aggiornamento della proprietà desiderata, l'aggiornamento del metodo di attestazione o la revoca dell'accesso al dispositivo.  Sono disponibili diverse API per la registrazione singola e di gruppo, ma esiste alcuna distinzione per il meccanismo di attestazione.
 
 È possibile aggiornare una voce di registrazione attenendosi al flusso di lavoro seguente:
-* **Iscrizione individuale**:
+* **Registrazione singola**:
     1. Ottenere la registrazione più recente dal servizio di provisioning prima con l'API dell'SDK del servizio ```getIndividualEnrollment```.
     2. Modificare il parametro della registrazione più recente, se necessario. 
     3. Tramite la registrazione più recente chiamare l'API dell'SDK del servizio ```createOrUpdateIndividualEnrollment``` per aggiornare la voce di registrazione.

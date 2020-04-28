@@ -1,6 +1,6 @@
 ---
 title: Gestire gli endpoint di streaming con il portale di Azure | Microsoft Docs
-description: Questo articolo illustra come gestire gli endpoint di streaming con il portale di Azure.This article demonstrates how to manage streaming endpoints with the Azure portal.
+description: Questo articolo illustra come gestire gli endpoint di streaming con il portale di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74900890"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gestire gli endpoint di streaming con il portale di Azure 
@@ -97,7 +97,7 @@ Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di st
 
 L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccetto per le aree Cina e Governo federale.
 
-Una volta attivata, la configurazione di autenticazione Controllo di **accesso**, nome host personalizzato e **firma Akamai** viene disabilitata.
+Una volta abilitato, il **controllo di accesso**, * * nome host personalizzato e la configurazione di **autenticazione della firma Akamai** vengono disabilitati.
  
 > [!IMPORTANT]
 > L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](../../cdn/cdn-overview.md).
@@ -120,6 +120,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -1,32 +1,32 @@
 ---
-title: SQL constants in Azure Cosmos DB
-description: Informazioni su come le costanti di query SQL in Azure Cosmos DB vengono utilizzate per rappresentare un valore di dati specificoLearn about how the SQL query constants in Azure Cosmos DB are used to represent a specific data value
+title: Costanti SQL in Azure Cosmos DB
+description: Informazioni sulla modalità di utilizzo delle costanti di query SQL in Azure Cosmos DB per rappresentare un valore di dati specifico
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873421"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Costanti di query SQL del database Cosmos di AzureAzure Cosmos DB SQL query constants  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
 
  Una costante, denominata anche valore letterale o scalare, è un simbolo che rappresenta un valore di dati specifico. Il formato di una costante dipende dal tipo di dati del valore che essa rappresenta.  
   
  **Tipi di dati scalari supportati:**  
   
-|**Tipo**|**Ordine dei valori**|  
+|**Type**|**Ordine dei valori**|  
 |-|-|  
-|**Undefined**|Singolo valore: **non definito**|  
+|**Non definito**|Singolo valore: **non definito**|  
 |**Null**|Singolo valore: **null**|  
 |**Boolean**|Valori: **false**, **true**.|  
 |**Numero**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
 |**Stringa**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
-|**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalare, ad eccezione di **Undefined**.|  
+|**Matrice**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
 |**Oggetto**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Sintassi

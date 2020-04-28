@@ -1,6 +1,6 @@
 ---
-title: Data Factory - .NET API Change Log
-description: Descrive le modifiche di rilievo, le aggiunte di funzionalità, le correzioni di bug e così via, in una versione specifica dell'API .NET per Azure Data Factory.Describes breaking changes, feature additions, bug fixes, and so on, in a specific version of .NET API for the Azure Data Factory.
+title: Data Factory-log delle modifiche dell'API .NET
+description: Descrive le modifiche di rilievo, le aggiunte delle funzionalità, le correzioni di bug e così via, in una versione specifica dell'API .NET per la Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74979003"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory: log delle modifiche dell'API .NET
@@ -86,7 +86,7 @@ Aggiunte di funzionalità
 ### <a name="feature-additions"></a>Aggiunte di funzionalità
 * A [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)sono state aggiunte le proprietà seguenti:
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
-  * [Scadenzaora](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
+  * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
   * [Set di dati](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * A [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx)sono state aggiunte le proprietà seguenti:
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
@@ -135,7 +135,7 @@ Aggiunte di funzionalità
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Versione 4.0.1
-### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+### <a name="breaking-changes"></a>Modifiche di rilievo
 Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali delle classi prima della versione 4.0.0.
 
 | Nome nella versione 4.0.0 | Nome nella versione 4.0.1 |
@@ -148,7 +148,7 @@ Le classi seguenti sono state rinominate. I nuovi nomi sono i nomi originali del
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Versione 4.0.0
-### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+### <a name="breaking-changes"></a>Modifiche di rilievo
 * Le classi/interfacce seguenti sono state rinominate.
 
 | Nome precedente | Nuovo nome |

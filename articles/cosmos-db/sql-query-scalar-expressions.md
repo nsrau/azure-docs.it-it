@@ -1,21 +1,21 @@
 ---
-title: Espressioni scalari nelle query SQL del database Cosmos di AzureScalar expressions in Azure Cosmos DB SQL queries
-description: Informazioni sulla sintassi SQL dell'espressione scalare per il database Cosmos di Azure.Learn about the scalar expression SQL syntax for Azure Cosmos DB. In questo articolo viene inoltre descritto come combinare espressioni scalari in espressioni complesse utilizzando operatori.
+title: Espressioni scalari in Azure Cosmos DB query SQL
+description: Informazioni sulla sintassi di espressione scalare SQL per Azure Cosmos DB. Questo articolo descrive anche come combinare espressioni scalari in espressioni complesse usando gli operatori.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74870735"
 ---
-# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari nelle query SQL del database Cosmos di AzureScalar expressions in Azure Cosmos DB SQL queries
+# <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari in Azure Cosmos DB query SQL
 
-La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Esempi di espressioni scalari includono: costanti, riferimenti di proprietà, riferimenti a elementi di matrice, riferimenti alias o chiamate di funzione. Le espressioni scalari possono essere combinate in espressioni complesse usando gli operatori.
+La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Esempi di espressioni scalari includono: costanti, riferimenti a proprietà, riferimenti a elementi di matrice, riferimenti ad alias o chiamate di funzione. Le espressioni scalari possono essere combinate in espressioni complesse usando gli operatori.
 
 ## <a name="syntax"></a>Sintassi
   
@@ -59,11 +59,11 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
 - `<scalar_expression>.property_name`  
   
-   Rappresenta un valore della proprietà di un oggetto. Se la proprietà non esiste o viene fatto riferimento alla proprietà su un valore, che non è un oggetto, l'espressione restituisce un valore **non definito.**  
+   Rappresenta un valore della proprietà di un oggetto. Se la proprietà non esiste o viene fatto riferimento a una proprietà su un valore che non è un oggetto, l'espressione restituisce un valore non **definito** .  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Rappresenta un valore della `property_name` proprietà con nome `array_index` o elemento di matrice con indice di una matrice. Se l'indice della proprietà o matrice non esiste o si fa riferimento all'indice della proprietà o matrice per un valore che non è un oggetto o una matrice, l'espressione restituisce un valore non definito.  
+   Rappresenta un valore della proprietà con il nome `property_name` o l'elemento di matrice `array_index` con indice di una matrice. Se l'indice della proprietà o matrice non esiste o si fa riferimento all'indice della proprietà o matrice per un valore che non è un oggetto o una matrice, l'espressione restituisce un valore non definito.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -99,7 +99,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
 ## <a name="remarks"></a>Osservazioni
   
-  Quando si chiama una funzione scalare incorporata o definita dall'utente, è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
+  Quando si chiama una funzione scalare predefinita o definita dall'utente, è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
   
   Quando si crea un oggetto, qualsiasi proprietà a cui viene assegnato un valore non definito verrà ignorata e non inclusa nell'oggetto creato.  
   
@@ -119,7 +119,7 @@ I risultati sono:
     }]
 ```
 
-Nella query seguente, il risultato dell'espressione scalare è un valore booleano:
+Nella query seguente il risultato dell'espressione scalare è un valore booleano:
 
 ```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState

@@ -1,5 +1,5 @@
 ---
-title: 'Risolvere i problemi relativi alle prestazioni dei collegamenti di rete: AzureTroubleshoot network link performance: Azure'
+title: 'Risolvere i problemi relativi alle prestazioni del collegamento di rete: Azure'
 description: Questa pagina fornisce un metodo standardizzato di test delle prestazioni dei collegamenti di rete di Azure.
 services: expressroute
 author: tracsman
@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74869647"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
@@ -198,14 +198,14 @@ Configurazione di test:
 \* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. Mentre la latenza dovrebbe normalmente essere di circa 160 ms, è di 189 ms. Questa differenza rispetto alle mie aspettative potrebbe indicare un problema di rete da qualche parte, ma molto probabilmente la fibra ottica in Brasile non va in linea retta e percorre circa 1.000 km in più per arrivare da Seattle.
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. Scaricare il toolkit di connettività di Azure da GitHub all'indirizzo[https://aka.ms/AzCT][ACT]
+1. Scaricare Azure Connectivity Toolkit da GitHub all'indirizzo[https://aka.ms/AzCT][ACT]
 2. Seguire le istruzioni per il [test delle prestazioni dei collegamenti][Performance Doc]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componenti di rete di AzureAzure Network Components"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Risoluzione dei problemi di ExpressRouteExpressRoute Troubleshooting"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Ambiente di test Perf"
-[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Output di PowerShellPowerShell Output"
+[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componenti di rete di Azure"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Risoluzione dei problemi di ExpressRoute"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Ambiente di test delle prestazioni"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Output di PowerShell"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md

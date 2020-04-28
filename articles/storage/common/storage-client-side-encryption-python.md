@@ -1,5 +1,5 @@
 ---
-title: Crittografia lato client con PythonClient-side encryption with Python
+title: Crittografia lato client con Python
 titleSuffix: Azure Storage
 description: La libreria client di archiviazione di Azure per Python offre supporto per la crittografia lato client per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
@@ -12,13 +12,13 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74895377"
 ---
-# <a name="client-side-encryption-with-python"></a>Crittografia lato client con PythonClient-side encryption with Python
+# <a name="client-side-encryption-with-python"></a>Crittografia lato client con Python
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -97,7 +97,7 @@ La crittografia dei dati della tabella funziona nel modo seguente:
 
    Si noti che solo le proprietà di stringa possono essere crittografate. Se devono essere crittografati altri tipi di proprietà, essi devono essere convertiti in stringhe. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe (stringhe non elaborate, non proprietà dell'entità con tipo EdmType.STRING) dopo la decrittografia.
 
-   Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Tale operazione può essere effettuata archiviando le proprietà in oggetti TableEntity con tipo impostato su EdmType.STRING e la crittografia impostata su true oppure impostando il parametro encryption_resolver_function sull'oggetto tableservice. Un resolver di crittografia è una funzione che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. Ad esempio, se X, crittografare le proprietà A; altrimenti crittografare le proprietà A e B. Si noti che non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
+   Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Tale operazione può essere effettuata archiviando le proprietà in oggetti TableEntity con tipo impostato su EdmType.STRING e la crittografia impostata su true oppure impostando il parametro encryption_resolver_function sull'oggetto tableservice. Un resolver di crittografia è una funzione che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografare la proprietà A; in caso contrario, crittografare le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
 
 ### <a name="batch-operations"></a>Operazioni batch
 Un criterio di crittografia si applica a tutte le righe nel batch. La libreria client genera internamente un nuovo vettore di inizializzazione casuale e una CEK casuale per ogni riga nel batch. Gli utenti possono scegliere anche di crittografare proprietà diverse per ogni operazione nel batch mediante la definizione di questo comportamento nel resolver di crittografia.

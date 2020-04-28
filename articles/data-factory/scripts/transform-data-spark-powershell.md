@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati nel cloud usando PowerShellTransform data in cloud using PowerShell
+title: Trasformare i dati nel cloud con PowerShell
 description: Questo script PowerShell trasforma i dati nel cloud eseguendo il programma Spark in un cluster Azure HDInsight Spark.
 author: djpmsft
 ms.author: daperlov
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74932057"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script PowerShell: trasformare dati nel cloud con Azure Data Factory
@@ -26,10 +26,10 @@ Questo script PowerShell di esempio crea una pipeline che trasforma i dati nel c
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Account di Archiviazione di Azure.** Creare uno script Python e un file di input, quindi caricarli nella risorsa di archiviazione di Azure. L'output del programma Spark viene archiviato in questo account di archiviazione. Il cluster Spark su richiesta usa lo stesso account di archiviazione come risorsa di archiviazione primaria.  
+* **Account di archiviazione di Azure**. Creare uno script Python e un file di input, quindi caricarli nella risorsa di archiviazione di Azure. L'output del programma Spark viene archiviato in questo account di archiviazione. Il cluster Spark su richiesta usa lo stesso account di archiviazione come risorsa di archiviazione primaria.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Caricare lo script Python nell'account di archiviazione BLOB
-1. Create un file python denominato **WordCount_Spark.py** con il seguente contenuto: 
+1. Creare un file Python denominato **WordCount_Spark. py** con il contenuto seguente: 
 
     ```python
     import sys
@@ -54,7 +54,7 @@ Questo script PowerShell di esempio crea una pipeline che trasforma i dati nel c
     if __name__ == "__main__":
         main()
     ```
-2. Sostituire storageAccountName con il nome dell'account di archiviazione di Azure.Replace ** &lt;storageAccountName&gt; ** with the name of your Azure Storage account. Salvare quindi il file. 
+2. Sostituire ** &lt;storageAccountName&gt; ** con il nome dell'account di archiviazione di Azure. Salvare quindi il file. 
 3. Nell'Archivio BLOB di Azure creare un contenitore denominato **adftutorial**, se non esiste. 
 4. Creare una cartella denominata **spark**.
 5. Creare una sottocartella denominata **script** nella cartella **spark**. 
@@ -95,7 +95,7 @@ Questo script usa i comandi seguenti:
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Creare una data factory. |
 | [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | Crea un servizio collegato nella data factory. Un servizio collegato collega un archivio dati o un ambiente di calcolo a una data factory. |
 | [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | Crea una pipeline nella data factory. Una pipeline contiene una o più attività che eseguono un'operazione specifica. Nella pipeline un'attività Spark trasforma i dati tramite l'esecuzione di un programma in un cluster Azure HDInsight Spark. |
-| [Richiamare-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | Crea un'esecuzione per la pipeline. In altre parole, esegue la pipeline. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | Crea un'esecuzione per la pipeline. In altre parole, esegue la pipeline. |
 | [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Ottiene i dettagli dell'esecuzione dell'attività nella pipeline. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

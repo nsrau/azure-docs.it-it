@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74951854"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usare Apache Sqoop con Hadoop in HDInsight
@@ -46,14 +46,14 @@ Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti
   
   | Campo | Tipo di dati |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |stringa |
+  | querytime |stringa |
+  | market |stringa |
+  | deviceplatform |stringa |
+  | devicemake |stringa |
+  | devicemodel |stringa |
+  | state |stringa |
+  | country |stringa |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |

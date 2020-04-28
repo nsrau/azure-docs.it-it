@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74951480"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
@@ -45,7 +45,7 @@ Cloud Shell supporta le versioni più recenti di Microsoft Edge, Microsoft Inter
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Per un determinato utente, può essere attiva una sola shell
 
-Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra Bash o PowerShell tramite il menu causa il riavvio di Cloud Shell, che termina le sessioni esistenti. In alternativa, è possibile eseguire bash `bash`all'interno di PowerShell digitando `pwsh`ed è possibile eseguire PowerShell all'interno di bash digitando .
+Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra bash o PowerShell tramite il menu causa il riavvio Cloud Shell, che termina le sessioni esistenti. In alternativa, è possibile eseguire bash all'interno di PowerShell `bash`digitando ed è possibile eseguire PowerShell all'interno `pwsh`di bash digitando.
 
 ### <a name="usage-limits"></a>Limiti di consumo
 
@@ -57,9 +57,9 @@ Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiv
 
 Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` non è permanente.
 
-### <a name="editing-bashrc-or-profile"></a>Modifica di .bashrc o $PROFILE
+### <a name="editing-bashrc-or-profile"></a>Modifica di bashrc o $PROFILE
 
-Prestare attenzione durante la modifica del file di $PROFILE .bashrc o PowerShell, questa operazione può causare errori imprevisti in Cloud Shell.
+Prestare attenzione quando si modifica il file con estensione bashrc o $PROFILE di PowerShell. in questo modo possono verificarsi errori imprevisti nel Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitazioni PowerShell
 
@@ -73,15 +73,15 @@ Il modulo `SqlServer` incluso in Cloud Shell include solo il supporto delle vers
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure:
 
-Utilizzando i cmdlet di PowerShell, gli utenti non possono creare file nell'unità Azure:. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita. 
+Usando i cmdlet di PowerShell, gli utenti non possono creare file nell'unità Azure:. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita. 
 
 ### <a name="gui-applications-are-not-supported"></a>Le applicazioni GUI non sono supportate
 
-Se l'utente esegue un comando che crea una finestra di dialogo di Windows, viene visualizzato un messaggio di errore come: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se l'utente esegue un comando che crea una finestra di dialogo di Windows, viene visualizzato un messaggio di errore simile `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`al seguente:.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Ampio spazio vuoto dopo aver visualizzato l'indicatore di stato
 
-Se l'utente esegue un'azione che visualizza un indicatore di `Azure:` stato, ad esempio un completamento a schede mentre si trova nell'unità, è possibile che il cursore non sia impostato correttamente e che venga visualizzato uno spazio vuoto nel punto in cui si trovava in precedenza l'indicatore di stato.
+Se l'utente esegue un'azione che visualizza un indicatore di stato, ad esempio il completamento di una tabulazione nell' `Azure:` unità, è possibile che il cursore non sia impostato correttamente e che venga visualizzato un gap in cui si trovava in precedenza l'indicatore di stato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

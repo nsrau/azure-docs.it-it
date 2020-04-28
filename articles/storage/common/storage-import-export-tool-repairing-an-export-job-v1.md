@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74978016"
 ---
 # <a name="repairing-an-export-job"></a>Riparazione di un processo di esportazione
@@ -36,9 +36,9 @@ Il comando per recuperare un processo di esportazione è **RepairExport**.
 |**/logdir:&lt;LogDirectory\>**|Facoltativa. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
 |**/d:&lt;TargetDirectory\>**|Obbligatorio. La directory per la convalida e il ripristino. Si tratta in genere della directory radice dell'unità di esportazione, ma potrebbe anche essere una condivisione di file di rete che contiene una copia dei file esportati.|  
 |**/bk:<BitLockerKey\>**|Facoltativa. È necessario specificare la chiave BitLocker se si desidera che lo strumento sblocchi un'unità crittografata in cui sono archiviati i file esportati.|  
-|**/sn:<StorageAccountName\>**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
-|**/sk:<StorageAccountKey\>**|**Obbligatorio** se e solo se non è specificata una sAS del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
-|**/csas:contenitori <\>**|**Obbligatorio** se e solo se non viene specificata la chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo di esportazione.|  
+|**Ésn: <StorageAccountName\>**|Obbligatorio. Il nome dell'account di archiviazione per il processo di esportazione.|  
+|**/SK: <StorageAccountKey\>**|**Obbligatorio** solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
+|**/csas: contenitori <\>**|**Obbligatorio** se e solo se non viene specificata la chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo di esportazione.|  
 |**/CopyLogFile:\><DriveCopyLogFile**|Obbligatorio. Il percorso del file dei log di copia dell'unità. Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  
 |**/ManifestFile:<DriveManifestFile\>**|Facoltativa. Il percorso al file manifesto dell'unità di esportazione. Questo file è generato dal servizio Importazione/Esportazione di Azure e archiviato nell'unità di esportazione e facoltativamente in un BLOB nell'account di archiviazione associato al processo.<br /><br /> Il contenuto dei file nell'unità di esportazione verrà verificato con gli hash MD5 contenuti in questo file. Tutti i file considerati danneggiati che saranno scaricati e riscritti nelle directory di destinazione.|  
   
@@ -152,8 +152,8 @@ Qualsiasi componente con esito negativo della verifica verrà scaricato dallo st
   
 ## <a name="next-steps"></a>Passaggi successivi
  
-* [Configurazione dello strumento Importazione/Esportazione di AzureSetting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)   
+* [Configurazione dello strumento di importazione/esportazione di Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Revisione dello stato del processo con i file di registro di copia](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di AzureTroubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+* [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Ripristino di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Risoluzione dei problemi relativi allo strumento di importazione/esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

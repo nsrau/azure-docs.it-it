@@ -1,6 +1,6 @@
 ---
-title: Gestire le registrazioni dei dispositivi per il servizio di provisioning dei dispositivi hub IoT di Azure nel portale di AzureManage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal
-description: Come gestire le registrazioni dei dispositivi per il servizio Device Provisioning (DPS) nel portale di AzureHow to manage device enrollments for your Device Provisioning Service (DPS) in the Azure Portal
+title: Gestire le registrazioni dei dispositivi per il servizio Device provisioning in hub Azure nel portale di Azure
+description: Come gestire le registrazioni dei dispositivi per il servizio Device provisioning (DPS) nel portale di Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974939"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con il portale di Azure

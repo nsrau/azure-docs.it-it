@@ -14,10 +14,10 @@ ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 015aa4c209a99921a930a51b15c3d0230722519a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75353876"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare in blocco le macchine virtuali SQL in Azure con il provider di risorse VM SQL
@@ -39,7 +39,7 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse, è
 - La versione più recente di [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Versione più recente di [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Prima di procedere, è necessario creare prima di tutto una copia locale dello script, importarlo come modulo di PowerShell e connettersi ad Azure. 
 

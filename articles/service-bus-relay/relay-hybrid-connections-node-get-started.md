@@ -1,5 +1,5 @@
 ---
-title: Azure Relay Hybrid Connections - WebSockets in Node
+title: Connessioni ibride di inoltro di Azure-WebSocket nel nodo
 description: Scrivere un'applicazione console Node.js per Websockets per Connessioni ibride di Inoltro di Azure
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 818db4db082a441877b573fd52361e63becce374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75352668"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introduzione a WebSockets per Connessioni ibride di Inoltro di Azure in Node.js
@@ -38,7 +38,7 @@ In questa guida introduttiva vengono completati i passaggi seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Node.js](https://nodejs.org/en/).
-- Una sottoscrizione di Azure. Se non ne hai uno, [crea un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- Una sottoscrizione di Azure. Se non si ha un [account, creare un account gratuito prima di](https://azure.microsoft.com/free/) iniziare.
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74968766"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .   > Non vengono aggiunte nuove funzionalità o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
 
 * **Chiave envelope non crittografata AES-128**
 
-    L'intero blocco viene crittografato usando la modalità **AES-128 CBC**. La decrittografia del flusso è supportata dai lettori iOS e OSX in modo nativo. Per ulteriori informazioni, vedere [Utilizzo della crittografia dinamica AES-128 e](media-services-protect-with-aes128.md)del servizio di distribuzione delle chiavi .
+    L'intero blocco viene crittografato usando la modalità **AES-128 CBC**. La decrittografia del flusso è supportata dai lettori iOS e OSX in modo nativo. Per altre informazioni, vedere [uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
     I singoli campioni audio e video vengono crittografati con la modalità **AES-128 CBC**. **FairPlay Streaming** (FPS) è integrato nei sistemi operativi dei dispositivi, con supporto nativo per iOS e Apple TV. Safari su OS X abilita FPS con il supporto dell'interfaccia EME (Encrypted Media Extensions).
@@ -51,7 +51,7 @@ Questo articolo illustra come usare Servizi multimediali per crittografare dinam
 
 Se si usa Servizi multimediali per distribuire contenuto HLS crittografato con FairPlay e per distribuire licenze FairPlay, è necessario:
 
-  * Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)see Azure free trial .
+  * Un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * Account di Servizi multimediali. Per crearne uno, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
   * Eseguire l'iscrizione all' [Apple Development Program](https://developer.apple.com/).
   * Apple richiede che il proprietario del contenuto ottenga il [pacchetto di distribuzione](https://developer.apple.com/contact/fps/). Indicare che è già stato implementato il modulo KSM (Key Security Module) con Servizi multimediali e che si sta richiedendo il pacchetto FPS finale. Il pacchetto FPS finale contiene istruzioni per generare la certificazione e ottenere la chiave privata dell'applicazione, che verrà usata per configurare FairPlay.
@@ -143,13 +143,13 @@ Si applicano le considerazioni seguenti:
 * Il tipo di crittografia non deve essere specificato nell'URL se all'asset è stata applicata una sola crittografia.
 * Il tipo di crittografia non fa distinzione tra maiuscole e minuscole.
 * Possono essere specificati i seguenti tipi di crittografia:  
-  * **cenc**: Crittografia comune (PlayReady o Widevine)
+  * **Cenc**: crittografia comune (PlayReady o Widevine)
   * **cbcs-aapl**: FairPlay
-  * **cbc**: Crittografia busta AES
+  * **CBC**: crittografia busta AES
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+1. Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
     ```xml
@@ -562,5 +562,5 @@ namespace DynamicEncryptionWithFairPlay
 ## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: Creare pipeline di dati tramite Azure .NET SDKCreate data pipelines by using Azure .NET SDK
+title: Creare pipeline di dati usando Azure .NET SDK
 description: Informazioni su come creare, monitorare e gestire a livello di codice le istanze di Data factory di Azure usando Data Factory SDK.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931323"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante Azure Data Factory .NET SDK
@@ -33,7 +33,7 @@ ms.locfileid: "74931323"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012 o 2013 o 2015
-* Scaricare e installare [Azure .NET SDK.](https://azure.microsoft.com/downloads/)
+* Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare la versione più recente di Azure PowerShell nel computer. Azure PowerShell verrà usato per creare un'applicazione Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory
@@ -50,7 +50,7 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
     ```powershell
     Get-AzSubscription
     ```
-4. Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire ** &lt;NameOfAzureSubscription** con il nome della sottoscrizione di Azure.Replace NameOfAzureSubscription&gt; with the name of your Azure subscription.
+4. Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire ** &lt;NameOfAzureSubscription** &gt; con il nome della sottoscrizione di Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -111,12 +111,12 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 1. Creare un'applicazione console .NET in C# con Visual Studio 2012, 2013 o 2015.
    1. Avviare **Visual Studio** 2012/2013/2015.
    2. Fare clic su **File**, scegliere **Nuovo** e quindi fare clic su **Progetto**.
-   3. Espandere **Modelli**, quindi selezionare **Visual C.** In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
+   3. Espandere **modelli**e selezionare **Visual C#**. In questa procedura dettagliata viene usato C#, ma è possibile usare qualsiasi linguaggio .NET.
    4. Selezionare **Applicazione console** dall'elenco dei tipi di progetto a destra.
-   5. Immettere **DataFactoryAPITestApp** come Nome.
+   5. Immettere **DataFactoryAPITestApp** per nome.
    6. Selezionare **C:\ADFGetStarted** come percorso.
    7. Fare clic su **OK** per creare il progetto.
-2. Fare clic su **Strumenti**, scegliere **NuGet Package Manager**, quindi fare clic su Console di gestione **pacchetti**.
+2. Fare clic su **strumenti**, scegliere **Gestione pacchetti NuGet**e quindi fare clic su **console di gestione pacchetti**.
 3. Nella finestra **Console di Gestione pacchetti** seguire questa procedura:
    1. Eseguire questo comando per installare il pacchetto di Data factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Eseguire questo comando per installare il pacchetto di Azure Active Directory. Nel codice viene usata l'API di Active Directory: `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -137,7 +137,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
         </appSettings>
     </configuration>
     ```
-5. Nel file App.Config aggiornare i valori per ** &lt;ID&gt;applicazione**, ** &lt;Password&gt;**, ** &lt;ID&gt;sottoscrizione**e ** &lt;ID&gt; tenant** con valori personalizzati.
+5. Nel file app. config aggiornare i valori per l'ID ** &lt;applicazione&gt;**, ** &lt;la&gt;password**, ** &lt;l'&gt;ID sottoscrizione**e ** &lt;l'&gt; ID tenant** con i propri valori.
 6. Aggiungere le seguenti istruzioni **using** al file **Program.cs** nel progetto.
 
     ```csharp
@@ -445,7 +445,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
     }
     ```
 
-15. In Esplora soluzioni espandere il progetto **DataFactoryAPITestApp**, fare clic con il pulsante destro del mouse su **Riferimenti**e **scegliere Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly `System.Configuration` e fare clic su **OK**.
+15. Nel Esplora soluzioni espandere il progetto: **DataFactoryAPITestApp**, fare clic con il pulsante destro del mouse su **riferimenti**e scegliere **Aggiungi riferimento**. Selezionare la casella di controllo per l'assembly `System.Configuration` e fare clic su **OK**.
 15. Compilare l'applicazione console. Scegliere **Compila** dal menu e fare clic su **Compila soluzione**.
 16. Verificare che esista almeno un file nel contenitore adftutorial nell'archiviazione BLOB di Azure. In caso contrario, creare il file Emp.txt nel Blocco note con il contenuto seguente e caricarlo nel contenitore adftutorial.
 
@@ -453,12 +453,12 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
     John, Doe
     Jane, Doe
     ```
-17. Eseguire l'esempio scegliendo **Debug** -> **Avvio debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
+17. Eseguire l'esempio facendo clic su **debug** -> **Avvia debug** dal menu. Quando viene visualizzato un messaggio simile ad **Acquisizione dettagli dell'esecuzione di una sezione di dati**, attendere qualche minuto e premere **INVIO**.
 18. Usare il portale di Azure per verificare che la data factory **APITutorialFactory** venga creata con gli elementi seguenti:
     * Servizio collegato: **AzureStorageLinkedService**
     * Set di dati: **DatasetBlobSource** e **DatasetBlobDestination**.
     * Pipeline: **PipelineBlobSample**
-19. Verificare che venga creato un file di output nella cartella **apifactoryoutput** nel contenitore **adftutorial.**
+19. Verificare che venga creato un file di output nella cartella **apifactoryoutput** nel contenitore **adftutorial** .
 
 ## <a name="get-a-list-of-failed-data-slices"></a>Ottenere un elenco di sezioni di dati non riusciti 
 

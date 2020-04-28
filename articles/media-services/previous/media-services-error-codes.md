@@ -1,6 +1,6 @@
 ---
 title: Codici di errore di Servizi multimediali di Azure | Microsoft Docs
-description: È possibile ricevere codici di errore HTTP dal servizio a seconda di problemi come i token di autenticazione in scadenza per le azioni che non sono supportate in Servizi multimediali. Questo articolo offre una panoramica dei codici di errore dell'API di Servizi multimediali di Azure.This article gives an overview of Azure Media Services v2 API error codes.
+description: È possibile ricevere codici di errore HTTP dal servizio a seconda di problemi, ad esempio i token di autenticazione che scadono a azioni non supportate in servizi multimediali. Questo articolo fornisce una panoramica dei codici di errore dell'API servizi multimediali V2 di Azure.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887069"
 ---
 # <a name="azure-media-services-error-codes"></a>Codici di errore di Servizi multimediali di Azure
@@ -122,6 +122,6 @@ Per gestire questo errore, è consigliabile usare la logica di ripetizione dei t
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

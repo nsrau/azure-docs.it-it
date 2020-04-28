@@ -1,5 +1,5 @@
 ---
-title: Distribuire il runtime di integrazione SSIS di Azure tramite PowerShellDeploy Azure SSIS integration runtime using PowerShell
+title: Distribuire il runtime di integrazione SSIS di Azure con PowerShell
 description: Questo script di PowerShell consente di creare un runtime di integrazione di Azure SSIS che può eseguire pacchetti SSIS nel cloud.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74929812"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Script di PowerShell: distribuire il runtime di integrazione di Azure SSIS
@@ -51,7 +51,7 @@ Questo script usa i comandi seguenti:
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Creare una data factory. |
 | [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Crea un runtime di integrazione di Azure SSIS che può eseguire pacchetti SSIS nel cloud |
-| [Inizio-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Avvia il runtime di integrazione SSIS di Azure. |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Avvia il runtime di integrazione SSIS di Azure. |
 | [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Ottiene informazioni sul runtime di integrazione di Azure SSIS. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

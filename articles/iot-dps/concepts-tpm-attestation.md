@@ -1,6 +1,6 @@
 ---
 title: Servizio Device Provisioning in hub IoT di Azure - Attestazione TPM
-description: Questo articolo fornisce una panoramica concettuale del flusso di attestazione TPM tramite il servizio Di provisioning dispositivi IoT (DPS).
+description: Questo articolo fornisce una panoramica concettuale del flusso di attestazione TPM tramite il servizio Device provisioning (DPS).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975279"
 ---
 # <a name="tpm-attestation"></a>Attestazione TPM
@@ -21,7 +21,7 @@ Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT c
 
 In questo articolo viene descritto il processo di attestazione dell’identità quando si usa un [TPM](./concepts-device.md). TPM è l'acronimo di Trusted Platform Module ed è un tipo di modulo di protezione hardware (HSM). In questo articolo si presuppone che l’utente utilizzi un firmware discreto o integrato TPM. I TPM emulatori di software sono ideali per la creazione di prototipi o test, ma non forniscono lo stesso livello di sicurezza di un firmware discreto o integrato TPM. Non è consigliabile utilizzare software TPM nell'ambiente di produzione. Per altre informazioni sui tipi di moduli TPM, vedere [una breve introduzione a TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Questo articolo è rilevante solo per i dispositivi con TPM 2.0 con supporto chiave HMAC e le relative chiavi di verifica dell'autenticità. Non è rilevante per l'autenticazione dei dispositivi con certificati X.509. Il TPM è uno standard ISO a livello di settore del Trusted Computing Group ed è possibile leggere ulteriori informazioni sul TPM con la [specifica TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) o con la [specifica ISO/IEC 11889.](https://www.iso.org/standard/66510.html) In questo articolo si presuppone inoltre che si abbia familiarità con le coppie di chiavi pubbliche e private e come vengono utilizzate per la crittografia.
+Questo articolo è rilevante solo per i dispositivi con TPM 2.0 con supporto chiave HMAC e le relative chiavi di verifica dell'autenticità. Non è rilevante per l'autenticazione dei dispositivi con certificati X.509. TPM è uno standard ISO a livello di settore dalla Trusted Computing Group. per altre informazioni su TPM, vedere la specifica [tpm 2,0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) o la [specifica iso/IEC 11889](https://www.iso.org/standard/66510.html). Questo articolo presuppone anche che l'utente abbia familiarità con le coppie di chiavi pubbliche e private e come vengono usate per la crittografia.
 
 Il Software Development KIT del dispositivo del servizio Device Provisioning SDK gestisce per l’utente tutte le informazioni descritte in questo articolo. Non è necessario implementare ulteriori operazioni se si utilizza l’SDK dei dispositivi. Questo articolo aiuta a comprendere concettualmente il comportamento del chip di sicurezza TPM durante il provisioning del dispositivo e spiega perché questa operazione è sicura.
 

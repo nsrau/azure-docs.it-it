@@ -1,6 +1,6 @@
 ---
-title: Connessioni ibride di inoltro di Azure - WebSockets in .NETAzure Relay Hybrid Connections - WebSockets in .NET
-description: Scrivere un'applicazione console di C ' per connessioni ibride di inoltro di Azure WebSockets.Write a C's console application for Azure Relay Hybrid Connections WebSockets.
+title: Connessioni ibride di inoltro di Azure-WebSocket in .NET
+description: Scrivere un'applicazione console C# per l'inoltro di Azure Connessioni ibride WebSocket.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75355186"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introduzione a Websocket per Connessioni ibride di Inoltro di Azure in .NET
@@ -39,7 +39,7 @@ In questa guida introduttiva vengono completati i passaggi seguenti:
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * [Visual Studio 2015 o versione successiva](https://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
-* Una sottoscrizione di Azure. Se non ne hai uno, [crea un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Una sottoscrizione di Azure. Se non si ha un [account, creare un account gratuito prima di](https://azure.microsoft.com/free/) iniziare.
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
@@ -64,7 +64,7 @@ In Visual Studio scrivere un'applicazione console in C# per inviare messaggi all
 
     ![applicazioni in esecuzione](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Congratulazioni, hai creato un'applicazione completa per le connessioni ibride!
+Congratulazioni, è stata creata un'applicazione Connessioni ibride completa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa guida introduttiva sono state create applicazioni client e server .NET che usano WebSocket per inviare e ricevere messaggi. La funzionalità Connessioni ibride di Inoltro di Azure supporta anche l'uso di HTTP per l'invio e la ricezione di messaggi. Per informazioni sull'uso di HTTP con Connessioni ibride di Inoltro di Azure, vedere la [guida introduttiva di HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

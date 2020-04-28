@@ -1,6 +1,6 @@
 ---
-title: Roll certificati X.509 nel servizio di provisioning dei dispositivi hub IoT di Azure
-description: Come eseguire il rollforward dei certificati X.509 con l'istanza del servizio Device Provisioning (DPS)
+title: Eseguire il Rolling dei certificati X. 509 nel servizio Device provisioning in hub Azure
+description: Come eseguire il Rolling dei certificati X. 509 con l'istanza del servizio Device provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974888"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
@@ -116,7 +116,7 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 4. Fare clic sulla scheda **Gestisci registrazioni** per l'istanza del servizio di provisioning di dispositivi e quindi sull'elenco **Gruppi di registrazioni**. Fare clic sul nome del gruppo di registrazioni nell'elenco.
 
-5. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice. Quindi fare clic su **Salva**. 
+5. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice. Fare quindi clic su **Salva**. 
 
     ![Selezionare il nuovo certificato della CA radice](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -162,7 +162,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 2. Fare clic sulla scheda **Gestisci registrazioni** per l'istanza del servizio di provisioning di dispositivi e quindi sull'elenco **Gruppi di registrazioni**. Fare clic sul nome del gruppo di registrazioni nell'elenco.
 
-3. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice nella configurazione **Certificato secondario**. Quindi fare clic su **Salva**. 
+3. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice nella configurazione **Certificato secondario**. Fare quindi clic su **Salva**. 
 
     ![Selezionare il nuovo certificato della CA radice](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 

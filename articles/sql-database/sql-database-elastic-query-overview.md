@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
 ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74873744"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
@@ -24,7 +24,7 @@ La funzionalità delle query elastiche, in anteprima, consente di eseguire una q
 
 ## <a name="why-use-elastic-queries"></a>Vantaggi dell'uso di query elastiche
 
-### <a name="azure-sql-database"></a>Database SQL di Azure
+### <a name="azure-sql-database"></a>database SQL di Azure
 
 Eseguire query su database SQL di Azure completamente in T-SQL. Questo permette di eseguire query di sola lettura dei database remoti e consente ai clienti di SQL Server locale di eseguire la migrazione delle applicazioni usando nomi in tre e quattro parti o un server collegato nel database SQL.
 

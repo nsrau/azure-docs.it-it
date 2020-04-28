@@ -1,6 +1,6 @@
 ---
-title: Disinserire il dispositivo dal servizio di provisioning dei dispositivi dell'hub IoT di AzureIoT
-description: Come disinserire un dispositivo per impedire il provisioning tramite il servizio Diprovisioning dispositivi Hub IoT (DPS)
+title: Annullare la registrazione del dispositivo dal servizio Device provisioning in hub Azure
+description: Come annullare la registrazione di un dispositivo per impedire il provisioning tramite il servizio Device provisioning in hub Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974922"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
@@ -26,7 +26,7 @@ La registrazione di un dispositivo nel servizio Device Provisioning ne consente 
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Inserire i dispositivi usando una voce di registrazione singola nell'elenco di elementi non consentiti
 
-Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. I dispositivi che usano i token di firma di accesso condiviso come meccanismo di attestazione possono essere sottoposti a provisioning solo tramite una singola registrazione. Per creare una blacklist per un dispositivo con una singola registrazione, è possibile disabilitarne o eliminare la voce di registrazione. 
+Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. I dispositivi che usano i token di firma di accesso condiviso come meccanismo di attestazione possono essere sottoposti a provisioning solo tramite una registrazione singola. Per inserire nella blacklist un dispositivo con una registrazione singola, è possibile disabilitare o eliminare la relativa voce di registrazione. 
 
 Per inserire temporaneamente il dispositivo nell'elenco di elementi non consentiti disabilitando la voce di registrazione: 
 
@@ -104,7 +104,7 @@ Per inserire un singolo dispositivo in un gruppo di registrazioni nell'elenco di
 
 6. Scorrere fino alla fine della pagina **Aggiungi registrazione** e selezionare **Disabilita** per l'opzione **Abilita voce**, quindi selezionare **Salva**. 
 
-    [![Usare la voce di registrazione singola disabilitata per disabilitare il dispositivo dalla registrazione di gruppo nel portaleUse disabled individual enrollment entry to disable device from group enrollment, in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![Usare la voce di registrazione singola disabilitata per disabilitare il dispositivo dalla registrazione del gruppo nel portale](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Dopo avere creato la registrazione, nella scheda **Registrazioni singole** viene visualizzata la registrazione del dispositivo disabilitato. 
 

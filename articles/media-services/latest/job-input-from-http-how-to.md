@@ -1,6 +1,6 @@
 ---
 title: Creare un input del processo di Servizi multimediali di Azure da un URL HTTPS | Microsoft Docs
-description: Questo argomento illustra come creare un input del processo di Servizi multimediali di Azure da un URL HTTPS.
+description: Questo argomento illustra come creare un input del processo di servizi multimediali di Azure da un URL HTTPS.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: a3d4568dd237491f28ae2880bdd78dd236870c3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74899821"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Creare un input del processo da un URL HTTPS
@@ -23,7 +23,7 @@ ms.locfileid: "74899821"
 In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare un URL HTTPS come input del processo, come illustrato in questo esempio. Attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS. Per un esempio completo, vedere questo [esempio di GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 > [!TIP]
-> Prima di iniziare lo sviluppo, vedere Sviluppo con API di [Servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, convenzioni di denominazione e così via).
+> Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, alle convenzioni di denominazione e così via).
 
 ## <a name="net-sample"></a>Esempio .NET
 

@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74978867"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Uso dell'API REST del servizio Importazione/Esportazione di Azure
@@ -47,7 +47,7 @@ Le richieste al servizio Importazione/Esportazione devono specificare il paramet
 
 [Backup dei manifesti delle unità](../storage-import-export-backing-up-drive-manifests.md)
 
-[Diagnostica e ripristino degli errori per i processi di importazione/esportazioneDiagnostics and error recovery for Import/Export jobs](../storage-import-export-diagnostics-and-error-recovery.md)
+[Diagnostica e ripristino degli errori per i processi di importazione/esportazione](../storage-import-export-diagnostics-and-error-recovery.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

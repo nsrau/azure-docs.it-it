@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74924701"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
@@ -27,9 +27,9 @@ ms.locfileid: "74924701"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Prerequisiti per il montaggio di una condivisione file di Azure in macOS
-* **Nome dell'account di archiviazione:** per montare una condivisione file di Azure, è necessario il nome dell'account di archiviazione.
+* **Nome dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessario il nome dell'account di archiviazione.
 
-* **Chiave dell'account di archiviazione:** per montare una condivisione file di Azure, è necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
+* **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
 * **Assicurarsi che la porta 445 sia aperta**: SMB comunica tramite la porta TCP 445. Nel computer client (Mac) verificare che il firewall non blocchi la porta TCP 445.
 
@@ -37,7 +37,7 @@ ms.locfileid: "74924701"
 1. **Aprire Finder**: per impostazione predefinita, il Finder è aperto in macOS, ma è possibile assicurarsi che sia l'applicazione attualmente selezionata facendo clic sull'icona con il volto di macOS sul Dock:  
     ![Icona con il volto di macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selezionare "Connetti al server" dal menu "Vai":** utilizzando il percorso UNC`\\`dai `smb://` prerequisiti, convertire la`\`doppia barra rovesciata iniziale ( ) in e tutte le altre barre rovesciate ( ) in barre ( ).`/` Il collegamento sarà simile al seguente: ![Finestra di dialogo "Connect to Server" (Connetti al server)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selezionare "Connetti al server" dal menu "Vai"**`\\`: usando il percorso UNC dei prerequisiti, convertire la doppia barra rovesciata iniziale () in `smb://` e tutte le altre barre rovesciate (`\`) per l'avanzamento delle barre (`/`). Il collegamento sarà simile al seguente: ![Finestra di dialogo "Connect to Server" (Connetti al server)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Usare il nome e la chiave dell'account di archiviazione quando vengono chiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connetti al server", verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome o la chiave dell'account di archiviazione nel keychain di macOS.
 

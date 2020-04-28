@@ -1,6 +1,6 @@
 ---
-title: Raccogliere dettagli su tutte le macchine virtuali in una sottoscrizione con PowerShellCollect details about all VMs in a subscription with PowerShell
-description: Raccogliere dettagli su tutte le macchine virtuali in una sottoscrizione con PowerShellCollect details about all VMs in a subscription with PowerShell
+title: Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell
+description: Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
@@ -16,23 +16,23 @@ ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
 ms.openlocfilehash: 237081380445f2b2e4168ee3afe9a3ed7544fc89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74900208"
 ---
-# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Raccogliere dettagli su tutte le macchine virtuali in una sottoscrizione con PowerShellCollect details about all VMs in a subscription with PowerShell
+# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Raccogliere informazioni dettagliate su tutte le macchine virtuali in una sottoscrizione con PowerShell
 
-Questo script crea un file CSV che contiene il nome della macchina virtuale, il nome del gruppo di risorse, l'area, la rete virtuale, la subnet, l'indirizzo IP privato, il tipo di sistema operativo e l'indirizzo IP pubblico delle macchine virtuali nella sottoscrizione fornita.
+Questo script crea un volume condiviso cluster che contiene il nome della macchina virtuale, il nome del gruppo di risorse, l'area, la rete virtuale, la subnet, l'indirizzo IP privato, il tipo di sistema operativo e l'indirizzo IP pubblico delle macchine virtuali nella sottoscrizione fornita.
 
-Se non si dispone di una sottoscrizione di [Azure,](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
+Se non si ha una [sottoscrizione di Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. 
 
-Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È inoltre possibile avviare Cloud Shell in [https://shell.azure.com/powershell](https://shell.azure.com/powershell)una scheda separata del browser accedendo a . Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
+Per aprire Cloud Shell, basta selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È anche possibile avviare Cloud Shell in una scheda separata del browser visitando [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selezionare **Copia** per copiare i blocchi di codice, incollarli in Cloud Shell e premere INVIO per eseguirli.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -70,7 +70,7 @@ $report | Export-CSV "$home/$reportName"
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
-Questo script usa i comandi seguenti per creare un'esportazione csv dei dettagli delle macchine virtuali in una sottoscrizione. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per creare un'esportazione CSV dei dettagli delle macchine virtuali in una sottoscrizione. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 |Comando|Note|
 |-|-|

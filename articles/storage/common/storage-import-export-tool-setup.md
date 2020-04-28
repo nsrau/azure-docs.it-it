@@ -9,10 +9,10 @@ ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74979037"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
@@ -49,7 +49,7 @@ Se si tenta di **recuperare un'esportazione** parzialmente non riuscita, è nece
 
 ## <a name="installing-the-azure-importexport-tool"></a>Installazione dello strumento di importazione/esportazione di Azure
 
-Scaricare innanzitutto [lo strumento Importazione/Esportazione](https://www.microsoft.com/download/details.aspx?id=55280) di Azure ed estrarlo in una directory del computer, ad esempio `c:\WAImportExport`.
+Per prima cosa, [scaricare lo strumento di importazione/esportazione di Azure](https://www.microsoft.com/download/details.aspx?id=55280) ed estrarlo in una directory nel computer `c:\WAImportExport`, ad esempio.
 
 Lo strumento Importazione/Esportazione di Azure è costituito dai file indicati di seguito:
 
@@ -205,7 +205,7 @@ Examples:
 
 * [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [Anteprima dell'uso del disco per un processo di esportazione](../storage-import-export-tool-previewing-drive-usage-export-v1.md)
-* [Revisione dello stato del processo con i file di registro di copia](../storage-import-export-tool-reviewing-job-status-v1.md)
-* [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Revisione dello stato dei processi con i file di log di copia](../storage-import-export-tool-reviewing-job-status-v1.md)
+* [Ripristino di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
-* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di AzureTroubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+* [Risoluzione dei problemi relativi allo strumento di importazione/esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

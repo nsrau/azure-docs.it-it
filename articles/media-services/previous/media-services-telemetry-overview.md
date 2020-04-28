@@ -1,6 +1,6 @@
 ---
 title: Telemetria di Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo articolo offre una panoramica dei dati di telemetria di Servizi multimediali di Microsoft Azure.This article provides an overview of Microsoft Azure Media Services telemetry.
+description: Questo articolo fornisce una panoramica dei dati di telemetria Servizi multimediali di Microsoft Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74895786"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria di Servizi multimediali di Azure  
 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
-Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere dati di telemetria per le entità **Live Channel**, **StreamingEndpoint**ed **Live Archive.** 
+Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria per le entità Live **Channel**, **StreamingEndpoint**e Live **Archive** . 
 
 I dati di telemetria vengono scritti in una tabella di archiviazione all'interno di un account di Archiviazione di Azure specificato dall'utente (in genere quello associato all'account di AMS). 
 
@@ -93,7 +93,7 @@ Esistono tre tipi di dati di telemetria specifici di entità inseriti con la seg
 - Canali live: ogni minuto
 - Archivio live: ogni minuto
 
-**Streaming Endpoint**
+**Endpoint di streaming**
 
 Proprietà|valore|Esempi
 ---|---|---
@@ -119,7 +119,7 @@ Proprietà|valore|Esempi/note
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|Channel
+Type|Type|Canale
 Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -137,7 +137,7 @@ UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualit
 UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True
 Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|True<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-**Archivio dal vivo**
+**Archivio Live**
 
 Proprietà|valore|Esempi/note
 ---|---|---
@@ -220,6 +220,6 @@ Il sistema di telemetria non consente di gestire la conservazione dei dati o l'e
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
