@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60347743"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
@@ -34,7 +34,7 @@ Sono supportati gli scenari indicati di seguito:
 
 - Accessi utente alle applicazioni basate su Web browser.
 - Accessi utente ai client di Outlook usando protocolli legacy, ad esempio Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- Accesso degli utenti alle applicazioni client legacy di Office e alle applicazioni di Office che supportano [l'autenticazione moderna:](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview)versioni di Office 2013 e 2016.
+- Accessi utente ad applicazioni client legacy di Office e applicazioni di Office che supportano [l'autenticazione moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): versioni di Office 2013 e 2016.
 - Accessi utente alle applicazioni di protocolli legacy, ad esempio PowerShell versione 1.0 e altre.
 - Azure AD Join per dispositivi Windows 10.
 - Password di app per Multi-Factor Authentication.

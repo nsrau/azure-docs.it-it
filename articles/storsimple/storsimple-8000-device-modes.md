@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60576090"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiare le modalità del dispositivo sul dispositivo StorSimple
@@ -48,14 +48,14 @@ Talvolta potrebbe essere necessario avere il dispositivo StorSimple in modalità
 È possibile porre il sistema in modalità di manutenzione solo tramite Windows PowerShell per StorSimple. In questa modalità, tutte le richieste I/O sono sospese. Inoltre vengono arrestati servizi come la memoria ad accesso casuale non volatile (NVRAM) o il servizio cluster. Entrambi i controller vengono riavviati quando si entra o si esce dalla modalità. Quando si esce dalla modalità di manutenzione, tutti i servizi vengono ripresi e devono essere integri. L'operazione potrebbe richiedere alcuni minuti.
 
 > [!NOTE]
-> **La modalità di manutenzione è supportata solo su un dispositivo correttamente funzionante. Non è supportato in un dispositivo in cui uno o entrambi i controller non funzionano.**
+> **La modalità manutenzione è supportata solo su un dispositivo funzionante correttamente. Non è supportata in un dispositivo in cui uno o entrambi i controller non funzionano.**
 
 
 ### <a name="recovery-mode"></a>Modalità di ripristino
 
 La modalità di ripristino può essere descritta come la "modalità provvisoria di Windows con supporto di rete". La modalità di ripristino interessa il team del supporto tecnico Microsoft e consente di eseguire la diagnostica del sistema. L'obiettivo principale della modalità di ripristino consiste nel recuperare i log di sistema.
 
-Se il sistema passa in modalità di ripristino, è necessario contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, visitare il sito [Del servizio Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
+Se il sistema passa in modalità di ripristino, è necessario contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, vedere [Contact supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 > [!NOTE]
 > **Non è possibile porre il dispositivo in modalità di ripristino. Se il dispositivo è in uno stato non valido, la modalità di ripristino tenta di impostare il dispositivo su uno stato che permetta al personale di supporto Microsoft di esaminarlo.**
@@ -72,7 +72,7 @@ Se il sistema passa in modalità di ripristino, è necessario contattare il supp
 Per eseguire la manutenzione o installare gli aggiornamenti in modalità manutenzione, è possibile porre il dispositivo StorSimple in modalità di manutenzione (dalla modalità normale). Eseguire le procedure seguenti per attivare o disattivare la modalità di manutenzione.
 
 > [!IMPORTANT]
-> Prima di entrare in modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri effettuando l'accesso a **Impostazioni dispositivo > Integrità hardware ** nel Portale di Azure. Se uno o entrambi i controller non sono integri, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, visitare il sito [Del servizio Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
+> Prima di entrare in modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri effettuando l'accesso a **Impostazioni dispositivo > Integrità hardware ** nel Portale di Azure. Se uno o entrambi i controller non sono integri, contattare il supporto tecnico Microsoft per i passaggi successivi. Per ulteriori informazioni, vedere [Contact supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
  
 
 #### <a name="to-enter-maintenance-mode"></a>Per attivare la modalità di manutenzione

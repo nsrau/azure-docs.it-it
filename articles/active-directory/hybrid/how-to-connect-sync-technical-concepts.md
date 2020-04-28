@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60347576"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Servizio di sincronizzazione Azure AD Connect: Concetti tecnici
@@ -43,7 +43,7 @@ Le sezioni successive includono altri dettagli sugli aspetti seguenti del serviz
 ## <a name="connector"></a>Connettore
 I moduli di codice utilizzati per comunicare con una directory connessa sono chiamati connettori (definiti in precedenza agenti di gestione (MA)).
 
-Questi vengono installati nel computer che esegue la sincronizzazione di Azure AD Connect.These are installed on the computer running Azure AD Connect sync. I connettori offrono la possibilità senza agente di conversare utilizzando protocolli di sistema remoti anziché basarsi sulla distribuzione di agenti specializzati. Ciò comporta una riduzione del rischio e dei tempi di distribuzione, in particolare in caso di applicazioni e sistemi critici.
+Queste sono installate nel computer che esegue Azure AD Connect Sync. I connettori offrono la possibilità di comunicare senza agente usando protocolli di sistema remoti anziché basarsi sulla distribuzione di agenti specializzati. Ciò comporta una riduzione del rischio e dei tempi di distribuzione, in particolare in caso di applicazioni e sistemi critici.
 
 Nell'immagine precedente il connettore è sinonimo di spazio connettore, ma include tutte le comunicazioni con il sistema esterno.
 
@@ -87,7 +87,7 @@ In questo modo sarà stabilito implicitamente un collegamento e il flusso dell'a
 Quando una regola determina che è necessario creare un nuovo oggetto spazio connettore, questa operazione è definita provisioning. Poiché tuttavia questa operazione si verifica solo nello spazio connettore, verrà applicata all'origine dati connessa solo quando sarà eseguita un'esportazione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Sincronizzazione di Azure AD Connect: Personalizzazione delle opzioni di sincronizzazioneAzure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
+* [Sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->

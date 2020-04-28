@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: damaerte
 ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60614317"
 ---
 # <a name="embed-azure-cloud-shell"></a>Incorporare Azure Cloud Shell
@@ -27,11 +27,11 @@ L'incorporamento di Cloud Shell consente a sviluppatori e autori di contenuti di
 
 Pulsante di dimensioni normali
 
-[![Lancio regolare](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+[![Avvio normale](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
 
 Pulsante di grandi dimensioni
 
-[![Lancio di grandi dimensioni](https://shell.azure.com/images/launchcloudshell@2x.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+[![Avvio grande](https://shell.azure.com/images/launchcloudshell@2x.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Procedure
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60243525"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL
@@ -54,14 +54,14 @@ Per effettuare il provisioning del database fuori banda e installare Azure AD Co
    ![Autorizzazioni](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
    >[!NOTE]
-   >Azure AD Connect non supporta gli account di accesso con un'appartenenza annidata.  Ciò significa che l'account amministratore di Azure AD Connect e l'account del servizio di dominio devono essere collegati a un account di accesso a cui sono concessi i diritti dbo.  Non può essere semplicemente il membro di un gruppo assegnato a un account di accesso con diritti dbo.
+   >Azure AD Connect non supporta gli account di accesso con appartenenza annidata.  Ciò significa che l'account amministratore Azure AD Connect e l'account del servizio del dominio devono essere collegati a un account di accesso a cui sono stati concessi i diritti dbo.  Non può semplicemente essere il membro di un gruppo assegnato a un account di accesso con diritti dbo.
 
 3. Inviare un messaggio di posta elettronica all'amministratore di Azure AD Connect che include l'istanza di SQL Server e il nome di istanza da usare durante l'installazione di Azure AD Connect.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 Al termine del provisioning del database, l'amministratore di Azure AD Connect può installare e configurare la sincronizzazione locale in base alle necessità specifiche.
 
-Nel caso in cui l'amministratore SQL abbia ripristinato il database ADSync da un backup di Azure AD Connect precedente, sarà necessario installare il nuovo server Azure AD Connect usando un database esistente. Per altre informazioni sull'installazione di Azure AD Connect con un database esistente, vedere [Installare Azure AD Connect usando un database ADSync esistente.](how-to-connect-install-existing-database.md)
+Nel caso in cui l'amministratore SQL abbia ripristinato il database ADSync da un backup Azure AD Connect precedente, sarà necessario installare il nuovo server di Azure AD Connect usando un database esistente. Per ulteriori informazioni sull'installazione di Azure AD Connect con un database esistente, vedere [Install Azure ad Connect using an existing AdSync database](how-to-connect-install-existing-database.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Introduzione alle impostazioni rapide per Azure AD Connect](how-to-connect-install-express.md)

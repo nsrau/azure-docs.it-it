@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60518451"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Eseguire la migrazione di Azure Data Lake Storage Gen1 tra aree
@@ -25,7 +25,7 @@ Man mano che Azure Data Lake Storage Gen1 viene reso disponibile in nuove aree, 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure.** Per altre informazioni, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Per altre informazioni, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Data Lake Storage Gen1 in due aree diverse**. Per altre informazioni, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Azure Data Factory**. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](../data-factory/introduction.md).
 
