@@ -9,10 +9,10 @@ ms.date: 10/25/2019
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: fca8c3b0b1bd4d22720a6d15313e297d05b7fac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021276"
 ---
 1. Aprire il portale di Azure da[https://portal.azure.com](https://portal.azure.com)
@@ -48,7 +48,7 @@ ms.locfileid: "76021276"
     | ------------ | ---------------- | ----------- |
     | **[Account di archiviazione](../articles/storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Sistema operativo**| Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
-    | **[Pianificazione](../articles/azure-functions/functions-scale.md)** | Premium | Per tipo di piano selezionare **Premium (anteprima)** e selezionare le impostazioni predefinite per il *piano di Windows* e le selezioni di *dimensioni e SKU* . |
+    | **[Piano](../articles/azure-functions/functions-scale.md)** | Premium | Per tipo di piano selezionare **Premium (anteprima)** e selezionare le impostazioni predefinite per il *piano di Windows* e le selezioni di *dimensioni e SKU* . |
 
     Selezionare il pulsante **Next: monitoring >** .
 

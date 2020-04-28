@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153719"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Spostamento dei dati nel cluster vFXT - Inserimento di dati parallelo

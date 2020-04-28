@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f65220a04a709bae5a6892bfd4105195cee35741
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978425"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
@@ -250,8 +250,8 @@ Examples:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Anteprima dell'utilizzo di Drive per un processo di esportazione](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Revisione dello stato del processo con i file di registro di copia](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Anteprima dell'uso del disco per un processo di esportazione](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [Revisione dello stato dei processi con i file di log di copia](../storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Ripristino di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
-* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di AzureTroubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+* [Risoluzione dei problemi relativi allo strumento di importazione/esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

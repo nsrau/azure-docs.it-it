@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045482"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interfaccia della riga di comando di AzureAzure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,7 +48,7 @@ Per distribuire un servizio di bilanciamento del carico, è necessario creare gl
 * Configurazione del probe: probe dello stato di integrità per le macchine virtuali.
 * Regole NAT in ingresso: regole delle porte per l'accesso diretto alle macchine virtuali.
 
-Per altre informazioni sui componenti di bilanciamento del carico, vedere Componenti di Azure Load Balancer.For more information about load balancer components, see [Azure Load Balancer components.](concepts-limitations.md#load-balancer-components)
+Per ulteriori informazioni sui componenti del servizio di bilanciamento del carico, vedere [Azure Load Balancer Components](concepts-limitations.md#load-balancer-components).
 
 La procedura seguente illustra come configurare un servizio di bilanciamento del carico tra due macchine virtuali.
 
@@ -251,7 +251,7 @@ Dopo aver creato la macchina virtuale, aggiungere l'interfaccia di rete.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Passaggio 1: Archiviare la risorsa di bilanciamento del carico
 
-Se non è già stato fatto, archiviare la risorsa di bilanciamento del carico in una variabile. Stiamo usando il nome della variabile **$lb**. Per i valori degli attributi nello script, usare i nomi per le risorse di bilanciamento del carico create nei passaggi precedenti.
+Se non è già stato fatto, archiviare la risorsa di bilanciamento del carico in una variabile. Si sta usando il nome della variabile **$lb**. Per i valori degli attributi nello script, usare i nomi per le risorse del servizio di bilanciamento del carico create nei passaggi precedenti.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

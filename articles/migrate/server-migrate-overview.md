@@ -4,10 +4,10 @@ description: Viene fornita una panoramica delle opzioni per la migrazione di mac
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76028726"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selezionare un'opzione di migrazione VMware
@@ -43,14 +43,14 @@ Dopo aver esaminato le limitazioni, la comprensione dei passaggi necessari per l
 **Attività** | **Dettagli** |**Senza agente** | **Basata su agenti**
 --- | --- | --- | ---
 **Valutazione** | Valutare i server prima della migrazione.  La valutazione è facoltativa. Prima di eseguire la migrazione, è consigliabile valutare i computer, ma non è necessario. <br/><br/> Per la valutazione, Azure Migrate configura un appliance leggero per individuare e valutare le macchine virtuali. | Se si esegue una migrazione senza agenti dopo la valutazione, lo stesso Azure Migrate Appliance configurato per la valutazione viene usato per la migrazione senza agenti.  |  Se si esegue una migrazione basata su agenti dopo la valutazione, l'appliance configurato per la valutazione non viene usato durante la migrazione senza agenti. È possibile lasciare l'appliance sul posto o rimuoverlo se non si desidera eseguire ulteriori operazioni di individuazione e valutazione.
-**Preparare i server e le VM VMware per la migrazione** | Configurare una serie di impostazioni in server e macchine virtuali VMware. | Obbligatorio | Obbligatorio
-**Aggiungere lo strumento di migrazione server** | Aggiungere lo strumento di migrazione Azure Migrate server nel progetto Azure Migrate. | Obbligatorio | Obbligatorio
-**Distribuire il dispositivo Azure Migrate** | Configurare un'appliance Lightweight in una macchina virtuale VMware per l'individuazione e la valutazione delle macchine virtuali. | Obbligatorio | Non obbligatorio.
-**Installare il servizio Mobility nelle macchine virtuali** | Installare il servizio Mobility in ogni macchina virtuale che si vuole replicare | Facoltativo | Obbligatorio
-**Distribuire il dispositivo di replica della migrazione di Azure Migrate server** | Configurare un'appliance in una macchina virtuale VMware per individuare le macchine virtuali e il Bridge tra il servizio Mobility in esecuzione nelle macchine virtuali e la migrazione di Azure Migrate server | Facoltativo | Obbligatorio
-**Replicare le macchine virtuali**. Abilitare la replica delle macchine virtuali. | Configurare le impostazioni di replica e selezionare le macchine virtuali da replicare | Obbligatorio | Obbligatorio
-**Eseguire una migrazione di test** | Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto. | Obbligatorio | Obbligatorio
-**Eseguire una migrazione completa** | Eseguire la migrazione delle macchine virtuali. | Obbligatorio | Obbligatorio
+**Preparare i server e le VM VMware per la migrazione** | Configurare una serie di impostazioni in server e macchine virtuali VMware. | Obbligatoria | Obbligatoria
+**Aggiungere lo strumento Migrazione server** | Aggiungere lo strumento di migrazione Azure Migrate server nel progetto Azure Migrate. | Obbligatoria | Obbligatoria
+**Distribuire il dispositivo Azure Migrate** | Configurare un'appliance Lightweight in una macchina virtuale VMware per l'individuazione e la valutazione delle macchine virtuali. | Obbligatoria | Non obbligatorio.
+**Installare il servizio Mobility nelle macchine virtuali** | Installare il servizio Mobility in ogni macchina virtuale che si vuole replicare | Facoltativo | Obbligatoria
+**Distribuire il dispositivo di replica della migrazione di Azure Migrate server** | Configurare un'appliance in una macchina virtuale VMware per individuare le macchine virtuali e il Bridge tra il servizio Mobility in esecuzione nelle macchine virtuali e la migrazione di Azure Migrate server | Facoltativo | Obbligatoria
+**Replicare le macchine virtuali**. Abilitare la replica delle macchine virtuali. | Configurare le impostazioni di replica e selezionare le macchine virtuali da replicare | Obbligatoria | Obbligatoria
+**Eseguire una migrazione di test** | Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto. | Obbligatoria | Obbligatoria
+**Eseguire una migrazione completa** | Eseguire la migrazione delle macchine virtuali. | Obbligatoria | Obbligatoria
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da locale ad Azure usando PowerShellCopy data from on-premises to Azure using PowerShell
+title: Copiare dati da locale ad Azure tramite PowerShell
 description: Lo script PowerShell consente di copiare dati da un database di SQL Server locale in un altro di Archiviazione BLOB di Azure.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ms.openlocfilehash: 10555defc4888af66bb88d19190b6543aa8ae0c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75974696"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Usare PowerShell per creare una pipeline di Data Factory per copiare dati in locale in Azure
@@ -28,8 +28,8 @@ In questo esempio si usa PowerShell per creare una pipeline di Azure Data Factor
 ## <a name="prerequisites"></a>Prerequisiti
 
 - **SQL Server**. In questo esempio si usa un database di SQL Server locale come archivio dati di **origine**.
-- **Account di Archiviazione di Azure.** In questo esempio l'archivio BLOB di Azure viene usato come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-account-create.md) per la procedura per crearne uno.
-- Runtime di **integrazione self-hosted**. Scaricare il file con estensione msi dall'[area download](https://www.microsoft.com/download/details.aspx?id=39717) ed eseguirlo per installare un runtime di integrazione self-hosted nel computer.  
+- **Account di archiviazione di Azure**. In questo esempio l'archivio BLOB di Azure viene usato come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [creare un account di archiviazione](../../storage/common/storage-account-create.md) per i passaggi per crearne uno.
+- **Runtime di integrazione self-hosted**. Scaricare il file con estensione msi dall'[area download](https://www.microsoft.com/download/details.aspx?id=39717) ed eseguirlo per installare un runtime di integrazione self-hosted nel computer.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Creare un database di esempio in SQL Server
 1. Nel database di SQL Server locale creare una tabella denominata **emp** tramite lo script SQL seguente:
@@ -85,7 +85,7 @@ Questo script usa i comandi seguenti:
 | [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Crea un servizio collegato nella data factory. Un servizio collegato collega un archivio dati o un ambiente di calcolo a una data factory. |
 | [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Crea un set di dati nella data factory. Il set di dati rappresenta l'input e l'output per un'attività in una pipeline. |
 | [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Crea una pipeline nella data factory. Una pipeline contiene una o più attività che eseguono un'operazione specifica. In questa pipeline l'attività di copia esegue la copia dei dati da una posizione a un'altra in un'archiviazione BLOB di Azure. |
-| [Richiamare-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Crea un'esecuzione per la pipeline. In altre parole, esegue la pipeline. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Crea un'esecuzione per la pipeline. In altre parole, esegue la pipeline. |
 | [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Ottiene i dettagli dell'esecuzione dell'attività nella pipeline.
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||

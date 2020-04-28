@@ -16,10 +16,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: efc6d0c25c5186b391deb08ee0e41dcb8ae6edf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978090"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)
@@ -37,7 +37,7 @@ L'applicazione automatica delle patch stabilisce un periodo di manutenzione per 
 L'applicazione automatica delle patch dipende dall' [estensione dell'agente IaaS di SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
-> Azure include due diversi modelli di distribuzione per la creazione e l'utilizzo delle risorse: [Resource Manager e Classic](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.  Per visualizzare la versione Resource Manager di questo articolo, vedere [Automated Patching for SQL Server in Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)(Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e classica](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.  Per visualizzare la versione Resource Manager di questo articolo, vedere [Automated Patching for SQL Server in Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)(Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare l'applicazione automatica delle patch, tenere in considerazione i seguenti prerequisiti:
@@ -48,13 +48,13 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 * Windows Server 2012 R2
 * Windows Server 2016
 
-**Versione di SQL Server**:
+**Versione SQL Server**:
 
 * SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
 
-**Azure PowerShell:**
+**Azure PowerShell**:
 
 * [Installare i comandi di Azure PowerShell più recenti](/powershell/azure/overview).
 
@@ -84,7 +84,7 @@ In base a questo esempio, nella tabella seguente vengono descritti gli effetti p
 
 | Parametro | Effetto |
 | --- | --- |
-| **Dayofweek** |Patch installate ogni giovedì. |
+| **DayOfWeek** |Patch installate ogni giovedì. |
 | **MaintenanceWindowStartingHour** |Inizio degli aggiornamenti alle ore 11:00. |
 | **MaintenanceWindowDuration** |Le patch devono essere installate entro 120 minuti. In base all'ora di inizio, devono essere completate entro le ore 13:00. |
 | **PatchCategory** |L'unica impostazione possibile per questo parametro è "Important". |

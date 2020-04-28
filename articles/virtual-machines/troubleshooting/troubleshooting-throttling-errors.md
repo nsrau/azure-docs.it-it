@@ -14,10 +14,10 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045367"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
@@ -80,7 +80,7 @@ Come illustrato in precedenza, tutti gli errori di limitazione delle richieste i
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Analizzatore della frequenza delle chiamate API e degli errori di limitazione
 È disponibile una versione di anteprima di una funzionalità di risoluzione dei problemi per l'API del provider di risorse di calcolo. Questi cmdlet di PowerShell forniscono statistiche sulla frequenza delle richieste API per ogni intervallo di tempo per ogni operazione e sulle violazioni delle limitazioni per ogni gruppo di operazioni (criteri):
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Esportazione-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Le statistiche sulle chiamate dell'API possono offrire informazioni dettagliate molto utili in merito al comportamento dei client di una sottoscrizione e facilitare l'identificazione dei modelli di chiamata che causano la limitazione.
 

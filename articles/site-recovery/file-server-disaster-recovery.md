@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75980290"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
@@ -54,7 +54,7 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 
 ### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Fattori da considerare per le decisioni riguardanti il ripristino di emergenza in Azure
 
-|Environment  |Recommendation  |Elementi da considerare: |
+|Ambiente  |Recommendation  |Elementi da considerare: |
 |---------|---------|---------|
 |Ambiente di file server con o senza replica DFS|   [Usare Site Recovery per la replica](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery non supporta cluster di dischi condivisi o NAS (Network Attached Storage). Se l'ambiente usa queste configurazioni, scegliere uno degli altri approcci in base alle esigenze. <br> Site Recovery non supporta SMB 3.0. La macchina virtuale replicata incorpora le modifiche solo quando le modifiche apportate ai file vengono aggiornate nella posizione originale dei file.<br>  Site Recovery offre un processo di replica dei dati quasi sincrono e, di conseguenza, nel caso di uno scenario di failover non pianificato, potrebbe verificarsi una potenziale perdita di dati e potrebbe creare problemi di mancata corrispondenza degli USN.
 |Ambiente di file server con replica DFS     |  [Estendere la replica DFS a una macchina virtuale IaaS di Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      La replica DFS funziona correttamente in ambienti con larghezza di banda molto limitata. Questo approccio richiede una macchina virtuale di Azure sempre in esecuzione. È necessario tenere conto del costo della macchina virtuale nella pianificazione.         |
@@ -64,7 +64,7 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 ### <a name="site-recovery-support"></a>Supporto di Site Recovery
 Dato che la replica di Site Recovery è indipendente dall'applicazione, queste raccomandazioni saranno valide anche per gli scenari seguenti.
 
-| Origine    |In un sito secondario    |In Azure
+| Source (Sorgente)    |In un sito secondario    |In Azure
 |---------|---------|---------|
 |Azure| -|Sì|
 |Hyper-V|   Sì |Sì

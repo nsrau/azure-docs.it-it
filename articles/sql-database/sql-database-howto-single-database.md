@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
 ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76027712"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Come usare un database singolo in Database SQL di Azure
@@ -34,7 +34,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 - [Configurare la maschera dati dinamica](sql-database-dynamic-data-masking-get-started-portal.md) per proteggere i dati sensibili.
 - [Configurare la conservazione dei backup](sql-database-long-term-backup-retention-configure.md) di un database in modo che vengano conservati nell'archivio BLOB di Azure. In alternativa, è possibile adottare l'approccio basato sulla [configurazione della conservazione dei backup con l'insieme di credenziali Azure (deprecato)](sql-database-long-term-backup-retention-configure-vault.md).
 - [Configurare la replica geografica](sql-database-geo-replication-portal.md) per mantenere una replica del database in un'altra area.
-- [Configurare la sicurezza per le repliche geografiche.](sql-database-geo-replication-security-config.md)
+- [Configurare la sicurezza per le repliche geografiche](sql-database-geo-replication-security-config.md).
 
 ## <a name="monitor-and-tune-your-database"></a>Monitorare e ottimizzare il database
 
@@ -48,27 +48,27 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 ## <a name="query-distributed-data"></a>Eseguire query sui dati distribuiti
 
 - [Eseguire query sui dati partizionati verticalmente](sql-database-elastic-query-getting-started-vertical.md) su più database.
-- [Creare report su un livello dati con scalabilità orizzontale.](sql-database-elastic-query-horizontal-partitioning.md)
-- [Eseguire query tra tabelle con schemi diversi.](sql-database-elastic-query-vertical-partitioning.md)
+- [Report nel livello dati con scalabilità orizzontale](sql-database-elastic-query-horizontal-partitioning.md).
+- [Eseguire query tra tabelle con schemi diversi](sql-database-elastic-query-vertical-partitioning.md).
 
 ## <a name="elastic-database-jobs"></a>Processi di database elastici
 
-- [Creare e gestire](elastic-jobs-powershell.md) Processi di database elastico tramite PowerShell.Elastic Database Jobs using PowerShell.
+- [Creazione e gestione](elastic-jobs-powershell.md) Processi di database elastici con PowerShell.
 - [Creare e gestire](elastic-jobs-tsql.md) i processi di database elastici tramite Transact-SQL.
 - [Eseguire la migrazione da un processo elastico precedente](elastic-jobs-migrate.md).
 
 ## <a name="database-sharding"></a>Partizionamento orizzontale del database
 
-- [Aggiornare la libreria client](sql-database-elastic-scale-upgrade-client-library.md)del database elastico .
-- [Creare app partizionata](sql-database-elastic-scale-get-started.md).
+- [Aggiornare la libreria client del database elastico](sql-database-elastic-scale-upgrade-client-library.md).
+- [Creare un'app partizionata](sql-database-elastic-scale-get-started.md).
 - [Eseguire query sui dati partizionati orizzontalmente](sql-database-elastic-query-getting-started.md).
 - Eseguire [query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
 - [Spostare i dati partizionati](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configurare la sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md) nelle partizioni di database.
 - [Aggiungere una partizione](sql-database-elastic-scale-add-a-shard.md) al set corrente di partizioni di database.
-- Risolvere i problemi relativi [alla mappa partizioni](sql-database-elastic-database-recovery-manager.md).
-- [Eseguire la migrazione di DB partizionato](sql-database-elastic-convert-to-use-elastic-tools.md).
-- [Creare contatori](sql-database-elastic-database-perf-counters.md).
+- [Risolvere i problemi della mappa](sql-database-elastic-database-recovery-manager.md)partizioni.
+- [Eseguire la migrazione del database partizionato](sql-database-elastic-convert-to-use-elastic-tools.md).
+- [Crea contatori](sql-database-elastic-database-perf-counters.md).
 - [Usare Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) per eseguire query sui dati partizionati.
 - [Usare Dapper Framework](sql-database-elastic-scale-working-with-dapper.md) per eseguire query sui dati partizionati.
 

@@ -1,5 +1,5 @@
 ---
-title: Trasformare XML con mappe XSLTTransform XML with XSLT maps
+title: Trasformare XML con mappe XSLT
 description: Aggiungere mappe XSLT per trasformare i dati XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
@@ -9,15 +9,15 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979415"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
-Per trasferire dati XML tra formati per scenari di integrazione aziendale in App per la logica di Azure, l'app per la logica può usare mappe o, più specificamente, mappe XSLT (Extensible Style Sheet Language Transformations). Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
+Per trasferire i dati XML tra i formati per gli scenari di integrazione aziendale nelle app per la logica di Azure, l'app per la logica può usare le mappe o, più specificamente, le mappe XSLT (Extensible Style Sheet Language Transformations). Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
 
 Si supponga, ad esempio, di ricevere regolarmente fatture o ordini B2B da un cliente che usa il formato AAAMMGG per le date. L'organizzazione usa tuttavia il formato MMGGAAA per le date. È possibile definire e usare una mappa che trasforma il formato di data AAAMMGG nel formato MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
@@ -29,18 +29,18 @@ Per i limiti relativi agli account di integrazione e agli elementi come le mappe
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) in cui archiviare le mappe e gli altri elementi per l'integrazione aziendale e le soluzioni B2B (business-to-business).
 
-* Se la mappa fa riferimento a un assembly esterno, è necessario caricare *sia l'assembly che la mappa* nell'account di integrazione. Assicurarsi di [*caricare prima l'assembly*](#add-assembly), quindi caricare il mapping che fa riferimento all'assembly.
+* Se la mappa fa riferimento a un assembly esterno, è necessario caricare *sia l'assembly che la mappa* nell'account di integrazione. Assicurarsi di [*caricare innanzitutto l'assembly*](#add-assembly)e quindi caricare la mappa che fa riferimento all'assembly.
 
   Se le dimensioni dell'assembly sono pari a 2 MB o meno, è possibile aggiungere l'assembly all'account di integrazione *direttamente* dal portale di Azure. Se tuttavia le dimensioni dell'assembly o della mappa sono superiori a 2 MB, ma non superano il [limite per gli assembly o le mappe](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), esistono queste opzioni:
 
   * Per gli assembly, sono necessari un contenitore BLOB di Azure, in cui poter caricare l'assembly, e la posizione di tale contenitore. In questo modo, sarà possibile fornire tale posizione in seguito quando si aggiungerà l'assembly all'account di integrazione. 
   For questa attività, sono necessari gli elementi seguenti:
 
-    | Elemento | Descrizione |
+    | Item | Descrizione |
     |------|-------------|
-    | [Account di archiviazione di AzureAzure storage account](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Informazioni su [come creare un account di archiviazione.](../storage/common/storage-account-create.md) |
+    | [Account di archiviazione di Azure](../storage/common/storage-account-overview.md) | In questo account creare un contenitore BLOB di Azure per l'assembly. Informazioni [su come creare un account di archiviazione](../storage/common/storage-account-create.md). |
     | Contenitore BLOB | In questo contenitore è possibile caricare l'assembly. È necessaria anche la posizione di questo contenitore quando si aggiunge l'assembly all'account di integrazione. Informazioni su come [creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Esplora archivi di AzureAzure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Questo strumento consente di gestire più facilmente gli account di archiviazione e i contenitori BLOB. Per usare Storage Explorer, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Per altre informazioni, vedere [Guida introduttiva: Creare un BLOB nell'archivio oggetti con Azure Storage Explorer.](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) <p>In alternativa, nel portale di Azure trovare e selezionare l'account di archiviazione. Dal menu dell'account di archiviazione selezionare **Storage Explorer**. |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Questo strumento consente di gestire più facilmente gli account di archiviazione e i contenitori BLOB. Per usare Storage Explorer, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Per altre informazioni, vedere [Guida introduttiva: creare un BLOB nell'archivio oggetti con Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>In alternativa, nel portale di Azure trovare e selezionare l'account di archiviazione. Dal menu dell'account di archiviazione selezionare **Storage Explorer**. |
     |||
 
   * Per le mappe, è attualmente possibile aggiungere mappe più grandi usando l'[API REST di App per la logica di Azure - Mappe](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
@@ -55,7 +55,7 @@ Non è necessaria un'app per la logica quando si creano e si aggiungono mappe. P
 
 1. Per trovare e aprire l'account di integrazione, nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
-   Selezionare **Account di integrazione**.
+   Selezionare **account di integrazione**.
 
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
@@ -75,7 +75,7 @@ In base alle dimensioni del file di assembly, seguire i passaggi per caricare un
 Per i limiti delle quantità di assembly negli account di integrazione, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 > [!NOTE]
-> Se si modifica l'assieme, è necessario aggiornare anche la mappa indipendentemente dal fatto che la mappa condisponga o meno delle modifiche.
+> Se si modifica l'assembly, è necessario aggiornare anche la mappa indipendentemente dalla presenza o meno delle modifiche della mappa.
 
 <a name="smaller-assembly"></a>
 
@@ -101,7 +101,7 @@ Per i limiti delle quantità di assembly negli account di integrazione, vedere [
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Aggiungere assembly di dimensioni superiori a 2 MB
 
-Per aggiungere assembly più grandi, è possibile caricare l'assembly in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di assembly variano a seconda che il contenitore BLOB disponga dell'accesso in lettura pubblico. Per prima cosa, verificare se il contenitore BLOB dispone o meno dell'accesso in lettura pubblico seguendo questi passaggi: Impostare il livello di accesso pubblico per il [contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Per aggiungere assembly più grandi, è possibile caricare l'assembly in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di assembly variano a seconda che il contenitore BLOB disponga di accesso in lettura pubblico. Verificare prima di tutto se il contenitore BLOB dispone di accesso in lettura pubblico attenendosi alla procedura seguente: [impostare il livello di accesso pubblico per il contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 
@@ -111,11 +111,11 @@ Per aggiungere assembly più grandi, è possibile caricare l'assembly in un cont
 
 1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-   * Se il contenitore BLOB ha almeno l'accesso pubblico, scegliere **Annulla**e seguire questi passaggi in un secondo momento in questa pagina: Caricare nei [contenitori con accesso pubblico](#public-access-assemblies)
+   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access-assemblies)
 
      ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se il contenitore BLOB non dispone dell'accesso pubblico, scegliere **Annulla**e seguire questi passaggi in un secondo momento in questa pagina: Caricare nei [contenitori senza accesso pubblico](#no-public-access-assemblies)
+   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#no-public-access-assemblies)
 
      ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -176,7 +176,7 @@ Dopo aver caricato gli assembly a cui la mappa fa riferimento, è possibile cari
 
 1. Se l'account di integrazione non è già aperto, nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
-   Selezionare **Account di integrazione**.
+   Selezionare **account di integrazione**.
 
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
@@ -198,7 +198,7 @@ Dopo aver caricato gli assembly a cui la mappa fa riferimento, è possibile cari
 
 1. In **Aggiungi mappa** immettere un nome per la mappa. 
 
-1. In **Tipo di mappa**selezionare il tipo, ad esempio **Liquido**, **XSLT**, **XSLT 2.0**o **XSLT 3.0**.
+1. In **tipo di mappa**selezionare il tipo, ad esempio **Liquid**, **XSLT**, **XSLT 2,0**o **XSLT 3,0**.
 
 1. Mantenere selezionato **File piccolo**. Accanto alla casella **Mappa** scegliere l'icona della cartella. Trovare e selezionare la mappa da caricare, ad esempio:
 
@@ -314,7 +314,7 @@ Per aggiornare una mappa esistente, è necessario caricare un nuovo file di mapp
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e aprire l'account di integrazione, se non è già aperto.
 
-1. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **Account di integrazione**.
+1. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **account di integrazione**.
 
 1. Selezionare l'account di integrazione in cui si vuole aggiornare la mappa.
 
@@ -334,7 +334,7 @@ Per aggiornare una mappa esistente, è necessario caricare un nuovo file di mapp
 
 1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
-   Selezionare **Account di integrazione**.
+   Selezionare **account di integrazione**.
 
 1. Selezionare l'account di integrazione in cui si vuole eliminare la mappa.
 

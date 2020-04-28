@@ -1,13 +1,13 @@
 ---
 title: Esempi di modelli di Azure Resource Manager
-description: Trovare esempi di modelli di Azure Resource Manager per distribuire le istanze del contenitore di Azure in configurazioni diverseFind Azure Resource Manager template samples to deploy Azure Container Instances in different configurations
+description: Trovare Azure Resource Manager esempi di modelli per distribuire istanze di contenitore di Azure in configurazioni diverse
 ms.topic: article
 ms.date: 03/07/2019
 ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981657"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelli di Azure Resource Manager per Istanze di Azure Container
@@ -21,16 +21,16 @@ Per le opzioni di distribuzione, vedere la sezione [Distribuzione](#deployment).
 | | |
 |-|-|
 | **Applicazioni** ||
-| [Wordpress][app-wp] | Crea un sito Web WordPress e il relativo database MySQL in un gruppo di contenitori. Il contenuto del sito WordPress e il database MySQL sono persistenti in una condivisione di File di Azure. Crea anche un gateway applicazione per esporre l'accesso alla rete pubblica a WordPress. |
+| [WordPress][app-wp] | Consente di creare un sito web WordPress e il relativo database MySQL in un gruppo di contenitori. Il contenuto del sito WordPress e il database MySQL sono persistenti in una condivisione di File di Azure. Crea anche un gateway applicazione per esporre l'accesso alla rete pubblica a WordPress. |
 | [MS NAV con SQL Server e IIS][app-nav] | Distribuisce un singolo contenitore Windows con un ambiente Dynamics NAV/Dynamics 365 Business Central completo e indipendente. |
 | **Volumi** ||
 | [emptyDir][vol-emptydir] | Distribuisce due contenitori Linux che condividono un volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Distribuisce un contenitore Linux che clona un repository GitHub e lo monta come volume. |
-| [Segreto][vol-secret] | Distribuisce un contenitore Linux con un certificato PFX montato come volume segreto. |
-| **Rete** ||
+| [segreto][vol-secret] | Distribuisce un contenitore Linux con un certificato PFX montato come volume segreto. |
+| **Funzionalità di rete** ||
 | [Contenitore con esposizione UDP][net-udp] | Distribuisce un contenitore Windows o Linux che espone una porta UDP. |
 | [Contenitore Linux con IP pubblico][net-publicip] | Distribuisce un singolo contenitore Linux accessibile attraverso un indirizzo IP pubblico. |
-| [Distribuire un gruppo di contenitori con una rete virtuale (anteprima)Deploy a container group with a virtual network (preview)][net-vnet] | Distribuisce una nuova rete virtuale, subnet, profilo di rete e gruppo di contenitori. |
+| [Distribuire un gruppo di contenitori con una rete virtuale (anteprima)][net-vnet] | Distribuisce una nuova rete virtuale, una subnet, un profilo di rete e un gruppo di contenitori. |
 | **Risorse di Azure** ||
 | [Creare account di archiviazione di Azure e condivisione di File][az-files] | Usa l'interfaccia della riga di comando di Azure in un'istanza di contenitore per creare un account di archiviazione e una condivisione di File di Azure.
 
@@ -38,11 +38,11 @@ Per le opzioni di distribuzione, vedere la sezione [Distribuzione](#deployment).
 
 Sono disponibili diverse opzioni per la distribuzione delle risorse con modelli di Gestione risorse:
 
-[Interfaccia della riga di comando di AzureAzure][deploy-cli]
+[Interfaccia della riga di comando di Azure][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 
-[Portale di Azure][deploy-portal]
+[Azure portal][deploy-portal]
 
 [REST API][deploy-rest]
 

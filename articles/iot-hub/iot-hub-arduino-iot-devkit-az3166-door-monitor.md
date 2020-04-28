@@ -1,5 +1,5 @@
 ---
-title: Inviare un messaggio di posta elettronica quando la porta viene aperta usando Funzioni di AzureSend email when door is opened using Azure Functions
+title: Invia un messaggio di posta elettronica quando viene aperta la porta con funzioni di Azure
 description: Monitorare il sensore magnetico per rilevare quando viene aperta una porta e usare Funzioni di Azure per inviare una notifica tramite posta elettronica.
 author: liydu
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75977307"
 ---
-# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Door Monitor -- Utilizzo di Funzioni di Azure e SendGrid, invio di posta elettronica all'apertura di una porta           
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitoraggio sportello: con funzioni di Azure e SendGrid, inviare un messaggio di posta elettronica quando viene aperta una porta           
 
 MXChip IoT DevKit contiene un sensore magnetico predefinito. In questo progetto si rileva la presenza o l'assenza di un campo magnetico forte nelle vicinanze, in questo caso, proveniente da un piccolo magnete permanente.
 
@@ -53,9 +53,9 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 
 Per effettuare il provisioning dei servizi di Azure, usare il pulsante **Distribuisci in Azure**. Questo pulsante consente una distribuzione semplice e rapida dei progetti open source in Microsoft Azure.
 
-Fare clic sul pulsante **Distribuisci** in Azure di seguito. 
+Fare clic sul pulsante **Distribuisci in Azure** sotto. 
 
-[![Distribuire in AzureDeploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
+[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
 Se non è già stato eseguito l'accesso all'account Azure, accedere ora. 
 
@@ -95,9 +95,9 @@ La chiave API viene visualizzata solo una volta. Assicurarsi di copiarla e archi
 
 La procedura seguente effettuerà il provisioning di altri servizi correlati ad Azure IoT e distribuirà Funzioni di Azure per questo progetto.
 
-Fare clic sul pulsante **Distribuisci** in Azure di seguito. 
+Fare clic sul pulsante **Distribuisci in Azure** sotto. 
 
-[![Distribuire in AzureDeploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
+[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
 Viene visualizzato il modulo di iscrizione.
 
@@ -153,7 +153,7 @@ Nel terminale di VS Code una riga di comando interattiva guiderà nel processo d
 
 Caricare ora il codice per il dispositivo.
 
-#### <a name="windows"></a>WINDOWS
+#### <a name="windows"></a>Windows
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
@@ -184,9 +184,9 @@ Il programma viene prima di tutto inizializzato quando il DevKit è in presenza 
 
 Dopo l'inizializzazione, il messaggio `Door closed` viene visualizzato sullo schermo. Quando si verifica una variazione nel campo magnetico, lo stato passa a `Door opened`. Ogni volta che lo stato della porta cambia, si riceve una notifica tramite posta elettronica. La ricezione di questi messaggi di posta elettronica potrebbe richiedere fino a cinque minuti.
 
-![Magneti vicini al sensore: Porta chiusa](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneti vicini al sensore: Porta chiusa")
+![Magneti vicini al sensore: sportello chiuso](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneti vicini al sensore: sportello chiuso")
 
-![Magnete allontanato dal sensore: Porta aperta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnete allontanato dal sensore: Porta aperta")
+![Magnete allontanato dal sensore: sportello aperto](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnete allontanato dal sensore: sportello aperto")
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 

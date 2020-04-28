@@ -12,10 +12,10 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ddbf1eb960a24cfaa8d09ab45b6febca07e6d504
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979920"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
@@ -30,7 +30,7 @@ Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto
 Vedere [ClearDB](https://w2.cleardb.net/) per informazioni aggiornate su questo servizio. ClearDB è un servizio di hosting MySQL e gestisce l'infrastruttura di MySQL per l'utente. 
 
 Sono disponibili diverse altre opzioni per l'hosting di MySQL in Azure:
-* [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
+* [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/)
 * [Cluster MySQL in esecuzione su una VM di Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Istanza singola di MySQL in esecuzione su una VM di Azure](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -49,7 +49,7 @@ L'opzione predefinita del database è Titan, che ha un costo di $ 3,50. Durante 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Si esegue MySQL sulla propria macchina virtuale di Azure. È possibile connettere la propria app Web di Azure al database?
 Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all' [installazione di MySQL in una macchina virtuale](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>In quali paesi/aree sono supportati i cluster MySQL di ClearDB Premium?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>In quali paesi/aree geografiche sono supportati i cluster ClearDB Premium di MySQL?
 I cluster MySQL Premium ClearDB sono disponibili in tutte le aree di Azure in tutto il mondo a eccezione di India, Australia, Brasile meridionale e Cina.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>È possibile creare un nuovo cluster prima di creare un database con la soluzione cluster Premium ClearDB?
@@ -68,7 +68,7 @@ Usare il piano tariffario Basic o superiore per le app Web. Per ClearDB è consi
 Nel [Portale di Azure](https://portal.azure.com) è possibile aumentare le prestazioni di un database ClearDB in hosting condiviso. Per altre informazioni, vedere [questo articolo](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/). Attualmente il Portale di Azure non supporta l'aggiornamento dei cluster ClearDB Premium.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Non è possibile visualizzare il database ClearDB nel Portale di Azure?
-Se è stato creato un database ClearDB nella versione classica, non sarà possibile visualizzare il database nel portale di [Azure.](https://portal.azure.com) Non esiste alcuna soluzione per questo scenario.
+Se è stato creato un database ClearDB in modalità classica, non sarà possibile visualizzare il database nel [portale di Azure](https://portal.azure.com). Non esiste alcuna soluzione per questo scenario.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Chi è possibile contattare per ottenere aiuto quando il database presenta un problema?
 Per tutti i problemi relativi al database, contattare il [supporto ClearDB](https://www.cleardb.com/developers/help/support) . Tenersi pronti a comunicare le informazioni relative alla sottoscrizione di Azure.
@@ -105,6 +105,6 @@ L'accesso ad Azure Marketplace per i servizi di terze parti può essere gestito 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Chi contattare per domande sulla fatturazione per i servizi ClearDB nella sottoscrizione con contratto Enterprise?
 Contattare il [supporto per contratti Enterprise](https://aka.ms/AzureEntSupport) per quanto riguarda la fatturazione relativa alla registrazione con contratto Enterprise. Il team di supporto del portale per contratti Enterprise risponderà alla domanda oppure offrirà aiuto per la risoluzione del problema.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 [Domande frequenti su Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
 

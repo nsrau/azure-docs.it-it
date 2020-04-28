@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978056"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
@@ -33,15 +33,15 @@ L'esercitazione presuppone che l'utente disponga degli elementi seguenti:
 * Connettività tra la rete locale e la rete virtuale di Azure. Per altre informazioni sulla creazione della rete virtuale, vedere [Creare una connessione da sito a sito usando il portale di Azure (versione classica)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> Azure include due diversi modelli di distribuzione per la creazione e l'utilizzo delle risorse: [Resource Manager e Classic](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e classica](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 ## <a name="add-azure-replica-wizard"></a>Procedura guidata Aggiungi replica di Azure
 Questa sezione mostra come usare la **procedura guidata per l'aggiunta della replica di Azure** per estendere il gruppo di disponibilità AlwaysOn in modo da includere le repliche di Azure.
 
 > [!IMPORTANT]
-> La **procedura guidata per l'aggiunta della replica di Azure** supporta solo le macchine virtuali create con il modello di distribuzione classica. Le nuove distribuzioni di macchine virtuali devono usare il modello di Resource Manager più recente. Se si usano macchine virtuali con Resource Manager, è necessario aggiungere manualmente la replica secondaria di Azure usando i comandi Transact-SQLTransact-SQL (non illustrato di seguito). La procedura guidata non funziona in uno scenario di Resource Manager.
+> La **procedura guidata per l'aggiunta della replica di Azure** supporta solo le macchine virtuali create con il modello di distribuzione classica. Le nuove distribuzioni di macchine virtuali devono usare il modello di Resource Manager più recente. Se si usano macchine virtuali con Gestione risorse, è necessario aggiungere manualmente la replica di Azure secondaria usando i comandi Transact-SQL (non illustrati qui). La procedura guidata non funziona in uno scenario di Resource Manager.
 
-1. In SQL Server Management Studio espandere > **Gruppi** > di disponibilità **elevata AlwaysOn****[Nome del gruppo**di disponibilità] .
+1. In SQL Server Management Studio espandere always on**gruppi** > di disponibilità a **disponibilità** > elevata **[nome del gruppo di disponibilità]**.
 2. Fare clic con il pulsante destro del mouse su **Repliche di disponibilità**, quindi su **Aggiungi replica**.
 3. Per impostazione predefinita, viene visualizzata la **procedura guidata Aggiungi replica di Azure** . Fare clic su **Avanti**.  Se durante un precedente avvio di questa procedura guidata è stata selezionata l'opzione **Non visualizzare più questa pagina** nella parte inferiore della pagina, questa schermata non verrà visualizzata.
    
@@ -58,11 +58,11 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
    | Impostazione | Descrizione |
    | --- | --- |
    | **Immagine** |Selezionare la combinazione di sistema operativo e SQL Server desiderata. |
-   | **Dimensioni della macchina virtuale** |Selezionare le dimensioni della macchina virtuale più adatte alle esigenze aziendali. |
+   | **Dimensioni macchina virtuale** |Selezionare le dimensioni della macchina virtuale più adatte alle esigenze aziendali. |
    | **Nome macchina virtuale** |Specificare un nome univoco per la nuova macchina virtuale. Il nome deve contenere un numero di caratteri compreso tra 3 e 15, può essere composto solo da lettere, numeri e trattini e deve iniziare con una lettera e terminare con una lettera o con un numero. |
    | **Nome utente macchina virtuale** |Specificare il nome utente che costituirà l'account amministratore della macchina virtuale. |
    | **Password amministratore macchina virtuale** |Specificare una password per il nuovo account. |
-   | **Conferma password** |Confermare la password del nuovo account. |
+   | **Confirm Password** |Confermare la password del nuovo account. |
    | **Rete virtuale** |Specificare la rete virtuale di Azure che deve essere usata dalla nuova macchina virtuale. Per altre informazioni sulle reti virtuali, vedere la pagina di [panoramica sulle reti virtuali](../../../virtual-network/virtual-networks-overview.md). |
    | **Subnet rete virtuale** |Specificare la subnet della rete virtuale che deve essere usata dalla nuova macchina virtuale. |
    | **Dominio** |Verificare che il valore presente nel campo relativo al dominio sia corretto. |

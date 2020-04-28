@@ -1,5 +1,5 @@
 ---
-title: Convalidare XML con schemiValidate XML with schemas
+title: Convalidare XML con schemi
 description: Aggiungere schemi per convalidare i documenti XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979370"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
@@ -44,7 +44,7 @@ Per i limiti relativi agli account di integrazione e agli artefatti, ad esempio 
 
     * Per la versione desktop, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), 
     quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
-    Per altre informazioni, vedere [Guida introduttiva: Creare un BLOB nell'archivio oggetti con Azure Storage Explorer.](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)
+    Per altre informazioni, vedere [Guida introduttiva: creare un BLOB nell'archivio oggetti con Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 Quando si creano e si aggiungono schemi, non è necessaria un'app per la logica. Per usare uno schema, tuttavia, l'app per la logica deve essere collegata all'account di integrazione in cui si archivia tale schema. Informazioni su come [collegare le app per la logica agli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Quando si creano e si aggiungono schemi, non è necessaria un'app per la logica.
 
 1. Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> con le credenziali dell'account Azure.
 
-1. Per trovare e aprire l'account di integrazione, nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **Account di integrazione**.
+1. Per trovare e aprire l'account di integrazione, nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca, digitare "account di integrazione". Selezionare **account di integrazione**.
 
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
@@ -87,7 +87,7 @@ In base alle dimensioni del file di schema (con estensione xsd), seguire i passa
 
 ### <a name="add-schemas-more-than-2-mb"></a>Aggiungere schemi con dimensioni maggiori di 2 MB
 
-Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di schemi variano a seconda che il contenitore BLOB disponga dell'accesso in lettura pubblico. Per prima cosa, verificare se il contenitore BLOB dispone o meno dell'accesso in lettura pubblico seguendo questi passaggi: Impostare il livello di accesso pubblico per il [contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di schemi variano a seconda che il contenitore BLOB disponga di accesso in lettura pubblico. Verificare prima di tutto se il contenitore BLOB dispone di accesso in lettura pubblico attenendosi alla procedura seguente: [impostare il livello di accesso pubblico per il contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 
@@ -97,11 +97,11 @@ Per aggiungere schemi più grandi, è possibile caricare lo schema in un conteni
 
 1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-   * Se il contenitore BLOB ha almeno l'accesso pubblico, scegliere **Annulla**e seguire questi passaggi in un secondo momento in questa pagina: Caricare nei [contenitori con accesso pubblico](#public-access)
+   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access)
 
      ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se il contenitore BLOB non dispone dell'accesso pubblico, scegliere **Annulla**e seguire questi passaggi in un secondo momento in questa pagina: Caricare nei [contenitori senza accesso pubblico](#public-access)
+   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#public-access)
 
      ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -154,7 +154,7 @@ Per aggiornare uno schema esistente, è necessario caricare un nuovo file di sch
 
 1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
-   Selezionare **Account di integrazione**.
+   Selezionare **account di integrazione**.
 
 1. Selezionare l'account di integrazione in cui si vuole aggiornare lo schema.
 
@@ -174,7 +174,7 @@ Per aggiornare uno schema esistente, è necessario caricare un nuovo file di sch
 
 1. Nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca, digitare "account di integrazione". 
-   Selezionare **Account di integrazione**.
+   Selezionare **account di integrazione**.
 
 1. Selezionare l'account di integrazione in cui si vuole eliminare lo schema.
 

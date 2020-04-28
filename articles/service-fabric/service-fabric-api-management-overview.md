@@ -1,15 +1,15 @@
 ---
-title: Panoramica di Azure Service Fabric con Gestione APIAzure Service Fabric with API Management overview
+title: Panoramica di Azure Service Fabric con gestione API
 description: In questo articolo viene illustrata un'introduzione all'uso di Gestione API di Azure come gateway per le applicazioni Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76028544"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
@@ -45,7 +45,7 @@ Gestione API di Azure può essere usato con qualsiasi combinazione di servizi se
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Inviare traffico a un servizio senza stato
 
-Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio senza stato. A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a una specifica istanza del servizio senza stato nel back-end Service Fabric. Le richieste inviate a tale servizio vengono inviate a un'istanza casuale del servizio.
+Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio senza stato. A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in ingresso con un back-end Service Fabric per l'esecuzione del mapping a una specifica istanza del servizio senza stato nel back-end Service Fabric. Le richieste inviate al servizio vengono inviate a un'istanza casuale del servizio.
 
 **Esempio**
 
