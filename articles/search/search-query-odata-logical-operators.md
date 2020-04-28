@@ -1,7 +1,7 @@
 ---
-title: Riferimento all'operatore logico OData
+title: Guida di riferimento agli operatori logici OData
 titleSuffix: Azure Cognitive Search
-description: Documentazione di sintassi e riferimento per l'uso di operatori logici OData e, o e non, nelle query di Ricerca cognitiva di Azure.Syntax and reference documentation for using OData logical operators, and, or, and not, in Azure Cognitive Search queries.
+description: Sintassi e documentazione di riferimento per l'uso di operatori logici OData, and, or e not, in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,25 +20,25 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113178"
 ---
-# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in `and` `or`Ricerca cognitiva di Azure - , ,`not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in Azure ricerca cognitiva `and`- `or`,,`not`
 
-[Le espressioni di filtro OData](query-odata-filter-orderby-syntax.md) in Ricerca `true` `false`cognitiva di Azure sono espressioni booleane che restituiscono o . È possibile scrivere un filtro complesso scrivendo una serie di [filtri più semplici](search-query-odata-comparison-operators.md) e componendoli utilizzando gli operatori logici dell'algebra [booleana](https://en.wikipedia.org/wiki/Boolean_algebra):
+Le [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) in ricerca cognitiva di Azure sono espressioni booleane `true` che `false`restituiscono o. È possibile scrivere un filtro complesso scrivendo una serie di [filtri più semplici](search-query-odata-comparison-operators.md) e componendoli usando gli operatori logici di [algebra booleana](https://en.wikipedia.org/wiki/Boolean_algebra):
 
-- `and`: operatore binario `true` che restituisce se le sottoespressioni `true`sinistra e destra restituiscono .
-- `or`: operatore binario `true` che restituisce se una delle relative sottoespressioni sinistra o destra restituisce `true`.
-- `not`: operatore unario che `true` restituisce se la `false`relativa sottoespressione restituisce e viceversa.
+- `and`: Operatore binario che restituisce `true` se entrambe le sottoespressioni di `true`sinistra e destra restituiscono.
+- `or`: Operatore binario che restituisce `true` se una delle sottoespressioni a sinistra o a destra restituisce. `true`
+- `not`: Operatore unario che restituisce `true` se la relativa sottoespressione restituisce `false`, e viceversa.
 
-Questi, insieme agli [ `any` operatori `all` ](search-query-odata-collection-operators.md)di raccolta e , consentono di costruire filtri in grado di esprimere criteri di ricerca molto complessi.
+Insieme agli [ `any` operatori di raccolta e `all` ](search-query-odata-collection-operators.md), consentono di creare filtri che possano esprimere criteri di ricerca molto complessi.
 
 ## <a name="syntax"></a>Sintassi
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica di un'espressione OData che utilizza gli operatori logici.
+Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica di un'espressione OData che usa gli operatori logici.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -48,31 +48,31 @@ logical_expression ::=
     | 'not' boolean_expression
 ```
 
-È disponibile anche un diagramma di sintassi interattivo:An interactive syntax diagram is also available:
+È disponibile anche un diagramma della sintassi interattiva:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
+> [Diagramma della sintassi OData per ricerca cognitiva di Azure](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
-> Vedere Informazioni di riferimento sulla sintassi delle [espressioni OData per Ricerca cognitiva](search-query-odata-syntax-reference.md) di Azure per l'EBNF completo.
+> Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
 
-Esistono due forme di espressioni`and`/`or`logiche: binarie ( ), dove`not`sono presenti due sottoespressioni e unarie ( ), in cui è presente una sola. Le sottoespressioni possono essere espressioni booleane di qualsiasi tipo:
+Esistono due forme di espressioni`and`/`or`logiche: Binary (), in cui sono presenti due sottoespressioni e unario (`not`), dove è presente un solo elemento. Le espressioni secondarie possono essere espressioni booleane di qualsiasi tipo:
 
 - Campi o variabili di intervallo di tipo`Edm.Boolean`
-- Funzioni che restituiscono `Edm.Boolean`valori `geo.intersects` di tipo , ad esempio`search.ismatch`
+- Funzioni che restituiscono valori di `Edm.Boolean`tipo, ad `geo.intersects` esempio o`search.ismatch`
 - [Espressioni di confronto](search-query-odata-comparison-operators.md), ad esempio`rating gt 4`
-- [Espressioni di](search-query-odata-collection-operators.md)insiemi , ad esempio`Rooms/any(room: room/Type eq 'Deluxe Room')`
-- I valori `true` letterali booleani o `false`.
-- Altre espressioni logiche costruite utilizzando `and`, `or`, e `not`.
+- [Espressioni di raccolta](search-query-odata-collection-operators.md), ad esempio`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- Valori letterali booleani `true` o `false`.
+- Altre espressioni logiche costruite `and`con `or`, e `not`.
 
 > [!IMPORTANT]
-> Esistono alcune situazioni in cui non tutti i `and` / `or`tipi di sottoespressione possono essere utilizzati con , in particolare all'interno di espressioni lambda. Per informazioni dettagliate, vedere Operatori di [raccolte OData in Ricerca cognitiva](search-query-odata-collection-operators.md#limitations) di Azure.See OData collection operators in Azure Cognitive Search for details.
+> Esistono situazioni in cui non tutti i tipi di espressione secondaria possono essere usati con, `and` / `or`in particolare nelle espressioni lambda. Per informazioni dettagliate, vedere [operatori di raccolte OData in Azure ricerca cognitiva](search-query-odata-collection-operators.md#limitations) .
 
 ### <a name="logical-operators-and-null"></a>Operatori logici e`null`
 
-La maggior parte delle espressioni booleane, ad esempio funzioni e confronti, non può produrre `null` valori e gli operatori logici non possono essere applicati direttamente al `null` valore letterale (ad esempio, `x and null` non è consentito). Tuttavia, i `null`campi booleani possono essere , `and` `or`pertanto `not` è necessario tenere presente il funzionamento degli operatori , e in presenza di null. Questo è riepilogato nella `b` tabella seguente, `Edm.Boolean`dove è un campo di tipo :
+La maggior parte delle espressioni booleane quali funzioni e confronti non può produrre `null` valori e gli operatori logici non `null` possono essere applicati direttamente al valore `x and null` letterale (ad esempio, non è consentito). Tuttavia `null`, i `and`campi booleani possono essere, pertanto è necessario conoscere il comportamento degli operatori, `or`e `not` in presenza di valori null. Questa operazione viene riepilogata nella tabella seguente, dove `b` è un campo di tipo `Edm.Boolean`:
 
-| Expression | Risultato `b` quando è`null` |
+| Expression | Risultato quando `b` è`null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -87,29 +87,29 @@ La maggior parte delle espressioni booleane, ad esempio funzioni e confronti, no
 | `b or true` | `true` |
 | `b or false` | `false` |
 
-Quando un `b` campo booleano viene visualizzato da solo in un'espressione `b eq true`di `b` filtro, si comporta come se fosse stato scritto, quindi se è `null`, l'espressione restituisce `false`. Allo stesso `not b` modo, `not (b eq true)`si comporta come `true`, quindi restituisce . In questo `null` modo, i campi `false`si comportano come . Questo è coerente con il modo in `and` cui `or`si comportano quando vengono combinati con altre espressioni utilizzando e , come illustrato nella tabella precedente. Nonostante ciò, un `false` `b eq false`confronto diretto con `false`( ) verrà comunque valutato . In altre `null` parole, non `false`è uguale a , anche se si comporta come nelle espressioni booleane.
+Quando un `b` campo booleano viene visualizzato da solo in un'espressione di filtro, si comporta come se fosse stato scritto `b eq true`, quindi se `b` è `null`, l'espressione restituisce `false`. Analogamente `not b` , si comporta come `not (b eq true)`, quindi restituisce `true`. In questo modo, `null` i campi si comportano come `false`. Questo comportamento è coerente con il modo in cui si comportano `and` in `or`combinazione con altre espressioni usando e, come illustrato nella tabella precedente. Nonostante questo, un confronto diretto a `false` (`b eq false`) restituirà comunque `false`. In altre parole, `null` non è uguale a `false`, anche se si comporta come in espressioni booleane.
 
 ## <a name="examples"></a>Esempi
 
-Abbina i `rating` documenti in cui il campo è compreso tra 3 e 5, inclusi:
+Trova la corrispondenza dei `rating` documenti in cui il campo è compreso tra 3 e 5 inclusi:
 
     rating ge 3 and rating le 5
 
-Abbina i documenti in `ratings` cui tutti gli elementi del campo sono minori di 3 o maggiori di 5:
+Trova la `ratings` corrispondenza dei documenti in cui tutti gli elementi del campo sono minori di 3 o maggiori di 5:
 
     ratings/all(r: r lt 3 or r gt 5)
 
-Abbina i `location` documenti in cui il campo si trova all'interno del poligono specificato e il documento non contiene il termine "pubblico".
+Trova la corrispondenza dei `location` documenti in cui il campo si trova all'interno del poligono specificato e il documento non contiene il termine "public".
 
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
 
-Abbina i documenti per gli hotel a Vancouver, Canada, dove c'è una camera deluxe con una tariffa base inferiore a 160:
+Trova la corrispondenza con i documenti per gli alberghi a Vancouver, Canada in cui è disponibile una stanza Deluxe con una tariffa di base inferiore a 160:
 
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Filtri in Ricerca cognitiva di AzureFilters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [&#41;API REST di Ricerca documenti &#40;Ricerca cognitiva di AzureSearch Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtri in ricerca cognitiva di Azure](search-filters.md)
+- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
+- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

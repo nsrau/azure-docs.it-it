@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi agli endpoint della rete CDN di Azure - codice di stato 404Troubleshooting Azure CDN endpoints - 404 status code
+title: Risoluzione dei problemi relativi agli endpoint della rete CDN di Azure-codice di stato 404
 description: Risolvere i problemi relativi ai codici di risposta 404 con endpoint della rete CDN.
 services: cdn
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083125"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404
 Questo articolo consente di risolvere i problemi relativi agli endpoint di rete CDN di Azure che restituiscono codici di stato di risposta HTTP 404.
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare Ottieni **supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
 
 ## <a name="symptom"></a>Sintomo
 Si crea un profilo di rete CDN e un endpoint, ma sembra che il contenuto non sia disponibile nella rete CDN. Gli utenti che provano ad accedere ai contenuti tramite l'URL della rete CDN ricevono un codice di stato HTTP 404. 
@@ -73,7 +73,7 @@ Verificare che i valori nei campi **Tipo di origine** e **Nome host dell'origine
 #### <a name="http-and-https-ports"></a>Porte HTTP e HTTPS
 Controllare le porte **HTTP** e **HTTPS**. Nella maggior parte dei casi, 80 e 443 sono corrette e non saranno necessarie modifiche.  Tuttavia, se il server di origine è in ascolto su una porta diversa, dovrà essere rappresentata qui. Se non si è certi, visualizzare l'URL per il file di origine. Le specifiche HTTP e HTTPS indicano le porte 80 e 443 per impostazione predefinita. Nell'URL di esempio https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt non è specificata alcuna porta, quindi viene usato il valore predefinito 443 e le impostazioni sono corrette.  
 
-Si supponga tuttavia che l'URL per il file di origine sia testato in precedenza sia http:\//www.contoso.com:8080/file.txt. Si noti la parte *:8080* alla fine del segmento del nome host. Tale numero indica al browser di utilizzare la porta 8080\.per connettersi al server Web all'indirizzo www contoso.com, pertanto sarà necessario immettere *8080* nel campo **Porta HTTP.** È importante notare che queste impostazioni della porta hanno effetto solo sulla porta usata dall'endpoint per recuperare informazioni dall'origine.
+Si supponga tuttavia che l'URL per il file di origine sia testato in precedenza sia http:\//www.contoso.com:8080/file.txt. Si noti la parte *:8080* alla fine del segmento del nome host. Tale numero indica al browser di usare la porta 8080 per connettersi al server Web in www\.contoso.com, pertanto è necessario immettere *8080* nel campo **porta http** . È importante notare che queste impostazioni della porta hanno effetto solo sulla porta usata dall'endpoint per recuperare informazioni dall'origine.
 
 > [!NOTE]
 > Gli endpoint di **rete CDN Standard di Azure con tecnologia Akamai** non consentono di usare l'intera gamma di porte TCP per le origini.  Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Porte di origine consentite in Rete CDN di Azure da Akamai).  

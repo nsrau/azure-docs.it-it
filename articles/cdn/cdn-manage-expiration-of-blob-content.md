@@ -1,5 +1,5 @@
 ---
-title: Gestire la scadenza dell'archiviazione BLOB di AzureManage expiration of Azure Blob storage
+title: Gestire la scadenza dell'archiviazione BLOB di Azure
 titleSuffix: Azure Content Delivery Network
 description: Informazioni sulle opzioni per il controllo della durata per i BLOB nel caching della rete CDN di Azure.
 services: cdn
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f28282a802e4b38fadc05c7090fa2a2af154de54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083163"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
@@ -76,7 +76,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 1. In **Regole di memorizzazione nella cache personalizzate** creare due condizioni di corrispondenza:
 
-     R. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/*` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 4 nella casella **Ore**.
+     A. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/*` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 4 nella casella **Ore**.
 
     B. Per la seconda condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/blob1.txt` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 2 nella casella **Ore**.
 

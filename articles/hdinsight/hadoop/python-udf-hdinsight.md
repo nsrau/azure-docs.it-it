@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74148399"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
@@ -23,30 +23,30 @@ Informazioni su come usare le funzioni definite dall'utente di Python con Apache
 
 Python 2.7 viene installato per impostazione predefinita in HDInsight 3.0 e versioni successive. Apache Hive può essere usato con questa versione di Python per l'elaborazione di flussi. L'elaborazione di flussi usa STDOUT e STDIN per passare i dati tra Hive e la funzione definita dall'utente.
 
-HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jython viene eseguito direttamente su Java Virtual Machine e non utilizza lo streaming. Jython è l'interprete Python consigliato quando si usa Python con Pig.
+HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jython viene eseguito direttamente sul Java Virtual Machine e non usa il flusso. Jython è l'interprete Python consigliato quando si usa Python con Pig.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Vedere [Introduzione a HDInsight su Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop in HDInsight**. Vedere [Introduzione a HDInsight in Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Ciò `wasb://` è per `abfs://` Archiviazione di Azure, per Azure Data Lake Storage Gen2 o adl:// per Azure Data Lake Storage Gen1.This would be for Azure Storage, for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI verrà wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
-* **Possibile modifica alla configurazione di archiviazione.**  Vedere [Configurazione dell'archiviazione](#storage-configuration) `BlobStorage`se si usa il tipo di account di archiviazione .
-* Facoltativa.  Se si pianifica l'utilizzo di PowerShell, è necessario che sia installato il [modulo A.A.If](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) Planning to use PowerShell, you'll need the A A -.
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. `wasb://` Per l'archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o ADL://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il `BlobStorage`tipo di account di archiviazione.
+* Facoltativa.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
 
 > [!NOTE]  
-> L'account di archiviazione usato in questo articolo `wasbs` era Archiviazione di Azure con il trasferimento [sicuro](../../storage/common/storage-require-secure-transfer.md) abilitato e pertanto viene usato in tutto l'articolo.
+> L'account di archiviazione usato in questo articolo è stato l'archiviazione di Azure con [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) abilitato e quindi `wasbs` viene usato in tutto l'articolo.
 
 ## <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-Non è necessaria alcuna azione se `Storage (general purpose v1)` `StorageV2 (general purpose v2)`l'account di archiviazione usato è di tipo o .  Il processo in questo articolo produrrà output almeno `/tezstaging`in .  Una configurazione hadoop `/tezstaging` predefinita `fs.azure.page.blob.dir` conterrà `core-site.xml` nella `HDFS`variabile di configurazione per il servizio .  Questa configurazione farà sì che l'output della directory sia BLOB di `BlobStorage`pagina, che non sono supportati per il tipo di account di archiviazione.  Per `BlobStorage` utilizzare questo articolo, `/tezstaging` `fs.azure.page.blob.dir` rimuovere dalla variabile di configurazione.  È possibile accedere alla configurazione [dall'interfaccia utente di Ambari](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
+Non è richiesta alcuna azione se l'account di archiviazione usato è `Storage (general purpose v1)` di `StorageV2 (general purpose v2)`tipo o.  Il processo in questo articolo produrrà almeno l'output `/tezstaging`.  Una configurazione Hadoop predefinita conterrà `/tezstaging` nella variabile `fs.azure.page.blob.dir` di configurazione in `core-site.xml` per il `HDFS`servizio.  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo `BlobStorage`di account di archiviazione.  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla variabile `fs.azure.page.blob.dir` di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente di Ambariri](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > La procedura in questo documento parte dai presupposti seguenti:  
 >
 > * L'utente deve creare gli script Python in un ambiente di sviluppo locale.
-> * Gli script vengono caricati in `scp` HDInsight usando il comando o lo script di PowerShell fornito.
+> * Per caricare gli script in HDInsight, è possibile `scp` usare il comando o lo script di PowerShell fornito.
 >
-> Se si vuole usare Azure Cloud Shell (bash) per usare HDInsight, è necessario:If you want to use the [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) to work with HDInsight, then you must:
+> Se si vuole usare il [Azure cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) per lavorare con HDInsight, è necessario:
 >
 > * Creare gli script all'interno dell'ambiente Cloud Shell.
 > * Usare `scp` per caricare i file da Cloud Shell in HDInsight.
@@ -100,14 +100,14 @@ Lo script esegue le azioni seguenti:
 1. Legge una riga di dati da STDIN.
 2. Il carattere di nuova riga finale viene rimosso con `string.strip(line, "\n ")`.
 3. Durante l'elaborazione di flussi tutti i valori sono contenuti in un'unica riga sono separati da un carattere di tabulazione. Si può quindi usare `string.split(line, "\t")` per dividere l'input in corrispondenza di ogni tabulazione, in modo da restituire solo i campi.
-4. Al termine dell'elaborazione, l'output deve essere scritto in STDOUT in un'unica riga, con i campi separati da tabulazioni. Ad esempio: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. Al termine dell'elaborazione, l'output deve essere scritto in STDOUT in un'unica riga, con i campi separati da tabulazioni. Ad esempio, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`
 5. Il ciclo `while` si ripete finché non viene letta alcuna `line`.
 
 Lo script di output è una concatenazione di valori di input per `devicemake` e `devicemodel` e un hash del valore concatenato.
 
-### <a name="upload-file-shell"></a>Carica file (shell)
+### <a name="upload-file-shell"></a>Carica file (Shell)
 
-Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diverso.  Sostituire `mycluster` con il nome effettivo del cluster.  Assicurarsi che la directory di lavoro si trovi nella posizione del file.
+Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diverso.  Sostituire `mycluster` con il nome del cluster effettivo.  Verificare che la directory di lavoro sia la posizione in cui si trova il file.
 
 1. Usare `scp` per copiare i file nel cluster HDInsight. Modificare e immettere il comando seguente:
 
@@ -121,15 +121,15 @@ Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diver
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. Dalla sessione SSH, aggiungere i file python caricati in precedenza nell'archivio per il cluster.
+3. Dalla sessione SSH aggiungere i file Python caricati in precedenza nello spazio di archiviazione per il cluster.
 
     ```bash
     hdfs dfs -put hiveudf.py /hiveudf.py
     ```
 
-### <a name="use-hive-udf-shell"></a>Usare Hive UDF (shell)
+### <a name="use-hive-udf-shell"></a>Usare la funzione definita dall'utente hive (Shell)
 
-1. Per connettersi a Hive, utilizzare il comando seguente dalla sessione SSH aperta:
+1. Per connettersi a hive, usare il comando seguente dalla sessione SSH aperta:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -156,15 +156,15 @@ Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diver
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-4. Per uscire da Beeline, immettere il seguente comando:
+4. Per uscire da Oneline, immettere il comando seguente:
 
     ```hive
     !q
     ```
 
-### <a name="upload-file-powershell"></a>Caricare un file (PowerShell)Upload file (PowerShell)
+### <a name="upload-file-powershell"></a>Carica file (PowerShell)
 
-PowerShell può essere usato anche per eseguire in remoto le query Hive. Assicurarsi che la `hiveudf.py` directory di lavoro si trovi.  Usare lo script di PowerShell seguente per `hiveudf.py` eseguire una query Hive che usa lo script:Use the following PowerShell script to run a Hive query that uses the script:
+PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che la directory di lavoro `hiveudf.py` sia quella in cui si trova.  Usare lo script di PowerShell seguente per eseguire una query hive che usa `hiveudf.py` lo script:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -207,7 +207,7 @@ Set-AzStorageBlobContent `
 > [!NOTE]  
 > Per altre informazioni sul caricamento dei file, vedere il documento [Caricare dati per processi Apache Hadoop in HDInsight](../hdinsight-upload-data.md).
 
-#### <a name="use-hive-udf"></a>Usare Hive UDFUse Hive UDF
+#### <a name="use-hive-udf"></a>Usare la funzione definita dall'utente hive
 
 ```PowerShell
 # Script should stop on failures
@@ -296,11 +296,11 @@ Si può usare uno script di Python come funzione definita dall'utente da Pig tra
 
 Per specificare l'interprete Python, usare `register` quando si fa riferimento allo script di Python. Negli esempi seguenti gli script vengono registrati con Pig come `myfuncs`:
 
-* **Per utilizzare Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Per utilizzare C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Per usare Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Per usare C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
-> Quando si utilizza Jython, il percorso del file pig_jython può essere un percorso locale o un percorso WASBS://. Tuttavia, quando si usa C Python, è necessario fare riferimento un file nel file system locale del nodo che si usa per inviare il processo Pig.
+> Quando si usa Jython, il percorso del file di pig_jython può essere un percorso locale o un percorso WASBS://. Tuttavia, quando si usa C Python, è necessario fare riferimento un file nel file system locale del nodo che si usa per inviare il processo Pig.
 
 Una volta trascorsa la registrazione, Pig Latin per questo esempio è lo stesso per entrambi:
 
@@ -337,7 +337,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-Nell'esempio Pig Latin, l'input `LINE` è definito come chararray perché non esiste uno schema coerente per l'input. Con lo script Python i dati vengono trasformati in uno schema coerente per l'output.
+Nell'esempio Pig Latin l' `LINE` input viene definito come CharArray perché non esiste alcuno schema coerente per l'input. Con lo script Python i dati vengono trasformati in uno schema coerente per l'output.
 
 1. L'istruzione `@outputSchema` definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati**, ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
 
@@ -357,9 +357,9 @@ Nell'esempio Pig Latin, l'input `LINE` è definito come chararray perché non es
 
 Quando i dati vengono restituiti a Pig, lo schema sarà coerente, come definito nell'istruzione `@outputSchema`.
 
-### <a name="upload-file-shell"></a>Carica file (shell)
+### <a name="upload-file-shell"></a>Carica file (Shell)
 
-Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diverso.  Sostituire `mycluster` con il nome effettivo del cluster.  Assicurarsi che la directory di lavoro si trovi nella posizione del file.
+Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diverso.  Sostituire `mycluster` con il nome del cluster effettivo.  Verificare che la directory di lavoro sia la posizione in cui si trova il file.
 
 1. Usare `scp` per copiare i file nel cluster HDInsight. Modificare e immettere il comando seguente:
 
@@ -373,15 +373,15 @@ Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diver
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. Dalla sessione SSH, aggiungere i file python caricati in precedenza nell'archivio per il cluster.
+3. Dalla sessione SSH aggiungere i file Python caricati in precedenza nello spazio di archiviazione per il cluster.
 
     ```bash
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
-### <a name="use-pig-udf-shell"></a>Usa Pig UDF (shell)
+### <a name="use-pig-udf-shell"></a>Usare la funzione definita dall'utente Pig (Shell)
 
-1. Per connettersi a pig, utilizzare il seguente comando dalla sessione SSH aperta:
+1. Per connettersi a Pig, usare il comando seguente dalla sessione SSH aperta:
 
     ```bash
     pig
@@ -417,7 +417,7 @@ Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diver
     #from pig_util import outputSchema
     ```
 
-    In questo modo lo script Python viene modificato in modo da non funzionare più con Jython ma con C Python. Una volta apportata la modifica, utilizzare **Ctrl . X** per uscire dall'editor. Selezionare **Y**, quindi **INVIO** per salvare le modifiche.
+    In questo modo lo script Python viene modificato in modo da non funzionare più con Jython ma con C Python. Una volta apportata la modifica, usare **CTRL + X** per uscire dall'editor. Selezionare **Y**e quindi **invio** per salvare le modifiche.
 
 6. Usare il comando `pig` per avviare di nuovo la shell. Una volta al prompt `grunt>` usare la riga seguente per eseguire il script di Python con l'interprete C Python.
 
@@ -431,9 +431,9 @@ Nei comandi seguenti, `sshuser` sostituire con il nome utente effettivo se diver
 
     Una volta completato questo processo, si dovrebbe vedere lo stesso risultato di quando è stato eseguito lo script in precedenza con Jython.
 
-### <a name="upload-file-powershell"></a>Caricare un file (PowerShell)Upload file (PowerShell)
+### <a name="upload-file-powershell"></a>Carica file (PowerShell)
 
-PowerShell può essere usato anche per eseguire in remoto le query Hive. Assicurarsi che la `pigudf.py` directory di lavoro si trovi.  Usare lo script di PowerShell seguente per `pigudf.py` eseguire una query Hive che usa lo script:Use the following PowerShell script to run a Hive query that uses the script:
+PowerShell può essere usato anche per eseguire in remoto le query Hive. Verificare che la directory di lavoro `pigudf.py` sia quella in cui si trova.  Usare lo script di PowerShell seguente per eseguire una query hive che usa `pigudf.py` lo script:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -474,12 +474,12 @@ Set-AzStorageBlobContent `
     -Context $context
 ```
 
-### <a name="use-pig-udf-powershell"></a>Usare Pig UDF (PowerShell)Use Pig UDF (PowerShell)
+### <a name="use-pig-udf-powershell"></a>Usare la funzione definita dall'utente Pig (PowerShell)
 
 > [!NOTE]  
 > Durante l'invio remoto di un processo con PowerShell, non è possibile usare C Python come interprete.
 
-PowerShell può essere usato anche per eseguire processi di Pig Latin. Per eseguire un pig latin `pigudf.py` processo che utilizza lo script, utilizzare lo script di PowerShell seguente:To run a Pig Latin job that uses the script, use the following PowerShell script:
+PowerShell può essere usato anche per eseguire processi di Pig Latin. Per eseguire un processo Pig Latin che usa lo `pigudf.py` script, usare lo script di PowerShell seguente:
 
 ```PowerShell
 # Script should stop on failures
@@ -555,7 +555,7 @@ L'output del processo **Pig** sarà simile ai dati seguenti:
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a><a name="troubleshooting"></a>Risoluzione dei problemi 
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="errors-when-running-jobs"></a>Errori durante l'esecuzione di processi
 

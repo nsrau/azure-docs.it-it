@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
 ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74072971"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
@@ -52,31 +52,31 @@ Le estensioni installano applicazioni. Per qualsiasi applicazione sono previsti 
 
 ## <a name="troubleshoot-extensions"></a>Risoluzione dei problemi relativi alle estensioni
 
-Le informazioni sulla risoluzione dei problemi per ogni estensione sono disponibili nella sezione **Risoluzione dei problemi e supporto** nella panoramica dell'estensione. Ecco un elenco delle informazioni per la risoluzione dei problemi disponibili:
+Per informazioni sulla risoluzione dei problemi di ogni estensione, vedere la sezione **risoluzione dei problemi e supporto** nella panoramica per l'estensione. Di seguito è riportato un elenco delle informazioni sulla risoluzione dei problemi disponibili:
 
 | Spazio dei nomi | Risoluzione dei problemi |
 |-----------|-----------------|
-| microsoft.azure.monitoring.dependencyagent.dependencyagentlinux | [Azure Monitor Dependency for Linux](agent-dependency-linux.md#troubleshoot-and-support) |
-| microsoft.azure.monitoring.dependencyagent.dependencyagentwindows (informazioni in due informazioni insuppato in microsoft.azure.monitoring.dependencyagentwindows) | [Azure Monitor Dependency for Windows](agent-dependency-windows.md#troubleshoot-and-support) |
-| microsoft.azure.security.azurediskencryptionforlinux | [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
-| microsoft.azure.security.azurediskencryption (informazioni in due sul nome del documento d'altri utenti) | [Crittografia dischi di Azure per Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
-| microsoft.compute.customscriptextension (estensione microsoft.compute.customscriptextension) | [Script personalizzato per Windows](custom-script-windows.md#troubleshoot-and-support) |
-| microsoft.ostcextensions.customscriptforlinux (informazioni in base alle chiavi) | [Configurazione dello stato desiderato per Linux](dsc-linux.md#troubleshoot-and-support) |
-| microsoft.powershell.dsc | [Configurazione dello stato desiderato per Windows](dsc-windows.md#troubleshoot-and-support) |
-| microsoft.hpccompute.nvidiagpudriverlinux | [Estensione del driver GPU NVIDIA per Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
-| microsoft.hpccompute.nvidiagpudriverwindows | [Estensione del driver GPU NVIDIA per Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
-| microsoft.azure.security.iaasantimalware | [Estensione antimalware per Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
-| microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
-| microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
-| stackify.linuxagent.extension.stackifylinuxagentextension | [Ritraccia Stackify per Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux.microsoft.ostcextensions | [Reimpostare la password (VMAccess) per Linux](vmaccess.md#troubleshoot-and-support) |
-| microsoft.recoveryservices.vmsnapshot | [Istantanea per Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
-| microsoft.recoveryservices.vmsnapshot | [Istantanea per Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Monitoring. dependencyagent. dependencyagentlinux | [Dipendenza di monitoraggio di Azure per Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| Microsoft. Azure. Monitoring. dependencyagent. dependencyagentwindows | [Dipendenza di monitoraggio di Azure per Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. azurediskencryptionforlinux | [Crittografia dischi di Azure per Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. azurediskencryption | [Crittografia dischi di Azure per Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| Microsoft. Compute. customscriptextension | [Script personalizzato per Windows](custom-script-windows.md#troubleshoot-and-support) |
+| Microsoft. ostcextensions. alle customscriptforlinux | [Configurazione dello stato desiderato per Linux](dsc-linux.md#troubleshoot-and-support) |
+| Microsoft. PowerShell. DSC | [Configurazione dello stato desiderato per Windows](dsc-windows.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverlinux | [Estensione driver GPU NVIDIA per Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| Microsoft. hpccompute. nvidiagpudriverwindows | [Estensione driver GPU NVIDIA per Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| Microsoft. Azure. Security. iaasantimalware | [Estensione antimalware per Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| Microsoft. enterprisecloud. Monitoring. omsagentforlinux | [Monitoraggio di Azure per Linux](oms-linux.md#troubleshoot-and-support)
+| Microsoft. enterprisecloud. Monitoring. microsoftmonitoringagent | [Monitoraggio di Azure per Windows](oms-windows.md#troubleshoot-and-support) |
+| stackify. linuxagent. Extension. stackifylinuxagentextension | [Stackify ritraccia per Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux. Microsoft. ostcextensions | [Reimposta password (VMAccess) per Linux](vmaccess.md#troubleshoot-and-support) |
+| Microsoft. recoveryservices. VMSnapshot | [Snapshot per Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| Microsoft. recoveryservices. VMSnapshot | [Snapshot per Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sul funzionamento delle estensioni e dell'agente Linux, vedere [Azure VM extensions and features for Linux (Funzionalità ed estensioni VM di Azure per Linux)](features-linux.md).
 * Per altre informazioni sul funzionamento delle estensioni e dell'agente guest di Windows, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).  
-* Per installare l'agente guest di Windows, vedere [Panoramica dell'agente di macchine virtuali Windows](agent-windows.md)di Azure .  
-* Per installare l'agente Linux, vedere [Panoramica](agent-linux.md)di Azure Linux Virtual Machine Agent .  
+* Per installare l'agente guest di Windows, vedere [Panoramica dell'agente di macchine virtuali Windows di Azure](agent-windows.md).  
+* Per installare l'agente Linux, vedere [Panoramica dell'agente di macchine virtuali Linux di Azure](agent-linux.md).  
 

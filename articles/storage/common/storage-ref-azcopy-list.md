@@ -1,6 +1,6 @@
 ---
-title: elenco di azcopy Documenti Microsoft
-description: In questo articolo vengono fornite informazioni di riferimento per il comando azcopy list.
+title: elenco azcopy | Microsoft Docs
+description: Questo articolo contiene informazioni di riferimento per il comando azcopy List.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: f02c1afadf18a7d3170eb178696487464e4a0bd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74034086"
 ---
 # <a name="azcopy-list"></a>azcopy list
@@ -21,7 +21,7 @@ Elenca le entità in una determinata risorsa.
 
 ## <a name="synopsis"></a>Riepilogo
 
-Solo i contenitori BLOB sono supportati nella versione corrente.
+Nella versione corrente sono supportati solo i contenitori BLOB.
 
 ```azcopy
 azcopy list [containerURL] [flags]
@@ -30,7 +30,7 @@ azcopy list [containerURL] [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire dati con AzCopy e l'archiviazione BLOBTransfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
@@ -44,17 +44,17 @@ azcopy list [containerURL]
 
 |Opzione|Descrizione|
 |--|--|
-|-h, --help|Visualizzare il contenuto della Guida per il comando list.|
-|--leggibile dalla macchina|Elenca le dimensioni dei file in byte.|
-|--mega-unità|Visualizza le unità negli ordini 1000, non 1024.|
-|--running-tally|Conta il numero totale di file e le relative dimensioni.|
+|-h, --help|Mostra il contenuto della Guida per il comando list.|
+|--Machine-Readable|Elenca le dimensioni dei file in byte.|
+|--unità mega|Visualizza le unità in ordine 1000, non 1024.|
+|--Running-Tally|Conta il numero totale di file e le relative dimensioni.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
 |Opzione|Descrizione|
 |---|---|
-|--cap-mbps uint32|Limita la velocità di trasferimento, in megabit al secondo. La velocità effettiva momento per momento potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
-|--output-tipo stringa|Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è "text".|
+|--Cap-Mbps UInt32|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
+|--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 
 ## <a name="see-also"></a>Vedere anche
 

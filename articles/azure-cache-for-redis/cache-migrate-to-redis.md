@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione delle applicazioni del servizio cache gestita a Redis - AzureMigrate Managed Cache Service applications to Redis - Azure
+title: Eseguire la migrazione di applicazioni di servizio cache gestite a Redis-Azure
 description: Informazioni su come eseguire la migrazione di applicazioni di Servizio cache gestita e di Cache nel ruolo a Cache Redis di Azure
 author: yegu-ms
 ms.service: cache
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74122678"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Eseguire la migrazione da Servizio cache gestita a Cache Redis di Azure
@@ -40,7 +40,7 @@ Servizio cache gestita di Azure e Cache Redis di Azure sono simili, ma implement
 | Funzionalità del Servizio cache gestita | Supporto del Servizio cache gestita | Supporto di Cache Redis di Azure |
 | --- | --- | --- |
 | Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Cache Redis di Azure ha un numero configurabile di database (16 come impostazione predefinita) che possono essere usati per implementare una funzione simile nelle cache denominate. Per altre informazioni, vedere [Informazioni sui database Redis](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
-| Disponibilità elevata |Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono. |La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere Cache di [Azure per i prezzi di Redis.](https://azure.microsoft.com/pricing/details/cache/) |
+| Disponibilità elevata |Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono. |La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [cache di Azure per i prezzi di redis](https://azure.microsoft.com/pricing/details/cache/). |
 | Notifiche |Consente ai client di ricevere notifiche asincrone quando in una cache denominata si verificano svariate operazioni della cache. |Le applicazioni client possono usare la pubblicazione/sottoscrizione di Redis o le [notifiche dello spazio delle chiavi](cache-configure.md#keyspace-notifications-advanced-settings) per ottenere una funzionalità simile alle notifiche. |
 | Cache locale |Archivia una copia degli oggetti memorizzati nella cache in locale nel client per un accesso velocissimo. |Le applicazioni client dovrebbero implementare questa funzionalità usando un dizionario o una struttura di dati simile. |
 | Criteri di rimozione |Nessuno o utilizzati meno di recente (LRU). Il criterio predefinito è LRU. |Cache Redis di Azure supporta i criteri di rimozione seguenti: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. Il criterio predefinito è volatile-lru. Per altre informazioni, vedere [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
@@ -54,7 +54,7 @@ Cache Redis di Microsoft Azure è disponibile nei livelli seguenti:
 
 * **Basic**: singolo nodo. Più dimensioni fino a 53 GB.
 * **Standard**: principale/replica a due nodi. Più dimensioni fino a 53 GB. Contratti di servizio del 99,9%.
-* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Dimensioni multiple da 6 GB a 1,2 TB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
+* **Premium** : principale/replica a due nodi con fino a 10 partizioni. Più dimensioni da 6 GB a 1,2 TB. Supporto per tutte le funzionalità del piano Standard e altre, tra cui [cluster Redis](cache-how-to-premium-clustering.md), [persistenza Redis](cache-how-to-premium-persistence.md) e [Rete virtuale di Azure](cache-how-to-premium-vnet.md). Contratti di servizio del 99,9%.
 
 Ogni livello presenta differenze in termini di funzionalità e prezzi. Le funzionalità vengono illustrate più avanti in questa guida. Per altre informazioni sui prezzi, vedere [Dettagli prezzi del servizio Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -122,7 +122,7 @@ Aggiungere l'istruzione using seguente nella parte superiore di ogni file da cui
 using StackExchange.Redis
 ```
 
-Se questo spazio dei nomi non viene risolto, assicurarsi di aver aggiunto il pacchetto StackExchange.Redis NuGet come descritto in Guida introduttiva: Usare la cache di [Azure per Redis con un'applicazione .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
+Se questo spazio dei nomi non viene risolto, assicurarsi di aver aggiunto il pacchetto NuGet StackExchange. Redis come descritto in [Guida introduttiva: usare cache di Azure per Redis con un'applicazione .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Tenere presente che con il client StackExchange.Redis è richiesto .NET Framework 4 o versione successiva.

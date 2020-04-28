@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74028137"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
@@ -131,7 +131,7 @@ Le organizzazioni devono monitorare l'attività di accesso e log di controllo da
 1. Selezionare il **tipo di azione** come **indirizzo di posta elettronica/SMS/push/Voice**.
 1. Selezionare **Modifica dettagli** per selezionare i metodi di notifica che si vuole configurare e immettere le informazioni di contatto necessarie, quindi selezionare **OK** per salvare i dettagli.
 1. Aggiungere eventuali azioni aggiuntive che si desidera attivare.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 ## <a name="validate-accounts-regularly"></a>Convalidare regolarmente gli account
 

@@ -1,5 +1,5 @@
 ---
-title: Abilitare la crittografia dei dati trasparente per Stretch DatabaseEnable Transparent Data Encryption for Stretch Database
+title: Abilita Transparent Data Encryption per Stretch Database
 description: Abilitare Transparent Data Encryption (TDE) per SQL Server Stretch Database in Azure
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74034005"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Abilitare Transparent Data Encryption (TDE) per Stretch Database su Azure
 > [!div class="op_single_selector"]
-> * [Portale di Azure](sql-server-stretch-database-encryption-tde.md)
+> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
@@ -38,7 +38,7 @@ Per abilitare la funzionalità TDE per un database di Azure che archivia i dati 
 1. Aprire il database nel [portale di Azure](https://portal.azure.com)
 2. Nel pannello del database fare clic sul pulsante **Impostazioni**
 3. Selezionare l'opzione **Transparent data encryption**![][1]
-4. Selezionare l'impostazione **Attivato,** quindi selezionare **Salva**
+4. Selezionare l'impostazione **on** , quindi selezionare **Salva** .
    ![][2]
 
 ## <a name="disabling-encryption"></a>Disabilitazione della crittografia
@@ -50,7 +50,7 @@ Per disabilitare TDE per un database di Azure che archivia i dati migrati da un 
 4. Selezionare **Disattiva** e quindi selezionare **Salva**
 
 <!--Anchors-->
-[Crittografia dei dati trasparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

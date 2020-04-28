@@ -1,5 +1,5 @@
 ---
-title: Esempio di app multi-tenant - Wingtip SaaS
+title: Esempio di app multi-tenant-SaaS Wingtip
 description: Illustra i passaggi e il materiale sussidiario per l'installazione e l'esecuzione dell'applicazione multi-tenant di esempio che usa Database SQL di Azure, nell'esempio Wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74132288"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
@@ -37,7 +37,7 @@ I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando s
 6. Fare clic su **OK**.
 7. Estrarre i file.
 
-Gli script si trovano nel *percorso .. \\* nella cartella Moduli di apprendimento.
+Gli script si trovano nella *.. Cartella \\Learning Modules* .
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Uso degli script di PowerShell per Wingtip Tickets
@@ -93,7 +93,7 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Credenziali demo sono: Login , *sviluppatore*, Password , *P\@ssword1*
+3. Credenziali demo: login = *Developer*, password = *P\@ssword1*
 
     L'immagine seguente illustra l'accesso per il modello *Database per tenant*.
     ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

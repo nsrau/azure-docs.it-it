@@ -1,5 +1,5 @@
 ---
-title: Usare le identità gestite in una macchina virtuale di Azure con SDK di Azure - Azure ADUse managed identities on an Azure VM with Azure SDKs - Azure AD
+title: Usare identità gestite in una macchina virtuale di Azure con Azure SDK-Azure AD
 description: Esempi di codice per l'uso di Azure SDK con una macchina virtuale di Azure che ha gestito le identità per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 422b4c63a86904721fc6910193ffa63a8fe46f0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74184161"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con Azure SDK 

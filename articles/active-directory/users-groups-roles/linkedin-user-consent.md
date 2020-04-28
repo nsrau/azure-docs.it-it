@@ -1,5 +1,5 @@
 ---
-title: Condivisione e consenso dei dati di LinkedIn - Azure Active Directory Documenti Microsoft
+title: Condivisione dei dati di LinkedIn e consenso-Azure Active Directory | Microsoft Docs
 description: Spiega in che modo l'integrazione di LinkedIn condivide i dati tramite app Microsoft in Azure Active Directory
 services: active-directory
 author: curtand
@@ -14,15 +14,15 @@ ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a21c986ccfe96bae5d341e0ba2ee6622d998d076
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025383"
 ---
-# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Condivisione e consenso dei dati delle connessioni all'account LinkedIn
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Condivisione e consenso per i dati delle connessioni dell'account LinkedIn
 
-È possibile consentire agli utenti dell'organizzazione di Active Directory (Azure AD) di acconsentire a connettere l'account aziendale o dell'istituto di istruzione Microsoft con l'account LinkedIn. Dopo che un utente connette i propri account, informazioni e punti salienti da LinkedIn sono disponibili in alcune applicazioni e servizi Microsoft. Gli utenti possono anche prevedere che l'esperienza di rete su LinkedIn risulti migliorata e arricchita dalle informazioni provenienti da Microsoft.
+È possibile consentire agli utenti dell'organizzazione Active Directory (Azure AD) di acconsentire a connettere il proprio account Microsoft aziendale o dell'Istituto di istruzione con il proprio account LinkedIn. Dopo che un utente ha connesso i propri account, le informazioni e le novità di LinkedIn sono disponibili in alcune app e servizi Microsoft. Gli utenti possono anche prevedere che l'esperienza di rete su LinkedIn risulti migliorata e arricchita dalle informazioni provenienti da Microsoft.
 
 Per visualizzare le informazioni di LinkedIn nelle app e nei servizi Microsoft, gli utenti devono consentire alla connessione dei propri account Microsoft e LinkedIn. La richiesta di connessione degli account viene visualizzata la prima volta che gli utenti fanno clic per vedere le informazioni di LinkedIn relative a un utente in una scheda del profilo in Outlook, OneDrive o SharePoint Online. Le connessioni all'account LinkedIn non vengono completamente abilitate fino a quando gli utenti non forniscono il consenso all'esperienza e alla connessione dei propri account.
 
@@ -38,7 +38,7 @@ L'accesso alle informazioni di LinkedIn all'interno di app e servizi Microsoft r
 
 Per gestire le impostazioni per l'intera organizzazione, è necessario avere i diritti di amministratore di Azure Active Directory. È possibile abilitare le connessioni per tutti gli utenti o per un gruppo specifico di utenti.
 
-1. Per abilitare o disabilitare l'integrazione, seguire i passaggi descritti in [Integrazione consenta LinkedIn per l'organizzazione di Azure AD.](linkedin-integration.md)
+1. Per abilitare o disabilitare l'integrazione, seguire la procedura descritta in [consenso per l'integrazione di LinkedIn per l'organizzazione Azure ad](linkedin-integration.md).
 2. Quando si annuncia l'integrazione di LinkedIn nell'organizzazione, è opportuno invitare gli utenti a consultare le domande frequenti in [Informazioni di LinkedIn nelle app e nei servizi Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). L'articolo fornisce informazioni utili per sapere dove vengono visualizzate le informazioni di LinkedIn, come connettere gli account e altro ancora.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consenso utente per l'accesso ai dati in Microsoft e LinkedIn
@@ -76,7 +76,7 @@ Con la connessione degli account Microsoft e LinkedIn si consente a Microsoft di
 
 I dati a cui si accede da Microsoft non vengono archiviati in modo permanente in LinkedIn, tranne i contatti. I contatti di Microsoft rimangono archiviati in LinkedIn fino a quando non vengono rimossi. Per altre informazioni, vedere la pagina sull'[eliminazione dei contatti importati da LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Per altre informazioni sull'uso dei dati personali da parte di LinkedIn, vedere l'[Informativa sulla privacy](https://www.linkedin.com/legal/privacy-policy) di LinkedIn. Per i servizi LinkedIn, il trasferimento di dati e l'archiviazione, i dati possono fluire dall'Unione Europea agli Stati Uniti e viceversa e la tua privacy è protetta come descritto nei trasferimenti di [dati dell'Unione Europea.](https://www.linkedin.com/help/linkedin/answer/62533)
+Per altre informazioni sull'uso dei dati personali da parte di LinkedIn, vedere l'[Informativa sulla privacy](https://www.linkedin.com/legal/privacy-policy) di LinkedIn. Per i servizi LinkedIn, il trasferimento dei dati e l'archiviazione, i dati possono fluire dall'Unione europea al Stati Uniti e viceversa e la privacy è protetta come descritto in [trasferimenti di dati Unione europea](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,7 +1,7 @@
 ---
-title: Informazioni di riferimento sulle funzioni di search.in OData
+title: Guida di riferimento alle funzioni OData search.in
 titleSuffix: Azure Cognitive Search
-description: Sintassi e documentazione di riferimento per l'uso della funzione di search.in nelle query di Ricerca cognitiva di Azure.Syntax and reference documentation for using the search.in function in Azure Cognitive Search queries.
+description: Sintassi e documentazione di riferimento per l'uso della funzione search.in in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,31 +20,31 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113113"
 ---
-# <a name="odata-searchin-function-in-azure-cognitive-search"></a>Funzione `search.in` OData in Ricerca cognitiva di AzureOData function in Azure Cognitive Search
+# <a name="odata-searchin-function-in-azure-cognitive-search"></a>Funzione `search.in` OData in Azure ricerca cognitiva
 
-Uno scenario comune nelle [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) consiste nel verificare se un singolo campo in ogni documento è uguale a uno dei molti valori possibili. Ad esempio, questo è il modo in cui alcune applicazioni implementano la limitazione per motivi di [sicurezza,](search-security-trimming-for-azure-search.md) controllando un campo contenente uno o più ID principale rispetto a un elenco di ID principale che rappresentano l'utente che esegue la query. Un modo per scrivere una query [`eq`](search-query-odata-comparison-operators.md) come [`or`](search-query-odata-logical-operators.md) questa consiste nell'utilizzare gli operatori and:
+Uno scenario comune nelle [espressioni di filtro OData](query-odata-filter-orderby-syntax.md) consiste nel controllare se un singolo campo in ogni documento è uguale a uno dei molti valori possibili. Ad esempio, questo è il modo in cui alcune applicazioni implementano il [taglio di sicurezza](search-security-trimming-for-azure-search.md) , verificando un campo contenente uno o più ID entità rispetto a un elenco di ID entità che rappresentano l'utente che ha emesso la query. Un modo per scrivere una query come questa consiste nell'usare gli [`eq`](search-query-odata-comparison-operators.md) operatori [`or`](search-query-odata-logical-operators.md) e:
 
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
 
-Tuttavia, c'è un modo più `search.in` breve per scrivere questo, utilizzando la funzione:
+Tuttavia, esiste un modo più breve per scriverlo, usando la `search.in` funzione:
 
     group_ids/any(g: search.in(g, '123, 456, 789'))
 
 > [!IMPORTANT]
-> Oltre ad essere più breve e `search.in` più facile da leggere, l'utilizzo fornisce anche [vantaggi in termini](#bkmk_performance) di prestazioni ed evita alcune [limitazioni di dimensione dei filtri](search-query-odata-filter.md#bkmk_limits) quando ci sono centinaia o addirittura migliaia di valori da includere nel filtro. Per questo motivo, `search.in` si consiglia vivamente di utilizzare invece di una disgiunzione più complessa delle espressioni di uguaglianza.
+> Oltre a essere più brevi e facili da leggere, `search.in` l'utilizzo di offre anche vantaggi in merito alle [prestazioni](#bkmk_performance) ed evita determinate [limitazioni di dimensioni dei filtri](search-query-odata-filter.md#bkmk_limits) quando sono presenti centinaia o addirittura migliaia di valori da includere nel filtro. Per questo motivo, è consigliabile usare `search.in` anziché una disgiunzione più complessa di espressioni di uguaglianza.
 
 > [!NOTE]
-> La versione 4.01 dello standard OData ha recentemente introdotto l'operatore [ `in` ](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), che ha un comportamento simile a quello della `search.in` funzione in Ricerca cognitiva di Azure. Tuttavia, Ricerca cognitiva di Azure non supporta `search.in` questo operatore, pertanto è necessario usare la funzione.
+> La versione 4,01 dello standard OData ha introdotto di recente l' [ `in` operatore](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), che ha un comportamento simile `search.in` a quello della funzione in Azure ricerca cognitiva. Tuttavia, ricerca cognitiva di Azure non supporta questo operatore, quindi è necessario usare la `search.in` funzione.
 
 ## <a name="syntax"></a>Sintassi
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form) `search.in` ) definisce la grammatica della funzione:
+Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica della `search.in` funzione:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -53,17 +53,17 @@ search_in_call ::=
     'search.in(' variable ',' string_literal(',' string_literal)? ')'
 ```
 
-È disponibile anche un diagramma di sintassi interattivo:An interactive syntax diagram is also available:
+È disponibile anche un diagramma della sintassi interattiva:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
+> [Diagramma della sintassi OData per ricerca cognitiva di Azure](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
 
 > [!NOTE]
-> Vedere Informazioni di riferimento sulla sintassi delle [espressioni OData per Ricerca cognitiva](search-query-odata-syntax-reference.md) di Azure per l'EBNF completo.
+> Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
 
-La `search.in` funzione verifica se un determinato campo stringa o variabile di intervallo è uguale a uno di un determinato elenco di valori. L'uguaglianza tra la variabile e ogni valore nell'elenco viene determinata `eq` in modo con distinzione tra maiuscole e minuscole, come per l'operatore. Un'espressione come `search.in(myfield, 'a, b, c')` equivale quindi a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, tranne per il fatto che `search.in` garantisce prestazioni di gran lunga migliori.
+La `search.in` funzione verifica se una determinata variabile di intervallo o campo stringa è uguale a uno di un determinato elenco di valori. L'uguaglianza tra la variabile e ogni valore nell'elenco viene determinata con distinzione tra maiuscole e minuscole, come per l' `eq` operatore. Un'espressione come `search.in(myfield, 'a, b, c')` equivale quindi a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, tranne per il fatto che `search.in` garantisce prestazioni di gran lunga migliori.
 
-Esistono due overload della `search.in` funzione:
+Sono disponibili due overload della `search.in` funzione:
 
 - `search.in(variable, valueList)`
 - `search.in(variable, valueList, delimiters)`
@@ -72,41 +72,41 @@ I parametri sono definiti nella tabella seguente:
 
 | Nome parametro | Type | Descrizione |
 | --- | --- | --- |
-| `variable` | `Edm.String` | Un riferimento a un campo stringa (o una variabile `search.in` di intervallo su un campo di raccolta di stringhe nel caso in cui viene utilizzato all'interno di un'espressione `any` o). `all` |
-| `valueList` | `Edm.String` | Stringa contenente un elenco delimitato di `variable` valori da confrontare con il parametro. Se `delimiters` il parametro non viene specificato, i delimitatori predefiniti sono lo spazio e la virgola. |
-| `delimiters` | `Edm.String` | Stringa in cui ogni carattere viene considerato `valueList` come separatore durante l'analisi del parametro. Il valore predefinito di `' ,'` questo parametro è che tutti i valori con spazi e/o virgole tra di essi verranno separati. Se è necessario utilizzare separatori diversi da spazi e virgole perché i valori includono `'|'` tali caratteri, è possibile specificare delimitatori alternativi, ad esempio in questo parametro. |
+| `variable` | `Edm.String` | Riferimento a un campo stringa (o una variabile di intervallo su un campo di raccolta di stringhe `search.in` nel caso in cui `any` venga `all` utilizzato all'interno di un'espressione or). |
+| `valueList` | `Edm.String` | Stringa contenente un elenco delimitato di valori da confrontare con il `variable` parametro. Se il `delimiters` parametro non è specificato, i delimitatori predefiniti sono spazio e virgola. |
+| `delimiters` | `Edm.String` | Stringa in cui ogni carattere viene considerato come separatore durante l'analisi del `valueList` parametro. Il valore predefinito di questo parametro è `' ,'` che indica che tutti i valori con spazi e/o virgole tra di essi verranno separati. Se è necessario usare separatori diversi da spazi e virgole perché i valori includono tali caratteri, è possibile specificare delimitatori alternativi, ad esempio `'|'` in questo parametro. |
 
 <a name="bkmk_performance"></a>
 
 ### <a name="performance-of-searchin"></a>Prestazioni di`search.in`
 
-Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Non esiste un limite esplicito al numero `search.in`di elementi che è possibile passare a , anche se si è ancora limitati dalla dimensione massima della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
+Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Non esiste alcun limite esplicito per il numero di elementi che è possibile `search.in`passare a, sebbene sia ancora limitato dalla dimensione massima della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
 
 ## <a name="examples"></a>Esempi
 
-Trova tutti gli hotel con un nome uguale a "Motel di Vista del mare" o "Hotel economico". Le frasi contengono spazi, ovvero un delimitatore predefinito. È possibile specificare un delimitatore alternativo tra virgolette singole come terzo parametro di stringa:You can specify an alternative delimiter in single quotes as the third string parameter:  
+Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel '. Le frasi contengono spazi, ovvero un delimitatore predefinito. È possibile specificare un delimitatore alternativo tra virgolette singole come terzo parametro di stringa:  
 
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
-Trova tutti gli hotel con nome uguale a 'Sea View motel' o 'Hotel di bilancio' separati da '''):
+Trovare tutti gli alberghi con nome uguale a' Sea View Motel ' o ' Budget Hotel ' separati da' |'):
 
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
-Trova tutti gli hotel con camere che hanno il tag 'wifi' o 'tub':
+Trovare tutti gli hotel con le chat room con tag "WiFi" o "tub":
 
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
 
-Trova una corrispondenza sulle frasi all'interno di una raccolta, ad esempio "rastrelliere per asciugamani riscaldati" o "hairdryer incluso" nelle etichette.
+Trovare una corrispondenza sulle frasi all'interno di una raccolta, ad esempio "rack di asciugamani riscaldati" o "asciugacapelli incluso" nei tag.
 
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-Trova tutti gli hotel senza il tag 'motel' o 'cabin':
+Trovare tutti gli alberghi senza il tag ' Motel ' o ' Cabin ':
 
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Filtri in Ricerca cognitiva di AzureFilters in Azure Cognitive Search](search-filters.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [&#41;API REST di Ricerca documenti &#40;Ricerca cognitiva di AzureSearch Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtri in ricerca cognitiva di Azure](search-filters.md)
+- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
+- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,6 +1,6 @@
 ---
-title: Personalizzare le regole usando l'interfaccia della riga di comando - Firewall applicazione Web di AzureCustomize rules using CLI - Azure Web Application Firewall
-description: Questo articolo fornisce informazioni su come personalizzare le regole di Web Application Firewall nel gateway applicazione con l'interfaccia della riga di comando di Azure.This article provides information on how to customize Web Application Firewall rules in Application Gateway with the Azure CLI.
+title: Personalizzare le regole usando l'interfaccia della riga di comando-Web Application Firewall di Azure
+description: Questo articolo fornisce informazioni su come personalizzare le regole del Web Application Firewall nel gateway applicazione con l'interfaccia della riga di comando di Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,15 +8,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 8e8aaa9458619bc937c5bb11c450f3197b92f451
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74048523"
 ---
-# <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Personalizzare le regole del firewall dell'applicazione Web usando l'interfaccia della riga di comando di AzureCustomize Web Application Firewall rules using the Azure CLI
+# <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Personalizzare le regole del Web Application Firewall usando l'interfaccia della riga di comando di Azure
 
-Il firewall dell'applicazione Web del gateway applicazione di Azure (WAF) fornisce protezione per le applicazioni Web. Queste protezioni vengono fornite dal Set di regole principali (CRS) di Open Web Application Security Project (OWASP). Alcune regole possono generare falsi positivi e bloccare il traffico reale. Per questo motivo, il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole. Per ulteriori informazioni sui gruppi di regole e sulle regole specifiche, vedere [List of Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+Il firewall applicazione Web del gateway applicazione Azure (WAF) fornisce la protezione per le applicazioni Web. Queste protezioni vengono fornite dal Set di regole principali (CRS) di Open Web Application Security Project (OWASP). Alcune regole possono generare falsi positivi e bloccare il traffico reale. Per questo motivo, il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole. Per ulteriori informazioni sulle regole e sui gruppi di regole specifici, vedere l' [elenco delle regole e dei gruppi di regole CRS del Web Application Firewall](application-gateway-crs-rulegroups-rules.md).
 
 ## <a name="view-rule-groups-and-rules"></a>Visualizzare le regole e i gruppi di regole
 
@@ -124,20 +124,20 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 ## <a name="mandatory-rules"></a>Regole obbligatorie
 
-L'elenco seguente contiene le condizioni che causano il WAF bloccare la richiesta in modalità prevenzione (in modalità di rilevamento vengono registrati come eccezioni). Questi non possono essere configurati o disabilitati:
+L'elenco seguente contiene le condizioni che determinano il blocco della richiesta da parte di WAF in modalità di prevenzione (in modalità di rilevamento vengono registrate come eccezioni). Non possono essere configurati o disabilitati:
 
-* La mancata analisi del corpo della richiesta comporta il blocco della richiesta, a meno che l'ispezione del corpo non sia disattivata (XML, JSON, dati del modulo)
-* La lunghezza dei dati del corpo della richiesta (senza file) è maggiore del limite configuratoRequest body data length is larger than the configured limit
-* Il corpo della richiesta (inclusi i file) è maggiore del limite
+* Se non si analizza il corpo della richiesta, la richiesta viene bloccata, a meno che l'ispezione del corpo non sia spenta (XML, JSON, dati del modulo)
+* La lunghezza dei dati del corpo della richiesta senza file è superiore al limite configurato
+* Il corpo della richiesta (inclusi i file) è più grande del limite
 * Si è verificato un errore interno nel motore WAF
 
-Specifico di CRS 3.x:
+Specifico CRS 3. x:
 
-* Punteggio anomaly in entrata superato soglia
+* Il Punteggio di anomalie in ingresso ha superato la soglia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato le regole disattivate, viene descritto come visualizzare i log WAF. Per ulteriori informazioni, vedere [Diagnostica gateway applicazione](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+Dopo aver configurato le regole disattivate, viene descritto come visualizzare i log WAF. Per altre informazioni, vedere [diagnostica del gateway applicazione](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

@@ -1,6 +1,6 @@
 ---
 title: Distribuire Firewall di Azure con un modello
-description: Distribuire Firewall di Azure usando un modello. La rete creata ha una rete virtuale con tre subnet. Vengono distribuite due macchine virtuali Windows Server a due core.
+description: Distribuire il firewall di Azure usando un modello. La rete creata ha un VNet con tre subnet. Sono state distribuite due macchine virtuali di Windows Server con due core.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74169191"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuire Firewall di Azure con un modello
 
-[Creare il modello di configurazione sandbox di AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) crea un ambiente di rete di test con un firewall. La rete dispone di una rete virtuale (VNet) con tre subnet: *AzureFirewallSubnet*, *ServersSubnet*e *JumpboxSubnet*. Ciascuna delle subnet *ServersSubnet* e *JumpboxSubnet* dispone di una macchina singola virtuale Windows Server a due core.
+[Creare il modello di configurazione sandbox di AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) crea un ambiente di rete di test con un firewall. La rete ha una rete virtuale (VNet) con tre subnet: *AzureFirewallSubnet*, *ServersSubnet*e *JumpboxSubnet*. Ciascuna delle subnet *ServersSubnet* e *JumpboxSubnet* dispone di una macchina singola virtuale Windows Server a due core.
 
-Il firewall si trova nella subnet *AzureFirewallSubnet* e dispone di una `www.microsoft.com`raccolta di regole dell'applicazione con una singola regola che consente l'accesso a .
+Il firewall si trova nella subnet *AzureFirewallSubnet* e include una raccolta di regole dell'applicazione con una singola regola che consente l' `www.microsoft.com`accesso a.
 
 Una route definita dall'utente punta al traffico di rete dalla subnet *ServersSubnet* attraverso il firewall, in cui vengono applicate le regole del firewall.
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 **Per installare e distribuire Firewall di Azure usando il modello:**
 
-1. Accedere al [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)modello all'indirizzo .
+1. Accedere al modello in [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
    
 1. Leggere l'introduzione e, quando si è pronti per la distribuzione, selezionare **Distribuisci in Azure**.
    
@@ -41,14 +41,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Nel portale, alla pagina **Creare una configurazione sandbox di AzureFirewall**, digitare o selezionare i seguenti valori:
    
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare un nome per il gruppo di risorse e scegliere **OK**. 
-   - **Nome rete virtuale:** digitare un nome per la nuova rete virtuale. 
-   - **Nome utente amministratore**: digitare un nome utente per l'account utente amministratore.
-   - **Password amministratore**: Digitare una password di amministratore. 
+   - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare un nome per il gruppo di risorse e fare clic su **OK**. 
+   - **Nome rete virtuale**: digitare un nome per il nuovo VNet. 
+   - **Nome utente**amministratore: digitare un nome utente per l'account utente amministratore.
+   - **Password**amministratore: digitare una password di amministratore. 
    
-1. Leggere i termini e le condizioni, quindi selezionare **Accetto i termini e le condizioni sopra indicati**.
+1. Leggere i termini e le condizioni e quindi selezionare Accetto **i termini e le condizioni indicati in precedenza**.
    
-1. Selezionare **Acquista**.
+1. Selezionare **Acquisto**.
    
    La creazione delle risorse richiederà alcuni minuti. 
    
@@ -58,7 +58,7 @@ Per altre informazioni sulla sintassi JSON e sulle proprietà di un firewall in 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il firewall e tutte le risorse correlate eseguendo il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell. Per rimuovere un gruppo di risorse denominato *MyResourceGroup*, eseguire: 
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il firewall e tutte le risorse correlate eseguendo il comando di PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Per rimuovere un gruppo di risorse denominato *MyResourceGroup*, eseguire: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

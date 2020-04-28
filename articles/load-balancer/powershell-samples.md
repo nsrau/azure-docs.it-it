@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples - Azure Load Balancer
-description: With these samples, load balance traffic to multiple websites on VMs and traffic to VMs for HA with Azure Load Balancer.
+title: Esempi di Azure PowerShell-Azure Load Balancer
+description: Con questi esempi, bilanciare il carico del traffico verso più siti Web nelle VM e il traffico verso le macchine virtuali per la disponibilità elevata con Azure Load Balancer.
 services: virtual-network
 documentationcenter: load-balancer
 author: asudbring
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 12/10/2018
 ms.author: allensu
 ms.openlocfilehash: 4311c1dca2ad299ac8b064769db5eb928e6a4513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74048722"
 ---
 # <a name="azure-powershell-samples-for-load-balancer"></a>Esempi di Azure PowerShell per Load Balancer

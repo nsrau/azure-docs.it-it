@@ -1,6 +1,6 @@
 ---
-title: Aggiungere utenti con licenze dirette alle licenze di gruppo - Azure AD Documenti Microsoft
-description: Come eseguire la migrazione da licenze utente individuali a licenze basate su gruppo utilizzando Azure Active Directory
+title: Aggiungere utenti con licenze dirette al gruppo Licensing-Azure AD | Microsoft Docs
+description: Come eseguire la migrazione da licenze utente singole a licenze basate sui gruppi usando Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74025671"
 ---
-# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come eseguire la migrazione di utenti con singole licenze a gruppi per la gestione delle licenze
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come eseguire la migrazione di utenti con licenze singole a gruppi per la gestione delle licenze
 
-È possibile che le licenze esistenti siano distribuite agli utenti delle organizzazioni tramite l'assegnazione diretta. ovvero l'utilizzo di script di PowerShell o di altri strumenti per assegnare licenze utente individuali. Prima di iniziare a utilizzare le licenze basate su gruppo per gestire le licenze nell'organizzazione, è possibile utilizzare questo piano di migrazione per sostituire senza problemi le soluzioni esistenti con le licenze basate su gruppo.
+Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite assegnazione diretta; ovvero usando gli script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Prima di iniziare a usare le licenze basate sui gruppi per gestire le licenze nell'organizzazione, è possibile usare questo piano di migrazione per sostituire facilmente le soluzioni esistenti con le licenze basate sui gruppi.
 
 È importante evitare situazioni in cui la migrazione di licenze basate sui gruppi possa causare una perdita temporanea delle licenze attualmente assegnate agli utenti. Per non rischiare che gli utenti perdano l'accesso ai servizi e ai loro dati, è consigliabile evitare qualsiasi processo che possa comportare la rimozione delle licenze.
 
@@ -47,7 +47,7 @@ ms.locfileid: "74025671"
 
 1. Assicurarsi che non ci siano assegnazioni di licenze non riuscite verificando l'assenza di utenti in stato di errore in ogni gruppo. Per altre informazioni, vedere [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](licensing-groups-resolve-problems.md)
 
-Valutare la possibilità di rimuovere le assegnazioni dirette originali. È consigliabile farlo gradualmente e monitorare prima il risultato su un sottoinsieme di utenti. Se è possibile lasciare le assegnazioni dirette originali agli utenti, ma quando gli utenti lasciano i gruppi con licenza mantengono le licenze assegnate direttamente, che potrebbe non essere quello desiderato.
+Provare a rimuovere le assegnazioni dirette originali. Si consiglia di eseguire questa operazione gradualmente e di monitorare prima il risultato in un subset di utenti. Se è possibile lasciare le assegnazioni dirette originali agli utenti, ma quando gli utenti lasciano i gruppi con licenza, mantengono le licenze assegnate direttamente, che potrebbero non essere quelle desiderate.
 
 ## <a name="an-example"></a>Esempio
 
@@ -55,31 +55,31 @@ Un'organizzazione ha 1.000 utenti. Tutti gli utenti richiedono licenze di Office
 
 Di seguito è riportato un esempio di processo di migrazione:
 
-1. Usando il portale di Azure, assegnare la licenza di Office 365 E3 al gruppo **Tutti gli utenti** in Azure AD.
+1. Usando il portale di Azure, assegnare la licenza di Office 365 E3 al gruppo **tutti gli utenti** in Azure ad.
 
-1. Verificare che l'assegnazione della licenza sia stata completata per tutti gli utenti. Passare alla pagina di panoramica del gruppo, selezionare **Licenze**e controllare lo stato di elaborazione nella parte superiore del pannello **Licenze.**
+1. Verificare che l'assegnazione delle licenze sia stata completata per tutti gli utenti. Passare alla pagina Panoramica per il gruppo, selezionare **licenze**e controllare lo stato di elaborazione nella parte superiore del pannello **licenze** .
 
    - Cercare "Le ultime modifiche della licenza sono state applicate a tutti gli utenti" per confermare che l'elaborazione è stata completata.
 
-   - Nella parte superiore del pannello cercare una notifica relativa a eventuali utenti per i quali l'assegnazione della licenza non è riuscita. È possibile che il numero di licenze non sia sufficiente per tutti gli utenti. Alcuni utenti dispongono di piani di licenza in conflitto che impediscono loro di ereditare licenze di gruppo?
+   - Nella parte superiore del pannello cercare una notifica relativa a eventuali utenti per i quali l'assegnazione della licenza non è riuscita. È possibile che il numero di licenze non sia sufficiente per tutti gli utenti. Alcuni utenti hanno piani di licenza in conflitto che impediscono loro di ereditare le licenze di gruppo?
 
-1. Eseguire un controllo a campione su alcuni utenti per verificare che siano state applicate sia le licenze dirette che quelle di gruppo. Passare alla pagina del profilo di un utente, selezionare **Licenze**ed esaminare lo stato delle licenze.
+1. Eseguire un controllo a campione su alcuni utenti per verificare che siano state applicate sia le licenze dirette che quelle di gruppo. Passare alla pagina del profilo per un utente, selezionare **licenze**ed esaminare lo stato delle licenze.
 
    - Di seguito è riportato lo stato previsto per l'utente durante la migrazione:
 
-      ![lo stato utente previsto durante la migrazione](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![stato utente previsto durante la migrazione](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-     Questo conferma che l'utente ha sia le licenze dirette che quelle ereditate. Vediamo che Office 365 E3 è assegnato.
+     Questo conferma che l'utente ha sia le licenze dirette che quelle ereditate. Si noterà che Office 365 E3 è stato assegnato.
 
-   - Selezionare ogni licenza per vedere quali servizi sono abilitati. Per verificare che le licenze dirette e di gruppo abilitino esattamente gli stessi servizi per l'utente, selezionare **Assegnazioni**.
+   - Selezionare ogni licenza per vedere quali servizi sono abilitati. Per verificare che le licenze Direct e Group consentano esattamente gli stessi servizi per l'utente, selezionare **assegnazioni**.
 
 1. Dopo aver confermato che le licenze dirette e quelle di gruppo sono equivalenti, è possibile iniziare a rimuovere le licenze dirette dagli utenti. A scopo di test, è possibile rimuovere le licenze per singoli utenti dal portale e quindi eseguire gli script di automazione per rimuoverle in blocco. Di seguito è riportato un esempio dello stesso utente a cui sono state rimosse le licenze dirette mediante il portale. Si noti che lo stato della licenza rimane invariato, ma non vengono più visualizzate le assegnazioni dirette.
 
-   ![confermare che le licenze dirette vengono rimosse](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![Verificare che le licenze dirette siano state rimosse](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni su altri scenari per la gestione delle licenze di gruppo:Learn more about other scenarios for group license management:
+Altre informazioni su altri scenari per la gestione delle licenze di gruppo:
 
 - [Che cosa sono le licenze basate sui gruppi in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 - [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)

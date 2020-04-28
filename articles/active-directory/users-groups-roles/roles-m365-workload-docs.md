@@ -1,6 +1,6 @@
 ---
-title: Documenti sui ruoli di amministratore nei servizi di Microsoft 365 - Azure AD Documenti Microsoft
-description: Trovare contenuti e riferimenti API per i ruoli di amministratore per i servizi Microsoft 365 in Azure Active DirectoryFind content and API references for administrator roles for Microsoft 365 services in Azure Active Directory
+title: Documenti del ruolo di amministratore tra Microsoft 365 Services-Azure AD | Microsoft Docs
+description: Trovare i riferimenti alle API e al contenuto per i ruoli di amministratore per i servizi Microsoft 365 in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,13 +15,13 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 430b65217da33185cd3b5c235fb148f3350e1bfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74024447"
 ---
-# <a name="administrator-roles-for-microsoft-365-services"></a>Ruoli di amministratore per i servizi di Microsoft 365
+# <a name="administrator-roles-for-microsoft-365-services"></a>Ruoli di amministratore per i servizi Microsoft 365
 
 Tutti i prodotti di Microsoft 365 possono essere gestiti con i ruoli amministrativi in Azure AD. Alcuni prodotti forniscono anche ulteriori ruoli specifici per tale prodotto. Per informazioni sui ruoli supportati da ogni prodotto, consultare la tabella seguente. Discussioni generali sui problemi di delega sono reperibili in [Pianificazione della delega del ruolo in Azure Active Directory](roles-concept-delegation.md).
 
@@ -38,7 +38,7 @@ Centro sicurezza e conformità (Office 365 Advanced Threat Protection, Exchange 
 Punteggio di sicurezza | [Ruoli di amministratore di Azure AD](directory-assign-admin-roles.md) | [API Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Recuperare le assegnazioni di ruolo](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Compliance Manager | [Ruoli di Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | Non disponibile
 Azure Information Protection | [Ruoli di amministratore di Azure AD](directory-assign-admin-roles.md) | [API Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Recuperare le assegnazioni di ruolo](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
-Microsoft Cloud App Security | [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/cloud-app-security/manage-admins) | [Informazioni di riferimento sulle API](https://docs.microsoft.com/cloud-app-security/api-tokens) 
+Microsoft Cloud App Security | [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API (riferimento)](https://docs.microsoft.com/cloud-app-security/api-tokens) 
 Azure Advanced Threat Protection | [Gruppi di ruoli di Azure ATP](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | Non disponibile
 Windows Defender Advanced Threat Protection | [Controllo degli accessi in base al ruolo di Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | Non disponibile
 Privileged Identity Management | [Ruoli di amministratore di Azure AD](directory-assign-admin-roles.md) | [API Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Recuperare le assegnazioni di ruolo](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

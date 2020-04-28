@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure | Microsoft Docs
-description: Questa esercitazione usa Power BI Desktop e Cosmos DB per integrare i dati di una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
+description: Questa esercitazione USA Power BI Desktop e Cosmos DB per integrare i dati di una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74184232"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
@@ -22,13 +22,13 @@ Questa esercitazione illustrerà in modo dettagliato come collegare i dati della
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario che una soluzione di monitoraggio remoto sia attualmente in esecuzione
-- È necessario avere accesso al portale di [Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione l'hub e la soluzione IoT
+- È necessario avere accesso a [portale di Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione l'hub e la soluzione.
 - È necessario che sia installata una versione qualsiasi di [Power BI Desktop](https://powerbi.microsoft.com).
 
 
-## <a name="information-needed-from-azure-portal"></a>Informazioni necessarie dal portale di AzureInformation Needed from Azure portal
+## <a name="information-needed-from-azure-portal"></a>Informazioni necessarie da portale di Azure
 
-1. Passare al portale di [Azure](https://portal.azure.com) e accedere se necessario
+1. Passare a [portale di Azure](https://portal.azure.com) ed eseguire l'accesso, se necessario
 
 2. Fare clic sui gruppi di risorse nel pannello di sinistra.
 
@@ -105,6 +105,6 @@ In questo articolo è stato appreso come visualizzare i dati della soluzione di 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere:
 
 * [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-customize.md)
-* [Guida di riferimento per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Guida alla risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+* [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guida alla risoluzione dei problemi per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

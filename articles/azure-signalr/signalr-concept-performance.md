@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74157662"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guida alle prestazioni per il Servizio Azure SignalR
@@ -127,7 +127,7 @@ Ogni livello ha una larghezza di banda massima in ingresso e in uscita. Una semp
 | Larghezza di banda in uscita | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
-|     Broadcast             | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Trasmissione             | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50.000  | 100,000 |
 | Larghezza di banda in ingresso  | 4 KBps   | 4 KBps   | 4 KBps    | 4 KBps    | 4 KBps    | 4 KBps     | 4 KBps    |
@@ -157,7 +157,7 @@ Il caso d'uso reale è più complesso. È possibile che invii un messaggio di di
 
 Nella tabella seguente viene illustrato un caso d'uso reale della **trasmissione**. Tuttavia, le dimensioni del messaggio, il numero di connessioni e la velocità di invio dei messaggi sono diverse da quelle assunte nella sezione precedente. La domanda è il modo in cui è possibile dedurre qualsiasi elemento (dimensione del messaggio, numero di connessioni o frequenza di invio dei messaggi) se ne sono note solo due.
 
-| Broadcast  | Dimensioni dei messaggi | Messaggi in ingresso al secondo | Connessioni | Intervalli di invio |
+| Trasmissione  | Dimensioni dei messaggi | Messaggi in ingresso al secondo | Connessioni | Intervalli di invio |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100,000     | 5 secondi                      |
 | 2 | 256 kB               | 1                        | 8.000       | 5 secondi                      |
@@ -237,7 +237,7 @@ Anche per questo hub semplice, la pressione del traffico sul server app è evide
 > [!NOTE]
 > Il numero di connessione del client, la dimensione del messaggio, la velocità di invio dei messaggi, il livello SKU e la CPU/memoria del server applicazioni influiscono sulle prestazioni complessive di **echo**.
 
-#### <a name="broadcast"></a>Broadcast
+#### <a name="broadcast"></a>Trasmissione
 
 Per la **trasmissione**, quando l'app Web riceve il messaggio, trasmette a tutti i client. Maggiore è il numero di client da trasmettere, maggiore sarà il traffico dei messaggi per tutti i client. Vedere il diagramma seguente.
 
@@ -247,7 +247,7 @@ Un numero ridotto di client trasmette. La larghezza di banda dei messaggi in ing
 
 Nella tabella seguente vengono riepilogate le connessioni client massime, il numero di messaggi in ingresso/in uscita e la larghezza di banda.
 
-|     Broadcast             | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|     Trasmissione             | Commutazione1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Connessioni               | 1\.000 | 2\.000 | 5\.000  | 10,000 | 20.000 | 50.000  | 100,000 |
 | Messaggi in ingresso al secondo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
@@ -257,7 +257,7 @@ Nella tabella seguente vengono riepilogate le connessioni client massime, il num
 
 I client broadcast che inviano messaggi non sono più di quattro. Sono necessari meno server app rispetto a **echo** perché la quantità di messaggi in ingresso è ridotta. Due server app sono sufficienti per considerazioni su contratti di contratto e prestazioni. Tuttavia, è necessario aumentare le connessioni server predefinite per evitare squilibri, soprattutto per Unit50 e Unit100.
 
-|   Broadcast      | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|   Trasmissione      | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50.000 | 100,000 |
 | Numero di server applicazioni | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
@@ -374,7 +374,7 @@ La tabella seguente fornisce il numero di app Web suggerite per ASP.NET SignalR 
 
 La tabella seguente indica il numero di app Web suggerite per la **trasmissione**di ASP.NET SignalR.
 
-|  Broadcast       | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Trasmissione       | Commutazione1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Connessioni      | 1\.000 | 2\.000 | 5\.000 | 10,000 | 20.000 | 50.000 | 100,000 |
 | Numero di server applicazioni | 2     | 2     | 2     | 2      | 2      | 2      | 2       |

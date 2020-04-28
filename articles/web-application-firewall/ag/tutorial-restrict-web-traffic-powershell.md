@@ -1,5 +1,5 @@
 ---
-title: Limitare il traffico Web tramite PowerShellRestrict web traffic using PowerShell
+title: Limitare il traffico Web con PowerShell
 titleSuffix: Azure Web Application Firewall
 description: Informazioni su come limitare il traffico Web con Web Application Firewall in un gateway applicazione tramite Azure PowerShell.
 services: web-application-firewall
@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74046283"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Abilitare Web Application Firewall con Azure PowerShell
 
-È possibile limitare il traffico su un gateway applicazione con un [Web Application Firewall](ag-overview.md) (WAF). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
+È possibile limitare il traffico in un gateway applicazione con un [Web Application Firewall](ag-overview.md) (WAF). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

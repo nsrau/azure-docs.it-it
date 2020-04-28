@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza Architecture-Hyper-V in un sito secondario con Azure Site Recovery
+title: 'Architettura: ripristino di emergenza Hyper-V in un sito secondario con Azure Site Recovery'
 description: Questo articolo offre una panoramica dell'architettura per il ripristino di emergenza di macchine virtuali Hyper-V locali in un sito System Center VMM secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74133003"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Architettura per la replica di Hyper-V in un sito secondario
@@ -36,7 +36,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 ## <a name="replication-process"></a>Processo di replica
 
-1. Quando viene attivata la replica iniziale, viene creato uno [snapshot della macchina virtuale Hyper-V.When](https://technet.microsoft.com/library/dd560637.aspx) initial replication is triggered, a Hyper-V VM snapshot is taken.
+1. Quando viene attivata la replica iniziale, viene eseguita una snapshot di [snapshot della macchina virtuale Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
 2. I dischi rigidi virtuali nella macchina virtuale vengono replicati uno per volta nel sito secondario.
 3. Se vengono apportate modifiche ai dischi mentre è in corso la replica iniziale, Hyper-V Replica Replication Tracker tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (HRL). Questi file di log si trovano nella stessa cartella dei dischi. A ogni disco è associato un file HRL, che viene inviato al sito secondario. Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale.
 4. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato e viene avviata la replica differenziale.

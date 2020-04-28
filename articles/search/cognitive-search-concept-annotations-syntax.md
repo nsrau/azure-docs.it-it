@@ -1,7 +1,7 @@
 ---
-title: Input e output di riferimento nei set di competenze
+title: Input e output di riferimento in skillsets
 titleSuffix: Azure Cognitive Search
-description: Illustra la sintassi delle annotazioni e come fare riferimento a un'annotazione negli input e negli output di un set di competenze in una pipeline di arricchimento dell'iaformazione aico io in Ricerca cognitiva di Azure.Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
+description: Viene illustrata la sintassi dell'annotazione e viene illustrato come fare riferimento a un'annotazione negli input e negli output di un skillt in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113858"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un set di competenze di Ricerca cognitiva di AzureHow to reference annotations in an Azure Cognitive Search skillset
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un ricerca cognitiva di Azure
 
 In questo articolo si comprenderà come fare riferimento alle annotazioni nelle definizioni delle competenze, utilizzando esempi per illustrare diversi scenari. Poiché il contenuto di un documento illustra un set di competenze, vengono aggiunte alcune annotazioni. Le annotazioni possono essere utilizzate come input per un'ulteriore arricchimento di downstream o mappate a un campo di output in un indice. 
  
@@ -33,7 +33,7 @@ Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Esempio 1: riferimento di annotazione semplice
 
-Nell'archiviazione BLOB di Azure si supponga di avere una varietà di file contenenti riferimenti ai nomi degli utenti che si vuole estrarre usando il riconoscimento delle entità. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
+Nell'archivio BLOB di Azure, si supponga di disporre di un'ampia gamma di file contenenti riferimenti ai nomi di persone che si desidera estrarre utilizzando il riconoscimento delle entità. Nella definizione di competenza riportata di seguito, `"/document/content"` è la rappresentazione testuale dell'intero documento e "persone" è l'estrazione di nomi e cognome per le entità identificate come persone.
 
 Poiché il contesto predefinito è `"/document"`, è ora possibile fare riferimento all'elenco delle persone come `"/document/people"`. In questo caso specifico `"/document/people"` è un'annotazione, che potrebbe ora essere mappata a un campo in un indice o utilizzata in un'altra competenza nello stesso insieme di competenze.
 
@@ -95,7 +95,7 @@ Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare rif
 
 In alcuni casi è necessario raggruppare tutte le annotazioni di un determinato tipo per trasmetterle a una determinata competenza. Prendere in considerazione un’ipotetica competenza personalizzata che identifica il cognome più comune da tutti i cognomi estratti nell'esempio 2. Per fornire alla competenza personalizzata solo i cognomi, specificare il contesto come `"/document"` e l'input come `"/document/people/*/lastname"`.
 
-Si noti che `"/document/people/*/lastname"` la cardinalità di è maggiore di quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
+Si noti che la cardinalità `"/document/people/*/lastname"` di è maggiore di quella del documento. Potrebbero essere presenti 10 nodi dei cognomi mentre esserci un solo nodo del documento per questo documento. In tal caso, verranno automaticamente creati una matrice di `"/document/people/*/lastname"` contenente tutti gli elementi nel documento.
 
 ```json
   {

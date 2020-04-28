@@ -1,5 +1,5 @@
 ---
-title: Abilitare Transparent Data Encryption for Stretch Database (T-SQL)
+title: Abilitare Transparent Data Encryption per Stretch Database (T-SQL)
 description: Abilitare Transparent Data Encryption (TDE) per SQL Server Stretch Database su Azure TSQL
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74033963"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Abilitare Transparent Data Encryption (TDE) per Stretch Database su Azure (Transact-SQL)
 > [!div class="op_single_selector"]
-> * [Portale di Azure](sql-server-stretch-database-encryption-tde.md)
+> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
@@ -69,7 +69,7 @@ FROM
 Il risultato ```1``` indica un database crittografato, ```0``` indica un database non crittografato.
 
 <!--Anchors-->
-[Crittografia dei dati trasparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
