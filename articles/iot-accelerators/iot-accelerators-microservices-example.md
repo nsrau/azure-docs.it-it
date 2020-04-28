@@ -8,15 +8,15 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61447625"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
 
-Questa esercitazione illustra come modificare uno dei [microservizi](https://azure.com/microservices) nella soluzione di monitoraggio remoto, creare un'immagine del microservizio, distribuire l'immagine nell'hub docker e quindi usarla nella soluzione di monitoraggio remoto. Per illustrare questo concetto, l'esercitazione usa uno scenario base in cui si chiama l'API di un microservizio e si modifica il messaggio di stato da "Alive and Well" (Attivo e funzionante) in "New Edits Made Here!" (Nuove modifiche apportate qui)
+Questa esercitazione illustra come modificare uno dei [microservizi](https://azure.com/microservices) nella soluzione di monitoraggio remoto, creare un'immagine del microservizio, distribuire l'immagine nell'hub Docker e quindi usarla nella soluzione di monitoraggio remoto. Per illustrare questo concetto, l'esercitazione usa uno scenario base in cui si chiama l'API di un microservizio e si modifica il messaggio di stato da "Alive and Well" (Attivo e funzionante) in "New Edits Made Here!" (Nuove modifiche apportate qui)
 
 La soluzione di monitoraggio remoto usa i microservizi compilati usando le immagini Docker che vengono estratte da un hub Docker. 
 
@@ -148,7 +148,7 @@ Completare la ridistribuzione di un'istanza locale della soluzione di monitoragg
 
 ![Messaggio Postman New Edits Made Here (Nuove modifiche apportate qui)](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Risolvere problemi
 
 Se si verificano problemi, provare a rimuovere le immagini e i contenitori Docker nel computer locale.
 
@@ -197,6 +197,6 @@ Come operazione successiva è possibile provare a [personalizzare il microserviz
 
 Per altre informazioni per sviluppatori sulla soluzione di monitoraggio remoto, vedere:
 
-* [Guida di riferimento per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 <!-- Next tutorials in the sequence -->
 

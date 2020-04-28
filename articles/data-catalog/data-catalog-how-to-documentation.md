@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68950196"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Come documentare le origini dati in Azure Data Catalog
@@ -24,7 +24,7 @@ L'articolo [Come annotare le origini dati](data-catalog-how-to-annotate.md)mostr
 
 Tag e descrizioni sono utili per inserire semplici annotazioni. Tuttavia, per avere una migliore comprensione di un'origine dati e dei relativi scenari di business gli utilizzatori di dati possono rivolgersi a un esperto per una documentazione completa e dettagliata. È facile documentare un'origine dati. Selezionare un contenitore o un asset di dati e scegliere **Documentazione**.
 
-![Scheda Documentazione in un Catalogo dati](media/data-catalog-documentation/data-catalog-documentation.png)
+![Scheda documentazione in una Data Catalog](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Documentare gli asset di dati
 La documentazione permette di usare **Azure Data Catalog** come un repository per creare un resoconto completo degli asset di dati. È possibile esplorare contenuti dettagliati che descrivono i contenitori e le tabelle. Se sono già presenti contenuti in un altro repository, ad esempio SharePoint o una condivisione file, è possibile aggiungere alla documentazione degli asset collegamenti che fanno riferimento al contenuto esistente. Questa funzione rende i documenti esistenti più facilmente individuabili.
@@ -33,7 +33,7 @@ La documentazione permette di usare **Azure Data Catalog** come un repository pe
 > La documentazione non è inclusa nell'indice di ricerca.
 >
 
-![Scheda Documentazione e collegamento ipertestuale al collegamento Web](media/data-catalog-documentation/data-catalog-documentation2.png)
+![Scheda documentazione e collegamento ipertestuale al collegamento Web](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 Il livello di documentazione va dalla descrizione delle caratteristiche e del valore di un contenitore di asset di dati alla descrizione dettagliata dello schema di tabella all'interno di un contenitore. Il livello di documentazione fornito deve essere proporzionato alle esigenze aziendali. In linea generale, ecco alcuni vantaggi e svantaggi legati alla documentazione degli asset di dati:
 
@@ -41,5 +41,5 @@ Il livello di documentazione va dalla descrizione delle caratteristiche e del va
 * Documentare solo le tabelle: il contenuto è specifico dell'oggetto, ma i documenti degli utenti non si trovano in un'unica posizione.
 * Documentare contenitori e tabelle: è l'approccio più completo, ma potrebbe richiedere una maggiore manutenzione dei documenti.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 La documentazione delle origini dati con **Azure Data Catalog** permette di creare un resoconto sugli asset di dati con un livello di dettaglio basato sulle esigenze.  È possibile creare collegamenti a contenuti archiviati in un repository esistente che riunisce i documenti e gli asset di dati esistenti. Dopo aver trovato gli asset di dati appropriati, gli utenti hanno a disposizione un set di documentazione completo.

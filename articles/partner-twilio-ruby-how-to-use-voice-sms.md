@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69637208"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Come usare Twilio per le funzionalità voce ed SMS in Ruby
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di voce e SMS nelle applicazioni, vedere la sezione [Passaggi successivi.](#NextSteps)
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
 
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Informazioni su Twilio
 Twilio è un'API per servizi Web di telefonia che consente di usare le competenze e i linguaggi Web esistenti per sviluppare applicazioni SMS e vocali. Twilio è un servizio di terze parti. Non si tratta di una funzionalità di Azure, né di un prodotto Microsoft.
@@ -28,7 +28,7 @@ Twilio è un'API per servizi Web di telefonia che consente di usare le competenz
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere SMS. **Twilio Client** consente alle applicazioni di abilitare le comunicazioni vocali utilizzando le connessioni Internet esistenti, comprese le connessioni mobili.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-Per altre informazioni, vedere la pagina [Twilio Pricing][twilio_pricing] (Prezzi di Twilio). Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per iscriverti a questa offerta o [https://ahoy.twilio.com/azure][special_offer]ottenere maggiori informazioni, visita .  
+Per altre informazioni, vedere la pagina [Twilio Pricing][twilio_pricing] (Prezzi di Twilio). Per i clienti di Azure è disponibile un'[offerta speciale][special_offer]: un credito gratuito per 1000 SMS o 1000 minuti di connessioni in entrata. Per iscriversi a questa offerta o ottenere altre informazioni, visitare [https://ahoy.twilio.com/azure][special_offer]il.  
 
 ## <a name="concepts"></a><a id="Concepts"></a>Concetti
 L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le applicazioni. Le librerie client sono disponibili in più lingue. Per un elenco, vedere [Twilio API Libraries][twilio_libraries] (Librerie dell'API Twilio).
@@ -46,20 +46,20 @@ Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hell
 Tutti i documenti TwiML dispongono di un elemento radice `<Response>`, da cui è possibile utilizzare i verbi Twilio per definire il comportamento dell'applicazione.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Verbi TwiML
-I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Ad esempio, ** &lt;&gt; ** il verbo Say indica a Twilio di recapitare udibile un messaggio su una chiamata. 
+I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il ** &lt;verbo Say&gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata. 
 
 Di seguito è riportato un elenco dei verbi Twilio.
 
-* Composizione : Connette il chiamante a un altro telefono. ** &lt;&gt;**
-* Gather : Raccoglie le cifre numeriche immesse sul tastierino del telefono. ** &lt;&gt;**
-* **Hangup&gt;: Termina una &lt;** chiamata.
-* **Riproduci:&gt;riproduce un file &lt;** audio.
-* Pausa : Attende automaticamente per un numero di secondi specificato. ** &lt;&gt;**
-* Record : Registra la voce del chiamante e restituisce l'URL di un file che contiene la registrazione. ** &lt;&gt;**
-* Redirect : Trasferisce il controllo di una chiamata o SMS al TwiML a un URL diverso. ** &lt;&gt;**
-* Rifiuta : Rifiuta una chiamata in arrivo al tuo numero Twilio senza fatturarti ** &lt;&gt;**
-* **Dire:&gt;converte il testo in voce eseguito durante una &lt;** chiamata.
-* Sms : Invia un messaggio SMS. ** &lt;&gt;**
+* Dial: connette il chiamante a un altro telefono. ** &lt;&gt;**
+* Raccolta: raccoglie le cifre numeriche immesse sul tastierino telefonico. ** &lt;&gt;**
+* Hangup: termina una chiamata. ** &lt;&gt;**
+* Play: riproduce un file audio. ** &lt;&gt;**
+* Pause: attende in modo invisibile all'utente un numero di secondi specificato. ** &lt;&gt;**
+* Record: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione. ** &lt;&gt;**
+* Reindirizzamento: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso. ** &lt;&gt;**
+* Rifiuta: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione ** &lt;&gt;**
+* Say: converte il testo in sintesi vocale eseguita in una chiamata. ** &lt;&gt;**
+* SMS: Invia un messaggio SMS. ** &lt;&gt;**
 
 Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML][twiml]. Per altre informazioni sull'API Twilio, vedere [Twilio API][twilio_api] (API Twilio).
 

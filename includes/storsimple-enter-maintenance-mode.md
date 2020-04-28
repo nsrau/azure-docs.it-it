@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: d35f0ef783a2c48f8211657bc8829635c19495aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180174"
 ---
 #### <a name="to-enter-maintenance-mode"></a>Per attivare la modalità di manutenzione
 1. Nel menu della console seriale selezionare l'opzione 1, **Accedi con accesso completo**.
-2. Digitare la password. Il valore predefinito è **Password1**.
+2. Digitare la password. La password predefinita è **Password1**.
 3. Al prompt dei comandi digitare
    
      `Enter-HcsMaintenanceMode`

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68726699"
 ---
 # <a name="the-azure-production-network"></a>La rete di produzione di Azure
@@ -59,12 +59,12 @@ Azure implementa firewall software basati su host all'interno della rete di prod
 
 In questo caso sono previste due categorie di regole:
 
-- **Config del computer o regole di infrastruttura:** per impostazione predefinita, tutte le comunicazioni sono bloccate. Sono presenti eccezioni che consentono a una VM di inviare e ricevere comunicazioni Dynamic Host Configuration Protocol (DHCP), informazioni DNS e inviare traffico a Internet "pubblico" in uscita verso altre VM all'interno del cluster controller di infrastruttura e del server di attivazione del sistema operativo. Poiché l'elenco di destinazioni in uscita consentite delle VM non include subnet di router di Azure e altre proprietà Microsoft, le regole fungono da livello di difesa.
+- **Configurazione computer o regole infrastruttura**: per impostazione predefinita, tutte le comunicazioni sono bloccate. Sono presenti eccezioni che consentono a una VM di inviare e ricevere comunicazioni Dynamic Host Configuration Protocol (DHCP), informazioni DNS e inviare traffico a Internet "pubblico" in uscita verso altre VM all'interno del cluster controller di infrastruttura e del server di attivazione del sistema operativo. Poiché l'elenco di destinazioni in uscita consentite delle VM non include subnet di router di Azure e altre proprietà Microsoft, le regole fungono da livello di difesa.
 - **File di configurazione dei ruoli**: definisce gli ACL in ingresso in base al modello di servizio dei tenant. Ad esempio, se un tenant ha un frontend Web sulla porta 80 in una determinata VM, la porta 80 viene aperta a tutti gli indirizzi IP. Se la VM ha un ruolo di lavoro end in esecuzione, il ruolo di lavoro viene aperto solo per la VM nello stesso tenant.
 
 **Firewall host nativo**: Azure Service Fabric e Archiviazione di Azure vengono eseguiti su un sistema operativo nativo senza hypervisor e quindi Windows Firewall viene configurato con i due precedenti set di regole.
 
-**Host firewall**: Il firewall host protegge la partizione host, che esegue l'hypervisor. Le regole vengono programmate per consentire solo al controller di infrastruttura e ai jumpbox di comunicare con la partizione host su una porta specifica. Le altre eccezioni consentono la risposta DHCP e le risposte DNS. Azure usa un file di configurazione computer che include il modello delle regole del firewall per la partizione host. È anche disponibile un'eccezione del firewall host che consente alle VM di comunicare con i componenti host, il server cablato e il server di metadati tramite un protocollo o porte specifiche.
+**Firewall host**: il firewall host protegge la partizione host che esegue l'hypervisor. Le regole vengono programmate per consentire solo al controller di infrastruttura e ai jumpbox di comunicare con la partizione host su una porta specifica. Le altre eccezioni consentono la risposta DHCP e le risposte DNS. Azure usa un file di configurazione computer che include il modello delle regole del firewall per la partizione host. È anche disponibile un'eccezione del firewall host che consente alle VM di comunicare con i componenti host, il server cablato e il server di metadati tramite un protocollo o porte specifiche.
 
 **Firewall guest**: il componente Windows Firewall del sistema operativo guest, configurabile dai clienti nelle macchine virtuali e nelle risorse di archiviazione del cliente.
 
@@ -85,7 +85,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
 - [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
-- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
 - [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

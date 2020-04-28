@@ -1,16 +1,16 @@
 ---
 title: Scelte rapide da tastiera per Catalogo dati di Azure
-description: Questo articolo illustra un elenco di tasti di scelta rapida che è possibile usare in Azure Data Catalog.This article shows a list of keyboard shortcuts that you can use in Azure Data Catalog.
+description: Questo articolo illustra un elenco di tasti di scelta rapida che è possibile usare in Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69014442"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Scelte rapide da tastiera per Catalogo dati di Azure

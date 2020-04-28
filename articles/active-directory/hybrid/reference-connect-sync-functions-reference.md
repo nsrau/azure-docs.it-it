@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69900034"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
@@ -64,30 +64,30 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
 | **Conversione** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid (StringaFromGuid)](#stringfromguid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Data/Ora** | | | | |
-| [Dateadd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime (DataOrdine)](#formatdatetime) |[Adesso](#now) | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Adesso](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
 | **Directory** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
-| **Versione di valutazione** | | | | |
-| [IsBitSet](#isbitset) |[Isdate](#isdate) |[Isempty](#isempty) |[IsGuid](#isguid) | |
-| [Isnull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[Isnumeric](#isnumeric) |[IsPresent](#ispresent) | |
+| **Valutazione** | | | | |
+| [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
+| [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[IsPresent](#ispresent) | |
 | [IsString](#isstring) | | | | |
 | **Matematiche** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **A più valori** | | | | |
-| [Contiene](#contains) |[Conteggio](#count) |[Elemento](#item) |[ItemOrNull](#itemornull) | |
-| [Aggiungi](#join) |[RemoveDuplicates](#removeduplicates) |[diviso](#split) | | |
+| [Contiene](#contains) |[Numero](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
+| [Aggiungi](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **Flusso del programma** | | | | |
-| [Errore](#error) |[Iif](#iif) |[Seleziona](#select) |[Interruttore](#switch) | |
-| [Dove](#where) |[Con](#with) | | | |
-| **Testo** | | | | |
-| [Guid](#guid) |[Instr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Sinistra](#left) |[Len](#len) |[Ltrim](#ltrim) |[Mid](#mid) | |
+| [Erroree](#error) |[IIF](#iif) |[Seleziona](#select) |[Commutatore](#switch) | |
+| [In cui](#where) |[Con](#with) | | | |
+| **Text** | | | | |
+| [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
+| [Sinistra](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
 | [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Sostituire](#replace) | |
-| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Tagliare](#trim) | |
-| [Ucase](#ucase) |[Word](#word) | | | |
+| [ReplaceChars](#replacechars) |[Ok](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
+| [UCase](#ucase) |[Word](#word) | | | |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -99,7 +99,7 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
 
 * value1, value2: valori numerici da unire con AND
 
-**Note:**  
+**Osservazioni**  
  Questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su:
 
 * 0: se il valore di uno o entrambi i bit corrispondenti in *value1* e *value2* è 0
@@ -121,7 +121,7 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 
 * value1, value2: valori numerici da unire con OR
 
-**Note:**  
+**Osservazioni**  
  Questa funzione converte entrambi i parametri nella rappresentazione binaria e imposta un bit su 1 se il valore di uno o entrambi i bit corrispondenti nella maschera e nel flag è pari a 1 e su 0 se entrambi i bit corrispondenti sono pari a 0. In altre parole, restituisce 1 in tutti i casi tranne dove i bit corrispondenti di entrambi i parametri sono pari a 0.
 
 ---
@@ -132,7 +132,7 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 **Sintassi:**  
 `bool CBool(exp Expression)`
 
-**Note:**  
+**Osservazioni**  
 Se l'espressione restituisce un valore diverso da zero, CBool restituisce True. In caso contrario, restituisce False.
 
 **Esempio:**  
@@ -150,7 +150,7 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 * Value: una stringa con una data, un'ora e facoltativamente un fuso orario
 
-**Note:**  
+**Osservazioni**  
  La stringa restituita è sempre espressa in UTC.
 
 **Esempio:**  
@@ -378,7 +378,7 @@ Restituisce la versione in formato X.509 di un certificato.
 
 Restituisce l'indice nell'attributo multivalore in cui è stata trovata la stringa. Se la stringa non viene trovata, restituisce 0.
 
-**Note:**  
+**Osservazioni**  
  Per gli attributi stringa multivalore, viene effettuata la ricerca di sottostringhe nei valori.  
 Per gli attributi di riferimento, la stringa cercata deve corrispondere esattamente al valore per essere considerata una corrispondenza.
 
@@ -414,7 +414,7 @@ Entrambi gli esempi restituiscono "*Hello world!*"
 
 * source: stringa con codifica a 2 byte UTF8
 
-**Note:**  
+**Osservazioni**  
 La differenza tra questa funzione e ConvertFromBase64([],UTF8) è che il risultato può essere usato per l'attributo DN.  
 Questo formato viene utilizzato da Azure Active Directory come DN.
 
@@ -443,7 +443,7 @@ Converte il valore di una matrice di interi nella rappresentazione di stringa eq
 **Sintassi:**  
 `str ConvertToUTF8Hex(str source)`
 
-**Note:**  
+**Osservazioni**  
  Il formato di output di questa funzione viene usato da Azure Active Directory come formato dell'attributo DN.
 
 **Esempio:**  
@@ -601,8 +601,8 @@ Se dn è "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", allora
 * value: valore nel formato di data/ora
 * format: stringa che rappresenta il formato in cui effettuare la conversione.
 
-**Note:**  
-I valori possibili per il formato sono disponibili qui: [Formati di data e ora personalizzati per la funzione FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+**Osservazioni**  
+I valori possibili per il formato sono disponibili qui: [formati di data e ora personalizzati per la funzione Format](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Esempio:**  
 
@@ -652,7 +652,7 @@ La funzione Guid genera un nuovo GUID casuale
 * start: posizione iniziale per la ricerca della sottostringa
 * compare: vbTextCompare o vbBinaryCompare
 
-**Note:**  
+**Osservazioni**  
  Restituisce la posizione in cui è stata trovata la sottostringa o 0 se non viene trovata.
 
 **Esempio:**  
@@ -677,7 +677,7 @@ La funzione Guid genera un nuovo GUID casuale
 * start: posizione iniziale per la ricerca della sottostringa
 * compare: vbTextCompare o vbBinaryCompare
 
-**Note:**  
+**Osservazioni**  
  Restituisce la posizione in cui è stata trovata la sottostringa o 0 se non viene trovata.
 
 **Esempio:**  
@@ -706,7 +706,7 @@ La funzione Guid genera un nuovo GUID casuale
 **Sintassi:**  
 `bool IsDate(var Expression)`
 
-**Note:**  
+**Osservazioni**  
  Usata per determinare se CDate() riuscirà.
 
 ---
@@ -733,7 +733,7 @@ Restituisce true se i dati non elaborati possono essere serializzati nell'oggett
 **Sintassi:**  
 `bool IsGuid(str GUID)`
 
-**Note:**  
+**Osservazioni**  
  Un GUID viene definito come stringa in base a uno degli schemi seguenti: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx o {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 Usata per determinare se CGuid() riuscirà.
@@ -750,7 +750,7 @@ Se StrAttribute ha un formato GUID, restituisce una rappresentazione binaria. In
 **Sintassi:**  
 `bool IsNull(var Expression)`
 
-**Note:**  
+**Osservazioni**  
  Per un attributo, Null è espresso dall'assenza dell'attributo.
 
 **Esempio:**  
@@ -765,7 +765,7 @@ Se StrAttribute ha un formato GUID, restituisce una rappresentazione binaria. In
 **Sintassi:**  
 `bool IsNullOrEmpty(var Expression)`
 
-**Note:**  
+**Osservazioni**  
  Per un attributo, verrà restituito True se l'attributo è assente oppure se è presente, ma è una stringa vuota.  
 La funzione inversa di questa funzione è denominata IsPresent.
 
@@ -781,7 +781,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 **Sintassi:**  
 `bool IsNumeric(var Expression)`
 
-**Note:**  
+**Osservazioni**  
  Usata per determinare se CNum() riuscirà ad analizzare l'espressione.
 
 ---
@@ -792,7 +792,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 **Sintassi:**  
 `bool IsString(var expression)`
 
-**Note:**  
+**Osservazioni**  
  Usata per determinare se CStr() riuscirà ad analizzare l'espressione.
 
 ---
@@ -803,14 +803,14 @@ La funzione inversa di questa funzione è denominata IsPresent.
 **Sintassi:**  
 `bool IsPresent(var expression)`
 
-**Note:**  
+**Osservazioni**  
  La funzione inversa di questa funzione è denominata IsNullOrEmpty.
 
 **Esempio:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>Elemento
+### <a name="item"></a>Item
 **Descrizione:**  
  La funzione Item restituisce un elemento da una stringa o un attributo multivalore.
 
@@ -820,7 +820,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 * attribute: attributo multivalore
 * index: indice di un elemento nella stringa multivalore.
 
-**Note:**  
+**Osservazioni**  
  La funzione Item usata con la funzione Contains è utile, perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
 
 Genera un errore se l'indice non è compreso nell'intervallo.
@@ -840,7 +840,7 @@ Genera un errore se l'indice non è compreso nell'intervallo.
 * attribute: attributo multivalore
 * index: indice di un elemento nella stringa multivalore.
 
-**Note:**  
+**Osservazioni**  
  La funzione ItemOrNull usata con la funzione Contains è utile, perché quest'ultima restituisce l'indice di un elemento nell'attributo multivalore.
 
 Se l'indice non è compreso nell'intervallo, restituisce un valore Null.
@@ -857,7 +857,7 @@ Se l'indice non è compreso nell'intervallo, restituisce un valore Null.
 * attribute: attributo multivalore contenente stringhe da unire.
 * delimiter: qualsiasi stringa usata per separare le sottostringhe nella stringa restituita. Se omessa, viene usato uno spazio (" "). Se Delimiter è una stringa di lunghezza zero ("") o Nothing, tutti gli elementi nell'elenco vengono concatenati senza delimitatori.
 
-**Osservazioni**  
+**Note**  
  Esiste un'analogia tra le funzioni Join e Split. La funzione Join accetta una matrice di stringhe e le unisce usando una stringa delimitatore per restituire una singola stringa. La funzione Split accetta una stringa e la separa in corrispondenza del delimitatore per restituire una matrice di stringhe. Tuttavia, la differenza principale consiste nel fatto che Join può concatenare stringhe con qualsiasi stringa delimitatore, mentre Split può separare stringhe usando unicamente un delimitatore di un solo carattere.
 
 **Esempio:**  
@@ -887,7 +887,7 @@ Può restituire: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 * string: stringa dalla quale restituire i caratteri
 * NumChars: numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa
 
-**Note:**  
+**Osservazioni**  
  Una stringa contenente i primi caratteri numChars della stringa:
 
 * Se numChars = 0, restituisce una stringa vuota.
@@ -936,7 +936,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 * start: numero che identifica la posizione in una stringa dalla quale iniziare a restituire caratteri
 * NumChars: numero che identifica il numero di caratteri da restituire dalla posizione nella stringa
 
-**Note:**  
+**Osservazioni**  
  Restituisce i caratteri in numChars a partire dalla posizione start nella stringa.  
 Stringa contenente i caratteri specificati in numChars a partire dalla posizione start nella stringa:
 
@@ -987,7 +987,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 * length: intero che rappresenta la lunghezza della stringa desiderata.
 * padCharacter: stringa costituita da un singolo carattere da usare come carattere di riempimento
 
-**Note:**
+**Osservazioni**
 
 * Se la lunghezza di string è minore di length, padCharacter viene aggiunto ripetutamente all'inizio (sinistra) di string finché avrà una lunghezza uguale a length.
 * PadCharacter può essere uno spazio, ma non un valore null.
@@ -1012,7 +1012,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 * length: intero che rappresenta la lunghezza della stringa desiderata.
 * padCharacter: stringa costituita da un singolo carattere da usare come carattere di riempimento
 
-**Note:**
+**Osservazioni**
 
 * Se la lunghezza di string è minore di length, padCharacter viene aggiunto ripetutamente alla fine (destra) di string finché avrà una lunghezza uguale a length.
 * PadCharacter può essere uno spazio, ma non un valore null.
@@ -1033,7 +1033,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 **Sintassi:**  
 `String PCase(string)`
 
-**Note:**
+**Osservazioni**
 
 * Questa funzione attualmente non offre una corretta conversione di maiuscole e minuscole in caso di parola interamente in maiuscolo, come un acronimo.
 
@@ -1083,7 +1083,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 * OldValue: stringa da cercare e sostituire.
 * NewValue: stringa oggetto della sostituzione.
 
-**Note:**  
+**Osservazioni**  
  La funzione riconosce i moniker speciali seguenti:
 
 * \n - Nuova riga
@@ -1107,7 +1107,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
 
 Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove source è il carattere da trovare e target la stringa con cui sostituirlo.
 
-**Note:**
+**Osservazioni**
 
 * La funzione accetta ogni occorrenza delle origini definite e le sostituisce con le destinazioni.
 * Source deve corrispondere esattamente a un carattere (Unicode).
@@ -1138,7 +1138,7 @@ Restituisce "ONeil". Viene definita la rimozione della virgoletta singola.
 * string: stringa dalla quale restituire i caratteri
 * NumChars: numero che identifica il numero di caratteri da restituire dalla fine (destra) della stringa
 
-**Note:**  
+**Osservazioni**  
  I caratteri NumChars vengono restituiti dall'ultima posizione della stringa.
 
 Stringa contenente gli ultimi caratteri numChars in string:
@@ -1227,7 +1227,7 @@ Restituisce tutti i valori dell'attributo multivalore otherPhone dopo che sono s
 * expr: espressione di tipo variant da valutare.
 * value: valore da restituire se l'espressione corrispondente è True.
 
-**Note:**  
+**Osservazioni**  
  L'elenco di argomenti della funzione Switch è costituito da coppie di espressioni e valori. Le espressioni vengono valutate da sinistra a destra e viene restituito il valore associato alla prima espressione valutata in True. Se le parti non vengono accoppiate correttamente, si verifica un errore di runtime.
 
 Ad esempio, se expr1 è True, Switch restituisce value1. Se expr-1 è False, ma expr-2 è True, Switch restituisce value-2 e così via.
@@ -1295,7 +1295,7 @@ Restituisce i valori del certificato non scaduti nell'attributo multivalore user
 **Descrizione:**  
 La funzione With consente di semplificare un'espressione complessa usando una variabile per rappresentare una sottoespressione che appare una o più volte nell'espressione complessa.
 
-**Sintassi:**
+**Sintassi**
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variable: rappresenta la sottoespressione.
 * subExpression: sottoespressione rappresentata dalla variabile.
@@ -1320,7 +1320,7 @@ Che restituisce solo i valori del certificato non scaduti nell'attributo userCer
 * WordNumber: numero che identifica il numero di parole da restituire.
 * delimiters: stringa che rappresenta uno o più delimitatori da usare per identificare le parole
 
-**Note:**  
+**Osservazioni**  
  Ogni stringa di caratteri contenuta nella stringa con valori separati da uno dei caratteri specificati nei delimitatori viene identificata come una parola:
 
 * Se number è < 1, restituisce una stringa vuota.
@@ -1337,5 +1337,5 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Informazioni sulle espressioni di provisioning dichiarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Sincronizzazione di Azure AD Connect: Personalizzazione delle opzioni di sincronizzazioneAzure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
+* [Sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

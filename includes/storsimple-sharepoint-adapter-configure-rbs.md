@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180187"
 ---
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.locfileid: "67180187"
       ![Messaggio di configurazione dell’adattatore](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > Se si configura Archiviazione BLOB remoti per una farm di SharePoint con un numero molto elevato di database (maggiore di 200), è possibile che si verifichi il timeout della pagina Web Amministrazione centrale SharePoint. In questo caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
+      > Se si configura RBS per una farm di SharePoint con un numero molto elevato di database (maggiore di 200), la pagina Web Amministrazione centrale SharePoint potrebbe non riuscire. In tal caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
 
 4. Verificare la configurazione:
    

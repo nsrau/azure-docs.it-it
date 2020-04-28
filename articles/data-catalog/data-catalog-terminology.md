@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68736286"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure
@@ -23,7 +23,7 @@ Il Catalogo dati di Azure è un repository di metadati basato su cloud in cui è
 
 ## <a name="data-source"></a>Origine dati
 
-Un'origine dati è un sistema o un contenitore che gestisce gli asset di dati. Gli esempi includono database di SQL Server, database Oracle, database di SQL Server Analysis Services (tabulari o multidimensionali) e server SQL Server Reporting Services.
+Un'origine dati è un sistema o un contenitore che gestisce gli asset di dati. Tra gli esempi sono inclusi database SQL Server, database Oracle, database SQL Server Analysis Services (tabulari o multidimensionali) e server SQL Server Reporting Services.
 
 ## <a name="data-asset"></a>Asset di dati
 
@@ -65,9 +65,9 @@ Un profilo dati nel Catalogo dati di Azure è uno snapshot di metadati a livello
 
 ## <a name="user-perspective"></a>Prospettiva dell'utente
 
-Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente ha una prospettiva distinta sui dati e sul suo utilizzo. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
+Nel Catalogo dati di Azure, qualsiasi utente può fornire metadati descrittivi per un asset di dati registrato. Ogni utente ha una prospettiva diversa sui dati e sul relativo utilizzo. Ad esempio, l'amministratore responsabile di un server può fornire i dettagli delle finestre di backup o del contratto di servizio, un amministratore dei dati può fornire i collegamenti alla documentazione per i processi aziendali supportati dai dati e un analista può fornire una descrizione in termini rilevanti per altri analisti che può essere più significativa per gli utenti che necessitano di individuare e comprendere i dati.
 
-Ognuna di queste prospettive è intrinsecamente preziosa e con Azure Data Catalog ogni utente può fornire le informazioni significative per loro, mentre tutti gli utenti possono usare tali informazioni per comprendere i dati e il relativo scopo.
+Ognuna di queste prospettive è intrinsecamente preziosa e con Azure Data Catalog ogni utente può fornire le informazioni significative, mentre tutti gli utenti possono utilizzare tali informazioni per comprendere i dati e il relativo scopo.
 
 ## <a name="expert"></a>Esperto
 
@@ -75,7 +75,7 @@ Un esperto è un utente che è stato identificato come avente una prospettiva in
 
 ## <a name="owner"></a>Proprietario
 
-Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari. Per altre informazioni, vedere Come gestire gli asset di datiFor more [information,](data-catalog-how-to-manage.md) see How to manage data assets  
+Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asset di dati nel Catalogo dati di Azure. Gli utenti possono diventare proprietari di dati registrati e i proprietari possono aggiungere altri utenti come comproprietari. Per altre informazioni, vedere [come gestire gli asset di dati](data-catalog-how-to-manage.md)  
 
 > [!NOTE]
 > La gestione e la proprietà sono disponibili solo nell'edizione Standard del Catalogo dati di Azure.
@@ -86,4 +86,4 @@ La registrazione è l'atto di estrazione dei metadati di asset di dati da un'ori
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Creare un Catalogo dati di AzureQuickstart: Create an Azure Data Catalog](data-catalog-get-started.md) 
+[Guida introduttiva: creare un Azure Data Catalog](data-catalog-get-started.md) 

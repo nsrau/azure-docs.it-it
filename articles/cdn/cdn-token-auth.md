@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593399"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protezione di asset della rete CDN di Azure con l'autenticazione basata su token
@@ -114,7 +114,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valore di input `/pictures/`: sono consentite solo le richieste contenenti il percorso `/pictures/`, Ad esempio, `http://www.mydomain.com/pictures/city/strasbourg.png`</li>
+      >       <li>Valore di input `/pictures/`: sono consentite solo le richieste contenenti il percorso `/pictures/`, Ad esempio: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
       >       <li>Valore di input `/pictures/city/strasbourg.png`: sono consentite solo le richieste per questo specifico percorso e asset.</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
    7. Selezionare **Encrypt** (Crittografa) per generare il token.
 
-      Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`
+      Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
    8. Facoltativamente, verificare il token con lo strumento per decrittografare in modo che sia possibile visualizzare i parametri del token. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco **Key to Decrypt** (Chiave da decrittografare) e quindi selezionare **Decrypt** (Decrittografa).
 

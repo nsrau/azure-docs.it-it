@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180088"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Aprire le porte TCP in Windows Firewall per l'istanza predefinita del motore di database
@@ -29,7 +29,7 @@ ms.locfileid: "67180088"
     **Nota sulla sicurezza**: per un maggiore livello di sicurezza è possibile selezionare **Consenti solo connessioni protette**. Selezionare questa opzione per configurare altre opzioni di sicurezza per l'ambiente in uso.
    
     ![Consentire le connessioni](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. Nella finestra di dialogo **Profilo** selezionare **Pubblico**, **Privato** e **Dominio**. Fare quindi clic su **Avanti**.
+8. Nella finestra di dialogo **Profilo** selezionare **Pubblico**, **Privato** e **Dominio**. Quindi fare clic su **Next**.
    
     **Nota sulla sicurezza:** la selezione di un profilo **Pubblico** consente l'accesso tramite Internet. Se possibile, scegliere un profilo più restrittivo.
    
@@ -55,7 +55,7 @@ Il motore di database di SQL Server non può utilizzare l'Autenticazione di Wind
 1. Mentre si è connessi alla macchina virtuale, nella pagina iniziale digitare **SQL Server Management Studio** e fare clic sull'icona selezionata.
    
     Alla prima apertura di Management Studio è necessario creare gli utenti dell'ambiente Management Studio. L'operazione potrebbe richiedere alcuni istanti.
-2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale per la connessione al motore di database con Esplora oggetti; al posto del nome della macchina virtuale, per **Nome server** è anche possibile usare **(locale)** o un singolo punto. Selezionare **Autenticazione di Windows**e lasciare ***your_VM_name-your_local_administrator*** nella casella **Nome utente** . Fare clic su **Connetti**.
+2. Verrà visualizzata la finestra di dialogo **Connetti al server** di Management Studio. Nella casella **Nome server** digitare il nome della macchina virtuale per la connessione al motore di database con Esplora oggetti; al posto del nome della macchina virtuale, per **Nome server** è anche possibile usare **(locale)** o un singolo punto. Selezionare **autenticazione di Windows**e lasciare ***your_VM_name \ your_local_administrator*** nella casella **nome utente** . Fare clic su **Connetti**.
    
     ![Connetti al server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. In Esplora oggetti di SQL Server Management Studio fare clic con il pulsante destro del mouse sul nome dell'istanza di SQL Server (nome della macchina virtuale), quindi fare clic su **Proprietà**.
@@ -67,14 +67,14 @@ Il motore di database di SQL Server non può utilizzare l'Autenticazione di Wind
 5. Nella finestra di dialogo di SQL Server Management Studio fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 6. In Esplora oggetti fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
    
-    ![Riavvio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Riavvia](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Nella finestra di dialogo di SQL Server Management Studio fare clic su **Sì** per accettare il riavvio di SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Creare gli account di accesso di SQL Server
 Per connettersi al motore di database da un altro computer, configurare almeno un account di accesso con autenticazione di SQL Server.
 
 1. In Esplora oggetti di SQL Server Management Studio espandere la cartella dell'istanza del server in cui si desidera creare il nuovo account di accesso.
-2. Fare clic con il pulsante destro del mouse sulla cartella **Protezione,** scegliere **Nuovo**e selezionare **Accesso...**.
+2. Fare clic con il pulsante destro del mouse sulla cartella **sicurezza** , scegliere **nuovo**e quindi **account di accesso.**
    
     ![Nuovo account di accesso](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. Nella finestra di dialogo **Account di accesso - Nuovo**, nella pagina **Generale** immettere il nome del nuovo utente nella casella **Nome account di accesso**.

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69992213"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
@@ -58,7 +58,7 @@ La stringa di connessione è reperibile nella sezione "SSH + Cluster login" del 
 
 Sostituire il `<path>` segnaposto con l'URI del contenitore o della cartella del contenitore.
 
-Ad esempio: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+ad esempio `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>Creare una directory
 
@@ -66,7 +66,7 @@ Ad esempio: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.window
 
 Sostituire il `<path>` segnaposto con il nome del contenitore radice o una cartella all'interno del contenitore.
 
-Ad esempio: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+ad esempio `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>Eliminare un file o una directory
 
@@ -74,7 +74,7 @@ Ad esempio: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.win
 
 Sostituire il segnaposto `<path>` con l'URI del file o della cartella che si vuole eliminare.
 
-Ad esempio: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+ad esempio `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Visualizzare gli elenchi di controllo di accesso (ACL) di file e directory
 

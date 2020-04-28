@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180365"
 ---
 Se si dispone di un URL di firma di accesso condiviso che concede l'accesso alle risorse in un account di archiviazione, è possibile usare la firma di accesso condiviso in una stringa di connessione. Poiché la firma di accesso condiviso contiene le informazioni necessarie per autenticare la richiesta, una stringa di connessione con una firma di accesso condiviso fornisce il protocollo, l'endpoint di servizio e le credenziali necessarie per accedere alla risorsa.

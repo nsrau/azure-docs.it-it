@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "66814837"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
@@ -29,7 +29,7 @@ Dopo aver [distribuito un cluster del servizio Azure Container](../articles/cont
 
 ## <a name="scale-with-the-azure-cli"></a>Ridimensionare con l'interfaccia della riga di comando di Azure
 
-[Installare l'interfaccia della riga di](/cli/azure/install-azure-cli) `az login`comando di Azure e accedere a un account azure con .
+[Installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure e accedere a `az login`un account Azure con.
 
 ### <a name="see-the-current-agent-count"></a>Visualizzare il numero di agenti corrente
 Per visualizzare il numero di agenti attualmente presenti nel cluster, eseguire il comando `az acs show`. Così facendo viene mostrata la configurazione del cluster. Ad esempio, il comando seguente mostra la configurazione del servizio contenitore denominato `containerservice-myACSName` nel gruppo di risorse `myResourceGroup`:

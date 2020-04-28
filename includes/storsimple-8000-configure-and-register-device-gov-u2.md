@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180203"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Per configurare e registrare il dispositivo
 1. Accedere all'interfaccia di Windows PowerShell sulla console seriale del dispositivo StorSimple. Per istruzioni, vedere [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) . **Assicurarsi di seguire la procedura esattamente o non si sarà in grado di accedere alla console.**
-2. Nella sessione che si apre, premere **INVIO** una volta per ottenere un prompt dei comandi.
-3. Verrà richiesto di scegliere la lingua che si desidera impostare per il dispositivo. Specificare la lingua e quindi premere **INVIO**.
+2. Nella sessione visualizzata premere **invio** una volta per visualizzare un prompt dei comandi.
+3. Verrà richiesto di scegliere la lingua che si desidera impostare per il dispositivo. Specificare la lingua e quindi premere **invio**.
    
     ![StorSimple configurare e registrare il dispositivo 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
 4. Nel menu della console seriale visualizzato scegliere l'opzione 1, **Log in with full access** (Accedi con accesso completo).

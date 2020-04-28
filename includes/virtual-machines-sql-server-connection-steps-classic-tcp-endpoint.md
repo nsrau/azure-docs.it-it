@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180090"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Creare un endpoint TCP per la macchina virtuale
@@ -25,7 +25,7 @@ Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere
    
     ![Passaggi all'interno del portale per la creazione dell'endpoint](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
 4. Nel pannello **Aggiungi endpoint** specificare un valore in **Nome**, ad esempio SQLEndpoint.
-5. Selezionare **TCP** per **Protocollo**.
+5. Selezionare **TCP** per il **protocollo**.
 6. Nel campo **Porta pubblica** specificare un numero di porta, ad esempio **57500**.
 7. Nel campo **Porta privata** specificare la porta in ascolto di SQL Server che per impostazione predefinita è **1433**.
 8. Fare clic su **OK** per creare l'endpoint.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594149"
 ---
 # <a name="core-reports-from-verizon"></a>Report principali da Verizon
@@ -119,7 +119,7 @@ Il report fornisce i dettagli seguenti:
 
 Il report non include:
 
-* Richieste negate a causa di opzioni di filtro paese/area geografica.
+* Richieste negate a causa delle opzioni di filtro di paese/area geografica.
 * Richieste di asset le cui intestazioni indicano che non devono essere memorizzate nella cache. Ad esempio, le intestazioni `Cache-Control: private`, `Cache-Control: no-cache` o `Pragma: no-cache` impediscono la memorizzazione nella cache di un asset.
 * Richieste di intervallo di byte di contenuti parzialmente memorizzati nella cache.
 

@@ -9,15 +9,15 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180037"
 ---
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata per SKU di gateway. La tabella è valida per i modelli di distribuzione classica e di Gestione risorse. 
 
-I prezzi variano a seconda dello SKU del gateway. Per ulteriori informazioni, vedere [Prezzi del gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
+I prezzi variano a seconda dello SKU del gateway. Per altre informazioni, vedere [prezzi di gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
 Si noti che lo SKU di gateway UltraPerformance non è rappresentato in questa tabella. Per informazioni sullo SKU UltraPerformance, vedere la documentazione relativa a [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 

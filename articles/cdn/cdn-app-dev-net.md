@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594171"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
@@ -73,7 +73,7 @@ Ora si scriverà la struttura di base del programma.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Assicurarsi di sostituire i segnaposto, incluse ** &lt;le parentesi&gt;angolari**, con i propri valori in base alle esigenze.
+2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Assicurarsi di sostituire i segnaposto, comprese le ** &lt;parentesi&gt;angolari**, con i valori personalizzati in base alle esigenze.
    
     ```csharp
     //Tenant app constants

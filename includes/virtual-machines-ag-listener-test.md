@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180092"
 ---
 In questo passaggio si testa il listener del gruppo di disponibilità usando un'applicazione client in esecuzione nella stessa rete.
@@ -18,7 +18,7 @@ Questi sono i requisiti per la connettività client:
 * Le connessioni client al listener devono provenire da computer che si trovano in un servizio cloud diverso da quello che ospita le repliche di disponibilità AlwaysOn.
 * Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificare *MultisubnetFailover=True* nella stringa di connessione. Questa condizione comporta l'esecuzione di tentativi di connessione paralleli alle repliche nelle diverse subnet. Questo scenario include la distribuzione di un gruppo di disponibilità AlwaysOn tra più aree.
 
-È ad esempio possibile connettersi al listener da una delle macchine virtuali nella stessa rete virtuale di Azure (ma non quello che ospita una replica). Un modo semplice per completare questo test consiste nel provare a connettere SQL Server Management Studio al listener del gruppo di disponibilità. Un altro metodo semplice consiste nell'eseguire [SQLCMD.exe,](https://technet.microsoft.com/library/ms162773.aspx)come indicato di seguito:
+È ad esempio possibile connettersi al listener da una delle macchine virtuali nella stessa rete virtuale di Azure (ma non quello che ospita una replica). Un modo semplice per completare questo test consiste nel provare a connettere SQL Server Management Studio al listener del gruppo di disponibilità. Un altro metodo semplice consiste nell'eseguire [SQLCMD. exe](https://technet.microsoft.com/library/ms162773.aspx), come indicato di seguito:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 

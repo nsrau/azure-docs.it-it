@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594102"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
@@ -199,7 +199,7 @@ Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 1
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di richieste che hanno restituito un codice di stato 404 Non trovato, il numero totale di volte in cui l'asset è stato richiesto e la percentuale di richieste che hanno restituito un codice di stato 404 Non trovato.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180200"
 ---
 #### <a name="to-create-a-volume"></a>Per creare un volume
@@ -43,7 +43,7 @@ ms.locfileid: "67180200"
       1. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo seguendo questa procedura:
 
          1. Specificare un nome per il record di controllo di accesso.****
-         2. In **Nome iniziatore iSCSI** specificare un nome qualificato iSCSI (IQN) dell'host Windows. Se non si dispone di IQN, passare a [Ottenere l'IQN di un host Windows Server](#get-the-iqn-of-a-windows-server-host).
+         2. In **Nome iniziatore iSCSI** specificare un nome qualificato iSCSI (IQN) dell'host Windows. Se non si dispone del IQN, passare a [ottenere il IQN di un host di Windows Server](#get-the-iqn-of-a-windows-server-host).
 
       1. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
 

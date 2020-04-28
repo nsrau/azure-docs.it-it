@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
 ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68881745"
 ---
 # <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Risultati dei test di benchmark delle prestazioni per Azure NetApp Files
@@ -81,7 +81,7 @@ La distanza tra le VM di test e il volume Azure NetApp Files influisca sulle pre
 
 ![Studio della latenza](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I carichi di lavoro sensibili alla latenza (database) possono avere un tempo di risposta di un millisecondo. Le prestazioni transazionali possono essere superiori a 300K IOPS per un singolo volume.
 

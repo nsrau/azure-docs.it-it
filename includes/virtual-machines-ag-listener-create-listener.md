@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180096"
 ---
 In questo passaggio si creerà manualmente il listener del gruppo di disponibilità in Gestione cluster di failover e SQL Server Management Studio.
@@ -19,7 +19,7 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
 
 3. Espandere il nome del cluster, quindi fare clic su **Ruoli**.
 
-4. Nel riquadro **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi **scegliere Aggiungi** > punto di**accesso client**risorsa .
+4. Nel riquadro **ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi scegliere **Aggiungi risorsa** > **punto di accesso client**.
    
     ![Aggiungere il punto di accesso client per il gruppo di disponibilità](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
@@ -39,7 +39,7 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
  
    * Per configurare una soluzione solo per Azure:
 
-        a. Fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP corrispondente alla subnet di Azure e quindi **scegliere Proprietà**.
+        a. Fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP che corrisponde alla subnet di Azure e quindi scegliere **Proprietà**.
        
        > [!NOTE]
        > Se il listener non riesce in un secondo momento a portarsi in linea a causa di un indirizzo IP in conflitto selezionato da DHCP, è possibile configurare un indirizzo IP statico valido in questa finestra Proprietà.

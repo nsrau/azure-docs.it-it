@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
 ms.openlocfilehash: 0c161510d106343d88e7c77c72a1d1750fe25040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180072"
 ---
 ## <a name="prerequisite-install-the-azure-powershell-module"></a>Prerequisito: installare il modulo Azure PowerShell
@@ -16,4 +16,4 @@ ms.locfileid: "67180072"
 Per eseguire i passaggi indicati in questo articolo, è necessario [installare e configurare il modulo Azure PowerShell](/powershell/azureps-cmdlets-docs). Assicurarsi di completare tutte le istruzioni. Al termine dell'installazione, accedere ad Azure e selezionare la sottoscrizione.
 
 > [!NOTE]
-> Per completare questi passaggi, è necessario un account Azure. Se non si dispone di un account Azure, è possibile iscriversi per una versione di [valutazione gratuita.](../articles/active-directory/fundamentals/sign-up-organization.md)
+> Per completare questi passaggi, è necessario un account Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](../articles/active-directory/fundamentals/sign-up-organization.md).

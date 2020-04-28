@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593906"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
@@ -117,7 +117,7 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 | Campo | Descrizione |
 | --- | --- |
 | Velocità di trasferimento |Indica la velocità media del trasferimento del contenuto dalla rete CDN a un richiedente. |
-| Durata |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
+| Duration |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
 | Velocità richieste con compressione |Indica la percentuale di riscontri distribuiti dalla rete CDN (server perimetrali) al richiedente (ad esempio un Web browser) in formato compresso. |
 | Frequenza degli errori 4xx |Indica la percentuale di riscontri che hanno generato un codice di stato 4xx. |
 | Frequenza degli errori 5xx |Indica la percentuale di riscontri che hanno generato un codice di stato 5xx. |
@@ -183,7 +183,7 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 | Errori 502 |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno restituito un codice di risposta di tipo 502 - Gateway non valido. Un codice di risposta di tipo 502 - Gateway non valido viene restituito in caso di errore del protocollo HTTP tra un server e un proxy HTTP. Nel caso della rete CDN, un codice di risposta di tipo 502 - Gateway non valido viene in genere restituito quando un server di origine del cliente restituisce una risposta non valida a un server perimetrale. Una risposta non è valida se non può essere analizzata o se è incompleta. |
 | Errori 5xx |Contiene un grafico a barre che consente di visualizzare le prime 10 richieste che hanno avuto come risultato un codice di risposta incluso nell'intervallo 500.  I codici di risposta di tipo 502 - Gateway non valido e 504 - Timeout gateway sono esclusi da questo report. |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)

@@ -1,6 +1,6 @@
 ---
 title: Come configurare un'applicazione proxy dell'applicazione | Microsoft Docs
-description: Scopri come creare e configurare un'applicazione APplication Proxy in pochi semplici passaggi
+description: Informazioni su come creare e configurare un'applicazione proxy di applicazione in pochi semplici passaggi
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,15 +17,15 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67807845"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Come configurare un'applicazione proxy dell'applicazione
 
-Questo articolo illustra come configurare un'applicazione proxy di applicazione in Azure AD per esporre le applicazioni locali al cloud.
+Questo articolo consente di comprendere come configurare un'applicazione proxy di applicazione all'interno Azure AD per esporre le applicazioni locali nel cloud.
 
 ## <a name="recommended-documents"></a>Documenti consigliati
 
@@ -45,9 +45,9 @@ Se si seguono i passaggi nel documento [Pubblicare applicazioni mediante il prox
 - Gli URL iniziano con http o https e terminano con un carattere "/"
 - L'URL deve essere un nome di dominio e non un indirizzo IP
 
-Il messaggio di errore dovrebbe essere visualizzato nell'angolo superiore destro quando si crea l'applicazione. È anche possibile selezionare l'icona di notifica per visualizzare i messaggi di errore.
+Il messaggio di errore dovrebbe essere visualizzato nell'angolo in alto a destra quando si crea l'applicazione. È anche possibile selezionare l'icona di notifica per visualizzare i messaggi di errore.
 
-![Mostra dove trovare il prompt di notifica nel portale di Azure](./media/application-proxy-config-how-to/error-message.png)
+![Mostra dove trovare la richiesta di notifica nella portale di Azure](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>Configurare connettori/gruppi di connettori
 

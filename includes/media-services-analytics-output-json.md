@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180561"
 ---
 Il processo genera un file di output JSON che contiene i metadati sui volti rilevati e monitorati. I metadati includono coordinate che indicano la posizione dei volti e un numero di ID volto che indica il monitoraggio della persona specifica. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
@@ -24,7 +24,7 @@ L'output JSON include gli elementi seguenti:
 | offset |Differenza di orario dei timestamp. Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare. |
 | width, hight |Larghezza e altezza del fotogramma video di output, espresse in pixel.|
 | framerate |Fotogrammi al secondo del video. |
-| [Frammenti](#fragments-json-elements) |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. |
+| [frammenti](#fragments-json-elements) |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. |
 
 ### <a name="fragments-json-elements"></a>Elementi JSON dei frammenti
 
