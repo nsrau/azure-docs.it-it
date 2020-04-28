@@ -1,14 +1,14 @@
 ---
-title: Utilizzare PowerShell per eseguire il backup dei carichi di lavoro di DPMUse PowerShell to back up DPM workloads
+title: Usare PowerShell per eseguire il backup dei carichi di lavoro DPM
 description: Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 06c138a4015a0b730369e091fc57a34d2190051d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1de4a328721deafc8a4706ad4597cec3c3defe
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616727"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194585"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
 
@@ -37,7 +37,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per iniziare, scaricare la versione più recente di [Azure PowerShell.](/powershell/azure/install-az-ps)
+Per iniziare, [scaricare la Azure PowerShell più recente](/powershell/azure/install-az-ps).
 
 Le attività di installazione e registrazione seguenti possono essere automatizzate tramite PowerShell:
 
@@ -63,7 +63,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. Utilizzare il cmdlet **New-AzRecoveryServicesVault** per creare un nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
+3. Usare il cmdlet **New-AzRecoveryServicesVault** per creare un nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -83,9 +83,9 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visualizzare gli insiemi di credenziali in un abbonamento
 
-Utilizzare **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
+Usare **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
 
-Eseguire il comando Get-AzRecoveryServicesVault e sono elencati tutti gli insiemi di credenziali nella sottoscrizione.
+Eseguire il comando Get-AzRecoveryServicesVault e tutti gli insiemi di credenziali nella sottoscrizione sono elencati.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -103,7 +103,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Installazione dell'agente di Backup di Azure in un server DPM
 
-Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall' [Area download Microsoft](https://aka.ms/azurebackup_agent) o dalla pagina Dashboard dell'insieme di credenziali dei servizi di ripristino. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\Downloads\*.
+Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall' [Area download Microsoft](https://aka.ms/azurebackup_agent) o dalla pagina Dashboard dell'insieme di credenziali dei servizi di ripristino. Salvare il programma di installazione in una posizione facilmente `C:\Downloads\*`accessibile, ad esempio.
 
 Per installare l'agente, eseguire il comando seguente in una console di PowerShell con privilegi elevati **nel server DPM**:
 
@@ -113,13 +113,13 @@ MARSAgentInstaller.exe /q
 
 L'agente verrà installato con tutte le opzioni predefinite. L'installazione richiede alcuni minuti in background. Se non si specifica l'opzione */nu* , al termine dell'installazione verrà aperta la finestra **Windows Update** per verificare la presenza di eventuali aggiornamenti.
 
-L'agente verrà visualizzato nell'elenco dei programmi installati. Per visualizzare l'elenco dei programmi installati, passare a**Programmi** > **e funzionalità**del Pannello di >  **controllo**.
+L'agente verrà visualizzato nell'elenco dei programmi installati. Per visualizzare l'elenco dei programmi installati, passare a **Pannello** > **Programs** > di controllo programmi programmi**e funzionalità**.
 
 ![Agente installato](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opzione di installazione
 
-Per visualizzare tutte le opzioni disponibili tramite la riga di comando, utilizzare il comando seguente:
+Per visualizzare tutte le opzioni disponibili tramite la riga di comando, usare il comando seguente:
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 Le opzioni disponibili includono:
 
-| Opzione | Dettagli | Predefinito |
+| Opzione | Dettagli | Impostazione predefinita |
 | --- | --- | --- |
 | /q |Installazione non interattiva |- |
 | /p:"location" |Percorso della cartella di installazione per l'agente di Backup di Azure. |C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure |
@@ -268,7 +268,7 @@ Ogni agente DPM conosce l'elenco di origini dati nel server in cui è installato
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-Recuperare quindi l'elenco di origini dati in ```$server``` usando il cmdlet [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019). In questo esempio viene filtrato il volume *D:\\ * che si desidera configurare per il backup. L'origine dati viene quindi aggiunta al gruppo protezione dati usando il cmdlet [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019). Ricordarsi di usare l'oggetto gruppo protezione dati *modificabile*```$MPG``` per effettuare le aggiunte.
+Recuperare quindi l'elenco di origini dati in ```$server``` usando il cmdlet [Get-DPMDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019). In questo esempio viene filtrato il volume `D:\` che si vuole configurare per il backup. L'origine dati viene quindi aggiunta al gruppo protezione dati usando il cmdlet [Add-DPMChildDatasource](https://docs.microsoft.com/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019). Ricordarsi di usare l'oggetto gruppo protezione dati *modificabile*```$MPG``` per effettuare le aggiunte.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }
@@ -370,7 +370,7 @@ Il ripristino dei dati è una combinazione tra un oggetto ```RecoverableItem``` 
 
 Nell'esempio seguente viene illustrato come ripristinare una macchina virtuale Hyper-V da Backup di Azure mediante la combinazione di punti di backup con la destinazione per il ripristino. L'esempio include quanto segue:
 
-* Creazione di un'opzione di ripristino utilizzando il cmdlet [New-DPMRecoveryOption.](https://docs.microsoft.com/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019)
+* Creazione di un'opzione di ripristino tramite il cmdlet [New-DPMRecoveryOption](https://docs.microsoft.com/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) .
 * Recupero della matrice di punti di backup usando il cmdlet ```Get-DPMRecoveryPoint``` .
 * Scelta di un punto di backup da cui eseguire il ripristino.
 

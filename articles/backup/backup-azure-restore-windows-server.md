@@ -4,16 +4,16 @@ description: Questo articolo illustra come ripristinare i dati archiviati in Azu
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409814"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186805"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Ripristinare i file in Windows usando il modello di distribuzione Azure Resource Manager
 
-Questo articolo illustra come ripristinare i dati da un insieme di credenziali di backup. Per ripristinare i dati, usare il Ripristino guidato dei dati nell'agente di Servizi di ripristino di Microsoft Azure (MARS). È possibile:
+Questo articolo illustra come ripristinare i dati da un insieme di credenziali di backup. Per ripristinare i dati, usare il Ripristino guidato dei dati nell'agente di Servizi di ripristino di Microsoft Azure (MARS). È possibile scegliere:
 
 * Ripristinare i dati nello stesso computer in cui sono stati eseguiti i backup.
 * Ripristinare i dati in un'altra macchina.
@@ -49,7 +49,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
     ![Schermata della pagina Seleziona modalità di ripristino del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > L'opzione per ripristinare singoli file e cartelle richiede .NET Framework versione 4.5.2 o successiva. Se l'opzione **Individual files and folders** (Singoli file e cartelle) non viene visualizzata, è necessario eseguire l'aggiornamento di .NET Framework alla versione 4.5.2 o successiva e riprovare.
- 
+
    > [!TIP]
    > L'opzione **singoli file e cartelle** consente di accedere rapidamente ai dati dei punti di ripristino. Tale opzione è adatta per il ripristino di singoli file, con dimensioni massime di 80 GB e offre velocità di trasferimento o copia offerte fino a 6 MBps durante il ripristino. L'opzione **Volume** consente di ripristinare tutti i dati di cui è stato eseguito il backup in un volume specificato. Questa opzione offre maggiore velocità di trasferimento (fino a 60 MBps), ideale per il ripristino di dati di grandi dimensioni o di interi volumi.
 

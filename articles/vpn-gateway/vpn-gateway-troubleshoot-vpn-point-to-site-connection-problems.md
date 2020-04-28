@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297632"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188294"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -282,7 +282,7 @@ Quando il client si connette ad Azure tramite una connessione VPN da punto a sit
 
 ### <a name="cause"></a>Causa
 
-Il client VPN da punto a sito usa i server DNS di Azure che vengono configurati nella rete virtuale di Azure. I server DNS di Azure hanno la precedenza sui server DNS locali che vengono configurati nel client, pertanto tutte le query DNS vengono inviate ai server DNS di Azure. Se i server DNS di Azure non dispongono di record per le risorse locali, la query ha esito negativo.
+Il client VPN da punto a sito USA in genere i server DNS di Azure configurati nella rete virtuale di Azure. I server DNS di Azure hanno la precedenza sui server DNS locali configurati nel client (a meno che la metrica dell'interfaccia Ethernet non sia inferiore), quindi tutte le query DNS vengono inviate ai server DNS di Azure. Se i server DNS di Azure non dispongono di record per le risorse locali, la query ha esito negativo.
 
 ### <a name="solution"></a>Soluzione
 

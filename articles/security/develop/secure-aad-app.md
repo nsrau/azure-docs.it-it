@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159899"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188328"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Sviluppare un'app sicura per un'app Azure AD
 ## <a name="overview"></a>Panoramica
@@ -35,7 +35,7 @@ Durante lo sviluppo e la distribuzione di questa app, si apprenderà come
 - Distribuire l'app Web di Azure, dedicata isolata con accesso al firewall front-end. 
 - Creare e configurare un'istanza di applicazione Azure gateway con un firewall che usa OWASP primi 10 RuleSet. 
 - Abilitare la crittografia dei dati in transito e a riposo usando i servizi di Azure. 
-- Configurare i criteri e il Centro sicurezza di Azure per valutare la compliancies. 
+- Configurare i criteri e il Centro sicurezza di Azure per valutare la conformità. 
 
 Dopo aver sviluppato e distribuito l'app, è necessario configurare l'app Web di esempio seguente insieme alle misure di configurazione e sicurezza descritte.
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: e97ac14c91ec9fb05b25d422680d788b4498725f
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 931114a56d774c506b0b33fe4f4fc39e564c06c7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116724"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195095"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
 
@@ -195,7 +195,7 @@ Per convalidare il servizio da Ambari, `https://CLUSTERNAME.azurehdinsight.net/#
 
 Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al nodo head. Passare dall'utente allo Zeppelin usando `sudo su zeppelin`il comando. Comandi di stato:
 
-|Comando |Description |
+|Comando |Descrizione |
 |---|---|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Stato del servizio.|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Versione del servizio.|

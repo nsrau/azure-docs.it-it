@@ -3,18 +3,18 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: c92957cab3e1ed745e7031e3c6f32e7ecda550a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77584507"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195707"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
 La soluzione per la creazione di report fornita da backup di Azure sfrutta Log Analytics (LA). Per i dati di un determinato insieme di credenziali da inviare a LA, è necessario creare un' [impostazione di diagnostica](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) per l'insieme di credenziali.
 
-Spesso, l'aggiunta manuale di un'impostazione di diagnostica per ogni insieme di credenziali può essere un'attività complessa. Inoltre, per poter visualizzare i report per questo insieme di credenziali, è necessario che per tutti i nuovi insiemi di credenziali creati siano abilitate anche le impostazioni di diagnostica. 
+Spesso, l'aggiunta manuale di un'impostazione di diagnostica per ogni insieme di credenziali può essere un'attività complessa. Inoltre, per poter visualizzare i report per questo insieme di credenziali, è necessario che per tutti i nuovi insiemi di credenziali creati siano abilitate anche le impostazioni di diagnostica.
 
 Per semplificare la creazione di impostazioni di diagnostica su larga scala (con LA come destinazione), backup di Azure fornisce criteri predefiniti di [Azure](https://docs.microsoft.com/azure/governance/policy/). Questo criterio aggiunge un'impostazione di diagnostica a tutti gli insiemi di credenziali in una sottoscrizione o in un gruppo di risorse specifico. Nelle sezioni seguenti vengono fornite istruzioni su come utilizzare questo criterio.
 
@@ -36,30 +36,30 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 2. Selezionare **definizioni** nel menu a sinistra per ottenere un elenco di tutti i criteri predefiniti tra le risorse di Azure.
 3. Filtrare l'elenco per **Category = Monitoring**. Individuare il criterio denominato **[Anteprima]: Distribuisci impostazioni di diagnostica per l'insieme di credenziali di servizi di ripristino per log Analytics area di lavoro per categorie specifiche di risorse**.
 
-![Pannello definizione criteri](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Pannello definizione criteri](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
 4. Fare clic sul nome del criterio. Si verrà reindirizzati alla definizione dettagliata per questo criterio.
 
-![Definizione dettagliata dei criteri](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
+    ![Definizione dettagliata dei criteri](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
 5. Fare clic sul pulsante **assegna** nella parte superiore del pannello. In questo modo viene reindirizzato al pannello **assegna criterio** .
 
 6. In **nozioni di base**fare clic sui tre puntini di sospensione accanto al campo **ambito** . Verrà aperto un pannello di contesto a destra in cui è possibile selezionare la sottoscrizione per il criterio da applicare. Facoltativamente, è anche possibile selezionare un gruppo di risorse, in modo che i criteri vengano applicati solo per gli insiemi di credenziali in un determinato gruppo di risorse.
 
-![Nozioni fondamentali sull'assegnazione di criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
+    ![Nozioni fondamentali sull'assegnazione di criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
 7. In **parametri**immettere le informazioni seguenti:
 
-* **Nome profilo** : il nome che verrà assegnato alle impostazioni di diagnostica create dal criterio.
-* **Log Analytics area di lavoro** : l'area di lavoro log Analytics a cui deve essere associata l'impostazione di diagnostica. I dati di diagnostica di tutti gli insiemi di credenziali nell'ambito dell'assegnazione di criteri verranno inseriti nell'area di lavoro di LA specificata.
+    * **Nome profilo** : il nome che verrà assegnato alle impostazioni di diagnostica create dal criterio.
+    * **Log Analytics area di lavoro** : l'area di lavoro log Analytics a cui deve essere associata l'impostazione di diagnostica. I dati di diagnostica di tutti gli insiemi di credenziali nell'ambito dell'assegnazione di criteri verranno inseriti nell'area di lavoro di LA specificata.
 
-* **Nome del tag di esclusione (facoltativo) e valore del tag di esclusione (facoltativo)** : è possibile scegliere di escludere gli insiemi di credenziali contenenti un determinato nome di tag e un valore dall'assegnazione dei criteri. Ad esempio, se **non** si vuole aggiungere un'impostazione di diagnostica agli insiemi di credenziali che hanno un tag ' test ' impostato sul valore ' Yes ', è necessario immettere ' test ' nel campo del nome del tag di **esclusione** è Yes ' nel campo del valore del **tag di esclusione** . Se uno o entrambi i due campi vengono lasciati vuoti, i criteri verranno applicati a tutti gli insiemi di credenziali rilevanti indipendentemente dai tag in essi contenuti.
+    * **Nome del tag di esclusione (facoltativo) e valore del tag di esclusione (facoltativo)** : è possibile scegliere di escludere gli insiemi di credenziali contenenti un determinato nome di tag e un valore dall'assegnazione dei criteri. Ad esempio, se **non** si vuole aggiungere un'impostazione di diagnostica agli insiemi di credenziali che hanno un tag ' test ' impostato sul valore ' Yes ', è necessario immettere ' test ' nel campo del nome del tag di **esclusione** è Yes ' nel campo del valore del **tag di esclusione** . Se uno o entrambi i due campi vengono lasciati vuoti, i criteri verranno applicati a tutti gli insiemi di credenziali rilevanti indipendentemente dai tag in essi contenuti.
 
-![Parametri di assegnazione dei criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
+    ![Parametri di assegnazione dei criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
-8. **Creare un'attività di monitoraggio e aggiornamento** : quando il criterio viene assegnato a un ambito, i nuovi insiemi di credenziali creati in tale ambito ottengono automaticamente le impostazioni di diagnostica della la configurazione (entro 30 minuti dal momento della creazione dell'insieme di credenziali). Per aggiungere un'impostazione di diagnostica agli insiemi di credenziali esistenti nell'ambito, è possibile attivare un'attività di monitoraggio e aggiornamento al momento dell'assegnazione dei criteri. Per attivare un'attività di monitoraggio e aggiornamento, selezionare la casella di controllo **Crea un'attività di correzione**. 
+8. **Creare un'attività di monitoraggio e aggiornamento** : quando il criterio viene assegnato a un ambito, i nuovi insiemi di credenziali creati in tale ambito ottengono automaticamente le impostazioni di diagnostica della la configurazione (entro 30 minuti dal momento della creazione dell'insieme di credenziali). Per aggiungere un'impostazione di diagnostica agli insiemi di credenziali esistenti nell'ambito, è possibile attivare un'attività di monitoraggio e aggiornamento al momento dell'assegnazione dei criteri. Per attivare un'attività di monitoraggio e aggiornamento, selezionare la casella di controllo **Crea un'attività di correzione**.
 
-![Monitoraggio e aggiornamento dell'assegnazione dei criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
+    ![Monitoraggio e aggiornamento dell'assegnazione dei criteri](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
 9. Passare alla scheda **Verifica e crea** e fare clic su **Crea**.
 
@@ -68,7 +68,7 @@ Per assegnare i criteri per gli insiemi di credenziali nell'ambito necessario, a
 L'attività di monitoraggio e aggiornamento viene applicata agli insiemi di credenziali che non sono conformi in base alla definizione del criterio. Un insieme di credenziali non è conforme se soddisfa una delle condizioni seguenti:
 
 * Non è presente alcuna impostazione di diagnostica per l'insieme di credenziali.
-* Sono presenti impostazioni di diagnostica per l'insieme di credenziali, ma nessuna delle impostazioni include **tutti** gli eventi specifici della risorsa abilitati con la come destinazione e la **risorsa specifica** selezionata nell'interruttore. 
+* Sono presenti impostazioni di diagnostica per l'insieme di credenziali, ma nessuna delle impostazioni include **tutti** gli eventi specifici della risorsa abilitati con la come destinazione e la **risorsa specifica** selezionata nell'interruttore.
 
 Quindi, anche se un utente dispone di un insieme di credenziali con l'evento AzureBackupReport abilitato in modalità AzureDiagnostics (supportato dai report di backup), l'attività di correzione sarà ancora applicabile a questo insieme di credenziali, poiché la modalità specifica della risorsa è il modo consigliato per creare le impostazioni di diagnostica, [in futuro](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
 
@@ -76,7 +76,7 @@ Inoltre, se un utente dispone di un insieme di credenziali con solo un subset de
 
 > [!NOTE]
 >
-> Se un insieme di credenziali dispone di un'impostazione di diagnostica esistente con un **subset di categorie specifiche delle risorse** abilitata, configurata per l'invio di dati a una determinata area di lavoro, ad indicare "area di lavoro x", l'attività di correzione avrà esito negativo (solo per tale insieme di credenziali) se l'area di lavoro di destinazione specificata nell'assegnazione dei criteri è la **stessa** "area 
+> Se un insieme di credenziali dispone di un'impostazione di diagnostica esistente con un **subset di categorie specifiche delle risorse** abilitata, configurata per l'invio di dati a una determinata area di lavoro, ad indicare "area di lavoro x", l'attività di correzione avrà esito negativo (solo per tale insieme di credenziali) se l'area di lavoro di destinazione specificata nell'assegnazione dei criteri è la **stessa** "area
 >
 >Questo perché, se gli eventi abilitati da due diverse impostazioni di diagnostica sulla stessa risorsa si **sovrappongono** in qualche forma, le impostazioni non possono avere la stessa area di lavoro della destinazione. Sarà necessario risolvere manualmente l'errore, passando all'insieme di credenziali pertinente e configurando un'impostazione di diagnostica con un'area di lavoro di LA diversa come destinazione.
 >

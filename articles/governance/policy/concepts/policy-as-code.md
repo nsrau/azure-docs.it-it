@@ -3,12 +3,12 @@ title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di criteri di Azure come codice e per convalidare automaticamente le risorse.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74267271"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187733"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
@@ -25,7 +25,7 @@ Il passaggio di convalida deve anche essere un componente di altri flussi di lav
 
 Il flusso di lavoro generale consigliato per i criteri come codice è simile a questo diagramma:
 
-![Panoramica dei criteri come flusso di lavoro del codice](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Panoramica dei criteri come flusso di lavoro del codice" border="false":::
 
 ### <a name="create-and-update-policy-definitions"></a>Creare e aggiornare le definizioni dei criteri
 
@@ -92,7 +92,7 @@ L'assegnazione deve usare [enforcementMode](./assignment-structure.md#enforcemen
 > [!NOTE]
 > Sebbene la modalità di imposizione sia utile, non è una sostituzione per il test accurato di una definizione dei criteri in varie condizioni. La definizione dei criteri deve essere `PUT` testata `PATCH` con le chiamate API REST, le risorse conformi e non conformi e i casi Edge come una proprietà mancante dalla risorsa.
 
-Dopo aver distribuito l'assegnazione, usare l'SDK dei criteri per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve avere risorse sia conformi che non conformi. Come un buon unit test per il codice, è opportuno verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo per ciò che si prevede, potrebbe verificarsi un effetto imprevisto e non identificato dal criterio. Per altre informazioni, vedere [valutare l'effetto di un nuovo criterio di Azure](./evaluate-impact.md).
+Dopo aver distribuito l'assegnazione, usare l'SDK dei criteri per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve avere risorse sia conformi che non conformi. Come un buon unit test per il codice, è opportuno verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo per ciò che si prevede, potrebbe verificarsi un effetto imprevisto e non identificato dal criterio. Per altre informazioni, vedere [valutare l'effetto di una nuova definizione di criteri di Azure](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Abilitare le attività di correzione
 

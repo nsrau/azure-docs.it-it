@@ -3,12 +3,12 @@ title: Eseguire il backup di computer Windows usando l'agente MARS
 description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 12463f33a6fa97b33e70b77fb2fcf6b0a27b5790
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 002f4cd2e0582fb87af622f721f286bd78920350
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408913"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193293"
 ---
 # <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Eseguire il backup di computer Windows con l'agente MARS di backup di Azure
 
@@ -159,4 +159,3 @@ Per altre informazioni, vedere [creare un criterio di backup](#create-a-backup-p
 
 * Informazioni su come [ripristinare i file in Azure](backup-azure-restore-windows-server.md).
 * Trovare [domande frequenti sul backup di file e cartelle](backup-azure-file-folder-backup-faq.md)
-

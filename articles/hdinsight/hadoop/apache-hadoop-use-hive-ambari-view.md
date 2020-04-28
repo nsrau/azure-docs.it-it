@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a230d4f775207afc37172dae9f0709d66a6d1aa1
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 832caaed0816e3dd7d177f634209dea42e5312c7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116622"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192681"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -60,7 +60,7 @@ Un cluster Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](./apa
 
     Queste istruzioni eseguono le azioni seguenti:
 
-    |. | Description |
+    |. | Descrizione |
     |---|---|
     |DROP TABLE|elimina la tabella e il file di dati, qualora la tabella esista già.|
     |CREATE EXTERNAL TABLE|crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.|

@@ -6,27 +6,28 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f93be73af4bbbd159ffc01804617892251d96347
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 65f21450f194175af37c6c198468978392cee462
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772171"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195163"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Supporto software open source in Azure HDInsight
 
-Il servizio Microsoft Azure HDInsight usa un ambiente di tecnologie open source formate intorno ad Apache Hadoop.The Microsoft Azure HDInsight service uses an environment of open-source technologies formed around Apache Hadoop. Microsoft Azure offre un livello di supporto generale per le tecnologie open source. Per altre informazioni, vedere la sezione **Ambito del supporto** in [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). Il servizio HDInsight offre un livello di supporto aggiuntivo per i componenti predefiniti.
+Il servizio Microsoft Azure HDInsight usa un ambiente di tecnologie open source costituito da Apache Hadoop. Microsoft Azure offre un livello di supporto generale per le tecnologie open source. Per altre informazioni, vedere la sezione **Ambito del supporto** in [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/). Il servizio HDInsight offre un livello di supporto aggiuntivo per i componenti predefiniti.
 
 ## <a name="components"></a>Componenti
 
 Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
-### <a name="built-in-components"></a>Componenti integrati
+### <a name="built-in-components"></a>Componenti predefiniti
 
 Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. A questa categoria appartengono i componenti seguenti:
 
-* [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Gestione risorse.
+* [Apache Hadoop Yarn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Gestione risorse.
 * Il linguaggio di query Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 * [Apache Mahout](https://mahout.apache.org/).
 
@@ -43,9 +44,9 @@ Un utente del cluster può installare o usare nel carico di lavoro qualsiasi com
 >
 > Anche per i progetti Apache sono disponibili siti specifici nel [sito Web di Apache](https://apache.org). Ad esempio, [Hadoop](https://hadoop.apache.org/).
 
-## <a name="component-usage"></a>Utilizzo dei componenti
+## <a name="component-usage"></a>Utilizzo componenti
 
-Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. Nella tabella seguente vengono descritti i modi più comuni in cui i componenti personalizzati vengono usati nei cluster HDInsight:The following table describes the common ways that custom components are used on HDInsight clusters:
+Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. La tabella seguente descrive i modi più comuni per usare i componenti personalizzati nei cluster HDInsight:
 
 |Uso |Descrizione |
 |---|---|
@@ -55,6 +56,6 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Personalizzare i cluster di Azure HDInsight usando le azioni scriptCustomize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md)
+* [Personalizzare i cluster HDInsight di Azure usando azioni script](./hdinsight-hadoop-customize-cluster-linux.md)
 * [Sviluppare script di azioni script per HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script](./spark/apache-spark-python-package-installation.md)

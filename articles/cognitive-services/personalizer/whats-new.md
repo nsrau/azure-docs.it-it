@@ -1,48 +1,48 @@
 ---
-title: Novità - Personalizer
+title: Novità-personalizzatore
 titleSuffix: Azure Cognitive Services
-description: Questo articolo contiene notizie su Personalizer.
+description: Questo articolo contiene informazioni su personalizzar.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 450328fecde3be0ee0cead174c9d172bf3ac1000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155971"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192987"
 ---
-# <a name="whats-new-in-personalizer"></a>Novità di Personalizer
+# <a name="whats-new-in-personalizer"></a>Novità di personalizzazione
 
-Ecco cosa c'è di nuovo nel servizio. Questi elementi possono includere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.  
+Ecco cosa c'è di nuovo nel servizio. Questi elementi possono includere note sulla versione, video, post di Blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
 
-## <a name="release-notes"></a>Note sulla versione 
+## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="march-2020"></a>Marzo 2020
 
-* TLS 1.2 è ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [Sicurezza dei Servizi cognitivi](../cognitive-services-security.md)di Azure .For more information, see Azure Cognitive Services security .
+* TLS 1,2 viene ora applicato per tutte le richieste HTTP a questo servizio. Per altre informazioni, vedere [sicurezza dei servizi cognitivi di Azure](../cognitive-services-security.md).
 
-### <a name="november-2019---ignite-conference"></a>Novembre 2019 - Conferenza Ignite
+### <a name="november-2019---ignite-conference"></a>Novembre 2019-conferenza Ignite
 
-* Il personalizer è generalmente disponibile (GA)
-* Esercitazione sui blocchi appunti di Azure con l'intero ciclo di vitaAzure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) with entire lifecycle
+* Il Personalizzatore è disponibile a livello generale (GA)
+* Azure Notebooks [esercitazione](tutorial-use-azure-notebook-generate-loop-data.md) con l'intero ciclo di vita
 
-### <a name="may-2019---build-conference"></a>Maggio 2019 - //Build Conference
+### <a name="may-2019---build-conference"></a>Maggio 2019-conferenza Build
 
-Alla conferenza Build 2019 sono state rilasciate le seguenti funzionalità di anteprima:
+Le funzionalità di anteprima seguenti sono state rilasciate alla conferenza Build 2019:
 
-* [Ciclo di apprendimento di grado e ricompensa](what-is-personalizer.md)
+* [Ciclo di apprendimento Rank e Reward](what-is-personalizer.md)
 
 ## <a name="videos"></a>Video
 
-### <a name="2019-build-videos"></a>Video sulla creazione 2019
+### <a name="2019-build-videos"></a>video sulla compilazione di 2019
 
-* [Offri le esperienze & contenuti giusti come Xbox con Cognitive Services Personalizer](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Offri le esperienze giuste & contenuti come Xbox con la personalizzazione di servizi cognitivi](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
 
 ## <a name="service-updates"></a>Aggiornamenti del servizio
 
@@ -50,5 +50,5 @@ Alla conferenza Build 2019 sono state rilasciate le seguenti funzionalità di an
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: Creare un ciclo di feedback in CQuickstart: Create a feedback loop in C #](csharp-quickstart-commandline-feedback-loop.md)
+* [Guida introduttiva: creare un ciclo di feedback in C #](csharp-quickstart-commandline-feedback-loop.md)
 * [Usare la demo interattiva](https://personalizationdemo.azurewebsites.net/)

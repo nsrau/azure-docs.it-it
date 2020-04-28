@@ -3,12 +3,12 @@ title: Matrice di supporto di MAB & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3b9dbf0440809578fca113ee6674b79a5d7fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582654"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193276"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -58,7 +58,7 @@ Per altre informazioni:
 
 DPM/MAB può essere distribuito come riepilogato nella tabella seguente.
 
-**Distribuzione** | **Supporto** | **Dettagli**
+**Distribuzione** | **Supporto tecnico** | **Dettagli**
 --- | --- | ---
 **Distribuito in locale** | Server fisico<br/><br/>Macchina virtuale Hyper-V<br/><br/> Macchina virtuale VMware | Se DPM/MAB è installato come macchina virtuale VMware, esegue solo il backup di macchine virtuali VMware e carichi di lavoro in esecuzione in tali macchine virtuali.
 **Distribuito come macchina virtuale di Azure Stack** | Solo server di Backup di Microsoft Azure | Non è possibile usare DPM per eseguire il backup di macchine virtuali di Azure Stack.
@@ -125,17 +125,17 @@ Il server DPM o il server di Backup di Microsoft Azure deve poter accedere agli 
 
 Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
 
 Con il peering Microsoft, selezionare i seguenti servizi/aree e i valori della community pertinenti:
 
-* Azure Active Directory (12076:5060)
-* Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
-* Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+- Azure Active Directory (12076:5060)
+- Area Microsoft Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
+- Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)
 
 Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 

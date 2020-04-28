@@ -1,36 +1,37 @@
 ---
-title: Azure Data Lake Storage Gen2 overview in HDInsight
+title: Panoramica di Azure Data Lake Storage Gen2 in HDInsight
 description: Panoramica di Data Lake Storage Gen2 in HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 677d8348cc230e4f64915ac5fc1e86b9b50ab5c3
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873342"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195129"
 ---
-# <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Azure Data Lake Storage Gen2 overview in HDInsight
+# <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Panoramica di Azure Data Lake Storage Gen2 in HDInsight
 
-Azure Data Lake Storage Gen2 usa le funzionalità di base di Azure Data Lake Storage Gen1 e le integra in Archiviazione BLOB di Azure. Queste funzionalità includono un file system compatibile con Hadoop, Azure Active Directory (Azure AD) ed elenchi di controllo di accesso (ACL) basati su POSIX. Questa combinazione consente di sfruttare le prestazioni di Azure Data Lake Storage Gen1. Anche se si usa la suddivisione in livelli e la gestione del ciclo di vita dei dati dell'archiviazione BLOB.
+Azure Data Lake Storage Gen2 usa le funzionalità di base di Azure Data Lake Storage Gen1 e le integra in Archiviazione BLOB di Azure. Queste funzionalità includono un file system compatibile con Hadoop, Azure Active Directory (Azure AD) ed elenchi di controllo di accesso (ACL) basati su POSIX. Questa combinazione consente di sfruttare le prestazioni dei Azure Data Lake Storage Gen1. Anche usando la suddivisione in livelli e la gestione del ciclo di vita dei dati dell'archiviazione BLOB.
 
 Per altre informazioni su Azure Data Lake Storage Gen2, consultare [Introduzione ad Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Funzionalità principali di Azure Data Lake Storage Gen2
 
-* **Accesso compatibile con Hadoop:** In Azure Data Lake Storage Gen2 è possibile gestire e accedere ai dati come con un file system distribuito Hadoop (HDFS). Il driver del file system BLOB di Azure (ABFS) è disponibile in tutti gli ambienti Apache Hadoop, tra cui Azure HDInsight e Azure Databricks. Usarlo per accedere ai dati archiviati in Data Lake Storage Gen2.
+* **Accesso compatibile con Hadoop:** In Azure Data Lake Storage Gen2, è possibile gestire e accedere ai dati Analogamente a una Hadoop Distributed File System (HDFS). Il driver del file system BLOB di Azure (ABFS) è disponibile in tutti gli ambienti Apache Hadoop, tra cui Azure HDInsight e Azure Databricks. Usarlo per accedere ai dati archiviati in Data Lake Storage Gen2.
 
-* **Un superset di autorizzazioni POSIX:** Il modello di sicurezza per Data Lake Gen2 supporta le autorizzazioni ACL e POSIX insieme a una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o framework quali Apache Hive e Apache Spark.
+* **Superset delle autorizzazioni POSIX:** Il modello di sicurezza per Data Lake Gen2 supporta le autorizzazioni ACL e POSIX insieme a una granularità aggiuntiva specifica per Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o framework quali Apache Hive e Apache Spark.
 
-* **Efficacia dei costi:** Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. I cicli di vita dell'archiviazione BLOB di Azure consentono di ridurre i costi regolando i tassi di fatturazione man mano che i dati si spostano nel corso del ciclo di vita.
+* **Efficienza dei costi:** Data Lake Storage Gen2 offre capacità e transazioni di archiviazione a basso costo. I cicli di vita dell'archiviazione BLOB di Azure consentono di ridurre i costi regolando le tariffe di fatturazione quando i dati vengono spostati nel ciclo di vita.
 
-* **Compatibilità con gli strumenti, i framework e le app** di archiviazione BLOB: Data Lake Storage Gen2 continua a funzionare con un'ampia gamma di strumenti, framework e applicazioni per l'archiviazione BLOB.
+* **Compatibilità con gli strumenti di archiviazione BLOB, i Framework e le app:** Data Lake Storage Gen2 continua a funzionare con un'ampia gamma di strumenti, Framework e applicazioni per l'archiviazione BLOB.
 
-* **Driver ottimizzato:** Il driver ABFS è ottimizzato specificamente per l'analisi dei Big Data. Le API REST corrispondenti vengono rilevate tramite l'endpoint del file system distribuito (DFS), ovvero dfs.core.windows.net.
+* **Driver ottimizzato:** Il driver ABFS è ottimizzato in modo specifico per Big Data Analytics. Le API REST corrispondenti vengono rilevate tramite l'endpoint del file system distribuito (DFS), ovvero dfs.core.windows.net.
 
 ## <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Novità di Azure Data Lake Storage Gen2
 
@@ -42,11 +43,11 @@ Per altre informazioni, vedere [Identità gestite per le risorse di Azure](../ac
 
 ### <a name="azure-blob-file-system-driver"></a>Driver ABFS
 
-Le applicazioni Apache Hadoop prevedono in modo nativo di leggere e scrivere i dati dallo spazio di archiviazione su disco locale. Un driver del file system Hadoop come ABFS consente alle applicazioni Hadoop di lavorare con l'archiviazione cloud. Funziona emulando le normali operazioni del file system Hadoop. Il driver converte questi comandi ricevuti dall'applicazione in operazioni riconosciute dalla piattaforma di archiviazione nel cloud effettiva.
+Le applicazioni Apache Hadoop prevedono in modo nativo di leggere e scrivere i dati dallo spazio di archiviazione su disco locale. Un driver file system Hadoop, ad esempio ABFS, consente alle applicazioni Hadoop di usare l'archiviazione cloud. Funziona emulando operazioni di file system Hadoop regolari. Il driver converte questi comandi ricevuti dall'applicazione in operazioni riconosciute dalla piattaforma di archiviazione nel cloud effettiva.
 
-In precedenza, il driver del file system Hadoop convertiva tutte le operazioni del file system in chiamate all'API REST di Archiviazione di Azure sul lato client. E poi richiamato l'API REST. Questa conversione lato client tuttavia restituisce più chiamate API REST per una singola operazione di file system come la ridenominazione di un file. ABFS ha spostato la logica del file system Hadoop dal lato client al lato server. L'API di Azure Data Lake Storage Gen2 viene ora eseguita in parallelo con l'API BLOB. Questa migrazione comporta un miglioramento delle prestazioni perché ora le operazioni comuni del file system Hadoop possono essere eseguite con una chiamata API REST.
+In precedenza, il driver file system Hadoop convertiva tutte le operazioni di file system in chiamate API REST di archiviazione di Azure sul lato client. E quindi richiamate l'API REST. Questa conversione lato client tuttavia restituisce più chiamate API REST per una singola operazione di file system come la ridenominazione di un file. ABFS ha spostato la logica di Hadoop file system dal lato client al lato server. L'API di Azure Data Lake Storage Gen2 viene ora eseguita in parallelo con l'API BLOB. Questa migrazione comporta un miglioramento delle prestazioni perché ora le operazioni comuni del file system Hadoop possono essere eseguite con una chiamata API REST.
 
-Per altre informazioni, vedere Driver del file system BLOB di Azure (ABFS): Un driver di Archiviazione di Azure dedicato per Hadoop.For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
+Per altre informazioni, vedere [il driver del file System BLOB di Azure (ABFS): un driver di archiviazione di Azure dedicato per Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
 
 ### <a name="uri-scheme-for-azure-data-lake-storage-gen-2"></a>Schema URI di Azure Data Lake Storage Gen2
 
@@ -54,7 +55,7 @@ Azure Data Lake Storage Gen2 usa un nuovo schema URI per accedere ai file in Arc
 
 `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-Lo schema URI fornisce l'accesso con crittografia SSL.
+Lo schema URI fornisce l'accesso crittografato tramite SSL.
 
 `<FILE_SYSTEM_NAME>` identifica il percorso del file system di Data Lake Storage Gen2.
 
@@ -78,4 +79,4 @@ Per altre informazioni, vedere [Usare l'URI di Azure Data Lake Storage Gen2](../
 
 * [Introduzione ad Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduzione ad Archiviazione di Azure](../storage/common/storage-introduction.md)
-* [Panoramica di Azure Data Lake Storage Gen1Azure Data Lake Storage Gen1 overview](./overview-data-lake-storage-gen1.md)
+* [Panoramica di Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)

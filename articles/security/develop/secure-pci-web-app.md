@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: terrylan
-ms.openlocfilehash: 4fe612db65d985be2f1f1c81d03c3ee735c03889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ab3697824ff4a47e7b8f281b531cae610ffdc3b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69992614"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187580"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>Sviluppare un'infrastruttura sicura per un'app PCI
 
@@ -48,10 +48,10 @@ Durante lo sviluppo e la distribuzione di questa app si apprenderà come:
 
 - Creare un'istanza di Azure Key Vault e archiviare e recuperare i relativi segreti.
 - Distribuire database di Azure per Azure SQL, impostare dati protetti e autorizzare l'accesso ad esso.
-- Distribuire l'app Web di Azure con un ambiente del servizio app che è un ambiente dedicato isolato con firewall front-end aEcess.
+- Distribuire l'app Web di Azure con un ambiente del servizio app, un isolamento dedicato con accesso al firewall front-end.
 - Creare e configurare un'istanza di applicazione Azure gateway con un firewall che usa [OWASP primi 10 RuleSet](https://coreruleset.org/).
 - Abilitare la crittografia dei dati in transito e a riposo usando i servizi di Azure.
-- Configurare i criteri di Azure e le stampe blu per valutare le conformità
+- Configurare i criteri di Azure e i progetti di Azure per valutare la conformità.
 
 Dopo aver sviluppato e distribuito l'app, è necessario configurare l'app Web di esempio seguente insieme alle misure di configurazione e sicurezza descritte.
 
@@ -104,7 +104,7 @@ Per fare in modo che l'applicazione sia in esecuzione, è necessario installare 
 
 Questo esempio è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire le risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM).
 
-#### <a name="quickstart"></a>Guida introduttiva
+#### <a name="quickstart"></a>Avvio rapido
 
 1.  Clonare o scaricare [questo](https://github.com/Azure-Samples/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms-AzureRM.git) repository GitHub nella workstation locale.
 2.  Rivedere 0-Setup-AdministrativeAccountAndPermission.md ed eseguire i comandi indicati.
@@ -124,7 +124,7 @@ Sono disponibili diversi modi per distribuire le app in Azure, tra cui:
 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
 
-### <a name="network"></a>Network
+### <a name="network"></a>Rete
 L'architettura definisce una rete privata virtuale con spazio degli indirizzi 10.200.0.0/16.
  ![Virtual_Network](./media/secure-pci-web-app/virtual-network.png)
 
@@ -152,7 +152,7 @@ ogni subnet è associata al gruppo di sicurezza di rete corrispondente.
 Le subnet sono configurate come illustrato nell'immagine seguente.
  ![File di configurazione](./media/secure-pci-web-app/config.png)
 
-### <a name="azure-dns"></a>DNS di Azure
+### <a name="azure-dns"></a>Azure DNS
 Il Domain Name System (DNS) è responsabile della conversione (o risoluzione) del nome di un sito Web o di un nome di servizio nel relativo indirizzo IP. [DNS di Azure](https://docs.microsoft.com/azure/dns/dns-overview) è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi tramite l'infrastruttura di Azure. Ospitando i domini in Azure, gli utenti possono gestire i record DNS usando le credenziali, le API, gli strumenti e la fatturazione disponibili per gli altri servizi di Azure. DNS di Azure supporta anche i domini DNS privati.
 
 ### <a name="protect-data"></a>Proteggere i dati
@@ -167,7 +167,7 @@ Per soddisfare i requisiti dei dati crittografati, tutti i dati di [archiviazion
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 Crittografia dischi di Azure si avvale della funzionalità BitLocker di Windows per abilitare la crittografia del volume per i dischi dati. La soluzione si integra con Azure Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
 
-### <a name="azure-sql-database"></a>Database SQL di Azure
+### <a name="azure-sql-database"></a>database SQL di Azure
 L'istanza di database SQL di Azure usa le misure di sicurezza del database seguenti:
 
 - L'[autenticazione e l'autorizzazione di Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) consentono la gestione delle identità degli utenti del database e di altri servizi Microsoft in una posizione centrale.

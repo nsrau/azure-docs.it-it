@@ -3,12 +3,12 @@ title: Esercitazione sull'aggiornamento dell'app Service Fabric
 description: Questo articolo esamina l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite Visual Studio.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464817"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195868"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 ![Pubblicazione di un'applicazione di Service Fabric][image2]
 
-Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione oggetti visivi dispone di un servizio Web a cui è possibile accedere [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) digitando nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
+Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando `http://localhost:8081/visualobjects/` nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
 **NOTA:** in caso di distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{NomeServiceFabric}.{Area}.cloudapp.azure.com:8081/visualobjects/**. Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 

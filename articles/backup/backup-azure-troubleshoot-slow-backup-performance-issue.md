@@ -1,21 +1,21 @@
 ---
-title: Risolvere i problemi relativi al backup lento di file e cartelle
+title: Risolvere i problemi di backup lento di file e cartelle
 description: Fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle di Backup di Azure
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e669a68794a8622bb4a2fa55b206153717fd772
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408692"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187903"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle quando si usa Backup di Azure. Quando si usa l'agente di Backup di Azure per eseguire il backup dei file, è possibile che il processo richieda più tempo del previsto. Questo ritardo può dipendere da una o più delle cause seguenti:
 
-* [Esistono colli di bottiglia delle prestazioni nel computer di cui viene eseguito il backup.](#cause1)
+* [Il computer di cui viene eseguito il backup presenta colli di bottiglia delle prestazioni.](#cause1)
 * [Un altro processo o un software antivirus interferisce con il processo di Backup di Azure.](#cause2)
 * [L'agente di Backup è in esecuzione in una macchina virtuale di Azure.](#cause3)  
 * [Viene eseguito il backup di un numero elevato di file (milioni).](#cause4)
@@ -26,17 +26,17 @@ Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installar
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Causa: processo di backup in esecuzione in modalità non ottimizzata
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Motivo: processo di backup in esecuzione in modalità non ottimizzata
 
-* L'agente MARS può eseguire il processo di backup in **modalità ottimizzata** utilizzando USN (update sequence number) change journal o **modalità non ottimizzata** controllando le modifiche nelle directory o nei file analizzando l'intero volume.
-* La modalità non ottimizzata è lenta perché l'agente deve eseguire la scansione di ogni file del volume e confrontarlo con i metadati per determinare i file modificati.
-* Per verificarlo, aprire **Dettagli processo** dalla console dell'agente MARS e verificare lo stato per verificare se il trasferimento di **dati (non ottimizzati, potrebbe richiedere più tempo)** come illustrato di seguito:
+* L'agente MARS può eseguire il processo di backup in **modalità ottimizzata** usando il Journal delle modifiche USN (numero di sequenza di aggiornamento) o la **modalità non ottimizzata** verificando la presenza di modifiche nelle directory o nei file analizzando l'intero volume.
+* La modalità non ottimizzata è lenta perché l'agente deve eseguire la scansione di tutti i file nel volume e confrontarli con i metadati per determinare i file modificati.
+* Per verificarlo, aprire i **Dettagli del processo** dalla console dell'agente Mars e controllare lo stato per verificare se il **trasferimento dei dati (non ottimizzato potrebbe richiedere più tempo)** , come illustrato di seguito:
 
     ![Esecuzione in modalità non ottimizzata](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
-* Le seguenti condizioni possono causare l'esecuzione del processo di backup in modalità non ottimizzata:
-  * Il primo backup (noto anche come replica iniziale) verrà sempre eseguito in modalità non ottimizzata
-  * Se il processo di backup precedente non riesce, il successivo processo di backup pianificato verrà eseguito come non ottimizzato.
+* Le condizioni seguenti possono causare l'esecuzione del processo di backup in modalità non ottimizzata:
+  * Il primo backup (noto anche come replica iniziale) viene sempre eseguito in modalità non ottimizzata
+  * Se il processo di backup precedente ha esito negativo, il successivo processo di backup pianificato verrà eseguito come non ottimizzato.
 
 <a id="cause1"></a>
 
@@ -44,19 +44,19 @@ Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installar
 
 I colli di bottiglia nel computer in cui viene eseguito il backup possono causare ritardi. Ad esempio, i colli di bottiglia possono essere causati dalla capacità del computer di leggere o scrivere su disco o dalla larghezza di banda disponibile per inviare dati in rete.
 
-Windows fornisce uno strumento incorporato denominato [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) per rilevare questi colli di bottiglia.
+Windows offre uno strumento integrato denominato [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (PerfMon) per rilevare questi colli di bottiglia.
 
 Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili per diagnosticare i colli di bottiglia e ottenere backup ottimali.
 
 | Contatore | Stato |
 | --- | --- |
-| Disco logico (disco fisico) - % inattività |- 100% inattivo al 50% di inattività</br>- dal 49% inattivo al 20% di inattività - Avviso o Monitor</br>- 19% di inattività a 0% di inattività - Critico o Fuori specifica |
-| Disco logico (disco fisico)--%Media secondo disco sec lettura o scrittura |Da 0,001 ms a 0,015 ms - Integro</br>da 0,015 ms a 0,025 ms - Avviso o monitor</br>0,026 ms o più : Critico o Fuori specifica |
+| Disco logico (disco fisico) - % inattività |* 100% di inattività a 50% inattivo = integro</br>* 49% inattivo fino al 20% inattivo = avviso o monitoraggio</br>* 19% inattivo a 0% inattivo = critico o fuori specifica |
+| Disco logico (disco fisico)-% Media letture disco/sec |da * 0,001 MS a 0,015 MS = integro</br>da * 0,015 MS a 0,025 MS = avviso o monitoraggio</br>* 0,026 MS o superiore = critico o fuori specifica |
 | Disco logico (disco fisico) - Lunghezza corrente coda del disco (per tutte le istanze) |80 richieste per più di 6 minuti |
-| Memoria - Byte del pool non di paging |- Meno del 60% della piscina consumata - Salute<br>Dal 61% all'80% del pool consumato - Avvertenza o Monitor</br>- Pool consumato superiore all'80% - Critico o Fuori specifica |
-| Memoria - Byte del pool di paging |- Meno del 60% della piscina consumata - Salute</br>Dal 61% all'80% del pool consumato - Avvertenza o Monitor</br>- Pool consumato superiore all'80% - Critico o Fuori specifica |
-| Memoria - MByte disponibili |- 50% di memoria libera disponibile o superiore - Salute</br>- 25% di memoria libera disponibile - Monitor</br>- 10% di memoria libera disponibile - Avvertenza</br>- Meno di 100 MB o 5% di memoria disponibile - Critico o Fuori specifica |
-| Processore - \%Tempo processore (tutte le istanze) |- Meno del 60% consumato - Sano</br>- dal 61% al 90% consumato - Monitor o Attenzione</br>- dal 91% al 100% consumato - Critico |
+| Memoria - Byte del pool non di paging |* Inferiore al 60% del pool utilizzato = integro<br>* 61% al 80% del pool utilizzato = avviso o monitoraggio</br>* Superiore al 80% del pool utilizzato = critico o fuori specifica |
+| Memoria - Byte del pool di paging |* Inferiore al 60% del pool utilizzato = integro</br>* 61% al 80% del pool utilizzato = avviso o monitoraggio</br>* Superiore al 80% del pool utilizzato = critico o fuori specifica |
+| Memoria - MByte disponibili |* 50% di memoria libera disponibile o superiore = integro</br>* 25% di memoria disponibile = monitoraggio</br>* 10% di memoria libera disponibile = avviso</br>* Inferiore a 100 MB o 5% di memoria libera disponibile = critico o fuori specifica |
+| Processore - \%Tempo processore (tutte le istanze) |* Inferiore al 60% utilizzato = integro</br>* 61% al 90% utilizzato = monitoraggio o attenzione</br>* 91% a 100% utilizzato = critico |
 
 > [!NOTE]
 > Se si determina che l'infrastruttura è la causa del problema, è consigliabile deframmentare i dischi a intervalli regolari per ottenere prestazioni migliori.

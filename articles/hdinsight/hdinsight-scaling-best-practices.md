@@ -6,13 +6,14 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: aee0576654827351fa5ff9b3c29b57d0d4148d3e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116605"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189365"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -29,7 +30,7 @@ Ridimensionare il cluster prima dell'elaborazione batch periodica, in modo che i
 
 Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 
-|Utilità | Description|
+|Utilità | Descrizione|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
@@ -234,7 +235,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 I server di area vengono bilanciati automaticamente entro pochi minuti dopo il completamento di un'operazione di ridimensionamento. Per bilanciare manualmente i server di area, attenersi alla procedura seguente:
 
-1. Connettersi al cluster HDInsight tramite SSH. Per altre informazioni, vedere [usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Connettersi al cluster HDInsight tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Avviare la shell HBase:
 

@@ -3,12 +3,12 @@ title: Migliorare l'eccellenza operativa per le sottoscrizioni di Azure con Azur
 description: USA Advisor per ottimizzare e ottenere una maturazione dell'eccellenza operativa per le tue sottoscrizioni di Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443080"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187417"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Ottenere l'eccellenza operativa con Azure Advisor
 
@@ -36,7 +36,7 @@ Criteri di Azure è un servizio disponibile in Azure che consente di creare, ass
 1. Gestione dei tag con criteri di Azure: questo criterio aggiunge o sostituisce il tag e il valore specificati quando viene creata o aggiornata una risorsa. È possibile correggere le risorse esistenti attivando un'attività di correzione. Inoltre, non modifica i tag nei gruppi di risorse.
 2. Applicare i requisiti di conformità geografica usando criteri di Azure: il criterio consente di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse. 
 3. Specificare gli SKU delle macchine virtuali consentite per le distribuzioni: questo criterio consente di specificare un set di SKU di macchine virtuali che l'organizzazione può distribuire.
-4. Applicare ' controlla macchine virtuali che non usano Managed disks ' usando criteri di Azure
+4. Applicare "Controlla macchine virtuali che non usano dischi gestiti" usando Criteri di Azure
 5. Usare "eredita un tag dai gruppi di risorse" usando criteri di Azure: i criteri aggiungono o sostituiscono il tag e il valore specificati dal gruppo di risorse padre quando viene creata o aggiornata una risorsa. È possibile correggere le risorse esistenti attivando un'attività di correzione.
 
 ## <a name="next-steps"></a>Passaggi successivi

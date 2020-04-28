@@ -5,20 +5,20 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9133a7087285aa6e01a2431bf1a65dfa3c6f8857
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258824"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189097"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
-Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server. I cluster di Service Fabric tradizionali in Azure sono disponibili come servizio gestito, mentre i cluster Service Fabric autonomi sono self-service. Per altre informazioni sulle differenze, vedere Confronto tra cluster di [Azure e Service Fabric autonomi.](./service-fabric-deploy-anywhere.md)
+Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server. I cluster di Service Fabric tradizionali in Azure sono disponibili come servizio gestito, mentre i cluster autonomi Service Fabric sono self-service. Per altre informazioni sulle differenze, vedere [confronto tra Azure e i cluster autonomi Service Fabric](./service-fabric-deploy-anywhere.md).
 
 Questo articolo illustra la procedura di creazione di un cluster autonomo di Service Fabric.
 
 > [!NOTE]
-> Questo pacchetto autonomo di Windows Server è disponibile in commercio senza alcun costo e può essere utilizzato per le distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "[Funzionalità di anteprima incluse in questo pacchetto](#previewfeatures_anchor)". per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](https://go.microsoft.com/fwlink/?LinkID=733084) ora.
+> Questo pacchetto di Windows Server autonomo è disponibile a livello commerciale gratuitamente e può essere usato per le distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "[Funzionalità di anteprima incluse in questo pacchetto](#previewfeatures_anchor)". per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](https://go.microsoft.com/fwlink/?LinkID=733084) ora.
 > 
 > 
 
@@ -52,12 +52,12 @@ Con il pacchetto di installazione vengono installati diversi file di esempio per
 
 Il cluster creato in questo articolo è senza protezione.  Chiunque si può connettere in modo anonimo ed eseguire operazioni di gestione. È quindi necessario proteggere sempre i cluster di produzione usando certificati X.509 o la sicurezza di Windows.  La sicurezza viene configurata solo in fase di creazione del cluster e non è possibile abilitare la sicurezza dopo la creazione del cluster. Per aggiornare il file di configurazione abilitare la [sicurezza basata su certificati](service-fabric-windows-cluster-x509-security.md) oppure la [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md). Vedere [Proteggere un cluster](service-fabric-cluster-security.md) per altre informazioni sulla sicurezza dei cluster di Service Fabric.
 
-### <a name="step-1-create-the-cluster"></a>Passaggio 1: Creare il clusterStep 1: Create the cluster
+### <a name="step-1-create-the-cluster"></a>Passaggio 1: creare il cluster
 
-#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scenario A: Creare un cluster di sviluppo locale non protettoScenario A: Create an unsecured local development cluster
+#### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scenario A: creare un cluster di sviluppo locale non protetto
 Service Fabric può essere distribuito in un cluster di sviluppo macchine usando il file *ClusterConfig.Unsecure.DevCluster.json* file incluso negli [esempi](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
-Decomprimere il pacchetto autonomo nel computer, copiare il file di configurazione di esempio nel computer locale, quindi eseguire lo script *CreateServiceFabricCluster.ps1* tramite una sessione di PowerShell dell'amministratore, dalla cartella del pacchetto autonomo.
+Decomprimere il pacchetto autonomo nel computer, copiare il file di configurazione di esempio nel computer locale, quindi eseguire lo script *lo createservicefabriccluster. ps1* tramite una sessione di PowerShell amministratore, dalla cartella del pacchetto autonomo.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -67,7 +67,7 @@ Per informazioni dettagliate sulla risoluzione dei problemi, vedere la sezione C
 
 Al termine dell'esecuzione degli scenari di sviluppo è possibile rimuovere il cluster Service Fabric dalla macchina facendo riferimento alla procedura della sezione "[Rimuovere un cluster](#removecluster_anchor)". 
 
-#### <a name="scenario-b-create-a-multi-machine-cluster"></a>Scenario B: creare un cluster con più computerScenario B: Create a multi-machine cluster
+#### <a name="scenario-b-create-a-multi-machine-cluster"></a>Scenario B: creare un cluster con più computer
 Dopo avere eseguito i passaggi di pianificazione e preparazione illustrati in [Pianificare e preparare la distribuzione del cluster](service-fabric-cluster-standalone-deployment-preparation.md), si è pronti per creare il cluster di produzione usando il file di configurazione del cluster.
 
 L'amministratore del cluster che distribuisce e configura il cluster deve avere privilegi di amministratore nel computer. Non è possibile installare Service Fabric in un controller di dominio.
@@ -107,7 +107,7 @@ L'amministratore del cluster che distribuisce e configura il cluster deve avere 
 > 
 > 
 
-#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Scenario C: Creare un cluster offline (disconnesso da Internet)Scenario C: Create an offline (internet-disconnected) cluster
+#### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Scenario C: creare un cluster offline (disconnesso da Internet)
 Il pacchetto di runtime di Service Fabric viene scaricato automaticamente al momento della creazione del cluster. Quando si distribuisce un cluster a computer non connessi a Internet è necessario scaricare il pacchetto di runtime di Service Fabric separatamente e specificare il percorso del pacchetto al momento della creazione del cluster.
 Il pacchetto di runtime può essere scaricato separatamente da un altro computer connesso a Internet in [Collegamento per il download - Service Fabric Runtime (Runtime di Service Fabric) - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copiare il pacchetto di runtime nella posizione da cui si intende distribuire il cluster offline eseguendo `CreateServiceFabricCluster.ps1` con il parametro `-FabricRuntimePackagePath` incluso, come illustrato in questo esempio: 
 
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Passaggio 3: visualizzare il cluster con Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) rappresenta un ottimo strumento per la visualizzazione del cluster e la gestione delle applicazioni.  Service Fabric Explorer è un servizio che viene eseguito nel cluster, a cui si accede tramite un browser passando a [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) rappresenta un ottimo strumento per la visualizzazione del cluster e la gestione delle applicazioni.  Service Fabric Explorer è un servizio in esecuzione nel cluster, a cui si accede tramite un browser passando a `http://localhost:19080/Explorer`.
 
 Il dashboard del cluster offre una panoramica del cluster, incluso un riepilogo dell'integrità delle applicazioni e dei nodi. La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determinato nodo, è possibile esaminare le applicazioni con il codice distribuito in quel nodo.
 
@@ -172,9 +172,9 @@ Questo script può essere eseguito su qualsiasi macchina con accesso amministrat
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Dati di telemetria raccolti e come rifiutarli esplicitamente
-Per impostazione predefinita, il prodotto raccoglie i dati di telemetria sull'utilizzo di Service Fabric per migliorarlo. Best Practice Analyzer che viene eseguito come parte [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)dell'installazione verifica la connettività a . Se non è raggiungibile, la configurazione non riesce, a meno che non si rifiutino esplicitamente i dati di telemetria.
+Per impostazione predefinita, il prodotto raccoglie i dati di telemetria sull'utilizzo di Service Fabric per migliorarlo. L'Analizzatore procedure consigliate eseguito come parte del programma di installazione verifica la connettività [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)a. Se non è raggiungibile, la configurazione non riesce, a meno che non si rifiutino esplicitamente i dati di telemetria.
 
-1. La pipeline di telemetria tenta [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) di caricare i dati seguenti una volta al giorno. Si tratta di un tentativo di caricamento che non influisce sulla funzionalità del cluster. I dati di telemetria vengono inviati solo dal nodo che esegue la gestione failover primaria. Nessun altro nodo invia dati di telemetria.
+1. La pipeline di telemetria tenta di caricare i dati [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) seguenti in una volta al giorno. Si tratta di un tentativo di caricamento che non influisce sulla funzionalità del cluster. I dati di telemetria vengono inviati solo dal nodo che esegue la gestione failover primaria. Nessun altro nodo invia dati di telemetria.
 2. La telemetria è costituita dagli elementi seguenti:
 
 * Numero di servizi
@@ -203,7 +203,7 @@ Per disabilitare la telemetria, aggiungere quanto segue all'elemento *properties
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>Funzionalità di anteprima incluse in questo pacchetto
-No.
+Nessuno.
 
 
 > [!NOTE]

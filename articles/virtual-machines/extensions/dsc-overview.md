@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115313"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188536"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -188,7 +188,7 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Configuration Arguments** (Argomenti di configurazione): se la funzione di configurazione accetta argomenti, immetterli qui nel formato **argumentName1=value1,argumentName2=value2**. Questo è un formato diverso in cui vengono accettati gli argomenti di configurazione nei cmdlet di PowerShell o nei modelli di Resource Manager.
 
-- **Configuration Data PSD1 File**(File PSD1 dati di configurazione): questo è un campo facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
+- File di dati di **configurazione psd1**: la configurazione richiede un file di dati di configurazione in. psd1, usare questo campo per selezionare il file di dati e caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
 - **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **più recente**.
 

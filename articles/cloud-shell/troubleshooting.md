@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0b1b22095c77344ed71762d3d51b12f19d9f1811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458053"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189463"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -46,8 +46,8 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
 
-- **Dettagli**: quando si crea un account di archiviazione tramite cloud Shell, l'operazione ha esito negativo a causa di criteri di Azure inseriti dall'amministratore. Il messaggio di errore includerà:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Risoluzione**: contattare l'amministratore di Azure per rimuovere o aggiornare i criteri di Azure che impediscono di creare l'archiviazione.
+- **Dettagli**: quando si crea un account di archiviazione tramite cloud Shell, l'operazione ha esito negativo a causa di un'assegnazione di criteri di Azure effettuata dall'amministratore. Il messaggio di errore includerà:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Soluzione**: contattare l'amministratore di Azure per rimuovere o aggiornare l'assegnazione di criteri di Azure negando la creazione dell'archiviazione.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Finestra di dialogo archiviazione - Errore: 400 DisallowedOperation
 
@@ -168,7 +168,7 @@ Azure Cloud Shell tratta i dati personali dell'utente con molta cautela: i dati 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Esportazione
+### <a name="export"></a>Export
 Al fine di **esportare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti.
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
@@ -188,7 +188,7 @@ PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 Al fine di **eliminare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti. Al successivo avvio di Cloud Shell verrà richiesto di caricare di nuovo una condivisione file. 
 
 >[!Note]

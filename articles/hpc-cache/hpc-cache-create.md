@@ -4,14 +4,14 @@ description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 4ff31ca6a171beece1672802367f08768676efbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106492"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195010"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -29,7 +29,7 @@ In **Dettagli servizio** impostare il nome della cache e questi altri attributi:
 
 * Località: selezionare una delle [aree supportate](hpc-cache-overview.md#region-availability).
 * Rete virtuale: è possibile selezionare una rete virtuale esistente oppure crearne una nuova.
-* Subnet: scegliere o creare una subnet con almeno 64 indirizzi IP (/24) che verranno usati solo per questa istanza di Cache HPC di Azure.
+* Subnet: scegliere o creare una subnet con almeno 64 indirizzi IP (/24). Questa subnet deve essere usata solo per questa istanza della cache HPC di Azure.
 
 ## <a name="set-cache-capacity"></a>Impostare la capacità della cache
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -45,9 +45,9 @@ Scegliere la capacità impostando questi due valori:
 
 Scegliere uno dei valori disponibili per la velocità effettiva e le dimensioni di archiviazione della cache.
 
-Tenere presente che la velocità effettiva di trasferimento dei dati dipende dal carico di lavoro, dalle velocità di rete e dal tipo di destinazioni di archiviazione. I valori scelti impostano la velocità effettiva massima per l'intero sistema di cache, ma questa viene in parte usata per attività di overhead. Se, ad esempio, un client richiede un file che non è già archiviato nella cache o se il file è contrassegnato come obsoleto, la cache usa parte della velocità effettiva per recuperarla dall'archiviazione back-end.
+Tenere presente che la velocità effettiva di trasferimento dei dati dipende dal carico di lavoro, dalle velocità di rete e dal tipo di destinazioni di archiviazione. I valori scelti impostano la velocità effettiva massima per l'intero sistema di cache, ma questa viene in parte usata per attività di overhead. Se, ad esempio, un client richiede un file che non è già archiviato nella cache o se il file è contrassegnato come obsoleto, la cache USA parte della velocità effettiva per recuperarla dall'archiviazione back-end.
 
-Cache HPC di Azure determina quali file vengono memorizzati nella cache e precaricati per massimizzare le percentuali di riscontri nella cache. Il contenuto della cache viene valutato continuamente e i file vengono spostati nello spazio di archiviazione a lungo termine se vi si accede con minore frequenza. Scegliere una dimensione di archiviazione della cache in grado di ospitare comodamente il set attivo di file di lavoro con spazio aggiuntivo per i metadati e altro overhead.
+Cache HPC di Azure determina quali file vengono memorizzati nella cache e precaricati per massimizzare le percentuali di riscontri nella cache. Il contenuto della cache viene valutato continuamente e i file vengono spostati nell'archiviazione a lungo termine quando si accede con minore frequenza. Scegliere una dimensione di archiviazione della cache in grado di ospitare comodamente il set attivo di file di lavoro, oltre a spazio aggiuntivo per i metadati e altri overhead.
 
 ![screenshot della pagina di determinazione delle dimensioni della cache](media/hpc-cache-create-capacity.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 63148b99e65a5ccc49d54d4ae6c58adebc72c6d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 64caa1228cd073358bef496721c22b17554031d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718515"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189284"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
 
@@ -145,7 +145,7 @@ I dati relativi alle corse dei taxi della città di New York sono costituiti da 
 
 ![Dashboard del cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-È anche possibile passare a ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** per accedere ai notebook di Jupyter. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
+È anche possibile passare a ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** per accedere ai notebook di Jupyter. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
 
 ![Sfogliare i notebook di Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 

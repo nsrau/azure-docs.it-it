@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670611"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186425"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Raccogliere dati da CollectD su agenti Linux in Monitoraggio di Azure
 [CollectD](https://collectd.org/) è un daemon Linux open source che, a intervalli regolari, raccoglie metriche sulle prestazioni dalle applicazioni e informazioni a livello di sistema. Applicazioni di esempio includono Java Virtual Machine (JVM), MySQL Server e Nginx. Questo articolo fornisce informazioni sulla raccolta di dati sulle prestazioni da CollectD in Monitoraggio di Azure.
@@ -100,7 +100,8 @@ Di seguito è riportata la procedura di base per configurare la raccolta di dati
 
 3. Riavviare CollectD e l'agente di Log Analytics per Linux con i comandi seguenti.
 
-    sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
+        sudo service collectd restart
+        sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Conversione dello schema di metriche di CollectD nello schema di Monitoraggio di Azure
 Per mantenere un modello comune tra le metriche dell'infrastruttura già raccolte dall'agente di Log Analytics per Linux e le nuove metriche raccolte da CollectD, viene usato il mapping dello schema seguente:

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e0442b6aa1404ae5f57445179979496faa09863
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168436"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194976"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Inserimento di dati nella cache HPC di Azure-metodo msrsync
 

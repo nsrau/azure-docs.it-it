@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146679"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188396"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -26,7 +26,7 @@ Quando si usa un servizio cloud, una procedura consigliata consiste nel limitare
 > [!NOTE]
 > Le informazioni contenute in questo articolo funzionano con Azure Machine Learning Python SDK versione 1.0.83.1 o successiva.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 La funzionalità autenticazione a più fattori è supportata se Azure Active Directory (Azure AD) è configurata per l'utilizzo. Ecco il processo di autenticazione:
 
@@ -78,7 +78,7 @@ Nella tabella seguente sono elencate alcune delle principali operazioni di Azure
 Se i ruoli predefiniti non soddisfano le proprie esigenze, è possibile creare ruoli personalizzati. I ruoli personalizzati sono supportati solo per le operazioni nell'area di lavoro e ambiente di calcolo di Machine Learning. I ruoli personalizzati possono disporre di autorizzazioni di lettura, scrittura o eliminazione per l'area di lavoro e per la risorsa di calcolo in tale area di lavoro. È possibile rendere il ruolo disponibile a livello di area di lavoro specifico, a un livello di gruppo di risorse specifico o a un livello di sottoscrizione specifico. Per altre informazioni, vedere [gestire utenti e ruoli in un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
-> Azure Machine Learning non è attualmente supportata con Azure Active Directory collaborazione business-to-business.
+> Azure Machine Learning è supportata con Azure Active Directory collaborazione business-to-business, ma attualmente non è supportata con Azure Active Directory collaborazione business-to-consumer.
 
 ### <a name="securing-compute-targets-and-data"></a>Protezione dei dati e delle destinazioni di calcolo
 
@@ -303,7 +303,7 @@ I dettagli della richiesta di assegnazione dei punteggi vengono archiviati in Ap
 * RequestUrl
 * StatusCode
 * RequestId
-* Durata
+* Duration
 
 > [!IMPORTANT]
 > Alcune azioni nell'area di lavoro Azure Machine Learning non registrano le informazioni nel log attività. Ad esempio, l'inizio di un'esecuzione del training e la registrazione di un modello non vengono registrate.
@@ -385,10 +385,7 @@ Di seguito sono riportati i dettagli:
 
 * [Proteggere Azure Machine Learning i servizi Web con TLS](how-to-secure-web-service.md)
 * [Utilizzare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
-* [Come eseguire previsioni in batch](how-to-use-parallel-run-step.md)
-* [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
-* [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
-* [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usare Azure Machine Learning con il firewall di Azure](how-to-access-azureml-behind-firewall.md)
 * [Usare Azure Machine Learning con rete virtuale di Azure](how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders) (Procedure consigliate per creare sistemi di raccomandazione)
 * [Creare un'API per raccomandazioni in tempo reale in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

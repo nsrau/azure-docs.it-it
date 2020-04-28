@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298c99d44328dc79db1722b450ad74c3929d0c12
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
-ms.translationtype: MT
+ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114430"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190317"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -348,7 +348,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 1. Immettere "activate" (attiva) nella casella di ricerca e quindi fare clic sul collegamento **Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza)**.
 
-    ![Attiva](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
+    ![Attivare](./media/workday-inbound-tutorial/wd_isu_16.png "Activate")
 
 1. Avviare l'attività Activate Pending Security Policy Changes (Attiva le modifiche in sospeso ai criteri di sicurezza) immettendo un commento a scopo di controllo e quindi fare clic su **OK**.
 1. Completare l'attività nella schermata successiva selezionando la casella di controllo **Confirm (Conferma)** e quindi facendo clic su **OK**.
@@ -562,7 +562,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | **WorkerID**  |  EmployeeID | **Sì** | Scritto solo al momento della creazione |
 | **PreferredNameData**    |  cn    |   |   Scritto solo al momento della creazione |
 | **SelectUniqueValue (join ("\@", join (".", \[FirstName\], \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Scritto solo al momento della creazione 
-| **Replace (Mid (Replace (\[UserID\],, "(\[\\\\/\\\\\\\\\\\\\\:;\\ \\\[\\\\\]\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\) ",," ",,), 1, 20),," ([.) \\ &lt; \\ \\ &gt; \] \*file:///\\ \$). *$)", , "", , )**      |    sAMAccountName            |     |         Scritto solo al momento della creazione |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Scritto solo al momento della creazione |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Creazione e aggiornamento |
 | **FirstName**   | givenName       |     |    Creazione e aggiornamento |
 | **LastName**   |   sn   |     |  Creazione e aggiornamento |
@@ -752,7 +752,7 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Save**.
+2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti nel tenant di Workday. 
 
@@ -1276,7 +1276,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
-9. Fare clic su **OK**.
+9. Selezionare **OK**.
 
 10. Nel riquadro delle **richieste** incollare il codice XML riportato di seguito. Impostare **employee_id** sull'ID dipendente di un utente reale nel tenant della giornata lavorativa. Impostare **WD: Version** sulla versione di WWS che si prevede di usare. Selezionare un utente per il quale l'attributo da estrarre sia popolato.
 

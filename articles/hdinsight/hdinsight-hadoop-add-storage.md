@@ -6,17 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206708"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192485"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
-Informazioni su come usare le azioni script per aggiungere altri *account* di archiviazione di Azure a HDInsight. La procedura descritta in questo documento consente di aggiungere un *account* di archiviazione a un cluster HDInsight esistente. Questo articolo si applica agli *account* di archiviazione (non all'account di archiviazione del cluster predefinito) e non a una risorsa di archiviazione aggiuntiva, ad esempio [Azure Data Lake storage Gen1](hdinsight-hadoop-use-data-lake-store.md) e [Azure Data Lake storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Informazioni su come usare le azioni script per aggiungere altri *account* di archiviazione di Azure a HDInsight. La procedura descritta in questo documento consente di aggiungere un *account* di archiviazione a un cluster HDInsight esistente. Questo articolo si applica agli *account* di archiviazione (non all'account di archiviazione del cluster predefinito) e non a [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) una [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md)risorsa di archiviazione aggiuntiva, ad esempio e.
 
 > [!IMPORTANT]  
 > Le informazioni contenute in questo documento illustrano come aggiungere altri account di archiviazione a un cluster dopo che è stato creato. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).
@@ -31,7 +32,7 @@ Informazioni su come usare le azioni script per aggiungere altri *account* di ar
 
 Durante l'elaborazione, lo script esegue le azioni seguenti:
 
-* Se la chiave dell'account di archiviazione esiste già nella configurazione del file core-site.xml per il cluster, lo script viene chiuso e non vengono eseguite altre azioni.
+* Se l'account di archiviazione esiste già nella configurazione core-site. XML per il cluster, lo script viene chiuso e non vengono eseguite altre azioni.
 
 * Verifica che l'account di archiviazione esista e sia accessibile tramite la chiave.
 
@@ -39,7 +40,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 * Aggiunge l'account di archiviazione al file core-site.xml.
 
-* Arrestare e riavviare i servizi [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) e [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html). L'arresto e l'avvio di questi servizi consente di usare il nuovo account di archiviazione.
+* Arrestare e riavviare i servizi Apache Oozie, Apache Hadoop YARN, Apache Hadoop MapReduce2 e Apache Hadoop HDFS. L'arresto e l'avvio di questi servizi consente di usare il nuovo account di archiviazione.
 
 > [!WARNING]  
 > L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
@@ -48,7 +49,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:
 
-|Proprietà | Valore |
+|Proprietà | valore |
 |---|---|
 |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Tipo/i di nodo|Head|
@@ -94,7 +95,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="apache-ambari"></a>Apache Ambari
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Passare a **HDFS** > **configs** > **Advanced** > **Custom Core-site**.
 
@@ -104,7 +105,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ## <a name="remove-storage-account"></a>Rimuovere account di archiviazione
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Passare a **HDFS** > **configs** > **Advanced** > **Custom Core-site**.
 
@@ -118,13 +119,13 @@ Dopo aver rimosso queste chiavi e salvato la configurazione, è necessario riavv
 
 ### <a name="storage-firewall"></a>Firewall di archiviazione
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Non è possibile accedere alla risorsa di archiviazione dopo la modifica della chiave
 
 Se si modifica la chiave per un account di archiviazione, HDInsight non potrà più accedere all'account di archiviazione. HDInsight usa una copia memorizzata nella cache della chiave in core-site.xml per il cluster. Questa copia memorizzata nella cache deve essere aggiornata in modo che corrisponda alla nuova chiave.
 
-La ripetizione dell'esecuzione dell'azione script __non__ aggiorna la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se una voce esiste già, non viene apportata alcuna modifica.
+L'esecuzione dell'azione script **non** aggiorna la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se una voce esiste già, non viene apportata alcuna modifica.
 
 Per risolvere il problema:  
 1. Rimuovere l'account di archiviazione.
@@ -135,7 +136,7 @@ Per risolvere il problema:
 
 ### <a name="poor-performance"></a>Prestazioni non ottimali
 
-Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che le prestazioni non siano ottimali. L'accesso ai dati in un'area diversa comporta l'invio di traffico di rete all'esterno del data center di Azure di un'area specifica e la trasmissione tramite Internet pubblico e ciò può introdurre latenza.
+Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che le prestazioni non siano ottimali. L'accesso ai dati in un'area diversa invia il traffico di rete all'esterno del data center di Azure regionale. E attraverso la rete Internet pubblica, che può introdurre latenza.
 
 ### <a name="additional-charges"></a>Costi aggiuntivi
 

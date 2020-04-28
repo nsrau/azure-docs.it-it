@@ -8,32 +8,43 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: ceda7bd6bd165df1eece555c6ce8a9a6c863b2c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 012800806aeff81939baa2cee88e78191e4fb6c5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77112316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195265"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Creare un'identità assegnata dall'utente
 
 Creare un'identità denominata *myACRTasksId* nella sottoscrizione usando il comando [AZ Identity create][az-identity-create] . È possibile usare lo stesso gruppo di risorse usato in precedenza per creare un registro contenitori o uno diverso.
 
-```azurecli-interactive
-az identity create --resource-group myResourceGroup --name myACRTasksId
+```azurecli
+az identity create \
+  --resource-group myResourceGroup \
+  --name myACRTasksId
 ```
 
 Per configurare l'identità assegnata dall'utente nei passaggi seguenti, usare il comando [AZ Identity Show][az-identity-show] per archiviare l'ID risorsa dell'identità, l'ID entità e l'ID client nelle variabili.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
-resourceID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query id --output tsv)
+resourceID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACRTasksId \
+  --query id --output tsv)
 
 # Get principal ID of the task's user-assigned identity
-principalID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
+principalID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACRTasksId \
+  --query principalId --output tsv)
 
 # Get client ID of the user-assigned identity
-clientID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query clientId --output tsv)
+clientID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACRTasksId \
+  --query clientId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 03/06/2020
+ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218283"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191635"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning
 
@@ -252,12 +252,3 @@ Nella finestra di progettazione in cui è stato creato l'esperimento, eliminare 
 
 Per eliminare i set di impostazioni nella finestra di progettazione, usare il portale di Azure o Storage Explorer per passare agli account di archiviazione connessi ed eliminare i set di impostazioni. L'annullamento della registrazione dei set di impostazioni nella finestra di progettazione rimuove solo il punto di riferimento nell'archivio.
 
-## <a name="export-data-in-the-designer"></a>Esportare i dati nella finestra di progettazione
-
-Nella finestra di progettazione in cui è stato creato l'esperimento, esportare i dati aggiunti:
-
-1. A sinistra selezionare set di **Impostazioni**.
-
-1. Nell'elenco selezionare il set di dati da esportare
-
-    ![Scaricare i dati](./media/how-to-export-delete-data/unregister-dataset.png)

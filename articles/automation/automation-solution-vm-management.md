@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106033"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187331"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Avviare/arrestare VM durante gli orari di indisponibilità in automazione di Azure
 
@@ -148,7 +148,7 @@ La tabella seguente elenca le variabili create nell'account di Automazione. Modi
 >[!NOTE]
 >Per la variabile `External_WaitTimeForVMRetryInSeconds`, il valore predefinito è stato aggiornato da 600 a 2100. 
 
-In tutti gli scenari, le `External_Start_ResourceGroupNames`variabili `External_Stop_ResourceGroupNames`, e `External_ExcludeVMNames` sono necessarie per la destinazione delle macchine virtuali, ad eccezione degli elenchi di VM delimitati da virgole per il **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** manuali operativi. In altre parole, è necessario che le macchine virtuali appartengano ai gruppi di risorse di destinazione per le azioni di avvio e arresto. La logica funziona in modo simile ai criteri di Azure perché è possibile specificare come destinazione la sottoscrizione o il gruppo di risorse e lasciare che le azioni vengano ereditate dalle nuove macchine virtuali create. Questo approccio evita di dover mantenere una pianificazione separata per ogni macchina virtuale e di gestire gli avvii e gli arresti in scala.
+In tutti gli scenari, le `External_Start_ResourceGroupNames`variabili `External_Stop_ResourceGroupNames`, e `External_ExcludeVMNames` sono necessarie per la destinazione delle macchine virtuali, ad eccezione degli elenchi di VM delimitati da virgole per il **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** manuali operativi. In altre parole, è necessario che le macchine virtuali appartengano ai gruppi di risorse di destinazione per le azioni di avvio e arresto. La logica funziona in modo simile ai criteri di Azure, in quanto è possibile usare come destinazione la sottoscrizione o il gruppo di risorse e le azioni ereditate dalle macchine virtuali appena create. Questo approccio evita di dover mantenere una pianificazione separata per ogni macchina virtuale e di gestire gli avvii e gli arresti in scala.
 
 ### <a name="schedules"></a>Pianificazioni
 

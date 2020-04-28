@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168490"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194993"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Inserimento di dati nella cache HPC di Azure-metodo di copia manuale
 
@@ -35,9 +35,9 @@ Dopo aver eseguito questo comando, il comando `jobs` mostrerà che sono in esecu
 
 ## <a name="copy-data-with-predictable-file-names"></a>Copiare dati con nomi di file stimabili
 
-Se i nomi di file sono stimabili, è possibile usare espressioni per creare thread di copia paralleli. 
+Se i nomi di file sono stimabili, è possibile usare espressioni per creare thread di copia paralleli.
 
-Ad esempio, se la directory contiene 1.000 file numerati in sequenza da `0001` a `1000`, è possibile usare le espressioni seguenti per creare dieci thread paralleli, ognuno dei quali copia 100 file:
+Se, ad esempio, la directory contiene 1000 file numerati in sequenza da `0001` a `1000`, è possibile utilizzare le espressioni seguenti per creare 10 thread paralleli ognuno dei quali copia i file 100:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -54,7 +54,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 ## <a name="copy-data-with-unstructured-file-names"></a>Copiare dati con nomi di file non strutturati
 
-Se la struttura di denominazione dei file non è stimabile, è possibile raggruppare i file in base ai nomi di directory. 
+Se la struttura di denominazione dei file non è stimabile, è possibile raggruppare i file in base ai nomi di directory.
 
 Questo esempio raccoglie intere directory a cui inviare comandi ``cp`` eseguiti come attività in background:
 
@@ -72,16 +72,16 @@ Dopo aver raccolto i file, è possibile eseguire comandi di copia parallela per 
 
 ```bash
 cp /mnt/source/* /mnt/destination/
-mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ & 
+mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ &
 cp -R /mnt/source/dir1/dir1c /mnt/destination/dir1/ & # this command copies dir1c1 via recursion
 cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 ```
 
 ## <a name="when-to-add-mount-points"></a>Quando aggiungere punti di montaggio
 
-Quando si dispone di un numero sufficiente di thread paralleli rispetto a una singola destinazione file system punto di montaggio, sarà presente un punto in cui l'aggiunta di più thread non offre una maggiore velocità effettiva. (La velocità effettiva viene misurata in file al secondo o in byte al secondo, a seconda del tipo di dati.) O peggio, il overthreading può a volte causare una riduzione della velocità effettiva.  
+Quando si dispone di un numero sufficiente di thread paralleli rispetto a una singola destinazione file system punto di montaggio, sarà presente un punto in cui l'aggiunta di più thread non offre una maggiore velocità effettiva. (La velocità effettiva viene misurata in file al secondo o in byte al secondo, a seconda del tipo di dati.) O peggio, il overthreading può a volte causare una riduzione della velocità effettiva.
 
 Quando si verifica questo problema, è possibile aggiungere punti di montaggio lato client ad altri indirizzi di montaggio della cache HPC di Azure, usando lo stesso percorso di montaggio file system remoto:
 
@@ -92,7 +92,7 @@ Quando si verifica questo problema, è possibile aggiungere punti di montaggio l
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-L'aggiunta di punti di montaggio lato client consente di diramare gli ulteriori comandi di copia aggiuntiva verso i punti di montaggio `/mnt/destination[1-3]` aggiuntivi, ottenendo un maggiore parallelismo.  
+L'aggiunta di punti di montaggio lato client consente di diramare gli ulteriori comandi di copia aggiuntiva verso i punti di montaggio `/mnt/destination[1-3]` aggiuntivi, ottenendo un maggiore parallelismo.
 
 Ad esempio, se i file sono molto grandi, è possibile definire i comandi di copia in modo da usare percorsi di destinazione diversi, inviando altri comandi in parallelo dal client che esegue la copia.
 
@@ -112,7 +112,7 @@ Nell'esempio precedente, tutti e tre i punti di montaggio di destinazione sono i
 
 ## <a name="when-to-add-clients"></a>Quando aggiungere client
 
-Per concludere, una volta raggiunto il limite di capacità del client, l'aggiunta di altri thread di copia o punti di montaggio non produrrà alcun incremento in termini di file per secondo o byte per secondo. In questo caso è possibile distribuire un altro client con lo stesso set di punti di montaggio, che eseguirà un proprio set di processi di copia dei file. 
+Per concludere, una volta raggiunto il limite di capacità del client, l'aggiunta di altri thread di copia o punti di montaggio non produrrà alcun incremento in termini di file per secondo o byte per secondo. In questo caso è possibile distribuire un altro client con lo stesso set di punti di montaggio, che eseguirà un proprio set di processi di copia dei file.
 
 Esempio:
 
@@ -158,7 +158,7 @@ Reindirizzare il risultato a un file: `find . -mindepth 4 -maxdepth 4 -type d > 
 Quindi è possibile scorrere nel manifesto, usando comandi BASH per contare i file e determinare le dimensioni delle sottodirectory:
 
 ```bash
-ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l`    `du -sh ${i}`"; done
+ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l` `du -sh ${i}`"; done
 244    3.5M    ./atj5b5ab44b7f-02/support/gsi/2018-07-18T00:07:03EDT
 9      172K    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-18T05:01:00UTC
 124    5.8M    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-19T01:01:01UTC
@@ -194,7 +194,7 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Infine, è necessario creare gli effettivi comandi di copia file per i client.  
+Infine, è necessario creare gli effettivi comandi di copia file per i client.
 
 Se si hanno quattro client, usare questo comando:
 
@@ -214,7 +214,7 @@ E per sei.... Estrapolare in base alle esigenze.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Si otterranno *N* file risultanti, uno per ognuno degli *N* client i cui nomi percorso si trovano nelle directory di quarto livello ottenute come parte dell'output del comando `find`. 
+Si otterranno *N* file risultanti, uno per ognuno degli *N* client i cui nomi percorso si trovano nelle directory di quarto livello ottenute come parte dell'output del comando `find`.
 
 Usare ogni file per compilare il comando di copia:
 
@@ -222,6 +222,6 @@ Usare ogni file per compilare il comando di copia:
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-Il comando precedente fornirà *N* file, ognuno con un comando di copia per riga, che può essere eseguito come script BASH nel client. 
+Il comando precedente fornirà *N* file, ognuno con un comando di copia per riga, che può essere eseguito come script BASH nel client.
 
 L'obiettivo è eseguire contemporaneamente più thread di questi script per client, in parallelo in più client.
