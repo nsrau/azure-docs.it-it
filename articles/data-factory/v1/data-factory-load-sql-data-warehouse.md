@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419307"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
@@ -24,7 +24,7 @@ ms.locfileid: "81419307"
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Copy data to or from Azure SQL Data Warehouse by using Data Factory](../connector-azure-sql-data-warehouse.md) (Copiare dati da o in Azure SQL Data Warehouse usando Data Factory).
 
 
-[Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud con scalabilità orizzontale in grado di elaborare volumi elevati di dati, sia relazionali che non relazionali.  Basato sull'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing), SQL Data Warehouse è ottimizzato per i carichi di lavoro dei data warehouse dell'organizzazione.  Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
+[Azure SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud e con scalabilità orizzontale in grado di elaborare grandi volumi di dati, sia relazionali che non relazionali.  Basato sull'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing), SQL Data Warehouse è ottimizzato per i carichi di lavoro dei data warehouse dell'organizzazione.  Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
 
 L'uso di Azure SQL Data Warehouse è ora più semplice dell'uso di **Azure Data Factory**.  Azure Data Factory è un servizio di integrazione di dati basato su cloud completamente gestito, che può essere usato per popolare un'istanza di SQL Data Warehouse con i dati del sistema esistente e che consente di risparmiare tempo prezioso durante la valutazione di SQL Data Warehouse e la creazione di soluzioni di analisi. Di seguito sono elencati i vantaggi principali del caricamento di dati in Azure SQL Data Warehouse mediante Azure Data Factory:
 
@@ -40,7 +40,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 > [!NOTE]
 >  Per informazioni generali sulle funzionalità di Data Factory per lo spostamento di dati da e verso Azure SQL Data Warehouse, vedere [Spostare dati da e verso Azure SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> È anche possibile compilare pipeline usando Visual Studio, PowerShell e così via. Vedere [Esercitazione: Copiare dati dal BLOB](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) di Azure al database SQL di Azure per una procedura dettagliata con istruzioni dettagliate per l'uso dell'attività di copia in Azure Data Factory.See Tutorial: Copy data from Azure Blob to Azure SQL Database for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory.  
+> È anche possibile compilare pipeline con Visual Studio, PowerShell e così via. Vedere [esercitazione: copiare i dati dal BLOB di Azure al database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per una rapida procedura dettagliata con istruzioni dettagliate per l'uso dell'attività di copia in Azure Data Factory.  
 >
 >
 
@@ -111,12 +111,12 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
   Dopo aver completato i passaggi preliminari necessari, è ora possibile configurare l'attività di copia mediante la Copia guidata.
 
 ## <a name="launch-copy-wizard"></a>Avviare la Copia guidata
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Fare clic su **Crea una risorsa** nell'angolo in alto a sinistra, selezionare **Intelligence e analisi** e quindi **Data factory**.
 3. Nel riquadro **Nuova data factory**:
 
    1. Immettere **LoadIntoSQLDWDataFactory** come **nome**.
-       È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore: **Nome data factory "LoadIntoSQLDWDataFactory" non è disponibile**, modificare il nome della data factory (ad esempio, nomeCaricoIntoSQLDWDataFactory) e riprovare a creare. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .  
+       È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore: il **nome della data factory "LoadIntoSQLDWDataFactory" non è disponibile**, modificare il nome del data factory (ad esempio, nomeutenteloadintosqldwdatafactory) e riprovare a crearlo. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .  
    2. Selezionare la **sottoscrizione**di Azure.
    3. In Gruppo di risorse eseguire una di queste operazioni:
       1. Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
@@ -160,7 +160,7 @@ Questa sezione illustra i passaggi per configurare l'origine: BLOB di Azure cont
 
     ![Copia guidata: selezionare la cartella di input](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Facendo clic su **Avanti** le impostazioni del formato di file vengono rilevate automaticamente.  Verificare che il delimitatore di colonna sia ''' anziché la virgola predefinita ','.  Dopo aver visualizzato l'anteprima dei dati fare clic su **Avanti**.
+4. Facendo clic su **Avanti** le impostazioni del formato di file vengono rilevate automaticamente.  Verificare che il delimitatore di colonna sia ' |' anziché la virgola predefinità,'.  Dopo aver visualizzato l'anteprima dei dati fare clic su **Avanti**.
 
     ![Copia guidata: impostazioni di formattazione file](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
@@ -198,7 +198,7 @@ L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione
 
     È possibile visualizzare i dettagli relativi all'esecuzione della copia in **Activity Window Explorer** (Esplora attività) nel riquadro di destra, inclusi il volume dei dati letti dall'origine e scritti nella destinazione, la durata e la velocità effettiva media dell'esecuzione.
 
-    Come si può vedere dallo screenshot seguente, la copia di 1 TB dall'archivio BLOB di Azure in SQL Data Warehouse ha richiesto 14 minuti, ottenendo in modo efficace una velocità effettiva di 1,22 GBps.
+    Come è possibile vedere dallo screenshot seguente, la copia di 1 TB dall'archiviazione BLOB di Azure a SQL Data Warehouse ha richiesto 14 minuti, ottenendo effettivamente una velocità effettiva di 1,22 GBps.
 
     ![Copia guidata: finestra di dialogo operazione completata](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

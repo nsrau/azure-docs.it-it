@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività SparkTransform data using Spark activity
+title: Trasformare i dati usando l'attività Spark
 description: Informazioni su come trasformare dati tramite l'esecuzione di programmi Spark da una pipeline di Azure Data Factory con l'attività Spark.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/31/2018
 ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418848"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività Spark in Azure Data Factory
@@ -114,10 +114,10 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività Hive](transform-data-using-hadoop-hive.md)
-* [Attività suina](transform-data-using-hadoop-pig.md)
+* [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività di esecuzione batch di Machine Learning](transform-data-using-machine-learning.md)
-* [Attività della stored procedure](transform-data-using-stored-procedure.md)
+* [Machine Learning attività di esecuzione batch](transform-data-using-machine-learning.md)
+* [Attività stored procedure](transform-data-using-stored-procedure.md)

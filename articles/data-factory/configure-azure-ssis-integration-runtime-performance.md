@@ -1,5 +1,5 @@
 ---
-title: Configurare le prestazioni per il runtime di integrazione Azure-SSISConfigure performance for the Azure-SSIS Integration Runtime
+title: Configurare le prestazioni per il Azure-SSIS Integration Runtime
 description: Informazioni su come configurare le proprietà del runtime di integrazione Azure-SSIS per garantire prestazioni elevate
 services: data-factory
 ms.date: 01/10/2018
@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
 ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418287"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurare il runtime di integrazione Azure-SSIS per garantire prestazioni elevate
@@ -79,30 +79,30 @@ Data Factory, incluso il runtime di integrazione Azure-SSIS, supporta le opzioni
 -   Standard\_D2\_v2
 -   Standard\_D3\_v2
 -   Standard\_D4\_v2
--   Standard\_D2\_v3
--   Standard\_D4\_v3
--   Standard\_D8\_v3
--   Standard\_D16\_v3
--   Standard\_D32\_v3
--   Standard\_D64\_v3
--   Standard\_E2\_v3
--   Standard\_E4\_v3
--   Standard\_E8\_v3
--   Standard\_E16\_v3
--   Standard\_E32\_v3
--   Standard\_E64\_v3
+-   D2\_\_standard V3
+-   D4\_\_standard V3
+-   D8\_\_standard V3
+-   D16\_\_standard V3
+-   D32\_\_standard V3
+-   D64\_\_standard V3
+-   E2\_\_standard V3
+-   E4\_\_standard V3
+-   E8\_\_standard V3
+-   E16\_\_standard V3
+-   E32\_\_standard V3
+-   E64\_\_standard V3
 
 Nei test interni non ufficiali condotti dal team di progettazione SSIS, la serie D sembra essere più adatta all'esecuzione di pacchetti SSIS rispetto alla serie A.
 
--   Il rapporto prestazioni/prezzo della serie D è superiore alla serie A e il rapporto prestazioni/prezzo della serie v3 è superiore alla serie v2.
--   La velocità effettiva per la serie D è superiore alla serie A allo stesso prezzo e la velocità effettiva per la serie v3 è superiore alla serie v2 allo stesso prezzo.
--   I nodi della serie v2 di Azure-SSIS IR non sono adatti per l'installazione personalizzata, pertanto usare invece i nodi della serie v3. Se si utilizzano già i nodi della serie v2, passare a utilizzare i nodi della serie v3 il prima possibile.
--   La serie E è una dimensione delle macchine virtuali ottimizzata per la memoria che fornisce un rapporto tra memoria e CPU più elevato rispetto ad altri computer. Se il pacchetto richiede molta memoria, è possibile scegliere la macchina virtuale della serie E.If your package requires a lot of memory, you can consider choosing E series VM.
+-   Il rapporto prestazioni/prezzo della serie D è superiore alla serie A e il rapporto prestazioni/prezzo della serie V3 è superiore alla serie V2.
+-   La velocità effettiva della serie D è superiore alla serie a allo stesso prezzo e la velocità effettiva per la serie V3 è superiore alla serie V2 allo stesso prezzo.
+-   I nodi della serie V2 di Azure-SSIS IR non sono adatti per l'installazione personalizzata. utilizzare invece i nodi della serie V3. Se si usano già i nodi della serie V2, passare a usare i nodi della serie V3 il prima possibile.
+-   La serie E è una macchina virtuale con ottimizzazione per la memoria che fornisce un rapporto tra memoria e CPU superiore rispetto ad altri computer. Se il pacchetto richiede una grande quantità di memoria, è possibile scegliere una VM serie E.
 
 ### <a name="configure-for-execution-speed"></a>Configurare la velocità di esecuzione
 Se non si dispone di molti pacchetti da eseguire e si desidera che vengano eseguiti rapidamente, usare le informazioni presentate nel grafico seguente per scegliere un tipo di macchina virtuale adatto allo scenario in uso.
 
-Questi dati rappresentano l'esecuzione di un singolo pacchetto in un singolo nodo del ruolo di lavoro. The package loads 3 million records with first name and last name columns from Azure Blob Storage, generates a full name column, and writes the records that have the full name longer than 20 characters to Azure Blob Storage.
+Questi dati rappresentano l'esecuzione di un singolo pacchetto in un singolo nodo del ruolo di lavoro. Il pacchetto carica 3 milioni record con le colonne nome e cognome dall'archiviazione BLOB di Azure, genera una colonna con nome completo e scrive i record il cui nome completo è composto da più di 20 caratteri nell'archivio BLOB di Azure.
 
 ![Velocità di esecuzione del pacchetto del runtime di integrazione SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
@@ -118,7 +118,7 @@ Se i pacchetti da eseguire sono molti e la velocità effettiva complessiva è un
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Per i nodi Standard_D1_v2 sono supportate da 1 a 4 esecuzioni parallele per nodo. Per tutti gli altri tipi di nodi, sono supportate le esecuzioni parallele 1-max(2 x numero di core, 8) per nodo. Se si vuole **che AzureSSISMaxParallelExecutionsPerNode** oltre il valore massimo supportato, è possibile aprire un ticket di supporto e successivamente è necessario usare Azure Powershell per aggiornare **AzureSSISMaxParallelexecutionsPerNode**.
+Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti, se si aumenta il valore di **AzureSSISMaxParallelExecutionsPerNode**, può aumentare la velocità effettiva complessiva del runtime di integrazione. Per i nodi Standard_D1_v2 sono supportate da 1 a 4 esecuzioni parallele per nodo. Per tutti gli altri tipi di nodi, sono supportati 1-max (2 x numero di core, 8) esecuzioni parallele per nodo. Se si vuole che **AzureSSISMaxParallelExecutionsPerNode** superi il valore massimo supportato, è possibile aprire un ticket di supporto ed è possibile aumentare il valore massimo per l'utente e dopo che è necessario usare Azure PowerShell per aggiornare **AzureSSISMaxParallelExecutionsPerNode**.
 È possibile stimare il valore appropriato in base al costo del pacchetto e alle configurazioni seguenti per i nodi del ruolo di lavoro. Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../virtual-machines/windows/sizes-general.md).
 
 | Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
@@ -129,18 +129,18 @@ Quando si usa già un nodo del ruolo di lavoro potente per eseguire i pacchetti,
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16/16 x 500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8/8 x 500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16/16 x 500                       | 8 / 2000                                       |
-| Standard\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
-| Standard\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
-| Standard\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
-| Standard\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/ 48x500                        | 8 / 8000                                       |
-| Standard\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
-| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
-| Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
-| Standard\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
-| Standard\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
-| Standard\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48x500                       | 8 / 8000                                       |
-| Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
-| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
+| D2\_\_standard V3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6X500                         | 2 / 1000                                       |
+| D4\_\_standard V3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
+| D8\_\_standard V3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| D16\_\_standard V3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
+| D32\_\_standard V3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
+| D64\_\_standard V3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| E2\_\_standard V3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6X500                         | 2 / 1000                                       |
+| E4\_\_standard V3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
+| E8\_\_standard V3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| E16\_\_standard V3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
+| E32\_\_standard V3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
+| E64\_\_standard V3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
 
 Di seguito sono riportate le linee guida per l'impostazione del valore corretto per la proprietà **AzureSSISMaxParallelExecutionsPerNode**: 
 
@@ -156,7 +156,7 @@ Di seguito sono riportate le linee guida per l'impostazione del valore corretto 
 
 -   Se il numero dei ruoli di lavoro è maggiore di 8 o il numero di core è superiore a 50, scegliere un database più potente del piano Basic. In caso contrario, il database diventa il collo di bottiglia dell'istanza di runtime di integrazione e si verifica un rallentamento delle prestazioni complessive.
 
--   Scegliere un database più potente, ad esempio s3, se il livello di registrazione è impostato su verbose. Secondo i nostri test interni non ufficiali, il piano tariffario s3 può supportare l'esecuzione del pacchetto SSIS con 2 nodi, 128 conteggi paralleli e livello di registrazione dettagliato.
+-   Scegliere un database più potente, ad esempio S3 se il livello di registrazione è impostato su Verbose. Secondo il test interno non ufficiale, il piano tariffario S3 può supportare l'esecuzione di pacchetti SSIS con 2 nodi, conteggi paralleli 128 e un livello di registrazione dettagliata.
 
 È inoltre possibile regolare il piano tariffario del database in base alle informazioni sull'utilizzo in [unità di trasmissione dati](../sql-database/sql-database-what-is-a-dtu.md) (DTU) disponibili nel portale di Azure.
 
