@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding the architecture - Azure'
+title: "Azure AD Connect Sync: informazioni sull'architettura-Azure"
 description: Questo argomento descrive l'architettura del servizio di sincronizzazione Azure AD Connect e spiega la terminologia usata.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261619"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
-Questo argomento illustra l'architettura di base per la sincronizzazione di Azure AD Connect.This topic covers the basic architecture for Azure AD Connect sync. In molti aspetti, è simile ai suoi predecessori MIIS 2003, ILM 2007 e FIM 2010. Il servizio di sincronizzazione Azure AD Connect è l'evoluzione di queste tecnologie. Se si ha familiarità con qualcuna delle tecnologie precedenti, anche il contenuto di questo argomento risulterà familiare. Se invece non si ha esperienza con la sincronizzazione, è consigliabile leggere questo argomento. Non è tuttavia indispensabile conoscere in dettaglio questo argomento per apportare personalizzazioni al servizio di sincronizzazione Azure AD Connect (chiamato qui motore di sincronizzazione).
+In questo argomento viene illustrata l'architettura di base per Azure AD Connect Sync. In molti aspetti, è simile ai predecessori MIIS 2003, ILM 2007 e FIM 2010. Il servizio di sincronizzazione Azure AD Connect è l'evoluzione di queste tecnologie. Se si ha familiarità con qualcuna delle tecnologie precedenti, anche il contenuto di questo argomento risulterà familiare. Se invece non si ha esperienza con la sincronizzazione, è consigliabile leggere questo argomento. Non è tuttavia indispensabile conoscere in dettaglio questo argomento per apportare personalizzazioni al servizio di sincronizzazione Azure AD Connect (chiamato qui motore di sincronizzazione).
 
 ## <a name="architecture"></a>Architecture
 Il motore di sincronizzazione crea una visualizzazione integrata degli oggetti archiviati in più origini dati connesse e gestisce le informazioni sull'identità presenti in tali origini dati. Questa visualizzazione integrata viene determinata dalle informazioni sull'identità recuperate da origini dati connesse e da un set di regole che determinano come elaborare le informazioni.
@@ -147,7 +147,7 @@ Il processo di gestione delle identità controlla come vengono aggiornate le inf
 
 * Importa
 * Synchronization
-* Esportazione
+* Export
 
 Durante il processo di importazione, il motore di sincronizzazione valuta le informazioni sull'identità in ingresso da un'origine dati connessa. Quando vengono rilevate modifiche, crea nuovi oggetti di staging o aggiorna quelli esistenti nello spazio connettore per la sincronizzazione.
 
@@ -180,9 +180,9 @@ Se il motore di sincronizzazione individua un oggetto di staging che corrisponde
 Gli oggetti di staging con dati aggiornati vengono contrassegnati come pending import. Sono disponibili tipi di diversi di importazioni in sospeso. A seconda del risultato del processo di importazione, un oggetto di staging nello spazio connettore ha uno dei tipi di importazione in sospeso seguenti:
 
 * **Nessuno**. Non sono disponibili modifiche a nessuno degli attributi dell'oggetto di staging. Il motore di sincronizzazione non contrassegna questo tipo come importazione in sospeso.
-* **Aggiungere**. L'oggetto di staging è un nuovo oggetto di importazione nello spazio connettore. Il motore di sincronizzazione contrassegna questo tipo come importazione in sospeso per un'ulteriore elaborazione nel metaverse.
-* **Update**. Il motore di sincronizzazione trova un oggetto di staging corrispondente nello spazio connettore e contrassegna questo tipo come importazione in sospeso in modo che gli aggiornamenti agli attributi possano essere elaborati nel metaverse. Gli aggiornamenti includono la ridenominazione degli oggetti.
-* **Delete**. Il motore di sincronizzazione trova un oggetto di staging corrispondente nello spazio connettore e contrassegna questo tipo come importazione in sospeso in modo che l'oggetto unito possa essere eliminato.
+* **Aggiungi**. L'oggetto di staging è un nuovo oggetto di importazione nello spazio connettore. Il motore di sincronizzazione contrassegna questo tipo come importazione in sospeso per un'ulteriore elaborazione nel metaverse.
+* **Aggiornamento**. Il motore di sincronizzazione trova un oggetto di staging corrispondente nello spazio connettore e contrassegna questo tipo come importazione in sospeso in modo che gli aggiornamenti agli attributi possano essere elaborati nel metaverse. Gli aggiornamenti includono la ridenominazione degli oggetti.
+* **Eliminare**. Il motore di sincronizzazione trova un oggetto di staging corrispondente nello spazio connettore e contrassegna questo tipo come importazione in sospeso in modo che l'oggetto unito possa essere eliminato.
 * **Delete/Add**. Il motore di sincronizzazione trova un oggetto di staging corrispondente nello spazio connettore, ma i tipi di oggetto non corrispondono. In questo caso, viene inserita temporaneamente una modifica di eliminazione/aggiunta. Una modifica di eliminazione/aggiunta indica al motore di sincronizzazione che deve essere eseguita una risincronizzazione completa di questo oggetto perché, quando il tipo di oggetto verrà modificato, a questo oggetto verranno applicati set di regole diversi.
 
 Impostando lo stato di importazione in sospeso di un oggetto di staging, è possibile ridurre considerevolmente la quantità di dati elaborati durante la sincronizzazione perché in questo modo il sistema può elaborare solo gli oggetti con dati aggiornati.
@@ -204,7 +204,7 @@ La sincronizzazione in ingresso crea nel metaverse la visualizzazione integrata 
 La sincronizzazione in ingresso include i processi seguenti:
 
 * **Provision** (chiamato anche **proiezione** se è importante distinguere questo processo dal provisioning della sincronizzazione in uscita). Il motore di sincronizzazione crea un nuovo oggetto del metaverse basato su un oggetto di staging e li collega. Il provisioning è un'operazione a livello di oggetto.
-* **Iscriviti**con . Il motore di sincronizzazione collega un oggetto di staging a un oggetto del metaverse esistente. Un join è un'operazione a livello di oggetto.
+* **Join**. Il motore di sincronizzazione collega un oggetto di staging a un oggetto del metaverse esistente. Un join è un'operazione a livello di oggetto.
 * **Importazione del flusso degli attributi**. Il motore di sincronizzazione aggiorna i valori degli attributi, chiamati flusso degli attributi, dell'oggetto nel metaverse. L'importazione del flusso degli attributi è un'operazione a livello di attributo che richiede un collegamento tra un oggetto di staging e un oggetto del metaverse.
 
 Il provisioning è il solo processo che crea oggetti nel metaverse. Il provisioning ha effetto solo sugli oggetti di importazione che sono oggetti separati. Durante il provisioning, il motore di sincronizzazione crea un oggetto del metaverse che corrisponde al tipo di oggetto dell'oggetto di importazione e stabilisce un collegamento tra entrambi gli oggetti, creando in tal modo un oggetto unito.

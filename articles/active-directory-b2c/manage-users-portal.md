@@ -11,10 +11,10 @@ ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187220"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Usare il portale di Azure per creare ed eliminare utenti consumer in Azure AD B2C
@@ -48,7 +48,7 @@ Questo articolo è incentrato sull'uso degli **account utente** nel portale di A
 1. Opzionale È possibile **bloccare l'accesso** se si vuole ritardare la possibilità per l'utente di accedere. È possibile abilitare l'accesso in un secondo momento modificando il **profilo** dell'utente nel portale di Azure.
 1. Scegliere **genera automaticamente password** o **Consenti la creazione della password**.
 1. Specificare il **nome** e il **Cognome**dell'utente.
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 
 A meno che non sia stata selezionata l'opzione **Blocca accesso**, l'utente può ora accedere usando il metodo di accesso (posta elettronica o nome utente) specificato.
 

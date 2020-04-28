@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78205025"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
@@ -147,14 +147,14 @@ Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 
 Usare il dispositivo di scorrimento **Attivazioni** per impostare il tempo massimo, espresso in ore, per cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 72 ore.
 
-## <a name="notifications"></a>Notifications
+## <a name="notifications"></a>Notifiche
 
 Usare il parametro **Notifiche** per determinare se gli amministratori riceveranno notifiche via email all'attivazione dei ruoli. Questa notifica può essere utile per rilevare le attivazioni non autorizzate o illegittime.
 
 Se impostato su **Abilita**, le notifiche sono inviate a:
 
 - Amministratore dei ruoli con privilegi
-- Amministratore della sicurezza
+- Amministratore della protezione
 - Amministratore globale
 
 Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privileged Identity Management](pim-email-notifications.md).
@@ -178,15 +178,15 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
   - Amministratore di Dynamics 365
   - Responsabile approvazione per l'accesso a Customer Lockbox
   - Writer di directory
-  - Amministratore di Exchange
+  - Amministratori di Exchange
   - Amministratore globale
   - Amministratore di Intune
   - Amministratore Power BI
   - Amministratore dei ruoli con privilegi
-  - Amministratore della sicurezza
+  - Amministratore della protezione
   - Amministratore di SharePoint
   - Amministratore di Skype for Business
-  - Amministratore utenti
+  - Amministratore degli utenti
 
 Per altre informazioni, vedere [Autenticazione a più fattori e Privileged Identity Management](pim-how-to-require-mfa.md).
 

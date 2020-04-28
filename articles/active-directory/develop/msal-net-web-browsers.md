@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79262737"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso di Web browser (MSAL.NET)
@@ -45,14 +45,14 @@ In genere, è consigliabile usare il valore predefinito della piattaforma, che i
 
 ### <a name="at-a-glance"></a>Riepilogo
 
-| Framework        | Origine dati | System | Impostazione predefinita |
+| Framework        | Origine dati | Sistema | Impostazione predefinita |
 | ------------- |-------------| -----| ----- |
 | .NET classico     | Sì | Sì ^ | Origine dati |
-| .NET Core     | No | Sì ^ | System |
-| .NET Standard | No | Sì ^ | System |
+| .NET Core     | No | Sì ^ | Sistema |
+| .NET Standard | No | Sì ^ | Sistema |
 | UWP | Sì | No | Origine dati |
-| Xamarin.Android | Sì | Sì  | System |
-| Xamarin.iOS | Sì | Sì  | System |
+| Xamarin.Android | Sì | Sì  | Sistema |
+| Xamarin.iOS | Sì | Sì  | Sistema |
 | Xamarin.Mac| Sì | No | Origine dati |
 
 ^ Richiede l'http://localhostURI di reindirizzamento ""

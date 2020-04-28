@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77185509"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Accesso utente con l'autenticazione pass-through di Azure Active Directory
@@ -47,30 +47,30 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
   - Non sono necessarie distribuzioni locali o configurazioni di rete complesse.
   - È necessario solo installare un agente leggero in locale.
   - Nessun sovraccarico di gestione. L'agente riceve automaticamente miglioramenti e correzioni di bug.
-- *Sicuro*
+- *Sicurezza*
   - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
   - Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../conditional-access/concept-conditional-access-conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
   - L'agente esegue solo le connessioni in uscita dalla rete. Pertanto, non è necessario installarlo in una rete perimetrale.
   - La comunicazione tra un agente e Azure AD è protetta tramite l'autenticazione basata su certificato. Questi certificati vengono rinnovati automaticamente a intervalli di pochi mesi da Azure AD.
-- *Altamente disponibile*
+- *A disponibilità elevata*
   - È possibile installare altri agenti su più server locali per ottenere una disponibilità elevata delle richieste di accesso.
 
 ## <a name="feature-highlights"></a>Funzionalità in primo piano
 
 - Supporta l'accesso utente in tutte le applicazioni basate su browser e nelle applicazioni client di Microsoft Office che usano l'[autenticazione moderna](https://aka.ms/modernauthga).
 - I nomi utente per l'accesso possono essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
-- La funzionalità funziona perfettamente con le funzionalità di [accesso condizionale,](../active-directory-conditional-access-azure-portal.md) ad esempio Multi-Factor Authentication (MFA) per proteggere gli utenti.
+- La funzionalità funziona senza interruzioni con le funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md) , ad esempio multi-factor authentication (multi-factor authentication), per proteggere gli utenti.
 - Può essere integrata con la [gestione delle password self-service](../authentication/active-directory-passwords-overview.md) basata sul cloud, che include le attività di writeback delle password in Active Directory locale e di protezione delle password tramite il divieto di specificare password usate comunemente.
 - Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing del suffisso del nome è configurato correttamente.
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
-- Può essere abilitato tramite [Azure AD Connect](whatis-hybrid-identity.md).
+- Può essere abilitato tramite [Azure ad Connect](whatis-hybrid-identity.md).
 - Usa un agente leggero locale che resta in ascolto e risponde alle richieste di convalida delle password.
 - L'installazione di più agenti garantisce la disponibilità elevata di richieste di accesso.
 - [Protegge](../authentication/howto-password-smart-lockout.md) gli account locali dagli attacchi di forza bruta alle password nel cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](how-to-connect-pta-quick-start.md) - Iniziare ed eseguire l'autenticazione pass-through di Azure AD.
+- [Guida introduttiva](how-to-connect-pta-quick-start.md) : iniziare a usare l'autenticazione pass-through Azure ad.
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
 - [Blocco intelligente](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [Limitazioni correnti](how-to-connect-pta-current-limitations.md): informazioni su quali scenari sono supportati e quali non lo sono.

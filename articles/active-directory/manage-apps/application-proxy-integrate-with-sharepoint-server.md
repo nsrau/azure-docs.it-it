@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983470994c103cb25d0d2aff96ae8544080e6288
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481297"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
@@ -30,7 +30,7 @@ Questa guida dettagliata illustra come integrare una farm di SharePoint locale c
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire la configurazione, sono necessarie le risorse seguenti:
-- Una farm di SharePoint 2013 o successiva.
+- Farm di SharePoint 2013 o versioni successive.
 - Un tenant di Azure AD con un piano che include il proxy di applicazione. Scopri di più sui [piani di Azure ad e sui prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
 - Un [dominio personalizzato e verificato](../fundamentals/add-custom-domain.md) nel tenant del Azure ad.
 - Active Directory locali sincronizzati con Azure AD Connect, tramite cui gli utenti possono [accedere ad Azure](../hybrid/plan-connect-user-signin.md).

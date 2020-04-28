@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77370529"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Esercitazione: configurare Azure Databricks connettore SCIM per il provisioning utenti automatico

@@ -1,5 +1,5 @@
 ---
-title: Tipi di applicazione supportati da Azure AD B2CApplication types supported by Azure AD B2C
+title: Tipi di applicazioni supportati da Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Informazioni sui tipi di applicazioni che è possibile usare con Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,22 +12,22 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78190144"
 ---
-# <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazione che possono essere utilizzati in Active Directory B2C
+# <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usati in Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) supporta l'autenticazione per un'ampia gamma di architetture di applicazioni moderne. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0](protocols-overview.md) o [OpenID Connect](protocols-overview.md). In questo articolo vengono descritti i tipi di applicazioni che è possibile compilare, indipendentemente dal linguaggio o dalla piattaforma preferita. Illustra anche gli scenari generali per iniziare a compilare applicazioni.
+Azure Active Directory B2C (Azure AD B2C) supporta l'autenticazione per un'ampia gamma di architetture di applicazioni moderne. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0](protocols-overview.md) o [OpenID Connect](protocols-overview.md). Questo articolo descrive i tipi di applicazioni che è possibile compilare, indipendentemente dal linguaggio o dalla piattaforma preferita. Illustra anche gli scenari generali per iniziare a compilare applicazioni.
 
 Ogni app che usa Azure AD B2C deve essere registrata in un tenant di [Azure AD B2C](tutorial-create-tenant.md) tramite il [portale di Azure](https://portal.azure.com/). Il processo di registrazione dell’applicazione raccoglie e assegna alcuni valori, tra cui:
 
 * Un **ID applicazione** che identifica l'applicazione in modo univoco.
 * Un **URL di risposta** che può essere usato per indirizzare le risposte all'applicazione.
 
-Ogni richiesta inviata ad Azure AD B2C specifica un **flusso utente** (un criterio predefinito) o un **criterio personalizzato** che controlla il comportamento di Azure AD B2C. Entrambi i tipi di criteri consentono di creare un set altamente personalizzabile di esperienze utente.
+Ogni richiesta inviata a Azure AD B2C specifica un **flusso utente** (un criterio predefinito) o un **criterio personalizzato** che controlla il comportamento delle Azure ad B2C. Entrambi i tipi di criteri consentono di creare un set di esperienze utente altamente personalizzabile.
 
 Ogni interazione di un'applicazione segue un modello generale simile al seguente:
 
@@ -125,7 +125,7 @@ Per impostare il flusso di credenziali client, vedere [Azure Active Directory v2
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Catene di API Web (flusso On-Behalf-Of)
 
-Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che dispongono di un back-end API Web e chiama un servizio online Microsoft, ad esempio l'API Microsoft Graph.
+Molte architetture includono un'API Web che deve chiamare un'altra API Web downstream, entrambe protette da Azure AD B2C. Questo scenario è comune nei client nativi che hanno un back-end dell'API Web e chiama un servizio online Microsoft, ad esempio l'API Microsoft Graph.
 
 Questo scenario di API Web concatenata può essere supportato usando la concessione delle credenziali di connessione JWT di OAuth 2.0, nota anche come flusso On-Behalf-Of.  Il flusso On-Behalf-Of, tuttavia, non è attualmente implementato in Azure AD B2C.
 
@@ -142,4 +142,4 @@ Per eliminare l'applicazione, passare al [portale di registrazione delle applica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui criteri predefiniti forniti dai [flussi utente in Azure Active Directory B2C](user-flow-overview.md).
+Scopri di più sui criteri predefiniti forniti dai [flussi utente in Azure Active Directory B2C](user-flow-overview.md).

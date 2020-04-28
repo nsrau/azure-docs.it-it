@@ -8,10 +8,10 @@ ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77505961"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
@@ -102,7 +102,7 @@ Lo sconto per la prenotazione si applica automaticamente alle risorse di Azure C
 
 * Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-   * [Che cosa sono le prenotazioni di Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [Cosa sono le prenotazioni di Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
    * [Gestisci prenotazioni di Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md)

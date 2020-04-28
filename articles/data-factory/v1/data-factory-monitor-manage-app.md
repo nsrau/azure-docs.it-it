@@ -1,5 +1,5 @@
 ---
-title: Monitorare e gestire le pipeline di dati - AzureMonitor and manage data pipelines - Azure
+title: Monitorare e gestire le pipeline di dati-Azure
 description: Informazioni sull'uso dell'app di monitoraggio e gestione per monitorare e gestire le data factory e le pipeline di Azure.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260371"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
@@ -286,7 +286,7 @@ Per cancellare i filtri è possibile usare la stessa finestra popup. Per cancell
 
 ## <a name="perform-batch-actions"></a>Esecuzione di azioni batch
 ### <a name="rerun-selected-activity-windows"></a>Rieseguire finestre attività selezionate
-Selezionare una finestra attività, fare clic sulla freccia giù per il primo pulsante della barra dei comandi e selezionare **Riesegui** / **riesegui con a monte nella pipeline**. L'opzione **Rerun with upstream in pipeline** (Riesegui con upstream nella pipeline) consente di rieseguire anche tutte le finestre attività upstream.
+Selezionare una finestra attività, fare clic sulla freccia rivolta verso il basso per il primo pulsante della barra dei comandi e selezionare **Riesegui** / **con upstream nella pipeline**. L'opzione **Rerun with upstream in pipeline** (Riesegui con upstream nella pipeline) consente di rieseguire anche tutte le finestre attività upstream.
     ![Rieseguire una finestra attività](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 È anche possibile selezionare più finestre attività nell'elenco e rieseguirle contemporaneamente. È possibile filtrare le finestre attività in base allo stato (ad esempio **Non riuscito**), quindi rieseguire le finestre attività non riuscite dopo aver corretto il problema che ne causa l'errore. Vedere la sezione seguente per informazioni dettagliate sull'applicazione di filtri alle finestre attività nell'elenco.  

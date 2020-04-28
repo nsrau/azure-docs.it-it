@@ -1,5 +1,5 @@
 ---
-title: Problemi durante la configurazione della password SSO per l'app Galleria di Azure AD
+title: Problemi di configurazione dell'accesso SSO basato su password per Azure AD app della raccolta
 description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On basato su password per applicazioni incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77159047"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione nella raccolta di Azure AD
@@ -99,7 +99,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 6.  Al termine dell'installazione, **riavviare** la sessione del browser.
 
-7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni SSO con password
+7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni con accesso SSO basato su password
 
 È anche possibile scaricare l'estensione per Chrome e Firefox dai collegamenti diretti seguenti:
 

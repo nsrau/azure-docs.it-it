@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78671641"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verifica della posta elettronica personalizzata in Azure Active Directory B2C
@@ -42,10 +42,10 @@ Quindi, archiviare la chiave API SendGrid in una chiave dei criteri di Azure AD 
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
 1. Per **Opzioni** scegliere `Manual`.
-1. Immettere un **nome** per la chiave dei criteri. Ad esempio, `SendGridSecret` Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `SendGridSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Segreto** immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="create-sendgrid-template"></a>Crea modello SendGrid
 
@@ -154,7 +154,7 @@ Con un account SendGrid creato e una chiave API SendGrid archiviata in una chiav
 1. Espandere **Impostazioni** a sinistra e, per **messaggio di posta elettronica**, `{{subject}}`immettere.
 1. Selezionare **Salva modello**.
 1. Tornare alla pagina **modelli transazionali** selezionando la freccia indietro.
-1. Registrare l' **ID** del modello creato per l'uso in un passaggio successivo. Ad esempio, `d-989077fbba9746e89f3f6411f596fb96` Questo ID viene specificato quando si [aggiunge la trasformazione delle attestazioni](#add-the-claims-transformation).
+1. Registrare l' **ID** del modello creato per l'uso in un passaggio successivo. Ad esempio: `d-989077fbba9746e89f3f6411f596fb96`. Questo ID viene specificato quando si [aggiunge la trasformazione delle attestazioni](#add-the-claims-transformation).
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Aggiungere Azure AD B2C tipi di attestazione
 

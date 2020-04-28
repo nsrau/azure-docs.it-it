@@ -1,5 +1,5 @@
 ---
-title: Codici di errore nel portale di Azure Active Directory Documenti Microsoft
+title: Codici di errore nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni di riferimento sui codici di errore del report delle attività di accesso.
 services: active-directory
 documentationcenter: ''
@@ -18,21 +18,21 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b4e21a23ebc455653b4d5b22ac18023b533728c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78190467"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
-Con le informazioni fornite dal rapporto di [accesso dell'utente, troverai](concept-sign-ins.md)le risposte a domande come:
+Con le informazioni fornite dal [report degli accessi degli utenti](concept-sign-ins.md), è possibile trovare risposte a domande quali:
 
 - Chi ha eseguito l'accesso all'applicazione?
 - A quali applicazioni è stato eseguito l'accesso?
-- Quali accessi non sono riusciti e perché?
+- Quali accessi hanno avuto esito negativo e perché?
 
-Quando un accesso non riesce, viene visualizzato un codice di errore corrispondente all'errore. [Trovare la descrizione di un codice di errore](https://login.microsoftonline.com/error).
+Quando un accesso ha esito negativo, viene visualizzato un codice di errore corrispondente all'errore. [Trovare la descrizione per un codice di errore](https://login.microsoftonline.com/error).
 
 
 

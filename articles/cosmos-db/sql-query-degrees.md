@@ -1,6 +1,6 @@
 ---
-title: DEGREES nel linguaggio di query di Azure Cosmos DBDEGREE in Azure Cosmos DB query language
-description: Informazioni sulla funzione del sistema SQL DEGREES in Azure Cosmos DB per restituire l'angolo corrispondente in gradi per un angolo specificato in radianti
+title: GRADI nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulla funzione di sistema di SQL in Azure Cosmos DB per restituire l'angolo corrispondente in gradi per un angolo specificato in radianti
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d175ba53a71998fc8e7812a1b761f9cd264c38a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78299471"
 ---
-# <a name="degrees-azure-cosmos-db"></a>DEGREES (Azure Cosmos DB)
+# <a name="degrees-azure-cosmos-db"></a>GRADI (Azure Cosmos DB)
  Restituisce l'angolo corrispondente in gradi di un angolo specificato in radianti.  
   
 ## <a name="syntax"></a>Sintassi

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281145"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia ripetibile in Azure Data Factory
@@ -110,7 +110,7 @@ Il secondo meccanismo per ottenere la ripetibilità prevede la disponibilità di
 
 La colonna viene usata da Azure Data Factory per scopi di ripetibilità e nel corso del processo Azure Data Factory non apporterà alcuna modifica allo schema della tabella. Per applicare questo approccio, è possibile seguire questa procedura:
 
-1. Definire una colonna di tipo **binario (32)** nella tabella SQL di destinazione. in cui non sia presente alcun vincolo. Ai fini di questo esempio, la colonna viene denominata AdfSliceIdentifier.
+1. Definire una colonna di tipo **Binary (32)** nella tabella SQL di destinazione. in cui non sia presente alcun vincolo. Ai fini di questo esempio, la colonna viene denominata AdfSliceIdentifier.
 
 
     Tabella di origine:

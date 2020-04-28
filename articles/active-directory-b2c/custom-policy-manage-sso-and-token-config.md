@@ -1,5 +1,5 @@
 ---
-title: Gestire SSO e la personalizzazione dei token usando i criteri personalizzatiManage SSO and token customization using custom policies
+title: Gestire la personalizzazione di token e SSO tramite criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Informazioni su come gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,21 +12,21 @@ ms.date: 10/09/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff9f57af92c50c0df6f628113bd9490ca83e1310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189294"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C
 
-Questo articolo fornisce informazioni su come gestire le configurazioni di token, sessione e Single Sign-On (SSO) usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
+Questo articolo fornisce informazioni su come è possibile gestire le configurazioni di token, sessione e Single Sign-On (SSO) usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configurazione delle attestazioni e delle durate dei token
 
 Per modificare le impostazioni per le durate dei token, si aggiunge un elemento [ClaimsProviders](claimsproviders.md) nel file di relying party dei criteri su cui si vuole intervenire.  **ClaimsProviders** è un elemento figlio dell'elemento [TrustFrameworkPolicy](trustframeworkpolicy.md).
 
-Inserire l'elemento ClaimsProviders tra l'elemento BasePolicy e l'elemento RelyingParty del file della relying party.
+Inserire l'elemento ClaimsProviders tra l'elemento BasePolicy e l'elemento RelyingParty del file relying party.
 
 Sarà necessario inserirvi le informazioni che influiscono sulle durate dei token. L'XML è simile all'esempio seguente:
 
@@ -104,4 +104,4 @@ Nell'esempio precedente vengono configurati i valori seguenti.
 
 - **Single Sign-On (SSO)**: l'accesso Single Sign-On viene configurato con **SingleSignOn**. I valori applicabili sono `Tenant`, `Application``Policy` e `Suppressed`.
 - **Timeout della sessione dell'app Web**: la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryType**. I valori applicabili sono `Absolute` e `Rolling`.
-- **Durata della sessione dell'app Web:** la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryInSeconds.** Il valore predefinito è 86400 secondi (1440 minuti).
+- **Durata della sessione dell'app Web** : la durata della sessione dell'app Web è impostata con l'elemento **SessionExpiryInSeconds** . Il valore predefinito è 86400 secondi (1440 minuti).

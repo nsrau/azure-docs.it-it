@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186387"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -41,12 +41,12 @@ L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 | Attributo | Obbligatoria | Descrizione |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
-| TenantObjectId | No | Identificatore univoco del tenant di Azure Active Directory B2C (Azure AD B2C). |
+| TenantObjectId | No | Identificatore di oggetto univoco del tenant di Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
 | PolicyId | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
-| DeploymentMode | No | Valori possibili: `Production` `Development`, o . `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [Raccolta di registri](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per ulteriori informazioni, vedere [Raccolta di registri](troubleshoot-with-application-insights.md). |
+| DeploymentMode | No | Valori possibili: `Production`, o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
 
 
 Nell'esempio seguente viene illustrato come specificare l'elemento **TrustFrameworkPolicy**:
@@ -67,12 +67,12 @@ Nell'esempio seguente viene illustrato come specificare l'elemento **TrustFramew
 Questi tipi di file dei criteri vengono in genere utilizzati in un percorso utente:
 
 - un file di **base** che contiene la maggior parte delle definizioni. Si consiglia di apportare un numero minimo di modifiche a questo file per contribuire alla risoluzione dei problemi e alla manutenzione a lungo termine dei criteri.
-- Un file **Extensions** che contiene le modifiche di configurazione univoche per il tenant. Questo file dei criteri è derivato dal file di base. Usare questo file per aggiungere nuove funzionalità o eseguire l'override delle funzionalità esistenti. Ad esempio, usare questo file per la federazione con nuovi provider di identità.
+- Un file di **estensioni** che include le modifiche di configurazione univoche per il tenant. Questo file dei criteri è derivato dal file di base. Usare questo file per aggiungere nuove funzionalità o eseguire l'override delle funzionalità esistenti. Ad esempio, usare questo file per la federazione con nuovi provider di identità.
 - Un file **Relying Party (RP)** è l'unico file incentrato sulle attività che viene chiamato direttamente dell'applicazione relying party, come applicazioni Web, mobili o desktop. Ogni attività univoca, ad esempio l'iscrizione, l'accesso, la reimpostazione della password o la modifica del profilo richiede un proprio file di criteri di relying party. Questo file di criteri è derivato dal file di estensioni.
 
 Un'applicazione relying party chiama il file di criteri relying party per l'esecuzione di un'attività specifica. Ad esempio, per avviare il flusso di accesso. Il Framework di esperienza di identità in Azure AD B2C aggiunge tutti gli elementi prima dal file di base, poi dal file delle estensioni e infine dal file di criteri relying party per assemblare i criteri correnti in vigore. Gli elementi dello stesso tipo e nome nel file relying party eseguono l'override nelle estensioni e le estensioni eseguono l'override nel file di base. Il diagramma seguente mostra la relazione tra i file di criteri e le applicazioni relying party.
 
-![Diagramma che mostra il modello di ereditarietà dei criteri del framework di attendibilità](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagramma che mostra il modello di ereditarietà dei criteri di Framework attendibilità](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 Il modello di ereditarietà è come segue:
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
 
 Un percorso utente definisce la logica di business di ciò che un utente effettua. Ogni percorso utente è un set di passaggi di orchestrazione che esegue una serie di azioni, in sequenza in termini di autenticazione e raccolta di informazioni.
 
-Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](custom-policy-get-started.md#custom-policy-starter-pack) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. Puoi aggiungere altre percorsi utente per altri scenari, ad esempio la modifica di un indirizzo di posta elettronica o il collegamento e lo scollegamento di un account social.
+Il file di criteri **SocialAndLocalAccounts** nel [pacchetto starter](custom-policy-get-started.md#custom-policy-starter-pack) contiene i percorsi utente SignUpOrSignIn, ProfileEdit, PasswordReset. È possibile aggiungere altri percorsi utente per altri scenari, ad esempio la modifica di un indirizzo di posta elettronica o il collegamento e lo scollegamento di un account di social networking.
 
 I passaggi di orchestrazione possono chiamare un [profilo tecnico](technicalprofiles.md). Un profilo tecnico offre un framework con un meccanismo incorporato per comunicare con diversi tipi di entità. Ad esempio, un profilo tecnico può eseguire queste azioni tra le altre:
 

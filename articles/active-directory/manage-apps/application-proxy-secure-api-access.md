@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: ecd5d8bae22d67f8d9f5b99d5c94eecf54a4a1f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77165986"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Proteggere l'accesso alle API locali con Azure AD proxy di applicazione
@@ -174,5 +174,5 @@ Dopo aver configurato i parametri, compilare ed eseguire l'app nativa. Quando si
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Guida introduttiva: configurare un'applicazione client per accedere alle API Web](../develop/quickstart-configure-app-access-web-apis.md)
+- [Guida introduttiva: Configurare un'applicazione client per accedere alle API Web](../develop/quickstart-configure-app-access-web-apis.md)
 - [Come abilitare le applicazioni client native per l'interazione con le applicazioni proxy](application-proxy-configure-native-client-application.md)

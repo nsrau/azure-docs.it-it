@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: Configurare BGP: PowerShellAzure VPN Gateway: Configure BGP: PowerShell'
+title: 'Gateway VPN di Azure: configurare BGP: PowerShell'
 description: In questo articolo viene illustrata la configurazione di BGP con i gateway VPN di Azure tramite Azure Resource Manager e PowerShell.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 78147a96d6d9e92c2602b6a83cbed743cf2abf37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77152041"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Come configurare BGP sui gateway VPN di Azure tramite PowerShell
@@ -48,7 +48,7 @@ La procedura di configurazione configura i parametri BGP nel gateway VPN di Azur
 * Installare i cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Passaggio 1: Creare e configurare VNet1
-#### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili
+#### <a name="1-declare-your-variables"></a>1. dichiarare le variabili
 Per questo esercizio, si inizierà dichiarando le variabili. L'esempio seguente dichiara le variabili usando i valori per questo esercizio. Assicurarsi di sostituire i valori con quelli reali durante la configurazione per la produzione. Queste variabili possono essere usate se si esegue la procedura per acquisire familiarità con questo tipo di configurazione. Modificare le variabili, quindi copiarle e incollarle nella console di PowerShell.
 
 ```powershell
@@ -73,7 +73,7 @@ $Connection12 = "VNet1toVNet2"
 $Connection15 = "VNet1toSite5"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Connettersi alla sottoscrizione e creare un nuovo gruppo di risorse
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. connettersi alla sottoscrizione e creare un nuovo gruppo di risorse
 Per usare i cmdlet di Resource Manager assicurarsi di passare alla modalità PowerShell. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
 
 Aprire la console di PowerShell e connettersi al proprio account. Per connettersi, usare l'esempio seguente:
@@ -84,7 +84,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-testvnet1"></a>3. Creare TestVNet1
+#### <a name="3-create-testvnet1"></a>3. creare TestVNet1
 L'esempio seguente mostra come creare una rete virtuale denominata TestVNet1 e tre subnet, denominate rispettivamente GatewaySubnet, FrontEnd e Backend. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo.
 
 ```powershell
@@ -96,7 +96,7 @@ New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Locatio
 ```
 
 ### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Passaggio 2: Creare il gateway VPN per TestVNet1 con i parametri BGP
-#### <a name="1-create-the-ip-and-subnet-configurations"></a>1. Creare le configurazioni IP e subnet
+#### <a name="1-create-the-ip-and-subnet-configurations"></a>1. creare le configurazioni IP e subnet
 Richiedere un indirizzo IP pubblico da allocare per il gateway che verrà creato per la rete virtuale. Verranno create anche le configurazioni necessarie per subnet e IP.
 
 ```powershell
@@ -107,14 +107,14 @@ $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwor
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Creare il gateway VPN con il numero AS
+#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. creare il gateway VPN con il numero AS
 Creare il gateway di rete virtuale per TestVNet1. Per impostare il parametro ASN (AS Number, numero AS) per TestVNet1BGP, sono necessari un gateway VPN basato su route e il parametro aggiuntivo, -Asn. Se non si imposta il parametro ASN, a questo viene assegnato il valore 65515. La creazione di un gateway può richiedere un po' di tempo (30 minuti o più).
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
 ```
 
-#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Ottenere l'indirizzo IP peer BGP di Azure
+#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. ottenere l'indirizzo IP del peer BGP di Azure
 Dopo la creazione del gateway, è necessario ottenere l'indirizzo IP del peer BGP per il gateway VPN di Azure. Questo indirizzo è necessario per configurare il gateway VPN di Azure come peer BGP per i dispositivi VPN locali.
 
 ```powershell
@@ -145,7 +145,7 @@ Prima di procedere, verificare di avere completato la [Parte 1](#enablebgp) di q
 
 ### <a name="step-1---create-and-configure-the-local-network-gateway"></a>Passaggio 1: Creare e configurare il gateway di rete locale
 
-#### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili
+#### <a name="1-declare-your-variables"></a>1. dichiarare le variabili
 
 Questo esercizio continua a creare la configurazione illustrata nel diagramma. Sostituire i valori con quelli desiderati per la propria configurazione.
 
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 
 Prima di proseguire, verificare di essere ancora connessi alla sottoscrizione 1.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Creare il gateway di rete locale per Site5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. creare il gateway di rete locale per Site5
 
 Assicurarsi di creare il gruppo di risorse se non è stato creato, prima di creare il gateway di rete locale. Si notino i due parametri aggiuntivi per il gateway di rete locale: Asn e BgpPeerAddress.
 
@@ -179,14 +179,14 @@ New-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Loc
 
 ### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>Passaggio 2: Connettere il gateway di rete virtuale e il gateway di rete locale
 
-#### <a name="1-get-the-two-gateways"></a>1. Ottenere i due gateway
+#### <a name="1-get-the-two-gateways"></a>1. ottenere i due gateway
 
 ```powershell
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 ```
 
-#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Creare la connessione da TestVNet1 a Site5
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. creare la connessione da TestVNet1 a Site5
 
 In questo passaggio viene creata la connessione da TestVNet1 a Site5. È necessario specificare "-EnableBgp $True" per abilitare BGP per questa connessione. Come illustrato in precedenza, è possibile avere connessioni sia BGP che non BGP per lo stesso gateway VPN di Azure. A meno che BGP non venga abilitato nella proprietà della connessione, Azure non abiliterà BGP per questa connessione nemmeno se i parametri BGP sono già configurati in entrambi i gateway.
 
@@ -223,7 +223,7 @@ Le istruzioni seguenti sono la prosecuzione dei passaggi precedenti. È necessar
 
 In questo esempio le reti virtuali appartengono alla stessa sottoscrizione. È possibile configurare connessioni da rete virtuale a rete virtuale tra sottoscrizioni diverse. Per altre informazioni, vedere [Configurare una connessione tra reti virtuali](vpn-gateway-vnet-vnet-rm-ps.md). Assicurarsi di aggiungere "-EnableBgp $True" quando si creano le connessioni per abilitare BGP.
 
-#### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili
+#### <a name="1-declare-your-variables"></a>1. dichiarare le variabili
 
 Sostituire i valori con quelli desiderati per la propria configurazione.
 
@@ -248,7 +248,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. Creare TestVNet2 nel nuovo gruppo di risorse
+#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. creare TestVNet2 nel nuovo gruppo di risorse
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -260,7 +260,7 @@ $gwsub2 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWS
 New-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3. Creare il gateway VPN per TestVNet2 con parametri BGP
+#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3. creare il gateway VPN per TestVNet2 con i parametri BGP
 
 Richiedere un indirizzo IP pubblico da allocare al gateway che verrà creato per la rete virtuale e definire le configurazioni necessarie per subnet e IP.
 
@@ -282,7 +282,7 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 In questo esempio entrambi i gateway sono nella stessa sottoscrizione. È possibile completare questo passaggio nella stessa sessione di PowerShell.
 
-#### <a name="1-get-both-gateways"></a>1. Ottenere entrambi i gateway
+#### <a name="1-get-both-gateways"></a>1. ottenere entrambi i gateway
 
 Eseguire l'accesso e connettersi alla Sottoscrizione 1.
 
@@ -291,7 +291,7 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $vnet2gw = Get-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 ```
 
-#### <a name="2-create-both-connections"></a>2. Creare entrambe le connessioni
+#### <a name="2-create-both-connections"></a>2. creare entrambe le connessioni
 
 In questo passaggio vengono create le connessioni rispettivamente da TestVNet1 a TestVNet2 e da TestVNet2 a TestVNet1.
 

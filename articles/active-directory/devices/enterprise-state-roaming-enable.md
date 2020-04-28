@@ -12,20 +12,20 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672404"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Abilitare Enterprise State Roaming in Azure Active Directory
 
-Enterprise State Roaming è disponibile per qualsiasi organizzazione con una licenza Azure AD Premium o Enterprise Mobility + Security (EMS). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la pagina del prodotto Azure AD.For more information on how to get an Azure AD subscription, see the [Azure AD product page.](https://azure.microsoft.com/services/active-directory)
+Enterprise State Roaming è disponibile per qualsiasi organizzazione con una licenza Azure AD Premium o Enterprise Mobility + Security (EMS). Per ulteriori informazioni su come ottenere una sottoscrizione di Azure AD, vedere la [pagina del prodotto Azure ad](https://azure.microsoft.com/services/active-directory).
 
 Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene concessa automaticamente una licenza gratuita e a uso limitato per la protezione Azure Rights Management da Azure Information Protection. Questa sottoscrizione gratuita è limitata a crittografia e decrittografia delle impostazioni aziendali e dei dati delle applicazioni sincronizzati da Enterprise State Roaming. È necessario avere una [sottoscrizione a pagamento](https://azure.microsoft.com/pricing/details/information-protection/) per usare le funzionalità complete del servizio Azure Rights Management.
 
 > [!NOTE]
-> Questo articolo si applica al browser basato su HTML di Microsoft Edge Legacy lanciato con Windows 10 nel luglio 2015. L'articolo non si applica al nuovo browser basato su Microsoft Edge Chromium rilasciato il 15 gennaio 2020. Per ulteriori informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Questo articolo si applica al browser Microsoft Edge legacy basato su HTML avviato con Windows 10 nel 2015 luglio. L'articolo non si applica al nuovo browser Microsoft Edge basato su cromo rilasciato il 15 gennaio 2020. Per altre informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Per abilitare Enterprise State Roaming
 
@@ -43,9 +43,9 @@ I dati del servizio Enterprise State Roaming sono ospitati in una o più [aree d
 
 | Valore di paese/area geografica | dati ospitati in |
 | -------------------- | ------------------------ |
-| Un paese EMEA come la Francia o lo zombia | Una o più aree di Azure in Europa |
-| Un paese del Nord America, ad esempio Stati Uniti o Canada | Una o più aree di Azure negli Stati Uniti |
-| Un paese APAC, ad esempio l'Australia o la Nuova | Una o più aree di Azure in Asia |
+| Paese/area EMEA, ad esempio Francia o Zambia | Una o più aree di Azure in Europa |
+| Un paese nordamericano, ad esempio Stati Uniti o Canada | Una o più aree di Azure negli Stati Uniti |
+| Un paese/regione APAC, ad esempio Australia o Nuova Zelanda | Una o più aree di Azure in Asia |
 | Aree America del Sud e Antartide | Una o più aree di Azure negli Stati Uniti |
 
 Il valore relativo al paese/all'area geografica viene impostato come parte del processo di creazione della directory Azure AD e non può essere modificato successivamente. Se sono necessarie altre informazioni sulla posizione di archiviazione dei dati, inviare un ticket al [supporto tecnico Azure](https://azure.microsoft.com/support/options/).
@@ -82,7 +82,7 @@ I dati vengono eliminati in modo esplicito quando un amministratore di Azure eli
 I dati a cui non è stato eseguito l'accesso per un anno ("periodo di conservazione") verranno considerati non aggiornati e potrebbero essere eliminati dal cloud Microsoft. Il periodo di conservazione è soggetto a modifiche ma non sarà inferiore a 90 giorni. I dati obsoleti possono essere un set specifico di impostazioni di Windows/dell'applicazione o tutte le impostazioni per un utente. Ad esempio:
 
 * Se nessun dispositivo accede a una raccolta specifica di impostazioni, ad esempio se un'applicazione viene rimossa dal dispositivo o un gruppo di impostazioni come "Tema" viene disabilitato per tutti i dispositivi di un utente, la raccolta diventa obsoleta dopo il periodo di conservazione e potrebbe essere eliminata. 
-* Se un utente ha disattivato la sincronizzazione delle impostazioni su tutti i dispositivi, non sarà possibile accedere a nessuno dei dati delle impostazioni e tutti i dati delle impostazioni per tale utente diventeranno obsoleti e potrebbero essere eliminati dopo il periodo di conservazione. 
+* Se un utente ha disattivato la sincronizzazione delle impostazioni in tutti i dispositivi, non verrà eseguito l'accesso a nessuno dei dati delle impostazioni e tutti i dati delle impostazioni per quell'utente diventeranno obsoleti e potranno essere eliminati dopo il periodo di conservazione. 
 * Se l'amministratore della directory di Azure AD disattiva il servizio Enterprise State Roaming per l'intera directory, tutti gli utenti in tale directory non sincronizzeranno più le impostazioni e tutti i dati delle impostazioni per tutti gli utenti diventeranno obsoleti e potranno essere eliminati allo scadere del periodo di conservazione. 
 
 ### <a name="deleted-data-recovery"></a>Recupero di dati eliminati

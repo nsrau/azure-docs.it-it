@@ -11,21 +11,21 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7b1ecfba0435f827c7c7a4d05da619998140bc6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186050"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definire attributi personalizzati in Azure Active Directory B2C
 
- Ogni applicazione che riguarda il cliente ha requisiti specifici per le informazioni che devono essere raccolte. Il tenant di Azure Active Directory B2C (Azure AD B2C) include un set predefinito di informazioni archiviate negli attributi, ad esempio Nome dato, Cognome, Città e Codice postale. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account cliente.
+ Ogni applicazione che riguarda il cliente ha requisiti specifici per le informazioni che devono essere raccolte. Il tenant di Azure Active Directory B2C (Azure AD B2C) viene fornito con un set predefinito di informazioni archiviate negli attributi, ad esempio nome, cognome, città e codice postale specificati. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account cliente.
 
- È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei flussi utente di iscrizione, nei flussi utente di iscrizione o accesso oppure nei flussi utente di modifica del profilo. È inoltre possibile leggere e scrivere questi attributi utilizzando [l'API Microsoft Graph](manage-user-accounts-graph-api.md).
+ È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei flussi utente di iscrizione, nei flussi utente di iscrizione o accesso oppure nei flussi utente di modifica del profilo. È anche possibile leggere e scrivere questi attributi usando l' [API Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ## <a name="create-a-custom-attribute"></a>Creare un attributo personalizzato
 
-1. Accedere al [portale](https://portal.azure.com/) di Azure come amministratore globale del tenant B2C di Azure AD.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure ad B2C.
 2. Assicurarsi di usare la directory contenente il tenant Azure AD B2C passando a tale directory nell'angolo in alto a destra del portale di Azure. Selezionare le informazioni sulla sottoscrizione e quindi selezionare **Cambia directory**.
 
     ![Passare al tenant di Azure AD B2C](./media/user-flow-custom-attributes/switch-directories.png)
@@ -51,4 +51,4 @@ L'attributo personalizzato è ora disponibile nell'elenco degli **Attributi uten
 1. Fare clic su **Attestazioni dell'applicazione** e selezionare l'attributo personalizzato.
 1. Fare clic su **Salva**.
 
-Dopo aver creato un nuovo utente utilizzando un flusso utente che utilizza l'attributo personalizzato appena creato, è possibile eseguire una query sull'oggetto in [Esplora risorse di Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). In alternativa, è possibile utilizzare la funzionalità [Esegui flusso utente](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.
+Dopo aver creato un nuovo utente usando un flusso utente che usa l'attributo personalizzato appena creato, l'oggetto può essere sottoposto a query in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). In alternativa, è possibile usare la funzionalità [Esegui flusso utente](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.

@@ -11,10 +11,10 @@ ms.date: 08/27/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186489"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
@@ -57,7 +57,7 @@ Nella tabella seguente sono elencate le attestazioni che è possibile prevedere 
 | Ora di emissione | `iat` | `1438535543` | Ora in cui il token è stato generato, rappresentata dal valore epoch time. |
 | Scadenza | `exp` | `1438539443` | Ora in cui il token non è più valido, rappresentata dal valore epoch time. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. |
 | Non prima | `nbf` | `1438535543` | L’ora in cui il token diventa valido, rappresentata dal valore epoch time. Questa volta è in genere uguale all'ora in cui è stato emesso il token. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. |
-| Version | `ver` | `1.0` | Versione del token ID, come definito da Azure AD B2C. |
+| Versione | `ver` | `1.0` | Versione del token ID, come definito da Azure AD B2C. |
 | Hash del codice | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash di codice incluso in un token ID solo quando il token viene emesso insieme a un codice di autorizzazione OAuth 2,0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per ulteriori informazioni su come eseguire questa convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash del token di accesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash del token di accesso incluso in un token ID solo quando il token viene emesso insieme a un token di accesso OAuth 2,0. Può essere usato per convalidare l'autenticità di un token di accesso. Per ulteriori informazioni su come eseguire questa convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | Strategia per ridurre gli attacchi di riproduzione dei token. L'applicazione può specificare un parametro nonce in una richiesta di autorizzazione tramite `nonce` il parametro di query. Il valore fornito nella richiesta viene generato senza modifiche nell' `nonce` attestazione solo di un token ID. Questa attestazione consente all'applicazione di verificare il valore rispetto al valore specificato nella richiesta. L'applicazione deve eseguire la convalida durante il processo di convalida del token ID. |

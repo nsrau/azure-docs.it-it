@@ -1,5 +1,5 @@
 ---
-title: Problemi noti relativi alla conformità del protocollo SCIM 2.0 - Azure ADKnown issues with SCIM 2.0 protocol compliance - Azure AD
+title: Problemi noti relativi alla conformità del protocollo SCIM 2,0-Azure AD
 description: Risoluzione dei problemi comuni di compatibilità con il protocollo riscontrati durante l'aggiunta in Azure AD di un'applicazione non inclusa nella raccolta che supporta SCIM 2.0
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff0d4f8f0062c00351b60174c63d9c19bdfa15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77522935"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
@@ -36,7 +36,7 @@ In questo articolo sono descritti i problemi correnti e passati relativi alla co
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemi di conformità con SCIM 2.0 e stato
 
-| **Problema di conformità con SCIM 2.0** |  **Fisso?** | **Data di risoluzione**  |  
+| **Problema di conformità con SCIM 2.0** |  **Fissa?** | **Data di risoluzione**  |  
 |---|---|---|
 | In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Sì  |  18 dicembre 2018 | 
 | Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Sì  | 18 dicembre 2018  | 
@@ -66,7 +66,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Ottieni processi](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Ottieni processi") 
+   ![Ottenere i processi](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Ottenere i processi") 
 
 
 6. Nei risultati, copiare la stringa "ID" completa che inizia con "customappsso" o "scim".
@@ -74,7 +74,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Ottenere lo schemaGet Schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Ottenere lo schemaGet Schema") 
+   ![Ottenere lo schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Ottenere lo schema") 
 
 8. Copiare l'output JSON dall'ultimo passaggio e salvarlo in un file di testo. Questo file contiene tutti i mapping degli attributi personalizzati aggiunti all’app precedente e include alcune migliaia di righe di JSON.
 9. Eseguire il comando seguente per eliminare il processo di provisioning:

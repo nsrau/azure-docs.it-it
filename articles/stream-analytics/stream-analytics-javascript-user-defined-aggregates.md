@@ -8,19 +8,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.openlocfilehash: c509d174787a58abeee33e039eb7bbbcbcb43f38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79531735"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Aggregazioni definite dall'utente JavaScript di Azure Stream AnalyticsAzure Stream Analytics JavaScript user-defined aggregates
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Funzioni di aggregazione JavaScript definite dall'utente in analisi di flusso di Azure
  
 Analisi di flusso di Azure supporta le aggregazioni definite dall'utente (UDA) scritte in JavaScript e ciò consente di implementare la logica di business con stato complessa. Le aggregazioni definite dall'utente garantiscono il controllo completo su strutture di dati sullo stato, accumulo di stati, decumulazione di stati e calcolo dei risultati dell'aggregazione. Nell'articolo sono descritte le due diverse interfacce JavaScript per aggregazioni definite dall'utente, le procedure per creare un'aggregazione definita dall'utente e come utilizzare questo tipo di aggregazione con operazioni basate su finestre temporali in query di Analisi di flusso di Azure.
 
 ## <a name="javascript-user-defined-aggregates"></a>aggregazioni JavaScript definite dall'utente
 
-Un'aggregazione definita dall'utente viene usata su una finestra temporale specifica per aggregare gli eventi in tale finestra e generare un unico valore di risultato. Esistono due tipi di interfacce per l'aggregazione definita dall'utente attualmente supportati in Analisi di flusso di Azure, ovvero AccumulateOnly e AccumulateDeaccumulate. Entrambi i tipi di UDA possono essere utilizzati da Tumbling, Hopping, Sliding e Session Window. AccumulateDeaccumulate UDA offre prestazioni migliori rispetto a AccumulateOnly UDA quando viene utilizzato insieme a Hopping, Sliding e finestra di sessione. Scegliere uno dei due tipi in base all'algoritmo usato.
+Un'aggregazione definita dall'utente viene usata su una finestra temporale specifica per aggregare gli eventi in tale finestra e generare un unico valore di risultato. Esistono due tipi di interfacce per l'aggregazione definita dall'utente attualmente supportati in Analisi di flusso di Azure, ovvero AccumulateOnly e AccumulateDeaccumulate. Entrambi i tipi di aggregazione definita dall'utente possono essere utilizzati da una finestra a cascata, a salto, a scorrimento e a sessione. Tipo accumulatedeaccumulate UDA offre prestazioni migliori rispetto a tipo accumulateonly UDA quando viene usato insieme a una finestra di salto, scorrevole e di sessione. Scegliere uno dei due tipi in base all'algoritmo usato.
 
 ### <a name="accumulateonly-aggregates"></a>Aggregazioni di tipo AccumulateOnly
 
@@ -98,7 +98,7 @@ Il metodo init() inizializza lo stato dell'aggregazione. Questo metodo viene chi
 
 ### <a name="method--accumulate"></a>Metodo accumulate()
 
-Il metodo accumulate() calcola lo stato dell'aggregazione definita dall'utente in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento entra in un intervallo di tempo (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
+Il metodo accumulate() calcola lo stato dell'aggregazione definita dall'utente in base allo stato precedente e ai valori di evento correnti. Questo metodo viene chiamato quando un evento entra in una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ### <a name="method--deaccumulate"></a>Metodo deaccumulate()
 
@@ -110,7 +110,7 @@ Il metodo deaccumulateState() ricalcola lo stato in base allo stato precedente e
 
 ### <a name="method--computeresult"></a>Metodo computeResult()
 
-Il metodo computeResult() restituisce il risultato dell'aggregazione in base allo stato corrente. Questo metodo viene chiamato alla fine di un intervallo di tempo (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
+Il metodo computeResult() restituisce il risultato dell'aggregazione in base allo stato corrente. Questo metodo viene chiamato alla fine di una finestra temporale (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW o SESSIONWINDOW).
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>Tipi di dati di input e output supportati dall'aggregazione JavaScript definita dall'utente
 Per i tipi di dati delle aggregazioni JavaScript definite dall'utente, vedere la sezione **Conversione dei tipi di Analisi di flusso di Azure e JavaScript** in [Integrare funzioni UDF di JavaScript](stream-analytics-javascript-user-defined-functions.md).
@@ -119,7 +119,7 @@ Per i tipi di dati delle aggregazioni JavaScript definite dall'utente, vedere la
 
 Di seguito viene descritto il processo di creazione di un'aggregazione definita dall'utente dal portale. In questo esempio vengono calcolate caso è calcolare le medie ponderate nel tempo.
 
-Ora creiamo un UDA JavaScript in un processo ASA esistente seguendo i passaggi.
+A questo punto è possibile creare un'aggregazione definita dall'utente JavaScript in un processo ASA esistente attenendosi alla procedura seguente.
 
 1. Accedere al portale di Azure e individuare il processo di Analisi di flusso di Azure esistente.
 1. Fare clic sul collegamento alle funzioni in **PROCESSO TOPOLOGIA**.
@@ -230,7 +230,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sull'API REST di gestione di Azure Stream AnalyticsAzure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Riferimento all'API REST di gestione di analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

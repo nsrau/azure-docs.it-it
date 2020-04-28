@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 80e5166775b0cf5acbfce32e61d91c0889e3b086
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186361"
 ---
 Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
@@ -23,7 +23,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 1. Immettere un nome per l'applicazione. Ad esempio, *testapp1*.
 1. Per **App Web/API Web** selezionare **Sì**.
 1. Per **URL di risposta**immettere`https://jwt.ms`
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 

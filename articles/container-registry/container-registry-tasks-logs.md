@@ -4,10 +4,10 @@ description: Come visualizzare e gestire i log di esecuzione generati dalle atti
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246968"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visualizzare e gestire i log di esecuzione delle attività

@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77188713"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB 
 
-Con **Time to Live** o TTL, Azure Cosmos DB offre la possibilità di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per impostazione predefinita, è possibile impostare la durata a livello di contenitore ed eseguire l'override del valore per singolo elemento. Dopo aver impostato la durata a livello di contenitore o di elemento, Azure Cosmos DB rimuove automaticamente questi elementi dopo il periodo di tempo specificato, a partire dall'ora dell'ultima modifica. Il valore TTL viene configurato in secondi. Quando si configura TTL, il sistema eliminerà automaticamente gli elementi scaduti in base al valore TTL, senza che sia necessaria un'operazione di eliminazione emessa in modo esplicito dall'applicazione client.
+Con **time to Live** o TTL, Azure Cosmos DB consente di eliminare automaticamente gli elementi da un contenitore dopo un determinato periodo di tempo. Per impostazione predefinita, è possibile impostare la durata a livello di contenitore ed eseguire l'override del valore per singolo elemento. Dopo aver impostato la durata a livello di contenitore o di elemento, Azure Cosmos DB rimuove automaticamente questi elementi dopo il periodo di tempo specificato, a partire dall'ora dell'ultima modifica. Il valore TTL viene configurato in secondi. Quando si configura la durata (TTL), il sistema eliminerà automaticamente gli elementi scaduti in base al valore TTL, senza che sia necessaria un'operazione di eliminazione rilasciata in modo esplicito dall'applicazione client.
 
-L'eliminazione degli elementi scaduti è un'attività in background che utilizza unità di [richiesta](request-units.md)rimanenti, ovvero unità richiesta che non sono state utilizzate dalle richieste dell'utente. Anche dopo che il valore TTL è scaduto, se il contenitore è sovraccarico di richieste e se non sono disponibili abbastanza RU, l'eliminazione dei dati viene ritardata. I dati vengono eliminati una volta che sono disponibili abbastanza RU per eseguire l'operazione di eliminazione. Anche se l'eliminazione dei dati viene ritardata, i dati non vengono restituiti da alcuna query (da qualsiasi API) dopo la scadenza del TTL.
+L'eliminazione degli elementi scaduti è un'attività in background che utilizza le [unità richiesta](request-units.md)rimaste, ovvero le unità richiesta che non sono state utilizzate dalle richieste dell'utente. Anche dopo la scadenza della durata (TTL), se il contenitore viene sottoposta a overload con le richieste e se non è disponibile un numero sufficiente di UR, l'eliminazione dei dati viene posticipata. I dati vengono eliminati quando sono disponibili ur sufficienti per eseguire l'operazione di eliminazione. Anche se l'eliminazione dei dati viene posticipata, i dati non vengono restituiti da alcuna query (da alcuna API) dopo la scadenza della durata (TTL).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durata (TTL) per contenitori ed elementi
 
-Il valore di durata viene impostato in secondi e viene interpretato come un delta dal momento dell'ultima modifica di un elemento. È possibile impostare la durata per un contenitore o un elemento all'interno del contenitore:
+Il valore di durata (TTL) viene impostato in secondi e viene interpretato come un delta rispetto al momento dell'Ultima modifica di un elemento. È possibile impostare la durata per un contenitore o un elemento all'interno del contenitore:
 
 1. **Durata (TTL) per un contenitore** (impostata tramite `DefaultTimeToLive`):
 
    - Se non è presente o è impostata su Null, gli elementi non scadono automaticamente.
 
-   - Se presente e il valore è impostato su "-1", è uguale a infinito e gli elementi non scadono per impostazione predefinita.
+   - Se è presente e il valore è impostato su "-1", è uguale a infinito e gli elementi non scadono per impostazione predefinita.
 
-   - Se presente e il valore è impostato su un certo numero *"n",* gli elementi scadranno *"n"* secondi dopo l'ora dell'ultima modifica.
+   - Se è presente e il valore è impostato su un numero *"n"* – gli elementi scadranno *"n"* secondi dopo l'ora dell'Ultima modifica.
 
 2. **Durata (TTL) per un elemento** (impostata tramite `ttl`):
 
@@ -40,7 +40,7 @@ Il valore di durata viene impostato in secondi e viene interpretato come un delt
 
 ## <a name="time-to-live-configurations"></a>Configurazioni della durata (TTL)
 
-* Se TTL è impostato su *"n"* in un contenitore, gli elementi in tale contenitore scadranno dopo *n* secondi.  Se sono presenti elementi nello stesso contenitore che hanno il proprio tempo di vita, impostato su -1 (che indica che non scadono) o se alcuni elementi hanno eseguito l'override dell'impostazione di tempo per vivere con un numero diverso, questi elementi scadono in base al proprio valore TTL configurato. 
+* Se la funzione TTL è impostata su *"n"* in un contenitore, gli elementi del contenitore scadranno dopo *n* secondi.  Se sono presenti elementi nello stesso contenitore che hanno una propria durata, impostare su-1 (indicando che non scadono) o se alcuni elementi hanno eseguito l'override dell'impostazione Time to Live con un numero diverso, questi elementi scadono in base al relativo valore TTL configurato. 
 
 * Se la durata (TTL) non è impostata per un contenitore, la durata impostata per un elemento all'interno del contenitore non ha alcun effetto. 
 
@@ -48,42 +48,42 @@ Il valore di durata viene impostato in secondi e viene interpretato come un delt
 
 ## <a name="examples"></a>Esempi
 
-Questa sezione mostra alcuni esempi con diversi valori di tempo di vita assegnati al contenitore e agli elementi:This section shows some examples with different time to live values assigned to container and items:
+Questa sezione illustra alcuni esempi con valori di durata (TTL) diversi assegnati a contenitori ed elementi:
 
 ### <a name="example-1"></a>Esempio 1
 
-TTL sul contenitore è impostato su null (DefaultTimeToLive - null)
+TTL sul contenitore è impostato su null (DefaultTimeToLive = null)
 
-|TTL sull'articolo| Risultato|
+|TTL sull'elemento| Risultato|
 |---|---|
-|ttl - null|    TTL è disabilitato. L'elemento non scadrà mai (impostazione predefinita).|
-|ttl - -1   |TTL è disabilitato. L'elemento non scadrà mai.|
-|ttl - 2000 |TTL è disabilitato. L'elemento non scadrà mai.|
+|TTL = null|    TTL è disabilitato. L'elemento non scadrà mai (impostazione predefinita).|
+|TTL =-1   |TTL è disabilitato. L'elemento non scadrà mai.|
+|TTL = 2000 |TTL è disabilitato. L'elemento non scadrà mai.|
 
 
 ### <a name="example-2"></a>Esempio 2
 
-TTL nel contenitore è impostato su -1 (DefaultTimeToLive - -1)
+TTL sul contenitore è impostato su-1 (DefaultTimeToLive =-1)
 
-|TTL sull'articolo| Risultato|
+|TTL sull'elemento| Risultato|
 |---|---|
-|ttl - null |TTL è abilitato. L'elemento non scadrà mai (impostazione predefinita).|
-|ttl - -1   |TTL è abilitato. L'elemento non scadrà mai.|
-|ttl - 2000 |TTL è abilitato. L'elemento scadrà dopo 2000 secondi.|
+|TTL = null |TTL è abilitato. L'elemento non scadrà mai (impostazione predefinita).|
+|TTL =-1   |TTL è abilitato. L'elemento non scadrà mai.|
+|TTL = 2000 |TTL è abilitato. L'elemento scadrà dopo 2000 secondi.|
 
 
 ### <a name="example-3"></a>Esempio 3
 
-TTL nel contenitore è impostato su 1000 (DefaultTimeToLive - 1000)
+TTL sul contenitore è impostato su 1000 (DefaultTimeToLive = 1000)
 
-|TTL sull'articolo| Risultato|
+|TTL sull'elemento| Risultato|
 |---|---|
-|ttl - null|    TTL è abilitato. L'elemento scadrà dopo 1000 secondi (impostazione predefinita).|
-|ttl - -1   |TTL è abilitato. L'elemento non scadrà mai.|
-|ttl - 2000 |TTL è abilitato. L'elemento scadrà dopo 2000 secondi.|
+|TTL = null|    TTL è abilitato. L'elemento scadrà dopo 1000 secondi (impostazione predefinita).|
+|TTL =-1   |TTL è abilitato. L'elemento non scadrà mai.|
+|TTL = 2000 |TTL è abilitato. L'elemento scadrà dopo 2000 secondi.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri come configurare Time to Live nei seguenti articoli:
+Informazioni su come configurare il time to Live negli articoli seguenti:
 
 * [Come configurare la durata (TTL)](how-to-time-to-live.md)

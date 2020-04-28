@@ -9,10 +9,10 @@ ms.date: 02/18/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e950d194ab48cec1a70c7bd17617332cb858a55d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77485683"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. creare il tenant di Azure AD
@@ -128,7 +128,7 @@ In questo passaggio si registrano applicazioni aggiuntive per diversi utenti e g
 
 Assegnare gli utenti alle applicazioni.
 
-1. In **applicazioni aziendali Azure AD >** selezionare l'applicazione appena registrata e fare clic su **Proprietà**. Verificare che l' **assegnazione utente sia obbligatoria?** sia impostata su **Sì**. Fare clic su **Save**.
+1. In **applicazioni aziendali Azure AD >** selezionare l'applicazione appena registrata e fare clic su **Proprietà**. Verificare che l' **assegnazione utente sia obbligatoria?** sia impostata su **Sì**. Fare clic su **Salva**.
 
     ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 

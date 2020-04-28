@@ -1,6 +1,6 @@
 ---
-title: ASIN nel linguaggio di query del database Cosmos di AzureASIN in Azure Cosmos DB query language
-description: Informazioni su come la funzione del sistema SQL Arcsine (ASIN) in Azure Cosmos DB restituisce l'angolo, in radianti, il cui seno è l'espressione numerica specificata
+title: ASIN nel linguaggio di query Azure Cosmos DB
+description: Informazioni sul modo in cui la funzione di sistema SQL arcoseno (ASIN) in Azure Cosmos DB restituisce l'angolo, in radianti, il cui seno è l'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8b70738a439b6c64a84a63adf63c83995530e92e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302696"
 ---
 # <a name="asin-azure-cosmos-db"></a>ASIN (Azure Cosmos DB)
@@ -34,7 +34,7 @@ ASIN(<numeric_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `ASIN` viene restituito il valore di -1.  
+  Nell'esempio seguente viene restituito `ASIN` l'oggetto di-1.  
   
 ```sql
 SELECT ASIN(-1) AS asin  

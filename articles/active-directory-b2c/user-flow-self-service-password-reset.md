@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d6dad52c8a3e63c64bb8e0e0030e8c50b5bab42c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78183109"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurare la reimpostazione self-service della password per i clienti
@@ -30,7 +30,7 @@ Per impostazione predefinita, per la directory personale la reimpostazione self-
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione. Si tratta dello stesso account aziendale o dell'istituto d'istruzione o dello stesso account Microsoft usato per la creazione della directory.
 2. Aprire **Azure Active Directory** (nella barra di spostamento sul lato sinistro).
-3. Scorrere verso il basso nel pannello delle opzioni e selezionare **Reimpostazione password**.
+3. Scorrere verso il basso nel pannello Opzioni e selezionare **reimpostazione password**.
 4. Impostare **Reimpostazione password self-service abilitata** su **Tutte**.
 5. Fare clic su **Salva** nella parte superiore della pagina. L'operazione è completata.
 

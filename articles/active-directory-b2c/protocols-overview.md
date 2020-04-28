@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78183906"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>AD B2C Azure: protocolli di autenticazione
@@ -28,7 +28,7 @@ Le informazioni in questa guida sono utili se si scrive codice inviando e gesten
 Ogni app che usa Azure AD B2C deve essere registrata nella directory B2C del [portale di Azure](https://portal.azure.com). Il processo di registrazione app raccoglie e assegna all'app alcuni valori:
 
 * Un **ID applicazione** che identifica l'app in modo univoco.
-* UN URI di **reindirizzamento** o **un identificatore** di pacchetto che può essere usato per indirizzare le risposte all'app.
+* Un **URI di reindirizzamento** o un **identificatore di pacchetto** che può essere usato per indirizzare le risposte all'app.
 * Altri valori specifici dello scenario Per maggiori informazioni, vedere [Come registrare l'applicazione](tutorial-register-applications.md).
 
 Dopo la registrazione, l'app comunica con Azure Active Directory (Azure AD) inviando richieste all'endpoint:
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 In quasi tutti i flussi di OAuth e OpenID Connect sono coinvolte nello scambio quattro parti:
 
-![Diagramma che mostra i quattro ruoli OAuth 2.0](./media/protocols-overview/protocols_roles.png)
+![Diagramma che illustra i quattro ruoli OAuth 2,0](./media/protocols-overview/protocols_roles.png)
 
 * Il **server di autorizzazione** è l'endpoint di Azure AD. Gestisce in modo sicuro tutto ciò che ha a che fare con l'accesso e le informazioni sull'utente, nonché le relazioni di trust tra le parti in un flusso. Verifica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. È anche noto come provider di identità.
 
@@ -48,7 +48,7 @@ In quasi tutti i flussi di OAuth e OpenID Connect sono coinvolte nello scambio q
 
 * Il **client OAuth** è l'app ed è identificato dal relativo ID applicazione. Si tratta in genere dell’entità con cui interagiscono gli utenti finali. Richiede i token dal server di autorizzazione. Il proprietario della risorsa deve concedere al client l'autorizzazione ad accedere alla risorsa.
 
-* Il **server delle risorse** è il punto in cui risiedono la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. Usa i token di accesso di connessione per fare in modo che sia possibile concedere l'accesso a una risorsa.
+* Il **server di risorse** è il percorso in cui si trovano la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. Usa i token di accesso di connessione per fare in modo che sia possibile concedere l'accesso a una risorsa.
 
 ## <a name="policies-and-user-flows"></a>Criteri e flussi utente
 I criteri di Azure AD B2C sono probabilmente la caratteristica più importante del servizio. Azure AD B2C estende i protocolli OAuth 2.0 e OpenID Connect standard con l'introduzione dei criteri. Questi consentono ad Azure AD B2C di andare oltre la semplice autenticazione e autorizzazione.

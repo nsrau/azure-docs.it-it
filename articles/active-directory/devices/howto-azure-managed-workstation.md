@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672613"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuire una workstation protetta gestita da Azure
@@ -71,7 +71,7 @@ Richiedere l'autenticazione a più fattori, almeno per gli amministratori. Veder
    * **Nome utente** - `secure-ws-admin@identityitpro.com`
    * **Ruolo** - della directory con**privilegi di amministratore limitato** e selezionare il ruolo di **amministratore di Intune** .
 
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 
 Si creeranno quindi due gruppi: utenti workstation e dispositivi workstation.
 
@@ -86,14 +86,14 @@ Dalla portale di Azure individuare **Azure Active Directory** > **gruppi** > **n
 
 1. Aggiungere l'utente amministratore della workstation protetta:`secure-ws-admin@identityitpro.com`
 1. È possibile aggiungere altri utenti che gestiranno le workstation protette.
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 1. Per il gruppo dispositivi workstation, immettere:
 
    * **Tipo di gruppo** -sicurezza
    * **Nome gruppo** -workstation sicure
    * **Tipo di appartenenza** : assegnato
 
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="azure-ad-device-configuration"></a>Configurazione del dispositivo Azure AD
 
@@ -200,7 +200,7 @@ Nel portale di Azure:
    * Promemoria riavvio attivato per Snooze (giorni)- **3**
    * Imposta la scadenza per i riavvii in sospeso (giorni)- **3**
 
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 1. Nella scheda **assegnazioni** aggiungere il gruppo **workstation sicure** .
 
 Per ulteriori informazioni sui criteri di Windows Update, vedere [policy CSP-Update](/windows/client-management/mdm/policy-csp-update).
@@ -290,7 +290,7 @@ In alcune situazioni, le applicazioni come il browser Google Chrome sono necessa
 1. Nella **portale di Azure** passare a **Microsoft Intune** > app**client** > **Apps** > app**Aggiungi**.
 1. In **tipo di app**scegliere **line-of-business**.
 1. In **file pacchetto app**selezionare il `GoogleChromeStandaloneEnterprise64.msi` file dal percorso estratto e selezionare **OK**.
-1. In **informazioni sull'app**specificare una descrizione e un server di pubblicazione. Fare clic su **OK**.
+1. In **informazioni sull'app**specificare una descrizione e un server di pubblicazione. Selezionare **OK**.
 1. Selezionare **Aggiungi**.
 1. Nella scheda **assegnazioni** selezionare **disponibile per i dispositivi registrati** in **tipo di assegnazione**.
 1. In **gruppi inclusi**aggiungere il gruppo **workstation sicure** .
@@ -341,8 +341,8 @@ Lo script [SetDesktopBackground. ps1](https://gallery.technet.microsoft.com/scri
 1. Fornire un **nome** per lo script e specificare il **percorso dello script**.
 1. Selezionare **Configura**.
    1. Impostare **Esegui questo script utilizzando le credenziali di accesso su** **Sì**.
-   1. Fare clic su **OK**.
-1. Seleziona **Crea**.
+   1. Selezionare **OK**.
+1. Selezionare **Create** (Crea).
 1. Selezionare **assegnazioni** > **selezionare gruppi**.
    1. Aggiungere le **workstation protette**del gruppo di sicurezza.
    1. Selezionare **Salva**.
@@ -428,8 +428,8 @@ Distribuire l'agente MMA con lo script di PowerShell per Intune
 1. Fornire un **nome** per lo script e specificare il **percorso dello script**.
 1. Selezionare **Configura**.
    1. Impostare **Esegui questo script utilizzando le credenziali di accesso su** **Sì**.
-   1. Fare clic su **OK**.
-1. Seleziona **Crea**.
+   1. Selezionare **OK**.
+1. Selezionare **Create** (Crea).
 1. Selezionare **assegnazioni** > **selezionare gruppi**.
    1. Aggiungere le **workstation protette**del gruppo di sicurezza.
    1. Selezionare **Salva**.

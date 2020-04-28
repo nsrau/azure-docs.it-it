@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261047"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
@@ -31,7 +31,7 @@ ms.locfileid: "79261047"
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Azione | Comment |
+| Azione | Commento |
 | --- | --- |
 | Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
 | Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
@@ -45,7 +45,7 @@ La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sinc
 | Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
 | [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e seguire un oggetto e i relativi dati attraverso il sistema. |
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 L'azione di eliminazione viene usata per due scopi diversi.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
@@ -84,9 +84,9 @@ Per risolvere il problema, aggiornare l'account utente di Active Directory Domai
 </br>![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
 2. Passare alla scheda **Connettori**.
 3. Selezionare il connettore di Active Directory configurato per usare l'account di Active Directory Domain Services.
-4. In Azioni selezionare **Proprietà**.
+4. In azioni selezionare **Proprietà**.
 5. Nella finestra di dialogo popup, selezionare Connetti a Foresta Active Directory:
-6. Il nome della foresta indica l'AD locale corrispondente.
+6. Il nome della foresta indica l'annuncio locale corrispondente.
 7. Il nome utente indica l'account di Active Directory Domain Services usato per la sincronizzazione.
 8. Immettere la nuova password dell'account di Active Directory Domain Services nella casella di testo Password ![Utility per la chiave di crittografia per la sincronizzazione Azure AD Connect](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Fare clic su OK per salvare la nuova password e riavviare il servizio di sincronizzazione per rimuovere la vecchia password dalla cache in memoria.

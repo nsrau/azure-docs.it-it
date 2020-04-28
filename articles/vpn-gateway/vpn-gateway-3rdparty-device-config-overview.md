@@ -1,5 +1,5 @@
 ---
-title: Configurazioni dei dispositivi VPN partner per la connessione ai gateway VPN di AzurePartner VPN device configurations for connecting to Azure VPN gateways
+title: Configurazioni del dispositivo VPN del partner per la connessione ai gateway VPN di Azure
 description: Questo articolo offre una panoramica delle configurazioni di dispositivi VPN di partner per la connessione ai gateway VPN di Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279403"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Panoramica delle configurazioni di dispositivi VPN di partner
@@ -111,7 +111,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name="optional-use-custom-ipsecike-policy-with-usepolicybasedtrafficselectors"></a><a name ="policybased"></a>(Facoltativo) Utilizzare criteri IPsec/IKE personalizzati con UsePolicyBasedTrafficSelectors
+### <a name="optional-use-custom-ipsecike-policy-with-usepolicybasedtrafficselectors"></a><a name ="policybased"></a>Opzionale Usare i criteri IPsec/IKE personalizzati con UsePolicyBasedTrafficSelectors
 Se i dispositivi VPN non supportano selettori di traffico "any-to-any", ad esempio le configurazioni basate su route o VTI, creare criteri IPsec/IKE personalizzati con l'opzione [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name="optional-use-bgp-on-s2s-vpn-connection"></a><a name ="bgp"></a>(Facoltativo) Usa BGP su una connessione VPN S2S
+### <a name="optional-use-bgp-on-s2s-vpn-connection"></a><a name ="bgp"></a>Opzionale Usare BGP nella connessione VPN S2S
 Quando si crea la connessione VPN S2S, è facoltativamente possibile usare il protocollo [BGP per il gateway VPN](vpn-gateway-bgp-resource-manager-ps.md). Questo approccio presenta due differenze:
 
 * I prefissi degli indirizzi locali possono essere costituiti da un indirizzo host singolo. L'indirizzo IP del peer BGP locale viene specificato come segue:

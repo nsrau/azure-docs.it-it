@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78399287"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Risoluzione degli errori dell'API di creazione report di Azure Active Directory
 
-In questo articolo vengono elencati i messaggi di errore comuni che possono verificarsi durante l'accesso ai report di attività utilizzando l'API Microsoft Graph e la procedura per la loro risoluzione.
+Questo articolo elenca i messaggi di errore comuni che possono verificarsi durante l'accesso ai report attività usando l'API Microsoft Graph e i passaggi per la risoluzione.
 
 ### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Errore interno 500 del server HTTP durante l'accesso all'endpoint Microsoft Graph versione 2
 
@@ -44,11 +44,11 @@ Se viene visualizzato questo messaggio di errore durante il tentativo di acceder
 
 Seguire i passaggi descritti in [Prerequisiti di accesso all'API di creazione report di Azure AD](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione venga eseguita con il set di autorizzazioni corretto. 
 
-### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Errore: applicazione mancante Microsoft Graph API 'Leggi tutti i dati del log di controllo' autorizzazione
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Errore: l'applicazione manca l'autorizzazione Microsoft Graph ' lettura di tutti i dati del log di controllo ' dell'API
 
 Seguire i passaggi descritti in [Prerequisiti di accesso all'API di creazione report di Azure AD](howto-configure-prerequisites-for-reporting-api.md) per assicurarsi che l'applicazione venga eseguita con il set di autorizzazioni corretto. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Usare il riferimento all'API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-di controllo Usare il riferimento all'API del report attività di accessoUse the audit API reference[Use the sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[di controllo usare il riferimento API del report sull'attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

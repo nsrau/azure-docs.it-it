@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
 ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249594"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ambito della query di log e intervallo di tempo in monitoraggio di Azure Log Analytics
@@ -32,7 +32,7 @@ L'ambito è determinato dal metodo usato per avviare Log Analytics e in alcuni c
 | Applicazione Application Insights | Tutti i record nell'applicazione Application Insights. | Selezionare **Analytics** dalla pagina **Panoramica** di Application Insights. | È possibile modificare l'ambito solo in un'altra applicazione Application Insights. |
 | Resource group | Record creati da tutte le risorse nel gruppo di risorse. Può includere dati da più aree di lavoro Log Analytics. | Selezionare **registri** dal menu gruppo di risorse. | Impossibile modificare l'ambito.|
 | Subscription | Record creati da tutte le risorse nella sottoscrizione. Può includere dati da più aree di lavoro Log Analytics. | Selezionare **registri** dal menu sottoscrizione.   | Impossibile modificare l'ambito. |
-| Altre risorse di Azure | Record creati dalla risorsa. Può includere dati da più aree di lavoro Log Analytics.  | Selezionare **registri** dal menu risorsa.<br>O<br>Selezionare **registri** dal menu **monitoraggio di Azure** e quindi selezionare un nuovo ambito. | Può solo modificare l'ambito con lo stesso tipo di risorsa. |
+| Altre risorse di Azure | Record creati dalla risorsa. Può includere dati da più aree di lavoro Log Analytics.  | Selezionare **registri** dal menu risorsa.<br>OR<br>Selezionare **registri** dal menu **monitoraggio di Azure** e quindi selezionare un nuovo ambito. | Può solo modificare l'ambito con lo stesso tipo di risorsa. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitazioni per l'ambito di una risorsa
 

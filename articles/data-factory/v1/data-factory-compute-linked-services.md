@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281548"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
@@ -29,15 +29,15 @@ La tabella seguente presenta un elenco degli ambienti di calcolo supportati da D
 | Ambiente di calcolo                      | attività                               |
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster HDInsight di Azure on demand](#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](#azure-batch-linked-service) | [Dotnet](data-factory-use-custom-activities.md) |
+| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
-| [Analisi di Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Attività stored procedure](data-factory-stored-proc-activity.md) |
 
 ## <a name="hdinsight-versions-supported-in-data-factory"></a><a name="supported-hdinsight-versions-in-azure-data-factory"></a>Versioni di HDInsight supportate in Data Factory
 Azure HDInsight supporta più versioni del cluster Hadoop che è possibile distribuire in qualsiasi momento. Ogni versione supportata crea una versione specifica della distribuzione HDP (Hortonworks Data Platform) e un set di componenti contenuti nella distribuzione. 
 
-Microsoft aggiorna l'elenco delle versioni di HDInsight supportate con i componenti dell'ecosistema Hadoop e le correzioni più recenti. Per informazioni dettagliate, vedere [Versioni di HDInsight supportate](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
+Microsoft aggiorna l'elenco delle versioni di HDInsight supportate con i componenti dell'ecosistema Hadoop e le correzioni più recenti. Per informazioni dettagliate, vedere [versioni supportate di HDInsight](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
 > HDInsight versione 3.3 per Linux è stato ritirato il 31 luglio 2017. I clienti dei servizi collegati HDInsight on demand di Data Factory versione 1 hanno avuto tempo fino al 15 dicembre 2017 per testare ed eseguire l'aggiornamento a una versione di HDInsight più recente. Il 31 luglio 2018 verrà ritirato HDInsight per Windows.
@@ -123,7 +123,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | Impostare la proprietà type su **HDInsightOnDemand**. | Sì      |
 | clusterSize                  | Numero di nodi del ruolo di lavoro e di dati nel cluster. Il cluster HDInsight viene creato con 2 nodi head, oltre al numero di nodi del ruolo di lavoro specificato per questa proprietà. I nodi sono di dimensione Standard_D3, con 4 core. Un cluster di 4 nodi del ruolo di lavoro ha 24 core, ossia 4\*4 = 16 core per i nodi del ruolo di lavoro + 2\*4 = 8 core per i nodi head. Per informazioni dettagliate sul livello Standard_D3, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sì      |
-| timeToLive                   | Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight on demand rimane attivo quando un'esecuzione attività viene completata, se non sono presenti altri processi attivi del cluster.<br /><br />Ad esempio, se l'esecuzione di un'attività richiede 6 minuti e **timeToLive** è impostato su 5 minuti, il cluster rimane attivo per 5 minuti dopo i 6 minuti di elaborazione dell'attività eseguita. Se un'altra attività viene eseguita nella finestra di 6 minuti, viene elaborata dallo stesso cluster.<br /><br />La creazione di un cluster HDInsight su richiesta è un'operazione dispendiosa. Potrebbe infatti potrebbe richiedere alcuni minuti. Usare questa impostazione a seconda delle necessità per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br /><br />Se si imposta il valore di **timeToLive** su **0**, il cluster viene eliminato non appena l'esecuzione attività termina. Se tuttavia si imposta un valore elevato, il cluster potrebbe rimanere inattivo inutilmente causando costi elevati. È importante impostare il valore appropriato in base alle esigenze.<br /><br />Se il valore di **timeToLive** è impostato in modo appropriato, più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta. | Sì      |
+| timeToLive                   | Il tempo di inattività consentito per il cluster HDInsight su richiesta. Specifica per quanto tempo il cluster HDInsight on demand rimane attivo quando un'esecuzione attività viene completata, se non sono presenti altri processi attivi del cluster.<br /><br />Se, ad esempio, un'esecuzione di attività richiede 6 minuti e **TimeToLive** è impostato su 5 minuti, il cluster rimane attivo per 5 minuti dopo i 6 minuti di elaborazione dell'esecuzione dell'attività. Se un'altra attività viene eseguita nella finestra di 6 minuti, viene elaborata dallo stesso cluster.<br /><br />La creazione di un cluster HDInsight su richiesta è un'operazione dispendiosa. Potrebbe infatti potrebbe richiedere alcuni minuti. Usare questa impostazione a seconda delle necessità per migliorare le prestazioni di una data factory riutilizzando un cluster HDInsight su richiesta.<br /><br />Se si imposta il valore di **timeToLive** su **0**, il cluster viene eliminato non appena l'esecuzione attività termina. Se tuttavia si imposta un valore elevato, il cluster potrebbe rimanere inattivo inutilmente causando costi elevati. È importante impostare il valore appropriato in base alle esigenze.<br /><br />Se il valore di **timeToLive** è impostato in modo appropriato, più pipeline possono condividere la stessa istanza del cluster HDInsight su richiesta. | Sì      |
 | version                      | Versione del cluster HDInsight. Per le versioni di HDInsight consentite, vedere [Versioni supportate di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Se questo valore non viene specificato, viene usata l'[ultima versione di HDI predefinita](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning). | No       |
 | linkedServiceName            | Servizio collegato Archiviazione di Azure che il cluster on demand deve usare per l'archiviazione e l'elaborazione dei dati. Il cluster HDInsight viene creato nella stessa area dell'account di archiviazione.<p>Non è attualmente possibile creare un cluster HDInsight on demand che usa Azure Data Lake Store come risorsa di archiviazione. Per archiviare i dati dei risultati dell'elaborazione di HDInsight in Data Lake Store, usare l'attività di copia per copiare i dati dall'archivio BLOB a Data Lake Store. </p> | Sì      |
 | additionalLinkedServiceNames | Specifica account di archiviazione aggiuntivi per il servizio collegato HDInsight. Data Factory registra gli account di archiviazione per conto dell'utente. Questi account di archiviazione devono trovarsi nella stessa area del cluster HDInsight. La creazione del cluster HDInsight avviene nella stessa area dell'account di archiviazione specificato dalla proprietà **linkedServiceName**. | No       |
@@ -259,7 +259,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 | ----------------- | ---------------------------------------- | -------- |
 | type              | Impostare la proprietà type su **HDInsight**. | Sì      |
 | clusterUri        | L'URI del cluster HDInsight.        | Sì      |
-| username          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
+| nomeutente          | Nome dell'account utente da usare per connettersi a un cluster HDInsight esistente. | Sì      |
 | password          | La password per l'account utente.   | Sì      |
 | linkedServiceName | Nome del servizio collegato di archiviazione che fa riferimento all'archivio BLOB usato dal cluster HDInsight. <p>Attualmente non è possibile specificare un servizio collegato Data Lake Store per questa proprietà. Se il cluster HDInsight ha accesso a Data Lake Store, è possibile accedere ai dati in Data Lake Store da script Hive o Pig. </p> | Sì      |
 

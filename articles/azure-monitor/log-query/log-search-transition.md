@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
 ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670135"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transizione dalla ricerca log di Log Analytics ai log di Monitoraggio di Azure
@@ -53,7 +53,7 @@ In Ricerca log è possibile fare clic su una riga in una query di riepilogo per 
 
 ![Drill-down Ricerca log](media/log-search-transition/drilldown-search.png)
 
-Nei log di Monitoraggio di Azure è necessario modificare la query per restituire questi record. Espandere una delle righe nei risultati **+** e fare clic sul accanto al valore per aggiungerlo alla query. Impostare quindi come commento il comando **summarize** ed eseguire nuovamente la query.
+Nei log di Monitoraggio di Azure è necessario modificare la query per restituire questi record. Espandere una delle righe nei risultati e fare clic su **+** accanto al valore per aggiungerlo alla query. Impostare quindi come commento il comando **summarize** ed eseguire nuovamente la query.
 
 ![Drill-down dei log di Monitoraggio di Azure](media/log-search-transition/drilldown-logs.png)
 

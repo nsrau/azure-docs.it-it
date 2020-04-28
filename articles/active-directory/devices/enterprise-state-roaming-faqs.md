@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul roaming dello stato aziendale - Azure Active DirectoryEnterprise State Roaming FAQ - Azure Active Directory
+title: Domande frequenti Enterprise State Roaming-Azure Active Directory
 description: Domande frequenti su ESR
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672382"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
@@ -30,18 +30,18 @@ Questo articolo offre le risposte ad alcune possibili domande degli amministrato
 * *Impostazioni di Internet Explorer*, tra cui le schede e i Preferiti aperti di recente.
 * *Impostazioni del browser Microsoft Edge*, come i Preferiti e l'elenco di lettura.
 * *Password*, tra cui le password Internet, i profili Wi-Fi e così via.
-* *Preferenze della lingua,* che includono le impostazioni per i layout di tastiera, la lingua di sistema, la data e l'ora e altro ancora.
+* *Preferenze*per la lingua, incluse le impostazioni per i layout di tastiera, lingua del sistema, data e ora e altro ancora.
 * *Caratteristiche di accessibilità*, come i temi a contrasto elevato, l'Assistente vocale e la Lente di ingrandimento.
 * *Altre impostazioni di Windows*, ad esempio le impostazioni del mouse.
 
 > [!NOTE]
-> Questo articolo si applica al browser basato su HTML di Microsoft Edge Legacy lanciato con Windows 10 nel luglio 2015. L'articolo non si applica al nuovo browser basato su Microsoft Edge Chromium rilasciato il 15 gennaio 2020. Per ulteriori informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Questo articolo si applica al browser Microsoft Edge legacy basato su HTML avviato con Windows 10 nel 2015 luglio. L'articolo non si applica al nuovo browser Microsoft Edge basato su cromo rilasciato il 15 gennaio 2020. Per altre informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, vedi l'API di [archiviazione appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e il blog per sviluppatori di roaming appdata di [Windows 8.](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)
+**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, vedere l' [API di archiviazione AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e il [Blog per sviluppatori roaming di Windows 8 AppData](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Quale account si usa per la sincronizzazione delle impostazioni?
 
-In Windows 8.1, la sincronizzazione delle impostazioni usava sempre gli account Microsoft per utenti. Gli utenti aziendali hanno avuto la possibilità di connettere un account Microsoft al proprio account di dominio di Active Directory per accedere alla sincronizzazione delle impostazioni. In Windows 10, questa funzionalità dell'account Microsoft connesso viene sostituita con un framework di account primario/secondario.
+In Windows 8.1, la sincronizzazione delle impostazioni usava sempre gli account Microsoft per utenti. Gli utenti aziendali hanno la possibilità di connettere un account Microsoft all'account di dominio Active Directory per accedere alla sincronizzazione delle impostazioni. In Windows 10, questa funzionalità connessa account Microsoft viene sostituita con un Framework di account primario/secondario.
 
 L'account principale è l'account utilizzato per accedere a Windows. Può essere un account Microsoft, un account Azure Active Directory (Azure AD), un account Active Directory locale oppure un account locale. Oltre all'account primario, gli utenti di Windows 10 possono aggiungere uno o più account cloud secondari al proprio dispositivo. Un account secondario è in genere un account Microsoft, un account Azure AD o un altro account, ad esempio Gmail o Facebook. Questi account secondari permettono di accedere a ulteriori servizi, ad esempio Single Sign-On e Windows Store, ma non consentono di sincronizzare le impostazioni.
 
@@ -50,7 +50,7 @@ In Windows 10 solo l'account primario per il dispositivo può essere usato per l
 I dati non vengono mai combinati tra i diversi account utente nel dispositivo. Esistono due regole per la sincronizzazione delle impostazioni:
 
 * Per le impostazioni di Windows verrà sempre effettuato il roaming con l'account primario.
-* I dati dell'app verranno contrassegnati con l'account usato per acquisire l'app. Verranno sincronizzate solo le app contrassegnate con l'account principale. Il tagging della proprietà dell'app viene determinato quando un'app viene caricata tramite sideload tramite Windows Store o la gestione dei dispositivi mobili (MDM).
+* I dati dell'app verranno contrassegnati con l'account usato per acquisire l'app. Vengono sincronizzate solo le app contrassegnate con l'account primario. L'assegnazione di tag di proprietà delle app viene determinata quando un'app viene caricata sul lato tramite Windows Store o gestione di dispositivi mobili (MDM).
 
 Se non è possibile identificare il proprietario di un'app, il roaming dell'app verrà eseguito con l'account primario. Se si aggiorna un dispositivo da Windows 8 o Windows 8.1 a Windows 10, tutte le app verranno contrassegnate come acquisite dall'account Microsoft. Questo perché la maggior parte degli utenti acquisisce le app tramite Windows Store, ma prima di Windows 10 gli account di Azure AD non erano supportati in Windows Store. Se un'app viene installata tramite una licenza offline, l'app verrà contrassegnata usando l'account primario nel dispositivo.
 
@@ -121,7 +121,7 @@ Microsoft offre alcune soluzioni per il roaming delle impostazioni, inclusi Prof
 Quando si usano Enterprise State Roaming e UE-V, vengono applicate le regole seguenti:
 
 * Il servizio Enterprise State Roaming è l'agente di roaming principale nel dispositivo. UE-V viene usato per integrare il "divario Win32".
-* Il roaming UE-V per le impostazioni di Windows e i dati moderni dell'app UWP devono essere disabilitati quando si usano i criteri di gruppo UE-V. poiché già incluso in Enterprise State Roaming.
+* Quando si usano i criteri di gruppo UE-V, è necessario disabilitare le impostazioni di roaming di UE-V per Windows e i dati dell'app UWP moderna. poiché già incluso in Enterprise State Roaming.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>In che modo Enterprise State Roaming supporta la Virtual Desktop Infrastructure (VDI)?
 
@@ -133,8 +133,8 @@ Se l'organizzazione usa già il roaming in Windows 10 con la sottoscrizione grat
 
 ## <a name="known-issues"></a>Problemi noti
 
-Per un elenco dei problemi noti, vedere la documentazione nella sezione relativa alla [risoluzione dei problemi.](enterprise-state-roaming-troubleshooting.md) 
+Per un elenco dei problemi noti, vedere la documentazione nella sezione relativa alla [risoluzione](enterprise-state-roaming-troubleshooting.md) dei problemi. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Per una panoramica, vedere Panoramica del [roaming dello stato aziendaleFor](enterprise-state-roaming-overview.md) an overview, see enterprise state roaming overview
+Per una panoramica, vedere [Panoramica di Enterprise state roaming](enterprise-state-roaming-overview.md)

@@ -8,10 +8,10 @@ ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527368"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformità in Azure Cosmos DB 
@@ -34,7 +34,7 @@ Per aiutare i clienti a soddisfare i propri obblighi di conformità in settori e
 
 La copertura di certificazione per Azure Cosmos DB è in continua espansione. Attualmente, Azure Cosmos DB dispone dei certificati seguenti:
 
-| **Applicabile a livello globale** | **US Government** | **Settori specifici** | **Specifici di area o paese** |
+| **Applicabile a livello globale** | **Enti pubblici Stati Uniti** | **Settori specifici** | **Specifici di area o paese** |
 | --- | --- | --- | --- |
 | Certificazione CSA STAR | DoD SRG livello 2 | HIPAA BAA | IRAP Australia |
 | Attestazione CSA STAR | FedRAMP Moderate | HITRUST | Germania C5|
@@ -51,7 +51,7 @@ Per altre informazioni su ognuna di queste offerte di conformità e sui vantaggi
 
 La tabella seguente elenca le certificazioni supportate da Azure Cosmos DB in Azure per enti pubblici:
 
-| **Applicabile a livello globale** | **US Government** | **Settori specifici** | 
+| **Applicabile a livello globale** | **Enti pubblici Stati Uniti** | **Settori specifici** | 
 | --- | --- | --- | --- |
 | Certificazione CSA STAR | CJIS| HIPAA BAA | 
 | Attestazione CSA STAR| DoD SRG livello 2| HITRUST  | 

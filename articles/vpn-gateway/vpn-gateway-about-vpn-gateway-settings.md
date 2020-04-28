@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: impostazioni di configurazioneAzure VPN Gateway: configuration settings'
+title: 'Gateway VPN di Azure: impostazioni di configurazione'
 description: Informazioni sulle impostazioni del gateway VPN per i gateway di rete virtuale di Azure.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244862"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
@@ -77,11 +77,11 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Ridimensionare o modificare uno SKU
 
-Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. La compilazione di un gateway può richiedere fino a 45 minuti. In confronto, quando si ridimensiona uno SKU del gateway, non c'è molto tempo di inattività perché non è necessario eliminare e ricostruire il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
+Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. La compilazione di un gateway può richiedere fino a 45 minuti. In confronto, quando si ridimensiona uno SKU del gateway, non si verificano tempi di inattività perché non è necessario eliminare e ricompilare il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
 
-1. Ad eccezione dello SKU Basic, è possibile ridimensionare uno SKU del gateway VPN in un altro SKU del gateway VPN all'interno della stessa generazione (Generazione1 o Generazione2). Ad esempio, VpnGw1 di Generation1 può essere ridimensionato in VpnGw2 di Generation1 ma non a VpnGw2 di Generation2.
+1. Fatta eccezione per lo SKU Basic, è possibile ridimensionare uno SKU del gateway VPN a un altro SKU del gateway VPN all'interno della stessa generazione (Generation1 o Generation2). Ad esempio, VpnGw1 di Generation1 può essere ridimensionato in VpnGw2 di Generation1 ma non in VpnGw2 di Generation2.
 2. Quando si usano SKU del gateway di versione precedente, è possibile eseguire il ridimensionamento tra gli SKU Basic, Standard e HighPerformance.
-3. **Non è** possibile eseguire il ridimensionamento dagli SKU Basic/Standard/HighPerformance agli SKU VpnGw. È necessario [passare](#change) ai nuovi SKU.
+3. **Non è possibile** eseguire il ridimensionamento da SKU Basic/standard/HighPerformance a SKU VpnGw. È necessario [passare](#change) ai nuovi SKU.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Per ridimensionare un gateway
 
@@ -130,9 +130,9 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet gateway
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet del gateway
 
-Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Non distribuire mai altri elementi (ad esempio, macchine virtuali aggiuntive) nella subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
+Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Non distribuire mai nient'altro (ad esempio, altre VM) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -140,7 +140,7 @@ Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La 
 
 Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati alle VM del gateway e ai servizi del gateway. Alcune configurazioni richiedono più indirizzi IP di altre. 
 
-Quando si pianifica la dimensione della subnet del gateway, fare riferimento alla documentazione relativa alla configurazione che si intende creare. Ad esempio, la configurazione di coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway più grande rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Sebbene sia possibile creare una subnet del gateway di dimensioni ridotte come /29, è consigliabile creare una subnet del gateway di dimensioni pari o superiori a /27 (/27, /26 e così via) se si dispone dello spazio di indirizzi disponibile per eseguire questa operazione. Questo ospiterà la maggior parte delle configurazioni.
+Quando si pianificano le dimensioni della subnet del gateway, fare riferimento alla documentazione per la configurazione che si prevede di creare. Ad esempio, la configurazione della coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway di dimensioni maggiori rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Sebbene sia possibile creare una subnet del gateway con dimensioni pari a/29, è consigliabile creare una subnet del gateway di/27 o superiore (/27,/26 e così via) se si dispone dello spazio degli indirizzi disponibile. La maggior parte delle configurazioni verrà adattata.
 
 L'esempio seguente di PowerShell Resource Manager illustra una subnet del gateway denominata GatewaySubnet. La notazione CIDR specifica /27. Questa dimensione ammette un numero di indirizzi IP sufficiente per la maggior parte delle configurazioni attualmente esistenti.
 
@@ -171,9 +171,9 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 
 | **Classico** | **Gestione risorse** |
 | --- | --- |
-| [Powershell](/powershell/module/az.network/#networking) |[Powershell](/powershell/module/az.network#vpn) |
+| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Non supportate | [Interfaccia della riga di comando di AzureAzure](/cli/azure/network/vnet-gateway)|
+| Non supportato | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

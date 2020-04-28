@@ -1,5 +1,5 @@
 ---
-title: SKU del gateway VPN della rete virtuale di Azure legacy
+title: SKU del gateway VPN di rete virtuale di Azure legacy
 description: Come usare gli SKU legacy del gateway di rete virtuale, Basic, Standard e HighPerformance.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279390"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)
@@ -22,7 +22,7 @@ Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (ve
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-È possibile visualizzare i prezzi dei gateway legacy nella sezione **Gateway di rete virtuale,** disponibile nella pagina dei prezzi di [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+È possibile visualizzare i prezzi del gateway legacy nella sezione **gateway di rete virtuale** , disponibile nella [pagina dei prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a><a name="agg"></a>Velocità effettiva aggregata stimata per SKU
 
@@ -49,7 +49,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 ### <a name="classic"></a><a name="classicresize"></a>Classico
 
-Per ridimensionare un gateway per il modello di distribuzione classica, è necessario usare i cmdlet powerShell per la gestione dei servizi. Usare il comando seguente:
+Per ridimensionare un gateway per il modello di distribuzione classica, è necessario usare i cmdlet di PowerShell per la gestione dei servizi. Usare il comando seguente:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance

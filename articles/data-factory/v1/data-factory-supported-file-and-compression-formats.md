@@ -1,5 +1,5 @@
 ---
-title: File and compression formats in Azure Data Factory
+title: Formati di compressione e file in Azure Data Factory
 description: Informazioni sui formati di file supportati da Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281613"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Informazioni sui formati di compressione e sui file supportati da Azure Data Factory
@@ -38,10 +38,10 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che è probabile non esista nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è **virgola (',')**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No |
-| rowDelimiter |carattere usato per separare le righe in un file. |È consentito un solo carattere. Il valore **predefinito** è uno dei seguenti valori letti: **["r"n", "'r",'n']** e **"'r'n"** in scrittura. |No |
+| rowDelimiter |carattere usato per separare le righe in un file. |È consentito un solo carattere. Il valore **predefinito** è uno dei valori seguenti in lettura: **["\r\n", ",", "\n"]** e **"\r\n"** durante la scrittura. |No |
 | escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
 | quoteChar |carattere usato per inserire un valore stringa tra virgolette. I delimitatori di riga e colonna all'interno delle virgolette sono considerati come parte del valore della stringa. Questa proprietà è applicabile ai set di dati di input e di output.<br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
-| nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **di default** sono **""N" e "NULL"** in lettura e **"N"** in scrittura. |No |
+| nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\n" e "null"** in lettura e **"\n"** in scrittura. |No |
 | encodingName |specifica il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
 | firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/><b>False (impostazione predefinita)</b> |No |
 | skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
@@ -223,10 +223,10 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-Il set di dati di input con tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti rilevanti). Più in particolare:
+Il set di dati di input con il tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti pertinenti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
-- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile utilizzare **array[x].property** per estrarre il valore della proprietà specificata dall'oggetto xth, oppure è possibile utilizzare **array['].property** per trovare il valore da qualsiasi oggetto contenente tale proprietà.
+- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare dati da una matrice, è possibile usare **Array [x]. Property** per estrarre il valore della proprietà specificata dall'oggetto x oppure è possibile usare **Array [*]. Property** per trovare il valore da qualsiasi oggetto che contiene tale proprietà.
 
 ```json
 "properties": {
@@ -296,7 +296,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-Il set di dati di input con tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti rilevanti). Più in particolare:
+Il set di dati di input con il tipo **JsonFormat** è definito come segue: (definizione parziale con solo le parti pertinenti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
 - `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice**.
@@ -487,7 +487,7 @@ Si supponga che il set di dati di esempio venga usato come output di un'attivit�
 
 La sezione **compression** ha due proprietà:  
 
-* **Tipo :** il codec di compressione, che può essere **G-IP**, **Deflate**, **B.IP2**o **.IPDeflate**.  
+* **Tipo:** codec di compressione, che può essere **gzip**, **deflate**, **bzip2**o **ZipDeflate**.  
 * **Level:** rapporto di compressione, che può essere **Optimal** o **Fastest**.
 
   * **Fastest:** l'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non viene compresso in modo ottimale.
@@ -497,17 +497,17 @@ La sezione **compression** ha due proprietà:
 
 Quando si specifica una proprietà `compression` in un set di dati di input JSON, la pipeline può leggere i dati compressi dall'origine. Quando si specifica la proprietà in un set di dati di output JSON, l'attività di copia può scrivere i dati compressi nella destinazione. Di seguito vengono forniti alcuni scenari di esempio:
 
-* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. Il set di dati BLOB `compression` `type` di Azure di input viene definito con la proprietà JSON come G-IP.
-* Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Si definisce un set `compression` `type` di dati blob di Azure di output con la proprietà JSON come G.ip.
-* Leggere il file ZIP dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Si definisce un set `compression` `type` di dati FTP di input con la proprietà JSON come .ipDeflate.
-* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. In questo caso, si `compression` `type` definisce il set di `compression` `type` dati di Blob di Azure di input con impostato su G-IP e il set di dati di output con impostato su B-IP2.   
+* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli e scrivere i dati del risultato in un database SQL di Azure. Definire il set di dati di input del BLOB `compression` `type` di Azure con la proprietà JSON come gzip.
+* Leggere i dati da un file di testo normale dal file system locale, comprimerli usando il formato GZIP e scrivere i dati compressi in un BLOB di Azure. Si definisce un set di dati di output del `compression` `type` BLOB di Azure con la proprietà JSON come gzip.
+* Leggere il file ZIP dal server FTP, decomprimerlo per ottenere i file all'interno e inserire i file in Azure Data Lake Store. Definire un set di dati FTP di input `compression` `type` con la proprietà JSON come ZipDeflate.
+* Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. In questo caso, definire il set di `compression` `type` dati di input del BLOB di Azure con `compression` `type` impostato su gzip e il set di dati di output con impostato su bzip2.   
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per gli archivi dati basati su file supportati da Azure Data Factory, vedere i seguenti articoli:
 
-- [Archiviazione BLOB di AzureAzure Blob Storage](data-factory-azure-blob-connector.md)
-- [Archivio di Azure Data Lake](data-factory-azure-datalake-connector.md)
+- [Archiviazione BLOB di Azure](data-factory-azure-blob-connector.md)
+- [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
 - [FTP](data-factory-ftp-connector.md)
 - [HDFS](data-factory-hdfs-connector.md)
 - [File System](data-factory-onprem-file-system-connector.md)

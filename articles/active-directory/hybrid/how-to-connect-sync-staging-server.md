@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261021"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Server di gestione temporanea e ripristino di emergenzaAzure AD Connect: Staging server and disaster recovery
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: server di staging e ripristino di emergenza
 Con un server in modalità di gestione temporanea è possibile apportare modifiche alla configurazione e visualizzarle in anteprima prima di attivare il server. È anche possibile eseguire operazioni di importazione e sincronizzazione complete per verificare che tutte le modifiche siano previste prima di introdurle nell'ambiente di produzione.
 
 ## <a name="staging-mode"></a>Modalità di gestione temporanea
@@ -52,7 +52,7 @@ Per applicare questo metodo, seguire questa procedura:
 1. [Preparare](#prepare)
 2. [Configurazione](#configuration)
 3. [Importare e sincronizzare](#import-and-synchronize)
-4. [Verifica](#verify)
+4. [Verificare](#verify)
 5. [Cambiare il server attivo](#switch-active-server)
 
 #### <a name="prepare"></a>Preparazione
@@ -115,7 +115,7 @@ Il server del motore di sincronizzazione non archivia lo stato degli oggetti, qu
 ### <a name="have-a-spare-standby-server---staging-mode"></a>Avere un server di standby di riserva, in modalità di gestione temporanea
 Nel caso di un ambiente più complesso, è consigliabile avere uno o più server di standby. Durante l'installazione è possibile abilitare un server in **modalità di gestione temporanea**.
 
-Per ulteriori informazioni, vedere [Modalità di gestione temporanea](#staging-mode).
+Per ulteriori informazioni, vedere [modalità di gestione temporanea](#staging-mode).
 
 ### <a name="use-virtual-machines"></a>Usare macchine virtuali
 Un metodo comune e supportato consiste nell'eseguire il motore di sincronizzazione in una macchina virtuale. Nel caso di un problema dell'host, è possibile eseguire la migrazione dell'immagine del server del motore di sincronizzazione in un altro server.

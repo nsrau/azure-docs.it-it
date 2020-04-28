@@ -1,6 +1,6 @@
 ---
-title: Approvare o negare le richieste di accesso - Gestione dei diritti di Azure ADApprove or deny access requests - Azure AD entitlement management
-description: Informazioni su come usare il portale My Access per approvare o rifiutare le richieste a un pacchetto di accesso nella gestione dei diritti di Azure Active Directory.Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
+title: Approva o rifiuta le richieste di accesso-gestione dei diritti Azure AD
+description: Informazioni su come usare il portale di accesso personale per approvare o negare le richieste a un pacchetto di accesso in Azure Active Directory gestione dei diritti.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,51 +17,51 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261723"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approvare o negare le richieste di accesso nella gestione dei diritti di Azure ADApprove or deny access requests in Azure AD entitlement management
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approva o rifiuta le richieste di accesso in Azure AD gestione dei diritti
 
-Con la gestione dei diritti di Azure AD è possibile configurare criteri per richiedere l'approvazione per i pacchetti di accesso e scegliere uno o più approvatori. In questo articolo viene descritto come gli approvatori designati possono approvare o rifiutare le richieste di pacchetti di accesso.
+Con Azure AD gestione dei diritti, è possibile configurare i criteri per richiedere l'approvazione per i pacchetti di accesso e scegliere uno o più responsabili approvazione. Questo articolo descrive come gli approvatori designati possono approvare o negare le richieste di pacchetti di accesso.
 
-## <a name="open-request"></a>Richiesta aperta
+## <a name="open-request"></a>Apri richiesta
 
-Il primo passaggio per approvare o rifiutare le richieste di accesso consiste nel trovare e aprire la richiesta di accesso in attesa di approvazione. Esistono due modi per aprire la richiesta di accesso.
+Il primo passaggio per approvare o negare le richieste di accesso consiste nell'individuare e aprire la richiesta di accesso in attesa di approvazione. Esistono due modi per aprire la richiesta di accesso.
 
-**Ruolo prerequisito:** Approvatore
+**Ruolo prerequisiti:** Approvatore
 
-1. Cercare un messaggio di posta elettronica da Microsoft Azure che richiede di approvare o rifiutare una richiesta. Ecco un esempio di email:
+1. Cercare un messaggio di posta elettronica da Microsoft Azure che chieda di approvare o rifiutare una richiesta. Di seguito è riportato un messaggio di posta elettronica di esempio:
 
-    ![Approvare la richiesta di accesso alla posta elettronica del pacchetto](./media/entitlement-management-shared/approver-request-email.png)
+    ![Approva la richiesta di accesso alla posta elettronica del pacchetto](./media/entitlement-management-shared/approver-request-email.png)
 
-1. Fare clic sul collegamento **Approva o rifiuta richiesta** per aprire la richiesta di accesso.
+1. Fare clic sul collegamento **approva o Nega richiesta** per aprire la richiesta di accesso.
 
-1. Accedere al portale My Access.
+1. Accedere al portale di accesso personale.
 
-Se non si dispone del messaggio di posta elettronica, è possibile trovare le richieste di accesso in attesa di approvazione attenendosi alla procedura seguente.
+Se non si dispone del messaggio di posta elettronica, è possibile trovare le richieste di accesso in attesa di approvazione attenendosi alla seguente procedura.
 
-1. Accedere al portale My [https://myaccess.microsoft.com](https://myaccess.microsoft.com)Access all'indirizzo .  (Per il governo degli Stati Uniti, il `myaccess.microsoft.us`dominio nel collegamento al portale My Access sarà .)
+1. Accedere al portale di accesso personale all'indirizzo [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  Per il governo degli Stati Uniti, il dominio nel collegamento al portale di accesso `myaccess.microsoft.us`personale sarà.
 
-1. Nel menu a sinistra fare clic su **Approvazioni** per visualizzare un elenco di richieste di accesso in attesa di approvazione.
+1. Nel menu a sinistra fare clic su **approvazioni** per visualizzare un elenco di richieste di accesso in attesa di approvazione.
 
-1. Nella scheda **In sospeso** individuare la richiesta.
+1. Individuare la richiesta nella scheda **in sospeso** .
 
-## <a name="approve-or-deny-request"></a>Approvare o rifiutare la richiesta
+## <a name="approve-or-deny-request"></a>Approva o rifiuta la richiesta
 
-Dopo aver aperto una richiesta di accesso in attesa di approvazione, è possibile visualizzare i dettagli che consentono di approvare o rifiutare la decisione.
+Dopo aver aperto una richiesta di accesso in attesa di approvazione, è possibile visualizzare i dettagli che consentiranno di prendere una decisione di approvazione o negazione.
 
-**Ruolo prerequisito:** Approvatore
+**Ruolo prerequisiti:** Approvatore
 
 1. Fare clic sul collegamento **Visualizza** per aprire il riquadro Richiesta di accesso.
 
 1. Fare clic su **Dettagli** per visualizzare i dettagli relativi alla richiesta di accesso.
 
-    I dettagli includono il nome dell'utente, l'organizzazione, la data di inizio e di fine dell'utente, se forniti, la motivazione aziendale, la data in cui la richiesta è stata inviata e la data di scadenza della richiesta.
+    I dettagli includono il nome, l'organizzazione, la data di inizio e di fine dell'accesso, se specificato, la giustificazione aziendale, il momento in cui la richiesta è stata inviata e la scadenza della richiesta.
 
-1. Fare clic su **Approva** o **Nega**.
+1. Fare clic su **approva** o **Nega**.
 
 1. Se necessario, immettere un motivo.
 
@@ -69,11 +69,11 @@ Dopo aver aperto una richiesta di accesso in attesa di approvazione, è possibil
 
 1. Fare clic su **Invia** per inviare la decisione.
 
-    Se un criterio è configurato con più approvatori, solo un approvatore deve prendere una decisione sull'approvazione in sospeso. Dopo che un approvatore ha inviato la propria decisione alla richiesta di accesso, la richiesta viene completata e non è più disponibile per gli altri approvatori di approvare o rifiutare la richiesta. Gli altri approvatori possono visualizzare la decisione relativa alla richiesta e il decisore nel portale My Access. Al momento, è supportata solo l'approvazione in una singola fase.
+    Se un criterio è configurato con più responsabili approvazione, solo un responsabile approvazione deve prendere una decisione relativa all'approvazione in sospeso. Dopo che un responsabile approvazione ha inviato la richiesta di accesso, la richiesta è stata completata e non è più disponibile agli altri responsabili approvazione per approvare o negare la richiesta. Gli altri responsabili approvazione possono visualizzare la decisione della richiesta e il decision maker nel portale di accesso personale. Al momento, è supportata solo l'approvazione a fase singola.
 
-    Se nessuno degli approvatori configurati è in grado di approvare o rifiutare la richiesta di accesso, la richiesta scade dopo la durata della richiesta configurata. L'utente riceve una notifica che la richiesta di accesso è scaduta e che è necessario inviare nuovamente la richiesta di accesso.
+    Se nessuno dei responsabili approvazione configurato è in grado di approvare o rifiutare la richiesta di accesso, la richiesta scade dopo la durata della richiesta configurata. L'utente riceve una notifica che indica che la richiesta di accesso è scaduta e che è necessario inviare nuovamente la richiesta di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Richiedere l'accesso a un pacchetto di accessoRequest access to an access package](entitlement-management-request-access.md)
-- [Processo di richiesta e notifiche e-mail](entitlement-management-process.md)
+- [Richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md)
+- [Richieste di processo e notifiche tramite posta elettronica](entitlement-management-process.md)

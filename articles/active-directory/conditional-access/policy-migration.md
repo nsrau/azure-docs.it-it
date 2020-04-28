@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77185918"
 ---
-# <a name="conditional-access-classic-policy-migration"></a>Migrazione dei criteri classici di Accesso condizionale
+# <a name="conditional-access-classic-policy-migration"></a>Migrazione dei criteri classici dell'accesso condizionale
 
-L'accesso condizionale è lo strumento usato da Azure Active Directory per raggruppare i segnali, consentendo di prendere decisioni e applicare i criteri dell'organizzazione. L'accesso condizionale è la base del nuovo piano di controllo basato su identità. Mentre lo scopo è sempre lo stesso, il rilascio del nuovo portale di Azure ha introdotto miglioramenti significativi al funzionamento di Accesso condizionale.
+L'accesso condizionale è lo strumento usato da Azure Active Directory per raggruppare i segnali, consentendo di prendere decisioni e applicare i criteri dell'organizzazione. L'accesso condizionale è la base del nuovo piano di controllo basato su identità. Anche se lo scopo è sempre lo stesso, il rilascio del nuovo portale di Azure ha introdotto miglioramenti significativi nel funzionamento dell'accesso condizionale.
 
 Valutare la possibilità di eseguire la migrazione dei criteri che non sono stati creati nel portale di Azure per i motivi seguenti:
 
@@ -29,19 +29,19 @@ Valutare la possibilità di eseguire la migrazione dei criteri che non sono stat
 - È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centrale.
 - Il portale di Azure classico verrà ritirato.
 
-In questo articolo vengono illustrati gli elementi da sapere per eseguire la migrazione dei criteri di accesso condizionale esistenti al nuovo framework.
+Questo articolo spiega cosa è necessario sapere per eseguire la migrazione dei criteri di accesso condizionale esistenti al nuovo Framework.
 
 ## <a name="classic-policies"></a>Criteri classici
 
-Nel [portale di Azure](https://portal.azure.com)i criteri di accesso condizionale sono disponibili in**Security** > **Accesso condizionale**sicurezza di **Azure Active Directory** > . L'organizzazione potrebbe anche avere criteri di accesso condizionale meno recenti non creati utilizzando questa pagina. ovvero i *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:Classic policies are Conditional Access policies, you have created in:
+Nella [portale di Azure](https://portal.azure.com)i criteri di accesso condizionale sono reperibili **in Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza. È anche possibile che l'organizzazione disponga di criteri di accesso condizionale meno recenti non creati usando questa pagina. ovvero i *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:
 
 - Portale di Azure classico
 - Portale di Intune classico
 - Portale di Protezione app di Intune
 
-Nella pagina **Accesso condizionale** è possibile accedere ai criteri classici facendo clic su [**Criteri classici**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) nella sezione **Gestisci.** 
+Nella pagina **accesso condizionale** è possibile accedere ai criteri classici facendo clic su [**criteri classici**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) nella sezione **Gestisci** . 
 
-![Accesso condizionale in Azure AD con visualizzazione dei criteri classiciConditional Access in Azure AD showing classic policies view](./media/policy-migration/71.png)
+![Accesso condizionale in Azure AD che mostra la visualizzazione di criteri classici](./media/policy-migration/71.png)
 
 La visualizzazione **Criteri classici** consente di eseguire queste operazioni:
 
@@ -49,20 +49,20 @@ La visualizzazione **Criteri classici** consente di eseguire queste operazioni:
 - Disabilitare i criteri classici.
 - Esaminare le impostazioni di un criterio classico e disabilitarlo.
 
-   ![Dettagli classici dei criteri, inclusa la configurazione dei criteri esistenti](./media/policy-migration/74.png)
+   ![Dettagli dei criteri classici, inclusa la configurazione dei criteri esistente](./media/policy-migration/74.png)
 
 > [!WARNING]
-> Una volta disabilitato, un criterio classico non può essere riabilitato.
+> Una volta disabilitato, non è possibile abilitare di nuovo i criteri classici.
 
-La visualizzazione dei dettagli di un criterio classico consente di documentare le impostazioni, modificare i gruppi inclusi o esclusi e disabilitare il criterio.
+La visualizzazione dettagli di un criterio classico consente di documentare le impostazioni, modificare i gruppi inclusi o esclusi e disabilitare i criteri.
 
-![Dettagli criteri - Gruppi da includere o escludere](./media/policy-migration/75.png)
+![Dettagli criteri-gruppi da includere o escludere](./media/policy-migration/75.png)
 
-Modificando i gruppi selezionati o escludendo gruppi specifici, è possibile verificare l'effetto di un criterio classico disabilitato per alcuni utenti di prova prima di disabilitare il criterio per tutti gli utenti e i gruppi inclusi.
+Modificando i gruppi selezionati o escludendo gruppi specifici, è possibile testare l'effetto di un criterio classico disabilitato per alcuni utenti di test prima di disabilitare i criteri per tutti gli utenti e i gruppi inclusi.
  
 ## <a name="migration-considerations"></a>Considerazioni sulla migrazione
 
-In questo articolo, i criteri di accesso condizionale di Azure AD vengono detti anche *nuovi criteri.*
+In questo articolo Azure AD i criteri di accesso condizionale sono detti anche *nuovi criteri*.
 I criteri classici continuano a funzionare in parallelo con quelli nuovi finché non vengono disabilitati o eliminati. 
 
 Nella prospettiva di un consolidamento dei criteri è importante considerare gli aspetti seguenti:
@@ -87,9 +87,9 @@ Il consolidamento in un criterio nuovo non è possibile nemmeno se i criteri cla
 
 Se si ha un criterio nuovo con **Exchange Active Sync** configurato come condizione per le app client, è necessario assicurarsi che tutte le altre condizioni non siano configurate. 
 
-![Condizioni di accesso condizionaleConditional Access conditions](./media/policy-migration/16.png)
+![Condizioni di accesso condizionale](./media/policy-migration/16.png)
  
-I criteri classici basati sulle app per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione per le app client consentono piattaforme di dispositivi **supportate** e **non supportate.** Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](concept-conditional-access-conditions.md#device-platforms). 
+I criteri classici basati su app per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione **per le app** client consentono piattaforme per dispositivi supportate e non **supportate** . Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Accesso condizionale selezionare Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -105,7 +105,7 @@ Uno scenario comune consiste nel consolidamento dei criteri seguenti:
  
 In questo caso, è possibile consolidare i criteri classici in un unico criterio nuovo con entrambi i requisiti selezionati.
 
-![Controlli delle concessioni di accesso condizionaleConditional Access grant controls](./media/policy-migration/62.png)
+![Controlli di concessione dell'accesso condizionale](./media/policy-migration/62.png)
 
 ### <a name="device-platforms"></a>Piattaforme del dispositivo
 
@@ -113,10 +113,10 @@ I criteri classici con controlli basati su app sono preconfigurati con iOS e And
 
 In un criterio nuovo è necessario selezionare le [piattaforme di dispositivo](concept-conditional-access-conditions.md#device-platforms) da supportare singolarmente.
 
-![Selezione delle piattaforme per dispositivi con accesso condizionaleConditional Access device platforms selection](./media/policy-migration/41.png)
+![Selezione delle piattaforme del dispositivo con accesso condizionale](./media/policy-migration/41.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Utilizzare la modalità solo report per l'accesso condizionale per determinare l'impatto delle nuove decisioni relative ai criteri.](concept-conditional-access-report-only.md)
-- Per informazioni su come configurare un criterio di accesso condizionale, vedere [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere l'articolo [Procedura: pianificare la distribuzione](plan-conditional-access.md)di accesso condizionale in Azure Active Directory. 
+- [Utilizzare la modalità solo report per l'accesso condizionale per determinare l'effetto delle nuove decisioni sui criteri.](concept-conditional-access-report-only.md)
+- Per informazioni su come configurare i criteri di accesso condizionale, vedere [criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md).
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere l'articolo [procedura: pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md). 

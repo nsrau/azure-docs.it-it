@@ -1,5 +1,5 @@
 ---
-title: Informazioni di riferimento sulle impostazioni di roaming di Windows 10 - Azure Active Directory
+title: Guida di riferimento alle impostazioni di roaming di Windows 10-Azure Active Directory
 description: Impostazioni di cui verrà eseguito il roaming o il backup in Windows 10 con ESR
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672617"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
@@ -26,7 +26,7 @@ Di seguito è riportato un elenco delle impostazioni di cui verrà eseguito il r
 
 La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account supportati dal framework di sincronizzazione, backup e ripristino in Windows 10.
 
-| Tipo di account e operazione | Desktop | Cellulare |
+| Tipo di account e operazione | Desktop | Mobile |
 | --- | --- | --- |
 | Azure Active Directory: sincronizzazione |Sì |No |
 | Azure Active Directory: backup e ripristino |No |No |
@@ -39,7 +39,7 @@ Le impostazioni di Windows vengono in genere sincronizzate per impostazione pred
 
 ## <a name="windows-settings-overview"></a>Panoramica sulle impostazioni di Windows
 
-I seguenti gruppi di impostazioni sono disponibili per gli utenti finali per abilitare/disabilitare la sincronizzazione delle impostazioni nei dispositivi Windows 10.
+I gruppi di impostazioni seguenti sono disponibili agli utenti finali per abilitare o disabilitare la sincronizzazione delle impostazioni nei dispositivi Windows 10.
 
 * Tema: sfondo del desktop, icona utente, posizione della barra delle applicazioni e così via. 
 * Impostazioni di Internet Explorer: cronologia esplorazioni, URL tipizzati, Preferiti e così via. 
@@ -47,12 +47,12 @@ I seguenti gruppi di impostazioni sono disponibili per gli utenti finali per abi
 * Preferenze lingua: dizionario per il controllo ortografico, impostazioni della lingua del sistema. 
 * Accessibilità: Assistente vocale, tastiera su schermo, lente di ingrandimento. 
 * Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
-* Impostazione del browser Microsoft Edge: preferiti di Microsoft Edge, elenco di lettura e altre impostazioni
+* Impostazione del browser Microsoft Edge: Preferiti di Microsoft Edge, elenco di lettura e altre impostazioni
 
 ![Sincronizzare le impostazioni](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> Questo articolo si applica al browser basato su HTML di Microsoft Edge Legacy lanciato con Windows 10 nel luglio 2015. L'articolo non si applica al nuovo browser basato su Microsoft Edge Chromium rilasciato il 15 gennaio 2020. Per ulteriori informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Questo articolo si applica al browser Microsoft Edge legacy basato su HTML avviato con Windows 10 nel 2015 luglio. L'articolo non si applica al nuovo browser Microsoft Edge basato su cromo rilasciato il 15 gennaio 2020. Per altre informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 La sincronizzazione del gruppo di impostazioni del browser Microsoft Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Microsoft Edge.
 
@@ -64,16 +64,16 @@ Per Windows 10 versione 1803 o successiva, la sincronizzazione dei gruppi di imp
 
 ## <a name="windows-settings-details"></a>Dettagli relativi alle impostazioni di Windows
 
-Nella tabella seguente, Altre voci nella colonna Gruppo impostazioni fanno riferimento alle impostazioni che possono essere disabilitate accedendo a Impostazioni > Account > Sincronizza le impostazioni > Altre impostazioni di Windows. 
+Nella tabella seguente, le altre voci della colonna gruppo di impostazioni fanno riferimento a impostazioni che possono essere disabilitate selezionando Impostazioni > account > sincronizzare le impostazioni > altre impostazioni di Windows. 
 
 La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle impostazioni e alle app che possono essere disabilitate soltanto tramite la sincronizzazione dall'interno dell'app stessa o disabilitando la sincronizzazione per l'intero dispositivo con la gestione dei dispositivi mobili (software MDM) o le impostazioni dei Criteri di gruppo.
 Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non appartengono a un gruppo.
 
-| Impostazioni | Desktop | Cellulare | Gruppo |
+| Impostazioni | Desktop | Mobile | Gruppo |
 | --- | --- | --- | --- |
 | **Account**: immagine dell'account |sync |X |Tema |
 | **Account**: altre impostazioni account |X |X | |
-| **Banda larga mobile avanzata**: nome della rete di condivisione della connessione Internet (consente l'individuazione automatica degli hotspot Wi-Fi mobili tramite Bluetooth) |X |X |Password |
+| **Advanced Mobile Broadband**: nome di rete per la condivisione della connessione Internet (Abilita l'individuazione automatica degli hotspot Wi-Fi per dispositivi mobili tramite Bluetooth) |X |X |Password |
 | **Dati app**: singole app possono sincronizzare i dati |backup sincronizzazione |backup sincronizzazione |internal |
 | **Elenco app**: elenco delle app installate |X |backup |Altri |
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
@@ -95,7 +95,7 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Personalizzazione del desktop**: sfondo presentazione |sync |X |Tema |
 | **Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sync |X |Tema |
 | **Personalizzazione del desktop**: layout della schermata Start |X |backup | |
-| **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |Altre |
+| **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |altro |
 | **Browser Microsoft Edge**: Elenco di lettura |sync |sync |internal |
 | **Browser Microsoft Edge**: Preferiti |sync |sync |internal |
 | **Browser Microsoft Edge**: siti principali <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
@@ -152,8 +152,8 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Lente di ingrandimento**: rilevamento, Segui la tastiera |sync |X |Accessibilità |
 | **Lente di ingrandimento**: rilevamento, Segui il puntatore del mouse |sync |X |Accessibilità |
 | **Lente di ingrandimento**: avvio all'accesso dell'utente (disabilitato per impostazione predefinita) |sync |X |Accessibilità |
-| **Mouse**: modifica delle dimensioni del cursore del mouse |sync |X |Altre |
-| **Mouse**: modifica del colore del cursore del mouse |sync |X |Altre |
+| **Mouse**: modifica delle dimensioni del cursore del mouse |sync |X |altro |
+| **Mouse**: modifica del colore del cursore del mouse |sync |X |altro |
 | **Mouse**: tutte le altre impostazioni |X |X | |
 | **Assistente vocale**: avvio veloce |sync |X |Accessibilità |
 | **Assistente vocale**: gli utenti possono modificare la tonalità di voce dell'Assistente vocale |sync |X |Accessibilità |

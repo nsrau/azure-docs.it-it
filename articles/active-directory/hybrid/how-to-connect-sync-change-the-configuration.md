@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261164"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
@@ -262,7 +262,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Fare clic sul pulsante **Aggiungi nuova regola** per creare una nuova regola in ingresso.
 4. Nella scheda **Descrizione** specificare la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | valore | Dettagli |
     | --- | --- | --- |
     | Nome | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
     | Descrizione | *Fornire una descrizione* |  |
@@ -274,7 +274,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
 5. Passare alla scheda **filtro ambito** e aggiungere un **singolo gruppo di filtri di ambito** con la clausola seguente:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operatore | valore |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Utente\_ |
 
@@ -282,15 +282,15 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
 6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione desiderata. Ad esempio, se si è designato un attributo di AD locale non in uso, ad esempio extensionAttribute1, come attributo di origine di UserType, è possibile implementare un flusso di attributi diretto:
 
-    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    | Connessione diretta | UserType | extensionAttribute1 | Non selezionato | Aggiorna |
+    | Connessione diretta | UserType | extensionAttribute1 | Non selezionato | Aggiornamento |
 
     In un altro esempio si vuole ricavare il valore dell'attributo UserType da altre proprietà. Si desidera, ad esempio, sincronizzare tutti gli utenti come Guest se il relativo attributo userPrincipalName di AD locale termina con la <em>@partners.fabrikam123.org</em>parte di dominio. È possibile implementare un'espressione simile alla seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiorna |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiornamento |
 
 7. Fare clic su **Aggiungi** per creare la regola in entrata.
 
@@ -304,7 +304,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 3. Fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** specificare la configurazione seguente:
 
-    | Attributo | Valore | Dettagli |
+    | Attributo | valore | Dettagli |
     | ----- | ------ | --- |
     | Nome | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
     | Descrizione | *Fornire una descrizione* ||
@@ -316,7 +316,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 5. Passare alla scheda **filtro ambito** e aggiungere un **singolo gruppo di filtri di ambito** con due clausole:
 
-    | Attributo | Operatore | Valore |
+    | Attributo | Operatore | valore |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True |
@@ -325,9 +325,9 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
 6. Passare alla scheda **trasformazione** e implementare la regola di trasformazione seguente:
 
-    | Tipo di flusso | Attributo di destinazione | Origine | Applicare una sola volta | Tipi di unione |
+    | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    | Connessione diretta | UserType | UserType | Non selezionato | Aggiorna |
+    | Connessione diretta | UserType | UserType | Non selezionato | Aggiornamento |
 
 7. Fare clic su **Aggiungi** per creare la regola in uscita.
 
