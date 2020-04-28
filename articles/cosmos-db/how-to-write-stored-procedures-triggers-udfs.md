@@ -1,5 +1,5 @@
 ---
-title: Scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DBWrite stored procedures, triggers, and UDFs in Azure Cosmos DB
+title: Scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 description: Informazioni su come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441726"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
@@ -23,7 +23,7 @@ Per chiamare una stored procedure, un trigger e le funzioni definite dall'utente
 > Per i contenitori partizionati, quando si esegue una stored procedure, è necessario specificare un valore della chiave di partizione nelle opzioni di richiesta. Le stored procedure hanno sempre come ambito una chiave di partizione. Gli elementi con un valore della chiave di partizione diverso non saranno visibili alla stored procedure. Questo vale anche per i trigger.
 
 > [!Tip]
-> Cosmos supporta la distribuzione di contenitori con stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni, vedere Creare un contenitore DI database Cosmos di [Azure con funzionalità lato server.](manage-sql-with-resource-manager.md#create-sproc)
+> Cosmos supporta la distribuzione di contenitori con stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni [, vedere creare un contenitore Azure Cosmos DB con funzionalità lato server.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Come scrivere stored procedure
 
@@ -51,11 +51,11 @@ Una volta scritta, la stored procedure deve essere registrata con una raccolta. 
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Creare un elemento usando una stored procedure
 
-Quando si crea un elemento utilizzando una stored procedure, l'elemento viene inserito nel contenitore Cosmos di Azure e viene restituito un ID per l'elemento appena creato. La creazione di un elemento è un'operazione asincrona e dipende dalle funzioni di callback JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per il valore restituito (in questo caso, l'oggetto creato). All'interno del callback, è possibile gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genererà un errore. 
+Quando si crea un elemento usando stored procedure, l'elemento viene inserito nel contenitore Azure Cosmos e viene restituito un ID per l'elemento appena creato. La creazione di un elemento è un'operazione asincrona e dipende dalle funzioni di callback JavaScript. La funzione di callback ha due parametri: uno per l'oggetto errore in caso di errore dell'operazione e uno per il valore restituito (in questo caso, l'oggetto creato). All'interno del callback, è possibile gestire l'eccezione oppure generare un errore. Nel caso in cui non sia disponibile un callback e si verifichi un errore, il runtime di Azure Cosmos DB genererà un errore. 
 
 La stored procedure include anche un parametro per impostare la descrizione, cioè un valore booleano. Quando il parametro è impostato su true e la descrizione non è presente, la stored procedure genererà un'eccezione. In caso contrario, il resto della stored procedure rimane in esecuzione.
 
-La stored procedure di esempio seguente accetta un nuovo elemento CosmoS di Azure come input, lo inserisce nel contenitore Cosmos di Azure e restituisce l'ID per l'elemento appena creato. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md)
+L'esempio seguente stored procedure accetta un nuovo elemento di Azure Cosmos come input, lo inserisce nel contenitore Azure Cosmos e restituisce l'ID per l'elemento appena creato. In questo esempio, viene usato l'esempio ToDoList dall'[API SQL .NET di avvio rapido](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -319,7 +319,7 @@ Per esempi su come registrare e usare una funzione definita dall'utente, vedere 
 
 ## <a name="logging"></a>Registrazione 
 
-Quando si utilizzano stored procedure, trigger o funzioni definite `console.log()` dall'utente, è possibile registrare i passaggi utilizzando il comando . Questo comando concentrerà una `EnableScriptLogging` stringa per il debug quando è impostato su true, come illustrato nell'esempio seguente:This command will concentrate a string for debugging when is set to true as shown in the following example:
+Quando si usano stored procedure, trigger o funzioni definite dall'utente, è possibile registrare i passaggi usando `console.log()` il comando. Questo comando consente di concentrare una stringa per `EnableScriptLogging` il debug quando è impostato su true, come illustrato nell'esempio seguente:
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(

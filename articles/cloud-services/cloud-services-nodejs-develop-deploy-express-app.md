@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360753"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Creare e distribuire un'applicazione Web Node.js usando Express in Servizi cloud di Azure
@@ -94,7 +94,7 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
    
    ![Contenuto del file index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per ulteriori informazioni sul motore di [http://jade-lang.com][http://jade-lang.com]visualizzazione Jade, vedere .
+   Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per ulteriori informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
 2. Modificare l'ultima riga di testo aggiungendo **in Azure**.
    
    ![File index.jade che nell'ultima riga riporta: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75434706"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Come effettuare il provisioning di dispositivi legacy usando chiavi simmetriche
@@ -59,7 +59,7 @@ L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo s
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
-    È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e il carico di lavoro "sviluppo di applicazioni desktop con C++"), **prima** di `CMake` avviare l'installazione. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
+    È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
 2. Trovare il nome del tag per la [versione più recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) dell'SDK.
 
@@ -250,7 +250,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 7. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**. 
 
-8. Nel menu di Visual Studio selezionare **debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
+8. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
     Il seguente output è un esempio di dispositivo simulato che si avvia correttamente e si connette all'istanza del servizio di provisioning da assegnare all'hub IoT:
 

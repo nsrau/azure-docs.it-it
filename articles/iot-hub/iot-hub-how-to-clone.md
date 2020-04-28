@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75429161"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
@@ -353,7 +353,7 @@ Creare il nuovo hub nella nuova posizione usando il modello. Se si dispone di ri
 
 1. Nella casella di ricerca inserire "distribuzione modello" e premere INVIO.
 
-1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)**. Verrà visualizzata una schermata per la Distribuzione modelli. Seleziona **Crea**. Verrà visualizzata la schermata seguente:
+1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)**. Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Create** (Crea). Verrà visualizzata la schermata seguente:
 
    ![Screenshot che mostra il comando per la creazione di un modello personalizzato](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -421,7 +421,7 @@ L'applicazione è destinata a .NET Core, quindi può essere eseguita in Windows 
 
    Il motivo è dovuto al fatto che le stringhe di connessione sono lunghe e indesiderate ed è improbabile che si modifichino, ma è possibile modificare le opzioni ed eseguire l'applicazione più volte. Per modificare il valore di una variabile di ambiente, è necessario chiudere la finestra di comando e Visual Studio o VS Code, a seconda del valore utilizzato. 
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Di seguito sono riportate le cinque opzioni specificate durante l'esecuzione dell'applicazione. Questi verranno inseriti nella riga di comando in un minuto.
 

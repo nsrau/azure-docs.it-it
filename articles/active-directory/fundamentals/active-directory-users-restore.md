@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 573269da1ca6b9ee09b493f4e758e78121d6c2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75422855"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
@@ -37,7 +37,7 @@ Per ripristinare o eliminare definitivamente gli utenti, è necessario avere uno
 
 - Supporto partner - Livello 2
 
-- Amministratore utenti
+- Amministratore degli utenti
 
 ## <a name="view-your-restorable-users"></a>Visualizzare gli utenti ripristinabili
 È possibile visualizzare tutti gli utenti che sono stati eliminati negli ultimi 30 giorni e che possono essere ripristinati.

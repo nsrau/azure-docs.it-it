@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: d99920417f20034da1001a821c02376ac19274d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426478"
 ---
-# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Arrestare o eliminare il processo di Analisi di flusso di AzureStop or delete your Azure Stream Analytics job
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Arrestare o eliminare il processo di analisi di flusso di Azure
 
-I processi di Analisi di flusso di Azure possono essere facilmente arrestati o eliminati tramite il portale di Azure, Azure PowerShell, Azure SDK per .Net o l'API REST. Un processo di Analisi di flusso non può essere recuperato dopo essere stato eliminato.
+I processi di analisi di flusso di Azure possono essere facilmente arrestati o eliminati tramite il portale di Azure, Azure PowerShell, Azure SDK per .NET o l'API REST. Un processo di analisi di flusso non può essere recuperato dopo che è stato eliminato.
 
 >[!NOTE] 
 >Quando si arresta un processo di Analisi di flusso di Azure, i dati vengono mantenuti solo nell'archiviazione di input e output come ad esempio Hub eventi o Database SQL di Azure. Se è necessario rimuovere dati da Azure, assicurarsi di seguire il processo di rimozione per le risorse di input e output del processo di Analisi di flusso.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Arrestare un processo nel portale di Azure
 
-Quando si interrompe un processo, viene eseguito il deprovisioning delle risorse e si interrompe l'elaborazione degli eventi. Vengono interrotti anche gli addebiti relativi a questo processo. Tuttavia, tutta la configurazione viene mantenuta ed è possibile riavviare il processo in un secondo momento 
+Quando si arresta un processo, viene effettuato il deprovisioning delle risorse e l'elaborazione degli eventi viene arrestata. Vengono inoltre arrestati gli addebiti relativi a questo processo. Tuttavia, tutte le configurazioni vengono mantenute e il processo può essere riavviato in un secondo momento 
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [portale di Azure](https://portal.azure.com). 
 
 2. Individuare il processo di Analisi di flusso in esecuzione e selezionarlo.
 
@@ -38,7 +38,7 @@ Quando si interrompe un processo, viene eseguito il deprovisioning delle risorse
 ## <a name="delete-a-job-in-azure-portal"></a>Eliminare un processo nel portale di Azure
 
 >[!WARNING] 
->Un processo di Analisi di flusso non può essere recuperato dopo essere stato eliminato.
+>Un processo di analisi di flusso non può essere recuperato dopo che è stato eliminato.
 
 1. Accedere al portale di Azure. 
 
@@ -53,7 +53,7 @@ Quando si interrompe un processo, viene eseguito il deprovisioning delle risorse
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per arrestare un processo tramite PowerShell, utilizzare il cmdlet [Stop-AzStreamAnalyticsJob.](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) Per eliminare un processo tramite PowerShell, utilizzare il cmdlet [Remove-AzStreamAnalyticsJob.](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob)
+Per arrestare un processo usando PowerShell, usare il cmdlet [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) . Per eliminare un processo usando PowerShell, usare il cmdlet [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) .
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Arrestare o eliminare un processo con Azure SDK per .NET
 

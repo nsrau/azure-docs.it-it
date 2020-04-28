@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75422955"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Informazioni di riferimento sulla Guida operativa di Azure Active Directory
@@ -123,7 +123,7 @@ Il [Punteggio](https://docs.microsoft.com/azure/active-directory/fundamentals/id
 
 Se l'organizzazione non ha attualmente alcun programma per monitorare le modifiche nel punteggio di sicurezza delle identità, è consigliabile implementare un piano e assegnare i proprietari per monitorare le azioni di miglioramento. Le organizzazioni devono correggere le azioni di miglioramento con un effetto punteggio superiore a 30 il prima possibile.
 
-### <a name="notifications"></a>Notifications
+### <a name="notifications"></a>Notifiche
 
 Microsoft invia comunicazioni tramite posta elettronica agli amministratori per notificare diverse modifiche al servizio, aggiornamenti della configurazione necessari ed errori che richiedono l'intervento dell'amministratore. È importante che i clienti impostino gli indirizzi di posta elettronica di notifica in modo che le notifiche vengano inviate ai membri del team appropriati che possono confermare e agire su tutte le notifiche. Si consiglia di aggiungere più destinatari al [centro messaggi di Office 365](https://docs.microsoft.com/office365/admin/manage/message-center) e di richiedere l'invio di notifiche (incluse Azure ad Connect Health notifiche) a una lista di distribuzione o a una cassetta postale condivisa. Se è presente un solo account amministratore globale con un indirizzo di posta elettronica, assicurarsi di configurare almeno due account che supportano la posta elettronica.
 
@@ -172,7 +172,7 @@ Il [modello a livelli](https://docs.microsoft.com/windows-server/identity/securi
 
 Bloccare l'accesso ai componenti di identità locali, ad esempio Azure AD Connect, AD FS e i servizi SQL allo stesso modo di quanto avviene per i controller di dominio.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Esistono sette aspetti di un'infrastruttura di identità sicura. Questo elenco consente di trovare le azioni da intraprendere per ottimizzare le operazioni per Azure Active Directory (Azure AD).
 

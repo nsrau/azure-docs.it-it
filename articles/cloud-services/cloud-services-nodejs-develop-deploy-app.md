@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386188"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
@@ -35,7 +35,7 @@ L'applicazione è una semplice applicazione "hello world":
 > [!NOTE]
 > Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
-* Installare e configurare [Azure Powershell.]
+* Installare e configurare [Azure PowerShell].
 * Scaricare e installare [Azure SDK per .NET 2.7]. Nel programma di installazione, selezionare:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -82,7 +82,7 @@ Questo codice è essenzialmente lo stesso dell'esempio "Hello World" nel sito We
 ## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. È possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o [iscriversi per un account gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+> Per completare l'esercitazione, è necessario un account Azure. È possibile [attivare i benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o [iscriversi per ottenere un account gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Scaricare le impostazioni di pubblicazione di Azure
 Per distribuire l'applicazione in Azure, è necessario prima di tutto scaricare le impostazioni di pubblicazione per la sottoscrizione di Azure.
@@ -161,7 +161,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 
 [Confronto tra siti Web, servizi cloud e macchine virtuali]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [usare un'app Web leggera]: ../app-service/app-service-web-get-started-nodejs.md
-[Powershell di AzureAzure Powershell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK per .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connettere PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

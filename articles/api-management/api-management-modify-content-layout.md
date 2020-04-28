@@ -1,5 +1,5 @@
 ---
-title: Modificare il contenuto della pagina nel portale per sviluppatori in Gestione API
+title: Modificare il contenuto della pagina nel portale per sviluppatori in gestione API
 titleSuffix: Azure API Management
 description: Informazioni su come modificare i contenuti di una pagina nel portale per sviluppatori in Gestione API di Azure.
 services: api-management
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430625"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificare il contenuto e il layout delle pagine nel portale per sviluppatori in Gestione API di Azure

@@ -1,5 +1,5 @@
 ---
-title: Operazioni di eliminazione sull'API Cassandra DB di Azure da SparkDelete operations on Azure Cosmos DB Cassandra API from Spark
+title: Operazioni DELETE in Azure Cosmos DB API Cassandra da Spark
 description: Questo articolo descrive come eliminare i dati nelle tabelle nell'API Cassandra di Azure Cosmos DB da Spark.
 author: kanshiG
 ms.author: govindk
@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442095"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminare dati nelle tabelle nell'API Cassandra di Azure Cosmos DB da Spark
@@ -116,7 +116,7 @@ spark
   .show
 ```
 
-**Output:**
+**Output**
 
 ```
 == Physical Plan ==
@@ -199,7 +199,7 @@ spark
   .show
 ```
 
-**Output:**
+**Output**
 
 ```
 == Physical Plan ==
@@ -278,7 +278,7 @@ println("==================")
 println("3) After")
 sc.cassandraTable("books_ks", "books").collect.foreach(println)
 ```
-**Output:**
+**Output**
 
 ```
 ==================
@@ -331,7 +331,7 @@ println("3) After")
 sc.cassandraTable("books_ks", "books").take(4).foreach(println)
 ```
 
-**Output:**
+**Output**
 
 ```
 ==================

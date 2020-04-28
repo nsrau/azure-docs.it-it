@@ -1,6 +1,6 @@
 ---
 title: MapReduce con Apache Hadoop in HDInsight
-description: Informazioni su come eseguire processi Apache MapReduce in Apache Hadoop nei cluster HDInsight.Learn how to run Apache MapReduce jobs on Apache Hadoop in HDInsight clusters.
+description: Informazioni su come eseguire i processi Apache MapReduce in Apache Hadoop nei cluster HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435714"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Usare MapReduce in Apache Hadoop in HDInsight
@@ -21,7 +21,7 @@ Informazioni su come eseguire i processi MapReduce nei cluster di HDInsight.
 
 ## <a name="example-data"></a>Dati di esempio
 
-HDInsight offre diversi set di dati di esempio, archiviati nelle directory `/example/data` e `/HdiSamples`. Queste directory si trovano nella risorsa di archiviazione predefinita per il cluster. In questo documento, viene usato il file `/example/data/gutenberg/davinci.txt`. Questo file contiene i taccuini di Leonardo da Vinci.
+HDInsight offre diversi set di dati di esempio, archiviati nelle directory `/example/data` e `/HdiSamples`. Queste directory si trovano nella risorsa di archiviazione predefinita per il cluster. In questo documento, viene usato il file `/example/data/gutenberg/davinci.txt`. Questo file contiene i notebook di Leonardo da Vinci.
 
 ## <a name="example-mapreduce"></a>MapReduce di esempio
 
@@ -101,17 +101,17 @@ public class WordCount {
 }
 ```
 
-Per istruzioni su come scrivere applicazioni MapReduce personalizzate, consultate [Sviluppare applicazioni Java MapReduce per HDInsight.](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+Per istruzioni sulla scrittura di applicazioni MapReduce personalizzate, vedere [sviluppare applicazioni Java MapReduce per HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
 
 ## <a name="run-the-mapreduce"></a>Eseguire il processo MapReduce
 
 HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
-| **Utilizzare questo**... | **... per fare questo** |  ...da questo **sistema operativo client** |
+| **Usare questa**... | **... per eseguire questa operazione** |  ...da questo **sistema operativo client** |
 |:--- |:--- |:--- |:--- |
-| [Ssh](apache-hadoop-use-mapreduce-ssh.md) |Usare il comando Hadoop tramite **SSH** |Linux, Unix, Mac OS X o Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Inviare il processo in remoto tramite **REST** |Linux, Unix, Mac OS X o Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Inviare il processo in remoto tramite **Windows PowerShell**  |WINDOWS |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usare il comando Hadoop tramite **SSH** |Linux, Unix, Mac OS X o Windows |
+| [CURL](apache-hadoop-use-mapreduce-curl.md) |Inviare il processo in remoto tramite **REST** |Linux, Unix, Mac OS X o Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Inviare il processo in remoto tramite **Windows PowerShell**  |Windows |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

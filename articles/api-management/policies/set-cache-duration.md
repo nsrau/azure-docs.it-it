@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio - Impostare la durata della cache delle risposteSample API management policy - Set response cache duration
+title: 'Criteri di gestione API di esempio: impostare la durata della cache della risposta'
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure - Illustra come impostare la durata della cache della risposta usando il valore maxAge nell'intestazione Cache-Control inviata dal back-end.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442385"
 ---
 # <a name="set-response-cache-duration"></a>Impostare la durata della cache della risposta

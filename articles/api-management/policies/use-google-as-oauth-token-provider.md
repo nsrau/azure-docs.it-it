@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio - Autorizzare l'accesso tramite il token OAuth di GoogleSample API management policy - Authorize access using Google OAuth token
+title: "Criteri di gestione API di esempio: autorizzare l'accesso con token OAuth Google"
 titleSuffix: Azure API Management
 description: "Esempio di criteri di gestione API di Azure: illustra come autorizzare l'accesso agli endpoint usando Google come provider di token OAuth."
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: d606d29d84cd5917c74efe188ae02627ad55d4ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442382"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autorizzare l'accesso con token OAuth Google

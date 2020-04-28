@@ -1,6 +1,6 @@
 ---
-title: Esempi di cache di Azure CLI Azure per RedisAzure CLI Azure Cache for Redis samples
-description: "Esempi dell'interfaccia della riga di comando di Azure per La cache di Azure per Redis: creare una cache, eliminare una cache, ottenere i dettagli della cache, il nome host, le porte e le chiavi, la connessione di un'app Web.Azure CLI samples for Azure Cache for Redis: Create a cache, deleting a cache, get cache details, hostname, ports and keys, connecting a web app."
+title: Cache di Azure dell'interfaccia della riga di comando di Azure per gli esempi
+description: "Esempi dell'interfaccia della riga di comando di Azure per cache di Azure per redis: creare una cache, eliminare una cache, ottenere i dettagli della cache, il nome host, le porte e le chiavi e connettere un'app Web."
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
 ms.openlocfilehash: c43e23b4bf46258cc91b06a0912d03e85a5c7a14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75411353"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Esempi dell'interfaccia della riga di comando di Azure per Cache Redis di Azure
@@ -27,7 +27,7 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Ottenere il nome host, le porte e le chiavi](./scripts/cache-keys-ports.md) | Ottiene il nome host, le porte e le chiavi per un'istanza di Cache Redis di Azure. |
 |**App Web e cache**||
 | [Connettere un'app Web a Cache Redis di Azure](./../app-service/scripts/cli-connect-to-redis.md) | Crea un'app Web di Azure e un'istanza di Cache Redis di Azure, quindi aggiunge i dettagli della connessione Redis alle impostazioni dell'app. |
-|**Eliminare cache**||
+|**Elimina cache**||
 | [Eliminare una cache](./scripts/delete-cache.md) | Elimina un'istanza di Cache Redis di Azure  |
 | | |
 

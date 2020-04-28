@@ -1,5 +1,5 @@
 ---
-title: Aggiungere o rimuovere un gruppo da un altro gruppo - Azure ADAdd or remove a group from another group - Azure AD
+title: Aggiungere o rimuovere un gruppo da un altro gruppo-Azure AD
 description: Istruzioni su come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75423090"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
@@ -67,7 +67,7 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 
     ![Pagina delle appartenenze ai gruppi con i dettagli sia del membro che del gruppo](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 - [Visualizzare gruppi e membri](active-directory-groups-view-azure-portal.md)

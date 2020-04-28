@@ -1,6 +1,6 @@
 ---
 title: Creare un hub IoT di Azure con l'API REST del provider di risorse | Documentazione Microsoft
-description: Informazioni su come usare l'API REST del provider di risorse di C'è per creare e gestire un hub IoT a livello di codice.
+description: Informazioni su come usare l'API REST C# del provider di risorse per creare e gestire un hub Internet a livello di codice.
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75429167"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Creare un hub IoT con l'API REST del provider di risorse (.NET)
@@ -27,7 +27,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Visual Studio.
 
-* Un account Azure attivo. Se non hai un account, puoi creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+* Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 * [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) o versione successiva.
 
@@ -95,7 +95,7 @@ Usare l'[API REST del provider di risorse dell'hub IoT](https://docs.microsoft.c
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Aggiungere il codice seguente al metodo **CreateIoTHub**. Questo codice descrive l'hub IoT per creare e genera una rappresentazione JSON. Per l'elenco corrente delle posizioni che supportano l'hub IoT, vedere Stato di [Azure:For](https://azure.microsoft.com/status/)the current list of locations that support IoT Hub see Azure Status:
+3. Aggiungere il codice seguente al metodo **CreateIoTHub**. Questo codice descrive l'hub IoT per creare e genera una rappresentazione JSON. Per l'elenco corrente dei percorsi che supportano l'hub Internet, vedere [stato di Azure](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -165,10 +165,10 @@ Usare l'[API REST del provider di risorse dell'hub IoT](https://docs.microsoft.c
 
 3. Fare clic su **Debug** e quindi su **Avvia debug** per eseguire l'applicazione. Potrebbero occorrere alcuni minuti per l'esecuzione della distribuzione.
 
-4. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, visitare il [portale di Azure](https://portal.azure.com/) e visualizzare l'elenco delle risorse. In alternativa, utilizzare il cmdlet **PowerShell Get-AzResource.**
+4. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, visitare il [portale di Azure](https://portal.azure.com/) e visualizzare l'elenco delle risorse. In alternativa, usare il cmdlet **Get-AzResource** di PowerShell.
 
 > [!NOTE]
-> Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Al termine, è possibile eliminare l'hub IoT tramite il portale di [Azure](https://portal.azure.com/) o usando il cmdlet PowerShell **Remove-AzResource** al termine dell'operazione.
+> Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Al termine, è possibile eliminare l'hub Internet delle cose tramite il [portale di Azure](https://portal.azure.com/) o usando il cmdlet di PowerShell **Remove-AzResource** al termine dell'operazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -182,7 +182,7 @@ Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere gli art
 
 * [Introduzione a C SDK](iot-hub-device-sdk-c-intro.md)
 
-* [Azure IoT SDKs](iot-hub-devguide-sdks.md) (SDK di IoT di Azure)
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 

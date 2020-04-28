@@ -1,5 +1,5 @@
 ---
-title: "Criteri di gestione delle API di Azure di esempio: usare OAuth2 per l'autorizzazione tra gateway e back-endSample Azure API management policy - Use OAuth2 for authorization between gateway and back-end"
+title: "Esempio di criteri di gestione API di Azure: usare OAuth2 per l'autorizzazione tra gateway e back-end"
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure che illustra come usare OAuth2 per l'autorizzazione tra il gateway e un back-end. Mostra come ottenere un token di accesso da AAD e inoltrarlo al back-end.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 09d51759c07e7dacc25d5b5ffce9698831c37a7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442361"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Usare OAuth2 per l'autorizzazione tra gateway e back-end

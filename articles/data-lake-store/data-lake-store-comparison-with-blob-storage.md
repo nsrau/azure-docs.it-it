@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 7c958c3ed4d6ddaabd87f053005fcfc1eba8c842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75438729"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure
@@ -37,15 +37,15 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/common/storage-account-keys-manage.md) e [chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operazioni sui dati: protocollo di autenticazione |OAuth 2.0. Le chiamate devono contenere un token JSON Web (JWT) valido rilasciato da Azure Active Directory. |Hash-based Message Authentication Code (HMAC). Le chiamate devono contenere un hash SHA-256 con codifica Base64 su una parte della richiesta HTTP. |
 | Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli ACL basati su identità di Azure Active Directory possono essere impostati a livello di file e cartella. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/common/storage-account-keys-manage.md)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
-| Operazioni sui dati: controllo |Disponibile. Vedi [qui](data-lake-store-diagnostic-logs.md) per informazioni. |Disponibile |
+| Operazioni sui dati: controllo |Disponibile. Per informazioni, vedere [qui](data-lake-store-diagnostic-logs.md) . |Disponibile |
 | Crittografia dei dati inattivi |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure</li></ul></ul> |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente in Azure Key Vault (anteprima)</li></ul><li>crittografia lato client</li></ul> |
 | Operazioni di gestione, come la creazione di account |[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) fornito da Azure per la gestione degli account. |[Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) (RBAC) fornito da Azure per la gestione degli account. |
 | SDK per sviluppatori |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Prestazioni del carico di lavoro di analisi |Prestazioni ottimizzate per carichi di lavoro di analisi parallela. IOPS e velocità effettiva elevata. |Prestazioni ottimizzate per carichi di lavoro di analisi parallela. |
-| Limiti di dimensioni |Nessun limite di dimensioni per l'account, i file o il numero di file |Per limiti specifici, vedere [Obiettivi di scalabilità per gli account di archiviazione standard](../storage/common/scalability-targets-standard-account.md) e Obiettivi di scalabilità e prestazioni per l'archiviazione [BLOB.](../storage/blobs/scalability-targets.md) Per ottenere limiti più elevati per gli account, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/) |
-| Ridondanza geografica |Archiviazione con ridondanza locale (più copie di dati in un'area di Azure). |Archiviazione con ridondanza locale, archiviazione con ridondanza della zona, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura. Vedi [qui](../storage/common/storage-redundancy.md) per maggiori informazioni |
+| Limiti di dimensioni |Nessun limite di dimensioni per l'account, i file o il numero di file |Per i limiti specifici, vedere [obiettivi di scalabilità per gli account di archiviazione standard](../storage/common/scalability-targets-standard-account.md) e [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../storage/blobs/scalability-targets.md). Per ottenere limiti più elevati per gli account, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/) |
+| Ridondanza geografica |Archiviazione con ridondanza locale (più copie di dati in un'area di Azure). |Archiviazione con ridondanza locale, archiviazione con ridondanza della zona, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura. Per ulteriori informazioni, vedere [qui](../storage/common/storage-redundancy.md) . |
 | Stato del servizio |Disponibile a livello generale |Disponibile a livello generale |
-| Disponibilità a livello di area |Vedi [qui](https://azure.microsoft.com/regions/#services) |Disponibili in tutte le aree di Azure |
-| Price |Vedi [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/) |Vedi [Prezzi](https://azure.microsoft.com/pricing/details/storage/) |
+| Disponibilità a livello di area |Vedere [qui](https://azure.microsoft.com/regions/#services) |Disponibili in tutte le aree di Azure |
+| Price |Vedi i [prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/) |Vedi i [prezzi](https://azure.microsoft.com/pricing/details/storage/) |
 
 

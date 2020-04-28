@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426453"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
@@ -30,7 +30,7 @@ Dopo aver completato questa soluzione, sarà possibile:
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa soluzione, è necessario soddisfare i prerequisiti seguenti:
-* Una sottoscrizione di [AzureAn Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
+* Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="scenario-introduction-hello-toll"></a>Presentazione dello scenario: il casello
 Un casello rappresenta una situazione piuttosto comune. Se ne incontrano sulle autostrade e su molti ponti e tunnel in tutto il mondo. Ogni barriera è costituita da più caselli. In quelli manuali ci si ferma per pagare il pedaggio a un addetto. In quelli automatizzati al passaggio attraverso il casello un sensore posto al di sopra di esso analizza una scheda RFID posizionata sul parabrezza del veicolo. È semplice visualizzare il passaggio dei veicoli nei caselli come un flusso di eventi, sui quali è possibile eseguire alcune operazioni interessanti.
@@ -70,7 +70,7 @@ Ecco una breve descrizione delle colonne:
 ### <a name="exit-data-stream"></a>Flusso di dati di uscita
 Il flusso di dati di uscita contiene informazioni sulle automobili che escono dal casello. Gli eventi dei dati di uscita vengono trasmessi live in una coda di Hub eventi da un'app Web inclusa nell'app di esempio.
 
-| **Id toll** | **Tempo ingresso** | **Targa** |
+| **ID casello** | **Tempo ingresso** | **Targa** |
 | --- | --- | --- |
 | 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
 | 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
@@ -113,7 +113,7 @@ Per completare la soluzione, è necessaria una sottoscrizione di Microsoft Azure
 Per poter usare al meglio il credito Azure gratuito, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 
 ## <a name="deploy-the-sample"></a>Distribuire l'esempio
-Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in pochi clic. La definizione della soluzione è [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)ospitata nel repository GitHub in .
+Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in pochi clic. La definizione della soluzione è ospitata nel repository [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)GitHub all'indirizzo.
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Distribuire il modello TollApp nel portale di Azure
 1. Per distribuire l'ambiente TollApp in Azure, usare questo collegamento per [distribuire il modello TollApp di Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -171,7 +171,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
    - L'input **Registration** è una connessione all'archiviazione BLOB di Azure che punta a un file JSON di registrazione statico, usato per le ricerche in base alle necessità. Questo input di dati di riferimento viene usato in variazioni successive della sintassi di query.
 
 4. Esaminare gli output del processo di esempio TollApp.
-   - **Cosmos DB** output è un contenitore di database Cosmos che riceve gli eventi sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
+   - **Cosmos DB** output è un contenitore di Cosmos database che riceve gli eventi sink di output. Notare che questo output viene usato nella clausola INTO della query di streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Avviare il processo di streaming TollApp
 Per avviare il processo di streaming, completare questi passaggi:
@@ -189,7 +189,7 @@ Per avviare il processo di streaming, completare questi passaggi:
 
 3. Selezionare l'intestazione **Esplora dati** per aprire la pagina Esplora dati.
 
-4. Espandere i**documenti** > **tollAppCollection tollAppCollection** >  **.**
+4. Espandere i**documenti**di **tollAppDatabase** > **tollAppCollection** > .
 
 5. Nell'elenco di ID diversi documenti vengono visualizzati solo quando è disponibile l'output.
 
@@ -283,7 +283,7 @@ Output di esempio:
 ```
 
 ## <a name="scale-out-the-job"></a>Scalare orizzontalmente il processo
-Analisi di flusso di Azure è progettato per offrire scalabilità elastica in modo da gestire volumi elevati di dati. La query di Analisi di flusso di Azure può usare una clausola **PARTITION BY** per indicare al sistema che questo passaggio viene scalato. **PartitionId** è una colonna speciale che il sistema aggiunge in modo che corrisponda all'ID di partizione dell'input (hub eventi).
+Analisi di flusso di Azure è progettato per offrire scalabilità elastica in modo da gestire volumi elevati di dati. La query di analisi di flusso di Azure può usare una clausola **Partition by** per indicare al sistema la scalabilità orizzontale di questo passaggio. **PartitionID** è una colonna speciale aggiunta dal sistema in base all'ID di partizione dell'input (hub eventi).
 
 Per scalare orizzontalmente la query nelle partizioni, modificare la sintassi di query in base al codice seguente:
 ```sql

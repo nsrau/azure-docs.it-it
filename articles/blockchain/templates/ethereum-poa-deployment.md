@@ -5,10 +5,10 @@ ms.date: 12/18/2019
 ms.topic: article
 ms.reviewer: coborn
 ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75387500"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
@@ -95,7 +95,7 @@ Subscription | La sottoscrizione sul quale eseguire la distribuzione della rete 
 Gruppo di risorse| Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio. | myResourceGroup
 Location | La regione di Azure per gruppo di risorse. | Stati Uniti occidentali 2
 
-Fare clic su **OK**.
+Selezionare **OK**.
 
 ### <a name="deployment-regions"></a>Regioni di distribuzione
 
@@ -109,7 +109,7 @@ Numero di regioni|Numero di aree per la distribuzione della rete di consorzio| 2
 Prima regione | Prima regione per la distribuzione della rete di consorzio | Stati Uniti occidentali 2
 Seconda regione | Seconda area per la distribuzione della rete Consortium. Le aree aggiuntive sono visibili quando il numero di aree è maggiore o uguale a due. | Stati Uniti orientali 2
 
-Fare clic su **OK**.
+Selezionare **OK**.
 
 ### <a name="network-size-and-performance"></a>Dimensioni e prestazioni della rete
 
@@ -131,7 +131,7 @@ F1|SSD Standard|low|low|high
 D2_v3|SSD Standard|media|media|media
 F16s|SSD Premium|high|high|low
 
-Fare clic su **OK**.
+Selezionare **OK**.
 
 ### <a name="ethereum-settings"></a>Impostazioni Ethereum
 
@@ -150,7 +150,7 @@ Limite di gas di blocco | Limite di gas di blocco iniziale della rete. | 50 mili
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec)) | Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori. | 15
 Contratto di autorizzazione transazione | Bytecode per il contratto di concessione delle autorizzazioni per le transazioni. Limita la distribuzione e l'esecuzione di Smart contract a un elenco di account Ethereum consentito. |
 
-Fare clic su **OK**.
+Selezionare **OK**.
 
 ### <a name="monitoring"></a>Monitoraggio
 
@@ -166,9 +166,9 @@ Location | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
 ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||N/D
 Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||N/D
 
-Fare clic su **OK**.
+Selezionare **OK**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fare clic sul riepilogo per esaminare gli input specificati ed eseguire la convalida pre-distribuzione di base. Prima di distribuire, è possibile scaricare il modello e i parametri.
 

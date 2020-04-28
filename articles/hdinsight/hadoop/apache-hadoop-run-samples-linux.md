@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435742"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Eseguire gli esempi di MapReduce inclusi in HDInsight
@@ -23,7 +23,7 @@ Informazioni su come eseguire esempi di MapReduce inclusi con Apache Hadoop su H
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight su Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop in HDInsight. Vedere [Introduzione a HDInsight in Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -37,26 +37,26 @@ Gli esempi seguenti sono contenuti in questo archivio:
 |---|---|
 |aggregatewordcount|Conta le parole nei file di input.|
 |aggregatewordhist|Calcola l'istogramma delle parole nei file di input.|
-|Bbp|Usa Bailey-Borwein-Plouffe per calcolare cifre esatte di Pi.|
-|dbcount|Conta i registri delle visualizzazioni di pagina archiviati in un database.|
-|distbbp|Utilizza una formula di tipo BBP per calcolare i bit esatti di Pi.|
+|BBP|USA Bailey-Borwein-Plouffe per calcolare le cifre esatte del pi greco.|
+|DBCOUNT|Conta i log di visualizzazione archiviati in un database.|
+|distbbp|Usa una formula di tipo BBP per calcolare i bit esatti del pi greco.|
 |grep|Conta le corrispondenze di un'espressione regolare nell'input.|
-|join|Esegue un join su set di dati ordinati e equamente partizionati.|
-|multifilewc|Conta le parole di diversi file.|
-|pentomino|Programma di posa delle piastrelle per trovare soluzioni ai problemi di pentomino.|
-|pi|Stime Pi utilizzando un metodo quasi-Monte Carlo.|
+|join|Esegue un join su set di impostazioni, equamente partizionati.|
+|multifilewc|Conta le parole da più file.|
+|Pentomino|Programma di disposizione dei riquadri per trovare soluzioni per Pentomino problemi.|
+|pi|Stima pi greco usando un metodo quasi-Monte Carlo.|
 |randomtextwriter|Scrive 10 GB di dati testuali casuali per nodo.|
-|randomwriter|Scrive 10 GB di dati casuali per nodo.|
-|secondarysort|Definisce un ordinamento secondario per la fase di riduzione.|
+|randomtextwriter|Scrive 10 GB di dati casuali per nodo.|
+|secondarySort|Definisce un ordinamento secondario per la fase di riduzione.|
 |sort|Ordina i dati scritti dal writer casuale.|
 |Sudoku|Un risolutore di sudoku.|
-|terageno|Generare dati per terasort.|
+|teragen|Generare dati per terasort.|
 |terasort|Eseguire il processo terasort.|
 |teravalidate|Verificare i risultati di terasort.|
-|wordcount|Conta le parole nei file di input.|
-|wordmean|Conta la lunghezza media delle parole nei file di input.|
-|wordmediana|Conta la lunghezza mediana delle parole nei file di input.|
-|paroladeviazionestandard|Conta la deviazione standard della lunghezza delle parole nei file di input.|
+|WordCount|Conta le parole nei file di input.|
+|WordCount|Conta la lunghezza media delle parole nei file di input.|
+|wordmedian|Conta la lunghezza mediana delle parole nei file di input.|
+|wordstandarddeviation|Conta la deviazione standard della lunghezza delle parole nei file di input.|
 
 ## <a name="run-the-wordcount-example"></a>Eseguire l'esempio wordcount
 
@@ -66,7 +66,7 @@ Gli esempi seguenti sono contenuti in questo archivio:
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Dalla sessione SSH, utilizzare il comando seguente per elencare gli esempi:
+2. Dalla sessione SSH usare il comando seguente per elencare gli esempi:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -88,7 +88,7 @@ Gli esempi seguenti sono contenuti in questo archivio:
 
     Tale messaggio indica che è possibile specificare più percorsi di input per i documenti di origine. Il percorso finale corrisponde alla posizione in cui verrà memorizzato l'output (conteggio delle parole nei documenti di origine).
 
-4. Usare quanto segue per contare tutte le parole nei blocchi appunti di Leonardo da Vinci, fornite come dati di esempio con il cluster:
+4. Usare quanto segue per conteggiare tutte le parole nei notebook di Leonardo da Vinci, che vengono forniti come dati di esempio con il cluster:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -164,11 +164,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 Il valore restituito da questo comando è simile a **3,14159155000000000000**. A scopo di riferimento, le prime 10 cifre decimali del pi greco sono 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>Esempio GraySort da 10 GB
+## <a name="10-gb-graysort-example"></a>esempio di GraySort da 10 GB
 
 GraySort è un ordinamento benchmark. La metrica è la velocità di ordinamento (TB/minuto) ottenuta durante l'ordinamento di quantità di dati elevate, in genere almeno 100 TB.
 
-In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Usa le applicazioni di MapReduce sviluppate da Owen O'Malley e Arun Murthy. Queste applicazioni hanno vinto il benchmark annuale di ordinamento terabyte generico ("Daytona") nel 2009, con un tasso di 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e altri benchmark di ordinamento, vedere il sito [Di riferimento di](https://sortbenchmark.org/) ordinamento.
+In questo esempio vengono usati solo 10 GB di dati, in modo da consentire un'esecuzione relativamente rapida. Usa le applicazioni di MapReduce sviluppate da Owen O'Malley e Arun Murthy. Queste applicazioni hanno ottenuto il benchmark di ordinamento annuale per utilizzo generale ("Daytona") terabyte in 2009, con una frequenza di 0,578 TB/min (100 TB in 173 minuti). Per ulteriori informazioni su questo e altri benchmark di ordinamento, vedere il sito [benchmark di ordinamento](https://sortbenchmark.org/) .
 
 In questo esempio vengono utilizzati tre set di programmi MapReduce:
 

@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio - Autorizzare l'accesso in base alle attestazioni JWTSample API management policy - Authorize access based on JWT claims
+title: "Criteri di gestione API di esempio: autorizzare l'accesso in base alle attestazioni JWT"
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure che illustra come autorizzare l'accesso a specifici metodi HTTP in un'API in base ad attestazioni JWT.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 1b84854688fbdcc017b16698dfebfe54a7210110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75422189"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>Autorizzare l'accesso in base ad attestazioni JWT

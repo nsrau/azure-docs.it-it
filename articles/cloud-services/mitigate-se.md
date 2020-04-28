@@ -1,5 +1,5 @@
 ---
-title: Linee guida per ridurre l'esecuzione speculativa in AzureGuidance to mitigate speculative execution in Azure
+title: Linee guida per attenuare l'esecuzione speculativa in Azure
 titleSuffix: Azure Cloud Services
 description: Indicazioni per la mitigazione delle vulnerabilità del canale laterale per l'esecuzione speculativa in Azure.
 services: cloud-services
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 67f85bd7b492e9fce6b132c832e83d64e3175716
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75385510"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Indicazioni per la mitigazione delle vulnerabilità del canale laterale per l'esecuzione speculativa in Azure

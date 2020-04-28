@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426373"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
@@ -25,7 +25,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere NVARCHAR(MAX).
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX).
 
 ### <a name="example"></a>Esempio
 

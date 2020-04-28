@@ -1,6 +1,6 @@
 ---
-title: Creare un'archiviazione del database dell'utente esternoCreate an external ASE
-description: Informazioni su come creare un ambiente del servizio app con un'app in esso o creare un ambiente del servizio app autonomo (vuoto).
+title: Creare un ambiente del servizio app esterno
+description: Informazioni su come creare un ambiente del servizio app con un'app o creare un ambiente del servizio app autonomo (vuoto).
 author: ccompy
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430521"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
@@ -149,7 +149,7 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
 
 1. Selezionare la propria sottoscrizione. Questa sottoscrizione è anche quella usata da tutte le app nell'ambiente del servizio app. Non è possibile inserire l'ambiente del servizio app in una rete virtuale che si trova in un'altra sottoscrizione.
 
-1. Selezionare o specificare un nuovo gruppo di risorse. Il gruppo di risorse per l'ambiente del servizio app deve essere uguale a quello usato per la rete virtuale. Se si seleziona una rete virtuale esistente, la selezione del gruppo di risorse per l'ambiente del servizio app viene aggiornata per riflettere il valore della rete virtuale. *È possibile creare un ambiente del servizio app con un gruppo di risorse diverso dal gruppo di risorse della rete virtuale se si usa un modello di Resource Manager*. Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello.][MakeASEfromTemplate]
+1. Selezionare o specificare un nuovo gruppo di risorse. Il gruppo di risorse per l'ambiente del servizio app deve essere uguale a quello usato per la rete virtuale. Se si seleziona una rete virtuale esistente, la selezione del gruppo di risorse per l'ambiente del servizio app viene aggiornata per riflettere il valore della rete virtuale. *È possibile creare un ambiente del servizio app con un gruppo di risorse diverso dal gruppo di risorse della rete virtuale se si usa un modello di Resource Manager*. Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
     ![Selezione del gruppo di risorse][6]
 
@@ -163,7 +163,7 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
     
       * Se si seleziona **Interno** come **Tipo di indirizzo VIP**, è necessario specificare il dominio usato dall'ambiente del servizio app. È possibile distribuire un ambiente del servizio app in una rete virtuale che usa gli intervalli di indirizzi pubblici o privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare in anticipo la rete virtuale. 
     
-    * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedena nel portale. È possibile creare un ambiente del servizio app con una subnet esistente se si usa un modello di Resource Manager.You can create an ASE with an existing subnet if you use a Resource Manager template.* Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+    * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedenza nel portale. Se si usa un modello di Gestione risorse, è possibile creare un ambiente del servizio app con una subnet esistente.* Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>Ambiente del servizio app 1
 

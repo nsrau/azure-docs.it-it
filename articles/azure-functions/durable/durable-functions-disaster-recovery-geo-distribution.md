@@ -1,18 +1,18 @@
 ---
-title: Ripristino di emergenza e distribuzione geografica funzioni durevoli di AzureDisaster recovery and geo-distribution Azure Durable Functions
+title: Ripristino di emergenza e distribuzione geografica di Azure Durable Functions
 description: Informazioni sul ripristino di emergenza e sulla distribuzione geografica in Funzioni durevoli.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433340"
 ---
-# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Ripristino di emergenza e distribuzione geografica in Funzioni durevoli di AzureDisaster recovery and geo-distribution in Azure Durable Functions
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Ripristino di emergenza e distribuzione geografica in Azure Durable Functions
 
 In Durable Functions tutti gli stati vengono salvati in modo permanente in Archiviazione di Azure. Un [hub attività](durable-functions-task-hubs.md) è un contenitore logico per le risorse di Archiviazione di Azure che vengono usate per le orchestrazioni. Le funzioni attività e di orchestrazione possono interagire tra loro solo quando appartengono allo stesso hub attività.
 Gli scenari descritti propongono opzioni di distribuzione per aumentare la disponibilità e ridurre al minimo il tempo di inattività durante le attività di ripristino di emergenza.

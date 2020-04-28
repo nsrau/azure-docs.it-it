@@ -1,16 +1,16 @@
 ---
-title: Distribuire la cache di Azure per Redis con Azure Resource ManagerDeploy Azure Cache for Redis with Azure Resource Manager
-description: Informazioni su come usare un modello di Azure Resource Manager per distribuire una risorsa Cache di Azure per Redis.Learn how to use an Azure Resource Manager template to deploy an Azure Cache for Redis resource. I modelli vengono forniti per scenari comuni.
+title: Distribuire cache di Azure per Redis con Azure Resource Manager
+description: Informazioni su come usare un modello di Azure Resource Manager per distribuire una cache di Azure per la risorsa Redis. Sono disponibili modelli per gli scenari comuni.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75412415"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Creare una Cache Redis di Azure usando un modello
@@ -21,7 +21,7 @@ Questo argomento illustra come creare un modello di Azure Resource Manager che c
 
 Le impostazioni di diagnostica sono attualmente condivise da tutte le cache nella stessa area di una sottoscrizione. L'aggiornamento di una cache nell'area ha effetto su tutte le altre cache presenti nell'area.
 
-Per altre informazioni sulla creazione di modelli, vedere Creazione di modelli di Azure Resource Manager .For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md). Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorse cache, vedere [Tipi di risorse Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
+Per ulteriori informazioni sulla creazione di modelli, vedere Creazione di modelli di [Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorse cache, vedere [Tipi di risorse Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
 Per il modello completo, vedere [Modello di Cache Redis di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
@@ -30,7 +30,7 @@ Per il modello completo, vedere [Modello di Cache Redis di Azure](https://github
 > 
 > * [Creare un'istanza di Cache Redis di Azure Premium con clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Creare una Cache Redis Premium di Azure con persistenza dei dati](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Creare una cache redis Premium distribuita in una rete virtualeCreate Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Creare una cache Redis Premium distribuita in una rete virtuale](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Per verificare gli ultimi modelli, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare `Azure Cache for Redis`.
 > 
@@ -41,7 +41,7 @@ In questo modello, verrà distribuita una Cache Redis di Azure che utilizza un a
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuire in AzureDeploy to Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata Parametri che contiene tutti i valori dei parametri.

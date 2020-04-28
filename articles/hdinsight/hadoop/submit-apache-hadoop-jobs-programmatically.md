@@ -1,6 +1,6 @@
 ---
 title: Inviare processi Apache Hadoop in HDInsight
-description: Inviare processi Apache Hadoop in Azure HDInsight usando Microsoft .NET SDK, curl o PowerShellSubmit Apache Hadoop jobs in Azure HDInsight using Microsoft .NET SDK, curl, or PowerShell
+description: Inviare processi Apache Hadoop in Azure HDInsight usando Microsoft .NET SDK, curl o PowerShell
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435703"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Inviare processi Apache Hadoop in HDInsight
@@ -28,7 +28,7 @@ ms.locfileid: "75435703"
   - [Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [Eseguire processi MapReduce con HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **arricciatura**:
+- **curl**:
 
   - [Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-hive-curl.md)
   - [Eseguire processi Apache Sqoop con Apache Hadoop in HDInsight tramite curl](apache-hadoop-use-sqoop-curl.md)

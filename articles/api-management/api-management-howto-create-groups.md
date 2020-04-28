@@ -1,5 +1,5 @@
 ---
-title: Gestire gli account per sviluppatori usando i gruppi in Gestione API di AzureManage developer accounts using groups in Azure API Management
+title: Gestire gli account sviluppatore usando i gruppi in gestione API di Azure
 titleSuffix: Azure API Management
 description: Informazioni su come gestire gli account di sviluppatori tramite i gruppi in Gestione API di Azure.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430720"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
@@ -49,7 +49,7 @@ Completare le attività riportate in questo articolo: [Creare un'istanza di Gest
 In questa sezione viene illustrato come aggiungere un nuovo gruppo all'account di Gestione API.
 
 1. Selezionare la scheda **Gruppi** a sinistra della schermata.
-2. Fare clic su **Aggiungi**.
+2. Fare clic su **+ Aggiungi**.
 3. Immettere un nome univoco per il gruppo e una descrizione facoltativa.
 4. Fare clic su **Crea**.
 

@@ -1,15 +1,15 @@
 ---
-title: Attori di Azure Service Fabric
+title: Eseguire il backup e il ripristino di Azure Service Fabric Actors
 description: Informazioni su come implementare il backup e il ripristino negli attori di Azure Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75370460"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementare il backup e il ripristino di Reliable Actors
@@ -111,7 +111,7 @@ myActorServiceProxy.backupActorsAsync();
 
 Per altre informazioni su Reliable Actors, vedere gli articoli seguenti:
 * [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
-* [Ciclo di vita dell'attore e Garbage CollectionActor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+* [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Codice di esempio .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

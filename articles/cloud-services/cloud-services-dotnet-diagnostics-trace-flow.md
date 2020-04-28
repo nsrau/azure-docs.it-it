@@ -1,5 +1,5 @@
 ---
-title: Tracciare il flusso nell'applicazione di servizi cloud con Diagnostica di AzureTrace the flow in Cloud Services Application with Azure Diagnostics
+title: Tracciare il flusso nell'applicazione di servizi cloud con Diagnostica di Azure
 titleSuffix: Azure Cloud Services
 description: Aggiungere messaggi di traccia a un'applicazione Azure per consentire operazioni di debug, misurazione delle prestazioni, monitoraggio, analisi del traffico e molto altro.
 services: cloud-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
 ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386511"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure
@@ -65,8 +65,8 @@ Per altre informazioni sui listener, vedere l'articolo sui [listener di traccia]
 Dopo aver completato i passaggi necessari per aggiungere il listener, è possibile aggiungere istruzioni di traccia al codice.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Per aggiungere un'istruzione di traccia al codice
-1. Aprire un file di origine per l'applicazione, Ad esempio, \<il RoleName>.cs file per il ruolo di lavoro o il ruolo web.
-2. Aggiungere la seguente direttiva using se non è già stata aggiunta:
+1. Aprire un file di origine per l'applicazione, Ad esempio, \<rolename> file con estensione cs per il ruolo di lavoro o il ruolo Web.
+2. Se non è già stato aggiunto, aggiungere la seguente direttiva using:
     ```
         using System.Diagnostics;
     ```

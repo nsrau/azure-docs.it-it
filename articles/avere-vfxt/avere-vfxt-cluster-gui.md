@@ -7,33 +7,33 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75416139"
 ---
 # <a name="access-the-vfxt-cluster"></a>Accedere al cluster vFXT
 
-Per regolare le impostazioni del cluster e monitorare il cluster, utilizzare il Pannello di controllo Di Avere. Il pannello di controllo di Avere è un'interfaccia grafica basata su browser per il cluster.
+Per modificare le impostazioni del cluster e monitorare il cluster, usare il pannello di controllo. Il pannello di controllo di Avere è un'interfaccia grafica basata su browser per il cluster.
 
-Poiché il cluster vFXT si trova all'interno di una rete virtuale privata, è necessario creare un tunnel SSH o utilizzare un altro metodo per raggiungere l'indirizzo IP di gestione del cluster.
+Poiché il cluster vFXT si trova all'interno di una rete virtuale privata, è necessario creare un tunnel SSH o usare un altro metodo per raggiungere l'indirizzo IP di gestione del cluster.
 
 I passaggi di base sono due:
 
-1. Creare una connessione tra la workstation e la rete virtuale privataCreate a connection between your workstation and the private virtual network
+1. Creare una connessione tra la workstation e la rete virtuale privata
 1. Caricare il pannello di controllo del cluster in un Web browser
 
 > [!NOTE]
-> In questo articolo si presuppone di aver già impostato un indirizzo IP pubblico nel controller del cluster o in un'altra macchina virtuale all'interno della rete virtuale del cluster. Questo articolo descrive come usare tale macchina virtuale come host per accedere al cluster. Se si utilizza una VPN o ExpressRoute per l'accesso alla rete virtuale, passare a [Connettersi al Pannello di controllo Di Avere](#connect-to-the-avere-control-panel-in-a-browser).
+> In questo articolo si presuppone di aver già impostato un indirizzo IP pubblico nel controller del cluster o in un'altra macchina virtuale all'interno della rete virtuale del cluster. Questo articolo descrive come usare tale macchina virtuale come host per accedere al cluster. Se si usa una VPN o ExpressRoute per l'accesso alla rete virtuale, passare a [Connetti al pannello di controllo](#connect-to-the-avere-control-panel-in-a-browser).
 
-Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys). Se è stata utilizzata una password anziché una chiave pubblica, verrà richiesto di immetterla quando ci si connette.
+Prima della connessione, assicurarsi che la coppia di chiavi pubblica/privata SSH usata durante la creazione del controller del cluster sia installata nel computer locale. Per istruzioni, vedere la documentazione sulle chiavi SSH per [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) o per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys). Se è stata usata una password anziché una chiave pubblica, verrà richiesto di immetterla quando ci si connette.
 
 ## <a name="create-an-ssh-tunnel"></a>Creazione di un tunnel SSH
 
-È possibile creare un tunnel SSH dalla riga di comando di un sistema client Windows 10 o Basato su Linux.You can create an SSH tunnel from the command line of a Linux-based Windows 10 client system.
+È possibile creare un tunnel SSH dalla riga di comando di un sistema client basato su Linux o Windows 10.
 
-Utilizzare un comando di tunneling SSH con questo formato:
+Usare un comando di tunneling SSH con il formato seguente:
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 

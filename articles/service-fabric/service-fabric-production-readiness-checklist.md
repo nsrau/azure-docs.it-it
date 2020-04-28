@@ -4,10 +4,10 @@ description: Preparare l'applicazione e il cluster di Service Fabric per la prod
 ms.topic: conceptual
 ms.date: 6/05/2019
 ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75376801"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione

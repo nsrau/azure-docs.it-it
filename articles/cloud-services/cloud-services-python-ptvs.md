@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360719"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
@@ -334,7 +334,7 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 
 * [Servizio BLOB][Blob Service]
 * [Servizio tabelle][Table Service]
-* [Servizio di coda][Queue Service]
+* [Servizio di Accodamento][Queue Service]
 * [Code del bus di servizio][Service Bus Queues]
 * [Argomenti del bus di servizio][Service Bus Topics]
 

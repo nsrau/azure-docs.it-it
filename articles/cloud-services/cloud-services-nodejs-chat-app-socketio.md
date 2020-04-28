@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360770"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
@@ -106,9 +106,9 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
    > [!NOTE]
    > Se si verificano problemi con l'avvio dell'emulatore, ad esempio Start-AzureEmulator: Errore imprevisto.  Dettagli: Errore imprevisto Impossibile utilizzare l'oggetto di comunicazione, System.ServiceModel.Channels.ServiceChannel per la comunicazione perché è nello stato Faulted.
    > 
-   > Reinstallare AzureAuthoringTools v 2.7.1 e AzureComputeEmulator v 2.7: verificare che la versione corrisponda.
+   > Reinstallare AzureAuthoringTools v 2.7.1 e AzureComputeEmulator v 2,7: assicurarsi che la versione corrisponda a.
 
-2. Aprire un browser **http://127.0.0.1**e passare a .
+2. Aprire un browser e passare a **http://127.0.0.1**.
 3. Quando si apre la finestra del browser, immettere un nome alternativo e premere INVIO.
    In questo modo sarà possibile inviare messaggi con un nome alternativo specifico. Per testare la funzionalità multiutente, aprire altre finestre del browser usando lo stesso URL e immettere nomi alternativi diversi.
    

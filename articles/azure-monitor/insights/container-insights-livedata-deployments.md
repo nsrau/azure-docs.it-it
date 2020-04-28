@@ -4,10 +4,10 @@ description: Questo articolo descrive la visualizzazione in tempo reale delle di
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75404765"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Come visualizzare le distribuzioni (anteprima) in tempo reale

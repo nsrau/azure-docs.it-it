@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386086"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Esporre le impostazioni di configurazione del ruolo come una variabile di ambiente con XPath
@@ -59,7 +59,7 @@ Recupera il dominio di errore dell'istanza.
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Codice |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
-## <a name="role-name"></a>Nome del ruolo
+## <a name="role-name"></a>Nome ruolo
 Recupera il nome del ruolo dell'istanza.
 
 | Type | Esempio |
@@ -116,7 +116,7 @@ Recupera la porta dell'endpoint per l'istanza.
 | Codice |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
 
 ## <a name="example"></a>Esempio
-Di seguito è riportato un esempio di ruolo di `TestIsEmulated` lavoro che crea un'attività di avvio con una variabile di ambiente denominata set al [ @emulated valore xpath](#app-running-in-emulator). 
+Di seguito è riportato un esempio di un ruolo di lavoro che crea un'attività di avvio con `TestIsEmulated` una variabile di ambiente denominata impostata sul [ @emulated valore XPath](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">

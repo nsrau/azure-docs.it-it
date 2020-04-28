@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360311"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Come configurare ed eseguire attività di avvio per un servizio cloud
@@ -104,7 +104,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **taskType** : specifica la modalità di esecuzione di un'attività di avvio.
 
-* **Semplice**  
+* **semplice**  
   vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef] . Quando un'attività di avvio **simple** termina con un valore **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.   
   
   > [!NOTE]
@@ -113,7 +113,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
   > 
   
     Per assicurarsi che il file batch termini con un valore **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
-* **background**  
+* **sfondo**  
    vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
 * **foreground**  
    vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
@@ -153,13 +153,13 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 
 [Creare il pacchetto](cloud-services-model-and-package.md) del servizio cloud.  
 
-[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[File ServiceDefinition. csdef]: cloud-services-model-and-package.md#csdef
 [Attività]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Avvio]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[Valore di RoleInstance]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
 

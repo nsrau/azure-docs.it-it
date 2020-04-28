@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426068"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Debug guidato dai dati mediante il diagramma di processo
@@ -55,7 +55,7 @@ Se il passaggio di query precedente è un processore di input, usare le metriche
 *   **InputEventsSourcesTotal** è il numero di unità di dati lette. Ad esempio il numero di BLOB.
 *   **InputEventsTotal** è il numero di eventi letti. Questa metrica è disponibile per ogni partizione.
 *   **InputEventsInBytesTotal** è il numero di byte letti.
-*   **InputEventsLastArrivalTime** viene aggiornato con l'ora di accodamento di ogni evento ricevuto.
+*   **InputEventsLastArrivalTime** viene aggiornato con l'ora di Accodamento di ogni evento ricevuto.
  
 ### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>L'ora viene spostata in avanti? Se vengono letti eventi reali, potrebbe non essere generata la punteggiatura.
 
@@ -85,5 +85,5 @@ Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di 
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
 * [Introduzione ad Analisi dei flussi](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sul linguaggio di query di analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

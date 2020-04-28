@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360345"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
@@ -21,7 +21,7 @@ L'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo gue
 ## <a name="update-an-azure-service"></a>Aggiornare un servizio di Azure
 Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di aggiornamento. I domini di aggiornamento sono set logici di istanze del ruolo aggiornate come gruppo.  Azure aggiorna un servizio cloud un dominio di aggiornamento alla volta, per consentire alle istanze negli altri domini di aggiornamento di continuare a gestire il traffico.
 
-Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere Schema di definizione dei servizi cloud di [Azure (file con estensione csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [schema di definizione dei servizi cloud di Azure (file con estensione csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](#howanupgradeproceeds) .
 
