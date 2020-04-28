@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso alle app & alle risorse usando i gruppi - Azure ADManage app to resource access using groups - Azure AD
+title: Gestire l'accesso alle risorse & app usando i gruppi-Azure AD
 description: Informazioni su come gestire l'accesso alle app basate sul cloud, alle app locali e alle risorse dell'organizzazione con i gruppi di Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,22 +14,22 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982600"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gestire le app e l'accesso alle risorse tramite i gruppi di Azure Active Directory
-Azure Active Directory (Azure AD) consente di usare i gruppi per gestire l'accesso alle app basate su cloud, alle app locali e alle risorse. Le risorse possono far parte dell'organizzazione di Azure AD, ad esempio le autorizzazioni per gestire gli oggetti tramite i ruoli in Azure AD, o esterne all'organizzazione, ad esempio per le app Software as a Service (SaaS), i servizi di Azure, i siti di SharePoint e le risorse locali.
+Azure Active Directory (Azure AD) consente di usare i gruppi per gestire l'accesso alle app basate sul cloud, alle app locali e alle risorse. Le risorse possono far parte dell'organizzazione Azure AD, ad esempio le autorizzazioni per gestire oggetti tramite i ruoli in Azure AD o esterni all'organizzazione, ad esempio per le app SaaS (software as a Service), i servizi di Azure, i siti di SharePoint e le risorse locali.
 
 >[!NOTE]
-> Nel portale di Azure è possibile visualizzare alcuni gruppi di appartenenza e dettagli sui gruppi che non è possibile gestire nel portale:In the Azure portal, you can see some groups whose membership and group details you can't manage in the portal:
+> Nella portale di Azure è possibile visualizzare alcuni gruppi di cui non è possibile gestire i dettagli relativi a appartenenza e gruppo nel portale:
 >
-> - I gruppi sincronizzati da Active Directory locale possono essere gestiti solo in Active Directory locale.
-> - Altri tipi di gruppo, ad esempio le liste di distribuzione e i gruppi di sicurezza abilitati alla posta elettronica, vengono gestiti solo nell'interfaccia di amministrazione di Exchange o nell'interfaccia di amministrazione di Microsoft 365. È necessario accedere all'interfaccia di amministrazione di Exchange o all'interfaccia di amministrazione di Microsoft 365 per gestire questi gruppi.
+> - I gruppi sincronizzati da Active Directory locali possono essere gestiti solo in Active Directory locali.
+> - Altri tipi di gruppo, ad esempio elenchi di distribuzione e gruppi di sicurezza abilitati per la posta elettronica, vengono gestiti solo nell'interfaccia di amministrazione di Exchange o Microsoft 365 interfaccia di amministrazione. È necessario accedere all'interfaccia di amministrazione di Exchange o Microsoft 365 interfaccia di amministrazione per gestire questi gruppi.
 
-## <a name="how-access-management-in-azure-ad-works"></a>Funzionamento della gestione degli accessi in Azure ADHow access management in Azure AD works
+## <a name="how-access-management-in-azure-ad-works"></a>Funzionamento della gestione dell'accesso in Azure AD
 
 Azure AD consente di concedere l'accesso alle risorse dell'organizzazione fornendo i diritti di accesso a un singolo utente o a un intero gruppo di Azure AD. L'uso dei gruppi consente al proprietario delle risorse (o al proprietario della directory di Azure AD) di assegnare un set di autorizzazioni di accesso a tutti i membri del gruppo, invece di dover fornire i diritti singolarmente. Il proprietario delle risorse o della directory può anche concedere i diritti di gestione per l'elenco dei membri a qualcun altro, ad esempio al responsabile di un reparto o a un amministratore del supporto tecnico, consentendo a tale persona di aggiungere e rimuovere i membri, in base alle esigenze. Per altre informazioni su come gestire i proprietari dei gruppi, vedere [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
 

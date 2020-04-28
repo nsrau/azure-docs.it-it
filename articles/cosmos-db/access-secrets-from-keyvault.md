@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618765"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
 
 >[!IMPORTANT]
-> La soluzione consigliata per accedere alle chiavi del database di Azure Cosmos consiste nell'usare [un'identità gestita assegnata](managed-identity-based-authentication.md)dal sistema. Se il servizio non è in grado di sfruttare le identità gestite, utilizzare la [soluzione basata su certificati](certificate-based-authentication.md). Se sia la soluzione di identità gestita che la soluzione basata su certificati non soddisfano le proprie esigenze, utilizzare la soluzione dell'insieme di credenziali delle chiavi riportata di seguito.
+> La soluzione consigliata per accedere alle chiavi Azure Cosmos DB consiste nell'usare un' [identità gestita assegnata dal sistema](managed-identity-based-authentication.md). Se il servizio non è in grado di sfruttare le identità gestite, usare la [soluzione basata su certificati](certificate-based-authentication.md). Se la soluzione di identità gestita e la soluzione basata su certificato non soddisfano le proprie esigenze, usare la soluzione Key Vault riportata di seguito.
 
-Quando si usa il database Cosmos di Azure per le applicazioni, è possibile accedere al database, alle raccolte, ai documenti usando l'endpoint e la chiave all'interno del file di configurazione dell'app.  Tuttavia, non è sicuro inserire chiavi e URL direttamente nel codice dell'applicazione perché sono disponibili in formato testo non crittografato per tutti gli utenti. È necessario però assicurarsi che l'endpoint e le chiavi siano disponibili attraverso un meccanismo protetto. Con Azure Key Vault è possibile archiviare e gestire i segreti delle applicazioni in modo sicuro.
+Quando si usa Azure Cosmos DB per le applicazioni, è possibile accedere al database, alle raccolte e ai documenti usando l'endpoint e la chiave nel file di configurazione dell'app.  Tuttavia, non è sicuro inserire chiavi e URL direttamente nel codice dell'applicazione perché sono disponibili in formato testo non crittografato per tutti gli utenti. È necessario però assicurarsi che l'endpoint e le chiavi siano disponibili attraverso un meccanismo protetto. Con Azure Key Vault è possibile archiviare e gestire i segreti delle applicazioni in modo sicuro.
 
 Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault sono necessari i passaggi seguenti:
 
@@ -33,19 +33,19 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-1. Accedere al portale di [Azure](https://portal.azure.com/).  
+1. Accedere al [portale di Azure](https://portal.azure.com/).  
 2. Selezionare **Create a resource > Security > Key Vault** (Crea risorsa > Sicurezza > Key Vault).  
 3. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:  
    * **Nome:** specificare un nome univoco per Key Vault.  
    * **Sottoscrizione**: scegliere la sottoscrizione da usare.  
-   * In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.  
+   * In **gruppo di risorse** scegliere **Crea nuovo** e immettere un nome per il gruppo di risorse.  
    * Scegliere un percorso nel menu a discesa Percorso.  
    * Lasciare invariati i valori predefiniti delle altre opzioni.  
 4. Dopo avere specificato le informazioni, selezionare **Crea**.  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Aggiungere chiavi di accesso di Azure Cosmos DB all'insieme di credenziali delle chiavi.
 1. Passare all'insieme di credenziali delle chiavi creato nel passaggio precedente e aprire la scheda **Segreti**.  
-2. Selezionare **+Generate/Import** (+Genera/Importa), 
+2. Selezionare **+ genera/importa**. 
 
    * Selezionare **Manuale** per **Opzioni di caricamento**.
    * Fornire un **Nome** al segreto
@@ -94,5 +94,5 @@ Analogamente, è possibile aggiungere un utente per l'accesso all'insieme di cre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per configurare un firewall per Il database Cosmos di Azure, vedere l'articolo [sul supporto del firewall.](firewall-support.md)
+* Per configurare un firewall per Azure Cosmos DB vedere l'articolo [supporto del firewall](firewall-support.md) .
 * Per configurare l'endpoint servizio di rete virtuale, vedere l'articolo relativo alla [protezione dell'accesso tramite l'endpoint di servizio di rete virtuale](vnet-service-endpoint.md).

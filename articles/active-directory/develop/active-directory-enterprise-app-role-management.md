@@ -1,5 +1,5 @@
 ---
-title: Configurare l'attestazione del ruolo per le app di Azure AD aziendali. Azure
+title: Configurare l'attestazione del ruolo per le app Azure AD aziendali | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali in Azure Active Directory
 services: active-directory
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8db27819b7eef6cdf05ea3f6645ae930ebc4ef58
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884750"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
@@ -54,7 +54,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
     ![Pagina Proprietà](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Aprire [Esplora grafica di Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra ed eseguire la procedura seguente:
+6. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e seguire questa procedura:
 
     a. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -135,7 +135,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
       ![Operazione patch con messaggio di operazione completata](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Dopo che all'entità servizio è stata applicata la patch con più ruoli, è possibile assegnare gli utenti ai rispettivi ruoli. Per assegnare gli utenti, è possibile accedere al portale e passare all'applicazione. Selezionare la scheda **Utenti e gruppi.** Questa scheda elenca tutti gli utenti e i gruppi già assegnati all'app. È possibile aggiungere nuovi utenti nei nuovi ruoli. È anche possibile selezionare un utente esistente e fare clic su **Modifica** per modificare il ruolo.
+7. Dopo che all'entità servizio è stata applicata la patch con più ruoli, è possibile assegnare gli utenti ai rispettivi ruoli. Per assegnare gli utenti, è possibile accedere al portale e passare all'applicazione. Selezionare la scheda **utenti e gruppi** . Questa scheda elenca tutti gli utenti e i gruppi già assegnati all'app. È possibile aggiungere nuovi utenti nei nuovi ruoli. È anche possibile selezionare un utente esistente e fare clic su **Modifica** per modificare il ruolo.
 
     ![Scheda Utenti e gruppi](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -148,20 +148,20 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 8. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 
-9. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo token SAML, come illustrato nella tabella seguente:
+9. Nella sezione **attestazioni utente** della finestra di dialogo **attributi utente** seguire questa procedura per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
     | Nome attributo | Valore di attributo |
     | -------------- | ----------------|
-    | Nome del ruolo  | user.assignedroles |
+    | Nome ruolo  | user.assignedroles |
 
     >[!NOTE]
-    >Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questo valore predefinito è in base alla progettazione.
+    >Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.
 
-    a. fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Attributi utente & Rivendicazioni.**
+    a. fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo del token SAML facendo clic su **Aggiungi nuova attestazione**.
+    b. Nella finestra di dialogo **Gestisci attestazioni utente** aggiungere l'attributo token SAML facendo clic su **Aggiungi nuova attestazione**.
 
       ![Pulsante Aggiungi attributo](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -181,7 +181,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
 Per aggiornare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Esplora grafica di Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
+1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -219,7 +219,7 @@ Per aggiornare un ruolo esistente, completare questi passaggi:
 
 Per eliminare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Esplora grafica di Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
+1. Aprire [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 

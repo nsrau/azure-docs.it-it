@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul proxy di applicazione di Azure AD Documenti Microsoft
-description: Informazioni su risposte alle domande frequenti sull'uso del proxy di applicazione di Azure AD per pubblicare applicazioni interne locali per gli utenti remoti.
+title: Domande frequenti sul proxy di applicazione Azure AD | Microsoft Docs
+description: Informazioni sulle risposte alle domande frequenti sull'uso del proxy di applicazione Azure AD per pubblicare applicazioni locali locali per gli utenti remoti.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,158 +16,158 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990906"
 ---
-# <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione di Active Directory (Azure AD)
+# <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
-Questa pagina risponde alle domande frequenti sul proxy di applicazione di Azure Active Directory (Azure AD).
+In questa pagina vengono fornite le risposte alle domande frequenti sul proxy di applicazione Azure Active Directory (Azure AD).
 
-## <a name="enabling-azure-ad-application-proxy"></a>Abilitazione del proxy di applicazione di Azure AD
+## <a name="enabling-azure-ad-application-proxy"></a>Abilitazione di Azure Active Directory Application Proxy
 
-### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Quale licenza è necessaria per usare il proxy di applicazione di Azure AD?
+### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Quale licenza è necessaria per usare Azure AD proxy di applicazione?
 
-Per usare il proxy di applicazione di Azure AD, è necessario disporre di una licenza di Azure AD Premium P1 o P2.To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. Per altre informazioni sulle licenze, vedere Prezzi di [Azure Active DirectoryFor more](https://azure.microsoft.com/pricing/details/active-directory/) information about licensing, see Azure Active Directory Pricing
+Per usare Azure AD proxy di applicazione, è necessario disporre di una licenza Azure AD Premium P1 o P2. Per ulteriori informazioni sulle licenze, vedere [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/)
 
-### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>Perché il pulsante "Abilita proxy di applicazione è disattivato?
+### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>Perché il pulsante di abilitazione del proxy di applicazione è disattivato?
 
-Assicurarsi di avere installato almeno una licenza di Azure AD Premium P1 o P2 e un connettore proxy di applicazione di Azure AD. Dopo aver installato correttamente il primo connettore, il servizio proxy di applicazione di Azure AD verrà abilitato automaticamente.
+Assicurarsi di avere almeno una licenza Azure AD Premium P1 o P2 e un connettore proxy di applicazione Azure AD installato. Dopo aver installato correttamente il primo connettore, il servizio proxy applicazione Azure AD verrà abilitato automaticamente.
 
 ## <a name="connector-configuration"></a>Configurazione del connettore
 
-### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>I servizi Application Proxy Connector possono essere eseguiti in un contesto utente diverso da quello predefinito?
+### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>I servizi del connettore proxy di applicazione possono essere eseguiti in un contesto utente diverso da quello predefinito?
 
 No, questo scenario non è supportato. Le impostazioni predefinite sono le seguenti:
 
-- Connettore proxy applicazioni AAD Microsoft - WAPCSvc - Servizio di rete
-- Aggiornamento del connettore proxy di applicazione di Microsoft AAD - WAPCUpdaterSvc - Nt Authority
+- Connettore del proxy di applicazione di Microsoft AAD-WAPCSvc-servizio di rete
+- Microsoft AAD Application Proxy Connector Updater-WAPCUpdaterSvc-NT Authority\System
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>L'applicazione back-end è ospitata su più server Web e richiede la persistenza della sessione utente (appiccicoso). Come è possibile ottenere la persistenza della sessione? 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>L'applicazione back-end è ospitata in più server Web e richiede la persistenza della sessione utente (appiccicosa). Come è possibile ottenere la persistenza della sessione? 
 
-Per suggerimenti, vedere [Disponibilità elevata e bilanciamento del carico dei connettori e](application-proxy-high-availability-load-balancing.md)delle applicazioni del proxy di applicazione.
+Per indicazioni, vedere [disponibilità elevata e bilanciamento del carico delle applicazioni e dei connettori del proxy di applicazione](application-proxy-high-availability-load-balancing.md).
 
-### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>La terminazione TLS (ispezione o accelerazione TLS/HTTPS) sul traffico dai server del connettore ad Azure è supportata?
+### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Terminazione TLS (ispezione TLS/HTTPS o accelerazione) sul traffico dai server del connettore ad Azure supportato?
 
-Il connettore proxy di applicazione esegue l'autenticazione basata su certificati in Azure.The Application Proxy Connector performs certificate-based authentication to Azure. Terminazione TLS (ispezione o accelerazione TLS/HTTPS) interrompe questo metodo di autenticazione e non è supportato. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione TLS.  
+Il connettore del proxy di applicazione esegue l'autenticazione basata sui certificati in Azure. La terminazione TLS (ispezione TLS/HTTPS o accelerazione) interrompe questo metodo di autenticazione e non è supportata. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione TLS.  
 
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>È possibile posizionare un dispositivo proxy di inoltro tra i server del connettore e il server applicazioni back-end?
-Sì, questo scenario è supportato a partire dalla versione connettore 1.5.1526.0.Yes, this scenario is supported starting from the connector version 1.5.1526.0. Vedere [Utilizzo di server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
+### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>È possibile inserire un dispositivo proxy di inoltro tra i server del connettore e il server applicazioni back-end?
+Sì, questo scenario è supportato a partire dalla versione del connettore 1.5.1526.0. Vedere [usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
 
-### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>È necessario creare un account dedicato per registrare il connettore con il proxy di applicazione di Azure AD?
+### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>È necessario creare un account dedicato per registrare il connettore con Azure AD proxy di applicazione?
 
-Non c'è motivo di farlo. Qualsiasi account amministratore globale o amministratore dell'applicazione funzionerà. Le credenziali immesse durante l'installazione non vengono utilizzate dopo il processo di registrazione. Al contrario, viene rilasciato un certificato al connettore, che viene utilizzato per l'autenticazione da quel punto in quel momento in cui.
+Nessun motivo. Tutti gli account di amministratore globale o di amministratore dell'applicazione funzioneranno. Le credenziali immesse durante l'installazione non vengono usate dopo il processo di registrazione. Al contrario, viene emesso un certificato al connettore, che viene usato per l'autenticazione da quel punto in poi.
 
-### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>Come è possibile monitorare le prestazioni del connettore proxy di applicazione di Azure AD?
+### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>Come è possibile monitorare le prestazioni del connettore del proxy di applicazione Azure AD?
 
-Esistono contatori di Performance Monitor installati insieme al connettore. A tale scopo:  
+Sono presenti contatori di performance monitor installati insieme al connettore. A tale scopo:  
 
-1. Selezionare **Start**, digitare "Perfmon" e premere INVIO.
-2. Selezionare **Performance Monitor** **+** e fare clic sull'icona verde.
-3. Aggiungere i contatori di **Microsoft AAD Application Proxy Connector** che si desidera monitorare.
+1. Selezionare **Start**, digitare "perfmon" e premere INVIO.
+2. Selezionare **Performance Monitor** e fare clic sull' **+** icona verde.
+3. Aggiungere i contatori del **connettore del proxy di applicazione di Microsoft AAD** che si desidera monitorare.
 
-### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Il connettore del proxy di applicazione di Azure AD deve trovarsi nella stessa subnet della risorsa?
+### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Il connettore del proxy di applicazione Azure AD deve trovarsi nella stessa subnet della risorsa?
 
-Non è necessario che il connettore si trovasse nella stessa subnet. Tuttavia, richiede la risoluzione dei nomi (DNS, file hosts) per la risorsa e la connettività di rete necessaria (routing alla risorsa, porte aperte sulla risorsa e così via). Per suggerimenti, vedere Considerazioni sulla topologia di rete quando si usa il proxy di applicazione di [Azure Active Directory.](application-proxy-network-topology.md)
+Il connettore non deve trovarsi nella stessa subnet. Tuttavia, richiede la risoluzione dei nomi (DNS, file hosts) per la risorsa e la connettività di rete necessaria (routing alla risorsa, porte aperte sulla risorsa e così via). Per indicazioni, vedere [considerazioni sulla topologia di rete quando si usa Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
 
-### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Qual è la lunghezza del timeout back-end predefinito e "lungo"? Il timeout può essere prolungato?
+### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Qual è la lunghezza del timeout di back-end predefinito e "Long"? Il timeout può essere esteso?
 
-La lunghezza predefinita è 85 secondi. L'impostazione "lunga" è 180 secondi. Il limite di timeout non può essere esteso.
+La lunghezza predefinita è pari a 85 secondi. L'impostazione "Long" è 180 secondi. Il limite di timeout non può essere esteso.
 
-### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Come faccio a cambiare la pagina di destinazione caricata dalla mia applicazione?
+### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Ricerca per categorie modificare la pagina di destinazione caricata dall'applicazione?
 
-Dalla pagina Registrazioni applicazioni, è possibile modificare l'URL della home page con l'URL esterno desiderato della pagina di destinazione. La pagina specificata verrà caricata quando l'applicazione viene avviata da App personali o dal portale di Office 365. Per i passaggi di configurazione, vedere [Impostare una home page personalizzata per le app pubblicate usando](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page) il proxy di applicazione di Azure ADFor configuration steps, see Set a custom home page for published apps by using Azure AD Application Proxy
+Dalla pagina registrazioni applicazioni è possibile modificare l'URL della Home page dell'URL esterno desiderato della pagina di destinazione. La pagina specificata verrà caricata quando l'applicazione viene avviata da app personali o dal portale di Office 365. Per i passaggi di configurazione, vedere [impostare un Home page personalizzato per le app pubblicate usando Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page)
 
-### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>È possibile pubblicare solo applicazioni basate su IIS? Che dire delle applicazioni Web in esecuzione su server web non Windows? Il connettore deve essere installato in un server in cui è installato IIS?
+### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>È possibile pubblicare solo le applicazioni basate su IIS? Che cosa accade per le applicazioni Web in esecuzione su server Web non Windows? Il connettore deve essere installato in un server in cui è installato IIS?
 
-No, non esiste alcun requisito di IIS per le applicazioni pubblicate. È possibile pubblicare applicazioni Web in esecuzione su server diversi da Windows Server. Tuttavia, potrebbe non essere possibile utilizzare la preautenticazione con un server non Windows, a seconda se il server web supporta Negozia (autenticazione Kerberos). IIS non è necessario nel server in cui è installato il connettore.
+No, non è previsto alcun requisito IIS per le applicazioni pubblicate. È possibile pubblicare applicazioni Web in esecuzione su server diversi da Windows Server. Tuttavia, potrebbe non essere possibile usare la preautenticazione con un server non Windows, a seconda che il server Web supporti la negoziazione (autenticazione Kerberos). IIS non è richiesto nel server in cui è installato il connettore.
 
 ## <a name="integrated-windows-authentication"></a>Autenticazione integrata di Windows
 
-### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando è necessario utilizzare il metodo PrincipalsAllowedToDelegateToAccount durante l'impostazione della delega vincolata Kerberos (KCD)?
+### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando è consigliabile usare il metodo PrincipalsAllowedToDelegateToAccount quando si configura la delega vincolata Kerberos (delega vincolata Kerberos)?
 
-Il metodo PrincipalsAllowedToDelegateToAccount viene utilizzato quando i server del connettore si trovano in un dominio diverso dall'account del servizio dell'applicazione Web. Richiede l'uso della delega vincolata basata sulle risorse.
-Se i server dei connettori e l'account del servizio dell'applicazione Web si trovano nello stesso dominio, è possibile utilizzare Utenti e computer di Active Directory per configurare le impostazioni di delega in ogni account del computer connettore, consentendo loro di delegare al nome SPN di destinazione.
+Il metodo PrincipalsAllowedToDelegateToAccount viene usato quando i server del connettore si trovano in un dominio diverso dall'account del servizio dell'applicazione Web. Richiede l'uso della delega vincolata basata sulle risorse.
+Se i server del connettore e l'account del servizio dell'applicazione Web si trovano nello stesso dominio, è possibile utilizzare Active Directory utenti e computer per configurare le impostazioni di delega in ogni account del computer connettore, consentendo loro di delegare al nome SPN di destinazione.
 
-Se i server connettore e l'account del servizio dell'applicazione Web si trovano in domini diversi, viene utilizzata la delega basata sulle risorse. Le autorizzazioni di delega vengono configurate nell'account del servizio del server Web e dell'applicazione Web di destinazione. Questo metodo di delega vincolata è relativamente nuovo. Il metodo è stato introdotto in Windows Server 2012, che supporta la delega tra domini consentendo al proprietario della risorsa (servizio Web) di controllare quali account computer e di servizio possono delegare. Non è disponibile alcuna interfaccia utente per facilitare questa configurazione, pertanto è necessario usare PowerShell.There's no UI to assist with this configuration, so you'll need to use PowerShell.
-Per ulteriori informazioni, vedere il white paper [Informazioni sulla delega vincolata Kerberos con il proxy di applicazione](https://aka.ms/kcdpaper).
+Se i server del connettore e l'account del servizio dell'applicazione Web si trovano in domini diversi, viene utilizzata la delega basata sulle risorse. Le autorizzazioni di delega sono configurate nel server Web di destinazione e nell'account del servizio dell'applicazione Web. Questo metodo di delega vincolata è relativamente nuovo. Il metodo è stato introdotto in Windows Server 2012, che supporta la delega tra domini consentendo al proprietario della risorsa (servizio Web) di controllare quali account del computer e del servizio possono delegare. Non è disponibile alcuna interfaccia utente per semplificare questa configurazione, quindi è necessario usare PowerShell.
+Per ulteriori informazioni, vedere il white paper informazioni sulla [delega vincolata Kerberos con proxy di applicazione](https://aka.ms/kcdpaper).
 
 ## <a name="pass-through-authentication"></a>Autenticazione pass-through
 
-### <a name="can-i-use-conditional-access-policies-for-applications-published-with-pass-through-authentication"></a>È possibile utilizzare i criteri di accesso condizionale per le applicazioni pubblicate con l'autenticazione pass-through?
+### <a name="can-i-use-conditional-access-policies-for-applications-published-with-pass-through-authentication"></a>È possibile usare I criteri di accesso condizionale per le applicazioni pubblicate con l'autenticazione pass-through?
 
-I criteri di accesso condizionale vengono applicati solo per gli utenti pre-autenticati correttamente in Azure AD. L'autenticazione pass-through non attiva l'autenticazione di Azure AD, pertanto i criteri di accesso condizionale non possono essere applicati. Con l'autenticazione pass-through, i criteri di autenticazione a più fattori devono essere implementati nel server locale, se possibile, o abilitando la preautenticazione con il proxy di applicazione di Azure AD.
+I criteri di accesso condizionale vengono applicati solo per gli utenti pre-autenticati correttamente in Azure AD. Con l'autenticazione pass-through non viene attivato Azure AD autenticazione, pertanto non è possibile applicare i criteri di accesso condizionale. Con l'autenticazione pass-through, è necessario implementare i criteri di autenticazione a più fattori nel server locale, se possibile, o abilitando la pre-autenticazione con Azure AD proxy di applicazione.
 
-### <a name="can-i-publish-a-web-application-with-client-certificate-authentication-requirement"></a>È possibile pubblicare un'applicazione Web con requisiti di autenticazione del certificato client?
+### <a name="can-i-publish-a-web-application-with-client-certificate-authentication-requirement"></a>È possibile pubblicare un'applicazione Web con il requisito di autenticazione del certificato client?
 
 No, questo scenario non è supportato perché il proxy di applicazione terminerà il traffico TLS.  
 
-## <a name="remote-desktop-gateway-publishing"></a>Pubblicazione di Gateway Desktop remoto
+## <a name="remote-desktop-gateway-publishing"></a>Pubblicazione del Gateway Desktop remoto
 
-### <a name="how-can-i-publish-remote-desktop-gateway-over-azure-ad-application-proxy"></a>Come è possibile pubblicare Gateway Desktop remoto tramite il proxy di applicazione di Azure AD?
+### <a name="how-can-i-publish-remote-desktop-gateway-over-azure-ad-application-proxy"></a>Come è possibile pubblicare Desktop remoto Gateway su Azure AD proxy di applicazione?
 
-Fare riferimento a [Pubblica desktop remoto con il proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md)di Azure AD .
+Vedere [pubblicare desktop remoto con Azure ad proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>È possibile utilizzare la delega vincolata Kerberos (Single Sign-On - Autenticazione integrata di Windows) nello scenario di pubblicazione di Gateway Desktop remoto?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>È possibile utilizzare la delega vincolata Kerberos (Single Sign-on-autenticazione integrata di Windows) nello scenario di pubblicazione del Gateway Desktop remoto?
 
 No, questo scenario non è supportato.  
 
-### <a name="my-users-dont-use-internet-explorer-11-and-the-pre-authentication-scenario-doesnt-work-for-them-is-this-expected"></a>Gli utenti non utilizzano Internet Explorer 11 e lo scenario di pre-autenticazione non funziona per loro. È normale?
+### <a name="my-users-dont-use-internet-explorer-11-and-the-pre-authentication-scenario-doesnt-work-for-them-is-this-expected"></a>Gli utenti non usano Internet Explorer 11 e lo scenario di pre-autenticazione non funziona. È normale?
 
-Sì, ci si aspetta. Lo scenario di preautenticazione richiede un controllo ActiveX, che non è supportato nei browser di terze parti.
+Sì, è previsto. Lo scenario di pre-autenticazione richiede un controllo ActiveX, che non è supportato nei browser di terze parti.
 
-### <a name="is-the-remote-desktop-web-client-html5-supported"></a>È supportato Remote Desktop Web Client (HTML5)?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>Il client Web di Desktop remoto (HTML5) è supportato?
 
-No, questo scenario non è attualmente supportato. Segui il nostro forum di commenti e suggerimenti [UserVoice](https://aka.ms/aadapuservoice) per gli aggiornamenti su questa funzionalità.
+No, questo scenario non è attualmente supportato. Per gli aggiornamenti su questa funzionalità, seguire il forum dei commenti e suggerimenti [UserVoice](https://aka.ms/aadapuservoice) .
 
-### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>Dopo aver configurato lo scenario di pre-autenticazione, mi sono reso conto che l'utente deve eseguire l'autenticazione due volte: prima nel modulo di accesso di Azure AD e quindi nel modulo di accesso RDWeb. È normale? Come posso ridurlo a un unico accesso?
+### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>Dopo aver configurato lo scenario di pre-autenticazione, ho notato che l'utente deve eseguire l'autenticazione due volte: prima nel modulo di accesso Azure AD e quindi nel modulo di accesso RDWeb. È normale? Come posso ridurlo a un accesso?
 
-Sì, ci si aspetta. Se il computer dell'utente è aggiunto ad Azure AD, l'utente accede automaticamente ad Azure AD. L'utente deve fornire le proprie credenziali solo nel modulo di accesso RDWeb.
+Sì, è previsto. Se il computer dell'utente è Azure AD aggiunto, l'utente accederà Azure AD automaticamente. L'utente deve fornire le proprie credenziali solo nel modulo di accesso RDWeb.
 
 ## <a name="sharepoint-publishing"></a>Pubblicazione di SharePoint
 
-### <a name="how-can-i-publish-sharepoint-over-azure-ad-application-proxy"></a>Come è possibile pubblicare SharePoint tramite il proxy di applicazione di Azure AD?
+### <a name="how-can-i-publish-sharepoint-over-azure-ad-application-proxy"></a>Come è possibile pubblicare SharePoint su Azure AD proxy di applicazione?
 
-Fare riferimento a [Abilitare l'accesso remoto a SharePoint con il proxy di applicazione](application-proxy-integrate-with-sharepoint-server.md)di Azure AD .
+Vedere [abilitare l'accesso remoto a SharePoint con Azure ad proxy di applicazione](application-proxy-integrate-with-sharepoint-server.md).
 
-### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>È possibile usare l'app SharePoint per dispositivi mobili (iOS/Android) per accedere a un server SharePoint pubblicato?
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>È possibile usare l'app per dispositivi mobili SharePoint (iOS/Android) per accedere a un server SharePoint pubblicato?
 
-[L'app SharePoint per dispositivi mobili](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) non supporta attualmente la preautenticazione di Azure Active Directory.
+L' [app per dispositivi mobili SharePoint](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) non supporta attualmente Azure Active Directory pre-autenticazione.
 
-## <a name="active-directory-federation-services-ad-fs-publishing"></a>Pubblicazione di Active Directory Federation Services (ADFS) 
+## <a name="active-directory-federation-services-ad-fs-publishing"></a>Pubblicazione di Active Directory Federation Services (AD FS) 
 
-### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>È possibile usare il proxy di applicazione di Azure AD come proxy AD FS (ad esempio Proxy applicazione Web)?
+### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>È possibile usare Azure AD proxy di applicazione come AD FS proxy (ad esempio proxy applicazione Web)?
 
-No. Il proxy di applicazione di Azure AD è progettato per funzionare con Azure AD e non soddisfa i requisiti per fungere da proxy AD FS.
+No. Azure AD proxy di applicazione è progettato per funzionare con Azure AD e non soddisfa i requisiti per fungere da proxy di AD FS.
 
 ## <a name="websocket"></a>WebSocket
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket supporta applicazioni diverse da QlikSense?
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket supporta il lavoro per applicazioni diverse da Qlik Sense?
 
-Attualmente, il supporto del protocollo WebSocket è ancora in anteprima pubblica e potrebbe non funzionare per altre applicazioni. Alcuni clienti hanno avuto un successo misto utilizzando il protocollo WebSocket con altre applicazioni. Se si testa tali scenari, ci piacerebbe sentire i risultati. Vi preghiamo di aadapfeedback@microsoft.cominviarci il vostro feedback a .
+Attualmente, il supporto del protocollo WebSocket è ancora in anteprima pubblica e potrebbe non funzionare per altre applicazioni. Alcuni clienti hanno avuto un successo misto usando il protocollo WebSocket con altre applicazioni. Se si testano tali scenari, si apprezzeranno i risultati. Inviare commenti e suggerimenti all'indirizzo aadapfeedback@microsoft.com.
 
-Le funzionalità (registri eventi, PowerShell e Servizi Desktop remoto) nell'interfaccia di amministrazione di Windows (WAC) o nel client Web Desktop remoto (HTML5) non funzionano attualmente tramite il proxy di applicazione di Azure AD.
+Le funzionalità (registri eventi, PowerShell e Servizi Desktop remoto) nell'interfaccia di amministrazione di Windows (WAC) o in Desktop remoto client Web (HTML5) non funzionano attualmente tramite Azure AD proxy di applicazione.
 
-## <a name="link-translation"></a>Traduzione dei link
+## <a name="link-translation"></a>Conversione collegamento
 
-### <a name="does-using-link-translation-affect-performance"></a>L'utilizzo della conversione dei collegamenti influisce sulle prestazioni?
+### <a name="does-using-link-translation-affect-performance"></a>L'uso della traduzione del collegamento influisce sulle prestazioni?
 
-Sì. La conversione dei link influisce sulle prestazioni. Il servizio proxy di applicazione analizza l'applicazione alla ricerca di collegamenti hardcoded e li sostituisce con i rispettivi URL esterni pubblicati prima di presentarli all'utente. 
+Sì. La conversione del collegamento influiscono sulle prestazioni. Il servizio proxy applicazione esegue l'analisi dell'applicazione per i collegamenti hardcoded e li sostituisce con i rispettivi URL esterni pubblicati prima di presentarli all'utente. 
 
-Per ottenere prestazioni ottimali, è consigliabile utilizzare URL interni ed esterni identici configurando [domini personalizzati.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain) Se l'utilizzo di domini personalizzati non è possibile, è possibile migliorare le prestazioni di conversione dei collegamenti utilizzando l'estensione My Apps Secure Sign in Extension o Microsoft Edge Browser su dispositivi mobili. Vedere [Reindirizzare i collegamenti hardcoded per le app pubblicate con](application-proxy-configure-hard-coded-link-translation.md)il proxy di applicazione di Azure AD.
+Per ottenere prestazioni ottimali, è consigliabile utilizzare URL interni ed esterni identici configurando [domini personalizzati](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Se l'uso di domini personalizzati non è possibile, è possibile migliorare le prestazioni di conversione dei collegamenti usando l'estensione di accesso sicuro app personali o il browser Microsoft Edge su dispositivi mobili. Vedere [Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure ad proxy di applicazione](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="wildcards"></a>Caratteri jolly
 
-### <a name="how-do-i-use-wildcards-to-publish-two-applications-with-the-same-custom-domain-name-but-with-different-protocols-one-for-http-and-one-for-https"></a>Come si usano i caratteri jolly per pubblicare due applicazioni con lo stesso nome di dominio personalizzato ma con protocolli diversi, uno per HTTP e uno per HTTPS?
+### <a name="how-do-i-use-wildcards-to-publish-two-applications-with-the-same-custom-domain-name-but-with-different-protocols-one-for-http-and-one-for-https"></a>Ricerca per categorie utilizzare caratteri jolly per pubblicare due applicazioni con lo stesso nome di dominio personalizzato ma con protocolli diversi, uno per HTTP e uno per HTTPS?
 
 Questo scenario non è supportato direttamente. Le opzioni per questo scenario sono:
 
-1. Pubblicare entrambi gli URL HTTP e HTTPS come applicazioni separate con un carattere jolly, ma assegnare a ciascuno di essi un dominio personalizzato diverso. Questa configurazione funzionerà poiché hanno URL esterni diversi.
+1. Pubblicare gli URL HTTP e HTTPS come applicazioni separate con un carattere jolly, ma assegnare a ognuno di essi un dominio personalizzato diverso. Questa configurazione funzionerà poiché hanno URL esterni diversi.
 
-2. Pubblicare l'URL HTTPS tramite un'applicazione con caratteri jolly. Pubblicare le applicazioni HTTP separatamente utilizzando i cmdlet powerShell del proxy di applicazione seguenti:Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Gestione applicazione proxy applicazione applicazione](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Gestione connettore proxy di applicazione](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+2. Pubblicare l'URL HTTPS tramite un'applicazione con caratteri jolly. Pubblicare le applicazioni HTTP separatamente usando questi cmdlet di PowerShell del proxy di applicazione:
+   - [Gestione applicazioni del proxy di applicazione](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
+   - [Gestione connettore del proxy di applicazione](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)

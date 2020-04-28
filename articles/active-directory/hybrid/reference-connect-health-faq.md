@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331086"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
@@ -66,7 +66,7 @@ Esempio:
 
 Azure AD Connect Health non è supportato nel cloud di Azure Germania ad eccezione della [funzionalità di report degli errori di sincronizzazione](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
-| Ruoli | Caratteristiche | Supportato nel cloud di Azure in Germania |
+| Ruoli | Funzionalità | Supportato nel cloud di Azure in Germania |
 | ------ | --------------- | --- |
 | Connect Health per la sincronizzazione | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
 |  | Report degli errori di sincronizzazione | Sì |

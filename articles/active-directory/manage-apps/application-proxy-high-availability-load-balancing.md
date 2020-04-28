@@ -1,6 +1,6 @@
 ---
-title: Disponibilità elevata e bilanciamento del carico - Proxy di applicazione di Azure ADHigh availability and load balancing - Azure AD Application Proxy
-description: Funzionamento della distribuzione del traffico con la distribuzione del proxy di applicazione. Include suggerimenti su come ottimizzare le prestazioni dei connettori e utilizzare il bilanciamento del carico per i server back-end.
+title: Disponibilità elevata e bilanciamento del carico-proxy applicazione Azure AD
+description: Funzionamento della distribuzione del traffico con la distribuzione del proxy di applicazione. Include suggerimenti su come ottimizzare le prestazioni del connettore e utilizzare il bilanciamento del carico per i server back-end.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,85 +17,85 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 992075378737552e890bd2d6fed3c519e6c62aa7
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312941"
 ---
-# <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Disponibilità elevata e bilanciamento del carico dei connettori e delle applicazioni del proxy di applicazioneHigh availability and load balancing of your Application Proxy connectors and applications
+# <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Disponibilità elevata e bilanciamento del carico delle applicazioni e dei connettori proxy dell'applicazione
 
-In questo articolo viene illustrato il funzionamento della distribuzione del traffico con la distribuzione del proxy di applicazione. Discuteremo di:
+Questo articolo illustra il funzionamento della distribuzione del traffico con la distribuzione del proxy di applicazione. Verranno illustrate le operazioni seguenti:
 
-- Modalità di distribuzione del traffico tra utenti e connettori, oltre a suggerimenti per ottimizzare le prestazioni dei connettori
+- Modalità di distribuzione del traffico tra utenti e connettori, oltre a suggerimenti per l'ottimizzazione delle prestazioni del connettore
 
-- Flusso del traffico tra connettori e server applicazioni back-end, con consigli per il bilanciamento del carico tra più server back-end
+- Flussi di traffico tra i connettori e i server app back-end, con consigli per il bilanciamento del carico tra più server back-end
 
-## <a name="traffic-distribution-across-connectors"></a>Distribuzione del traffico tra connettori
+## <a name="traffic-distribution-across-connectors"></a>Distribuzione del traffico tra i connettori
 
-I connettori stabiliscono le connessioni in base ai principi per la disponibilità elevata. Non è garantito che il traffico venga sempre distribuito uniformemente tra i connettori e non vi sia alcuna affinità di sessione. Tuttavia, l'utilizzo varia e le richieste vengono inviate in modo casuale alle istanze del servizio proxy di applicazione. Di conseguenza, il traffico viene in genere distribuito quasi uniformemente tra i connettori. Il diagramma e i passaggi seguenti illustrano come vengono stabilite le connessioni tra utenti e connettori.
+I connettori stabiliscono le connessioni in base ai principi per la disponibilità elevata. Non vi è alcuna garanzia che il traffico venga sempre distribuito uniformemente tra i connettori e che non esista alcuna affinità di sessione. Tuttavia, l'utilizzo varia e le richieste vengono inviate in modo casuale alle istanze del servizio proxy di applicazione. Di conseguenza, il traffico viene generalmente distribuito in modo quasi uniforme tra i connettori. Il diagramma e i passaggi seguenti illustrano il modo in cui vengono stabilite le connessioni tra gli utenti e i connettori.
 
-![Diagramma che mostra le connessioni tra utenti e connettori](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
+![Diagramma che mostra le connessioni tra gli utenti e i connettori](media/application-proxy-high-availability-load-balancing/application-proxy-connections.png)
 
-1. Un utente in un dispositivo client tenta di accedere a un'applicazione locale pubblicata tramite il proxy di applicazione.
-2. La richiesta passa tramite un servizio di bilanciamento del carico di Azure per determinare quale istanza del servizio proxy di applicazione deve accettare la richiesta. Per ogni area, sono disponibili decine di istanze per accettare la richiesta. Questo metodo consente di distribuire in modo uniforme il traffico tra le istanze del servizio.
-3. La richiesta viene inviata al [bus](https://docs.microsoft.com/azure/service-bus-messaging/)di servizio .
+1. Un utente su un dispositivo client tenta di accedere a un'applicazione locale pubblicata tramite il proxy di applicazione.
+2. La richiesta passa attraverso un Azure Load Balancer per determinare quale istanza del servizio proxy dell'applicazione deve eseguire la richiesta. Per area sono disponibili decine di istanze per accettare la richiesta. Questo metodo consente di distribuire uniformemente il traffico tra le istanze del servizio.
+3. La richiesta viene inviata al [bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/).
 4. Il bus di servizio segnala a un connettore disponibile. Il connettore preleva quindi la richiesta dal bus di servizio.
-   - Nel passaggio 2, le richieste passano a istanze del servizio proxy di applicazione diverse, pertanto è più probabile che le connessioni vengano effettuate con connettori diversi. Di conseguenza, i connettori vengono utilizzati quasi in modo uniforme all'interno del gruppo.
-5. Il connettore passa la richiesta al server back-end dell'applicazione. Quindi l'applicazione invia la risposta al connettore.
-6. Il connettore completa la risposta aprendo una connessione in uscita all'istanza del servizio da cui proveniva la richiesta. Quindi questa connessione viene immediatamente chiusa. Per impostazione predefinita, ogni connettore è limitato a 200 connessioni in uscita simultanee.
-7. La risposta viene quindi passata al client dall'istanza del servizio.
-8. Le richieste successive dalla stessa connessione ripetono i passaggi precedenti.
+   - Nel passaggio 2, le richieste vengono indirizzate a diverse istanze del servizio proxy di applicazione, quindi è più probabile che le connessioni vengano effettuate con connettori diversi. Di conseguenza, i connettori vengono usati quasi uniformemente all'interno del gruppo.
+5. Il connettore passa la richiesta al server back-end dell'applicazione. Quindi, l'applicazione invia la risposta al connettore.
+6. Il connettore completa la risposta aprendo una connessione in uscita all'istanza del servizio da cui proviene la richiesta. Questa connessione viene quindi chiusa immediatamente. Per impostazione predefinita, ogni connettore è limitato a 200 connessioni in uscita simultanee.
+7. La risposta viene quindi passata di nuovo al client dall'istanza del servizio.
+8. Le richieste successive provenienti dalla stessa connessione ripeteranno i passaggi precedenti.
 
-Un'applicazione ha spesso molte risorse e apre più connessioni quando viene caricata. Ogni connessione passa attraverso i passaggi precedenti per essere allocata a un'istanza del servizio, selezionare un nuovo connettore disponibile se la connessione non è ancora precedentemente associata a un connettore.
+Un'applicazione ha spesso molte risorse e apre più connessioni quando viene caricata. Ogni connessione esegue i passaggi precedenti per essere allocata a un'istanza del servizio, selezionare un nuovo connettore disponibile se la connessione non è ancora stata abbinata in precedenza a un connettore.
 
 
-## <a name="best-practices-for-high-availability-of-connectors"></a>Procedure consigliate per la disponibilità elevata dei connettoriBest practices for high availability of connectors
+## <a name="best-practices-for-high-availability-of-connectors"></a>Procedure consigliate per la disponibilità elevata dei connettori
 
-- A causa del modo in cui il traffico viene distribuito tra i connettori per la disponibilità elevata, è essenziale avere sempre almeno due connettori in un gruppo di connettori. È preferibile fornire buffer aggiuntivo tra i connettori. Per determinare il numero corretto di connettori necessari, seguire la documentazione relativa alla pianificazione della capacità.
+- A causa del modo in cui il traffico viene distribuito tra i connettori per la disponibilità elevata, è essenziale avere sempre almeno due connettori in un gruppo di connettori. Sono preferibili tre connettori per fornire un buffer aggiuntivo tra i connettori. Per determinare il numero corretto di connettori necessari, seguire la documentazione sulla pianificazione della capacità.
 
-- Posizionare i connettori su connessioni in uscita diverse per evitare un singolo punto di errore. Se i connettori utilizzano la stessa connessione in uscita, un problema di rete con la connessione può influire su tutti i connettori che la utilizzano.
+- Posizionare i connettori in connessioni in uscita diverse per evitare un singolo punto di errore. Se i connettori usano la stessa connessione in uscita, un problema di rete con la connessione può influisca su tutti i connettori che lo usano.
 
-- Evitare di forzare il riavvio dei connettori quando si è connessi alle applicazioni di produzione. Questa operazione potrebbe influire negativamente sulla distribuzione del traffico tra i connettori. Il riavvio dei connettori causa la disponibilità di un numero maggiore di connettori e forza le connessioni al connettore disponibile rimanente. Il risultato è un uso irregolare dei connettori inizialmente.
+- Evitare di forzare il riavvio del connettore quando si è connessi alle applicazioni di produzione. Questa operazione potrebbe influire negativamente sulla distribuzione del traffico tra i connettori. Il riavvio dei connettori causa l'indisponibilità di più connettori e forza le connessioni al connettore rimanente disponibile. Il risultato è inizialmente un uso non uniforme dei connettori.
 
-- Evitare tutte le forme di ispezione in linea sulle comunicazioni TLS in uscita tra i connettori e Azure.Avoid all forms of inline inspection on outbound TLS communications between connectors and Azure. Questo tipo di ispezione in linea causa la degradazione del flusso di comunicazione.
+- Evitare tutte le forme di ispezione inline sulle comunicazioni TLS in uscita tra i connettori e Azure. Questo tipo di ispezione inline provoca una riduzione del flusso di comunicazione.
 
-- Assicurarsi di mantenere in esecuzione gli aggiornamenti automatici per i connettori. Se il servizio Application Proxy Connector Updater è in esecuzione, i connettori vengono aggiornati automaticamente e ricevono l'aggiornamento più recente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario reinstallare il connettore per ottenere gli aggiornamenti.
+- Assicurarsi di lasciare gli aggiornamenti automatici in esecuzione per i connettori. Se il proxy di applicazione Connector Updater servizio è in esecuzione, i connettori vengono aggiornati automaticamente e ricevono il aggiornato più recente. Se non viene visualizzato il servizio di aggiornamento del connettore nel server, è necessario reinstallare il connettore per ottenere gli aggiornamenti.
 
-## <a name="traffic-flow-between-connectors-and-back-end-application-servers"></a>Flusso di traffico tra connettori e server applicazioni back-end
+## <a name="traffic-flow-between-connectors-and-back-end-application-servers"></a>Flusso del traffico tra i connettori e i server applicazioni back-end
 
-Un'altra area chiave in cui la disponibilità elevata è un fattore è la connessione tra i connettori e i server back-end. Quando un'applicazione viene pubblicata tramite il proxy di applicazione di Azure AD, il traffico dagli utenti alle applicazioni passa attraverso tre hop:When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three hops:
+Un'altra area chiave in cui la disponibilità elevata è un fattore è la connessione tra i connettori e i server back-end. Quando un'applicazione viene pubblicata tramite Azure AD proxy di applicazione, il traffico dagli utenti alle applicazioni passa attraverso tre hop:
 
-1. The user connects to the Azure AD Application Proxy service public endpoint on Azure. La connessione viene stabilita tra l'indirizzo IP del client di origine (pubblico) del client e l'indirizzo IP dell'endpoint del proxy di applicazione.
-2. Il connettore proxy di applicazione estrae la richiesta HTTP del client dal servizio proxy di applicazione.
-3. Il connettore proxy di applicazione si connette all'applicazione di destinazione. Il connettore utilizza il proprio indirizzo IP per stabilire la connessione.
+1. L'utente si connette all'endpoint pubblico del servizio proxy dell'applicazione Azure AD in Azure. Viene stabilita la connessione tra l'indirizzo IP del client di origine (pubblico) del client e l'indirizzo IP dell'endpoint del proxy di applicazione.
+2. Il connettore del proxy di applicazione estrae la richiesta HTTP del client dal servizio proxy di applicazione.
+3. Il connettore del proxy di applicazione si connette all'applicazione di destinazione. Il connettore usa il proprio indirizzo IP per stabilire la connessione.
 
 ![Diagramma dell'utente che si connette a un'applicazione tramite il proxy di applicazione](media/application-proxy-high-availability-load-balancing/application-proxy-three-hops.png)
 
-### <a name="x-forwarded-for-header-field-considerations"></a>Considerazioni sul campo di intestazione X-Forwarded-For
-In alcune situazioni (ad esempio il controllo, il bilanciamento del carico e così via), è necessario condividere l'indirizzo IP di origine del client esterno con l'ambiente locale. Per soddisfare il requisito, il connettore proxy di applicazione di Azure AD aggiunge il campo di intestazione X-Forwarded-For con l'indirizzo IP del client di origine (pubblico) alla richiesta HTTP. Il dispositivo di rete appropriato (bilanciamento del carico, firewall) o il server Web o l'applicazione back-end possono quindi leggere e utilizzare le informazioni.
+### <a name="x-forwarded-for-header-field-considerations"></a>Considerazioni sui campi di intestazione X-Inoltred-for
+In alcune situazioni, ad esempio il controllo, il bilanciamento del carico e così via, la condivisione dell'indirizzo IP di origine del client esterno con l'ambiente locale è un requisito. Per soddisfare i requisiti, Azure AD connettore del proxy di applicazione aggiunge il campo di intestazione X-inoltro-per con l'indirizzo IP del client di origine (pubblico) alla richiesta HTTP. Il dispositivo di rete appropriato (servizio di bilanciamento del carico, firewall) o il server Web o l'applicazione back-end può quindi leggere e usare le informazioni.
 
-## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Procedure consigliate per il bilanciamento del carico tra più server applicazioniBest practices for load balancing among multiple app servers
-Quando il gruppo di connettori assegnato all'applicazione proxy di applicazione dispone di due o più connettori e si esegue l'applicazione Web back-end in più server (server farm), è necessaria una buona strategia di bilanciamento del carico. Una buona strategia garantisce che i server rilevano le richieste dei client in modo uniforme e impediscono un utilizzo eccessivo o inesondante dei server nella server farm.
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: l'applicazione back-end non richiede la persistenza della sessioneScenario 1: Back-end application does not require session persistence
-Lo scenario più semplice è quello in cui l'applicazione Web back-end non richiede la persistenza della sessione (persistenza della sessione). Qualsiasi richiesta dell'utente può essere gestita da qualsiasi istanza dell'applicazione back-end nella server farm. È possibile utilizzare un servizio di bilanciamento del carico di livello 4 e configurarlo senza affinità. Alcune opzioni includono Microsoft Network Load Balancing e Azure Load Balancer o un servizio di bilanciamento del carico di un altro fornitore. In alternativa, è possibile configurare il DNS round robin.
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: l'applicazione back-end richiede la persistenza della sessioneScenario 2: Back-end application requires session persistence
-In questo scenario, l'applicazione web back-end richiede la vissistenza della sessione (persistenza della sessione) durante la sessione autenticata. Tutte le richieste dell'utente devono essere gestite dall'istanza dell'applicazione back-end in esecuzione nello stesso server della server farm.
-Questo scenario può essere più complicato perché il client stabilisce in genere più connessioni al servizio proxy di applicazione. Le richieste su connessioni diverse potrebbero arrivare a connettori e server diversi nella farm. Poiché ogni connettore utilizza il proprio indirizzo IP per questa comunicazione, il servizio di bilanciamento del carico non è in grado di garantire la viibilità della sessione in base all'indirizzo IP dei connettori. Non è possibile utilizzare l'affinità IP di origine.
-Di seguito sono riportate alcune opzioni per lo scenario 2:Here are some options for scenario 2:
+## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Procedure consigliate per il bilanciamento del carico tra più server app
+Quando il gruppo di connettori assegnato all'applicazione proxy di applicazione dispone di due o più connettori e si esegue l'applicazione Web back-end su più server (server farm), è necessaria una strategia di bilanciamento del carico adeguata. Una strategia efficace garantisce che i server prelevino le richieste client in modo uniforme e impediscano il sovrautilizzo dei server nel server farm.
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: l'applicazione back-end non richiede la persistenza della sessione
+Lo scenario più semplice è quello in cui l'applicazione Web back-end non richiede la persistenza della sessione (persistenza della sessione). Qualsiasi richiesta dell'utente può essere gestita da qualsiasi istanza dell'applicazione back-end nel server farm. È possibile usare un servizio di bilanciamento del carico di livello 4 e configurarlo senza affinità. Alcune opzioni includono il bilanciamento del carico di rete Microsoft e Azure Load Balancer o un servizio di bilanciamento del carico da un altro fornitore. In alternativa, è possibile configurare il DNS round robin.
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: l'applicazione back-end richiede la persistenza della sessione
+In questo scenario, l'applicazione Web back-end richiede la persistenza della sessione (persistenza della sessione) durante la sessione autenticata. Tutte le richieste dell'utente devono essere gestite dall'istanza dell'applicazione back-end eseguita nello stesso server del server farm.
+Questo scenario può essere più complesso perché il client di solito stabilisce più connessioni al servizio proxy di applicazione. Le richieste su connessioni diverse possono arrivare a connettori e server diversi nella farm. Poiché ogni connettore usa il proprio indirizzo IP per questa comunicazione, il servizio di bilanciamento del carico non può garantire la viscosità della sessione in base all'indirizzo IP dei connettori. Non è possibile usare l'affinità IP di origine.
+Di seguito sono riportate alcune opzioni per lo scenario 2:
 
-- Opzione 1: Basare la persistenza della sessione in un cookie di sessione impostato dal servizio di bilanciamento del carico. Questa opzione è consigliata perché consente di distribuire il carico in modo più uniforme tra i server back-end. Richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e in grado di gestire il traffico HTTP e terminare la connessione TLS. È possibile usare il gateway applicazione di Azure (affinità di sessione) o un servizio di bilanciamento del carico di un altro fornitore.
+- Opzione 1: basare la persistenza della sessione su un cookie di sessione impostato dal servizio di bilanciamento del carico. Questa opzione è consigliata perché consente di distribuire il carico in modo più uniforme tra i server back-end. Richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e che può gestire il traffico HTTP e terminare la connessione TLS. È possibile usare applicazione Azure Gateway (affinità di sessione) o un servizio di bilanciamento del carico da un altro fornitore.
 
-- Opzione 2: Basare la persistenza della sessione nel campo di intestazione X-Forwarded-For. Questa opzione richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e in grado di gestire il traffico HTTP e terminare la connessione TLS.  
+- Opzione 2: basare la persistenza della sessione nel campo dell'intestazione X-Inoltred-for. Questa opzione richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e che può gestire il traffico HTTP e terminare la connessione TLS.  
 
-- Opzione 3: Configurare l'applicazione back-end in modo che non richieda la persistenza della sessione.
+- Opzione 3: configurare l'applicazione back-end in modo che non richieda la persistenza della sessione.
 
-Consultare la documentazione del fornitore del software per comprendere i requisiti di bilanciamento del carico dell'applicazione back-end.
+Per informazioni sui requisiti di bilanciamento del carico dell'applicazione back-end, consultare la documentazione del fornitore del software.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Abilitare il proxy dell’applicazione](application-proxy-add-on-premises-application.md)
 - [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Abilitare l'accesso condizionaleEnable Conditional Access](application-proxy-integrate-with-sharepoint-server.md)
+- [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)
-- [Informazioni su come l'architettura di Azure AD supporta la disponibilità elevataLearn how Azure AD architecture supports high availability](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Informazioni su come Azure AD architettura supporta la disponibilità elevata](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

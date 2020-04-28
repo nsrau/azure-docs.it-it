@@ -4,10 +4,10 @@ description: Le offerte di servizi gestiti consentono ai provider di servizi di 
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548430"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure

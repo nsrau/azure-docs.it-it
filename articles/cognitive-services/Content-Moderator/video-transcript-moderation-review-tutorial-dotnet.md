@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74976979"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404231"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Esercitazione: Moderazione di video e trascrizioni
 
@@ -82,7 +82,7 @@ La classe `Program` in `Program.cs` è il punto di ingresso principale per l'app
 Se non sono presenti argomenti della riga di comando, `Main()` chiama `GetUserInputs()`. Questo metodo richiede all'utente di immettere il percorso di un singolo file video e di specificare se deve essere generata una trascrizione di testo.
 
 > [!NOTE]
-> L'applicazione console usa l'[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) per generare le trascrizioni dalla traccia audio del video caricato. I risultati vengono restituiti in formato WebVTT. Per altre informazioni su questo formato, vedere [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (Formato tracce di testo video Web).
+> L'applicazione console usa l'[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) per generare le trascrizioni dalla traccia audio del video caricato. I risultati vengono restituiti in formato WebVTT. Per altre informazioni su questo formato, vedere [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Formato tracce di testo video Web).
 
 ### <a name="initialize-and-processvideo-methods"></a>Metodi Initialize e ProcessVideo
 
@@ -223,11 +223,11 @@ Il risultato del processo di moderazione video (vedere l'[Avvio rapido](video-mo
 Una trascrizione dell'audio del video viene anche generata quando è impostato il flag `GenerateVTT`.
 
 > [!NOTE]
-> L'applicazione console usa l'[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) per generare le trascrizioni dalla traccia audio del video caricato. I risultati vengono restituiti in formato WebVTT. Per altre informazioni su questo formato, vedere [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) (Formato tracce di testo video Web).
+> L'applicazione console usa l'[API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) per generare le trascrizioni dalla traccia audio del video caricato. I risultati vengono restituiti in formato WebVTT. Per altre informazioni su questo formato, vedere [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Formato tracce di testo video Web).
 
 ## <a name="create-a-human-review"></a>Creare una revisione umana
 
-Il processo di moderazione restituisce un elenco di fotogrammi chiave dal video con una trascrizione delle relative tracce audio. Il passaggio successivo consiste nel creare una revisione nello strumento di revisione di Content Moderator per moderatori risorse umane. Tornare al metodo `ProcessVideo()` in `Program.cs` per visualizzare la chiamata al metodo `CreateVideoReviewInContentModerator()`. Il è incluso nella classe `videoReviewApi`, che si trova in `VideoReviewAPI.cs`, e viene illustrato di seguito.
+Il processo di moderazione restituisce un elenco di fotogrammi chiave dal video con una trascrizione delle relative tracce audio. Il passaggio successivo consiste nel creare una revisione nello strumento di revisione di Content Moderator per moderatori umani. Tornare al metodo `ProcessVideo()` in `Program.cs` per visualizzare la chiamata al metodo `CreateVideoReviewInContentModerator()`. Il è incluso nella classe `videoReviewApi`, che si trova in `VideoReviewAPI.cs`, e viene illustrato di seguito.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
@@ -299,7 +299,7 @@ Inizializzare in primo luogo tutte le variabili e le raccolte.
 
 ### <a name="parse-the-transcript-for-captions"></a>Analizzare la trascrizione per individuare le didascalie
 
-Analizzare successivamente la trascrizione formattata VTT per individuare didascalie e timestamp. Lo strumento di revisione consente di visualizzare tali didascalie nella scheda relativa alla trascrizione nella schermata di revisione del video. I timestamp vengono usati per sincronizzare le didascalie con i fotogrammi video corrispondenti.
+Analizzare successivamente la trascrizione formattata VTT per individuare didascalie e timestamp. Lo strumento di revisione visualizza tali didascalie nella scheda relativa alla trascrizione nella schermata di revisione del video. I timestamp vengono usati per sincronizzare le didascalie con i fotogrammi video corrispondenti.
 
 [!code-csharp[TextScreen2](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=528-567)]
 

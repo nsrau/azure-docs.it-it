@@ -1,6 +1,6 @@
 ---
-title: Scambi di attestazioni dell'API REST - Azure Active Directory B2C
-description: Aggiungere scambi di attestazioni dell'API REST ai criteri personalizzati in Active Directory B2C.Add REST API claims exchanges to custom policies in Active Directory B2C.
+title: Scambi di attestazioni API REST-Azure Active Directory B2C
+description: Aggiungere scambi di attestazioni API REST ai criteri personalizzati in Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,32 +11,32 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80330716"
 ---
-# <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procedura dettagliata: Aggiungere scambi di attestazioni DELL'API REST ai criteri personalizzati in Azure Active Directory B2CWalkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C
+# <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procedura dettagliata: aggiungere scambi di attestazioni API REST a criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) consente agli sviluppatori di identità di integrare un'interazione con un'API RESTful in un percorso utente. Al termine di questa procedura dettagliata, sarà possibile creare un percorso utente B2C di Azure AD che interagisce con i [servizi RESTful.](custom-policy-rest-api-intro.md)
+Azure Active Directory B2C (Azure AD B2C) consente agli sviluppatori di identità di integrare un'interazione con un'API RESTful in un percorso utente. Al termine di questa procedura dettagliata, sarà possibile creare un percorso utente Azure AD B2C che interagisce con i [servizi RESTful](custom-policy-rest-api-intro.md).
 
-In questo scenario vengono arricchiti i dati token dell'utente integrandosi con un flusso di lavoro line-of-business aziendale. Durante l'iscrizione o l'accesso con account locale o federato, Azure AD B2C richiama un'API REST per ottenere i dati del profilo esteso dell'utente da un'origine dati remota. In questo esempio Azure AD B2C invia l'identificatore univoco dell'utente, objectId. L'API REST restituisce quindi il saldo dell'account dell'utente (un numero casuale). Utilizzare questo esempio come punto di partenza per l'integrazione con il proprio sistema CRM, database di marketing o qualsiasi flusso di lavoro line-of-business.
+In questo scenario i dati del token dell'utente vengono arricchiti mediante l'integrazione con un flusso di lavoro line-of-business aziendale. Durante l'iscrizione o l'accesso con un account locale o federato, Azure AD B2C richiama un'API REST per ottenere i dati del profilo esteso dell'utente da un'origine dati remota. In questo esempio Azure AD B2C invia l'identificatore univoco dell'utente, ovvero objectId. L'API REST restituisce quindi il saldo dell'account utente (un numero casuale). Usare questo esempio come punto di partenza per l'integrazione con il sistema CRM, il database marketing o qualsiasi flusso di lavoro line-of-business.
 
-È inoltre possibile progettare l'interazione come profilo tecnico di convalida. Ciò è adatto quando l'API REST sollevirà i dati sullo schermo e restituirà attestazioni. Per altre informazioni, vedere [Procedura dettagliata: Integrare scambi di attestazioni dell'API REST nel percorso utente B2C di Azure AD per convalidare l'input dell'utente.](custom-policy-rest-api-claims-validation.md)
+È anche possibile progettare l'interazione come profilo tecnico di convalida. Questo è adatto quando l'API REST convaliderà i dati sullo schermo e restituirà le attestazioni. Per altre informazioni, vedere [procedura dettagliata: integrare scambi di attestazioni API REST nel percorso utente Azure ad B2C per convalidare l'input dell'utente](custom-policy-rest-api-claims-validation.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completare la procedura descritta in [Introduzione ai criteri personalizzati](custom-policy-get-started.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
-- Informazioni su come integrare gli scambi di [attestazioni dell'API REST nei criteri personalizzati di Azure AD B2C.](custom-policy-rest-api-intro.md)
+- Informazioni su come [integrare scambi di attestazioni API REST nei criteri personalizzati Azure ad B2C](custom-policy-rest-api-intro.md).
 
-## <a name="prepare-a-rest-api-endpoint"></a>Preparare un endpoint dell'API RESTPrepare a REST API endpoint
+## <a name="prepare-a-rest-api-endpoint"></a>Preparare un endpoint dell'API REST
 
-Per questa procedura dettagliata, è necessario disporre di un'API REST che convalida se l'objectId B2C di Azure AD di un utente è registrato nel sistema back-end. Se registrata, l'API REST restituisce il saldo dell'account utente. In caso contrario, l'API REST registra il `50.00`nuovo account nella directory e restituisce il saldo iniziale.
+Per questa procedura dettagliata, è necessario disporre di un'API REST per verificare se un utente Azure AD B2C objectId è registrato nel sistema back-end. Se registrata, l'API REST restituisce il saldo dell'account utente. In caso contrario, l'API REST registra il nuovo account nella directory e restituisce il saldo `50.00`iniziale.
 
-Il codice JSON seguente illustra i dati che Azure AD B2C invierà all'endpoint dell'API REST. 
+Il codice JSON seguente illustra i dati Azure AD B2C invierà all'endpoint dell'API REST. 
 
 ```json
 {
@@ -45,7 +45,7 @@ Il codice JSON seguente illustra i dati che Azure AD B2C invierà all'endpoint d
 }
 ```
 
-Una volta che l'API REST convalida i dati, deve restituire un HTTP 200 (Ok), con i seguenti dati JSON:
+Quando l'API REST convalida i dati, deve restituire un HTTP 200 (OK) con i dati JSON seguenti:
 
 ```json
 {
@@ -53,16 +53,16 @@ Una volta che l'API REST convalida i dati, deve restituire un HTTP 200 (Ok), con
 }
 ```
 
-La configurazione dell'endpoint dell'API REST non rientra nell'ambito di questo articolo. È stato creato un esempio di funzioni di Azure.We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+La configurazione dell'endpoint dell'API REST esula dall'ambito di questo articolo. È stato creato un esempio di [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference) . È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
-## <a name="define-claims"></a>Definire le attestazioni
+## <a name="define-claims"></a>Definisci attestazioni
 
-Un'attestazione fornisce l'archiviazione temporanea dei dati durante l'esecuzione di criteri B2C di Azure AD. È possibile dichiarare attestazioni all'interno della sezione [dello schema delle attestazioni.](claimsschema.md) 
+Un'attestazione fornisce l'archiviazione temporanea dei dati durante l'esecuzione di un Azure AD B2C criteri. È possibile dichiarare attestazioni nella sezione [schema delle attestazioni](claimsschema.md) . 
 
-1. Aprire il file delle estensioni del criterio. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+1. Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
 1. Cercare l'elemento [BuildingBlocks](buildingblocks.md). Se l'elemento non esiste, aggiungerlo.
-1. Individuare l'elemento [ClaimsSchema.](claimsschema.md) Se l'elemento non esiste, aggiungerlo.
-1. Aggiungere le attestazioni seguenti all'elemento **ClaimsSchema.**  
+1. Individuare l'elemento [ClaimsSchema](claimsschema.md) . Se l'elemento non esiste, aggiungerlo.
+1. Aggiungere le attestazioni seguenti all'elemento **ClaimsSchema** .  
 
 ```xml
 <ClaimType Id="balance">
@@ -77,7 +77,7 @@ Un'attestazione fornisce l'archiviazione temporanea dei dati durante l'esecuzion
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Configurare il profilo tecnico dell'API RESTful 
 
-Un [profilo tecnico Restful](restful-technical-profile.md) fornisce supporto per l'interfacciamento con il proprio servizio RESTful. Azure AD B2C invia i dati al `InputClaims` servizio RESTful in `OutputClaims` una raccolta e riceve i dati in una raccolta. Individuare l'elemento **ClaimsProviders** nel <em>**`TrustFrameworkExtensions.xml`**</em> file e aggiungere un nuovo provider di attestazioni come segue:
+Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per l'interazione con il servizio RESTful. Azure AD B2C invia dati al servizio RESTful in una `InputClaims` raccolta e riceve di nuovo i dati in `OutputClaims` una raccolta. Trovare l'elemento **ClaimsProviders** nel <em>**`TrustFrameworkExtensions.xml`**</em> file e aggiungere un nuovo provider di attestazioni come indicato di seguito:
 
 ```xml
 <ClaimsProvider>
@@ -109,19 +109,19 @@ Un [profilo tecnico Restful](restful-technical-profile.md) fornisce supporto per
 </ClaimsProvider>
 ```
 
-In questo esempio, l'oggetto `userLanguage` verrà `lang` inviato al servizio REST come all'interno del payload JSON. Il valore `userLanguage` dell'attestazione contiene l'ID lingua dell'utente corrente. Per ulteriori informazioni, vedere [resolver di attestazioni](claim-resolver-overview.md).
+In questo esempio l'oggetto `userLanguage` verrà inviato al servizio REST come `lang` all'interno del payload JSON. Il valore dell' `userLanguage` attestazione contiene l'ID della lingua utente corrente. Per altre informazioni, vedere [resolver di attestazioni](claim-resolver-overview.md).
 
-I commenti `AuthenticationType` precedenti `AllowInsecureAuthInProduction` e specificare le modifiche da apportare quando ci si sposta in un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [Secure RESTful API](secure-rest-api.md).
+I commenti precedenti `AuthenticationType` e `AllowInsecureAuthInProduction` specificano le modifiche che è necessario apportare quando si passa a un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [proteggere l'API RESTful](secure-rest-api.md).
 
-## <a name="add-an-orchestration-step"></a>Aggiungere un passaggio di orchestrazioneAdd an orchestration step
+## <a name="add-an-orchestration-step"></a>Aggiungere un passaggio di orchestrazione
 
-[I percorsi utente specificano](userjourneys.md) percorsi espliciti attraverso i quali un criterio consente a un'applicazione relying party di ottenere le attestazioni desiderate per un utente. Un percorso utente è costituito da una sequenza di orchestrazione da seguire per garantire l'esito positivo di una transazione. È possibile aggiungere o sottrarre passaggi di orchestrazione. In questo caso, si aggiungerà un nuovo passaggio di orchestrazione che viene utilizzato per aumentare le informazioni fornite all'applicazione dopo l'iscrizione o l'accesso dell'utente tramite la chiamata all'API REST.
+I percorsi [utente](userjourneys.md) specificano percorsi espliciti attraverso i quali un criterio consente a un'applicazione relying party di ottenere le attestazioni desiderate per un utente. Un percorso utente è costituito da una sequenza di orchestrazione da seguire per garantire l'esito positivo di una transazione. È possibile aggiungere o sottrarre passaggi dell'orchestrazione. In questo caso, verrà aggiunto un nuovo passaggio di orchestrazione usato per aumentare le informazioni fornite all'applicazione dopo l'iscrizione o l'accesso dell'utente tramite la chiamata all'API REST.
 
 1. Aprire il file di base dei criteri, Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
-1. Cercare l'elemento `<UserJourneys>`. Copiare l'intero elemento ed eliminarlo.
-1. Aprire il file delle estensioni del criterio. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
-1. Incollare `<UserJourneys>` il nel file delle estensioni, dopo la chiusura dell'elemento. `<ClaimsProviders>`
-1. Individuare `<UserJourney Id="SignUpOrSignIn">`il , e aggiungere il passaggio di orchestrazione seguente prima dell'ultimo.
+1. Cercare l'elemento `<UserJourneys>`. Copiare l'intero elemento e quindi eliminarlo.
+1. Aprire il file delle estensioni dei criteri. Ad esempio, <em> `SocialAndLocalAccounts/` </em>.
+1. Incollare l' `<UserJourneys>` oggetto nel file delle estensioni, dopo la chiusura dell' `<ClaimsProviders>` elemento.
+1. `<UserJourney Id="SignUpOrSignIn">`Individuare e aggiungere il passaggio di orchestrazione seguente prima dell'ultimo.
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -131,7 +131,7 @@ I commenti `AuthenticationType` precedenti `AllowInsecureAuthInProduction` e spe
     </OrchestrationStep>
     ```
 
-1. Eseguire il refactoring dell'ultimo `Order` `8`passaggio dell'orchestrazione modificando l'oggetto in . Gli ultimi due passaggi di orchestrazione dovrebbero essere simili ai seguenti:Your final two orchestration steps should look like the following:
+1. Effettuare il refactoring dell'ultimo passaggio dell' `Order` orchestrazione `8`modificando in. I due passaggi finali dell'orchestrazione dovrebbero essere simili ai seguenti:
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -143,12 +143,12 @@ I commenti `AuthenticationType` precedenti `AllowInsecureAuthInProduction` e spe
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
     ```
 
-1. Ripetere gli ultimi due passaggi per i percorsi utente **ProfileEdit** e **PasswordReset.**
+1. Ripetere gli ultimi due passaggi per i percorsi utente **ProfileEdit** e **PasswordReset** .
 
 
-## <a name="include-a-claim-in-the-token"></a>Includere un'attestazione nel tokenInclude a claim in the token 
+## <a name="include-a-claim-in-the-token"></a>Includere un'attestazione nel token 
 
-Per restituire `balance` l'attestazione all'applicazione relying party, <em> `SocialAndLocalAccounts/` </em> aggiungere un'attestazione di output al file. L'aggiunta di un'attestazione di output emetterà l'attestazione nel token dopo un percorso utente riuscito e verrà inviata all'applicazione. Modificare l'elemento del profilo tecnico all'interno della sezione relying party da aggiungere `balance` come attestazione di output.
+Per riportare l' `balance` attestazione all'applicazione relying party, aggiungere un'attestazione di <em> `SocialAndLocalAccounts/` </em> output al file. Se si aggiunge un'attestazione di output, l'attestazione verrà rilasciata nel token dopo un percorso utente con esito positivo e verrà inviata all'applicazione. Modificare l'elemento profilo tecnico nella sezione relying party per aggiungerlo `balance` come attestazione di output.
  
 ```xml
 <RelyingParty>
@@ -171,19 +171,19 @@ Per restituire `balance` l'attestazione all'applicazione relying party, <em> `So
 </RelyingParty>
 ```
 
-Ripetere questo passaggio per i percorsi utente **ProfileEdit.xml**e **PasswordReset.xml.**
+Ripetere questo passaggio per i percorsi utente **ProfileEdit. XML**e **PasswordReset. XML** .
 
-Salvare i file modificati: *TrustFrameworkBase.xml*e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*e *PasswordReset.xml*. 
+Salvare i file modificati: *TrustFrameworkBase. XML*e *TrustFrameworkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*e *PasswordReset. XML*. 
 
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-1. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **Directory e sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant di Azure AD.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
-1. Selezionare **Identity Experience Framework**.
-1. Selezionare **Carica criteri personalizzati**, quindi caricare i file dei criteri modificati: *TrustFrameworkBase.xml*e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*e *PasswordReset.xml*. 
+1. Selezionare **Framework esperienza di identità**.
+1. Selezionare **carica criteri personalizzati**, quindi caricare i file dei criteri modificati: *TrustFrameworkBase. XML*e *TrustFrameworkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*e *PasswordReset. XML*. 
 1. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
-1. Dovresti essere in grado di registrarti utilizzando un indirizzo email o un account Facebook.
+1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica o un account Facebook.
 1. Il token inviato all'applicazione include l'attestazione `balance`.
 
 ```json
@@ -215,8 +215,8 @@ Salvare i file modificati: *TrustFrameworkBase.xml*e *TrustFrameworkExtensions.x
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come proteggere le API, vedere gli articoli seguenti:To learn how to secure your APIs, see the following articles:
+Per informazioni su come proteggere le API, vedere gli articoli seguenti:
 
 - [Procedura dettagliata: Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C come passaggio di orchestrazione](custom-policy-rest-api-claims-exchange.md)
-- [Proteggi la tua API RESTful](secure-rest-api.md)
-- [Riferimento: RESTful profilo tecnico](restful-technical-profile.md)
+- [Proteggere l'API RESTful](secure-rest-api.md)
+- [Informazioni di riferimento: profilo tecnico RESTful](restful-technical-profile.md)

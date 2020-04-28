@@ -1,5 +1,5 @@
 ---
-title: Autenticazione basata su certificati - Azure Active DirectoryCertificate-based authentication - Azure Active Directory
+title: Autenticazione basata su certificati-Azure Active Directory
 description: Informazioni su come configurare l'autenticazione basata su certificati nel proprio ambiente
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654348"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
@@ -36,16 +36,16 @@ In questo argomento:
 
 Per configurare l'autenticazione basata su certificati, devono essere soddisfatte le istruzioni seguenti:
 
-- L'autenticazione basata su certificati (CBA) è supportata solo per gli ambienti federati per le applicazioni browser, i client nativi che utilizzano l'autenticazione moderna (ADAL) o le librerie MSAL. L'unica eccezione è Exchange Active Sync per Exchange Online (EXO) che può essere usato per gli account federati e per quelli gestiti.
+- L'autenticazione basata su certificati è supportata solo per gli ambienti federati per le applicazioni browser, i client nativi che usano le librerie di autenticazione moderna (ADAL) o MSAL. L'unica eccezione è Exchange Active Sync per Exchange Online (EXO) che può essere usato per gli account federati e per quelli gestiti.
 - L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.
 - Ogni autorità di certificazione deve avere un elenco di revoche di certificati (Certificate Revocation List o CRL) a cui si possa fare riferimento tramite un URL Internet.
 - È necessario che in Azure Active Directory sia configurata almeno un'autorità di certificazione. I passaggi correlati sono descritti nella sezione [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) (Configurare le autorità di certificazione).
-- Per i client Exchange ActiveSync, il certificato client deve avere l'indirizzo di posta elettronica instradabile dell'utente in Exchange online nel nome dell'entità o il valore nome RFC822 del campo Nome alternativo soggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.
+- Per i client Exchange ActiveSync, il certificato client deve avere l'indirizzo di posta elettronica instradabile dell'utente in Exchange Online nel nome dell'entità o nel valore del nome RFC822 del campo nome alternativo oggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.
 - Il dispositivo client deve avere accesso ad almeno un'autorità di certificazione che emetta i certificati client.
 - È necessario che al client sia stato rilasciato un certificato client per l'autenticazione.
 
 >[!IMPORTANT]
->La dimensione massima di un CRL per il download e la memorizzazione nella cache di Azure Active Directory è 20 MB e il tempo necessario per scaricare il CRL non deve superare i 10 secondi.  Se Azure Active Directory non è in grado di scaricare un CRL, le autenticazioni basate su certificati che usano i certificati emessi dalla CA corrispondente avranno esito negativo. Le procedure consigliate per garantire che i file CRL rientrino nei limiti di dimensione consiste nel mantenere la durata dei certificati entro limiti ragionevoli e per pulire i certificati scaduti. 
+>Le dimensioni massime di un CRL per Azure Active Directory per il download e la memorizzazione nella cache sono 20MB e il tempo necessario per scaricare il CRL non deve superare i 10 secondi.  Se Azure Active Directory non è in grado di scaricare un CRL, le autenticazioni basate su certificati che usano i certificati emessi dalla CA corrispondente avranno esito negativo. Le procedure consigliate per garantire che i file CRL rientrino nei vincoli di dimensione sono la conservazione delle durate dei certificati entro limiti ragionevoli e la pulizia dei certificati scaduti. 
 
 ## <a name="step-1-select-your-device-platform"></a>Passaggio 1: Selezionare la piattaforma del dispositivo
 

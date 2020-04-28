@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331728"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gestire il trust di AD FS con Azure AD usando Azure AD Connect
@@ -64,7 +64,7 @@ Azure AD connect non aggiorna tutte le impostazioni del trust di Azure AD durant
 | Aggiunta del server WAP | nessuno |
 | Opzioni del dispositivo | Regole di trasformazione rilascio, autenticazione integrata di Windows per la registrazione del dispositivo |
 | Aggiunta di un dominio federato | Se il dominio viene aggiunto per la prima volta, ovvero se la configurazione passa dalla federazione di un singolo dominio alla federazione multidominio, Azure AD Connect ricreerà il trust da zero. Se il trust con Azure AD è già configurato per più domini, vengono modificate solo le regole di trasformazione rilascio |
-| Aggiorna TLS | nessuno |
+| Aggiornare TLS | nessuno |
 
 In tutte le operazioni in cui vengono modificate impostazioni, Azure AD Connect crea un backup delle impostazioni di trust correnti in **%ProgramData%\AADConnect\ADFS**
 
@@ -105,7 +105,7 @@ Azure AD Connect verifica che il trust di Azure AD sia sempre configurato con il
 
 Azure AD Connect versione 1.1.873.0 o successiva crea un backup delle impostazioni di trust di Azure AD ogni volta che queste vengono aggiornate. Il backup delle impostazioni di trust di Azure AD viene salvato in **%ProgramData%\AADConnect\ADFS**. Il nome file è nel formato AadTrust-&lt;data&gt;-&lt;ora&gt;.txt, ad esempio AadTrust-20180710-150216.txt
 
-![Schermata di esempio di backup della relazione di trust di Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
+![Screenshot del backup di esempio di Azure AD Trust](./media/how-to-connect-azure-ad-trust/backup.png)
 
 È possibile ripristinare le regole di trasformazione rilascio seguendo la procedura suggerita di seguito
 

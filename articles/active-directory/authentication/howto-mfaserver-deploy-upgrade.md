@@ -1,5 +1,5 @@
 ---
-title: Aggiornamento di Azure MFA Server - Azure Active DirectoryUpgrading Azure MFA Server - Azure Active Directory
+title: Aggiornamento del server di autenticazione a più fattori di Azure-Azure Active Directory
 description: Passaggi e indicazioni per aggiornare il server Azure Multi-Factor Authentication a una versione più recente.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653108"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
@@ -25,7 +25,7 @@ In questo articolo viene illustrato il processo di aggiornamento del Server Azur
 Se si esegue l'aggiornamento dalla versione 6.x o precedente alla versione 7.x o successiva, tutti i componenti da .NET 2.0 a .NET 4.5 cambiano. Inoltre per tutti i componenti è necessario l'aggiornamento di Microsoft Visual C++ 2015 1 o versione successiva. Il programma di installazione del server MFA installa entrambe le versioni, x86 e x64, di questi componenti se non sono già installati. Se il Portale utenti e il servizio Web app per dispositivi mobili vengono eseguiti su server diversi, è necessario installare tali pacchetti prima di aggiornare i componenti. È possibile cercare l'aggiornamento più recente di Microsoft Visual C++ 2015 Redistributable nell'[Area download Microsoft](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> A partire dal 1 luglio 2019, Microsoft non offrirà più MFA Server per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dai propri utenti devono usare L'autenticazione a più fattori di Azure basata su cloud. I clienti esistenti che hanno attivato MFA Server prima del 1 luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 Riepilogo dei passaggi di aggiornamento:
 
@@ -66,7 +66,7 @@ Se il Portale utenti è su più server, ripetere l'installazione su tutti i serv
 ## <a name="upgrade-the-mobile-app-web-service"></a>Aggiornare il servizio Web app per dispositivi mobili
 
 > [!NOTE]
-> Quando si esegue l'aggiornamento da una versione di Azure MFA Server precedente alla 8.0 alla 8.0, è possibile disinstallare il servizio Web dell'app per dispositivi mobili dopo l'aggiornamento
+> Quando si esegue l'aggiornamento da una versione del server Azure multi-factor authentication precedente alla 8,0 alla 8.0 +, il servizio Web App per dispositivi mobili può essere disinstallato dopo l'aggiornamento
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Aggiornare le schede AD FS
 
@@ -98,15 +98,15 @@ Queste istruzioni sono valide solo se si esegue il server Multi-Factor Authentic
 
    Se si verifica un errore che informa che è necessario eseguire l'aggiornamento di Microsoft Visual C++ 2015 Redistributable 1 o di una versione successiva, scaricare e installare il pacchetto di aggiornamento più recente dall'[Area download Microsoft](https://www.microsoft.com/download/). Installare le versioni x86 e x64.
 
-3. Passare a > Criteri di**autenticazione** **di ADFS** > Modifica criteri di**autenticazione a più fattori globali**. Deselezionare **WindowsAzureMultiFactorAuthentication** o **AzureMfaServerAuthentication** a seconda della versione precedentemente installata.
+3. Passare a **ad FS** > **criteri** > di autenticazione modificare i criteri di autenticazione a più**fattori globali**. Deselezionare **WindowsAzureMultiFactorAuthentication** o **AzureMfaServerAuthentication** a seconda della versione precedentemente installata.
 
    Dopo avere completato questo passaggio, la verifica in due passaggi tramite il server MFA non sarà disponibile in questo cluster AD FS fino al completamento del passaggio 8.
 
-4. Annullare la registrazione della versione precedente della scheda AD FS eseguendo lo script di PowerShell Unregister-MultiFactorAuthenticationAdfsAdapter.ps1. Verificare che il parametro *-Name* (WindowsAzureMultiFactorAuthentication" o "AzureMFAServerAuthentication") corrisponda al nome visualizzato nel passaggio 3. Questo si applica a tutti i server nello stesso cluster AD FS poiché è presente una configurazione centrale.
+4. Annullare la registrazione della versione precedente della scheda AD FS eseguendo lo script di PowerShell Unregister-MultiFactorAuthenticationAdfsAdapter.ps1. Verificare che il parametro *-Name* ("WindowsAzureMultiFactorAuthentication" o "AzureMFAServerAuthentication") corrisponda al nome visualizzato nel passaggio 3. Questo si applica a tutti i server nello stesso cluster AD FS poiché è presente una configurazione centrale.
 5. Registrare la nuova scheda AD FS eseguendo lo script di PowerShell Register-MultiFactorAuthenticationAdfsAdapter.ps1. Questo si applica a tutti i server nello stesso cluster AD FS poiché è presente una configurazione centrale.
 6. Riavviare il nuovo servizio AD FS su ogni server rimosso dalla farm AD FS.
 7. Aggiungere nuovamente i server aggiornati alla farm AD FS e rimuovere gli altri server della farm.
-8. Passare a > Criteri di**autenticazione** **di ADFS** > Modifica criteri di**autenticazione a più fattori globali**. Controllare **AzureMfaServerAuthentication**.
+8. Passare a **ad FS** > **criteri** > di autenticazione modificare i criteri di autenticazione a più**fattori globali**. Controllare **AzureMfaServerAuthentication**.
 9. Ripetere il passaggio 2 per aggiornare i server rimossi dalla farm AD FS e riavviare il servizio AD FS in tali server.
 10. Aggiungere di nuovo i server alla farm AD FS.
 
@@ -116,4 +116,4 @@ Queste istruzioni sono valide solo se si esegue il server Multi-Factor Authentic
 
 * [Sincronizzazione del server MFA con Windows Server Active Directory](howto-mfaserver-dir-ad.md)
 
-* [Configurare l'autenticazione](howto-mfaserver-windows.md) di Windows per le applicazioniConfigure Windows Authentication for your applications
+* [Configurare l'autenticazione di Windows](howto-mfaserver-windows.md) per le applicazioni

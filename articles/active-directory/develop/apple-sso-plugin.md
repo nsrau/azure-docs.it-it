@@ -1,7 +1,7 @@
 ---
 title: Plug-in Microsoft Enterprise SSO per dispositivi Apple
 titleSuffix: Microsoft identity platform | Azure
-description: Informazioni sul plug-in SSO di Azure Active Directory di Microsoft per dispositivi iOS e macOS.
+description: Informazioni sul plug-in Azure Active Directory SSO di Microsoft per i dispositivi iOS e macOS.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -14,48 +14,48 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982583"
 ---
-# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise SSO per dispositivi Apple (anteprima)
+# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise SSO per i dispositivi Apple (anteprima)
 
 > [!NOTE]
 > Questa funzionalità è disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Il *plug-in Microsoft Enterprise SSO per i dispositivi Apple* fornisce l'accesso Single Sign-On (SSO) per gli account Azure Active Directory (Azure AD) in tutte le applicazioni che supportano la funzionalità Enterprise Single [Sign-On](https://developer.apple.com/documentation/authenticationservices) di Apple. Microsoft ha collaborato strettamente con Apple per sviluppare questo plug-in per aumentare l'usabilità dell'applicazione, fornendo al contempo la migliore protezione che Apple e Microsoft possono fornire.
+Il *plug-in Microsoft Enterprise SSO per i dispositivi Apple* fornisce Single Sign-on (SSO) per gli account Azure Active Directory (Azure ad) in tutte le applicazioni che supportano la funzionalità di [Enterprise Single Sign-on](https://developer.apple.com/documentation/authenticationservices) di Apple. Microsoft ha collaborato con Apple per sviluppare questo plug-in per aumentare l'usabilità dell'applicazione garantendo al contempo la migliore protezione fornita da Apple e da Microsoft.
 
-In questa versione di anteprima pubblica, il plug-in Enterprise SSO è disponibile solo per i dispositivi iOS ed è distribuito in alcune applicazioni Microsoft.
+In questa versione di anteprima pubblica, il plug-in Enterprise SSO è disponibile solo per i dispositivi iOS ed è distribuito in determinate applicazioni Microsoft.
 
-Il nostro primo utilizzo del plug-in Enterprise SSO è con la nostra nuova funzione di [modalità dispositivo condiviso.](msal-ios-shared-devices.md)
+Il primo uso del plug-in Enterprise SSO è costituito dalla nuova funzionalità di [modalità dispositivo condiviso](msal-ios-shared-devices.md) .
 
 ## <a name="features"></a>Funzionalità
 
-Il plug-in Microsoft Enterprise SSO per i dispositivi Apple offre i seguenti vantaggi:
+Il plug-in Microsoft Enterprise SSO per i dispositivi Apple offre i vantaggi seguenti:
 
-- Fornisce gli account SSO per Azure AD in tutte le applicazioni che supportano la funzionalità Enterprise Single Sign-On di Apple.
-- Consegnato automaticamente in Microsoft Authenticator e può essere abilitato da qualsiasi soluzione di gestione dei dispositivi mobili (MDM).
+- Fornisce l'accesso SSO per gli account Azure AD in tutte le applicazioni che supportano la funzionalità Enterprise Single Sign-On di Apple.
+- Viene recapitato automaticamente nel Microsoft Authenticator e può essere abilitato da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
 ## <a name="requirements"></a>Requisiti
 
-Per utilizzare il plug-in Microsoft Enterprise SSO per i dispositivi Apple:
+Per usare il plug-in Microsoft Enterprise SSO per i dispositivi Apple:
 
-- iOS 13.0 o versione successiva deve essere installato nel dispositivo.
-- Nel dispositivo deve essere installata un'applicazione Microsoft che fornisca il plug-in Microsoft Enterprise SSO per i dispositivi Apple. Per l'anteprima pubblica, queste applicazioni includono [l'app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md).
-- Il dispositivo deve essere registrato MDM (ad esempio, con Microsoft Intune).
-- La configurazione deve essere inviata al dispositivo per abilitare il plug-in Microsoft Enterprise SSO per i dispositivi Apple nel dispositivo. Questo vincolo di sicurezza è richiesto da Apple.
+- iOS 13,0 o versione successiva deve essere installato nel dispositivo.
+- Nel dispositivo deve essere installata un'applicazione Microsoft che fornisce il plug-in Microsoft Enterprise SSO per i dispositivi Apple. Per la versione di anteprima pubblica, queste applicazioni includono l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md).
+- Il dispositivo deve essere registrato con MDM, ad esempio con Microsoft Intune.
+- È necessario effettuare il push della configurazione nel dispositivo per abilitare il plug-in Microsoft Enterprise SSO per i dispositivi Apple nel dispositivo. Questo vincolo di sicurezza è richiesto da Apple.
 
-## <a name="enable-the-sso-extension-with-mobile-device-management-mdm"></a>Abilitare l'estensione SSO con la gestione dei dispositivi mobili (MDM)Enable the SSO extension with mobile device management (MDM)
+## <a name="enable-the-sso-extension-with-mobile-device-management-mdm"></a>Abilitare l'estensione SSO con la gestione dei dispositivi mobili (MDM)
 
-Per abilitare il plug-in Microsoft Enterprise SSO per i dispositivi Apple, i dispositivi devono essere inviati un segnale tramite un servizio MDM. Poiché Microsoft include il plug-in Enterprise SSO [nell'app Microsoft Authenticator](..//user-help/user-help-auth-app-overview.md), utilizzare MDM per configurare l'app per abilitare il plug-in Microsoft Enterprise SSO.
+Per abilitare il plug-in Microsoft Enterprise SSO per i dispositivi Apple, i dispositivi devono essere inviati tramite un servizio MDM. Poiché Microsoft include il plug-in Enterprise SSO nell' [app Microsoft Authenticator](..//user-help/user-help-auth-app-overview.md), usare MDM per configurare l'app per abilitare il plug-in Microsoft Enterprise SSO.
 
-Utilizzare i seguenti parametri per configurare il plug-in Microsoft Enterprise SSO per i dispositivi Apple:
+Per configurare il plug-in Microsoft Enterprise SSO per i dispositivi Apple, usare i parametri seguenti:
 
-- **Tipo**: Reindirizza
+- **Tipo**: Reindirizzamento
 - **ID estensione**:`com.microsoft.azureauthenticator.ssoextension`
 - **ID team**:`SGGM6D27TK`
 - **URL**:
@@ -70,14 +70,14 @@ Utilizzare i seguenti parametri per configurare il plug-in Microsoft Enterprise 
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-È possibile usare Microsoft Intune come servizio MDM per semplificare la configurazione del plug-in Microsoft Enterprise SSO. Per altre informazioni, vedere la [documentazione sulla configurazione](https://docs.microsoft.com/intune/configuration/ios-device-features-settings)di Intune.For more information, see the Intune configuration documentation .
+È possibile usare Microsoft Intune come servizio MDM per semplificare la configurazione del plug-in Microsoft Enterprise SSO. Per ulteriori informazioni, vedere la [documentazione di configurazione di Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
 
 ## <a name="using-the-sso-extension-in-your-application"></a>Utilizzo dell'estensione SSO nell'applicazione
 
-[Microsoft Authentication Library (MSAL) per i dispositivi Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versione 1.1.0 e successive supporta il plug-in Microsoft Enterprise SSO per i dispositivi Apple.
+[Microsoft Authentication Library (MSAL) per i dispositivi Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versione 1.1.0 e versioni successive supporta il plug-in Microsoft Enterprise SSO per i dispositivi Apple.
 
-Se si desidera supportare la modalità di dispositivo condiviso fornita dal plug-in Microsoft Enterprise SSO per i dispositivi Apple, verificare che le applicazioni utilizzino la versione minima richiesta di MSAL specificata.
+Se si vuole supportare la modalità dispositivo condiviso fornita dal plug-in Microsoft Enterprise SSO per i dispositivi Apple, assicurarsi che le applicazioni usino la versione minima richiesta specificata di MSAL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla modalità dispositivo condiviso in iOS, consultate [Modalità dispositivo condiviso per dispositivi iOS](msal-ios-shared-devices.md).
+Per altre informazioni sulla modalità dispositivo condiviso in iOS, vedere [modalità dispositivo condiviso per dispositivi iOS](msal-ios-shared-devices.md).

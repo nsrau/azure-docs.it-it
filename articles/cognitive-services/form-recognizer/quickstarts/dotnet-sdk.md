@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118357"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399413"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Riconoscimento modulo per .NET
 
@@ -42,7 +42,7 @@ Usare la libreria client di Riconoscimento modulo per .NET per:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint, denominate rispettivamente `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`.
+Dopo aver ottenuto una chiave e un endpoint, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint, denominate rispettivamente `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
@@ -99,12 +99,6 @@ Le classi seguenti gestiscono la funzionalità principale dell'SDK Riconosciment
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Questa classe rappresenta tutti i dati estratti da un singolo documento modulo.|
 
 ## <a name="code-examples"></a>Esempi di codice
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 Questi frammenti di codice mostrano come eseguire le attività seguenti con la libreria client di Riconoscimento modulo per .NET:
 
@@ -193,7 +187,7 @@ Inoltre, se è stato eseguito il training di un modello personalizzato che si vu
 In questo argomento di avvio rapido è stata usata la libreria client di Riconoscimento modulo per .NET per eseguire il training di un modello personalizzato e analizzare i moduli. In seguito, è possibile ottenere suggerimenti per creare un set di dati di training migliore e produrre modelli più accurati.
 
 > [!div class="nextstepaction"]
->[Creare un set di dati di training](../build-training-data-set.md)
+> [Creare un set di dati di training](../build-training-data-set.md)
 
 * [Informazioni su Riconoscimento modulo](../overview.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

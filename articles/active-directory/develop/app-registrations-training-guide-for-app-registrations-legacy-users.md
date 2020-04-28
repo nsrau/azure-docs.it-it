@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154577"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Guida alla formazione per la nuova registrazione di app nel portale di Azure
@@ -60,7 +60,7 @@ L'esperienza Legacy ha una pagina delle **Proprietà** . I campi delle **Proprie
 - **URI ID app**
 - **Logo**
 - **URL della home page**
-- **URL di chiusura sessione**
+- **URL di disconnessione**
 - **URL delle condizioni per il servizio**
 - **URL informativa sulla privacy**
 - **Tipo di applicazione**

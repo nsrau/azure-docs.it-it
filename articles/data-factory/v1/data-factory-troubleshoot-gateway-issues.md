@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi a Gateway di gestione datiTroubleshoot Data Management Gateway issues
+title: Risolvere i problemi di Gestione dati Gateway
 description: Questo articolo offre suggerimenti per risolvere i problemi correlati al gateway di gestione dati.
 services: data-factory
 author: nabhishek
@@ -12,10 +12,10 @@ ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80065036"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
@@ -27,7 +27,7 @@ Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del g
 Vedere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per informazioni dettagliate sul gateway. Vedere l'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) per una procedura dettagliata sull'uso del gateway per spostare i dati da un database di SQL Server locale all'Archiviazione BLOB di Azure.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Impossibile installare o registrare il gateway
-### <a name="1-problem"></a>1. Problema
+### <a name="1-problem"></a>1. problema
 Questo messaggio di errore viene visualizzato durante l'installazione e la registrazione di un gateway, in particolare durante il download del file di installazione del gateway.
 
 `Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
@@ -40,7 +40,7 @@ Verificare se nel firewall del server proxy sono presenti impostazioni che blocc
 
 In alternativa, è possibile scaricare il file di installazione del gateway più recente dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) su altri computer che possono accedere all'area download. Dopo averlo scaricato, copiare il file di installazione nel computer host del gateway ed eseguirlo manualmente per installare e aggiornare il gateway.
 
-### <a name="2-problem"></a>2. Problema
+### <a name="2-problem"></a>2. problema
 Questo errore viene visualizzato quando si prova a installare un gateway facendo clic su **Installa direttamente in questo computer** nel portale di Azure.
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
@@ -49,9 +49,9 @@ Questo errore viene visualizzato quando si prova a installare un gateway facendo
 È già installato un gateway nel computer.
 
 #### <a name="resolution"></a>Risoluzione
-Disinstallare il gateway esistente nel computer e fare di nuovo clic sul collegamento **Di installazione direttamente nel computer.**
+Disinstallare il gateway esistente nel computer e fare di nuovo clic sul collegamento **installa direttamente nel computer** .
 
-### <a name="3-problem"></a>3. Problema
+### <a name="3-problem"></a>3. problema
 Questo errore può verificarsi quando si registra un nuovo gateway.
 
 `Error: The gateway has encountered an error during registration.`
@@ -66,7 +66,7 @@ Il messaggio può essere visualizzato per uno dei motivi seguenti:
 #### <a name="resolution"></a>Risoluzione
 Accertarsi che venga usata la chiave del gateway corretta del portale. Se necessario, rigenerare una chiave e usarla per registrare il gateway.
 
-### <a name="4-problem"></a>4. Problema
+### <a name="4-problem"></a>4. problema
 Durante la registrazione di un gateway può essere visualizzato il messaggio di errore seguente:
 
 `Error: The content or format of the gateway key "{gatewayKey}" is invalid, please go to azure portal to create one new gateway or regenerate the gateway key.`
@@ -81,7 +81,7 @@ Il contenuto o il formato della chiave del gateway di input non è corretto. È 
 #### <a name="resolution"></a>Risoluzione
 Generare una chiave del gateway nel portale e usare il pulsante Copia per copiare la chiave intera. Quindi incollarla in questa finestra per registrare il gateway.
 
-### <a name="5-problem"></a>5. Problema
+### <a name="5-problem"></a>5. problema
 Durante la registrazione di un gateway può essere visualizzato il messaggio di errore seguente:
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
@@ -96,7 +96,7 @@ Controllare che la versione del programma di installazione del Gateway di gestio
 
 Se la versione del programma di installazione è quella attuale o la più recente e il gateway è ancora presente sul Portale, rigenerare la chiave del gateway nel Portale di Azure e usare il pulsante Copia per copiare l'intera chiave, quindi incollarla in questa finestra per registrare il gateway. In caso contrario ricreare il gateway e ricominciare.
 
-### <a name="6-problem"></a>6. Problema
+### <a name="6-problem"></a>6. problema
 Durante la registrazione di un gateway può essere visualizzato il messaggio di errore seguente:
 
 `Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
@@ -111,7 +111,7 @@ Se il gateway è stato eliminato, ricrearlo dal portale, fare clic su **Registra
 
 Se il gateway è ancora esistente, ma la chiave è stata rigenerata, usare la nuova chiave per registrare il gateway. Se la chiave non è disponibile, rigenerarla nuovamente dal portale.
 
-### <a name="7-problem"></a>7. Problema
+### <a name="7-problem"></a>7. problema
 Quando si registra un gateway, potrebbe essere necessario immettere il percorso e la password di un certificato.
 
 ![Specificare un certificato](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
@@ -128,7 +128,7 @@ Se il certificato delle credenziali è stato esportato dal computer gateway orig
 
 Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il certificato è mancante, è necessario eliminare il gateway dal portale e crearne uno nuovo.  Inoltre, tutti i servizi collegati relativi al gateway devono essere aggiornati immettendo di nuovo le credenziali.
 
-### <a name="8-problem"></a>8. Problema
+### <a name="8-problem"></a>8. problema
 È possibile visualizzare il messaggio di errore seguente:
 
 `Error: The remote server returned an error: (407) Proxy Authentication Required.`
@@ -140,7 +140,7 @@ Questo errore si verifica quando il gateway si trova in un ambiente che richiede
 Seguire le istruzioni indicate nella sezione Considerazioni sui server proxy di questo articolo e configurare le impostazioni del proxy con Gestione configurazione di Gateway di gestione dati.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Il gateway è online con funzionalità limitate
-### <a name="1-problem"></a>1. Problema
+### <a name="1-problem"></a>1. problema
 Lo stato visualizzato per il gateway è online con funzionalità limitata.
 
 #### <a name="cause"></a>Causa
@@ -154,7 +154,7 @@ Quando il gateway è online con funzionalità limitate, potrebbe non essere poss
 #### <a name="resolution"></a>Risoluzione
 La risoluzione di questo problema (online con funzionalità limitata) dipende dall'eventualità che il gateway non possa connettersi al servizio cloud o viceversa. Le sezioni seguenti illustrano queste risoluzioni.
 
-### <a name="2-problem"></a>2. Problema
+### <a name="2-problem"></a>2. problema
 Viene visualizzato l'errore seguente:
 
 `Error: Gateway cannot connect to cloud service through service bus`
@@ -171,7 +171,7 @@ Seguire questi passaggi per fare in modo che il gateway torni online:
 1. Configurare le impostazioni proxy nel gateway. Per conoscere i dettagli, vedere la sezione Considerazioni sui server proxy.
 1. Abilitare le porte in uscita 5671 e 9350-9354 sia su Windows Firewall nel computer gateway che nel firewall aziendale. Per conoscere i dettagli, vedere la sezione Porte e firewall. Questo passaggio è facoltativo, ma consigliato per considerazioni relative alle prestazioni.
 
-### <a name="3-problem"></a>3. Problema
+### <a name="3-problem"></a>3. problema
 Viene visualizzato l'errore seguente:
 
 `Error: Cloud service cannot connect to gateway through service bus.`
@@ -196,7 +196,7 @@ Quando viene visualizzato questo errore, la pagina Impostazioni di Gestione conf
 ![Impossibile raggiungere il database](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### <a name="cause"></a>Causa
-Il certificato TLS/SSL potrebbe essere stato perso nel computer gateway. Il computer gateway non è in grado di caricare il certificato attualmente utilizzato per la crittografia TLS. Nel registro può essere visualizzato un messaggio di errore analogo al seguente.
+Il certificato TLS/SSL potrebbe essere andato perso nel computer gateway. Il computer gateway non è in grado di caricare il certificato attualmente usato per la crittografia TLS. Nel registro può essere visualizzato un messaggio di errore analogo al seguente.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
@@ -204,11 +204,11 @@ Il certificato TLS/SSL potrebbe essere stato perso nel computer gateway. Il comp
 Seguire questa procedura per risolvere il problema:
 
 1. Avviare Gestione configurazione di Gateway di gestione dati.
-2. Passare alla scheda **Impostazioni.**  
+2. Passare alla scheda **Impostazioni** .  
 3. Fare clic sul pulsante **Cambia** per modificare il certificato TLS/SSL.
 
    ![Pulsate Cambia per cambiare il certificato](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. Selezionare un nuovo certificato come certificato TLS/SSL. È possibile utilizzare qualsiasi certificato TLS/SSL generato dall'utente o da qualsiasi organizzazione.
+4. Selezionare un nuovo certificato come certificato TLS/SSL. È possibile usare qualsiasi certificato TLS/SSL generato dall'utente o da qualsiasi organizzazione.
 
    ![Specificare un certificato](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
@@ -279,7 +279,7 @@ Fare clic sul collegamento **Archivia log del gateway** per archiviare e salvare
 Per informazioni dettagliate sui log del gateway, vedere il registro eventi di Windows.
 
 1. Avviare il **Visualizzatore eventi** di Windows.
-2. Individuare i log nella cartella**Gateway di gestione dati** registri > applicazioni e **servizi.**
+2. Individuare i log > nei **registri applicazioni e servizi****Gestione dati cartella gateway** .
 
    Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
 

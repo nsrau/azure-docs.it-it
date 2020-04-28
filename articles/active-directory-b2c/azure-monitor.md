@@ -1,7 +1,7 @@
 ---
-title: Monitor Azure AD B2C with Azure Monitor
+title: Monitorare Azure AD B2C con monitoraggio di Azure
 titleSuffix: Azure AD B2C
-description: Informazioni su come registrare gli eventi B2C di Azure AD con Monitoraggio di Azure usando la gestione delle risorse delegate.
+description: Informazioni su come registrare eventi di Azure AD B2C con monitoraggio di Azure usando la gestione delle risorse delegata.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,82 +12,82 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392886"
 ---
-# <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C with Azure Monitor
+# <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
-Usare Monitoraggio di Azure per instradare i log di accesso e di [controllo](view-audit-logs.md) di Azure Active Directory B2C (Azure AD B2C) a diverse soluzioni di monitoraggio. È possibile conservare i log per l'utilizzo a lungo termine o integrarsi con strumenti SIEM (Security Information and Event Management) di terze parti per ottenere informazioni dettagliate sull'ambiente.
+Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C (Azure AD B2C) e i log di [controllo](view-audit-logs.md) a diverse soluzioni di monitoraggio. È possibile conservare i log per l'uso a lungo termine o l'integrazione con strumenti di gestione di informazioni ed eventi di sicurezza di terze parti per ottenere informazioni approfondite sull'ambiente.
 
-È possibile instradare gli eventi del log a:You can route log events to:
+È possibile instradare gli eventi del log a:
 
 * Un [account di archiviazione](../storage/blobs/storage-blobs-introduction.md)di Azure.
-* Un [hub eventi](../event-hubs/event-hubs-about.md) di Azure (e l'integrazione con le istanze Splunk e Sumo Logic).
-* [Un'area di lavoro](../azure-monitor/platform/resource-logs-collect-workspace.md) di Log Analytics (per analizzare i dati, creare dashboard e avvisare su eventi specifici).
+* Un [Hub eventi](../event-hubs/event-hubs-about.md) di Azure (e si integrano con le istanze della logica Splunk e Sumo).
+* Un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
 
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare i passaggi descritti in questo articolo, distribuire un modello di Azure Resource Manager usando il modulo Azure PowerShell.To complete the steps in this article, you deploy an Azure Resource Manager template by using the Azure PowerShell module.
+Per completare i passaggi descritti in questo articolo, è possibile distribuire un modello di Azure Resource Manager usando il modulo di Azure PowerShell.
 
-* [Modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) versione 6.13.1 o successivaAzure PowerShell module version 6.13.1 or versione successiva
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) versione del modulo 6.13.1 o superiore
 
-È anche possibile usare Azure Cloud Shell , che include la versione più recente del modulo Di Azure PowerShell.You can also use the [Azure Cloud Shell](https://shell.azure.com), which includes the latest version of the Azure PowerShell module.
+È anche possibile usare la [Azure cloud Shell](https://shell.azure.com), che include la versione più recente del modulo di Azure PowerShell.
 
-## <a name="delegated-resource-management"></a>Gestione delle risorse delegate
+## <a name="delegated-resource-management"></a>Gestione delle risorse delegata
 
-Azure AD B2C sfrutta il monitoraggio di [Azure Active Directory.](../active-directory/reports-monitoring/overview-monitoring.md) Per abilitare *le impostazioni* di diagnostica in Azure Active Directory all'interno del tenant di Azure AD B2C, usare la gestione delle [risorse delegate.](../lighthouse/concepts/azure-delegated-resource-management.md)
+Azure AD B2C sfrutta [Azure Active Directory il monitoraggio](../active-directory/reports-monitoring/overview-monitoring.md). Per abilitare *le impostazioni di diagnostica* in Azure Active Directory all'interno del tenant di Azure ad B2C, si usa la [gestione delle risorse delegata](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Autorizzare un utente o un gruppo nella directory B2C di Azure AD (il **provider**di servizi ) per configurare l'istanza di Monitoraggio di Azure all'interno del tenant che contiene la sottoscrizione di Azure **(cliente**). Per creare l'autorizzazione, distribuire un modello di [Azure Resource Manager](../azure-resource-manager/index.yml) nel tenant di Azure AD contenente la sottoscrizione. Le sezioni seguenti illustrano il processo.
+Autorizzare un utente o un gruppo nella directory Azure AD B2C ( **provider di servizi**) per configurare l'istanza di monitoraggio di Azure all'interno del tenant che contiene la sottoscrizione di Azure (il **cliente**). Per creare l'autorizzazione, si distribuisce un modello di [Azure Resource Manager](../azure-resource-manager/index.yml) nel tenant di Azure ad che contiene la sottoscrizione. Le sezioni seguenti illustrano il processo.
 
-## <a name="create-or-choose-resource-group"></a>Creare o scegliere un gruppo di risorseCreate or choose resource group
+## <a name="create-or-choose-resource-group"></a>Creare o scegliere un gruppo di risorse
 
-Si tratta del gruppo di risorse contenente l'account di archiviazione di Azure di destinazione, l'hub eventi o l'area di lavoro di Log Analytics per ricevere dati da Monitoraggio di Azure.This is the resource group containing the destination Azure storage account, event hub, or Log Analytics workspace to receive data from Azure Monitor. Specificare il nome del gruppo di risorse quando si distribuisce il modello di Azure Resource Manager.You specify the resource group name when you deploy the Azure Resource Manager template.
+Questo è il gruppo di risorse contenente l'account di archiviazione di Azure di destinazione, l'hub eventi o l'area di lavoro Log Analytics per ricevere i dati da monitoraggio di Azure. Quando si distribuisce il modello di Azure Resource Manager, è necessario specificare il nome del gruppo di risorse.
 
-[Creare un gruppo](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) di risorse o sceglierne uno esistente nel tenant di Azure Active Directory (Azure AD) che contiene la sottoscrizione di Azure, *non* la directory che contiene il tenant B2C di Azure AD.
+[Creare un gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) o sceglierne uno esistente nel tenant Azure Active Directory (Azure ad) che contiene la sottoscrizione di Azure e *non* la directory che contiene il tenant di Azure ad B2C.
 
-Questo esempio usa un gruppo di risorse denominato *azure-ad-b2c-monitor* nell'area *Stati Uniti centrali.*
+Questo esempio usa un gruppo di risorse denominato *Azure-ad-B2C-monitor* nell'area *Stati Uniti centrali* .
 
 ## <a name="delegate-resource-management"></a>Delegare la gestione delle risorse
 
-Successivamente, raccogliere le seguenti informazioni:
+Successivamente, raccogliere le informazioni seguenti:
 
-**ID directory** della directory B2C di Azure AD (noto anche come ID tenant).
+**ID directory** della directory Azure ad B2C (noto anche come ID tenant).
 
-1. Accedere al [portale](https://portal.azure.com/) di Azure come utente con il ruolo *di amministratore utente* (o versione successiva).
-1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant B2C di Azure AD.
-1. Selezionare **Azure Active Directory**, selezionare **Proprietà**.
-1. Registrare **l'ID directory**.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come utente con il ruolo di *amministratore utente* (o versione successiva).
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
+1. Selezionare **Azure Active Directory**, quindi **Proprietà**.
+1. Registrare l' **ID directory**.
 
-**ID oggetto** del gruppo o dell'utente B2C di Azure AD che si vuole concedere al *Collaboratore* l'autorizzazione per il gruppo di risorse creato in precedenza nella directory contenente la sottoscrizione.
+**ID oggetto** del gruppo Azure ad B2C o dell'utente a cui si vuole concedere l'autorizzazione *collaboratore* per il gruppo di risorse creato in precedenza nella directory che contiene la sottoscrizione.
 
-Per semplificare la gestione, è consigliabile usare i *gruppi* di utenti di Azure AD per ogni ruolo, consentendo di aggiungere o rimuovere singoli utenti al gruppo anziché assegnare autorizzazioni direttamente a tale utente. In questa procedura dettagliata si aggiunge un utente.
+Per semplificare la gestione, è consigliabile utilizzare Azure AD *gruppi* di utenti per ogni ruolo, consentendo di aggiungere o rimuovere singoli utenti al gruppo anziché assegnare le autorizzazioni direttamente a tale utente. In questa procedura dettagliata viene aggiunto un utente.
 
-1. Con **Azure Active Directory** ancora selezionato nel portale di Azure, selezionare **Utenti**e quindi selezionare un utente.
-1. Registrare **l'ID oggetto**dell'utente.
+1. Con **Azure Active Directory** ancora selezionato nella portale di Azure, selezionare **utenti**e quindi selezionare un utente.
+1. Registrare l' **ID oggetto**dell'utente.
 
 ### <a name="create-an-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
 
-Per eseguire l'onboarding del tenant di Azure AD **(cliente**), creare un modello di [Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) per l'offerta con le informazioni seguenti. I `mspOfferName` `mspOfferDescription` valori e sono visibili quando si visualizzano i dettagli dell'offerta nella pagina Provider di servizi del portale di Azure.The and values are visible when you view offer details in the [Service providers page](../lighthouse/how-to/view-manage-service-providers.md) of the Azure portal.
+Per caricare il tenant di Azure AD (il **cliente**), creare un [modello Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) per l'offerta con le informazioni seguenti. I `mspOfferName` valori `mspOfferDescription` e sono visibili quando si visualizzano i dettagli dell'offerta nella [pagina provider di servizi](../lighthouse/how-to/view-manage-service-providers.md) della portale di Azure.
 
 | Campo   | Definizione |
 |---------|------------|
-| `mspOfferName`                     | Nome che descrive questa definizione. Ad esempio, *Servizi gestiti B2C*di Azure AD. Questo valore viene visualizzato al cliente come titolo dell'offerta. |
-| `mspOfferDescription`              | Breve descrizione dell'offerta. Ad esempio, *Abilita Monitoraggio di Azure in Azure AD B2C.*|
-| `rgName`                           | Nome del gruppo di risorse creato in precedenza nel tenant di Azure AD. Ad esempio, *azure-ad-b2c-monitor*. |
-| `managedByTenantId`                | **ID directory** del tenant B2C di Azure AD (noto anche come ID tenant). |
-| `authorizations.value.principalId` | **ID oggetto** del gruppo O utente E2C che avrà accesso alle risorse in questa sottoscrizione di Azure. Per questa procedura dettagliata, specificare l'ID oggetto dell'utente registrato in precedenza. |
+| `mspOfferName`                     | Nome che descrive questa definizione. Ad esempio, *Azure ad B2C servizi gestiti*. Questo valore viene visualizzato al cliente come titolo dell'offerta. |
+| `mspOfferDescription`              | Breve descrizione dell'offerta. Ad esempio, *Abilita monitoraggio di Azure in Azure ad B2C*.|
+| `rgName`                           | Il nome del gruppo di risorse creato in precedenza nel tenant del Azure AD. Ad esempio, *Azure-ad-B2C-monitor*. |
+| `managedByTenantId`                | **ID directory** del tenant di Azure ad B2C (noto anche come ID tenant). |
+| `authorizations.value.principalId` | **ID oggetto** del gruppo B2C o dell'utente che avrà accesso alle risorse in questa sottoscrizione di Azure. Per questa procedura dettagliata, specificare l'ID oggetto dell'utente registrato in precedenza. |
 
-Scaricare i file di modello e parametri di Azure Resource Manager:Download the Azure Resource Manager template and parameter files:
+Scaricare il modello di Azure Resource Manager e i file dei parametri:
 
 - [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
 - [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Successivamente, aggiornare il file dei parametri con i valori registrati in precedenza. Il frammento JSON seguente mostra un esempio di un file di parametri del modello di Azure Resource Manager.The following JSON snippet shows an example of an Azure Resource Manager template parameters file. Per `authorizations.value.roleDefinitionId`, utilizzare il valore del [ruolo](../role-based-access-control/built-in-roles.md) `b24988ac-6180-42a0-ab88-20f7382dd24c`predefinito per il ruolo *Collaboratore*, .
+Aggiornare quindi il file dei parametri con i valori registrati in precedenza. Il frammento di codice JSON seguente mostra un esempio di un file di parametri del modello Azure Resource Manager. Per `authorizations.value.roleDefinitionId`, utilizzare il valore del [ruolo predefinito](../role-based-access-control/built-in-roles.md) per il *ruolo Collaboratore*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
 ```JSON
 {
@@ -121,27 +121,27 @@ Successivamente, aggiornare il file dei parametri con i valori registrati in pre
 
 ### <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
-Dopo aver aggiornato il file dei parametri, distribuire il modello di Azure Resource Manager nel tenant di Azure come distribuzione a livello di sottoscrizione. Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione usando il modulo di Azure PowerShell o l'interfaccia della riga di comando di Azure.You can deploy by using the Azure PowerShell module or the Azure CLI. Il metodo di Azure PowerShell è illustrato di seguito.
+Dopo aver aggiornato il file dei parametri, distribuire il modello di Azure Resource Manager nel tenant di Azure come distribuzione a livello di sottoscrizione. Trattandosi di una distribuzione a livello di sottoscrizione, non è possibile avviarla nel portale di Azure. È possibile eseguire la distribuzione usando il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure. Di seguito è illustrato il metodo Azure PowerShell.
 
-Accedere alla directory contenente la sottoscrizione utilizzando [Connect-AzAccount](/powershell/azure/authenticate-azureps). Utilizzare `-tenant` il flag per forzare l'autenticazione alla directory corretta.
+Accedere alla directory che contiene la sottoscrizione usando [Connect-AzAccount](/powershell/azure/authenticate-azureps). Usare il `-tenant` flag per forzare l'autenticazione nella directory corretta.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
 ```
 
-Usare il cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) per elencare le sottoscrizioni a cui l'account corrente può accedere nel tenant di Azure AD. Registrare l'ID della sottoscrizione che si vuole proiettare nel tenant B2C di Azure AD.
+Usare il cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) per elencare le sottoscrizioni a cui l'account corrente può accedere nel tenant del Azure ad. Registrare l'ID della sottoscrizione che si vuole proiettare nel tenant del Azure AD B2C.
 
 ```PowerShell
 Get-AzSubscription
 ```
 
-Passare quindi alla sottoscrizione che si vuole proiettare nel tenant B2C di Azure AD:Next, switch to the subscription you want to project into the Azure AD B2C tenant:
+Passare quindi alla sottoscrizione che si vuole proiettare nel tenant di Azure AD B2C:
 
 ``` PowerShell
 Select-AzSubscription <subscription ID>
 ```
 
-Infine, distribuire i file di modello e parametri di Azure Resource Manager scaricati e aggiornati in precedenza. Sostituire `Location`i `TemplateFile`valori `TemplateParameterFile` , e di conseguenza.
+Infine, distribuire il modello di Azure Resource Manager e i file di parametri scaricati e aggiornati in precedenza. Sostituire i `Location`valori `TemplateFile`, e `TemplateParameterFile` di conseguenza.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -151,7 +151,7 @@ New-AzDeployment -Name "AzureADB2C" `
                  -Verbose
 ```
 
-La corretta distribuzione del modello produce un output simile al seguente (output troncato per brevità):
+La distribuzione corretta del modello genera un output simile al seguente (l'output è troncato per brevità):
 
 ```Console
 PS /usr/csuser/clouddrive> New-AzDeployment -Name "AzureADB2C" `
@@ -191,53 +191,53 @@ Parameters              :
 ...
 ```
 
-Dopo aver distribuito il modello, il completamento della proiezione delle risorse può richiedere alcuni minuti. Potrebbe essere necessario attendere alcuni minuti (in genere non più di cinque) prima di passare alla sezione successiva per selezionare la sottoscrizione.
+Dopo aver distribuito il modello, possono essere necessari alcuni minuti per il completamento della proiezione di risorse. Potrebbe essere necessario attendere alcuni minuti (in genere non più di cinque) prima di procedere alla sezione successiva per selezionare la sottoscrizione.
 
 ## <a name="select-your-subscription"></a>Selezionare la propria sottoscrizione
 
-Dopo aver distribuito il modello e aver atteso alcuni minuti per il completamento della proiezione delle risorse, associare la sottoscrizione alla directory B2C di Azure AD con i passaggi seguenti.
+Dopo aver distribuito il modello e aver atteso alcuni minuti per il completamento della proiezione di risorse, associare la sottoscrizione alla directory Azure AD B2C con i passaggi seguenti.
 
-1. **Disconnettersi dal** portale di Azure se è stato eseguito l'accesso. Questo e il passaggio seguente vengono eseguiti per aggiornare le credenziali nella sessione del portale.
-1. Accedere al [portale](https://portal.azure.com) di Azure con l'account amministrativo B2C di Azure AD.
-1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale.
+1. **Disconnettersi** dal portale di Azure se si è connessi. Questa operazione e il passaggio seguente consentono di aggiornare le credenziali nella sessione del portale.
+1. Accedere al [portale di Azure](https://portal.azure.com) con l'account amministrativo Azure ad B2C.
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale.
 1. Selezionare la directory che contiene la sottoscrizione.
 
     ![Cambia directory](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
 1. Verificare di aver selezionato la directory e la sottoscrizione corrette. In questo esempio vengono selezionate tutte le directory e le sottoscrizioni.
 
-    ![Tutte le directory selezionate nel filtro Sottoscrizione & directory](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+    ![Tutte le directory selezionate nel filtro directory & sottoscrizione](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
 
 ## <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
 
 Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le metriche per una risorsa. Le destinazioni possibili sono:
 
-- [Account di archiviazione di AzureAzure storage account](../azure-monitor/platform/resource-logs-collect-storage.md)
-- [Soluzioni hub eventi.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
+- Soluzioni di [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
 - [Area di lavoro Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
-Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto nel gruppo di risorse specificato nel [modello di Azure Resource Manager.](#create-an-azure-resource-manager-template)
+Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto nel gruppo di risorse specificato nel [modello di Azure Resource Manager](#create-an-azure-resource-manager-template).
 
-### <a name="create-diagnostic-settings"></a>Creare le impostazioni di diagnosticaCreate diagnostic settings
+### <a name="create-diagnostic-settings"></a>Crea impostazioni di diagnostica
 
-È possibile [creare impostazioni di diagnostica](../active-directory/reports-monitoring/overview-monitoring.md) nel portale di Azure.You're ready to Create diagnostic settings in the Azure portal.
+È ora possibile [creare le impostazioni di diagnostica](../active-directory/reports-monitoring/overview-monitoring.md) nel portale di Azure.
 
-Per configurare le impostazioni di monitoraggio per i log attività B2C di Azure AD:To configure monitoring settings for Azure AD B2C activity logs:
+Per configurare le impostazioni di monitoraggio per i log attività Azure AD B2C:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Selezionare l'icona **Directory - Sottoscrizione** nella barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant B2C di Azure AD.
+1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
 1. Selezionare **Azure Active Directory**
 1. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
-1. Se nella risorsa sono presenti impostazioni esistenti, verrà visualizzato un elenco di impostazioni già configurate. Selezionare **Aggiungi impostazione diagnostica** per aggiungere una nuova impostazione o **Modifica** impostazione per modificarne una esistente. Ogni impostazione non può avere più di uno dei tipi di destinazione..
+1. Se nella risorsa sono presenti impostazioni esistenti, verrà visualizzato un elenco di impostazioni già configurate. Selezionare **Aggiungi impostazioni di diagnostica** per aggiungere una nuova impostazione o **modificare** un'impostazione per modificarne una esistente. Ogni impostazione non può contenere più di uno dei tipi di destinazione.
 
-    ![Riquadro Impostazioni di diagnostica nel portale di AzureDiagnostics settings pane in Azure portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
+    ![Riquadro impostazioni di diagnostica in portale di Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
-1. Assegna un nome alla tua impostazione se non ne ha già uno.
-1. Selezionare la casella per ogni destinazione per inviare i registri. Selezionare **Configura** per specificarne le impostazioni come descritto nella tabella seguente.
+1. Assegnare un nome all'impostazione se non ne è già presente uno.
+1. Selezionare la casella per ogni destinazione per inviare i log. Selezionare **Configura** per specificare le impostazioni come descritto nella tabella seguente.
 
     | Impostazione | Descrizione |
     |:---|:---|
     | Archivia in un account di archiviazione | Nome dell'account di archiviazione. |
-    | Streaming in un hub eventi | Spazio dei nomi in cui viene creato l'hub eventi (se questa è la prima volta che si esegue il log di streaming) o trasmesso in streaming (se sono già presenti risorse che eseguono il streaming di tale categoria di log a questo spazio dei nomi).
+    | Streaming in un hub eventi | Lo spazio dei nomi in cui viene creato l'hub eventi, se è la prima volta che si esegue lo streaming dei log, o se sono già presenti risorse che eseguono il flusso di tale categoria di log a questo spazio dei nomi.
     | Invia a Log Analytics | Nome dell'area di lavoro. |
 
 1. Selezionare **AuditLogs** e **SignInLogs**.
@@ -245,6 +245,6 @@ Per configurare le impostazioni di monitoraggio per i log attività B2C di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'aggiunta e la configurazione di impostazioni di diagnostica in Monitoraggio di Azure, vedere [Esercitazione: Raccogliere e analizzare i log](../azure-monitor/insights/monitor-azure-resource.md)delle risorse da una risorsa di Azure.For more information about adding and configuring diagnostic settings in Azure Monitor, see Tutorial: Collect and analyze resource logs from an Azure resource.
+Per altre informazioni sull'aggiunta e la configurazione delle impostazioni di diagnostica in monitoraggio di Azure, vedere [esercitazione: raccogliere e analizzare i log delle risorse da una risorsa di Azure](../azure-monitor/insights/monitor-azure-resource.md).
 
-Per informazioni sullo streaming dei log di Azure AD in un hub eventi, vedere [Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)di Azure.For information about streaming Azure AD logs to an event hub, see Tutorial: Stream Azure Active Directory logs to an Azure event hub.
+Per informazioni sul flusso di log Azure AD a un hub eventi, vedere [esercitazione: trasmettere i log di Azure Active Directory a un hub eventi di Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

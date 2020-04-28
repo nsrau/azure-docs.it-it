@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80669027"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406855"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con FCM HUB
 
@@ -92,7 +92,16 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare l'account manager di riferimento oppure contattare il [team di supporto clienti di FCM HUB](mailto:fcmssoadmin@us.fcm.travel). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Fare clic su **Salva**.
+1. Selezionare **Salva**.
+
+1. Nella sezione **Attributi utente e attestazioni** della pagina **Gestisci l'attestazione** aggiungere questi attributi personalizzati:
+   - **Nome**: PortalID
+   - **Origine**: Attributo
+   - **Attributo di origine**: PortalID, valore fornito da FCM
+
+1. Nella sezione **Certificato di firma SAML** usare l'opzione di modifica per selezionare o immettere le impostazioni seguenti e quindi selezionare **Salva**:
+   - **Opzione di firma**: Firma risposta SAML
+   - **Algoritmo di firma**: SHA-256
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -100,7 +109,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configura FCM HUB** copiare gli URL appropriati in base alle esigenze.
 
-    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+    ![Copia degli URL di configurazione](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 

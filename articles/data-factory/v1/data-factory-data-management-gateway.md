@@ -1,5 +1,5 @@
 ---
-title: Data Management Gateway for Data Factory
+title: Gateway Gestione dati per Data Factory
 description: Configurare un gateway dati per spostare dati tra origini locali e il cloud. Usare Gateway di gestione dati in Azure Data Factory per spostare dati.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 1340c205477b256e3d96ff7ccacb64e575725c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80065399"
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
@@ -62,7 +62,7 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 
 ### <a name="considerations-for-using-gateway"></a>Considerazioni sull'uso del gateway
 * Una singola istanza del gateway di gestione dati può essere usata per più origini dati locali. Tuttavia, **una singola istanza del gateway viene associata a un solo Data Factory di Azure** e non può essere condivisa con un altro Data Factory.
-* È possibile avere una **sola istanza del gateway di gestione dati** installata in un singolo computer. Si supponga di avere due istanze di Data Factory che richiedono l'accesso alle origini dati locali: è necessario installare i gateway nei due computer locali. In altre parole, ogni gateway viene associato a un'istanza specifica di Data Factory.
+* È possibile installare una **sola istanza del gateway di gestione dati** in un singolo computer. Si supponga di avere due istanze di Data Factory che richiedono l'accesso alle origini dati locali: è necessario installare i gateway nei due computer locali. In altre parole, ogni gateway viene associato a un'istanza specifica di Data Factory.
 * Il **gateway non deve trovarsi sullo stesso computer dell'origine dati**. Tuttavia, se i gateway sono posizionati in prossimità dell'origine dati, il tempo di connessione del gateway all'origine dati si riduce. Si consiglia di installare il gateway in un computer diverso da quello che ospita l'origine dati locale. Quando il gateway e l'origine dati si trovano in computer diversi non si contendono le risorse.
 * È possibile disporre di **più gateway su diversi computer che si connettono alla stessa origine dati locale**. Ad esempio, potrebbero essere disponibili due gateway che servono due data factory, ma la stessa origine dati locale viene registrata con entrambe le data factory.
 * Se un gateway è già installato nel computer per uno scenario **Power BI**, installare un **gateway separato per Azure Data Factory** in un altro computer.
@@ -75,8 +75,8 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 * Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. L'installazione del gateway di gestione dati nel controller di dominio al momento non è supportata.
 * È necessario .NET Framework 4.5.1 o versioni successive. Se si installa il gateway in un computer Windows 7, installare .NET Framework 4.5 o versioni successive. Per informazioni dettagliate, vedere [Requisiti di sistema di .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * La **configurazione** consigliata per il computer gateway è di almeno 2 GHz, 4 core, 8 GB di RAM e un disco da 80 GB.
-* Se il computer host entra in stato di ibernazione, il gateway non risponde alle richieste di dati. Pertanto, configurare una **linea del risparmio** energia appropriata nel computer prima di installare il gateway. Se il computer è configurato per l'ibernazione, l'installazione del gateway invia un messaggio.
-* È necessario essere un amministratore del computer per installare e configurare correttamente il gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale **Data Management Gateway Users**. I membri di questo gruppo possono usare lo strumento **Gestione configurazione di Gateway** di gestione dati per configurare il gateway.
+* Se il computer host entra in stato di ibernazione, il gateway non risponde alle richieste di dati. Quindi, configurare una combinazione per il **risparmio di energia** appropriata nel computer prima di installare il gateway. Se il computer è configurato per l'ibernazione, l'installazione del gateway invia un messaggio.
+* È necessario essere un amministratore del computer per installare e configurare correttamente il gateway di gestione dati. È possibile aggiungere altri utenti al gruppo di Windows locale **Data Management Gateway Users**. I membri di questo gruppo possono usare lo strumento **Configuration Manager gateway gestione dati** per configurare il gateway.
 
 Dato che le esecuzioni dell'attività di copia seguono una frequenza specifica, l'utilizzo delle risorse, ovvero CPU e memoria, nel computer segue lo stesso ciclo costituito da periodi di picco alternati a periodi di inattività. L'utilizzo delle risorse dipende molto anche dalla quantità di dati da spostare. Quando sono in corso più processi di copia, l'utilizzo delle risorse aumenta durante i periodi di picco.
 
@@ -92,7 +92,7 @@ Il gateway di gestione dati può essere installato nei seguenti modi:
 
 ### <a name="install-the-gateway-from-download-center"></a>Installare il gateway dall'Area download
 1. Andare alla [pagina di download del Gateway di gestione dati di Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Fare clic su **Download**, selezionare la versione a **64 bit** (32 bit non è più supportato) e fare clic su **Avanti**.
+2. Fare clic su **download**, selezionare la versione a **64 bit** (32-bit non è più supportata) e fare clic su **Avanti**.
 3. Eseguire direttamente il file **MSI** oppure salvarlo sul disco rigido ed eseguirlo.
 4. Nella pagina di **benvenuto** selezionare una **lingua** e fare clic su **Avanti**.
 5. **Accettare** il contratto di licenza e fare clic su **Avanti**.
@@ -103,7 +103,7 @@ Il gateway di gestione dati può essere installato nei seguenti modi:
 10. Nella pagina **Registra gateway** di **Gestione configurazione di Gateway di gestione dati** in esecuzione sul computer in uso attenersi alla procedura seguente:
     1. Incollare la chiave nel testo.
     2. Facoltativamente, fare clic su **Mo_stra chiave del gateway** per visualizzare il testo della chiave.
-    3. Fare clic su **Registra**.
+    3. Fare clic su **Register**.
 
 ### <a name="register-gateway-using-key"></a>Registrare il gateway con la chiave
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>Se non è ancora stato creato un gateway logico nel portale
@@ -160,7 +160,7 @@ Verificare che le regole del firewall siano abilitate correttamente sul firewall
 
 Ad esempio, per eseguire la copia da **un archivio dati locale a un sink di Database SQL di Azure o a un sink di SQL Data Warehouse di Azure**, attenersi alla procedura seguente:
 
-* Consentire la comunicazione **TCP** in uscita sulla porta **1433** sia per Windows Firewall che per il firewall aziendale.
+* Consente la comunicazione **TCP** in uscita sulla porta **1433** per Windows Firewall e il firewall aziendale.
 * Configurare le impostazioni del firewall del server SQL di Azure aggiungendo l'indirizzo IP relativo al computer del gateway all'elenco degli indirizzi IP consentiti.
 
 > [!NOTE]
@@ -180,15 +180,15 @@ Il gateway usa il server proxy per connettersi al servizio cloud. Fare clic sul 
 Sono disponibili tre opzioni di configurazione:
 
 * **Non utilizzare proxy**: il gateway non usa in modo esplicito i proxy per connettersi ai servizi cloud.
-* Usa proxy di **sistema:** Gateway utilizza l'impostazione proxy configurata in diahost.exe.config e diawp.exe.config. Se in diahost.exe.config e diawp.exe.config non è configurato alcun proxy, il gateway si connette direttamente al servizio cloud senza passare attraverso il proxy.
-* **Usa proxy personalizzato**: Configurare l'impostazione proxy HTTP da utilizzare per il gateway, anziché utilizzare le configurazioni in diahost.exe.config e diawp.exe.config. Indirizzo e Porta sono obbligatori. Nome utente e password sono facoltativi a seconda dell'impostazione di autenticazione del proxy. Tutte le impostazioni vengono crittografate con il certificato delle credenziali del gateway e archiviate localmente nel computer che ospita il gateway.
+* **Usare il proxy di sistema**: il gateway usa l'impostazione del proxy configurata in diahost. exe. config e diawp. exe. config. Se non è configurato alcun proxy in diahost. exe. config e diawp. exe. config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy.
+* **Usa proxy personalizzato**: configurare l'impostazione proxy HTTP da usare per il gateway, anziché usare le configurazioni in diahost. exe. config e diawp. exe. config. L'indirizzo e la porta sono obbligatori. Nome utente e password sono facoltativi a seconda dell'impostazione di autenticazione del proxy. Tutte le impostazioni vengono crittografate con il certificato delle credenziali del gateway e archiviate localmente nel computer che ospita il gateway.
 
 Il servizio host del gateway di gestione dati viene riavviato automaticamente dopo avere salvato le impostazioni proxy aggiornate.
 
 Dopo aver registrato correttamente il gateway, se si desidera visualizzare o aggiornare le impostazioni proxy, usare Gestione configurazione di Gateway di gestione dati.
 
 1. Avviare **Gestione configurazione di Gateway di gestione dati**.
-2. Passare alla scheda **Impostazioni.**
+2. Passare alla scheda **Impostazioni** .
 3. Fare clic sul collegamento **Cambia** nella sezione **Proxy HTTP** per avviare la finestra di dialogo **Imposta proxy HTTP**.
 4. Dopo aver selezionato il pulsante **Avanti** , una finestra di dialogo di avviso richiede l'autorizzazione per salvare le impostazioni del proxy e riavviare il servizio che ospita il gateway.
 
@@ -202,10 +202,10 @@ Dopo aver registrato correttamente il gateway, se si desidera visualizzare o agg
 >
 
 ### <a name="configure-proxy-server-settings"></a>Configurare le impostazioni del server proxy
-Se si seleziona Usa impostazione proxy di **sistema** per il proxy HTTP, gateway utilizza l'impostazione proxy in diahost.exe.config e diawp.exe.config. Se non viene specificato alcun proxy in diahost.exe.config e diawp.exe.config, il gateway si connette direttamente al servizio cloud senza passare attraverso il proxy. La procedura seguente fornisce istruzioni per l'aggiornamento del file diahost.exe.config.
+Se si seleziona **USA** l'impostazione del proxy di sistema per il proxy http, il gateway usa l'impostazione del proxy in diahost. exe. config e diawp. exe. config. Se non è stato specificato alcun proxy in diahost. exe. config e diawp. exe. config, il gateway si connette al servizio cloud direttamente senza passare attraverso il proxy. La procedura seguente fornisce istruzioni per l'aggiornamento del file diahost.exe.config.
 
-1. In Esplora file creare una copia sicura di *\\\\C: Programmi\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* per eseguire il backup del file originale.
-2. Avviare Notepad.exe in esecuzione come amministratore e aprire il file di testo *C:\\\\\\Programmi Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. Il tag predefinito per system.net, come illustrato nel codice seguente:
+1. In Esplora file creare una copia sicura di *C\\\\\\: programmi Microsoft Gestione dati gateway\\2,0\\Shared\\diahost. exe. config* per eseguire il backup del file originale.
+2. Avviare Notepad. exe in esecuzione come amministratore e aprire il file di testo *\\\\C:\\programmi Microsoft Gestione dati\\gateway\\2,0\\Shared diahost. exe. config*. È possibile trovare il tag predefinito per system.net, come illustrato nel codice seguente:
 
     ```
     <system.net>
@@ -231,7 +231,7 @@ Se si seleziona Usa impostazione proxy di **sistema** per il proxy HTTP, gateway
 3. Salvare il file di configurazione nel percorso originale, quindi riavviare il servizio che ospita il gateway di gestione dati per rilevare le modifiche. Per riavviare il servizio: con l'applet dei servizi dal Pannello di controllo o da **Gestione configurazione di Gateway di gestione dati** > fare clic sul pulsante **Arresta servizio** quindi su **Avvia servizio**. Se il servizio non viene avviato, è probabile che una sintassi non corretta del tag XML sia stata aggiunta al file di configurazione dell'applicazione modificato.
 
 > [!IMPORTANT]
-> Non dimenticare di aggiornare **sia** diahost.exe.config che diawp.exe.config.
+> Non dimenticare **di aggiornare diahost** . exe. config e diawp. exe. config.
 
 Oltre ai punti precedenti, è necessario assicurarsi anche Microsoft Azure sia stato aggiunto all'elenco aziendale degli elementi consentiti. È possibile scaricare l'elenco di indirizzi IP validi per Microsoft Azure dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -249,7 +249,7 @@ Se si usa un firewall di terze parti, è possibile aprire manualmente la porta 8
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se si sceglie di non aprire la porta 8050 nel computer gateway, usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. Ad esempio, è possibile utilizzare il cmdlet PowerShell [New-AzDataFactoryEncryptValue.](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) Per informazioni su come impostare le credenziali dell'archivio dati, vedere la sezione sull'impostazione delle credenziali e della sicurezza.
+Se si sceglie di non aprire la porta 8050 nel computer gateway, usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare il cmdlet di PowerShell [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) . Per informazioni su come impostare le credenziali dell'archivio dati, vedere la sezione sull'impostazione delle credenziali e della sicurezza.
 
 ## <a name="update"></a>Aggiornamento
 Per impostazione predefinita, il gateway di gestione dati viene aggiornato automaticamente quando è disponibile una versione più recente del gateway. Il gateway non viene aggiornato finché non vengono eseguite tutte le operazioni pianificate. Nessun'altra attività viene elaborata dal gateway fino al completamento dell'operazione di aggiornamento. Se l'aggiornamento non riesce, viene eseguito il rollback del gateway alla versione precedente.
@@ -279,7 +279,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
 
 [Per gateway a nodo singolo]
 1. Avviare Windows PowerShell nel computer gateway.
-2. Passare alla cartella *\\\\C:\\Programmi\\Microsoft\\Integration Runtime\\ 3.0 PowerShellScript.*
+2. Passare alla cartella *C:\\\\Program Files\\Microsoft Integration runtime\\3,0\\PowerShellscript\\ *
 3. Eseguire il comando seguente per disattivare (disabilitare) la funzionalità di aggiornamento automatico.
 
     ```powershell
@@ -292,7 +292,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
     ```
    [Per il gateway a più nodi a disponibilità e scalabilità elevate](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Avviare Windows PowerShell nel computer gateway.
-2. Passare alla cartella *\\\\C:\\Programmi\\Microsoft\\Integration Runtime\\ 3.0 PowerShellScript.*
+2. Passare alla cartella *C:\\\\Program Files\\Microsoft Integration runtime\\3,0\\PowerShellscript\\ *
 3. Eseguire il comando seguente per disattivare (disabilitare) la funzionalità di aggiornamento automatico.
 
     Per il gateway con funzionalità di disponibilità elevata, è necessario un parametro di AuthKey aggiuntivo.
@@ -305,11 +305,11 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Gestione configurazione
+## <a name="configuration-manager"></a>Configuration Manager
 Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione dati in uno dei modi seguenti:
 
 1. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità.
-2. Eseguire l'eseguibile *ConfigManager.exe* nella cartella: *C:\\\\Programmi\\Microsoft Data Management Gateway\\\\2.0 Shared*.
+2. Eseguire il file eseguibile *configmanager. exe* nella cartella: *C\\\\: programmi\\Microsoft Gestione dati gateway\\2,0\\Shared*.
 
 ### <a name="home-page"></a>Home page
 Nella home page è possibile eseguire queste operazioni:
@@ -326,7 +326,7 @@ Nella pagina Impostazioni è possibile eseguire queste operazioni:
 * Visualizzare, modificare ed esportare il **certificato** usato dal gateway. Questo certificato viene usato per crittografare le credenziali dell'origine dati.
 * Modificare la **porta HTTPS** per l'endpoint. Il gateway apre una porta per impostare le credenziali dell'origine dati.
 * **Stato** dell'endpoint
-* Visualizza **certificato SSL** viene utilizzato per la comunicazione TLS/SSL tra il portale e il gateway per impostare le credenziali per le origini dati.
+* Visualizzare il **certificato SSL** viene usato per la comunicazione TLS/SSL tra il portale e il gateway per impostare le credenziali per le origini dati.
 
 ### <a name="remote-access-from-intranet"></a>Accesso remoto da Intranet
 Questa funzionalità verrà abilitata in futuro. Negli aggiornamenti futuri (versione 3.4 o successiva) sarà possibile abilitare o disabilitare qualsiasi connettività remota che attualmente usa la porta 8050 (vedere la sezione precedente) durante l'uso di PowerShell o dell'applicazione Gestione credenziali per la crittografia delle credenziali.
@@ -365,12 +365,12 @@ La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del
 Proprietà monitoraggio | Descrizione
 :------------------ | :----------
 Nome | Nome del gateway logico e nodi associati al gateway. Il nodo è un computer Windows locale in cui è installato il gateway. Per informazioni sulla possibilità di avere più di un nodo (fino a quattro nodi) in un singolo gateway logico, vedere [Gateway di gestione dati: disponibilità elevata e scalabilità](data-factory-data-management-gateway-high-availability-scalability.md).
-Stato | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limited/etc. Per informazioni su questi stati, vedere la sezione [Stato del gateway.](#gateway-status)
+Stato | Stato del gateway logico e dei nodi del gateway. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione [stato del gateway](#gateway-status) .
 Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce).
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale.
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale.
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale.
-Processi simultanei (in esecuzione/limite) | Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per aumentare l'esecuzione simultanea dei processi in scenari avanzati, in cui CPU/memoria/rete è sottoutilizzata, ma le attività sono in timeout. Questa funzionalità è disponibile anche con un gateway a nodo singolo (anche quando la funzionalità di scalabilità e disponibilità non è abilitata).
+Processi simultanei (in esecuzione/limite) | Numero di processi o di attività in esecuzione in ogni nodo. Questo valore è uno snapshot in tempo quasi reale. Per limite si intende il numero massimo di processi simultanei per ogni nodo. Questo valore viene definito in base alle dimensioni del computer. È possibile aumentare il limite per la scalabilità verticale dell'esecuzione di processi simultanei in scenari avanzati, in cui CPU/memoria/rete è sottoutilizzata, ma si verifica il timeout delle attività. Questa funzionalità è disponibile anche con un gateway a nodo singolo (anche quando la funzionalità di scalabilità e disponibilità non è abilitata).
 Ruolo | Esistono due tipi di ruoli in un gateway multinodo: dispatcher e ruolo di lavoro. Tutti i nodi sono ruoli di lavoro e quindi possono essere tutti usati per eseguire i processi. Esiste un solo nodo dispatcher, che viene usato per eseguire il pull di attività/processi dai servizi cloud e inviarli a nodi ruolo di lavoro diversi (incluso lo stesso nodo dispatcher).
 
 In questa pagina vengono visualizzate alcune impostazioni che sono più appropriate con due o più nodi (scenario di aumento del numero di istanze) nel gateway. Per informazioni dettagliate sulla configurazione di un gateway multinodo, vedere [Gateway di gestione dati: disponibilità elevata e scalabilità](data-factory-data-management-gateway-high-availability-scalability.md).
@@ -412,7 +412,7 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
 2. Selezionare il gateway nella sezione **GATEWAY DATI** della pagina **Servizi collegati**.
 
     ![Pagina Servizi collegati con gateway selezionato](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. Nella pagina **Gateway dati** fare clic su Scarica e installa **gateway dati.**
+3. Nella pagina **gateway dati** fare clic su **scaricare e installare il gateway dati**.
 
     ![Collegamento di download del gateway](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
 4. Nella pagina **Configura** fare clic su **Scaricare e installare il gateway dati** e seguire le istruzioni per installare il gateway dati nel computer.
@@ -420,7 +420,7 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
     ![Pagina Configura](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Tenere aperto **Gestione configurazione di Gateway di gestione dati di Microsoft** .
 
-    ![Gestione configurazione](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Nella pagina **Configura** del portale fare clic su **Ricrea chiave** nella barra dei comandi e su **Sì** per il messaggio di avviso. Fare clic sul **pulsante Copia** accanto al testo della chiave per copiare la chiave negli Appunti. Il gateway nel computer precedente smette di funzionare non appena si ricrea la chiave.
 
     ![Ricrea chiave](./media/data-factory-data-management-gateway/RecreateKey.png)
@@ -470,7 +470,7 @@ Per crittografare le credenziali in Data Factory Editor, attenersi a questa proc
 
 Quando si usa l'applicazione di **Impostazione credenziali**, il portale crittografa le credenziali usando il certificato specificato nella scheda **Certificato** di **Gestione configurazione di Gateway** del computer gateway.
 
-Se si sta cercando un approccio basato su API per crittografare le credenziali, è possibile utilizzare il cmdlet [PowerShell New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. Aggiungere le credenziali crittografate all'elemento **EncryptedCredential** di **connectionString** nell'oggetto JSON. Utilizzare il codice JSON con il cmdlet [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o nell'Editor Data Factory.
+Se si sta cercando un approccio basato su API per crittografare le credenziali, è possibile usare il cmdlet di PowerShell [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. Aggiungere le credenziali crittografate all'elemento **EncryptedCredential** di **connectionString** nell'oggetto JSON. Usare il codice JSON con il cmdlet [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) o nell'editor data factory.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -487,7 +487,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
     ```powershell
     Connect-AzAccount
     ```
-3. Utilizzare il cmdlet **New-AzDataFactoryGateway** per creare un gateway logico come segue:
+3. Usare il cmdlet **New-AzDataFactoryGateway** per creare un gateway logico come indicato di seguito:
 
     ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
@@ -510,7 +510,7 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. In Azure PowerShell passare alla cartella: *C:\\\\Programmi\\Microsoft Integration Runtime\\\\3.0 PowerShellScript\\*. Eseguire *RegisterGateway.ps1* associato alla variabile locale **$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
+1. In Azure PowerShell passare alla cartella: *C\\\\: Program Files\\\\Microsoft Integration runtime 3,0\\PowerShellscript\\*. Eseguire *RegisterGateway.ps1* associato alla variabile locale **$Key** come illustrato nel comando seguente. Lo script registra l'agente client installato nel computer con il gateway logico creato in precedenza.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -523,12 +523,12 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
-2. È possibile utilizzare il cmdlet **Get-AzDataFactoryGateway** per ottenere l'elenco dei gateway nella data factory. Quando lo **stato** è **online**, il gateway è pronto per essere usato.
+2. È possibile usare il cmdlet **Get-AzDataFactoryGateway** per ottenere l'elenco dei gateway nel data factory. Quando lo **stato** è **online**, il gateway è pronto per essere usato.
 
     ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   È possibile rimuovere un gateway utilizzando il cmdlet **Remove-AzDataFactoryGateway** e la descrizione dell'aggiornamento per un gateway utilizzando i cmdlet **Set-AzDataFactoryGateway.** Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data Factory.  
+   È possibile rimuovere un gateway usando il cmdlet **Remove-AzDataFactoryGateway** e aggiornare la descrizione di un gateway usando i cmdlet **set-AzDataFactoryGateway** . Per la sintassi e altri dettagli relativi a questi cmdlet, vedere Riferimento ai cmdlet di Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Elencare i gateway usando PowerShell
 

@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80158198"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ------- | ----- |
 | Piano tariffario | Standard |
 | Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
@@ -45,7 +45,7 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Region | Area geografica più vicina |
+| Area | Area geografica più vicina |
 
 Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
 
@@ -72,7 +72,7 @@ Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https:/
 
 Usare il [portale di Azure per creare un servizio Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) con le impostazioni seguenti:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ------- | ----- |
 | Nome dell'area di lavoro    | Scegliere il nome dell'area di lavoro |
 | Subscription | Sottoscrizione in uso |
@@ -106,10 +106,10 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Enabled | Attivato |
+    | Attivato | Attivato |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | Attivato |
@@ -130,7 +130,7 @@ Nell'elenco delle attività comuni della pagina **Azure Databricks** selezionare
 
 Usare le informazioni nella tabella seguente per creare il cluster:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Modalità cluster | Standard |

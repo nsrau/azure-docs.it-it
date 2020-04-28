@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
 ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879463"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Guida di orientamento alla preparazione del Centro sicurezza di Azure
@@ -43,7 +43,7 @@ Per sfruttare tutti i vantaggi del Centro sicurezza, è importante sapere come i
 Usare le risorse seguenti per semplificare i processi di pianificazione e gestione.
 
 Articolo
-* [Guida alla pianificazione e alle operazioni del Centro sicurezza di AzureAzure Security Center planning and operations guide](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Onboarding di computer nel Centro sicurezza
@@ -63,7 +63,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 Usare le risorse seguenti per semplificare la gestione degli avvisi di sicurezza e la protezione delle risorse.
 
 Articoli    
-* [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+* [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 * [Protezione della rete nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
 * [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
@@ -73,7 +73,7 @@ Video
 * [Mitigating Security Issues using Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center) (Riduzione dei problemi di sicurezza tramite il Centro sicurezza di Azure)
 
 ### <a name="security-center-for-incident-response"></a>Centro sicurezza per la risposta agli eventi imprevisti
-Per ridurre i costi e i danni, è importante disporre di un piano di risposta agli incidenti prima che si verifica un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
+Per ridurre i costi e i danni, è importante disporre di un piano di risposta agli eventi imprevisti prima che venga intrapreso un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
 
 Usare le risorse seguenti per ottenere informazioni su come incorporare il Centro sicurezza nel processo di risposta agli eventi imprevisti.
 
@@ -83,20 +83,20 @@ Video
 
 Articoli    
 * [Uso del Centro sicurezza di Azure per rispondere a un evento imprevisto](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatizza la risposta con l'automazione del flusso di lavoroAutomate response with Workflow Automation](workflow-automation.md)
+* [Automatizzare la risposta con l'automazione del flusso di lavoro](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Difesa cloud avanzata
 
-Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità di difesa cloud avanzata del Centro sicurezza. Queste funzionalità includono l'accesso just-in-time alle macchine virtuali (VM) e i controlli adattivi delle applicazioni.
+Le macchine virtuali di Azure possono sfruttare i vantaggi delle funzionalità di difesa cloud avanzata del Centro sicurezza. Queste funzionalità includono l'accesso just-in-time alle macchine virtuali (VM) e i controlli applicazione adattivi.
 
 Usare le risorse seguenti per ottenere informazioni sull'uso di queste funzionalità nel Centro sicurezza.
 
 Video    
-* [Azure Security Center – Just-in-time VM Access](https://youtu.be/UOQb2FcdQnU)
+* [Centro sicurezza di Azure: accesso just-in-time alle macchine virtuali](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck) (Centro sicurezza di Azure - Controlli delle applicazioni adattivi)
 
 Articoli    
-* [Gestire l'accesso alle macchine virtuali tramite just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gestire l'accesso alle macchine virtuali con Just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Controlli delle applicazioni adattivi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Attività pratiche
@@ -114,7 +114,7 @@ Articoli
 * [Procedure consigliate per la sicurezza di rete](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Consigli relativi a PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformità](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [I clienti di Log Analytics ora possono usare il Centro sicurezza di Azure per proteggere i carichi di lavoro del cloud ibridoLog analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [I clienti di log Analytics possono ora usare il Centro sicurezza di Azure per proteggere i propri carichi di lavoro cloud ibridi](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Risorse della community
 

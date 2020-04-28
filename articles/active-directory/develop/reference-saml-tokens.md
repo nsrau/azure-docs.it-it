@@ -1,5 +1,5 @@
 ---
-title: Tipi di attestazioni di token & di Azure ADAzure AD token & claim types
+title: Token Azure AD & tipi di attestazione
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b7ba4abd45fff8548c361f5e5ed44ef45fe32bbe
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883441"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Informazioni di riferimento sui token SAML di Azure AD
@@ -152,7 +152,7 @@ Questo è un esempio di un tipico token SAML.
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* Per altre informazioni sulla gestione dei criteri di durata dei token tramite l'API Microsoft Graph, vedere la risorsa Policy .See [the Policy resource](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta), to learn more about managing token lifetime policy using the Microsoft Graph API.
+* Per altre informazioni sulla gestione dei criteri di durata dei token tramite l'API Microsoft Graph, vedere la [risorsa dei criteri](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta).
 * Per altre informazioni ed esempi sulla gestione dei criteri tramite i cmdlet PowerShell, vedere [Configurable token lifetimes in Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (Durata dei token configurabile in Azure AD). 
 * Aggiungere [attestazioni personalizzate e facoltative](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) ai token per l'applicazione.
 * Usare [Single Sign-On (SSO) con SAML](single-sign-on-saml-protocol.md).

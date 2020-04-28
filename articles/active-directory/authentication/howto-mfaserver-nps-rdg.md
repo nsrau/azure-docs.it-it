@@ -1,5 +1,5 @@
 ---
-title: Server RDG e Azure MFA con RADIUS - Azure Active Directory
+title: RDG e server di autenticazione a più fattori di Azure con Azure Active Directory RADIUS
 description: Questa è la pagina di Azure Multi-factor authentication che sarà utile per la distribuzione di Gateway Desktop remoto (RD) e Server Azure Multi-Factor Authentication tramite RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e2f7424464860b647883be2441e903900cb266
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652891"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 
-Spesso, Gateway Desktop remoto utilizza [Servizi criteri di rete locale per](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) autenticare gli utenti. Questo articolo descrive come inoltrare richieste RADIUS da Gateway Desktop remoto (tramite il server dei criteri di rete locale) al server Multi-Factor Authentication. La combinazione di Azure MFA e Gateway Desktop remoto consente agli utenti di accedere agli ambienti di lavoro da qualsiasi luogo eseguendo l'autenticazione avanzata.
+Il Gateway Desktop remoto (RD) usa spesso i [servizi dei criteri di rete](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) locali per l'autenticazione degli utenti. Questo articolo descrive come inoltrare richieste RADIUS da Gateway Desktop remoto (tramite il server dei criteri di rete locale) al server Multi-Factor Authentication. La combinazione di Azure MFA e Gateway Desktop remoto consente agli utenti di accedere agli ambienti di lavoro da qualsiasi luogo eseguendo l'autenticazione avanzata.
 
 Dato che l'autenticazione di Windows per Servizi terminal non è supportata per Server 2012 R2, usare RADIUS e Gateway Desktop remoto per l'integrazione con il server MFA.
 
 Installare il server Multi-Factor Authentication in un server separato, che trasmetterà tramite proxy la richiesta RADIUS al server dei criteri di rete nel server Gateway Desktop remoto. Dopo aver convalidato il nome utente e la password, il server dei criteri di rete restituisce una risposta al server Multi-Factor Authentication. Il server MFA esegue quindi il secondo fattore dell'autenticazione e restituisce un risultato al gateway.
 
 > [!IMPORTANT]
-> A partire dal 1 luglio 2019, Microsoft non offrirà più MFA Server per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dai propri utenti devono usare L'autenticazione a più fattori di Azure basata su cloud. I clienti esistenti che hanno attivato MFA Server prima del 1 luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ Il Gateway Desktop remoto utilizza criteri di rete per inviare richieste RADIUS 
 1. In Server dei criteri di rete espandere il menu **Client e server RADIUS** nella colonna a sinistra e selezionare **Gruppi di server RADIUS remoti**.
 2. Selezionare il gruppo **SERVER GATEWAY DI SERVIZI TERMINAL**.
 3. Passare alla scheda **Bilanciamento del carico**.
-4. Modificare sia il numero di secondi senza risposta prima che **la richiesta venga considerata eliminata** e il numero di secondi tra le richieste quando il server viene identificato come non disponibile **tra** 30 e 60 secondi. Se il timeout del server persiste durante l'autenticazione, è possibile tornare a questa schermata e aumentare il numero di secondi.
+4. Modificare il **numero di secondi senza risposta prima che la richiesta venga considerata eliminata** e il **numero di secondi tra le richieste quando il server viene identificato come non disponibile** per un intervallo di tempo compreso tra 30 e 60 secondi. Se il timeout del server persiste durante l'autenticazione, è possibile tornare a questa schermata e aumentare il numero di secondi.
 5. Passare alla scheda **Autenticazione/Account** e verificare che le porte RADIUS specificate corrispondano alle porte di attesa del server Multi-Factor Authentication.
 
 ### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>Preparare il server dei criteri di rete per la ricezione delle autenticazioni dal server MFA
@@ -82,7 +82,7 @@ Il Server Azure Multi-Factor Authentication è configurato come proxy RADIUS tra
 3. Passare alla scheda **Destinazione** e selezionare il pulsante di opzione **Server RADIUS**.
 4. Selezionare **Aggiungi** e immettere l'indirizzo IP, il segreto condiviso e le porte del server dei criteri di rete. Se non si usa un server dei criteri di rete centrale, il client RADIUS e la destinazione RADIUS saranno uguali. Il segreto condiviso deve corrispondere a quello impostato nella sezione client RADIUS del server dei criteri di rete.
 
-![Autenticazione del raggio nel server MFARadius Authentication in MFA Server](./media/howto-mfaserver-nps-rdg/radius.png)
+![Autenticazione RADIUS nel server multi-factor authentication](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

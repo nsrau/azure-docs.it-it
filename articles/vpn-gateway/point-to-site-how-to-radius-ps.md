@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411764"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione RADIUS: PowerShell
@@ -29,11 +29,11 @@ Questo articolo illustra come eseguire una configurazione P2S con l'autenticazio
 
 ![Diagramma di connessione - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
-Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. P2S crea la connessione VPN tramite SSTP (Secure Socket Tunneling Protocol), OpenVPN o IKEv2.
+Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. P2S crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol), OpenVPN o IKEv2.
 
-* SSTP è un tunnel VPN basato su TLS supportato solo su piattaforme client Windows. Può penetrare i firewall e per questo è l'opzione ideale per connettersi ad Azure ovunque. Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2.
+* SSTP è un tunnel VPN basato su TLS supportato solo nelle piattaforme client Windows. Può penetrare i firewall e per questo è l'opzione ideale per connettersi ad Azure ovunque. Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2.
 
-* OpenVPN® Protocollo, un protocollo VPN basato su SSL/TLS. Una soluzione VPN TLS può penetrare i firewall, poiché la maggior parte dei firewall apre la porta TCP 443 in uscita, usata da TLS. OpenVPN può essere utilizzato per connettersi da Android, iOS (versioni 11.0 e successive), Windows, Linux e dispositivi Mac (OSX versioni 10.13 e successive).
+* Protocollo di® OpenVPN, un protocollo VPN basato su SSL/TLS. Una soluzione VPN TLS può penetrare i firewall, perché la maggior parte dei firewall apre la porta TCP 443 in uscita, che viene usata da TLS. OpenVPN può essere usato per la connessione da Android, iOS (versioni 11,0 e successive), da dispositivi Windows, Linux e Mac (versioni OSX 10,13 e successive).
 
 * VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
 
@@ -87,7 +87,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 * **Nome dell'IP pubblico: VNet1GWPIP**
 * **VpnType: RouteBased**
 
-## <a name="1-set-the-variables"></a><a name="signin"></a>1. Impostare le variabili
+## <a name="1-set-the-variables"></a><a name="signin"></a>1. impostare le variabili
 
 Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori con quelli personalizzati, se necessario. Se si chiude la sessione di PowerShell o Cloud Shell in qualsiasi momento durante l'esercizio, copiare e incollare nuovamente i valori per dichiarare nuovamente le variabili.
 
@@ -109,7 +109,7 @@ Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"> </a>Creare il gruppo di risorse, la rete virtuale e l'indirizzo IP pubblico
+## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"> </a>creare il gruppo di risorse, VNet e l'indirizzo IP pubblico
 
 I passaggi seguenti creano un gruppo di risorse e una rete virtuale nel gruppo di risorse con tre subnet. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente 'GatewaySubnet'. Se si assegnano altri nomi, la creazione del gateway ha esito negativo.
 
@@ -143,7 +143,7 @@ I passaggi seguenti creano un gruppo di risorse e una rete virtuale nel gruppo d
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>Configurare il server RADIUS
+## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>configurare il server RADIUS
 
 Prima di creare e configurare il gateway di rete virtuale, il server RADIUS deve essere configurato correttamente per l'autenticazione.
 
@@ -153,12 +153,12 @@ Prima di creare e configurare il gateway di rete virtuale, il server RADIUS deve
 
 L'articolo [Server dei criteri di rete (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) fornisce indicazioni sulla configurazione di un server RADIUS Windows (NPS) per l'autenticazione di un dominio di AD.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>Creare il gateway VPN
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>creare il gateway VPN
 
 Configurare e creare il gateway VPN per la rete virtuale.
 
 * -GatewayType deve essere "Vpn" e -VpnType deve essere "RouteBased".
-* Il completamento di un gateway VPN può richiedere fino a 45 minuti, a seconda dello [SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) del gateway selezionato.
+* Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, a seconda dello [SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) del gateway selezionato.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -166,7 +166,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>Aggiungere il server RADIUS e il pool di indirizzi client
+## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>aggiungere il server RADIUS e il pool di indirizzi client
  
 * -RadiusServer può essere specificato con il nome o con l'indirizzo IP. Se si specifica il nome e il server si trova in locale, il gateway VPN potrebbe non riuscire a risolvere il nome. In tal caso è meglio specificare l'indirizzo IP del server. 
 * -RadiusSecret deve corrispondere a quanto configurato nel server RADIUS.
@@ -194,7 +194,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   Per le configurazioni ® OpenVPN:
+   Per le configurazioni di® OpenVPN:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -223,11 +223,11 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>Scaricare il pacchetto di configurazione del client VPN e configurare il client VPN
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>scaricare il pacchetto di configurazione del client VPN e configurare il client VPN
 
 La configurazione del client VPN consente ai dispositivi di connettersi a una rete virtuale tramite una connessione P2S.Per generare un pacchetto di configurazione del client VPN e configurare il client VPN, vedere [Creare una configurazione del client VPN per l'autenticazione RADIUS](point-to-site-vpn-client-configuration-radius.md).
 
-## <a name="7-connect-to-azure"></a><a name="connect"></a>7. Connettersi ad Azure
+## <a name="7-connect-to-azure"></a><a name="connect"></a>7. connettersi ad Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Per connettersi da un client VPN Windows
 

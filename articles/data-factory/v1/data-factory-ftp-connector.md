@@ -13,10 +13,10 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80992046"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
@@ -44,13 +44,13 @@ Se si spostano dati da un server FTP **locale** in un archivio dati cloud, ad es
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata di Data Factory**. Per una procedura dettagliata, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
 
-È inoltre possibile utilizzare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **PowerShell**, **modello Azure Resource Manager**, API **.NET**e **API REST**. Vedere [Esercitazione sull'attività](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) di copia per istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager modello**, l' **API .NET**e l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare **set di dati** per rappresentare i dati di input e output per l'operazione di copia.
-3. Creare una **pipeline** con un'attività di copia che accetta un set di dati come input e un set di dati come output.
+2. Creare **set** di dati per rappresentare i dati di input e di output per l'operazione di copia.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
 
 Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory. Per un esempio con definizioni JSON per entità di Data Factory usate per copiare dati da un archivio dati FTP, vedere la sezione [Esempio JSON: copiare dati da un server FTP al BLOB di Azure](#json-example-copy-data-from-ftp-server-to-azure-blob) di questo articolo.
 
@@ -62,18 +62,18 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente descrive gli elementi JSON specifici di un servizio collegato FTP.
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Impostazione predefinita |
 | --- | --- | --- | --- |
 | type |Impostare su FtpServer. |Sì |&nbsp; |
 | host |Specificare il nome o indirizzo IP del server FTP. |Sì |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione. |Sì |Di base, anonimo |
-| username |Specificare l'utente che ha accesso al server FTP. |No |&nbsp; |
+| nomeutente |Specificare l'utente che ha accesso al server FTP. |No |&nbsp; |
 | password |Specificare la password per l'utente (nome utente). |No |&nbsp; |
 | encryptedCredential |Specificare le credenziali crittografate per accedere al server FTP. |No |&nbsp; |
 | gatewayName |Specificare il nome del gateway in Gateway di gestione dati per connettersi a un server FTP locale. |No |&nbsp; |
 | port |Specificare la porta su cui è in ascolto il server FTP. |No |21 |
 | enableSsl |Specificare se usare FTP su un canale SSL/TLS. |No |true |
-| enableServerCertificateValidation |Specificare se abilitare la convalida del certificato TLS/SSL del server quando si utilizza FTP su canale SSL/TLS. |No |true |
+| enableServerCertificateValidation |Specificare se abilitare la convalida del certificato TLS/SSL del server quando si usa FTP sul canale SSL/TLS. |No |true |
 
 >[!NOTE]
 >Il connettore FTP supporta l'accesso al server FTP senza crittografia o con crittografia SSL/TLS esplicita; non supporta la crittografia SSL/TLS implicita.
@@ -210,9 +210,9 @@ Nell'attività di copia con origine di tipo **FileSystemSource**, nella sezione 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Esempio JSON: copiare i dati dal server FTP in BLOB di Azure
 Questo esempio illustra come copiare dati dal server FTP in Archiviazione BLOB di Azure. I dati possono tuttavia essere copiati direttamente in uno qualsiasi dei sink indicati nella sezione [Archivi dati e formati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando l'attività di copia in Data Factory.
 
-Negli esempi seguenti vengono fornite definizioni JSON di esempio che è possibile usare per creare una pipeline tramite [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)o [PowerShell:](data-factory-copy-activity-tutorial-using-powershell.md)
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
-* Un servizio collegato di tipo [FtpServer](#linked-service-properties)
+* Un servizio collegato di tipo [ftpserver](#linked-service-properties)
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 * Un [set di dati](data-factory-create-datasets.md) di input di tipo [FileShare](#dataset-properties)
 * Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)

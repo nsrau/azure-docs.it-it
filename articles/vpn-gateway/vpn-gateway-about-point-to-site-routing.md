@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: Informazioni sul routing P2SAzure VPN Gateway: About P2S routing'
+title: 'Gateway VPN di Azure: informazioni sul routing P2S'
 description: Questo articolo illustra il comportamento del routing VPN da punto a sito.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: anzaman
 ms.openlocfilehash: 4821f2eb694a36cf0570008b3e62ce39999c58d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239756"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Informazioni sul routing VPN da punto a sito
@@ -30,9 +30,9 @@ In questo articolo sono presenti numerosi diagrammi. Ogni sezione illustra una t
 
 ## <a name="one-isolated-vnet"></a><a name="isolatedvnet"></a>Una rete virtuale isolata
 
-La connessione gateway VPN da punto a sito in questo esempio fa riferimento a una rete virtuale non connessa o che non ha eseguito il peering con un'altra rete virtuale (VNet1). In this example, clients can access VNet1.
+La connessione gateway VPN da punto a sito in questo esempio fa riferimento a una rete virtuale non connessa o che non ha eseguito il peering con un'altra rete virtuale (VNet1). In questo esempio, i client possono accedere a VNet1.
 
-![routing della rete virtuale isolata](./media/vpn-gateway-about-point-to-site-routing/1.jpg "routing della rete virtuale isolata")
+![routing VNet isolato](./media/vpn-gateway-about-point-to-site-routing/1.jpg "routing VNet isolato")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -52,11 +52,11 @@ La connessione gateway VPN da punto a sito in questo esempio fa riferimento a un
 
 ## <a name="multiple-peered-vnets"></a><a name="multipeered"></a>Più reti virtuali con peering
 
-In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a VNet1. VNet1 ha eseguito il peering con VNet2. VNet2 ha eseguito il peering con VNet3. VNet1 ha eseguito il peering con VNet4. Non vi è alcun peering diretto tra VNet1 e VNet3. VNet1 ha "Consenti transito gateway" e VNet2 e VNet4 hanno "Usa gateway remoti" abilitato.
+In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a VNet1. VNet1 ha eseguito il peering con VNet2. VNet2 ha eseguito il peering con VNet3. VNet1 ha eseguito il peering con VNet4. Non vi è alcun peering diretto tra VNet1 e VNet3. VNet1 "Consenti transito gateway" e VNet2 e VNet4 sono abilitati per l'uso di gateway remoti.
 
 I client che usano Windows possono accedere direttamente alle reti virtuali con peering, ma il client VPN deve essere scaricato nuovamente se vengono apportate modifiche al peering della rete virtuale o alla topologia di rete. I client non Windows possono accedere direttamente alle reti virtuali con peering. L'accesso non è transitivo e riguarda solo le reti virtuali con peering diretto.
 
-![più reti virtuali con scrutato](./media/vpn-gateway-about-point-to-site-routing/2.jpg "più reti virtuali con scrutato")
+![più reti virtuali con peering](./media/vpn-gateway-about-point-to-site-routing/2.jpg "più reti virtuali con peering")
 
 ### <a name="address-space"></a>Spazio degli indirizzi:
 
@@ -142,7 +142,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client Windows e non Windows possono accedere solo a VNet1.
 
-![routing con una rete virtuale e una succursale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing con una rete virtuale e una succursale")
+![routing con una VNet e una succursale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing con una VNet e una succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -168,7 +168,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client Windows possono accedere alla rete virtuale e alla succursale (Site1), ma le route a Site1 devono essere aggiunte manualmente al client. I client non Windows possono accedere sia alla rete virtuale che alla succursale locale.
 
-![una rete virtuale e una succursale (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una rete virtuale e una succursale")
+![una VNet e una succursale (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "una VNet e una succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -195,7 +195,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 Tutti i client possono accedere solo a VNet1.
 
-![S2S multi-VNet e succursale](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S multi-VNet e succursale")
+![VNet S2S e succursale](./media/vpn-gateway-about-point-to-site-routing/7.jpg "VNet S2S e succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 
@@ -225,7 +225,7 @@ In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a V
 
 I client che usano Windows possono accedere alle reti virtuali e ai siti connessi tramite una connessione VPN da sito a sito, ma le route a VNet2, VNet3 e Site1 devono essere aggiunte manualmente al client. I client non Windows possono accedere alle reti virtuali e ai siti connessi tramite una connessione VPN da sito a sito senza alcun intervento manuale. L'accesso è transitivo e i client possono accedere alle risorse in tutte le reti virtuali e in tutti i siti (locali) connessi.
 
-![S2S multi-VNet e succursale](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S multi-VNet e succursale")
+![VNet S2S e succursale](./media/vpn-gateway-about-point-to-site-routing/8.jpg "VNet S2S e succursale")
 
 ### <a name="address-space"></a>Spazio degli indirizzi
 

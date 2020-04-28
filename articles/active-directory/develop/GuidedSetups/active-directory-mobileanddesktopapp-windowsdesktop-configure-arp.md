@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 Windows Desktop Getting Started - Config
+title: Azure AD V2 Introduzione desktop di Windows-config
 description: Come un'applicazione .NET per Windows Desktop (XAML) può ottenere un token di accesso e chiamare un'API protetta dall'endpoint di Azure Active Directory v2.
 services: active-directory
 author: jmprieur
@@ -12,10 +12,10 @@ ms.date: 01/29/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: d82f9beecb1b558fca094c31f8c6718c990debd1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885770"
 ---
 # <a name="add-the-applications-registration-information-to-your-app"></a>Aggiungere le informazioni di registrazione dell'applicazione all'app

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092582"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Esercitazione: Integrazione di Azure Active Directory con RStudio Connect
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RStudio Connect, seguir
 
     ![image](common/edit-attribute.png)
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+7. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -158,13 +158,13 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Archiviare l'**indirizzo del server** nel valore `Server.Address` e l'**URL dei metadati di federazione dell'app** nel valore `SAML.IdPMetaData`.
+Archiviare l'**indirizzo del server** nel valore `Server.Address` e l'**URL dei metadati di federazione dell'app** nel valore `SAML.IdPMetaData`. Tenere presente che questa configurazione di esempio usa una connessione HTTP non crittografata, mentre Azure AD richiede l'uso di una connessione HTTPS crittografata. È possibile usare un [proxy inverso](https://docs.rstudio.com/connect/admin/proxy/) prima di RStudio Connect o configurare RStudio Connect in modo da [usare direttamente HTTPS](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-In caso di problemi con la configurazione, è possibile vedere [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) (Guida dell'amministratore di RStudio Connect) o inviare un messaggio di posta elettronica al [team di supporto di RStudio](mailto:support@rstudio.com) per richiedere assistenza.
+In caso di problemi con la configurazione, è possibile vedere [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication/saml/) (Guida dell'amministratore di RStudio Connect) o inviare un messaggio di posta elettronica al [team di supporto di RStudio](mailto:support@rstudio.com) per richiedere assistenza.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -220,7 +220,7 @@ In questa sezione viene creato un utente di nome Britta Simon in RStudio Connect
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di RStudio Connect nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione RStudio Connect per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di RStudio Connect nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di RStudio Connect per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

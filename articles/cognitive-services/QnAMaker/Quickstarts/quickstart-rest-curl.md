@@ -1,16 +1,16 @@
 ---
 title: 'Guida introduttiva: Usare cURL e REST per gestire una knowledge base - QnA Maker'
 description: Questo argomento di avvio rapido illustra come creare, pubblicare e sottoporre a query una knowledge base usando le API REST.
-ms.date: 02/27/2020
+ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78851200"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261704"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Guida introduttiva: Usare cURL e REST per gestire una knowledge base
 
@@ -21,9 +21,9 @@ Questo argomento di avvio rapido illustra come creare, pubblicare e sottoporre a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * La versione corrente di [cURL](https://curl.haxx.se/). Negli argomenti di avvio rapido vengono usate diverse opzioni della riga di comando, indicate nella [documentazione di cURL](https://curl.haxx.se/docs/manpage.html).
-* È necessario avere una [risorsa QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e il nome della risorsa, selezionare **Avvio rapido** nel portale di Azure per la risorsa. Il nome della risorsa è la prima parte dell'URL dell'endpoint:
+* È necessario avere una [risorsa QnA Maker](../How-To/set-up-qnamaker-service-azure.md), per usare la chiave e il nome della risorsa. Durante la creazione della risorsa si è immesso il **nome**, quindi la chiave è stata creata automaticamente. Il nome della risorsa viene usato come sottodominio per l'endpoint. Per recuperare la chiave e il nome della risorsa, selezionare **Avvio rapido** nel portale di Azure per la risorsa. Il nome della risorsa è il primo sottodominio dell'URL dell'endpoint:
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > Negli esempi BASH seguenti viene usato il carattere di continuazione riga `\`. Se la console o il terminale usa un carattere di continuazione riga diverso, usare questo carattere.

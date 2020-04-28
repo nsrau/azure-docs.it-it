@@ -1,22 +1,14 @@
 ---
 title: 'Esercitazione: Criteri - LUIS'
-titleSuffix: Azure Cognitive Services
 description: In questa esercitazione vengono usati i criteri per migliorare le previsioni in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo ignorabile.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979771"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380777"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Esercitazione: Aggiungere formati comuni di espressioni modello basati su criteri per migliorare le previsioni
 
@@ -41,7 +33,7 @@ Nell'app LUIS sono archiviati due tipi di espressioni:
 
 L'aggiunta di espressioni modello come criterio consente di fornire un minor numero complessivo di espressioni di esempio in una finalità.
 
-Un criterio viene applicato come combinazione di corrispondenza di espressioni e Machine Learning.  Con l'espressione modello, insieme alle espressioni di esempio, LUIS è in grado di riconoscere meglio quali espressioni sono appropriate per la finalità.
+Un criterio viene applicato come combinazione di corrispondenza di testo e Machine Learning.  Con l'espressione modello nel criterio, insieme alle espressioni di esempio nella finalità, LUIS è in grado di riconoscere meglio quali espressioni sono appropriate per la finalità.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importare l'app di esempio e clonarla in una nuova versione
 
@@ -49,11 +41,13 @@ Eseguire la procedura descritta di seguito:
 
 1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importare il file JSON in una nuova app nell'[anteprima del portale LUIS](https://preview.luis.ai).
+1. Importare il file JSON in una nuova app nell'[anteprima del portale LUIS](https://preview.luis.ai). Nella pagina **My Apps** (App personali) selezionare **+ New app for conversation** (Nuova app di conversazione), quindi **Import as JSON** (Importa come JSON). Selezionare il file scaricato nel passaggio precedente.
 
-1. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
+1. Nella sezione **Manage** (Gestisci), nella scheda **Versions** (Versioni), selezionare la versione attiva, quindi selezionare **Clone** (Clona). Assegnare alla versione clonata il nome `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creare nuove finalità ed espressioni
+
+Le due finalità trovano il manager o i suoi dipendenti diretti, in base al testo dell'espressione. La difficoltà è che le due finalità hanno _significati_ diversi, ma la maggior parte delle parole sono identiche. Quello che cambia è solo l'ordine delle parole. Per prevedere correttamente la finalità, è necessario avere molti esempi.
 
 1. Selezionare **Build** (Compila) sulla barra di spostamento.
 
@@ -105,7 +99,7 @@ Eseguire la procedura descritta di seguito:
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Andare alla fine dell'URL nell'indirizzo e immettere `Who is the boss of Jill Jones?`. L'ultimo parametro querystring è l'espressione `query`.
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -195,16 +189,16 @@ Eseguire la procedura descritta di seguito:
     }
     ```
 
-Questa query è riuscita? Per questo ciclo di corsi di formazione è riuscita. I punteggi delle due prima finalità sono vicini, ma il punteggio più alto non è significativamente elevato (oltre il 60%) e non è sufficientemente maggiore del punteggio della finalità successiva.
+I punteggi delle due prima finalità sono vicini, ma il punteggio più alto non è significativamente elevato (oltre il 60%) e non è sufficientemente maggiore del punteggio della finalità successiva.
 
-Poiché il training LUIS non è esattamente lo stesso ogni volta, è presente una certa variazione: questi due punteggi potrebbero invertirsi al successivo ciclo di training. Il risultato è che potrebbe essere restituita la finalità non corretta.
+Poiché il training di LUIS non è esattamente lo stesso ogni volta (è presente una certa variazione), questi due punteggi potrebbero invertirsi al successivo ciclo di training. Il risultato è che potrebbe essere restituita la finalità non corretta.
 
 Usare i criteri per rendere il punteggio della finalità significativamente superiore in percentuale e a una distanza maggiore dal punteggio più alto successivo.
 
 Lasciare aperta la seconda finestra del browser. Verrà usata più avanti in questa esercitazione.
 
 ## <a name="template-utterances"></a>Espressioni modello
-Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio:
+Data la natura del dominio di risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio:
 
 |Espressioni|
 |--|
@@ -220,11 +214,11 @@ Gli esempi di espressioni modello per questa finalità includono:
 |`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 |`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 
-La sintassi `{Employee}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. La sintassi facoltativa `[?]` contrassegna le parole o la punteggiatura facoltativa. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
+La sintassi `{Employee}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. La sintassi facoltativa `[?]` contrassegna le parole o la [punteggiatura](luis-reference-application-settings.md#punctuation-normalization) facoltativa. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
 
 Anche se la sintassi sembra un'espressione regolare, in realtà non lo è. Solo le sintassi della parentesi graffa, `{}`, e della parentesi quadra, `[]`, sono supportate. Possono essere nidificate fino a due livelli.
 
-Affinché un criterio possa essere messo in corrispondenza con un'espressione, le entità all'interno dell'espressione devono corrispondere per prima cosa alle entità nell'espressione modello. Questo significa che le entità devono avere un numero di espressioni di esempio sufficienti con un livello elevato di previsione perché funzionino con i criteri. Tuttavia, il modello non consente di stimare le entità, solo le finalità.
+Affinché un criterio possa essere messo in corrispondenza con un'espressione, le entità all'interno dell'espressione devono corrispondere _prima di tutto_ alle entità nell'espressione modello. Questo significa che le entità devono avere un numero di espressioni di esempio sufficienti con un livello elevato di previsione perché funzionino con i criteri. Tuttavia, il modello non consente di stimare le entità, solo le finalità.
 
 **Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
 
@@ -245,6 +239,8 @@ Affinché un criterio possa essere messo in corrispondenza con un'espressione, l
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
+    Queste espressioni modello includono l'entità **Employee** con la notazione tra parentesi graffe.
+
 1. Sempre nella pagina Patterns (Criteri) selezionare la finalità **OrgChart-Reports** e quindi immettere le espressioni modello seguenti:
 
     |Espressioni modello|
@@ -264,7 +260,7 @@ Ora che sono stati aggiunti i criteri, eseguire il training dell'app, pubblicarl
 
 1. Al termine della pubblicazione, tornare nella scheda del browser dell'URL dell'endpoint.
 
-1. Andare alla fine dell'URL nell'indirizzo e immettere `Who is the boss of Jill Jones?` come espressione. L'ultimo parametro querystring è `query`.
+1. Passare alla fine dell'URL nella barra degli indirizzi e sostituire _YOUR_QUERY_HERE_ con `Who is the boss of Jill Jones?`
 
     ```json
     {
@@ -375,7 +371,7 @@ Espressioni modello di esempio che consentono queste informazioni facoltative:
 
 |Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 
@@ -389,14 +385,6 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
 **Domanda: che cosa succede in caso di espressioni formulate in modo inesatto come `Who will {Employee}['s] manager be on March 3?`.** Tempi verbali grammaticamente diversi come in questo esempio, in cui `will` e `be` sono separati, devono essere una nuova espressione modello. L'espressione modello esistente non verrà restituita come corrispondente a questo esempio. Anche se la finalità dell'espressione non è cambiata, è cambiata la posizione delle parole nell'espressione. Questa modifica influisce sulla stima in LUIS. È possibile [applicare la sintassi di raggruppamento e l'operatore OR](#use-the-or-operator-and-groups) ai tempi verbali per combinare queste espressioni.
 
 **Ricordare che vengono trovate le entità per prime e quindi il criterio.**
-
-### <a name="edit-the-existing-pattern-template-utterance"></a>Modificare l'espressione modello di criterio esistente
-
-1. Nell'anteprima del portale LUIS scegliere **Build** (Compila) dal menu in alto e quindi **Patterns** (Criteri) dal menu a sinistra.
-
-1. Cercare l'espressione modello esistente, `Who is {Employee}['s] manager[?]`, selezionare i puntini di sospensione (***...***) a destra e quindi selezionare **Edit** (Modifica) dal menu a comparsa.
-
-1. Modificare l'espressione modello in `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ### <a name="add-new-pattern-template-utterances"></a>Aggiungere nuove espressioni modello di criterio
 
@@ -514,7 +502,7 @@ La lunghezza variabile include parole che potrebbero confondere LUIS circa la fi
 
 1. Selezionare **FindForm** dall'elenco delle finalità.
 
-1. Aggiungere alcune espressioni di esempio:
+1. Aggiungere alcune espressioni di esempio. Il testo da prevedere come Pattern.any è in **grassetto**. Il nome del modulo è difficile da determinare in base alle altre parole che lo circondano nell'espressione. Pattern.any risulta utile contrassegnando i limiti dell'entità.
 
     |Espressione di esempio|Nome del modulo|
     |--|--|

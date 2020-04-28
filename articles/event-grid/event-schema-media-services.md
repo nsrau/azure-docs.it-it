@@ -1,5 +1,5 @@
 ---
-title: Servizi multimediali di Azure come origine griglia di eventiAzure Media Services as Event Grid source
+title: Servizi multimediali di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi di Servizi multimediali con Griglia di eventi di Azure
 services: media-services
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: spelluru
 ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394332"
 ---
-# <a name="azure-media-services-as-an-event-grid-source"></a>Servizi multimediali di Azure come origine Griglia di eventiAzure Media Services as an Event Grid source
+# <a name="azure-media-services-as-an-event-grid-source"></a>Servizi multimediali di Azure come origine di griglia di eventi
 
 Questo articolo illustra gli schemi e le proprietà degli eventi di Servizi multimediali.
 
@@ -41,13 +41,13 @@ Servizi multimediali genera i tipi di evento correlati al **processo** descritti
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
-### <a name="monitoring-job-output-state-changes"></a>Monitoraggio delle modifiche dello stato dell'output del processoMonitoring job output state changes
+### <a name="monitoring-job-output-state-changes"></a>Monitoraggio delle modifiche allo stato di output del processo
 
-Un processo può contenere più output di processo (se la trasformazione è stata configurata per avere più output di processo). Se si desidera tenere traccia dei dettagli del singolo output del processo, attendere un evento di modifica dell'output del processo.
+Un processo può contenere più output del processo, se la trasformazione è stata configurata in modo da avere più output del processo. Se si desidera tenere traccia dei dettagli del singolo output del processo, attendere un evento di modifica dell'output del processo.
 
-Ogni **processo** sarà a un livello superiore rispetto a **JobOutput**, pertanto gli eventi di output del processo vengono generati all'interno di un processo corrispondente. 
+Ogni **processo** avrà un livello superiore rispetto a **JobOutput**, quindi gli eventi di output del processo vengono generati all'interno di un processo corrispondente. 
 
-I messaggi `JobFinished`di `JobCanceled` `JobError` errore in , , restituiscono i risultati aggregati per ogni output del processo, al termine di tutti. Mentre, gli eventi di output del processo vengono attivati al termine di ogni attività. Ad esempio, se hai un output di codifica, seguito da un output di Analisi video, otterrai due eventi che vengono riprodotto come eventi di output del processo prima che l'evento JobFinished finale venga generato con i dati aggregati.
+I messaggi di errore `JobFinished`in `JobCanceled`, `JobError` , restituiscono i risultati aggregati per ogni output del processo, al termine di tutti. Mentre gli eventi di output del processo vengono attivati al termine di ogni attività. Se, ad esempio, si dispone di un output di codifica, seguito da un output di analisi video, si ottengono due eventi che vengono generati come eventi di output del processo prima che venga generato l'evento JobFinished finale con i dati aggregati.
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
@@ -61,7 +61,7 @@ I messaggi `JobFinished`di `JobCanceled` `JobError` errore in , , restituiscono 
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
-### <a name="monitoring-job-output-progress"></a>Monitoraggio dell'avanzamento dell'output dei processi
+### <a name="monitoring-job-output-progress"></a>Monitoraggio dello stato dell'output del processo
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
@@ -90,7 +90,7 @@ Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 Gli eventi a livello di traccia vengono generati per singola traccia. 
 
 > [!NOTE]
-> Tutti gli eventi a livello di traccia vengono generati dopo la connessione di un codificatore live.
+> Tutti gli eventi a livello di rilevamento vengono generati dopo la connessione di un codificatore Live.
 
 I tipi di evento a livello di traccia sono:
 
@@ -98,9 +98,9 @@ I tipi di evento a livello di traccia sono:
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Il server dei contenuti multimediali elimina il blocco di dati perché è troppo tardi o presenta un timestamp sovrapposto. Il timestamp del nuovo blocco di dati è minore rispetto all'ora di fine del blocco di dati precedente. |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Il server dei contenuti multimediali riceve il primo blocco di dati per ogni traccia nel flusso o nella connessione. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Il server multimediale rileva che i flussi audio e video non sono sincronizzati. Utilizzare come avviso perché l'esperienza utente potrebbe non essere influenzata. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Il server multimediale rileva che uno dei due flussi video provenienti da un codificatore esterno non è sincronizzato. Utilizzare come avviso perché l'esperienza utente potrebbe non essere influenzata. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento.<br/><br/>Dopo che il codificatore è stato inizialmente connesso, l'evento heartbeat continua a generare ogni 20 sec, indipendentemente dal fatto che il codificatore sia ancora connesso o meno. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media Server rileva che i flussi audio e video non sono sincronizzati. Utilizzare come avviso perché l'esperienza utente potrebbe non essere interessata. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media Server rileva che i due flussi video provenienti dal codificatore esterno non sono sincronizzati. Utilizzare come avviso perché l'esperienza utente potrebbe non essere interessata. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento.<br/><br/>Dopo la connessione iniziale del codificatore, l'evento Heartbeat continua a essere emesso ogni 20 secondi se il codificatore è ancora connesso o meno. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Il server dei contenuti multimediali rileva discontinuità nella traccia in ingresso. |
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.
@@ -133,8 +133,8 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| previousState | string | Stato del processo prima dell'evento. |
-| state | string | Nuovo stato del processo notificato in questo evento. Ad esempio, "Programmato: il processo è pronto per l'avvio" o "Finito: il processo è terminato".|
+| previousState | stringa | Stato del processo prima dell'evento. |
+| state | stringa | Nuovo stato del processo notificato in questo evento. Ad esempio, "pianificato: il processo è pronto per l'avvio" o "completato: il processo è terminato".|
 
 Dove lo stato del processo può essere uno dei valori: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
@@ -319,13 +319,13 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
-| ingestUrl | string | URL di inserimento fornito dall'evento live. |  
-| encoderIp | string | Indirizzo IP del codificatore. |
-| encoderPort | string | Porta del codificatore da cui proviene il flusso. |
-| resultCode | string | Motivo per cui la connessione è stata rifiutata. I codici di risultato sono elencati nella tabella seguente. |
+| streamId | stringa | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
+| ingestUrl | stringa | URL di inserimento fornito dall'evento live. |  
+| encoderIp | stringa | Indirizzo IP del codificatore. |
+| encoderPort | stringa | Porta del codificatore da cui proviene il flusso. |
+| resultCode | stringa | Motivo per cui la connessione è stata rifiutata. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati di errore nei codici di [errore evento live](../media-services/latest/live-event-error-codes.md).
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../media-services/latest/live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -355,10 +355,10 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile della specifica di questo ID nell'URL di inserimento. |
-| ingestUrl | string | URL di inserimento fornito dall'evento live. |
-| encoderIp | string | Indirizzo IP del codificatore. |
-| encoderPort | string | Porta del codificatore da cui proviene il flusso. |
+| streamId | stringa | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile della specifica di questo ID nell'URL di inserimento. |
+| ingestUrl | stringa | URL di inserimento fornito dall'evento live. |
+| encoderIp | stringa | Indirizzo IP del codificatore. |
+| encoderPort | stringa | Porta del codificatore da cui proviene il flusso. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -389,13 +389,13 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
-| ingestUrl | string | URL di inserimento fornito dall'evento live. |  
-| encoderIp | string | Indirizzo IP del codificatore. |
-| encoderPort | string | Porta del codificatore da cui proviene il flusso. |
-| resultCode | string | Motivo di disconnessione del codificatore. La causa può essere una disconnessione normale o causata da un errore. I codici di risultato sono elencati nella tabella seguente. |
+| streamId | stringa | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
+| ingestUrl | stringa | URL di inserimento fornito dall'evento live. |  
+| encoderIp | stringa | Indirizzo IP del codificatore. |
+| encoderPort | stringa | Porta del codificatore da cui proviene il flusso. |
+| resultCode | stringa | Motivo di disconnessione del codificatore. La causa può essere una disconnessione normale o causata da un errore. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati di errore nei codici di [errore evento live](../media-services/latest/live-event-error-codes.md).
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../media-services/latest/live-event-error-codes.md).
 
 I codici di risultato della disconnessione normale sono:
 
@@ -439,12 +439,12 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo di traccia (audio/video). |
-| trackName | string | Nome della traccia. |
+| trackType | stringa | Tipo di traccia (audio/video). |
+| trackName | stringa | Nome della traccia. |
 | bitrate | integer | Velocità in bit della traccia. |
-|  timestamp | string | Timestamp del blocco di dati eliminato. |
-| timescale | string | Scala cronologica del timestamp. |
-| resultCode | string | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
+| timestamp | stringa | Timestamp del blocco di dati eliminato. |
+| timescale | stringa | Scala cronologica del timestamp. |
+| resultCode | stringa | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -479,14 +479,14 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo di traccia (audio/video). |
-| trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
+| trackType | stringa | Tipo di traccia (audio/video). |
+| trackName | stringa | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
 | bitrate | integer | Velocità in bit della traccia. |
-| ingestUrl | string | URL di inserimento fornito dall'evento live. |
-| encoderIp | string  | Indirizzo IP del codificatore. |
-| encoderPort | string | Porta del codificatore da cui proviene il flusso. |
-|  timestamp | string | Primo timestamp del blocco di dati ricevuto. |
-| timescale | string | Scala cronologica in cui è rappresentato il timestamp. |
+| ingestUrl | stringa | URL di inserimento fornito dall'evento live. |
+| encoderIp | stringa  | Indirizzo IP del codificatore. |
+| encoderPort | stringa | Porta del codificatore da cui proviene il flusso. |
+| timestamp | stringa | Primo timestamp del blocco di dati ricevuto. |
+| timescale | stringa | Scala cronologica in cui è rappresentato il timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -518,12 +518,12 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| minLastTimestamp | string | Numero minimo dei timestamp più recenti tra le tracce (audio o video). |
-| typeOfTrackWithMinLastTimestamp | string | Tipo di traccia (audio o video) con numero minimo di timestamp più recenti. |
-| maxLastTimestamp | string | Numero massimo di tutti i timestamp tra le tracce (audio o video). |
-| typeOfTrackWithMaxLastTimestamp | string | Tipo di traccia (audio o video) con numero massimo di timestamp più recenti. |
-| timescaleOfMinLastTimestamp| string | Ottiene la scala cronologica in cui è rappresentato "MinLastTimestamp".|
-| timescaleOfMaxLastTimestamp| string | Ottiene la scala cronologica in cui è rappresentato "MaxLastTimestamp".|
+| minLastTimestamp | stringa | Numero minimo dei timestamp più recenti tra le tracce (audio o video). |
+| typeOfTrackWithMinLastTimestamp | stringa | Tipo di traccia (audio o video) con numero minimo di timestamp più recenti. |
+| maxLastTimestamp | stringa | Numero massimo di tutti i timestamp tra le tracce (audio o video). |
+| typeOfTrackWithMaxLastTimestamp | stringa | Tipo di traccia (audio o video) con numero massimo di timestamp più recenti. |
+| timescaleOfMinLastTimestamp| stringa | Ottiene la scala cronologica in cui è rappresentato "MinLastTimestamp".|
+| timescaleOfMaxLastTimestamp| stringa | Ottiene la scala cronologica in cui è rappresentato "MaxLastTimestamp".|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -554,11 +554,11 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| firstTimestamp | string | Timestamp ricevuto per uno dei livelli di traccia/qualità del tipo di video. |
-| firstDuration | string | Durata del blocco di dati con il primo timestamp. |
-| secondTimestamp | string  | Timestamp ricevuto per altri livelli di traccia/qualità del tipo di video. |
-| secondDuration | string | Durata del blocco di dati con il secondo timestamp. |
-| timescale | string | Scala cronologica dei timestamp e durata.|
+| firstTimestamp | stringa | Timestamp ricevuto per uno dei livelli di traccia/qualità del tipo di video. |
+| firstDuration | stringa | Durata del blocco di dati con il primo timestamp. |
+| secondTimestamp | stringa  | Timestamp ricevuto per altri livelli di traccia/qualità del tipo di video. |
+| secondDuration | stringa | Durata del blocco di dati con il secondo timestamp. |
+| timescale | stringa | Scala cronologica dei timestamp e durata.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -596,17 +596,17 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo di traccia (audio/video). |
-| trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
+| trackType | stringa | Tipo di traccia (audio/video). |
+| trackName | stringa | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
 | bitrate | integer | Velocità in bit della traccia. |
 | incomingBitrate | integer | Velocità in bit calcolata in base ai blocchi di dati provenienti dal codificatore. |
-| lastTimestamp | string | Timestamp più recente ricevuto per una traccia negli ultimi 20 secondi. |
-| timescale | string | Scala cronologica in cui sono espressi i timestamp. |
+| lastTimestamp | stringa | Timestamp più recente ricevuto per una traccia negli ultimi 20 secondi. |
+| timescale | stringa | Scala cronologica in cui sono espressi i timestamp. |
 | overlapCount | integer | Numero di blocchi di dati sovrapposti al timestamp negli ultimi 20 secondi. |
 | discontinuityCount | integer | Numero di discontinuità osservate negli ultimi 20 secondi. |
 | nonIncreasingCount | integer | Numero di blocchi di dati con timestamp ricevuti in passato negli ultimi 20 secondi. |
 | unexpectedBitrate | bool | Se la velocità in bit prevista e quella effettiva superano il limite consentito negli ultimi 20 secondi. È true se e solo se i valori sono: incomingBitrate >= 2* bitrate O incomingBitrate <= bitrate/2 O incomingBitrate = 0. |
-| state | string | Stato dell'evento live. |
+| state | stringa | Stato dell'evento live. |
 | healthy | bool | Indica se l'inserimento è integro in base ai conteggi e ai flag. Healthy è true sei valori sono: overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
@@ -640,13 +640,13 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo di traccia (audio/video). |
-| trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
+| trackType | stringa | Tipo di traccia (audio/video). |
+| trackName | stringa | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
 | bitrate | integer | Velocità in bit della traccia. |
-| previousTimestamp | string | Timestamp del frammento precedente. |
-| newTimestamp | string | Timestamp del frammento corrente. |
-| discontinuityGap | string | Spazio tra i due timestamp precedenti. |
-| timescale | string | Scala cronologica in cui sono rappresentati i timestamp e lo spazio di discontinuità. |
+| previousTimestamp | stringa | Timestamp del frammento precedente. |
+| newTimestamp | stringa | Timestamp del frammento corrente. |
+| discontinuityGap | stringa | Spazio tra i due timestamp precedenti. |
+| timescale | stringa | Scala cronologica in cui sono rappresentati i timestamp e lo spazio di discontinuità. |
 
 ### <a name="common-event-properties"></a>Proprietà dell'evento comune
 
@@ -654,14 +654,14 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Argomento EventGrid. Questa proprietà include l'ID risorsa per l'account di Servizi multimediali. |
-| subject | string | Il percorso della risorsa per il canale di Servizi multimediali nell'account di Servizi multimediali. La concatenazione dell'argomento e del soggetto fornisce l'ID risorsa per il processo. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. Ad esempio, "Microsoft.Media.JobStateChange". |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
-| data | object | Dati dell'evento di Servizi multimediali. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Argomento EventGrid. Questa proprietà include l'ID risorsa per l'account di Servizi multimediali. |
+| subject | stringa | Il percorso della risorsa per il canale di Servizi multimediali nell'account di Servizi multimediali. La concatenazione dell'argomento e del soggetto fornisce l'ID risorsa per il processo. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. Ad esempio, "Microsoft.Media.JobStateChange". |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
+| data | oggetto | Dati dell'evento di Servizi multimediali. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

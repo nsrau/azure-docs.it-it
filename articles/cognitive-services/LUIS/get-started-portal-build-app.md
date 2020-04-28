@@ -2,13 +2,13 @@
 title: 'Guida introduttiva: Creare una nuova app nel portale LUIS'
 description: Questo argomento di avvio rapido illustra come creare le parti di base di un'app, le finalità e le entità e come testare un'espressione di esempio nel portale LUIS.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244615"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382574"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
 
@@ -88,11 +88,10 @@ Aggiungere le 15 espressioni di esempio seguenti alla finalità `FindForm`.
 Queste espressioni di esempio variano volutamente nei modi seguenti:
 
 * lunghezza dell'espressione
-* punteggiatura
+* [punteggiatura](luis-reference-application-settings.md#punctuation-normalization)
 * scelta delle parole
 * tempi verbali verbo (is, was, will be)
 * ordine delle parole
-
 
 
 ## <a name="create-a-regular-expression-entity"></a>Creare un'entità di espressione regolare

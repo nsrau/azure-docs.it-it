@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 64eb19e43223c1953a7244f8fd29c48d085f1e96
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2fa2e40ba2a7fe84b6df57bfb711d01332b8f523
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80116890"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275435"
 ---
 <a name="HOLTop"></a>
 
@@ -44,7 +44,7 @@ Usando l'IDE di Visual Studio, creare una nuova app console .NET Core. Verrà cr
 
 #### <a name="version-30-preview"></a>[Versione 3.0-preview](#tab/version-3)
 
-Installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Azure.AI.TextAnalytics`. Selezionare la versione `1.0.0-preview.3`, quindi **Installa**. È anche possibile usare la [console di gestione pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Azure.AI.TextAnalytics`. Selezionare la versione `1.0.0-preview.4`, quindi **Installa**. È anche possibile usare la [console di gestione pacchetti](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!TIP]
 > Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), che contiene gli esempi di codice di questo argomento. 
@@ -63,6 +63,7 @@ Installare la libreria client facendo clic con il pulsante destro del mouse sull
 Aprire il file *program.cs* e aggiungere le direttive `using` seguenti:
 
 ```csharp
+using Azure;
 using System;
 using System.Globalization;
 using Azure.AI.TextAnalytics;
@@ -73,7 +74,7 @@ Nella classe `Program` dell'applicazione creare variabili per l'endpoint e la ch
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
+private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-text-analytics-key-here>");
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
@@ -87,7 +88,6 @@ static void Main(string[] args)
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
-    EntityPIIExample(client);
     EntityLinkingExample(client);
     KeyPhraseExtractionExample(client);
 
@@ -121,14 +121,13 @@ Sostituire il metodo `Main` dell'applicazione. I metodi chiamati qui verranno de
 
 Il client di Analisi del testo è un oggetto `TextAnalyticsClient` che esegue l'autenticazione in Azure tramite la chiave e fornisce funzioni per accettare il testo come singole stringhe o batch. È possibile inviare testo all'API in modo sincrono o asincrono. L'oggetto risposta conterrà le informazioni di analisi per ogni documento inviato. 
 
-Se si usa la versione `3.0-preview`, è possibile usare un'istanza di `TextAnalyticsClientOptions` facoltativa per inizializzare il client con varie impostazioni predefinite, ad esempio la lingua o il suggerimento sul paese. È anche possibile eseguire l'autenticazione con un token di Azure Active Directory. 
+Se si usa la versione `3.0-preview` del servizio, è possibile usare un'istanza facoltativa di `TextAnalyticsClientOptions` per inizializzare il client con varie impostazioni predefinite, ad esempio il suggerimento sul paese o la lingua. È anche possibile eseguire l'autenticazione con un token di Azure Active Directory. 
 
 ## <a name="code-examples"></a>Esempi di codice
 
 * [Analisi del sentiment](#sentiment-analysis)
 * [Rilevamento della lingua](#language-detection)
 * [Riconoscimento di entità denominate](#named-entity-recognition-ner)
-* [Rilevare informazioni personali](#detect-personal-information)
 * [Collegamento di entità](#entity-linking)
 * [Estrazione delle frasi chiave](#key-phrase-extraction)
 
@@ -264,7 +263,6 @@ Language: English
 
 > [!NOTE]
 > Novità nella versione `3.0-preview`:
-> * Il riconoscimento delle entità ora include la possibilità di rilevare le informazioni personali nel testo.
 > * Il collegamento di entità è ora separato dal riconoscimento delle entità.
 
 
@@ -293,33 +291,6 @@ Named Entities:
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Length: 9,      Score: 0.80
 ```
-
-## <a name="detect-personal-information"></a>Rilevare informazioni personali
-
-Creare una nuova funzione denominata `EntityPIIExample()`, che accetta il client creato in precedenza, chiama la relativa funzione `RecognizePiiEntities()` e scorre i risultati. Analogamente alla funzione precedente, l'oggetto `Response<IReadOnlyCollection<CategorizedEntity>>` restituito conterrà l'elenco delle entità rilevate. Se si è verificato un errore, verrà generata un'eccezione `RequestFailedException`.
-
-```csharp
-static void EntityPIIExample(TextAnalyticsClient client)
-{
-    string inputText = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-    var response = client.RecognizePiiEntities(inputText);
-    Console.WriteLine("Personally Identifiable Information Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### <a name="output"></a>Output
-
-```console
-Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category:
-                Length: 11,     Score: 0.85
-```
-
 
 ## <a name="entity-linking"></a>Collegamento di entità
 

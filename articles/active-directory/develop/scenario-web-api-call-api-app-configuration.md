@@ -1,7 +1,7 @@
 ---
-title: Configurare un'API Web che chiama le API Web Azure
+title: Configurare un'API Web che chiama API Web | Azure
 titleSuffix: Microsoft identity platform
-description: Scopri come creare un'API Web che chiama le API Web (configurazione del codice dell'app)
+description: Informazioni su come creare un'API Web che chiama le API Web (configurazione del codice dell'app)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,23 +13,23 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991008"
 ---
-# <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Un'API Web che chiama le API Web: Configurazione del codice
+# <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API Web che chiama API Web: configurazione del codice
 
 Dopo aver registrato l'API Web, è possibile configurare il codice per l'applicazione.
 
-Il codice usato per configurare l'API Web in modo che chiami le API Web downstream si basa sul codice utilizzato per proteggere un'API Web. Per ulteriori informazioni, vedere [API Web protetta: configurazione dell'app](scenario-protected-web-api-app-configuration.md).
+Il codice usato per configurare l'API Web in modo che chiami le API Web downstream si basa sul codice usato per proteggere un'API Web. Per altre informazioni, vedere [API Web protetta: configurazione dell'app](scenario-protected-web-api-app-configuration.md).
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-## <a name="code-subscribed-to-ontokenvalidated"></a>Codice sottoscritto a OnTokenValidatedCode subscribed to OnTokenValidated
+## <a name="code-subscribed-to-ontokenvalidated"></a>Codice sottoscritto a OnTokenValidated
 
-Oltre alla configurazione del codice per tutte le API Web protette, è necessario sottoscrivere la convalida del token di connessione che si riceve quando viene chiamata l'API:
+Oltre alla configurazione del codice per qualsiasi API Web protetta, è necessario sottoscrivere la convalida della bearer token ricevuta quando viene chiamata l'API:
 
 ```csharp
 /// <summary>
@@ -64,18 +64,18 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 }
 ```
 
-## <a name="on-behalf-of-flow"></a>Flusso per conto di
+## <a name="on-behalf-of-flow"></a>Flusso On-Behalf-Of
 
-Il metodo AddAccountToCacheFromJwt() deve:
+Il metodo AddAccountToCacheFromJwt () deve:
 
 - Creare un'istanza di un'applicazione client riservata Microsoft Authentication Library (MSAL).
-- Chiamare il metodo `AcquireTokenOnBehalf` . Questa chiamata scambia il token di connessione che è stato acquisito dal client per l'API Web con un token di connessione per lo stesso utente, ma ha l'API chiamare un'API downstream.
+- Chiamare il metodo `AcquireTokenOnBehalf` . Questa chiamata scambia la bearer token acquisita dal client per l'API Web rispetto a una bearer token per lo stesso utente, ma l'API chiama un'API downstream.
 
 ### <a name="instantiate-a-confidential-client-application"></a>Creare un'istanza di un'applicazione client riservata
 
-Questo flusso è disponibile solo nel flusso client riservato, in modo che l'API Web protetta fornisca `WithCertificate` le credenziali client (segreto client o certificato) alla [classe ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) tramite il `WithClientSecret` metodo o .
+Questo flusso è disponibile solo nel flusso client riservato, in modo che l'API Web protetta fornisca le credenziali client (segreto client o certificato) alla [classe ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) tramite il `WithClientSecret` metodo o `WithCertificate` .
 
-![Elenco dei metodi IConfidentialClientApplication](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![Elenco di metodi di IConfidentialClientApplication](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```csharp
 IConfidentialClientApplication app;
@@ -93,20 +93,20 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
-Infine, invece di dimostrare la propria identità tramite un segreto client o un certificato, le applicazioni client riservate possono dimostrare la propria identità utilizzando asserzioni client.
-Per ulteriori informazioni su questo scenario avanzato, vedere [Asserzioni client riservate](msal-net-client-assertions.md).
+Infine, anziché dimostrare la propria identità tramite un segreto client o un certificato, le applicazioni client riservate possono dimostrare la propria identità usando le asserzioni client.
+Per ulteriori informazioni su questo scenario avanzato, vedere [asserzioni client riservate](msal-net-client-assertions.md).
 
-### <a name="how-to-call-on-behalf-of"></a>Come chiamare Per conto di
+### <a name="how-to-call-on-behalf-of"></a>Come chiamare per conto di
 
-Per effettuare la chiamata per conto di (OBO) chiamando `IConfidentialClientApplication` il [AcquireTokenOnBehalf metodo](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) sull'interfaccia.
+Per effettuare la chiamata a per conto di (OBO), chiamare il [Metodo AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) sull' `IConfidentialClientApplication` interfaccia.
 
-La `UserAssertion` classe viene compilata dal token di connessione ricevuto dall'API Web dai propri client. Esistono [due costruttori](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
-* Uno che accetta un token di connessione JSON Web Token (JWT)
+La `UserAssertion` classe viene compilata dalla Bearer token ricevuta dall'API Web dai propri client. Sono disponibili [due costruttori](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
+* Uno che accetta un token JSON Web (JWT) bearer token
 * Uno che accetta qualsiasi tipo di asserzione utente, un altro tipo di token di sicurezza, il cui tipo viene quindi specificato in un parametro aggiuntivo denominato`assertionType`
 
-![Proprietà e metodi UserAssertion](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![Proprietà e metodi di UserAssertion](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-In pratica, il flusso OBO viene spesso utilizzato per acquisire un token per un'API downstream e archiviarlo nella cache dei token utente MSAL.NET. Questa operazione consente ad altre parti dell'API Web di ``AcquireTokenOnSilent`` chiamare in un secondo momento gli [override](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) di per chiamare le API downstream. Questa chiamata ha l'effetto di aggiornare i token, se necessario.
+In pratica, il flusso OBO viene spesso usato per acquisire un token per un'API downstream e archiviarlo nella cache dei token utente di MSAL.NET. Questa operazione viene eseguita in modo che altre parti dell'API Web possano chiamare in un secondo momento ``AcquireTokenOnSilent`` le [sostituzioni](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) di per chiamare le API downstream. Questa chiamata ha l'effetto di aggiornare i token, se necessario.
 
 ```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -143,9 +143,9 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 ```
 # <a name="java"></a>[Java](#tab/java)
 
-Il flusso Per conto di (OBO) viene utilizzato per ottenere un token per chiamare l'API Web downstream. In questo flusso, l'API Web riceve un token di connessione con autorizzazioni delegate dall'utente dall'applicazione client e quindi scambia questo token per un altro token di accesso per chiamare l'API Web downstream.
+Il flusso per conto di (OBO) viene usato per ottenere un token per chiamare l'API Web downstream. In questo flusso, l'API Web riceve un bearer token con autorizzazioni delegate dall'utente dall'applicazione client e quindi scambia questo token per un altro token di accesso per chiamare l'API Web downstream.
 
-Il codice seguente usa il `SecurityContextHolder` framework di sicurezza di Spring nell'API Web per ottenere il token di connessione convalidato. Viene quindi utilizzata la libreria Java MSAL per ottenere `acquireToken` un `OnBehalfOfParameters`token per l'API downstream utilizzando la chiamata con . MSAL memorizza nella cache il token in `acquireTokenSilently` modo che le chiamate successive all'API possano essere utilizzate per ottenere il token memorizzato nella cache.
+Il codice seguente usa Spring Security Framework `SecurityContextHolder` nell'API Web per ottenere la Bearer token convalidata. USA quindi la libreria Java MSAL per ottenere un token per l'API downstream usando la `acquireToken` chiamata con `OnBehalfOfParameters`. MSAL memorizza nella cache il token in modo che le chiamate successive all'API `acquireTokenSilently` possano usare per ottenere il token memorizzato nella cache.
 
 ```Java
 @Component
@@ -212,19 +212,19 @@ class MsalAuthHelper {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Il flusso Per conto di (OBO) viene utilizzato per ottenere un token per chiamare l'API Web downstream. In questo flusso, l'API Web riceve un token di connessione con autorizzazioni delegate dall'utente dall'applicazione client e quindi scambia questo token per un altro token di accesso per chiamare l'API Web downstream.
+Il flusso per conto di (OBO) viene usato per ottenere un token per chiamare l'API Web downstream. In questo flusso, l'API Web riceve un bearer token con autorizzazioni delegate dall'utente dall'applicazione client e quindi scambia questo token per un altro token di accesso per chiamare l'API Web downstream.
 
-Un'API Web Python dovrà usare un middleware per convalidare il token di connessione ricevuto dal client. L'API Web può quindi ottenere il token di accesso per [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) l'API downstream usando la libreria MSAL Python chiamando il metodo . Per un esempio di utilizzo di questa API, vedere il codice di [test per microsoft-authentication-library-for-python in GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Vedere anche la discussione del [problema 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) nello stesso repository per un approccio che ignora la necessità di un'applicazione di livello intermedio.
+Un'API Web Python dovrà usare un middleware per convalidare la bearer token ricevuta dal client. L'API Web può quindi ottenere il token di accesso per l'API downstream usando la libreria MSAL Python [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) chiamando il metodo. Per un esempio dell'uso di questa API, vedere il [codice di test per Microsoft-Authentication-Library-for-Python su GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Vedere anche la discussione sul [problema 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) nello stesso repository per un approccio che ignora la necessità di un'applicazione di livello intermedio.
 
 ---
 
-È inoltre possibile visualizzare un esempio di implementazione del flusso OBO in [Node.js e Funzioni](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61)di Azure .
+È anche possibile vedere un esempio di implementazione del flusso OBO in [node. js e funzioni di Azure](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## <a name="protocol"></a>Protocollo
 
-Per ulteriori informazioni sul protocollo OBO, vedere Piattaforma di [identità Microsoft e flusso di oAuth 2.0 per conto di](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+Per altre informazioni sul protocollo OBO, vedere [Microsoft Identity Platform e OAuth 2,0 on-conto-of Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Un'API Web che chiama le API Web: acquisire un token per l'appA web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
+> [API Web che chiama le API Web: acquisire un token per l'app](scenario-web-api-call-api-acquire-token.md)

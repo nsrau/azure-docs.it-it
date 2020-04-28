@@ -1,5 +1,5 @@
 ---
-title: Gruppo di risorse di Azure come origine Griglia di eventiAzure resource group as an Event Grid source
+title: Gruppo di risorse di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi del gruppo di risorse con Griglia di eventi di Azure
 services: event-grid
 author: spelluru
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393260"
 ---
-# <a name="azure-resource-group-as-an-event-grid-source"></a>Gruppo di risorse di Azure come origine Griglia di eventiAzure resource group as an Event Grid source
+# <a name="azure-resource-group-as-an-event-grid-source"></a>Gruppo di risorse di Azure come origine di griglia di eventi
 
 Questo articolo illustra le proprietà e lo schema per gli eventi del gruppo di risorse.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
@@ -237,31 +237,31 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
-| data | object | Dati dell'evento del gruppo di risorse. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
+| data | oggetto | Dati dell'evento del gruppo di risorse. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| authorization | object | L'autorizzazione richiesta per l'operazione. |
-| claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | string | Un ID operazione per la risoluzione dei problemi. |
-| httpRequest | object | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
-| resourceProvider | string | Provider di risorse per l'operazione. |
-| resourceUri | string | L'URI della risorsa nell'operazione. |
-| operationName | string | Operazione eseguita. |
-| status | string | Lo stato dell'operazione. |
-| subscriptionId | string | L'ID sottoscrizione della risorsa. |
-| TenantId | string | L'ID tenant della risorsa. |
+| authorization | oggetto | L'autorizzazione richiesta per l'operazione. |
+| claims | oggetto | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
+| httpRequest | oggetto | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
+| resourceProvider | stringa | Provider di risorse per l'operazione. |
+| resourceUri | stringa | L'URI della risorsa nell'operazione. |
+| operationName | stringa | Operazione eseguita. |
+| status | stringa | Lo stato dell'operazione. |
+| subscriptionId | stringa | L'ID sottoscrizione della risorsa. |
+| TenantId | stringa | L'ID tenant della risorsa. |
 
-## <a name="tutorials-and-how-tos"></a>Esercitazioni ed es.
+## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 |Titolo  |Descrizione  |
 |---------|---------|
 | [Esercitazione: monitorare le modifiche alla macchina virtuale con la Griglia di eventi di Azure e le app per la logica](monitor-virtual-machine-changes-event-grid-logic-app.md) | Un'app per la logica monitora le modifiche a una macchina virtuale e invia messaggi di posta elettronica su tali modifiche. |

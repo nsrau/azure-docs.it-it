@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sul token ID piattaforma di identità Microsoft
-description: Informazioni su come usare id_tokens generati dagli endpoint di Azure AD v1.0 e della piattaforma di identità Microsoft (2.0).
+title: Riferimento al token ID della piattaforma di identità Microsoft
+description: Informazioni su come usare id_tokens emessi dagli endpoint Azure AD v 1.0 e Microsoft Identity Platform (v 2.0).
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,19 +14,19 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.openlocfilehash: 23ff71bf24c3acbce3d27276981739305e1d074a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309549"
 ---
-# <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma identità Microsoft
+# <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
 Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v2-protocols-oidc.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
 
 ## <a name="using-the-id_token"></a>Uso degli id_token
 
-Token ID devono essere utilizzati per convalidare che un utente è chi dichiarano di essere e ottenere ulteriori informazioni utili su di loro - non deve essere utilizzato per l'autorizzazione al posto di un token di [accesso](access-tokens.md). Le attestazioni fornite possono essere usate per l'esperienza utente all'interno dell'applicazione, come chiavi in un database e che forniscono l'accesso all'applicazione client.  Quando si creano chiavi `idp` per un database, non deve essere utilizzato perché comporta scenari guest incasistati.  La chiavetura deve `sub` essere eseguita da `tid` sola (che è sempre unica), con l'utilizzo per il routing, se necessario.  Se è necessario condividere i `oid` + `sub` + `tid` dati tra i servizi, `oid`funzionerà poiché più servizi ottengono tutti lo stesso .
+I token ID devono essere usati per convalidare che un utente è quello che attesta di essere e ottenere ulteriori informazioni utili su di essi. non deve essere usato per l'autorizzazione al posto di un [token di accesso](access-tokens.md). Le attestazioni fornite possono essere usate per l'esperienza utente all'interno dell'applicazione, come chiavi in un database e per fornire l'accesso all'applicazione client.  Quando si creano le chiavi per un `idp` database, non è consigliabile utilizzare perché crea scenari Guest.  La chiave deve essere eseguita `sub` singolarmente, che è sempre univoca, `tid` con utilizzata per il routing se necessario.  Se è necessario condividere i dati tra i servizi `oid` + `sub` + `tid` , funzionerà poiché più servizi ottengono lo stesso `oid`.
 
 ## <a name="claims-in-an-id_token"></a>Attestazioni in un id_token
 
@@ -59,41 +59,41 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
-Questo elenco mostra le attestazioni che si trovano nella maggior parte dei id_tokens per impostazione predefinita (tranne dove indicato).  Tuttavia, l'app può usare [attestazioni facoltative](active-directory-optional-claims.md) per richiedere attestazioni aggiuntive nel id_token.  Questi possono variare dalla `groups` pretesa alle informazioni sul nome dell'utente.
+Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni nel id_token.  Questi possono variare dall' `groups` attestazione alle informazioni sul nome dell'utente.
 
 |Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 |`aud` |  Stringa, un URI ID app | Identifica il destinatario del token. Negli `id_tokens` il destinatario è l'ID applicazione assegnato all'app nel portale di Azure. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 |`iss` |  Stringa, un URI del servizio token di sicurezza | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. Se il token è stato rilasciato dall'endpoint v2.0, l'URI termina con `/v2.0`.  Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'app deve usare la parte relativa al GUID dell'attestazione per limitare il set di tenant che possono accedere all'app, se applicabile. |
 |`iat` |  int, timestamp UNIX | "Issued At" indica quando è avvenuta l'autenticazione per il token.  |
-|`idp`|Stringa, di solito un URI del servizio token di sicurezza | Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia nello stesso tenant dell'autorità di certificazione, ad esempio guest. Se l'attestazione non è presente, `iss` significa che il valore di può essere utilizzato al suo posto.  Per gli account personali usati in un contesto aziendale, ad esempio, un account personale invitato in un tenant di Azure AD, l'attestazione `idp` potrebbe essere "live.com" o un URI STS contenente il tenant dell'account Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`idp`|Stringa, di solito un URI del servizio token di sicurezza | Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia nello stesso tenant dell'autorità di certificazione, ad esempio guest. Se l'attestazione non è presente, significa che il valore `iss` di può essere usato in alternativa.  Per gli account personali usati in un contesto aziendale, ad esempio, un account personale invitato in un tenant di Azure AD, l'attestazione `idp` potrebbe essere "live.com" o un URI STS contenente il tenant dell'account Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, timestamp UNIX | L'attestazione "nbf" (not before) identifica l'ora prima della quale il token JWT non deve essere accettato per l'elaborazione.|
-|`exp` |  int, timestamp UNIX | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione.  È importante notare che una risorsa può rifiutare il token anche prima di questo periodo: se, ad esempio, è necessaria una modifica nell'autenticazione o se è stata rilevata una revoca del token. |
+|`exp` |  int, timestamp UNIX | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione.  È importante notare che una risorsa può rifiutare il token prima di questa ora anche se, ad esempio, è necessaria una modifica nell'autenticazione o è stata rilevata una revoca del token. |
 | `c_hash`| string |L'hash del codice è incluso in un token ID solo quando quest'ultimo viene generato con un codice di autorizzazione di OAuth 2.0. Può essere usato per convalidare l'autenticità di un codice di autorizzazione. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`at_hash`| string |L'hash del token di accesso è incluso in un token ID solo quando quest'ultimo viene generato con un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Stringa opaca | Attestazione interna usata da Azure AD per registrare i dati per il riutilizzo dei token. Deve essere ignorata.|
-|`preferred_username` | string | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni. L'ambito `profile` è necessario per ricevere questa attestazione.|
+|`preferred_username` | string | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni. L' `profile` ambito è necessario per ricevere questa attestazione.|
 |`email` | string | L'attestazione `email` è presente per impostazione predefinita per gli account guest che dispongono di un indirizzo di posta elettronica.  L'app può richiedere l'attestazione di posta elettronica per gli utenti gestiti, quelli dello stesso tenant della risorsa, tramite l' [attestazione facoltativa](active-directory-optional-claims.md)`email`.  Nell'endpoint 2.0 l'app può anche richiedere l'ambito `email` di OpenID Connect. Non è necessario richiedere l'attestazione facoltativa e l'ambito per ottenere l'attestazione.  L'attestazione di posta elettronica supporta solo posta elettronica indirizzabile dalle informazioni sul profilo dell'utente. |
-|`name` | string | L'attestazione `name` fornisce un valore leggibile che identifica l'oggetto del token. Il valore non è garantito per essere univoco, è modificabile ed è progettato per essere utilizzato solo per scopi di visualizzazione. L'ambito `profile` è necessario per ricevere questa attestazione. |
+|`name` | string | L'attestazione `name` fornisce un valore leggibile che identifica l'oggetto del token. Il valore non è garantito che sia univoco, è modificabile ed è progettato per essere usato solo a scopo di visualizzazione. L' `profile` ambito è necessario per ricevere questa attestazione. |
 |`nonce`| string | Il parametro nonce corrisponde al parametro incluso nella richiesta /authorize originale al provider di identità. Se non corrisponde, l'applicazione deve rifiutare il token. |
-|`oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché `oid` consente a più app `profile` di correlare gli utenti, l'ambito è necessario per ricevere questa attestazione. Si noti che se un singolo utente esiste in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant: vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. L'attestazione `oid` è un GUID e non può essere riutilizzata. |
+|`oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché `oid` consente a più app di correlare gli utenti, `profile` l'ambito è necessario per ricevere questa attestazione. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant. vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. L' `oid` attestazione è un GUID e non può essere riutilizzata. |
 |`roles`| Matrice di stringhe | Set di ruoli assegnati all'utente che esegue l'accesso. |
 |`rh` | Stringa opaca |Attestazione interna usata da Azure per riconvalidare i token. Deve essere ignorata. |
-|`sub` | Stringa, un GUID | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. L'oggetto è un identificatore pairwise univoco per un ID di applicazione specifico. Se un singolo utente accede a due app diverse usando due ID client diversi, tali app riceveranno due valori diversi per l'attestazione dell'oggetto. Questo può o non può essere voluto a seconda dei requisiti di architettura e privacy. |
-|`tid` | Stringa, un GUID | Valore GUID che rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID è l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali il valore è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'ambito `profile` è necessario per ricevere questa attestazione. |
-|`unique_name` | string | Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore è univoco in un determinato momento, ma poiché le e-mail e altri identificatori possono essere riutilizzati, questo valore può riapparire su altri account e deve pertanto essere utilizzato solo per scopi di visualizzazione. Generato solo negli `id_tokens` v1.0. |
+|`sub` | Stringa, un GUID | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. L'oggetto è un identificatore pairwise univoco per un ID di applicazione specifico. Se un singolo utente accede a due diverse app usando due ID client diversi, queste app riceveranno due valori diversi per l'attestazione dell'oggetto. Questa operazione può essere necessaria a seconda dell'architettura e dei requisiti sulla privacy. |
+|`tid` | Stringa, un GUID | Valore GUID che rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID è l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali il valore è `9188040d-6c67-4c5b-b112-36a304b66dad`. L' `profile` ambito è necessario per ricevere questa attestazione. |
+|`unique_name` | string | Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore è univoco in un determinato momento, ma quando è possibile riutilizzare i messaggi di posta elettronica e altri identificatori, questo valore può essere visualizzato nuovamente in altri account e deve pertanto essere utilizzato solo a scopo di visualizzazione. Generato solo negli `id_tokens` v1.0. |
 |`uti` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Deve essere ignorata. |
 |`ver` | Stringa, 1.0 o 2.0 | Indica la versione dell'id_token. |
 
 
 > [!NOTE]
-> Le id_token v1 e v2 presentano differenze nella quantità di informazioni che contendono, come si è visto dagli esempi precedenti. La versione specifica essenzialmente l'endpoint della piattaforma Azure AD da cui è stato emesso. [L'implementazione Oauth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) di Azure AD si è evoluta nel corso degli anni. Attualmente sono disponibili due endpoint oAuth diversi per le applicazioni AzureAD. È possibile utilizzare uno qualsiasi dei nuovi endpoint classificati come v2 o quello precedente che si dice essere v1. Gli endpoint Oauth per entrambi sono diversi. L'endpoint V2 è il più recente in cui si sta tentando di eseguire la migrazione di tutte le funzionalità dell'endpoint v1 e si consiglia ai nuovi sviluppatori di usare l'endpoint v2. 
-> - V1: Endpoint di Azure Active Directory:`https://login.microsoftonline.com/common/oauth2/authorize`
-> - V2: Endpoint della piattaforma di identità Microsoft:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> I id_token V1 e V2 presentano differenze nella quantità di informazioni che verranno eseguite come illustrato negli esempi precedenti. La versione specifica essenzialmente l'endpoint della piattaforma Azure AD dal punto in cui è stato emesso. [Azure ad implementazione OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) si è evoluta negli anni. Attualmente sono disponibili due endpoint oAuth diversi per le applicazioni AzureAD. È possibile usare uno qualsiasi dei nuovi endpoint categorizzati come v2 o quello precedente, detto come V1. Gli endpoint OAuth per entrambi sono diversi. L'endpoint V2 è quello più recente in cui si tenta di eseguire la migrazione di tutte le funzionalità dell'endpoint V1 e si consiglia ai nuovi sviluppatori di usare l'endpoint V2. 
+> - V1: Azure Active Directory endpoint:`https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2: endpoint della piattaforma di identità Microsoft:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Convalida di un id_token
 
-La `id_token` convalida di un è simile al primo passaggio della convalida di un token di [accesso:](access-tokens.md#validating-tokens) il client deve verificare che l'autorità emittente corretta abbia restituito il token e che non sia stato manomesso. Poiché gli `id_tokens` sono sempre token JWT, esistono molte librerie per la convalida dei token; è quindi consigliabile usare una di queste anziché crearla manualmente.
+La convalida `id_token` di un è simile al primo passaggio della [convalida di un token di accesso](access-tokens.md#validating-tokens) . il client deve verificare che l'emittente corretto abbia inviato il token e che non sia stato alterato. Poiché gli `id_tokens` sono sempre token JWT, esistono molte librerie per la convalida dei token; è quindi consigliabile usare una di queste anziché crearla manualmente.
 
 Per convalidare manualmente il token, vedere la procedura illustrata nella sezione [Convalida di un token di accesso](access-tokens.md#validating-tokens). Dopo aver convalidato la firma nel token, è necessario convalidare nell'id_token le attestazioni seguenti (questa operazione può essere eseguita anche mediante la libreria di convalida dei token):
 
@@ -103,5 +103,5 @@ Per convalidare manualmente il token, vedere la procedura illustrata nella sezio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sui token di [accesso](access-tokens.md)
-* Personalizzare le attestazioni nel id_token utilizzando [attestazioni facoltative.](active-directory-optional-claims.md)
+* Informazioni sui [token di accesso](access-tokens.md)
+* Personalizzare le attestazioni nel id_token usando [attestazioni facoltative](active-directory-optional-claims.md).

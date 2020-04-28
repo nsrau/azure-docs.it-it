@@ -1,5 +1,5 @@
 ---
-title: Spostare dati da un'origine HTTP - AzureMove data from an HTTP source - Azure
+title: Spostare i dati da un'origine HTTP-Azure
 description: Informazioni su come spostare dati da un origine HTTP locale o cloud tramite Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991570"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Spostare dati da un'origine HTTP tramite Azure Data Factory
@@ -44,7 +44,7 @@ Nel copiare dati da un endpoint HTTP locale, è necessario installare Gateway di
 
 - Il modo più semplice per creare una pipeline è usare la procedura guidata di copia. Per una rapida procedura dettagliata di creazione di una pipeline mediante la procedura guidata di copia dei dati, vedere [Tutorial: Create a pipeline by using the Copy wizard](data-factory-copy-data-wizard-tutorial.md) (Esercitazione: Creare una pipeline tramite la procedura guidata di copia).
 
-- È inoltre possibile utilizzare gli strumenti seguenti per creare una pipeline: il modello **di Visual Studio**, Azure **PowerShell**, un modello di **Azure Resource Manager**, l'API **.NET**o l'API **REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Per gli esempi JSON per copiare i dati da un'origine HTTP nell'archiviazione BLOB di Azure, vedere [Esempi JSON](#json-examples).
+- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, un **modello di Azure Resource Manager**, l' **API .NET**o l' **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Per gli esempi JSON per copiare i dati da un'origine HTTP nell'archiviazione BLOB di Azure, vedere [Esempi JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
@@ -95,15 +95,15 @@ Per usare l'autenticazione di base, impostare **authenticationType** su **Client
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| embeddedCertData | Contenuto dei dati binari del file PFX con codifica Base64. | Specificare **embeddedCertData** o **certThumbprintSpecify either embeddedCertData or certThumbprint** |
-| certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Si applica solo quando si copiano dati da un server HTTP locale. | Specificare **embeddedCertData** o **certThumbprintSpecify either embeddedCertData or certThumbprint** |
+| embeddedCertData | Contenuto dei dati binari del file PFX con codifica Base64. | Specificare **embeddedCertData** o **certThumbprint** |
+| certThumbprint | L'identificazione personale del certificato installato nell'archivio certificati del computer gateway. Si applica solo quando si copiano dati da un server HTTP locale. | Specificare **embeddedCertData** o **certThumbprint** |
 | password | Password associata al certificato. | No |
 
 Se si usa **certThumbprint** per l'autenticazione e il certificato è installato nell'archivio personale del computer locale, è necessario concedere autorizzazioni di lettura per il servizio gateway:
 
 1. Aprire Microsoft Management Console (MMC). Aggiungere lo snap-in **Certificati** con **Computer locale** come destinazione.
-2. Espandere **Certificati** > **personali**, quindi selezionare **Certificati**.
-3. Fare clic con il pulsante destro del mouse sul certificato dell'archivio personale e quindi scegliere **Tutte le attività** >**Gestisci chiavi private**.
+2. Espandere **Certificates** > **Personal**, quindi selezionare **Certificates**.
+3. Fare clic con il pulsante destro del mouse sul certificato nell'archivio personale, quindi selezionare **tutte le attività** >**Gestisci chiavi private**.
 3. Nella scheda **Sicurezza** aggiungere l'account utente in cui è in esecuzione il servizio host di Gateway di gestione dati con l'accesso in lettura al certificato.  
 
 **Esempio: Uso di un certificato client**
@@ -165,7 +165,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. La sezion
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
 | requestBody | Corpo della richiesta HTTP. | No |
 | format | Se si vuole *recuperare i dati da un endpoint HTTP così come sono*, senza analizzarli, ignorare l'impostazione di **format**. <br><br> Se si vuole analizzare il contenuto della risposta HTTP durante la copia, sono supportati questi tipi di formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Per altre informazioni, vedere le sezioni relative ai formati [testo](data-factory-supported-file-and-compression-formats.md#text-format), [JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc](data-factory-supported-file-and-compression-formats.md#orc-format) e [Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. Tipi supportati: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Livelli supportati: **Ottimale** e **Più Veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. Tipi supportati: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Livelli supportati: **ottimale** e più **veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 **Esempio: Uso del metodo GET (predefinito)**
 
@@ -230,7 +230,7 @@ Vedere [File and compression formats in Azure Data Factory](data-factory-support
 
 ## <a name="json-examples"></a>Esempi JSON
 
-Negli esempi seguenti vengono fornite definizioni JSON di esempio che è possibile usare per creare una pipeline tramite [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell.](data-factory-copy-activity-tutorial-using-powershell.md) Gli esempi mostrano come copiare dati da un'origine HTTP all'archiviazione BLOB di Azure. Tuttavia, i dati possono anche essere copiati *direttamente* da una delle origini in qualsiasi sink [supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tramite l'attività di copia in Azure Data Factory.
+Gli esempi seguenti forniscono le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Gli esempi mostrano come copiare dati da un'origine HTTP all'archiviazione BLOB di Azure. Tuttavia, i dati possono anche essere copiati *direttamente* da una delle origini in qualsiasi sink [supportato](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tramite l'attività di copia in Azure Data Factory.
 
 **Esempio: Copiare dati da un'origine HTTP all'archiviazione BLOB di Azure**
 
@@ -239,7 +239,7 @@ La soluzione di Data Factory per questo esempio contiene le entità Data Factory
 *   Un servizio collegato di tipo [HTTP](#linked-service-properties).
 *   Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 *   Un [set di dati](data-factory-create-datasets.md) di input di tipo [HTTP](#dataset-properties).
-*   Un [set](data-factory-create-datasets.md) di dati di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+*   Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 *   Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [HttpSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 Nell'esempio i dati vengono copiati da un'origine HTTP a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi vengono descritte nelle sezioni che seguono gli esempi.

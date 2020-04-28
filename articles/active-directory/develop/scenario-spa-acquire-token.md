@@ -1,6 +1,6 @@
 ---
-title: Acquisire un token per chiamare un'API Web (app a pagina singola) - Piattaforma di identità Microsoft . Azure
-description: Informazioni su come compilare un'applicazione a pagina singola (acquisire un token per chiamare un'API)Learn how to build a single-page application (acquire a token to call an API)
+title: Acquisire un token per chiamare un'API Web (app a singola pagina)-piattaforma di identità Microsoft | Azure
+description: Informazioni su come creare un'applicazione a singola pagina (acquisire un token per chiamare un'API)
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -12,36 +12,36 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882319"
 ---
-# <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Applicazione a pagina singola: acquisire un token per chiamare un'APISingle-page application: Acquire a token to call an API
+# <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Applicazione a pagina singola: acquisire un token per chiamare un'API
 
-Il modello per l'acquisizione di token per le API con MSAL.js `acquireTokenSilent` consiste nel tentare prima una richiesta di token invisibile all'utente utilizzando il metodo . Quando questo metodo viene chiamato, la libreria controlla innanzitutto la cache nella memoria del browser per verificare se esiste un token valido e lo restituisce. Quando nella cache non è presente alcun token valido, invia una richiesta di token invisibile all'utente ad Azure Active Directory (Azure AD) da un iframe nascosto. Questo metodo consente inoltre alla libreria di rinnovare i token. Per altre informazioni sui valori della durata della sessione Single Sign-On e del token in Azure AD, vedere [Durata dei token.](active-directory-configurable-token-lifetimes.md)
+Il modello per l'acquisizione di token per le API con MSAL. js consiste nel tentare prima una richiesta di token invisibile all' `acquireTokenSilent` utente usando il metodo. Quando viene chiamato questo metodo, la libreria controlla prima di tutto la cache nell'archivio browser per verificare se esiste un token valido e lo restituisce. Quando non è presente alcun token valido nella cache, invia una richiesta di token invisibile all'utente Azure Active Directory (Azure AD) da un iframe nascosto. Questo metodo consente inoltre alla libreria di rinnovare i token. Per ulteriori informazioni sui valori di durata Single Sign-On sessione e token in Azure AD, vedere [durate dei token](active-directory-configurable-token-lifetimes.md).
 
-Le richieste di token invisibile all'utente in Azure AD potrebbero non riuscire per motivi come una sessione di Azure AD scaduta o una modifica della password. In tal caso, è possibile richiamare uno dei metodi interattivi (che richiederà all'utente) di acquisire i token:
+Le richieste di token invisibile al Azure AD potrebbero non riuscire per motivi quali una sessione di Azure AD scaduta o una modifica della password. In tal caso, è possibile richiamare uno dei metodi interattivi (che richiederanno all'utente) di acquisire i token:
 
-* [Finestra pop-up](#acquire-a-token-with-a-pop-up-window), utilizzando`acquireTokenPopup`
-* [Reindirizzare](#acquire-a-token-with-a-redirect), utilizzando`acquireTokenRedirect`
+* [Finestra popup](#acquire-a-token-with-a-pop-up-window), tramite`acquireTokenPopup`
+* [Reindirizzamento](#acquire-a-token-with-a-redirect)tramite`acquireTokenRedirect`
 
-## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Scegliere tra un'esperienza pop-up o di reindirizzamento
+## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Scegliere tra un'esperienza popup o un reindirizzamento
 
- Non è possibile utilizzare entrambi i metodi popup e redirect nell'applicazione. La scelta tra un'esperienza popup o di reindirizzamento dipende dal flusso dell'applicazione:The choice between a pop-up or redirect experience depends on your application flow:
+ Non è possibile usare entrambi i metodi popup e redirect nell'applicazione. La scelta tra un'esperienza popup o un reindirizzamento dipende dal flusso dell'applicazione:
 
-* Se non si desidera che gli utenti si allontanino dalla pagina principale dell'applicazione durante l'autenticazione, è consigliabile utilizzare il metodo popup. Poiché il reindirizzamento dell'autenticazione avviene in una finestra popup, lo stato dell'applicazione principale viene mantenuto.
+* Se non si vuole che gli utenti passino dalla pagina principale dell'applicazione durante l'autenticazione, è consigliabile usare il metodo popup. Poiché il reindirizzamento dell'autenticazione avviene in una finestra popup, lo stato dell'applicazione principale viene mantenuto.
 
-* Se gli utenti hanno vincoli del browser o criteri in cui le finestre popup sono disabilitate, è possibile utilizzare il metodo di reindirizzamento. Utilizzare il metodo di reindirizzamento con il browser Internet Explorer, poiché esistono [problemi noti con le finestre popup in Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
+* Se gli utenti dispongono di vincoli o criteri del browser in cui le finestre popup sono disabilitate, è possibile usare il metodo di reindirizzamento. Utilizzare il metodo di reindirizzamento con il browser Internet Explorer, perché sono presenti [problemi noti relativi alle finestre popup in Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
-È possibile impostare gli ambiti API che si desidera includere nel token di accesso durante la compilazione della richiesta del token di accesso. Si noti che tutti gli ambiti richiesti potrebbero non essere concessi nel token di accesso. Dipende dal consenso dell'utente.
+È possibile impostare gli ambiti dell'API che si desidera includere nel token di accesso quando si compila la richiesta del token di accesso. Si noti che tutti gli ambiti richiesti potrebbero non essere concessi nel token di accesso. Dipende dal consenso dell'utente.
 
-## <a name="acquire-a-token-with-a-pop-up-window"></a>Acquisire un token con una finestra popupAcquire a token with a pop-up window
+## <a name="acquire-a-token-with-a-pop-up-window"></a>Acquisire un token con una finestra popup
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il codice seguente combina il modello descritto in precedenza con i metodi per un'esperienza popup:The following code combines the previously described pattern with the methods for a pop-up experience:
+Il codice seguente combina il modello descritto in precedenza con i metodi per un'esperienza popup:
 
 ```javascript
 const accessTokenRequest = {
@@ -68,9 +68,9 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-Il wrapper angolare MSAL fornisce l'intercettore HTTP, che acquisirà automaticamente i token di accesso in modo invisibile all'utente e li allegherà alle richieste HTTP alle API.
+Il wrapper angolare MSAL fornisce l'intercettore HTTP, che acquisisce automaticamente i token di accesso in modo invisibile all'utente e li associa alle richieste HTTP alle API.
 
-È possibile specificare gli ambiti per `protectedResourceMap` le API nell'opzione di configurazione. `MsalInterceptor`questi ambiti durante l'acquisizione automatica dei token.
+È possibile specificare gli ambiti per le API nell' `protectedResourceMap` opzione di configurazione. `MsalInterceptor`questi ambiti verranno richiesti durante l'acquisizione automatica dei token.
 
 ```javascript
 // app.module.ts
@@ -109,7 +109,7 @@ Il wrapper angolare MSAL fornisce l'intercettore HTTP, che acquisirà automatica
 export class AppModule { }
 ```
 
-Per l'esito positivo e negativo dell'acquisizione di token invisibile all'utente, MSAL Angular fornisce callback che è possibile sottoscrivere. È anche importante ricordarsi di annullare l'iscrizione.
+Per avere esito positivo e negativo dell'acquisizione del token invisibile all'utente, MSAL angolare fornisce callback che è possibile sottoscrivere. È anche importante ricordare di annullare la sottoscrizione.
 
 ```javascript
 // In app.component.ts
@@ -126,7 +126,7 @@ ngOnDestroy() {
  }
 ```
 
-In alternativa, è possibile acquisire in modo esplicito i token usando i metodi acquire-token come descritto nella libreria MSAL.js di base.
+In alternativa, è possibile acquisire in modo esplicito i token usando i metodi di acquisizione dei token come descritto nella libreria MSAL. js di base.
 
 ---
 
@@ -134,7 +134,7 @@ In alternativa, è possibile acquisire in modo esplicito i token usando i metodi
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Il modello seguente è come descritto in precedenza, ma illustrato con un metodo di reindirizzamento per acquisire i token in modo interattivo. È necessario registrare il callback di reindirizzamento come indicato in precedenza.
+Il modello seguente è descritto in precedenza, ma mostrato con un metodo di reindirizzamento per acquisire i token in modo interattivo. È necessario registrare il callback di reindirizzamento come indicato in precedenza.
 
 ```javascript
 function authCallback(error, response) {
@@ -160,15 +160,15 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-## <a name="request-optional-claims"></a>Richiedere attestazioni facoltativeRequest optional claims
+## <a name="request-optional-claims"></a>Richiedi attestazioni facoltative
 
-È possibile utilizzare attestazioni facoltative per gli scopi seguenti:You can use optional claims for the following purposes:
+È possibile utilizzare le attestazioni facoltative per gli scopi seguenti:
 
 - Includere attestazioni aggiuntive nei token per l'applicazione.
 - Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
 - Aggiungere e accedere ad attestazioni personalizzate per l'applicazione.
 
-Per richiedere attestazioni facoltative in `IdToken`, è `claimsRequest` possibile inviare un oggetto attestazioni stringato al campo della `AuthenticationParameters.ts` classe.
+Per richiedere attestazioni facoltative in `IdToken`, è possibile inviare un oggetto Claims `claimsRequest` file al campo `AuthenticationParameters.ts` della classe.
 
 ```javascript
 "optionalClaims":
@@ -188,11 +188,11 @@ var request = {
 myMSALObj.acquireTokenPopup(request);
 ```
 
-Per altre informazioni, vedere [Attestazioni facoltative](active-directory-optional-claims.md).
+Per altre informazioni, vedere [attestazioni facoltative](active-directory-optional-claims.md).
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-Questo codice è lo stesso descritto in precedenza.
+Questo codice è identico a quello descritto in precedenza.
 
 ---
 

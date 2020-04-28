@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd986a7557f468b939aefe1da825c9834618047f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165972"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402926"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
-In questa esercitazione verrà creata un'applicazione Android che usa il servizio Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
+In questa esercitazione si creerà un'applicazione Android che usa il servizio Viso di Azure, tramite Java SDK, per rilevare i visi umani in un'immagine. L'applicazione mostra un'immagine selezionata e traccia una cornice attorno a ogni viso rilevato.
 
 Questa esercitazione illustra come:
 
@@ -35,11 +35,11 @@ Il codice di esempio completo è disponibile nell'archivio [Cognitive Services F
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una chiave di sottoscrizione di Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni riportate in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Viso e ottenere la chiave. Quindi, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
-- [Android Studio](https://developer.android.com/studio/) con livello API 22 o successivo (richiesto dalla libreria client del servizio Viso).
+- [Android Studio](https://developer.android.com/studio/) con livello API 22 o successivo.
 
 ## <a name="create-the-android-studio-project"></a>Creare il progetto Android Studio
 
@@ -123,7 +123,7 @@ Eseguire l'applicazione e quindi cercare un'immagine con un viso. Attendere qual
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso il processo di base per l'uso di Viso tramite Java SDK ed è stata creata un'applicazione per rilevare e incorniciare visi in un'immagine. In seguito, si apprenderanno altre informazioni sul rilevamento volto.
+In questa esercitazione si è appreso come usare Viso tramite Java SDK per creare un'applicazione per rilevare e incorniciare i visi in un'immagine. In seguito, si apprenderanno altre informazioni sul rilevamento volto.
 
 > [!div class="nextstepaction"]
 > [Come rilevare visi nelle immagini](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

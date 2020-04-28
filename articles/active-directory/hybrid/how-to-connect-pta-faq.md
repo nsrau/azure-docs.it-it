@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406888"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
@@ -41,18 +41,18 @@ No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L'accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
 
-Sì. Tutte le funzionalità di accesso condizionale, inclusa l'autenticazione a più fattori di Azure, funzionano con l'autenticazione pass-through.
+Sì. Tutte le funzionalità di accesso condizionale, tra cui Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
-L'accesso utilizzando un valore non UPN, ad esempio un messaggio di posta elettronica alternativo, è attualmente in fase di test in anteprima privata sia per l'autenticazione pass-through (PTA) che per la sincronizzazione dell'hash delle password (PHS).
+L'accesso con un valore non UPN, ad esempio un indirizzo di posta elettronica alternativo, è attualmente testato in anteprima privata per l'autenticazione pass-through (PTA) e la sincronizzazione dell'hash delle password (pH).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 
 No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Cosa succede quando si passa dalla sincronizzazione dell'hash delle password all'autenticazione pass-through?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Cosa accade quando si passa dalla sincronizzazione dell'hash delle password all'autenticazione pass-through?
 
-Quando si usa Azure AD Connect per passare dalla sincronizzazione dell'hash delle password all'autenticazione pass-through, l'autenticazione pass-through diventa il metodo di accesso primario per gli utenti nei domini gestiti. Si noti che gli hash delle password di tutti gli utenti precedentemente sincronizzati dalla sincronizzazione dell'hash delle password rimangono archiviati in Azure AD.
+Quando si usa Azure AD Connect per cambiare il metodo di accesso dalla sincronizzazione dell'hash delle password all'autenticazione pass-through, l'autenticazione pass-through diventa il metodo di accesso primario per gli utenti in domini gestiti. Si noti che gli hash delle password di tutti gli utenti che sono stati sincronizzati in precedenza con la sincronizzazione dell'hash delle password rimangono archiviati in Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>È possibile installare un connettore del [proxy di applicazione di Azure AD](../manage-apps/application-proxy.md) nello stesso server in cui è presente un agente di autenticazione pass-through?
 
@@ -75,7 +75,7 @@ Se non è stato configurato il writeback delle password per un utente specifico 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Cosa comunicano gli agenti di autenticazione pass-through sulle porte 80 e 443?
 
 - Gli agenti di autenticazione inviano le richieste HTTP sulla porta 443 per tutte le operazioni di funzionalità.
-- Gli agenti di autenticazione effettuano richieste HTTP sulla porta 80 per scaricare gli elenchi di revoche di certificati TLS/SSL (CRL).
+- Gli agenti di autenticazione effettuano richieste HTTP sulla porta 80 per scaricare gli elenchi di revoche di certificati (CRL) TLS/SSL.
 
      >[!NOTE]
      >In aggiornamenti recenti è stato ridotto il numero di porte necessarie per la funzionalità. Se si dispone di versioni precedenti di Azure AD Connect o dell'agente di autenticazione, tenere aperte anche le porte seguenti: 5671, 8080, 9090, 9091, 9350, 9352 e 10100-10120.
@@ -107,7 +107,7 @@ No, è possibile installare solo un agente di autenticazione pass-through in un 
 
 ## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>È necessario rinnovare manualmente i certificati utilizzati dagli agenti di autenticazione pass-through?
 
-La comunicazione tra ciascun agente di autenticazione pass-through e Azure AD è protetta tramite l'autenticazione basata su certificato. Questi [certificati vengono rinnovati automaticamente ogni pochi mesi da Azure AD.](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents) e non è necessario rinnovarli manualmente. È possibile eliminare i vecchi certificati scaduti in base alle esigenze.
+La comunicazione tra ciascun agente di autenticazione pass-through e Azure AD è protetta tramite l'autenticazione basata su certificato. Questi [certificati vengono rinnovati automaticamente ogni pochi mesi per Azure ad](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). e non è necessario rinnovarli manualmente. È possibile eliminare i vecchi certificati scaduti in base alle esigenze.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Come si rimuove un agente di autenticazione pass-through?
 
@@ -121,7 +121,7 @@ Se si esegue la migrazione da AD FS (o da altre tecnologia federative) per l'aut
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>È possibile usare l'autenticazione pass-through in un ambiente Active Directory a più foreste?
 
-Sì. Gli ambienti a più foreste sono supportati se sono presenti trust tra foreste (bidirezionali) tra le foreste di Active Directory e se il routing dei suffissi nome è configurato correttamente.
+Sì. Gli ambienti a più foreste sono supportati se sono presenti trust tra foreste (bidirezionali) tra le foreste Active Directory e se il routing del suffisso del nome è configurato correttamente.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>L'autenticazione pass-through fornisce bilanciamento del carico su più agenti di autenticazione?
 
@@ -148,7 +148,7 @@ No, questo scenario _non_ è supportato.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Perché è necessario un account amministratore globale solo cloud per abilitare l'autenticazione pass-through?
 
-È consigliabile abilitare o disabilitare l'autenticazione pass-through con un account amministratore globale solo cloud. Informazioni [sull'aggiunta di un account amministratore globale solo cloud.](../active-directory-users-create-azure-portal.md) Questa procedura è fondamentale per evitare di rimanere bloccati fuori dal tenant.
+È consigliabile abilitare o disabilitare l'autenticazione pass-through con un account amministratore globale solo cloud. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../active-directory-users-create-azure-portal.md). Questa procedura è fondamentale per evitare di rimanere bloccati fuori dal tenant.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Come si disabilita l'autenticazione pass-through?
 

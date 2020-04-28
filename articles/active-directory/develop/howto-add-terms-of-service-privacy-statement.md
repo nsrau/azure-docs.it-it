@@ -1,5 +1,5 @@
 ---
-title: Termini di servizio e informativa sulla privacy per le app Azure
+title: Condizioni per il servizio e informativa sulla privacy per le app | Azure
 description: Informazioni su come configurare le condizioni per l'utilizzo del servizio e l'informativa sulla privacy per le app registrate per l'uso di Azure AD.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 40e7a05505bc501c1c622e627a6d97cc57db1cfa
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884240"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: Configurare i termini di servizio e l'informativa sulla privacy per un'appHow to: Configure terms of service and privacy statement for an app
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: configurare le condizioni del servizio e l'informativa sulla privacy per un'app
 
 Gli sviluppatori che creano e gestiscono app integrate con Azure Active Directory (Azure AD) e account Microsoft devono includere collegamenti alle condizioni per l'utilizzo del servizio e all'informativa sulla privacy dell'app. Le condizioni per l'utilizzo del servizio e l'informativa sulla privacy vengono presentate agli utenti tramite l'esperienza di consenso dell'utente e consentono agli utenti di sapere che possono considerare attendibile l'app. Le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono particolarmente importanti per le app multi-tenant rivolte all'utente, ovvero le app che vengono usate da più directory o sono disponibili per qualsiasi account Microsoft.
 
@@ -53,18 +53,18 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 
 * [Tramite il portale di Azure](#azure-portal)
 * [Con il codice JSON dell'oggetto app](#app-object-json)
-* [Utilizzo dell'API Microsoft Graph](#msgraph-rest-api)
+* [Uso dell'API Microsoft Graph](#msgraph-rest-api)
 
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso del portale di Azure
-Seguire questi passaggi nel portale di Azure.Follow these steps in the Azure portal.
+Seguire questa procedura nella portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
-3. Aprire il riquadro **Personalizzazione.**
+3. Aprire il riquadro **personalizzazione** .
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
 5. Salvare le modifiche.
 
-    ![Le proprietà dell'app contengono gli URL dei termini di servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Le proprietà dell'app contengono le condizioni per l'utilizzo e gli URL dell'informativa](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Con il codice JSON dell'oggetto app
 
@@ -77,9 +77,9 @@ Se si preferisce modificare direttamente il codice JSON dell'oggetto app, è pos
     }
 ```
 
-### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>Utilizzo dell'API Microsoft Graph
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>Uso dell'API Microsoft Graph
 
-Per aggiornare a livello di codice tutte le app, puoi usare l'API Microsoft Graph per aggiornare tutte le app in modo da includere collegamenti ai termini di servizio e ai documenti relativi all'informativa sulla privacy.
+Per aggiornare a livello di codice tutte le app, è possibile usare l'API Microsoft Graph per aggiornare tutte le app in modo da includere i collegamenti alle condizioni del servizio e ai documenti informativi sulla privacy.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/applications/{application id}
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 
 > [!NOTE]
 > * Prestare attenzione a non sovrascrivere eventuali valori pre-esistenti assegnati a uno di questi campi: `supportUrl`, `marketingUrl` e `logoUrl`
-> * L'API Microsoft Graph funziona solo quando si accede con un account Azure AD. Gli account Microsoft personali non sono supportati.
+> * L'API Microsoft Graph funziona solo quando si accede con un account di Azure AD. Gli account Microsoft personali non sono supportati.

@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053587"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403459"
 ---
 # <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Il servizio Viso di Servizi cognitivi di Azure offre gli algoritmi per rilevare, riconoscere e analizzare i visi umani nelle immagini. La possibilità di elaborare le informazioni relative ai visi umani è importante in molti scenari di software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
+Il servizio Viso di Servizi cognitivi di Azure offre algoritmi che rilevano, riconoscono e analizzano i visi umani nelle immagini. La possibilità di elaborare le informazioni relative ai visi umani è importante in molti scenari di software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
 
-Il servizio Viso offre diverse funzioni, descritte nelle sezioni seguenti. Proseguire la lettura per altre informazioni su ogni funzione.
+Il servizio Viso offre varie funzioni diverse, descritte nelle sezioni seguenti.
 
 ## <a name="face-detection"></a>Rilevamento del viso
 
@@ -69,7 +69,7 @@ Dopo la creazione e il training di un database, è possibile eseguire l'identifi
 
 Per altre informazioni sull'identificazione delle persone, vedere l'articolo che illustra i concetti relativi al [riconoscimento del viso](concepts/face-recognition.md) o consultare la documentazione di riferimento dell'[API di identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="use-containers"></a>Usare i contenitori
+## <a name="containers"></a>Contenitori
 
 [Usare il contenitore Viso](face-how-to-install-containers.md) per rilevare, riconoscere e identificare visi installando un contenitore Docker standardizzato più vicino ai dati.
 

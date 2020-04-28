@@ -14,16 +14,16 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80876185"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Aggiungere le informazioni sulla privacy dell'organizzazione tramite Azure Active Directory
-Questo articolo illustra come un amministratore tenant può aggiungere informazioni relative alla privacy al tenant di Azure Active Directory (Azure AD) di un'organizzazione, tramite il portale di Azure.This article explains how a tenant admin can add privacy-related info to an organization's Azure Active Directory (Azure AD) tenant, through the Azure portal.
+Questo articolo illustra in che modo un amministratore tenant può aggiungere informazioni relative alla privacy al tenant Azure Active Directory (Azure AD) di un'organizzazione, tramite il portale di Azure.
 
-Ti consigliamo vivamente di aggiungere sia il tuo contatto per la privacy globale che l'informativa sulla privacy della tua organizzazione, in modo che i dipendenti interni e gli ospiti esterni possano rivedere le tue norme. Poiché le informative sulla privacy sono esclusive e personalizzate per ogni attività, è consigliabile contattare un legale per assistenza.
+Si consiglia vivamente di aggiungere il contatto globale sulla privacy e l'informativa sulla privacy dell'organizzazione, in modo che i dipendenti interni e gli utenti esterni possano rivedere i criteri. Poiché le informative sulla privacy sono esclusive e personalizzate per ogni attività, è consigliabile contattare un legale per assistenza.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -46,10 +46,10 @@ Aggiungere le informazioni sulla privacy dell'organizzazione nella sezione **Pro
     
     - **Contatto privacy globale**. Inserire l'indirizzo di posta elettronica della persona da contattare per le richieste di informazioni sulla privacy dei dati personali. Questa persona viene contattata anche da Microsoft qualora venga riscontrata una violazione dei dati. Se l'elenco non contiene nessun contatto, Microsoft contatterà gli amministratori globali.
 
-    - **URL dell'informativa sulla privacy**. Digitare il collegamento al documento dell'organizzazione che descrive il modo in cui l'organizzazione gestisce la privacy dei dati degli ospiti interni ed esterni.
+    - **URL dell'informativa sulla privacy**. Digitare il collegamento al documento dell'organizzazione che descrive il modo in cui l'organizzazione gestisce la privacy dei dati dei guest interni ed esterni.
 
         >[!Important]
-        >Se non includi la tua informativa sulla privacy o il tuo contatto per la privacy, gli ospiti esterni visualizzeranno il testo nella casella **Verifica autorizzazioni** che ** <indica che _il nome dell'organizzazione_> non ha fornito collegamenti alle loro condizioni per la revisione**. Ad esempio, un utente guest visualizza questo messaggio quando riceve un invito per accedere a un'organizzazione tramite la collaborazione B2B.
+        >Se non si include la propria informativa sulla privacy o l'informativa sulla privacy, i guest esterni visualizzeranno un testo nella casella **Controlla autorizzazioni** che indica ** <che _il nome dell'organizzazione_> non ha fornito collegamenti alle relative condizioni da rivedere**. Ad esempio, un utente guest visualizza questo messaggio quando riceve un invito per accedere a un'organizzazione tramite la collaborazione B2B.
 
         ![Finestra di dialogo per la verifica delle autorizzazioni di Collaborazione B2B con messaggio](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 

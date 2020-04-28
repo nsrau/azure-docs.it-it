@@ -1,7 +1,7 @@
 ---
 title: Credenziali del certificato della piattaforma di identità Microsoft
 titleSuffix: Microsoft identity platform
-description: In questo articolo vengono illustrate la registrazione e l'utilizzo delle credenziali del certificato per l'autenticazione dell'applicazione.
+description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,20 +14,20 @@ ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d834d37f686279facf0052e3c8f4da3c8d259e0b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309682"
 ---
-# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato di autenticazione dell'applicazione della piattaforma di identità MicrosoftMicrosoft identity platform application authentication certificate credentials
+# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato di autenticazione dell'applicazione Microsoft Identity Platform
 
-La piattaforma di identità Microsoft consente a un'applicazione di utilizzare le proprie credenziali per l'autenticazione, ad esempio negli [osidi OAuth 2.0 Client Credentials Grant flowv2.0](v2-oauth2-client-creds-grant-flow.md) e [nel flusso On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md).
+Microsoft Identity Platform consente a un'applicazione di usare le proprie credenziali per l'autenticazione, ad esempio, nelle [credenziali client OAuth 2,0 concedere flowv 2.0](v2-oauth2-client-creds-grant-flow.md) e il [flusso per conto di](v2-oauth2-on-behalf-of-flow.md).
 
 Un tipo di credenziale che un'applicazione può usare per l'autenticazione è un'asserzione di token JSON Web (JWT) firmata con un certificato di proprietà dell'applicazione.
 
 ## <a name="assertion-format"></a>Formato di asserzione
-Piattaforma di identità Microsoft Per calcolare l'asserzione, è possibile utilizzare una delle numerose librerie [di token Web JSON](https://jwt.ms/) nel linguaggio desiderato. Le informazioni incluse nel token sono le seguenti:
+Piattaforma di identità Microsoft per calcolare l'asserzione, è possibile usare una delle numerose librerie di [token Web JSON](https://jwt.ms/) nel linguaggio scelto. Le informazioni incluse nel token sono le seguenti:
 
 ### <a name="header"></a>Intestazione
 
@@ -41,7 +41,7 @@ Piattaforma di identità Microsoft Per calcolare l'asserzione, è possibile util
 
 | Parametro |  Osservazioni |
 | --- | --- |
-| `aud` | Pubblico: deve essere ** https://login.microsoftonline.com/ *tenant_Id*/oauth2/token** |
+| `aud` | Destinatari: deve essere ** https://login.microsoftonline.com/ *tenant_Id*/OAuth2/token** |
 | `exp` | Data di scadenza: la data di scadenza del token. L'ora è rappresentata come numero di secondi dal 1° gennaio 1970 (1970-01-01T0:0:0Z) UTC fino all'ora in cui scade la validità del token.|
 | `iss` | Autorità di certificazione: deve essere il parametro client_id (ID applicazione del servizio client) |
 | `jti` | GUID: l'ID token JWT |
@@ -85,15 +85,15 @@ La stringa seguente è un esempio di asserzione codificata. Se si osserva con at
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registrare il certificato con la piattaforma di identità MicrosoftRegister your certificate with Microsoft identity platform
+## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registrare il certificato con Microsoft Identity Platform
 
-È possibile associare le credenziali del certificato all'applicazione client nella piattaforma di identità Microsoft tramite il portale di Azure usando uno dei metodi seguenti:You can associate the certificate credential with the client application in Microsoft identity platform through the Azure portal using any of the following methods:
+È possibile associare la credenziale del certificato all'applicazione client nella piattaforma Microsoft Identity tramite il portale di Azure usando uno dei metodi seguenti:
 
 ### <a name="uploading-the-certificate-file"></a>Caricamento del file del certificato
 
 Nella registrazione dell'app di Azure per l'applicazione client:
 1. Selezionare **Certificati e segreti**.
-2. Fare clic su **Carica certificato** e selezionare il file del certificato da caricare.
+2. Fare clic su **Carica certificato** e selezionare il file di certificato da caricare.
 3. Fare clic su **Aggiungi**.
   Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
 
@@ -107,7 +107,7 @@ Con un certificato disponibile, è necessario calcolare:
 È anche necessario specificare un GUID per identificare la chiave nel manifesto dell'applicazione (`$keyId`).
 
 Nella registrazione dell'app di Azure per l'applicazione client:
-1. Selezionare **Manifesto** per aprire il manifesto dell'applicazione.
+1. Selezionare **manifesto** per aprire il manifesto dell'applicazione.
 2. Sostituire la proprietà *keyCredentials* con le nuove informazioni del certificato usando lo schema seguente.
 
    ```JSON
@@ -121,13 +121,13 @@ Nella registrazione dell'app di Azure per l'applicazione client:
        }
    ]
    ```
-3. Salvare le modifiche nel manifesto dell'applicazione e quindi caricare il manifesto nella piattaforma di identità Microsoft.Save the edits to the application manifest and then upload the manifest to Microsoft identity platform.
+3. Salvare le modifiche nel manifesto dell'applicazione e quindi caricare il manifesto nella piattaforma di identità Microsoft.
 
    La proprietà `keyCredentials` è multivalore, quindi è possibile caricare più certificati per una gestione delle chiavi più avanzata.
 
 ## <a name="code-sample"></a>Esempio di codice
 
 > [!NOTE]
-> È necessario calcolare l'intestazione X5T convertendola in una stringa base 64 utilizzando l'hash del certificato. Il codice per eseguire questa `System.Convert.ToBase64String(cert.GetCertHash());`operazione in C ' è .
+> Per calcolare l'intestazione X5T, è necessario convertirla in una stringa di base 64 usando l'hash del certificato. Il codice per eseguire questa operazione in C# `System.Convert.ToBase64String(cert.GetCertHash());`è.
 
-L'esempio di codice [.NET Core daemon applicazione console che utilizza Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) viene illustrato come un'applicazione utilizza le proprie credenziali per l'autenticazione. Illustra anche come è possibile [creare un certificato autofirmato](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) usando il comando `New-SelfSignedCertificate` di PowerShell. È possibile anche sfruttare e usare gli [script di creazione di app](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) per creare i certificati, calcolare l'identificazione personale e così via.
+L'applicazione console di esempio di codice [.NET Core daemon con la piattaforma di identità Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) Mostra come un'applicazione usa le proprie credenziali per l'autenticazione. Illustra anche come è possibile [creare un certificato autofirmato](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) usando il comando `New-SelfSignedCertificate` di PowerShell. È possibile anche sfruttare e usare gli [script di creazione di app](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) per creare i certificati, calcolare l'identificazione personale e così via.

@@ -1,5 +1,5 @@
 ---
-title: Creare un'identità dell'app di Azure (PowerShell)Create an Azure app identity (PowerShell) Azure
+title: Creare un'identità dell'app di Azure (PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Descrive come usare Azure PowerShell per creare un'applicazione Azure Active Directory e un'entità servizio e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con un certificato.
 services: active-directory
@@ -14,10 +14,10 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: 7bd8c3b25c23ba8586e38ec8eb7d1baefaa21633
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884188"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedure: Usare Azure PowerShell per creare un'entità servizio con un certificato
@@ -45,14 +45,14 @@ Il modo più semplice per verificare se l'account dispone delle autorizzazioni a
 ## <a name="assign-the-application-to-a-role"></a>Assegnare l'applicazione a un ruolo
 Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](/azure/role-based-access-control/built-in-roles).
 
-È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Ad esempio, l'aggiunta di un'applicazione al ruolo *Lettore* per un gruppo di risorse significa che può leggere il gruppo di risorse e le risorse in esso contenute. Per consentire all'applicazione di eseguire azioni come reboot, avviare e arrestare le istanze, selezionare il ruolo *Collaboratore.*
+È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Ad esempio, l'aggiunta di un'applicazione al ruolo *lettore* per un gruppo di risorse significa che può leggere il gruppo di risorse e tutte le risorse in esso contenute. Per consentire all'applicazione di eseguire azioni come il riavvio, l'avvio e l'arresto delle istanze, selezionare il ruolo *collaboratore* .
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Creare un'entità servizio con certificato autofirmato
 
-L'esempio seguente illustra uno scenario semplice. Usa [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) per creare un'entità servizio con un certificato autofirmato e viene utilizzato [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) per assegnare il ruolo [Reader](/azure/role-based-access-control/built-in-roles#reader) all'entità servizio. L'ambito di assegnazione del ruolo corrisponde alla sottoscrizione di Azure selezionata. Per selezionare un'altra sottoscrizione, usare [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+L'esempio seguente illustra uno scenario semplice. USA [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) per creare un'entità servizio con un certificato autofirmato e USA [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) per assegnare il ruolo [lettore](/azure/role-based-access-control/built-in-roles#reader) all'entità servizio. L'ambito di assegnazione del ruolo corrisponde alla sottoscrizione di Azure selezionata. Per selezionare un'altra sottoscrizione, usare [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
-> Il cmdlet New-SelfSignedCertificate e il modulo PKI non sono attualmente supportati in PowerShell Core. 
+> Il cmdlet New-SelfSignedCertificate e il modulo PKI non sono attualmente supportati in PowerShell core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -106,7 +106,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Creare un'entità servizio con certificato dell'autorità di certificazione
 
-L'esempio seguente usa un certificato emesso da un'autorità di certificazione per creare un'entità servizio. L'ambito dell'assegnazione corrisponde alla sottoscrizione di Azure specificata. Aggiunge l'entità servizio al ruolo [Lettore.It](../../role-based-access-control/built-in-roles.md#reader) adds the service principal to the Reader role. Se si verifica un errore durante l'assegnazione del ruolo, l'assegnazione viene ritentata.
+L'esempio seguente usa un certificato emesso da un'autorità di certificazione per creare un'entità servizio. L'ambito dell'assegnazione corrisponde alla sottoscrizione di Azure specificata. Aggiunge l'entità servizio al ruolo [Reader](../../role-based-access-control/built-in-roles.md#reader) . Se si verifica un errore durante l'assegnazione del ruolo, l'assegnazione viene ritentata.
 
 ```powershell
 Param (
@@ -216,7 +216,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 Durante la creazione di un'entità servizio, è possibile riscontrare gli errori seguenti:
 
-* **"Authentication_Unauthorized"** o **"Nessuna sottoscrizione trovata nel contesto".** - Questo errore viene visualizzato quando l'account non ha le [autorizzazioni necessarie](#required-permissions) in Azure Active Directory per registrare un'app. In genere, questo errore viene visualizzato quando solo gli utenti amministratori in Azure Active Directory possono registrare app e l'account non è un amministratore. Chiedere all'amministratore di assegnare un ruolo di amministratore o di consentire agli utenti di registrare le app.
+* **"Authentication_Unauthorized"** o **"Nessuna sottoscrizione trovata nel contesto".** - Questo errore viene visualizzato quando l'account non ha le [autorizzazioni necessarie](#required-permissions) in Azure Active Directory per registrare un'app. Questo errore viene in genere visualizzato quando solo gli utenti amministratori del Azure Active Directory possono registrare le app e l'account non è un amministratore. Richiedere all'amministratore di assegnare l'utente a un ruolo di amministratore o di consentire agli utenti di registrare le app.
 
 * L'account **"non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' nell'ambito '/subscriptions/{guid}'."** - Questo errore viene visualizzato quando l'account non dispone di autorizzazioni sufficienti per assegnare un ruolo a un'identità. Chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente.
 

@@ -1,5 +1,5 @@
 ---
-title: Modificare le impostazioni predefinite della durata dei token per le app personalizzate di Azure ADChange token lifetime defaults for custom Azure AD apps
+title: Modificare le impostazioni predefinite per la durata dei token per app Azure AD personalizzate
 description: Informazioni su come aggiornare i criteri di durata del token per l'applicazione che si sta sviluppando in Azure AD
 services: active-directory
 author: rwike77
@@ -12,15 +12,15 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883354"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata
 
-Questo articolo illustra come usare Azure AD PowerShell per impostare criteri di durata dei token. Azure AD Premium consente agli sviluppatori di app e agli amministratori di tenant di configurare la durata dei token emessi per i client non riservati. I criteri di durata dei token vengono impostati a livello di tenant o per le risorse a cui si accede.
+Questo articolo illustra come usare Azure AD PowerShell per impostare i criteri per la durata dei token. Azure AD Premium consente agli sviluppatori di app e agli amministratori di tenant di configurare la durata dei token emessi per i client non riservati. I criteri di durata dei token vengono impostati a livello di tenant o per le risorse a cui si accede.
 
 1. Per impostare i criteri di durata del token, è necessario scaricare il [modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Eseguire il comando **Connect-AzureAD -Confirm**.
@@ -30,4 +30,4 @@ Questo articolo illustra come usare Azure AD PowerShell per impostare criteri di
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Durate dei token configurabile in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) per informazioni su come configurare la durata dei token emessi da Azure AD, tra cui come impostare la durata dei token per tutte le app di un'organizzazione, per un'applicazione multi-tenant o per un'entità servizio specifica in un'organizzazione. 
-* [Azure AD Token Reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* [Riferimento al token Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)

@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154815"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedura: Abilitare l'accesso Single Sign-On tra app su Android tramite ADAL
@@ -36,7 +36,7 @@ In questa procedura si apprenderà come configurare l'SDK all'interno dell'appli
 
 Questa procedura presuppone che si sia in grado di:
 
-- Effettuare il provisioning dell'app tramite il portale legacy per Azure Active Directory (Azure AD). Per altre info, vedi [Registrare un'app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+- Effettuare il provisioning dell'app tramite il portale legacy per Azure Active Directory (Azure AD). Per altre informazioni, vedere [registrare un'app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 - Integrare l'applicazione con [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Concetti dell'accesso Single Sign-On
@@ -60,7 +60,7 @@ Se nel dispositivo è installato un broker compatibile, ad esempio l'applicazion
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Modalità con cui Microsoft assicura la validità dell'applicazione
 
-La necessità di garantire l'identità di un'applicazione che chiama il broker è fondamentale per la sicurezza fornita negli accessi assistiti dal broker. I sistemi iOS e Android non applicano identificatori univoci che sono validi solo per una determinata applicazione, pertanto le applicazioni dannose possono effettuare lo "spoofing" di un identificatore dell'applicazione legittimo e ricevere i token per l'applicazione legittima. Per garantire che Microsoft comunichi sempre con l'applicazione giusta in fase di esecuzione, lo sviluppatore deve specificare un URI di reindirizzamento personalizzato quando registra la propria applicazione con Microsoft. **Le modalità di creazione dell'URI di reindirizzamento da parte degli sviluppatori vengono trattate in dettaglio di seguito.** Questo URI di reindirizzamento personalizzato contiene l'identificazione personale del certificato dell'applicazione e Google Play Store ne garantisce l'univocità per l'applicazione. Quando un'applicazione chiama il broker, questo richiede al sistema operativo Android per fornire l'identificazione personale del certificato che ha chiamato il broker. Il broker invia questa identificazione personale del certificato a Microsoft nella chiamata al sistema di identità. Se l'identificazione personale del certificato dell'applicazione non corrisponde all'identificazione personale del certificato specificata dallo sviluppatore durante la registrazione, verrà negato l'accesso ai token per la risorsa richiesta dall'applicazione. Questo controllo garantisce che solo l'applicazione registrata dallo sviluppatore riceva i token.
+La necessità di garantire che l'identità di un'applicazione che chiama il broker sia fondamentale per la sicurezza fornita negli accessi assistiti da broker. I sistemi iOS e Android non applicano identificatori univoci che sono validi solo per una determinata applicazione, pertanto le applicazioni dannose possono effettuare lo "spoofing" di un identificatore dell'applicazione legittimo e ricevere i token per l'applicazione legittima. Per garantire che Microsoft comunichi sempre con l'applicazione giusta in fase di esecuzione, lo sviluppatore deve specificare un URI di reindirizzamento personalizzato quando registra la propria applicazione con Microsoft. **Le modalità di creazione dell'URI di reindirizzamento da parte degli sviluppatori vengono trattate in dettaglio di seguito.** Questo URI di reindirizzamento personalizzato contiene l'identificazione personale del certificato dell'applicazione e Google Play Store ne garantisce l'univocità per l'applicazione. Quando un'applicazione chiama il broker, questo richiede al sistema operativo Android per fornire l'identificazione personale del certificato che ha chiamato il broker. Il broker invia questa identificazione personale del certificato a Microsoft nella chiamata al sistema di identità. Se l'identificazione personale del certificato dell'applicazione non corrisponde all'identificazione personale del certificato specificata dallo sviluppatore durante la registrazione, verrà negato l'accesso ai token per la risorsa richiesta dall'applicazione. Questo controllo garantisce che solo l'applicazione registrata dallo sviluppatore riceva i token.
 
 Gli accessi SSO con broker offrono i vantaggi seguenti:
 
@@ -116,7 +116,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Passaggio 2: Creare un nuovo URI di reindirizzamento con lo schema dell'URL
 
-Per garantire che l'applicazione corretta riceva i token di credenziali restituiti, è necessario assicurarsi che la chiamata all'applicazione sia in grado di verificare. Il sistema operativo Android utilizza in Google Play Store l'hash del certificato, che non può essere soggetto a spoofing da un'applicazione non autorizzata. Insieme all'URI dell'applicazione broker, Microsoft si assicura che i token vengano restituiti all'applicazione corretta. È necessario che nell'applicazione venga registrato un URI di reindirizzamento univoco.
+Per assicurarsi che l'applicazione corretta riceva i token delle credenziali restituiti, è necessario assicurarsi che la chiamata all'applicazione venga verificata in un modo che il sistema operativo Android può verificare. Il sistema operativo Android utilizza in Google Play Store l'hash del certificato, che non può essere soggetto a spoofing da un'applicazione non autorizzata. Insieme all'URI dell'applicazione broker, Microsoft si assicura che i token vengano restituiti all'applicazione corretta. È necessario che nell'applicazione venga registrato un URI di reindirizzamento univoco.
 
 L'URI di reindirizzamento deve essere nel formato corretto:
 

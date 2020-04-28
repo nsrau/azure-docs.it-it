@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331257"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
@@ -68,7 +68,7 @@ L'autenticazione pass-through usa un agente semplice in un computer aggiunto al 
 È possibile abilitare l'accesso Single Sign-On anche per utenti di computer aggiunti al dominio presenti nella rete aziendale. Con l'accesso Single Sign-On, gli utenti abilitati possono accedere in modo sicuro alle risorse cloud immettendo solo un nome utente.
 ![Autenticazione pass-through](./media/plan-connect-user-signin/pta.png)
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 - [Autenticazione pass-through](how-to-connect-pta.md)
 - [Single Sign-On](how-to-connect-sso.md)
 
@@ -85,7 +85,7 @@ Se si distribuisce una nuova farm, è necessario quanto segue:
 
 * Un server Windows Server 2012 R2 per il server federativo.
 * Un server Windows Server 2012 R2 per il ruolo Proxy applicazione Web.
-* Un file con estensione pfx con un certificato TLS/SSL per il nome del servizio federativo desiderato. ad esempio fs.contoso.com.
+* Un file con estensione pfx con un certificato TLS/SSL per il nome del servizio federativo designato. ad esempio fs.contoso.com.
 
 Se si distribuisce una nuova farm o si usa una farm esistente, è necessario quanto segue:
 
@@ -191,5 +191,5 @@ Nella pagina **Accesso utente** selezionare il tipo di accesso utente desiderato
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni [sull'integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)
-- Altre informazioni sui concetti di [progettazione](plan-connect-design-concepts.md)di Azure AD Connect .Learn more about Azure AD Connect design concepts .
+- Altre informazioni sull' [integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+- Altre informazioni sui [concetti di progettazione Azure ad Connect](plan-connect-design-concepts.md).

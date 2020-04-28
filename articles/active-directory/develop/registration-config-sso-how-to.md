@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso Single Sign-On dell'applicazione
+title: Configurare Single Sign-On applicazioni
 description: Come configurare l'accesso Single Sign-on per un'applicazione personalizzata che si sta sviluppando e registrando con Azure AD.
 services: active-directory
 author: rwike77
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 630be1676d73410f1b0d376b163a8599299ddbe2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883152"
 ---
-# <a name="how-to-configure-single-sign-on-for-an-application"></a>Come configurare l'accesso Single Sign-On per un'applicazione
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Come configurare Single Sign-On per un'applicazione
 
 L'abilitazione dell'accesso Single Sign-on (SSO) federato nell'applicazione avviene automaticamente quando si esegue la federazione tramite Azure AD per OpenID Connect, SAML 2.0 o WS-Fed. Se gli utenti finali devono eseguire l'accesso nonostante dispongano già di una sessione esistente con Azure AD, è probabile che l'applicazione non sia configurata correttamente.
 

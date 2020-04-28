@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884274"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
@@ -46,7 +46,7 @@ In Azure AD ci sono due rappresentazioni delle applicazioni:
 * Registrazione delle applicazioni nel portale di Azure
 * Creazione di una nuova applicazione con Visual Studio e configurazione dell'applicazione per l'uso dell'autenticazione di Azure AD
 * Quando un amministratore aggiunge un'applicazione dalla raccolta di app (in questo caso viene creata anche un'entità servizio)
-* Utilizzo dell'API Microsoft Graph o PowerShell per creare una nuova applicazione
+* Uso dell'API Microsoft Graph o di PowerShell per creare una nuova applicazione
 * Molti altri modi, tra cui diverse esperienze di sviluppo in Azure ed esperienze di esplorazione API nei centri per sviluppatori
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Cosa sono le entità servizio e da dove provengono?
@@ -76,13 +76,13 @@ Come gli oggetti applicazione, anche gli oggetti entità servizio possono essere
 * Quando un amministratore aggiunge un'applicazione dalla raccolta di app (in questo caso viene creato anche un oggetto app sottostante)
 * Aggiungere un'applicazione per l'uso di [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 * Connettere un'applicazione per l'accesso Single Sign-On tramite SAML o l'accesso SSO basato su password
-* A livello di codice tramite l'API Microsoft Graph o PowerShellProgrammatically via the Microsoft Graph API or PowerShell
+* A livello di codice tramite l'API Microsoft Graph o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Qual è la relazione tra oggetti applicazione ed entità servizio?
 
 Un'applicazione ha un oggetto applicazione nella relativa home directory a cui fanno riferimento una o più entità di servizio in ognuna delle directory in cui è in funzione (inclusa la home directory dell'applicazione).
 
-![Mostra la relazione tra gli oggetti app e le entità servizioShows relationship between app objects and service principals][apps_service_principals_directory]
+![Mostra la relazione tra oggetti app ed entità servizio][apps_service_principals_directory]
 
 Nel diagramma precedente Microsoft mantiene internamente due directory (visualizzate a sinistra) usate per pubblicare le applicazioni:
 
@@ -103,7 +103,7 @@ Le applicazioni aggiunte dall'utente (indicate come **app dell'utente** al centr
 * Non tutte le informazioni riportate sopra sono al momento esposte a livello di codice. Le funzionalità seguenti sono disponibili solo nell'interfaccia utente:
   * Regole di trasformazione delle attestazioni
   * Mapping degli attributi (provisioning utenti)
-* Per informazioni più dettagliate sull'entità servizio e sugli oggetti applicazione, vedere la documentazione di riferimento dell'API Microsoft Graph:For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
+* Per informazioni più dettagliate sull'entità servizio e sugli oggetti applicazione, vedere la documentazione di riferimento per l'API Microsoft Graph:
   * [Applicazione](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
   * [Entità servizio](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 

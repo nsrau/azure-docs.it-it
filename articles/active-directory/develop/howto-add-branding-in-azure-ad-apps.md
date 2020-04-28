@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: c5b63fb0b66c78b33fb073eca919ed55bd05107c
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884427"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
@@ -36,7 +36,7 @@ Contenuto dell'articolo:
 Microsoft gestisce due tipi di account utente:
 
 - **Account personali** (noti in precedenza come Windows Live ID). Rappresentano la relazione tra utenti *individuali* e Microsoft e vengono usati per accedere a dispositivi di consumo e servizi forniti da Microsoft. Questi account sono concepiti per un uso personale.
-- **Account aziendali o dell'istituto di istruzione.**  Questi account sono gestiti da Microsoft per conto delle organizzazioni che usano Azure Active Directory. Vengono usati per accedere a Office 365 e altri servizi aziendali forniti da Microsoft.
+- **Account aziendali o dell'Istituto di istruzione.**  Questi account sono gestiti da Microsoft per conto delle organizzazioni che usano Azure Active Directory. Vengono usati per accedere a Office 365 e altri servizi aziendali forniti da Microsoft.
 
 Gli account Microsoft aziendali o dell'istituto di istruzione vengono normalmente assegnati agli utenti finali (dipendenti, studenti, impiegati pubblici) dalle relative organizzazioni (azienda, istituto di istruzione, agenzia governativa). Questi account vengono gestiti direttamente nel cloud, nella piattaforma Azure AD, o sincronizzati con Azure AD da una directory locale, ad esempio Windows Server Active Directory. Microsoft è *responsabile* degli account aziendali o dell'istituto di istruzione, che sono tuttavia di proprietà e controllati dall'organizzazione.
 
@@ -63,13 +63,13 @@ Le app degli sviluppatori possono presentare percorsi separati per l'iscrizione 
 
 Il collegamento per "ottenere l'app" deve reindirizzare l'utente alla pagina di Azure AD per concedere (autorizzare) l'accesso, in modo che l'amministratore di un'organizzazione possa autorizzare l'app perché possa accedere ai dati dell'organizzazione ospitati da Microsoft. Verranno fornite informazioni dettagliate su come richiedere l'accesso nell’articolo [Integrazione di applicazioni con Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) .
 
-Dopo che gli amministratori hanno acconsentito all'app, possono scegliere di aggiungerla all'esperienza [https://portal.office.com/myapps](https://portal.office.com/myapps)di avvio delle app di Office 365 degli utenti (accessibile dalla cialda e da ). Se si vuole annunciare questa funzionalità, è possibile usare termini come "Aggiungere questa app alla propria organizzazione" e visualizzare un pulsante simile al seguente:
+Dopo aver acconsentito all'app, gli amministratori possono scegliere di aggiungerla all'esperienza di avvio delle app di Office 365 degli utenti (accessibile dalla cialda [https://portal.office.com/myapps](https://portal.office.com/myapps)e da). Se si vuole annunciare questa funzionalità, è possibile usare termini come "Aggiungere questa app alla propria organizzazione" e visualizzare un pulsante simile al seguente:
 
 ![Pulsante che mostra il logo Microsoft e il testo "Aggiungi alla mia organizzazione"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio:
 
-> *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere a <your_app_name l'accesso> ai dati dell'organizzazione. Ciò consentirà agli utenti di accedere a<your_app_name> con i loro account di lavoro esistenti.*
+> *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere <your_app_name> l'accesso ai dati dell'organizzazione. Ciò consentirà agli utenti di accedere <your_app_name> con gli account di lavoro esistenti.*
 
 Per scaricare il logo ufficiale di Microsoft per l'uso nell'app, fare clic con il pulsante destro del mouse su quello che si vuole usare e salvarlo sul computer.
 
@@ -102,7 +102,7 @@ Per scaricare le immagini ufficiali per l'uso nell'app, fare clic con il pulsant
 
 **USARE** "account aziendale o dell'istituto di istruzione" insieme al pulsante "Accedi con Microsoft" per fornire altre spiegazioni che consentano agli utenti finali di comprendere se possono usare l'account. **NON** usare termini quali "account dell'azienda", "account dell'impresa" o "account della società".
 
-**NON** usare "ID Office 365" o "ID Azure". Office 365 è anche il nome di un'offerta Microsoft per i consumatori che non prevede l'uso di Azure AD per l'autenticazione.
+**Non** usare "ID di Office 365" o "ID di Azure". Office 365 è anche il nome di un'offerta Microsoft per i consumatori che non prevede l'uso di Azure AD per l'autenticazione.
 
 **NON MODIFICARE** il logo Microsoft.
 

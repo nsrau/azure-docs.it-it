@@ -1,5 +1,5 @@
 ---
-title: Aggiornare i modelli di Apprendimento automatico con Azure Data FactoryUpdate machine learning models using Azure Data Factory
+title: Aggiornare i modelli di Machine Learning usando Azure Data Factory
 description: Illustra come creare pipeline predittive tramite Azure Data Factory e Machine Learning
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81409067"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
@@ -73,7 +73,7 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 
 L'intero processo di attivazione della ripetizione del training di un modello e dell'aggiornamento dei servizi Web predittivi prevede la procedura seguente:
 
-- Richiamare il **servizio Web di training ** tramite l'**attività Esecuzione batch**. Richiamare un servizio Web di training equivale a richiamare un servizio Web predittivo descritto in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md) (Creare pipeline predittive tramite Azure Machine Learning e l'attività Esecuzione Batch di Data Factory). L'output del servizio Web di formazione è un file iLearner che è possibile utilizzare per aggiornare il servizio Web predittivo.
+- Richiamare il **servizio Web di training ** tramite l'**attività Esecuzione batch**. Richiamare un servizio Web di training equivale a richiamare un servizio Web predittivo descritto in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md) (Creare pipeline predittive tramite Azure Machine Learning e l'attività Esecuzione Batch di Data Factory). L'output del servizio Web di training è un file iLearner che è possibile usare per aggiornare il servizio Web predittivo.
 - Richiamare l'**endpoint di aggiornamento risorse** del **servizio Web predittivo** tramite l'**attività Aggiorna risorsa** per aggiornare il servizio Web con il nuovo modello con training.
 
 ## <a name="azure-machine-learning-linked-service"></a>Servizio collegato di Azure Machine Learning
@@ -274,9 +274,9 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 
 * [Attività U-SQL](transform-data-using-data-lake-analytics.md)
 * [Attività Hive](transform-data-using-hadoop-hive.md)
-* [Attività suina](transform-data-using-hadoop-pig.md)
+* [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
-* [Attività della stored procedure](transform-data-using-stored-procedure.md)
+* [Attività stored procedure](transform-data-using-stored-procedure.md)

@@ -14,10 +14,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80875793"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
@@ -27,17 +27,17 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-d
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Accedere ad Azure e Azure Active Directory
-**D: Perché viene visualizzato il "Nessuna sottoscrizione trovata" quando si tenta di accedere ad Azure AD nel portale di Azure?**
+**D: perché viene "non sono state trovate sottoscrizioni" quando si prova ad accedere a Azure AD nel portale di Azure?**
 
-**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se non si dispone di una sottoscrizione a pagamento di Office 365 o Azure AD, sarà necessario attivare un [account Azure](https://azure.microsoft.com/free/
+**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se non si dispone di una sottoscrizione di Office 365 o Azure AD a pagamento, sarà necessario attivare un [account Azure](https://azure.microsoft.com/free/
 ) gratuito o una sottoscrizione a pagamento.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 * [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**D: Qual è la relazione tra Azure AD, Office 365 e Azure?**
+**D: qual è la relazione tra Azure AD, Office 365 e Azure?**
 
 **R:** Azure AD offre funzionalità comuni di gestione delle identità e dell'accesso in tutti i servizi Web. Se si usa Office 365, Microsoft Azure, Intune o altri servizi, si usa già Azure AD per abilitare la gestione dell'accesso per tutti questi servizi.
 
@@ -83,27 +83,27 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 
 **R:** È sufficiente configurare l'accesso Single Sign-On (SSO) tra la directory locale e Azure AD. Se si accede alle applicazioni cloud tramite Azure AD, il servizio richiederà automaticamente agli utenti di eseguire l'autenticazione corretta con le credenziali locali.
 
-L'implementazione di SSO da locale può essere facilmente ottenuta con soluzioni di federazione come Active Directory Federation Services (ADFS) o configurando la sincronizzazione dell'hash delle password. È possibile distribuire facilmente entrambe le opzioni usando la configurazione guidata di Azure AD Connect.You can easily deploy both options by using the Azure AD Connect configuration wizard.
+L'implementazione di SSO dall'ambiente locale può essere facilmente realizzata con soluzioni di federazione, ad esempio Active Directory Federation Services (AD FS) o configurando la sincronizzazione degli hash delle password. È possibile distribuire facilmente entrambe le opzioni usando la configurazione guidata Azure AD Connect.
 
 Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ---
 **D: Azure AD offre un portale self-service per gli utenti dell'organizzazione?**
 
-**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. Se si è un cliente di Office 365, è possibile trovare molte delle stesse funzionalità nel portale di [Office 365.](https://portal.office.com)
+**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. Per i clienti di Office 365 è possibile trovare molte delle stesse funzionalità del [portale di office 365](https://portal.office.com).
 
 Per altre informazioni, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ---
 **D: Azure AD semplifica la gestione dell'infrastruttura locale?**
 
-**A:** Sì. Azure AD Premium Edition include Azure AD Connect Health. Azure AD Connect Health consente di monitorare e ottenere informazioni dettagliate sull'infrastruttura di gestione delle identità locale e sui servizi di sincronizzazione.  
+**R:** Sì. Azure AD Premium Edition include Azure AD Connect Health. Azure AD Connect Health consente di monitorare e ottenere informazioni dettagliate sull'infrastruttura di gestione delle identità locale e sui servizi di sincronizzazione.  
 
 Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](../hybrid/whatis-hybrid-identity-health.md).  
 
 ---
 ## <a name="password-management"></a>Gestione delle password
-**D: È possibile usare la scrittura delle password di Azure AD senza sincronizzazione delle password? In questo scenario è possibile usare la reimpostazione della password self-service (SSPR) di Azure AD con il writeback delle password e non archiviare le password nel cloud?)**
+**D: è possibile usare Azure AD writeback della password senza sincronizzazione password? In questo scenario è possibile usare Azure AD la reimpostazione della password self-service (SSPR) con writeback delle password e non archiviare le password nel cloud?**
 
 **R:** Non è necessario sincronizzare le password di Active Directory con Azure AD per abilitare il writeback. In un ambiente federato, l'accesso Single Sign-On (SSO) di Azure AD si basa sulla directory locale per autenticare l'utente. Questo scenario non richiede la verifica della password locale in Azure AD.
 
@@ -123,7 +123,7 @@ Per altre informazioni, vedere [Introduzione alla gestione delle password](../au
 ---
 **D: Cosa si può fare se non si ricorda la password di Office 365/Azure AD esistente durante il tentativo di modificare la password?**
 
-**A:** Per questo tipo di situazione, ci sono un paio di opzioni.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per ulteriori informazioni, vedere Funzionamento del portale di [reimpostazione della password](../authentication/howto-sspr-deployment.md).
+**R:** Per questo tipo di situazione, sono disponibili un paio di opzioni.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per ulteriori informazioni, vedere funzionamento [del portale di reimpostazione della password](../authentication/howto-sspr-deployment.md).
 
 Per gli utenti di Office 365, l'amministratore può reimpostare la password seguendo la procedura descritta in [Reimpostare le password degli utenti](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
@@ -139,9 +139,9 @@ Per gli account Azure AD, gli amministratori possono reimpostare le password in 
 
 La strategia usata per bloccare gli account è più sofisticata e  si basa sull'indirizzo IP della richiesta e le password immesse. La durata del blocco aumenta anche in base alla probabilità che sia in corso un attacco.  
 
-**D: Alcune password (comuni) vengono rifiutate con i messaggi 'questa password è stata utilizzata per molte volte', si riferisce alle password utilizzate nell'Active Directory corrente?**
+**D: alcune password (comuni) vengono rifiutate con i messaggi "Questa password è stata usata per molte volte", fa riferimento alle password usate nell'Active Directory corrente?**
 
-Si riferisce alle password comuni a livello globale, ad esempio le varianti di "Password" e "123456".
+Si tratta di password comuni a livello globale, ad esempio le varianti di "password" e "123456".
 
 **D: Una richiesta di accesso proveniente da origini sospette (botnet, endpoint tor) sarà bloccata in un tenant B2C o è necessario un tenant della Basic Edition o della Premium Edition?**
 
@@ -158,9 +158,9 @@ Per un elenco completo delle applicazioni preintegrate, vedere il [Marketplace d
 ---
 **D: Che cosa accade se l'applicazione cercata non è disponibile nel Marketplace di Azure AD?**
 
-**R:** Azure AD Premium consente di aggiungere e configurare qualsiasi applicazione. A seconda delle funzionalità dell'applicazione e delle preferenze, è possibile configurare SSO e il provisioning automatico.  
+**R:** Azure AD Premium consente di aggiungere e configurare qualsiasi applicazione. A seconda delle funzionalità e delle preferenze dell'applicazione, è possibile configurare l'accesso SSO e il provisioning automatizzato.  
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 * [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md)
@@ -182,14 +182,14 @@ Per altre informazioni, vedere [End user experiences for applications](../manage
 
 **R:** Azure AD supporta molti protocolli standardizzati per l'autenticazione e l'autorizzazione, ad esempio SAML 2.0, OpenID Connect, OAuth 2.0 e WS-Federation. Azure AD supporta anche funzionalità relative all'insieme di credenziali delle password e all'accesso automatico per le app che supportano solo l'autenticazione basata su form.  
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 * [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md)
-* [Protocolli di autenticazione di Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Protocolli di autenticazione Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [Single Sign-On per le applicazioni in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
-**D: È possibile aggiungere applicazioni in esecuzione in locale?**
+**D: è possibile aggiungere applicazioni in esecuzione in locale?**
 
 **R:** Il proxy di applicazione di Azure AD offre un accesso semplice e sicuro alle applicazioni Web locali scelte. È possibile accedere a queste applicazioni in modo analogo all'accesso alle app SaaS in Azure AD. Non è necessario avere una VPN o modificare l'infrastruttura di rete.  
 
@@ -198,18 +198,18 @@ Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applic
 ---
 **D: Come si richiede l'autenticazione Multi-Factor Authentication per gli utenti che accedono a un'applicazione specifica?**
 
-**A:** Con l'accesso condizionale di Azure AD è possibile assegnare criteri di accesso univoci per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
+**R:** Con l'accesso condizionale Azure AD, è possibile assegnare un criterio di accesso univoco per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
 
 Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](../conditional-access/overview.md).
 
 ---
-**D: Cos'è il provisioning automatico degli utenti per le app SaaS?**
+**D: che cos'è il provisioning utenti automatizzato per le app SaaS?**
 
 **R:** Azure AD consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in molte app cloud SaaS comuni.
 
-Per altre informazioni, vedere Automatizzare il provisioning e il deprovisioning degli utenti nelle applicazioni SaaS con Azure Active Directory.For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+Per altre informazioni, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ---
 **D: È possibile configurare una connessione LDAP sicura con Azure AD?**
 
-**A:**  No. Azure AD non supporta direttamente il protocollo LDAP (Lightweight Directory Access Protocol) o LDAP sicuro. Tuttavia, è possibile abilitare l'istanza di Servizi di dominio Azure AD nel tenant di Azure AD con gruppi di sicurezza di rete configurati correttamente tramite Rete di Azure per ottenere la connettività LDAP. Per altre informazioni, vedere [Configurare LDAP sicuro per un dominio gestito](../../active-directory-domain-services/tutorial-configure-ldaps.md) di Servizi di dominio Azure Active DirectoryFor more information, see Configure secure LDAP for an Azure Active Directory Domain Services managed domain
+**R:**  No. Azure AD non supporta direttamente il protocollo LDAP (Lightweight Directory Access Protocol) o LDAP sicuro. Tuttavia, è possibile abilitare l'istanza Azure AD Domain Services (Azure AD DS) nel tenant Azure AD con i gruppi di sicurezza di rete configurati correttamente tramite la rete di Azure per ottenere la connettività LDAP. Per altre informazioni, vedere [configurare LDAP sicuro per un dominio gestito Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-configure-ldaps.md)

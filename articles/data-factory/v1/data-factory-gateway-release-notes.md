@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064990"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
@@ -40,7 +40,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Miglioramenti
 - È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). È possibile trovare la rispettiva voce DNS nel portale di Azure (Data Factory -> "Creare e distribuire" -> "Gateway" -> "serviceUrls" (in JSON)
-- Il connettore HDFS ora supporta il certificato pubblico autofirmato consentendo di ignorare la convalida TLS.
+- Il connettore HDFS supporta ora il certificato pubblico autofirmato, consentendo di ignorare la convalida TLS.
 - Corretto: problema relativo al gateway offline durante l'aggiornamento (a causa di uno sfasamento del clock)
 
 

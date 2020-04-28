@@ -1,5 +1,5 @@
 ---
-title: Opzioni di supporto e assistenza per gli sviluppatori di app di Azure ADSupport and help options for Azure AD app developers
+title: Opzioni di supporto e guida per gli sviluppatori di app Azure AD
 description: Scoprire come ottenere assistenza e supporto per domande e problemi correlati allo sviluppo durante la creazione di applicazioni che si integrano con le identità di Microsoft (Azure Active Directory e account Microsoft)
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ea1afd2ecac8974c0e865e235288da545a9f1244
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885532"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
@@ -59,27 +59,27 @@ Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova 
 
 |Componente/area  | Tag |
 |---------|---------|
-| Libreria ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
-| Libreria MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
-| Middleware OWIN  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| Libreria ADAL | [adal](https://stackoverflow.com/questions/tagged/adal) |
+| Libreria MSAL     | [MSAL](https://stackoverflow.com/questions/tagged/msal) |
+| Middleware OWIN  | [[Azure-Active-Directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 | [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[microsoft-grafico]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[Microsoft-Graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione | [[Azure-Active-Directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 
-* [Come faccio a fare una buona domanda](https://stackoverflow.com/help/how-to-ask)
+* [Ricerca per categorie porre una domanda corretta](https://stackoverflow.com/help/how-to-ask)
 * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub
 
 In caso di bug o di problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source, quindi gli utenti possono anche inviare anche una richiesta pull.
 
-Per un elenco delle librerie e dei relativi repository GitHub, vedere quanto segue:
+Per un elenco di librerie e dei rispettivi repository GitHub, vedere gli argomenti seguenti:
 
-* [Librerie di Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) e repository GitHubAzure Active Directory Authentication Library (ADAL) and GitHub repositories
-* [Librerie Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) e repository GitHub
+* Librerie di [Azure Active Directory Authentication Library (adal)](../azuread-dev/active-directory-authentication-libraries.md) e repository GitHub
+* Librerie di [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) e repository GitHub
 
 ## <a name="open-a-support-request"></a>Aprire una richiesta di supporto
 
