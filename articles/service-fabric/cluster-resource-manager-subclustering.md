@@ -1,107 +1,107 @@
 ---
-title: Bilanciamento delle metriche del sottocluster
-description: L'effetto dei vincoli di posizionamento sul bilanciamento e su come gestirlo
+title: Bilanciamento delle metriche sottocluster
+description: Effetti dei vincoli di posizionamento sul bilanciamento del carico e su come gestirli
 author: nipavlo
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
-ms.openlocfilehash: 23782a86d31251cb1a3474e0395df716a2e832df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430643"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183118"
 ---
-# <a name="balancing-of-subclustered-metrics"></a>Bilanciamento delle metriche del sottocluster
+# <a name="balancing-of-subclustered-metrics"></a>Bilanciamento delle metriche sottocluster
 
-## <a name="what-is-subclustering"></a>Che cos'è il sottocluster
+## <a name="what-is-subclustering"></a>Informazioni sul sottoclustering
 
-Il sottocluster si verifica quando i servizi con vincoli di posizionamento diversi hanno una metrica comune ed entrambi segnalano il carico per esso. Se il carico segnalato dai servizi differisce in modo significativo, il carico totale sui nodi avrà una grande deviazione standard e sarebbe simile a come il cluster è sbilanciato, anche quando ha il miglior equilibrio possibile.
+Il sottoclustering si verifica quando i servizi con vincoli di posizionamento diversi hanno una metrica comune ed entrambi ne segnalano il carico. Se il carico segnalato dai servizi differisce in modo significativo, il carico totale sui nodi avrà una deviazione standard di grandi dimensioni e sembrerebbe come il cluster è sbilanciato, anche quando è disponibile il migliore equilibrio possibile.
 
-## <a name="how-subclustering-affects-load-balancing"></a>Influenza del sottoclustering sul bilanciamento del caricoHow subclustering affects load balancing
+## <a name="how-subclustering-affects-load-balancing"></a>Impatto del sottoclustering sul bilanciamento del carico
 
-Se il carico segnalato dai servizi su nodi diversi differisce in modo significativo, potrebbe sembrare che ci sia un grande squilibrio in cui non è presente nessuno. Inoltre, se il falso squilibrio causato dal sottocluster è maggiore dello squilibrio effettivo, è possibile confondere l'algoritmo di bilanciamento di Resource Manager e produrre un equilibrio non ottimale nel cluster.
+Se il carico segnalato dai servizi in diversi nodi differisce significativamente, è possibile che si verifichi un notevole squilibrio in cui non è presente alcun tipo. Inoltre, se il falso squilibrio causato dal sottoclustering è maggiore dello squilibrio effettivo, è possibile confondere il Gestione risorse algoritmo di bilanciamento del carico e produrre un saldo non ottimale nel cluster.
 
-Ad esempio, supponiamo di avere quattro servizi e che tutti segnalino un carico per la metrica Metrica1:
+Si immagini, ad esempio, di disporre di quattro servizi che segnalano un carico per la metrica Metric1:
 
-* Servizio A – ha un vincolo di posizionamento "NodeType, Type1", segnala un carico di 10
-* Servizio B – ha un vincolo di posizionamento "NodeType, Type1", segnala un carico di 10
-* Servizio C – ha un vincolo di collocamento "NodeType " Type2", segnala un carico di 100
-* Servizio D – ha un vincolo di posizionamento "NodeType - Type2", segnala un carico di 100
-* E abbiamo quattro nodi. Due di essi hanno NodeType impostato come "Type1" e gli altri due sono "Type2"
+* Il servizio A – ha un vincolo di posizionamento "NodeType = = frontend", segnala un carico di 10
+* Il servizio B: ha un vincolo di posizionamento "NodeType = = frontend", segnala un carico di 10
+* Il servizio C – ha un vincolo di posizionamento "NodeType = = backend", segnala un carico di 100
+* Il servizio D: ha un vincolo di posizionamento "NodeType = = backend", segnala un carico di 100
+* E sono disponibili quattro nodi. Due di esse hanno NodeType impostato come "frontend" e le altre due sono "backend"
 
-E abbiamo il seguente posizionamento:
+E abbiamo la posizione seguente:
 
 <center>
 
-![Esempio di posizionamento del sottoclusterSubclustered placement example][Image1]
+![Esempio di selezione host sottocluster][Image1]
 </center>
 
-Il cluster potrebbe sembrare sbilanciato, abbiamo un grande carico sui nodi 3 e 4, ma questo posizionamento crea il miglior equilibrio possibile in questa situazione.
+Il cluster può sembrare sbilanciato, il carico dei nodi 3 e 4 è elevato, ma questo posizionamento crea il migliore equilibrio possibile in questa situazione.
 
-Resource Manager è in grado di riconoscere le situazioni di sottocluster e in quasi tutti i casi può produrre il saldo ottimale per la determinata situazione.
+Gestione risorse è in grado di riconoscere le situazioni del sottoclustering e in quasi tutti i casi può produrre il giusto equilibrio per la situazione specificata.
 
-Per alcune situazioni eccezionali in cui Resource Manager non è in grado di bilanciare in modo ottimale una metrica sottocluster rileverà comunque il sottocluster e genererà un rapporto di integrità per consigliare di risolvere il problema.
+Per alcune situazioni eccezionali in cui Gestione risorse non è in grado di bilanciare in modo ottimale una metrica del sottocluster, verrà comunque rilevato il sottoclustering e verrà generato un report sull'integrità per consigliare la risoluzione del problema.
 
-## <a name="types-of-subclustering-and-how-they-are-handled"></a>Tipi di sottocluster e relative modalità di gestione
+## <a name="types-of-subclustering-and-how-they-are-handled"></a>Tipi di sottoclustering e come vengono gestiti
 
-Le situazioni di sottocluster possono essere classificate in tre categorie diverse. La categoria di una situazione di sottocluster specifica determina la modalità di gestione da parte di Gestione risorse.
+Le situazioni del sottoclustering possono essere classificate in tre categorie diverse. La categoria di una specifica situazione del sottoclustering determina il modo in cui verrà gestita da Gestione risorse.
 
-### <a name="first-category--flat-subclustering-with-disjoint-node-groups"></a>Prima categoria – cluster di sottocluster semplice con gruppi di nodi disgiunti
+### <a name="first-category--flat-subclustering-with-disjoint-node-groups"></a>Prima categoria: sottoclustering flat con gruppi di nodi non contigui
 
-Questa categoria ha la forma più semplice di sottoclustering in cui i nodi possono essere separati in gruppi diversi e ogni servizio può essere posizionato solo su nodi in uno di questi gruppi. Ogni nodo appartiene a un solo gruppo e a un solo gruppo. La situazione descritta in precedenza appartiene a questa categoria, così come la maggior parte delle situazioni di sottoclustering. 
+Questa categoria presenta la forma più semplice di sottoclustering, in cui i nodi possono essere separati in gruppi diversi e ogni servizio può essere inserito solo nei nodi di uno di questi gruppi. Ogni nodo appartiene a un solo gruppo e a un solo gruppo. La situazione descritta in precedenza appartiene a questa categoria come la maggior parte delle situazioni del sottoclustering. 
 
-Per le situazioni in questa categoria, Il Resource Manager può produrre l'equilibrio ottimale e non sono necessari ulteriori interventi.
+Per le situazioni in questa categoria, il Gestione risorse può produrre il saldo ottimale e non è necessario ulteriore intervento.
 
-### <a name="second-category--subclustering-with-hierarchical-node-groups"></a>Seconda categoria – sottoclustering con gruppi di nodi gerarchici
+### <a name="second-category--subclustering-with-hierarchical-node-groups"></a>Seconda categoria: sottoclustering con gruppi di nodi gerarchici
 
-Questa situazione si verifica quando un gruppo di nodi consentiti per un servizio è un sottoinsieme del gruppo di nodi consentiti per un altro servizio. L'esempio più comune di questa situazione è quando un servizio ha un vincolo di posizionamento definito e un altro servizio non ha alcun vincolo di posizionamento e può essere posizionato su qualsiasi nodo.
+Questa situazione si verifica quando un gruppo di nodi consentiti per un servizio è un subset del gruppo di nodi consentito per un altro servizio. L'esempio più comune di questa situazione si verifica quando per un servizio è stato definito un vincolo di posizionamento e un altro servizio non ha vincoli di posizionamento e può essere inserito in qualsiasi nodo.
 
 Esempio:
 
-* Servizio A: nessun vincolo di posizionamentoService A: no placement constraint
-* Servizio B: vincolo di collocamento "NodeType-Type1"
-* Servizio C: vincolo di collocamento "NodeType/Type2"
+* Servizio A: nessun vincolo di posizionamento
+* Servizio B: vincolo di posizionamento "NodeType = = front-end"
+* Servizio C: vincolo di posizionamento "NodeType = = backend"
 
-Questa configurazione crea una relazione sottoinsieme-superset tra gruppi di nodi per servizi diversi.
+Questa configurazione crea una relazione subset-superset tra i gruppi di nodi per i diversi servizi.
 
 <center>
 
-![Sottocluster superset di sottoinsiemi][Image2]
+![Sottocluster superset subset][Image2]
 </center>
 
-In questa situazione, c'è la possibilità che venga fatto un equilibrio non ottimale.
+In questa situazione, è possibile che venga creato un saldo non ottimale.
 
-Resource Manager riconoscerà questa situazione e produrrà un rapporto di integrità che consiglia di suddividere il servizio A in due servizi: il servizio A1 che può essere inserito nei nodi Type1 e Service A2 che possono essere posizionati nei nodi Type2. Questo ci riporterà alla situazione della prima categoria che può essere bilanciata in modo ottimale.
+Gestione risorse riconoscerà questa situazione e produrrà un report sull'integrità che consiglia di dividere il servizio A in due servizi: il servizio a1 che può essere inserito nei nodi front-end e nel servizio a2 che può essere inserito nei nodi back-end. Questa operazione riporta alla prima situazione di categoria che può essere bilanciata in modo ottimale.
 
-### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Terza categoria – sottocluster con sovrapposizione parziale tra set di nodi
+### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Terza categoria: sottoclustering con sovrapposizione parziale tra i set di nodi
 
-Questa situazione si verifica quando esiste una sovrapposizione parziale tra set di nodi in cui è possibile posizionare alcuni servizi.
+Questa situazione si verifica in presenza di una sovrapposizione parziale tra i set di nodi su cui è possibile collocare alcuni servizi.
 
-Ad esempio, se abbiamo una proprietà node denominata NodeColor e abbiamo tre nodi:
+Se, ad esempio, è presente una proprietà Node denominata NodeColor e sono presenti tre nodi:
 
-* Nodo 1: NodeColor-RedNode 1: NodeColor-Red
-* Nodo 2: NodeColor-Blu
-* Nodo 2: NodeColor-Verde
+* Nodo 1: NodeColor = rosso
+* Nodo 2: NodeColor = blu
+* Nodo 2: NodeColor = verde
 
-E abbiamo due servizi:
+Sono disponibili due servizi:
 
-* Servizio A: con vincolo di posizionamento "Colore Colore: blu"
-* Servizio B: con vincolo di posizionamento "Colore Colore: verde"
+* Servizio A: con vincolo di posizionamento "colore = = rosso | | Colore = = blu "
+* Servizio B: con vincolo di posizionamento "color = = Blue | | Color = = verde "
 
-Per questo motivo, il servizio A può essere posizionato sui nodi 1 e 2 e il servizio B nei nodi 2 e 3.
+Per questo motivo, il servizio A può essere inserito nei nodi 1 e 2 e il servizio B può essere inserito nei nodi 2 e 3.
 
-In questa situazione, c'è la possibilità che venga fatto un equilibrio non ottimale.
+In questa situazione, è possibile che venga creato un saldo non ottimale.
 
-Resource Manager riconoscerà questa situazione e produrrà un rapporto sull'integrità che ti consiglierà di dividere alcuni dei servizi.
+Gestione risorse riconoscerà questa situazione e produrrà un report sull'integrità che consiglia di suddividere alcuni dei servizi.
 
-Per questa situazione, Resource Manager non è in grado di fornire una proposta su come dividere i servizi, poiché è possibile eseguire più suddivisioni e non è possibile stimare quale modo sarebbe quello ottimale per dividere i servizi.
+Per questa situazione, il Gestione risorse non è in grado di fornire una proposta come suddividere i servizi, dal momento che è possibile eseguire più divisioni e non esiste alcun modo per stimare quale sia il modo ottimale per suddividere i servizi.
 
-## <a name="configuring-subclustering"></a>Configurazione del sottocluster
+## <a name="configuring-subclustering"></a>Configurazione del sottoclustering
 
-Il comportamento di Gestione risorse in merito al sottocluster può essere modificato modificando i seguenti parametri di configurazione:
-* SubclusteringEnabled - parametro determina se Gestione risorse prenderà in considerazione il sottoclustering quando esegue il bilanciamento del carico. Se questo parametro è disattivato, Gestione risorse ignorerà il sottocluster e tenterà di ottenere un equilibrio ottimale a livello globale. Il valore predefinito di questo parametro è false.
-* SubclusteringReportingPolicy: determina il modo in cui Gestione risorse genera report di integrità per il sottocluster gerarchico e parziale sovrapposto. Un valore pari a zero indica che i rapporti di integrità relativi al sottocluster sono disattivati, "1" indica che verranno generati report di avviso sull'integrità per situazioni di sottocluster non ottimali e il valore "2" produrrà rapporti di integrità "OK". Il valore predefinito per questo parametro è "1".
+Il comportamento di Gestione risorse sul sottoclustering può essere modificato modificando i parametri di configurazione seguenti:
+* SubclusteringEnabled-Parameter determina se Gestione risorse prenderà in considerazione il sottoclustering durante il bilanciamento del carico. Se questo parametro è disattivato, Gestione risorse ignorerà il sottoclustering e tenterà di ottenere un equilibrio ottimale a livello globale. Il valore predefinito di questo parametro è false.
+* SubclusteringReportingPolicy: determina il modo in cui Gestione risorse emetterà report sull'integrità per il sottoclustering gerarchico e parzialmente sovrapposto. Un valore pari a zero indica che i report sull'integrità sul sottoclustering sono spenti, "1" significa che i report sull'integrità degli avvisi verranno generati per le situazioni di sottoclustering non ottimali e il valore "2" produrrà report sull'integrità "OK". Il valore predefinito per questo parametro è "1".
 
 ClusterManifest.xml:
 
@@ -134,7 +134,7 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
-* Per informazioni su come i servizi possono essere vincolati per essere posizionati solo su determinati nodi, vedere [Proprietà dei nodi e vincoli](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) di posizionamento
+* Per informazioni sul modo in cui i servizi possono essere vincolati solo in determinati nodi, vedere Proprietà dei [nodi e vincoli di posizionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 [Image1]:./media/cluster-resource-manager-subclustering/subclustered-placement.png
 [Image2]:./media/cluster-resource-manager-subclustering/subset-superset-nodes.png

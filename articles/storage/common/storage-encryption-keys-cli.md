@@ -1,7 +1,7 @@
 ---
-title: Usare l'interfaccia della riga di comando di Azure per configurare le chiavi gestite dal clienteUse Azure CLI to configure customer-managed keys
+title: Usare l'interfaccia della riga di comando di Azure per configurare le chiavi gestite dal cliente
 titleSuffix: Azure Storage
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure per la crittografia di Archiviazione di Azure.Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption.
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per configurare chiavi gestite dal cliente con Azure Key Vault per la crittografia di archiviazione di Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,24 +10,24 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456772"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176346"
 ---
-# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurare le chiavi gestite dal cliente con l'insieme di credenziali delle chiavi di Azure usando l'interfaccia della riga di comando di AzureConfigure customer-managed keys with Azure Key Vault by using Azure CLI
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi di Azure con chiavi gestite dal cliente usando l'interfaccia della riga di comando di Azure.This article shows how to configure an Azure Key Vault with customer-managed keys using Azure CLI. Per informazioni su come creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando di Azure, vedere [Guida introduttiva: Impostare e recuperare un segreto dall'insieme](../../key-vault/secrets/quick-create-cli.md)di credenziali delle chiavi di Azure usando l'interfaccia della riga di comando di Azure.To learn how to create a key vault using Azure CLI, see Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI.
+Questo articolo illustra come configurare un Azure Key Vault con chiavi gestite dal cliente usando l'interfaccia della riga di comando di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della](../../key-vault/secrets/quick-create-cli.md)
 
-## <a name="assign-an-identity-to-the-storage-account"></a>Assegnare un'identità all'account di archiviazioneAssign an identity to the storage account
+## <a name="assign-an-identity-to-the-storage-account"></a>Assegnare un'identità all'account di archiviazione
 
-Per abilitare le chiavi gestite dal cliente per l'account di archiviazione, assegnare innanzitutto un'identità gestita assegnata dal sistema all'account di archiviazione. Questa identità gestita verrà usata per concedere all'account di archiviazione le autorizzazioni per accedere all'insieme di credenziali delle chiavi.
+Per abilitare le chiavi gestite dal cliente per l'account di archiviazione, assegnare innanzitutto un'identità gestita assegnata dal sistema all'account di archiviazione. Questa identità gestita verrà usata per concedere le autorizzazioni dell'account di archiviazione per accedere all'insieme di credenziali delle chiavi.
 
-Per assegnare un'identità gestita tramite l'interfaccia della riga di comando di Azure, chiamare [az storage account update.](/cli/azure/storage/account#az-storage-account-update) Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Per assegnare un'identità gestita usando l'interfaccia della riga di comando di Azure, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
 az account set --subscription <subscription-id>
@@ -38,13 +38,13 @@ az storage account update \
     --assign-identity
 ```
 
-Per altre informazioni sulla configurazione delle identità gestite assegnate dal sistema con l'interfaccia della riga di comando di Azure, vedere Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando l'interfaccia della riga di comando di Azure.For more information about configuring system-assigned managed identities with Azure CLI, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI.](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+Per altre informazioni sulla configurazione delle identità gestite assegnate dal sistema con l'interfaccia della riga di comando di Azure, vedere [configurare le identità gestite per le risorse di Azure in una VM di Azure usando l'interfaccia](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)della riga di comando
 
 ## <a name="create-a-new-key-vault"></a>Creare un nuovo insieme di credenziali delle chiavi
 
-L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia di Archiviazione di Azure deve avere due impostazioni di protezione delle chiavi abilitate, **Eliminazione temporanea** e **Non eliminare**. Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell o l'interfaccia della riga di comando di Azure con queste impostazioni abilitate, eseguire i comandi seguenti. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+L'insieme di credenziali delle chiavi usato per archiviare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure deve avere due impostazioni di protezione della chiave abilitate, l' **eliminazione** temporanea e non la **ripulitura**. Per creare un nuovo insieme di credenziali delle chiavi usando PowerShell o l'interfaccia della riga di comando di Azure con queste impostazioni abilitate, eseguire i comandi seguenti. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
-Per creare un nuovo insieme di credenziali delle chiavi usando l'interfaccia della riga di comando di Azure, chiamare [az keyvault create](/cli/azure/keyvault#az-keyvault-create). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Per creare un nuovo insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure, chiamare [AZ Key Vault create](/cli/azure/keyvault#az-keyvault-create) Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
 az keyvault create \
@@ -55,13 +55,13 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Per informazioni su come abilitare **l'eliminazione temporanea** e l'eliminazione non **eliminare** in un insieme di credenziali delle chiavi esistente con l'interfaccia della riga di comando di Azure, vedere le sezioni **Attivazione dell'eliminazione temporanea** e **dell'abilitazione** della protezione dell'eliminazione in Come usare l'eliminazione temporanea con l'interfaccia della riga di [comando.](../../key-vault/general/soft-delete-cli.md)
+Per informazioni su come abilitare **l'eliminazione** temporanea e **non ripulire** in un insieme di credenziali delle chiavi esistente con l'interfaccia della riga di comando di Azure, vedere le sezioni relative all'abilitazione dell' **eliminazione** temporanea e all' **Abilitazione** dell'eliminazione della protezione in [come usare l'eliminazione temporanea con CLI](../../key-vault/general/soft-delete-cli.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
 
-Configurare quindi i criteri di accesso per l'insieme di credenziali delle chiavi in modo che l'account di archiviazione disponga delle autorizzazioni per accedervi. In questo passaggio si userà l'identità gestita assegnata in precedenza all'account di archiviazione.
+Configurare quindi i criteri di accesso per l'insieme di credenziali delle chiavi in modo che l'account di archiviazione disponga delle autorizzazioni di accesso. In questo passaggio si userà l'identità gestita precedentemente assegnata all'account di archiviazione.
 
-Per impostare i criteri di accesso per l'insieme di credenziali delle chiavi, chiamare [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Per impostare i criteri di accesso per l'insieme di credenziali delle chiavi, chiamare [AZ Key Vault set-Policy](/cli/azure/keyvault#az-keyvault-set-policy). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
 storage_account_principal=$(az storage account show \
@@ -78,21 +78,21 @@ az keyvault set-policy \
 
 ## <a name="create-a-new-key"></a>Creare una nuova chiave
 
-Successivamente, creare una chiave nell'insieme di credenziali delle chiavi. Per creare una chiave, chiamare [az keyvault create](/cli/azure/keyvault/key#az-keyvault-key-create). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Successivamente, creare una chiave nell'insieme di credenziali delle chiavi. Per creare una chiave, chiamare [AZ Key Vault Key create](/cli/azure/keyvault/key#az-keyvault-key-create). Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
-az keyvault key create
+az keyvault key create \
     --name <key> \
     --vault-name <key-vault>
 ```
 
-Solo le chiavi RSA e RSA-HSM a 2048 bit sono supportate con la crittografia di Archiviazione di Azure.Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. Per altre informazioni sulle chiavi, vedere **Chiavi dell'insieme di credenziali delle chiavi** in Informazioni su chiavi, segreti e certificati dell'insieme di credenziali delle chiavi di [Azure.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA e RSA-HSM a 2048 bit. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-## <a name="configure-encryption-with-customer-managed-keys"></a>Configurare la crittografia con chiavi gestite dal clienteConfigure encryption with customer-managed keys
+## <a name="configure-encryption-with-customer-managed-keys"></a>Configurare la crittografia con chiavi gestite dal cliente
 
-Per impostazione predefinita, la crittografia di Archiviazione di Azure usa chiavi gestite da Microsoft.By default, Azure Storage encryption uses Microsoft-managed keys. Configurare l'account di archiviazione di Azure per le chiavi gestite dal cliente e specificare la chiave da associare all'account di archiviazione.
+Per impostazione predefinita, la crittografia di archiviazione di Azure usa chiavi gestite da Microsoft. Configurare l'account di archiviazione di Azure per le chiavi gestite dal cliente e specificare la chiave da associare all'account di archiviazione.
 
-Per aggiornare le impostazioni di crittografia dell'account di archiviazione, chiamare [az storage account update](/cli/azure/storage/account#az-storage-account-update), come illustrato nell'esempio seguente. Includere `--encryption-key-source` il parametro `Microsoft.Keyvault` e impostarlo su per abilitare le chiavi gestite dal cliente per l'account di archiviazione. Nell'esempio viene inoltre eseguita una query per l'URI dell'insieme di credenziali delle chiavi e la versione della chiave più recente, entrambi i valori necessari per associare la chiave all'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
+Per aggiornare le impostazioni di crittografia dell'account di archiviazione, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update), come illustrato nell'esempio seguente. Includere il `--encryption-key-source` parametro e impostarlo su `Microsoft.Keyvault` per abilitare le chiavi gestite dal cliente per l'account di archiviazione. Nell'esempio viene anche eseguita una query per l'URI dell'insieme di credenziali delle chiavi e la versione più recente della chiave, entrambi i quali sono necessari per associare la chiave all'account di archiviazione. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -116,15 +116,15 @@ az storage account update
 
 ## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
 
-Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. In primo luogo, eseguire una query per l'URI dell'insieme di credenziali delle chiavi chiamando [az keyvault show](/cli/azure/keyvault#az-keyvault-show)e per la versione della chiave chiamando [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Chiamare [quindi az storage account update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nella sezione precedente.
+Quando si crea una nuova versione di una chiave, è necessario aggiornare l'account di archiviazione per usare la nuova versione. Per prima cosa, eseguire una query per l'URI dell'insieme di credenziali delle chiavi chiamando [AZ Key Vault Show](/cli/azure/keyvault#az-keyvault-show)e per la versione della chiave chiamando [AZ Key Vault Key List-Versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Chiamare quindi il comando [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) per aggiornare le impostazioni di crittografia dell'account di archiviazione per usare la nuova versione della chiave, come illustrato nella sezione precedente.
 
-## <a name="use-a-different-key"></a>Utilizzare un tasto diverso
+## <a name="use-a-different-key"></a>Usare una chiave diversa
 
-Per modificare la chiave usata per la crittografia di Archiviazione di Azure, chiamare [az storage account update](/cli/azure/storage/account#az-storage-account-update) come illustrato in Configurare la crittografia con chiavi [gestite dal cliente](#configure-encryption-with-customer-managed-keys) e specificare il nuovo nome e la nuova versione della chiave. Se la nuova chiave si trova in un insieme di credenziali delle chiavi diverso, aggiornare anche l'URI dell'insieme di credenziali delle chiavi.
+Per modificare la chiave usata per la crittografia di archiviazione di Azure, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) come illustrato in [configurare la crittografia con chiavi gestite dal cliente](#configure-encryption-with-customer-managed-keys) e specificare il nome e la versione della nuova chiave. Se la nuova chiave si trova in un insieme di credenziali delle chiavi diverso, aggiornare anche l'URI dell'insieme di credenziali delle chiavi.
 
-## <a name="revoke-customer-managed-keys"></a>Revoca delle chiavi gestite dal cliente
+## <a name="revoke-customer-managed-keys"></a>Revocare le chiavi gestite dal cliente
 
-Se si ritiene che una chiave possa essere stata compromessa, è possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso dell'insieme di credenziali delle chiavi. Per revocare una chiave gestita dal cliente, chiamare il comando [az keyvault delete-policy,](/cli/azure/keyvault#az-keyvault-delete-policy) come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di utilizzare le variabili definite negli esempi precedenti.
+Se si ritiene che una chiave possa essere stata compromessa, è possibile revocare le chiavi gestite dal cliente rimuovendo i criteri di accesso di Key Vault. Per revocare una chiave gestita dal cliente, chiamare il comando [AZ Key Vault Delete-Policy](/cli/azure/keyvault#az-keyvault-delete-policy) , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```azurecli-interactive
 az keyvault delete-policy \
@@ -132,9 +132,9 @@ az keyvault delete-policy \
     --object-id $storage_account_principal
 ```
 
-## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal clienteDisable customer-managed keys
+## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
 
-Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft.When you disable customer-managed keys, your storage account is once encrypted with Microsoft-managed keys. Per disabilitare le chiavi gestite dal cliente, `Microsoft.Storage`chiamare az storage account [update](/cli/azure/storage/account#az-storage-account-update) e impostare l'oggetto `--encryption-key-source parameter` su , come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di utilizzare le variabili definite negli esempi precedenti.
+Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft. Per disabilitare le chiavi gestite dal `--encryption-key-source parameter` cliente, chiamare [AZ storage account Update](/cli/azure/storage/account#az-storage-account-update) e impostare su `Microsoft.Storage`, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con i propri valori e di usare le variabili definite negli esempi precedenti.
 
 ```azurecli-interactive
 az storage account update
@@ -145,5 +145,5 @@ az storage account update
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di Archiviazione di Azure per i dati inattiviAzure Storage encryption for data at rest](storage-service-encryption.md) 
+- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
 - [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

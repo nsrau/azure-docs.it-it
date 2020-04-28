@@ -1,20 +1,20 @@
 ---
 title: Introduzione a Plug and Play IoT (anteprima) | Microsoft Docs
 description: Informazioni su Plug and Play IoT (anteprima). Plug and Play IoT si basa su un linguaggio di modellazione aperto che consente ai dispositivi IoT di dichiarare le proprie funzionalità. I dispositivi IoT presentano tale dichiarazione, nota come modello di funzionalità di dispositivo, quando si connettono a soluzioni cloud come Azure IoT Central o ad applicazioni dei partner. La soluzione cloud può quindi riconoscere automaticamente il dispositivo e iniziare a interagire con esso, tutto senza scrivere codice.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 12f3febac2c5c8ed01b9b156a64dc77f6ed0704f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064320"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770427"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Informazioni su Plug and Play IoT (anteprima)
 

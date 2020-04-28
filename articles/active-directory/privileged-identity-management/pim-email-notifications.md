@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 201abd24bc4056337f1ffecd2dabd002ae352c74
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72756392"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866427"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
 
@@ -76,6 +76,18 @@ Il messaggio di posta elettronica include quattro sezioni:
 | **Role assignments outside of PIM** (Assegnazioni di ruoli all'esterno di PIM) | Numero di volte in cui agli utenti viene assegnato un ruolo permanente all'esterno di Gestione identità con privilegi (all'interno di Azure AD). |
 
 La sezione **Overview of your top roles** (Panoramica dei ruoli principali) elenca i cinque ruoli principali nel tenant in base al numero totale di amministratori permanenti e idonei per ogni ruolo. Il collegamento **Intervieni** apre la [procedura guidata PIM](pim-security-wizard.md), che consente di convertire gli amministratori permanenti in amministratori idonei in batch.
+
+## <a name="email-timing-for-activation-approvals"></a>Tempi di posta elettronica per le approvazioni di attivazione
+
+Quando gli utenti attivano il proprio ruolo e l'impostazione del ruolo richiede l'approvazione, gli approvatori riceveranno tre messaggi di posta elettronica per ogni approvazione:When users activates their role and the role setting requires approval, approvers will receive three emails for each approval:
+
+- Richiesta di approvare o rifiutare la richiesta di attivazione dell'utente (inviata dal motore di approvazione delle richieste)
+- La richiesta dell'utente viene approvata (inviata dal motore di approvazione delle richieste)
+- Il ruolo dell'utente è attivato (inviato da Privileged Identity Management)
+
+Le prime due e-mail inviate dal motore di approvazione delle richieste possono essere ritardate. Attualmente, il 90% delle e-mail richiede da tre a dieci minuti, ma per l'1% dei clienti può essere molto più lungo, fino a quindici minuti.
+
+Se una richiesta di approvazione viene approvata nel portale di Azure prima dell'invio del primo messaggio di posta elettronica, il primo messaggio di posta elettronica non verrà più attivato e gli altri approvatori non riceveranno alcuna notifica tramite posta elettronica della richiesta di approvazione. Potrebbe sembrare come se non hanno ottenuto un'e-mail, ma è il comportamento previsto.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Messaggi di posta elettronica PIM per i ruoli delle risorse di Azure
 

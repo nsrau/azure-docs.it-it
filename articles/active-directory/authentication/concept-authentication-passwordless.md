@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
-ms.translationtype: MT
+ms.openlocfilehash: fe602972cb16bf24b1c35b2aadfe25c499bce69f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743529"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181852"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
@@ -119,7 +119,7 @@ I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di form
 | eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (gruppo Thales) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
-| Onespan Inc. | [https://www.onespan.com/sites/default/files/2019-08/Digipass-SecureClick_datasheet.pdf](https://www.onespan.com/sites/default/files/2019-08/Digipass-SecureClick_datasheet.pdf) |
+| Onespan Inc. | [https://www.onespan.com/sites/default/files/2019-01/OneSpan-FIDO-Authentication.pdf](https://www.onespan.com/sites/default/files/2019-01/OneSpan-FIDO-Authentication.pdf) |
 | IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
 
 > [!NOTE]
@@ -152,7 +152,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e gli utenti.
 
-|Utente tipo|Scenario|Environment|Tecnologia con password|
+|Utente tipo|Scenario|Ambiente|Tecnologia con password|
 |:-|:-|:-|:-|
 |**Amministrazione**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Amministrazione**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|

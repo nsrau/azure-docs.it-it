@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 9cde457d36154a71970a159b1c247af7b37bae82
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e1511882a1244aaf7783a330c2b5c7d1eb15e50d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148186"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176023"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server con Azure NetApp Files per le applicazioni SAP
 
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 

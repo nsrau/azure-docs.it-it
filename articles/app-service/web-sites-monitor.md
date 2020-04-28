@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d84340730391abd7dba4d13202503d37941c09b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8baefcbfa1eb34bc6cd37e4325d9a9bfc11e2d20
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500426"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181223"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
-[Il servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio incorporate per app Web, dispositivi mobili e API nel portale di [Azure.](https://portal.azure.com)
+[App Azure servizio](https://go.microsoft.com/fwlink/?LinkId=529714) fornisce funzionalità di monitoraggio predefinite per app Web, per dispositivi mobili e per le app per le API nel [portale di Azure](https://portal.azure.com).
 
-Nel portale di Azure è possibile esaminare *le quote* e le *metriche* per un'app e un piano di servizio app e configurare *avvisi* e le metriche basate sulle regole di *scalabilità automatica.*
+Nella portale di Azure è possibile esaminare le *quote* e le *metriche* per un piano di servizio app e app e configurare gli *avvisi* e la *scalabilità* automatica basata sulle metriche.
 
 ## <a name="understand-quotas"></a>Informazioni sulle quote
 
@@ -39,7 +39,7 @@ Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 | **Banda** | Quantità totale di larghezza di banda in uscita consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
 | **Filesystem** | Quantità totale di spazio di archiviazione consentito. |
 
-L'unica quota applicabile alle app ospitate in *Basic,* *Standard*e *Premium* è Filesystem.
+L'unica quota applicabile alle app ospitate in *Basic*, *standard*e *Premium* è file System.
 
 Per altre informazioni su quote, funzionalità e limiti specifici per i vari SKU del servizio app, vedere i [limiti del servizio per la sottoscrizione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
@@ -58,11 +58,11 @@ Se viene superata la quota Filesystem, tutte le operazioni di scrittura hanno es
 ## <a name="understand-metrics"></a>Informazioni sulle metriche
 
 > [!NOTE]
-> **Utilizzo del file system** è una nuova metrica in fase di implementazione a livello globale, non è previsto alcun dato a meno che non si è stati inseriti nella whitelist per l'anteprima privata.
+> L' **utilizzo del file System** è una nuova metrica distribuita a livello globale, non è previsto alcun dato, a meno che non sia stata inserita nell'elenco elementi consentiti per l'anteprima privata.
 > 
 
 > [!IMPORTANT]
-> **Il tempo medio** di risposta sarà deprecato per evitare confusione con le aggregazioni delle metriche. Utilizzare **il tempo** di risposta in sostituzione.
+> Il **tempo di risposta medio** sarà deprecato per evitare confusione con le aggregazioni di metriche. Usare il **tempo di risposta** come sostituzione.
 
 Le metriche forniscono informazioni sull'app o sul comportamento del piano di servizio app.
 
@@ -70,15 +70,15 @@ Le metriche disponibili per un'app sono:
 
 | Metrica | Descrizione |
 | --- | --- |
-| **Tempo di risposta** | Tempo impiegato dall'app per la gestione delle richieste, in secondi. |
-| **Tempo medio di risposta (deprecato)** | Tempo medio impiegato dall'app per la gestione delle richieste, in secondi. |
-| **Set di lavoro medio della memoria** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
+| **Tempo di risposta** | Tempo impiegato dall'app per gestire le richieste, in secondi. |
+| **Tempo medio di risposta (obsoleto)** | Tempo medio impiegato dall'app per gestire le richieste, in secondi. |
+| **Media working set di memoria** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
 | **Connessioni** | Numero di socket associati esistenti nella sandbox (w3wp.exe e i processi figlio).  Un socket associato viene creato chiamando le API bind()/connect() e permane finché non viene chiuso con CloseHandle()/closesocket(). |
-| **Tempo CPU** | Quantità di CPU utilizzata dall'app, espressa in secondi. Per ulteriori informazioni su questa metrica, vedere [Tempo CPU rispetto percentuale CPU](#cpu-time-vs-cpu-percentage). |
+| **Tempo CPU** | Quantità di CPU utilizzata dall'app, espressa in secondi. Per altre informazioni su questa metrica, vedere [tempo CPU e percentuale CPU](#cpu-time-vs-cpu-percentage). |
 | **Assembly attuali** | Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione. |
 | **Dati in** | Larghezza di banda in entrata utilizzata dall'app, espressa in MiB. |
 | **Dati in uscita** | Larghezza di banda in uscita utilizzata dall'app, espressa in MiB. |
-| **Utilizzo del file system** | Percentuale della quota del file system utilizzata dall'app. |
+| **Utilizzo del file System** | Percentuale di quota del file System utilizzata dall'app. |
 | **Garbage Collection di generazione 0** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 0 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
 | **Garbage Collection di generazione 1** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
 | **Garbage Collection di generazione 2** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|
@@ -91,13 +91,13 @@ Le metriche disponibili per un'app sono:
 | **Http 406** | Numero di richieste che hanno restituito un codice di stato HTTP 406. |
 | **Http 4xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 400 e < 500. |
 | **Errori server HTTP** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 500 e < 600. |
-| **I/O - Altri byte al secondo** | Velocità con cui il processo dell'app emana byte a operazioni di I/O che non coinvolgono dati, ad esempio operazioni di controllo.|
-| **I/O - Altre operazioni al secondo** | Velocità con cui il processo dell'app emana operazioni di I/O che non sono operazioni di lettura o scrittura.|
+| **I/O - Altri byte al secondo** | Frequenza con cui il processo dell'app emette byte per le operazioni di I/O che non coinvolgono i dati, ad esempio le operazioni di controllo.|
+| **I/O - Altre operazioni al secondo** | Velocità con cui il processo dell'app emette operazioni di I/O che non sono operazioni di lettura o scrittura.|
 | **I/O - Byte in lettura al secondo** | Frequenza con cui il processo dell'app legge i byte dalle operazioni di I/O.|
 | **I/O - Operazioni di lettura al secondo** | Frequenza con cui il processo dell'app rilascia le operazioni di I/O di lettura.|
 | **I/O - Byte in scrittura al secondo** | Frequenza con cui il processo dell'app scrive i byte nelle operazioni di I/O.|
 | **I/O - Operazioni di scrittura al secondo** | Frequenza con cui il processo dell'app rilascia le operazioni di I/O di scrittura.|
-| **Working set di memoria** | Quantità di memoria corrente usata dall'app, espressa in MiB. |
+| **working set memoria** | Quantità di memoria corrente usata dall'app, espressa in MiB. |
 | **Byte privati** | Byte privati è la dimensione corrente, in byte, della memoria allocata dal processo dell'app che non può essere condivisa con altri processi.|
 | **Richieste** | Numero totale di richieste, indipendentemente dal codice di stato HTTP restituito. |
 | **Richieste nella coda dell'applicazione** | Numero di richieste nella coda di richieste dell'applicazione.|
@@ -118,7 +118,7 @@ Le metriche disponibili per un piano di servizio app sono:
 | **Percentuale memoria** | Memoria media usata tra tutte le istanze del piano. |
 | **Dati in** | Larghezza di banda in ingresso media usata tra tutte le istanze del piano. |
 | **Dati in uscita** | Larghezza di banda in uscita media usata tra tutte le istanze del piano. |
-| **Lunghezza coda disco** | Numero medio di richieste di lettura e scrittura accodate nella risorsa di archiviazione. Una lunghezza elevata della coda del disco è un'indicazione di un'app che potrebbe rallentare a causa di un'eccessiva i/o del disco. |
+| **Lunghezza coda disco** | Numero medio di richieste di lettura e scrittura accodate nella risorsa di archiviazione. Una lunghezza elevata della coda del disco indica un'app che potrebbe essere rallentata a causa di un numero eccessivo di I/O su disco. |
 | **Lunghezza coda HTTP** | Numero medio di richieste HTTP che hanno dovuto attendere in coda prima di essere completate. Una lunghezza coda HTTP elevata o in aumento indica che il piano si trova in condizioni di carico eccessivo. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Tempo CPU e percentuale CPU
@@ -126,38 +126,35 @@ Le metriche disponibili per un piano di servizio app sono:
 
 Le metriche che riflettono l'utilizzo della CPU sono due:
 
-**Tempo CPU**: Utile per le app ospitate in piani liberi o condivisi, perché una delle quote è definita in minuti CPU utilizzati dall'app.
+**Tempo CPU**: utile per le app ospitate in piani gratuiti o condivisi, perché una delle rispettive quote è definita in minuti CPU usati dall'app.
 
-**Percentuale CPU**: Utile per le app ospitate nei piani Basic, Standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una buona indicazione dell'utilizzo complessivo in tutte le istanze.
+**Percentuale CPU**: utile per le app ospitate nei piani Basic, standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una indicazione corretta dell'utilizzo complessivo in tutte le istanze.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularità delle metriche e criteri di conservazione
-Le metriche per un'app e un piano di servizio app vengono registrate e aggregate dal servizio con le granularità e i criteri di conservazione seguenti:
 
-* **Le** metriche di granularità dei minuti vengono mantenute per 30 ore.
-* Le metriche di granularità **delle ore** vengono mantenute per 30 giorni.
-* **Le** metriche di granularità dei giorni vengono mantenute per 30 giorni.
+Le metriche per un'app e il piano di servizio app vengono registrate e aggregate dal servizio. Le metriche vengono conservate per 90 giorni.
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoraggio di quote e metriche nel portale di Azure
 Per esaminare lo stato delle varie quote e metriche che interessano un'app, accedere al [portale di Azure](https://portal.azure.com).
 
 ![Grafico delle quote nel portale di Azure][quotas]
 
-Per trovare le quote, selezionare **Quote impostazioni** > **.** Nel grafico è possibile esaminare gli elementi seguenti: 
+Per trovare le quote, selezionare **Settings** > **quote**impostazioni. Nel grafico è possibile esaminare gli elementi seguenti: 
 1. Nome della quota
 1. Intervallo di reimpostazione
 1. Limite corrente
 1. Valore corrente
 
-![Grafico delle metriche][metrics] nel portale di Azure È possibile accedere alle metriche direttamente dalla pagina **Panoramica** delle risorse. Qui vedrai i grafici che rappresentano alcune delle metriche delle app.
+![Grafico delle metriche nella portale di Azure][metrics] è possibile accedere alle metriche direttamente dalla pagina **Panoramica** risorse. Qui verranno visualizzati i grafici che rappresentano alcune metriche di app.
 
-Facendo clic su uno di questi grafici si porterà alla vista metriche in cui è possibile creare grafici personalizzati, eseguire query diverse metriche e molto altro ancora. 
+Facendo clic su uno di questi grafici verrà visualizzata la visualizzazione metriche in cui è possibile creare grafici personalizzati, eseguire query su metriche diverse e molto altro. 
 
 Per altre informazioni sulle metriche, vedere [Monitorare le metriche del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Avvisi e scalabilità automatica
 Le metriche per un'app o un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Le app del servizio app ospitate nei piani di servizio app di base o superiori supportano la scalabilità automatica. Con questa funzionalità è possibile configurare le regole che consentono di monitorare le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per fornire risorse aggiuntive in base alla esigenze. L'uso delle regole consente anche di ridurre i costi quando l'app ha un provisioning eccessivo.
+Le app del servizio app ospitate nei piani di servizio App Basic o superiore supportano la scalabilità automatica. Con questa funzionalità è possibile configurare le regole che consentono di monitorare le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per fornire risorse aggiuntive in base alla esigenze. L'uso delle regole consente anche di ridurre i costi quando l'app ha un provisioning eccessivo.
 
 Per altre informazioni sulla scalabilità automatica, vedere [Procedura dettagliata sulla scalabilità automatica](../monitoring-and-diagnostics/insights-how-to-scale.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/platform/autoscale-best-practices.md).
 

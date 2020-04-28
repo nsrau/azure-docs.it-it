@@ -1,31 +1,31 @@
 ---
-title: Usare i modelli di Azure Resource Manager per creare l'account di automazione. Documenti Microsoft
-description: È possibile usare un modello di Azure Resource Manager per creare un account di Automazione di Azure.You can use an Azure Resource Manager template to create an Azure Automation account.
+title: Usare modelli di Azure Resource Manager per creare un account di automazione | Microsoft Docs
+description: È possibile usare un modello di Azure Resource Manager per creare un account di automazione di Azure.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/15/2020
-ms.openlocfilehash: efe51fbada8ac70b24c16a5c7c1e0e91879e5e9f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618685"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165825"
 ---
-# <a name="create-automation-account-using-azure-resource-manager-template"></a>Creare un account di automazione usando il modello di Azure Resource ManagerCreate Automation account using Azure Resource Manager template
+# <a name="create-automation-account-using-azure-resource-manager-template"></a>Creare un account di automazione usando il modello di Azure Resource Manager
 
-È possibile usare i modelli di [Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) per creare un account di Automazione di Azure nel gruppo di risorse. In questo articolo viene fornito un modello di esempio che automatizza gli elementi seguenti:This article provides a sample template that automates the following:
+È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) per creare un account di automazione di Azure nel gruppo di risorse. Questo articolo fornisce un modello di esempio che consente di automatizzare le operazioni seguenti:
 
-* Creazione di un'area di lavoro di Log Analytics di Monitoraggio di Azure.Creation of a Azure Monitor Log Analytics workspace.
-* Creazione di un account di Automazione di Azure.Creation of an Azure Automation account.
-* Collega l'account di automazione all'area di lavoro di Log Analytics.
+* Creazione di un'area di lavoro Log Analytics di monitoraggio di Azure.
+* Creazione di un account di automazione di Azure.
+* Collega l'account di automazione all'area di lavoro Log Analytics.
 
-Il modello non automatizza l'onboarding di una o più macchine virtuali di Azure o non Azure o soluzioni. 
+Il modello non automatizza l'onboarding di una o più macchine virtuali di Azure o non Azure o di soluzioni. 
 
 >[!NOTE]
->La creazione dell'account RunAs di automazione non è supportata quando si usa un modello di Azure Resource Manager.Creation of the Automation RunAs account is not supported when using an Azure Resource Manager template. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [Gestire l'account RunAs.](manage-runas-account.md)
+>La creazione dell'account RunAs di automazione non è supportata quando si usa un modello di Azure Resource Manager. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [gestire l'account RunAs](manage-runas-account.md).
 
 ## <a name="api-versions"></a>Versioni dell'API
 
@@ -36,33 +36,38 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Area di lavoro | aree di lavoro | 2017-03-15-preview |
 | Account di Automazione | automation | 2015-10-31 | 
 
-## <a name="before-using-the-template"></a>Prima di utilizzare il modello
+## <a name="before-using-the-template"></a>Prima di usare il modello
 
-Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede il modulo Azure PowerShell Az.If you choose to install and use PowerShell locally, this article requires the Azure PowerShell Az module. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure. Con Azure PowerShell la distribuzione usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede il Azure PowerShell AZ Module. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure. Con Azure PowerShell, la distribuzione USA [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.1.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Con l'interfaccia della riga di comando di Azure, questa distribuzione usa la distribuzione di [gruppi di az create.](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.1.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Con l'interfaccia della riga di comando di Azure, questa distribuzione USA [AZ Group Deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
-Il modello JSON è configurato per richiedere:
+Il modello JSON è configurato in modo da richiedere:
 
-* Il nome dell'area di lavoro
-* L'area in cui creare l'area di lavoro
-* Il nome dell'account di automazione
-* L'area in cui creare l'account
+* Nome dell'area di lavoro
+* Area in cui creare l'area di lavoro
+* Nome dell'account di automazione
+* Area in cui creare l'account
 
-Il modello JSON specifica un valore predefinito per gli altri parametri che verrebbero probabilmente utilizzati come configurazione standard nell'ambiente. È possibile archiviare il modello in un account di archiviazione di Azure per l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere Distribuire risorse con i modelli di [Resource Manager e l'interfaccia della riga di comando](../azure-resource-manager/templates/deploy-cli.md)di Azure.For further information about working with templates, see Deploy resources with Resource Manager templates and Azure CLI .
-
-I parametri seguenti nel modello vengono impostati con un valore predefinito per l'area di lavoro di Log Analytics:
+I seguenti parametri nel modello vengono impostati con un valore predefinito per l'area di lavoro Log Analytics:
 
 * sku: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018
-* conservazione dei dati - il valore predefinito è trenta giorni
-* prenotazione capacità - il valore predefinito è 100 GB
+* conservazione dei dati: il valore predefinito è trenta giorni
+* prenotazione di capacità: il valore predefinito è 100 GB
 
 >[!WARNING]
 >Se si crea o si configura un'area di lavoro Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.
 >
 
->[!NOTE]
->Prima di usare questo modello, esaminare [i dettagli aggiuntivi](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) per comprendere appieno le opzioni di configurazione dell'area di lavoro, ad esempio la modalità di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione della capacità. Se non si ha familiarità con i log di Monitoraggio di Azure e non è già stata distribuita un'area di lavoro, è consigliabile esaminare le linee guida di [progettazione dell'area](../azure-monitor/platform/design-logs-deployment.md) di lavoro per informazioni sul controllo di accesso e una conoscenza delle strategie di implementazione della progettazione consigliate per l'organizzazione.
+Il modello JSON specifica un valore predefinito per gli altri parametri che verrebbero probabilmente usati come configurazione standard nell'ambiente in uso. È possibile archiviare il modello in un account di archiviazione di Azure per l'accesso condiviso nell'organizzazione. Per altre informazioni sull'uso dei modelli, vedere [distribuire le risorse con i modelli di gestione risorse e l'interfaccia](../azure-resource-manager/templates/deploy-cli.md)della riga di comando di Azure.
+
+Se non si ha familiarità con automazione di Azure e monitoraggio di Azure, è importante comprendere i dettagli di configurazione seguenti, in modo da evitare errori durante il tentativo di creare, configurare e usare un'area di lavoro Log Analytics collegata al nuovo account di automazione.
+
+* Esaminare [i dettagli aggiuntivi](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) per comprendere completamente le opzioni di configurazione dell'area di lavoro, ad esempio la modalità di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione
+
+* Poiché sono supportate solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione nella sottoscrizione, esaminare i [mapping dell'area di lavoro](how-to/region-mappings.md) per specificare le aree supportate inline o in un file di parametri.
+
+* Se non si ha familiarità con i log di monitoraggio di Azure e non è già stata distribuita un'area di lavoro, è consigliabile esaminare le linee guida per la [progettazione dell'area di lavoro](../azure-monitor/platform/design-logs-deployment.md) per informazioni sul controllo di accesso e per comprendere le strategie di implementazione della progettazione consigliate per
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
@@ -112,32 +117,6 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -307,11 +286,11 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
     }
     ```
 
-2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un file di parametri di [Resource Manager](../azure-resource-manager/templates/parameter-files.md) anziché passare parametri come valori inline.
+2. Modificare il modello in base alle esigenze. Provare a creare un [file di parametri di gestione risorse](../azure-resource-manager/templates/parameter-files.md) anziché passare i parametri come valori inline.
 
-3. Salvare il file come deployAzAutomationAccttemplate.json in una cartella locale.
+3. Salvare il file come deployAzAutomationAccttemplate. JSON in una cartella locale.
 
-4. A questo punto è possibile distribuire il modello. È possibile usare PowerShell o l'interfaccia della riga di comando di Azure.You can use either PowerShell or the Azure CLI. Quando viene richiesto un'area di lavoro e il nome dell'account di automazione, specificare un nome univoco a livello globale in tutte le sottoscrizioni di Azure.When you're prompted for a workspace and Automation account name, provide a globally unique across all Azure subscriptions.
+4. A questo punto è possibile distribuire il modello. È possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Quando viene richiesta un'area di lavoro e un nome di account di automazione, fornire un nome univoco a livello globale in tutte le sottoscrizioni di Azure.
 
     **PowerShell**
 
@@ -331,4 +310,4 @@ I parametri seguenti nel modello vengono impostati con un valore predefinito per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si dispone di un account di automazione, è possibile creare runbook e automatizzare i processi manuali.
+Ora che si dispone di un account di automazione, è possibile creare manuali operativi e automatizzare i processi manuali.

@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7340f419912324e488dc38e5aa0d884b150a44b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365365"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176380"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Ripristino di emergenza e failover dell'account (anteprima)
 
@@ -54,8 +54,8 @@ Per altre informazioni sulla ridondanza in archiviazione di Azure, vedere [ridon
 Tenere anche presenti queste procedure consigliate per mantenere la disponibilità elevata per i dati di Archiviazione di Azure:
 
 - **Dischi:** Usare [backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi di VM usati dalle macchine virtuali di Azure. Valutare anche l'opportunità di usare [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) per proteggere le macchine virtuali in caso di emergenza a livello di area.
-- **BLOB in blocchi:** Attivare l' [eliminazione](../blobs/storage-blob-soft-delete.md) temporanea per proteggersi da eliminazioni a livello di oggetto e sovrascritture oppure copiare BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)o la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-- **File:** Usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'area diversa.
+- **BLOB in blocchi:** Attivare l' [eliminazione](../blobs/storage-blob-soft-delete.md) temporanea per proteggersi da eliminazioni a livello di oggetto e sovrascritture oppure copiare BLOB in blocchi in un altro account di archiviazione in un'area diversa usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)o la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **File:** Usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](/powershell/module/az.storage/) per copiare i file in un altro account di archiviazione in un'area diversa.
 - **Tabelle:** usare [AzCopy](storage-use-azcopy.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'area diversa.
 
 ## <a name="track-outages"></a>Tenere traccia delle interruzioni
@@ -120,7 +120,7 @@ Il failover dell'account è disponibile in anteprima per tutti i clienti che usa
 
 La versione di anteprima è destinata solo all'uso in ambienti non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
 
-### <a name="additional-considerations"></a>Considerazioni aggiuntive
+### <a name="additional-considerations"></a>Altre considerazioni
 
 Leggere le considerazioni aggiuntive esposte in questa sezione per comprendere come le applicazioni e i servizi potrebbero essere interessati quando si forza un failover durante il periodo di anteprima.
 
@@ -167,7 +167,7 @@ Le funzionalità e i servizi seguenti non sono supportati per il failover dell'a
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copia dei dati come alternativa al failover
 
-Se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura, si ha accesso in lettura ai dati tramite l'endpoint secondario. Se si preferisce non effettuare il failover in caso di interruzione nell'area primaria, è possibile usare strumenti come [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [libreria di spostamento dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) per copiare i dati dall'account di archiviazione nell'area secondaria a un altro account di archiviazione in un'area non interessata. È quindi possibile indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
+Se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura, si ha accesso in lettura ai dati tramite l'endpoint secondario. Se si preferisce non effettuare il failover in caso di interruzione nell'area primaria, è possibile usare strumenti come [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) o la [libreria di spostamento dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) per copiare i dati dall'account di archiviazione nell'area secondaria a un altro account di archiviazione in un'area non interessata. È quindi possibile indirizzare le applicazioni a tale account di archiviazione per la disponibilità sia in lettura che in scrittura.
 
 > [!CAUTION]
 > Non è consigliabile usare un failover dell'account come parte della strategia di migrazione dei dati.
@@ -177,7 +177,7 @@ Se l'account di archiviazione è configurato per l'archiviazione con ridondanza 
 
 In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microsoft potrebbe avviare un failover a livello di area. In tal caso, non è necessaria alcuna azione da parte dell'utente. Si avrà di nuovo accesso in scrittura all'account di archiviazione solo dopo il completamento del failover gestito da Microsoft. Le applicazioni possono eseguire operazioni di lettura dall'area secondaria se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura. 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Avviare il failover di un account (anteprima)](storage-initiate-account-failover.md)
 - [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)

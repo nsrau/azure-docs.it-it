@@ -1,22 +1,18 @@
 ---
 title: Come abilitare la virtualizzazione annidata in macchine virtuali di Azure
 description: Come abilitare la virtualizzazione annidata in macchine virtuali di Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 7858bd467c6e3fd82fcb3803a98e96b265f17d23
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 2c66f88cc49028fae50d89a9a7c24233d5a926b4
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605265"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865707"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -42,7 +38,7 @@ Creare una connessione Desktop remoto alla macchina virtuale.
 
 1. Fare clic sul pulsante **Connetti** nelle proprietà della macchina virtuale. Verrà creato e scaricato un file Remote Desktop Protocol, con estensione rdp.
 
-2. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. In Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) disponibile nel Mac App Store.
+2. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. In un Mac, è necessario un client RDP come questo [client Desktop remoto](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) disponibile nel Mac App Store.
 
 3. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi fare clic su **OK**.
 

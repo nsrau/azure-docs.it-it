@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbfd0e36307210851070c22e74acb0a858446ce1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74227407"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866709"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
 Il supporto per metadati OpenAPI 2.0 (in precedenza Swagger) in Funzioni di Azure è una funzionalità di anteprima che consente di scrivere una definizione di OpenAPI 2.0 all'interno di un'app per le funzioni. Con l'app per le funzioni è poi possibile ospitare quel file.
@@ -60,7 +60,7 @@ La tabella seguente include le impostazioni del portale di Azure e i dati corris
 > [!NOTE]
 > L'estensione x-ms-summary indica il nome visualizzato in App per la logica, PowerApps e Flow.
 >
-> Per altre informazioni, vedere [Customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) (Personalizzare la definizione Swagger per PowerApps).
+> Per altre informazioni, vedere [Customize your Swagger definition for PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions) (Personalizzare la definizione Swagger per PowerApps).
 
 ## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Usare CI/CD per impostare una definizione dell'API
 
@@ -77,5 +77,5 @@ A questo punto, le modifiche apportate al file swagger.json nell'archivio sono o
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione esercitazione](functions-api-definition-getting-started.md). Provare la procedura dettagliata per comprendere il funzionamento di una definizione OpenAPI.
-* [Repository GitHub di Funzioni di Azure](https://github.com/Azure/Azure-Functions/). Controllare l'archivio di Funzioni di Azure per inviare commenti e suggerimenti relativi all'anteprima del supporto della definizione dell'API. È anche possibile segnalare un problema di GitHub su eventuali aggiornamenti.
+* [Archivio GitHub di Funzioni di Azure.](https://github.com/Azure/Azure-Functions/) Controllare l'archivio di Funzioni di Azure per inviare commenti e suggerimenti relativi all'anteprima del supporto della definizione dell'API. È anche possibile segnalare un problema di GitHub su eventuali aggiornamenti.
 * [Informazioni di riferimento per gli sviluppatori di Funzioni](functions-reference.md)di Azure. Informazioni sulla codifica delle funzioni e sulla definizione di trigger e associazioni.

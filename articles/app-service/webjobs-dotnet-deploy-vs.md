@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 75e1f5fbfa41ac310d2a737dcfe28199715a094b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: d73c858bdbfee7c5b7c7e31b62b1f601b7b6838a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312869"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866450"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Sviluppare e distribuire processi Web usando Visual Studio - Servizio app di Azure
 
@@ -175,7 +175,7 @@ Quando si configura un'applicazione console per la distribuzione dei processi We
           "runMode": "Continuous"
         }
 
-È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) file viene memorizzato in e può essere visualizzato.  
+È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) file viene memorizzato in e può essere visualizzato.  
 
 ### <a name="webjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
 Quando si collega un progetto abilitato per i processi Web a un progetto Web, Visual Studio archivia il nome del progetto processi Web in un file *webjobs-list.json* nella cartella *Proprietà* del progetto Web. L'elenco potrebbe contenere più progetti processi Web, come illustrato nell'esempio seguente:
@@ -192,7 +192,7 @@ Quando si collega un progetto abilitato per i processi Web a un progetto Web, Vi
           ]
         }
 
-È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) file viene memorizzato in e può essere visualizzato.
+È possibile modificare questo file direttamente e Visual Studio fornisce IntelliSense. Lo schema del [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) file viene memorizzato in e può essere visualizzato.
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>Distribuire un progetto processi Web
 Un progetto processi Web collegato a un progetto Web viene distribuito automaticamente con il progetto Web. Per informazioni sulla distribuzione di progetti Web, vedere **Guide** > alle procedure**Distribuire l'app** nel riquadro di spostamento sinistro.

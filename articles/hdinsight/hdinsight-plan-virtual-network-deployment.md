@@ -1,23 +1,23 @@
 ---
-title: Pianificare una rete virtuale per Azure HDInsightPlan a virtual network for Azure HDInsight
-description: Informazioni su come pianificare una distribuzione di rete virtuale di Azure per connettere HDInsight ad altre risorse cloud o risorse nel data center.
+title: Pianificare una rete virtuale per Azure HDInsight
+description: Informazioni su come pianificare una distribuzione di rete virtuale di Azure per connettere HDInsight ad altre risorse cloud o risorse nel Data Center.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 18774ae4a98b795846459251174ee47671aef39c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: d421811c18ac63952432cd853a6928db7c81f3db
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769893"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182430"
 ---
-# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsightPlan a virtual network for Azure HDInsight
+# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Pianificare una rete virtuale per Azure HDInsight
 
-Questo articolo fornisce informazioni di base sull'uso delle reti virtuali di Azure con Azure HDInsight.This article provides background information on using [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) (VNets) with Azure HDInsight. Vengono inoltre illustrate le decisioni di progettazione e implementazione che devono essere prese prima di poter implementare una rete virtuale per il cluster HDInsight.It also discusses design and implementation decisions that must be made before you can implement a virtual network for your HDInsight cluster. Al termine della fase di pianificazione, è possibile passare a Creare reti virtuali per cluster Azure HDInsight.Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md). Per altre informazioni sugli indirizzi IP di gestione di HDInsight necessari per configurare correttamente i gruppi di sicurezza di rete e le route definite dall'utente, vedere Indirizzi IP di [gestione HDInsight.](hdinsight-management-ip-addresses.md)
+Questo articolo fornisce informazioni di base sull'uso delle [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) (reti virtuali) con Azure HDInsight. Vengono inoltre illustrate le decisioni di progettazione e implementazione che devono essere apportate prima di poter implementare una rete virtuale per il cluster HDInsight. Al termine della fase di pianificazione, è possibile procedere alla [creazione di reti virtuali per i cluster HDInsight di Azure](hdinsight-create-virtual-network.md). Per altre informazioni sugli indirizzi IP di gestione di HDInsight necessari per configurare correttamente i gruppi di sicurezza di rete (gruppi) e le route definite dall'utente, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
 
 Il servizio Rete virtuale di Azure consente di implementare gli scenari seguenti:
 
@@ -26,9 +26,9 @@ Il servizio Rete virtuale di Azure consente di implementare gli scenari seguenti
 * Accesso diretto ai servizi Apache Hadoop che non sono disponibili pubblicamente su Internet. ad esempio le API Apache Kafka o l'API Java Apache HBase.
 
 > [!IMPORTANT]
-> La creazione di un cluster HDInsight in una rete virtuale creerà diverse risorse di rete, ad esempio schede di interfaccia di rete e servizi di bilanciamento del carico. **Non** eliminare queste risorse di rete, in quanto sono necessarie per il corretto funzionamento del cluster con la rete virtuale.
+> La creazione di un cluster HDInsight in una VNET creerà diverse risorse di rete, ad esempio nic e bilanciamento del carico. **Non** eliminare queste risorse di rete, perché sono necessarie per il corretto funzionamento del cluster con vnet.
 >
-> Dopo il 28 f.28 settembre 2019, le risorse di rete (ad esempio NIC, LB e così via) per i nuovi cluster HDInsight creati in una rete virtuale verranno sottoposte a provisioning nello stesso gruppo di risorse cluster HDInsight.After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW HDInsight clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. In precedenza, il provisioning di queste risorse nel gruppo di risorse VNET. Non viene apportata alcuna modifica ai cluster in esecuzione correnti e ai cluster creati senza una rete virtuale.
+> Dopo il 28 febbraio 2019, verrà eseguito il provisioning delle risorse di rete (ad esempio NIC, LBs e così via) per i nuovi cluster HDInsight creati in un VNET nello stesso gruppo di risorse cluster HDInsight. In precedenza, veniva eseguito il provisioning di queste risorse nel gruppo di risorse VNET. Non sono state apportate modifiche ai cluster attualmente in esecuzione e a questi cluster creati senza VNET.
 
 ## <a name="planning"></a>Pianificazione
 
@@ -36,7 +36,7 @@ Di seguito sono elencate le domande che è necessario porsi quando si intende in
 
 * Occorre installare HDInsight in una rete virtuale esistente? Oppure si intende creare una rete nuova?
 
-    Se si usa una rete virtuale esistente, potrebbe essere necessario modificare la configurazione di rete prima di poter installare HDInsight.If you're using an existing virtual network, you may need to modify the network configuration before you can install HDInsight. Per altre informazioni, vedere la sezione [Aggiungere HDInsight a una rete virtuale esistente](#existingvnet).
+    Se si usa una rete virtuale esistente, potrebbe essere necessario modificare la configurazione di rete prima di poter installare HDInsight. Per altre informazioni, vedere la sezione [Aggiungere HDInsight a una rete virtuale esistente](#existingvnet).
 
 * La rete virtuale che contiene HDInsight deve essere connessa a un'altra rete virtuale o alla rete locale?
 
@@ -57,7 +57,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 
     HDInsight 3.4 e versione successiva richiedono l'utilizzo di una rete virtuale di Resource Manager. Le versioni precedenti di HDInsight richiedono una rete virtuale classica.
 
-    Se la rete virtuale esistente è un modello classico, è necessario creare una rete virtuale di Resource Manager e successivamente connettere le due reti. [Collegamento di reti virtuali classiche a nuove reti virtuali](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+    Se la rete virtuale esistente è un modello classico, è necessario creare una rete virtuale di Resource Manager e successivamente connettere le due reti. [Connessione di reti virtuali classiche a nuove reti virtuali](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
     Dopo che le due reti sono state unite, HDInsight installato nella rete di Resource Manager può interagire con le risorse della rete classica.
 
@@ -71,7 +71,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 
     * Gruppi di sicurezza di rete
 
-        Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale e quindi immettere il comando:
+        Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale, quindi immettere il comando:
 
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
@@ -88,7 +88,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 
     * Route definite dall'utente
 
-        Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale e quindi immettere il comando:
+        Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale, quindi immettere il comando:
 
         ```powershell
         Get-AzRouteTable -ResourceGroupName "RESOURCEGROUP"
@@ -118,14 +118,14 @@ Azure assicura la risoluzione dei nomi per i servizi di Azure che vengono instal
 
 * Qualsiasi risorsa disponibile in Internet, ad esempio microsoft.com o windowsupdate.com.
 
-* Qualsiasi risorsa che si trovi nella stessa rete virtuale di Azure tramite l'utilizzo del __nome DNS interno__ della risorsa. Ad esempio, quando si usa la risoluzione dei nomi predefinita, di seguito sono riportati esempi di nomi DNS interni assegnati ai nodi di lavoro HDInsight:For example, when using the default name resolution, the following are examples of internal DNS names assigned to HDInsight worker nodes:
+* Qualsiasi risorsa che si trovi nella stessa rete virtuale di Azure tramite l'utilizzo del __nome DNS interno__ della risorsa. Ad esempio, quando si usa la risoluzione dei nomi predefinita, di seguito sono riportati alcuni esempi di nomi DNS interni assegnati ai nodi HDInsight Worker:
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Entrambi questi nodi possono comunicare direttamente tra loro e con altri nodi in HDInsight, usando i nomi DNS interni.
 
-La risoluzione dei nomi predefinita __non__ consente a HDInsight di risolvere i nomi di risorse in reti che sono aggiunte alla rete virtuale. Ad esempio, è comune aggiungere la rete locale alla rete virtuale. Con solo la risoluzione dei nomi predefinita, HDInsight non può accedere alle risorse nella rete locale in base al nome. È vero anche il contrario, le risorse nella rete locale non possono accedere alle risorse nella rete virtuale in base al nome.
+La risoluzione dei nomi predefinita __non__ consente a HDInsight di risolvere i nomi di risorse in reti che sono aggiunte alla rete virtuale. Ad esempio, è comune aggiungere la rete locale alla rete virtuale. Con la risoluzione dei nomi predefinita, HDInsight non può accedere alle risorse nella rete locale in base al nome. È anche vero il contrario, le risorse nella rete locale non possono accedere alle risorse nella rete virtuale in base al nome.
 
 > [!WARNING]  
 > È necessario creare il server DNS personalizzato e configurare la rete virtuale per il suo utilizzo prima di creare il cluster HDInsight.
@@ -174,7 +174,7 @@ Per connettersi alle pagine Apache Ambari e ad altre pagine Web tramite la rete 
 
 1. Per individuare i nomi di dominio completi (FQDN) interni dei nodi del cluster HDInsight, usare uno dei modi seguenti:
 
-    Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale e quindi immettere il comando:
+    Sostituire `RESOURCEGROUP` con il nome del gruppo di risorse che contiene la rete virtuale, quindi immettere il comando:
 
     ```powershell
     $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
@@ -203,47 +203,47 @@ Per connettersi alle pagine Apache Ambari e ad altre pagine Web tramite la rete 
 
 ## <a name="controlling-network-traffic"></a><a id="networktraffic"></a>Controllo del traffico di rete
 
-### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Tecniche per il controllo del traffico in ingresso e in uscita verso i cluster HDInsightTechniques for controlling inbound and outbound traffic to HDInsight clusters
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Tecniche per il controllo del traffico in ingresso e in uscita verso i cluster HDInsight
 
 Il traffico di rete nelle reti virtuali di Azure può essere controllato usando i modi seguenti:
 
 * i **gruppi di sicurezza di rete** (NSG) consentono di filtrare il traffico di rete in ingresso e in uscita. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
-* **Le appliance virtuali** di rete (NVA) possono essere usate solo con il traffico in uscita. Le nVA replicano la funzionalità di dispositivi quali firewall e router. Per altre informazioni, vedere il documento relativo alle [Appliance di rete](https://azure.microsoft.com/solutions/network-appliances).
+* **Appliance virtuali di rete** (NVA) può essere usato solo con il traffico in uscita. Appliance virtuali replica la funzionalità di dispositivi quali firewall e router. Per altre informazioni, vedere il documento relativo alle [Appliance di rete](https://azure.microsoft.com/solutions/network-appliances).
 
-Come servizio gestito, HDInsight richiede l'accesso illimitato ai servizi di integrità e gestione di HDInsight sia per il traffico in ingresso che in uscita dalla rete virtuale. Quando si usano i gruppi di sicurezza di rete, è necessario assicurarsi che questi servizi possano comunque comunicare con il cluster HDInsight.When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
+In qualità di servizio gestito, HDInsight richiede l'accesso illimitato ai servizi di gestione e integrità HDInsight sia per il traffico in ingresso che in uscita dal VNET. Quando si usa gruppi, è necessario assicurarsi che questi servizi possano comunque comunicare con il cluster HDInsight.
 
-![Diagramma delle entità HDInsight create in Azure custom VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
+![Diagramma delle entità HDInsight create in VNET personalizzati di Azure](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
-### <a name="hdinsight-with-network-security-groups"></a>HDInsight con gruppi di sicurezza di reteHDInsight with network security groups
+### <a name="hdinsight-with-network-security-groups"></a>HDInsight con gruppi di sicurezza di rete
 
-Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:If you plan on using network **security groups** to control network traffic, perform the following actions before installing HDInsight:
+Se si prevede di usare i **gruppi di sicurezza di rete** per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
 1. Identificare l'area di Azure che si intende usare per HDInsight.
 
-2. Identificare i tag di servizio richiesti da HDInsight per l'area. Per altre informazioni, vedere Tag del servizio gruppo di sicurezza di rete per Azure HDInsight.For more information, see [Network security group (NSG) service tags for Azure HDInsight.](hdinsight-service-tags.md)
+2. Identificare i tag di servizio richiesti da HDInsight per l'area geografica. Per altre informazioni, vedere [tag di servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight](hdinsight-service-tags.md).
 
-3. Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight.Create or modify the network security groups for the subnet that you plan to install HDInsight into.
+3. Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight.
 
-    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. In questo modo i servizi di gestione HDInsight possono raggiungere il cluster dall'esterno della rete virtuale.
+    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. In questo modo, i servizi di gestione HDInsight possono raggiungere il cluster dall'esterno della rete virtuale.
 
-Per ulteriori informazioni sui gruppi di sicurezza di rete, vedere [panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+Per ulteriori informazioni sui gruppi di sicurezza di rete, vedere la [Panoramica dei gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
-### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controllo del traffico in uscita dai cluster HDInsightControlling outbound traffic from HDInsight clusters
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controllo del traffico in uscita dai cluster HDInsight
 
-Per altre informazioni sul controllo del traffico in uscita dai cluster HDInsight, vedere Configurare la restrizione del traffico di rete in uscita per i cluster HDInsight di Azure.For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters.](hdinsight-restrict-outbound-traffic.md)
+Per altre informazioni sul controllo del traffico in uscita dai cluster HDInsight, vedere [configurare la restrizione del traffico di rete in uscita per i cluster HDInsight di Azure](hdinsight-restrict-outbound-traffic.md).
 
 #### <a name="forced-tunneling-to-on-premises"></a>Tunneling forzato in locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight __non__ supporta il tunneling forzato del traffico verso reti locali.
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight non __supporta il__ tunneling forzato del traffico verso le reti locali.
 
 ## <a name="required-ip-addresses"></a><a id="hdinsight-ip"></a> Indirizzi IP richiesti
 
-Se si usano gruppi di sicurezza di rete o route definite dall'utente per controllare il traffico, vedere Indirizzi IP di [gestione HDInsight.](hdinsight-management-ip-addresses.md)
+Se si usano gruppi di sicurezza di rete o route definite dall'utente per controllare il traffico, vedere [indirizzi IP di gestione di HDInsight](hdinsight-management-ip-addresses.md).
 
 ## <a name="required-ports"></a><a id="hdinsight-ports"></a> Porte richieste
 
-Se si intende usare un **firewall** e accedere al cluster dall'esterno su determinate porte, potrebbe essere necessario consentire il traffico sulle porte necessarie per lo scenario. Per impostazione predefinita, non è necessaria alcuna whitelist speciale delle porte, purché il traffico di gestione di Azure illustrato nella sezione precedente possa raggiungere il cluster sulla porta 443.By default, no special whitelisting of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
+Se si intende usare un **firewall** e accedere al cluster dall'esterno su determinate porte, potrebbe essere necessario consentire il traffico sulle porte necessarie per lo scenario. Per impostazione predefinita, non è necessaria alcuna aggiunta speciale di porte, purché il traffico di gestione di Azure illustrato nella sezione precedente sia autorizzato a raggiungere il cluster sulla porta 443.
 
 Per un elenco di porte per servizi specifici, vedere il documento [Porte usate dai servizi Apache Hadoop su HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
@@ -251,11 +251,11 @@ Per altre informazioni sulle regole del firewall per le appliance virtuali, vede
 
 ## <a name="load-balancing"></a>Bilanciamento del carico
 
-Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciamento del carico. Il tipo di questo servizio di bilanciamento del carico è al [livello SKU di base,](../load-balancer/concepts-limitations.md#skus)che presenta determinati vincoli. Uno di questi vincoli è che se si dispone di due reti virtuali in aree diverse, non è possibile connettersi ai servizi di bilanciamento del carico di base. Per altre informazioni, vedere Domande frequenti sulle [reti virtuali: vincoli sul peering vnet globale.](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+Quando si crea un cluster HDInsight, viene creato anche un servizio di bilanciamento del carico. Il tipo di questo servizio di bilanciamento del carico è a [livello di SKU Basic](../load-balancer/concepts-limitations.md#skus), che presenta determinati vincoli. Uno di questi vincoli è che se si hanno due reti virtuali in aree diverse, non è possibile connettersi ai bilanciamenti del carico di base. Per ulteriori informazioni, vedere [domande frequenti sulle reti virtuali: vincoli sul peering VNET globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per esempi di codice ed esempi di creazione di reti virtuali di Azure, vedere Creare reti virtuali per cluster Azure HDInsight.For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters.](hdinsight-create-virtual-network.md)
+* Per esempi di codice ed esempi di creazione di reti virtuali di Azure, vedere [creare reti virtuali per i cluster HDInsight](hdinsight-create-virtual-network.md)di Azure.
 * Per un esempio completo di configurazione di HDInsight per la connessione a una rete locale, vedere [Connettere HDInsight alla rete locale](./connect-on-premises-network.md).
 * Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 * Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).

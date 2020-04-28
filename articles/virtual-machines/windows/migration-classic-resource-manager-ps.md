@@ -1,25 +1,19 @@
 ---
 title: Eseguire la migrazione a Resource Manager con PowerShellMigrate to Resource Manager with PowerShell
 description: Questo articolo illustra la migrazione supportata dalla piattaforma di risorse IaaS, ad esempio macchine virtuali (VM), reti virtuali e account di archiviazione da classici ad Azure Resource Manager usando i comandi di Azure PowerShellThis article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks, and storage accounts from classic to Azure Resource Manager by using Azure PowerShell commands
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 12a77c4c21a26f1ec52bb3ffdc312df56d3c4537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249971"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865952"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Eseguire la migrazione delle risorse IaaS dalla versione classica a Azure Resource Manager tramite PowerShellMigrate IaaS resources from classic to Azure Resource Manager by using PowerShell
 
@@ -60,7 +54,7 @@ Per le istruzioni di installazione, vedere [Come installare e configurare Azure 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Passaggio 3: Verificare di essere un amministratore della sottoscrizioneStep 3: Ensure that you're an administrator for the subscription
 Per eseguire questa migrazione, è necessario essere aggiunti come coamministratore per la sottoscrizione nel portale di [Azure.](https://portal.azure.com)
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel menu **Hub** selezionare **Sottoscrizione**. Se questa voce non viene visualizzata, selezionare **Tutti i servizi**.
 3. Individuare la voce di sottoscrizione appropriata e quindi esaminare il campo **MY ROLE.** Per un coamministratore, il valore deve essere _Account admin_.
 

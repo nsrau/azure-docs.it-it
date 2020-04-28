@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430955"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866263"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -80,10 +80,10 @@ La chiave e il segreto indirizzabili ottengono i propri attributi dagli attribut
 ## <a name="partnered-ca-providers"></a>Provider CA partner
 La creazione del certificato può essere completata manualmente oppure usando un'autorità di certificazione "Self". Key Vault collabora con alcuni provider di autorità di certificazione per semplificare la creazione dei certificati. Presso questi provider autorità di certificazione partner è possibile ordinare i tipi seguenti di certificati per l'insieme di credenziali delle chiavi.  
 
-|Provider|Tipo di certificato|  
-|--------------|----------------------|  
-|DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert|
-|GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign|
+|Provider|Tipo di certificato|Impostazione della configurazione  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign| [Guida all'integrazione](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Un'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.
 

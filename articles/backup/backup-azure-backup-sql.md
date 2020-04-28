@@ -3,12 +3,12 @@ title: Backup di SQL Server in Azure come carico di lavoro DPM
 description: Introduzione al backup dei database di SQL Server con il servizio backup di Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8cbb8c833bc2933afac300bcc848fd50861011d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505926"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183790"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 
@@ -24,13 +24,14 @@ Per eseguire il backup di un database di SQL Server in Azure e ripristinarlo da 
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di iniziare, verificare di aver soddisfatto i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per l'uso di backup di Azure per proteggere i carichi di lavoro. Di seguito sono riportate alcune delle attività essenziali: 
+Prima di iniziare, verificare di aver soddisfatto i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per l'uso di backup di Azure per proteggere i carichi di lavoro. Di seguito sono riportate alcune delle attività essenziali:
+
 * Creare un insieme di credenziali per il backup.
-* Scaricare le credenziali dell'insieme di credenziali. 
+* Scaricare le credenziali dell'insieme di credenziali.
 * Installare Azure Backup Agent.
 * Registrare il server con l'insieme di credenziali.
 
-## <a name="create-a-backup-policy"></a>Creare un criterio di backup 
+## <a name="create-a-backup-policy"></a>Creare un criterio di backup
 
 Per proteggere SQL Server database in Azure, creare prima di tutto un criterio di backup:
 
@@ -74,7 +75,7 @@ Per proteggere SQL Server database in Azure, creare prima di tutto un criterio d
     La copia di backup iniziale richiede il trasferimento dell'intera origine dati (SQL Server database). I dati di backup vengono spostati dal server di produzione (SQL Server computer) al server DPM. Se il backup è di grandi dimensioni, il trasferimento dei dati in rete potrebbe causare congestione della larghezza di banda. Per questo motivo, gli amministratori possono scegliere di utilizzare supporti rimovibili per trasferire **manualmente**il backup iniziale. Oppure possono trasferire i dati **automaticamente in rete** a un'ora specificata.
 
     Al termine del backup iniziale, i backup continuano in modo incrementale sulla copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
-    
+
 1. Scegliere quando eseguire una verifica di coerenza. Fare quindi clic su **Avanti**.
 
     ![Scegliere quando eseguire una verifica di coerenza](./media/backup-azure-backup-sql/pg-consistent.png)
@@ -106,7 +107,7 @@ Per proteggere SQL Server database in Azure, creare prima di tutto un criterio d
     * Il backup di sabato alle 12:00 PM viene mantenuto per 104 settimane.
     * Il backup dell'ultimo sabato del mese alle 12:00 PM viene mantenuto per 60 mesi.
     * Il backup dell'ultimo sabato del marzo alle 12:00 PM viene mantenuto per 10 anni.
-    
+
     Dopo aver scelto un criterio di conservazione, fare clic su **Avanti**.
 
 1. Scegliere come trasferire la copia di backup iniziale in Azure.

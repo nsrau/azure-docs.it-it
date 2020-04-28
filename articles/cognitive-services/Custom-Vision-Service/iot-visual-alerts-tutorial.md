@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978033"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769881"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Esercitazione: Usare Visione personalizzata con un dispositivo IoT per segnalare gli stati visivi
 
-Questa app di esempio illustra come usare Visione personalizzata per eseguire il training di un dispositivo dotato di una fotocamera per rilevare gli stati visivi. È possibile eseguire questo scenario di rilevamento su un dispositivo IoT usando un modello ONNX esportato dal servizio Visione personalizzata.
+Questa app di esempio illustra come usare Visione personalizzata per eseguire il training di un dispositivo dotato di una fotocamera per rilevare gli stati visivi. È possibile eseguire questo scenario di rilevamento su un dispositivo IoT usando un modello ONNX esportato.
 
 Uno stato visivo descrive il contenuto di un'immagine, ovvero una stanza vuota o una stanza con persone, una strada vuota o una strada con un camion e così via. Nell'immagine seguente è possibile osservare che l'app rileva quando una banana o una mela viene posizionata davanti alla fotocamera.
 
@@ -92,7 +92,7 @@ Per configurare un modello, è necessario impostare l'app sullo stato **Capturin
 * Se si esegue l'app sul PC, usare il pulsante nell'angolo in alto a destra dell'interfaccia utente.
 * Se si esegue l'app su un dispositivo IoT, chiamare il metodo `EnterLearningMode` sul dispositivo tramite l'hub IoT. Il metodo può essere chiamato tramite la voce corrispondente al dispositivo nel menu dell'hub IoT nel portale di Azure oppure con uno strumento, ad esempio [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-Quando l'app passa allo stato **Capturing Training Images** (Acquisizione delle immagini di training), acquisisce circa due immagini al secondo fino a raggiungere il numero di immagini preimpostato. Per impostazione predefinita, vengono acquisite 30 immagini, ma è possibile impostare questo parametro passando il numero desiderato come argomento al metodo `EnterLearningMode` dell'hub IoT. 
+Quando l'app passa allo stato **Capturing Training Images** (Acquisizione delle immagini di training), acquisisce circa due immagini al secondo fino a raggiungere il numero di immagini preimpostato. Per impostazione predefinita corrisponde a 30 immagini, ma si può impostare questo parametro passando il numero desiderato come argomento al metodo `EnterLearningMode` dell'hub IoT. 
 
 Mentre l'app acquisisce immagini, è necessario esporre la fotocamera ai tipi di stati visivi da rilevare, ad esempio una stanza vuota, una stanza con persone, una scrivania vuota, una scrivania con un camion giocattolo e così via.
 

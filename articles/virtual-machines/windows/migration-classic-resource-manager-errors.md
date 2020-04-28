@@ -1,25 +1,19 @@
 ---
 title: Errori comuni durante la migrazione dalla distribuzione classica ad Azure Resource Manager
 description: Questo articolo descrive gli errori più comuni e le relative soluzioni per agevolare la migrazione delle risorse IaaS dalla gestione del servizio Azure allo stack di Azure Resource Manager.
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 5bc03a1b-eb1c-438c-83d9-f0e9d61f1b6a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 3f6d399ea5cba9adef74cc3e4e80513382771c89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 852a0866a2fcbf5bc87fa4738b1b37e96c05c6ca
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77915420"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866127"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Errori comuni durante la migrazione dalla distribuzione classica ad Azure Resource Manager
 

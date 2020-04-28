@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 70a087e106e632d697052461928f3e1123a06b1b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137536"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176703"
 ---
 # <a name="azure-data-lake-storage-query-acceleration-preview"></a>Accelerazione query Azure Data Lake Storage (anteprima)
 
@@ -71,7 +71,7 @@ Per un esempio di come un'applicazione può integrare l'accelerazione delle quer
 
 ## <a name="pricing"></a>Prezzi
 
-A causa dell'aumento del carico di calcolo all'interno del servizio Azure Data Lake Storage, il modello di determinazione dei prezzi per l'utilizzo dell'accelerazione delle query differisce dal normale modello di Azure Data Lake Storage transazione. Con l'accelerazione delle query viene addebitato un costo per la quantità di dati analizzati e un costo per la quantità di dati restituiti al chiamante.
+A causa dell'aumento del carico di calcolo all'interno del servizio Azure Data Lake Storage, il modello di determinazione dei prezzi per l'utilizzo dell'accelerazione delle query differisce dal normale modello di Azure Data Lake Storage transazione. Con l'accelerazione delle query viene addebitato un costo per la quantità di dati analizzati e un costo per la quantità di dati restituiti al chiamante. Per ulteriori informazioni, vedere [Azure Data Lake storage Gen2 prezzi](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 Nonostante la modifica apportata al modello di fatturazione, il modello di determinazione dei prezzi dell'accelerazione query è progettato per ridurre il costo totale di proprietà di un carico di lavoro, in base alla riduzione dei costi delle macchine virtuali molto più costosi.
 

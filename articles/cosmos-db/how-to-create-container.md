@@ -4,18 +4,21 @@ description: Informazioni su come creare un contenitore in Azure Cosmos DB usand
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809ebe848e38a7c99c96ef44f130da917fb35942
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873710"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161623"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creare un contenitore in Azure Cosmos
 
 Questo articolo illustra i diversi modi disponibili per creare un contenitore di Azure Cosmos (raccolta, tabella o grafo). È possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK supportati. Questo articolo spiega come creare un contenitore, specificare la chiave di partizione ed effettuare il provisioning della velocità effettiva.
+
+> [!NOTE]
+> Quando si creano i contenitori, assicurarsi di non creare due contenitori con lo stesso nome ma con maiuscole e minuscole diverse. Questo perché alcune parti della piattaforma Azure non fanno distinzione tra maiuscole e minuscole e ciò può comportare confusione/collisione dei dati di telemetria e delle azioni sui contenitori con tali nomi.
 
 ## <a name="create-a-container-using-azure-portal"></a>Creare un contenitore tramite il portale di Azure
 
@@ -31,7 +34,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Immettere un ID contenitore.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Fare clic su **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
@@ -47,7 +50,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Immettere un ID contenitore.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Fare clic su **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Azure Cosmos DB per MongoDB, finestra di dialogo Aggiungi contenitore](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
@@ -63,7 +66,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Immettere un nome per la tabella.
    * Immettere le proprietà e specificare una chiave primaria.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Fare clic su **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Cassandra con la finestra di dialogo Aggiungi tabella](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
@@ -83,7 +86,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
    * Selezionare una capacità di archiviazione **Illimitata**.
    * Immettere una chiave di partizione per i vertici.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Fare clic su **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Gremlin con la finestra di dialogo Aggiungi Graph](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
@@ -97,7 +100,7 @@ Questo articolo illustra i diversi modi disponibili per creare un contenitore di
 
    * Immettere un ID tabella.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Fare clic su **OK**.
+   * Selezionare **OK**.
 
     ![Screenshot dell'API Tabella con la finestra di dialogo Aggiungi tabella](./media/how-to-create-container/partitioned-collection-create-table.png)
 

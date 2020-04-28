@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 73ac1a6ffd5fc2b2d52f169e1e0332044638f9f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75942086"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183314"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di pre-migrazione per la migrazione dei dati da MongoDB all'API di Azure Cosmos DB per MongoDB
 
@@ -30,7 +30,7 @@ Se sono già stati completati i prerequisiti precedenti per la migrazione, è po
 
 Di seguito sono riportate alcune caratteristiche specifiche sull'API Azure Cosmos DB per MongoDB:
 
-- **Modello di capacità**: la capacità del Database in Azure Cosmos DB si basa su un modello basato sulla velocità effettiva. Questo modello è basato su [unità richiesta al secondo](request-units.md), ovvero un'unità che rappresenta il numero di operazioni di database che possono essere eseguite su una raccolta in base al secondo. Questa capacità può essere allocata a [livello di database o di raccolta](set-throughput.md)ed è possibile eseguirne il provisioning in un modello di allocazione o utilizzando il [modello Autopilot](provision-throughput-autopilot.md).
+- **Modello di capacità**: la capacità del Database in Azure Cosmos DB si basa su un modello basato sulla velocità effettiva. Questo modello è basato su [unità richiesta al secondo](request-units.md), ovvero un'unità che rappresenta il numero di operazioni di database che possono essere eseguite su una raccolta in base al secondo. Questa capacità può essere allocata a [livello di database o di raccolta](set-throughput.md)ed è possibile eseguirne il provisioning in un modello di allocazione o usando il modello di [scalabilità](provision-throughput-autoscale.md)automatica.
 
 - **Unità richiesta**: a ogni operazione di database è associato un costo delle unità richiesta (UR) in Azure Cosmos DB. Quando viene eseguito, questo viene sottratto dal livello delle unità richiesta disponibili su un determinato secondo. Se per una richiesta sono necessarie più ur rispetto alle UR/sec attualmente allocate, sono disponibili due opzioni per risolvere il problema, aumentare la quantità di ur o attendere il successivo avvio del secondo, quindi ripetere l'operazione.
 

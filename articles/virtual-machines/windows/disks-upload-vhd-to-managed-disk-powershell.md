@@ -1,6 +1,6 @@
 ---
-title: Caricare un disco rigido virtuale in Azure o copiare un disco tra aree - Azure PowerShellUpload a VHD to Azure or copy a disk across regions - Azure PowerShell
-description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure e copiare un disco gestito tra aree, usando Azure PowerShell tramite il caricamento diretto.
+title: Caricare un disco rigido virtuale in Azure o copiare un disco tra le aree geografiche Azure PowerShell
+description: Informazioni su come caricare un disco rigido virtuale in un disco gestito di Azure e copiare un disco gestito tra aree, usando Azure PowerShell, tramite il caricamento diretto.
 author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
@@ -8,45 +8,45 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 7c66507989357569828d4ef933cfdca735f71570
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085412"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182515"
 ---
-# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area - Azure PowerShellUpload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
+# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area: Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Scaricare la versione più recente [di AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Installare il modulo di Azure PowerShell](/powershell/azure/install-Az-ps).
-- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale a dimensione fissa [preparato per Azure,](prepare-for-upload-vhd-image.md)archiviato in locale.
+- Scaricare la versione più recente [di AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- [Installare Azure PowerShell modulo](/powershell/azure/install-Az-ps).
+- Se si intende caricare un disco rigido virtuale da locale: un disco rigido virtuale di dimensioni fisse [preparato per Azure](prepare-for-upload-vhd-image.md), archiviato localmente.
 - In alternativa, un disco gestito in Azure, se si intende eseguire un'azione di copia.
 
 ## <a name="getting-started"></a>Guida introduttiva
 
-Se si preferisce caricare dischi tramite una GUI, è possibile farlo usando Azure Storage Explorer.If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. Per informazioni dettagliate, vedere: [Usare Azure Storage Explorer per gestire i dischi gestiti](disks-use-storage-explorer-managed-disks.md) di AzureFor details refer to: Use Azure Storage Explorer to manage Azure managed disks
+Se si preferisce caricare dischi tramite un'interfaccia utente grafica, è possibile usare Azure Storage Explorer. Per informazioni dettagliate, vedere: [usare Azure Storage Explorer per gestire i dischi gestiti di Azure](disks-use-storage-explorer-managed-disks.md)
 
-Per caricare il disco rigido virtuale in Azure, è necessario creare un disco gestito vuoto configurato per questo processo di caricamento. Prima di crearne uno, è necessario conoscere alcune informazioni aggiuntive su questi dischi.
+Per caricare il disco rigido virtuale in Azure, è necessario creare un disco gestito vuoto configurato per questo processo di caricamento. Prima di crearne uno, è necessario conoscere informazioni aggiuntive su questi dischi.
 
-Questo tipo di disco gestito ha due stati univoci:This kind of managed disk has two unique states:
+Questo tipo di disco gestito ha due stati univoci:
 
-- ReadToUpload, che significa che il disco è pronto per ricevere un caricamento ma non è stata generata alcuna firma di [accesso sicuro.](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e la sAS è stata generata.
+- ReadToUpload, il che significa che il disco è pronto per ricevere un caricamento, ma non è stata generata alcuna [firma di accesso sicuro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
+- ActiveUpload, il che significa che il disco è pronto per ricevere un caricamento e che la firma di accesso condiviso è stata generata.
 
 > [!NOTE]
-> In uno di questi stati, il disco gestito verrà fatturato al [prezzo dell'HDD standard,](https://azure.microsoft.com/pricing/details/managed-disks/)indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come Un S10. Questo valore sarà `revoke-access` vero fino a quando non verrà chiamato sul disco gestito, che è necessario per collegare il disco a una macchina virtuale.
+> In uno di questi Stati, il disco gestito verrà fatturato in base ai [prezzi standard di HDD](https://azure.microsoft.com/pricing/details/managed-disks/), indipendentemente dal tipo effettivo di disco. Ad esempio, un P10 verrà fatturato come S10. Questo valore sarà true fino `revoke-access` a quando non viene chiamato sul disco gestito, operazione necessaria per il fissaggio del disco a una macchina virtuale.
 
-## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuotoCreate an empty managed disk
+## <a name="create-an-empty-managed-disk"></a>Creare un disco gestito vuoto
 
-Prima di poter creare un hdD standard vuoto per il caricamento, è necessario che la dimensione del file del disco rigido virtuale venga caricata in byte. Il codice di esempio otterrà che per voi, `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`ma, per farlo da soli è possibile utilizzare: . Questo valore viene utilizzato quando si specifica il parametro **-UploadSizeInBytes.**
+Prima di poter creare un HDD standard vuoto per il caricamento, saranno necessarie le dimensioni del file VHD da caricare, in byte. Il codice di esempio otterrà questa operazione, ma è possibile usare: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Questo valore viene usato quando si specifica il parametro **-UploadSizeInBytes** .
 
-A questo punto, nella shell locale, creare un disco rigido standard vuoto per il caricamento specificando l'impostazione **Upload** nel parametro **-CreateOption** e il parametro **-UploadSizeInBytes** nel cmdlet [New-AzDiskConfig.](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) Chiamare [quindi New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) per creare il disco.
+A questo punto, nella shell locale creare un HDD standard vuoto per il caricamento specificando l'impostazione di **caricamento** nel parametro **-CreateOption** e il parametro **-UploadSizeInBytes** nel cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Quindi chiamare [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) per creare il disco.
 
-Sostituire `<yourdiskname>` `<yourresourcegroupname>`, `<yourregion>` , quindi eseguire i seguenti comandi:
+Sostituire `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` quindi eseguire i comandi seguenti:
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -56,11 +56,11 @@ $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -Upload
 New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-Se si desidera caricare un SSD premium o un SSD standard, sostituire **Standard_LRS** con **Premium_LRS** o **StandardSSD_LRS**. I dischi ultra non sono ancora supportati.
+Se si vuole caricare un'unità SSD Premium o un'unità SSD standard, sostituire **Standard_LRS** con **Premium_LRS** o **StandardSSD_LRS**. I dischi Ultra non sono ancora supportati.
 
-Dopo aver creato un disco gestito vuoto configurato per il processo di caricamento, è possibile caricarvi un disco rigido virtuale. Per caricare un disco rigido virtuale sul disco, è necessaria una coda di accesso utenti scrivibile, in modo da potervi fare riferimento come destinazione per il caricamento.
+Ora che è stato creato un disco gestito vuoto configurato per il processo di caricamento, è possibile caricarvi un disco rigido virtuale. Per caricare un disco rigido virtuale sul disco, è necessario disporre di una firma di accesso condiviso scrivibile, in modo che sia possibile farvi riferimento come destinazione per il caricamento.
 
-Per generare una sAS scrivibile del `<yourdiskname>`disco `<yourresourcegroupname>`gestito vuoto, sostituire e , quindi utilizzare i comandi seguenti:
+Per generare una firma di accesso condiviso scrivibile del disco gestito vuoto `<yourdiskname>`, `<yourresourcegroupname>`sostituire e, quindi usare i comandi seguenti:
 
 ```powershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
@@ -70,19 +70,19 @@ $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<your
 
 ## <a name="upload-a-vhd"></a>Caricare il VHD
 
-Ora che si dispone di una sAS per il disco gestito vuoto, è possibile usarla per impostare il disco gestito come destinazione per il comando di caricamento.
+Ora che si dispone di una firma di accesso condiviso per il disco gestito vuoto, è possibile usarla per impostare il disco gestito come destinazione per il comando di caricamento.
 
-Usare AzCopy v10 per caricare il file VHD locale su un disco gestito specificando l'URI di accesso condiviso generato.
+Usare AzCopy V10 per caricare il file VHD locale in un disco gestito specificando l'URI di firma di accesso condiviso generato.
 
-Questo caricamento ha la stessa velocità effettiva [dell'HDD standard](disks-types.md#standard-hdd)equivalente. Ad esempio, se si dispone di una dimensione che equivale a S4, si disputa una velocità effettiva fino a 60 MiB/s. Ma, se si dispone di una dimensione che equivale a S70, si avrà una velocità effettiva fino a 500 MiB/s.
+Questo caricamento ha la stessa velocità effettiva del [disco rigido standard](disks-types.md#standard-hdd)equivalente. Se, ad esempio, si dispone di una dimensione equivalente a S4, sarà presente una velocità effettiva massima di 60 MiB/s. Tuttavia, se si dispone di una dimensione che equivale a S70, si avrà una velocità effettiva di un massimo di 500 MiB/s.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-Al termine del caricamento e non è più necessario scrivere altri dati sul disco, revocare la server di accesso sAS. La revoca della chiamata a chiamata accesso la chiamata a accesso locale modificherà lo stato del disco gestito e consentirà di collegare il disco a una macchina virtuale.
+Una volta completato il caricamento e non è più necessario scrivere altri dati sul disco, revocare la firma di accesso condiviso. La revoca della firma di accesso condiviso modificherà lo stato del disco gestito e consentirà di aggiungere il disco a una macchina virtuale.
 
-Sostituire `<yourdiskname>` `<yourresourcegroupname>`e , quindi eseguire il comando seguente:
+Sostituire `<yourdiskname>`e `<yourresourcegroupname>`, quindi eseguire il comando seguente:
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
@@ -90,14 +90,14 @@ Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<you
 
 ## <a name="copy-a-managed-disk"></a>Copiare un disco gestito
 
-Il caricamento diretto semplifica anche il processo di copia di un disco gestito. È possibile copiare all'interno della stessa area o copiare il disco gestito in un'altra area.
+Il caricamento diretto semplifica anche il processo di copia di un disco gestito. È possibile eseguire una copia all'interno della stessa area o copiare il disco gestito in un'altra area.
 
-Lo script seguente eseguirà questa operazione per te, il processo è simile ai passaggi descritti in precedenza, con alcune differenze, dal momento che stai lavorando con un disco esistente.
+Lo script seguente consente di eseguire questa operazione per l'utente, il processo è simile a quello descritto in precedenza, con alcune differenze, perché si sta lavorando con un disco esistente.
 
 > [!IMPORTANT]
-> È necessario aggiungere un offset di 512 quando si fornisce la dimensione del disco in byte di un disco gestito da Azure.You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. Ciò è dovuto al fatto che Azure omette il piè di pagina quando restituisce le dimensioni del disco. La copia avrà esito negativo se non si esegue questa operazione. Lo script seguente esegue già questa operazione per l'utente.
+> È necessario aggiungere un offset di 512 quando si specificano le dimensioni del disco in byte di un disco gestito da Azure. Questo perché Azure omette il piè di pagina quando restituisce le dimensioni del disco. Se non si esegue questa operazione, la copia avrà esito negativo. Lo script seguente esegue già questa operazione.
 
-Sostituire `<sourceResourceGroupHere>`, `<sourceDiskNameHere>` `<targetDiskNameHere>`, `<targetResourceGroupHere>` `<yourOSTypeHere>` , `<yourTargetLocationHere>` e (un esempio di valore di posizione sarebbe uswest2) con i valori, quindi eseguire lo script seguente per copiare un disco gestito.
+Sostituire `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` `<yourOSTypeHere>` e `<yourTargetLocationHere>` (un esempio di un valore di posizione sarebbe uswest2) con i valori, quindi eseguire lo script seguente per copiare un disco gestito.
 
 ```powershell
 
@@ -129,6 +129,6 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver caricato correttamente un disco rigido virtuale su un disco gestito, è possibile collegare il disco a una macchina virtuale e iniziare a usarlo.
+Ora che è stato caricato correttamente un disco rigido virtuale in un disco gestito, è possibile collegarlo a una macchina virtuale e iniziare a usarlo.
 
-Per informazioni su come collegare un disco dati a una macchina virtuale, vedere l'articolo sull'oggetto: [Collegare un disco dati a una macchina virtuale Windows con PowerShell.](attach-disk-ps.md) Per usare il disco come disco del sistema operativo, vedere [Creare una macchina virtuale Windows da un disco specializzato.](create-vm-specialized.md#create-the-new-vm)
+Per informazioni su come associare un disco dati a una macchina virtuale, vedere l'articolo sull'oggetto: [associare un disco dati a una macchina virtuale Windows con PowerShell](attach-disk-ps.md). Per usare il disco come disco del sistema operativo, vedere [creare una macchina virtuale Windows da un disco specializzato](create-vm-specialized.md#create-the-new-vm).

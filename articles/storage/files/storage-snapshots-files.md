@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72333185"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176142"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -37,7 +37,7 @@ Dopo aver creato uno snapshot di condivisione è possibile leggerlo, copiarlo o 
 
 La funzionalità snapshot di condivisione è disponibile a livello di condivisione di file. Il recupero è disponibile a livello di singolo file, per consentire il ripristino di file singoli. È possibile ripristinare una condivisione file completa usando SMB, l'API REST, il portale, la libreria client o gli strumenti di PowerShell o dell'interfaccia della riga di comando.
 
-Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Ad esempio, se l'URI di una condivisione file è http://storagesample.core.file.windows.net/myshare, l'URI dello snapshot di condivisione sarà simile al seguente:
+Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Se, ad esempio, l'URI di una condivisione file\/è http:/StorageSample.Core.file.Windows.NET/MyShare, l'URI dello snapshot di condivisione è simile al seguente:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -84,7 +84,7 @@ Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare gli snapshot di condivisione in:
-    - [Powershell](storage-how-to-use-files-powershell.md)
-    - [Cli](storage-how-to-use-files-cli.md)
+    - [PowerShell](storage-how-to-use-files-powershell.md)
+    - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Domande frequenti sugli snapshot di condivisione](storage-files-faq.md#share-snapshots)

@@ -4,12 +4,12 @@ description: Informazioni sulle porte e sugli indirizzi necessari per controllar
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2cd7aeea272d22615d3ba3d3db6acc2c84d22cca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: daf17ee4d6518de63dc642fd64acd6b4c5be7d2f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080172"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183926"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster in Azure Kubernetes Service (AKS)
 

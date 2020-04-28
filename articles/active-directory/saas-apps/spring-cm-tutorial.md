@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd9ea5565ea64415c00a458236456bed04b6c38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be4edfe3262ab74d903384eb00c0282acc7a3299
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74233391"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Esercitazione: Integrazione di Azure Active Directory con SpringCM
 
@@ -202,7 +202,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 Per consentire agli utenti di Azure Active Directory di accedere a SpringCM, è necessario eseguirne il provisioning in SpringCM. Nel caso di SpringCM, il provisioning è un'attività manuale.
 
 > [!NOTE]
-> Per altre informazioni, vedere [Creare e modificare un utente SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+> Per altre informazioni, vedere [Creare e modificare un utente SpringCM](http://community.springcm.com/s/article/Create-and-Edit-a-SpringCM-User-1619481053). 
 
 **Per eseguire il provisioning di un account utente in SpringCM, eseguire la procedura seguente:**
 

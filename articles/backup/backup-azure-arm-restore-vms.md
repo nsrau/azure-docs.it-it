@@ -1,17 +1,17 @@
 ---
-title: Ripristinare le macchine virtuali tramite il portale di AzureRestore VMs by using the Azure portal
+title: Ripristinare le macchine virtuali usando il portale di Azure
 description: Ripristinare una macchina virtuale di Azure da un punto di ripristino con il portale di Azure
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: b9cdb187aa3b8750bead8e81ad6d0ee50dcb3d6c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 687406676320f93bab22e34ca95951035187718d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254921"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182889"
 ---
-# <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati della macchina virtuale di Azure nel portale di AzureHow to restore Azure VM data in Azure portal
+# <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
 Questo articolo descrive come ripristinare i dati delle macchine virtuali di Azure dai punti di ripristino archiviati negli insiemi di credenziali di Servizi di ripristino di [Backup di Azure](backup-overview.md).
 
@@ -21,37 +21,37 @@ Backup di Azure offre diversi modi per ripristinare una macchina virtuale.
 
 **Opzione di ripristino** | **Dettagli**
 --- | ---
-**Creazione di una nuova macchina virtuale** | Crea e rende operativa rapidamente una macchina virtuale di base a partire da un punto di ripristino.<br/><br/> È possibile specificare un nome per la macchina virtuale, selezionare il gruppo di risorse e la rete virtuale (VNet) in cui verrà inserita e specificare un account di archiviazione per la macchina virtuale ripristinata. La nuova macchina virtuale deve essere creata nella stessa area della macchina virtuale di origine.
+**Creazione di una nuova macchina virtuale** | Crea e rende operativa rapidamente una macchina virtuale di base a partire da un punto di ripristino.<br/><br/> È possibile specificare un nome per la VM, selezionare il gruppo di risorse e la rete virtuale (VNet) in cui verrà inserito e specificare un account di archiviazione per la macchina virtuale ripristinata. La nuova VM deve essere creata nella stessa area della VM di origine.
 **Restore disk** (Ripristina disco) | Ripristina un disco della macchina virtuale, che può quindi essere usato per creare una nuova macchina virtuale.<br/><br/> Backup di Azure offre un modello che consente di personalizzare e creare una macchina virtuale. <br/><br> Il processo di ripristino genera un modello che può essere scaricato e usato per specificare impostazioni della macchina virtuale personalizzate e creare una macchina virtuale.<br/><br/> I dischi vengono copiati nel gruppo di risorse specificato.<br/><br/> In alternativa, è possibile collegare il disco a una macchina virtuale esistente o creare una nuova macchina virtuale usando PowerShell.<br/><br/> Questa opzione è utile se si vuole personalizzare la macchina virtuale, aggiungere impostazioni di configurazione non presenti al momento del backup o aggiungere impostazioni che devono essere configurate usando il modello o PowerShell.
-**Sostituisci esistente** | È possibile ripristinare un disco e usarlo per sostituire un disco nella macchina virtuale esistente.<br/><br/> Deve essere presente la macchina virtuale corrente. Se è stata eliminata, questa opzione non può essere utilizzata.<br/><br/> Backup di Azure crea uno snapshot della macchina virtuale esistente prima di sostituire il disco e lo archivia nel percorso di gestione temporanea specificato. I dischi esistenti connessi alla macchina virtuale vengono sostituiti con il punto di ripristino selezionato.<br/><br/> Lo snapshot viene copiato nell'insieme di credenziali e mantenuto in base ai criteri di conservazione. <br/><br/> Dopo l'operazione di sostituzione del disco, il disco originale viene mantenuto nel gruppo di risorse. È possibile scegliere di eliminare manualmente i dischi originali se non sono necessari. <br/><br/>La sostituzione esistente è supportata per le macchine virtuali gestite non crittografate, incluse le macchine virtuali [create tramite immagini personalizzate.](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) Non è supportato per le macchine virtuali classiche.<br/><br/> Se il punto di ripristino ha un numero maggiore o minore di dischi rispetto alla macchina virtuale corrente, il numero di dischi nel punto di ripristino rifletterà solo la configurazione della macchina virtuale.<br><br> La sostituzione esistente non è supportata per le macchine virtuali con risorse collegate (ad esempio [l'identità gestita assegnata dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) o [l'insieme](https://docs.microsoft.com/azure/key-vault/key-vault-overview)di credenziali delle chiavi) perché l'app client di backup non dispone delle autorizzazioni per queste risorse durante l'esecuzione del ripristino.
-**Regione trasversale (area secondaria)** | Il ripristino tra aree può essere usato per ripristinare le macchine virtuali di Azure nell'area secondaria, ovvero un'area associata ad Azure.Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)<br><br> È possibile ripristinare tutte le macchine virtuali di Azure per il punto di ripristino selezionato se il backup viene eseguito nell'area secondaria.<br><br> Questa funzione è disponibile per le seguenti opzioni:<br> * [Creare una macchina virtualeCreate a VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Al momento non è supportata l'opzione [Sostituisci dischi esistenti.](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks)<br><br> Autorizzazioni<br> L'operazione di ripristino nell'area secondaria può essere eseguita dagli amministratori di backup e dagli amministratori dell'app.
+**Sostituisci esistente** | È possibile ripristinare un disco e usarlo per sostituire un disco nella macchina virtuale esistente.<br/><br/> Deve essere presente la macchina virtuale corrente. Se è stata eliminata, non è possibile usare questa opzione.<br/><br/> Backup di Azure esegue uno snapshot della macchina virtuale esistente prima di sostituire il disco e lo archivia nel percorso di gestione temporanea specificato. I dischi esistenti connessi alla macchina virtuale vengono sostituiti con il punto di ripristino selezionato.<br/><br/> Lo snapshot viene copiato nell'insieme di credenziali e mantenuto in base ai criteri di conservazione. <br/><br/> Dopo l'operazione di sostituzione del disco, il disco originale viene conservato nel gruppo di risorse. Se non sono necessari, è possibile scegliere di eliminare manualmente i dischi originali. <br/><br/>Sostituisci esistente è supportato per le macchine virtuali gestite non crittografate, incluse le macchine virtuali [create con immagini personalizzate](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). Non è supportata per le macchine virtuali classiche.<br/><br/> Se il punto di ripristino ha un numero maggiore o minore di dischi rispetto alla macchina virtuale corrente, il numero di dischi nel punto di ripristino rifletterà solo la configurazione della macchina virtuale.<br><br> Sostituisci esistente non è supportato per le macchine virtuali con risorse collegate (ad esempio, identità gestite o [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) [assegnate dall'utente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ) perché l'app client di backup non dispone delle autorizzazioni per queste risorse durante l'esecuzione del ripristino.
+**Area geografica (area secondaria)** | Il ripristino tra aree può essere usato per ripristinare macchine virtuali di Azure nell'area secondaria, ovvero un' [area abbinata ad Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> È possibile ripristinare tutte le VM di Azure per il punto di ripristino selezionato se il backup viene eseguito nell'area secondaria.<br><br> Questa funzionalità è disponibile per le opzioni seguenti:<br> <li> [Creare una macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> <li> [Ripristinare i dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Attualmente non è supportata l'opzione [Sostituisci dischi esistenti](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) .<br><br> Autorizzazioni<br> L'operazione di ripristino nell'area secondaria può essere eseguita da amministratori di backup e amministratori di app.
 
 > [!NOTE]
 > È anche possibile ripristinare file e cartelle specifici in una macchina virtuale di Azure. [Altre informazioni](backup-azure-restore-files-from-vm.md)
 
 ## <a name="storage-accounts"></a>Account di archiviazione
 
-Alcuni dettagli sugli account di archiviazione:Some details about storage accounts:
+Alcuni dettagli sugli account di archiviazione:
 
-- **Creare una macchina virtuale:** quando si crea una nuova macchina virtuale, la macchina virtuale verrà inserita nell'account di archiviazione specificato.
-- **Ripristina disco**: Quando si ripristina un disco, il disco viene copiato nell'account di archiviazione specificato. Il processo di ripristino genera un modello che è possibile scaricare e usare per specificare le impostazioni personalizzate della macchina virtuale. Questo modello viene inserito nell'account di archiviazione specificato.
-- **Sostituisci disco:** quando si sostituisce un disco in una macchina virtuale esistente, Backup di Azure crea uno snapshot della macchina virtuale esistente prima di sostituire il disco. Lo snapshot viene archiviato nel percorso di gestione temporanea (account di archiviazione) specificato. Questo account di archiviazione viene usato per archiviare temporaneamente lo snapshot durante il processo di ripristino ed è consigliabile creare un nuovo account per eseguire questa operazione, che può essere facilmente rimosso in un secondo momento.
-- **Percorso account di archiviazione:** l'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali. Vengono visualizzati solo questi account. Se non sono presenti account di archiviazione nel percorso, è necessario crearne uno.
-- **Tipo di archiviazione:** l'archiviazione BLOB non è supportata.
-- **Ridondanza dello storage**: l'archiviazione ridondante dell'area non è supportata. Le informazioni di replica e ridondanza per l'account vengono visualizzate tra parentesi dopo il nome dell'account.
+- **Creare una macchina virtuale**: quando si crea una nuova VM, la macchina virtuale viene inserita nell'account di archiviazione specificato.
+- **Ripristino del disco**: quando si ripristina un disco, il disco viene copiato nell'account di archiviazione specificato. Il processo di ripristino genera un modello che è possibile scaricare e usare per specificare le impostazioni della macchina virtuale personalizzata. Questo modello viene inserito nell'account di archiviazione specificato.
+- **Sostituisci disco**: quando si sostituisce un disco in una macchina virtuale esistente, backup di Azure esegue uno snapshot della macchina virtuale esistente prima di sostituire il disco. Lo snapshot viene archiviato nel percorso di gestione temporanea (account di archiviazione) specificato. Questo account di archiviazione viene usato per archiviare temporaneamente lo snapshot durante il processo di ripristino ed è consigliabile creare un nuovo account a tale scopo, che può essere facilmente rimosso in seguito.
+- **Posizione dell'account di archiviazione**: l'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali. Vengono visualizzati solo questi account. Se non sono presenti account di archiviazione nella località, è necessario crearne uno.
+- **Tipo di archiviazione**: l'archiviazione BLOB non è supportata.
+- **Ridondanza di archiviazione**: l'archiviazione con ridondanza della zona (ZRS) non è supportata. Le informazioni di replica e ridondanza per l'account sono visualizzate tra parentesi dopo il nome dell'account.
 - **Archiviazione Premium**:
   - Quando si ripristinano macchine virtuali non Premium, gli account di archiviazione Premium non sono supportati.
-  - Quando si ripristinano macchine virtuali gestite, gli account di archiviazione Premium configurati con regole di rete non sono supportati.
+  - Quando si ripristinano macchine virtuali gestite, gli account di archiviazione Premium configurati con regole di rete non sono supportati
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Per ripristinare una macchina virtuale (creare una nuova macchina virtuale), assicurarsi di disporre delle [autorizzazioni](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) corrette per il controllo degli accessi in base al ruolo per l'operazione Ripristina macchina virtuale.
+Per ripristinare una macchina virtuale (creare una nuova macchina virtuale), assicurarsi di avere le [autorizzazioni](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) corrette per il controllo degli accessi in base al ruolo per l'operazione di ripristino della macchina virtuale.
 
-Se non si dispone delle autorizzazioni, è possibile [ripristinare un disco](#restore-disks)e quindi, dopo il ripristino del disco, è possibile utilizzare il [modello](#use-templates-to-customize-a-restored-vm) generato come parte dell'operazione di ripristino per creare una nuova macchina virtuale.
+Se non si dispone delle autorizzazioni, è possibile [ripristinare un disco](#restore-disks)e quindi, dopo aver ripristinato il disco, è possibile [usare il modello](#use-templates-to-customize-a-restored-vm) che è stato generato durante l'operazione di ripristino per creare una nuova macchina virtuale.
 
 ## <a name="select-a-restore-point"></a>Selezionare un punto di ripristino
 
-1. Nell'insieme di credenziali associato alla macchina virtuale da ripristinare fare clic su **Elementi** > di backup**Macchina virtuale di Azure.**
+1. Nell'insieme di credenziali associato alla VM da ripristinare, fare clic su **elementi** > di backup**macchina virtuale di Azure**.
 2. Fare clic su una macchina virtuale. Per impostazione predefinita, nel dashboard della macchina virtuale verranno visualizzati i punti di ripristino degli ultimi 30 giorni. È possibile visualizzare punti di ripristino antecedenti a 30 giorni o applicare un filtro per trovare punti di ripristino in base a date, intervalli di tempo e tipi diversi di coerenza degli snapshot.
 3. Per ripristinare la macchina virtuale, fare clic su **Ripristina macchina virtuale**.
 
@@ -62,8 +62,8 @@ Se non si dispone delle autorizzazioni, è possibile [ripristinare un disco](#re
 ## <a name="choose-a-vm-restore-configuration"></a>Scegliere una configurazione di ripristino per la macchina virtuale
 
 1. In **Configurazione di ripristino** selezionare un'opzione di ripristino:
-    - **Crea nuovo:** usare questa opzione se si vuole creare una nuova macchina virtuale. È possibile creare una macchina virtuale con impostazioni semplici o ripristinare un disco e creare una macchina virtuale personalizzata.
-    - **Sostituisci esistente**: usare questa opzione se si desidera sostituire i dischi in una macchina virtuale esistente.
+    - **Crea nuovo**: usare questa opzione se si vuole creare una nuova macchina virtuale. È possibile creare una macchina virtuale con impostazioni semplici o ripristinare un disco e creare una macchina virtuale personalizzata.
+    - **Sostituisci esistente**: usare questa opzione se si vuole sostituire i dischi in una macchina virtuale esistente.
 
         ![Configurazione guidata di ripristino](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
@@ -73,11 +73,11 @@ Se non si dispone delle autorizzazioni, è possibile [ripristinare un disco](#re
 
 Tra le [opzioni di ripristino](#restore-options) è possibile creare rapidamente una macchina virtuale con le impostazioni di base da un punto di ripristino.
 
-1. In **Configurazione** > ripristino**Crea nuovo** > **tipo di ripristino**selezionare Crea una macchina **virtuale**.
-2. In **Nome macchina virtuale**specificare una macchina virtuale che non esiste nella sottoscrizione.
+1. In **Ripristino configurazione** > **Crea nuovo** > **tipo di ripristino**selezionare **Crea una macchina virtuale**.
+2. In **nome macchina virtuale**specificare una macchina virtuale che non esiste nella sottoscrizione.
 3. In **Gruppo di risorse** selezionare un gruppo di risorse esistente per la nuova macchina virtuale o crearne uno nuovo con un nome univoco globale. Se si assegna un nome già esistente, Azure assegnerà al gruppo lo stesso nome della macchina virtuale.
 4. In **Rete virtuale** selezionare la rete virtuale in cui verrà inserita la macchina virtuale. Vengono visualizzate tutte le reti virtuali associate alla sottoscrizione. Selezionare la subnet. La prima subnet è selezionata per impostazione predefinita.
-5. In **Percorso di archiviazione**specificare l'account di archiviazione per la macchina virtuale. [Altre informazioni](#storage-accounts)
+5. In **percorso di archiviazione**specificare l'account di archiviazione per la macchina virtuale. [Altre informazioni](#storage-accounts)
 
     ![Configurazione guidata di ripristino](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -89,9 +89,9 @@ Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da
 
 - Usare il modello generato durante l'operazione di ripristino per personalizzare le impostazioni e attivare la distribuzione della macchina virtuale. Modificare le impostazioni predefinite del modello e inviare il modello per la distribuzione della macchina virtuale.
 - [Collegare i dischi ripristinati](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) a una macchina virtuale esistente.
-- [Creare una nuova macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) dai dischi ripristinati usando PowerShell.Create a new VM from the restored disks using PowerShell.
+- [Creare una nuova macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) dai dischi ripristinati usando PowerShell.
 
-1. In **Configurazione ripristino** > **Crea nuovo** > **tipo di ripristino**selezionare **Ripristina dischi**.
+1. In **configurazione** > **Crea nuovo** > **tipo di ripristino**selezionare **Ripristina dischi**.
 2. In **Gruppo di risorse** selezionare un gruppo di risorse per i dischi ripristinati o crearne uno nuovo con un nome univoco globale.
 3. In **Account di archiviazione** specificare l'account in cui copiare i dischi rigidi virtuali. [Altre informazioni](#storage-accounts)
 
@@ -99,7 +99,7 @@ Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da
 
 4. In **Configurazione di ripristino** selezionare **OK**. In **Ripristino** fare clic su **Ripristina** per attivare l'operazione di ripristino.
 
-Quando la macchina virtuale usa dischi gestiti e si seleziona l'opzione **Crea macchina virtuale,** Backup di Azure non usa l'account di archiviazione specificato. Nel caso di **Ripristina dischi** e **Ripristino immediato**, l'account di archiviazione viene utilizzato solo per l'archiviazione del modello. I dischi gestiti vengono creati nel gruppo di risorse specificato.
+Quando la macchina virtuale usa dischi gestiti e si seleziona l'opzione **Crea macchina virtuale** , backup di Azure non usa l'account di archiviazione specificato. Nel caso di **ripristino dei dischi** e del **ripristino immediato**, l'account di archiviazione viene usato solo per l'archiviazione del modello. I dischi gestiti vengono creati nel gruppo di risorse specificato.
 Quando la macchina virtuale usa dischi non gestiti, questi vengono ripristinati come BLOB nell'account di archiviazione.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Usare i modelli per personalizzare una VM ripristinata
@@ -128,73 +128,73 @@ Tra le [opzioni di ripristino](#restore-options) è possibile sostituire un disc
 
 1. In **Configurazione di ripristino** fare clic su **Sostituisci esistente**.
 2. In **Tipo ripristino** selezionare **Replace disk/s** (Sostituisci dischi). Questo è il punto di ripristino che verrà usato per sostituire i dischi delle macchine virtuali esistenti.
-3. In **Percorso di gestione temporanea**specificare la posizione in cui salvare gli snapshot dei dischi gestiti correnti durante il processo di ripristino. [Altre informazioni](#storage-accounts)
+3. In **percorso di gestione temporanea**specificare dove salvare gli snapshot dei dischi gestiti correnti durante il processo di ripristino. [Altre informazioni](#storage-accounts)
 
    ![Configurazione guidata del ripristino - Sostituisci esistente](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
 ## <a name="cross-region-restore"></a>Ripristino tra aree
 
-Come una delle opzioni di [ripristino,](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options)il ripristino tra aree (CRR) consente di ripristinare le macchine virtuali di Azure in un'area secondaria, ovvero un'area associata ad Azure.As one of the restore options , Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region.
+Come una delle [Opzioni di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options), Cross Region Restore (CRR) consente di ripristinare le macchine virtuali di Azure in un'area secondaria, ovvero un'area abbinata ad Azure.
 
-Per eseguire l'onboarding della funzione durante l'anteprima, leggere la [sezione Prima di iniziare](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+Per eseguire l'onboarding nella funzionalità durante l'anteprima, leggere la [sezione prima di iniziare](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-cross-region-restore).
 
-Per [verificare](backup-create-rs-vault.md#configure-cross-region-restore) se CRR è abilitato, seguire le istruzioni in Configure Cross Region Restore
+Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
 
-### <a name="view-backup-items-in-secondary-region"></a>Visualizzare gli elementi di backup nell'area secondariaView backup items in secondary region
+### <a name="view-backup-items-in-secondary-region"></a>Visualizzare gli elementi di backup nell'area secondaria
 
 Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area secondaria.
 
-1. Dal portale, andare a Unità di **backup** > di Servizi di ripristino**Elementi di backup**
-2. Fare clic su **Area secondaria** per visualizzare gli elementi nell'area secondaria.
+1. Dal portale passare ad elementi di **Recovery Services vault** > **backup** dell'insieme di credenziali di servizi di ripristino
+2. Fare clic su **area secondaria** per visualizzare gli elementi nell'area secondaria.
 
-![Macchine virtuali nell'area secondariaVirtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+![Macchine virtuali nell'area secondaria](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
-![Seleziona regione secondaria](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Seleziona area secondaria](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
-### <a name="restore-in-secondary-region"></a>Ripristino nell'area secondariaRestore in secondary region
+### <a name="restore-in-secondary-region"></a>Ripristino nell'area secondaria
 
-L'esperienza utente di ripristino dell'area secondaria sarà simile all'esperienza utente di ripristino dell'area primaria. Quando si configurano i dettagli nel pannello Configurazione ripristino per configurare il ripristino, verrà richiesto di specificare solo i parametri dell'area secondaria.
+L'esperienza utente per il ripristino dell'area secondaria sarà simile all'esperienza utente per il ripristino dell'area primaria. Quando si configurano i dettagli nel pannello configurazione di ripristino per configurare il ripristino, verrà richiesto di fornire solo parametri dell'area secondaria.
 
-![Scegliere la macchina virtuale da ripristinareChoose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
+![Scegliere la macchina virtuale da ripristinare](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
 ![Seleziona punto di ripristino](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
-![Ripristinare la configurazione](./media/backup-azure-arm-restore-vms/rest-config.png)
+![Configurazione ripristino](./media/backup-azure-arm-restore-vms/rest-config.png)
 
-![Notifica di ripristino trigger in corsoTrigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+![Attivare la notifica di ripristino in corso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
-- Per ripristinare e creare una macchina virtuale, vedere [Creare una macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
-- Per eseguire il ripristino come disco, fare riferimento a [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
+- Per ripristinare e creare una macchina virtuale, vedere [creare una macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
+- Per eseguire il ripristino come disco, vedere [ripristinare i dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
 
 >[!NOTE]
->Dopo l'attivazione del ripristino e durante la fase di trasferimento dei dati, il processo di ripristino non può essere annullato.
+>Dopo l'attivazione del ripristino e la fase di trasferimento dei dati, il processo di ripristino non può essere annullato.
 
-### <a name="monitoring-secondary-region-restore-jobs"></a>Monitoraggio dei processi di ripristino dell'area secondariaMonitoring secondary region restore jobs
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitoraggio dei processi di ripristino dell'area secondaria
 
-1. Dal portale, vai a Processi di > **backup** dell'insieme **di credenziali di ripristino**
-2. Fare clic su **Area secondaria** per visualizzare gli elementi nell'area secondaria.
+1. Dal portale passare all'insieme di credenziali **dei servizi** > di ripristino**processi di backup**
+2. Fare clic su **area secondaria** per visualizzare gli elementi nell'area secondaria.
 
 ![Processi di backup filtrati](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
 
-## <a name="restore-vms-with-special-configurations"></a>Ripristinare le macchine virtuali con configurazioni specialiRestore VMs with special configurations
+## <a name="restore-vms-with-special-configurations"></a>Ripristinare le macchine virtuali con configurazioni speciali
 
 Esistono diversi scenari comuni in cui potrebbe essere necessario ripristinare le macchine virtuali.
 
-**Scenario** | **Materiale sussidiario**
+**Scenario** | **Indicazioni**
 --- | ---
 **Ripristino di macchine virtuali con vantaggio Hybrid Use** | Se una macchina virtuale Windows usa la [licenza per il vantaggio Hybrid Use (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), ripristinare i dischi e creare una nuova macchina virtuale usando il modello fornito (con **Tipo di licenza** impostato su **Windows_Server**) o PowerShell.  È possibile applicare questa impostazione anche dopo aver creato la macchina virtuale.
 **Ripristino di macchine virtuali durante un'emergenza nel data center di Azure** | Se l'insieme di credenziali usa l'archiviazione con ridondanza geografica e il data center principale per la macchina virtuale si arresta, Backup di Azure supporta il ripristino delle macchine virtuali sottoposte a backup nel data center associato. Selezionare un account di archiviazione nel data center associato e ripristinare come di consueto. Backup di Azure usa il servizio di calcolo nell'area abbinata per creare la macchina virtuale ripristinata. [Vedere altre informazioni](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sulla resilienza dei data center.
-**Ripristino di una macchina virtuale con controller di dominio singolo in un dominio singolo** | Ripristinare la macchina virtuale come qualsiasi altra macchina virtuale. Tenere presente quanto segue:<br/><br/> Dal punto di vista di Active Directory, la macchina virtuale di Azure è simile a qualsiasi altra macchina virtuale.<br/><br/> È anche disponibile Modalità ripristino servizi directory (Directory Services Restore Mode, DSRM), in modo che tutti gli scenari di ripristino di Active Directory siano attuabili. [Vedere altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps) sul backup e il ripristino dei controller di dominio virtualizzati.
-**Ripristino di macchine virtuali con più controller di dominio in un dominio singolo** | Se altri controller di dominio nello stesso dominio possono essere raggiunti in rete, il controller di dominio può essere ripristinato come qualsiasi macchina virtuale. Se si tratta dell'ultimo controller di dominio restante nel dominio o viene eseguito un ripristino in una rete isolata, effettuare un [ripristino della foresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Ripristino di una macchina virtuale con controller di dominio singolo in un dominio singolo** | Ripristinare la macchina virtuale come qualsiasi altra macchina virtuale. Tenere presente quanto segue:<br/><br/> Da un punto di vista Active Directory, la macchina virtuale di Azure è come qualsiasi altra macchina virtuale.<br/><br/> È anche disponibile Modalità ripristino servizi directory (Directory Services Restore Mode, DSRM), in modo che tutti gli scenari di ripristino di Active Directory siano attuabili. [Vedere altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps) sul backup e il ripristino dei controller di dominio virtualizzati.
+**Ripristino di macchine virtuali con più controller di dominio in un dominio singolo** | Se è possibile raggiungere altri controller di dominio nello stesso dominio tramite la rete, è possibile ripristinare il controller di dominio come qualsiasi macchina virtuale. Se si tratta dell'ultimo controller di dominio restante nel dominio o viene eseguito un ripristino in una rete isolata, effettuare un [ripristino della foresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Ripristino di domini multipli in una foresta** | È consigliabile eseguire un [ripristino della foresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Ripristino bare metal** | La differenza principale tra le macchine virtuali di Azure e gli hypervisor locali consiste nel fatto che in Azure non è disponibile una console per macchine virtuali. La console è obbligatoria per alcuni scenari, ad esempio per il ripristino tramite un backup di tipo di ripristino bare metal (BMR). Tuttavia, il ripristino della macchina virtuale dall'insieme di credenziali è una sostituzione completa con il ripristino bare metal.
-**Ripristinare le VM con configurazioni di rete speciali** | Configurazioni di rete speciali includono macchine virtuali con bilanciamento del carico interno o esterno, con più schede di interfaccia di rete o con più indirizzi IP riservati. Per ripristinare queste macchine virtuali, usare l'[opzione relativa al disco di ripristino](#restore-disks). Questa opzione consente di creare una copia dei dischi rigidi virtuali nell'account di archiviazione specificato ed è quindi possibile creare una macchina virtuale con un servizio di bilanciamento del carico [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) o [esterno,](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) [più NICS](../virtual-machines/windows/multiple-nics.md)o [più indirizzi IP riservati,](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)in base alla configurazione.
-**Gruppo di sicurezza di rete (NSG) su NIC/Subnet** | Il backup delle macchine virtuali di Azure supporta il backup e il ripristino delle informazioni del gruppo di sicurezza di rete a livello di rete virtuale, subnet e scheda di interfaccia di rete.
-**Macchine virtuali bloccate** | Backup di Azure supporta il backup e il ripristino delle macchine virtuali aggiunte a zone. [Altre informazioni](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**Ripristinare le VM con configurazioni di rete speciali** | Configurazioni di rete speciali includono macchine virtuali con bilanciamento del carico interno o esterno, con più schede di interfaccia di rete o con più indirizzi IP riservati. Per ripristinare queste macchine virtuali, usare l'[opzione relativa al disco di ripristino](#restore-disks). Questa opzione Crea una copia dei dischi rigidi virtuali nell'account di archiviazione specificato ed è quindi possibile creare una macchina virtuale con un servizio di bilanciamento del carico [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) o [esterno](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) , [più schede](../virtual-machines/windows/multiple-nics.md)di rete o [più indirizzi IP riservati](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in base alla configurazione.
+**Gruppo di sicurezza di rete (NSG) nella scheda NIC/subnet** | Il backup di macchine virtuali di Azure supporta il backup e il ripristino delle informazioni NSG a livello di VNET, subnet e NIC.
+**VM bloccate della zona** | Backup di Azure supporta il backup e il ripristino di VM bloccate in zone. [Altre informazioni](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Tenere traccia dell'operazione di ripristino
 
-Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un processo per tenerne traccia. Backup di Azure consente di visualizzare le notifiche relative al processo nel portale. Se non sono visibili, selezionare il simbolo **Notifiche** e quindi selezionare **Visualizza tutti i processi** per visualizzare lo stato del processo di ripristino.
+Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un processo per tenerne traccia. Backup di Azure consente di visualizzare le notifiche relative al processo nel portale. Se non sono visibili, selezionare il simbolo **notifiche** e quindi selezionare **Visualizza tutti i processi** per visualizzare lo stato del processo di ripristino.
 
 ![Ripristino attivato](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 
@@ -204,9 +204,9 @@ Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un 
 
     ![Elenco di VM in un insieme di credenziali](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
-2. Per monitorare lo stato di un ripristino, fare clic su un processo di ripristino con stato **In corso**. Viene visualizzata la barra di avanzamento, che visualizza informazioni sullo stato di avanzamento del ripristino:
+2. Per monitorare lo stato di un ripristino, fare clic su un processo di ripristino con stato **In corso**. Viene visualizzato l'indicatore di stato, che visualizza informazioni sullo stato di avanzamento del ripristino:
 
-    - **Tempo stimato di ripristino**: Inizialmente fornisce il tempo necessario per completare l'operazione di ripristino. Con il progressivo avanzamento dell'operazione, il tempo impiegato si riduce fino a raggiungere il valore 0 al termine dell'operazione di ripristino.
+    - **Tempo stimato**per il ripristino: fornisce inizialmente il tempo necessario per completare l'operazione di ripristino. Con il progressivo avanzamento dell'operazione, il tempo impiegato si riduce fino a raggiungere il valore 0 al termine dell'operazione di ripristino.
     - **Percentage of restore** (Percentuale di ripristino): mostra la percentuale di completamento dell'operazione di ripristino.
     - **Numero di byte trasferiti**: se si esegue il ripristino creando una nuova macchina virtuale, vengono visualizzati i byte trasferiti rispetto al numero totale di byte da trasferire.
 
@@ -216,12 +216,12 @@ Esistono diversi aspetti di cui tenere conto dopo il ripristino di una macchina 
 
 - Le estensioni presenti durante la configurazione del backup vengono installate, ma non abilitate. Se si verifica un problema, reinstallare le estensioni.
 - Se la macchina virtuale sottoposta a backup era associata a un indirizzo IP statico, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti. È possibile [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description).
-- Una macchina virtuale ripristinata non ha un set di disponibilità. Se si usa l'opzione di ripristino del disco, è possibile [specificare un set](../virtual-machines/windows/tutorial-availability-sets.md) di disponibilità quando si crea una macchina virtuale dal disco usando il modello fornito o PowerShell.If you use the restore disk option, then you can specify an availability set when you create a VM from the disk using the provided template or PowerShell.
+- Una macchina virtuale ripristinata non ha un set di disponibilità. Se si usa l'opzione Ripristina disco, è possibile [specificare un set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) quando si crea una macchina virtuale dal disco usando il modello fornito o PowerShell.
 - Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/reset-password.md) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni in modo da non dover reimpostare la password dopo il ripristino.
-- Se non è possibile accedere alla macchina virtuale dopo il ripristino a causa di una relazione interrotta dalla macchina virtuale con il controller di dominio, eseguire la procedura seguente per visualizzare la macchina virtuale:If you are unable to access VM once restored due to VM having broken relationship with domain controller, then follow the steps below to bring up the VM:
-  - Collegare il disco del sistema operativo come disco dati a una macchina virtuale ripristinata.
-  - Installare manualmente l'agente di macchine virtuali se si ritiene che l'agente di Azure non risponda seguendo questo [collegamento.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline)
-  - Abilitare l'accesso alla console seriale nella macchina virtuale per consentire l'accesso dalla riga di comando alla macchina virtualeEnable Serial Console access on VM to allow command-line access to VM
+- Se non si riesce ad accedere alla macchina virtuale dopo il ripristino a causa di una relazione di macchina virtuale con il controller di dominio, attenersi alla procedura seguente per visualizzare la macchina virtuale:
+  - Alleghi il disco del sistema operativo come disco dati a una macchina virtuale ripristinata.
+  - Installare manualmente l'agente VM se è stato rilevato che l'agente di Azure non risponde seguendo questo [collegamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+  - Abilitare l'accesso alla console seriale nella macchina virtuale per consentire l'accesso dalla riga di comando alla macchina virtuale
 
   ```cmd
     bcdedit /store <drive letter>:\boot\bcd /enum
@@ -232,14 +232,14 @@ Esistono diversi aspetti di cui tenere conto dopo il ripristino di una macchina 
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
     ```
 
-  - Quando la macchina virtuale viene ricompilata, usare il portale di Azure per reimpostare l'account amministratore locale e la passwordWhen the VM is rebuilt use Azure portal to reset local administrator account and password
-  - Usare l'accesso alla console seriale e il comando CMD per disconnettere la macchina virtuale dal dominioUse Serial console access and CMD to disjoin VM from domain
+  - Quando la macchina virtuale viene ricompilata, usare portale di Azure per reimpostare l'account e la password dell'amministratore locale
+  - Usare console seriale Access e CMD per separare la VM dal dominio
 
     ```cmd
     cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
 
-- Dopo aver disgiunto e riavviato la macchina virtuale, sarà possibile eseguire correttamente RDP a VM con credenziali di amministratore locale e aggiungere nuovamente la macchina virtuale al dominio.
+- Una volta che la macchina virtuale è stata riavviata e riavviata, sarà possibile eseguire correttamente la connessione RDP alla macchina virtuale con le credenziali di amministratore locale e aggiungere nuovamente la macchina virtuale al dominio.
 
 ## <a name="backing-up-restored-vms"></a>Backup di macchine virtuali ripristinate
 

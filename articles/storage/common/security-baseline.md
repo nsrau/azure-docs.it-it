@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d083ba757004fa477038750ad6210e4bb30659ee
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120756"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176601"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
 

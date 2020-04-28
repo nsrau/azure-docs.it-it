@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 9b6b4143ea2eeefcf0d0afbe281f7e27ca7794a1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 95a3c9e81bfc1d3b010027e628204666c472d1da
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067849"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731866"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Database di Azure per MySQL: usare MySQL Workbench per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione MySQL Workbench. 
@@ -45,15 +45,15 @@ Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utent
 2.    Nella finestra di dialogo **Setup New Connection** (Configura nuova connessione) immettere le informazioni seguenti nella scheda **Parameters** (Parametri):
 
     ![Setup New Connection (Configura nuova connessione)](./media/connect-workbench/2-setup-new-connection.png)
-
-    | **Impostazione** | **Valore consigliato** | **Descrizione campo** |
-    |---|---|---|
-    |    Connection Name (Nome connessione) | Demo Connection | Specificare un'etichetta per la connessione. |
-    | Connection Method (Metodo di connessione) | Standard (TCP/IP) | Standard (TCP/IP) è sufficiente. |
-    | nomehost | *nome del server* | Specificare il valore del nome del server usato in precedenza al momento della creazione del database di Azure per MySQL. Il server di esempio visualizzato è mydemoserver.mysql.database.azure.com. Usare il nome di dominio completo (\*.mysql.database.azure.com) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura illustrata nella sezione precedente per ottenere le informazioni di connessione.  |
-    | Porta | 3306 | Usare sempre la porta 3306 per la connessione al database di Azure per MySQL. |
-    | Username |  *nome di accesso amministratore server* | Digitare il nome utente di accesso amministratore server specificato in precedenza al momento della creazione del database di Azure per MySQL. Il nome utente dell'esempio è myadmin@mydemoserver. Se non si ricorda il nome utente, seguire la procedura illustrata nella sezione precedente per ottenere le informazioni di connessione. Il formato è *nome utente\@nome server*.
-    | Password | Immettere la password. | Fare clic sul pulsante **Store in Vault...** (Archivia nell'insieme di credenziali) per salvare la password. |
+    
+   | **Impostazione** | **Valore consigliato** | **Descrizione campo** |
+   |---|---|---|
+   |    Connection Name (Nome connessione) | Demo Connection | Specificare un'etichetta per la connessione. |
+   | Connection Method (Metodo di connessione) | Standard (TCP/IP) | Standard (TCP/IP) è sufficiente. |
+   | nomehost | *nome del server* | Specificare il valore del nome del server usato in precedenza al momento della creazione del database di Azure per MySQL. Il server di esempio visualizzato è mydemoserver.mysql.database.azure.com. Usare il nome di dominio completo (\*.mysql.database.azure.com) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura illustrata nella sezione precedente per ottenere le informazioni di connessione.  |
+   | Porta | 3306 | Usare sempre la porta 3306 per la connessione al database di Azure per MySQL. |
+   | Username |  *nome di accesso amministratore server* | Digitare il nome utente di accesso amministratore server specificato in precedenza al momento della creazione del database di Azure per MySQL. Il nome utente dell'esempio è myadmin@mydemoserver. Se non si ricorda il nome utente, seguire la procedura illustrata nella sezione precedente per ottenere le informazioni di connessione. Il formato è *nome utente\@nome server*.
+   | Password | Immettere la password. | Fare clic sul pulsante **Store in Vault...** (Archivia nell'insieme di credenziali) per salvare la password. |
 
 3.   Fare clic su **Test Connection** (Test connessione) per verificare che tutti i parametri siano configurati correttamente. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 530092dfabacb0b07f4002a82078dd3535cd7e8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcb005e39f89298b35bf0f3a0ad1e19601ae4d13
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275247"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166147"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio Azure Container con DataDog
 
@@ -21,7 +21,7 @@ ms.locfileid: "76275247"
 In questo articolo verranno distribuiti agenti di Datadog in tutti i nodi agente nel cluster del servizio Azure Container. Per questa configurazione, sarà necessario un account con Datadog. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-[Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster configurato dal servizio Azure Container. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Vai [https://datadoghq.com](https://datadoghq.com) a configurare un account Datadog. 
+[Distribuire](container-service-deployment.md) e [connettere](../container-service-connect.md) un cluster configurato dal servizio Azure Container. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [https://datadoghq.com](https://datadoghq.com) per configurare un account Datadog. 
 
 ## <a name="datadog"></a>Datadog
 Datadog è un servizio che raccoglie dati di monitoraggio dai contenitori all'interno del cluster del servizio Azure Container. Datadog è dotato di un dashboard di integrazione Docker in cui è possibile visualizzare metriche specifiche all'interno dei propri contenitori. Le metriche raccolte dai contenitori sono organizzate per CPU, memoria, rete e I/O. Datadog suddivide le metriche in contenitori e immagini. Un esempio dell'aspetto dell'interfaccia utente per l'utilizzo della CPU è riportato di seguito.
@@ -31,7 +31,7 @@ Datadog è un servizio che raccoglie dati di monitoraggio dai contenitori all'in
 ## <a name="configure-a-datadog-deployment-with-marathon"></a>Configurare una distribuzione Datadog con Marathon
 Questi passaggi illustrano come configurare e distribuire le applicazioni Datadog nel cluster con Marathon. 
 
-Accedere all'interfaccia utente [http://localhost:80/](http://localhost:80/)DC/OS tramite . Dall'interfaccia utente del controller di dominio/sistema operativo passare a "Universe" ("Universo") in basso a sinistra e quindi cercare "Datadog" e fare clic su "Install".
+Accedere all'interfaccia utente del controller di dominio/sistema operativo da `http://localhost:80/`. Dall'interfaccia utente del controller di dominio/sistema operativo passare a "Universe" ("Universo") in basso a sinistra e quindi cercare "Datadog" e fare clic su "Install".
 
 ![Pacchetto Datadog in Universe (Universo) per il controller di dominio/sistema operativo](./media/container-service-monitoring/datadog1.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 643f326952f72f952aa946079e56f1fb56373c9f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280235"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182872"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -32,13 +32,13 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
 - Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
-- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
-- L'account a cui si accede o con cui ci si connette ad Azure deve essere assegnato al ruolo [di collaboratore](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) di rete o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le azioni appropriate elencate in [Autorizzazioni](#permissions).
+- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.31 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
+- L'account a cui si accede o che si connette ad Azure deve essere assegnato al ruolo [collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le azioni appropriate elencate in [autorizzazioni](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. Selezionare **Crea una risorsa** > Rete**virtuale**di**rete** > .
-2. Immettere o selezionare i valori per le seguenti impostazioni, quindi selezionare **Crea:**
+1. Selezionare **+ Crea una risorsa** > **Networking** > **rete rete virtuale**.
+2. Immettere o selezionare i valori per le impostazioni seguenti e quindi selezionare **Crea**:
    - **Nome**: il nome deve essere univoco nell'ambito del [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) selezionato per la creazione della rete virtuale al suo interno. Dopo la creazione della rete virtuale non è possibile modificarne il nome. È possibile creare più reti virtuali in momenti diversi. Per alcuni suggerimenti sull'assegnazione del nome, vedere [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) (Convenzioni di denominazione). Il rispetto di una convenzione di denominazione consente una gestione più semplice di più reti virtuali.
    - **Spazio indirizzi**: lo spazio indirizzi per una rete virtuale è costituito da uno o più intervalli di indirizzi non sovrapposti, specificati con la notazione CIDR. L'intervallo di indirizzi definito può essere pubblico o privato (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
      - 224.0.0.0/4 (multicast)
@@ -47,7 +47,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
      - 169.254.0.0/16 (locale rispetto al collegamento)
      - 168.63.129.16/32 (DNS interno, DHCP e [probe di integrità](../load-balancer/load-balancer-custom-probe-overview.md#probesource) di Azure Load Balancer)
 
-     Sebbene sia possibile definire un solo intervallo di indirizzi quando si crea la rete virtuale nel portale, è possibile aggiungere più intervalli di indirizzi allo spazio di indirizzi dopo la creazione della rete virtuale. Per informazioni su come aggiungere un intervallo di indirizzi a una rete virtuale esistente, vedere [Aggiungere o rimuovere un intervallo di indirizzi](#add-or-remove-an-address-range).
+     Sebbene sia possibile definire un solo intervallo di indirizzi quando si crea la rete virtuale nel portale, è possibile aggiungere più intervalli di indirizzi allo spazio degli indirizzi dopo la creazione della rete virtuale. Per informazioni su come aggiungere un intervallo di indirizzi a una rete virtuale esistente, vedere [Aggiungere o rimuovere un intervallo di indirizzi](#add-or-remove-an-address-range).
 
      >[!WARNING]
      >Se gli intervalli di indirizzi di una rete virtuale si sovrappongono a quelli di un'altra rete virtuale o di una rete locale, non è possibile connettere le due reti. Prima di definire un intervallo di indirizzi, tenere conto della possibilità che in futuro sia necessario connettere la rete virtuale ad altre reti virtuali o locali.
@@ -61,11 +61,11 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
        >
 
      - **Intervallo di indirizzi subnet**: l'intervallo deve essere compreso nello spazio indirizzi immesso in precedenza per la rete virtuale. L'intervallo più piccolo che è possibile specificare è /29, che fornisce otto indirizzi IP per subnet. Azure riserva il primo e l'ultimo indirizzo in ogni subnet per conformità al protocollo. Altri tre indirizzi sono riservati per l'uso da parte del servizio di Azure. Di conseguenza, una rete virtuale con un intervallo di indirizzi di subnet /29 ha solo tre indirizzi IP utilizzabili. Se si prevede di connettere una rete virtuale a un gateway VPN, è necessario creare una subnet per il gateway. Altre informazioni su [considerazioni specifiche sugli intervalli di indirizzi per le subnet di gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Dopo aver creato la subnet, in determinate condizioni è possibile modificare l'intervallo di indirizzi. Per informazioni su come modificare un intervallo di indirizzi della subnet, vedere [Aggiungere, modificare o eliminare le subnet di rete virtuale](virtual-network-manage-subnet.md).
-     - **Sottoscrizione**: Selezionare una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Non è possibile usare la stessa rete virtuale in più sottoscrizioni di Azure. È tuttavia possibile connettere una rete virtuale in una sottoscrizione a reti virtuali in altre sottoscrizioni con il [peering di reti virtuali](virtual-network-peering-overview.md). Qualsiasi risorsa di Azure da connettere alla rete virtuale deve essere compresa nella sottoscrizione della rete virtuale stessa.
-     - **Gruppo**di risorse: selezionare un gruppo di [risorse](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) esistente o crearne uno nuovo. Una risorsa di Azure da connettere alla rete virtuale può trovarsi nello stesso gruppo di risorse della rete virtuale o in un gruppo di risorse diverso.
+     - **Sottoscrizione**: selezionare una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Non è possibile usare la stessa rete virtuale in più sottoscrizioni di Azure. È tuttavia possibile connettere una rete virtuale in una sottoscrizione a reti virtuali in altre sottoscrizioni con il [peering di reti virtuali](virtual-network-peering-overview.md). Qualsiasi risorsa di Azure da connettere alla rete virtuale deve essere compresa nella sottoscrizione della rete virtuale stessa.
+     - **Gruppo di risorse**: selezionare un [gruppo di risorse](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) esistente o crearne uno nuovo. Una risorsa di Azure da connettere alla rete virtuale può trovarsi nello stesso gruppo di risorse della rete virtuale o in un gruppo di risorse diverso.
      - **Località**: selezionare una [località](https://azure.microsoft.com/regions/) di Azure. Le località sono dette anche aree. Una rete virtuale può trovarsi in una sola località di Azure. È tuttavia possibile connettere una rete virtuale in una località con una rete virtuale in un'altra località tramite un gateway VPN. Qualsiasi risorsa di Azure da connettere alla rete virtuale deve trovarsi nella località della rete virtuale stessa.
 
-**Comandi**
+**Comandi:**
 
 - Interfaccia della riga di comando di Azure: [az network vnet create](/cli/azure/network/vnet)
 - PowerShell: [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
@@ -88,13 +88,13 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
    - **Proprietà**: visualizza le impostazioni della rete virtuale, inclusi l'ID risorsa della rete virtuale e la sottoscrizione di Azure in cui si trova.
    - **Diagramma**: il diagramma offre una rappresentazione visiva di tutti i dispositivi connessi alla rete virtuale con alcune informazioni chiave sui dispositivi stessi. Per gestire un dispositivo in questa visualizzazione, selezionare il dispositivo nel diagramma.
    - **Impostazioni comuni di Azure**: per altre informazioni sulle impostazioni comuni di Azure, vedere le informazioni seguenti:
-     - [Registro attività](../azure-monitor/platform/platform-logs-overview.md)
+     - [Log attività](../azure-monitor/platform/platform-logs-overview.md)
      - [Controllo di accesso (IAM)](../role-based-access-control/overview.md)
      - [Tag](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Serrature](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Script di automazione](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
-**Comandi**
+**Comandi:**
 
 - Interfaccia della riga di comando di Azure: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
@@ -103,7 +103,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 È possibile aggiungere e rimuovere intervalli di indirizzi per una rete virtuale. L'intervallo di indirizzi deve essere specificato con la notazione CIDR e non può sovrapporsi ad altri intervalli di indirizzi all'interno della stessa rete virtuale. Gli intervalli di indirizzi definiti possono essere pubblici o privati (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. 
 
-È possibile ridurre l'intervallo di indirizzi per una rete virtuale, purché includa ancora gli intervalli delle subnet associate. Inoltre, è possibile estendere l'intervallo di indirizzi, ad esempio, la modifica di un /16 a /8. 
+È possibile ridurre l'intervallo di indirizzi per una rete virtuale purché includa anche gli intervalli delle subnet associate. Inoltre, è possibile estendere l'intervallo di indirizzi, ad esempio, modificando a/16 in/8. 
 
 <!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
@@ -125,10 +125,10 @@ Per aggiungere o rimuovere un intervallo di indirizzi:
     - **Remove an address range** (Rimuovere un intervallo di indirizzi): a destra dell'intervallo di indirizzi da rimuovere, selezionare **... ** e quindi selezionare **Rimuovi**. Se è presente una subnet nell'intervallo di indirizzi, non è possibile rimuoverlo. Prima di rimuovere un intervallo di indirizzi è necessario eliminare tutte le subnet presenti nell'intervallo e le eventuali risorse nelle subnet.
 5. Selezionare **Salva**.
 
-**Comandi**
+**Comandi:**
 
 - Interfaccia della riga di comando di Azure: [az network vnet update](/cli/azure/network/vnet)
-- PowerShell: [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
+- PowerShell: [set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>Modificare i server DNS
 
@@ -136,7 +136,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 
 1. Nella casella di ricerca nella parte superiore del portale immettere *reti virtuali*. Selezionare **Reti virtuali** quando viene visualizzato nei risultati della ricerca.
 2. Nell'elenco delle reti virtuali selezionare la rete virtuale per cui si vogliono modificare i server DNS.
-3. Selezionare **Server DNS**, in **SETTINGS**.
+3. Selezionare **server DNS**in **Impostazioni**.
 4. Selezionare una delle opzioni seguenti:
    - **Predefinito (fornito da Azure)**: tutti i nomi delle risorse e gli indirizzi IP privati vengono registrati automaticamente presso i server DNS di Azure. È possibile risolvere i nomi tra tutte le risorse connesse alla stessa rete virtuale. Non è possibile usare questa opzione per la risoluzione dei nomi tra reti virtuali diverse. Per risolvere i nomi tra reti virtuali diverse è necessario usare un server DNS personalizzato.
    - **Personalizzato**: è possibile aggiungere uno o più server, fino al limite di Azure per le reti virtuali. Per altre informazioni sui limiti dei server DNS, vedere i [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). L'utente ha a disposizione le seguenti opzioni:
@@ -147,10 +147,10 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 5. Selezionare **Salva**.
 6. Riavviare le macchine virtuali connesse alla rete virtuale in modo che vengano loro assegnate le nuove impostazioni del server DNS. Le VM continuano a usare le impostazioni DNS correnti finché non vengono riavviate.
 
-**Comandi**
+**Comandi:**
 
 - Interfaccia della riga di comando di Azure: [az network vnet update](/cli/azure/network/vnet)
-- PowerShell: [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
+- PowerShell: [set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>Eliminare una rete virtuale
 
@@ -162,7 +162,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 4. Selezionare **Elimina**.
 5. Per confermare l'eliminazione della rete virtuale, selezionare **Sì**.
 
-**Comandi**
+**Comandi:**
 
 - Interfaccia della riga di comando di Azure: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
@@ -180,4 +180,4 @@ Per eseguire attività nelle reti virtuali, l'account deve essere assegnato al r
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare una rete virtuale usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Azure Resource Manager](template-samples.md)
-- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per le reti virtuali

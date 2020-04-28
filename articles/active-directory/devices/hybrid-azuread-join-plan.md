@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129248"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181325"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: pianificare l'implementazione ibrida di Azure Active Directory join
 
@@ -94,13 +94,13 @@ Come primo passaggio della pianificazione, è consigliabile esaminare l'ambiente
 Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](overview.md#getting-devices-in-azure-ad) nel tenant, è possibile che si verifichi il doppio stato del dispositivo Azure ad ibrido aggiunto e Azure ad registrato. È consigliabile eseguire l'aggiornamento a Windows 10 1803 (con KB4489894 applicato) o versione successiva per risolvere automaticamente questo scenario. Nelle versioni precedenti alla 1803 sarà necessario rimuovere manualmente lo stato Azure AD registrato prima di abilitare Azure AD ibrido join. Nelle versioni 1803 e successive sono state apportate le modifiche seguenti per evitare questo doppio stato:
 
 - Gli eventuali stati Azure AD registrati per un utente vengono rimossi automaticamente <i>dopo che il dispositivo è stato Azure ad ibrido aggiunto e lo stesso utente ha eseguito l'accesso</i>. Se, ad esempio, l'utente A dispone di un Azure AD stato registrato sul dispositivo, lo stato doppio per l'utente A viene pulito solo quando l'utente A accede al dispositivo. Se sono presenti più utenti nello stesso dispositivo, lo stato doppio viene pulito singolarmente quando tali utenti eseguono l'accesso.
-- È possibile impedire che il dispositivo aggiunto al dominio venga Azure AD registrato aggiungendo la chiave del registro di sistema HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
+- È possibile impedire che il dispositivo aggiunto al dominio venga registrato Azure AD aggiungendo il seguente valore del registro di sistema a HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - In Windows 10 1803, se è configurato Windows Hello for business, l'utente deve reinstallare Windows Hello for business dopo la pulizia dello stato doppio. Questo problema è stato risolto con KB4512509
 
 > [!NOTE]
 > Il Azure AD dispositivo registrato non verrà rimosso automaticamente se è gestito da Intune.
 
-### <a name="additional-considerations"></a>Considerazioni aggiuntive
+### <a name="additional-considerations"></a>Altre considerazioni
 - Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 - Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. 
@@ -164,8 +164,8 @@ La tabella seguente contiene informazioni sul supporto per questi nomi dell'enti
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestito | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestito | Non supportate | |
+| Instradabile | Gestiti | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Gestiti | Non supportate | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

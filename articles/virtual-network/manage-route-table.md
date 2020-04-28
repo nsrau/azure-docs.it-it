@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 79310ddf121d6ada10755b198b515fdc9c1114d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247062"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182855"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -25,7 +25,7 @@ Azure effettua il routing automatico del traffico tra subnet di Azure, reti virt
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se non si ha una sottoscrizione, configurare un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Quindi completare una di queste attività prima di iniziare i passaggi in una sezione di questo articolo:
+Se non si ha una sottoscrizione, configurare un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Quindi completare una di queste attività prima di iniziare i passaggi in una sezione di questo articolo:
 
 - **Utenti del portale**: accedere al [portale di Azure](https://portal.azure.com) con l'account Azure.
 
@@ -196,7 +196,7 @@ Esiste un limite al numero di route per tabella di route che è possibile creare
 
 1. Se si sceglie un **tipo di hop successivo** di **appliance virtuale**, immettere un indirizzo IP per l' **indirizzo hop successivo**.
 
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 ### <a name="create-a-route---commands"></a>Creare una route-comandi
 
@@ -348,4 +348,4 @@ Per eseguire attività nelle tabelle e nelle route di route, l'account deve esse
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare una tabella di route usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'interfaccia della riga di comando di [azure](cli-samples.md) o Azure [Gestione risorse](template-samples.md)
-- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per le reti virtuali

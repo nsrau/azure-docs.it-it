@@ -6,16 +6,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 62623bcadb35f21117ddc2601195e34598c2dff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298765"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176771"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
-Questo articolo fornisce le risposte alle domande frequenti su Azure Spring cloud. 
+Questo articolo fornisce le risposte alle domande frequenti su Azure Spring cloud.
 
 ## <a name="general"></a>Generale
 
@@ -92,6 +92,10 @@ Sono attualmente supportati tre servizi: Azure Cosmos DB, database di Azure per 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>È possibile visualizzare, aggiungere o spostare volumi permanenti dall'interno delle applicazioni?
 
 Sì.
+
+### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando si elimina o si sposta un'istanza del servizio cloud di Azure Spring, le risorse di estensione verranno eliminate o spostate?
+
+Dipende dalle logiche dei provider di risorse a cui appartengono le risorse di estensione. Le risorse di estensione di `Microsoft.AppPlatform` un'istanza non appartengono allo stesso spazio dei nomi, quindi i comportamenti variano in base ai diversi provider di risorse. Ad esempio, l'operazione di eliminazione/spostamento non produrrà a catena le risorse delle **impostazioni di diagnostica** . Se viene eseguito il provisioning di una nuova istanza di Azure Spring cloud con lo stesso ID di risorsa di quello eliminato o se viene spostata di nuovo l'istanza di Azure Spring cloud precedente, le risorse delle **impostazioni di diagnostica** precedenti continuano a estenderlo.
 
 ## <a name="deployment"></a>Distribuzione
 
