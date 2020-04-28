@@ -1,5 +1,5 @@
 ---
-title: Ottimizzazione di Archiviazione di Azure Data Lake Gen2 per le prestazioni Documenti Microsoft
+title: Ottimizzare Azure Data Lake Storage Gen2 per le prestazioni | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,13 +9,13 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327934"
 ---
-# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizzare Azure Data Lake Storage Gen2 per le prestazioniOptimize Azure Data Lake Storage Gen2 for performance
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizza Azure Data Lake Storage Gen2 per le prestazioni
 
 Azure Data Lake Storage Gen2 supporta la velocità effettiva elevata per l'analisi con uso intensivo dell'I/O e lo spostamento dei dati.  In Data Lake Storage Gen2 è importante poter usare tutta la velocità effettiva disponibile, ovvero la quantità di dati che possono essere letti o scritti al secondo, per ottenere prestazioni ottimali.  Questo risultato viene ottenuto eseguendo il numero massimo possibile di operazioni di lettura e scrittura in parallelo.
 
@@ -45,9 +45,9 @@ Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dall
 
 | Strumento               | Impostazioni     | Altre informazioni                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| DistCp            | -m (mapper)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Data factory di Azure| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| DistCp            | -m (mapper)   | [Collegamento](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Data factory di Azure| parallelCopies    | [Collegamento](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Collegamento](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Strutturare il set di dati
 
@@ -80,7 +80,7 @@ Anche in questo caso, la scelta relativa all'organizzazione di file e cartelle d
 I processi sono classificabili in una delle tre categorie seguenti:
 
 * **Uso intensivo della CPU.**  Questi processi hanno tempi di elaborazione lunghi e tempi di I/O minimi,  come i processi di machine learning e quelli di elaborazione del linguaggio naturale.  
-* **Memoria intensiva.**  Questi processi usano grandi quantità di memoria,  come i processi di PageRank e quelli di analisi in tempo reale.  
+* **Utilizzo intensivo della memoria.**  Questi processi usano grandi quantità di memoria,  come i processi di PageRank e quelli di analisi in tempo reale.  
 * **Uso intensivo dell'I/O.**  Questi processi impiegano la maggior parte del tempo a eseguire operazioni di I/O.  Un esempio comune è rappresentato da un processo di copia che esegue solo operazioni di lettura e scrittura.  Altri esempi includono i processi di preparazione dei dati che leggono una grande quantità di dati, eseguono alcune trasformazioni e quindi scrivono nuovamente i dati nell'archivio.  
 
 Le linee guida seguenti sono applicabili solo ai processi con uso intensivo dell'I/O.
@@ -99,9 +99,9 @@ Un cluster HDInsight è composto da due nodi head e da alcuni nodi di ruolo di l
 
 All'interno di un cluster HDInsight sono presenti tre livelli che possono essere ottimizzati per aumentare il numero di contenitori e sfruttare tutta la velocità effettiva disponibile.  
 
-* **Strato fisico**
+* **Livello fisico**
 * **Livello YARN**
-* **Livello del carico di lavoroWorkload layer**
+* **Livello del carico di lavoro**
 
 ### <a name="physical-layer"></a>Livello fisico
 

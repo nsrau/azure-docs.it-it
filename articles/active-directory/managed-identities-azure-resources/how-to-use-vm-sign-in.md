@@ -1,5 +1,5 @@
 ---
-title: Usare le identità gestite in una macchina virtuale di Azure per l'accesso - Azure ADUse managed identities on an Azure VM for sign in - Azure AD
+title: Usare identità gestite in una macchina virtuale di Azure per l'accesso Azure AD
 description: Istruzioni dettagliate ed esempi relativi all'uso di un'entità servizio delle identità gestite della macchina virtuale di Azure per le risorse di Azure per l'accesso al client di script e alle risorse.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547395"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per l'accesso 
@@ -87,14 +87,14 @@ Per un elenco di risorse che supportano Azure AD e che sono state testate con le
 Risposte come quelle riportate di seguito possono indicare che l'identità gestita per le risorse di Azure della macchina virtuale non è stata configurata correttamente:
 
 - PowerShell: *Invoke-WebRequest: Impossibile connettersi al server remoto*
-- CLI: *MSI: Impossibile recuperare `http://localhost:50342/oauth2/token` un token da con un errore di 'HTTPConnectionPool(host''localhost', porta -50342)* 
+- CLI: *MSI: non è stato possibile recuperare un `http://localhost:50342/oauth2/token` token da con un errore di ' HTTPConnectionPool (host =' localhost ', Port = 50342)* 
 
 Se si riceve uno di questi errori, tornare alla macchina virtuale di Azure nel [portale di Azure](https://portal.azure.com) e:
 
 - Andare alla pagina **Identità** e assicurarsi che l'opzione **Assegnata dal sistema** sia impostata su "Sì".
 - Andare alla pagina **Estensioni** e assicurarsi che l'estensione relativa alle identità gestite per le risorse di Azure **(la cui deprecazione è pianificata per il gennaio 2019)** sia stata distribuita correttamente.
 
-Se una delle due opzioni è errata, è necessario ridistribuire le identità gestite per le risorse di Azure nella risorsa o risolvere il problema di distribuzione. Vedere [Configurare le identità gestite per le risorse](qs-configure-portal-windows-vm.md) di Azure in una macchina virtuale usando il portale di Azure se è necessaria assistenza con la configurazione della macchina virtuale.
+Se una delle due opzioni è errata, è necessario ridistribuire le identità gestite per le risorse di Azure nella risorsa o risolvere il problema di distribuzione. Vedere [configurare le identità gestite per le risorse di Azure in una macchina virtuale usando il portale di Azure](qs-configure-portal-windows-vm.md) se è necessaria assistenza per la configurazione della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

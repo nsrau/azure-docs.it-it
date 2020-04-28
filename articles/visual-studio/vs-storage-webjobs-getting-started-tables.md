@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione di Azure con Visual Studio (progetti WebJob)Getting Started with Azure storage using Visual Studio (WebJob projects)
+title: Introduzione con archiviazione di Azure con Visual Studio (progetti processo Web)
 description: Informazioni su come iniziare a usare l’archiviazione tabella di Azure in un progetto WebJobs di Azure in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74707608"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
@@ -33,7 +33,7 @@ Alcuni dei frammenti di codice illustrano l'attributo **Tabella** usato nelle fu
 
 ## <a name="how-to-add-entities-to-a-table"></a>Come aggiungere entità a una tabella
 
-Per aggiungere entità a una tabella, usare l'attributo **Table** con un parametro **ICollector\<T>** o **IAsyncCollector\<T>** in cui **T** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
+Per aggiungere entità a una tabella, usare l'attributo **Table** con un **parametro\<ICollector t>** o **\<IAsyncCollector t>** dove **t** specifica lo schema delle entità da aggiungere. Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della tabella.
 
 L’esempio di codice seguente aggiunge le entità **Persona** a una tabella denominata *Ingresso*.
 
@@ -88,7 +88,7 @@ Al termine della funzione, la pagina **Invocation Details** indica il numero di 
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Come leggere più entità da una tabella
 
-Per leggere una tabella, utilizzare l'attributo **Table** con un parametro **IQueryable\<T>** in cui il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
+Per leggere una tabella, usare l'attributo **Table** con un **parametro\<IQueryable T>** dove il tipo **T** deriva da **TableEntity** o implementa **ITableEntity**.
 
 Il seguente esempio di codice legge e registra tutte le righe dalla tabella **Ingresso**:
 

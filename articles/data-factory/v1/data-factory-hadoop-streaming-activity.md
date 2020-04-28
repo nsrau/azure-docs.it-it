@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati usando l'attività di streaming Hadoop - AzureTransform data using Hadoop Streaming Activity - Azure
+title: Trasformare i dati usando l'attività di streaming di Hadoop-Azure
 description: Informazioni su come usare l'attività di Hadoop Streaming in una Data factory di Azure per trasformare i dati eseguendo i programmi di Hadoop Streaming in un cluster HDInsight personalizzato o su richiesta.
 services: data-factory
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74703375"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività di streaming di Hadoop in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
-> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività hive](data-factory-hive-activity.md) 
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ ms.locfileid: "74703375"
 
 È possibile usare l'attività HDInsightStreamingActivity per richiamare un processo di Hadoop Streaming da una pipeline di Data factory di Azure. Il frammento JSON seguente illustra la sintassi per l'uso di HDInsightStreamingActivity in un file JSON della pipeline. 
 
-L'attività di streaming HDInsight in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue programmi di streaming Hadoop [in](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) un cluster HDInsight basato su Windows/Linux su richiesta o [su richiesta.](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
+L'attività di streaming di HDInsight in una [pipeline](data-factory-create-pipelines.md) Data Factory esegue i programmi di streaming di Hadoop nel cluster HDInsight basato su Windows/Linux [personalizzato](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 > [!NOTE] 
 > Se non si ha familiarità con Azure Data Factory, leggere l'[Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione: [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) prima di leggere questo articolo. 
@@ -223,7 +223,7 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 }
 ```
 ## <a name="see-also"></a>Vedere anche
-* [Attività Hive](data-factory-hive-activity.md)
+* [Attività hive](data-factory-hive-activity.md)
 * [Attività di Pig](data-factory-pig-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)

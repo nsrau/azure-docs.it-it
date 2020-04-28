@@ -1,6 +1,6 @@
 ---
-title: Configurare i parametri - Database di Azure per PostgreSQL - Server singoloConfigure parameters - Azure Database for PostgreSQL - Single Server
-description: Questo articolo descrive come configurare i parametri Postgres nel database di Azure per PostgreSQL - Singolo server usando l'interfaccia della riga di comando di Azure.This article describes how to configure Postgres parameters in Azure Database for PostgreSQL - Single Server using the Azure CLI.
+title: Configurare i parametri-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come configurare i parametri Postgres nel database di Azure per PostgreSQL-server singolo usando l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 4e029428a3709bacdbcd50a6ac3714e730377242
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74763624"
 ---
-# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalizzare i parametri di configurazione del server per il database di Azure per PostgreSQL - Singolo server usando l'interfaccia della riga di comando di AzureCustomize server configuration parameters for Azure Database for PostgreSQL - Single Server using Azure CLI
+# <a name="customize-server-configuration-parameters-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Personalizzare i parametri di configurazione del server per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un server PostgreSQL di Azure usando l'interfaccia della riga di comando di Azure. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato. 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -50,5 +50,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 Questo comando reimposta il parametro di configurazione **log\_min\_messages** sul valore predefinito **AVVISO**. Per altre informazioni sulla configurazione server e sui valori consentiti, vedere la documentazione di PostgreSQL in [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html) (Configurazione server).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Scopri come riavviare un server](howto-restart-server-cli.md)
+- [Informazioni su come riavviare un server](howto-restart-server-cli.md)
 - Per configurare e accedere ai log del server, vedere [Server Logs in Azure Database for PostgreSQL](concepts-server-logs.md) (Log del server in Database di Azure per PostgreSQL)

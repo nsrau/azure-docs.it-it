@@ -1,5 +1,5 @@
 ---
-title: Elencare le risorse di Archiviazione di Azure con la libreria client di C
+title: Elencare le risorse di archiviazione di Azure con la libreria client C++
 description: Imparare a utilizzare le API elencate nella libreria Client di archiviazione di Microsoft Azure per C++ per enumerare contenitori, BLOB, code, tabelle ed entità.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74269440"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
@@ -200,5 +200,5 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 * [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Come usare l'archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](https://azure.github.io/azure-storage-cpp/)
-* [Blog del team di Archiviazione di AzureAzure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Documentazione di Archiviazione di AzureAzure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Blog del team di archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Documentazione di archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)

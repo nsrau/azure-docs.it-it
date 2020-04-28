@@ -1,23 +1,23 @@
 ---
-title: Server - Database di Azure per PostgreSQL - Server singoloServers - Azure Database for PostgreSQL - Single Server
-description: Questo articolo fornisce considerazioni e linee guida per la configurazione e la gestione del database di Azure per PostgreSQL - Singolo server.
+title: Server-database di Azure per PostgreSQL-server singolo
+description: Questo articolo fornisce considerazioni e linee guida per la configurazione e la gestione di database di Azure per PostgreSQL-singolo server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768164"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Database di Azure per PostgreSQL - Server singolo
-Questo articolo fornisce considerazioni e linee guida per l'uso del database di Azure per PostgreSQL - Singolo server.
+Questo articolo fornisce considerazioni e linee guida per l'uso di database di Azure per PostgreSQL-server singolo.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Che cos'è un database di Azure per il server PostgreSQL?
-Un server nell'opzione Database di Azure per PostgreSQL - Distribuzione a server singolo è un punto amministrativo centrale per più database. È lo stesso costrutto di server PostgreSQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il servizio PostgreSQL è gestito, assicura le prestazioni garantite, espone accesso e funzionalità a livello di server.
+Un server in database di Azure per PostgreSQL: l'opzione di distribuzione a server singolo è un punto amministrativo centrale per più database. È lo stesso costrutto di server PostgreSQL con cui probabilmente si ha familiarità nell'ambiente locale. In particolare, il servizio PostgreSQL è gestito, assicura le prestazioni garantite, espone accesso e funzionalità a livello di server.
 
 Un database di Azure per il server PostgreSQL:
 
@@ -28,7 +28,7 @@ Un database di Azure per il server PostgreSQL:
 - Colloca risorse in un'area.
 - Fornisce un endpoint di connessione per l'accesso a server e database 
 - Fornisce l'ambito per i criteri di gestione applicati ai database: account di accesso, firewall, utenti, ruoli, configurazioni e così via.
-- È disponibile in più versioni. Per ulteriori informazioni, vedere Versioni di [database PostgreSQL supportate.](concepts-supported-versions.md)
+- È disponibile in più versioni. Per altre informazioni, vedere [versioni supportate del database PostgreSQL](concepts-supported-versions.md).
 - È estensibile dagli utenti. Per altre informazioni, vedere [Estensioni di PostgreSQL](concepts-extensions.md).
 
 In un database di Azure per il server PostgreSQL è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione di piano tariffario, vCore e archiviazione (GB). Per altre informazioni, vedere i [piani tariffari](./concepts-pricing-tiers.md).
@@ -44,7 +44,7 @@ Gli elementi seguenti contribuiscono a garantire un accesso sicuro al database:
 | **Firewall** | Per proteggere i dati, una regola del firewall impedisce qualsiasi accesso al server e ai relativi database finché non si specificano i computer autorizzati. Vedere [Regole firewall per Database di Azure per PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="managing-your-server"></a>Gestione del server
-È possibile gestire il database di Azure per i server PostgreSQL usando il portale di [Azure](https://portal.azure.com) o l'interfaccia della riga di comando di [Azure.](/cli/azure/postgres)
+È possibile gestire i server di database di Azure per PostgreSQL usando il [portale di Azure](https://portal.azure.com) o l'interfaccia della riga di comando di [Azure](/cli/azure/postgres).
 
 Durante la creazione di un server, impostare le credenziali per l'utente amministratore. L'utente amministratore è l'utente con privilegi più elevati presente nel server. Fa parte del ruolo azure_pg_admin. Questo ruolo non dispone delle autorizzazioni utente con privilegi avanzati complete. 
 
@@ -63,7 +63,7 @@ Come servizio gestito per Postgres i parametri configurabili in Database di Azur
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per una panoramica del servizio, vedere Panoramica del database di [Azure per PostgreSQL](overview.md).
-- Per informazioni su quote e limitazioni specifiche delle risorse in base al livello di **servizio,** vedere [Livelli di](concepts-pricing-tiers.md)servizio .
+- Per una panoramica del servizio, vedere [Panoramica di database di Azure per PostgreSQL](overview.md).
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](concepts-pricing-tiers.md).
 - Per informazioni sulla connessione al servizio, vedere  [Raccolte connessioni per il database di Azure per PostgreSQL](concepts-connection-libraries.md).
 - Visualizzare o modificare i parametri del server tramite il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).

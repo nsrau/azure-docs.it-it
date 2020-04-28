@@ -1,6 +1,6 @@
 ---
-title: Guida di riferimento alle operazioni di Azure Active DirectoryAzure Active Directory operations reference guide
-description: Questa guida di riferimento alle operazioni descrive i controlli e le azioni da eseguire per proteggere e gestire la gestione di identità e accessi, l'autenticazione, la governance e le operazioni
+title: Guida di riferimento per le operazioni Azure Active Directory
+description: Questa guida di riferimento per le operazioni descrive i controlli e le azioni da eseguire per proteggere e gestire le attività di gestione delle identità e degli accessi, autenticazione, governance e operazioni
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -12,38 +12,38 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: c815256e60e5ca6582220d247d587a4488c4a55a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74535314"
 ---
-# <a name="azure-active-directory-operations-reference-guide"></a>Guida di riferimento alle operazioni di Azure Active DirectoryAzure Active Directory operations reference guide
+# <a name="azure-active-directory-operations-reference-guide"></a>Guida di riferimento per le operazioni Azure Active Directory
 
-In questa guida di riferimento alle operazioni vengono descritti i controlli e le azioni da eseguire per proteggere e gestire le aree seguenti:This operations reference guide describes the checks and actions you should take to secure and maintain the following areas:
+Questa guida di riferimento per le operazioni descrive i controlli e le azioni da eseguire per proteggere e gestire le aree seguenti:
 
-- **[Gestione di identità e accessi:](active-directory-ops-guide-iam.md)** capacità di gestire il ciclo di vita delle identità e i relativi diritti.
-- **[Gestione dell'autenticazione:](active-directory-ops-guide-auth.md)** possibilità di gestire le credenziali, definire l'esperienza di autenticazione, delegare l'assegnazione, misurare l'utilizzo e definire criteri di accesso in base ai requisiti di sicurezza aziendali.
-- **[Governance:](active-directory-ops-guide-govern.md)** capacità di valutare e attestare l'accesso concesso a identità senza privilegi e privilegiate, controllare e controllare le modifiche all'ambiente.
-- **[Operazioni:](active-directory-ops-guide-ops.md)** ottimizzare le operazioni di Azure Active Directory (Azure AD).
+- **[Gestione delle identità e dell'accesso](active-directory-ops-guide-iam.md)** : possibilità di gestire il ciclo di vita delle identità e dei rispettivi diritti.
+- **[Gestione dell'autenticazione](active-directory-ops-guide-auth.md)** : possibilità di gestire le credenziali, definire l'esperienza di autenticazione, assegnare i delegati, misurare l'utilizzo e definire criteri di accesso in base al comportamento di sicurezza dell'organizzazione.
+- **[Governance](active-directory-ops-guide-govern.md)** : possibilità di valutare e attestare l'accesso concesso a identità senza privilegi e con privilegi, controllare e controllare le modifiche apportate all'ambiente.
+- **[Operazioni](active-directory-ops-guide-ops.md)** : ottimizzare le operazioni Azure Active Directory (Azure ad).
 
-Alcuni consigli potrebbero non essere applicabili all'ambiente di tutti i clienti, ad esempio le procedure consigliate di ADFS potrebbero non essere applicabili se l'organizzazione utilizza la sincronizzazione dell'hash delle password.
+Alcune raccomandazioni potrebbero non essere applicabili all'ambiente di tutti i clienti, ad esempio AD FS procedure consigliate potrebbero non essere valide se l'organizzazione usa la sincronizzazione dell'hash delle password.
 
 > [!NOTE]
-> Questi consigli sono aggiornati alla data di pubblicazione, ma possono cambiare nel tempo. Le organizzazioni devono valutare continuamente le proprie procedure di identità man mano che i prodotti e i servizi Microsoft si evolvono nel tempo. I suggerimenti possono cambiare quando le organizzazioni sottoscrivono una licenza di Azure AD Premium diversa. Ad esempio, Azure AD Premium P2 includerà ulteriori consigli sulla governance.
+> Questi consigli sono aggiornati alla data di pubblicazione, ma possono cambiare nel tempo. Le organizzazioni devono valutare continuamente le proprie procedure di identità, in quanto i prodotti e i servizi Microsoft evolvono nel tempo. Le raccomandazioni possono cambiare quando le organizzazioni sottoscrivono una licenza di Azure AD Premium diversa. Ad esempio, Azure AD Premium P2 includerà ulteriori consigli sulla governance.
 
-## <a name="stakeholders"></a>Parti interessate
+## <a name="stakeholders"></a>Stakeholder
 
-Ogni sezione di questa guida di riferimento consiglia di assegnare le parti interessate per pianificare e implementare correttamente le attività chiave. La tabella seguente descrive l'elenco di tutte le parti interessate in questa guida:
+In ogni sezione di questa guida di riferimento è consigliabile assegnare le parti interessate per pianificare e implementare correttamente le attività principali. La tabella seguente illustra l'elenco di tutte le parti interessate in questa guida:
 
 | Stakeholder | Descrizione |
 | :- | :- |
 | Team operativo IAM | Questo team gestisce la gestione delle operazioni quotidiane del sistema di gestione delle identità e degli accessi |
-| Team per la produttività | Questo team possiede e gestisce le applicazioni di produttività, ad esempio posta elettronica, condivisione e collaborazione di file, messaggistica istantanea e conferenze. |
-| Proprietario dell'applicazione | Questo team è proprietario dell'applicazione specifica da un'azienda e in genere da una prospettiva tecnica in un'organizzazione. |
+| Team di produttività | Questo team possiede e gestisce le applicazioni di produttività, ad esempio la posta elettronica, la condivisione di file e la collaborazione, la messaggistica immediata e la conferenza. |
+| Proprietario dell'applicazione | Questo team è proprietario dell'applicazione specifica di un'azienda e, in genere, un punto di vista tecnico in un'organizzazione. |
 | Team di architettura InfoSec | Questo team pianifica e progetta le procedure di sicurezza delle informazioni di un'organizzazione. |
-| Team operativo InfoSec | Questo team esegue e monitora le procedure di sicurezza delle informazioni implementate del team InfoSec Architecture. |
+| Team operativo di InfoSec | Questo team esegue e monitora le procedure di sicurezza delle informazioni implementate dal team dell'architettura InfoSec. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Introduzione ai controlli e alle azioni di gestione di [identità e accessi.](active-directory-ops-guide-iam.md)
+Introduzione ai [controlli e alle azioni di gestione delle identità e degli accessi](active-directory-ops-guide-iam.md).

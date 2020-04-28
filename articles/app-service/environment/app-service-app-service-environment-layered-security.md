@@ -1,6 +1,6 @@
 ---
-title: Sicurezza stratificata v1
-description: Informazioni su come implementare un'architettura di sicurezza a più livelli nell'ambiente del servizio app. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Sicurezza su più livelli V1
+description: Informazioni su come implementare un'architettura di sicurezza a più livelli nell'ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688790"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app

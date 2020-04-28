@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui token utente nella collaborazione B2B - Azure ADUnderstand user tokens in B2B collaboration - Azure AD
+title: Informazioni sui token utente in collaborazione B2B-Azure AD
 description: Informazioni di riferimento sui token utente per Collaborazione B2B in Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,15 +12,15 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74271784"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Informazioni sui token utente in Collaborazione B2B di Azure AD
 
-Se si vuole conoscere l'aspetto del token per un utente di collaborazione B2B, di seguito sono riportati i dettagli del token di connessione e del contenuto del token per Azure Active Directory (Azure AD) Guest e un account di Microsoft Guest nel tenant delle risorse per tenantid 04dcc6ab-388a-4559-b527-fbec656300ea. Per visualizzare il contenuto di JSON Web [https://jwt.io/](https://jwt.io/) Token [https://jwt.ms/](https://jwt.ms/)(JWT), utilizzare o .
+Se si vuole conoscere l'aspetto del token per un utente di collaborazione B2B, di seguito sono riportati i dettagli del token di connessione e del contenuto del token per Azure Active Directory (Azure AD) Guest e un account di Microsoft Guest nel tenant delle risorse per tenantid 04dcc6ab-388a-4559-b527-fbec656300ea. Per visualizzare il contenuto del token JSON Web (JWT), [https://jwt.io/](https://jwt.io/) usare [https://jwt.ms/](https://jwt.ms/)o.
 
 ## <a name="azure-ad-guest-token"></a>Token del guest di Azure AD
 ```
@@ -34,7 +34,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è la collaborazione B2B di Azure AD?](what-is-b2b.md)
+* [Che cos'è Azure AD collaborazione B2B?](what-is-b2b.md)
 * [Proprietà dell'utente di Collaborazione B2B](user-properties.md)
 * [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)
 

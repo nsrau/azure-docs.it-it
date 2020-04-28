@@ -1,7 +1,7 @@
 ---
 title: Configurare DHCPv6 per macchine virtuali Linux
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to configure DHCPv6 for Linux VMs.
+description: Questo articolo illustra come configurare DHCPv6 per macchine virtuali Linux.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74225328"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurare DHCPv6 per macchine virtuali Linux
@@ -54,9 +54,9 @@ Questo documento descrive come abilitare DHCPv6 in modo che la macchina virtuale
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-A partire da Ubuntu 17.10, il meccanismo di configurazione di rete predefinito è [NETPLAN]( https://netplan.io).  Al momento dell'installazione/creazione dell'istanza, NETPLAN legge la configurazione di rete dai file di configurazione YAML in questa posizione: /
+A partire da Ubuntu 17,10, il meccanismo di configurazione di rete predefinito è [Netplan]( https://netplan.io).  Al momento dell'installazione/creazione dell'istanza, NETPLAN legge la configurazione di rete dai file di configurazione YAML in questa posizione:/{lib e così via, Esegui}/Netplan/*. yaml.
 
-Includere un'istruzione *dhcp6:true* per ogni interfaccia ethernet nella configurazione.  Ad esempio:
+Includere un'istruzione *dhcp6: true* per ogni interfaccia Ethernet nella configurazione.  Ad esempio:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Includere un'istruzione *dhcp6:true* per ogni interfaccia ethernet nella configu
             eno1:
               dhcp6: true
 
-Durante l'avvio anticipato, il netplan "network renderer" scrive la configurazione in /run per passare il https://netplan.io/referencecontrollo dei dispositivi al daemon di rete specificato Per informazioni di riferimento su NETPLAN, vedere .
+Durante l'avvio anticipato, il Netplan "Network renderer" scrive la configurazione in/Run per passare il controllo dei dispositivi al daemon di rete specificato per informazioni di riferimento https://netplan.io/referencesu Netplan, vedere.
  
 ## <a name="debian"></a>Debian
 

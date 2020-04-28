@@ -1,5 +1,5 @@
 ---
-title: Gestire le identità gestite assegnate dall'utente tramite REST - Azure ADManage user-assigned managed identities using REST - Azure AD
+title: Gestire le identità gestite assegnate dall'utente tramite REST-Azure AD
 description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente per eseguire chiamate dell'API REST.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39e108451e4c19e77e01b5bcc5d8dd21e86ad73a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547423"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante chiamate dell'API REST
@@ -62,7 +62,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |Intestazione della richiesta  |Descrizione  |
 |---------|---------|
-|*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+|*Content-Type*     | Obbligatorio. Impostare su `application/json`.        |
 |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido.        |
 
 **Corpo della richiesta**
@@ -85,7 +85,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 |Intestazione della richiesta  |Descrizione  |
 |---------|---------|
-|*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+|*Content-Type*     | Obbligatorio. Impostare su `application/json`.        |
 |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminare un'identità gestita assegnata dall'utente
@@ -105,7 +105,7 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 ```
 |Intestazione della richiesta  |Descrizione  |
 |---------|---------|
-|*Tipo di contenuto*     | Obbligatorio. Impostare su `application/json`.        |
+|*Content-Type*     | Obbligatorio. Impostare su `application/json`.        |
 |*Autorizzazione*     | Obbligatorio. Impostare su un token di accesso `Bearer` valido.        |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: Creare, elencare & eliminare l'identità gestita assegnata dall'utente tramite Azure PowerShell - Azure ADCreate, list to delete user-assigned managed identity using Azure PowerShell - Azure AD
+title: Creare, elencare & eliminare l'identità gestita assegnata dall'utente usando Azure PowerShell-Azure AD
 description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c512a867685b4480c7b31ac582e2cee069ee2447
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547409"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Creare, elencare o eliminare un'identità gestita assegnata dall'utente tramite Azure PowerShell

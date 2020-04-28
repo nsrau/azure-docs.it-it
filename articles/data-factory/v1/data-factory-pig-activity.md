@@ -13,23 +13,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74703203"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
-> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività hive](data-factory-hive-activity.md) 
 > * [Attività di Pig](data-factory-pig-activity.md)
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
 > * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
-> * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics attività U-SQL](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -121,10 +121,10 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 
 Per eseguire lo script Pig in una pipeline di Data Factory, eseguire la procedura seguente:
 
-1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Chiamiamo questo servizio collegato **HDInsightLinkedService**.
+1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Chiameremo questo servizio collegato **HDInsightLinkedService**.
 2. Creare un [servizio collegato](data-factory-azure-blob-connector.md) per configurare la connessione all'archivio BLOB di Azure che ospita i dati. In questo esempio il servizio collegato è denominato **StorageLinkedService**.
 3. Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato **PigSampleIn**, mentre il set di dati di output è denominato **PigSampleOut**.
-4. Copiare la query Pig in un file di archiviazione BLOB di Azure configurato nel passaggio 2. Se l'archiviazione di Azure che ospita i dati è diversa da quella che ospita il file di query, creare un servizio collegato ad archiviazione di Azure separato. Fare riferimento al servizio collegato nella configurazione dell'attività. Utilizzare **scriptPath** per specificare il percorso del file di script pig e **scriptLinkedService**. 
+4. Copiare la query Pig in un file di archiviazione BLOB di Azure configurato nel passaggio 2. Se l'archiviazione di Azure che ospita i dati è diversa da quella che ospita il file di query, creare un servizio collegato ad archiviazione di Azure separato. Fare riferimento al servizio collegato nella configurazione dell'attività. Usare **ScriptPath** per specificare il percorso del file di script Pig e **scriptLinkedService**. 
    
    > [!NOTE]
    > È anche possibile fornire lo script Pig inline nella definizione dell'attività tramite la proprietà **script** . Tuttavia, si sconsiglia questo approccio poiché è necessario eseguire l'escape di tutti i caratteri speciali dello script, con possibili problemi di debug. Si consiglia di seguire il passaggio 4.
@@ -220,7 +220,7 @@ Per impostare i parametri per lo script Pig, seguire questa procedura:
     ```
 
 ## <a name="see-also"></a>Vedere anche
-* [Attività Hive](data-factory-hive-activity.md)
+* [Attività hive](data-factory-hive-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)

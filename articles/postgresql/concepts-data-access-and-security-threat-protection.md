@@ -1,26 +1,26 @@
 ---
-title: Advanced Threat Protection - Azure Database for PostgreSQL - Single Server
-description: Informazioni sull'utilizzo di Advanced Threat Protection per rilevare attività anomale del database che indicano potenziali minacce alla sicurezza per il database.
+title: Advanced Threat Protection-database di Azure per PostgreSQL-server singolo
+description: Informazioni sull'utilizzo di Advanced Threat Protection per rilevare le attività anomale del database che indicano potenziali minacce alla sicurezza per il database.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768742"
 ---
-# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Protezione avanzata dalle minacce nel database di Azure per PostgreSQL - Server singoloAdvanced Threat Protection in Azure Database for PostgreSQL - Single Server
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection nel database di Azure per PostgreSQL-server singolo
 
 Advanced Threat Protection per Database di Azure per PostgreSQL rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
 > [!NOTE]
 > Advanced Threat Protection è in anteprima pubblica.
 
-Threat Protection fa parte dell'offerta Advanced Threat Protection (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. Advanced Threat Protection è accessibile e gestito tramite il portale di [Azure](https://portal.azure.com) o tramite [l'API REST.](/rest/api/postgresql/serversecurityalertpolicies) La funzione è disponibile per i server General Purpose e Memory Optimized.
+Threat Protection fa parte dell'offerta Advanced Threat Protection (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com) o l' [API REST](/rest/api/postgresql/serversecurityalertpolicies). La funzionalità è disponibile per i server per utilizzo generico e con ottimizzazione per la memoria.
 
 > [!NOTE]
 > La funzionalità Advanced Threat Protection **non** è disponibile nelle aree geografiche cloud sovrani di Azure: US Gov Texas, US Gov Arizona, US Gov Iowa, Stati Uniti, Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.
@@ -41,6 +41,6 @@ Advanced Threat Protection per Database di Azure per PostgreSQL rileva le attivi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul Centro sicurezza di [AzureLearn](https://docs.microsoft.com/azure/security-center/security-center-intro) more about Azure Security Center
+* Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Per altre informazioni sui prezzi, vedere la [pagina sui Prezzi di Database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/) 
 * Configurare [Advanced Threat Protection per Database di Azure per PostgreSQL](howto-database-threat-protection-portal.md) usando il portale di Azure  

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi ai dispositivi aggiunti ad Azure Active Directory legacyTroubleshoot legacy hybrid Azure Active Directory joined devices
+title: Risolvere i problemi relativi ai dispositivi ibridi legacy Azure Active Directory aggiunti
 description: Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74379110"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
@@ -23,7 +23,7 @@ ms.locfileid: "74379110"
 Questo articolo è applicabile solo ai dispositivi seguenti: 
 
 - Windows 7 
-- Windows 8.1 
+- Windows 8.1 
 - Windows Server 2008 R2 
 - Windows Server 2012 
 - Windows Server 2012 R2 
@@ -69,11 +69,11 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
     ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere causato dai servizi AD FS mancanti o non configurati correttamente (per i domini federati) o dall'accesso Single Sign-On facile di Azure AD mancante o non configurato correttamente (per i domini gestiti) o da problemi di rete. 
-   - È possibile che l'autenticazione a più fattori (MFA) sia abilitata/configurata per l'utente e WIAORMULTIAUTHN non sia configurata nel server ADFS. 
+   - È possibile che multi-factor authentication sia abilitato/configurato per l'utente e WIAORMULTIAUTHN alla non sia configurato nel server AD FS. 
    - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
    - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
    - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
-   - **Autoworkplace.exe** richiede che il client abbia una linea di vista diretta dal client al controller di dominio di Active Directory locale dell'organizzazione, il che significa che l'aggiunta di Azure AD ibrido ha esito positivo solo quando il client è connesso alla rete Intranet dell'organizzazione.
+   - **Autoarea di lavoro. exe** richiede che il client abbia una linea di controllo diretta dal client al controller di dominio ad locale dell'organizzazione, il che significa che il join Azure ad ibrido riesce solo quando il client è connesso alla rete Intranet dell'organizzazione.
    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 - Non si è connessi come utente di dominio
 

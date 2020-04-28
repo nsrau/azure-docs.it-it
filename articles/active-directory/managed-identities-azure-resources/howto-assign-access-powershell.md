@@ -1,5 +1,5 @@
 ---
-title: Assegnare un accesso di identità gestita a una risorsa usando PowerShell - Azure ADAssign a managed identity access to a resource using PowerShell - Azure AD
+title: Assegnare un accesso a identità gestite a una risorsa usando PowerShell-Azure AD
 description: Istruzioni dettagliate su come assegnare a un'identità gestita in una risorsa l'accesso a un'altra risorsa tramite PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/06/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a2283ac076ef761fd098d75e7120e6557a959574
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547254"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite PowerShell

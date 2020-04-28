@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
 ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687759"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Correggere un errore Apache Hive di memoria insufficiente in Azure HDInsight
@@ -44,8 +44,8 @@ where (T1.KEY1 = T2.KEY1….
 
 Dettagli della query:
 
-* T1 è un alias di una tabella di grandi dimensioni, TABLE1, che dispone di molti tipi di colonna STRING.
-* Altre tabelle non sono così grandi, ma hanno molte colonne.
+* T1 è un alias di una tabella di grandi dimensioni, Tabella1, con molti tipi di colonne stringa.
+* Le altre tabelle non sono di grandi dimensioni, ma hanno molte colonne.
 * Tutte le tabelle sono unite tra loro, in alcuni casi con più colonne in TABLE1 e altre.
 
 La query Hive ha richiesto 26 minuti in un nodo del cluster HDInsight A3 24. Il cliente ha notato i messaggi di avviso seguenti:
@@ -85,7 +85,7 @@ L'errore persiste quando si usa una macchina virtuale più grande (ad esempio, D
 
 Il supporto Microsoft insieme al team di progettazione ha rilevato che uno dei problemi che provocava l'errore di memoria insufficiente era un [problema noto descritto in Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):
 
-"Quando hive.auto.convert.join.noconditionaltask - true controlliamo noconditionaltask.size e se la somma delle dimensioni delle tabelle nel join della mappa è inferiore a noconditionaltask.size il piano genererebbe un join mappa, il problema è che il calcolo non richiede in considerazione l'overhead introdotto da un'implementazione di HashTable diversa come risultati se la somma delle dimensioni di input è inferiore alla dimensione noconditionaltask di una query di margine ridotto raggiungerà OOM."
+"Quando hive. auto. Convert. join. noconditionaltask = true si controlla noconditionaltask. size e se la somma delle dimensioni delle tabelle nel join della mappa è minore di noconditionaltask. dimensioni il piano genera un join di mappa. il problema è che il calcolo non tiene conto del sovraccarico introdotto da un'implementazione di HashTable diversa come risultato se la somma delle dimensioni di input è inferiore alla dimensione noconditionaltask da una query con un margine ridotto.
 
 **hive.auto.convert.join.noconditionaltask** nel file hive-site.xml file è stato impostato su **true**:
 
@@ -101,16 +101,16 @@ Il supporto Microsoft insieme al team di progettazione ha rilevato che uno dei p
 </property>
 ```
 
-È probabile che il map join sia stato la causa dell'errore di memoria insufficiente nello spazio heap Java. Come illustrato nel post di blog sulle [impostazioni della memoria Yarn di Hadoop in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando si usa il motore di esecuzione Tez lo spazio dell'heap effettivamente usato appartiene al contenitore Tez. Vedere l'immagine seguente che descrive la memoria del contenitore Tez.
+È probabile che mapping join sia la causa dell'errore di memoria insufficiente nello spazio dell'heap Java. Come illustrato nel post di blog sulle [impostazioni della memoria Yarn di Hadoop in HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando si usa il motore di esecuzione Tez lo spazio dell'heap effettivamente usato appartiene al contenitore Tez. Vedere l'immagine seguente che descrive la memoria del contenitore Tez.
 
 ![Diagramma della memoria del contenitore Tez: errore Hive di memoria insufficiente](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Come suggerisce il post di blog, le due impostazioni di memoria seguenti definiscono la memoria del contenitore per l'heap: **hive.tez.container.size** e **hive.tez.java.opts**. Dalla nostra esperienza, l'eccezione di memoria insufficiente non significa che la dimensione del contenitore è troppo piccola. Ossia, ad essere ridotte solo le dimensioni dell'heap di Java (hive.tez.java.opts). Pertanto ogni volta che viene visualizzato un errore di memoria insufficiente, è possibile provare ad aumentare **hive.tez.java.opts**. Se necessario, può essere necessario aumentare **hive.tez.container.size**. L'impostazione **java.opts** deve essere circa l'80% di **container.size**.
+Come suggerisce il post di blog, le due impostazioni di memoria seguenti definiscono la memoria del contenitore per l'heap: **hive.tez.container.size** e **hive.tez.java.opts**. Dall'esperienza, l'eccezione di memoria insufficiente non significa che le dimensioni del contenitore sono troppo ridotte. Ossia, ad essere ridotte solo le dimensioni dell'heap di Java (hive.tez.java.opts). Pertanto ogni volta che viene visualizzato un errore di memoria insufficiente, è possibile provare ad aumentare **hive.tez.java.opts**. Se necessario, può essere necessario aumentare **hive.tez.container.size**. L'impostazione **java.opts** deve essere circa l'80% di **container.size**.
 
 > [!NOTE]  
 > L'impostazione **hive.tez.java.opts** deve sempre essere inferiore a **hive.tez.container.size**.
 
-Poiché un computer D12 dispone di 28 GB di memoria, si è deciso di utilizzare una dimensione del contenitore di 10 GB (10240 MB) e assegnare l'80% a java.opts:
+Poiché un computer D12 ha 28 GB di memoria, si è deciso di usare una dimensione del contenitore di 10 GB (10240 MB) e di assegnare il 80% a Java. opz:
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m

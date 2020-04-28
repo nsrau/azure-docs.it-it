@@ -1,5 +1,5 @@
 ---
-title: Come configurare l'accesso Single Sign-On federato per un'app non di raccoltaHow to configure federated single sign-on for a non-gallery app
+title: Come configurare Single Sign-On federati per un'app non della raccolta
 description: Informazioni su come configurare l'accesso Single Sign-On federato per un'applicazione personalizzata non inclusa nella raccolta e che si intende integrare con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1d49ec5ef80b284aa6b1a305b037d19dae34870
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74274601"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta
@@ -43,7 +43,7 @@ La panoramica generale seguente mostra i passaggi necessari per configurare l'ac
 
 Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella raccolta di Azure AD, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -53,7 +53,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 
 5. Fare clic sul pulsante **Aggiungi** nell'angolo in alto a destra del riquadro **Applicazioni aziendali**.
 
-6. fai clic su **Applicazione non galleria** nella sezione Aggiungi la tua **app**
+6. fare clic su **applicazione non nella raccolta** nella sezione **Aggiungi app personalizzata**
 
 7. Immettere il nome dell'applicazione nella casella di testo **Nome**.
 
@@ -61,7 +61,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 
 9. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-10. Selezionare **Accesso basato su SAML** nell'elenco a discesa **Modalità.**
+10. Selezionare **accesso basato su SAML** nell'elenco a discesa **modalità** .
 
 11. Immettere i valori necessari in **URL e dominio**. È necessario ottenere questi valori dal fornitore dell'applicazione.
 
@@ -81,13 +81,13 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 
 14. Fare clic su **Configura &lt;nome applicazione&gt;** per accedere alla documentazione che illustra come configurare l'accesso Single Sign-On nell'applicazione. Sono inoltre disponibili il certificato e gli URL di Azure AD richiesti per l'applicazione.
 
-15. [Assegnare utenti all'applicazione.](#assign-users-to-the-application)
+15. [Assegnare gli utenti all'applicazione.](#assign-users-to-the-application)
 
 ## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selezionare l'identificatore utente e aggiungere gli attributi utente da inviare all'applicazione
 
 Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -97,7 +97,7 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione per cui è stato configurato l'accesso Single Sign-On.
 
@@ -106,7 +106,7 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
 8. Nella sezione **Attributi utente** selezionare l'identificatore univoco per gli utenti nel menu a discesa **Identificatore utente**. L'opzione selezionata deve corrispondere al valore previsto nell'applicazione per autenticare l'utente.
 
    >[!NOTE]
-   >Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per ulteriori informazioni, vedere l'articolo [Protocollo SAML Single Sign-On](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) nella sezione NameIDPolicy.
+   >Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per altre informazioni, vedere l'articolo [protocollo SAML per l'accesso Single Sign-on](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) nella sezione NameIDPolicy.
    >
    >
 
@@ -122,7 +122,7 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
 
 Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -132,7 +132,7 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione per cui è stato configurato l'accesso Single Sign-On.
 
@@ -146,7 +146,7 @@ Azure AD fornisce anche un URL per ottenere i metadati. Seguire questo modello p
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -156,7 +156,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
@@ -168,7 +168,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo ** o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
-11. Passare il mouse **sull'utente** nell'elenco per visualizzare una **casella di controllo.** Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
+11. Posizionare il puntatore del mouse sull' **utente** nell'elenco per visualizzare una **casella**di controllo. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
 12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
@@ -176,7 +176,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel riquadro **Aggiungi assegnazione** per scegliere un ruolo da assegnare agli utenti selezionati.
 
-15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
+15. Fare clic sul pulsante **assegna** per assegnare l'applicazione agli utenti selezionati.
 
 Dopo un breve periodo di tempo, gli utenti selezionati potranno avviare queste applicazioni usando i metodi illustrati nella sezione Descrizione della soluzione.
 

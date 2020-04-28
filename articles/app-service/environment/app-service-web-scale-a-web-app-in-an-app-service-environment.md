@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare un'app in ASE v1
-description: Ridimensionamento di un'app in un ambiente del servizio app. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Ridimensionare un'app in ASE V1
+description: Ridimensionamento di un'app in un ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
@@ -8,13 +8,13 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688673"
 ---
-# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Ridimensionamento delle app in un ambiente del servizio app v1Scaling apps in an App Service Environment v1
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Ridimensionamento di app in un ambiente del servizio app V1
 Nel servizio app di Azure è possibile ridimensionare tre aspetti:
 
 * piano tariffario
@@ -58,7 +58,7 @@ Prima di spostare il piano ASP da un pool di lavoro a un altro, è importante as
 > 
 
 ## <a name="getting-started"></a>Introduzione
-Per iniziare a usare gli ambienti del servizio app, vedere Come creare un ambiente del servizio appTo get started with App [Service Environments,][HowtoCreateASE] see How To Create An App Service Environment
+Per iniziare a usare gli ambienti del servizio app, vedere [come creare un ambiente del servizio app][HowtoCreateASE]
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

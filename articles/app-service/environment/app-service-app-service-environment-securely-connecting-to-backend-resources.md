@@ -1,6 +1,6 @@
 ---
-title: Connessione al back-end v1
-description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Connetti al back-end V1
+description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687302"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app
@@ -42,7 +42,7 @@ Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla por
 È possibile usare due approcci per limitare il traffico a questo endpoint:
 
 * [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] (ACL di rete)
-* [Gruppi di sicurezza di reteNetwork Security Groups][NetworkSecurityGroups]
+* [Gruppi di sicurezza di rete][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Limitazione dell'accesso con un elenco di controllo di accesso di rete
 È possibile proteggere la porta 1433 usando un elenco di controllo di accesso di rete.  L'esempio seguente illustra come consentire gli indirizzi client originati dall'interno di una rete virtuale e bloccare l'accesso a tutti gli altri client.

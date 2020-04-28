@@ -1,19 +1,19 @@
 ---
-title: Ottimizzare gli inserimenti bulk - Database di Azure per PostgreSQL - Server singoloOptimize bulk inserts - Azure Database for PostgreSQL - Single Server
-description: Questo articolo descrive come ottimizzare le operazioni di inserimento bulk in un database di Azure per PostgreSQL - Singolo server.
+title: Ottimizzare gli inserimenti bulk-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come è possibile ottimizzare le operazioni di inserimento bulk in un database di Azure per PostgreSQL-server singolo.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770136"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare gli inserimenti bulk e usare i dati temporanei in un database di Azure per PostgreSQL - Server singoloOptimize bulk inserts and use transient data on an Azure Database for PostgreSQL - Single Server 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare gli inserimenti bulk e usare i dati temporanei in un database di Azure per PostgreSQL-server singolo 
 Questo articolo descrive come ottimizzare le operazioni di inserimento bulk e usare dati temporanei in un server di Database di Azure per PostgreSQL.
 
 ## <a name="use-unlogged-tables"></a>Usare tabelle non registrate

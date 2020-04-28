@@ -5,10 +5,10 @@ ms.author: estfan
 ms.topic: include
 ms.date: 11/08/2019
 ms.openlocfilehash: ea0ae1b1527aa1f527c8ac8fbcd3b4e4f6b6fe2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789198"
 ---
 * Se si usa il database SQL di Azure, seguire la procedura descritta in [Connettersi al database SQL di Azure](#connect-azure-sql-db).
@@ -19,53 +19,53 @@ ms.locfileid: "74789198"
 
 ### <a name="connect-to-azure-sql-database"></a>Connettersi al database SQL di Azure
 
-Quando il trigger o l'azione SQL richiede informazioni sulla connessione, attenersi alla seguente procedura, che funziona noto sia per i trigger che per le azioni.
+Quando il trigger SQL o l'azione richiede le informazioni di connessione, attenersi alla procedura seguente, che funziona sia per i trigger che per le azioni.
 
-1. In **Nome connessione**, creare un nome per la connessione.
+1. Per **nome connessione**, creare un nome per la connessione.
 
-1. In Nome server SQL selezionare il server SQL di Azure.Under **SQL Server Name**, select your Azure SQL server. Quando viene visualizzato l'elenco **Nome database SQL,** selezionare il database. Specificare il nome utente e la password per il server SQL di Azure.Provide the user name and password for your Azure SQL server.
+1. In **nome SQL Server**selezionare il server di Azure SQL. Quando viene visualizzato l'elenco **nome database SQL** , selezionare il database. Fornire il nome utente e la password per il server di Azure SQL.
 
-   È inoltre possibile trovare queste informazioni nel portale di Azure nelle proprietà del database SQL o nella stringa di connessione:You can also find this information either in the Azure portal under your SQL database properties or in your connection string:
+   È anche possibile trovare queste informazioni nel portale di Azure sotto le proprietà del database SQL o nella stringa di connessione:
 
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Creare una connessione al database SQL di AzureCreate connection to Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Creare una connessione al database SQL di Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. Al termine, selezionare **Crea**.
 
-1. Dopo aver creato la connessione, continuare con [Aggiungi un trigger SQL](#add-sql-trigger) o Aggiungi [un'azione SQL](#add-sql-action).
+1. Dopo aver creato la connessione, continuare con [aggiungere un trigger SQL](#add-sql-trigger) o [aggiungere un'azione SQL](#add-sql-action).
 
 <a name="connect-sql-server"></a>
 
 ### <a name="connect-to-sql-server"></a>Connessione a SQL Server
 
-Quando il trigger o l'azione SQL richiede informazioni sulla connessione, attenersi alla seguente procedura, che funziona noto sia per i trigger che per le azioni. Per gli scenari che richiedono l'installazione del [gateway dati locale](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) in un computer locale e la creazione della risorsa gateway dati di [Azure,](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)assicurarsi di completare prima questi requisiti. In caso contrario, la risorsa gateway non verrà visualizzata nell'elenco dei gateway quando si crea la connessione.
+Quando il trigger SQL o l'azione richiede le informazioni di connessione, attenersi alla procedura seguente, che funziona sia per i trigger che per le azioni. Per gli scenari in cui è necessario installare il [gateway dati](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) locale in un computer locale e [creare la risorsa del gateway dati di Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), assicurarsi di aver completato prima tali requisiti. In caso contrario, la risorsa del gateway non verrà visualizzata nell'elenco gateway quando si crea la connessione.
 
-Inoltre, per utilizzare l'autenticazione di Windows con il connettore SQL Server in un ambiente del servizio di [integrazione (ISE),](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)utilizzare la versione non ISE del connettore e il gateway dati locale. La versione con etichetta ISE non supporta l'autenticazione di Windows.
+Inoltre, per usare l'autenticazione di Windows con il connettore SQL Server in un [ambiente Integration Services (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), usare la versione non ISE del connettore e il gateway dati locale. La versione con etichetta ISE non supporta l'autenticazione di Windows.
 
-1. In **Nome connessione**, creare un nome per la connessione.
+1. Per **nome connessione**, creare un nome per la connessione.
 
 1. Nel trigger o nell'azione selezionare **Connetti tramite gateway dati locale** in modo da visualizzare le opzioni del server SQL.
 
-1. Per **Nome server SQL** e Nome database **SQL**, specificare l'indirizzo per il server SQL e il nome del database. Per **Nome utente** e **Password**, specificare il nome utente e la password per il server.
+1. Per nome **SQL Server** e **nome database SQL**, specificare l'indirizzo per il server SQL e il nome del database. Per **nome utente e** **password**specificare il nome utente e la password per il server.
 
-   È inoltre possibile trovare queste informazioni nella stringa di connessione:You can also find this information in your connection string:
+   È anche possibile trovare queste informazioni nella stringa di connessione:
 
    * `Server=<your-server-address>`
    * `Database=<your-database-name>`
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Creare una connessione a SQL ServerCreate connection to SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![Crea connessione a SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
-1. Se il server SQL utilizza l'autenticazione di Windows o di base, selezionare **il tipo di autenticazione**.
+1. Se SQL Server usa l'autenticazione di Windows o di base, selezionare il **tipo di autenticazione**.
 
-1. In **Gateway**selezionare la sottoscrizione di Azure associata al gateway dati locale creato in precedenza e selezionare il nome del gateway dati locale.
+1. In **gateway**selezionare la sottoscrizione di Azure associata al gateway dati locale creato in precedenza e selezionare il nome per il gateway dati locale.
 
    Se il gateway non compare nell'elenco, verificare di avere [configurato il gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection) correttamente.
 
-   ![Creare la connessione a SQL Server completataCreate SQL Server connection completed](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+   ![Creazione connessione SQL Server completata](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
 1. Al termine, selezionare **Crea**.
 

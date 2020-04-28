@@ -1,5 +1,5 @@
 ---
-title: Impossibile accedere a questo errore dell'applicazione aziendale con l'app Proxy app
+title: Non è possibile accedere all'errore dell'applicazione aziendale con l'app proxy app
 description: Come risolvere problemi di accesso comuni con applicazioni Proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74275460"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
@@ -37,7 +37,7 @@ Quando viene visualizzato questo errore, individuare il codice di stato nella pa
 
 Per trovare il codice, cercare il campo "Status Code" (Codice di stato) nel testo sulla parte inferiore sinistra del messaggio di errore. Cercare anche altri suggerimenti in fondo della pagina.
 
-![Esempio: errore di timeout del gatewayExample: Gateway timeout error](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
+![Esempio: errore di timeout del gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
 Per dettagli su come risolvere la causa principale di questi errori e per ulteriori dettagli sulle risoluzioni consigliate, vedere la sezione corrispondente di seguito.
 
@@ -64,24 +64,24 @@ Se l'utente risulta assegnato all'applicazione in Azure, controllare la configur
 
 ## <a name="check-the-applications-internal-url"></a>Controllare l'URL interno dell'applicazione
 
-Innanzitutto, controllare attentamente e correggere l'URL interno aprendo l'applicazione tramite **Applicazioni aziendali** e selezionando il menu **Proxy dell'applicazione**. Verificare che l'URL interno sia quello utilizzato dalla rete locale per accedere all'applicazione.
+Innanzitutto, controllare attentamente e correggere l'URL interno aprendo l'applicazione tramite **Applicazioni aziendali** e selezionando il menu **Proxy dell'applicazione**. Verificare che l'URL interno sia quello usato dalla rete locale per accedere all'applicazione.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Controllare che l'applicazione sia assegnata a un gruppo di connettori funzionante
 
 Per verificare che l'applicazione sia assegnata a un gruppo di connettori funzionante:
 
 1. Aprire l'applicazione nel portale selezionando **Azure Active Directory**, facendo cli csu **Applicazioni aziendali** e quindi su **Tutte le applicazioni**. Aprire l'applicazione, quindi selezionare **Proxy dell'applicazione** dal menu a sinistra.
-1. Osservare il campo Gruppo di connettori. Se nel gruppo non sono presenti connettori, viene visualizzato un avviso. Se non viene visualizzato alcun avviso, passare a verificare che tutte le porte necessarie siano consentite.
+1. Osservare il campo Gruppo di connettori. Se nel gruppo non sono presenti connettori, viene visualizzato un avviso. Se non vengono visualizzati avvisi, passare a verificare che siano consentite tutte le porte necessarie.
 1. Se compare il gruppo di connettori sbagliato, selezionare il gruppo corretto e verificare che non siano più visualizzati avvisi. Se compare il gruppo di connettori desiderato, fare clic sul messaggio di avviso per aprire la pagina con la gestione connettori.
 1. A questo punto, vi sono alcuni metodi per ulteriori approfondimenti:
 
    - Spostare un connettore attivo nel gruppo: se si dispone di un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
    - Scaricare un nuovo connettore per il gruppo: da questa pagina, è possibile accedere al collegamento per [scaricare un nuovo connettore](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. In genere, il connettore viene installato nello stesso server dell'applicazione. Usare il collegamento di download del connettore per scaricare un connettore nel computer di destinazione. Quindi, fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto.
-   - Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non è in grado di raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere questo problema, passare a verificare che tutte le porte necessarie siano consentite.
+   - Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non è in grado di raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere questo problema, passare a verificare che siano consentite tutte le porte necessarie.
 
 Dopo aver eseguito tutte queste operazioni per assicurarsi che l'applicazione sia assegnata a un gruppo con connettori funzionanti, provare di nuovo l'applicazione. Se ancora non funziona, passare alla sezione successiva.
 
-## <a name="check-all-required-ports-are-open"></a>Verificare che tutte le porte richieste siano aperte
+## <a name="check-all-required-ports-are-open"></a>Verificare che tutte le porte necessarie siano aperte
 
 Per verificare che tutte le porte richieste siano aperte, vedere la documentazione sull'apertura delle porte. Se tutte le porte richieste sono aperte, passare alla sezione successiva.
 
@@ -105,4 +105,4 @@ Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni sui connettori del proxy di applicazione di Azure ADUnderstand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+[Informazioni sui connettori del proxy di applicazione Azure AD](application-proxy-connectors.md)

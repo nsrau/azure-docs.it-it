@@ -1,14 +1,14 @@
 ---
-title: Usare i messaggi per l'integrazione con Azure Blockchain WorkbenchUse messages to integrate with Azure Blockchain Workbench
-description: Panoramica dell'uso dei messaggi per integrare Azure Blockchain Workbench Preview con altri sistemi.
+title: Usare i messaggi per l'integrazione con Azure blockchain Workbench
+description: Panoramica dell'uso dei messaggi per integrare l'anteprima di Azure blockchain Workbench con altri sistemi.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74324500"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
@@ -59,7 +59,7 @@ Blockchain Workbench restituisce una risposta con i campi seguenti:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID fornito dal client |
 | userId                | ID dell'utente che è stato creato |
-| userChainIdentifier   | Indirizzo dell'utente che è stato creato nella rete blockchain. In Ethereum, l'indirizzo è l'indirizzo **on-chain** dell'utente. |
+| userChainIdentifier   | Indirizzo dell'utente che è stato creato nella rete blockchain. In Ethereum, l'indirizzo è l'indirizzo **a catena** dell'utente. |
 | connectionId          | Identificatore univoco della connessione blockchain|
 | messageSchemaVersion  | Versione dello schema di messaggistica |
 | messageName           | **CreateUserUpdate** |
@@ -369,7 +369,7 @@ Gli argomenti del bus di servizio possono essere usati per notificare agli utent
 
 ## <a name="notification-message-reference"></a>Informazioni di riferimento sui messaggi di notifica
 
-A seconda di **messageName**, i messaggi di notifica presentano uno dei seguenti tipi di messaggio.
+A seconda del **messaggioname**, i messaggi di notifica hanno uno dei tipi di messaggio seguenti.
 
 ### <a name="block-message"></a>Messaggio di blocco
 
@@ -550,7 +550,7 @@ Esempio di *ContractMessage* da Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>Messaggio di evento: Chiamata di funzione del contratto
+### <a name="event-message-contract-function-invocation"></a>Messaggio di evento: chiamata di funzione del contratto
 
 Contiene informazioni quando viene richiamata una funzione del contratto, ad esempio il nome della funzione, l'input di parametri e il chiamante della funzione.
 
@@ -630,7 +630,7 @@ Esempio di *EventMessage ContractFunctionInvocation* da Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>Messaggio di evento: Inserimento dell'applicazione
+### <a name="event-message-application-ingestion"></a>Messaggio di evento: inserimento dell'applicazione
 
 Contiene informazioni quando un'applicazione viene caricata in Workbench, ad esempio il nome e la versione dell'applicazione caricata.
 
@@ -824,7 +824,7 @@ Esempio di *EventMessage ApplicationIngestion* da Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-role-assignment"></a>Messaggio di evento: Assegnazione di ruolo
+### <a name="event-message-role-assignment"></a>Messaggio di evento: assegnazione di ruolo
 
 Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, ad esempio chi ha eseguito l'assegnazione di ruolo e il nome del ruolo e dell'applicazione corrispondente.
 

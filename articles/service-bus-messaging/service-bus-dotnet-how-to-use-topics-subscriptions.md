@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
 ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74560105"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
@@ -33,11 +33,11 @@ Questa esercitazione illustra i passaggi seguenti:
 ## <a name="prerequisites"></a>Prerequisiti
 
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi della Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e sottoscrizioni all'argomento per eseguire le attività seguenti:Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
-    1. Creare uno **spazio dei nomi**del bus di servizio .
-    2. Ottenere la stringa di **connessione**.
+2. Seguire i passaggi della [Guida introduttiva: usare la portale di Azure per creare un argomento e le sottoscrizioni del bus di servizio all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
+    1. Creare uno **spazio dei nomi** del bus di servizio.
+    2. Ottenere la **stringa di connessione**.
     3. Creare un **argomento** nello spazio dei nomi.
-    4. Creare **una sottoscrizione** all'argomento nello spazio dei nomi.
+    4. Creare **una sottoscrizione** dell'argomento nello spazio dei nomi.
 3. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 4. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
  
@@ -75,7 +75,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
     static ITopicClient topicClient;
     ``` 
 
-3. Sostituire `Main()` il metodo con il metodo **asincrono** `Main` seguente che invia messaggi in modo asincrono usando il metodo SendMessagesAsync che verrà aggiunto nel passaggio successivo. 
+3. Sostituire il `Main()` metodo con il metodo **asincrono** `Main` seguente che invia messaggi in modo asincrono usando il metodo SendMessagesAsync che verrà aggiunto nel passaggio successivo. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -188,7 +188,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
 
 ## <a name="receive-messages-from-the-subscription"></a>Ricevere messaggi dalla sottoscrizione
 
-Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto **Microsoft.Azure.ServiceBus** NuGet, simile all'applicazione mittente precedente.
+Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto NuGet **Microsoft. Azure. ServiceBus** , in modo analogo all'applicazione mittente precedente.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Scrivere il codice per ricevere messaggi dalla sottoscrizione
 
@@ -210,7 +210,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Sostituire `Main()` il metodo con il metodo **asincrono** `Main` seguente. Chiama il `RegisterOnMessageHandlerAndReceiveMessages()` metodo che verrà aggiunto nel passaggio successivo. 
+3. Sostituire il `Main()` metodo con il seguente metodo **asincrono** `Main` . Viene chiamato il `RegisterOnMessageHandlerAndReceiveMessages()` metodo che verrà aggiunto nel passaggio successivo. 
 
     ```csharp
     public static async Task Main(string[] args)

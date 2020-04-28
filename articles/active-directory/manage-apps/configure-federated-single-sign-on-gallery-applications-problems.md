@@ -1,5 +1,5 @@
 ---
-title: Problemi durante la configurazione di SSO federato per le app della raccolta di Azure ADProblems configuring federated SSO for Azure AD Gallery apps
+title: Problemi di configurazione dell'accesso SSO federato per le app della raccolta Azure AD
 description: Informazioni sui problemi comuni che si possono incontrare durante la configurazione dell'accesso Single Sign-On federato per applicazioni SAML incluse nella raccolta delle applicazioni di Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74274648"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On federato per un'applicazione nella raccolta di Azure AD
@@ -42,7 +42,7 @@ Se non è possibile configurare l'identificatore o l'URL di risposta, verificare
 
 Per conoscere i modelli preconfigurati per l'applicazione:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.** Andare al passaggio 7. Se si è già nel pannello di configurazione dell'applicazione in Azure AD.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.** Andare al passaggio 7. Se si è già nel pannello di configurazione dell'applicazione in Azure AD.
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -52,7 +52,7 @@ Per conoscere i modelli preconfigurati per l'applicazione:
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
@@ -70,7 +70,7 @@ Per conoscere i modelli preconfigurati per l'applicazione:
 
     * Nell'esercitazione per l'applicazione sono disponibili anche informazioni sui modelli supportati. Nella sezione **Configurare il Single Sign-On di Azure AD**. Andare al passaggio per configurare i valori nella sezione **URL e dominio**.
 
-Se i valori non corrispondono ai modelli preconfigurati in Azure AD. È possibile:
+Se i valori non corrispondono ai modelli preconfigurati in Azure AD. È possibile scegliere:
 
 -   Chiedere al fornitore dell'applicazione valori che corrispondono al modello preconfigurato in Azure AD
 
@@ -86,7 +86,7 @@ Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in 
 
 Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -96,7 +96,7 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
+   * Se non viene visualizzata l'applicazione che si vuole visualizzare qui, usare il controllo **filtro** nella parte superiore dell' **elenco tutte le applicazioni** e impostare l'opzione **Mostra** su **tutte le applicazioni.**
 
 6. Selezionare l'applicazione per cui è stato configurato l'accesso Single Sign-On.
 

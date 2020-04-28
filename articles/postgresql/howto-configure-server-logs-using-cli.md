@@ -1,6 +1,6 @@
 ---
-title: Gestire i log - interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server singoloManage logs - Azure CLI - Azure Database for PostgreSQL - Single Server
-description: Questo articolo descrive come configurare e accedere ai log del server (file con estensione log) nel database di Azure per PostgreSQL - Singolo server usando l'interfaccia della riga di comando di Azure.This article describes how to configure and access the server logs (.log files) in Azure Database for PostgreSQL - Single Server by using the Azure CLI.
+title: Gestire i log-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come configurare e accedere ai log del server (file con estensione log) nel database di Azure per PostgreSQL-server singolo usando l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: be679be91d49516bd2f6c672eb53640cfad2ae2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74763573"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
@@ -30,7 +30,7 @@ Per proseguire con questa guida, si richiedono:
 
 Per altre informazioni, vedere [Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs"></a>Registri di elenco
+## <a name="list-logs"></a>Elenca log
 Per elencare i file di log disponibili per il server, eseguire il comando [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 È possibile elencare i file di log per il server **mydemoserver.postgres.database.azure.com** nel gruppo di risorse **myresourcegroup**. Quindi indirizzare l'elenco dei file di log a un file di testo denominato **log\_files\_list.txt**.

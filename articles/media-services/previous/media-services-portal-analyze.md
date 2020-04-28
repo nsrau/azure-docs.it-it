@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74462622"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure 
 
 > [!IMPORTANT]
-> Rivedere i piani di [pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori multimediali.
+> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
 
 ## <a name="overview"></a>Panoramica
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale, con conformità, sicurezza e copertura globale di livello enterprise, che semplificano alle aziende e alle organizzazioni l'acquisizione di informazioni dettagliate dai file video. Per una panoramica più dettagliata di Analisi Servizi multimediali, vedere [questo](media-services-analytics-overview.md) argomento. 
@@ -81,7 +81,7 @@ Nome descrittivo che consente di identificare il contenuto di output.
 ## <a name="azure-media-face-detector"></a>Rilevamento multimediale volti di Azure
 Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità: 
 
-* **Rilevamento volti**
+* **Rilevamento del viso**
   
     Il Rilevamento volti rileva e monitora i volti umani all'interno di un video. È possibile rilevare e monitorare diversi volti mentre le persone si muovono; i metadati relativi a ora e luogo vengono restituiti in un file JSON. Durante il monitoraggio, il sistema tenterà di assegnare sempre lo stesso ID al volto mentre la persona si muove sullo schermo, anche se è nascosta o se esce brevemente dall'inquadratura.
   
@@ -142,5 +142,5 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

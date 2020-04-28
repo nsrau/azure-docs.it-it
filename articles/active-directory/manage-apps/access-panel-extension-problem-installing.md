@@ -1,5 +1,5 @@
 ---
-title: Installare l'estensione del browser del pannello di accesso all'applicazione - Azure ADInstall application access panel browser extension - Azure AD
+title: Installare l'estensione del browser del pannello di accesso all'applicazione-Azure AD
 description: Risolvere gli errori comuni riscontrabili durante l'installazione dell'estensione del browser per il pannello di accesso.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74275864"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
@@ -90,7 +90,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
        
 * Per usare gli URL aziendali interni in remoto, procedere come segue:
     1. [Configurare il proxy di applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) nel tenant
-    2. [Pubblicare l'applicazione e l'URL](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) tramite il proxy di applicazione
+    2. [Pubblicare l'applicazione e l'](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) URL tramite il proxy di applicazione
     3. Installare l'estensione e accedervi selezionando Accedi per iniziare
     4. È ora possibile passare all'URL aziendale interno anche in remoto
 
@@ -128,4 +128,4 @@ Aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 -   Tracce Fiddler
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](what-is-single-sign-on.md)
+[Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](what-is-single-sign-on.md)

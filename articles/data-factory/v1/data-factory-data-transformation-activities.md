@@ -1,5 +1,5 @@
 ---
-title: 'Trasformazione dei dati: elaborare & trasformare i datiData Transformation: Process & transform data '
+title: 'Trasformazione dei dati: processo & trasformare i dati '
 description: Informazioni su come trasformare o elaborare i dati in Azure Data Factory con Hadoop, Machine Learning o Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74703382"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 > [!div class="op_single_selector"]
-> * [Alveare](data-factory-hive-activity.md)  
+> * [Hive](data-factory-hive-activity.md)  
 > * [Maiale](data-factory-pig-activity.md)  
-> * [Mapreduce](data-factory-map-reduce.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Apprendimento automatico](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Stored Procedure](data-factory-stored-proc-activity.md)
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
 
@@ -43,13 +43,13 @@ Data Factory supporta le seguenti attività di trasformazione dei dati che posso
 > 
 
 ## <a name="hdinsight-hive-activity"></a>Attività Hive di HDInsight
-L'attività Hive di HDInsight in una pipeline di Data factory esegue query Hive sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux. Per informazioni dettagliate su questa attività, vedere l'articolo [Attività Hive.See Hive Activity](data-factory-hive-activity.md) article for details about this activity. 
+L'attività Hive di HDInsight in una pipeline di Data factory esegue query Hive sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux. Per informazioni dettagliate su questa attività, vedere l'articolo [attività hive](data-factory-hive-activity.md) . 
 
 ## <a name="hdinsight-pig-activity"></a>Attività Pig di HDInsight
-L'attività Pig di HDInsight in una pipeline di Data factory esegue query Pig sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux. Per informazioni dettagliate su questa attività, vedere l'articolo [Attività Pig.See Pig Activity](data-factory-pig-activity.md) article for details about this activity. 
+L'attività Pig di HDInsight in una pipeline di Data factory esegue query Pig sul proprio cluster HDInsight o sul cluster HDInsight su richiesta basato su Windows o Linux. Per informazioni dettagliate su questa attività, vedere l'articolo [attività Pig](data-factory-pig-activity.md) . 
 
 ## <a name="hdinsight-mapreduce-activity"></a>Attività MapReduce di HDInsight
-L'attività HDInsight MapReduce in una pipeline di Data Factory esegue i programmi di MapReduce nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux. Vedere l'articolo [Attività MapReduce](data-factory-map-reduce.md) per informazioni dettagliate su questa attività.
+L'attività HDInsight MapReduce in una pipeline di Data Factory esegue i programmi di MapReduce nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux. Per informazioni dettagliate su questa attività, vedere l'articolo [attività MapReduce](data-factory-map-reduce.md) .
 
 ## <a name="hdinsight-streaming-activity"></a>Attività di streaming di HDInsight
 L'attività HDInsight Streaming Activity in una pipeline di Data Factory esegue i programmi di Hadoop Streaming nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux. Vedere l' [attività di streaming di HDInsight](data-factory-hadoop-streaming-activity.md) per i dettagli.
@@ -58,17 +58,17 @@ L'attività HDInsight Streaming Activity in una pipeline di Data Factory esegue 
 L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale. Per conoscere i dettagli, vedere [Richiamare i programmi Spark da Azure Data Factory](data-factory-spark.md). 
 
 ## <a name="machine-learning-activities"></a>Attività di Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Usando [l'attività](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) di esecuzione batch in una pipeline di Azure Data Factory, è possibile richiamare un servizio Web di Machine Learning per eseguire stime sui dati in batch.
+Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Utilizzando l' [attività di esecuzione batch](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in una pipeline di Azure Data Factory, è possibile richiamare un servizio Web Machine Learning per eseguire stime sui dati in batch.
 
-Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Machine Learning usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello Machine Learning di cui è stato ripetuto il training. È possibile utilizzare [l'attività Di](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) aggiornamento risorse per aggiornare il servizio Web con il modello appena sottoposto a training.  
+Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Machine Learning usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello Machine Learning di cui è stato ripetuto il training. È possibile utilizzare l' [attività Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) per aggiornare il servizio Web con il nuovo modello sottoposto a training.  
 
 Vedere [Usare le attività Machine Learning](data-factory-azure-ml-batch-execution-activity.md) per i relativi dettagli. 
 
 ## <a name="stored-procedure-activity"></a>Attività stored procedure
-È possibile usare l'attività stored procedure di SQL Server in una pipeline di Data Factory per richiamare una stored procedure in uo dei seguenti archivi dati: database SQL di Azure, Azure SQL Data Warehouse, database di SQL Server in azienda o in una VM. Per informazioni [dettagliate,](data-factory-stored-proc-activity.md) vedere l'articolo Attività stored procedure.  
+È possibile usare l'attività stored procedure di SQL Server in una pipeline di Data Factory per richiamare una stored procedure in uo dei seguenti archivi dati: database SQL di Azure, Azure SQL Data Warehouse, database di SQL Server in azienda o in una VM. Per informazioni dettagliate, vedere l'articolo [attività stored procedure](data-factory-stored-proc-activity.md) .  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Attività U-SQL di Data Lake Analytics
-L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster di Azure Data Lake Analytics. Per informazioni dettagliate, vedere l'articolo [Attività U-SQL di analisi dei dati.](data-factory-usql-activity.md) 
+L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster di Azure Data Lake Analytics. Per informazioni dettagliate, vedere l'articolo [attività U-SQL di analisi dei dati](data-factory-usql-activity.md) . 
 
 ## <a name="net-custom-activity"></a>Attività personalizzata .NET
 Se è necessario trasformare i dati in una modalità non supportata da Data Factory, è possibile creare un'attività personalizzata contenente la logica di elaborazione dei dati richiesta e usarla nella pipeline. È possibile configurare l'attività .NET personalizzata da eseguire usando il servizio Azure Batch o un cluster Azure HDInsight. Vedere l'articolo [Usare le attività personalizzate](data-factory-use-custom-activities.md) per i dettagli. 
@@ -83,17 +83,17 @@ Creare un servizio collegato per l'ambiente di calcolo e quindi usare il servizi
 
 Per informazioni sui servizi di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md) . 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Azure Data Factory supporta le seguenti attività di trasformazione di dati e i seguenti ambienti di calcolo per le attività. Le attività di trasformazione possono essere aggiunte alla pipeline singolarmente o con un'altra attività concatenata.
 
 | Attività di trasformazione dei dati | Ambiente di calcolo |
 |:--- |:--- |
-| [Alveare](data-factory-hive-activity.md) |HDInsight [Hadoop] |
+| [Hive](data-factory-hive-activity.md) |HDInsight [Hadoop] |
 | [Maiale](data-factory-pig-activity.md) |HDInsight [Hadoop] |
-| [Mapreduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
+| [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
-| [Stored Procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse o SQL Server |
+| [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
-| [Dotnet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |
+| [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |
 

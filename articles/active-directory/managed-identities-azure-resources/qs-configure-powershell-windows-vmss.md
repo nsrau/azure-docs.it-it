@@ -1,5 +1,5 @@
 ---
-title: Configurare le identità gestite nei set di scalabilità di macchine virtuali usando PowerShell - Azure ADConfigure managed identities on virtual machine scale sets using PowerShell - Azure AD
+title: Configurare le identità gestite nei set di scalabilità di macchine virtuali tramite PowerShell-Azure AD
 description: Istruzioni dettagliate per configurare identità gestite assegnate dal sistema e dall'utente in un set di scalabilità di macchine virtuali mediante PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 755aee312fd0492fd57a82cb7a437b04ebf72987
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547274"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurare identità gestite per le risorse di Azure in set di scalabilità di macchine virtuali tramite PowerShell
@@ -56,7 +56,7 @@ Questa sezione descrive come abilitare e rimuovere un'identità gestita assegnat
 
 Per creare un set di scalabilità di macchine virtuali con l'identità gestita assegnata dal sistema abilitata:
 
-1. Fare riferimento *all'esempio 1* nell'articolo di riferimento del cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) per creare un set di scalabilità di macchine virtuali con un'identità gestita assegnata dal sistema.  Aggiungere il parametro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
+1. Vedere l' *esempio 1* nell'articolo di riferimento per il cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) per creare un set di scalabilità di macchine virtuali con un'identità gestita assegnata dal sistema.  Aggiungere il parametro `-IdentityType SystemAssigned` al cmdlet `New-AzVmssConfig`:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
@@ -74,7 +74,7 @@ Se è necessario abilitare un'identità gestita assegnata dal sistema in un set 
    Connect-AzAccount
    ```
 
-2. Recuperare innanzitutto le proprietà del [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) set di scalabilità della macchina virtuale utilizzando il cmdlet. Per abilitare un'identità gestita assegnata dal sistema, usare l'opzione `-IdentityType` nel cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss):
+2. Recuperare prima le proprietà del set di scalabilità di [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) macchine virtuali usando il cmdlet. Per abilitare un'identità gestita assegnata dal sistema, usare l'opzione `-IdentityType` nel cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss):
 
    ```powershell
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"

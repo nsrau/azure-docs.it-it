@@ -1,5 +1,5 @@
 ---
-title: 'Ottimizzare le prestazioni: Spark, HDInsight & Azure Data Lake Storage Gen2 . Documenti Microsoft'
+title: 'Ottimizzare le prestazioni: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Linee guida per l'ottimizzazione delle prestazioni di Spark in Azure Data Lake Storage Gen2
 services: storage
 author: normesta
@@ -10,10 +10,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a70b8112af201a49e7eece8b689e75102ec55880
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327554"
 ---
 # <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: Spark, HDInsight & Azure Data Lake Storage Gen2
@@ -22,11 +22,11 @@ Per l'ottimizzazione delle prestazioni in Spark, è necessario considerare il nu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere Guida introduttiva: Creare un account di archiviazione di [Azure Data Lake Storage Gen2.](data-lake-storage-quickstart-create-account.md)
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account Azure Data Lake storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: creare un account di archiviazione Azure Data Lake storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di cluster Spark in Data Lake Storage Gen2**.  Per altre informazioni, vedere [Usare il cluster Spark di HDInsight per analizzare i dati in Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni generali sulle prestazioni, vedere Indicazioni per l'ottimizzazione delle prestazioni di [Data Lake Storage Gen2For](data-lake-storage-performance-tuning-guidance.md) For general performance concepts, see Data Lake Storage Gen2 Performance Tuning Guidance 
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen2 linee guida per l'ottimizzazione delle prestazioni](data-lake-storage-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parametri
 
@@ -54,14 +54,14 @@ Esistono alcuni modi generali per aumentare la concorrenza per i processi con I/
 
 **Passaggio 1: Determinare il numero di app in esecuzione nel cluster**. È necessario conoscere il numero di applicazioni in esecuzione nel cluster, inclusa quella corrente.  I valori predefiniti per ogni impostazione Spark presumono che siano presenti 4 applicazioni in esecuzione contemporanea.  Pertanto, si disporrà solo del 25% del cluster per ogni applicazione.  Per ottenere prestazioni migliori, è possibile sostituire le impostazioni predefinite modificando il numero di executor.  
 
-**Passo 2: Impostare executor-memory** – La prima cosa da impostare è l'executor-memory.  La memoria dipende dal processo da eseguire.  È possibile aumentare la concorrenza allocando una quantità inferiore di memoria per ogni executor.  Se vengono visualizzate eccezioni di memoria insufficiente quando si esegue il processo, è necessario aumentare il valore di questo parametro.  In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando le dimensioni del cluster.  Una maggiore quantità di memoria consentirà di usare più executor, ottenendo così più concorrenza.
+**Passaggio 2: impostare Executor-Memory** , il primo elemento da impostare è la memoria dell'executor.  La memoria dipende dal processo da eseguire.  È possibile aumentare la concorrenza allocando una quantità inferiore di memoria per ogni executor.  Se vengono visualizzate eccezioni di memoria insufficiente quando si esegue il processo, è necessario aumentare il valore di questo parametro.  In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando le dimensioni del cluster.  Una maggiore quantità di memoria consentirà di usare più executor, ottenendo così più concorrenza.
 
 **Passaggio 3: Impostare executor-cores**. Per carichi di lavoro I/O intensivi che non prevedono operazioni complesse, è consigliabile iniziare con un numero elevato di core per ogni executor al fine di aumentare il numero di attività parallele per ognuno di essi.  Per iniziare, è consigliabile impostare executor-cores su 4.   
 
     executor-cores = 4
 L'aumento del numero di core dell'executor offrirà maggior parallelismo in modo che sia possibile sperimentare diversi core dell'executor.  Per i processi che includono operazioni più complesse, è necessario ridurre il numero di core per ogni executor.  Se executor-cores viene impostato su un valore superiore a 4, la Garbage Collection può diventare inefficiente e incidere negativamente sulle prestazioni.
 
-**Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda Configs (Configurazioni).  In questa finestra viene visualizzata la memoria YARN.  
+**Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda configs (configurazioni).  La memoria YARN viene visualizzata in questa finestra.  
 Si noti che nella finestra è possibile visualizzare anche le dimensioni predefinite del contenitore YARN.  Le dimensioni del contenitore YARN sono uguali alle dimensioni della memoria per ogni parametro executor.
 
     Total YARN memory = nodes * YARN memory per node
