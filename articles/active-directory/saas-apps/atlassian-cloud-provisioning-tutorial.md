@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ddccef00cf1b5ad524c0e1eaa7aed52c0e55197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77059335"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Esercitazione: configurare Atlassian cloud per il provisioning utenti automatico
@@ -122,7 +122,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Provisioning cloud Atlassian](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-10. Fare clic su **Save**.
+10. Fare clic su **Salva**.
 
 11. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Atlassian cloud**.
 

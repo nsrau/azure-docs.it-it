@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169202"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usare i servizi PaaS (Platform-as-a-Service) in Azure DevTest Labs
@@ -55,7 +55,7 @@ Negli [ambienti di connessione all'](connect-environment-lab-virtual-network.md)
 #### <a name="environment-storage-account"></a>Account di archiviazione dell'ambiente
 DevTest Labs supporta l'uso di [modelli di gestione risorse annidati](../azure-resource-manager/templates/linked-templates.md). L'articolo [[distribuire modelli annidati di Azure Resource Manager per ambienti di testing](deploy-nested-template-environments.md) illustra come usare `_artifactsLocation` i token e `_artifactsLocationSasToken` per creare un URI per un modello di gestione risorse nella stessa cartella di o in una cartella nidificata del modello principale. Per ulteriori informazioni su questi due token, vedere la sezione relativa agli **artefatti di distribuzione** di [Azure Resource Manager-Guida alle procedure consigliate](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
-## <a name="user-experience"></a>Esperienza utente
+## <a name="user-experience"></a>Esperienza dell'utente
 
 ## <a name="developer"></a>Sviluppatore
 Gli sviluppatori usano lo stesso flusso di lavoro per creare una macchina virtuale per creare un ambiente specifico. Selezionano l'ambiente e l'immagine del computer e immettono le informazioni necessarie necessarie per il modello. Ogni sviluppatore con un ambiente consente la distribuzione delle modifiche e il debug del ciclo interno migliorato. L'ambiente può essere creato in qualsiasi momento usando il modello più recente.  Questa funzionalità consente di eliminare e ricreare gli ambienti per ridurre il tempo di inattività dovuto alla creazione manuale del sistema o al ripristino dal test degli errori.  

@@ -1,5 +1,5 @@
 ---
-title: Visualizzare e usare il modello di Azure Resource Manager di una macchina virtualeView and use a virtual machine's Azure Resource Manager template
+title: Visualizzare e usare il modello di Azure Resource Manager di una macchina virtuale
 description: Informazioni su come usare un modello di Azure Resource Manager di una macchina virtuale per creare altre macchine virtuali
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 7064fdeec04f4dc5ae2c73c1a3896cf2d10dd01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169106"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creare macchine virtuali usando un modello di Azure Resource Manager 
@@ -30,13 +30,13 @@ Questo articolo descrive il modello di Resource Manager di più macchine virtual
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Modello di Resource Manager di più macchine virtuali rispetto al modello di Resource Manager di una singola macchina virtuale
-Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello di Resource Manager: eseguire il provisioning della risorsa Microsoft.DevTestLab/labs/virtualmachines o eseguire il provisioning della risorsa Microsoft.Compute/virtualmachines. Le due procedure vengono usate in diversi scenari e richiedono autorizzazioni differenti.
+Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello di Gestione risorse: effettuare il provisioning della risorsa Microsoft. DevTestLab/Labs/VirtualMachines oppure effettuare il provisioning della risorsa Microsoft. Compute/VirtualMachines. Le due procedure vengono usate in diversi scenari e richiedono autorizzazioni differenti.
 
 - I modelli di Resource Manager che usano un tipo di risorsa Microsoft.DevTestLab/labs/virtualmachines (come dichiarato nella proprietà “risorsa” nel modello) possono eseguire il provisioning di lab VM individuali. Ogni macchina virtuale viene quindi visualizzata come un singolo elemento nell'elenco delle macchine virtuali di DevTest Labs:
 
    ![Elenco delle macchine come singoli elementi nell'elenco delle macchine virtuali di DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   È possibile eseguire il provisioning di questo tipo di modello di Resource Manager tramite il comando di Azure PowerShell **New-AzResourceGroupDeployment** o tramite il comando dell'interfaccia della riga di comando di Azure **az group create**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
+   È possibile eseguire il provisioning di questo tipo di modello di Gestione risorse tramite il comando Azure PowerShell **New-AzResourceGroupDeployment** o tramite il comando dell'interfaccia della riga di comando di Azure **AZ Group Deployment create**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
 
 - Modelli di Resource Manager che usano un tipo di risorsa Microsoft.Compute/virtualmachines possono eseguire il provisioning di più macchine virtuali come un unico ambiente nell'elenco di macchine virtuali di DevTest Labs:
 
@@ -51,7 +51,7 @@ Il resto di questo articolo illustra i modelli di Resource Manager che usano Mic
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visualizzare e usare un modello di Resource Manager di Azure di una macchina virtuale
 1. Seguire i passaggi in [Creare la prima macchina virtuale in un lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) per iniziare a creare una macchina virtuale.
 1. Immettere le informazioni necessarie per la macchina virtuale e aggiungere eventuali elementi desiderati per la macchina virtuale.
-1. Swtich alla scheda **Impostazioni avanzate.** 
+1. Opzione alla scheda **Impostazioni avanzate** . 
 1. Nella parte inferiore della finestra Configurazione impostazioni, scegliere **View ARM template** (Visualizza modello ARM).
 1. Copiare e salvare il modello di Resource Manager da usare in un secondo momento per creare un'altra macchina virtuale.
 
@@ -64,7 +64,7 @@ Dopo aver salvato il modello di Resource Manager, è necessario aggiornare la se
 Il modello di Resource Manager è ora pronto per [creare una macchina virtuale](devtest-lab-create-environment-from-arm.md).
 
 ## <a name="set-expiration-date"></a>Impostare la data di scadenza
-In scenari come formazione, demo e versioni di valutazione, è possibile creare macchine virtuali ed eliminarle automaticamente dopo una durata fissa in modo da non incorrere in costi non necessari. È possibile creare una macchina virtuale del lab con una data di scadenza specificando la proprietà **expirationDate** per la macchina virtuale. Scopri lo stesso modello di Resource Manager nel [nostro repository GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+In scenari come il training, le demo e le versioni di valutazione, è possibile creare macchine virtuali ed eliminarle automaticamente dopo una durata fissa, in modo da non incorrere in costi superflui. È possibile creare una macchina virtuale Lab con una data di scadenza specificando la proprietà **expirationDate** per la macchina virtuale. Esaminare lo stesso modello di Gestione risorse nel [repository GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
 
 
 

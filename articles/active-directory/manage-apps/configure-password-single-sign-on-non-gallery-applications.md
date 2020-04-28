@@ -12,10 +12,10 @@ ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063527"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurare l'accesso Single Sign-On tramite password
@@ -81,11 +81,11 @@ Se il tentativo di analisi del Azure AD ha esito negativo, è possibile configur
 5. Nella scheda con l'URL immesso scorrere il processo di accesso. Inserire i campi nome utente e password e provare ad accedere. Non è necessario specificare la password corretta.
 
    Viene richiesto di salvare i campi di accesso acquisiti.
-6. Fare clic su **OK**. L'estensione del browser aggiorna la pagina stato acquisizione con i **metadati del messaggio aggiornati per l'applicazione**. La scheda del browser si chiude.
+6. Selezionare **OK**. L'estensione del browser aggiorna la pagina stato acquisizione con i **metadati del messaggio aggiornati per l'applicazione**. La scheda del browser si chiude.
 
 7. Nella pagina Azure AD **Configura accesso** fare clic su OK. **è stato possibile accedere correttamente all'app**.
 
-8. Fare clic su **OK**.
+8. Selezionare **OK**.
 
 Dopo l'acquisizione della pagina di accesso, è possibile assegnare utenti e gruppi ed è possibile configurare criteri di credenziale come [le normali applicazioni SSO con password](what-is-single-sign-on.md).
 

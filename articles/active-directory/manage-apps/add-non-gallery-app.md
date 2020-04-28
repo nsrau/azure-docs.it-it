@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063612"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Aggiungere un'applicazione non in elenco (non di raccolta) all'organizzazione Azure AD
@@ -54,7 +54,7 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
    >* **Configurare il proxy di applicazione per l'accesso remoto sicuro a un'applicazione locale** apre la pagina di configurazione per Azure ad proxy di applicazione e i connettori.
    >* **Registrare un'applicazione a cui si sta lavorando per l'integrazione con Azure ad** apre la pagina di **registrazioni app** . Questa opzione viene in genere usata per le applicazioni OpenID Connect.
 
-7. Seleziona **Crea**. Viene visualizzata la pagina **Panoramica** dell'applicazione.
+7. Selezionare **Create** (Crea). Viene visualizzata la pagina **Panoramica** dell'applicazione.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurare le proprietà di accesso degli utenti
 

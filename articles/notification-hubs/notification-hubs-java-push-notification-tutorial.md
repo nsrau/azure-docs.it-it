@@ -1,5 +1,5 @@
 ---
-title: Come usare gli hub di notifica di Azure con JavaHow to use Azure Notification Hubs with Java
+title: Come usare hub di notifica di Azure con Java
 description: Informazioni su come usare Hub di notifica di Azure da un back-end Java.
 services: notification-hubs
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263864"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Come usare Hub di notifica da Java
@@ -71,7 +71,7 @@ Per creare:
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- o
+ OR
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -132,7 +132,7 @@ Analogamente è possibile creare registrazioni per Android (FCM), Windows Phone 
     hub.createRegistration(reg);
     ```
 
-**Creare registrazioni utilizzando l'ID di registrazione create e il modello upsert:Create registrations using create registration ID - upsert pattern:**
+**Creare registrazioni usando il modello create Registration ID + Upsert:**
 
 Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono stati archiviati nel dispositivo:
 
@@ -142,7 +142,7 @@ Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono
     hub.upsertRegistration(reg);
     ```
 
-**Aggiorna registrazioni:**
+**Aggiornare le registrazioni:**
 
     ```java
     hub.updateRegistration(reg);
@@ -384,7 +384,7 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
   * [Inviare notifiche agli utenti autenticati]
   * [Inviare notifiche multipiattaforma agli utenti autenticati]
 
-[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
+[SDK per Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Introduzione ad Hub di notifica]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

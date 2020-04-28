@@ -1,5 +1,5 @@
 ---
-title: Caricare il file VHD in Azure DevTest Labs usando Storage ExplorerUpload VHD file to Azure DevTest Labs using Storage Explorer
+title: Caricare il file VHD in Azure DevTest Labs usando Storage Explorer
 description: Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76170380"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
@@ -35,9 +35,9 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
 
 1. Ottenere il nome dell'account di archiviazione del lab tramite il portale di Azure:
 
-    1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+    1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
+    1. Selezionare **tutti i servizi**, quindi selezionare **DevTest Labs** dall'elenco.
     
     1. Nell'elenco dei lab selezionare il lab desiderato.  
     

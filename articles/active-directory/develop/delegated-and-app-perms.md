@@ -1,5 +1,5 @@
 ---
-title: Differenze tra le autorizzazioni delegate e le app Azure
+title: Differenze tra le autorizzazioni delegate e app | Azure
 description: Altre informazioni sulle autorizzazioni delegate e dell'applicazione, come vengono usate dai client ed esposte dalle risorse per le applicazioni sviluppate con Azure AD
 services: active-directory
 author: rwike77
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: 5f7035472ae408987a14f06492a762b56fa657b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76697609"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Come riconoscere le differenze tra le autorizzazioni delegate e dell'applicazione

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76273799"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usare la nuova autenticazione per StorSimple
@@ -41,7 +41,7 @@ Se si usa l'array virtuale StorSimple, verificare che l'URL seguente sia incluso
 | Modello URL                         | Cloud | Componente/funzionalità         |
 |------------------------------------|-------|---------------------------------|
 | `https://login.windows.net`        | Azure Public |Servizio di autenticazione di Azure Active Directory      |
-| `https://login.microsoftonline.us` | US Gov |Servizio di autenticazione di Azure Active Directory      |
+| `https://login.microsoftonline.us` | Enti pubblici Stati Uniti |Servizio di autenticazione di Azure Active Directory      |
 
 Per un elenco completo dei modelli URL per gli array virtuali StorSimple, passare a [Modelli URL per le regole del firewall](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 
@@ -53,9 +53,9 @@ Se si usa un array virtuale StorSimple, usare la tabella seguente per determinar
 
 | Versione in esecuzione  | Azione da eseguire                                    |
 |----------------------------|--------------------------------------------------------------|
-| Aggiornamento 1.0 o versione successiva e dispositivo offline. <br> Viene visualizzato l'avviso che comunica che l'URL non è nell'elenco elementi consentiti.| 1. Modificare le regole del firewall per includere l'URL di autenticazione. Vedere gli [URL di autenticazione](#url-changes-for-aad-authentication). <br> 2. Ottenere la chiave di [registrazione AAD dal servizio](#aad-based-registration-keys). <br> 3. Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale.](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)<br> 4. `Invoke-HcsReRegister` Utilizzare il cmdlet per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
+| Aggiornamento 1.0 o versione successiva e dispositivo offline. <br> Viene visualizzato l'avviso che comunica che l'URL non è nell'elenco elementi consentiti.| 1. modificare le regole del firewall in modo da includere l'URL di autenticazione. Vedere gli [URL di autenticazione](#url-changes-for-aad-authentication). <br> 2. [ottenere la chiave di registrazione di AAD dal servizio](#aad-based-registration-keys). <br> 3. eseguire i passaggi 1-5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. utilizzare `Invoke-HcsReRegister` il cmdlet per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
 | Aggiornamento 1.0 o versione successiva e dispositivo online.| Non è richiesta alcuna azione.                                       |
-| Aggiornamento 0.6 o versione precedente e dispositivo offline. | 1. [Scaricare l'aggiornamento 1.0 tramite il server](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix)di catalogo .<br>2. [Applicare l'aggiornamento 1.0 tramite l'interfaccia utente Web locale.](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix)<br>3. Ottenere la chiave di [registrazione AAD dal servizio](#aad-based-registration-keys). <br>4. Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale.](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)<br>5. `Invoke-HcsReRegister` Utilizzare il cmdlet per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
+| Aggiornamento 0.6 o versione precedente e dispositivo offline. | 1. [scaricare l'aggiornamento 1,0 tramite il server di catalogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [applicare l'aggiornamento 1,0 tramite l'interfaccia utente Web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [ottenere la chiave di registrazione di AAD dal servizio](#aad-based-registration-keys). <br>4. eseguire i passaggi 1-5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. utilizzare `Invoke-HcsReRegister` il cmdlet per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
 | Aggiornamento 0.6 o versione precedente e dispositivo online | Modificare le regole del firewall per includere l'URL di autenticazione.<br> Installare l'aggiornamento 1.0 tramite il portale di Azure. |
 
 ## <a name="aad-based-registration-keys"></a>Chiavi di registrazione basate su Azure Active Directory

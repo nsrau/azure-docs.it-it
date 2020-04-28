@@ -1,5 +1,5 @@
 ---
-title: Gestire i domini di errore nei set di scalabilità delle macchine virtuali di AzureManage fault domains in Azure virtual machine scale sets
+title: Gestire i domini di errore nei set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come scegliere il numero corretto dei domini di errore durante la creazione di un set di scalabilità della macchina virtuale.
 author: rajsqr
 ms.service: virtual-machine-scale-sets
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: drewm
 ms.openlocfilehash: 297837354cea4bb5ccdcc03261810dcffd144243
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76275734"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Scelta del numero corretto dei domini di errore per set di scalabilità di macchine virtuali
-I set di scalabilità di macchine virtuali vengono creati con cinque domini di errore per impostazione predefinita in aree di Azure senza zone. Per le aree che supportano la distribuzione zonale dei set di scalabilità di macchine virtuali e questa opzione è selezionata, il valore predefinito del conteggio dei domini di errore è 1 per ognuna delle zone. FD = 1 questo caso implica che le istanze di macchine virtuali che appartengono al set di scalabilità verranno distribuite tra molti rack nel modo più efficiente possibile.
+I set di scalabilità di macchine virtuali vengono creati con cinque domini di errore per impostazione predefinita in aree di Azure senza zone. Per le aree che supportano la distribuzione di zona dei set di scalabilità di macchine virtuali e questa opzione è selezionata, il valore predefinito del numero di domini di errore è 1 per ogni zona. FD = 1 questo caso implica che le istanze di macchine virtuali che appartengono al set di scalabilità verranno distribuite tra molti rack nel modo più efficiente possibile.
 
 È inoltre possibile considerare di allineare il numero di domini di errore del set di scalabilità con il numero di domini di errore di Managed Disks. Questo allineamento consente di evitare la perdita di quorum se un intero dominio di errore di Managed Disks si arresta. Il numero di domini di errore può essere minore o uguale al numero di domini di errore di Managed Disks disponibili in ognuna delle aree. Consultare questo [documento](../virtual-machines/windows/manage-availability.md) per conoscere il numero di domini di errore di Managed Disks per area.
 

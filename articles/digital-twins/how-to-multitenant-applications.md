@@ -1,5 +1,5 @@
 ---
-title: Abilitazione di applicazioni multi-tenant - Azure Digital Twins Documenti Microsoft
+title: Abilitare le applicazioni multi-tenant-gemelli digitali di Azure | Microsoft Docs
 description: Come configurare applicazioni multi-tenant di Azure Active Directory per Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 6e1321e01d8d12974a2704f4478b02a26c14142f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76264934"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Abilitare le applicazioni multi-tenant con Gemelli digitali di Azure
@@ -54,12 +54,12 @@ Per risolvere il problema dello scenario precedente, è necessario eseguire le a
 
 - Nel [portale di Azure](https://portal.azure.com) l'amministratore del tenant di Azure Active Directory del **CLIENTE** deve quindi seguire questa procedura:
 
-  1. Cercare **Sottoscrizioni** nel campo di ricerca di Azure superiore. Selezionare **Abbonamenti**.
+  1. Cercare le **sottoscrizioni** nel campo di ricerca di Azure superiore. Selezionare **sottoscrizioni**.
   1. Selezionare la sottoscrizione con il tenant di Azure Active Directory da usare nell'applicazione dello **SVILUPPATORE**.
 
      [![Sottoscrizioni di Azure Active Directory](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
-  1. Selezionare **Provider di risorse**.
+  1. Selezionare **provider di risorse**.
   1. Cercare **Microsoft.IoTSpaces**.
   1. Selezionare **Registra**.
 

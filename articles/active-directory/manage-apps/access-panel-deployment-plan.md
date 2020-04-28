@@ -16,10 +16,10 @@ ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897067"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Pianificare una distribuzione del pannello di accesso Azure Active Directory
@@ -89,10 +89,10 @@ La tabella seguente descrive i casi d'uso principali per una distribuzione del p
 | Governance| Il ciclo di vita delle assegnazioni degli utenti a gruppi e applicazioni connesse Azure AD viene definito e monitorato. |
 | Sicurezza| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
 | Prestazioni| Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate |
-| Esperienza utente| Gli utenti sono a conoscenza delle funzionalità del pannello di accesso e del modo in cui usarle.|
-| Esperienza utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
-| Esperienza utente| Gli utenti possono gestire i propri account. |
-| Esperienza utente| Gli utenti sono consapevoli della compatibilità del browser. |
+| Esperienza dell'utente| Gli utenti sono a conoscenza delle funzionalità del pannello di accesso e del modo in cui usarle.|
+| Esperienza dell'utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
+| Esperienza dell'utente| Gli utenti possono gestire i propri account. |
+| Esperienza dell'utente| Gli utenti sono consapevoli della compatibilità del browser. |
 | Supporto| Gli utenti possono trovare il supporto per i problemi del pannello di accesso. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Procedure consigliate per la distribuzione del pannello di accesso Azure AD

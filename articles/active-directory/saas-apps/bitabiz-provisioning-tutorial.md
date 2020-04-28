@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Configurare BitaBI per il provisioning automatico degli utenti con Azure Active Directory . Documenti Microsoft'
-description: Informazioni su come configurare Azure Active Directory per il provisioning e l'annullamento del provisioning automatico degli account utente in BitaBI.
+title: 'Esercitazione: configurare BitaBIZ per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in BitaBIZ.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: ad9176614c4a5235e5138444d4197286204a747f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77059221"
 ---
-# <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Esercitazione: Configurare BitaBI per il provisioning automatico degli utentiTutorial: Configure BitaBI for automatic user provisioning
+# <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Esercitazione: configurare BitaBIZ per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in BitaBI e Azure Active Directory (Azure AD) per configurare Azure AD per il provisioning e l'annullamento del provisioning automatico di utenti e/o gruppi in BitaBI.
+Questa esercitazione descrive i passaggi da eseguire in BitaBIZ e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in BitaBIZ.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -36,71 +36,71 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Bita
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD.
-* [Un inquilino BitaBI](https://bitabiz.dk/en/price/).
-* Un account utente in BitaBI con autorizzazioni di amministratore.
+* [Tenant di BitaBIZ](https://bitabiz.dk/en/price/).
+* Un account utente in BitaBIZ con autorizzazioni di amministratore.
 
-## <a name="assigning-users-to-bitabiz"></a>Assegnazione di utenti a BitaBI
+## <a name="assigning-users-to-bitabiz"></a>Assegnazione di utenti a BitaBIZ
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare quali utenti devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e/o i gruppi assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning automatico degli utenti, è necessario decidere quali utenti e/o gruppi in Azure AD devono accedere a BitaBI. Una volta deciso, è possibile assegnare questi utenti e/o gruppi a BitaBI seguendo le istruzioni qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a BitaBIZ. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a BitaBIZ seguendo le istruzioni riportate qui:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-bitabiz"></a>Suggerimenti importanti per l'assegnazione degli utenti a BitaBI
+## <a name="important-tips-for-assigning-users-to-bitabiz"></a>Suggerimenti importanti per l'assegnazione di utenti a BitaBIZ
 
-* È consigliabile assegnare un singolo utente di Azure AD a BitaBI per testare la configurazione del provisioning automatico degli utenti. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo Azure AD utente a BitaBIZ per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente a BitaBI, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido (se disponibile) nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** sono esclusi dal provisioning.
+* Quando si assegna un utente a BitaBIZ, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
 
-## <a name="setup-bitabiz-for-provisioning"></a>Configurare BitaBI per il provisioning
+## <a name="setup-bitabiz-for-provisioning"></a>Configurare BitaBIZ per il provisioning
 
-Prima di configurare BitaBI per il provisioning automatico degli utenti con Azure AD, è necessario abilitare il provisioning SCIM in BitaBI.
+Prima di configurare BitaBIZ per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in BitaBIZ.
 
-1. Accedere alla [Console di amministrazione BitaBI](https://www.bitabiz.com/login?lang=en). Fare clic su **SETUP ADMIN** (CONFIGURA AMMINISTRATORE).
+1. Accedere a [BitaBIZ Admin Console](https://www.bitabiz.com/login?lang=en). Fare clic su **SETUP ADMIN** (CONFIGURA AMMINISTRATORE).
 
-    ![Console di amministrazione BitaBI](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    ![Console di amministrazione di BitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
 
-2.  Passare a **INTEGRATION**.
+2.  Passare all' **integrazione**.
 
-    ![Console di amministrazione BitaBI](media/bitabiz-provisioning-tutorial/integration.png)
+    ![Console di amministrazione di BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.  Passare a **Provisioning di Microsoft Azure AD**.  Selezionare **Abilitato** in Provisioning automatico degli utenti. Copiare i valori per **URL dell'endpoint di provisioning SCIM** e **Gettone bearer**. Questi valori verranno immessi nei campi URL tenant e Token segreto nella scheda Provisioning dell'applicazione BitaBI nel portale di Azure.
+2.  Passare a **Microsoft Azure ad provisioning**.  Selezionare **abilitato** nel provisioning utenti automatico. Copiare i valori per l' **URL dell'endpoint di provisioning di SCIM** e il token di **porta**. Questi valori verranno immessi nei campi URL tenant e token segreto nella scheda provisioning dell'applicazione BitaBIZ nel portale di Azure.
 
-    ![Aggiunta di SCIM a BitaBI](media/bitabiz-provisioning-tutorial/authentication.png)
+    ![BitaBIZ aggiungere SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 
 
-## <a name="add-bitabiz-from-the-gallery"></a>Aggiungere BitaBI dalla galleria
+## <a name="add-bitabiz-from-the-gallery"></a>Aggiungere BitaBIZ dalla raccolta
 
-Per configurare BitaBI per il provisioning automatico degli utenti con Azure AD, è necessario aggiungere BitaBI dalla raccolta di applicazioni di Azure AD all'elenco delle applicazioni SaaS gestite.
+Per configurare BitaBIZ per il provisioning utenti automatico con Azure AD, è necessario aggiungere BitaBIZ dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-**Per aggiungere BitaBI dalla raccolta di applicazioni di Azure AD, eseguire la procedura seguente:To add BitaBI from the Azure AD application gallery, perform the following steps:**
+**Per aggiungere BitaBIZ dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**nel riquadro di spostamento sinistro.
+1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali**, quindi selezionare Tutte **le applicazioni**.
+2. Passare ad **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, immettete **BitaBI**, selezionate **BitaBI** nel pannello dei risultati, quindi fate clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **BitaBIZ**, selezionare **BitaBIZ** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![BitaBIZ nell'elenco risultati](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-bitabiz"></a>Configurazione del provisioning automatico degli utenti su BitaBI 
+## <a name="configuring-automatic-user-provisioning-to-bitabiz"></a>Configurazione del provisioning utenti automatico in BitaBIZ 
 
-In questa sezione vengono illustrati i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in BitaBI in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in BitaBIZ in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È inoltre possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per BitaBI , seguendo le istruzioni fornite [nell'esercitazione sull'accesso single BitaBI](BitaBIZ-tutorial.md). Single Sign-On può essere configurato indipendentemente dal provisioning automatico degli utenti, anche se queste due funzionalità si completano a vicenda
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per BitaBIZ, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di BitaBIZ](BitaBIZ-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
-### <a name="to-configure-automatic-user-provisioning-for-bitabiz-in-azure-ad"></a>Per configurare il provisioning automatico degli utenti per BitaBI in Azure AD:To configure automatic user provisioning for BitaBI in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-bitabiz-in-azure-ad"></a>Per configurare il provisioning utenti automatico per BitaBIZ in Azure AD:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . Selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -108,15 +108,15 @@ In questa sezione vengono illustrati i passaggi per configurare il servizio di p
 
     ![Collegamento di BitaBIZ nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning.**
+3. Selezionare la scheda **provisioning** .
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare la **modalità di provisioning** su **Automatico**.
+4. Impostare la **modalità di provisioning** su **automatico**.
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione Credenziali amministratore immettere i valori **URL dell'endpoint di provisioning SCIM** e **Gettario bearer** recuperati in precedenza rispettivamente in URL tenant e Token segreto. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a BitaBI. Se la connessione non riesce, verificare che l'account BitaBI abbia le autorizzazioni di amministratore e riprovare.
+5. Nella sezione credenziali amministratore immettere rispettivamente i valori dell' **URL di provisioning dell'endpoint** e del token di **porta** scim recuperati in precedenza nell'URL del tenant e nel token del segreto. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a BitaBIZ. Se la connessione non riesce, verificare che l'account BitaBIZ disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -126,22 +126,22 @@ In questa sezione vengono illustrati i passaggi per configurare il servizio di p
 
 7. Fare clic su **Salva**.
 
-8. Nella sezione **Mapping** selezionare Sincronizza utenti di **Azure Active Directory con BitaBI**.
+8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a BitaBIZ**.
 
-    ![Mapping degli utenti BitaBI](media/bitabiz-provisioning-tutorial/usermapping.png)
+    ![Mapping utente BitaBIZ](media/bitabiz-provisioning-tutorial/usermapping.png)
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a BitaBI nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in BitaBI per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a BitaBIZ nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in BitaBIZ per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente BitaBI](media/bitabiz-provisioning-tutorial/user-attribute.png)
+    ![Attributi utente di BitaBIZ](media/bitabiz-provisioning-tutorial/user-attribute.png)
 
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning di Azure AD per BitaBI, modificare **lo stato** di provisioning **su Attivato** nella sezione **Impostazioni.**
+11. Per abilitare il servizio di provisioning Azure AD per BitaBIZ, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si desidera eseguire il provisioning in BitaBI scegliendo i valori desiderati in **Ambito** nella sezione **Impostazioni.**
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in BitaBIZ selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -149,20 +149,20 @@ In questa sezione vengono illustrati i passaggi per configurare il servizio di p
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in BitaBI.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su BitaBIZ.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* BitaBI richiede **userName**, **email**, **firstName** e **lastName** come attributi obbligatori. 
-* Attualmente BitaBI non supporta le eliminazioni forzate.
+* BitaBIZ richiede **nome utente**, **indirizzo di posta elettronica**, **FirstName** e **LastName** come attributi obbligatori. 
+* BitaBIZ non supporta attualmente le eliminazioni a livello di hardware.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Scopri come esaminare i log e ottenere report sulle attività](../app-provisioning/check-status-user-account-provisioning.md)di provisioning.
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md).

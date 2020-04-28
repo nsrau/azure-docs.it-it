@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sulla libreria client per le funzioni definite dall'utente - Azure Digital Twins Documenti Microsoft
-description: Documentazione di riferimento della libreria client delle funzioni definite dall'utente di Azure Digital Twins.Azure Digital Twins user-defined functions client library reference documentation.
+title: Informazioni di riferimento sulla libreria client di funzioni definite dall'utente-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Documentazione di riferimento della libreria client di funzioni definite dall'utente di Azure Digital gemelli.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: bd6095daca51ddca0cfb4b34ca86e763df9a3d02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276821"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Informazioni di riferimento sulla libreria client delle funzioni definite dall'utente
@@ -74,7 +74,7 @@ Dato un identificatore di sensore e il relativo tipo di dati, questa funzione re
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Identificatore di spazio |
-| *Valuename* | `string` | Nome della proprietà dello spazio |
+| *valueName* | `string` | Nome della proprietà dello spazio |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
@@ -96,7 +96,7 @@ Dato un identificatore di spazio e il nome del valore, questa funzione recupera 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificatore di spazio |
-| *Valuename* | `string` | Nome della proprietà dello spazio |
+| *valueName* | `string` | Nome della proprietà dello spazio |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -136,7 +136,7 @@ Dato un identificatore di dispositivo, questa funzione recupera i sensori figlio
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Deviceid* | `guid` | Identificatore di dispositivo |
+| *deviceId* | `guid` | Identificatore di dispositivo |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -187,7 +187,7 @@ Dato un identificatore di spazio, questa funzione recupera la proprietà e il re
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificatore di spazio |
-| *Propertyname* | `string` | Nome della proprietà dello spazio |
+| *propertyName* | `string` | Nome della proprietà dello spazio |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -198,7 +198,7 @@ Dato un identificatore di sensore, questa funzione recupera la proprietà e il r
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identificatore di sensore |
-| *Propertyname* | `string` | Nome della proprietà del sensore |
+| *propertyName* | `string` | Nome della proprietà del sensore |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -208,8 +208,8 @@ Dato un identificatore di dispositivo, questa funzione recupera la proprietà e 
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Deviceid* | `guid` | Identificatore di dispositivo |
-| *Propertyname* | `string` | Nome della proprietà del dispositivo |
+| *deviceId* | `guid` | Identificatore di dispositivo |
+| *propertyName* | `string` | Nome della proprietà del dispositivo |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, value)
 
@@ -221,7 +221,7 @@ Questa funzione imposta un valore sull'oggetto sensore con il tipo di dati speci
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identificatore di sensore |
 | *dataType*  | `string` | Tipo di dati del sensore |
-| *Valore*  | `string` | valore |
+| *value*  | `string` | valore |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
 
@@ -233,7 +233,7 @@ Questa funzione imposta un valore sull'oggetto spazio con il tipo di dati specif
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificatore di spazio |
 | *dataType* | `string` | Tipo di dati |
-| *Valore* | `string` | valore |
+| *value* | `string` | valore |
 
 ### <a name="logmessage"></a>log(message)
 
@@ -243,7 +243,7 @@ Questa funzione registra il messaggio seguente all'interno della funzione defini
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Messaggio* | `string` | Messaggio da registrare |
+| *message* | `string` | Messaggio da registrare |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, payload)
 
@@ -294,7 +294,7 @@ Questa funzione restituisce la proprietà estesa e il relativo valore per lo spa
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Propertyname* | `string` | Nome della proprietà estesa |
+| *propertyName* | `string` | Nome della proprietà estesa |
 
 #### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
 
@@ -302,7 +302,7 @@ Questa funzione restituisce il valore dello spazio corrente.
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Valuename* | `string` | Nome del valore |
+| *valueName* | `string` | Nome del valore |
 
 #### <a name="historyvaluename--value"></a>History(valueName) ⇒ `value[]`
 
@@ -310,7 +310,7 @@ Questa funzione restituisce i valori storici dello spazio corrente.
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Valuename* | `string` | Nome del valore |
+| *valueName* | `string` | Nome del valore |
 
 #### <a name="notifypayload"></a>Notify(payload)
 
@@ -354,7 +354,7 @@ Questa funzione restituisce la proprietà estesa e il relativo valore per il dis
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Propertyname* | `string` | Nome della proprietà estesa |
+| *propertyName* | `string` | Nome della proprietà estesa |
 
 #### <a name="notifypayload"></a>Notify(payload)
 
@@ -402,7 +402,7 @@ Questa funzione restituisce la proprietà estesa e il relativo valore per il sen
 
 | Parametro  | Type                | Descrizione  |
 | ------ | ------------------- | ------------ |
-| *Propertyname* | `string` | Nome della proprietà estesa |
+| *propertyName* | `string` | Nome della proprietà estesa |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 

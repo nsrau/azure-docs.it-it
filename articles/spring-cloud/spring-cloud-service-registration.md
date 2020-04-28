@@ -1,26 +1,26 @@
 ---
-title: Automatizzare il Registro di sistema e l'individuazione del servizioAutomate service registry and
-description: Scopri come automatizzare l'individuazione e la registrazione dei servizi utilizzando Spring Cloud Service Registry
+title: Automatizzare il registro del servizio e l'individuazione
+description: Informazioni su come automatizzare l'individuazione e la registrazione del servizio usando il registro di sistema del servizio cloud Spring
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278849"
 ---
-# <a name="discover-and-register-your-spring-cloud-services"></a>Scopri e registra i tuoi servizi Spring Cloud
+# <a name="discover-and-register-your-spring-cloud-services"></a>Individuare e registrare i servizi cloud Spring
 
-L'individuazione dei servizi è un requisito fondamentale per un'architettura basata su microservizi.  La configurazione manuale di ogni client richiede tempo e introduce la possibilità di errore umano.  Azure Spring Cloud Service Registry risolve questo problema.  Una volta configurato, un server del Registro di sistema del servizio controllerà la registrazione e l'individuazione dei servizi per i microservizi dell'applicazione. Il server del Registro di sistema del servizio gestisce un registro dei microservizi distribuiti, abilita il bilanciamento del carico sul lato client e separa i provider di servizi dai client senza fare affidamento sul DNS.
+L'individuazione del servizio è un requisito fondamentale per un'architettura basata su microservizi.  La configurazione manuale di ogni client richiede tempo e introduce la possibilità di errore umano.  Il registro del servizio cloud Spring di Azure risolve questo problema.  Una volta configurata, un server del registro dei Servizi controllerà la registrazione e l'individuazione del servizio per i microservizi dell'applicazione. Il server del registro di sistema del servizio gestisce un registro dei microservizi distribuiti, Abilita il bilanciamento del carico lato client e separa i provider di servizi dai client senza basarsi su DNS.
 
-## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrare l'applicazione utilizzando Spring Cloud Service Registry
+## <a name="register-your-application-using-spring-cloud-service-registry"></a>Registrare l'applicazione usando il registro di sistema del servizio cloud Spring
 
-Prima che l'applicazione possa gestire la registrazione e l'individuazione del servizio tramite Spring Cloud Service Registry, diverse dipendenze devono essere incluse nel file *pom.xml* dell'applicazione.
-Includi le dipendenze per *spring-cloud-starter-netflix-eureka-client* e *spring-cloud-starter-azure-spring-cloud-client* al tuo *pom.xml*
+Prima che l'applicazione possa gestire la registrazione e l'individuazione dei servizi usando il registro di sistema del servizio cloud Spring, è necessario includere diverse dipendenze nel file *POM. XML* dell'applicazione.
+Includere le dipendenze per *Spring-cloud-Starter-Netflix-Eureka-client* e *Spring-cloud-Starter-Azure-Spring-cloud-client* in *POM. XML*
 
 ```xml
     <dependency>
@@ -36,7 +36,7 @@ Includi le dipendenze per *spring-cloud-starter-netflix-eureka-client* e *spring
 
 ## <a name="update-the-top-level-class"></a>Aggiornare la classe di primo livello
 
-Infine, aggiungiamo un'annotazione alla classe di primo livello dell'applicazione
+Infine, si aggiunge un'annotazione alla classe di primo livello dell'applicazione
 
  ```java
     package foo.bar;
@@ -52,6 +52,6 @@ Infine, aggiungiamo un'annotazione alla classe di primo livello dell'applicazion
     }
  ```
 
-L'endpoint del server Spring Cloud Service Registry verrà inserito come variabile di ambiente nell'applicazione.  I microservizi saranno ora in grado di registrarsi con il server del Registro di sistema del servizio e di individuare altri microservizi dipendenti.
+L'endpoint del server del registro di sistema Spring Cloud Service verrà inserito come variabile di ambiente nell'applicazione.  I microservizi saranno ora in grado di registrarsi con il server del registro di sistema del servizio e di individuare altri microservizi dipendenti.
 
-Si noti che la propagazione delle modifiche dal server a tutti i microservizi può richiedere alcuni minuti.
+Si noti che potrebbero essere necessari alcuni minuti prima che le modifiche vengano propagate dal server a tutti i microservizi.

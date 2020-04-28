@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278369"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
@@ -428,7 +428,7 @@ Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei prob
 | **Percorsi multipli** |`service multipathd start` |Avviare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd stop` |Arrestare il daemon a percorsi multipli |
 | &nbsp; |`service multipathd restart` |Riavviare il daemon a percorsi multipli |
-| &nbsp; |`chkconfig multipathd on` </br> O </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
+| &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf -with_chkconfig y` |Abilitare l'avvio del daemon a percorsi multipli all'avvio del computer |
 | &nbsp; |`multipathd -k` |Avviare la console interattiva per la risoluzione dei problemi |
 | &nbsp; |`multipath -l` |Elencare le connessioni e i dispositivi a percorsi multipli |
 | &nbsp; |`mpathconf --enable` |Creare un file mulitpath.conf di esempio in `/etc/mulitpath.conf` |

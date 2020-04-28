@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 591dcec36dc62143901d3b49db24196e84d58c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76170361"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Aggiungere un'informativa sul supporto interno in un lab di Azure DevTest Labs
@@ -31,7 +31,7 @@ Un'informativa sul supporto interno ha come obiettivo la pubblicazione di inform
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Procedura per aggiungere un'informativa sul supporto a un lab esistente
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
 1. Nell'elenco di lab selezionare il lab in cui si vuole aggiungere un'informativa sul supporto.  
 1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.  

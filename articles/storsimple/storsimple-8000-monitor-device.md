@@ -1,5 +1,5 @@
 ---
-title: Monitorare il dispositivo della serie StorSimple 8000
+title: Monitorare il dispositivo StorSimple serie 8000
 description: Viene descritto come usare il servizio Gestione dispositivi di StorSimple per monitorare uso, prestazioni I/O e uso della capacità.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277048"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
@@ -29,7 +29,7 @@ La capacità fornita e quella residua sono ulteriormente suddivise in volumi agg
 
 
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 **Utilizzo** tiene traccia delle metriche correlate alla quantità di spazio di archiviazione di dati usato da volumi, contenitori del volume o dispositivo. È possibile creare report basati sull'utilizzo della capacità dell'archiviazione primaria, dell'archiviazione cloud o dell'archiviazione del dispositivo. L’utilizzo della capacità può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 Per impostazione predefinita, viene segnalato l'uso nelle ultime 24 ore. Per modificare l'intervallo di calcolo dell'uso nel grafico, effettuare una selezione tra:
 * Ultime 24 ore

@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla risoluzione dei problemi relativi alle risorse
+title: Introduzione alla risoluzione dei problemi delle risorse
 titleSuffix: Azure Network Watcher
 description: Questa pagina fornisce una panoramica delle funzionalità di risoluzione dei problemi delle risorse di Network Watcher
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840690"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
@@ -96,7 +96,7 @@ L'elenco tabella seguente mostra i gateway e le connessioni supportate con la ri
 |ExpressRoute| Non supportato|
 |VPNClient| Non supportato|
 
-## <a name="log-files"></a>File di log
+## <a name="log-files"></a>File di registro
 
 I file di log della risoluzione dei problemi delle risorse vengono archiviati in un account di archiviazione al termine della risoluzione dei problemi delle risorse. L'immagine seguente mostra i contenuti di esempio di una chiamata che ha generato un errore.
 

@@ -1,5 +1,5 @@
 ---
-title: Usare l'API di query integrata JavaScript nelle stored procedure e nei trigger di database di Azure
+title: Usare l'API di query integrata JavaScript in Azure Cosmos DB stored procedure e trigger
 description: Questo articolo illustra i concetti per l'API di Language Integrated Query JavaScript per la creazione di stored procedure e trigger in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -8,15 +8,15 @@ ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76901829"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API di query JavaScript in Azure Cosmos DB
 
-Oltre a eseguire query utilizzando l'API SQL in Azure Cosmos DB, [Cosmos DB SERVER-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) fornisce un'interfaccia JavaScript per l'esecuzione di query ottimizzate in Cosmos DB Stored Procedures and Triggers. Non è necessario conoscere il linguaggio SQL per usare questa interfaccia JavaScript. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni di predicato in una sequenza di chiamate di funzione, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
+Oltre a eseguire query con l'API SQL in Azure Cosmos DB, l' [SDK lato server di Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) fornisce un'interfaccia JavaScript per l'esecuzione di query ottimizzate in Cosmos DB stored procedure e trigger. Non è necessario conoscere il linguaggio SQL per usare questa interfaccia JavaScript. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni di predicato in una sequenza di chiamate di funzione, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
 
 ## <a name="supported-javascript-functions"></a>Funzioni JavaScript supportate
 
@@ -33,7 +33,7 @@ Oltre a eseguire query utilizzando l'API SQL in Azure Cosmos DB, [Cosmos DB SERV
 
 Quando inclusi all'interno delle funzioni predicato e/o selettore, i seguenti costrutti JavaScript vengono automaticamente ottimizzati per l'esecuzione diretta sugli indici di Azure Cosmos DB:
 
-- `=` `+` `-` `*` `/` Operatori `%` semplici: `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
+- Operatori semplici `=` `+` `-` `*` : `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
 - Valori letterali, incluso il valore letterale dell'oggetto: {}
 - var, return
 
@@ -65,7 +65,7 @@ Nella tabella seguente vengono presentate varie query SQL e le query JavaScript 
 Altre informazioni su come scrivere e usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB:
 
 - [Come scrivere stored procedure e trigger usando l'API di query di Javascript](how-to-write-javascript-query-api.md)
-- [Utilizzo di stored procedure, trigger e funzioni definite dall'utente di Azure Cosmos DBWorking with Azure Cosmos DB stored procedures, triggers and user-defined functions](stored-procedures-triggers-udfs.md)
+- [Utilizzo di stored procedure, trigger e funzioni definite dall'utente di Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 - [Come usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 - [Riferimento API di lato server JavaScript di Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)

@@ -1,5 +1,5 @@
 ---
-title: Usare il Runbook di automazione di Azure per gestire i dispositivi StorSimpleUse Azure Automation Runbook to manage StorSimple devices
+title: Usare Runbook di automazione di Azure per gestire i dispositivi StorSimple
 description: Informazioni su come usare i runbook di automazione di Azure per automatizzare i processi di StorSimple
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276963"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Usare i runbook di automazione di Azure per gestire i dispositivi StorSimple
@@ -171,13 +171,13 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
 ### <a name="import-publish-and-run-automation-runbook"></a>Importare, pubblicare ed eseguire il runbook di automazione
 
-1. Creare un account di automazione RunAs di Azure nel portale di Azure. A tale scopo, passare ad **Azure Marketplace > Tutto** e quindi cercare **Automazione**. Selezionare **Account di automazione**.
+1. Creare un account di automazione RunAs di Azure nel portale di Azure. A tale scopo, passare ad **Azure Marketplace > Tutto** e quindi cercare **Automazione**. Selezionare **account di automazione**.
 
     ![Ricerca di Automazione](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
 
 2. Nel pannello **Aggiungi account di Automazione**:
 
-   1. Specificare il **nome** dell'account Automation.
+   1. Specificare il **nome** dell'account di automazione.
    2. Selezionare la **Sottoscrizione** collegata al servizio Gestione dispositivi StorSimple.
    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
    4. Selezionare un **Percorso** (se possibile lo stesso in cui è in esecuzione il servizio).
@@ -206,7 +206,7 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
     ![Fare clic sul nuovo runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Modificare il runbook e fare clic su **Riquadro di test**. Specificare i parametri, ad esempio il nome del servizio Gestione dispositivi StorSimple, il nome del dispositivo StorSimple e la sottoscrizione. **Avviare** il test. Il report viene generato al termine dell'esecuzione. Per ulteriori informazioni, vedere [come testare un runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Modificare il Runbook e fare clic su **riquadro di test**. Specificare i parametri, ad esempio il nome del servizio Gestione dispositivi StorSimple, il nome del dispositivo StorSimple e la sottoscrizione. **Avviare** il test. Il report viene generato al termine dell'esecuzione. Per altre informazioni, vedere [How to test a Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Testare il runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

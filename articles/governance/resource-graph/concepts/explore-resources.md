@@ -1,13 +1,13 @@
 ---
 title: Esplora le tue risorse di Azure
-description: Informazioni su come usare la lingua di query di Resource Graph per esplorare le risorse e scoprire come sono connesse.
+description: Informazioni su come usare il linguaggio di query di Resource Graph per esplorare le risorse e scoprire come sono connesse.
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76156982"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Esplorare le risorse di Azure con Resource Graph
@@ -104,7 +104,7 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 ]
 ```
 
-Le proprietà indicano informazioni aggiuntive sulla risorsa macchina virtuale stessa, da tutto, da SKU, sistema operativo, dischi, tag e il gruppo di risorse e la sottoscrizione di cui è membro.
+Le proprietà forniscono informazioni aggiuntive sulla risorsa della macchina virtuale stessa, da SKU, sistema operativo, dischi, tag e dal gruppo di risorse e dalla sottoscrizione di cui è membro.
 
 ### <a name="virtual-machines-by-location"></a>Macchine virtuali per posizione
 
@@ -176,7 +176,7 @@ Resources
 ```
 
 > [!NOTE]
-> Un altro modo per ottenere lo SKU può essere quello di usare la proprietà **alias****Microsoft.Compute/virtualMachines/sku.name**. Vedere gli esempi [Mostra alias](../samples/starter.md#show-aliases) ed Mostra valori [alias distinti.](../samples/starter.md#distinct-alias-values)
+> Un altro modo per ottenere lo SKU può essere quello di usare la proprietà **alias****Microsoft.Compute/virtualMachines/sku.name**. Vedere gli esempi [Mostra alias](../samples/starter.md#show-aliases) e [Mostra valori alias distinti](../samples/starter.md#distinct-alias-values) .
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -257,7 +257,7 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Esplorare le macchine virtuali per trovare gli indirizzi IP pubblici
 
-Questo set di query rileva e archivia innanzitutto tutte le risorse di interfaccia di rete (NIC) connesse alle macchine virtuali. Le query utilizzano quindi l'elenco di schede di interfaccia di rete per trovare ogni risorsa indirizzo IP che è un indirizzo IP pubblico e archiviare tali valori. Infine, le query forniscono un elenco degli indirizzi IP pubblici.
+Questo set di query consente innanzitutto di individuare e archiviare tutte le risorse delle interfacce di rete connesse alle macchine virtuali. Quindi, le query usano l'elenco di schede di rete per trovare ogni risorsa di indirizzo IP che è un indirizzo IP pubblico e archivia tali valori. Infine, le query forniscono un elenco degli indirizzi IP pubblici.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nics.txt' file
@@ -275,7 +275,7 @@ $nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virt
 $nics.nic
 ```
 
-Usare il file (CLI di Azure) o la variabile (Azure PowerShell) nella query successiva per ottenere i dettagli delle risorse dell'interfaccia di rete correlate in cui è associato un indirizzo IP pubblico.
+Usare il file (interfaccia della riga di comando di Azure) o la variabile (Azure PowerShell) nella query successiva per ottenere informazioni dettagliate sulle risorse dell'interfaccia di rete in cui è associato un indirizzo IP pubblico alla scheda di interfaccia di rete.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -293,7 +293,7 @@ $ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/netwo
 $ips.publicIp
 ```
 
-Infine, usare l'elenco delle risorse dell'indirizzo IP pubblico archiviate nel file (interfaccia della riga di comando di Azure) o nella variabile (Azure PowerShell) per ottenere l'indirizzo IP pubblico effettivo dall'oggetto e dalla visualizzazione correlati.
+Usare infine l'elenco di risorse di indirizzo IP pubblico archiviate nel file (interfaccia della riga di comando di Azure) o nella variabile (Azure PowerShell) per ottenere l'indirizzo IP pubblico effettivo dall'oggetto correlato e la visualizzazione.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
@@ -305,10 +305,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-Per informazioni su come eseguire questi passaggi `join` in una singola query con l'operatore, vedere l'esempio Elenca macchine virtuali con interfaccia di [rete e IP pubblico.](../samples/advanced.md#join-vmpip)
+Per informazioni su come eseguire questi passaggi in una singola query con l' `join` operatore, vedere l'esempio [elenco di macchine virtuali con l'interfaccia di rete e l'indirizzo IP pubblico](../samples/advanced.md#join-vmpip) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ulteriori informazioni sulla lingua di [query](query-language.md).
-- Vedere la lingua in uso nelle [query Starter](../samples/starter.md).
-- Vedere Utilizzo avanzato nelle [query avanzate](../samples/advanced.md).
+- Altre informazioni sul [linguaggio di query](query-language.md).
+- Vedere il linguaggio in uso nelle [query Starter](../samples/starter.md).
+- Vedere uso avanzato nelle [query avanzate](../samples/advanced.md).

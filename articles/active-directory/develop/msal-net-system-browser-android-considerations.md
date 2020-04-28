@@ -1,7 +1,7 @@
 ---
-title: Xamarin Android browser considerazioni (MSAL.NET) Azure
+title: Considerazioni sul browser del sistema Novell Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sulle considerazioni per l'utilizzo dei browser di sistema in Xamarin Android con Microsoft Authentication Library per .NET (MSAL.NET).
+description: Informazioni sulle considerazioni sull'uso dei browser di sistema in Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -15,62 +15,62 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad26a4d619a7984f08a8decc87f9339adae47cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77132606"
 ---
-#  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Xamarin Android considerazioni sul browser di sistema per l'utilizzo di MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Novell Android System Browser considerazioni sull'uso di MSAL.NET
 
-In questo articolo vengono illustrati gli aspetti da considerare quando si utilizza il browser di sistema in Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
+Questo articolo illustra le considerazioni da tenere presenti quando si usa il browser di sistema in Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 
-A partire da MSAL.NET 2.4.0 Preview, MSAL.NET supporta browser diversi da Chrome. Non richiede più che Chrome sia installato sul dispositivo Android per l'autenticazione.
+A partire da MSAL.NET 2.4.0 Preview, MSAL.NET supporta browser diversi da Chrome. Non è più necessario che Chrome sia installato nel dispositivo Android per l'autenticazione.
 
-Si consiglia di utilizzare browser che supportano schede personalizzate. Ecco alcuni esempi di questi browser:
+Si consiglia di utilizzare browser che supportano schede personalizzate. Di seguito sono riportati alcuni esempi di questi browser:
 
-| I browser con schede personalizzate supportano | Nome del pacchetto |
+| Browser con supporto per schede personalizzate | Nome del pacchetto |
 |------| ------- |
 |Chrome | com.Android.Chrome|
-|Microsoft Edge | com.microsoft.emmx (informazioni in com)com.microsoft.emmx (informazioni in ucrain|
-|Firefox | org.mozilla.firefox (informazioni in base alle|
-|Ecosia | com.ecosia.android|
-|Kiwi | com.kiwibrowser.browser|
-|Coraggioso | com.brave.browser|
+|Microsoft Edge | com. Microsoft. emmx|
+|Firefox | org. Mozilla. Firefox|
+|Ecosia | com. Ecosia. Android|
+|Kiwi | com. kiwibrowser. browser|
+|Incredibile | com. brave. browser|
 
-Oltre a identificare i browser che offrono il supporto delle schede personalizzate, il nostro test indica che alcuni browser che non supportano schede personalizzate funzionano anche per l'autenticazione. Questi browser includono Opera, Opera Mini, InBrowser e Maxthon. 
+Oltre a identificare i browser che offrono supporto per schede personalizzate, il test indica che alcuni browser che non supportano schede personalizzate funzionano anche per l'autenticazione. Questi browser includono opera, opera mini, inbrowser e Maxthon. 
 
 ## <a name="tested-devices-and-browsers"></a>Dispositivi e browser testati
-Nella tabella seguente sono elencati i dispositivi e i browser che sono stati testati per la compatibilità dell'autenticazione.
+Nella tabella seguente sono elencati i dispositivi e i browser testati per la compatibilità con l'autenticazione di.
 
 | Dispositivo | Browser     |  Risultato  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/Uno | Chrome\* | Pass|
-| Huawei/Uno | Bordo\* | Pass|
-| Huawei/Uno | Firefox\* | Pass|
-| Huawei/Uno | Coraggioso\* | Pass|
-| Uno e il primo | Ecosia\* | Pass|
-| Uno e il primo | Kiwi\* | Pass|
-| Huawei/Uno | Opera | Pass|
+| Huawei/uno + | Chrome\* | Pass|
+| Huawei/uno + | Microsoft Edge\* | Pass|
+| Huawei/uno + | Firefox\* | Pass|
+| Huawei/uno + | Incredibile\* | Pass|
+| Uno + | Ecosia\* | Pass|
+| Uno + | Kiwi\* | Pass|
+| Huawei/uno + | Opera | Pass|
 | Huawei | OperaMini | Pass|
-| Huawei/Uno | InBrowser | Pass|
-| Uno e il primo | Maxthon | Pass|
-| Huawei/Uno | DuckDuckGo | Autenticazione annullata dall'utente|
-| Huawei/Uno | UC Browser | Autenticazione annullata dall'utente|
-| Uno e il primo | delfino | Autenticazione annullata dall'utente|
-| Uno e il primo | CM Browser | Autenticazione annullata dall'utente|
-| Huawei/Uno | Nessuno installato | AndroidActivityNotFound (eccezione)|
+| Huawei/uno + | Inbrowser | Pass|
+| Uno + | Maxthon | Pass|
+| Huawei/uno + | DuckDuckGo | Autenticazione annullata dall'utente|
+| Huawei/uno + | Browser UC | Autenticazione annullata dall'utente|
+| Uno + | Delfino | Autenticazione annullata dall'utente|
+| Uno + | Browser CM | Autenticazione annullata dall'utente|
+| Huawei/uno + | Nessuno installato | Eccezione AndroidActivityNotFound|
 
 \*Supporta schede personalizzate
 
 ## <a name="known-issues"></a>Problemi noti
 
-Se l'utente non ha attivato il browser `AndroidActivityNotFound` sul dispositivo, MSAL.NET genererà un'eccezione.  
-  - **Mitigazione**: Chiedere all'utente di abilitare un browser sul proprio dispositivo. Consigliare un browser che supporta le schede personalizzate.
+Se per l'utente non è abilitato alcun browser sul dispositivo, MSAL.NET genererà `AndroidActivityNotFound` un'eccezione.  
+  - **Mitigazione**: richiedere all'utente di abilitare un browser sul dispositivo. Consigliare un browser che supporti schede personalizzate.
 
-Se l'autenticazione non riesce (ad esempio, se `AuthenticationCanceled MsalClientException`l'autenticazione viene avviata con DuckDuckGo), MSAL.NET restituirà . 
-  - **Problema principale**: Un browser che supporta le schede personalizzate non è stato abilitato sul dispositivo. Autenticazione avviata con un browser che non è stato in stato di completa completa l'autenticazione. 
-  - **Mitigazione**: Chiedere all'utente di abilitare un browser sul proprio dispositivo. Consigliare un browser che supporta le schede personalizzate.
+Se l'autenticazione ha esito negativo, ad esempio se l'autenticazione viene avviata con `AuthenticationCanceled MsalClientException`DuckDuckGo, MSAL.NET restituirà. 
+  - **Problema principale**: un browser che supporta le schede personalizzate non è stato abilitato nel dispositivo. Autenticazione avviata con un browser che non è stato in grado di completare l'autenticazione. 
+  - **Mitigazione**: richiedere all'utente di abilitare un browser sul dispositivo. Consigliare un browser che supporti schede personalizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni ed esempi di codice, consultate Scelta tra un browser Web incorporato e un browser di [sistema in Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) e interfaccia utente Web [incorporata e di sistema.](msal-net-web-browsers.md#embedded-vs-system-web-ui)  
+Per altre informazioni ed esempi di codice, vedere [scelta tra un Web browser incorporato e un browser di sistema in Novell Android e l'](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) [interfaccia utente Web di sistema incorporata](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

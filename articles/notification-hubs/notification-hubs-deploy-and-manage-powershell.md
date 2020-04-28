@@ -1,6 +1,6 @@
 ---
-title: Distribuire e gestire hub di notifica tramite PowerShellDeploy and manage Notification Hubs using PowerShell
-description: Come creare e gestire hub di notifica tramite PowerShell per l'automazioneHow to create and manage Notification Hubs using PowerShell for Automation
+title: Distribuire e gestire Hub di notifica tramite PowerShell
+description: Come creare e gestire Hub di notifica tramite PowerShell per l'automazione
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76264645"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire Hub di notifica tramite PowerShell
@@ -148,7 +148,7 @@ else
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Gestire il bus di servizio con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
+- [Gestire Bus di servizio con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 - [Come creare code, argomenti e sottoscrizioni del bus di servizio tramite uno script di PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Come creare uno spazio dei nomi del bus di servizio e un hub eventi tramite uno script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
@@ -159,7 +159,7 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Opzioni di acquisto]: https://azure.microsoft.com/pricing/purchase-options/
 [Offerte per i membri]: https://azure.microsoft.com/pricing/member-offers/
 [Versione di valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/
-[Installare e configurare Azure PowerShellInstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API .NET per Hub di notifica]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace

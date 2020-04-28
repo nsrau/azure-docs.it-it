@@ -8,10 +8,10 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76271141"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(DEPRECATO) Usare Draft con il servizio Azure Container e il Registro Azure Container per compilare e distribuire un'applicazione in Kubernetes
@@ -202,7 +202,7 @@ In questo caso, l'IP esterno per il dominio di distribuzione è `13.64.108.240`.
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Mappare l'indirizzo IP dell'ingresso a un sottodominio personalizzato
 
-Draft crea una versione per ogni grafico Helm creato, ovvero ogni applicazione a cui si sta lavorando. Ognuno ottiene un nome generato che viene utilizzato da **draft** come _sottodominio_ sopra il dominio di _distribuzione_ radice che si controlla. (In questo esempio, `squillace.io` usiamo come dominio di distribuzione.) Per abilitare questo comportamento di sottodominio, `'*.draft'` è necessario creare un record A per le voci DNS per il dominio di distribuzione, in modo che ogni sottodominio generato venga instradato al controller in ingresso del cluster Kubernetes. 
+Draft crea una versione per ogni grafico Helm creato, ovvero ogni applicazione a cui si sta lavorando. Ognuno ottiene un nome generato usato da **Draft** come _sottodominio_ sul _dominio di distribuzione_ radice controllato dall'utente. (In questo esempio viene usato `squillace.io` come dominio di distribuzione). Per abilitare questo comportamento del sottodominio, è necessario creare un record A `'*.draft'` per nelle voci DNS per il dominio di distribuzione, in modo che ogni sottodominio generato venga indirizzato al controller di ingresso del cluster Kubernetes. 
 
 Ogni provider di dominio assegna i server DNS in un modo specifico. Per [delegare i server dei nomi di dominio al servizio DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md), seguire questa procedura:
 

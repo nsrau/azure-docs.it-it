@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063381"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
@@ -77,7 +77,7 @@ Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integr
 Con il proxy di applicazione di Microsoft Azure AD è possibile garantire l'accesso ad applicazioni che si trovano all'interno della rete privata in modo sicuro da qualsiasi posizione e su qualsiasi dispositivo. Dopo aver installato un connettore del proxy di applicazione all'interno dell'ambiente, è possibile configurarlo facilmente con Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrazione di applicazioni personalizzate
-Se si sta scrivendo una nuova applicazione e si desidera assistere gli sviluppatori a sfruttare la potenza di Azure AD, vedere [Guiding developers](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Se si scrive una nuova applicazione e si vuole aiutare gli sviluppatori a sfruttare la potenza di Azure AD, vedere [Guida per gli sviluppatori](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di Azure, vedere il post di blog su ["Bring your own app" con la configurazione SAML Self-Service di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -86,16 +86,16 @@ Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso al
 
 * [Gestione dell'accesso alle app tramite Azure AD](what-is-access-management.md)
 * [Automazione con i connettori di Azure AD](../app-provisioning/user-provisioning.md)
-* [Assegnazione di utenti a un'applicazioneAssigning users to an application](../active-directory-applications-guiding-developers-assigning-users.md)
-* [Assegnazione di gruppi a un'applicazioneAssigning groups to an application](../active-directory-applications-guiding-developers-assigning-groups.md)
+* [Assegnazione di utenti a un'applicazione](../active-directory-applications-guiding-developers-assigning-users.md)
+* [Assegnazione di gruppi a un'applicazione](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Condivisione di account](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](https://aka.ms/deploymentplans). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per l'accesso Single Sign-On, l'Accesso condizionale e il provisioning degli utenti tramite il portale di [Azure.](https://portal.azure.com) 
+Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](https://aka.ms/deploymentplans). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per Single Sign-On, l'accesso condizionale e il provisioning degli utenti tramite l' [portale di Azure](https://portal.azure.com). 
 
 Per scaricare un piano di distribuzione dal portale di Azure:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
-2. Selezionare **Applicazioni** | aziendali**Selezionare un** | piano di**distribuzione**app .
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Selezionare **applicazioni** | **aziendali scegliere un piano di distribuzione dell'app** | **Deployment Plan**.
 
 Fornire commenti e suggerimenti sui piani di distribuzione grazie all'uso di [Sondaggio piano di distribuzione](https://aka.ms/DeploymentPlanFeedback).

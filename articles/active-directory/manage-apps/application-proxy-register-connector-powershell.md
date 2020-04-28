@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76756212"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
@@ -34,7 +34,7 @@ Questa funzionalità è utile quando si vuole:
 * Integrare l'installazione e la registrazione del connettore come parte di un'altra procedura.
 * Creare un'immagine server standard che contiene i bit del connettore, ma che non è registrata.
 
-Affinché il [connettore proxy](application-proxy-connectors.md) di applicazione funzioni, è necessario registrarlo con la directory di Azure AD usando un amministratore dell'applicazione e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
+Per il corretto funzionamento del [connettore del proxy di applicazione](application-proxy-connectors.md) , è necessario registrarlo con la directory Azure ad usando un amministratore e una password dell'applicazione. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
 
 Per l'installazione automatica sono previsti due passaggi. In primo luogo, installare il connettore. In secondo luogo, registrare il connettore in Azure AD. 
 
@@ -53,7 +53,7 @@ Esistono due metodi da usare per registrare il connettore:
 * Registrare il connettore con un token creato offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrare il connettore con un oggetto credenziali di Windows PowerShell
-1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente, sostituendo * \<nome utente\> * e * \<password:\>*
+1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente, sostituendo * \<nome utente\> * e * \<password\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -66,7 +66,7 @@ Esistono due metodi da usare per registrare il connettore:
 ### <a name="register-the-connector-using-a-token-created-offline"></a>Registrare il connettore con un token creato offline
 1. Creare un token offline usando la classe AuthenticationContext tramite i valori in questo frammento di codice il Cmdlet PowerShell riportato di seguito:
 
-    **Utilizzo di C :**
+    **Uso di C#:**
 
         using System;
         using System.Diagnostics;
@@ -121,7 +121,7 @@ Esistono due metodi da usare per registrare il connettore:
             tenantID = authResult.TenantId;
         }
 
-    **Uso di PowerShell:Using PowerShell:**
+    **Usando PowerShell:**
 
         # Locate AzureAD PowerShell Module
         # Change Name of Module to AzureAD after what you have installed

@@ -1,5 +1,5 @@
 ---
-title: Crittografare i dischi per i set di scalabilità di Azure con Azure PowerShellEncrypt disks for Azure scale sets with Azure PowerShell
+title: Crittografare i dischi per i set di scalabilità di Azure con Azure PowerShell
 description: Informazioni su come usare Azure PowerShell per crittografare istanze di macchine virtuali e i dischi collegati in set di scalabilità di macchine virtuali di Windows
 author: msmbaldwin
 manager: rkarlin
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
 ms.openlocfilehash: bd7f92c104e06896f4b3c8bb2adef45983cf5d4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278995"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Crittografare il sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con Azure PowerShellEncrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Crittografare il sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con Azure PowerShell
 
-Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script.  Questo articolo illustra come usare Azure PowerShell per creare e crittografare un set di scalabilità di macchine virtuali. Per altre informazioni sull'applicazione di Crittografia disco di Azure a un set di scalabilità di macchine virtuali, vedere Crittografia del disco di Azure per set di [scalabilità di macchine virtuali.](disk-encryption-overview.md)
+Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script.  Questo articolo illustra come usare Azure PowerShell per creare e crittografare un set di scalabilità di macchine virtuali. Per altre informazioni sull'applicazione di crittografia dischi di Azure a un set di scalabilità di macchine virtuali, vedere [crittografia dischi di Azure per i set di scalabilità di macchine virtuali](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -25,7 +25,7 @@ Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure 
 
 L'insieme di credenziali delle chiavi di Azure consente di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Le chiavi di crittografia vengono archiviate nell'insieme di credenziali delle chiavi di Azure che usano la protezione del software oppure è possibile importare o generare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 di livello 2. Queste chiavi di crittografia vengono usate per crittografare e decrittografare i dischi virtuali collegati alla VM. È possibile esercitare il controllo su queste chiavi di crittografia e sul loro uso.
 
-Creare un insieme di credenziali delle chiavi con [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Per consentire l'uso dell'insieme di credenziali delle chiavi per la crittografia dei dischi, impostare il parametro *EnabledForDiskEncryption*. L'esempio seguente definisce anche le variabili per il nome del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi e la posizione. Specificare il nome dell'insieme di credenziali delle chiavi:
+Creare una Key Vault con [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Per consentire l'uso dell'insieme di credenziali delle chiavi per la crittografia dei dischi, impostare il parametro *EnabledForDiskEncryption*. L'esempio seguente definisce anche le variabili per il nome del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi e la posizione. Specificare il nome dell'insieme di credenziali delle chiavi:
 
 ```azurepowershell-interactive
 $rgName="myResourceGroup"
@@ -88,9 +88,9 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 
 Quando richiesto, digitare *y* per continuare il processo di crittografia dei dischi nelle istanze di macchine virtuali del set di scalabilità.
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Abilitare la crittografia tramite KEK per eseguire il wrapping della chiaveEnable encryption using KEK to wrap the key
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Abilitare la crittografia con KEK per eseguire il wrapping della chiave
 
-È anche possibile usare una chiave di crittografia della chiave per aggiungere sicurezza durante la crittografia del set di scalabilità della macchina virtuale.
+È anche possibile usare una chiave di crittografia della chiave per la sicurezza aggiuntiva durante la crittografia del set di scalabilità di macchine virtuali.
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -103,10 +103,10 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 ```
 
 > [!NOTE]
->  La sintassi per il valore del parametro disk-encryption-keyvault è la stringa dell'identificatore completo:</br>
-/subscriptions/[subscription-id-guid]/resourceGroups/[nome-gruppo-risorse]/providers/Microsoft.KeyVault/vaults/[nome-chiavevault]</br></br>
-> La sintassi per il valore del parametro key-encryption-key è l'URI completo della chiave KEK come in:</br>
-https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+>  La sintassi per il valore del parametro Disk-Encryption-Vault è la stringa dell'identificatore completo:</br>
+/Subscriptions/[Subscription-ID-GUID]/resourceGroups/[Resource-Group-Name]/providers/Microsoft.KeyVault/vaults/[nome-insieme-credenziali]</br></br>
+> La sintassi per il valore del parametro Key-Encryption-Key è l'URI completo di KEK come in:</br>
+https:///[nome-insieme-credenziali]. Vault. Azure. NET/Keys/[kekname]/[KEK-Unique-ID]
 
 ## <a name="check-encryption-progress"></a>Verificare lo stato della crittografia
 
@@ -148,5 +148,5 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- In questo articolo è stato crittografato un set di scalabilità di macchine virtuali con Azure PowerShell. È anche possibile usare [l'interfaccia della riga di comando di Azure](disk-encryption-cli.md) o i modelli di Azure Resource [Manager.](disk-encryption-azure-resource-manager.md)
-- Se si vuole applicare Crittografia disco di Azure dopo il provisioning di un'altra estensione, è possibile usare la [sequenza delle estensioni.](virtual-machine-scale-sets-extension-sequencing.md)
+- In questo articolo è stato crittografato un set di scalabilità di macchine virtuali con Azure PowerShell. È anche possibile usare l' [interfaccia](disk-encryption-cli.md) della riga di comando di Azure o i [modelli di Azure Resource Manager](disk-encryption-azure-resource-manager.md).
+- Se si vuole che crittografia dischi di Azure venga applicato dopo il provisioning di un'altra estensione, è possibile usare la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md).
