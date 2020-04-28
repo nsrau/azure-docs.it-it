@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933368"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
 ## <a name="overview"></a>Panoramica
-Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. È possibile mantenere un massimo di 64 istantanee. Per ulteriori informazioni sui criteri di backup, vedere [Tipi di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) nella serie [StorSimple 8000: una soluzione cloud ibrida.](storsimple-overview.md)
+Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. È possibile conservare un massimo di 64 snapshot. Per altre informazioni sui criteri di backup, vedere [tipi di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) nella [serie StorSimple 8000: una soluzione cloud ibrida](storsimple-overview.md).
 
 In questa esercitazione viene illustrato come:
 

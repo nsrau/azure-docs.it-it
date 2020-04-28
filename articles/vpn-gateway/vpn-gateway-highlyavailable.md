@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: panoramica - Configurazioni gateway a disponibilità elevataAzure VPN Gateway: Overview - Highly Available gateway configurations'
+title: 'Gateway VPN di Azure: Panoramica-configurazioni del gateway a disponibilità elevata'
 description: Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata con gateway VPN di Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779621"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata

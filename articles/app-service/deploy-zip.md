@@ -1,15 +1,15 @@
 ---
-title: Distribuire codice con un file postale o WAR
+title: Distribuire il codice con un file ZIP o WAR
 description: Informazioni su come distribuire l'app in Servizio app di Azure con un file ZIP (o un file WAR per sviluppatori Java).
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
 ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75945163"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuire l'app in Servizio app di Azure con un file ZIP o WAR
@@ -22,7 +22,7 @@ La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le 
 - Opzione per attivare il processo di compilazione predefinito, che include il ripristino del pacchetto.
 - Personalizzazione della distribuzione, inclusa l'esecuzione di script di distribuzione.  
 - Log di distribuzione. 
-- Un limite di dimensione del file di 2048 MB.
+- Limite delle dimensioni del file di 2048 MB.
 
 Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -37,7 +37,7 @@ Per completare i passaggi descritti in questo articolo, [creare un'app del servi
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-L'endpoint precedente non funziona per i servizi app Linux in questo momento. Considerare invece l'utilizzo di FTP o dell'API di [distribuzione zip.](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment)
+L'endpoint precedente non funziona in questo momento per i servizi app Linux. In alternativa, è consigliabile usare FTP o l' [API di distribuzione zip](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) .
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Distribuire il file ZIP con l'interfaccia della riga di comando di Azure
 
@@ -51,7 +51,7 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 Questo comando distribuisce i file e le directory del file ZIP nella cartella predefinita dell'applicazione del servizio app (`\home\site\wwwroot`) e riavvia l'app.
 
-Per impostazione predefinita, il motore di distribuzione presuppone che un file zip sia pronto per essere eseguito così com'è e non esedida alcuna automazione della compilazione. Per abilitare la stessa automazione di `SCM_DO_BUILD_DURING_DEPLOYMENT` compilazione in una distribuzione [Git](deploy-local-git.md), impostare l'impostazione dell'app eseguendo il comando seguente in [Cloud Shell](https://shell.azure.com):
+Per impostazione predefinita, il motore di distribuzione presuppone che un file ZIP sia pronto per l'esecuzione così com'è e non esegue alcuna automazione della compilazione. Per abilitare la stessa automazione di compilazione di una [distribuzione git](deploy-local-git.md), impostare l' `SCM_DO_BUILD_DURING_DEPLOYMENT` impostazione dell'app eseguendo il comando seguente nel [cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -63,9 +63,9 @@ Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectk
 
 ## <a name="deploy-war-file"></a>Distribuire il file WAR
 
-Per distribuire un file WAR al servizio `https://<app-name>.scm.azurewebsites.net/api/wardeploy`app, inviare una richiesta POST a . La richiesta POST deve contenere il file WAR nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP.
+Per distribuire un file WAR nel servizio app, inviare una richiesta POST a `https://<app-name>.scm.azurewebsites.net/api/wardeploy`. La richiesta POST deve contenere il file WAR nel corpo del messaggio. Le credenziali di distribuzione per l'app vengono fornite nella richiesta usando l'autenticazione di base HTTP.
 
-Utilizzare `/api/wardeploy` sempre quando si distribuiscono file WAR. Questa API espanderà il file WAR e lo inserirà nell'unità di file condivisa. l'utilizzo di altre API di distribuzione può causare un comportamento incoerente. 
+Usare `/api/wardeploy` sempre quando si distribuiscono file War. Questa API espanderà il file WAR e lo inserirà nell'unità file condivisa. l'uso di altre API di distribuzione può causare un comportamento incoerente. 
 
 Per l'autenticazione HTTP di base sono necessarie le credenziali di distribuzione del servizio app. Per informazioni su come impostare le credenziali di distribuzione, vedere [Impostare e reimpostare le credenziali a livello di utente](deploy-configure-credentials.md#userscope).
 
@@ -79,7 +79,7 @@ curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.s
 
 ### <a name="with-powershell"></a>Con PowerShell
 
-Nell'esempio seguente viene utilizzato [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file con estensione war. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<war-file-path>`.
+L'esempio seguente usa [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file con estensione War. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<war-file-path>`.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>

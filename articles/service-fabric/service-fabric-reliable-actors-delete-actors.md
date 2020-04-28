@@ -1,15 +1,15 @@
 ---
-title: Eliminare gli attori di Azure Service FabricDelete Azure Service Fabric actors
-description: Informazioni su come eliminare manualmente e completamente Reliable Actors e il relativo stato in un'applicazione di Azure Service Fabric.Learn how to manually and fully delete Reliable Actors and their state in an Azure Service Fabric application.
+title: Elimina Azure Service Fabric Actors
+description: Informazioni su come eliminare manualmente e completamente Reliable Actors e il relativo stato in un'applicazione Service Fabric di Azure.
 author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: amanbha
 ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645617"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminare Reliable Actors e il relativo stato
@@ -46,12 +46,12 @@ Un attore non può chiamare un'operazione di eliminazione su se stesso da uno de
 
 Per altre informazioni su Reliable Actors, vedere:
 * [Timer e promemoria degli attori](service-fabric-reliable-actors-timers-reminders.md)
-* [Eventi attori](service-fabric-reliable-actors-events.md)
+* [Eventi Actor](service-fabric-reliable-actors-events.md)
 * [Rientranza attore](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Codice di esempio di C](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Codice di esempio JavaJava Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Codice di esempio C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

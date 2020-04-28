@@ -1,5 +1,5 @@
 ---
-title: Impostazioni consigliate per il dispositivo VPN o firewall di terze parti per il gateway VPN di AzureCommunity-suggested third-party VPN or firewall device settings for Azure VPN Gateway
+title: Impostazioni del dispositivo firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure
 description: Informazioni sulle impostazioni dei dispositivi firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure.
 services: vpn-gateway
 author: chadmath
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862714"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Impostazioni dei dispositivi firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure
@@ -22,11 +22,11 @@ Questo articolo include diverse soluzioni consigliate per i dispositivi firewall
 > [!Note]
 > Il supporto tecnico per i dispositivi firewall o VPN di terze parti viene fornito dal fornitore del dispositivo. 
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 La tabella seguente elenca diversi dispositivi comuni e la guida correlata:
 
-|Prodotto    |Riferimento                                                |
+|Prodotto    |Informazioni di riferimento                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Soluzioni consigliate dalla community per Cisco ASA in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Soluzioni consigliate dalla community per Cisco ISR in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |

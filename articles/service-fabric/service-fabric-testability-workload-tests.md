@@ -1,15 +1,15 @@
 ---
-title: Simulare gli errori nelle app di Azure Service FabricSimulate faults in Azure Service Fabric apps
-description: Informazioni su come proteggere i servizi di Azure Service Fabric in caso di errori normali e non vergognosi.
+title: Simulare gli errori nelle app Service Fabric di Azure
+description: Informazioni su come rafforzare i servizi di Service Fabric di Azure in caso di errori normali e anomali.
 author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645991"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulare gli errori durante i carichi di lavoro del servizio

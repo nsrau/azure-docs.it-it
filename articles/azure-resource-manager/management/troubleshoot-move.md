@@ -1,18 +1,18 @@
 ---
-title: Risolvere gli errori di spostamentoTroubleshoot move errors
+title: Risolvere gli errori di spostamento
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75891266"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risoluzione degli errori di spostamento delle risorse di Azure in un nuovo gruppo di risorse o in una nuova sottoscrizione
 
-In questo articolo vengono forniti suggerimenti per risolvere i problemi durante lo spostamento delle risorse.
+Questo articolo fornisce suggerimenti per la risoluzione dei problemi durante lo trasferimento delle risorse.
 
 ## <a name="upgrade-a-subscription"></a>Aggiornare una sottoscrizione
 
@@ -25,12 +25,12 @@ Se non è possibile convertire la sottoscrizione, [creare una richiesta di suppo
 
 ## <a name="service-limitations"></a>Limitazioni del servizio
 
-Alcuni servizi richiedono considerazioni aggiuntive quando si spostano le risorse. Se stai spostando i seguenti servizi, assicurati di controllare le linee guida e le limitazioni.
+Alcuni servizi richiedono considerazioni aggiuntive quando si trasferiscono le risorse. Se si stanno migrando i servizi seguenti, assicurarsi di controllare le linee guida e le limitazioni.
 
 * [Servizi app](./move-limitations/app-service-move-limitations.md)
-* [Servizi DevOps di AzureAzure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+* [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Modello di distribuzione classica](./move-limitations/classic-model-move-limitations.md)
-* [Rete](./move-limitations/networking-move-limitations.md)
+* [Funzionalità di rete](./move-limitations/networking-move-limitations.md)
 * [Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
 
@@ -38,13 +38,13 @@ Alcuni servizi richiedono considerazioni aggiuntive quando si spostano le risors
 
 Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente un errore quando sono presenti più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
 
-## <a name="resource-not-in-succeeded-state"></a>Risorsa non riuscita
+## <a name="resource-not-in-succeeded-state"></a>Lo stato della risorsa non è riuscito
 
-Quando viene visualizzato un messaggio di errore che indica che una risorsa non può essere spostata perché non è in uno stato riuscito, potrebbe effettivamente essere una risorsa dipendente che blocca lo spostamento. In genere, il codice di errore è **MoveCannotProceedWithResourcesNotInSucceededState**.
+Quando viene ricevuto un messaggio di errore che indica che non è possibile spostare una risorsa perché non è in uno stato Succeeded, può essere effettivamente una risorsa dipendente che blocca lo spostamento. Il codice di errore è in genere **MoveCannotProceedWithResourcesNotInSucceededState**.
 
-Se il gruppo di risorse di origine o di destinazione contiene una rete virtuale, gli stati di tutte le risorse dipendenti per la rete virtuale vengono controllati durante lo spostamento. Il controllo include tali risorse direttamente e indirettamente dipendenti dalla rete virtuale. Se una di queste risorse si trova in uno stato di errore, lo spostamento viene bloccato. Ad esempio, se una macchina virtuale che utilizza la rete virtuale non è riuscita, lo spostamento viene bloccato. Lo spostamento viene bloccato anche quando la macchina virtuale non è una delle risorse da spostare e non si trova in uno dei gruppi di risorse per lo spostamento.
+Se il gruppo di risorse di origine o di destinazione contiene una rete virtuale, durante lo spostamento vengono controllati gli Stati di tutte le risorse dipendenti per la rete virtuale. Il controllo include le risorse direttamente e indirettamente dipendenti dalla rete virtuale. Se una di queste risorse si trova in uno stato di errore, lo spostamento è bloccato. Se ad esempio una macchina virtuale che usa la rete virtuale non è riuscita, lo spostamento è bloccato. Lo spostamento viene bloccato anche quando la macchina virtuale non è una delle risorse spostate e non si trova in uno dei gruppi di risorse per lo spostamento.
 
-Quando si riceve questo errore, sono disponibili due opzioni. Spostare le risorse in un gruppo di risorse che non dispone di una rete virtuale [oppure contattare](../../azure-portal/supportability/how-to-create-azure-support-request.md)il supporto tecnico.
+Quando si riceve questo errore, sono disponibili due opzioni. Spostare le risorse in un gruppo di risorse che non dispone di una rete virtuale o [contattare il supporto tecnico](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

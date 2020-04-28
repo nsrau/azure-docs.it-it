@@ -1,5 +1,5 @@
 ---
-title: Routing di eventi e messaggi - Azure Digital Twins Documenti Microsoft
+title: Routing di eventi e messaggi-dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Panoramica del routing di eventi e messaggi agli endpoint di servizio con Gemelli digitali di Azure
 ms.author: alinast
 author: alinamstanciu
@@ -9,19 +9,19 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862357"
 ---
-# <a name="routing-iot-events-and-messages"></a>Routing di eventi e messaggi IoT
+# <a name="routing-iot-events-and-messages"></a>Routing di eventi e messaggi
 
-Le soluzioni Internet of Things spesso uniscono diversi servizi potenti che includono archiviazione, analisi e altro ancora. Questo articolo descrive come connettere app di Gemelli digitali di Azure a servizi di analisi, intelligenza artificiale e archiviazione di Azure per arricchirle con informazioni e funzionalità più avanzate.
+Internet delle cose soluzioni spesso uniscono diversi servizi avanzati che includono archiviazione, analisi e altro ancora. Questo articolo descrive come connettere app di Gemelli digitali di Azure a servizi di analisi, intelligenza artificiale e archiviazione di Azure per arricchirle con informazioni e funzionalità più avanzate.
 
 ## <a name="route-types"></a>Tipi di routing  
 
-I gemelli digitali di Azure offrono due modi per connettere gli eventi IoT con altri servizi di Azure o applicazioni aziendali:Azure Digital Twins offers two ways to connect IoT events with other Azure services or business applications:
+I dispositivi gemelli digitali di Azure offrono due modi per connettere gli eventi Internet con altri servizi di Azure o applicazioni aziendali:
 
 * **Routing di eventi di Gemelli digitali di Azure**: un oggetto nel grafico spaziale che cambia, dati di telemetria che vengono ricevuti o una funzione definita dall'utente che crea una notifica in base a condizioni predefinite possono attivare eventi di Gemelli digitali di Azure. Gli utenti possono inviare questi eventi a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [argomenti del bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) o [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) per l'ulteriore elaborazione.
 
@@ -41,7 +41,7 @@ Attualmente il servizio Gemelli digitali di Azure supporta gli elementi **Endpoi
 
 * **EventHub**, l'endpoint della stringa di connessione di Hub eventi.
 * **ServiceBus** è l'endpoint della stringa di connessione del bus di servizio.
-* **EventGrid** è l'endpoint della stringa di connessione di Griglia di eventi.
+* **EventGrid** è l'endpoint della stringa di connessione della griglia di eventi.
 
 Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguenti da inviare all'endpoint scelto:
 
@@ -62,10 +62,10 @@ Attualmente Gemelli digitali di Azure supporta gli elementi **EventType** seguen
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Per ulteriori informazioni su come creare endpoint ed esempi di schema di eventi, leggere [Uscita ed endpoint](how-to-egress-endpoints.md).
+>Per ulteriori informazioni su come creare endpoint ed esempi di schema degli eventi, vedere in [uscita ed endpoint](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sui limiti di anteprima di Azure Digital Twins, vedere Limiti del [servizio di anteprima pubblica.](concepts-service-limits.md)
+- Per informazioni sui limiti di anteprima di Azure Digital Twins, vedere [limiti del servizio di anteprima pubblica](concepts-service-limits.md).
 
-- Per provare un esempio di Azure Digital Twins, leggere la [guida introduttiva per trovare](quickstart-view-occupancy-dotnet.md)le sale disponibili.
+- Per provare un esempio di Azure Digital Twins, vedere la [Guida introduttiva per trovare le chat disponibili](quickstart-view-occupancy-dotnet.md).

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 1/08/2020
 ms.author: rohogue
 ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75866996"
 ---
 # <a name="edit-storage-targets"></a>Modificare le destinazioni di archiviazione
@@ -35,7 +35,7 @@ Tutte le modifiche apportate ai file archiviati nella cache vengono scritte nel 
 
   * Percorso dello spazio dei nomi
   * Modello di utilizzo
-  * Esportazione
+  * Export
   * Esporta sottodirectory
 
 Non è possibile modificare il nome, il tipo o il sistema di archiviazione back-end di una destinazione di archiviazione (contenitore BLOB o nome host/indirizzo IP NFS). Se è necessario modificare queste proprietà, eliminare la destinazione di archiviazione e creare una sostituzione con il nuovo valore.

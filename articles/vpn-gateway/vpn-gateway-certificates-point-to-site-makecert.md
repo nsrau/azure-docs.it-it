@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: generare & certificati di esportazione per P2S: MakeCertAzure VPN Gateway: Generate & export certificates for P2S: MakeCert'
+title: 'Gateway VPN di Azure: generare & certificati di esportazione per P2S: MakeCert'
 description: Creare un certificato radice autofirmato, esportare la chiave pubblica e generare certificati client con MakeCert.
 services: vpn-gateway
 author: cherylmc
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
 ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75833982"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generare ed esportare certificati per connessioni da punto a sito usando MakeCert
 
 Le connessioni da punto a sito usano certificati per l'autenticazione. Questo articolo illustra come creare un certificato radice autofirmato e generare i certificati client usando MakeCert. Se si stanno cercando le diverse istruzioni per i certificati, consultare [Certificati - PowerShell](vpn-gateway-certificates-point-to-site.md) oppure [Certificati - Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
-Anche se è consigliabile usare la [procedura con PowerShell per Windows 10](vpn-gateway-certificates-point-to-site.md) per creare i certificati, queste istruzioni relative a MakeCert vengono fornite come metodo facoltativo. I certificati generati utilizzando entrambi i metodi possono essere installati in [qualsiasi sistema operativo client supportato.](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) MakeCert presenta tuttavia la limitazione seguente:
+Anche se è consigliabile usare la [procedura con PowerShell per Windows 10](vpn-gateway-certificates-point-to-site.md) per creare i certificati, queste istruzioni relative a MakeCert vengono fornite come metodo facoltativo. I certificati generati con uno dei due metodi possono essere installati in [qualsiasi sistema operativo client supportato](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). MakeCert presenta tuttavia la limitazione seguente:
 
 * MakeCert è deprecato. Questo strumento potrebbe quindi essere rimosso in qualsiasi momento. I certificati già generati con MakeCert non saranno interessati quando MakeCert non sarà più disponibile. MakeCert viene usato solo per generare i certificati, non come meccanismo di convalida.
 
@@ -26,7 +26,7 @@ Anche se è consigliabile usare la [procedura con PowerShell per Windows 10](vpn
 
 La procedura seguente illustra come creare un certificato autofirmato usando MakeCert. Questi passaggi non sono specifici di un modello di distribuzione. Sono validi sia per Gestione risorse che per il modello classico.
 
-1. Scaricare e installare [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+1. Scaricare e installare [Makecert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
 2. Dopo l'installazione, in genere è possibile trovare l'utilità makecert.exe nel percorso seguente: "C:\Programmi (x86)\Windows Kits\10\bin\<arch>". È tuttavia possibile che sia stato installato in un altro percorso. Aprire un prompt dei comandi come amministratore e passare al percorso dell'utilità MakeCert. È possibile usare l'esempio seguente, apportando le modifiche necessarie per il percorso corretto:
 
    ```cmd

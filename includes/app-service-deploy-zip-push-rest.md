@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75769668"
 ---
 ## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Distribuire il file con estensione zip con le API REST 
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>Con PowerShell
 
-Nell'esempio seguente viene utilizzato [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file con estensione zip. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<zip-file-path>`.
+L'esempio seguente usa [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) per caricare il file zip. Sostituire i segnaposto `<group-name>`, `<app-name>` e `<zip-file-path>`.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 Questa richiesta attiva la distribuzione push dal file ZIP caricato. 
 
-Per esaminare le distribuzioni correnti e precedenti, eseguire i comandi seguenti. Sostituire nuovamente `<deployment-user>`i `<deployment-password>`segnaposto `<app-name>` , e .
+Per esaminare le distribuzioni correnti e precedenti, eseguire i comandi seguenti. Anche in questo caso `<deployment-user>`, `<deployment-password>`sostituire i `<app-name>` segnaposto, e.
 
 ```bash
 $username = "<deployment-user>"

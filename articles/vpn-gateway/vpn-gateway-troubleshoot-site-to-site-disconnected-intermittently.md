@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di disconnessione intermittente della VPN da sito a sito di AzureTroubleshoot Azure Site-to-Site VPN disconnects intermittently
+title: Risolvere i problemi di disconnessione VPN da sito a sito di Azure in modo intermittente
 description: Informazioni su come risolvere il problema per cui la connessione VPN da sito a sito viene periodicamente interrotta.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862561"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Risoluzione dei problemi: disconnessioni VPN da sito a sito di Azure intermittenti
@@ -62,7 +62,7 @@ Il gateway di rete virtuale basato su criteri ha un limite di 200 coppie di asso
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Passaggio 7 Controllare se il dispositivo VPN locale ha PFS (Perfect Forward Secrecy) abilitato
 
-La funzionalità **PFS (Perfect Forward Secrecy)** può causare i problemi di disconnessione. Se il dispositivo VPN ha la funzionalità **PFS (Perfect Forward Secrecy)** abilitata, disabilitarla, Aggiornare [quindi il criterio IPsec del gateway](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy)di rete virtuale.
+La funzionalità **PFS (Perfect Forward Secrecy)** può causare i problemi di disconnessione. Se il dispositivo VPN ha la funzionalità **PFS (Perfect Forward Secrecy)** abilitata, disabilitarla, [Aggiornare quindi i criteri IPSec del gateway di rete virtuale](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

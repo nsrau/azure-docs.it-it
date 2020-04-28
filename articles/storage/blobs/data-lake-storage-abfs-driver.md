@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75970283"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Driver ABFS (Azure Blob File System): un driver di Archiviazione di Azure dedicato per Hadoop
@@ -21,7 +21,7 @@ Uno dei metodi di accesso principali per i dati archiviati in Azure Data Lake St
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funzionalità principale: driver del BLOB del servizio di archiviazione di Azure
 
-Il driver del BLOB del servizio di archiviazione di Azure o [driver WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) forniva il supporto originale per Archiviazione BLOB di Azure. Il driver eseguiva un'attività complessa che consisteva nel mappare la semantica basata su file system, come richiesta dall'interfaccia del file system Hadoop, a quella dell'interfaccia basata sullo stile di archiviazione degli oggetti esposta da Archiviazione BLOB di Azure. Questo driver continua a supportare questo modello, fornendo un accesso ad alte prestazioni ai dati archiviati nei BLOB, ma contiene una quantità significativa di codice che esegue questo mapping, rendendo difficile la gestione. Inoltre, alcuni comandi come [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive), quando applicati a directory, richiedono l'esecuzione di una notevole quantità di operazioni, poiché negli archivi degli oggetti non sono supportate le directory, e questo influisce spesso negativamente sulle prestazioni. Il driver ABFS è stato progettato per ovviare alle carenze inerenti al driver WASB.
+Il driver del BLOB del servizio di archiviazione di Azure o [driver WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) forniva il supporto originale per Archiviazione BLOB di Azure. Il driver eseguiva un'attività complessa che consisteva nel mappare la semantica basata su file system, come richiesta dall'interfaccia del file system Hadoop, a quella dell'interfaccia basata sullo stile di archiviazione degli oggetti esposta da Archiviazione BLOB di Azure. Questo driver continua a supportare questo modello, garantendo un accesso ad alte prestazioni ai dati archiviati nei BLOB, ma contiene una quantità significativa di codice che esegue questo mapping, rendendolo difficile da gestire. Inoltre, alcuni comandi come [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive), quando applicati a directory, richiedono l'esecuzione di una notevole quantità di operazioni, poiché negli archivi degli oggetti non sono supportate le directory, e questo influisce spesso negativamente sulle prestazioni. Il driver ABFS è stato progettato per ovviare alle carenze inerenti al driver WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Driver ABFS
 
@@ -51,7 +51,7 @@ Il driver ABFS supporta due forme di autenticazione per consentire all'applicazi
 - **Token di connessione OAuth di Azure Active Directory:** i token di connessione di Azure AD vengono acquisiti e aggiornati dal driver usando l'identità dell'utente finale o un'entità servizio configurata. Con questo modello di autenticazione tutti gli accessi sono autorizzati per ogni chiamata usando l'identità associata al token fornito e valutata in base all'elenco di controllo di accesso POSIX assegnato.
 
    > [!NOTE]
-   > Azure Data Lake Storage Gen2 supporta solo endpoint di Azure AD v1.0.Azure Data Lake Storage Gen2 supports only Azure AD v1.0 endpoints.
+   > Azure Data Lake Storage Gen2 supporta solo endpoint Azure AD v 1.0.
 
 ### <a name="configuration"></a>Configurazione
 
@@ -65,5 +65,5 @@ Informazioni dettagliate sul driver ABFS sono disponibili nella [documentazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un cluster di Azure DatabricksCreate an Azure Databricks Cluster](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Creare un cluster Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Usare l'URI di Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

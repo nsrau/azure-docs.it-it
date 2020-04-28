@@ -4,15 +4,15 @@ description: Informazioni su come installare o aggiornare le estensioni di assoc
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75768861"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale
 
-A partire dalla versione 2.x, il runtime di Funzioni di Azure usa le estensioni di associazione per implementare il codice per i trigger e le associazioni. Le estensioni delle associazioni sono incluse nei pacchetti NuGet. Per registrare un'estensione, essenzialmente si installa un pacchetto. Quando si sviluppano le funzioni, il modo in cui si installano le estensioni delle associazioni dipende dall'ambiente di sviluppo. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-register.md) nell'articolo relativo ai trigger e alle associazioni.
+A partire dalla versione 2. x, il runtime di funzioni di Azure usa le estensioni di binding per implementare il codice per i trigger e le associazioni. Le estensioni delle associazioni sono incluse nei pacchetti NuGet. Per registrare un'estensione, essenzialmente si installa un pacchetto. Quando si sviluppano le funzioni, il modo in cui si installano le estensioni delle associazioni dipende dall'ambiente di sviluppo. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-register.md) nell'articolo relativo ai trigger e alle associazioni.
 
 In alcuni casi è necessario installare o aggiornare manualmente le estensioni delle associazioni nel portale di Azure. Potrebbe essere necessario, ad esempio, eseguire l'aggiornamento di un'associazione registrata a una versione più recente. Potrebbe essere anche necessario registrare un'associazione supportata che non può essere installata nella scheda **Integrazione** nel portale.
 
@@ -24,7 +24,7 @@ Usare la procedura seguente per installare o aggiornare manualmente le estension
 
 1. Scegliere la scheda **Funzionalità della piattaforma** e in **Strumenti di sviluppo** selezionare **Strumenti avanzati (Kudu)**. L'endpoint Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) viene aperto in una nuova finestra.
 
-1. Nella finestra Kudu, selezionare **Debug console** > **CMD**.  
+1. Nella finestra Kudu selezionare **console** > di debug**cmd**.  
 
 1. Nella finestra di comando passare a `D:\home\site\wwwroot` e scegliere l'icona di eliminazione accanto a `bin` per eliminare la cartella. Selezionare **OK** per confermare l'eliminazione.
 

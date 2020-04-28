@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75708356"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -43,20 +43,20 @@ Contenuto dell'esercitazione:
 
 Per completare questa esercitazione:
 
-+ [Creare un'istanza di Gestione API di AzureCreate an Azure API Management instance](get-started-create-service-instance.md)
++ [Creare un'istanza di gestione API di Azure](get-started-create-service-instance.md)
 + [Importare e pubblicare un'API](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Aggiungere i criteri di memorizzazione nella cache
 
 Con i criteri di memorizzazione nella cache illustrati in questo esempio, la prima richiesta per l'operazione **GetSpeakers** restituisce una risposta dal servizio back-end. Questa risposta viene memorizzata nella cache, associata a una chiave in base alle intestazioni e ai parametri delle stringhe di query specifici. Le chiamate successive all'operazione, con i parametri corrispondenti, riceveranno la risposta memorizzata nella cache finché non scade l'intervallo di durata della cache.
 
-1. Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Passare all'istanza di Gestione API.
-3. Selezionare la scheda **API.**
+3. Selezionare la scheda **API** .
 4. Fare clic su **Demo Conference API** (API Demo Conference) nell'elenco di API.
 5. Selezionare **GetSpeakers**.
 6. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-7. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**.
+7. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>** .
 
     ![Editor di codice](media/api-management-howto-cache/code-editor.png)
 
@@ -81,7 +81,7 @@ Con i criteri di memorizzazione nella cache illustrati in questo esempio, la pri
 Per vedere il funzionamento della memorizzazione nella cache, chiamare l'operazione dal portale per sviluppatori.
 
 1. Nel portale di Azure passare all'istanza di Gestione API.
-2. Selezionare la scheda **API.**
+2. Selezionare la scheda **API** .
 3. Selezionare l'API a cui sono stati aggiunti i criteri di memorizzazione nella cache.
 4. Selezionare l'operazione **GetSpeakers**.
 5. Fare clic sulla scheda **Test** nel menu in alto a destra.

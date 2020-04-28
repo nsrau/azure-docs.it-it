@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: risolvere i problemi relativi a configurazioni e connessioniAzure VPN Gateway: Troubleshoot configurations and connections'
+title: 'Gateway VPN di Azure: risolvere i problemi relativi alle configurazioni e alle connessioni'
 description: Questo articolo offre collegamenti ad articoli utili per risolvere i problemi relativi alla configurazione e alla connessione di Gateway VPN e per convalidare la velocità effettiva della rete.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: cherylmc
 ms.openlocfilehash: d73bc8e9c39c14a254e8f7bae1d7b1a96a6c3225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75780165"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Risolvere i problemi relativi a Gateway VPN
@@ -24,7 +24,7 @@ Le connessioni di Gateway VPN possono presentare problemi dovuti a una serie di 
 
 * [Impostazioni di dispositivi firewall o VPN](vpn-gateway-third-party-settings.md)<br>Questo articolo offre diversi suggerimenti per risolvere i problemi relativi ai dispositivi firewall o VPN di terze parti usati con Gateway VPN. Il supporto tecnico per i dispositivi firewall o VPN di terze parti viene fornito dal fornitore del dispositivo.
 
-* [Connessioni da punto a sito](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Questo articolo elenca i problemi comuni di connessione da punto a sito che l'utente potrebbe riscontrare. e le possibili cause e soluzioni.
+* [Connessioni Point-to-Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Questo articolo elenca i problemi comuni di connessione da punto a sito che l'utente potrebbe riscontrare. e le possibili cause e soluzioni.
 
 * [Connessioni Site-to-site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Dopo aver configurato una connessione VPN da sito a sito tra una rete locale e una rete virtuale di Azure, la connessione VPN si interrompe improvvisamente e non può essere riconnessa. Questo articolo illustra la procedura per risolvere questo tipo di problema.
 

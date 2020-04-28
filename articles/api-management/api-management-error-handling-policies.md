@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75902448"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
@@ -59,32 +59,32 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 
 È possibile usare i seguenti criteri nella sezione di criteri `on-error`.
 
--   [Scegliere](api-management-advanced-policies.md#choose)
--   [set-variable](api-management-advanced-policies.md#set-variable)
+-   [scegliere](api-management-advanced-policies.md#choose)
+-   [Set-Variable](api-management-advanced-policies.md#set-variable)
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)
 -   [set-status](api-management-advanced-policies.md#SetStatus)
 -   [send-request](api-management-advanced-policies.md#SendRequest)
--   [inviare un i-way-request](api-management-advanced-policies.md#SendOneWayRequest)
+-   [Send-One-Way-request](api-management-advanced-policies.md#SendOneWayRequest)
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
 
 ## <a name="lasterror"></a>lastError
 
-Quando si verifica un errore `on-error` e il controllo passa alla sezione dei criteri, l'errore viene archiviato nel [contesto. LastError,](api-management-policy-expressions.md#ContextVariables) accessibile dai criteri nella `on-error` sezione. LastError ha le seguenti proprietà.
+Quando si verifica un errore e il controllo passa `on-error` alla sezione dei criteri, l'errore viene archiviato nel [contesto. Proprietà LastError](api-management-policy-expressions.md#ContextVariables) , a cui è possibile accedere dai criteri nella `on-error` sezione. LastError ha le seguenti proprietà.
 
 | Nome       | Type   | Descrizione                                                                                               | Obbligatoria |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Potrebbe essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
-| `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
-| `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
-| `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
-| `Section`  | string | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".      | No       |
-| `Path`     | string | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                 | No       |
-| `PolicyId` | string | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No       |
+| `Source`   | stringa | Indica l'elemento in cui si è verificato l'errore. Può essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
+| `Reason`   | stringa | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
+| `Message`  | stringa | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
+| `Scope`    | stringa | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
+| `Section`  | stringa | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".      | No       |
+| `Path`     | stringa | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                 | No       |
+| `PolicyId` | stringa | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No       |
 
 > [!TIP]
 > È possibile accedere al codice di stato tramite context.Response.StatusCode.
@@ -101,9 +101,9 @@ Gli errori seguenti sono predefiniti per le condizioni di errore che possono ver
 | configurazione | L'URI non corrisponde a un'API o a un'operazione | OperationNotFound       | Impossibile associare la richiesta in ingresso a un'operazione.                                                                      |
 | authorization | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
 | authorization | Il valore della chiave di sottoscrizione non è valido         | SubscriptionKeyInvalid  | Accesso negato, la chiave di sottoscrizione non è valida. Assicurarsi di fornire la chiave valida di una sottoscrizione attiva.            |
-| multipli | La connessione downstream (da un client a un gateway di Gestione API) è stata interrotta dal client mentre la richiesta era in sospeso | ClientConnectionFailure | multipli |
-| multipli | La connessione upstream (da un gateway di Gestione API a un servizio back-end) non è stata stabilita o è stata interrotta dal back-end | BackendConnectionFailure | multipli |
-| multipli | Si è verificata un'eccezione di runtime durante la valutazione di una particolare espressione | EspressioneValueEvaluationFailure | multipli |
+| multipli | La connessione downstream (da un client a un gateway di gestione API) è stata interrotta dal client mentre la richiesta era in sospeso | ClientConnectionFailure | multipli |
+| multipli | La connessione upstream (da un gateway di gestione API a un servizio back-end) non è stata stabilita o è stata interrotta dal back-end | BackendConnectionFailure | multipli |
+| multipli | Si è verificata un'eccezione in fase di esecuzione durante la valutazione di un'espressione particolare | ExpressionValueEvaluationFailure | multipli |
 
 ## <a name="predefined-errors-for-policies"></a>Errori predefiniti per i criteri
 
@@ -114,21 +114,21 @@ Gli errori seguenti sono predefiniti per le condizioni di errore che possono ver
 | rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
 | quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
 | jsonp        | Il valore del parametro callback non è valido (contiene caratteri errati) | CallbackParameterInvalid  | Il valore del parametro callback {callback-parameter-name} non è un identificatore JavaScrpit valido.                                          |
-| ip-filter    | Impossibile analizzare l'IP del chiamante dalla richiesta                          | FailedToParseCallerIP     | Impossibile stabilire l'indirizzo IP per il chiamante. Accesso negato.                                                                        |
-| ip-filter    | L'IP del chiamante non è presente nell'elenco degli IP consentiti                                | CallerIpNotAllowed        | L'indirizzo IP del chiamante {ip-address} non è consentito. Accesso negato.                                                                        |
-| ip-filter    | L'IP del chiamante è presente nell'elenco degli IP bloccati                                    | CallerIpBlocked           | L'indirizzo IP del chiamante è bloccato. Accesso negato.                                                                                         |
-| check-header | Intestazione richiesta non presentata o valore mancante               | HeaderNotFound            | Impossibile trovare l'intestazione {header-name} nella richiesta. Accesso negato.                                                                    |
-| check-header | Intestazione richiesta non presentata o valore mancante               | HeaderValueNotAllowed     | Il valore {header-value} dell'intestazione {header-name} non è consentito. Accesso negato.                                                          |
-| validate-jwt | La richiesta non contiene il token JWT                                 | TokenNotFound             | JWT non trovato nella richiesta. Accesso negato.                                                                                         |
-| validate-jwt | Convalida della firma non riuscita                                     | TokenSignatureInvalid     | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
-| validate-jwt | Destinatari non validi                                                | TokenAudienceNotAllowed   | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
-| validate-jwt | Autorità di certificazione non valida                                                  | TokenIssuerNotAllowed     | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
-| validate-jwt | Token scaduto                                                   | TokenExpired              | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
-| validate-jwt | La chiave della firma non è stata risolta dall'ID                            | TokenSignatureKeyNotFound | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
-| validate-jwt | Attestazioni necessarie non presenti nel token                          | TokenClaimNotFound        | Il token JWT non contiene le attestazioni seguenti: <c1\>, <c2\>, … Accesso negato.                                                            |
-| validate-jwt | I valori di attestazione non corrispondono                                           | TokenClaimValueNotAllowed | Il valore {claim-value} dell'attestazione {claim-name} non è consentito. Accesso negato.                                                             |
+| ip-filter    | Impossibile analizzare l'IP del chiamante dalla richiesta                          | FailedToParseCallerIP     | Impossibile stabilire l'indirizzo IP per il chiamante. Accesso negato:                                                                        |
+| ip-filter    | L'IP del chiamante non è presente nell'elenco degli IP consentiti                                | CallerIpNotAllowed        | L'indirizzo IP del chiamante {ip-address} non è consentito. Accesso negato:                                                                        |
+| ip-filter    | L'IP del chiamante è presente nell'elenco degli IP bloccati                                    | CallerIpBlocked           | L'indirizzo IP del chiamante è bloccato. Accesso negato:                                                                                         |
+| check-header | Intestazione richiesta non presentata o valore mancante               | HeaderNotFound            | Impossibile trovare l'intestazione {header-name} nella richiesta. Accesso negato:                                                                    |
+| check-header | Intestazione richiesta non presentata o valore mancante               | HeaderValueNotAllowed     | Il valore {header-value} dell'intestazione {header-name} non è consentito. Accesso negato:                                                          |
+| validate-jwt | La richiesta non contiene il token JWT                                 | TokenNotFound             | JWT non trovato nella richiesta. Accesso negato:                                                                                         |
+| validate-jwt | Convalida della firma non riuscita                                     | TokenSignatureInvalid     | <messaggio dalla libreria JWT\>. Accesso negato:                                                                                          |
+| validate-jwt | Destinatari non validi                                                | TokenAudienceNotAllowed   | <messaggio dalla libreria JWT\>. Accesso negato:                                                                                          |
+| validate-jwt | Autorità di certificazione non valida                                                  | TokenIssuerNotAllowed     | <messaggio dalla libreria JWT\>. Accesso negato:                                                                                          |
+| validate-jwt | Token scaduto                                                   | TokenExpired              | <messaggio dalla libreria JWT\>. Accesso negato:                                                                                          |
+| validate-jwt | La chiave della firma non è stata risolta dall'ID                            | TokenSignatureKeyNotFound | <messaggio dalla libreria JWT\>. Accesso negato:                                                                                          |
+| validate-jwt | Attestazioni necessarie non presenti nel token                          | TokenClaimNotFound        | Il token JWT non contiene le attestazioni seguenti: <c1\>, <c2\>, … Accesso negato:                                                            |
+| validate-jwt | I valori di attestazione non corrispondono                                           | TokenClaimValueNotAllowed | Il valore {claim-value} dell'attestazione {claim-name} non è consentito. Accesso negato:                                                             |
 | validate-jwt | Altri errori di convalida                                       | JwtInvalid                | <messaggio dalla libreria JWT\>                                                                                                          |
-| inoltrare o inviare-richiesta | Il codice di stato della risposta HTTP e le intestazioni non sono state ricevute dal back-end entro il timeout configurato | Timeout | multipli |
+| inoltra-request o Send-request | Il codice di stato della risposta HTTP e le intestazioni non sono state ricevute dal back-end entro il timeout configurato | Timeout | multipli |
 
 ## <a name="example"></a>Esempio
 

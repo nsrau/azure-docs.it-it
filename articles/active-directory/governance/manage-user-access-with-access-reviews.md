@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso degli utenti con le verifiche di accesso - Azure ADManage user access with access reviews - Azure AD
+title: Gestire l'accesso utente con le verifiche di accesso-Azure AD
 description: Informazioni su come gestire l'accesso degli utenti come appartenenza a un gruppo o assegnazione a un'applicazione con le verifiche di accesso di Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75932406"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
@@ -44,20 +44,20 @@ A una verifica di accesso possono partecipare uno o più revisori.
 
 2. Decidere se ogni utente dovrà verificare il proprio accesso o se uno o più utenti dovranno verificare l'accesso di tutti.
 
-3. In qualità di amministratore globale o amministratore utente, vai alla [pagina Governance identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. In qualità di amministratore globale o Amministratore utenti, passare alla [pagina governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Creare la verifica di accesso. Per ulteriori informazioni, consultate [Creare una verifica di accesso di gruppi o applicazioni.](create-access-review.md)
+4. Creare la verifica di accesso. Per altre informazioni, vedere [creare una verifica di accesso dei gruppi o delle applicazioni](create-access-review.md).
 
-5. Quando la verifica di accesso viene avviata, chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ognuno di essi riceve un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso, in cui [esamina l'accesso a gruppi o applicazioni.](perform-access-review.md)
+5. Quando la verifica di accesso viene avviata, chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ricevono un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso, in cui [esaminano l'accesso a gruppi o applicazioni](perform-access-review.md).
 
 6. Se i revisori non hanno espresso il proprio giudizio, è possibile chiedere ad Azure AD di inviare loro un promemoria. Per impostazione predefinita, Azure AD invia automaticamente un promemoria ai revisori che non hanno ancora risposto a metà periodo rispetto alla data di scadenza.
 
-7. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per ulteriori informazioni, consultate [Completare una verifica di accesso di gruppi o applicazioni.](complete-access-review.md)
+7. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica dell'accesso dei gruppi o delle applicazioni](complete-access-review.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare una verifica di accesso di gruppi o applicazioniCreate an access review of groups or applications](create-access-review.md)
+[Creare una verifica di accesso di gruppi o applicazioni](create-access-review.md)
 
 
 

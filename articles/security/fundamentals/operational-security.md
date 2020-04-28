@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749967"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
@@ -308,7 +308,7 @@ Gli eventi nel report di controllo di Azure Active Directory vengono conservati 
 
 Per i clienti interessati a archiviare [gli eventi di controllo](../../active-directory/active-directory-reporting-activity-audit-logs.md) per periodi di conservazione più lunghi, l'API di creazione report può essere usata per eseguire regolarmente il pull degli eventi di controllo in un archivio dati separato.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Questo articolo riassume le caratteristiche di protezione della privacy e dei dati degli utenti, mettendo a disposizione software e servizi che aiutino a gestire l'infrastruttura IT dell'organizzazione. Microsoft è a conoscenza della necessità di applicare rigorose misure di sicurezza quando si affidano i dati a terzi. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio.  La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft.
 

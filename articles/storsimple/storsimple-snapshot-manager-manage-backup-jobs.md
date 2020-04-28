@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933346"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usare StorSimple Snapshot Manager per visualizzare e gestire i processi di backup
@@ -26,7 +26,7 @@ ms.locfileid: "75933346"
 ## <a name="overview"></a>Panoramica
 Nel nodo **Processi** del riquadro **Ambito** vengono mostrate le attività di backup **pianificate**, delle **ultime 24 ore** e **in esecuzione** avviate in modo interattivo o da un criterio configurato. 
 
-In questa esercitazione viene illustrato come usare il nodo **Processi** per visualizzare le informazioni sui processi di backup pianificati, recenti e attualmente in esecuzione. L'elenco dei processi e le informazioni corrispondenti vengono visualizzati nel riquadro **Risultati.** Inoltre, è possibile fare clic con il pulsante destro del mouse su un processo elencato e visualizzare un menu di scelta rapida in cui sono elencate le azioni disponibili.
+In questa esercitazione viene illustrato come usare il nodo **Processi** per visualizzare le informazioni sui processi di backup pianificati, recenti e attualmente in esecuzione. L'elenco dei processi e le informazioni corrispondenti vengono visualizzati nel riquadro **risultati** . È inoltre possibile fare clic con il pulsante destro del mouse su un processo elencato e visualizzare un menu di scelta rapida in cui sono elencate le azioni disponibili.
 
 ## <a name="view-scheduled-jobs"></a>Visualizzazione dei processi pianificati
 Utilizzare la procedura seguente per visualizzare i processi di backup pianificati.

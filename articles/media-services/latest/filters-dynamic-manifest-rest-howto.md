@@ -1,5 +1,5 @@
 ---
-title: Creazione di filtri con l'API REST di Servizi multimediali di AzureCreating filters with Azure Media Services v3 REST API
+title: Creazione di filtri con l'API REST di servizi multimediali di Azure V3
 description: Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo.
 services: media-services
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75780335"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
 Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di video on demand) il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. 
 
-Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene utilizzata, vedere Manifesti e [filtri](filters-concept.md) [dinamici](filters-dynamic-manifest-overview.md) .
+Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene usata, vedere [manifesti](filters-dynamic-manifest-overview.md) e [filtri](filters-concept.md)dinamici.
 
 Questo argomento illustra come definire un filtro per un asset Video on demand e usare le API REST per creare [Filtri account](https://docs.microsoft.com/rest/api/media/accountfilters) e [Filtri asset](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
 > [!NOTE]
-> Assicurarsi di rivedere [presentationTimeRange](filters-concept.md#presentationtimerange).
+> Assicurarsi di esaminare [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -83,7 +83,7 @@ Di seguito è riportato l'esempio del **Corpo della richiesta** che definisce le
 
 ## <a name="create-account-filters"></a>Creare filtri account
 
-Nella raccolta Postman scaricata selezionare **Filtri**->account**Creare o aggiornare un filtro account.**
+Nella raccolta dei post che è stata scaricata selezionare **filtri**->account**Crea o aggiorna un filtro account**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
@@ -101,7 +101,7 @@ Per altre informazioni, vedere [Creare o aggiornare](https://docs.microsoft.com/
 
 ## <a name="create-asset-filters"></a>Creare filtri asset  
 
-Nella raccolta Postman di "Servizi multimediali v3" scaricata selezionare **Risorse**->**Crea o aggiorna Filtro risorse**.
+Nella raccolta di post di "Media Services V3" scaricata selezionare **Asset**->**Crea o Aggiorna filtro asset**.
 
 Il metodo di richiesta HTTP **PUT** è simile a:
 
@@ -117,11 +117,11 @@ Il filtro asset è stato creato.
 
 Per informazioni dettagliate su come creare o aggiornare i filtri asset, vedere [Crea o aggiorna](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Vedere anche [Esempi JSON per i filtri](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
-## <a name="associate-filters-with-streaming-locator"></a>Associare filtri a Streaming Locator
+## <a name="associate-filters-with-streaming-locator"></a>Associare filtri a un localizzatore di streaming
 
-Puoi specificare un elenco di filtri per asset o account, che si applicherebbeno al localizzatore di streaming. [Il Dynamic Packager (Endpoint di streaming)](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), che si basa sui filtri negli URL e i filtri specificati in Streaming Locator. Si consiglia di utilizzare questa funzionalità se si desidera applicare filtri ma non si desidera esporre i nomi dei filtri nell'URL.
+È possibile specificare un elenco di filtri asset o account applicabili al localizzatore di streaming. Il [Packager dinamico (endpoint di streaming)](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. Si consiglia di utilizzare questa funzionalità se si desidera applicare filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
 
-Per creare e associare filtri a un localizzatore di flusso tramite REST, usare l'API [Streaming Locators - Create](https://docs.microsoft.com/rest/api/media/streaminglocators/create) e specificare `properties.filters` nel corpo della [richiesta](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Per creare e associare filtri a un localizzatore di streaming usando REST, usare i [localizzatori di streaming-create](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API e specificare `properties.filters` nel [corpo della richiesta](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
                                 
 ## <a name="stream-using-filters"></a>Flusso con filtri
 

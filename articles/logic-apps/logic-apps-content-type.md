@@ -1,16 +1,16 @@
 ---
 title: Gestire i tipi di contenuti
-description: Informazioni su come gestire vari tipi di contenuto nei flussi di lavoro in fase di progettazione e di esecuzione in App per la logica di AzureLearn how to handle various content types in workflows during design time and run time in Azure Logic Apps
+description: Informazioni su come gestire vari tipi di contenuto nei flussi di lavoro durante la fase di progettazione e di esecuzione nelle app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75666874"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gestire tipi di contenuto in App per la logica di Azure
@@ -140,12 +140,12 @@ Questo elenco descrive come App per la logica converte il contenuto quando si us
 * `xml()`: esegue il cast dei dati in `application/xml`
 * `binary()`: esegue il cast dei dati in `application/octet-stream`
 * `string()`: esegue il cast dei dati in `text/plain`
-* `base64()`: converte il contenuto in una stringa con codifica base64
-* `base64toString()`: converte una stringa con codifica base64 in`text/plain`
-* `base64toBinary()`: converte una stringa con codifica base64 in`application/octet-stream`
-* `dataUri()`: converte una stringa in un URI di dati
-* `dataUriToBinary()`: converte un URI di dati in una stringa binaria
-* `dataUriToString()`: converte un URI di dati in una stringa
+* `base64()`: Converte il contenuto in una stringa con codifica Base64
+* `base64toString()`: Converte una stringa con codifica Base64 in`text/plain`
+* `base64toBinary()`: Converte una stringa con codifica Base64 in`application/octet-stream`
+* `dataUri()`: Converte una stringa in un URI di dati
+* `dataUriToBinary()`: Converte un URI di dati in una stringa binaria
+* `dataUriToString()`: Converte un URI di dati in una stringa
 
 Ad esempio, se si riceve una richiesta HTTP in cui `Content-Type` è impostato su `application/xml`, come questo contenuto:
 

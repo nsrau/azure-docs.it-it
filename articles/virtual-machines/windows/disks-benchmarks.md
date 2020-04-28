@@ -1,5 +1,5 @@
 ---
-title: Benchmarking dell'applicazione in Archiviazione disco di Azure
+title: Benchmarking dell'applicazione in archiviazione su disco di Azure
 description: Informazioni sul processo di benchmarking delle applicazioni in Azure.
 author: roygara
 ms.author: rogarana
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.openlocfilehash: 77e542e9bff399e58b433286385864478bcb5076
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75719546"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking di un disco
@@ -26,6 +26,6 @@ Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Procedere al nostro articolo sulla [progettazione per prestazioni elevate](premium-storage-performance.md).
+Passare al nostro articolo sulla [progettazione per prestazioni elevate](premium-storage-performance.md).
 
 In questo articolo viene creato un elenco di controllo simile all'applicazione esistente per il prototipo. Usando gli strumenti di benchmarking è possibile simulare i carichi di lavoro e misurare le prestazioni nel prototipo dell'applicazione. Sarà quindi possibile determinare quale offerta di dischi può soddisfare o superare i requisiti relativi alle prestazioni per l'applicazione. Si potranno quindi implementare le stesse indicazioni per l'applicazione di produzione.

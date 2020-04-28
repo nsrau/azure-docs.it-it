@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
 ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933965"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usare l'interfaccia utente di StorSimple Snapshot Manager per gestire i processi di backup e il catalogo di backup
@@ -37,7 +37,7 @@ Nella finestra della console sono presenti cinque elementi principali. Fare clic
 * [Barra dei menu](#menu-bar) 
 * [Barra degli strumenti](#tool-bar) 
 * [Riquadro Ambito](#scope-pane) 
-* [Riquadro Risultati](#results-pane) 
+* [Riquadro risultati](#results-pane) 
 * [Riquadro Azioni](#actions-pane) 
 
 Inoltre, StorSimple Snapshot Manager supporta [la navigazione da tastiera e una serie di tasti di scelta rapida](#keyboard-navigation-and-shortcuts).
@@ -69,12 +69,12 @@ La tabella seguente descrive le voci presenti nel menu **File**.
 
 | Voce di menu | Descrizione |
 |:--- |:--- |
-| Nuovo |Fare clic su **Nuova** per creare una nuova console basata su StorSimple Snapshot Manager. |
+| Nuova |Fare clic su **Nuova** per creare una nuova console basata su StorSimple Snapshot Manager. |
 | Apri |Fare clic su **Apri** per aprire una console esistente. |
 | Salvare |Fare clic su **Salva** per salvare la console corrente. |
 | Salva con nome |Fare clic su **Salva con nome** per creare una nuova istanza rinominata della console corrente. Utilizzare l’opzione **Salva con nome** per personalizzare una visualizzazione e salvarla per un successivo recupero. Ad esempio, è possibile creare snap-in di StorSimple Snapshot Manager che indirizzano a specifici server. |
 | Aggiungi/Rimuovi snap-in |Fare clic su **Aggiungi/Rimuovi snap-in** per aggiungere o rimuovere gli snap-in e organizzare i nodi nel riquadro **Ambito**. Per ulteriori informazioni, andare a [Aggiunta, rimozione e organizzazione di snap-in ed estensioni in MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
-| Opzioni |Fare clic su **Opzioni** per modificare l'icona della console, specificare modalità e autorizzazioni di accesso utente o eliminare file della console per aumentare lo spazio su disco disponibile. |
+| Options |Fare clic su **Opzioni** per modificare l'icona della console, specificare modalità e autorizzazioni di accesso utente o eliminare file della console per aumentare lo spazio su disco disponibile. |
 | Elenco dei percorsi di file |Fare clic su un percorso nell'elenco numerato per riaprire un file aperto di recente. |
 | Esci |Fare clic su **Esci** per chiudere il menu **File**. |
 
@@ -107,14 +107,14 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 > 
 > 
 
-| Azione | Navigazione | Descrizione |
+| Azione | Spostamento | Descrizione |
 |:--- |:--- |:--- |
 | Authenticate |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Autentica** per immettere la password configurata per il dispositivo. |
 | Clone |Espandere **Catalogo backup**, espandere **Snapshot cloud**, fare clic su un backup con data e quindi selezionare un volume nel riquadro **Risultati**. |Fare clic su **Clona** per creare una copia di una snapshot cloud e archiviarla in una posizione designata. |
 | Configurare un dispositivo |Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. |Fare clic su **Configura un dispositivo** per configurare uno o più dispositivi per la connessione all'host di Windows. |
-| Crea criterio di backup |Eseguire una delle operazioni seguenti:<ul><li>Fare clic con il pulsante destro del mouse su **Criteri di backup**.</li><li>Fare clic o espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Fare clic o espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Crea criteri di backup** per configurare un backup pianificato per un gruppo di volumi. |
-| Crea gruppo di volumi |Eseguire una delle operazioni seguenti:<ul><li>Fare clic sul nodo **Volumi** e quindi fare clic con il pulsante destro del mouse su un volume nel riquadro **Risultati**.</li><li>Fare clic con il pulsante destro del mouse sul nodo **Gruppi di volumi**.</li></ul> |Fare clic su **Crea gruppo di volumi** per assegnare i volumi a un gruppo di volumi. |
-| Delete |Fare clic su un nodo o su un risultato; questa voce viene visualizzata in diversi menu **Azione** e riquadri **Azioni**. |Fare clic su **Elimina** per eliminare il nodo o il risultato selezionato. Quando viene visualizzata la finestra di dialogo di conferma, confermare o annullare l'eliminazione. |
+| Crea criterio di backup |Effettua una delle seguenti operazioni:<ul><li>Fare clic con il pulsante destro del mouse su **Criteri di backup**.</li><li>Fare clic o espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Fare clic o espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Crea criteri di backup** per configurare un backup pianificato per un gruppo di volumi. |
+| Crea gruppo di volumi |Effettua una delle seguenti operazioni:<ul><li>Fare clic sul nodo **Volumi** e quindi fare clic con il pulsante destro del mouse su un volume nel riquadro **Risultati**.</li><li>Fare clic con il pulsante destro del mouse sul nodo **Gruppi di volumi**.</li></ul> |Fare clic su **Crea gruppo di volumi** per assegnare i volumi a un gruppo di volumi. |
+| Elimina |Fare clic su un nodo o su un risultato; questa voce viene visualizzata in diversi menu **Azione** e riquadri **Azioni**. |Fare clic su **Elimina** per eliminare il nodo o il risultato selezionato. Quando viene visualizzata la finestra di dialogo di conferma, confermare o annullare l'eliminazione. |
 | Dettagli |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Dettagli** per visualizzare i dettagli di configurazione per un dispositivo. |
 | Modifica |Fare clic su **Criteri di backup** e quindi fare clic con il pulsante destro del mouse su un criterio nel riquadro **Risultati**. |Fare clic su **Modifica** per cambiare la pianificazione del backup per un gruppo di volumi. |
 | Esporta elenco |Fare clic su un nodo o un risultato. Questo elemento viene visualizzato in tutti i menu **Azione** e nei riquadri **Azioni**. |Fare clic su **Esporta elenco** per salvare un elenco in file con valori delimitati da virgole (CSV), È quindi possibile importare questo file in un’applicazione foglio di calcolo per l'analisi. |
@@ -125,7 +125,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 | Aggiorna dispositivi |Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. |Fare clic su **Aggiorna dispositivi** per sincronizzare l'elenco dei dispositivi connessi con StorSimple Snapshot Manager. |
 | Ripetere la scansione dei volumi |Fare clic con il pulsante destro del mouse sul nodo **Volumi**. |Fare clic su **Ripeti analisi dei volumi** per aggiornare l'elenco di volumi visualizzati nel riquadro **Risultati**. |
 | Restore |Espandere **Catalogo di backup**, espandere un gruppo di volumi, espandere **Snapshot locali** o **Snapshot nel cloud** e quindi fare clic con il pulsante destro del mouse su un backup. |Fare clic su **Ripristina** per sostituire i dati del gruppo di volumi corrente con i dati del backup selezionato. |
-| Esegui backup |Eseguire una delle operazioni seguenti:<ul><li>Espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Esegui backup** per avviare immediatamente un processo di backup. |
+| Esegui backup |Effettua una delle seguenti operazioni:<ul><li>Espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Esegui backup** per avviare immediatamente un processo di backup. |
 | Visualizza/Nascondi importazioni |Fare clic con il pulsante destro del mouse sul nodo principale nel riquadro **Ambito**, ovvero il nodo **StorSimple Snapshot Manager** negli esempi. |Fare clic su **Visualizza/Nascondi importazioni** per mostrare o nascondere i gruppi di volumi e i backup associati importati dal dashboard del servizio Gestione dispositivi StorSimple. |
 
 ### <a name="view-menu"></a>Menu Visualizza
@@ -229,10 +229,10 @@ Il riquadro **Ambito** contiene i nodi seguenti:
 
 * [Nodo Dispositivi](#devices-node) 
 * [Nodo Volumi](#volumes-node) 
-* [Nodo Gruppi di volumi](#volume-groups-node) 
+* [Nodo gruppi di volumi](#volume-groups-node) 
 * [Nodo Criteri di backup](#backup-policies-node) 
 * [Nodo Catalogo di backup](#backup-catalog-node) 
-* [Nodo Processi](#jobs-node) 
+* [Nodo processi](#jobs-node) 
 
 ### <a name="scope-pane-tasks"></a>Attività riquadro Ambito
 Usare il riquadro **Ambito** per completare un'azione in un nodo specifico. Per selezionare un'attività, eseguire una delle operazioni seguenti:
@@ -359,7 +359,7 @@ Nella tabella seguente vengono descritte le combinazioni di tasti di scelta rapi
 | ALT + F |Apre il menu **File**. |N |Consente di aprire l’istanza di una nuova console. |
 |  |O |Apre la pagina **Strumenti di amministrazione**. | |
 |  |S |Consente di salvare la console di StorSimple Snapshot Manager. | |
-|  |Una  |Apre la pagina **Salva con nome**. | |
+|  |Una |Apre la pagina **Salva con nome**. | |
 |  |M |Apre la pagina **Aggiungi/rimuovi snap-in**. | |
 |  |P |Apre la pagina **Opzioni**. | |
 |  |H |Consente di aprire la guida in linea. | |
@@ -368,9 +368,9 @@ Nella tabella seguente vengono descritte le combinazioni di tasti di scelta rapi
 |  |F |Consente di aggiornare la console di StorSimple Snapshot Manager. | |
 |  |L |Apre la pagina **Esporta elenco**. | |
 |  |H |Consente di aprire la guida in linea. | |
-| ALT + V |Apre il menu **Visualizza**. |Una  |Apre la pagina **Aggiungi/rimuovi colonne**. |
+| ALT + V |Apre il menu **Visualizza**. |Una |Apre la pagina **Aggiungi/rimuovi colonne**. |
 |  |U |Apre la pagina **Personalizza visualizzazione**. | |
-| ALT + O |Apre il menu **Preferiti**. |Una  |Apre la pagina **Aggiungi a Preferiti**. |
+| ALT + O |Apre il menu **Preferiti**. |Una |Apre la pagina **Aggiungi a Preferiti**. |
 |  |O |Apre la pagina **Organizza preferiti**. | |
 | ALT + W |Apre il menu **Finestra**. |N |Consente di aprire un'altra finestra di StorSimple Snapshot Manager. |
 |  |C |Consente di visualizzare tutte le finestre della console aperte in uno stile a cascata. | |
@@ -378,7 +378,7 @@ Nella tabella seguente vengono descritte le combinazioni di tasti di scelta rapi
 |  |I |Consente di disporre le icone su una riga orizzontale nella parte inferiore dello schermo. | |
 | ALT + H |Apre il menu **?**. |H |Consente di aprire la guida in linea. |
 |  |T |Consente di aprire la pagina Web di Microsoft TechNet Tech Center. | |
-|  |Una  |Apre la pagina **Informazioni su Microsoft Management Console**. | |
+|  |Una |Apre la pagina **Informazioni su Microsoft Management Console**. | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Tasti di scelta rapida del riquadro Ambito
 Nelle seguenti tabelle vengono visualizzate le combinazioni di tasti per ogni nodo del riquadro **Ambito**. 

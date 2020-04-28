@@ -16,10 +16,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c8314b04c05e2ecba2715b807171b5c1a2fa988a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646864"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure
@@ -30,7 +30,7 @@ Esistono diversi metodi per eseguire la migrazione di un database utente di SQL 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
   > [!NOTE]
-  > SQL Server 2008 e SQL Server 2008 R2 si stanno avvicinando alla [fine del ciclo di vita del supporto](https://www.microsoft.com/sql-server/sql-server-2008) per le istanze locali. Per estendere il supporto, è possibile eseguire la migrazione dell'istanza di SQL Server a una macchina virtuale di Azure oppure acquistare aggiornamenti della sicurezza estesa per mantenerla in locale. Per altre informazioni, vedere Estendere il [supporto per SQL Server 2008 e 2008 R2 con AzureFor more information, see Extend support for SQL Server 2008 and 2008 R2 with Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
+  > SQL Server 2008 e SQL Server 2008 R2 si avvicinano alla [fine del ciclo di vita del supporto](https://www.microsoft.com/sql-server/sql-server-2008) per le istanze locali. Per estendere il supporto, è possibile eseguire la migrazione dell'istanza di SQL Server a una macchina virtuale di Azure oppure acquistare aggiornamenti della sicurezza estesi per mantenerli in locale. Per altre informazioni, vedere [estendere il supporto per SQL Server 2008 e 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Quali sono i metodi di migrazione principali?
 I metodi di migrazione principali sono:

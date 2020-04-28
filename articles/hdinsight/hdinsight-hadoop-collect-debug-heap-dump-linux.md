@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75658798"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Abilitare i dump dell'heap per i servizi Apache Hadoop in HDInsight basato su Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Quindi sono utili per diagnosticare i problemi che si verificano in fase di esecuzione.
+I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esempio i valori delle variabili al momento della creazione del dump. Quindi sono utili per la diagnosi dei problemi che si verificano in fase di esecuzione.
 
 ## <a name="services"></a>Servizi
 
@@ -37,7 +37,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi [Apache Hadoop](https://hadoop.apache.org/) è possibile modificare lo script della shell usato per avviare il servizio per passare queste opzioni.
 
-In ogni script è presente un'esportazione per ** \* \_OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
+In ogni script è presente un'esportazione per ** \* \_gli opz**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
 
 I processi di mapping e riduzione sono leggermente diversi, in quanto queste operazioni sono processi figlio del servizio MapReduce. Ogni processo di mapping o riduzione viene eseguito in un contenitore figlio e ci sono due elementi che contengono le opzioni di JVM. Entrambi sono contenuti in **mapred-site.xml**:
 
@@ -45,7 +45,7 @@ I processi di mapping e riduzione sono leggermente diversi, in quanto queste ope
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]  
-> Si consiglia di utilizzare [Apache Ambari](https://ambari.apache.org/) per modificare sia gli script che le impostazioni mapred-site.xml, poiché Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Apache Ambari](#using-apache-ambari).
+> Si consiglia di usare [Apache Ambari](https://ambari.apache.org/) per modificare le impostazioni di script e mapred-site. XML, in quanto Ambari gestisce la replica delle modifiche tra i nodi del cluster. Per i passaggi specifici, vedere la sezione [Uso di Apache Ambari](#using-apache-ambari).
 
 ### <a name="enable-heap-dumps"></a>Abilitare i dump dell'heap
 
@@ -53,7 +53,7 @@ L'opzione seguente abilita il dump dell'heap quando si verifica un OutOfMemoryEr
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-Indica **+** che questa opzione è abilitata. L'impostazione predefinita è disabilitata.
+**+** Indica che questa opzione è abilitata. L'impostazione predefinita è disabilitata.
 
 > [!WARNING]  
 > I dump dell'heap non sono abilitati per i servizi Hadoop in HDInsight per impostazione predefinita, perché i file di dump possono essere di grandi dimensioni. Se li si abilita per la risoluzione dei problemi, ricordarsi di disabilitarli dopo aver riprodotto il problema e raccolto i file di dump.
@@ -81,7 +81,7 @@ Ad esempio, se si usa `-XX:HeapDumpPath=/tmp`, il dump viene archiviato nella di
 
 Per modificare la configurazione di un servizio, attenersi alla procedura seguente:
 
-1. Da un Web browser `https://CLUSTERNAME.azurehdinsight.net`passare `CLUSTERNAME` a , dove è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
 2. Usando l'elenco a sinistra, selezionare l'area del servizio da modificare. Ad esempio, **HDFS**. Nell'area centrale selezionare la scheda **Configs** .
 
@@ -89,11 +89,11 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 3. Usando la voce **Filter...** immettere **opts**. Vengono visualizzati solo gli elementi che contengono questo testo.
 
-    ![Elenco filtrato della configurazione Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    ![Elenco filtrato di configurazione di Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Individuare ** \* \_** la voce OPTS per il servizio per cui si desidera abilitare i dump dell'heap e aggiungere le opzioni che si desidera abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
+4. Individuare la ** \* \_voce opz** per il servizio per il quale si desidera abilitare i dump dell'heap e aggiungere le opzioni che si desidera abilitare. Nella figura seguente è stato aggiunto `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` alla voce **HADOOP\_NAMENODE\_OPTS**:
 
-    ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    ![Apache Ambari Hadoop-NameNode-opz](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > Quando si abilitato i dump dell'heap per il processo figlio di mapping o riduzione, si cercano i campi denominati **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
@@ -106,13 +106,13 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
 
 6. Selezionare ogni servizio che richiede un riavvio e usare il pulsante **Service Actions** per **Disattivare la modalità di manutenzione**. La modalità di manutenzione impedisce che vengano generati avvisi quando si riavvia questo servizio.
 
-    ![Attivare il menu della modalità di manutenzione hdi](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    ![Attivare il menu modalità di manutenzione HDI](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. Dopo aver abilitato la modalità di manutenzione, usare il pulsante **Restart** per il servizio per **Restart All Effected**
 
-    ![Apache Ambari Riavviare tutte le voci interessate](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    ![Voce di riavvio tutti interessati di Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
-   > Le voci per il pulsante **Riavvia** potrebbero essere diverse per altri servizi.
+   > Le voci per il pulsante **Riavvia** possono essere diverse per gli altri servizi.
 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Disattivare la modalità di manutenzione**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.

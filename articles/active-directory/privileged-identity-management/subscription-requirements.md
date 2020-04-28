@@ -18,10 +18,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75932328"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisiti di licenza per usare Privileged Identity Management

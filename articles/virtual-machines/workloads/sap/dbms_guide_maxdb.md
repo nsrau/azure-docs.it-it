@@ -16,10 +16,10 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645872"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Distribuzione di SAP MaxDB, SAP liveCache e SAP Content Server in macchine virtuali di Azure
@@ -438,7 +438,7 @@ Per trovare le versioni di Windows supportate per SAP Content Server in Azure, v
 È consigliabile usare le versione più recente di Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linee guida per la configurazione di SAP Content Server per le installazioni di SAP nelle VM di Azure
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Configurazione dell'archiviazione per Content Server in AzureStorage Configuration for Content Server in Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configurazione dell'archiviazione per il server di contenuti in Azure
 Se si configura SAP Content Server per archiviare i file nel database SAP MaxDB, tutte le procedure consigliate per Archiviazione di Azure indicate per SAP MaxDB in questo documento sono valide anche per lo scenario di SAP Content Server. 
 
 Se si configura SAP Content Server per archiviare i file nel file system, è consigliabile usare un'unità logica dedicata. Gli spazi di archiviazione Windows consentono anche di aumentare le dimensioni logiche del disco e la velocità effettiva delle operazioni di I/O al secondo, come descritto in[Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di Macchine virtuali di Azure per un carico di lavoro SAP). 

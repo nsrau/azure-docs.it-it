@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75767569"
 ---
 # <a name="what-are-baseline-policies"></a>Che cosa sono i criteri di base?
@@ -52,12 +52,12 @@ Richiedi autenticazione a più fattori per gli amministratori (anteprima) è un 
 
 * Amministratore globale
 * Amministratore di SharePoint
-* Amministratore di Exchange
+* Amministratori di Exchange
 * Amministratore di accesso condizionale
-* Amministratore della sicurezza
+* Amministratore della protezione
 * Amministratore helpdesk/amministratore password
 * Amministratore fatturazione
-* Amministratore utenti
+* Amministratore degli utenti
 
 Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md).
 
@@ -95,5 +95,5 @@ Per proteggere le azioni con privilegi, è necessario che l'autenticazione a pi�
 Per altre informazioni, vedi:
 
 * [Abilitazione delle impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md)
-* [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
+* [Criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md)
 * [Cinque passaggi per proteggere l'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md)

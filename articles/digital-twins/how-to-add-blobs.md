@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75929681"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Aggiungere BLOB agli oggetti in Gemelli digitali di Azure
@@ -157,7 +157,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 
@@ -190,7 +190,7 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_TOKEN | Il proprio token OAuth 2.0 valido |
 | YOUR_SPACE_ID | L'ID dello spazio a cui associare il BLOB |

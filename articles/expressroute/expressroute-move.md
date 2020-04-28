@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute: Move circuits from classic to Azure Resource Manager'
+title: 'ExpressRoute: spostamento dei circuiti dal modello classico al Azure Resource Manager'
 description: Panoramica del bridging dei modelli di distribuzione Resource Manager e classica.
 services: expressroute
 author: ganesr
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
 ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645906"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager
@@ -95,7 +95,7 @@ Vedere le istruzioni riportate nell'articolo [Spostamento dei circuiti ExpressRo
 * Per informazioni sul flusso di lavoro, vedere [Flussi di lavoro e stati di provisioning di un circuito ExpressRoute](expressroute-workflows.md).
 * Per configurare la connessione ExpressRoute:
   
-  * [Creare un circuito ExpressRouteCreate an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
+  * [Creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Configurare il routing](expressroute-howto-routing-arm.md)
-  * [Collegare una rete virtuale a un circuito ExpressRouteLink a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
+  * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614673"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
@@ -48,9 +48,9 @@ I set di scalabilità possono essere usati per distribuire e gestire una raccolt
 Per altre informazioni, vedere [Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), che è associato a un [indirizzo IP pubblico](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt;&gt;nomecluster*, il nome DNS, * &lt;&gt;nomecluster .&lt; location&gt;.cloudapp.azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
+Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), che è associato a un [indirizzo IP pubblico](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt;clustername&gt;*, il nome DNS, * &lt;clustername&gt;.&lt; location&gt;. cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
 
-Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  A un servizio di bilanciamento del carico è associato un indirizzo IP pubblico con un nome DNS nel formato: * &lt;nomecluster&gt;.&lt; posizione&gt;.cloudapp.azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta * &lt;DNS&gt;nomecluster .&lt; posizione&gt;.cloudapp.azure.com*, altri tipi di nodo hanno l'etichetta * &lt;DNS clustername&gt;-&lt;nodetype&gt;.&lt; posizione&gt;.cloudapp.azure.com*.
+Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: * &lt;clustername&gt;.&lt; location&gt;. cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta * &lt;DNS&gt;clustername&lt; . location&gt;. cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta * &lt;DNS&gt;-&lt;clustername&gt;NodeType&lt; . location&gt;. cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Account di archiviazione
 Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](/azure/storage/common/storage-introduction) e da dischi gestiti.
@@ -96,17 +96,17 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 È possibile creare cluster in macchine virtuali che eseguono questi sistemi operativi:
 
-| Sistema operativo | Versione di Service Fabric supportata meno recente |
+| Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
 | Windows Server 2012 R2 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
-| Windows Server 1809 (in windows Server) | 6.4.654.9590 |
+| Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
-Per altre informazioni, vedere [Versioni di cluster supportate in AzureFor](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems) additional information see Supported Cluster Versions in Azure
+Per altre informazioni, vedere [versioni supportate del cluster in Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
 > [!NOTE]
 > Se si decide di distribuire Service Fabric in Windows Server 1709, si noti che (1) non si tratta di una distribuzione LTSB (Long Term Servicing Branch) e quindi potrebbe essere necessario passare ad altre versioni in futuro, e (2) se la distribuzione include contenitori, i contenitori basati su Windows Server 2016 non funzionano in Windows Server 1709 e viceversa (sarà necessario ricompilarli per distribuirli).

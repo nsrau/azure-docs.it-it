@@ -1,15 +1,15 @@
 ---
-title: Diagnostica del proxy inverso di Azure Service FabricAzure Service Fabric reverse proxy diagnostics
-description: Informazioni su come monitorare e diagnosticare l'elaborazione delle richieste nel proxy inverso per un'applicazione di Azure Service Fabric.Learn how to monitor and diagnose request processing at the reverse proxy for an Azure Service Fabric application.
+title: Diagnostica del proxy inverso di Azure Service Fabric
+description: Informazioni su come monitorare e diagnosticare l'elaborazione delle richieste nel proxy inverso per un'applicazione Service Fabric di Azure.
 author: kavyako
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645464"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorare e diagnosticare l'elaborazione della richiesta nel proxy inverso

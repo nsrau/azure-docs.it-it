@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
 ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75832482"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Panoramica di Azure Cloud Shell
@@ -27,7 +27,7 @@ Offre la flessibilità necessaria per scegliere l'esperienza shell più adatta a
 
 Provare dal sito Web shell.azure.com facendo clic sul pulsante seguente.
 
-[![Lancio dell'incorporamento](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
+[![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)
 
 Provare ad accedere dal portale di Azure tramite l'icona Cloud Shell.
 
@@ -40,14 +40,14 @@ Cloud Shell consente l'accesso a un'esperienza di riga di comando basata su brow
 È possibile sfruttare Cloud Shell per lavorare senza i limiti di un computer locale come solo il cloud può permettere.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Scelta dell’esperienza shell preferita
-Gli utenti possono scegliere tra Bash o PowerShell.Users can choose between Bash or PowerShell.
-1. Selezionare **Cloud Shell**.
+Gli utenti possono scegliere tra bash o PowerShell.
+1. Selezionare **cloud Shell**.
 
-    ![Icona di Cloud Shell](media/overview/overview-cloudshell-icon.png)
+    ![Icona Cloud Shell](media/overview/overview-cloudshell-icon.png)
 
-2. Selezionare **Bash** o **PowerShell**.
+2. Selezionare **bash** o **PowerShell**.
 
-    ![Scegliere Bash o PowerShell](media/overview/overview-choices.png)
+    ![Scegliere bash o PowerShell](media/overview/overview-choices.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Workstation Azure autenticata e configurata
 Cloud Shell è un servizio Microsoft ed è quindi dotato dei più comuni strumenti da riga di comando e del supporto per varie lingue. Cloud Shell esegue anche l'autenticazione automatica sicura per un accesso immediato alle risorse tramite l'interfaccia della riga di comando di Azure o i cmdlet di Azure PowerShell.
@@ -73,12 +73,12 @@ Cloud Shell è uno strumento flessibile che può essere usato da:
 * [Estensione Azure Account per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Connettersi all'archiviazione di File di Microsoft Azure
-I computer Cloud Shell sono temporanei, ma i file vengono resi persistenti in `clouddrive`due modi: tramite un'immagine disco e tramite una condivisione file montata denominata .  Al primo avvio, Cloud Shell chiede di creare un gruppo di risorse, un account di archiviazione e una condivisione di File di Azure per conto dell'utente. Questo passaggio è occasionale e verrà automaticamente collegato per tutte le sessioni. Può essere eseguito il mapping di un'unica condivisione file, che verrà utilizzato da Bash e PowerShell in Cloud Shell.
+I computer Cloud Shell sono temporanei, ma i file vengono mantenuti in due modi: tramite un'immagine del disco e tramite una condivisione file `clouddrive`montata denominata.  Al primo avvio, Cloud Shell chiede di creare un gruppo di risorse, un account di archiviazione e una condivisione di File di Azure per conto dell'utente. Questo passaggio è occasionale e verrà automaticamente collegato per tutte le sessioni. Può essere eseguito il mapping di un'unica condivisione file, che verrà utilizzato da Bash e PowerShell in Cloud Shell.
 
-Ulteriori informazioni su come montare un [account di archiviazione nuovo o esistente](persisting-shell-storage.md) o sui meccanismi di [persistenza usati in Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+Per altre informazioni su come montare un [account di archiviazione nuovo o esistente](persisting-shell-storage.md) o per informazioni sui [meccanismi di persistenza usati in cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works), vedere.
 
 > [!NOTE]
-> Il firewall di archiviazione di Azure non è supportato per gli account di archiviazione della shell cloud.
+> Il firewall di archiviazione di Azure non è supportato per gli account di archiviazione cloud Shell.
 
 ## <a name="concepts"></a>Concetti
 * Cloud Shell viene eseguito in un host temporaneo disponibile per ogni sessione e per ogni utente

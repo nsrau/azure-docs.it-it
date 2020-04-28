@@ -1,15 +1,15 @@
 ---
-title: Stringa di connessione dell'archivio immagini di Azure Service FabricAzure Service Fabric image store connection string
-description: Informazioni sulla stringa di connessione dell'archivio immagini, inclusi i relativi utilizzi e le relative applicazioni in un cluster di Service Fabric.Learn about the image store connection string, including its uses and applications to a Service Fabric cluster.
+title: Stringa di connessione di Azure Service Fabric Image Store
+description: Informazioni sulla stringa di connessione dell'archivio immagini, inclusi i relativi usi e applicazioni in un cluster Service Fabric.
 author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
 ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645668"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Informazioni sull'impostazione ImageStoreConnectionString

@@ -4,10 +4,10 @@ description: Questo articolo descrive come configurare l'agente di monitoraggio 
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933014"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
@@ -31,7 +31,7 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-|Chiave |Tipo di dati |Valore |Descrizione |
+|Chiave |Tipo di dati |valore |Descrizione |
 |----|----------|------|------------|
 |`schema-version` |Stringa (maiuscole/minuscole) |v1 |Si tratta della versione dello schema utilizzata dall'agente durante l'analisi di questo ConfigMap. La versione dello schema attualmente supportata è V1. La modifica di questo valore non è supportata e verrà rifiutata quando ConfigMap viene valutato.|
 |`config-version` |string | | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente. I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |

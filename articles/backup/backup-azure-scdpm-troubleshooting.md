@@ -1,13 +1,13 @@
 ---
 title: Risolvere i problemi relativi a System Center Data Protection Manager
-description: In questo articolo vengono individuate le soluzioni per i problemi che possono verificarsi durante l'utilizzo di System Center Data Protection Manager.
+description: In questo articolo vengono individuate le soluzioni per i problemi che potrebbero verificarsi durante l'uso di System Center Data Protection Manager.
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75664758"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi relativi a System Center Data Protection Manager
@@ -58,7 +58,7 @@ Per risolvere il problema, eseguire le azioni seguenti:
 
 - Accertarsi di usare l'ultima versione dell'agente di Backup di Azure.
 - Assicurarsi che vi sia connettività (rete/firewall/proxy) tra il server Data Protection Manager e il server protetto.
-- Se si sta proteggendo un server SQL, assicurarsi che la proprietà **Proprietà** > di accesso**NT AUTHORITY-SYSTEM** mostri l'impostazione **sysadmin** abilitata.
+- Se si sta proteggendo un server SQL, assicurarsi che la proprietà **account di accesso** > **NT AUTHORITY\SYSTEM** visualizzi l'impostazione **sysadmin** abilitata.
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Errore: Il server non è registrato come specificato nel file delle credenziali dell'insieme di credenziali
 

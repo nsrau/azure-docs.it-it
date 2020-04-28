@@ -1,5 +1,5 @@
 ---
-title: 'Risolvere i problemi relativi a una connessione VPN da sito a sito di Azure che non è in grado di connettersi a titleSuffix: Gateway VPN di AzureTroubleshoot an Azure site-to-site VPN connection that cannot connect titleSuffix: Azure VPN Gateway'
+title: 'Risolvere i problemi relativi a una connessione VPN da sito a sito di Azure che non è in grado di connettere titleSuffix: gateway VPN di Azure'
 description: Informazioni su come risolvere un problema relativo a una connessione VPN da sito a sito che si interrompe improvvisamente e non può essere riconnessa.
 services: vpn-gateway
 author: chadmath
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862578"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
@@ -28,7 +28,7 @@ Per risolvere il problema, provare prima a [reimpostare il gateway VPN di Azure]
 
 Controllare il tipo del gateway VPN di Azure.
 
-1. Passare al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Per informazioni sul tipo, vedere la pagina **Panoramica** del gateway VPN.
     
@@ -46,11 +46,11 @@ Confrontare la chiave condivisa del dispositivo VPN locale con quella del gatewa
 
 Per visualizzare la chiave condivisa per la connessione VPN di Azure, usare uno dei metodi seguenti:
 
-**Portale di Azure**
+**Azure portal**
 
 1. Passare alla connessione gateway VPN di Azure da sito a sito appena creata.
 
-2. Nella sezione **Impostazioni** fare clic su **Chiave condivisa**.
+2. Nella sezione **Impostazioni** fare clic su **chiave condivisa**.
     
     ![Chiave condivisa](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 

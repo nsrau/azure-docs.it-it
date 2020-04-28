@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sugli acceleratori di soluzioni IoT - Azure | Microsoft Docs
-description: Questo articolo risponde alle domande frequenti per gli acceleratori di soluzioni IoT.This article answers the frequently asked questions for IoT solution accelerators. Include collegamenti ai repository GitHub.
+description: Questo articolo fornisce le risposte alle domande frequenti relative agli acceleratori di soluzioni Internet. Include i collegamenti ai repository GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75647714"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 
-Vedere anche le [domande frequenti specifiche](iot-accelerators-faq-cf.md) di Connected Factory e le domande frequenti specifiche per il monitoraggio [remoto](iot-accelerators-faq-rm-v2.md) .
+Vedere anche le [domande frequenti specifiche di fabbrica connesse](iot-accelerators-faq-cf.md) e le [domande frequenti specifiche sul monitoraggio remoto](iot-accelerators-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Dove è possibile visualizzare il codice sorgente degli acceleratori di soluzioni?
 
@@ -65,15 +65,15 @@ Se si è certi di avere una sottoscrizione di Azure, convalidare il mapping del 
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Dove è possibile reperire informazioni sulla versione precedente della soluzione di monitoraggio remoto?
 
-La versione precedente dell'acceleratore di soluzione di monitoraggio remoto era nota come soluzione di monitoraggio remoto IoT Suite preconfigurata. La documentazione archiviata [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)è redata a .
+La versione precedente dell'acceleratore di soluzione di monitoraggio remoto era nota come soluzione di monitoraggio remoto IoT Suite preconfigurata. È possibile trovare la documentazione archiviata all' [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)indirizzo.
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Il nuovo acceleratore di soluzioni è disponibile nelle stesse aree geografiche di quella esistente?
 
 Sì, la nuova soluzione di monitoraggio remoto è disponibile nelle stesse aree geografiche.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Qual è la differenza tra l'eliminazione di un gruppo di risorse nel portale di Azure e il clic su Elimina in un acceleratore di soluzioni in azureiotsolutions.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Qual è la differenza tra l'eliminazione di un gruppo di risorse nel portale di Azure e la selezione di Delete in un Solution Accelerator in azureiotsolutions.com?
 
-* Se si elimina l'acceleratore di soluzioni in [azureiotsolutions.com](https://www.azureiotsolutions.com/), si eliminano tutte le risorse distribuite al momento della creazione dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
+* Se si elimina l'acceleratore di soluzione in [azureiotsolutions.com](https://www.azureiotsolutions.com/), si eliminano tutte le risorse distribuite al momento della creazione dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
 * Se si elimina il gruppo di risorse nel [portale di Azure](https://portal.azure.com), si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata all'acceleratore di soluzioni.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>È possibile continuare a sfruttare gli investimenti negli acceleratori di soluzioni Azure IoT?
@@ -107,7 +107,7 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 
 È anche possibile esplorare alcune altre funzionalità degli acceleratori di soluzioni IoT:
 
-* [Esplorare le funzionalità dell'acceleratore di soluzioni di monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
+* [Esplorare le funzionalità di Remote Monitoring Solution Accelerator](quickstart-remote-monitoring-deploy.md)
 * [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](iot-accelerators-predictive-overview.md)
 * [Distribuire l'acceleratore di soluzioni di connected factory](quickstart-connected-factory-deploy.md)
 * [Sicurezza IoT sin dall'inizio](/azure/iot-fundamentals/iot-security-ground-up)

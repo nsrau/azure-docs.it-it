@@ -1,5 +1,5 @@
 ---
-title: 'Connettere una rete virtuale a una rete virtuale usando una connessione da vNet a VNet: interfaccia della riga di comando di AzureConnect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
+title: 'Connettere una VNet a una VNet usando una connessione da VNet a VNet: interfaccia della riga di comando di Azure'
 description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e l'interfaccia della riga di comando di Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75834564"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
@@ -22,9 +22,9 @@ Questo articolo descrive come connettere reti virtuali tramite il tipo di connes
 La procedura illustrata in questo articolo si applica al modello di distribuzione Resource Manager e usano l'interfaccia della riga di comando di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Interfaccia della riga di comando di AzureAzure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connettersi tra modelli di distribuzione diversi - Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connettersi tra modelli di distribuzione diversi - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -67,11 +67,11 @@ Questo articolo illustra due diverse procedure di connessione da rete virtuale a
 
 Per questo esercizio è possibile combinare le configurazioni oppure sceglierne una da usare. Tutte le configurazioni usano il tipo di connessione da rete virtuale a rete virtuale. Il traffico di rete viene trasmesso tra le reti virtuali connesse direttamente tra loro. In questo esercizio, il traffico da TestVNet4 non viene indirizzato a TestVNet5.
 
-* [Reti virtuali che risiedono nella stessa sottoscrizione:](#samesub) I passaggi per questa configurazione utilizzano TestVNet1 e TestVNet4.
+* [Reti virtuali che si trovano nella stessa sottoscrizione:](#samesub) I passaggi per questa configurazione usano TestVNet1 e TestVNet4.
 
   ![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [Reti virtuali che risiedono in sottoscrizioni diverse:VNets that reside in different subscriptions:](#difsub) I passaggi per questa configurazione utilizzano TestVNet1 e TestVNet5.
+* [Reti virtuali che si trovano in sottoscrizioni diverse:](#difsub) I passaggi per questa configurazione usano TestVNet1 e TestVNet5.
 
   ![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -269,7 +269,7 @@ In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, Le r
 
 ### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>Passaggio 5: Creare e configurare TestVNet1
 
-Queste istruzioni sono il proseguimento dei passaggi delle sezioni precedenti. È necessario completare [i passaggi 1](#Connect) e [2](#TestVNet1) per creare e configurare TestVNet1 e il gateway VPN per TestVNet1. Per questo configurazione, non è necessario creare TestVNet4 dalla sezione precedente, ma, se è già stata creata, non si verificheranno conflitti con questi passaggi. Al termine, continuare con il passaggio 6 (sotto).
+Queste istruzioni sono il proseguimento dei passaggi delle sezioni precedenti. È necessario completare il [passaggio 1](#Connect) e il [passaggio 2](#TestVNet1) per creare e configurare TESTVNET1 e il gateway VPN per TestVNet1. Per questo configurazione, non è necessario creare TestVNet4 dalla sezione precedente, ma, se è già stata creata, non si verificheranno conflitti con questi passaggi. Al termine, continuare con il passaggio 6 (sotto).
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>Passaggio 6: Verificare gli intervalli di indirizzi IP
 
@@ -292,7 +292,7 @@ Quando si creano connessioni aggiuntive, è importante verificare che lo spazio 
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Passaggio 7: Creare e configurare TestVNet5
 
-Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, la sottoscrizione 5. Questa parte può essere eseguita dall'amministratore in un'altra organizzazione che possiede la sottoscrizione. Per passare da `az account list --all` un abbonamento all'altro, usare `az account set --subscription <subscriptionID>` un account per elencare le sottoscrizioni disponibili per l'account, quindi usare per passare all'abbonamento che si vuole usare.
+Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, la sottoscrizione 5. Questa parte può essere eseguita dall'amministratore in un'altra organizzazione che possiede la sottoscrizione. Per spostarsi tra le sottoscrizioni, usare `az account list --all` per elencare le sottoscrizioni disponibili per `az account set --subscription <subscriptionID>` l'account, quindi usare per passare alla sottoscrizione che si vuole usare.
 
 1. Verificare di essere connessi alla sottoscrizione 5, quindi creare un gruppo di risorse.
 
@@ -331,7 +331,7 @@ Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione, l
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Passaggio 8: Creare le connessioni
 
-Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di comando, contrassegnate come **[Sottoscrizione 1]** e **[Sottoscrizione 5]**, perché i gateway si trovano in sottoscrizioni diverse. Per passare da `az account list --all` un abbonamento all'altro, usare `az account set --subscription <subscriptionID>` un account per elencare le sottoscrizioni disponibili per l'account, quindi usare per passare all'abbonamento che si vuole usare.
+Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di comando, contrassegnate come **[Sottoscrizione 1]** e **[Sottoscrizione 5]**, perché i gateway si trovano in sottoscrizioni diverse. Per spostarsi tra le sottoscrizioni, usare `az account list --all` per elencare le sottoscrizioni disponibili per `az account set --subscription <subscriptionID>` l'account, quindi usare per passare alla sottoscrizione che si vuole usare.
 
 1. **[Sottoscrizione 1]** Eseguire l'accesso e connettersi alla sottoscrizione 1. Usare il comando seguente per ottenere il nome e l'ID del gateway dall'output:
 

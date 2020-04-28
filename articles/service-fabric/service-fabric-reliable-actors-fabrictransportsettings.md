@@ -1,15 +1,15 @@
 ---
-title: Modificare le impostazioni di FabricTransportChange FabricTransport settings
-description: Informazioni sulla configurazione delle impostazioni di comunicazione dell'attore di Azure Service Fabric per configurazioni di attore diverse.
+title: Modificare le impostazioni di FabricTransport
+description: Informazioni sulla configurazione delle impostazioni di comunicazione di Azure Service Fabric Actor per diverse configurazioni degli attori.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645583"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurare le impostazioni di FabricTransport per Reliable Actors

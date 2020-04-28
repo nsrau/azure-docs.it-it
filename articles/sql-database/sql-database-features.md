@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
 ms.openlocfilehash: 33ecef4dde3787546afd28e5f5b31e8dd535fc7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646365"
 ---
 # <a name="azure-sql-database-features"></a>Funzionalità del database SQL di Azure
@@ -65,7 +65,7 @@ Nella tabella seguente sono elencate le principali funzionalità di SQL Server e
 | [Eventi estesi (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Supportati in alcuni casi. Vedere [Eventi estesi nel database SQL](sql-database-xevent-db-diff-from-svr.md) | Sì - vedere le [differenze relative agli eventi estesi](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Stored procedure estese](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | No | No |
 | [File e gruppi di file](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Solo gruppi di file primari | Sì. I percorsi dei file vengono assegnati automaticamente e il percorso del file non `ALTER DATABASE ADD FILE` può essere specificato nell' [istruzione](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
-| [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [No](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [No](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
 | [Ricerca full-text (FTS)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Sì, ma i Word breaker di terze parti non sono supportati | Sì, ma [i Word breaker di terze parti non sono supportati](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Funzioni](https://docs.microsoft.com/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Ottimizzazione in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sì, i [livelli Premium e business critical supportano solo](sql-database-in-memory.md) il supporto limitato per gli oggetti in memoria non persistenti, ad esempio i tipi di tabella | Sì - [solo livello Business Critical](sql-database-managed-instance.md) |

@@ -1,15 +1,15 @@
 ---
-title: Gestire lo stato nei servizi di Azure Service FabricManage state in Azure Service Fabric services
-description: Informazioni sullo stato in Azure Service Fabric, incluso come definire e gestire lo stato del servizio nei servizi di Service Fabric.Learn about state in Azure Service Fabric, including how to define and manage service state in Service Fabric services.
+title: Gestire lo stato nei servizi Service Fabric di Azure
+description: Informazioni sullo stato in Service Fabric di Azure, incluse informazioni su come definire e gestire lo stato del servizio in servizi Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9acd3031d1071d1822791b333976aaf76161600f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614571"
 ---
 # <a name="service-state"></a>Stato del servizio

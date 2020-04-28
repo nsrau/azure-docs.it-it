@@ -1,5 +1,5 @@
 ---
-title: Configurare le identità gestite nella macchina virtuale di Azure usando il modello - Azure ADConfigure managed identities on Azure VM using template - Azure AD
+title: Configurare le identità gestite nella macchina virtuale di Azure usando template-Azure AD
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite un modello di Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75972140"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite dei modelli
@@ -39,7 +39,7 @@ Questo articolo illustra, tramite il modello di distribuzione di Azure Resource 
 
 Analogamente al portale di Azure e all'esecuzione dello script, i modelli di gestione di [Azure Resource Manager](../../azure-resource-manager/management/overview.md) offrono la possibilità di distribuire risorse nuove o modificate definite da un gruppo di risorse di Azure. Diverse opzioni sono disponibili per la modifica e la distribuzione dei modelli, sia in locale che basati sul portale incluso quanto segue:
 
-   - Utilizzo di un [modello personalizzato di Azure Marketplace,](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)che consente di creare un modello da zero o di basarlo su un modello comune o di [avvio rapido](https://azure.microsoft.com/documentation/templates/)esistente.
+   - Uso di un [modello personalizzato da Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), che consente di creare un modello da zero o di basarlo su un modello comune o di [avvio rapido](https://azure.microsoft.com/documentation/templates/)esistente.
    - Derivazione da un gruppo di risorse esistente, tramite l'esportazione di un modello da una [distribuzione originale](../../azure-resource-manager/templates/export-template-portal.md) o dallo [stato attuale della distribuzione](../../azure-resource-manager/templates/export-template-portal.md).
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) di Visual Studio per creare e distribuire un modello.  
@@ -346,4 +346,4 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica delle identità gestite per le risorse di Azure.Managed identities for Azure resources overview](overview.md).
+- [Panoramica delle identità gestite per le risorse di Azure](overview.md).

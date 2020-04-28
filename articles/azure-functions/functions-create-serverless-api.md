@@ -7,10 +7,10 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75769269"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
@@ -47,7 +47,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
     > [!NOTE] 
     > Si noti che non è stato incluso il prefisso del percorso base `/api` nel modello di route e l'operazione viene gestita da un'impostazione globale.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
@@ -88,7 +88,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     > [!NOTE] 
     > Le impostazioni di app sono consigliate perché la configurazione dell'host eviti una dipendenza di ambiente hard-coded per il proxy. Usare le impostazioni dell'app significa che è possibile spostare la configurazione del proxy tra ambienti e saranno applicate le impostazioni dell'app specifiche dell'ambiente.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Creazione di un proxy nel front-end
 

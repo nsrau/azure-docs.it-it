@@ -1,15 +1,15 @@
 ---
-title: Usare il portale di Azure per monitorare un'app gestitaUse Azure portal to monitor a managed app
+title: Usare portale di Azure per monitorare un'app gestita
 description: Viene mostrato come usare il portale di Azure per monitorare disponibilità e avvisi per un'applicazione gestita.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651748"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorare un'istanza distribuita di un'applicazione gestita
@@ -32,7 +32,7 @@ Dopo aver distribuito un'applicazione gestita alla sottoscrizione di Azure, è p
 
 ## <a name="view-alerts"></a>Visualizzare gli avvisi
 
-1. Selezionare **Avvisi**.
+1. Selezionare **avvisi**.
 
    ![Selezionare gli avvisi](./media/monitor-managed-application-portal/select-alerts.png)
 

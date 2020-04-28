@@ -10,10 +10,10 @@ ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887785"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DEPRECATO) Servizio contenitore: domande frequenti
@@ -24,7 +24,7 @@ ms.locfileid: "75887785"
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quali agenti di orchestrazione contenitore sono supportati nel servizio Azure Container? 
 
-È previsto il supporto per DC/OS open source, Docker Swarm e Kubernetes. Per ulteriori informazioni, vedere [Panoramica](container-service-intro-kubernetes.md).
+È previsto il supporto per DC/OS open source, Docker Swarm e Kubernetes. Per ulteriori informazioni, vedere la [Panoramica](container-service-intro-kubernetes.md).
  
 ### <a name="do-you-support-docker-swarm-mode"></a>La modalità Docker Swarm è supportata? 
 
@@ -114,7 +114,7 @@ Per altre informazioni, vedere [Connettersi a un cluster del servizio Azure Cont
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>La risoluzione dei nomi DNS non funziona in Windows. Cosa devo fare?
 
-Ci sono alcuni problemi DNS noti su Windows le cui correzioni sono ancora attivamente in fase di eliminazione graduale. Assicurarsi di utilizzare il motore acs più aggiornato e la versione di Windows (con [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installato) in modo che l'ambiente può trarre vantaggio da questo. In alternativa, vedere la tabella seguente per i passaggi di mitigazione da seguire:
+Esistono alcuni problemi noti relativi a DNS in Windows le cui correzioni sono ancora in fase di eliminazione. Assicurarsi di usare la versione più aggiornata del motore ACS e di Windows (con [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installato), in modo che l'ambiente possa trarre vantaggio da questo problema. In alternativa, vedere la tabella seguente per i passaggi di mitigazione da seguire:
 
 | Sintomo DNS | Soluzione alternativa  |
 |-------------|-------------|

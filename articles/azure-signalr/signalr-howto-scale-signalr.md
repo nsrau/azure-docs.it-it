@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75659288"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Come ridimensionare un'istanza del servizio Azure SignalR?
@@ -37,7 +37,7 @@ Per informazioni sui prezzi e le capacità del servizio Single SignalR, vedere [
    
     ![Scalabilità nel portale](./media/signalr-howto-scale/signalr-howto-scale.png)
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ## <a name="scale-using-azure-cli"></a>Ridimensionare la cache tramite l'interfaccia della riga di comando di Azure
 

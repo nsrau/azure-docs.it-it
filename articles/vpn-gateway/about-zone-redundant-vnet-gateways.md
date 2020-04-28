@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: f1bbaab99b6422de4053839e2099869d2d08db95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864299"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure
 
-È possibile distribuire gateway VPN ed ExpressRoute nelle zone di [disponibilità di Azure.You](../availability-zones/az-overview.md)can deploy VPN and ExpressRoute gateways in Azure Availability zones . In questo modo, i gateway di rete virtuale ottengono maggiore disponibilità, scalabilità e resilienza. La distribuzione di gateway in zone di disponibilità di Azure separa fisicamente e logicamente i gateway all'interno di un'area e consente, al contempo, di proteggere la connettività di rete locale ad Azure da errori a livello di zona.
+È possibile distribuire gateway VPN e ExpressRoute in [zone di disponibilità di Azure](../availability-zones/az-overview.md). In questo modo, i gateway di rete virtuale ottengono maggiore disponibilità, scalabilità e resilienza. La distribuzione di gateway in zone di disponibilità di Azure separa fisicamente e logicamente i gateway all'interno di un'area e consente, al contempo, di proteggere la connettività di rete locale ad Azure da errori a livello di zona.
 
 ### <a name="zone-redundant-gateways"></a><a name="zrgw"></a>Gateway con ridondanza della zona
 
@@ -40,9 +40,9 @@ Per distribuire i gateway in una zona specifica, si usano i gateway a livello di
 
 ## <a name="gateway-skus"></a><a name="gwskus"></a>SKU del gateway
 
-I gateway con ridondanza della zona e a livello di zona sono disponibili come nuove SKU del gateway. Sono state aggiunte nuove SKU del gateway di rete virtuale nelle aree di Azure AZ. Queste SKU sono simili alle SKU esistenti corrispondenti per ExpressRoute e Gateway VPN, ad eccezione del fatto che sono specifiche dei gateway con ridondanza della zona e a livello di zona. È possibile identificare questi SKU dalla "A" nel nome dello SKU.
+I gateway con ridondanza della zona e a livello di zona sono disponibili come nuove SKU del gateway. Sono state aggiunte nuove SKU del gateway di rete virtuale nelle aree di Azure AZ. Queste SKU sono simili alle SKU esistenti corrispondenti per ExpressRoute e Gateway VPN, ad eccezione del fatto che sono specifiche dei gateway con ridondanza della zona e a livello di zona. È possibile identificare questi SKU per "AZ" nel nome dello SKU.
 
-Per informazioni sugli SKU del gateway, vedere [SKU del gateway VPN](vpn-gateway-about-vpngateways.md#gwsku) e [SKU del gateway ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
+Per informazioni sugli SKU del gateway, vedere SKU del [gateway VPN](vpn-gateway-about-vpngateways.md#gwsku) e [SKU del gateway ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="public-ip-skus"></a><a name="pipskus"></a>SKU dell'indirizzo IP pubblico
 
@@ -75,7 +75,7 @@ Sì, è possibile usare il portale di Azure per distribuire le nuove SKU. Tuttav
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>In quali aree è possibile usare le nuove SKU?
 
-I nuovi SKU sono disponibili nelle aree di Azure con zone di disponibilità di Azure - Stati Uniti centrali, Francia centrale, Europa settentrionale, Europa occidentale e Stati Uniti occidentali 2 aree, Stati Uniti orientali, Stati Uniti orientali 2, Sud-est asiatico, Giappone est, Regno Unito meridionale. In una fase successiva, i gateway con ridondanza della zona saranno disponibili in altre aree pubbliche di Azure.
+I nuovi SKU sono disponibili nelle aree di Azure con zone di disponibilità di Azure-Stati Uniti centrali, Francia centrale, Europa settentrionale, Europa occidentale e Stati Uniti occidentali 2 aree, Stati Uniti orientali, Stati Uniti orientali 2, Asia sudorientale, Giappone orientale, Regno Unito meridionale. In una fase successiva, i gateway con ridondanza della zona saranno disponibili in altre aree pubbliche di Azure.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>È possibile modificare, eseguire la migrazione o aggiornare i gateway di rete virtuale esistenti in gateway con ridondanza della zona o a livello di zona?
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645141"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Domande frequenti
@@ -33,7 +33,7 @@ Data Factory consente di creare flussi di lavoro basati sui dati per spostare da
 Per altre informazioni, vedere [Cenni preliminari e concetti chiave](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Dove posso trovare informazioni dettagliate sui prezzi di Azure Data Factory?
-Vedere la pagina Dettagli sui prezzi di Data Factory per i dettagli sui prezzi per Azure Data Factory.See [Data Factory Pricing Details page][adf-pricing-details] for the pricing details for the Azure Data Factory.  
+Per informazioni sui prezzi per il Azure Data Factory, vedere la [pagina dei dettagli sui prezzi data factory][adf-pricing-details] .  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>In che modo è possibile iniziare a usare Azure Data Factory?
 * Per una panoramica di Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
@@ -49,17 +49,17 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Quale esperienza di creazione/sviluppo offre il servizio Azure Data Factory?
 È possibile creare data factory con uno degli strumenti/SDK seguenti:
 
-* **Visual Studio** È possibile usare Visual Studio per creare una data factory di Azure.You can use Visual Studio to create an Azure data factory. Per i dettagli, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
-* **Azure PowerShellAzure PowerShell** Per un'esercitazione/procedura dettagliata per la creazione di una data factory tramite PowerShell, [vedere Creare e monitorare Azure Data Factory usando Azure PowerShell.See Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) for a tutorial/walkthrough for creating a data factory using PowerShell. Per la documentazione completa dei cmdlet di Data Factory, vedere [Data Factory Cmdlet Reference][adf-powershell-reference] (Informazioni di riferimento sui cmdlet di Data Factory) in MSDN Library.
-* **Libreria di classi .NET** È possibile creare a livello di codice data factory utilizzando Data Factory .NET SDK. Per la procedura dettagliata per la creazione di un'istanza di Data Factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante .NET SDK](data-factory-create-data-factories-programmatically.md) . Per la documentazione completa di Data Factory .NET SDK, vedere [Data Factory Class Library Reference][msdn-class-library-reference] (Informazioni di riferimento sulla libreria di classi per Data Factory).
+* **Visual Studio** È possibile usare Visual Studio per creare un data factory di Azure. Per i dettagli, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
+* **Azure PowerShell** Per un'esercitazione o una procedura dettagliata per la creazione di un data factory usando PowerShell, vedere [creare e monitorare Azure Data Factory usando Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) . Per la documentazione completa dei cmdlet di Data Factory, vedere [Data Factory Cmdlet Reference][adf-powershell-reference] (Informazioni di riferimento sui cmdlet di Data Factory) in MSDN Library.
+* **Libreria di classi .NET** È possibile creare data factory a livello di codice tramite Data Factory .NET SDK. Per la procedura dettagliata per la creazione di un'istanza di Data Factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante .NET SDK](data-factory-create-data-factories-programmatically.md) . Per la documentazione completa di Data Factory .NET SDK, vedere [Data Factory Class Library Reference][msdn-class-library-reference] (Informazioni di riferimento sulla libreria di classi per Data Factory).
 * **API REST** Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Azure Data Factory. Per la documentazione completa, vedere [Data Factory REST API Reference][msdn-rest-api-reference] (Informazioni di riferimento sull'API REST di Data Factory).
-* **Modello di Azure Resource ManagerAzure Resource Manager Template** Vedere [Esercitazione: Creare la prima data factory](data-factory-build-your-first-pipeline-using-arm.md) di Azure usando il modello di Azure Resource Manager per informazioni dettagliate.
+* **Modello di Azure Resource Manager** Per informazioni dettagliate, vedere [esercitazione: creare la prima data factory di Azure usando Azure Resource Manager modello](data-factory-build-your-first-pipeline-using-arm.md) .
 
 ### <a name="can-i-rename-a-data-factory"></a>È possibile rinominare una data factory?
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>È possibile trasferire una data factory da una sottoscrizione di Azure a un'altra?
-Sì. Usare il pulsante Sposta nel pannello della data factory, come illustrato nel diagramma seguente:Use the **Move** button on your data factory blade as shown in the following diagram:
+Sì. Usare il pulsante **Sposta** nel pannello Data Factory come illustrato nel diagramma seguente:
 
 ![Spostare una data factory](media/data-factory-faq/move-data-factory.png)
 
@@ -69,13 +69,13 @@ La seguente tabella presenta un elenco degli ambienti di calcolo supportati da D
 | Ambiente di calcolo | attività |
 | --- | --- |
 | [Cluster HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[Dotnet](data-factory-use-custom-activities.md) |
+| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
-| [Analisi di Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
+| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored procedure](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Come si confronta Azure Data Factory con SQL Server Integration Services (SSIS)? 
-Vedere la presentazione di [Azure Data Factory e SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) da uno dei nostri MVP (professionisti più importanti): Reza Rad. Alcune delle modifiche recenti in Data Factory potrebbero non essere elencate della presentazione. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Questi aggiornamenti verranno incorporati nel confronto delle tecnologie di integrazione di dati da Microsoft nel corso di quest'anno.   
+Vedere la presentazione [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) di uno degli MVP (i professionisti più importanti): Reza Rad. Alcune delle modifiche recenti in Data Factory potrebbero non essere elencate della presentazione. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Questi aggiornamenti verranno incorporati nel confronto delle tecnologie di integrazione di dati da Microsoft nel corso di quest'anno.   
 
 ## <a name="activities---faq"></a>Attività - Domande frequenti
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory?
@@ -170,12 +170,12 @@ Le sezioni giornaliere iniziano alle **6.00** anziché a mezzanotte, ovvero l'im
 
 * Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere la sezione [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#perform-batch-actions) .   
 * Fare clic su **Esegui** sulla barra dei comandi nel pannello**SEZIONE DATI** per la sezione nel portale di Azure.
-* Eseguire il cmdlet **Set-AzDataFactorySliceStatus** con Status impostato su **Waiting** for the slice.   
+* Eseguire il cmdlet **set-AzDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Per informazioni dettagliate sul cmdlet, vedere [Set-AzDataFactorySliceStatus.][set-azure-datafactory-slice-status]
+  Per informazioni dettagliate sul cmdlet, vedere [set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] .
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo è stato necessario per elaborare una sezione?
 Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity Window Explorer nell'app di monitoraggio e gestione. Per informazioni dettagliate, vedere la sezione [Activity Window Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) (Esplora finestre attività).
@@ -190,7 +190,7 @@ Per conoscere la durata dell'elaborazione di una sezione di dati, usare Activity
 6. Nel campo **DURATA** dovrebbe essere visualizzato un valore, ovvero il tempo impiegato per elaborare la sezione.   
 
 ### <a name="how-to-stop-a-running-slice"></a>In che modo è possibile interrompere una sezione in esecuzione?
-Se è necessario arrestare l'esecuzione della pipeline, è possibile utilizzare il cmdlet [Suspend-AzDataFactoryPipeline.](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
+Se è necessario arrestare l'esecuzione della pipeline, è possibile usare il cmdlet [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) . La sospensione della pipeline attualmente non interrompe le esecuzioni di sezioni in corso. Al termine delle esecuzioni in corso non verranno eseguite altre sezioni.
 
 L'unica soluzione per interrompere immediatamente tutte le esecuzioni consiste nell'eliminare la pipeline e crearla di nuovo. Se si sceglie di eliminare la pipeline, NON sarà necessario eliminare le tabelle e i servizi collegati usati da essa.
 

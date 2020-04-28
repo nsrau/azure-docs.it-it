@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75640789"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Spostare una rete virtuale di Azure in un'altra area usando il portale di Azure
@@ -194,13 +194,13 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 ## <a name="delete-the-target-virtual-network"></a>Eliminare la rete virtuale di destinazione
 
-Per rimuovere la rete virtuale di destinazione, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione. A tale scopo:
+Per rimuovere la rete virtuale di destinazione, eliminare il gruppo di risorse che contiene la rete virtuale di destinazione. A tale scopo, procedere nel seguente modo:
 1. Nel dashboard portale di Azure selezionare il gruppo di risorse.
 1. Nella parte superiore del riquadro **Panoramica** selezionare **Elimina**.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
-Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eliminare la rete virtuale o il gruppo di risorse di origine. A tale scopo:
+Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eliminare la rete virtuale o il gruppo di risorse di origine. A tale scopo, procedere nel seguente modo:
 1. Nel dashboard portale di Azure selezionare la rete virtuale o il gruppo di risorse.
 1. Nella parte superiore di ogni riquadro selezionare **Elimina**.
 

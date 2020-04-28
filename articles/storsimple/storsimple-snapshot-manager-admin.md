@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: twooley
 ms.openlocfilehash: b8fe87a2df633af310bc661308813a60987e77d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933268"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
@@ -48,7 +48,7 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 | SE SI DESIDERA ESEGUIRE QUESTA OPERAZIONE... | UTILIZZARE QUESTA ESERCITAZIONE... |
 |:--- |:--- |
-| Ulteriori informazioni su StorSimple Snapshot Manager |[Che cos'è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
+| Ulteriori informazioni su StorSimple Snapshot Manager |[Che cos’è Gestione snapshot StorSimple?](storsimple-what-is-snapshot-manager.md) |
 | Installare Gestione Snapshot StorSimple<br>Reinstallare StorSimple Snapshot Manager<br>rimuovere Gestione Snapshot StorSimple |[Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Usare Gestione Snapshot StorSimple menu e funzionalità:<ul><li>Barra dei menu</li><li>Barra degli strumenti</li><li>Riquadro Ambito</li><li>Riquadro Risultati</li><li>Riquadro Azioni</li><li>Navigazione da tastiera e tasti di scelta rapida</li></ul> |[Interfaccia utente di gestione Snapshot StorSimple](storsimple-use-snapshot-manager.md) |
 | Utilizzare le funzionalità comuni di MMC incluse in Gestione Snapshot StorSimple:<ul><li>Visualizza</li><li>Nuova finestra da qui</li><li>Aggiorna</li><li>Esporta elenco</li><li>Guida</li></ul> |[Utilizzare le azioni del menu MMC di gestione Snapshot StorSimple](storsimple-snapshot-manager-mmc-menu.md) |

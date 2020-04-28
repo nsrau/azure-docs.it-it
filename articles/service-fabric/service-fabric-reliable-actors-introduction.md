@@ -1,15 +1,15 @@
 ---
-title: Panoramica di Service Fabric Reliable Actors
-description: Introduzione al modello di programmazione Service Fabric Reliable Actors, in base al modello Di attore virtuale.
+title: Panoramica di Reliable Actors Service Fabric
+description: Introduzione al modello di programmazione Service Fabric Reliable Actors, in base al modello di attore virtuale.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645566"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduzione a Service Fabric Reliable Actors

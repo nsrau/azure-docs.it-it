@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75638851"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Comprendere e risolvere gli errori ricevuti da WebHCat in HDInsight
@@ -21,11 +21,11 @@ Informazioni sugli errori che si ricevono durante l'utilizzo di WebHCat con HDIn
 
 ## <a name="what-is-webhcat"></a>Che cos'è WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) è un'API REST per [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), un livello di gestione tabelle e risorse di archiviazione per Apache Hadoop. WebHCat è abilitato per impostazione predefinita nei cluster HDInsight e viene utilizzato da vari strumenti per inviare processi, ottenere lo stato dei processi e così via, senza accedere al cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) è un'API REST per [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), un livello di gestione tabelle e risorse di archiviazione per Apache Hadoop. WebHCat è abilitato per impostazione predefinita nei cluster HDInsight e viene usato da vari strumenti per inviare processi, ottenere lo stato del processo e così via, senza accedere al cluster.
 
 ## <a name="modifying-configuration"></a>Modifica della configurazione
 
-Alcuni degli errori elencati in questo documento si verificano perché è stato superato un valore massimo configurato. Quando il passaggio di risoluzione indica che è possibile modificare un valore, usare Apache Ambari (API Web o REST) per modificare il valore. Per altre informazioni, vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
+Alcuni degli errori elencati in questo documento si verificano perché è stato superato un valore massimo configurato. Quando il passaggio relativo alla risoluzione indica che è possibile modificare un valore, usare Apache Ambari (API Web o REST) per modificare il valore. Per altre informazioni, vedere [Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>Configurazione predefinita
 
@@ -43,7 +43,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 
 | Causa | Risoluzione |
 | --- | --- |
-| Hai superato il numero massimo di richieste simultanee servite da WebHCat al minuto (impostazione predefinita 20) |Ridurre il carico di lavoro per assicurarsi di non inviare più del numero massimo `templeton.exec.max-procs`di richieste simultanee o aumentare il limite di richieste simultanee modificando . Per altre informazioni, vedere [Modifica della configurazione](#modifying-configuration) |
+| È stato superato il numero massimo di richieste simultanee gestite da WebHCat al minuto (valore predefinito 20) |Ridurre il carico di lavoro per assicurarsi di non inviare più del numero massimo di richieste simultanee o di aumentare il limite di richieste `templeton.exec.max-procs`simultanee modificando. Per altre informazioni, vedere [Modifica della configurazione](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Server non disponibile
 
@@ -61,7 +61,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 | --- | --- |
 | I dettagli dei processi sono stati rimossi dalla pulitura della cronologia dei processi |Il periodo di conservazione predefinito per la cronologia dei processi è 7 giorni. Il periodo di conservazione predefinito può essere cambiato modificando `mapreduce.jobhistory.max-age-ms`. Per altre informazioni, vedere [Modifica della configurazione](#modifying-configuration) |
 | Il processo è stato terminato a causa di un failover |Ripetere l'invio del processo per due minuti |
-| È stato utilizzato un ID processo non valido |Verificare che l'ID processo sia corretto |
+| È stato usato un ID processo non valido |Controllare se l'ID processo è corretto |
 
 ## <a name="bad-gateway"></a>Gateway non valido
 
@@ -71,7 +71,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 | --- | --- |
 | Operazione interna di Garbage Collection nel processo WebHCat |Attendere che l’operazione di Garbage Collection venga completata o riavviare il servizio WebHCat |
 | Timeout in attesa di una risposta dal servizio Resource Manager. Questo errore può verificarsi quando il numero di applicazioni attive supera il numero massimo configurato (il valore predefinito è 10.000) |Attendere che i processi attualmente in esecuzione vengano completati o aumentare il limite di processi simultanei modificando `yarn.scheduler.capacity.maximum-applications`. Per altre informazioni, vedere la sezione [Modifica della configurazione](#modifying-configuration). |
-| Quando si tenta di recuperare tutti i processi tramite la chiamata [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) mentre `Fields`è impostato su `*` |Non recuperare *tutti i* dettagli del lavoro. Utilizzare `jobid` invece per recuperare i dettagli per i processi solo maggiori di un determinato ID processo. Oppure, non usare`Fields` |
+| Quando si tenta di recuperare tutti i processi tramite la chiamata [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) mentre `Fields`è impostato su `*` |Non recuperare *tutti* i dettagli del processo. Usare `jobid` invece per recuperare i dettagli dei processi solo con un ID processo superiore. In alternativa, non usare`Fields` |
 | Il servizio WebHCat è inattivo durante il failover del nodo head |Attendere due minuti e ripetere l'operazione |
 | Sono presenti più di 500 processi in sospeso inviati tramite WebHCat |Attendere il completamento dei processi attualmente in sospeso prima di inviare altri processi |
 

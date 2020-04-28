@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75830072"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell
@@ -23,7 +23,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop in HDInsight. Vedere [Creare cluster Apache Hadoop tramite il portale](../hdinsight-hadoop-create-linux-clusters-portal.md)di Azure.
+* Un cluster Apache Hadoop in HDInsight. Vedere [creare cluster Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 * Il [modulo Az](https://docs.microsoft.com/powershell/azure/overview) di PowerShell installato.
 
@@ -37,13 +37,13 @@ Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengo
 |---|---|
 |Connect-AzAccount|esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.|
 |New-AzHDInsightMapReduceJobDefinition|crea una nuova *definizione di processo* usando le informazioni MapReduce specificate.|
-|Start-AzHDInsightJobStart-AzHDInsightJob|invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.|
-|Attesa-AzHDInsightJob|usa l'oggetto processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.|
-|Get-AzHDInsightJobOutputGet-AzHDInsightJobOutput|usato per recuperare l'output del processo.|
+|Start-AzHDInsightJob|invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.|
+|Wait-AzHDInsightJob|usa l'oggetto processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.|
+|Get-AzHDInsightJobOutput|usato per recuperare l'output del processo.|
 
 La seguente procedura illustra come usare questi cmdlet per eseguire un processo nel cluster HDInsight.
 
-1. Utilizzando un editor, salvare il codice seguente come **mapreducejob.ps1**.
+1. Utilizzando un editor, salvare il seguente codice come **mapreducejob. ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -51,7 +51,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
         .\mapreducejob.ps1
 
-    Quando si esegue lo script, viene richiesto il nome del cluster HDInsight e l'account di accesso del cluster. Potrebbe anche essere richiesta l'autenticazione alla sottoscrizione di Azure.
+    Quando si esegue lo script, vengono richiesti il nome del cluster HDInsight e l'account di accesso del cluster. Potrebbe anche essere richiesta l'autenticazione alla sottoscrizione di Azure.
 
 3. Al termine del processo, viene visualizzato un output simile al testo seguente:
 
@@ -81,7 +81,7 @@ Per vedere le parole e i numeri generati dal processo, aprire il file **output.t
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se al termine del processo non viene restituita alcuna informazione, visualizzare gli errori relativi al processo. Per visualizzare le informazioni sugli errori per questo processo, aggiungere il comando seguente alla fine del file **mapreducejob.ps1.** Quindi salvare il file ed eseguire nuovamente lo script.
+Se al termine del processo non viene restituita alcuna informazione, visualizzare gli errori relativi al processo. Per visualizzare le informazioni sull'errore per questo processo, aggiungere il comando seguente alla fine del file **mapreducejob. ps1** . Salvare quindi il file ed eseguire di nuovo lo script.
 
 ```powershell
 # Print the output of the WordCount job.

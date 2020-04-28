@@ -1,15 +1,15 @@
 ---
-title: Eventi negli attori di Azure Service Fabric basati su attoriEvents in actor-based Azure Service Fabric actors
-description: Informazioni sugli eventi per Service Fabric Reliable Actors, un modo efficace per comunicare tra attore e cliente.
+title: Eventi in Azure Service Fabric Actors basati su attore
+description: Informazioni sugli eventi per Service Fabric Reliable Actors, una soluzione efficace per la comunicazione tra attore e client.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639667"
 ---
 # <a name="actor-events"></a>Eventi relativi agli attori
@@ -103,6 +103,6 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Rientranza attore](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Codice di esempio di C](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Codice di esempio C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio di base C# .NET](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Codice di esempio JavaJava Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

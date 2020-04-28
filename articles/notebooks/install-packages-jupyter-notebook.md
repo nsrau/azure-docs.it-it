@@ -1,16 +1,16 @@
 ---
-title: Installare pacchetti nei blocchi appunti di Jupyter - Azure Notebook PreviewInstall packages in Jupyter notebooks - Azure Notebooks Preview
-description: Informazioni su come installare i pacchetti Python, R e F all'interno di un blocco appunti di Jupyter in esecuzione in Azure.Learn how to install Python, R, and F ' packages from within a Jupyter notebook running on Azure.
+title: Installare i pacchetti in Jupyter Notebooks-anteprima Azure Notebooks
+description: "Informazioni su come installare i pacchetti Python, R e F # dall'interno di un notebook di Jupyter in esecuzione in Azure."
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646229"
 ---
-# <a name="install-packages-from-within-azure-notebooks-preview"></a>Installare pacchetti da Azure NotebookS Preview
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Installare i pacchetti dall'interno Azure Notebooks anteprima
 
 Sebbene sia possibile configurare l'[ambiente per il notebook a livello di progetto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), è possibile installare i pacchetti direttamente all'interno di un notebook singolo.
 
@@ -63,7 +63,7 @@ Paket.Package
   ]
 ```
 
-Quindi caricare il generatore Paket:
+Caricare quindi il generatore Paket:
 ```fsharp
 #load "Paket.Generated.Refs.fsx"
 ```
@@ -75,5 +75,5 @@ open MathNet.Numerics
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura: Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
+- [Procedura: configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
 - [Procedura: presentare una presentazione](present-jupyter-notebooks-slideshow.md)

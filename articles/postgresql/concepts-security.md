@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75972593"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Sicurezza nel database di Azure per PostgreSQL-server singolo
@@ -48,7 +48,7 @@ Durante la creazione del database di Azure per il server PostgreSQL è possibile
 È anche possibile connettersi al server usando [l'autenticazione di Azure Active Directory (AAD)](concepts-aad-authentication.md).
 
 
-## <a name="threat-protection"></a>Protezione dalle minacce
+## <a name="threat-protection"></a>Threat Protection
 
 È possibile optare per [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) che rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei server.
 

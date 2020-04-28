@@ -1,15 +1,15 @@
 ---
-title: Rientranza negli attori di Azure Service FabricReentrancy in Azure Service Fabric actors
-description: Introduzione alla rientranza per Service Fabric Reliable Actors, un modo per evitare logicamente il blocco in base al contesto di chiamata.
+title: Rientranza in Azure Service Fabric Actors
+description: Introduzione alla rientranza per Service Fabric Reliable Actors, un modo per evitare il blocco logico in base al contesto di chiamata.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645532"
 ---
 # <a name="reliable-actors-reentrancy"></a>Rientranza di Reliable Actors

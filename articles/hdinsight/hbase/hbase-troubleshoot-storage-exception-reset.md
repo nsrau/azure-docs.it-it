@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: a7af6407191577112f936bfb9048985e85c868ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887224"
 ---
 # <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>Scenario: eccezione di archiviazione dopo la reimpostazione della connessione in Azure HDInsight
@@ -32,7 +32,7 @@ Sebbene non sia presente alcun BLOB di `/hbase/data/default/ThatTable` cartelle 
 
 1. Dall'interfaccia utente di Apache Ambari, riavviare il HMaster attivo. In questo modo uno dei due HMaster di standby diventa quello attivo e il nuovo HMaster attivo ricarica le informazioni della tabella dei metadati. In questo modo la `already-deleted` tabella non viene visualizzata nell'interfaccia utente di HMaster.
 
-1. È possibile trovare il file BLOB orfano dagli strumenti dell'interfaccia utente, ad esempio `hdfs dfs -ls /xxxxxx/yyyyy`Cloud Explorer o eseguire un comando come. Eseguire `hdfs dfs -rmr /xxxxx/yyyy` per eliminare il BLOB. Ad esempio, `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`
+1. È possibile trovare il file BLOB orfano dagli strumenti dell'interfaccia utente, ad esempio `hdfs dfs -ls /xxxxxx/yyyyy`Cloud Explorer o eseguire un comando come. Eseguire `hdfs dfs -rmr /xxxxx/yyyy` per eliminare il BLOB. Ad esempio: `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`.
 
 A questo punto è possibile creare una nuova tabella con lo stesso nome in HBase.
 

@@ -9,10 +9,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75863843"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizzare i dati da Time Series Insights in Power BI
@@ -67,7 +67,7 @@ Attività iniziali
        > [!NOTE]
        > È previsto un limite di numero di eventi 100-K per i dati a livello di evento non elaborato.
 
-       [![Connettersi](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Connessione](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. Se non è stata configurata l'istanza di Time Series Insights per **warm Store**, verrà visualizzato un avviso.
 

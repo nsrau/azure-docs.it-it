@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: twooley
 ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75930216"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installare e configurare l’adattatore StorSimple per SharePoint
@@ -162,7 +162,7 @@ Utilizzare la procedura seguente per installare l'adattatore StorSimple per Shar
 Dopo aver installato l'adattatore StorSimple per SharePoint, configurare RBS come descritto nella procedura seguente.
 
 > [!TIP]
-> L'adattatore StorSimple per SharePoint viene inserito nella pagina Amministrazione centrale SharePoint, consentendo di abilitare o disabilitare RBS in ogni database del contenuto nella farm di SharePoint. Tuttavia, l’abilitazione o la disabilitazione di RBS sul database del contenuto comporta una reimpostazione di IIS che, a seconda della configurazione della farm, può interrompere momentaneamente la disponibilità del front-end Web (WFE) di SharePoint. Fattori quali l'uso di un servizio di bilanciamento del carico front-end, il carico di lavoro corrente del server e così via possono limitare o eliminare questa interruzione. Per proteggere gli utenti da un'interruzione, è consigliabile abilitare o disabilitare Archiviazione BLOB remoti solo durante una finestra di manutenzione pianificata.
+> L'adattatore StorSimple per SharePoint viene inserito nella pagina Amministrazione centrale SharePoint, consentendo di abilitare o disabilitare RBS in ogni database del contenuto nella farm di SharePoint. Tuttavia, l’abilitazione o la disabilitazione di RBS sul database del contenuto comporta una reimpostazione di IIS che, a seconda della configurazione della farm, può interrompere momentaneamente la disponibilità del front-end Web (WFE) di SharePoint. I fattori, ad esempio l'uso di un servizio di bilanciamento del carico front-end, il carico di lavoro del server corrente e così via, possono limitare o eliminare questa situazione. Per proteggere gli utenti da un'ininterrotta, si consiglia di abilitare o disabilitare RBS solo durante una finestra di manutenzione pianificata.
 
 
 [!INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
@@ -196,7 +196,7 @@ Utilizzare la procedura seguente per eseguire l'aggiornamento del server SharePo
 > * Tutti i file precedentemente spostati in una risorsa di archiviazione esterna tramite RBS non saranno disponibili fino al termine della reinstallazione e fino a quando la funzionalità RBS non viene riabilitata. Per limitare l'impatto sugli utenti, eseguire l'aggiornamento o la reinstallazione in un periodo di manutenzione pianificata.
 > * Il tempo necessario per l'installazione/aggiornamento dipende dal numero totale di database di SharePoint nella server farm di SharePoint.
 > * Al termine dell'aggiornamento/reinstallazione, è necessario abilitare RBS per i database del contenuto. Per altre informazioni, vedere [Configurare RBS](#configure-rbs) .
-> * Se si configura Archiviazione BLOB remoti per una farm di SharePoint con un numero molto elevato di database (maggiore di 200), è possibile che si verifichi il timeout della pagina **Amministrazione centrale SharePoint.** In questo caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
+> * Se si configura RBS per una farm di SharePoint con un numero molto elevato di database (maggiore di 200), è possibile che si sia verificato il timeout della pagina **Amministrazione centrale SharePoint** . In tal caso, aggiornare la pagina. Questo evento non influisce sul processo di configurazione.
 
 
 [!INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
@@ -226,7 +226,7 @@ Prima di disinstallare l'adattatore StorSimple per il software di SharePoint, è
 4. Nella pagina **Configura l'adattatore StorSimple** fare clic sul pulsante **Disabilita** sotto ogni database di contenuto che si desidera rimuovere dalla risorsa di archiviazione BLOB esterna. 
 5. Eliminare gli oggetti da SharePoint e caricarli nuovamente.
 
-In alternativa, è possibile `RBS Migrate()` utilizzare il cmdlet di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
+In alternativa, è possibile usare il cmdlet `RBS Migrate()` di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 Dopo aver spostato nuovamente i BLOB nel database di contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
 

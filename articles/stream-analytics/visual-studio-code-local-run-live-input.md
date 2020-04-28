@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34ce91a1385f951847abeedd3a6b526d3a07af35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75660852"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testare le query di analisi di flusso in locale rispetto all'input del flusso Live usando Visual Studio Code
@@ -25,7 +25,7 @@ ms.locfileid: "75660852"
 
 ## <a name="define-a-live-stream-input"></a>Definire un input di flusso Live
 
-1. Fare clic con il pulsante destro del mouse sulla cartella **Inputs** nel progetto di Analisi di flusso. Quindi selezionare **ASA: Aggiungi input** dal menu di scelta rapida.
+1. Fare clic con il pulsante destro del mouse sulla cartella **Inputs** nel progetto di Analisi di flusso. Scegliere quindi **ASA: Add Input** (ASA: Aggiungi input) dal menu di scelta rapida.
 
    ![Aggiungi input dalla cartella Inputs](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 

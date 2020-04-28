@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75942779"
 ---
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
@@ -290,7 +290,7 @@ Le distribuzioni Linux seguenti sono state convalidate per le unità SSD Premium
 
 Alcune versioni richiedono la versione più recente di Linux Integration Services (LIS) 4.0 per Azure. Per scaricare e installare una distribuzione, fare clic sul collegamento riportato nella tabella seguente. Nuove immagini vengono aggiunte all'elenco non appena viene completata la convalida. Le convalide mostrano che le prestazioni variano per ogni immagine. Le prestazioni dipendono dalle caratteristiche del carico di lavoro e dalle impostazioni. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
 
-| Distribuzione | Version | Kernel supportato | Dettagli |
+| Distribuzione | Versione | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
 | Ubuntu | 12,04 o versione successiva| 3.2.0-75.110+ | &nbsp; |
 | Ubuntu | 14,04 o versione successiva| 3.13.0-44.73+  | &nbsp; |

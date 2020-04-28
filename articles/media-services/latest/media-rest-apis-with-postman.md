@@ -1,5 +1,5 @@
 ---
-title: Configurare Postman per le chiamate all'API REST di Servizi multimediali di AzureConfigure Postman for Azure Media Services v3 REST API calls
+title: Configurare il post per le chiamate all'API REST di servizi multimediali di Azure V3
 description: In questo articolo viene illustrato come configurare Postman in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS).
 services: media-services
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779638"
 ---
-# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurare Postman per le chiamate all'API REST di Servizi multimediali v3Configure Postman for Media Services v3 REST API calls
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V3
 
 In questo articolo viene illustrato come configurare **Postman** in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS). L'articolo illustra come importare i file di ambiente e di raccolta in **Postman**. La raccolta contiene definizioni raggruppate delle richieste HTTP che chiamano le API REST di Servizi multimediali di Azure (AMS). Il file di ambiente contiene le variabili usate dalla raccolta.
 
-Prima di iniziare lo sviluppo, vedere Sviluppo con API di [Servizi multimediali v3](media-services-apis-overview.md).
+Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Prima di iniziare lo sviluppo, vedere Sviluppo con API di [Servizi multimediali 
     Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 > [!IMPORTANT]
-> Esaminare [le convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
+> Esaminare le [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Scaricare i file Postman
 
@@ -78,7 +78,7 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
 
 Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft Azure v3 è necessario ottenere e impostare token di Azure AD per l'autenticazione dell'entità servizio.
 
-1. Nella finestra di sinistra dell'app Postman, seleziona "Passaggio 1: Ottieni token di autenticazione AAD".
+1. Nella finestra di sinistra dell'app post, selezionare "passaggio 1: ottenere il token di autenticazione AAD".
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
 3. Fare clic su **Invia**.
 
@@ -94,8 +94,8 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi 
 
-* Se l'applicazione non riesce con "HTTP 504: Timeout gateway", assicurarsi che la variabile di percorso non sia stata impostata in modo esplicito su un valore diverso dal percorso previsto dell'account di Servizi multimediali. 
-* Se viene visualizzato un errore "account non trovato", verificare anche che la proprietà location nel messaggio JSON Body sia impostata sul percorso in cui si trova l'account di Servizi multimediali. 
+* Se l'applicazione ha esito negativo con "HTTP 504: Timeout gateway", assicurarsi che la variabile di percorso non sia stata impostata in modo esplicito su un valore diverso da quello previsto per l'account di servizi multimediali. 
+* Se viene ricevuto un errore "account non trovato", verificare anche che la proprietà location nel messaggio JSON Body sia impostata sul percorso in cui si trova l'account di servizi multimediali. 
 
 ## <a name="see-also"></a>Vedere anche
 
@@ -106,4 +106,4 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Streaming di file con REST](stream-files-tutorial-with-rest.md).  
-- [Esercitazione: Codificare un file remoto in base all'URL e trasmettere il video - RESTTutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
+- [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video REST](stream-files-tutorial-with-rest.md)

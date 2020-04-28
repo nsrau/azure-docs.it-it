@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75972785"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creare cluster Apache HBase su HDInsight nella rete virtuale di Azure
@@ -51,7 +51,7 @@ In questa sezione viene creato un cluster Apache HBase basato su Linux con l'acc
 
 1. Nella finestra di dialogo **distribuzione personalizzata** selezionare **modifica modello**.
 
-1. Alla riga 165, modificare il `Standard_A3` valore `Standard_A4_V2`in. Quindi selezionare **Salva**.
+1. Alla riga 165, modificare il `Standard_A3` valore `Standard_A4_V2`in. Selezionare quindi **Salva**.
 
 1. Completare il modello rimanente con le informazioni seguenti:
 
@@ -111,7 +111,7 @@ Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_nam
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
-La porzione del nome di dominio che inizia con il nome del cluster è il suffisso DNS. Ad esempio, `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`
+La porzione del nome di dominio che inizia con il nome del cluster è il suffisso DNS. Ad esempio: `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
@@ -130,7 +130,7 @@ La porzione del nome di dominio che inizia con il nome del cluster è il suffiss
 
 ### <a name="verify-communication-inside-virtual-network"></a>Verificare la comunicazione all'interno della rete virtuale
 
-Per verificare che la macchina virtuale possa comunicare con il cluster HBase, usare il comando `ping headnode0.<dns suffix>` dalla macchina virtuale. Ad esempio, `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`
+Per verificare che la macchina virtuale possa comunicare con il cluster HBase, usare il comando `ping headnode0.<dns suffix>` dalla macchina virtuale. Ad esempio: `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 Per usare queste informazioni in un'applicazione Java e creare un'applicazione, è possibile seguire i passaggi in [Usare Apache Maven per compilare applicazioni Java che usano Apache HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md). Per fare in modo che l'applicazione si connetta a un server HBase remoto, modificare il file **hbase-site.xml** in questo esempio, in modo che usi il nome di dominio completo (FQDN) per Zookeeper. Ad esempio:
 

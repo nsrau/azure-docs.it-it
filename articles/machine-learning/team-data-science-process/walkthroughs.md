@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864078"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Procedure dettagliate del processo di data science per i team
 
-Queste **procedure dettagliate illustrano** i passaggi del processo di analisi scientifica dei dati del team per scenari specifici. Illustrano come combinare cloud, strumenti locali e servizi in un flusso di lavoro per **un'applicazione intelligente.** Le procedure dettagliate sono raggruppate in base alla **piattaforma** in uso.
+Queste **procedure dettagliate complete** illustrano i passaggi del processo di analisi scientifica dei dati per i team per scenari specifici. Illustrano come combinare strumenti cloud, locali e servizi in un flusso di lavoro per un' **applicazione intelligente**. Le procedure dettagliate sono raggruppate in base alla **piattaforma** in uso.
 
 
 ## <a name="walkthrough-descriptions"></a>Descrizioni della procedura dettagliata
@@ -40,7 +40,7 @@ Di seguito sono riportate brevi descrizioni di quanto fornito da questi esempi d
 
 Per una descrizione dei componenti principali che costituiscono il processo di data science per i team, vedere [Panoramica del processo di data science per i team](overview.md).
 
-Per una descrizione del ciclo di vita del processo di analisi scientifica dei dati del team, vedere Ciclo di vita del processo di [analisi scientifica dei dati del team](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che i progetti in genere seguono quando vengono eseguiti. 
+Per una descrizione del ciclo di vita del processo di Data Science per i team, vedere ciclo di vita del [processo di Data Science](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che in genere seguono i progetti quando vengono eseguiti. 
 
-Per una panoramica, vedere Processo di [data science](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Per una panoramica, vedere [processo di analisi scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

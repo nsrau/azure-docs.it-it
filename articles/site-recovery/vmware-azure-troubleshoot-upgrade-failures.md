@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi all'aggiornamento del provider di server di database di Microsoft AzureTroubleshoot upgrade of the Microsoft Azure Site Recovery Provider
-description: Risolvere i problemi comuni che si verificano durante l'aggiornamento del provider di Microsoft Azure Site Recovery.Resolve common issues that occur when upgrading the Microsoft Azure Site Recovery provider.
+title: Risolvere i problemi relativi all'aggiornamento del provider di Site Recovery Microsoft Azure
+description: Risolvere i problemi comuni che si verificano durante l'aggiornamento del provider di Site Recovery Microsoft Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75893905"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Risoluzione dei problemi di aggiornamento del provider di Microsoft Azure Site Recovery
@@ -42,9 +42,9 @@ Per aggiornare, seguire i passaggi seguenti:
 
 1. Tornare alla cartella in cui è stato scaricato il programma di installazione unificata ed eseguire MicrosoftAzureSiteRecoveryUnifiedSetup.exe per completare l'aggiornamento. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Errore di aggiornamento a causa della rinominata della cartella di terze parti
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Aggiornamento non riuscito a causa della ridenominazione della cartella di terze parti
 
-Affinché l'aggiornamento abbia esito positivo, la cartella di terze parti non deve essere rinominata.
+Per la riuscita dell'aggiornamento, la cartella di terze parti non deve essere rinominata.
 
 Per risolvere il problema.
 

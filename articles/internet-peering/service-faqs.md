@@ -1,7 +1,7 @@
 ---
-title: Servizio peering - Domande frequenti
+title: Servizio di peering-domande frequenti
 titleSuffix: Azure
-description: Servizio peering - Domande frequenti
+description: Servizio di peering-domande frequenti
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,37 +9,37 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 507e503b881df123ffc6694c53b0e9cc9b6a8872
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75775472"
 ---
-# <a name="peering-service---faqs"></a>Servizio peering - Domande frequenti
+# <a name="peering-service---faqs"></a>Servizio di peering-domande frequenti
 
-È possibile rivedere le informazioni riportate di seguito per domande generali.
+Per domande generali, è possibile consultare le informazioni riportate di seguito.
 
-**Un gestore può usare il peering diretto esistente con Microsoft per supportare il servizio peering?**
+**Un vettore può usare il peering diretto esistente con Microsoft per supportare il servizio di peering?**
 
-Sì, un vettore può sfruttare il suo PNI esistente per supportare peering Service. Un PNI del servizio di peering richiede diversità per supportare l'HA. Se l'attuale PNI ha già una diversità, non sono necessarie nuove infrastrutture. Se l'attuale PNI ha bisogno di diversità, allora può essere aumentata.
+Sì, un vettore può sfruttare i PNI esistenti per supportare il servizio di peering. Un servizio di peering PNI richiede la diversità per supportare la disponibilità elevata. Se il PNI esistente ha già una diversità, non è necessaria alcuna nuova infrastruttura. Se la PNI esistente richiede la diversità, può essere aumentata.
 
-**Un operatore può usare il nuovo peering diretto con Microsoft per supportare il servizio peering?**
+**Un vettore può usare il nuovo peering diretto con Microsoft per supportare il servizio di peering?**
 
-Sì, anche questo è possibile. Microsoft collaborerà con Carrier per creare un nuovo peering diretto per supportare il servizio di peering.  
+Sì, è anche possibile. Microsoft collaborerà con il gestore per creare un nuovo peering diretto per supportare il servizio di peering.  
 
-**Perché Direct esegue il peering con un requisito per supportare il servizio di peering?**
+**Perché il peering diretto è un requisito per supportare il servizio di peering?**
 
-Uno dei driver principali dietro Peering Service è quello di fornire la connettività ai servizi online Microsoft attraverso un SP ben collegato. I PNI sono sempre nell'intervallo Gbps e quindi un elemento fondamentale per una connettività ad alta velocità effettiva tra carrier e Microsoft.
+Uno dei principali driver dietro il servizio di peering consiste nel fornire connettività a Microsoft Servizi online tramite una SP ben connessa. PNI sono sempre in un intervallo di Gbps e, di conseguenza, un blocco predefinito fondamentale per la connettività con velocità effettiva elevata tra Carrier e Microsoft.
 
-**Quali sono i requisiti di diversità in un peering diretto per supportare il servizio di peering?**
+**Quali sono i requisiti di diversità per un peering diretto per supportare il servizio di peering?**
 
-Un PNI deve supportare la ridondanza locale e la ridondanza geografica. La ridondanza locale è definita come due set diversi di percorsi in un sito peering specifico. La ridondanza geografica richiede che Carrier disponga di connettività aggiuntiva in un sito perimetrale Microsoft diverso in caso di errore del sito primario. Per la breve durata di errore, il vettore può instradare il traffico attraverso il sito di backup.
+Un PNI deve supportare la ridondanza locale e la ridondanza geografica. La ridondanza locale è definita come due diversi set di percorsi in un sito di peering specifico. La ridondanza geografica richiede che il vettore disponga di connettività aggiuntiva in un sito Microsoft Edge diverso in caso di errore del sito primario. Per la durata del breve errore, il gestore può instradare il traffico attraverso il sito di backup.
 
-**Il vettore offre già SLA e Enterprise grade Internet, come è diversa questa offerta?**
+**Il vettore offre già Internet di livello aziendale e SLA, in che modo questa offerta è diversa?**
 
-Alcuni vettori offrono Servizi di integrazione e Internet di livello enterprise da parte della rete. In Servizio peering, Microsoft offrirà il traffico di offerta SLA su parte Microsoft della rete. Selezionando Il cliente del servizio di peering otterrà un contratto di servizio end-to-end. Il servizio di sla dal proprio sito al bordo Microsoft sulla rete ISP può essere coperto dall'ISP. Il contratto di servizio in Microsoft Global Network dall'applicazione Microsoft edge to end users è ora coperto da Microsoft.
+Alcuni vettori offrono un contratto di classe e un livello Enterprise Internet nella propria parte della rete. Nel servizio di peering, Microsoft offrirà il traffico offerto dal contratto di servizio in Microsoft parte della rete. Selezionando il servizio di peering il cliente otterrà un contratto di servizio end-to-end. Il contratto di servizi dal proprio sito a Microsoft Edge sulla rete ISP può essere coperto dal provider di servizi Internet. Il contratto di contratto in Microsoft Global Network da Microsoft Edge all'applicazione degli utenti finali è ora coperto da Microsoft.
 
-**Se un provider di servizi è già peering con Microsoft utilizzando PNI, che tipo di modifiche sono necessarie per supportare peering service?**
+**Se un provider di servizi già esegue il peering con Microsoft usando PNI, quali tipi di modifiche sono necessarie per supportare il servizio di peering?**
 
-* Modifiche software per identificare un utente del servizio di peering e il relativo traffico. Può richiedere modifiche ai criteri di routing per scambiare il traffico di un utente al perimetro Microsoft più vicino tramite la connessione del servizio di peering.
-* Assicurarsi che la connettività disponga di ridondanza locale e ridondanza geografica.
+* Modifiche software per identificare un utente del servizio di peering e il relativo traffico. Potrebbe richiedere modifiche ai criteri di routing per scambiare il traffico di un utente presso il Microsoft Edge più vicino attraverso la connessione al servizio di peering.
+* Verificare che la connettività includa ridondanza locale e ridondanza geografica.

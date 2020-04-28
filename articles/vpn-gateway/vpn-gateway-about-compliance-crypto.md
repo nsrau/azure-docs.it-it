@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: requisiti di crittografiaAzure VPN Gateway: Cryptographic requirements'
+title: 'Gateway VPN di Azure: requisiti di crittografia'
 description: In questo articolo vengono descritti i requisiti di crittografia e i gateway VPN di Azure
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75902832"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Informazioni sui requisiti di crittografia e i gateway VPN di Azure
@@ -20,23 +20,23 @@ Questo articolo illustra come configurare i gateway VPN di Azure per soddisfare 
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Informazioni su IKEv1 e IKEv2 per le connessioni VPN di Azure
 
-In genere abbiamo consentito le connessioni IKEv1 solo per gli SKU di base e consentito le connessioni IKEv2 per tutti gli SKU del gateway VPN diversi dagli SKU di base. Gli SKU basic consentono una sola connessione e, insieme ad altre limitazioni quali le prestazioni, i clienti che utilizzano dispositivi legacy che supportano solo i protocolli IKEv1 hanno un'esperienza limitata. Per migliorare l'esperienza dei clienti che utilizzano i protocolli IKEv1, ora stiamo consentendo connessioni IKEv1 per tutti gli SKU del gateway VPN, ad eccezione dello SKU di base. Per ulteriori informazioni, vedere [SKU gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Tradizionalmente sono consentite solo le connessioni IKEv1 per SKU Basic e le connessioni IKEv2 consentite per tutti gli SKU del gateway VPN diversi dagli SKU Basic. Gli SKU di base consentono solo una connessione e, insieme ad altre limitazioni quali le prestazioni, i clienti che usano dispositivi legacy che supportano solo i protocolli IKEv1 hanno avuto esperienza limitata. Per migliorare l'esperienza dei clienti che usano i protocolli IKEv1, ora è possibile consentire le connessioni IKEv1 per tutti gli SKU del gateway VPN, ad eccezione dello SKU Basic. Per altre informazioni, vedere [SKU del gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
-![Connessioni IKEv1 e IKEv2 del gateway VPN di AzureAzure VPN Gateway IKEv1 and IKEv2 connections](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
+![Connessioni IKEv1 e IKEv2 del gateway VPN di Azure](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
-Quando le connessioni IKEv1 e IKEv2 vengono applicate allo stesso gateway VPN, il transito tra queste due connessioni viene abilitato automaticamente.
+Quando si applicano le connessioni IKEv1 e IKEv2 allo stesso gateway VPN, il transito tra queste due connessioni viene abilitato automaticamente.
 
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Informazioni sui parametri di criteri IPsec e IKE per gateway VPN di Azure
 
-Lo standard di protocollo IPsec e IKE supporta un'ampia gamma di algoritmi di crittografia in varie combinazioni. Se non si richiede una combinazione specifica di algoritmi e parametri di crittografia, i gateway VPN di Azure usano un set di proposte predefinite. I set di criteri predefiniti sono stati scelti per migliorare l'interoperabilità con un'ampia gamma di dispositivi VPN di terze parti in configurazioni predefinite. Di conseguenza, i criteri e il numero di proposte non possono coprire tutte le possibili combinazioni degli algoritmi di crittografia disponibili e della complessità delle chiavi.
+Lo standard di protocollo IPsec e IKE supporta un'ampia gamma di algoritmi di crittografia in varie combinazioni. Se non si richiede una combinazione specifica di algoritmi e parametri crittografici, i gateway VPN di Azure usano un set di proposte predefinite. I set di criteri predefiniti sono stati scelti per migliorare l'interoperabilità con un'ampia gamma di dispositivi VPN di terze parti in configurazioni predefinite. Di conseguenza, i criteri e il numero di proposte non possono coprire tutte le possibili combinazioni degli algoritmi di crittografia disponibili e della complessità delle chiavi.
 
-Il set di criteri predefinito per il gateway VPN di Azure è elencato nell'articolo: [Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per](vpn-gateway-about-vpn-devices.md)le connessioni del gateway VPN da sito a sito.
+Il set di criteri predefinito per il gateway VPN di Azure è riportato nell'articolo [informazioni sui dispositivi VPN e sui parametri IPSec/IKE per le connessioni del gateway VPN da sito a sito](vpn-gateway-about-vpn-devices.md).
 
 ## <a name="cryptographic-requirements"></a>Requisiti per la crittografia
 
-Per le comunicazioni che richiedono algoritmi o parametri di crittografia specifici, in genere a causa di requisiti di conformità o sicurezza, è ora possibile configurare i gateway VPN di Azure per l'utilizzo di criteri IPsec/IKE personalizzati con algoritmi di crittografia e tasti di scelta rapida specifici, anziché i set di criteri predefiniti di Azure.For communications that require specific cryptographic algorithms or parameters, typically due to compliance or security requirements, you can now configure their Azure VPN gateways to use a custom IPsec/IKE policy with specific cryptographic algorithms and key strengths, rather than the Azure default policy sets.
+Per le comunicazioni che richiedono specifici algoritmi di crittografia o parametri, in genere a causa di requisiti di conformità o di sicurezza, è ora possibile configurare i gateway VPN di Azure per usare un criterio IPsec/IKE personalizzato con algoritmi di crittografia e attendibilità delle chiavi specifici, invece dei set di criteri predefiniti di Azure.
 
-Ad esempio, i criteri in modalità principale IKEv2 per i gateway VPN di Azure utilizzano solo Diffie-Hellman Group 2 (1024 bit), mentre potrebbe essere necessario specificare gruppi più forti da utilizzare in IKE, ad esempio Group 14 (2048 bit), Group 24 (2048-bit MODP Group) o ECP (elliptic curve curve) gruppi) 256 o 384 bit (gruppo 19 e gruppo 20, rispettivamente). Simili requisiti si applicano anche ai criteri IPsec in modalità rapida.
+Ad esempio, i criteri della modalità principale di IKEv2 per i gateway VPN di Azure usano solo il gruppo Diffie-Hellman 2 (1024 bit), potrebbe essere necessario specificare gruppi più avanzati da usare in IKE, ad esempio il gruppo 14 (2048 bit), il gruppo 24 (gruppo MODP a 2048 bit) o ECP (gruppi a curva ellittica) 256 o 384 bit (rispettivamente il gruppo 19 e il gruppo 20). Simili requisiti si applicano anche ai criteri IPsec in modalità rapida.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Criteri IPsec/IKE personalizzati con i gateway VPN di Azure
 

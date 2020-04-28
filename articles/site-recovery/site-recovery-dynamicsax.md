@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75941580"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurare il ripristino di emergenza per un'applicazione Dynamics AX multilivello   
@@ -37,21 +37,21 @@ Per l'implementazione del ripristino di emergenza per l'applicazione Dynamics AX
 
 ## <a name="site-recovery-support"></a>Supporto di Site Recovery
 
-Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamics AX 2012 R3 in Windows Server 2012 R2 Enterprise. Poiché la replica di Site Recovery è indipendente dall'applicazione, ci aspettiamo che i consigli forniti qui siano disponibili per gli scenari seguenti.
+Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamics AX 2012 R3 in Windows Server 2012 R2 Enterprise. Poiché Site Recovery replica è indipendente dall'applicazione, si prevede che le raccomandazioni fornite qui siano disponibili per gli scenari seguenti.
 
 ### <a name="source-and-target"></a>Origine e destinazione
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
 **Hyper-V** | Sì | Sì
-**Vmware** | Sì | Sì
+**VMware** | Sì | Sì
 **Server fisico** | Sì | Sì
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Abilitare il ripristino di emergenza dell'applicazione Dynamics AX tramite Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteggere l'applicazione Dynamics AX
 Per abilitare la replica e il ripristino completi dell'applicazione, ogni componente di Dynamics AX deve essere protetto.
 
-### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configurare la replica di Active Directory e DNS
+### <a name="1-set-up-active-directory-and-dns-replication"></a>1. configurare Active Directory e la replica DNS
 
 Ai fini del funzionamento dell'applicazione Dynamics AX, nel sito di ripristino di emergenza deve essere presente Active Directory. Le scelte consigliate sono due, a seconda della complessità dell'ambiente locale del cliente.
 
@@ -65,10 +65,10 @@ Il cliente ha un numero elevato di applicazioni, esegue una foresta Active Direc
 
  Per altre informazioni, vedere come [rendere disponibile un controller di dominio in un sito di ripristino di emergenza](site-recovery-active-directory.md). Nella parte restante di questo documento, si presuppone che sia disponibile un controller di dominio nel sito di ripristino di emergenza.
 
-### <a name="2-set-up-sql-server-replication"></a>2. Configurare la replica di SQL Server
+### <a name="2-set-up-sql-server-replication"></a>2. configurare SQL Server replica
 Per informazioni tecniche sull'opzione consigliata per la protezione del livello SQL, vedere come [eseguire la replica delle applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
 
-### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Abilitare la protezione per le macchine virtuali client e server oggetti applicativi Dynamics AX
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. abilitare la protezione per le VM del client Dynamics AX e del server oggetti applicazione
 Eseguire la configurazione di Site Recovery pertinente a seconda che le VM vengano distribuite in [Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md).
 
 > [!TIP]
@@ -79,8 +79,8 @@ Lo snapshot seguente illustra lo stato di protezione delle VM del componente Dyn
 
 ![Elementi protetti](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Configurare la rete
-**Configurare le impostazioni di elaborazione e rete della macchina virtualeConfigure VM compute and network settings**
+### <a name="4-configure-networking"></a>4. configurare la rete
+**Configurare le impostazioni di calcolo e di rete delle VM**
 
 Per le macchine virtuali AOS (Application Object Server) e il client AX, configurare le impostazioni di rete in Site Recovery in modo che le reti delle macchine virtuali siano collegate alla rete di ripristino di emergenza corretta dopo il failover. Assicurarsi che la rete di ripristino di emergenza per questi livelli possa essere instradata al livello SQL.
 
@@ -93,7 +93,7 @@ Per le macchine virtuali AOS (Application Object Server) e il client AX, configu
     ![Impostazioni di rete](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
-### <a name="5-create-a-recovery-plan"></a>5. Creare un piano di ripristino
+### <a name="5-create-a-recovery-plan"></a>5. creare un piano di ripristino
 
 È possibile creare un piano di ripristino in Site Recovery per automatizzare il processo di failover. Aggiungere un livello app e il livello Web nel piano di ripristino. Ordinare i livelli in gruppi diversi in modo che il front-end si arresti prima del livello app.
 
@@ -178,7 +178,7 @@ Per altre informazioni relative a SQL Server durante il failback, vedere come [e
 
 Per altre informazioni sull'esecuzione di un failback, vedere [Eseguire il failback di una macchina virtuale VMware da Azure al sito locale](site-recovery-failback-azure-to-vmware.md).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Con Azure Site Recovery è possibile creare un piano di ripristino di emergenza completamente automatico per l'applicazione Dynamics AX. In caso di interruzione del servizio è possibile avviare il failover in pochi secondi da qualsiasi luogo per ripristinare l'operatività dell'applicazione in pochi minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi

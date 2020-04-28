@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75894114"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: errore "watchdog: BUG: blocco soft-CPU" da un cluster Azure HDInsight
@@ -36,7 +36,7 @@ Applica patch del kernel. Lo script seguente aggiorna il kernel Linux e riavvia 
 
 1. Selezionare **Invia nuovo** e immettere l'input come indicato di seguito
 
-    | Proprietà | Valore |
+    | Proprietà | valore |
     | --- | --- |
     | Tipo di script | -Personalizzato |
     | Nome |Correzione per il problema di blocco soft kernel |
@@ -46,7 +46,7 @@ Applica patch del kernel. Lo script seguente aggiorna il kernel Linux e riavvia 
 
     Selezionare **Mantieni questa azione script...** se si desidera che esegua lo script quando vengono aggiunti nuovi nodi.
 
-1. Seleziona **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Attendere che l'esecuzione abbia esito positivo.
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645719"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Partner di monitoraggio di Azure Service Fabric
@@ -18,7 +18,7 @@ Questo articolo illustra come si possono monitorare applicazioni, cluster e infr
 
 ## <a name="dynatrace"></a>Dynatrace
 
-La nostra Integrazione con Dynatrace offre molte funzionalità predefinite per monitorare i cluster di Service Fabric. L'installazione di Dynatrace OneAgent nelle istanze del set di scalabilità di macchine virtuali offre contatori delle prestazioni e una topologia della distribuzione di Service Fabric fino al livello di app. Dynatrace è anche un'ottima scelta per il monitoraggio locale. Scopri altre funzionalità elencate [nell'annuncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [istruzioni](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) per abilitare Dynatrace nel cluster. 
+La nostra Integrazione con Dynatrace offre molte funzionalità predefinite per monitorare i cluster di Service Fabric. L'installazione di Dynatrace OneAgent nelle istanze del set di scalabilità di macchine virtuali offre contatori delle prestazioni e una topologia della distribuzione di Service Fabric fino al livello di app. Dynatrace è anche un'ottima scelta per il monitoraggio locale. Vedere altre funzionalità elencate nell' [annuncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [istruzioni](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) per abilitare dynaTrace nel cluster. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -34,11 +34,11 @@ New Relic è un altro strumento di gestione delle prestazioni delle applicazioni
 
 ## <a name="elk"></a>ELK 
 
-Lo stack ELK è una raccolta di tecnologie open source: Elasticsearch, Logstash e Kibana. Utilizzando queste tecnologie in combinazione, è possibile raccogliere, archiviare e analizzare i dati di diagnostica e monitoraggio di Service Fabric. L'esercitazione su come eseguire questa operazione con applicazioni Java di Service Fabric native è disponibile [qui](service-fabric-tutorial-java-elk.md). 
+Lo stack ELK è una raccolta di tecnologie open source: elasticsearch, logstash e Kibana. Utilizzando queste tecnologie in combinazione, è possibile raccogliere, archiviare e analizzare Service Fabric dati di monitoraggio e diagnostica. L'esercitazione su come eseguire questa operazione con applicazioni Java di Service Fabric native è disponibile [qui](service-fabric-tutorial-java-elk.md). 
 
 ## <a name="humio"></a>Humio
 
-Humio è un servizio di raccolta log in grado di raccogliere log dalle applicazioni e dagli eventi da Service Fabric nel cloud o in locale in tempo reale. Oltre all'osservabilità in tempo reale, Humio offre funzionalità di analisi e visualizzazione all'avanguardia per la visualizzazione e la raccolta di informazioni dalla diagnostica. Humio ha piani tariffari convenienti ed è costruito su larga scala, pur mantenendo la sua velocità di alleggerimento veloce. Si integra direttamente con gli eventi della piattaforma Service Fabric e i dati di telemetria dell'applicazione. Ulteriori informazioni sull'integrazione di Humio e Service Fabric [sono disponibili qui](https://github.com/humio/service-fabric-humio).
+Humio è un servizio di raccolta log in grado di raccogliere log dalle applicazioni e dagli eventi da Service Fabric nel cloud o in locale in tempo reale. Oltre all'osservabilità in tempo reale, Humio offre funzionalità di visualizzazione e analisi all'avanguardia per la visualizzazione e la raccolta di informazioni dalla diagnostica. Humio offre piani tariffari convenienti ed è progettato per la scalabilità, mantenendo al tempo stesso una rapida velocità. Si integra direttamente con gli eventi della piattaforma Service Fabric e i dati di telemetria dell'applicazione. Per altre informazioni sull'integrazione di Humio e Service Fabric, vedere [qui](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

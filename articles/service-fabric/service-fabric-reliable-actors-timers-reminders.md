@@ -1,15 +1,15 @@
 ---
-title: Timer e promemoria Reliable Actors
-description: Introduzione ai timer e ai promemoria per Service Fabric Reliable Actors, incluse indicazioni su quando usare ciascuno di essi.
+title: Reliable Actors timer e promemoria
+description: Introduzione ai timer e ai promemoria per Service Fabric Reliable Actors, incluse indicazioni su quando utilizzarli.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639616"
 ---
 # <a name="actor-timers-and-reminders"></a>Timer e promemoria degli attori
@@ -220,5 +220,5 @@ Come mostrato in precedenza, il metodo `UnregisterReminderAsync`(C#) o `unregist
 
 ## <a name="next-steps"></a>Passaggi successivi
 Acquisire informazioni sugli eventi e sulla rientranza di Reliable Actor:
-* [Eventi attori](service-fabric-reliable-actors-events.md)
+* [Eventi Actor](service-fabric-reliable-actors-events.md)
 * [Rientranza attore](service-fabric-reliable-actors-reentrancy.md)

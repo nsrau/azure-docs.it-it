@@ -1,15 +1,15 @@
 ---
 title: Backup e ripristino di Service Fabric
-description: Documentazione concettuale per Service Fabric Backup and Restore, un servizio per la configurazione del backup dei servizi Reliable Stateful e Reliable Actors.
+description: Documentazione concettuale per Service Fabric backup e ripristino, un servizio per la configurazione del backup di servizi con stato affidabili e Reliable Actors.
 author: mcoskun
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: ac6bb14517b67a4b308460583e8c9fb99a2df9f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75922785"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
@@ -254,7 +254,7 @@ Fino a quando un servizio non completa correttamente l'API, restituendo true o f
 `RestoreAsync` rilascia prima di tutto ogni stato esistente nella replica primaria in cui è stato chiamato. Reliable State Manager crea quindi tutti gli oggetti Reliable esistenti nella cartella di backup. Viene quindi indicato agli oggetti Reliable di eseguire il ripristino dai rispettivi checkpoint nella cartella di backup. Reliable State Manager ripristina infine il proprio stato dai record dei log nella cartella di backup ed esegue il ripristino. Come parte del processo di ripristino, le operazioni a partire dal "punto iniziale" con record di log di commit nella cartella di backup vengono riprodotte negli oggetti Reliable. Questo passaggio assicura che lo stato ripristinato sia coerente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-  - [Raccolte affidabili](service-fabric-work-with-reliable-collections.md)
+  - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configurazione di Reliable Services](service-fabric-reliable-services-configuration.md)

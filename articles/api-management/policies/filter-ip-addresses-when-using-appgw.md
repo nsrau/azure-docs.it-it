@@ -1,7 +1,7 @@
 ---
-title: "Criteri di gestione API di esempio: filtrare l'indirizzo IP quando si usa il gateway applicazioneSample API management policy - Filter on IP Address when using Application Gateway"
+title: "Criteri di gestione API di esempio: filtrare in base all'indirizzo IP quando si usa il gateway applicazione"
 titleSuffix: Azure API Management
-description: "Esempio di criteri di gestione delle API di Azure: illustra come filtrare l'indirizzo IP della richiesta quando si usa un gateway applicazione."
+description: "Esempio di criteri di gestione API di Azure: viene illustrato come filtrare in base all'indirizzo IP della richiesta quando si usa un gateway applicazione."
 services: api-management
 documentationcenter: ''
 author: jftl6y
@@ -13,15 +13,15 @@ ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
 ms.openlocfilehash: 45e16c9aa9e4b04e7225320951e9f839fae75ba3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75942477"
 ---
-# <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrare in base all'indirizzo IP della richiesta quando si utilizza un gateway applicazioneFilter on request IP Address when using an Application Gateway
+# <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrare in base all'indirizzo IP della richiesta quando si usa un gateway applicazione
 
-Questo articolo illustra un esempio di criteri di gestione delle API di Azure che illustra come filtrare l'indirizzo IP della richiesta quando si accede all'istanza di Gestione API tramite un gateway applicazione o un altro intermediario. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
+Questo articolo illustra un esempio di criteri di gestione API di Azure che illustra come filtrare l'indirizzo IP della richiesta quando l'istanza di gestione API è accessibile tramite un gateway applicazione o un altro intermediario. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
 ## <a name="policy"></a>Policy
 
