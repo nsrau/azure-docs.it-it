@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35e04be046e20883f60c576745a29342add68a81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60241601"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Modifica della password dell'account Active Directory Domain Services
@@ -29,7 +29,7 @@ L'account Active Directory Domain Services fa riferimento all'account utente usa
 
 * In Synchronization Service Manager, qualsiasi operazione di importazione o esportazione con AD locale ha esito negativo con errore **no-start-credentials**.
 
-* Nel Visualizzatore eventi di Windows, il registro eventi dell'applicazione contiene un errore con **ID evento 6000** e il messaggio **'Impossibile eseguire l'agente di gestione "contoso.com" perché le credenziali non sono valide'.**
+* In Windows Visualizzatore eventi il registro eventi dell'applicazione contiene un errore con **ID evento 6000** e il messaggio " **Impossibile eseguire l'agente di gestione" contoso.com "perché le credenziali non sono valide**.
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Come aggiornare il servizio di sincronizzazione con la nuova password per l’account Active Directory Domain Services

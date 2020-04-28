@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60885346"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Iniziare a usare Azure Data Lake Store tramite l'interfaccia della riga di comando di Azure
@@ -23,12 +23,12 @@ ms.locfileid: "60885346"
 
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
-> * [Powershell](data-lake-store-get-started-powershell.md)
-> * [Interfaccia della riga di comando di AzureAzure](data-lake-store-get-started-cli-2.0.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account Azure Data Lake Storage Gen1 ed eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni su Data Lake Storage Gen1, vedere [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
+Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account di Azure Data Lake Storage Gen1 ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per ulteriori informazioni su Data Lake Storage Gen1, vedere [Panoramica di data Lake storage Gen1](data-lake-store-overview.md).
 
 L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Panoramica dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls).
 
@@ -36,7 +36,7 @@ L'interfaccia della riga di comando di Azure è l'esperienza della riga di coman
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Interfaccia della riga di comando di Azure**: vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per istruzioni.
 
@@ -134,13 +134,13 @@ L'output di questo comando dovrebbe essere simile al seguente:
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Rinominare, scaricare ed eliminare i dati da un account Data Lake Storage Gen1 
 
-* **Per rinominare un file,** utilizzare il seguente comando:
+* **Per rinominare un file**, usare il comando seguente:
   
     ```azurecli
     az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-* **Per scaricare un file,** utilizzare il comando seguente. Assicurarsi che il percorso di destinazione specificato esista già.
+* **Per scaricare un file**, usare il comando seguente. Assicurarsi che il percorso di destinazione specificato esista già.
   
     ```azurecli     
     az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
@@ -151,7 +151,7 @@ L'output di questo comando dovrebbe essere simile al seguente:
     > 
     >
 
-* **Per eliminare un file,** utilizzare il seguente comando:
+* **Per eliminare un file**, usare il comando seguente:
   
     ```azurecli
     az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv

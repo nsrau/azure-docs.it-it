@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71057553"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
@@ -32,7 +32,7 @@ L'estensione per macchine virtuali Azure Performance Diagnostics raccoglie i dat
 Questa estensione può essere installata in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016, nonché in Windows 8.1 e Windows 10.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
-Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali Azure Performance Diagnostics. Per archiviare l'output e il report di diagnostica, l'estensione richiede il nome e la chiave di un account di archiviazione. Questi valori sono riservati. La chiave dell'account di archiviazione deve essere archiviata all'interno di una configurazione con impostazioni protette. I dati della configurazione protetta dell'estensione per macchine virtuali di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Si noti che **storageAccountName** e **storageAccountKey** fanno distinzione tra maiuscole e minuscole. Gli altri parametri obbligatori sono elencati nella sezione seguente.
+Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali Azure Performance Diagnostics. Per archiviare l'output e il report di diagnostica, l'estensione richiede il nome e la chiave di un account di archiviazione. Questi valori sono riservati. La chiave dell'account di archiviazione deve essere archiviata all'interno di una configurazione con impostazioni protette. I dati della configurazione protetta dell'estensione per macchine virtuali di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Si noti che **storageAccountName** e **storageAccountKey** distinguono tra maiuscole e minuscole. Gli altri parametri obbligatori sono elencati nella sezione seguente.
 
 ```JSON
     {
@@ -88,7 +88,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 
 Per installare l'estensione in macchine virtuali Windows, seguire queste istruzioni:
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la macchina virtuale in cui installare l'estensione.
 
     ![Screenshot del portale di Azure con "Macchine virtuali" evidenziato](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -255,4 +255,4 @@ Per visualizzare il report, estrarre il file con estensione zip e aprire il file
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-Se è necessaria ulteriore assistenza in qualsiasi momento di questo articolo, è possibile contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/)di Azure e selezionare Ottieni **supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto](https://azure.microsoft.com/support/faq/)di Microsoft Azure .
+Per ulteriori informazioni in qualsiasi punto di questo articolo, è possibile contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/)e selezionare **ottenere supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto Microsoft Azure](https://azure.microsoft.com/support/faq/).

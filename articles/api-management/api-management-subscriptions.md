@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70073412"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Sottoscrizioni in Gestione API di Azure
@@ -41,7 +41,7 @@ Le sottoscrizioni possono essere associate a vari ambiti: prodotto, tutte le API
 
 ### <a name="subscriptions-for-a-product"></a>Sottoscrizioni per un prodotto
 
-In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo l'approvazione di una richiesta di sottoscrizione, automaticamente o dagli editori di API, lo sviluppatore può usare le chiavi in essa contenuto per accedere a tutte le API nel prodotto. Al momento, il portale per sviluppatori mostra solo le sottoscrizioni dell'ambito del prodotto nella sezione del profilo utente. 
+In genere, le sottoscrizioni in Gestione API sono state sempre associate a un singolo ambito [prodotto API](api-management-terminology.md). L'elenco dei prodotti è disponibile nel portale per sviluppatori. Gli sviluppatori devono quindi inviare le richieste di sottoscrizione per i prodotti che vogliono usare. Dopo che una richiesta di sottoscrizione è stata approvata, automaticamente o dagli editori di API, lo sviluppatore può usare le chiavi disponibili per accedere a tutte le API nel prodotto. Al momento, il portale per sviluppatori Mostra solo le sottoscrizioni con ambito prodotto nella sezione profilo utente. 
 
 ![Sottoscrizioni prodotto](./media/api-management-subscriptions/product-subscription.png)
 
@@ -55,7 +55,7 @@ Quando è stato introdotto il livello [Consumo](https://aka.ms/apimconsumptionbl
 
 - In secondo luogo, Gestione API consente ora sottoscrizioni **autonome**. Le sottoscrizioni non devono più essere associate a un account per sviluppatore. Questa funzionalità è utile negli scenari in cui, ad esempio, più sviluppatori o team condividono una sottoscrizione.
 
-- Infine, gli editori di API possono ora creare sottoscrizioni direttamente nel portale di Azure:Finally, API publishers can now [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
+- Infine, i publisher di API possono ora [creare sottoscrizioni](api-management-howto-create-subscriptions.md) direttamente nel portale di Azure:
 
     ![Sottoscrizioni flessibili](./media/api-management-subscriptions/flexible-subscription.png)
 

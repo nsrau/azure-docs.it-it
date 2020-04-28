@@ -1,5 +1,5 @@
 ---
-title: Funzioni spaziali nel linguaggio di query di Azure Cosmos DBSpatial functions in Azure Cosmos DB query language
+title: Funzioni spaziali nel linguaggio di query Azure Cosmos DB
 description: Informazioni sulle funzioni di sistema SQL spaziali in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 1d523b09cb3d7142a6c375a0ffde77f8ca1153b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349448"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Funzioni spaziali (Azure Cosmos DB)

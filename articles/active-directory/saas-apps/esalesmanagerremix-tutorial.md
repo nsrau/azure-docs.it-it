@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65406965"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
@@ -33,7 +33,7 @@ L'integrazione di Azure AD con E Sales Manager Remix offre i vantaggi seguenti:
 - È possibile abilitare l'accesso automatico degli utenti a E Sales Manager Remix (Single Sign-On) con i loro account Azure AD.
 - È possibile gestire gli account da una posizione centrale, il portale di Azure.
 
-Per altre informazioni sull'integrazione delle app SaaS con Azure AD, vedere [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -65,7 +65,7 @@ Per configurare l'integrazione di Azure AD con E Sales Manager Remix, aggiungere
 
     ![Pulsante Azure Active Directory][1]
 
-1. Selezionare **Applicazioni** > aziendali**Tutte le applicazioni**.
+1. Selezionare **applicazioni** > aziendali**tutte le applicazioni**.
 
     ![Finestra "Applicazioni aziendali"][2]
     
@@ -120,7 +120,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     Viene visualizzata la finestra **Modifica attributo**.
 
-1. Copiare i valori di **Spazio dei nomi** e **Nome**. Generare il valore nel modello * \<Spazio dei nomi\<>/ Nome>* e salvarlo per un utilizzo successivo in questa esercitazione.
+1. Copiare i valori di **Spazio dei nomi** e **Nome**. Generare il valore nello * \<spazio dei nomi pattern>\</Name>* e salvarlo per usarlo in seguito in questa esercitazione.
 
     ![Finestra Modifica attributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -142,7 +142,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
     ![Comando "To Administrator Menu" (A menu amministratore)](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Nel riquadro sinistro selezionare **Impostazioni** > di sistema**Cooperazione con sistema esterno**.
+1. Nel riquadro sinistro selezionare **Impostazioni** > **di sistema collaborazione con sistema esterno**.
 
     ![Collegamenti "System settings" (Impostazioni sistema) e "Cooperation with external system" (Cooperazione con sistema esterno)](./media/esalesmanagerremix-tutorial/configure5.png)
     
@@ -171,7 +171,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
     h. Selezionare **Setting complete** (Impostazione completata).
 
 > [!TIP]
-> Durante la configurazione dell'app, nel [portale di Azure](https://portal.azure.com) è disponibile un riepilogo delle istruzioni precedenti. Dopo aver aggiunto l'app nella sezione**Applicazioni aziendali** di **Active Directory,** > selezionare la scheda **Single Sign-On** e quindi accedere alla documentazione incorporata nella sezione **Configurazione** nella parte inferiore. Per altre informazioni sulla funzionalità di documentazione integrata vedere [Documentazione integrata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Durante la configurazione dell'app, nel [portale di Azure](https://portal.azure.com) è disponibile un riepilogo delle istruzioni precedenti. Dopo aver aggiunto l'app nella sezione **Active Directory** > **applicazioni aziendali** , selezionare la scheda **Single Sign-on** e quindi accedere alla documentazione incorporata nella sezione **configurazione** nella parte inferiore. Per altre informazioni sulla funzionalità di documentazione integrata vedere [Documentazione integrata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
@@ -180,11 +180,11 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
 ![Creare un utente di test di Azure AD][100]
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory.**
+1. Nel riquadro sinistro della portale di Azure selezionare **Azure Active Directory**.
 
     ![Collegamento Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Per visualizzare un elenco degli utenti correnti, selezionare **Utenti e gruppi** > **Tutti gli utenti**.
+1. Per visualizzare un elenco di utenti correnti, selezionare **utenti e gruppi** > **tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
@@ -204,7 +204,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create** (Crea).
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Creare un utente di test in E Sales Manager Remix
 
@@ -214,7 +214,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     ![Configurazione di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selezionare **Impostazioni** > società**Manutenzione di reparti e dipendenti**, quindi **Selezionare Dipendenti registrati**.
+1. Selezionare **la** > **manutenzione delle impostazioni della società per reparti e dipendenti**, quindi selezionare **Employees registered**.
 
     ![Scheda "Employees registered" (Dipendenti registrati)](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -248,7 +248,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-1. Nel riquadro sinistro selezionare **Utenti e gruppi**.
+1. Nel riquadro sinistro selezionare **utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"][202]
 
@@ -258,7 +258,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 1. Nella finestra **Utenti e gruppi** selezionare **Britta Simon** nell'elenco **Utenti**.
 
-1. Selezionare il pulsante **Seleziona.Select** the Select button
+1. Fare clic sul pulsante **Seleziona**.
 
 1. Nella finestra **Aggiungi assegnazione** selezionare **Assegna**.
     
@@ -273,7 +273,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sull'integrazione di app SaaS con Azure Active Directory](tutorial-list.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

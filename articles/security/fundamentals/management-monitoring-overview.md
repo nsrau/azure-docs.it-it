@@ -1,5 +1,5 @@
 ---
-title: Gestione e monitoraggio delle funzionalità di sicurezza - Microsoft Azure Documenti Microsoft
+title: Funzionalità di sicurezza di gestione e monitoraggio-Microsoft Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica dei servizi e delle funzionalità di sicurezza forniti da Azure per facilitare la gestione e il monitoraggio delle macchine virtuali e dei servizi cloud di Azure.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73162757"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
@@ -40,7 +40,7 @@ Con Azure è possibile usare software antimalware a cura dei principali fornitor
 
 Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure offre la possibilità di installare un agente antimalware per le macchine virtuali e i ruoli PaaS. Questa funzionalità, basata su System Center Endpoint Protection, applica al cloud una comprovata tecnologia di sicurezza locale.
 
-Offriamo anche una profonda integrazione per i prodotti [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) di Trend nella piattaforma Azure. DeepSecurity è una soluzione antivirus e SecureCloud è una soluzione di crittografia. La soluzione DeepSecurity viene distribuita nelle macchine virtuali con un modello di estensione. Usando l'interfaccia utente del portale di Azure e PowerShell si può scegliere di usare DeepSecurity all'interno delle nuove macchine virtuali attivate o di macchine virtuali esistenti già distribuite.
+Offriamo anche una profonda integrazione per la [sicurezza profonda](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e i prodotti [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) della tendenza nella piattaforma Azure. DeepSecurity è una soluzione antivirus e SecureCloud è una soluzione di crittografia. La soluzione DeepSecurity viene distribuita nelle macchine virtuali con un modello di estensione. Usando l'interfaccia utente del portale di Azure e PowerShell si può scegliere di usare DeepSecurity all'interno delle nuove macchine virtuali attivate o di macchine virtuali esistenti già distribuite.
 
 Symantec Endpoint Protection (SEP) è supportato anche in Azure. Tramite l'integrazione nel portale è possibile specificare che si intende usare SEP in una macchina virtuale. È possibile installare SEP in una nuova macchina virtuale tramite il portale di Azure oppure in una macchina virtuale esistente usando PowerShell.
 
@@ -139,6 +139,6 @@ Intelligent Security Graph offre protezione dalle minacce in tempo reale nei pro
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni sul modello di [responsabilità condivisa](shared-responsibility.md) e sulle attività di sicurezza gestite da Microsoft e sulle attività gestite dall'utente.
+Informazioni sul [modello di responsabilità condivisa](shared-responsibility.md) e sulle attività di sicurezza gestite da Microsoft e sulle attività gestite dall'utente.
 
 Per altre informazioni sulla gestione della sicurezza, vedere [Gestione della sicurezza in Azure](management.md).

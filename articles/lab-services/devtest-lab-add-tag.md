@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2019
 ms.author: spelluru
 ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72302793"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Aggiungere tag a un lab in Azure DevTest Labs
@@ -36,24 +36,24 @@ Le risorse supportate dai tag includono
 
 È possibile applicare tag quando si [crea un ambiente lab](devtest-lab-create-lab.md) e gestirli in un secondo momento tramite il pannello Tag in Configuration and settings (Configurazione e impostazioni).
 
-Ogni tag è costituito da una coppia di**valori** di **nome.**/ Ad esempio, è possibile creare un tag con il nome *costcenter* con un valore *34543*. Un tag di questo tipo può essere utile in un secondo momento per identificare le risorse lab fatturabili a questa area specifica dell'organizzazione. È necessario scegliere nomi e valori appropriati per la modalità con cui si vuole organizzare la sottoscrizione.
+Ogni tag è costituito da una coppia **nome**/-**valore** . Ad esempio, è possibile creare un tag con il nome *costcenter* con un valore *34543*. Un tag di questo tipo può essere utile in un secondo momento per identificare le risorse lab fatturabili a questa area specifica dell'organizzazione. È necessario scegliere nomi e valori appropriati per la modalità con cui si vuole organizzare la sottoscrizione.
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Passaggi per la gestione di tag in un lab esistente
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
-1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il Lab potrebbe essere già visualizzato nel dashboard in **tutte le risorse**.
 1. Nell'elenco di lab selezionare il lab in cui si vuole aggiungere o gestire i tag.
 1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.
 
     ![Pulsante Configurazione e criteri](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
 1. A sinistra sotto **GESTISCI**selezionare **Tag**.
-1. Per creare un nuovo tag per questa esercitazione, immettere una coppia **Nome**/**valore** e selezionare **Salva**. È anche possibile selezionare un tag esistente dall'elenco per visualizzare o gestire le risorse associate a questo tag.
+1. Per creare un nuovo tag per questo Lab, immettere una coppia **nome**/**/valore** e selezionare **Salva**. È anche possibile selezionare un tag esistente dall'elenco per visualizzare o gestire le risorse associate a questo tag.
 
     ![Gestire i tag](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
 > [!NOTE]
-> I tag creati a livello di lab passano attraverso tutte le risorse fatturabili che il lab presenta nella sottoscrizione. Ad esempio, i tag a livello di lab scorrono nelle macchine virtuali di calcolo sottostanti delle macchine virtuali lab.You can use tags in the context of cost management. I tag a livello di lab vengono visualizzati nel filtro di tag per la gestione dei costi.
+> I tag creati a livello di Lab passano attraverso tutte le risorse fatturabili avviate dal Lab nella sottoscrizione. Ad esempio, i tag del livello Lab vengono propagati alle macchine virtuali di calcolo sottostanti delle macchine virtuali del Lab. è possibile usare i tag nel contesto di gestione dei costi. I tag livello Lab vengono visualizzati nel filtro tag per gestione costi.
 
 ## <a name="understanding-limitations-to-tags"></a>Informazioni sulle limitazioni ai tag
 
@@ -69,4 +69,4 @@ Ai tag si applicano le limitazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile applicare restrizioni e convenzioni all'interno della sottoscrizione tramite criteri personalizzati. Un criterio che è stato definito potrebbe richiedere che per tutte le risorse sia impostato un determinato tag. Per altre informazioni, vedere [Set policies and schedules](devtest-lab-set-lab-policy.md) (Impostare criteri e pianificazioni).
-* Esplorare la raccolta di modelli di [guida introduttiva di DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Esplorare la [raccolta di modelli di avvio rapido di DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

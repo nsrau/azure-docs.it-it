@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68699790"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Sviluppare per File di Azure con C++
@@ -69,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Connessione a un account di archiviazione di Azure
 
-È possibile usare la classe **cloud_storage_account** per rappresentare le informazioni sull'account di archiviazione. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .
+È possibile usare la classe **cloud_storage_account** per rappresentare le informazioni dell'account di archiviazione. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -107,7 +107,7 @@ A questo punto, **share** contiene un riferimento a una condivisione denominata 
 
 ## <a name="delete-an-azure-file-share"></a>Eliminare una condivisione file di Azure
 
-L'eliminazione di una condivisione viene eseguita chiamando il **metodo delete_if_exists** su un oggetto cloud_file_share. Ecco il codice di esempio che esegue tale operazione.
+L'eliminazione di una condivisione viene eseguita chiamando il metodo **delete_if_exists** su un oggetto cloud_file_share. Ecco il codice di esempio che esegue tale operazione.
 
 ```cpp
 // Get a reference to the share.
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerare file e directory in una condivisione file di Azure
 
-Ottenere un elenco di file e directory all'interno di una condivisione può essere facilmente eseguito chiamando **list_files_and_directories** su un **riferimento cloud_file_directory.** Per accedere al set completo di proprietà e metodi per un **list_file_and_directory_item** restituito, è necessario chiamare il metodo **list_file_and_directory_item.as_file** per ottenere un oggetto **cloud_file** oppure il metodo **list_file_and_directory_item.as_directory** per ottenere un oggetto **cloud_file_directory**.
+Il recupero di un elenco di file e directory all'interno di una condivisione viene effettuato facilmente chiamando **list_files_and_directories** su un riferimento **cloud_file_directory** . Per accedere al set completo di proprietà e metodi per un **list_file_and_directory_item** restituito, è necessario chiamare il metodo **list_file_and_directory_item.as_file** per ottenere un oggetto **cloud_file** oppure il metodo **list_file_and_directory_item.as_directory** per ottenere un oggetto **cloud_file_directory**.
 
 Il codice seguente illustra come recuperare e visualizzare l'URI di ogni elemento della directory radice della condivisione.
 
@@ -189,7 +189,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 
 Una condivisione file di Azure contiene come minimo una directory radice che può contenere file. In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
-Il primo passaggio del caricamento di un file consiste nell'ottenere un riferimento alla directory in cui risiederà. A tale scopo, chiamare il **metodo get_root_directory_reference** dell'oggetto share.
+Il primo passaggio del caricamento di un file consiste nell'ottenere un riferimento alla directory in cui risiederà. A tale scopo, chiamare il metodo di **get_root_directory_reference** dell'oggetto condivisione.
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -220,9 +220,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 
 ## <a name="download-a-file"></a>Scaricare un file
 
-Per scaricare i file, recuperare prima un riferimento al file e quindi chiamare il **metodo download_to_stream** per trasferire il contenuto del file in un oggetto flusso, che è quindi possibile rendere persistente in un file locale. In alternativa, è possibile usare il metodo **download_to_file** per scaricare il contenuto di un file in un file locale. È possibile usare il metodo **download_text** per scaricare il contenuto di un file come stringa di testo.
+Per scaricare i file, recuperare prima un riferimento al file e quindi chiamare il metodo **download_to_stream** per trasferire il contenuto del file in un oggetto flusso, che è quindi possibile salvare in modo permanente in un file locale. In alternativa, è possibile usare il metodo **download_to_file** per scaricare il contenuto di un file in un file locale. È possibile usare il metodo **download_text** per scaricare il contenuto di un file come stringa di testo.
 
-Nell'esempio seguente vengono **utilizzati** i metodi download_to_stream e **download_text** per illustrare il download dei file creati nelle sezioni precedenti.
+Nell'esempio seguente vengono usati i metodi **download_to_stream** e **download_text** per illustrare il download dei file creati nelle sezioni precedenti.
 
 ```cpp
 // Download as text
@@ -369,5 +369,5 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 
 * [Libreria client di archiviazione per C++](https://github.com/Azure/azure-storage-cpp)
 * [Esempi del servizio file di Archiviazione di Azure in C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Esplora archivi di AzureAzure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Documentazione di Archiviazione di AzureAzure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Documentazione di archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)

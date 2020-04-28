@@ -15,35 +15,35 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71057277"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Risolvere i problemi relativi a RDP
 
 Questa sezione descrive i problemi seguenti, relativi alla creazione di una connessione RDP a una macchina virtuale:
 
-- [Reimposta RDP](reset-rdp.md)
+- [Reimpostare RDP](reset-rdp.md)
 - [Risoluzione dei problemi relativi a RDP](troubleshoot-rdp-connection.md)
-- [Risoluzione dettagliata della risoluzione dei problemi RDP](detailed-troubleshoot-rdp.md)
+- [Risoluzione dettagliata dei problemi relativi a RDP](detailed-troubleshoot-rdp.md)
 - [Risolvere l'errore RDP causato dalla disabilitazione del protocollo DHCP](troubleshoot-rdp-dhcp-disabled.md)
 - [Risolvere l'errore RDP causato dall'impostazione del gruppo di sicurezza di rete](troubleshoot-rdp-nsg-problem.md)
-- [Risolvere errori specificiTroubleshoot specific errors](troubleshoot-specific-rdp-errors.md)
-- [Risolvere gli errori di server licenze non trovato](troubleshoot-rdp-no-license-server.md)
+- [Risolvere errori specifici](troubleshoot-specific-rdp-errors.md)
+- [Risolvere l'errore di server licenze non trovato](troubleshoot-rdp-no-license-server.md)
 - [Risolvere i problemi di Servizi Desktop remoto](troubleshoot-remote-desktop-services-issues.md)
 - [Risolvere un errore interno](Troubleshoot-rdp-internal-error.md)
 - [Risolvere i problemi dovuti all'interruzione frequente della connessione](troubleshoot-rdp-intermittent-connectivity.md)
 - [Risolvere un errore generale](troubleshoot-rdp-general-error.md)
 - [Risolvere gli errori di autenticazione](troubleshoot-authentication-error-rdp-vm.md)
 - [Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento](event-id-troubleshoot-vm-rdp-connecton.md)
-- [Risolvere l'errore di RDP nella macchina virtuale causato dall'IP statico](troubleshoot-rdp-static-ip.md)
-- [Risolvere l'errore di RDP nella macchina virtuale causato dalla disabilitazione della scheda di interfaccia di rete](troubleshoot-rdp-nic-disabled.md)
-- [Risolvere l'errore di RDP causato dalla modalità provvisoria](troubleshoot-rdp-safe-mode.md)
+- [Risolvere l'errore RDP nella macchina virtuale causato dall'IP statico](troubleshoot-rdp-static-ip.md)
+- [Risolvere l'errore RDP nella macchina virtuale causato dalla disabilitazione della scheda di interfaccia di rete](troubleshoot-rdp-nic-disabled.md)
+- [Risolvere l'errore RDP provocato dalla modalità provvisoria](troubleshoot-rdp-safe-mode.md)
 - [Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure](disable-guest-os-firewall-windows.md)
 - [Abilitare o disabilitare una regola del firewall in un sistema operativo guest](enable-disable-firewall-rule-guest-os.md)
 - [Il firewall del sistema operativo guest blocca il traffico in ingresso](guest-os-firewall-blocking-inbound-traffic.md)
 - [Il firewall del sistema operativo guest non è configurato correttamente](guest-os-firewall-misconfigured.md) 
-- [Risolvere l'errore di RDP causato da netvsc.sysv](troubleshoot-rdp-driver-netvsc.md)
+- [Risolvere l'errore RDP provocato da netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
 

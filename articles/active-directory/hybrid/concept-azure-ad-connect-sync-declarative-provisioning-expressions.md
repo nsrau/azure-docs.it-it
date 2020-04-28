@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60245512"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
@@ -53,7 +53,7 @@ Un parametro è definito da un connettore o da un amministratore tramite PowerSh
 
 Active Directory Connector fornisce i parametri seguenti per le regole di sincronizzazione in entrata:
 
-| Nome parametro | Comment |
+| Nome parametro | Commento |
 | --- | --- |
 | Domain.Netbios |Formato Netbios del dominio attualmente importato, ad esempio FABRIKAMSALES |
 | Domain.FQDN |Formato FQDN del dominio attualmente importato, ad esempio sales.fabrikam.com |

@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66473795"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento per PowerShell ADConnectivityTools
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>DESCRIZIONE
 
 Esegue test di connettività DNS locali.
-Per configurare il connettore di Active Directory, l'utente deve disporre sia della risoluzione dei nomi la risoluzione dei nomi per la foresta a cui sta tentando di connettersi, sia nei controller di dominio associati a questa foresta.
+Per configurare il connettore Active Directory, l'utente deve avere sia il nome ResolutionThe per la foresta a cui sta tentando di connettersi che i controller di dominio associati a questa foresta.
 
 ### <a name="examples"></a>ESEMPI
 
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se l'utente non utilizza i servizi DNS forniti dal dominio di accesso/sito di Active Directory, è possibile ignorare il controllo della porta 53.
-L'utente deve comunque essere in grado di risolvere _.ldap._tcp. \<forestfqdn\> affinché la configurazione di Active Directory Connector abbia esito positivo.
+Se l'utente non usa i servizi DNS forniti dal controller di dominio di accesso/sito Active Directory, potrebbe voler ignorare il controllo della porta 53.
+L'utente deve comunque essere in grado di risolvere _. LDAP. _tcp. \<FQDNforesta\> per garantire la riuscita della configurazione del connettore Active Directory.
 
 ```yml
 Type: SwitchParameter

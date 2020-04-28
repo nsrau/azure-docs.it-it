@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60280447"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Esercitazione: Configurare Concur per il provisioning utenti automatico
@@ -99,7 +99,7 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 8. Selezionare l'istanza di Concur e quindi la scheda **Provisioning**.
 
-9. Impostare la **modalità di provisioning** su **Automatico**. 
+9. Impostare la **modalità di provisioning** su **automatico**. 
  
     ![provisioning](./media/concur-provisioning-tutorial/provisioning.png)
 
@@ -124,6 +124,6 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurare Single Sign-On](concur-tutorial.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Configura accesso Single Sign-on](concur-tutorial.md)
 

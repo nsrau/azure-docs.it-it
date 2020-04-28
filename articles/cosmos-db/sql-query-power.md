@@ -1,6 +1,6 @@
 ---
-title: POWER nel linguaggio di query del database Cosmos di AzurePOWER in Azure Cosmos DB query language
-description: Informazioni sulla funzione di sistema SQL POWER in Azure Cosmos DB.
+title: POWER in linguaggio Azure Cosmos DB query
+description: Informazioni sull'alimentazione delle funzioni di sistema SQL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349643"
 ---
-# <a name="power-azure-cosmos-db"></a>POWER (Azure Cosmos DB)
+# <a name="power-azure-cosmos-db"></a>POTENZA (Azure Cosmos DB)
  Restituisce il valore dell'espressione specificata alla potenza specificata.  
   
 ## <a name="syntax"></a>Sintassi
@@ -29,7 +29,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
    È un'espressione numerica.  
   
 *numeric_expr2*  
-   È il potere a cui alzare *numeric_expr1*.  
+   Potenza a cui generare *numeric_expr1*.  
   
 ## <a name="return-types"></a>Tipi restituiti
   

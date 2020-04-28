@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67849257"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
@@ -31,7 +31,7 @@ Microsoft Azure fornisce un numero crescente di servizi che è possibile offrire
 Microsoft fornisce ai CSP le API per gestire le sottoscrizioni dei clienti di Azure consentendo l'integrazione programmatica con i sistemi di gestione dei servizi. Le funzionalità di gestione supportate sono disponibili [qui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestione di risorse di Microsoft Azure
-La modalità di gestione della sottoscrizione dipende dal contratto stipulato con il cliente. Il CSP può gestire direttamente la creazione e la manutenzione delle risorse oppure il cliente può mantenere il controllo della sottoscrizione di Microsoft Azure e creare le risorse di Azure necessarie. Se il cliente gestisce la creazione di risorse nella sottoscrizione di Microsoft Azure, utilizzerà uno dei due modelli: il modello "*Connect-Through*" o "*Direct-To*". Questi modelli vengono descritti in dettaglio nelle sezioni seguenti.  
+La modalità di gestione della sottoscrizione dipende dal contratto stipulato con il cliente. Il CSP può gestire direttamente la creazione e la manutenzione delle risorse oppure il cliente può mantenere il controllo della sottoscrizione di Microsoft Azure e creare le risorse di Azure necessarie. Se il cliente gestisce la creazione delle risorse nella sottoscrizione di Microsoft Azure, utilizzerà uno dei due modelli seguenti: modello "*Connect-through*" o "*Direct-to*". Questi modelli vengono descritti in dettaglio nelle sezioni seguenti.  
 
 ### <a name="connect-through-model"></a>Modello di connessione indiretta
 ![testo alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -91,11 +91,11 @@ ExpressRoute offre tre domini di routing: peer pubblico, privato e Microsoft. Og
 È possibile definire filtri di route personalizzati per consentire solo le route desiderate o necessarie. Per altre informazioni o per scoprire come apportare queste modifiche, vedere l'articolo [Creare e modificare il routing per un circuito ExpressRoute usando PowerShell](expressroute-howto-routing-classic.md) per altri dettagli sui filtri di routing.
 
 > [!NOTE]
-> Per il peer Microsoft e pubblico, la connettività deve essere stabilita con un indirizzo IP pubblico di proprietà del cliente o del CSP e deve seguire tutte le regole definite. Per altre informazioni, vedere la pagina [Prerequisiti ExpressRoute.For](expressroute-prerequisites.md) more information, see the ExpressRoute Prerequisites page.  
+> Per il peer Microsoft e pubblico, la connettività deve essere stabilita con un indirizzo IP pubblico di proprietà del cliente o del CSP e deve seguire tutte le regole definite. Per ulteriori informazioni, vedere la pagina dei [prerequisiti di ExpressRoute](expressroute-prerequisites.md) .  
 > 
 > 
 
-## <a name="routing"></a>Routing.
+## <a name="routing"></a>Routing
 ExpressRoute si connette alle reti di Azure tramite il gateway di rete virtuale di Azure. I gateway di rete forniscono il routing per le reti virtuali di Azure.
 
 Con la creazione delle reti virtuali di Azure viene creata anche una tabella di routing predefinita che consente alla rete virtuale di indirizzare il traffico alle/dalle subnet della rete virtuale. Se la tabella di route predefinita non è sufficiente per la soluzione, possono essere create route personalizzate per instradare il traffico in uscita ad appliance personalizzate o per bloccare le route a reti esterne o subnet specifiche.
@@ -114,7 +114,7 @@ La tabella di route predefinita include le route seguenti:
 ### <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Le route definite dall'utente consentono di controllare il traffico in uscita dalla subnet assegnata ad altre subnet nella rete virtuale o su uno degli altri gateway predefiniti (ExpressRoute, Internet o VPN). La tabella di routing di sistema predefinita può essere sostituita con una tabella di routing definita dall'utente che sostituisce la tabella di routing predefinita con route personalizzate. Con il routing definito dall'utente, i clienti possono creare route specifiche alle appliance, ad esempio firewall o appliance per il rilevamento di intrusioni, o bloccare l'accesso a subnet specifiche dalla subnet che ospita la route definita dall'utente. Per una panoramica delle route definite dall'utente, vedere [qui](../virtual-network/virtual-networks-udr-overview.md). 
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 A seconda del modello in uso, connessione diretta o connessione indiretta, il cliente definisce i criteri di sicurezza nella rete virtuale o fornisce i requisiti dei criteri di sicurezza al CSP per definirli per le reti virtuali. Possono essere definiti i criteri di sicurezza seguenti:
 
 1. **Isolamento del cliente** : la piattaforma Azure fornisce l'isolamento del cliente archiviando l'ID cliente e le informazioni sulla rete virtuale in un database sicuro, che viene usato per incapsulare il traffico di ogni cliente in un tunnel GRE.

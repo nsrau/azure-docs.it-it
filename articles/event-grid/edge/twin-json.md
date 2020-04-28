@@ -1,6 +1,6 @@
 ---
-title: Modulo Gemello - Azure Event Grid IoT Edge Documenti Microsoft
-description: Configurazione tramite il modulo Gemello.
+title: 'Modulo gemello: IoT Edge di griglia di eventi di Azure | Microsoft Docs'
+description: Configurazione tramite il modulo gemello.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,25 +10,25 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72992145"
 ---
 # <a name="module-twin-json-schema"></a>Schema JSON del modulo gemello
 
-Event Grid su IoT Edge si integra con l'ecosistema IoT Edge e supporta la creazione di argomenti e sottoscrizioni tramite il modulo Gemello. Segnala inoltre lo stato corrente di tutti gli argomenti e le sottoscrizioni di eventi alle proprietà segnalate nel modulo gemello.
+Griglia di eventi su IoT Edge si integra con l'ecosistema IoT Edge e supporta la creazione di argomenti e sottoscrizioni tramite il modulo gemello. Segnala anche lo stato corrente di tutti gli argomenti e le sottoscrizioni di eventi delle proprietà segnalate nel modulo gemello.
 
 > [!WARNING]
-> A causa delle limitazioni nell'ecosistema IoT Edge, tutti gli elementi della matrice nell'esempio json seguente sono stati codificati come stringhe json. Vedere `EventSubscription.Filter.EventTypes` `EventSubscription.Filter.AdvancedFilters` e le chiavi nell'esempio seguente.
+> A causa delle limitazioni nell'ecosistema IoT Edge, tutti gli elementi della matrice nell'esempio JSON seguente sono stati codificati come stringhe JSON. Vedere `EventSubscription.Filter.EventTypes` e `EventSubscription.Filter.AdvancedFilters` chiavi nell'esempio seguente.
 
 ## <a name="desired-properties-json"></a>Proprietà desiderate JSON
 
-* Il valore di ogni coppia chiave-valore nella sezione degli argomenti ha `Topic.Properties` esattamente lo stesso schema JSON usato nell'API per la creazione di argomenti.
-* Il valore di ogni coppia chiave-valore nella sezione **EventSubscriptions** ha esattamente `EventSubscription.Properties` lo stesso schema json usato nell'API durante la creazione di argomenti.
-* Per eliminare un argomento, `null` impostarne il valore su nelle proprietà desiderate.
-* L'eliminazione di sottoscrizioni di eventi tramite le proprietà desiderate non è supportata.
+* Il valore di ogni coppia chiave-valore nella sezione argomenti ha esattamente lo stesso schema JSON usato per `Topic.Properties` nell'API durante la creazione di argomenti.
+* Il valore di ogni coppia chiave-valore nella sezione **EventSubscriptions** ha esattamente lo stesso schema JSON usato per `EventSubscription.Properties` nell'API durante la creazione di argomenti.
+* Per eliminare un argomento, impostarne il valore `null` su nelle proprietà desiderate.
+* L'eliminazione delle sottoscrizioni di eventi tramite le proprietà desiderate non è supportata.
 
 ```json
 {
@@ -81,11 +81,11 @@ Event Grid su IoT Edge si integra con l'ecosistema IoT Edge e supporta la creazi
 
 ## <a name="reported-properties-json"></a>Proprietà segnalate JSON
 
-La sezione delle proprietà segnalate del modulo gemello include le seguenti informazioni:
+La sezione delle proprietà segnalate del modulo gemello include le informazioni seguenti:
 
-* L'insieme di argomenti e sottoscrizioni presenti nell'archivio del modulo
-* Eventuali errori rilevati durante la creazione di sottoscrizioni di argomenti/eventi desiderate
-* Eventuali errori di avvio (ad esempio le proprietà desiderate Analisi JSON non riuscita)Any boot up errors (such as desired properties JSON parsing failed)
+* Set di argomenti e sottoscrizioni esistenti nell'archivio del modulo
+* Eventuali errori riscontrati durante la creazione di argomenti e sottoscrizioni di eventi desiderati
+* Qualsiasi errore di avvio (ad esempio, l'analisi JSON delle proprietà desiderate non è riuscita)
 
 ```json
 {

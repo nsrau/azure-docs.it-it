@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: cb19dc7262721e672bd3f54b32db9188dad7fee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70101881"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
@@ -36,7 +36,7 @@ Quando si eseguono backup di SQL Server, è necessario affrontare diverse proble
 * **Hardware gestito**: con i servizi di Azure non viene addebitato alcun sovraccarico per la gestione dell'hardware. I servizi di Azure consentono di gestire l'hardware con l'aggiunta della replica geografica per la ridondanza e la protezione dagli errori hardware.
 * **Archiviazione illimitata**: abilitando un backup diretto sui BLOB di Azure, si ottiene l'accesso a uno spazio di archiviazione teoricamente illimitato. L'esecuzione di backup su una macchina virtuale di Azure presenta invece dei limiti correlati alle dimensioni della macchina stessa. Il numero di dischi che è possibile collegare a una macchina virtuale di Azure per i backup è limitato. vale a dire 16 per un'istanza di dimensioni elevate e un po' di meno per istanze di dimensioni inferiori.
 * **Disponibilità dei backup**: i backup archiviati in BLOB di Azure sono disponibili ovunque e in qualsiasi momento. Sono facilmente accessibili per il ripristino in un'istanza di SQL Server locale oppure in un'altra istanza eseguita in una macchina virtuale di Azure, senza che sia necessario collegare e scollegare il database o scaricare e collegare il disco rigido virtuale.
-* **Costo**: viene pagato solo il servizio effettivamente utilizzato. Può rivelarsi una soluzione economica per il backup e l'archiviazione fuori sede. Per altre informazioni, vedere la [calcolatrice dei prezzi](https://go.microsoft.com/fwlink/?LinkId=277060 "Calcolatore prezzi")di Azure e l'articolo Prezzi di Azure.See the Azure pricing calculator , and the [Azure pricing article](https://go.microsoft.com/fwlink/?LinkId=277059 "Articolo sui prezzi") for more information.
+* **Costo**: viene pagato solo il servizio effettivamente utilizzato. Può rivelarsi una soluzione economica per il backup e l'archiviazione fuori sede. Per ulteriori informazioni, vedere il [calcolatore dei prezzi di Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calcolatore prezzi")e l' [articolo sui prezzi di Azure](https://go.microsoft.com/fwlink/?LinkId=277059 "Articolo sui prezzi") .
 * **Usare gli snapshot di archiviazione**: quando i file di database sono archiviati in un BLOB di Azure e si usa SQL Server 2016, è possibile usare il [backup di snapshot di file](https://msdn.microsoft.com/library/mt169363.aspx) per eseguire backup quasi istantanei e ripristini estremamente rapidi.
 
 Per altre informazioni, vedere [Backup e ripristino di SQL Server con il servizio di archiviazione BLOB di Azure](https://go.microsoft.com/fwlink/?LinkId=271617).
@@ -48,20 +48,20 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 
 | Componente | Descrizione |
 | --- | --- |
-| **Account di archiviazione** |l'account di archiviazione è il punto di partenza per tutti i servizi di archiviazione. Per accedere a un servizio di archiviazione BLOB di Azure, è innanzitutto necessario creare un account di archiviazione di Azure. Per ulteriori informazioni sul servizio di archiviazione BLOB di Azure, vedere [Come utilizzare il servizio di archiviazione BLOB di Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+| **Storage Account** |l'account di archiviazione è il punto di partenza per tutti i servizi di archiviazione. Per accedere a un servizio di archiviazione BLOB di Azure, è innanzitutto necessario creare un account di archiviazione di Azure. Per ulteriori informazioni sul servizio di archiviazione BLOB di Azure, vedere [Come utilizzare il servizio di archiviazione BLOB di Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contenitore** |Un contenitore fornisce il raggruppamento di un set di BLOB ed è in grado di archiviare un numero di BLOB illimitato. Per scrivere un backup di SQL Server in un servizio BLOB di Azure, deve prima essere stato creato almeno il contenitore radice. |
-| **Blob** |file di qualsiasi tipo e dimensioni. I BLOB sono indirizzabili utilizzando il formato URL seguente: **https://[account di archiviazione].blob.core.windows.net/[container]/[blob]**. Per altre informazioni sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **BLOB** |file di qualsiasi tipo e dimensioni. I BLOB sono indirizzabili usando il formato di URL seguente: **https://[account di archiviazione]. blob. Core. Windows. NET/[contenitore]/[BLOB]**. Per altre informazioni sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Componenti di SQL Server
 Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono usati i componenti di SQL Server indicati di seguito.
 
 | Componente | Descrizione |
 | --- | --- |
-| **Url** |un URL specifica un URI (Uniform Resource Identifier) in un file di backup univoco. L'URL viene usato per fornire il percorso e il nome del file di backup di SQL Server. L'URL deve puntare a un BLOB effettivo, non solo a un contenitore. Se il BLOB non è disponibile, viene creato. Se viene specificato un BLOB esistente, il comando BACKUP non riuscirà a meno che non sia specificata l'opzione WITH FORMAT. Di seguito è riportato un esempio di URL specificato in un comando BACKUP: **http[s]://[accountarchiviazione].blob.core.windows.net/[contenitore]/[FILENAME.bak]**. HTTPS non è obbligatorio ma è consigliato. |
+| **URL** |un URL specifica un URI (Uniform Resource Identifier) in un file di backup univoco. L'URL viene usato per fornire il percorso e il nome del file di backup di SQL Server. L'URL deve puntare a un BLOB effettivo, non solo a un contenitore. Se il BLOB non è disponibile, viene creato. Se viene specificato un BLOB esistente, il comando BACKUP non riuscirà a meno che non sia specificata l'opzione WITH FORMAT. Di seguito è riportato un esempio di URL specificato in un comando BACKUP: **http[s]://[accountarchiviazione].blob.core.windows.net/[contenitore]/[FILENAME.bak]**. HTTPS non è obbligatorio ma è consigliato. |
 | **Credenziali** |le informazioni necessarie per la connessione e l'autenticazione a un servizio di archiviazione BLOB di Azure vengono archiviate in una credenziale.  Per fare in modo che SQL Server sia in grado di scrivere backup in un BLOB di Azure o di eseguire un ripristino da quest'ultimo, è necessario creare una credenziale di SQL Server. Per altre informazioni, vedere [Credenziali di SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
-> SQL Server 2016 è stato aggiornato e supporta BLOB in blocchi. Per altre informazioni, vedere Esercitazione: Uso del servizio di archiviazione BLOB di Microsoft Azure con database di [SQL Server 2016.See Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx) for more details.
+> SQL Server 2016 è stato aggiornato e supporta BLOB in blocchi. Per altri dettagli, vedere [esercitazione: uso del servizio di archiviazione BLOB di Microsoft Azure con SQL Server database 2016](https://msdn.microsoft.com/library/dn466438.aspx) .
 > 
 > 
 

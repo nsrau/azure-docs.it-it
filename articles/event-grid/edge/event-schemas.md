@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73242459"
 ---
 # <a name="event-schemas"></a>Schemi degli eventi
@@ -56,14 +56,14 @@ Tutti gli eventi hanno i dati di primo livello seguenti:
 
 | Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | ----------- |-----------
-| argomento | string | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
-| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Sì | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
-| eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| ID | string | No | Identificatore univoco dell'evento. |
-| data | object | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
-| dataVersion | string | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
+| subject | stringa | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Sì | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
+| eventTime | stringa | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| ID | stringa | No | Identificatore univoco dell'evento. |
+| data | oggetto | No | Utilizzato per acquisire i dati degli eventi specifici dell'entità di pubblicazione. |
+| dataVersion | stringa | Sì | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | No | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 ### <a name="example--eventgrid-schema-event"></a>Esempio: evento dello schema EventGrid
 

@@ -1,5 +1,5 @@
 ---
-title: Inviare notifiche push localizzate a iOS usando Hub di notifica di Azure. Documenti Microsoft
+title: Inviare notifiche push localizzate a iOS usando hub di notifica di Azure | Microsoft Docs
 description: Imparare a usare le notifiche push localizzate per i dispositivi iOS tramite Hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: ios
@@ -17,19 +17,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72385648"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push localizzate a iOS usando Hub di notifica di AzureTutorial: Send localized push notifications to iOS using Azure Notification Hubs
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche push localizzate a iOS usando hub di notifica di Azure
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-In questa esercitazione viene illustrato come usare la funzionalità relativa ai [modelli](notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione si inizia con l'app iOS creata in Usare hub di [notifica per inviare le ultime notizie.] Al termine, puoi registrarti per le categorie che ti interessano, specificare una lingua in cui ricevere le notifiche e ricevere solo le notifiche push per le categorie selezionate in quella lingua.
+In questa esercitazione viene illustrato come usare la funzionalità relativa ai [modelli](notification-hubs-templates-cross-platform-push-messages.md) di Hub di notifica di Azure per trasmettere notifiche relative alle ultime notizie localizzate in base alla lingua e al dispositivo. In questa esercitazione si inizia con l'app iOS creata in [usare hub di notifica per inviare]le ultime notizie. Al termine, è possibile registrarsi per le categorie a cui si è interessati, specificare una lingua in cui ricevere le notifiche e ricevere solo le notifiche push per le categorie selezionate in tale lingua.
 
 Lo scenario è composto da due parti:
 
@@ -46,12 +46,12 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="overview"></a>Panoramica
 
-In [Usa hub di notifica per inviare le ultime notizie,]è stata creata un'app che **utilizzai i tag** per sottoscrivere le notifiche per diverse categorie di notizie. Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche stesse deve essere localizzato e inviato al set di dispositivi corretto. In questa esercitazione viene usata la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
+In [usare hub di notifica per inviare]le ultime notizie è stata compilata un'app che usava **tag** per sottoscrivere le notifiche per diverse categorie di notizie. Molte app, tuttavia, sono destinate a più mercati ed è necessario localizzarle. Questo significa che il contenuto delle notifiche stesse deve essere localizzato e inviato al set di dispositivi corretto. In questa esercitazione viene usata la funzionalità relativa ai **modelli** di Hub di notifica per inviare facilmente notifiche relative alle ultime notizie localizzate.
 
 > [!NOTE]
 > Un possibile modo per inviare notifiche localizzate consiste nel creare più versioni di ogni tag. Per supportare l'inglese, il francese e il mandarino, ad esempio, sono necessari tre tag diversi per le ultime notizie internazionali: "world_en", "world_fr" e "world_ch". È quindi necessario inviare una versione localizzata delle ultime notizie internazionali a ogni tag. In questo argomento verranno usati i modelli per evitare la proliferazione di tag e la necessità di inviare più messaggi.
 
-I modelli sono un modo per specificare come un dispositivo specifico deve ricevere una notifica. Il modello definisce lo specifico formato di payload da utilizzare, facendo riferimento alle proprietà del messaggio inviato dal back-end dell'app. In questo caso verrà inviato un messaggio indipendente dalle impostazioni locali, che contiene tutte le lingue supportate:
+I modelli consentono di specificare il modo in cui un dispositivo specifico deve ricevere una notifica. Il modello definisce lo specifico formato di payload da utilizzare, facendo riferimento alle proprietà del messaggio inviato dal back-end dell'app. In questo caso verrà inviato un messaggio indipendente dalle impostazioni locali, che contiene tutte le lingue supportate:
 
 ```json
 {
@@ -82,7 +82,7 @@ Per altre informazioni sui modelli, vedere l'articolo [Modelli](notification-hub
 
 In questa sezione l'app Breaking News creata nell'argomento [Utilizzo di Hub di notifica per inviare le ultime notizie] viene modificata in modo da inviare notizie localizzate mediante modelli.
 
-In `MainStoryboard_iPhone.storyboard`, aggiungere un controllo segmentato con le tre lingue: inglese, francese e mandarino.
+`MainStoryboard_iPhone.storyboard`In aggiungere un controllo segmentato con le tre lingue seguenti: inglese, francese e mandarino.
 
 ![Creazione di storyboard dell'interfaccia utente iOS][13]
 
@@ -92,7 +92,7 @@ Assicurarsi quindi di aggiungere un elemento IBOutlet in ViewController.h come i
 
 ## <a name="build-the-ios-app"></a>Compilare l'app iOS
 
-1. In `Notification.h`, aggiungere `retrieveLocale` il metodo e modificare i metodi store e subscribe, come illustrato nel codice seguente:
+1. `Notification.h`In aggiungere il `retrieveLocale` metodo e modificare i metodi di archiviazione e sottoscrizione come illustrato nel codice seguente:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

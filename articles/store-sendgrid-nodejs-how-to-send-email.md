@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60931705"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Come inviare messaggi di posta elettronica usando SendGrid da Node.js
 
-Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per altre informazioni su SendGrid e sull'invio di posta elettronica, vedere la sezione [Passaggi successivi.](#next-steps)
+Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti usando l'API Node.js. Gli scenari presentati includono **creazione di messaggi di posta elettronica**, **invio di messaggi di posta elettronica**, **aggiunta di allegati**, **uso di filtri** e **aggiornamento delle proprietà**. Per ulteriori informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [passaggi successivi](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Informazioni sul servizio di posta elettronica SendGrid
 
-SendGrid è un servizio di [posta elettronica basato su cloud] che fornisce la distribuzione [transazionale]affidabile della posta elettronica, la scalabilità e l'analisi in tempo reale insieme a API flessibili che semplificano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
+SendGrid è un [servizio di posta elettronica basato sul cloud] che offre funzionalità affidabili per il [recapito tramite posta elettronica transazionale], la scalabilità e l'analisi in tempo reale, oltre ad API flessibili che semplificano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
 * Invio automatico di ricevute ai clienti
 * Amministrazione di liste di distribuzione per l'invio mensile ai clienti di volantini elettronici e offerte speciali
@@ -80,7 +80,7 @@ html: This is a sample <b>HTML<b> email message.
 
 Impostando sia la proprietà text che la proprietà html è possibile implementare il fallback graduale a contenuto testuale per i client che non supportano i messaggi HTML.
 
-Per ulteriori informazioni su tutte le proprietà supportate dalla funzione Email, vedere [sendgrid-nodejs][sendgrid-nodejs].
+Per altre informazioni su tutte le proprietà supportate dalla funzione di posta elettronica, vedere [SendGrid-NodeJS][sendgrid-nodejs].
 
 ## <a name="how-to-send-an-email"></a>Procedura: Inviare un messaggio di posta elettronica
 
@@ -188,7 +188,7 @@ sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Procedura: Aggiornare le proprietà dei messaggi di posta elettronica
 
-Alcune proprietà di posta elettronica possono essere sovrascritte utilizzando **setProperty** o aggiunte utilizzando **addProperty**. Ad esempio, è possibile aggiungere altri destinatari usando
+Alcune proprietà di posta elettronica possono essere sovrascritte usando la **Proprietà SetProperty** o accodate tramite **AddProperty**. Ad esempio, è possibile aggiungere altri destinatari usando
 
 ```javascript
 email.addTo('jeff@contoso.com');
@@ -213,7 +213,7 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 
 * Repository del modulo SendGrid per Node.js: [sendgrid-nodejs][sendgrid-nodejs]
 * Documentazione dell'API SendGrid: <https://sendgrid.com/docs>
-* Offerta speciale SendGrid per i clienti di Azure:SendGrid special offer for Azure customers:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Offerta speciale SendGrid per i clienti di Azure:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

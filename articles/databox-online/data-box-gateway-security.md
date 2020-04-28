@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69900613"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Sicurezza e protezione dei dati Azure Data Box Gateway
@@ -56,7 +56,7 @@ Per altre informazioni, vedere [ottenere una chiave di attivazione](data-box-gat
 
 Le password assicurano che solo gli utenti autorizzati possano accedere ai dati. I dispositivi Data Box Gateway vengono avviati in uno stato bloccato.
 
-È possibile:
+È possibile scegliere:
 
 - Connettersi all'interfaccia utente Web locale del dispositivo tramite un browser e quindi specificare una password per accedere al dispositivo.
 - Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. La gestione remota è attivata per impostazione predefinita. È quindi possibile specificare la password del dispositivo per accedere al dispositivo. Per altre informazioni, vedere [connettersi in remoto al dispositivo data box gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).

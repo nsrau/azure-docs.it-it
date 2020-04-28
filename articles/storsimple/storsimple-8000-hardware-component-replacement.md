@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60321834"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
@@ -34,12 +34,12 @@ Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti
 ### <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in queste esercitazioni. Prestare particolare attenzione a queste icone di sicurezza quando si eseguono i passaggi per rimuovere e sostituire i componenti del dispositivo.
 
-| Icona | Testo | Informazioni aggiuntive |
+| Icona | Testo | Altre informazioni |
 |:--- |:--- |:--- |
 | ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
-| ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**Avviso!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
-| ![Icona di attenzione](./media/storsimple-hardware-component-replacement/Caution.png) |**Attenzione!** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
-| ![Icona di notifica](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
+| ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
+| ![Icona di attenzione](./media/storsimple-hardware-component-replacement/Caution.png) |**ATTENZIONE!** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
+| ![Icona di notifica](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**AVVISO** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica](./media/storsimple-hardware-component-replacement/Electric.png) |**Pericolo di scosse elettriche** |Indica alta tensione. |
 | ![Icona peso elevato](./media/storsimple-hardware-component-replacement/Weight.png) |**Pesante** | |
 | ![Nessuna icona di parti riparabili dall'utente](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**Nessuna parte riparabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
@@ -92,7 +92,7 @@ I moduli plug-in nel dispositivo sono evidenziati nei seguenti diagrammi anterio
 
 **Figura 1** Parte anteriore del dispositivo
 
-| Etichetta | Descrizione |
+| Label | Descrizione |
 |:--- |:--- |
 | 0 - 11 |Unità di dischi (totale pari a 12) |
 
@@ -102,7 +102,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 2** Pannello posteriore dello chassis principale
 
-| Etichetta | Descrizione |
+| Label | Descrizione |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 3** pannello posteriore dell’enclosure EBOD
 
-| Etichetta | Descrizione |
+| Label | Descrizione |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

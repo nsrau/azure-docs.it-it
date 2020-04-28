@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67807767"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Accedere alle applicazioni locali tramite Microsoft Teams
@@ -33,19 +33,19 @@ Gli utenti possono aggiungere app cloud ai propri canali di Teams [usando le sch
 
 Se necessario, [configurare il proxy di applicazione per il tenant e installare il connettore](application-proxy-add-on-premises-application.md), quindi [pubblicare l'applicazione locale](application-proxy-add-on-premises-application.md) per l'accesso remoto. Quando si pubblica l'app, prendere nota dell'URL esterno, in quanto servirà per aggiungere l'app a Teams.
 
-Se le app sono già state pubblicate, ma non si ricordano gli URL esterni, cercarli nel [portale di Azure](https://portal.azure.com). Accedi, quindi passa ad **Applicazioni Azure Active Directory** > **Enterprise** > **Tutte le applicazioni** > selezionare l'app > proxy di **applicazione.**
+Se le app sono già state pubblicate, ma non si ricordano gli URL esterni, cercarli nel [portale di Azure](https://portal.azure.com). Accedere, quindi passare a **Azure Active Directory** > **applicazioni** > aziendali**tutte le applicazioni** > selezionare l'app > **proxy di applicazione**.
 
 ## <a name="add-your-app-to-teams"></a>Aggiungere l'app a Teams
 
 Dopo aver pubblicato l'app tramite il proxy di applicazione, informare gli utenti che possono aggiungerla come scheda direttamente nei canali di Teams e che l'app sarà quindi disponibile per l'uso a chiunque nel team. Far eseguire questi tre passaggi:
 
-1. Passare al canale Teams in cui si **+** desidera aggiungere l'app e selezionare per aggiungere una scheda.
+1. Passare al canale teams in cui si vuole aggiungere l'app e selezionare **+** per aggiungere una scheda.
 
-   ![Selezionare il segno di sto per aggiungere una scheda in Teams](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![Selezionare + per aggiungere una scheda in teams](./media/application-proxy-integrate-with-teams/add-tab.png)
 
 1. Selezionare **Sito Web** dalle opzioni della scheda.
 
-   ![Selezionare Sito Web dalla schermata Aggiungi scheda](./media/application-proxy-integrate-with-teams/website.png)
+   ![Selezionare sito Web dalla schermata Aggiungi una scheda](./media/application-proxy-integrate-with-teams/website.png)
 
 1. Assegnare un nome alla scheda e impostare l'URL su quello esterno del proxy applicazione.
 

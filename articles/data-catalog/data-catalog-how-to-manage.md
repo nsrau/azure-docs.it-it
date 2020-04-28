@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68736335"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gestire gli asset di dati in Azure Data Catalog
@@ -37,7 +37,7 @@ Quando un asset di dati in Data Catalog ha dei proprietari, solo gli utenti auto
 >
 
 ### <a name="take-ownership"></a>Diventare proprietario
-Gli utenti possono assumere la proprietà degli asset di dati selezionando l'opzione **Diventa proprietario** nel portale di Data Catalog. Non sono necessarie speciali autorizzazioni per diventare proprietario di un asset di dati senza proprietario. Qualsiasi utente può diventare proprietario di un asset di dati senza proprietario.
+Gli utenti possono diventare proprietari degli asset di dati selezionando l'opzione **accetta proprietà** nel portale di Data Catalog. Non sono necessarie speciali autorizzazioni per diventare proprietario di un asset di dati senza proprietario. Qualsiasi utente può diventare proprietario di un asset di dati senza proprietario.
 
 ### <a name="add-owners-and-co-owners"></a>Aggiungere proprietari e comproprietari
 Se un asset di dati ha già un proprietario, gli altri utenti non possono semplicemente diventare proprietari. Devono essere aggiunti come comproprietari da un proprietario esistente. Qualsiasi proprietario può aggiungere altri utenti o gruppi di sicurezza come comproprietari.
@@ -50,7 +50,7 @@ Se un asset di dati ha già un proprietario, gli altri utenti non possono sempli
 ### <a name="remove-owners"></a>Rimuovere i proprietari
 Qualsiasi proprietario di asset può rimuovere i relativi comproprietari.
 
-Un proprietario della risorsa che si rimuove come proprietario non può più gestirla. Se il proprietario della risorsa si rimuove come proprietario e non ci sono altri comproprietari, l'asset torna a uno stato senza proprietario.
+Un proprietario di asset che si rimuove se stesso come proprietario non può più gestire l'asset. Se il proprietario dell'asset rimuove se stesso come proprietario e non esistono altri comproprietari, l'asset viene ripristinato in uno stato non di proprietà.
 
 ## <a name="control-visibility"></a>Controllare la visibilità
 La visibilità degli asset di dati è controllata dai relativi proprietari. Per limitare la visibilità come impostazione predefinita, in cui tutti gli utenti di Data Catalog possono trovare e visualizzare l'asset di dati, il proprietario dell'asset può alternare l'impostazione di visibilità tra **Tutti** e **Proprietario e questi utenti** nelle proprietà dell'asset. I proprietari possono quindi aggiungere utenti e gruppi di sicurezza specifici.
@@ -63,5 +63,5 @@ La visibilità degli asset di dati è controllata dai relativi proprietari. Per 
 ## <a name="catalog-administrators"></a>Amministratori del catalogo
 Gli amministratori di Data Catalog sono implicitamente comproprietari di tutti gli asset nel catalogo. I proprietari di asset non possono rimuovere la visibilità dagli amministratori, che possono gestire la proprietà e la visibilità per tutti gli asset di dati nel catalogo.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Il modello di crowdsourcing di Data Catalog per l'individuazione di asset di dati e metadati consente a tutti gli utenti del catalogo di contribuire all'individuazione. L'edizione Standard di Data Catalog è progettata per la proprietà e la gestione per poter limitare la visibilità e l'uso di asset di dati specifici.

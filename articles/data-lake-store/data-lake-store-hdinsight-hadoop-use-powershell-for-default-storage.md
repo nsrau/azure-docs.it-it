@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66161405"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 come risorsa di archiviazione predefinita usando PowerShell
 
 > [!div class="op_single_selector"]
-> * [Usare il portale di AzureUse the Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Usare il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Usare PowerShell (per l'archiviazione predefinita)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Usare PowerShell (per l'archiviazione aggiuntiva)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Usare Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -137,7 +137,7 @@ Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/en-us/down
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-    Quando viene chiesto, immettere la password della chiave privata specificata in precedenza. Il valore specificato per il parametro **-po** è la password associata al file PFX. Dopo che il comando è stato completato correttamente, verrà visualizzato anche un file **CertFile.pfx** nella directory del certificato specificato.
+    Quando viene chiesto, immettere la password della chiave privata specificata in precedenza. Il valore specificato per il parametro **-po** è la password associata al file PFX. Dopo che il comando è stato completato correttamente, dovrebbe essere visualizzato anche un file **CertFile. pfx** nella directory del certificato specificato.
 
 ### <a name="create-an-azure-ad-and-a-service-principal"></a>Creare un'applicazione Azure AD e un'entità servizio
 In questa sezione si crea un'entità servizio per un'applicazione Azure AD, si assegna un ruolo all'entità servizio e si esegue l'autenticazione come entità servizio fornendo un certificato. Per creare un'applicazione in Azure AD, eseguire i comandi seguenti:
@@ -215,7 +215,7 @@ In questa sezione viene creato un cluster HDInsight Hadoop Linux con Data Lake S
     Dopo il completamento del cmdlet, dovrebbe viene visualizzato un output con i dettagli del cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Eseguire i processi di test nel cluster HDInsight per usare Data Lake Storage Gen1
-Dopo aver configurato un cluster HDInsight, è possibile eseguire i processi di test nel cluster per verificare che possa accedere a Data Lake Storage Gen1. A tale scopo, eseguire un processo Hive di esempio per creare una tabella che usa i dati di esempio già disponibili in Data Lake Storage Gen1 nella * \<radice del cluster>/esempio/dati/sample.log*.
+Dopo aver configurato un cluster HDInsight, è possibile eseguire i processi di test nel cluster per verificare che possa accedere a Data Lake Storage Gen1. A tale scopo, eseguire un processo hive di esempio per creare una tabella che usa i dati di esempio già disponibili in data Lake storage Gen1 nella * \<radice del cluster>/example/Data/Sample.log*.
 
 In questa sezione si stabilisce una connessione SSH (Secure Shell) al cluster HDInsight Linux creato e quindi si esegue una query Hive di esempio.
 

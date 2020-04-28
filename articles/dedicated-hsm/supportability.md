@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881014"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Supporto di HSM dedicato di Azure
@@ -26,12 +26,12 @@ I clienti sono interamente responsabili per le applicazioni che usano i moduli d
 
 ## <a name="getting-support"></a>Ottenere assistenza
 
-Il supporto clienti per HSM dedicato è uno sforzo congiunto tra Microsoft e Gemalto. Eventuali problemi hardware o di percorso di rete saranno risolti da Microsoft e qualsiasi cosa abbia a che fare con l'HSM effettivo, come la configurazione, il software, il firmware e lo sviluppo di applicazioni, sarà affrontata da Gemalto. Questo modello di supporto garantisce il percorso più rapido verso il supporto più efficace. In caso di dubbi su un particolare problema, inviare una richiesta di supporto con Microsoft e ci assicureremo che tu sia diretto in modo appropriato. Microsoft rimarrà impegnata in tutti gli scenari di supporto e si impegnerà per la migliore esperienza di supporto per i nostri clienti.
+Il supporto tecnico per il modulo di protezione hardware dedicato è un impegno comune tra Microsoft e Gemalto. Eventuali problemi hardware o problemi del percorso di rete verranno risolti da Microsoft e qualsiasi operazione da eseguire con il modulo di protezione hardware effettivo, ad esempio configurazione, software, firmware e sviluppo di applicazioni, verrà risolta da Gemalto. Questo modello di supporto garantisce il routing più rapido al supporto più efficace. In caso di dubbi su un particolare problema, generare una richiesta di supporto con Microsoft per assicurarsi che l'utente venga indirizzato in modo appropriato. Microsoft rimane impegnato in tutti gli scenari di supporto e si impegna a garantire la migliore esperienza di supporto per i clienti.
 
 ## <a name="gemalto-support"></a>Supporto Gemalto
 
-I clienti che utilizzano il servizio HSM dedicato sono idonei per il supporto di Gemalto in base al piano di supporto Plus. Questo richiede solo un processo di registrazione utilizzando il portale di supporto Gemalto. Un ID cliente e le istruzioni verranno forniti a questo scopo come parte del coinvolgimento iniziale con Microsoft per ottenere l'accesso al servizio HSM dedicato. Il meccanismo per ottenere supporto da Gemalto è tramite il [portale di assistenza clienti](https://supportportal.gemalto.com/csm/).
-Un punto chiave è che Gemalto fornirà tutto il software e la documentazione necessari per utilizzare l'HSM (ad esempio, software di accesso client e SDK) tramite download sul portale di assistenza clienti.
+I clienti che usano il servizio HSM dedicato sono idonei per il supporto di Gemalto in base al piano di supporto Plus. Questa operazione richiede solo un processo di registrazione tramite il portale di supporto di Gemalto. Un ID cliente e le istruzioni verranno fornite come parte del coinvolgimento iniziale con Microsoft per ottenere l'accesso al servizio HSM dedicato. Il meccanismo per ottenere supporto da Gemalto è tramite il [portale di assistenza clienti](https://supportportal.gemalto.com/csm/).
+Un punto importante è che Gemalto fornirà tutto il software e la documentazione necessari per usare il modulo di protezione hardware (ad esempio, software di accesso client e SDK) tramite download nel portale di supporto clienti.
 
 ### <a name="software-components"></a>Componenti software
 
@@ -55,7 +55,7 @@ Per assistenza nella progettazione, lo sviluppo e la distribuzione di applicazio
 
 ## <a name="microsoft-support"></a>Supporto tecnico Microsoft
 
-Microsoft garantirà che i dispositivi HSM fisici siano accessibili alla rete e in uno stato operativo per l'uso esclusivo di un singolo cliente. I clienti sono responsabili della configurazione, dell'amministrazione e della gestione del dispositivo. Le responsabilità di Microsoft includono:
+Microsoft assicurerà che i dispositivi HSM fisici siano accessibili alla rete e in uno stato operativo per l'uso esclusivo di un singolo cliente. I clienti sono responsabili della configurazione, dell'amministrazione e della gestione del dispositivo. Le responsabilità di Microsoft includono:
 
 * Assicurarsi che il dispositivo disponga di alimentazione e raffreddamento
 * Mantenere lo stato operativo del modulo di protezione hardware (ad esempio, scenari di risoluzione dei problemi)
@@ -76,7 +76,7 @@ Dopo aver ottenuto una registrazione approvata per il servizio HSM dedicato, il 
 
 ### <a name="hardware-issues"></a>Problemi hardware
 
-Il dispositivo HSM ha alimentatori e ventole ridondanti e sostituibili.  Tuttavia, la rimozione dell'unità ventilatore causerà comunque un evento di manomissione. Se si verifica il guasto di un componente, Microsoft seguirà il processo più appropriato per risolvere il problema a livello di componente in modo da causare un'interruzione minima e il minimo rischio per la disponibilità del servizio ai clienti.
+Il dispositivo HSM ha alimentatori e ventole ridondanti e sostituibili.  Tuttavia, la rimozione delle unità fan provocherà comunque un evento di manomissione. Se si verifica il guasto di un componente, Microsoft seguirà il processo più appropriato per risolvere il problema a livello di componente in modo da causare un'interruzione minima e il minimo rischio per la disponibilità del servizio ai clienti.
 Qualsiasi guasto più grave comporterà la sostituzione con un nuovo dispositivo dal pool libero. Il cliente include semplicemente il nuovo dispositivo nella coppia a disponibilità elevata esistente in modo da sincronizzarlo e tornare allo stato operativo completo. I dispositivi contenenti dati del modulo di protezione hardware verranno rimossi e distrutti all'interno del data center. Solo lo chassis verrà restituito a Gemalto per il riciclo.
 
 
@@ -96,5 +96,5 @@ Prima di eseguire il provisioning di dispositivi o di iniziare la progettazione 
 * [Architettura di distribuzione](deployment-architecture.md)
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)
-* [Rete](networking.md)
+* [Funzionalità di rete](networking.md)
 

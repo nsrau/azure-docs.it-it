@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728248"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
@@ -47,7 +47,7 @@ Quando si avvia Threat Modeling Tool, si noteranno alcune cose, come illustrato 
 | **Creazione di un modello**                          | Apre un canvas vuoto in cui disegnare il diagramma. Selezionare il modello di partenza che si desidera usare per la modellazione                                                                                                                                                                                                                                                                                                                                                                       |
 | **Modello di base per la modellazione**                 | È necessario selezionare il modello di partenza da usare prima di procedere alla modellazione. Il nostro modello di partenza principale è Azure Threat Model, che contiene gli stencil, minacce e mitigazioni specifici di Azure. Per i modelli generici, selezionare la Knowledge Base TM SDL dal menu a discesa. Se si desidera creare un proprio modello di partenza o inviarne uno nuovo per tutti gli utenti, vedere la nostra pagina GitHub con il **[repository dei modelli di base](https://github.com/Microsoft/threat-modeling-templates)** per altre informazioni                              |
 | **Aprire un modello**                            | <p>Vengono aperti modelli di minacce salvati in precedenza. La funzionalità modelli aperti di recente è molto utile se è necessario aprire i file più recenti. Quando si passa il mouse sulla selezione, sono disponibili 2 modi per aprire i modelli:</p><p><ul><li>Apertura dal computer in uso: un modo classico per aprire un file utilizzando l'archiviazione locale</li><li>Apertura da OneDrive: i team possono usare cartelle in OneDrive per salvare e condividere tutti i loro modelli di minacce in un'unica posizione per migliorare la produttività e la collaborazione</li></ul></p> |
-| **Guida introduttiva**                   | Si apre la pagina principale **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Guida Introduzione**                   | Si apre la pagina principale **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Sezione del modello di partenza
 

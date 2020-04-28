@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058211"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Risolvere il problema dei nomi di dispositivo nelle macchine virtuali Linux
@@ -46,7 +46,7 @@ La maggior parte delle distribuzioni dispone dei parametri `fstab` **nofail** o 
 
 Quando l'agente Linux di Azure viene installato in una macchina virtuale, usa le regole Udev per creare un set di collegamenti simbolici nel percorso /dev/disk/azure. Le applicazioni e gli script usano regole Udev per identificare i dischi collegati alla macchina virtuale, oltre al tipo di disco e ai LUN del disco stesso.
 
-Se la fstab è già stata modificata in modo che la macchina virtuale non venga avviata e non si riesce a sSH per la macchina virtuale, è possibile usare la [console seriale della macchina virtuale](./serial-console-linux.md) per accedere alla [modalità utente singolo](./serial-console-grub-single-user-mode.md) e modificare la fstab.
+Se il fstab è già stato modificato in modo che la macchina virtuale non venga avviata e non si riesce a connettersi alla VM, è possibile usare la [console seriale della macchina virtuale](./serial-console-linux.md) per attivare la [modalità utente singolo](./serial-console-grub-single-user-mode.md) e modificare il fstab.
 
 ### <a name="identify-disk-luns"></a>Identificare i LUN del disco
 
@@ -153,7 +153,7 @@ Per ottenere le regole di Archiviazione di Azure più recenti, eseguire i comand
 Per altre informazioni, vedere gli articoli seguenti:
 
 - [Ubuntu: uso di UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Cappello rosso: denominazione persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [Red Hat: denominazione permanente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
 - [Linux: operazioni eseguibili con le UUID](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev: Introduction to device management in a modern Linux system](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system) (Udev: introduzione alla gestione dei dispositivi in un sistema Linux moderno)
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71827135"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
@@ -58,9 +58,9 @@ Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventu
 
 ![Spazio connettore di ricerca](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] Se non siete sicuri che tutte le eliminazioni sono desiderati, e desidera andare su un percorso più sicuro. È possibile utilizzare il `Enable-ADSyncExportDeletionThreshold` cmdlet PowerShell : per impostare una nuova soglia anziché disabilitare la soglia che potrebbe consentire eliminazioni indesiderate. 
+[!NOTE] Se non si è certi che si desidera eliminare tutte le eliminazioni e si desidera andare a un percorso più sicuro. È possibile usare il cmdlet di PowerShell `Enable-ADSyncExportDeletionThreshold` : per impostare una nuova soglia anziché disabilitare la soglia che potrebbe consentire eliminazioni indesiderate. 
 
-## <a name="if-all-deletes-are-desired"></a>Se si desidera che tutte le eliminazioni
+## <a name="if-all-deletes-are-desired"></a>Se si desiderano tutte le eliminazioni
 Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 
 1. Per recuperare la soglia di eliminazione corrente, eseguire il cmdlet di PowerShell `Get-ADSyncExportDeletionThreshold`. Indicare un account di amministratore globale di Azure AD e una password. Il valore predefinito è 500.

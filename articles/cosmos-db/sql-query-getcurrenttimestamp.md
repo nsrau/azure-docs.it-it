@@ -1,5 +1,5 @@
 ---
-title: GetCurrentTimestamp nel linguaggio di query di Azure Cosmos DBGetCurrentTimestamp in Azure Cosmos DB query language
+title: GetCurrentTimestamp in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL GetCurrentTimestamp in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b816c63da56025fe6e9cbaece2cde5dcd01585d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71351002"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
- Restituisce il numero di millisecondi trascorsi dalle 00:00:00 di giovedì 1 gennaio 1970. 
+ Restituisce il numero di millisecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970. 
   
 ## <a name="syntax"></a>Sintassi
   
@@ -25,23 +25,23 @@ GetCurrentTimestamp ()
   
 ## <a name="return-types"></a>Tipi restituiti
   
-  Restituisce un valore numerico, ovvero il numero corrente di millisecondi trascorsi dall'epoca Unix, ovvero il numero di millisecondi trascorsi dalle 00:00:00 di giovedì 1 gennaio 1970.
+  Restituisce un valore numerico, il numero corrente di millisecondi trascorsi dal periodo UNIX, ovvero il numero di millisecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
 
 ## <a name="remarks"></a>Osservazioni
 
-  GetCurrentTimestamp() è una funzione non deterministica.
+  GetCurrentTimestamp () è una funzione non deterministica.
   
   Il risultato restituito è UTC (Coordinated Universal Time).
 
 ## <a name="examples"></a>Esempi
   
-  L'esempio seguente mostra come ottenere il timestamp corrente utilizzando la funzione incorporata GetCurrentTimestamp().
+  Nell'esempio seguente viene illustrato come ottenere il timestamp corrente utilizzando la funzione predefinita GetCurrentTimestamp ().
   
 ```sql
 SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 ```  
   
- Di seguito è riportato un set di risultati di esempio.
+ Di seguito è riportato un esempio di set di risultati.
   
 ```json
 [{

@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73159688"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Panoramica dei criteri di rete di Azure Kubernetes
@@ -32,7 +32,7 @@ I criteri di rete consentono la micro-segmentazione per i pod, così come i grup
 I criteri di rete di Azure operano in combinazione con l'interfaccia di rete dei contenitori (CNI, Container Network Interface) di Azure che rende disponibile l'integrazione della rete virtuale per i contenitori. Sono supportati solo per i nodi Linux al momento. Le implementazioni configurano le regole per le tabelle IP Linux in base ai criteri definiti per applicare il filtro del traffico.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Pianificazione della sicurezza per il cluster Kubernetes
-Quando si implementa la sicurezza per il cluster, utilizzare i gruppi di sicurezza di rete (NSG) per filtrare il traffico Nord-Sud, ovvero il traffico che entra e esce dalla subnet del cluster, e utilizzare i criteri di rete Kubernetes per il traffico Est-Ovest, ovvero il traffico tra i pod in cluster.
+Quando si implementa la sicurezza per il cluster, usare i gruppi di sicurezza di rete (gruppi) per filtrare il traffico nord-sud, ovvero il traffico in ingresso e in uscita dalla subnet del cluster e usare i criteri di rete Kubernetes per il traffico East-West, ovvero il traffico tra i Pod nel cluster.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Uso dei criteri di rete di Azure Kubernetes
 È possibile usare criteri di rete di Azure nei modi seguenti per implementare la micro-segmentazione per i pod.
@@ -102,4 +102,4 @@ La soluzione è anche open source e il codice è disponibile nel [repository Azu
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sul [servizio Azure Kubernetes](../aks/intro-kubernetes.md).
 -  Informazioni sulla [rete dei contenitori](container-networking-overview.md).
-- [Distribuire il plug-in](deploy-container-networking.md) per i cluster Kubernetes o i contenitori Docker.
+- [Distribuire il plug-in per i](deploy-container-networking.md) cluster Kubernetes o i contenitori docker.

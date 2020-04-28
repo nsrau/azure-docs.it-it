@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60384707"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
@@ -58,7 +58,7 @@ Per un utente della cassetta postale, in locale o in Exchange Online, vengono vi
 | proxyAddresses locale | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses in Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-In questo caso **smtp:abbie.spencer\@fabrikam.com** è stato rimosso poiché tale dominio non è stato verificato. Ma Exchange ha anche aggiunto **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam non ha usato Lync/Skype in locale, ma Azure AD ed Exchange Online sono in fase di preparazione.
+In questo caso **, SMTP: Abbie.\@Spencer fabrikam.com** è stato rimosso poiché tale dominio non è stato verificato. Exchange ha aggiunto anche **SIP: Abbie. spencer\@fabrikamonline.com**. Fabrikam non ha usato Lync/Skype in locale, ma Azure AD ed Exchange Online sono in fase di preparazione.
 
 Questa logica per proxyAddresses è detta **ProxyCalc**. ProxyCalc viene richiamato con ogni modifica a un utente quando:
 
@@ -75,5 +75,5 @@ ProxyCalc potrebbe richiedere del tempo per elaborare una modifica apportata a u
 Gli attributi shadow vengono usati anche quando sono presenti valori di attributo duplicati. Per altre informazioni, vedere [Resilienza degli attributi duplicati](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="see-also"></a>Vedere anche
-* [Sincronizzazione di Azure AD ConnectAzure AD Connect sync](how-to-connect-sync-whatis.md)
-* [Integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)
+* [Sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

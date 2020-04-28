@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60242142"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita
@@ -29,7 +29,7 @@ Questo argomento descrive le modifiche supportate e non supportate del servizio 
 La configurazione creata da Azure AD Connect funziona "così com'è" per la maggior parte degli ambienti che sincronizzano l'istanza di Active Directory locale con Azure AD. In alcuni casi, tuttavia, è necessario applicare alcune modifiche a una configurazione per soddisfare un'esigenza o un requisito specifico.
 
 ## <a name="changes-to-the-service-account"></a>Modifiche apportate all'account del servizio
-Il servizio di sincronizzazione Azure AD Connect viene eseguito tramite un account del servizio creato dall'installazione guidata. Questo account del servizio contiene le chiavi di crittografia per il database utilizzato dalla sincronizzazione. Viene creato con una password lunga 127 caratteri e la password è impostata in modo da non scadere.
+Il servizio di sincronizzazione Azure AD Connect viene eseguito tramite un account del servizio creato dall'installazione guidata. Questo account del servizio include le chiavi di crittografia per il database utilizzato dalla sincronizzazione. Viene creato con una password di 127 caratteri e la password è impostata in modo da non scadere.
 
 * La modifica o la reimpostazione della password dell'account del servizio **non è supportata** . Questa operazione comporta l'eliminazione delle chiavi di crittografia impedendo così l'avvio del servizio e il relativo accesso al database.
 

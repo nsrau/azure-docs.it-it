@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALID nel linguaggio di query del database Cosmos di Azure
-description: Informazioni sulla funzione del sistema SQL ST_ISVALID in Azure Cosmos DB.
+title: ST_ISVALID nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL ST_ISVALID in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8fbddbe82ae13585b8259a66dffaeef8024baf5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349372"
 ---
 # <a name="st_isvalid-azure-cosmos-db"></a>ST_ISVALID (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ST_ISVALID(<spatial_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *spatial_expr*  
-   È un'espressione GeoJSON Point, Polygon o LineString.  
+   È un'espressione punto, poligono o LineString GeoJSON.  
   
 ## <a name="return-types"></a>Tipi restituiti
   

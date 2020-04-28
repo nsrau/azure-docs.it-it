@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68608015"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
@@ -73,11 +73,11 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
     npm start
     ```
 
-1. Il comando precedente esegue l'interfaccia utente localmente all'indirizzo http:\//localhost:3000/dashboard. È possibile modificare il codice mentre il sito è in esecuzione e visualizzarne gli aggiornamenti in modo dinamico.
+1. Il comando precedente esegue l'interfaccia utente localmente all'indirizzo\/http:/localhost: 3000/dashboard. È possibile modificare il codice mentre il sito è in esecuzione e visualizzarne gli aggiornamenti in modo dinamico.
 
 ## <a name="customize-the-layout"></a>Personalizzare il layout
 
-Ogni pagina nella soluzione di monitoraggio remoto è costituita da un set di controlli, a cui si fa riferimento nel codice sorgente come *pannelli*. La pagina **Dashboard** è costituita da cinque pannelli: Panoramica, Mappa, Avvisi, Telemetria e Analisi. È possibile trovare il codice sorgente che definisce ogni pagina e i pannelli nel repository GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Ad esempio, il codice che definisce la pagina **Dashboard**, il layout e i pannelli nella pagina si trova nella cartella [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Ogni pagina nella soluzione di monitoraggio remoto è costituita da un set di controlli, a cui si fa riferimento nel codice sorgente come *pannelli*. La pagina **Dashboard** è costituita da cinque pannelli: panoramica, mappa, avvisi, telemetria e analisi. È possibile trovare il codice sorgente che definisce ogni pagina e i pannelli nel repository GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Ad esempio, il codice che definisce la pagina **Dashboard**, il layout e i pannelli nella pagina si trova nella cartella [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Poiché i pannelli gestiscono il proprio layout e il ridimensionamento, è possibile modificare facilmente il layout di una pagina. Apportare le modifiche seguenti all'elemento **PageContent** nel file `src/components/pages/dashboard/dashboard.js` per:
 
@@ -496,13 +496,13 @@ Per modificare ulteriormente i livelli di presentazione e visualizzazione nella 
 
 Questo articolo ha fornito informazioni sulle risorse disponibili per personalizzare l'interfaccia utente Web nell'acceleratore di soluzioni di monitoraggio remoto. Per altre informazioni sulla personalizzazione dell'interfaccia utente, vedere gli articoli seguenti:
 
-* [Aggiungere una pagina personalizzata all'interfaccia utente Web acceleratore di soluzioni di monitoraggio remotoAdd a custom page to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-page.md)
+* [Aggiungere una pagina personalizzata all'interfaccia utente Web di Solution Accelerator per il monitoraggio remoto](iot-accelerators-remote-monitoring-customize-page.md)
 * [Aggiungere un servizio personalizzato all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-service.md)
 * [Aggiungere una griglia personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-grid.md)
 * [Aggiungere un riquadro a comparsa personalizzato all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Aggiungere un nuovo pannello al dashboard nell'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere Architettura di [monitoraggio remotoFor](iot-accelerators-remote-monitoring-sample-walkthrough.md) more conceptual information about the Remote Monitoring solution accelerator, see Remote Monitoring architecture
+Per informazioni più concettuali su Remote Monitoring Solution Accelerator, vedere [Remote Monitoring Architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Per altre informazioni sulla personalizzazione dei microservizi della soluzione Monitoraggio remoto, vedere [Personalizzare e ridistribuire un microservizio](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

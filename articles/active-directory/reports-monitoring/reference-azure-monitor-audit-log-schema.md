@@ -1,6 +1,6 @@
 ---
-title: Interpretare lo schema del log di controllo di Azure Active Directory in Monitoraggio di Azure Documenti Microsoft
-description: Descrivere lo schema del log di controllo di Azure AD da usare in Monitoraggio di AzureDescribe the Azure AD audit log schema for use in Azure Monitor
+title: Interpretare lo schema del registro di controllo Azure Active Directory in monitoraggio di Azure | Microsoft Docs
+description: Descrizione dello schema del log di controllo Azure AD per l'uso in monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68987948"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
@@ -174,10 +174,10 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 | Tipo di operazione | Il tipo può essere *Aggiungi*, *Aggiorna*, *Elimina* o *Altro*. |
 | Tipo di risorsa di destinazione | Specifica il tipo di risorsa di destinazione in cui è stata eseguita l'operazione. Il tipo può essere *Applicazione*, *Utente*, *Ruolo* o *Criteri*. | 
 | Nome della risorsa di destinazione | Nome della risorsa di destinazione. Può trattarsi di un nome di applicazione, un nome di ruolo, un nome dell'entità utente o un nome dell'entità servizio. |
-| additionalTargets | Elenca le proprietà aggiuntive per operazioni specifiche. Ad esempio, per un'operazione di aggiornamento, i valori precedenti e i nuovi valori sono elencati in *targetUpdatedProperties*. | 
+| additionalTargets | Elenca le proprietà aggiuntive per operazioni specifiche. Per un'operazione di aggiornamento, ad esempio, i valori precedenti e i nuovi valori sono elencati in *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di accesso in Monitoraggio di AzureInterpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpretare lo schema dei log di accesso in monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

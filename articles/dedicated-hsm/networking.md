@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881278"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
@@ -60,7 +60,7 @@ Una rete privata virtuale da punto a sito è la forma più semplice di connessio
 
 ### <a name="site-to-site-vpn"></a>VPN da sito a sito
 
-Una rete privata virtuale da sito a sito consente la comunicazione sicura tra HSM dedicati basati su Azure e l'IT locale. Un motivo per eseguire questa operazione è disporre di una funzionalità di backup per l'HSM in locale e la necessità di una connessione tra i due per l'esecuzione del backup.
+Una rete privata virtuale da sito a sito consente la comunicazione sicura tra HSM dedicati basati su Azure e l'IT locale. Per eseguire questa operazione, è necessario disporre di una funzionalità di backup per il modulo di protezione hardware locale e che sia necessaria una connessione tra i due per l'esecuzione del backup.
 
 ## <a name="connecting-virtual-networks"></a>Connessione di reti virtuali
 
@@ -88,8 +88,8 @@ Per le applicazioni distribuite a livello globale o per gli scenari di failover 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Domande frequenti](faq.md)
-- [Supporto](supportability.md)
+- [Supportabilità](supportability.md)
 - [Disponibilità elevata](high-availability.md)
 - [Sicurezza fisica](physical-security.md)
-- [Monitoraggio](monitoring.md)
+- [Monitoring](monitoring.md)
 - [Architettura di distribuzione](deployment-architecture.md)

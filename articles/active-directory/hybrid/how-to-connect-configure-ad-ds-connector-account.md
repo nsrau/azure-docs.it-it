@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72515810"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
@@ -25,7 +25,7 @@ Il modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncc
 ## <a name="overview"></a>Panoramica 
 I cmdlet di PowerShell seguenti possono essere usati per configurare le autorizzazioni di Active Directory dell'account del connettore di Active Directory Domain Services, per ogni funzionalità che si intende selezionare in Azure AD Connect. Per evitare problemi, è consigliabile preparare le autorizzazioni di Active Directory in anticipo ogni volta che si vuole installare Azure AD Connect usando un account di dominio personalizzato per la connessione alla foresta. Questo modulo ADSyncConfig può essere usato anche per configurare le autorizzazioni dopo la distribuzione di Azure AD Connect.
 
-![panoramica dell'account ds dell'annuncio](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Panoramica dell'account Active Directory Domain Services](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Per l'installazione di Azure AD Connect Express, viene creato un account generato automaticamente (MSOL_nnnnnnnnnn) in Active Directory con tutte le autorizzazioni necessarie, quindi non occorre usare questo modulo ADSyncConfig a meno che non si sia bloccata l'ereditarietà delle autorizzazioni per le unità organizzative o per oggetti specifici di Active Directory che si vuole sincronizzare con Azure AD. 
  
@@ -34,12 +34,12 @@ La tabella seguente offre un riepilogo delle autorizzazioni necessarie per gli o
 
 | Funzionalità | Autorizzazioni |
 | --- | --- |
-| funzionalità ms-DS-ConsistencyGuid |Autorizzazioni di lettura e scrittura per l'attributo ms-DS-ConsistencyGuid documentato in Concetti di [progettazione - Utilizzo di ms-DS-ConsistencyGuid come sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| funzionalità ms-DS-ConsistencyGuid |Autorizzazioni di lettura e scrittura per l'attributo ms-DS-ConsistencyGuid documentato in [concetti di progettazione-uso di MS-DS-ConsistencyGuid come sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronizzazione dell'hash delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
-| Distribuzione ibrida di Exchange |Autorizzazioni di lettura e scrittura per gli attributi documentati nel [writeback ibrido](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) di Exchange per utenti, gruppi e contatti. |
+| Distribuzione ibrida di Exchange |Autorizzazioni di lettura e scrittura per gli attributi documentati nel [writeback ibrido di Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
 | writeback delle password |Autorizzazioni di lettura e scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/howto-sspr-writeback.md) per gli utenti. |
-| Writeback dispositivi |Autorizzazioni di lettura e scrittura per gli oggetti dispositivo e i contenitori documentati nel [writeback del dispositivo](how-to-connect-device-writeback.md). |
+| Writeback dispositivi |Autorizzazioni di lettura e scrittura per oggetti dispositivo e contenitori documentati nel [writeback dei dispositivi](how-to-connect-device-writeback.md). |
 | Writeback dei gruppi |Lettura, creazione, aggiornamento ed eliminazione di oggetti di gruppo per i **gruppi di Office 365** sincronizzati.  Per altre informazioni, vedere [Writeback dei gruppi](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Uso del modulo di PowerShell ADSyncConfig 
@@ -81,7 +81,7 @@ oppure
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 ```
 
-Assicurarsi di `<ADAccountName>` `<ADDomainName>` sostituire `<ADAccountDN>` e con i valori appropriati per l'ambiente.
+Assicurarsi di sostituire `<ADAccountName>` `<ADDomainName>` e `<ADAccountDN>` con i valori appropriati per l'ambiente.
 
 Nel caso in cui non si vogliano modificare le autorizzazioni per il contenitore AdminSDHolder, usare l'opzione `-SkipAdminSdHolders`. 
 
@@ -110,7 +110,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Visualizzare le autorizzazioni di AD DS di un oggetto 
-È possibile utilizzare il cmdlet seguente per visualizzare l'elenco delle autorizzazioni attualmente impostate su un oggetto Active Directory fornendo il relativo DistinguishedName: 
+È possibile utilizzare il cmdlet riportato di seguito per visualizzare l'elenco delle autorizzazioni attualmente impostate su un oggetto Active Directory fornendo il relativo distinto: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 

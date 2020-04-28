@@ -1,19 +1,19 @@
 ---
-title: Migrazione minima tempodiattività al database di Azure per PostgreSQL - Server singolo
-description: In questo articolo viene descritto come eseguire una migrazione del tempo di inattività minima di un database PostgreSQL al database di Azure per PostgreSQL - Server singolo tramite il servizio migrazione del database di Azure.This article describes how to perform a minimal-downtime migration of a PostgreSQL database to Azure Database for PostgreSQL - Single Server by using the Azure Database Migration Service.
+title: Migrazione del tempo di inattività minimo al database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come eseguire una migrazione con tempo di inattività minimo di un database PostgreSQL in database di Azure per PostgreSQL-server singolo usando il servizio migrazione del database di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65067520"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migrazione minima tempodiattività al database di Azure per PostgreSQL - Server singolo
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migrazione del tempo di inattività minimo al database di Azure per PostgreSQL-server singolo
 È possibile eseguire migrazioni di PostgreSQL in Database di Azure per PostgreSQL con tempo di inattività minimo usando la **funzionalità di sincronizzazione continua** appena introdotta per [Servizio Migrazione del database di Azure](https://aka.ms/get-dms). Questa funzionalità limita il tempo di inattività cui è soggetta l'applicazione.
 
 ## <a name="overview"></a>Panoramica

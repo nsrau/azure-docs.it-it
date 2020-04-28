@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71056934"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: Impossibile eliminare una rete virtuale in Azure
@@ -29,8 +29,8 @@ Quando si tenta di eliminare una rete virtuale in Microsoft Azure, è possibile 
 
 ## <a name="troubleshooting-guidance"></a>Guida alla risoluzione dei problemi 
 
-1. [Verificare se un gateway](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)di rete virtuale è in esecuzione nella rete virtuale.
-2. [Verificare se un gateway applicazione è in esecuzione nella rete virtuale.](#check-whether-an-application-gateway-is-running-in-the-virtual-network)
+1. [Controllare se un gateway di rete virtuale è in esecuzione nella rete virtuale](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Controllare se un gateway applicazione è in esecuzione nella rete virtuale](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
 3. [Verificare se nella rete virtuale è abilitato il servizio Azure Active Directory Domain Service](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
 4. [Verificare se la rete virtuale è connessa ad altre risorse](#check-whether-the-virtual-network-is-connected-to-other-resource).
 5. [Verificare se nella rete virtuale è ancora in esecuzione una macchina virtuale](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
@@ -92,5 +92,5 @@ Se la rete virtuale è bloccata in uno stato di migrazione, non può essere elim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Rete virtuale di AzureAzure Virtual Network](virtual-networks-overview.md)
+- [Rete virtuale di Azure](virtual-networks-overview.md)
 - [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md)

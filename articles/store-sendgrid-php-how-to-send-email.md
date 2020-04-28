@@ -16,19 +16,19 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67870918"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Come usare il servizio di posta elettronica SendGrid da PHP
 
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in PHP.
-Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**, l'**invio di messaggi di posta elettronica**, e l'**aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio di posta elettronica, vedere la sezione [Passaggi successivi.](#next-steps)
+Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**, l'**invio di messaggi di posta elettronica**, e l'**aggiunta di allegati**. Per ulteriori informazioni su SendGrid e sull'invio di messaggi di posta elettronica, vedere la sezione [passaggi successivi](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Informazioni sul servizio di posta elettronica SendGrid
-SendGrid è un servizio di [posta elettronica basato su cloud] che fornisce la distribuzione [transazionale]affidabile della posta elettronica, la scalabilità e l'analisi in tempo reale insieme a API flessibili che semplificano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
+SendGrid è un [servizio di posta elettronica basato sul cloud] che offre funzionalità affidabili per il [recapito tramite posta elettronica transazionale], la scalabilità e l'analisi in tempo reale, oltre ad API flessibili che semplificano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
 * Invio automatico di ricevute ai clienti
 * Amministrazione di liste di distribuzione per l'invio mensile ai clienti di volantini elettronici e offerte speciali

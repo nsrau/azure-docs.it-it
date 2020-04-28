@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68229102"
 ---
 # <a name="create-an-assessment"></a>Creare una valutazione
@@ -27,7 +27,7 @@ Questo articolo descrive come creare una valutazione per macchine virtuali VMwar
 
 
 ## <a name="assessment-overview"></a>Panoramica della valutazione
-Esistono due tipi di valutazione che è possibile creare usando Azure Migrate: server assessment.
+È possibile creare due tipi di valutazioni con Azure Migrate: Valutazione server.
 
 **Valutazione** | **Dettagli** | **Dati**
 --- | --- | ---
@@ -41,7 +41,7 @@ Esistono due tipi di valutazione che è possibile creare usando Azure Migrate: s
 Eseguire una valutazione nel modo seguente:
 
 1. Rivedere le [procedure consigliate](best-practices-assessment.md) per la creazione di valutazioni.
-2. Nella scheda **Server** , nel riquadro **Azure migrate: server Assessment** , fare clic su **valuta**.
+2. Nella scheda **Server**, nel riquadro **Azure Migrate: Valutazione server**, fare clic su **Valuta**.
 
     ![Valutare](./media/how-to-create-assessment/assess.png)
 
@@ -71,7 +71,7 @@ Una valutazione descrive:
 
 ### <a name="view-an-assessment"></a>Visualizzare una valutazione
 
-1. In **Migration goals** >  **server**degli obiettivi di migrazione fare clic su **valutazioni** in **Azure migrate: server Assessment**.
+1. In **Obiettivi della migrazione** >  **Server** fare clic su **Valutazioni** in **Azure Migrate: Valutazione server**.
 2. In **Valutazioni** fare clic su una valutazione per aprirla.
 
     ![Riepilogo della valutazione](./media/how-to-create-assessment/assessment-summary.png)

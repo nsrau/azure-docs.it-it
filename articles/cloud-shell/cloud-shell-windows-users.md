@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
 ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67204133"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell in Azure Cloud Shell per utenti Windows
@@ -36,7 +36,7 @@ Alcune esperienze specifiche di PowerShell, ad esempio le operazioni di `tab-com
 
 ## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Alias di Windows PowerShell a confronto con le utility di Linux
 
-Alcuni alias di PowerShell esistenti hanno gli stessi nomi dei `cat``ls`comandi `sort` `sleep`Linux incorporati, ad esempio , , , , e così via. In PowerShell Core 6, gli alias che si scontrano con i comandi Linux incorporati sono stati rimossi.
+Alcuni alias di PowerShell esistenti hanno gli stessi nomi dei comandi Linux predefiniti, ad `cat`esempio,`ls` `sort`,, `sleep`e così via. In PowerShell Core 6 sono stati rimossi gli alias che entrano in conflitto con i comandi predefiniti di Linux.
 Di seguito sono riportati gli alias comuni che sono stati rimossi, assieme ai comandi equivalenti:  
 
 |Alias rimossi   |Comando equivalente   |

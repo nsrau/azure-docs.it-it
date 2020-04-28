@@ -1,6 +1,6 @@
 ---
-title: Delegare la governance dell'accesso per accedere ai gestori dei pacchetti nella gestione dei diritti di Azure AD - Azure Active DirectoryDelegate access governance to access package managers in Azure AD entitlement management - Azure Active Directory
-description: Informazioni su come delegare la governance dell'accesso da parte degli amministratori IT per accedere ai gestori di pacchetti e ai project manager in modo che possano gestire l'accesso da soli.
+title: Delegare la governance di accesso per accedere ai gestori di pacchetti in Azure AD gestione dei diritti Azure Active Directory
+description: Informazioni su come delegare la governance di accesso agli amministratori IT per accedere ai gestori di pacchetti e ai Project Manager in modo che possano gestire l'accesso.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,56 +17,56 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73174366"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegare la governance dell'accesso per accedere ai gestori dei pacchetti nella gestione dei diritti di Azure ADDelegate access governance to access package managers in Azure AD entitlement management
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delega della governance di accesso per accedere ai gestori di pacchetti in Azure AD gestione dei diritti
 
-Per delegare la creazione e la gestione dei pacchetti di accesso in un catalogo, aggiungere utenti al ruolo di gestione pacchetti di accesso. I gestori dei pacchetti di Access devono avere familiarità con la necessità per gli utenti di richiedere l'accesso alle risorse in un catalogo. Ad esempio, se un catalogo viene utilizzato per un progetto, un responsabile di progetto potrebbe essere un gestore di pacchetti di accesso per tale catalogo.  I gestori di pacchetti di Access non possono aggiungere risorse a un catalogo, ma possono gestire i pacchetti di accesso e i criteri in un catalogo.  Quando si delega a un gestore di pacchetti di accesso, tale persona può quindi essere responsabile di:When delegating to an access package manager, that person can then be responsible for:
+Per delegare la creazione e la gestione dei pacchetti di accesso in un catalogo, è necessario aggiungere gli utenti al ruolo Gestione pacchetti di accesso. Per accedere ai gestori di pacchetti, è necessario avere familiarità con la necessità per gli utenti di richiedere l'accesso alle risorse in un catalogo. Se, ad esempio, un catalogo viene usato per un progetto, un responsabile del progetto potrebbe essere una gestione pacchetti di accesso per tale catalogo.  I gestori di pacchetti di accesso non possono aggiungere risorse a un catalogo, ma possono gestire i pacchetti e i criteri di accesso in un catalogo.  Quando si delega a una gestione pacchetti di Access, tale utente può quindi essere responsabile di:
 
-- Ruoli di un utente alle risorse in un catalogo
-- Chi avrà bisogno di accedere
-- Chi deve approvare le richieste di accesso
-- Quanto durerà il progetto
+- Quali ruoli avrà un utente per le risorse in un catalogo
+- Utenti che dovranno accedere
+- Utenti che devono approvare le richieste di accesso
+- Per quanto tempo il progetto durerà
 
-Questo video offre una panoramica su come delegare la governance dell'accesso dal proprietario del catalogo al gestore di pacchetti.
+In questo video viene fornita una panoramica su come delegare la governance di accesso dal proprietario del catalogo per accedere a gestione pacchetti.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
 
-## <a name="as-a-catalog-owner-delegate-to-an-access-package-manager"></a>In qualità di proprietario del catalogo, delegare a un gestore di pacchetti di accesso
+## <a name="as-a-catalog-owner-delegate-to-an-access-package-manager"></a>Come proprietario del catalogo, delegare a una gestione pacchetti di Access
 
-Seguire questi passaggi per assegnare un utente al ruolo di gestione pacchetti di accesso:Follow these steps to assign a user to the Access package manager role:
+Attenersi alla procedura seguente per assegnare un utente al ruolo di gestione pacchetti di accesso:
 
-**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **Cataloghi** e quindi aprire il catalogo a cui si desidera aggiungere amministratori.
+1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo al quale si desidera aggiungere gli amministratori.
 
-1. Nel menu a sinistra, fai clic su **Ruoli e amministratori.**
+1. Nel menu a sinistra fare clic su **ruoli e amministratori**.
 
-    ![Cataloga i ruoli e gli amministratori](./media/entitlement-management-shared/catalog-roles-administrators.png)
+    ![Ruoli e amministratori di cataloghi](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
-1. Fare clic su **Aggiungi gestori di pacchetti** di accesso per selezionare i membri per questi ruoli.
+1. Fare clic su **Aggiungi gestione pacchetti di accesso** per selezionare i membri per questi ruoli.
 
 1. Fare clic su **Seleziona** per aggiungere questi membri.
 
-## <a name="remove-an-access-package-manager"></a>Rimuovere un gestore di pacchetti di accessoRemove an access package manager
+## <a name="remove-an-access-package-manager"></a>Rimuovere una gestione pacchetti di accesso
 
-Seguire questi passaggi per rimuovere un utente dal ruolo di gestione pacchetti di accesso:Follow these steps to remove a user from the Access package manager role:
+Attenersi alla procedura seguente per rimuovere un utente dal ruolo Gestione pacchetti di accesso:
 
-**Ruolo prerequisito:** Amministratore globale, amministratore utente o proprietario del catalogo
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente o proprietario del catalogo
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 
-1. Nel menu a sinistra fare clic su **Cataloghi** e quindi aprire il catalogo a cui si desidera aggiungere amministratori.
+1. Nel menu a sinistra fare clic su **cataloghi** , quindi aprire il catalogo al quale si desidera aggiungere gli amministratori.
 
-1. Nel menu a sinistra, fai clic su **Ruoli e amministratori.**
+1. Nel menu a sinistra fare clic su **ruoli e amministratori**.
 
-1. Aggiungere un segno di spunta accanto a un gestore di pacchetti di accesso che si desidera rimuovere.
+1. Aggiungere un segno di spunta accanto a una gestione pacchetti di accesso che si desidera rimuovere.
 
 1. Scegliere **Rimuovi**.
 

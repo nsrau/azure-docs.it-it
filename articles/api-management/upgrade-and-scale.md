@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70018231"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
@@ -54,24 +54,24 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 È possibile effettuare aggiornamenti e downgrade da e verso qualsiasi livello. L'aggiornamento o il downgrade può rimuovere alcune funzionalità. Se ad esempio si effettua il downgrade dal livello Premium al livello Standard o Basic, possono essere rimosse le reti virtuali o la distribuzione in più aree.
 
 > [!NOTE]
-> Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Si riceve una notifica quando è fatto.
+> Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Si riceverà una notifica al termine dell'operazione.
 
 > [!NOTE]
-> Il servizio Gestione API nel livello **Consumo** viene ridimensionato automaticamente in base al traffico.
+> Il servizio gestione API nel livello **consumo** si ridimensiona automaticamente in base al traffico.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Eseguire l'aggiornamento e il ridimensionamento tramite il portale di Azure
 
 ![Ridimensionare Gestione API nel portale di Azure](./media/upgrade-and-scale/portal-scale.png)
 
-1. Passare all'istanza di Gestione API nel portale di Azure.Navigate to your COMM instance in the [Azure portal](https://portal.azure.com/).
+1. Passare all'istanza di gestione API nel [portale di Azure](https://portal.azure.com/).
 2. Selezionare **Piani e prezzi** dal menu.
 3. Selezionare il livello desiderato.
 4. Specificare il numero di **unità** da aggiungere. A tale scopo, è possibile usare il dispositivo di scorrimento o digitare il numero di unità.  
     Se si sceglie il livello **Premium**, è prima necessario selezionare un'area.
 5. Premere **Salva**.
 
-## <a name="downtime-during-scaling-up-and-down"></a>Tempi di inattività durante l'ap- e il riduzione
-Se si esegue la scalabilità da o al livello Sviluppatore, si verificano tempi di inattività. In caso contrario, non si sono previsti tempi di inattività. 
+## <a name="downtime-during-scaling-up-and-down"></a>Tempo di inattività durante il ridimensionamento
+Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60456727"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
@@ -31,7 +31,7 @@ Per seguire la procedura descritta in questo articolo, è necessario eseguire qu
 
 - [Scaricare e installare Storage Explorer](https://www.storageexplorer.com/)
 
-- [Connettersi a un account o servizio di archiviazione di AzureConnect to an Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Connettersi a un account o un servizio di archiviazione di Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Creare una condivisione file
 
@@ -117,7 +117,7 @@ La procedura seguenti illustra come copiare una condivisione file da un account 
 
 ## <a name="get-the-sas-for-a-file-share"></a>Ottenere la firma di accesso condiviso per una condivisione file
 
-Una firma di [accesso condiviso](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornisce l'accesso delegato alle risorse nell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account.
+Una [firma di accesso condiviso (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornisce accesso delegato alle risorse nell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account.
 
 La procedura seguente illustra come creare una firma di accesso condiviso per una condivisione file.
 
@@ -199,7 +199,7 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
     - **Caricare file in una condivisione file**
 
-        a.  Nella barra degli strumenti del riquadro principale selezionare **Carica**, quindi **Carica file** dal menu a discesa.
+        a.  Sulla barra degli strumenti del riquadro principale selezionare **carica**e quindi **Carica file** dal menu a discesa.
 
         ![Caricare file](media/vs-azure-tools-storage-explorer-files/image18.png)
         

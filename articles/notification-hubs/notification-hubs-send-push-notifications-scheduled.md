@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71213011"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Procedura: Inviare le notifiche pianificate
@@ -30,7 +30,7 @@ Si consideri uno scenario in cui si desidera inviare una notifica in un certo mo
 
 
 ## <a name="schedule-your-notifications"></a>Pianificare le notifiche
-Quando si invia una [ `ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) notifica, è sufficiente usare la classe nell'SDK di Notification Hubs come illustrato nell'esempio seguente:
+Quando si invia una notifica, è sufficiente usare la [ `ScheduledNotification` classe](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) nell'SDK di hub di notifica, come illustrato nell'esempio seguente:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
@@ -51,7 +51,7 @@ Non sono previsti limiti al numero di notifiche pianificate che è possibile inv
 Vedere le esercitazioni seguenti:
 
  - [Eseguire il push di notifiche a tutti i dispositivi registrati](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
- - [Eseguire il push di notifiche a dispositivi specifici](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
+ - [Inviare notifiche push a specifici dispositivi](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [Eseguire il push di notifiche localizzate](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
  - [Inviare notifiche push a specifici utenti](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
- - [Eseguire il push di notifiche basate sulla posizione](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+ - [Inviare notifiche push basate sulla posizione](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

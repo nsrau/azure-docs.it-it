@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60349845"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
@@ -37,13 +37,13 @@ L'aggiornamento automatico è abilitato per impostazione predefinita per gli sce
 
 Lo stato corrente dell'aggiornamento automatico può essere visualizzato con il cmdlet `Get-ADSyncAutoUpgrade` di PowerShell e include gli stati seguenti:
 
-| State | Comment |
+| State | Commento |
 | --- | --- |
 | Attivato |L'aggiornamento automatico è abilitato. |
 | Suspended |Impostato solo dal sistema. Il sistema **non è attualmente idoneo** per la ricezione di aggiornamenti automatici. |
 | Disabled |L'aggiornamento automatico è disabilitato. |
 
-Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.  Prima della versione 1.1.750.0 il cmdlet Set-ADSyncAutoUpgrade bloccheva l'aggiornamento automatico se lo stato dell'aggiornamento automatico fosse impostato su Sospeso. Questa funzionalità è stata modificata in modo da non bloccare l'aggiornamento automatico.
+Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.  Prima di 1.1.750.0 il cmdlet Set-ADSyncAutoUpgrade bloccherà l'aggiornamento automatico se lo stato di aggiornamento automatico è stato impostato su sospeso. Questa funzionalità è stata modificata in modo da non bloccare l'aggiornamento.
 
 L'aggiornamento automatico usa Azure AD Connect Health per l'infrastruttura di aggiornamento. Per il corretto funzionamento dell'aggiornamento automatico, assicurarsi di avere aperto gli URL nel server proxy per **Azure AD Connect Health** , come documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

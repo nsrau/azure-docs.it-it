@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70999176"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
@@ -64,7 +64,7 @@ Le organizzazioni che non applicano il controllo di accesso ai dati con funziona
 
 Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
 
-- [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e il portale di AzureManage access using RBAC and the](/azure/role-based-access-control/role-assignments-portal)
+- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
 - [Ruoli predefiniti per le risorse di Azure](/azure/role-based-access-control/built-in-roles)
 - [Guida alla sicurezza di Archiviazione di Azure](/azure/storage/common/storage-security-guide) 
 

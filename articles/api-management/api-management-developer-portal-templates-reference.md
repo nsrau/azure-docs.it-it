@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176799"
 ---
 # <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori
@@ -32,19 +32,19 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 
 ##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Modelli del portale per sviluppatori  
   
--   [Api](api-management-api-templates.md)  
+-   [API](api-management-api-templates.md)  
     -   [Elenco API](api-management-api-templates.md#APIList)  
     -   [Operazione](api-management-api-templates.md#Product)  
     -   [Esempi di codice](api-management-api-templates.md#CodeSamples)  
-        -   [Curl](api-management-api-templates.md#Curl)  
-        -   [C #](api-management-api-templates.md#CSharp)  
+        -   [CURL](api-management-api-templates.md#Curl)  
+        -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
-        -   [Javascript](api-management-api-templates.md#JavaScript)  
-        -   [Obiettivo C](api-management-api-templates.md#ObjectiveC)  
-        -   [Php](api-management-api-templates.md#PHP)  
+        -   [JavaScript](api-management-api-templates.md#JavaScript)  
+        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
+        -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
--   [Products](api-management-product-templates.md)  
+-   [Prodotti](api-management-product-templates.md)  
     -   [Elenco dei prodotti](api-management-product-templates.md#ProductList)  
     -   [Prodotto](api-management-product-templates.md#Product)  
 -   [Applicazioni](api-management-application-templates.md)  

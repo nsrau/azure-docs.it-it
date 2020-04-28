@@ -1,5 +1,5 @@
 ---
-title: Risolvere l'inclinazione dei dati - Azure Data Lake Tools per Visual StudioResolve data-skew - Azure Data Lake Tools for Visual Studio
+title: Risolvere i dati-asimmetria-Strumenti Azure Data Lake per Visual Studio
 description: Potenziali risoluzioni dei problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio.
 services: data-lake-analytics
 author: yanancai
@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71802543"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Risolvere i problemi di asimmetria dei dati tramite Strumenti Azure Data Lake per Visual Studio
@@ -36,7 +36,7 @@ Se ciò non influisce sulla logica di business, è possibile filtrare in anticip
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opzione 2. Selezionare una chiave di partizione o distribuzione differente
 
-Nell'esempio precedente, se si desidera controllare solo il carico di lavoro di controllo fiscale in tutto il paese, è possibile migliorare la distribuzione dei dati selezionando il numero ID come chiave. La scelta di una chiave di partizione o distribuzione differente consente talvolta di distribuire i dati in modo più uniforme, ma è necessario verificare che la scelta non abbia impatto sulla logica di business. Ad esempio, per calcolare l'importo dell'imposta per ogni stato, è consigliabile specificare _Stato_ come chiave di partizione. Se il problema persiste, provare con l'opzione 3.
+Nell'esempio precedente, se si vuole solo controllare il carico di lavoro di controllo delle imposte nel paese/area geografica, è possibile migliorare la distribuzione dei dati selezionando il numero ID come chiave. La scelta di una chiave di partizione o distribuzione differente consente talvolta di distribuire i dati in modo più uniforme, ma è necessario verificare che la scelta non abbia impatto sulla logica di business. Ad esempio, per calcolare l'importo dell'imposta per ogni stato, è consigliabile specificare _Stato_ come chiave di partizione. Se il problema persiste, provare con l'opzione 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opzione 3. Aggiungere più chiavi di partizione o distribuzione
 
@@ -165,7 +165,7 @@ L'esempio seguente illustra un set di righe sinistro separato. Ogni riga di outp
 
 Attributi della modalità del combinatore:
 
-- SqlUserDefinedCombiner(Mode-CombinerMode.Full): ogni riga di output dipende potenzialmente da tutte le righe di input da sinistra e da destra con lo stesso valore di chiave.
+- SqlUserDefinedCombiner (Mode = CombinerMode. Full): ogni riga di output dipende potenzialmente da tutte le righe di input a sinistra e a destra con lo stesso valore di chiave.
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): ogni riga di output dipende da una singola riga di input a sinistra e potenzialmente da tutte le righe a destra con lo stesso valore chiave.
 

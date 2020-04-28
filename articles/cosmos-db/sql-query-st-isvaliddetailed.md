@@ -1,6 +1,6 @@
 ---
-title: ST_ISVALIDDETAILED nel linguaggio di query del database Cosmos di Azure
-description: Informazioni sulla funzione del sistema SQL ST_ISVALIDDETAILED in Azure Cosmos DB.
+title: ST_ISVALIDDETAILED nel linguaggio di query Azure Cosmos DB
+description: Informazioni sulle funzioni di sistema SQL ST_ISVALIDDETAILED in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9e640c223c2fef844b9b53e1f4afa3a5d398c8c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349343"
 ---
 # <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
@@ -34,7 +34,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio riportato di seguito viene `ST_ISVALIDDETAILED`illustrato come verificare la validità (con i dettagli) utilizzando .  
+  Nell'esempio seguente viene illustrato come verificare la validità (con i `ST_ISVALIDDETAILED`dettagli) utilizzando.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   

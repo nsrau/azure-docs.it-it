@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72992548"
 ---
 # <a name="event-grid-concepts"></a>Concetti relativi a Griglia di eventi
@@ -60,6 +60,6 @@ Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione
 
 Se Griglia di eventi non è in grado di confermare che un evento è stato ricevuto dall'endpoint del sottoscrittore, esegue di nuovo il recapito dell'evento. Per altre informazioni, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-retry.md).
 
-## <a name="batching"></a>Creazione di batch
+## <a name="batching"></a>Batch
 
 Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Per gli scenari con velocità effettiva bassa, la matrice avrà un solo valore. Per i casi di utilizzo elevato dei volumi, è consigliabile raggruppare in batch più eventi per ogni pubblicazione per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento non deve ancora essere maggiore di 1 MB (anteprima).

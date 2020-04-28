@@ -9,10 +9,10 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61483435"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offerte per la conformità di Archiviazione di Azure
@@ -34,7 +34,7 @@ Microsoft Azure e Archiviazione di Azure offrono la gamma più completa di certi
 * [ISO 9001](https://www.microsoft.com/trustcenter/compliance/iso-9001)
 * [WCAG 2.0](https://www.microsoft.com/trustcenter/compliance/accessibility#WCAG-2-0)
 
-## <a name="us-government"></a>US Gov
+## <a name="us-government"></a>Enti pubblici Stati Uniti
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
 * [DoE 10 CFR Part 810](https://aka.ms/AzureCompliance)

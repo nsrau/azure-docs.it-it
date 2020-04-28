@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65204257"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
@@ -71,7 +71,7 @@ Usare l'installazione guidata per semplificare i passaggi per la configurazione 
 4. Scegliere il tipo di autenticazione, ovvero **NTLM**, **Basic** o **None**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per altre informazioni, vedere l'autenticazione [di base](https://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **Nel servizio StorSimple Device Manager, i grafici di monitoraggio dei dispositivi non funzionano quando è abilitata l'autenticazione di base o NTLM nella configurazione del server proxy per il dispositivo. Affinché i grafici di monitoraggio funzionino, è necessario assicurarsi che l'autenticazione sia impostata su NONE.**
+   > **Nel servizio Device Manager StorSimple, i grafici di monitoraggio del dispositivo non funzionano quando l'autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per il corretto funzionamento dei grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NONE.**
   
 5. Se l'autenticazione è abilitata, fornire un **nome utente del proxy Web** e la **password del proxy Web**. È necessario anche confermare la password.
    

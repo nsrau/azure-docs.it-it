@@ -1,5 +1,5 @@
 ---
-title: Usare Job Browser & Job Job View - Azure Data Lake Analytics
+title: Usare Job browser & vista processi-Azure Data Lake Analytics
 description: Questo articolo descrive come usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -8,10 +8,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309941"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usare Browser processi e Vista processi per i processi di Azure Data Lake Analytics
@@ -111,7 +111,7 @@ La finestra di dialogo Job View (Visualizzazione processo) contiene:
   * Duration (Durata): il tempo reale di una fase; è necessario caricare il profilo per visualizzare questo valore.
   * Riproduzione del processo
     
-      Data Lake Analytics esegue i processi e archivia i vertici che eseguono le informazioni sui processi, ad esempio quando i vertici vengono avviati, arrestati, non riusciti e come vengono ritentati e così via. Tutte le informazioni vengono registrate automaticamente nell'archivio query e archiviate nel relativo profilo di processo. È possibile scaricare il profilo del processo tramite Carica profilo nella visualizzazione processo; è possibile esaminare la riproduzione del processo dopo avere scaricato il profilo del processo.
+      Data Lake Analytics esegue processi e archivia i vertici che eseguono le informazioni dei processi, ad esempio quando i vertici vengono avviati, arrestati, non riusciti e come vengono ripetuti e così via. Tutte le informazioni vengono registrate automaticamente nell'archivio query e archiviate nel relativo profilo del processo. È possibile scaricare il profilo del processo tramite Carica profilo nella visualizzazione processo; è possibile esaminare la riproduzione del processo dopo avere scaricato il profilo del processo.
     
       Il processo di riproduzione è una visualizzazione di sintesi delle operazioni eseguite nel cluster. Consente di controllare lo stato di avanzamento del processo e rilevare visivamente eventuali colli di bottiglia o anomalie delle prestazioni in un periodo molto breve, in genere inferiore a 30 secondi.
   * Visualizzazione della mappa termica del processo 
@@ -163,7 +163,7 @@ Mostra informazioni dettagliate sul processo, inclusi gli script, le risorse e l
     Consente di trovare gli output di compilazione del processo archiviati nell'archivio query. Ad esempio, è possibile trovare "algebra.xml" che viene usato per mostrare il grafico del processo, l'assembly registrato e così via.
 * Vertex execution view (Visualizzazione esecuzioni vertici)
   
-    Mostra i dettagli di esecuzione dei vertici. Il profilo di processo archivia ogni log di esecuzione dei vertici, ad esempio i dati totali letti/scritti, il runtime, lo stato e così via. Tramite questa visualizzazione è possibile ottenere ulteriori dettagli sulla esecuzione di un processo. Per altre informazioni vedere [Usare la visualizzazione esecuzioni di vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Mostra i dettagli di esecuzione dei vertici. Il profilo del processo archivia tutti i log di esecuzione dei vertici, ad esempio i dati totali letti/scritti, il runtime, lo stato e così via. Grazie a questa visualizzazione, è possibile ottenere altre informazioni sulla modalità di esecuzione di un processo. Per altre informazioni vedere [Usare la visualizzazione esecuzioni di vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per registrare informazioni di diagnostica, vedere [Accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)

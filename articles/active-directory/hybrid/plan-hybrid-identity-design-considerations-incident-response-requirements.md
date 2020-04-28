@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109283"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
@@ -50,7 +50,7 @@ Il sistema di gestione delle identità deve aiutare gli amministratori IT a iden
 * L'azienda ha esigenza di identificare eventuali tentativi di accesso sospetti eseguiti con vari tipi di dispositivi?
 * Per l'azienda può essere importante rilevare credenziali utente potenzialmente compromesse?
 * L'azienda desidera poter controllare gli accessi e le azioni degli utenti?
-* La tua azienda deve sapere quando un utente reimposta la password?
+* È necessario che l'azienda sappia quando un utente reimposta la propria password?
 
 ## <a name="policy-enforcement"></a>Imposizione dei criteri
 Durante le fasi di controllo dei danni e riduzione dei rischi, è importante limitare rapidamente gli effetti, potenziali ed effettivi, dell'attacco. Le azioni che vengono intraprese in questa fase possono fare una grande differenza a questo proposito. La risposta esatta dipende dal tipo di azienda e dalla natura dell'attacco che si sta affrontando. Se dalla valutazione iniziale è emerso che è stato compromesso un account, è necessario applicare il criterio che impone il blocco dell'account. Questo, ovviamente, è solo uno dei tanti modi in cui è possibile avvalersi del sistema di gestione delle identità. Usare le domande seguenti per definire una soluzione di identità ibrida tenendo conto delle modalità di applicazione dei criteri per rispondere a eventi imprevisti:
@@ -60,7 +60,7 @@ Durante le fasi di controllo dei danni e riduzione dei rischi, è importante lim
 * L'azienda deve applicare l'accesso condizionale per gli utenti in quarantena? 
 
 > [!NOTE]
-> Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. Definire la [strategia](plan-hybrid-identity-design-considerations-data-protection-strategy.md) di protezione dei dati passerà oltre le opzioni disponibili e vantaggi / svantaggi di ogni opzione.  Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
+> Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. [Definire la strategia di protezione dei dati](plan-hybrid-identity-design-considerations-data-protection-strategy.md) consente di esaminare le opzioni disponibili e i vantaggi e gli svantaggi di ogni opzione.  Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.
 > 
 > 
 

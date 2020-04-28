@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 20033e52e862f086d1491c06d38cdf4f2c57ba8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71106125"
 ---
 # <a name="apache-spark-best-practices"></a>Procedure consigliate Apache Spark
@@ -25,7 +25,7 @@ Questo articolo fornisce varie procedure consigliate per l'uso di Apache Spark i
 | VSCode | [Usare gli strumenti di Spark & hive per Visual Studio Code](../hdinsight-for-vscode.md) |
 | Jupyter Notebook | [Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight](./apache-spark-load-data-run-query.md) |
 | IntelliJ | [Esercitazione: usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight](./apache-spark-intellij-tool-plugin.md) |
-| IntelliJ | [Esercitazione: Creare un'applicazione di Scala Maven per Apache Spark in HDInsight usando IntelliJ](./apache-spark-create-standalone-application.md) |
+| IntelliJ | [Esercitazione: Creare un'applicazione Scala Maven per Apache Spark in HDInsight usando IntelliJ](./apache-spark-create-standalone-application.md) |
 | Notebook di Zeppelin | [Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight](./apache-spark-zeppelin-notebook.md) |
 | Invio di processi remoti con Livio | [Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark](./apache-spark-livy-rest-interface.md) |
 
@@ -51,7 +51,7 @@ Questo articolo fornisce varie procedure consigliate per l'uso di Apache Spark i
 |---|---|
 | Apache Hive in HDInsight | [Integrare Apache Spark e Apache Hive con il connettore Hive Warehouse](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase in HDInsight | [Usare Apache Spark per leggere e scrivere dati Apache HBase](../hdinsight-using-spark-query-hbase.md) |
-| Apache Kafka in HDInsight | [Esercitazione: Usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
+| Apache Kafka in HDInsight | [Esercitazione: usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
 | Azure Cosmos DB | [Azure Cosmos DB: Implementare un'architettura lambda nella piattaforma Azure](../../cosmos-db/lambda-architecture.md) |
 
 ## <a name="what-are-my-storage-options"></a>Quali sono le opzioni di archiviazione?

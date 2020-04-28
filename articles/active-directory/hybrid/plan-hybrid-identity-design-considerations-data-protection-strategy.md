@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109363"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
@@ -106,7 +106,7 @@ Azure Active Directory offre l'accesso Single Sign-On a migliaia di applicazioni
 >
 >
 
-Grazie al supporto di Azure AD, le applicazioni aziendali per dispositivi mobili possono usare la stessa esperienza di autenticazione semplificata a Servizi mobili per consentire ai dipendenti di accedere alle applicazioni per dispositivi mobili con le proprie credenziali Active Directory aziendali. Con questa funzionalità, Azure AD è supportato come un provider di identità in Servizi mobili, insieme agli altri provider di identità già supportati, ad esempio Account Microsoft, ID Facebook, ID Google e ID Twitter. Se le app locali usano le credenziali dell'utente che risiedono nell'istanza di Active Directory Domain Services locale, l'accesso da partner e utenti provenienti dal cloud dovrebbe essere trasparente. È possibile gestire il controllo dell'accesso condizionale dell'utente alle applicazioni Web (basate su cloud), all'API Web, ai servizi cloud Microsoft, alle applicazioni SaaS di terze parti e alle applicazioni client native (mobili) e Posto. È tuttavia consigliabile convalidare questa implementazione in un ambiente non di produzione o con un numero limitato di utenti.
+Grazie al supporto di Azure AD, le applicazioni aziendali per dispositivi mobili possono usare la stessa esperienza di autenticazione semplificata a Servizi mobili per consentire ai dipendenti di accedere alle applicazioni per dispositivi mobili con le proprie credenziali Active Directory aziendali. Con questa funzionalità, Azure AD è supportato come un provider di identità in Servizi mobili, insieme agli altri provider di identità già supportati, ad esempio Account Microsoft, ID Facebook, ID Google e ID Twitter. Se le app locali usano le credenziali dell'utente che risiedono nell'istanza di Active Directory Domain Services locale, l'accesso da partner e utenti provenienti dal cloud dovrebbe essere trasparente. È possibile gestire il controllo di accesso condizionale dell'utente alle applicazioni Web (basate sul cloud), alle API Web, ai servizi cloud Microsoft, alle applicazioni SaaS di terze parti e alle applicazioni client native (per dispositivi mobili) e offre i vantaggi di sicurezza, controllo e creazione di report in un'unica posizione. È tuttavia consigliabile convalidare questa implementazione in un ambiente non di produzione o con un numero limitato di utenti.
 
 > [!TIP]
 > È importante tenere presente che in Azure AD non è disponibile la funzionalità Criteri di gruppo come in Servizi di dominio Active Directory. Per imporre criteri per i dispositivi, sarà necessario adottare una soluzione per la gestione di dispositivi mobili, ad esempio [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
@@ -131,7 +131,7 @@ Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenari
    > Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
 
 
-3. Accesso condizionale per le applicazioni di Office 365 con Microsoft Intune: gli amministratori IT possono eseguire il provisioning dei criteri dei dispositivi di accesso condizionale per proteggere le risorse aziendali, consentendo allo stesso tempo agli information worker nei dispositivi conformi di accedere ai servizi. 
+3. Accesso condizionale per le applicazioni Office 365 con Microsoft Intune: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli Information Worker su dispositivi conformi di accedere ai servizi. 
   
 4. Accesso condizionale per app SaaS: [questa funzionalità](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) consente di configurare regole di accesso con autenticazione a più fattori per ogni applicazione e di bloccare l'accesso agli utenti di reti non attendibili. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
 

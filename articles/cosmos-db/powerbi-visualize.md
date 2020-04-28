@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69616816"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizzare i dati di Azure Cosmos DB con il connettore Power BI
@@ -32,7 +32,7 @@ Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare d
 
 * Scaricare i [dati di esempio sui vulcani](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) da GitHub.
 
-* Creare un account di [database Di Azure Cosmos](https://azure.microsoft.com/documentation/articles/create-account/) e importare i dati vulcanici utilizzando lo strumento di migrazione dei dati di Azure [Cosmos DB.](import-data.md) Quando si importano i dati, tenere conto delle impostazioni seguenti per l'origine e le destinazioni nell'Utilità di migrazione dati:
+* [Creare un account Azure Cosmos database](https://azure.microsoft.com/documentation/articles/create-account/) e importare i dati Volcano usando lo [strumento di migrazione dei dati Azure Cosmos DB](import-data.md). Quando si importano i dati, tenere conto delle impostazioni seguenti per l'origine e le destinazioni nell'Utilità di migrazione dati:
 
    * **Parametri relativi all'origine** 
 
@@ -40,13 +40,13 @@ Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare d
 
    * **Parametri relativi alla destinazione** 
 
-      * **Stringa di connessione:Connection string:**`AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+      * **Stringa di connessione:**`AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
 
       * **Chiave di partizione:** /Country 
 
       * **Velocità effettiva raccolta:** 1000 
 
-Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per altre informazioni su Power BI [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)e Power BI Pro, vedere .
+Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per ulteriori informazioni su Power BI e Power BI Pro, vedere [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Attività iniziali
 In questa esercitazione si immagini di essere un geologo che studia i vulcani di tutto il mondo. I dati sui vulcani sono archiviati in un account Cosmos DB e i documenti JSON hanno il formato seguente:
@@ -122,7 +122,7 @@ I dati sui vulcani verranno recuperati dall'account di Azure Cosmos DB e i dati 
 8. Specificare un nome per la nuova colonna, ad esempio LatLong.
 9. Specificare quindi la formula personalizzata per la nuova colonna.  Per questo esempio, verranno concatenati i valori di latitudine e longitudine separati da una virgola, come illustrato di seguito, usando la formula seguente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Fare clic su **OK**.
    
-    Per altre informazioni sulle espressioni di analisi dei dati (DAX, Data Analysis Expressions) incluse le funzioni DAX, vedere [Nozioni di base su DAX in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+    Per ulteriori informazioni sulle funzioni DAX (Data Analysis Expressions), incluse le funzioni DAX, vedere [nozioni di DAX in Power bi desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
     ![Esercitazione su Power BI per il connettore Azure Cosmos DB per Power BI: Aggiungi colonna personalizzata](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

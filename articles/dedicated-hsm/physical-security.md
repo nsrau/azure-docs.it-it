@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881036"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Sicurezza fisica di HSM dedicato di Azure
@@ -56,7 +56,7 @@ Il provisioning dei moduli di protezione hardware viene effettuato in una rete v
 Prima di eseguire il provisioning di dispositivi o di iniziare la progettazione o distribuzione di applicazioni, è consigliabile aver ben compreso tutti i concetti chiave relativi al servizio, ad esempio disponibilità elevata, sicurezza e supporto.
 
 * [Disponibilità elevata](high-availability.md)
-* [Rete](networking.md)
-* [Supporto](supportability.md)
-* [Monitoraggio](monitoring.md)
+* [Funzionalità di rete](networking.md)
+* [Supportabilità](supportability.md)
+* [Monitoring](monitoring.md)
 * [Architettura di distribuzione](deployment-architecture.md)

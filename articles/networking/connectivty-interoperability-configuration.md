@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68335935"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: dettagli della configurazione di test
@@ -27,7 +27,7 @@ La figura seguente mostra i dettagli del peering reti virtuali di Azure per una 
 
 [![1]][1]
 
-La figura seguente illustra i dettagli del peering reti virtuali per la rete virtuale dell'hub. Se si desidera che la rete virtuale dell'hub consenta alla rete virtuale spoke di utilizzare i gateway dell'hub, selezionare **Consenti transito gateway**.
+La figura seguente illustra i dettagli del peering reti virtuali per la rete virtuale dell'hub. Se si vuole che l'hub VNet consenta al VNet spoke di usare i gateway dell'hub, selezionare **Consenti transito gateway**.
 
 [![2]][2]
 
@@ -51,7 +51,7 @@ La figura seguente illustra la configurazione della connessione tra il circuito 
 
 [![5]][5]
 
-L'elenco seguente mostra la configurazione del router della rete perimetrale del cliente principale per la connettività di peering privata di ExpressRoute. (I router Cisco ASR1000 vengono utilizzati come router CE nella configurazione di prova). Quando i circuiti VPN ed ExpressRoute da sito a sito vengono configurati in parallelo per connettere una rete locale ad Azure, Azure assegna la priorità al circuito ExpressRoute per impostazione predefinita. Per evitare il routing asimmetrico, anche la rete locale deve dare la priorità alla connettività di ExpressRoute rispetto alla connettività VPN da sito a sito. La configurazione seguente stabilisce la priorità tramite l'attributo **local-preference** di BGP:
+L'elenco seguente mostra la configurazione del router della rete perimetrale del cliente principale per la connettività di peering privata di ExpressRoute. I router Cisco ASR1000 vengono usati come router CE nella configurazione di test. Quando i circuiti VPN da sito a sito e ExpressRoute sono configurati in parallelo per connettere una rete locale ad Azure, Azure assegna la priorità al circuito ExpressRoute per impostazione predefinita. Per evitare il routing asimmetrico, anche la rete locale deve dare la priorità alla connettività di ExpressRoute rispetto alla connettività VPN da sito a sito. La configurazione seguente stabilisce la priorità tramite l'attributo **local-preference** di BGP:
 
     interface TenGigabitEthernet0/0/0.300
      description Customer 30 private peering to Azure

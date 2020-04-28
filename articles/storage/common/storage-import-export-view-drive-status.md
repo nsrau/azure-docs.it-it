@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72821435"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
@@ -20,7 +20,7 @@ ms.locfileid: "72821435"
 Questo articolo fornisce informazioni su come visualizzare lo stato delle unità e dei processi per i processi di Importazione/Esportazione di Azure. Il servizio Importazione/Esportazione di Azure viene usato per il trasferimento sicuro grandi quantità di dati in BLOB di Azure e File di Azure. Il servizio viene usato anche per esportare i dati da Archiviazione BLOB di Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Visualizzare lo stato di processi e unità
-È possibile tenere traccia dello stato dei processo di importazione o esportazione dal portale di Azure. Fare clic sulla scheda **Importa/Esporta.** Nella pagina viene visualizzato un elenco dei processi.
+È possibile tenere traccia dello stato dei processo di importazione o esportazione dal portale di Azure. Fare clic sulla scheda **importazione/esportazione** . Nella pagina verrà visualizzato un elenco dei processi.
 
 ![Visualizzare lo stato dei processi](./media/storage-import-export-service/jobstate.png)
 
@@ -73,7 +73,7 @@ La quantità di tempo necessario per elaborare un processo di importazione/espor
 -  Tipo di processo e dimensioni dei dati da copiare
 -  Numero di dischi in un processo 
 
-Il servizio di importazione/esportazione non dispone di un contratto di servizio, ma tenta di completare la copia in un intervallo compreso tra i 7 e i 10 giorni dopo la ricezione dei dischi. Oltre allo stato pubblicato nel portale di Azure, è possibile usare le API REST per tenere traccia dell'avanzamento del processo. Il parametro della percentuale di completamento nella chiamata API dell'operazione [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) fornisce la percentuale di avanzamento della copia.
+Il servizio di importazione/esportazione non dispone di un contratto di servizio, ma tenta di completare la copia in un intervallo compreso tra i 7 e i 10 giorni dopo la ricezione dei dischi. Oltre allo stato pubblicato nel portale di Azure, è possibile usare le API REST per tenere traccia dell'avanzamento del processo. Il parametro percent complete della chiamata API per l'operazione [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) fornisce lo stato di avanzamento della copia in percentuale.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

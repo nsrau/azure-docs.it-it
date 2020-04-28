@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108419"
 ---
 # <a name="compare-remote-access-solutions"></a>Confrontare le soluzioni di accesso remoto
@@ -50,13 +50,13 @@ Usare questa tabella per comprendere come vengono confrontate tra loro Threat Ma
 | Nessun componente all'interno della rete perimetrale | - | - | - | Sì |
 | Nessuna connessione in ingresso | - | - | - | Sì |
 
-Per la maggior parte degli scenari, è consigliabile il proxy di applicazione di Azure AD come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 
+Per la maggior parte degli scenari, è consigliabile Azure AD proxy di applicazione come soluzione moderna. Il Proxy applicazione Web è preferito esclusivamente in scenari che richiedono un server proxy per il servizio federativo AD e non è possibile usare domini personalizzati in Azure Active Directory. 
 
 Il proxy dell'applicazione Azure AD offre vantaggi esclusivi rispetto ai prodotti simili, tra cui:
 
 - Estensione di Azure AD a risorse locali
    - Sicurezza e protezione a livello di scalabilità
-   - Caratteristiche come l'accesso condizionale e l'autenticazione a più fattori sono facili da abilitare
+   - Funzionalità quali l'accesso condizionale e Multi-Factor Authentication sono facili da abilitare
 - Nessun componente all'interno della rete perimetrale
 - Nessuna connessione in ingresso necessaria
 - Un pannello di accesso che gli utenti possono visualizzare per tutte le applicazioni, comprese Office 365, app SaaS integrate di Azure AD e app Web locali. 

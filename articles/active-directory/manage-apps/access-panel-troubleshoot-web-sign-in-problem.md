@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65784319"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problemi di accesso al sito Web del pannello di accesso
@@ -39,7 +39,7 @@ Se un utente ha una sottoscrizione per Azure o un abbonamento a Office 365 e ha 
 
 ## <a name="general-issues-to-check-first"></a>Problemi generali da verificare prima 
 
--   Assicurati che l'utente stia accedendo **all'URL corretto:**<https://myapps.microsoft.com>
+-   Assicurarsi che l'utente acceda all' **URL corretto**:<https://myapps.microsoft.com>
 
 -   Verificare che il browser dell'utente abbia aggiunto l'URL ai **siti attendibili**
 
@@ -80,7 +80,7 @@ L'accesso al pannello di accesso può essere bloccato a causa di un problema rel
 
 -   [Controllare lo stato dell'account di un utente](#check-a-users-account-status)
 
--   [Reimpostare la password di un utente](#reset-a-users-password)
+-   [Reimposta la password di un utente](#reset-a-users-password)
 
 -   [Abilitare la reimpostazione self-service delle password](#enable-self-service-password-reset)
 
@@ -92,19 +92,19 @@ L'accesso al pannello di accesso può essere bloccato a causa di un problema rel
 
 -   [Controllare le licenze assegnate di un utente](#check-a-users-assigned-licenses)
 
--   [Assegnare a un utente una licenza](#assign-a-user-a-license)
+-   [Assegnare una licenza a un utente](#assign-a-user-a-license)
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Controllare se esiste un account utente in Azure Active Directory
 
 Per controllare se l'account di un utente è presente, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
@@ -116,19 +116,19 @@ Per controllare se l'account di un utente è presente, seguire questa procedura:
 
 Per controllare lo stato dell'account di un utente, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
 6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
-7.  fare clic su **Profilo**.
+7.  fare clic su **profilo**.
 
 8.  In **Impostazioni** assicurarsi che l'opzione **Blocca l'accesso** sia impostata su **No**.
 
@@ -136,13 +136,13 @@ Per controllare lo stato dell'account di un utente, seguire questa procedura:
 
 Per reimpostare la password di un utente, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
@@ -168,19 +168,19 @@ Per abilitare la reimpostazione self-service delle password, seguire questa proc
 
 Per controllare lo stato di autenticazione a più fattori di un utente, seguire questa procedura:
 
-1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4. fai clic su **Utenti e gruppi** nel menu di navigazione.
+4. fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5. Fare clic su **Tutti gli utenti**.
 
 6. Fare clic sul pulsante **Multi-Factor Authentication** nella parte superiore del riquadro.
 
-7. Una volta caricato il portale di amministrazione di **Multi-Factor Authentication,** assicurarsi di essere nella scheda **Utenti.**
+7. Una volta caricato il **portale di amministrazione di multi-factor authentication** , assicurarsi di essere nella scheda **utenti** .
 
 8. Trovare l'utente nell'elenco degli utenti tramite una ricerca, l'applicazione di un filtro o l'ordinamento.
 
@@ -195,19 +195,19 @@ Per controllare lo stato di autenticazione a più fattori di un utente, seguire 
 
 Per controllare le informazioni di contatto per l'autenticazione di un utente usate per l'autenticazione a più fattori, l'accesso condizionale, la protezione delle identità e la reimpostazione della password, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
 6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
-7.  fare clic su **Profilo**.
+7.  fare clic su **profilo**.
 
 8.  Scorrere fino a **Informazioni di contatto per l'autenticazione**.
 
@@ -217,13 +217,13 @@ Per controllare le informazioni di contatto per l'autenticazione di un utente us
 
 Per controllare l'appartenenza a gruppi di un utente, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
@@ -235,13 +235,13 @@ Per controllare l'appartenenza a gruppi di un utente, seguire questa procedura:
 
 Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
@@ -253,13 +253,13 @@ Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
 Per assegnare una licenza a un utente, seguire questa procedura:
 
-1.  Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  fai clic su **Utenti e gruppi** nel menu di navigazione.
+4.  fare clic su **utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
@@ -267,7 +267,7 @@ Per assegnare una licenza a un utente, seguire questa procedura:
 
 7.  Fare clic su **Licenze** per verificare quali licenze sono assegnate all'utente.
 
-8.  fare clic sul pulsante **Assegna.**
+8.  fare clic sul pulsante **assegna** .
 
 9.  Selezionare **uno o più prodotti** nell'elenco dei prodotti disponibili.
 

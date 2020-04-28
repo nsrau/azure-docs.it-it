@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67203187"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
@@ -25,7 +25,7 @@ Quando si distribuisce la soluzione di monitoraggio remoto per la prima volta, s
 
 Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione, incluse le autorizzazioni seguenti, mentre gli utenti con il ruolo **Sola lettura** possono accedere solo per visualizzare la soluzione.
 
-| Autorizzazione            | Amministrativi | Sola lettura |
+| Autorizzazione            | Amministratore | Sola lettura |
 |----------------       |-------|-----------|
 | Visualizza soluzione         | Sì   | Sì       |
 | Aggiornare avvisi         | Sì   | No        |
@@ -51,7 +51,7 @@ Per impostazione predefinita, l'utente che ha distribuito la soluzione viene ass
 
 Gli utenti proprietari di un'applicazione di Azure Active Directory possono usare il portale di Azure per aggiungere (o rimuovere) un utente a un ruolo dalla soluzione di monitoraggio remoto. La procedura seguente usa l'[applicazione aziendale di Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) creata al momento della distribuzione della soluzione di monitoraggio remoto.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Verificare che l'[utente si trovi nella directory](../active-directory/fundamentals/add-users-azure-active-directory.md) in uso. La directory da usare è stata selezionata al momento dell'accesso al sito [Acceleratori di soluzione Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators). Il nome della directory è visibile nell'angolo in alto a destra della [pagina](https://www.azureiotsolutions.com/Accelerators).
 
@@ -247,7 +247,7 @@ In questo articolo si è appreso come viene implementato il controllo degli acce
 
 Vedere [Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-rbac-tsi.md) per ottenere informazioni su come gestire l'accesso a Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto.
 
-Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere Architettura di [monitoraggio remotoFor](iot-accelerators-remote-monitoring-sample-walkthrough.md) more conceptual information about the Remote Monitoring solution accelerator, see Remote Monitoring architecture
+Per informazioni più concettuali su Remote Monitoring Solution Accelerator, vedere [Remote Monitoring Architecture](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Customize and redeploy a microservice](iot-accelerators-microservices-example.md) (Personalizzare e ridistribuire un microservizio)
 <!-- Next tutorials in the sequence -->

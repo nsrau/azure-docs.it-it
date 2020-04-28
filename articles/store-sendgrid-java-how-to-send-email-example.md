@@ -16,18 +16,18 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.openlocfilehash: 35307848c09391ae4468afc00adafd8171aaaa7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876472"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java in una distribuzione Azure
-L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante richiederà all'utente i valori di posta elettronica, come illustrato nella schermata seguente.
+L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente i valori di posta elettronica, come illustrato nello screenshot seguente.
 
 ![Modulo per la posta elettronica][emailform]
 
-L'e-mail risultante sarà simile alla schermata seguente.
+Il messaggio di posta elettronica risultante sarà simile allo screenshot seguente.
 
 ![Messaggio di posta elettronica][emailsent]
 
@@ -205,7 +205,7 @@ Il codice seguente, chiamato quando si completa il modulo in emailform.jsp, crea
     </body>
     </html>
 
-Oltre a inviare l'e-mail, emailform.jsp fornisce un risultato per l'utente; un esempio è la seguente schermata:
+Oltre a inviare il messaggio di posta elettronica, emailform. jsp fornisce un risultato per l'utente. un esempio è lo screenshot seguente:
 
 ![Risultato invio posta elettronica][emailresult]
 

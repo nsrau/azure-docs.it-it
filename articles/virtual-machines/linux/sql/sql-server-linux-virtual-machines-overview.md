@@ -13,10 +13,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d376672336845958fb6434a78177f42aca938229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70081959"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Panoramica di SQL Server in macchine virtuali di Azure (Linux)
@@ -36,7 +36,7 @@ Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la ve
 > [!TIP]
 > Per altre informazioni sui prezzi per le immagini di SQL, vedere la [pagina dei prezzi per macchine virtuali SQL Server Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-| Versione | Sistema operativo | Edizione |
+| Version | Sistema operativo | Edizione |
 | --- | --- | --- |
 | **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
 | **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
@@ -45,11 +45,11 @@ Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la ve
 > [!NOTE]
 > Per visualizzare le immagini di macchine virtuali Linux di SQL Server disponibili, vedere [Panoramica di SQL Server in macchine virtuali di Azure (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-## <a name="installed-packages"></a><a id="packages"></a> Pacchetti installati
+## <a name="installed-packages"></a><a id="packages"></a>Pacchetti installati
 
 Quando si configura SQL Server in Linux, si installano il pacchetto del motore di database e quindi diversi pacchetti facoltativi, in base ai requisiti specifici. Le immagini di macchine virtuali Linux per SQL Server installano automaticamente la maggior parte dei pacchetti. La tabella seguente illustra i pacchetti installati per ogni distribuzione.
 
-| Distribuzione | [Motore di databaseDatabase Engine](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Strumenti](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Ricerca full-text](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [Ssis](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Componente aggiuntivo per disponibilità elevata](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Distribuzione | [Motore di database](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Strumenti](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Ricerca full-text](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Componente aggiuntivo per disponibilità elevata](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | SLES | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sì](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) | ![no](./media/sql-server-linux-virtual-machines-overview/no.png) |
@@ -67,13 +67,13 @@ Quando si configura SQL Server in Linux, si installano il pacchetto del motore d
 
 ### <a name="networking"></a>Rete
 
-* [Panoramica della rete virtuale](../../../virtual-network/virtual-networks-overview.md)
+* [Panoramica di rete virtuale](../../../virtual-network/virtual-networks-overview.md)
 * [Indirizzi IP in Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Creare un nome di dominio completo nel portale di Azure](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 
-* [Documentazione di SQL Server su LinuxSQL Server on Linux documentation](https://docs.microsoft.com/sql/linux)
+* [Documentazione di SQL Server in Linux](https://docs.microsoft.com/sql/linux)
 * [Confronto con il database SQL di Azure](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

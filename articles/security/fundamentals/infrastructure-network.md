@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: c4756c36c2243840df69f3696e7ddac3628f3a00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68727165"
 ---
 # <a name="azure-network-architecture"></a>Architettura di rete di Azure
@@ -81,7 +81,7 @@ I router di filtraggio ai livelli di perimetro e accesso della rete di Azure gar
 ### <a name="ddos-mitigation"></a>Mitigazione DDoS
 Gli attacchi Distributed Denial of Service (DDoS) continuano a costituire una minaccia reale all'affidabilità dei Servizi online. In un momento in cui gli attacchi diventano sempre più mirati e sofisticati e i servizi Microsoft sempre più diversificati a livello geografico, la capacità di identificare e ridurre al minimo l'impatto di questi attacchi è della massima priorità.
 
-La [protezione DDoS di Azure Standard](../../virtual-network/ddos-protection-overview.md) offre un meccanismo di difesa dagli attacchi DDoS. Per altre informazioni, vedere [Protezione DDoS di Azure: procedure consigliate e architetture](ddos-best-practices.md) di riferimento.
+La [protezione DDoS di Azure Standard](../../virtual-network/ddos-protection-overview.md) offre un meccanismo di difesa dagli attacchi DDoS. Per altre informazioni, vedere [protezione DDoS di Azure: procedure consigliate e architetture di riferimento](ddos-best-practices.md) .
 
 > [!NOTE]
 > Microsoft offre protezione DDoS per impostazione predefinita a tutti i clienti Azure.
@@ -102,7 +102,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
 - [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
 - [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

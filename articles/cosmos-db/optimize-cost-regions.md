@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72753312"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Ottimizzare i costi per più aree in Azure Cosmos DB
@@ -25,19 +25,19 @@ La velocità effettiva di cui è stato effettuato il provisioning con un'area di
 
 ## <a name="costs-for-multiple-write-regions"></a>Costi per più aree di scrittura
 
-In un sistema multimaster, le UR nette disponibili per le operazioni di scrittura aumentano di `N` volte, dove `N` è il numero di aree di scrittura. A differenza delle operazioni di scrittura in una singola area, ogni area è ora accessibile in scrittura e deve supportare la risoluzione dei conflitti. La quantità di carico di lavoro per i writer è aumentata. Dal punto di vista della `M` pianificazione dei costi, per eseguire SCRITTURe `RUs` RU/s in tutto il mondo, è necessario eseguire il provisioning di M a livello di contenitore o di database. È quindi possibile aggiungere tutte le aree desiderate e usarle per operazioni di scrittura per eseguire `M` UR di scritture in tutto il mondo. 
+In un sistema multimaster, le UR nette disponibili per le operazioni di scrittura aumentano di `N` volte, dove `N` è il numero di aree di scrittura. A differenza delle operazioni di scrittura in una singola area, ogni area è ora accessibile in scrittura e deve supportare la risoluzione dei conflitti. La quantità di carico di lavoro per i writer è aumentata. Dal punto di vista della pianificazione dei costi, per `M` eseguire le UR/s di scritture in tutto il mondo, sarà `RUs` necessario effettuare il provisioning di M a livello di contenitore o di database. È quindi possibile aggiungere tutte le aree desiderate e usarle per operazioni di scrittura per eseguire `M` UR di scritture in tutto il mondo. 
 
 ### <a name="example"></a>Esempio
 
 Si supponga di avere un contenitore nell'area Stati Uniti occidentali con provisioning con unità elaborate pari a 10.000 UR/s che sia stato archiviato 1 TB di dati questo mese. Si supponga quindi di aggiungere tre aree, Stati Uniti orientali, Europa settentrionale e Asia orientale, ciascuna con le stesse risorse di archiviazione e con la stessa velocità effettiva e che si desideri scrivere nei contenitori di tutte e quattro le aree dall'app distribuita a livello globale. La fattura mensile totale sarà la seguente (presupponendo un mese di 31 giorni):
 
-|**Elemento**|**Uso (mensile)**|**Tasso**|**Costo mensile**|
+|**Item**|**Uso (mensile)**|**Tariffa**|**Costo mensile**|
 |----|----|----|----|
 |Fattura per la velocità effettiva per contenitore negli Stati Uniti occidentali (operazioni di scrittura in più aree) |10K RU/s * 24 * 31 |$0,016 per 100 RU/s all'ora |$1.190,40 |
 |Fattura per la velocità effettiva per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale (operazioni di scrittura in più aree) |(3 + 1) * 10K RU/s * 24 * 31 |$0,016 per 100 RU/s all'ora |$4.761,60 |
-|Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali |1 TB (o 1.024 GB) |$0,25/GB |256 USD |
-|Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale |3 x 1 TB (o 3.072 GB) |$0,25/GB |768 USD |
-|**Totale**|||**6.976 USD** |
+|Fattura per le risorse di archiviazione per un contenitore negli Stati Uniti occidentali |1 TB (o 1.024 GB) |$0,25/GB |$256 |
+|Fattura per le risorse di archiviazione per 3 aree aggiuntive: Stati Uniti orientali, Europa settentrionale e Asia orientale |3 * 1 TB (o 3.072 GB) |$0,25/GB |$768 |
+|**Totale**|||**$6.976** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Migliorare l'uso della velocità effettiva per singola area
 

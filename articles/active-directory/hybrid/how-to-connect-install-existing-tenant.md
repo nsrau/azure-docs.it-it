@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71336813"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect con un tenant esistente
@@ -59,13 +59,13 @@ Per una nuova installazione di Connect, non esiste alcuna differenza pratica tra
 ### <a name="other-objects-than-users"></a>Oggetti diversi dagli utenti
 Per i gruppi abilitati alla posta e ai contatti è possibile eseguire la corrispondenza flessibile in base a proxyAddresses. La corrispondenza rigida non è applicabile poiché è possibile aggiornare solo sourceAnchor o immutableID (tramite PowerShell) solo per Utenti. Per i gruppi che non sono abilitati per la posta non c'è attualmente alcun supporto per la corrispondenza rigida o per la corrispondenza flessibile.
 
-### <a name="admin-role-considerations"></a>Considerazioni sui ruoli di amministratoreAdmin role considerations
-Per impedire che gli utenti locali non attendibili corrispondano a un utente cloud con qualsiasi ruolo di amministratore, Azure AD Connect non corrisponderà agli oggetti utente locali con oggetti con un ruolo di amministratore. Questo accade per impostazione predefinita. Per risolvere questo problema è possibile eseguire le operazioni seguenti:To workaround this behavior you can do the following:
+### <a name="admin-role-considerations"></a>Considerazioni sui ruoli di amministratore
+Per impedire che gli utenti locali non attendibili corrispondano a un utente cloud con un ruolo di amministratore, Azure AD Connect non corrisponderà a oggetti utente locali con oggetti che dispongono di un ruolo di amministratore. Questo accade per impostazione predefinita. Per aggirare questo comportamento, è possibile eseguire le operazioni seguenti:
 
-1.  Rimuovere i ruoli di directory dall'oggetto utente solo cloud.
-2.  Se si è verificato un tentativo di sincronizzazione utente non riuscito, eliminare definitivamente l'oggetto In quarantena nel cloud.
+1.  Rimuovere i ruoli della directory dall'oggetto utente solo cloud.
+2.  Se si è verificato un tentativo di sincronizzazione utente non riuscito, eliminare definitivamente l'oggetto in quarantena nel cloud.
 3.  Attivare una sincronizzazione.
-4.  Facoltativamente, aggiungere nuovamente i ruoli di directory all'oggetto utente nel cloud dopo che si è verificata la corrispondenza.
+4.  Facoltativamente, aggiungere di nuovo i ruoli della directory all'oggetto utente nel cloud dopo che è stata eseguita la corrispondenza.
 
 
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70073532"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Creare sottoscrizioni in Gestione API di Azure
 
-Quando si pubblicano le API tramite Gestione API di Azure, è semplice e comune proteggere l'accesso a tali API usando chiavi di sottoscrizione. Le applicazioni client che devono utilizzare le API pubblicate devono includere una chiave di sottoscrizione valida nelle richieste HTTP quando effettuano chiamate a tali API. Per ottenere una chiave di sottoscrizione per l'accesso alle API, è necessaria una sottoscrizione. Per altre informazioni sulle sottoscrizioni, vedere Sottoscrizioni in Gestione API di Azure.For more information about subscriptions, see [Subscriptions in Azure API Management.](api-management-subscriptions.md)
+Quando si pubblicano le API tramite Gestione API di Azure, è semplice e comune proteggere l'accesso a tali API usando chiavi di sottoscrizione. Le applicazioni client che devono utilizzare le API pubblicate devono includere una chiave di sottoscrizione valida nelle richieste HTTP quando effettuano chiamate a tali API. Per ottenere una chiave di sottoscrizione per l'accesso alle API, è necessaria una sottoscrizione. Per altre informazioni sulle sottoscrizioni, vedere [sottoscrizioni in gestione API di Azure](api-management-subscriptions.md).
 
 Questo articolo descrive i passaggi per la creazione di sottoscrizioni nel portale di Azure.
 
@@ -29,7 +29,7 @@ Questo articolo descrive i passaggi per la creazione di sottoscrizioni nel porta
 
 Per eseguire i passaggi descritti in questo articolo, i prerequisiti sono i seguenti:
 
-+ [Creare un'istanza](get-started-create-service-instance.md)di Gestione API.
++ [Creare un'istanza di gestione API](get-started-create-service-instance.md).
 + Comprendere le [sottoscrizioni in Gestione API](api-management-subscriptions.md).
 
 ## <a name="create-a-new-subscription"></a>Creare una nuova sottoscrizione

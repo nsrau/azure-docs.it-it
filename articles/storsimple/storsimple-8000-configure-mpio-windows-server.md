@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60363333"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 
 Questa esercitazione descrive i passaggi da seguire per installare e usare la funzionalità Multipath I/O (MPIO) in un host che esegue Windows Server 2012 R2 e connesso a un dispositivo fisico StorSimple. Le indicazioni fornite in questo articolo si applicano solo ai dispositivi fisici StorSimple serie 8000. La funzionalità MPIO non è attualmente supportata in un'appliance cloud StorSimple.
 
-Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni di rete iSCI a elevata disponibilità e con tolleranza d'errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per ulteriori informazioni, vedere [Panoramica di MPIO](https://technet.microsoft.com/library/cc725907.aspx "Panoramica e caratteristiche di MPIO").
+Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni di rete iSCI a elevata disponibilità e con tolleranza d'errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per altre informazioni, vedere [Cenni preliminari su MPIO](https://technet.microsoft.com/library/cc725907.aspx "Panoramica e funzionalità di MPIO").
 
 Per la disponibilità elevata della soluzione StorSimple, è necessario configurare MPIO nel dispositivo StorSimple. Quando MPIO è installato nei server host che eseguono Windows Server 2012 R2, i server possono dunque tollerare un errore di collegamento, di rete o di interfaccia.
 
@@ -57,7 +57,7 @@ Per installare questa funzionalità nell'host Windows Server, completare la proc
    ![Aggiunta guidata ruoli e funzionalità 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. Nella procedura guidata **Aggiungi ruoli e funzionalità**, attenersi alla procedura seguente:
    
-   1. Nella pagina **Prima di iniziare** fare clic su **Avanti**.
+   1. Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
    2. Nella pagina **Seleziona tipo di installazione** accettare l'impostazione predefinita di **Installazione basata su ruoli o basata su funzionalità**. Fare clic su **Avanti**.
    
        ![Aggiunta guidata ruoli e funzionalità 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
@@ -66,7 +66,7 @@ Per installare questa funzionalità nell'host Windows Server, completare la proc
    5. Nella pagina **Selezione funzionalità** selezionare **Multipath I/O**, quindi fare clic su **Avanti**.
    
        ![Aggiunta guidata ruoli e funzionalità 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-   6. Nella pagina **Conferma selezioni per l'installazione** confermare la selezione e quindi selezionare Riavvia automaticamente il server di **destinazione se necessario,** come illustrato di seguito. Fare clic su **Installa**.
+   6. Nella pagina **Conferma selezioni** per l'installazione confermare la selezione e quindi selezionare **Riavvia automaticamente il server di destinazione se necessario**, come illustrato di seguito. Fare clic su **Installa**.
    
        ![Aggiunta guidata ruoli e funzionalità 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
    7. Al termine dell'installazione viene ricevuta una notifica. Fare clic su **Chiudi** per uscire dalla procedura guidata.
@@ -84,7 +84,7 @@ Per identificare i volumi StorSimple è necessario configurare MPIO. Per configu
 3. Selezionare **Aggiungi supporto per dispositivi iSCSI**, quindi fare clic su **Aggiungi**.  
    ![Proprietà MPIO Individua percorsi multipli](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Riavviare il server quando richiesto.
-5. Nella finestra di dialogo **Proprietà MPIO** fare **Add**clic sulla scheda **Dispositivi MPIO.**
+5. Nella finestra di dialogo **Proprietà MPIO** fare clic sulla scheda **Dispositivi MPIO** . fare clic su **Aggiungi**.
     </br>![Proprietà MPIO Dispositivi MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. Nella finestra di dialogo **Aggiungi supporto MPIO**, in **ID hardware del dispositivo**, immettere il numero di serie del dispositivo. Per ottenere il numero di serie del dispositivo accedere al servizio Gestione dispositivi StorSimple. Andare a **Dispositivi > Dashboard**. Il numero di serie del dispositivo è visualizzato nel riquadro destro **Riepilogo rapido** del dashboard dispositivo.
     </br>
@@ -124,7 +124,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 10. Nella finestra di dialogo **Connetti alla destinazione** selezionare la casella di controllo **Consenti percorsi multipli**. Fare clic su **Avanzate**.
 11. Nella finestra di dialogo **Impostazioni avanzate** eseguire le operazioni seguenti:
 
-    1. Nell'elenco a discesa **Scheda locale** selezionare Initiator iSCSI Microsoft.
+    1. Nell'elenco a discesa **scheda locale** selezionare iniziatore iSCSI Microsoft.
     2. Dall'elenco a discesa **IP iniziatore** selezionare l'indirizzo IP corrispondente all'host. In questo caso, si sta eseguendo la connessione di due interfacce di rete sul dispositivo a una singola interfaccia di rete sull'host. Pertanto, questa interfaccia è identica a quella fornita per la prima sessione.
     3. Nell’elenco a discesa **IP portale di destinazione** , selezionare l’indirizzo IP per la seconda interfaccia di dati abilitata sul dispositivo.
     4. Fare clic su **OK** per tornare alla finestra di dialogo Proprietà iniziatore iSCSI. È stata aggiunta una seconda sessione alla destinazione.
@@ -155,7 +155,7 @@ Per la disponibilità elevata e il bilanciamento del carico basato su percorsi m
 **È consigliabile avere almeno 8 sessioni parallele attive tra il dispositivo e l'applicazione host in uso.** Ciò può essere ottenuto tramite l'abilitazione di 4 interfacce di rete nel sistema Windows Server in uso. Usare interfacce di rete fisiche o interfacce virtuali tramite le tecnologie di virtualizzazione di rete a livello di hardware o di sistema operativo nell'host Windows Server. Con le due interfacce di rete sul dispositivo, questa configurazione restituirà 8 sessioni attive. Questa configurazione consente di ottimizzare la velocità effettiva del dispositivo e del cloud.
 
 > [!IMPORTANT]
-> **Si consiglia di non combinare interfacce di rete da 1 GbE e 10 GbE. Se si utilizzano due interfacce di rete, entrambe le interfacce devono essere di tipo identico.**
+> **Si consiglia di non combinare interfacce di rete da 1 GbE e 10 GbE. Se si usano due interfacce di rete, entrambe le interfacce devono essere di tipo identico.**
 
 Nella procedura seguente viene descritto come aggiungere le sessioni quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete. Si hanno così solo 4 sessioni. Usare la stessa procedura con un dispositivo StorSimple con due interfacce di rete connesse a un host con quattro interfacce di rete. Sarà necessario configurare 8 sessioni anziché 4 come descritto qui.
 
@@ -186,7 +186,7 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
    4. Fare clic su **OK** per tornare alla finestra di dialogo **Iniziatore iSCSI - Proprietà**. È stata aggiunta ora una seconda sessione alla destinazione.
 10. Ripetere i passaggi da 8 a 10 per aggiungere altre sessioni (percorsi) alla destinazione. Con due interfacce nell'host e due sul dispositivo, è possibile aggiungere un totale di quattro sessioni.
 11. Dopo avere aggiunto le sessioni (percorsi) in base alle proprie esigenze, nella finestra di dialogo **Iniziatore iSCSI - Proprietà** selezionare la destinazione e fare clic su **Proprietà**. Nella scheda Sessioni della finestra di dialogo **Proprietà** , notare i quatto identificatori di sessione che corrispondono alle possibili permutazioni di percorso. Per annullare una sessione, selezionare la casella di controllo accanto a un identificatore di sessione, quindi fare clic su **Disconnetti**.
-12. Per visualizzare i dispositivi presentati all'interno delle sessioni, selezionare la scheda **Dispositivi.** Per configurare i criteri MPIO per un dispositivo selezionato, fare clic su **MPIO**. Viene visualizzata la finestra di dialogo **Dettagli dispositivo**. Nella scheda **MPIO** è possibile selezionare le impostazioni appropriate di **Criterio di bilanciamento del carico**. È anche possibile visualizzare il tipo di percorso, **Attivo** o **Standby**.
+12. Per visualizzare i dispositivi presentati all'interno delle sessioni, selezionare la scheda **dispositivi** . Per configurare i criteri MPIO per un dispositivo selezionato, fare clic su **MPIO**. Viene visualizzata la finestra di dialogo **Dettagli dispositivo**. Nella scheda **MPIO** è possibile selezionare le impostazioni appropriate di **Criterio di bilanciamento del carico**. È anche possibile visualizzare il tipo di percorso, **Attivo** o **Standby**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

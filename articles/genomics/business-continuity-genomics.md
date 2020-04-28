@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72249185"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Panoramica della continuità aziendale con Genomica di Microsoft
@@ -30,7 +30,7 @@ Anche se di rado, in un data center di Azure può verificarsi un'interruzione, c
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Eseguire il failover manuale dei flussi di lavoro di Genomica di Microsoft in un'altra area
-Se si verifica un'interruzione del data center regionale, è possibile scegliere di inviare i flussi di lavoro Genomica di Microsoft in un'area secondaria, in base ai requisiti individuali di sovranità dei dati e continuità aziendale. Per eseguire il failover manuale dei flussi di lavoro di Genomica di Microsoft, si userà un account di Genomica specifico di un'altra area e si invierà il processo con le credenziali appropriate dell'account di archiviazione e di Genomica specifiche dell'area.
+Se si verifica un'interruzione di data center a livello di area, è possibile scegliere di inviare i flussi di lavoro di genomica di Microsoft in un'area secondaria, in base alla sovranità dei singoli dati e ai requisiti di continuità aziendale. Per eseguire il failover manuale dei flussi di lavoro di Genomica di Microsoft, si userà un account di Genomica specifico di un'altra area e si invierà il processo con le credenziali appropriate dell'account di archiviazione e di Genomica specifiche dell'area.
 
 In particolare, sarà necessario:
 * Creare un account di Genomica nell'area secondaria, usando il portale di Azure. 

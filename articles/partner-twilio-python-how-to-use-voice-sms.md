@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.openlocfilehash: edbc9eef6b5f0af2e70152b66228cdf09ef31110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72242193"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Come usare Twilio per le funzionalità voce ed SMS in Python
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di voce e SMS nelle applicazioni, vedere la sezione [Passaggi successivi.](#NextSteps)
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
 
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Informazioni su Twilio
 Twilio è una tecnologia all'avanguardia per le comunicazioni aziendali che consente agli sviluppatori di incorporare funzionalità voce, VoIP e di messaggistica nelle applicazioni. Consente di virtualizzare tutta l'infrastruttura necessaria in un ambiente globale basato su cloud, esponendolo attraverso la piattaforma API per le comunicazioni Twilio. Le applicazioni sono scalabili e facili da compilare. Offre flessibilità, grazie a un modello di prezzi con pagamento al consumo, e l'affidabilità del cloud.
@@ -40,21 +40,21 @@ L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le app
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbi Twilio
-L'API utilizza i verbi Twilio; ad esempio, ** &lt;&gt; ** il verbo Say indica a Twilio di recapitare udibile un messaggio su una chiamata.
+L'API usa i verbi Twilio; il ** &lt;verbo Say&gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
 
 Di seguito è riportato un elenco dei verbi Twilio. Per altre informazioni su altri verbi e funzionalità, vedere la [documentazione relativa al linguaggio di markup Twilio][twiml].
 
-* Composizione : Connette il chiamante a un altro telefono. ** &lt;&gt;**
-* Gather : Raccoglie le cifre numeriche immesse sul tastierino del telefono. ** &lt;&gt;**
-* **Hangup&gt;: Termina una &lt;** chiamata.
-* Pausa : Attende automaticamente per un numero di secondi specificato. ** &lt;&gt;**
-* **Riproduci:&gt;riproduce un file &lt;** audio.
-* Coda : Aggiungere l'oggetto a una coda di chiamanti. ** &lt;&gt;**
-* Record : Registra la voce del chiamante e restituisce l'URL di un file che contiene la registrazione. ** &lt;&gt;**
-* Redirect : Trasferisce il controllo di una chiamata o SMS al TwiML a un URL diverso. ** &lt;&gt;**
-* **Rifiuta:&gt;rifiuta una chiamata in arrivo al tuo numero Twilio senza fatturarti. &lt;**
-* **Dire:&gt;converte il testo in voce eseguito durante una &lt;** chiamata.
-* Sms : Invia un messaggio SMS. ** &lt;&gt;**
+* Dial: connette il chiamante a un altro telefono. ** &lt;&gt;**
+* Raccolta: raccoglie le cifre numeriche immesse sul tastierino telefonico. ** &lt;&gt;**
+* Hangup: termina una chiamata. ** &lt;&gt;**
+* Pause: attende in modo invisibile all'utente un numero di secondi specificato. ** &lt;&gt;**
+* Play: riproduce un file audio. ** &lt;&gt;**
+* Queue: aggiungere a una coda di chiamanti. ** &lt;&gt;**
+* Record: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione. ** &lt;&gt;**
+* Reindirizzamento: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso. ** &lt;&gt;**
+* Reject: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione. ** &lt;&gt;**
+* Say: converte il testo in sintesi vocale eseguita in una chiamata. ** &lt;&gt;**
+* SMS: Invia un messaggio SMS. ** &lt;&gt;**
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML è un set di istruzioni basate su XML e sui verbi Twilio che indicano a Twilio come elaborare una chiamata o un SMS.
@@ -75,7 +75,7 @@ Se si desidera creare un account Twilio, iscriversi nella pagina relativa alla [
 
 Quando si effettua l'iscrizione a un account Twilio, si riceveranno il SID account e un token di autenticazione. Entrambe queste informazioni sono necessarie per effettuare chiamate all'API Twilio. Per prevenire accessi autorizzati all'account, conservare il token di autenticazione in un luogo sicuro. Il SID dell'account e il token di autorizzazione sono visualizzabili nella [console di Twilio][twilio_console], rispettivamente nei campi **ACCOUNT SID** (SID ACCOUNT) e **AUTH TOKEN** (TOKEN AUTORIZZAZIONE).
 
-## <a name="create-a-python-application"></a><a id="create_app"></a>Creare un'applicazione PythonCreate a Python Application
+## <a name="create-a-python-application"></a><a id="create_app"></a>Creare un'applicazione Python
 Un'applicazione Python che usa il servizio Twilio e viene eseguita in Azure non è diversa da qualsiasi altra applicazione Python che usa il servizio Twilio. Benché i servizi Twilio siano basati su REST e possano essere chiamati da Python in diversi modi, questo articolo illustra solo come usare i servizi Twilio con la [libreria Twilio per Python da GitHub][twilio_python]. Per ulteriori informazioni sull'utilizzo della libreria Twilio per Python, vedere [https://www.twilio.com/docs/libraries/python][twilio_lib_docs].
 
 In primo luogo, [configurare una nuova macchina virtuale Linux in Azure][azure_vm_setup] che funga da host per la nuova applicazione Web Python. Quando la macchina virtuale è in esecuzione, è necessario esporla su una porta pubblica, come descritto di seguito.
@@ -103,7 +103,7 @@ Tenere presente che la macchina virtuale è stata configurata per consentire il 
 
     -OPPURE-
 
-* Scaricare la libreria Twilio per[https://github.com/twilio/twilio-python][twilio_python]Python da GitHub ( ) e installarla in questo modo:
+* Scaricare la libreria Twilio per Python da GitHub ([https://github.com/twilio/twilio-python][twilio_python]) e installarla come segue:
 
         $ python setup.py install
 
@@ -172,7 +172,7 @@ La schermata seguente mostra come inviare un messaggio SMS tramite la classe `Tw
                                      body=message)
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
-Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene utilizzato l'URL [https://twimlets.com/message][twimlet_message_url]fornito da Twilio . Poiché TwiML è stato progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, [https://twimlets.com/message][twimlet_message_url] fare clic `<Response>` per visualizzare un elemento vuoto; come altro esempio, fare clic [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un `<Response>` elemento che contiene un `<Say>` elemento.)
+Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL [https://twimlets.com/message][twimlet_message_url]fornito da Twilio. Poiché TwiML è stato progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, fare [https://twimlets.com/message][twimlet_message_url] clic per visualizzare un `<Response>` elemento vuoto; come altro esempio, fare [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] clic per visualizzare `<Response>` un elemento che contiene `<Say>` un elemento.
 
 Anziché utilizzare l'URL fornito da Twilio, è possibile creare un sito personalizzato che restituisce risposte HTTP. È possibile creare il sito in qualsiasi linguaggio che restituisca risposte XML. In questo argomento si presuppone che per la creazione di TwiML venga usato Python.
 

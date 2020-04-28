@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71213184"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
@@ -82,7 +82,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Ottenere il valore `connectionstring` della connessione dal [portale di Azure] seguendo questa procedura:
 
 1. Nel riquadro di spostamento a sinistra fare clic su **Sfoglia**.
-2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. Puoi fare riferimento [all'esercitazione introduttiva](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) di Windows Store se hai bisogno di aiuto per la creazione di un nuovo hub di notifica.
+2. Selezionare **Hub di notifica**e quindi individuare l'hub da utilizzare per l'esempio. Se è necessario assistenza per la creazione di un nuovo hub di notifica, è possibile fare riferimento all' [esercitazione su Windows Store Introduzione](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 3. Selezionare **Impostazioni**.
 4. Fare clic su **Criteri di accesso**. Vengono visualizzate la stringhe di connessione di accesso completo e condiviso.
 
@@ -108,7 +108,7 @@ L'oggetto `GcmService` specifica un metodo `send` che è possibile usare per inv
 - **Payload** : il payload JSON o la stringa non elaborata del messaggio.
 - **Callback** : la funzione di richiamata.
 
-Per ulteriori informazioni sul formato del payload, vedere la [documentazione](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)sul payload .
+Per ulteriori informazioni sul formato di payload, vedere la [documentazione del payload](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 Nel codice seguente viene usata l'istanza di `GcmService` esposta da `NotificationHubService` per inviare una notifica push a tutti i client registrati.
 
@@ -154,7 +154,7 @@ L'oggetto `MpnsService` specifica un metodo `send` che è possibile usare per in
 
 - **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 - **Payload** : il payload XML del messaggio.
-- **TargetName**  -  `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
+- **TargetName** `toast` per le notifiche di tipo avviso -  popup. `token` per le notifiche di tipo riquadro.
 - **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](https://msdn.microsoft.com/library/hh221551.aspx) .
 - **Options** : intestazioni delle richieste facoltative.
 - **Callback** : la funzione di richiamata.
@@ -202,7 +202,7 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 - Vedere la documentazione MSDN su [Hub di notifica di Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
 - Visitare il repository [Azure SDK for Node] su GitHub per altri esempi e dettagli relativi all'implementazione.
 
-[Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Azure SDK per Node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Next Steps]: #nextsteps
 [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
 [Create a Service Namespace]: #create-a-service-namespace
