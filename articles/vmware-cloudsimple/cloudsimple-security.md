@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1a33e20ec540a05885eb13a3828d28ffc9923fff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024994"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187478"
 ---
 # <a name="cloudsimple-security-overview"></a>Panoramica della sicurezza CloudSimple
 
@@ -49,7 +49,7 @@ Per i dati inattivi nell'ambiente cloud privato, è possibile usare la crittogra
 
 ### <a name="data-protection-for-data-that-is-required-to-move-through-public-networks"></a>Protezione dei dati per i dati necessari per spostarsi attraverso le reti pubbliche
 
-Per proteggere i dati che si spostano attraverso le reti pubbliche, è possibile creare tunnel VPN IPsec e SSL per i cloud privati. Sono supportati i metodi di crittografia comuni, inclusi AES a 128 byte e 256 byte. I dati in transito (inclusi l'autenticazione, l'accesso amministrativo e i dati dei clienti) vengono crittografati con i meccanismi di crittografia standard (SSH, TLS 1,2 e RDP protetto). Comunicazione che trasporta informazioni riservate utilizza i meccanismi di crittografia standard.
+Per proteggere i dati che si spostano attraverso le reti pubbliche, è possibile creare tunnel VPN IPsec e TLS per i cloud privati. Sono supportati i metodi di crittografia comuni, inclusi AES a 128 byte e 256 byte. I dati in transito (inclusi l'autenticazione, l'accesso amministrativo e i dati dei clienti) vengono crittografati con i meccanismi di crittografia standard (SSH, TLS 1,2 e RDP protetto). Comunicazione che trasporta informazioni riservate utilizza i meccanismi di crittografia standard.
 
 ### <a name="secure-disposal"></a>Eliminazione sicura
 

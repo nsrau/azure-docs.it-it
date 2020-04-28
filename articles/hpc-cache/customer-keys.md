@@ -1,150 +1,155 @@
 ---
-title: Usare le chiavi gestite dal cliente per crittografare i dati nella cache HPC di AzureUse customer-manged keys to encrypt data in Azure HPC Cache
-description: Come usare l'insieme di credenziali delle chiavi di Azure con la cache HPC di Azure per controllare l'accesso alla chiave di crittografia anziché usare le chiavi di crittografia predefinite gestite da MicrosoftHow to use Azure Key Vault with Azure HPC Cache to control encryption key access instead of using the default Microsoft-managed encryption keys
+title: Usare le chiavi gestite dal cliente per crittografare i dati nella cache HPC di Azure
+description: Come usare Azure Key Vault con la cache HPC di Azure per controllare l'accesso alla chiave di crittografia invece di usare le chiavi di crittografia predefinite gestite da Microsoft
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: a31979763dd1ab5d8f289deef0e30cce27bb0df4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538869"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195078"
 ---
-# <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di AzureUse customer-managed encryption keys for Azure HPC Cache
+# <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Usare le chiavi di crittografia gestite dal cliente per la cache HPC di Azure
 
-È possibile usare L'insieme di credenziali delle chiavi di Azure per controllare la proprietà delle chiavi usate per crittografare i dati nella cache HPC di Azure.You can use Azure Key Vault to control ownership of the keys used to encrypt your data in Azure HPC Cache. In questo articolo viene illustrato come utilizzare le chiavi gestite dal cliente per la crittografia dei dati della cache.
+È possibile usare Azure Key Vault per controllare la proprietà delle chiavi usate per crittografare i dati nella cache HPC di Azure. Questo articolo illustra come usare le chiavi gestite dal cliente per la crittografia dei dati della cache.
 
 > [!NOTE]
-> Tutti i dati archiviati in Azure, inclusi i dischi della cache, vengono crittografati inattivi usando chiavi gestite da Microsoft per impostazione predefinita. È necessario seguire la procedura descritta in questo articolo solo se si desidera gestire le chiavi utilizzate per crittografare i dati.
+> Tutti i dati archiviati in Azure, inclusi i dischi della cache, vengono crittografati a riposo usando chiavi gestite da Microsoft per impostazione predefinita. Se si vogliono gestire le chiavi usate per crittografare i dati, è necessario seguire la procedura descritta in questo articolo.
 
-Questa funzionalità è disponibile solo nelle aree di Azure seguenti:This feature is available only in these Azure regions:
+Questa funzionalità è disponibile solo nelle aree di Azure seguenti:
 
 * Stati Uniti orientali
 * Stati Uniti centro-meridionali
 * Stati Uniti occidentali 2
 
-Esistono tre passaggi per abilitare la crittografia della chiave gestita dal cliente per la cache HPC di Azure:There are three steps to enable customer-managed key encryption for Azure HPC Cache:
+Per abilitare la crittografia della chiave gestita dal cliente per la cache HPC di Azure, è necessario eseguire tre passaggi:
 
-1. Configurare un insieme di credenziali delle chiavi di Azure per archiviare le chiavi.
-1. Quando si crea la cache HPC di Azure, scegliere la crittografia della chiave gestita dal cliente e specificare l'insieme di credenziali delle chiavi e la chiave da usare.
+1. Configurare un Azure Key Vault per archiviare le chiavi.
+1. Quando si crea la cache HPC di Azure, scegliere crittografia chiave gestita dal cliente e specificare l'insieme di credenziali delle chiavi e la chiave da usare.
 1. Dopo aver creato la cache, autorizzarla ad accedere all'insieme di credenziali delle chiavi.
 
-La crittografia non è completamente configurata fino a quando non viene autorizzata dalla cache appena creata (passaggio 3). Ciò è dovuto al fatto che è necessario passare l'identità della cache all'insieme di credenziali delle chiavi per renderla un utente autorizzato. Non è possibile eseguire questa operazione prima di creare la cache, perché l'identità non esiste fino a quando non viene creata la cache.
+La crittografia non è completamente configurata finché non viene autorizzata dalla cache appena creata (passaggio 3). Questo perché è necessario passare l'identità della cache all'insieme di credenziali delle chiavi per impostarlo come utente autorizzato. Non è possibile eseguire questa operazione prima di creare la cache, perché l'identità non esiste fino a quando non viene creata la cache.
 
-Dopo aver creato la cache, non è possibile passare dalle chiavi gestite dal cliente alle chiavi gestite da Microsoft. Tuttavia, se la cache utilizza chiavi gestite dal cliente, è possibile [modificare](#update-key-settings) la chiave di crittografia, la versione della chiave e l'insieme di credenziali delle chiavi in base alle esigenze.
+Dopo aver creato la cache, non è possibile modificare le chiavi gestite dal cliente e le chiavi gestite da Microsoft. Tuttavia, se la cache USA chiavi gestite dal cliente, è possibile [modificare](#update-key-settings) la chiave di crittografia, la versione della chiave e l'insieme di credenziali delle chiavi in base alle esigenze.
 
-## <a name="understand-key-vault-and-key-requirements"></a>Comprendere l'insieme di credenziali delle chiavi e i requisiti chiave
+## <a name="understand-key-vault-and-key-requirements"></a>Informazioni sui requisiti chiave e sull'insieme di credenziali delle chiavi
 
-L'insieme di credenziali delle chiavi e la chiave devono soddisfare questi requisiti per funzionare con la cache HPC di Azure.The key vault and key must meet these requirements to work with Azure HPC Cache.
+L'insieme di credenziali delle chiavi e la chiave devono soddisfare questi requisiti per l'uso della cache HPC di Azure.
 
-Proprietà dell'insieme di credenziali delle chiavi:Key vault properties:
+Proprietà di Key Vault:
 
-* **Sottoscrizione:** usare la stessa sottoscrizione usata per la cache.
-* **Area:** l'insieme di credenziali delle chiavi deve trovarsi nella stessa area della cache HPC di Azure.Region - The key vault must be in the same region as the Azure HPC Cache.
-* **Livello tariffario:** il livello Standard è sufficiente per l'uso con la cache HPC di Azure.Pricing tier - Standard tier is sufficient for use with Azure HPC Cache.
-* **Eliminazione temporanea:** la cache HPC di Azure consentirà l'eliminazione temporanea se non è già configurata nell'insieme di credenziali delle chiavi.
-* **Protezione purge:** è necessario abilitare la protezione purge.Purge protection - Purge protection must be enabled.
-* **Criteri di accesso:** le impostazioni predefinite sono sufficienti.
-* **Connettività di rete:** la cache HPC di Azure deve essere in grado di accedere all'insieme di credenziali delle chiavi indipendentemente dalle impostazioni dell'endpoint scelte.
+* **Sottoscrizione** : usare la stessa sottoscrizione usata per la cache.
+* **Region** : l'insieme di credenziali delle chiavi deve trovarsi nella stessa area della cache HPC di Azure.
+* Piano **tariffario** : il livello standard è sufficiente per l'uso con la cache HPC di Azure.
+* **Eliminazione** temporanea: la cache HPC di Azure Abilita l'eliminazione temporanea se non è già stata configurata nell'insieme di credenziali delle chiavi.
+* **Ripulisci** protezione: è necessario abilitare la protezione ripulitura.
+* **Criteri di accesso** : le impostazioni predefinite sono sufficienti.
+* **Connettività di rete** : la cache HPC di Azure deve essere in grado di accedere all'insieme di credenziali delle chiavi, indipendentemente dalle impostazioni dell'endpoint scelto.
 
 Proprietà chiave:
 
-* **Tipo di chiave** - RSAKey type - RSA
-* **Dimensione della chiave RSA** - 2048
-* **Abilitato** - Sì
+* **Tipo di chiave** -RSA
+* **Dimensioni chiave RSA** -2048
+* **Abilitato** -Sì
 
-Autorizzazioni di accesso all'insieme di credenziali delle chiavi:
+Autorizzazioni di accesso a Key Vault:
 
-* L'utente che crea la cache HPC di Azure deve disporre di autorizzazioni equivalenti al ruolo di [collaboratore dell'insieme di credenziali delle](../role-based-access-control/built-in-roles.md#key-vault-contributor)chiavi. Le stesse autorizzazioni sono necessarie per configurare e gestire l'insieme di credenziali delle chiavi di Azure.The same permissions are needed to set up and manage Azure Key Vault.
+* L'utente che crea la cache HPC di Azure deve avere le autorizzazioni equivalenti al [ruolo Key Vault collaboratore](../role-based-access-control/built-in-roles.md#key-vault-contributor). Le stesse autorizzazioni sono necessarie per configurare e gestire Azure Key Vault.
 
-  Per ulteriori informazioni, vedere [Proteggere l'accesso a un insieme di](../key-vault/key-vault-secure-your-key-vault.md) credenziali delle chiavi.
+  Per ulteriori informazioni, vedere [accesso sicuro a un insieme di](../key-vault/key-vault-secure-your-key-vault.md) credenziali delle chiavi.
 
-## <a name="1-set-up-azure-key-vault"></a>1. Configurare l'insieme di credenziali delle chiavi di Azure1. Set up Azure Key Vault
+## <a name="1-set-up-azure-key-vault"></a>1. configurare Azure Key Vault
 
-È possibile impostare un insieme di credenziali delle chiavi e una chiave prima di creare la cache o farlo come parte della creazione della cache. Assicurarsi che queste risorse soddisfino i requisiti [descritti in precedenza.](#understand-key-vault-and-key-requirements)
+È possibile configurare un insieme di credenziali delle chiavi e una chiave prima di creare la cache oppure eseguire questa operazione nell'ambito della creazione della cache. Assicurarsi che queste risorse soddisfino i requisiti descritti in [precedenza](#understand-key-vault-and-key-requirements).
 
-Al momento della creazione della cache è necessario specificare un insieme di credenziali, una chiave e una versione della chiave da utilizzare per la crittografia della cache.
+Al momento della creazione della cache è necessario specificare un insieme di credenziali, una chiave e una versione della chiave da usare per la crittografia della cache.
 
-Leggere la [documentazione di Azure Key Vault](../key-vault/key-vault-overview.md) per i dettagli.
+Per informazioni dettagliate, leggere la [documentazione Azure Key Vault](../key-vault/key-vault-overview.md) .
 
 > [!NOTE]
-> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Utilizzare una delle aree supportate elencate all'inizio di questo articolo.
+> Il Azure Key Vault deve usare la stessa sottoscrizione e trovarsi nella stessa area della cache HPC di Azure. Usare una delle aree supportate elencate all'inizio di questo articolo.
 
-## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. Creare la cache con le chiavi gestite dal cliente abilitate
+## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. creare la cache con chiavi gestite dal cliente abilitate
 
-You must specify the encryption key source when you create your Azure HPC Cache. Seguire le istruzioni in Creare una [cache HPC](hpc-cache-create.md)di Azure e specificare l'insieme di credenziali delle chiavi e la chiave nella pagina Chiavi di **crittografia del disco.** È possibile creare un nuovo insieme di credenziali delle chiavi e una nuova chiave durante la creazione della cache.
+Quando si crea la cache HPC di Azure, è necessario specificare l'origine della chiave di crittografia. Seguire le istruzioni in [creare una cache HPC di Azure](hpc-cache-create.md)e specificare l'insieme di credenziali delle chiavi e la chiave nella pagina **chiavi di crittografia del disco** . È possibile creare un nuovo insieme di credenziali delle chiavi e una chiave durante la creazione della cache.
 
 > [!TIP]
-> Se la pagina Chiavi di **crittografia del disco** non viene visualizzata, assicurarsi che la cache si trova in una delle aree supportate.
+> Se la pagina **chiavi di crittografia del disco** non viene visualizzata, verificare che la cache si trovi in una delle aree supportate.
 
-L'utente che crea la cache deve disporre di privilegi uguali al ruolo di [collaboratore dell'insieme](../role-based-access-control/built-in-roles.md#key-vault-contributor) di credenziali delle chiavi o superiore.
+L'utente che crea la cache deve disporre dei privilegi equivalenti al [ruolo di collaboratore Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor) o superiore.
 
-1. Fare clic sul pulsante per abilitare le chiavi gestite privatamente. Dopo aver modificato questa impostazione, vengono visualizzate le impostazioni dell'insieme di credenziali delle chiavi.
+1. Fare clic sul pulsante per abilitare le chiavi gestite privatamente. Dopo aver modificato questa impostazione, verranno visualizzate le impostazioni dell'insieme di credenziali delle chiavi.
 
-1. Fare clic su **Seleziona un insieme di credenziali delle chiavi** per aprire la pagina di selezione della chiave. Scegliere o creare l'insieme di credenziali delle chiavi e la chiave per la crittografia dei dati sui dischi della cache.
+1. Fare clic su **selezionare un** insieme di credenziali delle chiavi per aprire la pagina di selezione della chiave. Scegliere o creare l'insieme di credenziali delle chiavi e la chiave per la crittografia dei dati nei dischi della cache.
 
-   Se l'insieme di credenziali delle chiavi di Azure non viene visualizzato nell'elenco, verificare i requisiti seguenti:If your Azure Key Vault does not appear in the list, check these requirements:
+   Se il Azure Key Vault non viene visualizzato nell'elenco, verificare i requisiti seguenti:
 
    * La cache si trova nella stessa sottoscrizione dell'insieme di credenziali delle chiavi?
    * La cache si trova nella stessa area dell'insieme di credenziali delle chiavi?
-   * Esiste connettività di rete tra il portale di Azure e l'insieme di credenziali delle chiavi?
+   * Esiste una connettività di rete tra il portale di Azure e l'insieme di credenziali delle chiavi?
 
-1. Dopo aver selezionato un vault, selezionare la singola chiave tra le opzioni disponibili o creare una nuova chiave. La chiave deve essere una chiave RSA a 2048 bit.
+1. Dopo aver selezionato un insieme di credenziali, selezionare la chiave singola dalle opzioni disponibili oppure creare una nuova chiave. La chiave deve essere una chiave RSA a 2048 bit.
 
-1. Specificare la versione per la chiave selezionata. Per altre informazioni sul controllo delle versioni, vedere la [documentazione dell'insieme](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning)di chiavi di Azure.Learn more about versioning in the Azure Key Vault documentation .
+1. Consente di specificare la versione per la chiave selezionata. Per ulteriori informazioni sul controllo delle versioni, vedere la [documentazione Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
 
-Continuare con il resto delle specifiche e creare la cache come descritto in Creare una [cache HPC](hpc-cache-create.md)di Azure .
+Continuare con le altre specifiche e creare la cache come descritto in [creare una cache HPC di Azure](hpc-cache-create.md).
 
-## <a name="3-authorize-azure-key-vault-encryption-from-the-cache"></a>3. Autorizzare la crittografia dell'insieme di chiavi di Azure dalla cache
+## <a name="3-authorize-azure-key-vault-encryption-from-the-cache"></a>3. autorizzare Azure Key Vault crittografia dalla cache
 <!-- header is linked from create article, update if changed -->
 
-Dopo alcuni minuti, la nuova cache HPC di Azure viene visualizzata nel portale di Azure.After a few minutes, the new Azure HPC Cache appears in your Azure portal. Passare alla pagina **Panoramica** per autorizzarla ad accedere all'insieme di credenziali delle chiavi di Azure e abilitare la crittografia delle chiavi gestita dal cliente. La cache potrebbe essere visualizzata nell'elenco delle risorse prima che i messaggi di "distribuzione in corso" siano chiari.)
+Dopo alcuni minuti, la nuova cache HPC di Azure viene visualizzata nella portale di Azure. Passare alla pagina **Overview (panoramica** ) per autorizzare l'accesso alla Azure Key Vault e abilitare la crittografia della chiave gestita dal cliente.
 
-Questo processo in due passaggi è necessario perché l'istanza della cache HPC di Azure richiede un'identità da passare all'insieme di credenziali delle chiavi di Azure per l'autorizzazione. L'identità della cache non esiste fino al completamento dei passaggi di creazione iniziali.
+> [!TIP]
+> La cache potrebbe essere visualizzata nell'elenco delle risorse prima della cancellazione dei messaggi di "distribuzione in corso". Controllare l'elenco di risorse dopo un minuto o due anziché attendere una notifica di esito positivo.
+
+Questo processo in due passaggi è necessario perché l'istanza della cache HPC di Azure richiede un'identità da passare al Azure Key Vault per l'autorizzazione. L'identità della cache non esiste finché non vengono completati i passaggi di creazione iniziali.
 
 > [!NOTE]
-> È necessario autorizzare la crittografia entro 90 minuti dalla creazione della cache. Se non si completa questo passaggio, la cache stimerà e avrà esito negativo. Una cache non riuscita deve essere ricreata, non può essere corretta.
+> Dopo aver creato la cache, è necessario autorizzare la crittografia entro 90 minuti. Se non si completa questo passaggio, il timeout della cache avrà esito negativo. Una cache non riuscita deve essere ricreata, ma non può essere corretta.
 
-La cache mostra lo stato **In attesa della chiave**. Fare clic sul **pulsante Abilita crittografia** nella parte superiore della pagina per autorizzare la cache ad accedere all'insieme di credenziali delle chiavi specificato.
+La cache Mostra lo stato **in attesa di chiave**. Fare clic sul pulsante **Abilita crittografia** nella parte superiore della pagina per autorizzare la cache ad accedere all'insieme di credenziali delle chiavi specificato.
 
-![Screenshot della pagina di panoramica della cache nel portale, con evidenziazione sul pulsante Abilita crittografia (riga superiore) e Stato: In attesa della chiave](media/waiting-for-key.png)
+![screenshot della pagina Panoramica della cache nel portale, con evidenziazione sul pulsante Abilita crittografia (riga superiore) e stato: in attesa della chiave](media/waiting-for-key.png)
 
-Fare clic su **Abilita crittografia** e quindi sul pulsante **Sì** per autorizzare la cache a utilizzare la chiave di crittografia. Questa azione abilita anche la protezione di eliminazione temporanea ed eliminazione (se non è già abilitata) nell'insieme di credenziali delle chiavi.
+Fare clic su **Abilita crittografia** , quindi fare clic sul pulsante **Sì** per autorizzare la cache a usare la chiave di crittografia. Questa azione abilita anche la protezione con eliminazione temporanea e ripulitura (se non è già abilitata) nell'insieme di credenziali delle chiavi.
 
-![Screenshot della pagina di panoramica della cache nel portale, con un messaggio banner nella parte superiore che chiede all'utente di abilitare la crittografia facendo clic su Sì](media/enable-keyvault.png)
+![screenshot della pagina Panoramica della cache nel portale, con un messaggio banner nella parte superiore che chiede all'utente di abilitare la crittografia facendo clic su Sì](media/enable-keyvault.png)
 
-Dopo che la cache richiede l'accesso all'insieme di credenziali delle chiavi, può creare e crittografare i dischi in cui sono archiviati i dati memorizzati nella cache.
+Dopo la richiesta di accesso all'insieme di credenziali delle chiavi, la cache può creare e crittografare i dischi in cui sono archiviati i dati memorizzati nella cache.
 
 Dopo aver autorizzato la crittografia, la cache HPC di Azure passa attraverso diversi minuti di installazione per creare i dischi crittografati e l'infrastruttura correlata.
 
-## <a name="update-key-settings"></a>Aggiornare le impostazioni dei tasti
+## <a name="update-key-settings"></a>Aggiorna impostazioni chiave
 
-È possibile modificare l'insieme di credenziali delle chiavi, la chiave o la versione della chiave per la cache dal portale di Azure.You can change the key vault, key, or key version for your cache from the Azure portal. Fare clic sul collegamento Impostazioni di **crittografia** della cache per aprire la pagina **Impostazioni chiave cliente.** Non è possibile modificare una cache tra le chiavi gestite dal cliente e le chiavi gestite dal sistema.
+È possibile modificare l'insieme di credenziali delle chiavi, la chiave o la versione della chiave per la cache dal portale di Azure. Fare clic sul collegamento Impostazioni di **crittografia** della cache per aprire la pagina **impostazioni chiave cliente** .
 
-![Screenshot della pagina "Impostazioni chiavi cliente", raggiunta facendo clic su Impostazioni > Crittografia dalla pagina della cache nel portale di Azure](media/change-key-click.png)
+Non è possibile modificare una cache tra chiavi gestite dal cliente e chiavi gestite dal sistema.
 
-Fare clic sul collegamento **Cambia chiave,** quindi fare clic su **Cambia l'insieme di credenziali, la chiave o** la versione della chiave per aprire il selettore di chiave.
+![screenshot della pagina "impostazioni chiavi cliente", raggiunta facendo clic su impostazioni > crittografia dalla pagina cache nella portale di Azure](media/change-key-click.png)
 
-![Screenshot della pagina "Seleziona chiave da Azure Key Vault" con tre selettori a discesa per scegliere l'insieme di credenziali delle chiavi, la chiave e la versione](media/select-new-key.png)
+Fare clic sul collegamento **cambia chiave** , quindi fare clic su modifica l'insieme di credenziali **delle chiavi, la chiave o la versione** per aprire il selettore di chiave.
+
+![screenshot della pagina "Seleziona chiave da Azure Key Vault" con tre selettori a discesa per scegliere Key Vault, Key e Version](media/select-new-key.png)
 
 Gli insiemi di credenziali delle chiavi nella stessa sottoscrizione e nella stessa area della cache vengono visualizzati nell'elenco.
 
 Dopo aver scelto i nuovi valori della chiave di crittografia, fare clic su **Seleziona**. Viene visualizzata una pagina di conferma con i nuovi valori. Fare clic su **Salva** per finalizzare la selezione.
 
-![Screenshot della pagina di conferma con il pulsante Salva in alto a sinistra](media/save-key-settings.png)
+![screenshot della pagina di conferma con il pulsante Salva in alto a sinistra](media/save-key-settings.png)
 
-## <a name="read-more-about-customer-managed-keys-in-azure"></a>Altre informazioni sulle chiavi gestite dal cliente in AzureRead more about customer-managed keys in Azure
+## <a name="read-more-about-customer-managed-keys-in-azure"></a>Scopri di più sulle chiavi gestite dal cliente in Azure
 
-Questi articoli illustrano altre informazioni sull'uso dell'insieme di credenziali delle chiavi di Azure e delle chiavi gestite dal cliente per crittografare i dati in Azure:These articles explain more about using Azure Key Vault and customer-managed keys to encrypt data in Azure:
+Questi articoli illustrano come usare Azure Key Vault e chiavi gestite dal cliente per crittografare i dati in Azure:
 
-* [Panoramica della crittografia di archiviazione di AzureAzure storage encryption overview](../storage/common/storage-service-encryption.md)
-* [Crittografia del disco con chiavi gestite dal cliente:](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) documentazione per l'uso di archivi chiavi di Azure e dischi gestiti, che è simile al processo usato con la cache HPC di AzureDisk encryption with customer-managed keys - Documentation for using Azure Key Vault and managed disks, which is similar to the process used with Azure HPC Cache
+* [Panoramica della crittografia di archiviazione di Azure](../storage/common/storage-service-encryption.md)
+* [Crittografia del disco con chiavi gestite dal cliente](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) : documentazione per l'uso di Azure Key Vault con Managed disks, che è uno scenario analogo alla cache HPC di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato la cache HPC di Azure e aver autorizzato la crittografia basata su Vault chiave, continuare a configurare la cache assegnandogli l'accesso alle origini dati.
+Dopo aver creato la cache HPC di Azure e aver autorizzato la crittografia basata su Key Vault, continuare a configurare la cache concedendo l'accesso alle origini dati.
 
 * [Aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md)

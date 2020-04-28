@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/06/2020
-ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927556"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187597"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Azure Machine Learning
 
@@ -73,10 +73,10 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Editore | Server di pubblicazione del tipo di cluster |
+| Pubblicazione | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
-| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | SubnetId | SubnetId del cluster |
 | AllocationState | Stato di allocazione cluster |
 | CurrentNodeCount | Numero corrente di nodi del cluster |
@@ -109,10 +109,10 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Editore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
+| Pubblicazione | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
-| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | ClusterCreationTime | Ora di creazione del cluster |
 | ResizeStartTime | Ora di inizio/discesa della scalabilità del cluster |
 | ResizeEndTime | Ora di fine della scalabilità verticale del cluster |
@@ -164,6 +164,22 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 | Nome della famiglia di macchine virtuali | Percentuale di utilizzo della quota | Nome della famiglia di macchine virtuali usata dal cluster. |
 | Priorità VM | Percentuale di utilizzo della quota | Priorità della macchina virtuale.
 
+**Risorsa**
+
+| Metrica | Unità | Descrizione |
+| ----- | ----- | ----- |
+| CpuUtilization | Percentuale | Percentuale di utilizzo della CPU per un determinato nodo durante un'esecuzione o un processo. Questa metrica viene pubblicata solo quando un processo è in esecuzione in un nodo. Un processo può usare uno o più nodi. Questa metrica è pubblicata per ogni nodo. |
+| GpuUtilization | Percentuale | Percentuale di utilizzo della GPU per un determinato nodo durante un'esecuzione o un processo. Un nodo può avere una o più GPU. Questa metrica è pubblicata per ogni GPU per ogni nodo. |
+
+Di seguito sono riportate le dimensioni che possono essere usate per filtrare le metriche delle risorse:
+
+| Dimension | Descrizione |
+| ----- | ----- |
+| CreatedTime | |
+| deviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
+| NodeId | ID del nodo creato in cui è in esecuzione il processo. |
+| RunId | ID dell'esecuzione/processo. |
+
 **Correre**
 
 Informazioni sulle esecuzioni di training.
@@ -185,14 +201,14 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 
 I valori validi per la dimensione RunType sono i seguenti:
 
-| Valore | Descrizione |
+| valore | Descrizione |
 | ----- | ----- |
 | Esperimento | Esecuzioni non pipeline. |
 | PipelineRun | Esecuzione di una pipeline, che è l'elemento padre di un StepRun. |
 | StepRun | Esecuzione di un passaggio della pipeline. |
 | ReusedStepRun | Esecuzione di un passaggio della pipeline che riutilizza un'esecuzione precedente. |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - Per una descrizione del monitoraggio Azure Machine Learning, vedere [Azure Machine Learning di monitoraggio](monitor-azure-machine-learning.md) .
 - Per informazioni dettagliate sul monitoraggio delle risorse di Azure, vedere [monitoraggio delle risorse di Azure con](/azure/azure-monitor/insights/monitor-azure-resource) monitoraggio di Azure.

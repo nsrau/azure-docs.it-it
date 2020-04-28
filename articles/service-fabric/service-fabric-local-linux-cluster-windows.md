@@ -1,16 +1,16 @@
 ---
-title: Configurare il cluster Linux di Azure Service Fabric in WindowsSet up Azure Service Fabric Linux cluster on Windows
+title: Configurare il cluster Azure Service Fabric Linux in Windows
 description: In questo articolo si descrive come configurare un cluster Linux di Azure Service Fabric in esecuzione su computer di sviluppo Windows. Ciò è particolarmente utile per lo sviluppo multipiattaforma.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 9f60b9d9b919a72250038ede2a2bd53278df79cb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1798d57f9fc4004fd2c7d1f1901fcddf850626c2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309010"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193327"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurazione di un cluster Linux di Service Fabric sul computer di sviluppo Windows
 
@@ -21,7 +21,7 @@ I cluster di Service Fabric basati su Linux non vengono eseguiti in modo nativo 
 
 * Almeno 4 GB di RAM
 * Ultima versione di [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker deve essere in esecuzione in modalità LinuxDocker must be running on Linux mode
+* Docker deve essere in esecuzione in modalità Linux
 
 >[!TIP]
 > * Per installare Docker nel computer Windows, è possibile seguire la procedura descritta nella [documentazione](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) ufficiale di Docker. 
@@ -64,7 +64,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >Ad esempio, se si aggiunge `RUN apt-get install nodejs -y` sarà possibile supportare le applicazioni `nodejs` come eseguibili guest.
     
     >[!TIP]
-    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per particolari revisioni, si prega di visitare la pagina [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina dell' [Hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Per creare un'immagine riutilizzabile da `Dockerfile` aprire un terminale e `cd` alla directory che contiene `Dockerfile` e quindi eseguire:
 
@@ -89,7 +89,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. L'avvio del cluster richiederà un breve periodo di tempo, è possibile visualizzare i [http://localhost:19080](http://localhost:19080)log utilizzando il comando seguente o passare al dashboard per visualizzare l'integrità dei cluster:
+5. Il cluster richiederà poco tempo per l'avvio. È possibile visualizzare i log usando il comando seguente o passare al dashboard per visualizzare l'integrità del cluster `http://localhost:19080`:
 
     ```powershell 
     docker logs sftestcluster

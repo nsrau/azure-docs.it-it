@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447098"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186289"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere una griglia personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
 
@@ -182,7 +182,7 @@ Se l'interfaccia utente Web non è già in esecuzione in locale, eseguire il com
 npm start
 ```
 
-Il comando precedente esegue [http://localhost:3000/dashboard](http://localhost:3000/dashboard)l'interfaccia utente in locale in . Passare alla pagina **Esempio** pagina per vedere la griglia visualizzare dati dal servizio.
+Il comando precedente esegue localmente l'interfaccia utente all'indirizzo `http://localhost:3000/dashboard`. Passare alla pagina **Esempio** pagina per vedere la griglia visualizzare dati dal servizio.
 
 ## <a name="select-rows"></a>Selezionare le righe
 

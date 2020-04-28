@@ -1,6 +1,6 @@
 ---
-title: Attività flusso di datiData Flow activity
-description: Come eseguire flussi di dati dall'interno di una pipeline di data factory.
+title: Attività flusso di dati
+description: Come eseguire i flussi di dati dall'interno di una pipeline data factory.
 services: data-factory
 documentationcenter: ''
 author: kromerm
@@ -8,19 +8,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 03/16/2020
-ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/25/2020
+ms.openlocfilehash: 78ef749f36e9ffd3aae510d201b0700e5e197065
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415322"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183297"
 ---
-# <a name="data-flow-activity-in-azure-data-factory"></a>Data Flow activity in Azure Data Factory
+# <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Usare l'attività Flusso di dati per trasformare e spostare i dati tramite il mapping dei flussi di dati. Se non si ha familiarità con i flussi di dati, vedere Panoramica del [mapping dei flussi](concepts-data-flow-overview.md) di datiIf you're new to data flows, see Mapping Data Flow overview
+Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite il mapping di flussi di dati. Se non si ha familiarità con i flussi di dati, vedere [Panoramica del flusso di dati di mapping](concepts-data-flow-overview.md)
 
 ## <a name="syntax"></a>Sintassi
 
@@ -56,73 +56,73 @@ Usare l'attività Flusso di dati per trasformare e spostare i dati tramite il ma
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-Flusso | Riferimento al flusso di dati in esecuzione | DataFlowReference (Riferimento a i flussi di dati | Sì
-integrationRuntime (integrazione Runtime) | Ambiente di calcolo in cui viene eseguito il flusso di dati. Se non specificato, verrà usato il runtime di integrazione di Azure con risoluzione automaticaIf not specified, the auto-resolve Azure Integration runtime will be used | IntegrationRuntimeReference | No
-compute.coreCount (conteggio calcolo) | Numero di core utilizzati nel cluster di spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure con risoluzione automaticaCan only be specified if the auto-resolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
-compute.computeType (tipo compute.computeType) | Tipo di calcolo utilizzato nel cluster di spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure con risoluzione automaticaCan only be specified if the auto-resolve Azure Integration runtime is used | "Generale", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService (servizio in gestione temporanea.linkedService) | Se si usa un'origine o un sink SQL DW, l'account di archiviazione usato per PolyBase staging | LinkedServiceReference (Riferimento servizio collegato) | Solo se il flusso di dati legge o scrive in un
-staging.folderPath (percorso e gestione temporanea) | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea PolyBaseIf you're using a SQL DW source or sink, the folder path in blob storage account used for PolyBase staging | string | Solo se il flusso di dati legge o scrive in un
+Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Sì
+integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati. Se non specificato, verrà usato il runtime di integrazione di Azure per la risoluzione automatica | IntegrationRuntimeReference | No
+Compute. coreCount | Il numero di core usati nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | 8, 16, 32, 48, 80, 144, 272 | No
+Compute. computeType | Tipo di calcolo usato nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | "General", "ComputeOptimized", "MemoryOptimized" | No
+staging. linkedService | Se si usa un'origine o un sink di SQL DW, l'account di archiviazione usato per la gestione temporanea di base | LinkedServiceReference | Solo se il flusso di dati legge o scrive in SQL DW
+staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | string | Solo se il flusso di dati legge o scrive in SQL DW
 
-![Esecuzione del flusso di dati](media/data-flow/activity-data-flow.png "Esecuzione del flusso di dati")
+![Esegui flusso di dati](media/data-flow/activity-data-flow.png "Esegui flusso di dati")
 
-### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Ridimensionare dinamicamente il calcolo del flusso di dati in fase di esecuzioneDynamically size data flow compute at runtime
+### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Ridimensionare dinamicamente il calcolo del flusso di dati in fase di esecuzione
 
-Le proprietà Core Count e Compute Type possono essere impostate dinamicamente per adattarsi alle dimensioni dei dati di origine in ingresso in fase di esecuzione. Usare le attività della pipeline, ad esempio Ricerca o Ottieni metadati, per trovare le dimensioni dei dati del set di dati di origine. Quindi, utilizzare Aggiungi contenuto dinamico nelle proprietà dell'attività Flusso di dati.
+Le proprietà conteggio core e tipo di calcolo possono essere impostate in modo dinamico per adattarsi alle dimensioni dei dati di origine in ingresso in fase di esecuzione. Usare attività pipeline come Lookup o Get Metadata per individuare le dimensioni dei dati del set di dati di origine. Quindi, utilizzare Aggiungi contenuto dinamico nelle proprietà dell'attività flusso di dati.
 
-![Flusso dinamico dei dati](media/data-flow/dyna1.png "Flusso di dati dinamici")
+![Flusso Dynamic Data](media/data-flow/dyna1.png "Flusso di dati dinamici")
 
-[Ecco un breve video tutorial che spiega questa tecnica](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+[Ecco una breve esercitazione video che illustra questa tecnica](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
-### <a name="data-flow-integration-runtime"></a>Runtime di integrazione del flusso di datiData Flow integration runtime
+### <a name="data-flow-integration-runtime"></a>Runtime di integrazione del flusso di dati
 
-Scegliere il runtime di integrazione da usare per l'esecuzione dell'attività Flusso di dati. Per impostazione predefinita, Data Factory utilizzerà il runtime di integrazione di Azure con quattro core di lavoro e nessun tempo di durata (TTL). Questo codice A/R ha un tipo di calcolo generico e viene eseguito nella stessa area della factory. È possibile creare runtime di integrazione di Azure personalizzati che definiscono aree specifiche, tipo di calcolo, conteggi core e TTL per l'esecuzione dell'attività del flusso di dati.
+Scegliere la Integration Runtime da usare per l'esecuzione dell'attività flusso di dati. Per impostazione predefinita, Data Factory utilizzerà il runtime di integrazione di Azure per la risoluzione automatica con quattro core del ruolo di lavoro e nessun TTL (time to Live). Questo IR ha un tipo di calcolo per utilizzo generico e viene eseguito nella stessa area della factory. È possibile creare runtime di integrazione di Azure personalizzati che definiscono aree specifiche, tipo di calcolo, conteggi core e TTL per l'esecuzione dell'attività flusso di dati.
 
-Per le esecuzioni della pipeline, il cluster è un cluster di processi che richiede alcuni minuti per l'avvio prima dell'avvio dell'esecuzione. Se non viene specificato alcun valore TTL, questo tempo di avvio è necessario per ogni esecuzione della pipeline. Se si specifica un valore TTL, un pool di cluster attivo rimarrà attivo per il tempo specificato dopo l'ultima esecuzione, con conseguenti tempi di avvio più brevi. Ad esempio, se si dispone di un valore TTL di 60 minuti ed è possibile eseguirvi un flusso di dati una volta all'ora, il pool di cluster rimarrà attivo. Per altre informazioni, vedere Runtime di integrazione di [Azure.For](concepts-integration-runtime.md)more information, see Azure integration runtime.
+Per le esecuzioni di pipeline, il cluster è un cluster di processi che richiede alcuni minuti per l'avvio prima dell'avvio dell'esecuzione. Se non viene specificato alcun valore TTL, questo tempo di avvio è necessario per ogni esecuzione della pipeline. Se si specifica un valore TTL, un pool di cluster caldo resterà attivo per il tempo specificato dopo l'ultima esecuzione, ottenendo tempi di avvio più brevi. Se, ad esempio, si dispone di un valore TTL di 60 minuti ed è necessario eseguirvi un flusso di dati una volta all'ora, il pool di cluster resterà attivo. Per altre informazioni, vedere [runtime di integrazione di Azure](concepts-integration-runtime.md).
 
-![Runtime di integrazione di AzureAzure Integration Runtime](media/data-flow/ir-new.png "Runtime di integrazione di AzureAzure Integration Runtime")
+![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
 > [!NOTE]
-> La selezione del runtime di integrazione nell'attività Flusso di dati si applica solo alle *esecuzioni attivate* della pipeline. Il debug della pipeline con i flussi di dati viene eseguito nel cluster specificato nella sessione di debug.
+> La Integration Runtime selezione nell'attività flusso di dati si applica solo alle *esecuzioni attivate* della pipeline. Il debug della pipeline con flussi di dati viene eseguito nel cluster specificato nella sessione di debug.
 
 ### <a name="polybase"></a>PolyBase
 
-Se si usa un data warehouse SQL di Azure come sink o origine, è necessario scegliere un percorso di gestione temporanea per il caricamento batch PolyBase.If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase consente il caricamento in blocco di batch anziché caricare i dati riga per riga. PolyBase riduce drasticamente il tempo di caricamento in SQL DW.
+Se si usa un Azure SQL Data Warehouse come sink o origine, è necessario scegliere un percorso di gestione temporanea per il carico batch di base. La polibase consente il caricamento batch in blocco anziché il caricamento dei dati riga per riga. La polibase riduce drasticamente il tempo di caricamento in SQL DW.
 
-## <a name="parameterizing-data-flows"></a>Parametrità dei flussi di datiParameterizing Data Flows
+## <a name="parameterizing-data-flows"></a>Flussi di dati parametrizzazione
 
-### <a name="parameterized-datasets"></a>Set di dati con parametriParameterized datasets
+### <a name="parameterized-datasets"></a>Set di impostazioni con parametri
 
-Se il flusso di dati utilizza set di dati con parametri, impostare i valori dei parametri nella scheda **Impostazioni.If** your data flow uses parameterized datasets, set the parameter values in the Settings tab.
+Se il flusso di dati utilizza set di dati con parametri, impostare i valori dei parametri nella scheda **Impostazioni** .
 
-![Esecuzione dei parametri del flusso di dati](media/data-flow/params.png "Parametri")
+![Esegui parametri flusso di dati](media/data-flow/params.png "Parametri")
 
-### <a name="parameterized-data-flows"></a>Flussi di dati con parametriParameterized data flows
+### <a name="parameterized-data-flows"></a>Flussi di dati con parametri
 
-Se il flusso di dati è parametrizzato, impostare i valori dinamici dei parametri del flusso di dati nella scheda **Parametri.** È possibile usare il linguaggio delle espressioni della pipeline ADF (solo per i tipi String) o il linguaggio delle espressioni del flusso di dati per assegnare valori di parametro dinamici o letterali. Per ulteriori informazioni, vedere [Parametri del flusso di dati](parameters-data-flow.md).
+Se il flusso di dati è parametrizzato, impostare i valori dinamici dei parametri del flusso di dati nella scheda **parametri** . È possibile utilizzare il linguaggio delle espressioni della pipeline di ADF o il linguaggio delle espressioni del flusso di dati per assegnare valori di parametri dinamici o letterali. Per ulteriori informazioni, vedere [parametri del flusso di dati](parameters-data-flow.md). Se si desidera includere proprietà della pipeline come parte dell'espressione da passare in un parametro del flusso di dati, scegliere espressioni pipeline.
 
-![Esempio di esempio di parametro Esecuzione flusso di dati](media/data-flow/parameter-example.png "Esempio di parametro")
+![Esempio di parametro di esecuzione del flusso di dati](media/data-flow/parameter-example.png "Esempio di parametro")
 
 ### <a name="parameterized-compute-properties"></a>Proprietà di calcolo con parametri.
 
-È possibile parametrizzare il numero di core o il tipo di calcolo se si usa il runtime di integrazione di Azure con risoluzione automatica e si specificano valori per compute.coreCount e compute.computeType.You can parameterize the core count or compute type if you use the auto-resolve Azure Integration runtime and specify values for compute.coreCount and compute.computeType.
+È possibile parametrizzare il numero di core o il tipo di calcolo se si usa il runtime di integrazione di Azure per la risoluzione automatica e si specificano i valori per compute. coreCount e COMPUTE. computeType.
 
-![Esempio di esempio di parametro Esecuzione flusso di dati](media/data-flow/parameterize-compute.png "Esempio di parametro")
+![Esempio di parametro di esecuzione del flusso di dati](media/data-flow/parameterize-compute.png "Esempio di parametro")
 
-## <a name="pipeline-debug-of-data-flow-activity"></a>Debug della pipeline dell'attività Flusso di datiPipeline debug of Data Flow activity
+## <a name="pipeline-debug-of-data-flow-activity"></a>Debug della pipeline dell'attività flusso di dati
 
-Per eseguire una pipeline di debug eseguita con un'attività Flusso di dati, è necessario attivare la modalità di debug del flusso di dati tramite il dispositivo di scorrimento **Debug flusso** di dati sulla barra superiore. La modalità di debug consente di eseguire il flusso di dati su un cluster Spark attivo. Per ulteriori informazioni, vedere [Modalità debug](concepts-data-flow-debug-mode.md).
+Per eseguire una pipeline di debug eseguita con un'attività flusso di dati, è necessario attivare la modalità di debug del flusso di dati tramite il dispositivo di scorrimento **debug del flusso di dati** nella barra superiore. La modalità di debug consente di eseguire il flusso di dati in un cluster Spark attivo. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 
-![Pulsante Debug](media/data-flow/debugbutton.png "Pulsante Debug")
+![Pulsante debug](media/data-flow/debugbutton.png "Pulsante debug")
 
-La pipeline di debug viene eseguita sul cluster di debug attivo, non sull'ambiente di runtime di integrazione specificato nelle impostazioni dell'attività Flusso di dati. È possibile scegliere l'ambiente di calcolo di debug quando si avvia la modalità di debug.
+La pipeline di debug viene eseguita sul cluster di debug attivo, non sull'ambiente di Integration runtime specificato nelle impostazioni dell'attività flusso di dati. È possibile scegliere l'ambiente di calcolo di debug quando si avvia la modalità di debug.
 
-## <a name="monitoring-the-data-flow-activity"></a>Monitoraggio dell'attività del flusso di datiMonitoring the Data Flow activity
+## <a name="monitoring-the-data-flow-activity"></a>Monitoraggio dell'attività flusso di dati
 
-L'attività Flusso di dati ha un'esperienza di monitoraggio speciale in cui è possibile visualizzare il partizionamento, il tempo di fase e le informazioni sulla derivazione dei dati. Aprire il riquadro di monitoraggio tramite l'icona degli occhiali in **Azioni**. Per ulteriori informazioni, vedere [Monitoraggio dei flussi](concepts-data-flow-monitoring.md)di dati .
+L'attività flusso di dati offre un'esperienza di monitoraggio speciale in cui è possibile visualizzare le informazioni sul partizionamento, sulla fase temporale e sulla derivazione dei dati. Aprire il riquadro Monitoraggio usando l'icona degli occhiali in **azioni**. Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
 
-### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usare i risultati dell'attività flusso di dati in un'attività successivaUse Data Flow activity results in a subsequent activity
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usa l'attività flusso di dati restituisce un'attività successiva
 
-L'attività del flusso di dati restituisce metriche relative al numero di righe scritte in ogni sink e righe lette da ogni origine. Questi risultati vengono restituiti nella `output` sezione del risultato dell'esecuzione dell'attività. Le metriche restituite sono nel formato json riportato di seguito.
+L'attività flusso di dati restituisce le metriche relative al numero di righe scritte in ogni sink e righe lette da ogni origine. Questi risultati vengono restituiti nella `output` sezione del risultato dell'esecuzione dell'attività. Le metriche restituite sono nel formato del codice JSON seguente.
 
 ``` json
 {
@@ -150,16 +150,16 @@ L'attività del flusso di dati restituisce metriche relative al numero di righe 
 }
 ```
 
-Ad esempio, per arrivare al numero di righe scritte in un sink denominato 'sink1' in un'attività denominata 'dataflowActivity', utilizzare `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
+Ad esempio, per ottenere il numero di righe scritte in un sink denominato "sink1" in un'attività denominata "dataflowActivity", usare `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
 
-Per ottenere il numero di righe lette da un'origine denominata `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`'source1' utilizzata in tale sink, utilizzare .
+Per ottenere il numero di righe lette da un'origine denominata ' source1' utilizzata in tale sink, utilizzare `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`.
 
 > [!NOTE]
-> Se un sink ha zero righe scritte, non verrà visualizzato nelle metriche. L'esistenza può `contains` essere verificata utilizzando la funzione. Ad esempio, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` controllerà se sono state scritte righe in sink1.
+> Se un sink contiene zero righe scritte, non verrà visualizzato nelle metriche. L'esistenza può essere verificata `contains` utilizzando la funzione. Ad esempio, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` verificherà se le righe sono state scritte in sink1.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le attività del flusso di controllo supportate da Data Factory:See control flow activities supported by Data Factory: 
+Vedere attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
 - [Eseguire l'attività di pipeline](control-flow-execute-pipeline-activity.md)

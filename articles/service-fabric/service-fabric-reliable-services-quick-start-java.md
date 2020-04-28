@@ -1,20 +1,20 @@
 ---
-title: Crea il tuo primo servizio affidabile in Java
+title: Creare il primo servizio Reliable Services in Java
 description: Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614214"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184147"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Introduzione a Reliable Services in Java
 > [!div class="op_single_selector"]
-> * [C'è su Windows](service-fabric-reliable-services-quick-start.md)
+> * [C# in Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java su Linux](service-fabric-reliable-services-quick-start-java.md)
 >
 >
@@ -255,7 +255,7 @@ La distribuzione dell'applicazione compilata è uguale a quella di qualsiasi alt
 
 I parametri per questi comandi si trovano nei manifesti generati nel pacchetto dell'applicazione.
 
-Dopo la distribuzione dell'applicazione, aprire un browser e passare a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Espandere quindi il nodo **Applicazioni**, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
+Dopo la distribuzione dell'applicazione, aprire un browser e passare a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) all'indirizzo `http://localhost:19080/Explorer`. Espandere quindi il nodo **Applicazioni**, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
 
 > [!IMPORTANT]
 > Per distribuire l'applicazione a un cluster Linux protetto in Azure, è necessario configurare un certificato per convalidare l'applicazione con il runtime di Service Fabric. In questo modo i servizi di Reliable Services possono comunicare con le API di runtime di Service Fabric sottostanti. Per altre informazioni, vedere [Configurare un'app di Reliable Services da eseguire su cluster Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  

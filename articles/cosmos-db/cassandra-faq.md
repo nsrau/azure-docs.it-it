@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 2d6cae3a7a41eae05783d3bcc12ec2bfe8220c4c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148314"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192834"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Domande frequenti sulla API Cassandra per Azure Cosmos DB
 
 ## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Quali sono alcune delle differenze principali tra Apache Cassandra e la API Cassandra?
 
-- Apache Cassandra consiglia un limite di 100 MB per le dimensioni di una chiave di partizione. Il API Cassandra per Azure Cosmos DB consente un massimo di 10 GB per partizione.
+- Apache Cassandra consiglia un limite di 100 MB per le dimensioni di una chiave di partizione. Il API Cassandra per Azure Cosmos DB consente un massimo di 20 GB per partizione.
 - Apache Cassandra consente di disabilitare i commit durevoli. È possibile ignorare la scrittura nel log di commit e passare direttamente a memtables. Questo può causare una perdita di dati se il nodo si arresta prima che memtables venga scaricato su SSTables su disco. Azure Cosmos DB esegue sempre commit durevoli per prevenire la perdita di dati.
 - Apache Cassandra può visualizzare prestazioni ridotte se il carico di lavoro prevede molte sostituzioni o eliminazioni. Il motivo è la rimozione definitiva che il carico di lavoro di lettura deve ignorare per recuperare i dati più recenti. Il API Cassandra non vedrà le prestazioni di lettura ridotte quando il carico di lavoro include molte sostituzioni o eliminazioni.
 - Durante gli scenari di carichi di lavoro di sostituzione elevati, è necessario eseguire la compattazione per unire SSTables su disco. È necessaria un'Unione perché le scritture di Apache Cassandra sono solo Append. Più aggiornamenti vengono archiviati come singole voci SSTable che devono essere unite periodicamente. Questa situazione può anche causare una riduzione delle prestazioni di lettura durante la compattazione. Questo effetto sulle prestazioni non si verifica nell'API Cassandra perché l'API non implementa la compattazione.

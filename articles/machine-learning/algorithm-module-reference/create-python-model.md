@@ -1,7 +1,7 @@
 ---
-title: 'Crea modello Python: riferimento al modulo'
+title: 'Creare un modello Python: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Crea modello Python in Azure Machine Learning per creare un modulo di modellazione o di elaborazione dati personalizzato.
+description: Informazioni su come usare il modulo Crea modello Python in Azure Machine Learning per creare un modulo di modellazione o elaborazione dati personalizzato.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: c8be0882452dc120f538394a5481769e26e3fa15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682816"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189855"
 ---
-# <a name="create-python-model-module"></a>Crea modulo modello Python
+# <a name="create-python-model-module"></a>Creare il modulo del modello Python
 
-Questo articolo descrive un modulo nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
-Informazioni su come usare il modulo Crea modello Python per creare un modello non sottoposto a training da uno script Python. È possibile basare il modello su qualsiasi allievo incluso in un pacchetto Python nell'ambiente di progettazione di Azure Machine Learning.You can base the model on any learner that's included in a Python package in the Azure Machine Learning designer environment. 
+Informazioni su come usare il modulo Crea modello Python per creare un modello non sottoposto a training da uno script Python. È possibile basare il modello su qualsiasi strumento di apprendimento incluso in un pacchetto python nell'ambiente Azure Machine Learning Designer. 
 
-Dopo aver creato il modello, è possibile usare il modello di training per eseguire il training del modello in un set di dati, ad esempio qualsiasi altro allievo in Azure Machine Learning.After you create the model, you can use [Train Model](train-model.md) to train the model on a dataset, like any other learner in Azure Machine Learning. Il modello sottoposto a training può essere passato al modello di [punteggio](score-model.md) per eseguire stime. È quindi possibile salvare il modello sottoposto a training e pubblicare il flusso di lavoro di assegnazione del punteggio come servizio Web.You can then save the trained model and publish the scoring workflow as a web service.
+Dopo aver creato il modello, è possibile utilizzare [Train Model](train-model.md) per eseguire il training del modello su un set di dati, come qualsiasi altro discente in Azure Machine Learning. Il modello sottoposto a training può essere passato al [modello di Punteggio](score-model.md) per eseguire stime. È quindi possibile salvare il modello sottoposto a training e pubblicare il flusso di lavoro di assegnazione dei punteggi come servizio Web.
 
 > [!WARNING]
-> Attualmente, non è possibile passare i risultati con punteggio di un modello Python per valutare il [modello](evaluate-model.md). Se è necessario valutare un modello, è possibile scrivere uno script Python personalizzato ed eseguirlo utilizzando il modulo [Esegui script Python.](execute-python-script.md)  
+> Attualmente, non è possibile passare i risultati con punteggio di un modello Python per valutare il [modello](evaluate-model.md). Se è necessario valutare un modello, è possibile scrivere uno script Python personalizzato ed eseguirlo usando il modulo [Execute Python script](execute-python-script.md) .  
 
 
 ## <a name="configure-the-module"></a>Configurare il modulo
 
-L'uso di questo modulo richiede una conoscenza intermedia o esperta di Python. The module supports use of any learner that's included in the Python packages already installed in Azure Machine Learning. Vedere l'elenco dei pacchetti Python preinstallato in [Esegui Python Script](execute-python-script.md).
+L'uso di questo modulo richiede una conoscenza intermedia o esperta di Python. Il modulo supporta l'uso di qualsiasi discente incluso nei pacchetti Python già installati in Azure Machine Learning. Vedere l'elenco di pacchetti Python preinstallati in [Execute Python script](execute-python-script.md).
 
 > [!NOTE]
-> Prestare molta attenzione quando si scrive lo script e si assicura che non vi sia alcun errore di sintassi, ad esempio utilizzando un oggetto non dichiarato o un modulo non importato.
+> Prestare attenzione durante la scrittura dello script e assicurarsi che non si verifichino errori di sintassi, ad esempio l'uso di un oggetto non dichiarato o di un modulo non importato.
 
 > [!NOTE]
-Prestare anche ulteriori attenzioni all'elenco dei moduli preinstallati in [Execute Python Script](execute-python-script.md). Importare solo moduli preinstallati. Si prega di non installare pacchetti aggiuntivi come "pip install xgboost" in questo script, altrimenti verranno generati errori durante la lettura di modelli in moduli down-stream.
+> Prestare anche altre attenzioni all'elenco dei moduli preinstallati in [Esegui script Python](execute-python-script.md). Importa solo i moduli pre-installati. Non installare pacchetti aggiuntivi come "pip install xgboost" in questo script; in caso contrario, verranno generati errori durante la lettura dei modelli nei moduli di flusso inattivo.
   
-Questo articolo illustra come usare **Create Python Model** con una pipeline semplice. Ecco un diagramma della pipeline:Here's a diagram of the pipeline:
+Questo articolo illustra come usare la **creazione di un modello Python** con una semplice pipeline. Ecco un diagramma della pipeline:
 
 ![Diagramma della creazione di un modello Python](./media/module/create-python-model.png)
 
-1. Selezionare **Crea modello Python**e modificare lo script per implementare il processo di modellazione o gestione dei dati. È possibile basare il modello su qualsiasi allievo incluso in un pacchetto Python nell'ambiente Azure Machine Learning.You can base the model on any learner that's included in a Python package in the Azure Machine Learning environment.
+1. Selezionare **Crea modello Python**e modificare lo script per implementare la modellazione o il processo di gestione dei dati. È possibile basare il modello su qualsiasi discente incluso in un pacchetto python nell'ambiente Azure Machine Learning.
 
 > [!NOTE]
-> Prestare particolare attenzione ai commenti nel codice di esempio dello script e assicurarsi che lo script segua rigorosamente il requisito, inclusi il nome della classe, i metodi e la firma del metodo. La violazione porterà a eccezioni. 
+> Prestare particolare attenzione ai commenti nel codice di esempio dello script e assicurarsi che lo script segua rigorosamente il requisito, inclusi il nome della classe, i metodi e la firma del metodo. La violazione determinerà eccezioni. 
 
-   Il codice di esempio seguente del classificatore Naive Bayes a due classi utilizza il pacchetto *sklearn* più diffuso:
+   Il codice di esempio seguente del classificatore Naive Bayes a due classi usa il popolare pacchetto *sklearn* :
 
    ```Python
 
@@ -88,11 +88,11 @@ Questo articolo illustra come usare **Create Python Model** con una pipeline sem
 
    ```
 
-1. Collegare il modulo **Crea modello Python** appena creato per eseguire il training del **modello** e il modello **di partitura**.
+2. Connettere il modulo **Crea modello Python** appena creato per eseguire il **Training** del modello e assegnare un **punteggio al modello**.
 
-1. Se è necessario valutare il modello, aggiungere un modulo [Execute Python Script](execute-python-script.md) e modificare lo script Python.
+3. Se è necessario valutare il modello, aggiungere un modulo [Execute Python script (Esegui script Python](execute-python-script.md) ) e modificare lo script Python.
 
-   Lo script seguente è codice di valutazione di esempio:The following script is sample evaluation code:
+   Lo script seguente è un esempio di codice di valutazione:
 
    ```Python
 
@@ -103,7 +103,7 @@ Questo articolo illustra come usare **Create Python Model** con una pipeline sem
    # imports up here can be used to 
    import pandas as pd
 
-   # The entry point function can contain up to two input arguments:
+   # The entry point function MUST have two input arguments:
    #   Param<dataframe1>: a pandas.DataFrame
    #   Param<dataframe2>: a pandas.DataFrame
    def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -133,4 +133,4 @@ Questo articolo illustra come usare **Create Python Model** con una pipeline sem
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 

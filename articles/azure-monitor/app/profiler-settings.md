@@ -6,17 +6,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671631"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188927"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Agente Profiler aggiornato
-Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
+Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`. Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
 
 Se il profiler viene eseguito in una macchina virtuale o in un servizio cloud, è necessario che sia installata la versione 16.0.4 di Windows Diagnostica di Azure (WAD) o versione successiva. È possibile controllare la versione di WAD eseguendo l'accesso alla macchina virtuale e cercando la directory seguente: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Il nome della directory è la versione di WAD installata. L'agente di macchine virtuali di Azure aggiornerà automaticamente WAD quando saranno disponibili nuove versioni.
 
@@ -52,7 +52,7 @@ Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impost
 |-|-|
 Pulsante attiva/disattiva | On: Profiler può essere avviato da questo trigger. Disattivato: il profiler non verrà avviato da questo trigger.
 Soglia memoria | Quando questa percentuale di memoria è in uso, il Profiler verrà avviato.
-Durata | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
+Duration | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
 Cooldown | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
 
 ## <a name="recent-profiling-sessions"></a>Sessioni di profilatura recenti

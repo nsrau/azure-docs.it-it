@@ -1,5 +1,5 @@
 ---
-title: Usare Criteri di Azure per limitare l'installazione dell'estensione della macchina virtualeUse Azure Policy to restrict VM extension installation
+title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni di macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c660f7e05af43c2aad6f7283e32cfc1d85571ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52a08661ffa25bf2105791c1217cfc460034502a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066839"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188570"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
-Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Linux, è possibile creare criteri di Azure tramite l'interfaccia della riga di comando per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
+Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Linux, è possibile creare una definizione di criteri di Azure usando l'interfaccia della riga di comando per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
 
-Questa esercitazione usa l'interfaccia della riga di comando in Azure Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si vuole eseguire l'interfaccia della riga di comando di Azure in locale, è necessario installare la versione 2.0.26 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
+Questa esercitazione usa l'interfaccia della riga di comando in Azure Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si vuole eseguire l'interfaccia della riga di comando di Azure in locale, è necessario installare la versione 2.0.26 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Creare un file delle regole
 

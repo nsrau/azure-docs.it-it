@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: a03ace1553bd845d8a221e458fd47f3d8aa3d611
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146533"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186068"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creare, modificare o eliminare un indirizzo IP pubblico
 
@@ -55,7 +55,7 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
    |---|---|---|
    |Versione indirizzo IP|Sì| Selezionare IPv4 o IPv6 o entrambi. Se si selezionano entrambe, i due indirizzi IP pubblici vengono creati con un indirizzo IPv4 e un indirizzo IPv6. Altre informazioni su [IPv6 in Azure reti virtuali](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Sì|Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono indirizzi IP pubblici con SKU di **base** . Dopo aver creato l'indirizzo IP pubblico, non è possibile modificare lo SKU. Una macchina virtuale autonoma, le macchine virtuali all'interno di un set di disponibilità o i set di scalabilità di macchine virtuali possono usare SKU Basic o Standard. Non è consentito combinare SKU tra macchine virtuali all'interno di set di disponibilità o set di scalabilità o macchine virtuali autonome. SKU **Basic**: se si sta creando un indirizzo IP pubblico in un'area che supporta zone di disponibilità, l'opzione **Zona di disponibilità** è impostata su *Nessuna* per impostazione predefinita. Gli indirizzi IP pubblici di base non supportano le zone di disponibilità. SKU **Standard**: un indirizzo IP pubblico con SKU Standard può essere associato a una macchina virtuale o a un front-end di bilanciamento del carico. Se si sta creando un indirizzo IP pubblico in un'area che supporta zone di disponibilità, l'opzione **Zona di disponibilità** è impostata su *Con ridondanza della zona* per impostazione predefinita. Per altre informazioni sulle zone di disponibilità, vedere l'impostazione **Zona di disponibilità**. Lo SKU Standard è necessario se si associa l'indirizzo a un bilanciamento del carico Standard. Per saperne di più sui servizi di bilanciamento del carico standard, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard per il bilanciamento del carico di Azure). Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups). La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.|
-   |Name|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
+   |Nome|Sì|Il nome deve essere univoco all'interno del gruppo di risorse selezionato.|
    |Assegnazione indirizzi IP|Sì|**Dinamico**: gli indirizzi dinamici vengono assegnati solo dopo che un indirizzo IP pubblico è stato associato a una risorsa di Azure e che tale risorsa è stata avviata per la prima volta. Gli indirizzi dinamici possono cambiare se sono assegnati a una risorsa, come ad esempio una macchina virtuale, e la macchina virtuale viene riavviata dopo essere stata arrestata (deallocata). L'indirizzo rimane invariato se una macchina virtuale viene riavviata o arrestata, ma non deallocata. Gli indirizzi dinamici vengono rilasciati quando una risorsa indirizzo IP pubblico viene dissociata da una risorsa a cui era associata. **Statico**: gli indirizzi statici vengono assegnati al momento della creazione di un indirizzo IP pubblico. Gli indirizzi statici non vengono rilasciati fino all'eliminazione di una risorsa indirizzo IP pubblico. Se l'indirizzo non è associato a una risorsa, è possibile modificare il metodo di assegnazione dopo che viene creato l'indirizzo. Se l'indirizzo è associato a una risorsa, potrebbe non essere possibile modificare il metodo di assegnazione. Se si seleziona *IPv6* per la **versione IP**, il metodo di assegnazione deve essere *dinamico* per lo SKU Basic.  Gli indirizzi SKU standard sono *statici* sia per IPv4 che per IPv6. |
    |Timeout di inattività (minuti)|No|Il numero di minuti in cui la connessione TCP o HTTP resta aperta senza affidarsi ai client per l'invio di messaggi Keep-Alive. Se si seleziona IPv6 in **Versione indirizzo IP**, questo valore non può essere modificato. |
    |Etichetta del nome DNS|No|Deve essere univoca all'interno della località di Azure nella quale viene creato il nome (incluse tutte le sottoscrizioni e tutti i clienti). Azure registra automaticamente il nome e l'indirizzo IP nel proprio DNS, consentendo la connessione a una risorsa con tale nome. Per creare il nome DNS completo, Azure aggiunge una subnet predefinita come *location.cloudapp.azure.com* al nome specificato, dove location è la località selezionata. Se si sceglie di creare entrambe le versioni dell'indirizzo, lo stesso nome DNS viene assegnato sia all'indirizzo IPv4 che all'indirizzo IPv6. Il DNS predefinito di Azure contiene i record dei nomi AAAA sia per IPv4 che per IPv6 e risponde con entrambi i record quando viene eseguita una ricerca per il nome DNS. Il client sceglie con quale indirizzo comunicare, IPv4 o IPv6. Anziché (oppure oltre a) usare l'etichetta del nome DNS con il suffisso predefinito, è possibile usare il servizio DNS di Azure per configurare un nome DNS con un suffisso personalizzato che viene risolto nell'indirizzo IP pubblico. Per altre informazioni, vedere [Usare DNS di Azure con un indirizzo IP pubblico di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
@@ -108,7 +108,7 @@ Informazioni su come assegnare un indirizzo IP pubblico alle risorse seguenti:
 
 Per eseguire attività negli indirizzi IP pubblici, l'account deve essere assegnato al ruolo [collaboratore rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Azione                                                             | Name                                                           |
+| Azione                                                             | Nome                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | Leggere un indirizzo IP pubblico                                          |
 | Microsoft.Network/publicIPAddresses/write                          | Creare o aggiornare un indirizzo IP pubblico                           |
@@ -118,4 +118,4 @@ Per eseguire attività negli indirizzi IP pubblici, l'account deve essere assegn
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare un indirizzo IP pubblico usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Resource Manager](template-samples.md)
-- Creare e applicare i [criteri di Azure](policy-samples.md) per gli indirizzi IP pubblici
+- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per indirizzi IP pubblici

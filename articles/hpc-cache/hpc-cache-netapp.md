@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 38f9d0338ce4c47024d670e6d3ee89a97faecc91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238688"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194959"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Usare la cache HPC di Azure con Azure NetApp Files
 
@@ -50,7 +50,7 @@ Usare la dimensione minima per la subnet delegata durante la creazione di un sis
 
 La dimensione minima, specificata con netmask/28, fornisce 16 indirizzi IP. In pratica, Azure NetApp Files utilizza solo tre di questi indirizzi IP disponibili per l'accesso al volume. Ciò significa che è necessario creare solo tre destinazioni di archiviazione nella cache HPC di Azure per coprire tutti i volumi.
 
-Se la subnet delegata è troppo grande, è possibile che i volumi Azure NetApp Files usino più indirizzi IP di quelli che possono essere gestiti da una singola istanza di cache HPC di Azure. Una singola cache può avere al massimo dieci destinazioni di archiviazione.
+Se la subnet delegata è troppo grande, è possibile che i volumi Azure NetApp Files usino più indirizzi IP di quelli che possono essere gestiti da una singola istanza di cache HPC di Azure. Una singola cache può avere al massimo 10 destinazioni di archiviazione.
 
 Nell'esempio di Guida introduttiva in Azure NetApp Files documentazione viene usato 10.7.0.0/16 per la subnet delegata, che fornisce una subnet troppo grande.
 

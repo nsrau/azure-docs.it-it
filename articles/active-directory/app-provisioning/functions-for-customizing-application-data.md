@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612151"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866593"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -38,7 +38,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 * Eventuali barre rovesciate ( \ ) o virgolette ( " ) da inserire nella costante di stringa dovranno essere precedute dal simbolo di barra rovesciata ( \ ) come carattere di escape. Ad esempio: "Nome \\società: "Contoso\\""
 
 ## <a name="list-of-functions"></a>Elenco di funzioni
-[Accoda](#append) &nbsp; &nbsp; &nbsp; &nbsp; [bitE](#bitand) &nbsp; &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; [Count](#count) [Coalesce](#coalesce) &nbsp; &nbsp; [CStr](#cstr) [ConvertToBase64](#converttobase64) &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; CBool &nbsp; &nbsp; &nbsp; Coalesce &nbsp; &nbsp; ConvertToBase64 &nbsp; ConvertToUTF8Hex Count CStr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Guid](#guid) &nbsp; [InStr](#instr) [IIF](#iif) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; [IsNull](#isnull) [IsNullOrEmpty](#isnullorempty) DateFromNum &nbsp; FormatDateTime &nbsp; Guid &nbsp; &nbsp; IIF &nbsp; InStr &nbsp; IsNullOrEmpty &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; &nbsp; &nbsp; IsString elemento join sinistra medianormalità non [(IsPresent](#left) &nbsp; &nbsp; &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; &nbsp; &nbsp; [Item](#item) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; Left [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [Non)](#not) &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; [Split](#split) [Replace](#replace) &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) RemoveDuplicates Sostituisci &nbsp; &nbsp; SelectUniqueValue&nbsp; &nbsp; SingleAppRoleAssignment&nbsp; Split&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; [Word](#word) [Switch](#switch) &nbsp; [ToUpper](#toupper) [ToLower](#tolower) &nbsp; Passa&nbsp; &nbsp; allaparola&nbsp; da&nbsp; superiore a&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+[Accoda](#append) &nbsp; &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; [Count](#count) &nbsp; &nbsp; &nbsp; [Left](#left) [Not](#not) [Mid](#mid) [Guid](#guid) &nbsp; [Item](#item) &nbsp; [Replace](#replace) [Join](#join) [InStr](#instr) &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; &nbsp; [IIF](#iif) &nbsp; [IsNull](#isnull) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) [SelectUniqueValue](#selectuniquevalue) [CBool](#cbool) &nbsp; &nbsp; &nbsp; &nbsp; [IsString](#isstring) &nbsp; [IsPresent](#ispresent) &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [IsNullOrEmpty](#isnullorempty) &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; &nbsp; BitAnd &nbsp; &nbsp; &nbsp; &nbsp; CBool &nbsp; &nbsp; &nbsp; &nbsp; Coalesce &nbsp; &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; Count &nbsp; &nbsp; CStr &nbsp; &nbsp; &nbsp; DateFromNum FormatDateTime &nbsp; &nbsp; Guid &nbsp; IIF &nbsp; IsNull IsNullOrEmpty &nbsp; IsPresent &nbsp; IsPresent IsString Item &nbsp; Join &nbsp; Left Mid &nbsp; NormalizeDiacritics Not RemoveDuplicates Replace SelectUniqueValue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; [ToUpper](#toupper) [Split](#split) &nbsp; &nbsp; [ToLower](#tolower) [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) &nbsp; [StripSpaces](#stripspaces) &nbsp; [Word](#word) SingleAppRoleAssignment&nbsp;&nbsp; Split&nbsp; &nbsp; StripSpaces &nbsp; (Opzione&nbsp; &nbsp; da&nbsp; parola superiore a quella superiore)&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 ---
 ### <a name="append"></a>Accoda
@@ -158,7 +158,7 @@ ConvertToUTF8Hex("Hello world!")
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **Valore** |Obbligatoria | numerico, di riferimento o booleano | può essere un valore numerico, un attributo di riferimento o un valore booleano. |
+| **value** |Obbligatoria | numerico, di riferimento o booleano | può essere un valore numerico, un attributo di riferimento o un valore booleano. |
 
 **Esempio:**<br>
 CStr([dn])                                                            
@@ -174,7 +174,7 @@ Restituisce "cn"Joe,dc"contoso,dc-com"
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **Valore** |Obbligatoria | Data | AD Data da convertire in tipo DateTime |
+| **value** |Obbligatoria | Data | AD Data da convertire in tipo DateTime |
 
 **Esempio:**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
@@ -399,7 +399,7 @@ Restituisce "Joh"
 
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **Valore** |Obbligatoria | string | Stringa di data e ora nel formato supportato. Per informazioni sui formati supportati, vedere https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Obbligatoria | string | Stringa di data e ora nel formato supportato. Per informazioni sui formati supportati, vedere https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Esempio:**<br>
 * Esempio workday <br>
@@ -469,11 +469,11 @@ Restituisce un attributo proxyAddress sanificato in cui sono stati rimossi tutti
 
 **Descrizione:**<br> Richiede almeno due argomenti, costituiti da regole di generazione di valori univoci definite tramite espressioni. La funzione valuta ogni regola e controlla quindi il valore generato per verificarne l'univocità nella directory/app di destinazione. Il primo valore univoco trovato sarà quello restituito. Se tutti i valori trovati sono già presenti nella destinazione, la voce verrà depositata e il motivo verrà registrato nei log di controllo. Non è previsto alcun limite relativamente al numero di argomenti che è possibile specificare.
 
-> [!NOTE]
-> - Si tratta di una funzione di primo livello che non può essere annidata.
-> - Questa funzione non può essere applicata agli attributi con precedenza abbinamento.  
-> - Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
-> - Questa funzione è attualmente supportata solo per il "provisioning utenti da Workday ad Active Directory". Non può essere usata con altre applicazioni di provisioning. 
+
+ - Si tratta di una funzione di primo livello che non può essere annidata.
+ - Questa funzione non può essere applicata agli attributi con precedenza abbinamento.   
+ - Questa funzione è destinata a essere usata solo per la creazione di voci. Se viene usata con un attributo, impostare la proprietà **Applica questo mapping** su **Solo durante la creazione dell'oggetto**.
+ - Questa funzione è attualmente supportata solo per il "provisioning utenti da Workday ad Active Directory". Non può essere usata con altre applicazioni di provisioning. 
 
 
 **Parametri:**<br> 
@@ -532,8 +532,8 @@ Restituisce un attributo proxyAddress sanificato in cui sono stati rimossi tutti
 | --- | --- | --- | --- |
 | **fonte** |Obbligatoria |string |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **Key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
-| **Valore** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -546,7 +546,7 @@ Restituisce un attributo proxyAddress sanificato in cui sono stati rimossi tutti
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **fonte** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -559,7 +559,7 @@ Restituisce un attributo proxyAddress sanificato in cui sono stati rimossi tutti
 | Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **fonte** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word

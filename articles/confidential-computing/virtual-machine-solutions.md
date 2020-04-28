@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8db477f87f344b28e8941e185c70c81d9b860a72
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149476"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187886"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluzioni in macchine virtuali di Azure
 
-Questo articolo descrive come distribuire le macchine virtuali di Azure Confidential Computing (VM) che eseguono processori Intel supportati da [Intel Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
+Questo articolo descrive come distribuire le macchine virtuali di Azure Confidential Computing (VM) che eseguono processori Intel supportati da [Intel Software Guard Extension](https://software.intel.com/sgx) (Intel SGX). 
 
 ## <a name="azure-confidential-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di Azure computing riservato
 
@@ -148,5 +148,5 @@ In **Proprietà**sarà anche necessario fare riferimento a un'immagine in **stor
 
 In questo articolo sono state illustrate le qualifiche e le configurazioni necessarie per la creazione di una macchina virtuale di calcolo riservata. È ora possibile passare ad Azure Marketplace per distribuire una macchina virtuale di serie DCsv2.
 
-[!div class=”nextstepaction”]
-[Distribuire una macchina virtuale della serie DCsv2 in Azure Marketplace](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Distribuire una macchina virtuale della serie DCsv2 in Azure Marketplace](quick-create-marketplace.md)

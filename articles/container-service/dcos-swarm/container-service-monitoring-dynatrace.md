@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab6bb116c93aad8501da21dc5688d7e39f4195fe
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277755"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166190"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(DEPRECATO) Monitorare un cluster del controller di dominio/sistema operativo del servizio Azure Container con Dynatrace SaaS/Gestito
 
@@ -28,12 +28,12 @@ La figura seguente mostra l'interfaccia utente di Dynatrace:
 ![Interfaccia utente di Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Prerequisiti 
-[Distribuire](container-service-deployment.md) ed [eseguire la connessione](./../container-service-connect.md) a un cluster configurato dal servizio Azure Container. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Vai [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) a impostare un account Dynatrace SaaS.  
+[Distribuire](container-service-deployment.md) ed [eseguire la connessione](./../container-service-connect.md) a un cluster configurato dal servizio Azure Container. Esplorare l' [interfaccia utente](container-service-mesos-marathon-ui.md)di Marathon. Passare a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) per configurare un account Saas dynaTrace.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurare una distribuzione Dynatrace con Marathon
 Questi passaggi illustrano come configurare e distribuire le applicazioni Dynatrace nel cluster con Marathon.
 
-1. Accedere all'interfaccia utente [http://localhost:80/](http://localhost:80/)DC/OS tramite . Una volta nell'interfaccia utente di DC/OS, passare alla scheda **Universe** (Universo) e quindi cercare **Dynatrace**.
+1. Accedere all'interfaccia utente del controller di dominio/sistema operativo da `http://localhost:80/`. Una volta nell'interfaccia utente di DC/OS, passare alla scheda **Universe** (Universo) e quindi cercare **Dynatrace**.
 
     ![Dynatrace in Universe (Universo) di DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 

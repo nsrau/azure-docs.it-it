@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063039"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686479"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
 
@@ -35,14 +35,6 @@ Di seguito sono riportati alcuni esempi di operazioni eseguibili con il controll
 - Consentire a un gruppo di amministratori di database di gestire database SQL all'interno di una sottoscrizione
 - Consentire a un utente di gestire tutte le risorse in un gruppo di risorse, ad esempio le macchine virtuali, i siti Web e le subnet
 - Consentire a un'applicazione di accedere a tutte le risorse in un gruppo di risorse
-
-## <a name="best-practice-for-using-rbac"></a>Procedure consigliate per l'uso del controllo degli accessi in base al ruolo
-
-Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni in un particolare ambito.
-
-Quando si pianifica la strategia di controllo degli accessi, è consigliabile concedere agli utenti almeno il privilegio per completare la propria sessione di lavoro. Il diagramma seguente mostra uno schema consigliato per l'uso del controllo degli accessi in base al ruolo.
-
-![Controllo degli accessi in base al ruolo e privilegi minimi](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Come funziona il controllo degli accessi in base al ruolo
 
@@ -139,4 +131,4 @@ Di seguito è indicata la procedura generale seguita dal controllo degli accessi
 - [Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure usando il portale di Azure](check-access.md)
 - [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
 - [Comprendere i diversi ruoli in Azure](rbac-and-directory-admin-roles.md)
-- [Adozione del cloud nell'organizzazione: gestione dell'accesso alle risorse in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
+- [Cloud Adoption Framework: gestione dell'accesso alle risorse in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

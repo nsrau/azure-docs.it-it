@@ -4,12 +4,12 @@ description: Con backup di Azure è possibile inviare dati fuori rete usando il 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d45716fea92a25b0deea6ee5c1972820341d64a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197065"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183858"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 
@@ -137,7 +137,7 @@ Le informazioni contenute in questa sezione consentono di completare il flusso d
     ![Importa pagina](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
     Di seguito è illustrata la pagina corrispondente in DPM. <br/>
-    
+
     ![Pagina di importazione di DPM e server di Backup di Azure](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     Le caselle compilate sono:
@@ -242,7 +242,7 @@ L'utilità *AzureOfflineBackupDiskPrep* viene usata per preparare le unità SATA
     ![Archivia informazioni di spedizione](./media/backup-azure-backup-import-export/storingshippinginformation.png)<br/>
 
    > [!IMPORTANT]
-   > Verificare che le unità raggiungano il Data Center di Azure entro due settimane dalla fornitura delle informazioni di spedizione tramite l'utilità *AzureOfflineBackupDiskPrep* . In caso contrario, le unità potrebbero non venire elaborate. 
+   > Verificare che le unità raggiungano il Data Center di Azure entro due settimane dalla fornitura delle informazioni di spedizione tramite l'utilità *AzureOfflineBackupDiskPrep* . In caso contrario, le unità potrebbero non venire elaborate.
 
 Dopo aver completato i passaggi precedenti, il Data Center di Azure è pronto per ricevere le unità ed elaborarle ulteriormente per trasferire i dati di backup dalle unità all'account di archiviazione di Azure di tipo classico creato.
 

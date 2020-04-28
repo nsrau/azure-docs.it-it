@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cbfdd358fdfd5403c677c067376142169cdc6bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77015457"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185694"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Usare applicazione Azure gateway con macchine virtuali VMware nell'ambiente cloud privato CloudSimple
 
 È possibile usare il gateway applicazione Azure per gestire il traffico Web in ingresso per i server Web in esecuzione in macchine virtuali VMware all'interno dell'ambiente cloud privato CloudSimple.
 
-Sfruttando applicazione Azure gateway in una distribuzione ibrida pubblica-privata, è possibile gestire il traffico Web per le applicazioni, fornire un front-end sicuro ed eseguire l'offload dell'elaborazione SSL per i servizi in esecuzione nell'ambiente VMware. Il gateway applicazione Azure instrada il traffico Web in ingresso alle istanze del pool back-end che si trovano in ambienti VMware in base alle regole configurate e ai Probe di integrità.
+Sfruttando applicazione Azure gateway in una distribuzione ibrida pubblica-privata, è possibile gestire il traffico web verso le applicazioni, fornire un front-end sicuro ed eseguire l'offload dell'elaborazione TLS per i servizi in esecuzione nell'ambiente VMware. Il gateway applicazione Azure instrada il traffico Web in ingresso alle istanze del pool back-end che si trovano in ambienti VMware in base alle regole configurate e ai Probe di integrità.
 
 Questa soluzione applicazione Azure gateway richiede:
 

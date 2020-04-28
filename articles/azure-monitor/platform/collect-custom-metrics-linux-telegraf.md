@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137264"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186442"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -32,6 +32,9 @@ Monitoraggio di Azure consente di raccogliere metriche personalizzate tramite i 
 Ai fini di questa esercitazione, si distribuirà una VM Linux che esegue il sistema operativo Ubuntu 16.04 LTS. L'agente Telegraf è supportato per la maggior parte dei sistemi operativi Linux. I pacchetti Debian e RPM sono disponibili insieme ai file binari Linux non in pacchetto nel [portale di download di InfluxData](https://portal.influxdata.com/downloads). Vedere questa [guida all'installazione di Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) per opzioni e istruzioni di installazione aggiuntive. 
 
 Accedere al [portale di Azure](https://portal.azure.com).
+
+> [!NOTE]  
+> Se si vuole eseguire la migrazione delle regole di avviso classiche e usare una macchina virtuale Linux esistente, verificare che il computer virutal disponga di un'identità assegnata dal sistema impostata **su on**.
 
 Creare una nuova VM Linux: 
 

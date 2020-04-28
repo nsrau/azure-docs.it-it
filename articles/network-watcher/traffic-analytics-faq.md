@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840622"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189046"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -134,7 +134,7 @@ Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso archiviare i log non elaborati in un altro abbonamento?
 
-No. È possibile memorizzare i log non elaborati in qualsiasi account di archiviazione in cui è abilitato un NSG per i log dei flussi. Tuttavia, sia l'account di archiviazione che i log non elaborati devono trovarsi nella stessa area e nella stessa sottoscrizione.
+Sì. È possibile configurare i log di flusso NSG da inviare a un account di archiviazione che si trova in una sottoscrizione diversa, purché si disponga dei privilegi appropriati e che l'account di archiviazione si trovi nella stessa area in cui si trova la NSG. Il NSG e l'account di archiviazione di destinazione devono inoltre condividere lo stesso tenant Azure Active Directory.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Cosa succede se non riesco a configurare un NSG per Analisi del traffico a causa di un errore "Non trovato"?
 

@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bc47fe6e1f0730bcff49e138df92f85ba3ef1a8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 607cebca3e6e8ddd95900ecdbd7041e5f7bb50cc
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114480"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165774"
 ---
 # <a name="workspace-mappings"></a>Mapping dell'area di lavoro
 
 Quando si abilitano Gestione aggiornamenti, Rilevamento modifiche e inventario oppure Avvio/Arresto di macchine virtuali durante gli orari di minore attività, sono supportate solo determinate aree per il collegamento di un'area di lavoro di Log Analytics e di un account di automazione nella sottoscrizione. Questo mapping si applica solo all'account di automazione e all'area di lavoro Log Analytics. L'area di lavoro Log Analytics e l'account di automazione devono trovarsi nella stessa sottoscrizione, ma possono trovarsi in diversi gruppi di risorse distribuiti nella stessa area.
 
-Per ulteriori informazioni, vedere [log Analytics area di lavoro e l'account di automazione](../azure-monitor/insights/solutions.md#log-analytics- workspace-and-automation-account).
+Per ulteriori informazioni, vedere [log Analytics area di lavoro e l'account di automazione](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mapping supportati
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73888821"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187212"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
@@ -190,10 +190,10 @@ Ogni servizio Web apre una finestra del prompt dei comandi e una finestra del br
 
 Per accedere allo stato dei servizi, passare agli URL seguenti:
 
-* Gestione Hub:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetria del dispositivo:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* scheda di archiviazione:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* Gestione Hub:`http://localhost:9002/v1/status`
+* Telemetria del dispositivo:`http://localhost:9004/v1/status`
+* config`http://localhost:9005/v1/status`
+* scheda di archiviazione:`http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Avviare il processo di analisi di flusso
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Al termine del comando di **avvio** , il browser Visualizza la pagina in corrispondenza dell' [http://localhost:3000/dashboard](http://localhost:3000/dashboard)indirizzo. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
+Al termine del comando di **avvio** , il browser Visualizza la pagina in corrispondenza dell' `http://localhost:3000/dashboard`indirizzo. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, attenersi alla procedura riportata di seguito.
 
 ### <a name="configure-and-run-nginx"></a>Configurare ed eseguire nginx
 
@@ -226,7 +226,7 @@ Per ulteriori informazioni sull'esecuzione di nginx, vedere [Nginx per Windows](
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere al dashboard della soluzione di monitoraggio remoto, http://localhost:9000 passare a nel browser.
+Per accedere al dashboard della soluzione di monitoraggio remoto, `http://localhost:9000` passare a nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

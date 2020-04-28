@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74158273"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194602"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticazione del servizio Azure SignalR
 
@@ -545,8 +545,8 @@ L'ultima operazione da eseguire è l'aggiornamento dell'**URL della home page** 
 
     | Impostazione | Esempio |
     | ------- | ------- |
-    | URL della home page | https://signalrtestwebapp22665120.azurewebsites.net/home |
-    | URL di callback dell'autorizzazione | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
+    | URL della home page | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | URL di callback dell'autorizzazione | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. Passare all'URL dell'app Web e testare l'applicazione.
 
@@ -565,7 +565,7 @@ Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi
 
 Nella casella di testo **Filtra per nome...** Digitare il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
 
-![Delete](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Elimina](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
 

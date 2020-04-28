@@ -1,24 +1,24 @@
 ---
-title: Funzioni modello - logico
+title: Funzioni di modello-Logical
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156311"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192315"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funzioni logiche per i modelli ARM
 
-Resource Manager offre diverse funzioni per eseguire confronti nei modelli di Azure Resource Manager (ARM).
+Gestione risorse offre diverse funzioni per l'esecuzione di confronti nei modelli di Azure Resource Manager (ARM).
 
-* [E](#and)
+* [e](#and)
 * [bool](#bool)
 * [if](#if)
-* [not](#not)
-* [O](#or)
+* [non](#not)
+* [o](#or)
 
 ## <a name="and"></a>e
 
@@ -146,7 +146,7 @@ Restituisce il secondo parametro, quando il primo parametro è **True**. In caso
 
 ### <a name="remarks"></a>Osservazioni
 
-Quando la condizione è **True**, viene valutato solo il valore true. Quando la condizione è **False**, viene valutato solo il valore false. Con la funzione **if,** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa che esiste in una condizione ma non nell'altra condizione. Nella sezione seguente è illustrato un esempio di valutazione condizionale delle espressioni.
+Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
 ### <a name="examples"></a>Esempi
 
@@ -183,7 +183,7 @@ L'output dell'esempio precedente è:
 | noOutput | string | no |
 | objectOutput | Oggetto | { "test": "value1" } |
 
-Nel [modello](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) di esempio seguente viene illustrato come utilizzare questa funzione con espressioni che sono valide solo in modo condizionale.
+Nel [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) seguente viene illustrato come utilizzare questa funzione con espressioni che sono valide solo in modo condizionale.
 
 ```json
 {
@@ -295,6 +295,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 L'output dell'esempio precedente è:
@@ -357,8 +358,5 @@ L'output dell'esempio precedente è:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
-* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
-* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
-* Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 

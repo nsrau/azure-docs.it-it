@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a1674f51d5b877a1296e9a457c6acf61a507c82e
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82131360"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189804"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -51,7 +51,7 @@ I log dei flussi sono l'origine della verità per tutte le attività di rete nel
 - I log vengono raccolti tramite la piattaforma Azure e non influiscono in alcun modo sulle risorse dei clienti o sulle prestazioni di rete.
 - I log vengono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base alla regola NSG.
 - Ogni record di log contiene l'interfaccia di rete (NIC) a cui si applica il flusso, informazioni su 5 tuple, il traffico decisionale & (solo versione 2) informazioni sulla velocità effettiva. Per i dettagli completi, vedere il _formato di log_ riportato di seguito.
-- I log di flusso hanno una funzionalità di conservazione che consente di eliminare automaticamente i log fino a un anno dopo la creazione
+- I log di flusso hanno una funzionalità di conservazione che consente di eliminare automaticamente i log fino a un anno dopo la loro creazione. **Nota**: la conservazione è disponibile solo se si usano gli account di archiviazione per utilizzo [generico V2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Concetti principali **
 
@@ -365,13 +365,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="troubleshooting-common-issues"></a>Risoluzione dei problemi comuni
 
-### <a name="i-could-not-enable-nsg-flow-logs"></a>**Impossibile abilitare i log dei flussi dei gruppi di sicurezza di rete**
+**Impossibile abilitare i log dei flussi dei gruppi di sicurezza di rete**
 
 - Il provider di risorse **Microsoft. Insights** non è registrato
 
 Se è stato ricevuto un errore _AuthorizationFailed_ o _GatewayAuthenticationFailed_, potrebbe significare che il provider di risorse Microsoft Insights non è stato abilitato nella sottoscrizione. [Seguire le istruzioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) per abilitare il provider Microsoft Insights.
 
-### <a name="i-have-enabled-nsg-flow-logs-but-do-not-see-data-in-my-storage-account"></a>**Sono stati abilitati i log dei flussi dei gruppi di sicurezza di rete ma non vengono visualizzati dati nell'account di archiviazione**
+**Sono stati abilitati i log dei flussi dei gruppi di sicurezza di rete ma non vengono visualizzati dati nell'account di archiviazione**
 
 - **Tempo di installazione**
 
@@ -381,21 +381,21 @@ La visualizzazione dei log dei flussi dei gruppo di sicurezza di rete nell'accou
 
 Talvolta i log non vengono visualizzati perché le macchine virtuali non sono attive oppure in un gateway applicazione o in altri dispositivi sono presenti filtri upstream che bloccano il traffico verso i gruppi di sicurezza di rete.
 
-### <a name="i-want-to-automate-nsg-flow-logs"></a>**Si desidera automatizzare i log dei flussi dei gruppi di sicurezza di rete**
+**Si desidera automatizzare i log dei flussi dei gruppi di sicurezza di rete**
 
 Il supporto dell'automazione tramite modelli di Azure Resource Manager non è attualmente disponibile per i log dei flussi dei gruppi di sicurezza di rete. Per ulteriori informazioni, leggere l' [annuncio sulle funzionalità](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) .
 
 ## <a name="faq"></a>Domande frequenti
 
-### <a name="what-does-nsg-flow-logs-do"></a>**Quali sono i registri dei flussi di NSG?**
+**Quali sono i registri dei flussi di NSG?**
 
 Le risorse di rete di Azure possono essere combinate e gestite tramite [gruppi di sicurezza di rete (gruppi)](https://docs.microsoft.com/azure/virtual-network/security-overview). I log di flusso NSG consentono di registrare le informazioni sul flusso di 5 tuple relative a tutto il traffico attraverso gruppi. I log dei flussi non elaborati vengono scritti in un account di archiviazione di Azure da cui possono essere ulteriormente elaborati, analizzati, sottoposti a query o esportati in base alle esigenze.
 
-### <a name="does-using-flow-logs-impact-my-network-latency-or-performance"></a>**L'uso dei log di flusso influisce sulla latenza di rete o sulle prestazioni?**
+**L'uso dei log di flusso influisce sulla latenza di rete o sulle prestazioni?**
 
 I dati dei log dei flussi vengono raccolti al di fuori del percorso del traffico di rete e pertanto non influiscono sulla velocità effettiva o sulla latenza di rete. È possibile creare o eliminare i log di flusso senza rischiare di influire sulle prestazioni della rete.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>**Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro un firewall?**
+**Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro un firewall?**
 
 Per usare un account di archiviazione dietro un firewall, è necessario fornire un'eccezione affinché i servizi Microsoft attendibili accedano all'account di archiviazione:
 
@@ -407,11 +407,11 @@ Per usare un account di archiviazione dietro un firewall, è necessario fornire 
 
 È possibile controllare i log di archiviazione dopo alcuni minuti. Dovrebbe essere visualizzato un TimeStamp aggiornato o un nuovo file JSON creato.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>**Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro a un endpoint di servizio?**
+**Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro a un endpoint di servizio?**
 
 I log di flusso NSG sono compatibili con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) nella rete virtuale.
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>**Qual è la differenza tra i log dei flussi versioni 1 & 2?**
+**Qual è la differenza tra i log dei flussi versioni 1 & 2?**
 
 Log dei flussi versione 2 introduce il concetto di _stato del flusso_ & archivia le informazioni su byte e pacchetti trasmessi. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 

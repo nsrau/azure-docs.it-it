@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: e5b78969f6b4315bb02b3f4152c6eeab94adddb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246943"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186085"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -26,7 +26,7 @@ Informazioni su come aggiungere, modificare o eliminare una subnet di rete virtu
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se non si ha una sottoscrizione, configurare un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Quindi completare una di queste attività prima di iniziare i passaggi in una sezione di questo articolo: 
+Se non si ha una sottoscrizione, configurare un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Quindi completare una di queste attività prima di iniziare i passaggi in una sezione di questo articolo: 
 
 - **Utenti del portale**: accedere al [portale di Azure](https://portal.azure.com) con l'account Azure.
 
@@ -132,4 +132,4 @@ Per eseguire attività nelle subnet, l'account deve essere assegnato al [ruolo C
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare una rete virtuale e le subnet usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Resource Manager](template-samples.md)
-- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per le reti virtuali

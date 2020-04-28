@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di condivisioni file di Azure
 description: Fornisce un riepilogo delle impostazioni e delle limitazioni di supporto per il backup di condivisioni file di Azure.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: e74d04cf8ae9010a860b8467d0de771524bd3f3a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 03190c6b83fceec88442583a57ff46756cfe6221
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82103204"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195690"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
@@ -20,13 +20,13 @@ Il backup per le condivisioni file di Azure è disponibile nelle aree geografich
 
 | Aree GA | Aree supportate ma non GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Australia orientale (AE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS)                                                     |Australia sud-orientale (ASE), Canada orientale (CE), Stati Uniti centrali (CUS), Asia orientale (EA), Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Giappone occidentale (JPW), India centrale (INC), Corea centrale (KRC), Corea meridionale (KRS), Europa settentrionale (CE), Stati Uniti centro-meridionali (SCUS), Asia orientale meridionale (mare), Regno Unito meridionale (UKS), Regno Unito occidentale (UKW), Europa occidentale (Microsoft), Stati Uniti occidentali (WUS), US Gov Arizona (UGA), US Gov Texas (UGT) , US Gov Virginia (UGV), Australia centrale (ACL), India occidentale (INW), Sudafrica settentrionale (SAN), Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), Germania settentrionale (GN), Germania centro-occidentale (GWC), Sudafrica occidentale (SAW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (nè), Norvegia occidentale (NWW), Svizzera settentrionale (SZN), Stati Uniti occidentali 2 (WUS 2)             |
+| Australia sud-orientale (ASE), Canada centrale (CNC), Stati Uniti centro-occidentali (WCUS), Stati Uniti occidentali 2 (WUS 2), India meridionale (INS), Stati Uniti centro-settentrionali (NCUS), Giappone orientale (JPE), Brasile meridionale (BRS), Sud Asia orientale (mare)                                                     |Australia orientale (AE), Canada orientale (CE), Asia orientale (EA), Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Giappone occidentale (JPW), India centrale (INC), Corea centrale (KRC), Corea meridionale (KRS), Europa settentrionale (NE), Stati Uniti centro-meridionali (SCUS), Regno Unito meridionale (UKS), Regno Unito occidentale (UKW), Europa occidentale (Microsoft), Stati Uniti occidentali (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), Australia centrale (ACL) , India occidentale (INW), Sudafrica settentrionale (SAN), Emirati Arabi Uniti settentrionali (UAN), Francia centrale (FRC), Germania settentrionale (GN), Germania centro-occidentale (GWC), Sudafrica occidentale (SAW), Emirati Arabi Uniti centrali (UAC), Norvegia orientale (nè), Norvegia occidentale (NWW), Svizzera settentrionale (SZN), Stati Uniti centrali (CUS)           |
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
 | Dettagli dell'account di archiviazione | Supporto                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo di account            | Backup di Azure supporta le condivisioni file di Azure negli account di archiviazione per utilizzo generico V1 e per utilizzo generico V2 |
+| Tipo di account            | Backup di Azure supporta le condivisioni file di Azure presenti negli account di archiviazione per utilizzo generico V1, per utilizzo generico V2 e tipo di condivisione file |
 | Prestazioni              | Backup di Azure supporta le condivisioni file negli account di archiviazione standard e Premium |
 | Replica              | Sono supportate le condivisioni file di Azure negli account di archiviazione con qualsiasi tipo di replica |
 

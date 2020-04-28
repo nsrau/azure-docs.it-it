@@ -1,16 +1,16 @@
 ---
-title: Configurare l'ambiente di sviluppo in macOSSet up your dev environment on macOS
-description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Dopo aver completato questa configurazione, sarai pronto per creare applicazioni su macOS.
+title: Configurare l'ambiente di sviluppo in macOS
+description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine dell'installazione, sarà possibile creare applicazioni in macOS.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308992"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193395"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     
     >[!NOTE]
     >
-    >La modifica del daemon direttamente in Docker è consigliata perché il percorso del file daemon.json può variare da computer a computer. ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >È consigliabile modificare il daemon direttamente in Docker perché il percorso del file daemon. JSON può variare da computer a computer. ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -76,7 +76,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >Ad esempio, se si aggiunge `RUN apt-get install nodejs -y` sarà possibile supportare le applicazioni `nodejs` come eseguibili guest.
     
     >[!TIP]
-    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per particolari revisioni, si prega di visitare la pagina [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina dell' [Hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Per creare un'immagine riutilizzabile da `Dockerfile` aprire un terminale e `cd` alla directory che contiene `Dockerfile` e quindi eseguire:
 
@@ -101,7 +101,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. L'avvio del cluster richiederà qualche minuto. Quando è in esecuzione, è possibile visualizzare i log utilizzando il comando [http://localhost:19080](http://localhost:19080)seguente o passare al dashboard per visualizzare l'integrità dei cluster:
+5. L'avvio del cluster richiederà qualche minuto. Quando è in esecuzione, è possibile visualizzare i log usando il comando seguente o passare al dashboard per visualizzare l'integrità del cluster `http://localhost:19080`:
 
     ```bash 
     docker logs sftestcluster
@@ -166,7 +166,7 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     ```
 
     > [!IMPORTANT]
-    > Le versioni `brew cask install java` correnti di possono installare una versione più recente di JDK.
+    > Le versioni correnti `brew cask install java` di possono installare una versione più recente del JDK.
     > Assicurarsi di installare JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 10d81de48c0d8f56c7c3fd26e3fd82a8c3df84c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474680"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188808"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Ridimensionare in modo elastico un account di API Cassandra Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Se è necessario ridurre al minimo la latenza, esiste una gamma di opzioni per l
 * [Manualmente usando il portale di Azure](#use-azure-portal)
 * [A livello di codice tramite le funzionalità del piano di controllo](#use-control-plane)
 * [A livello di codice usando i comandi CQL con un SDK specifico](#use-cql-queries)
-* [In modo dinamico tramite Autopilot](#use-autopilot)
+* [Con scalabilità automatica in modo dinamico](#use-autoscale)
 
 Le sezioni seguenti illustrano i vantaggi e gli svantaggi di ogni approccio. È quindi possibile scegliere la strategia migliore per bilanciare le esigenze di scalabilità del sistema, il costo complessivo e le esigenze di efficienza per la soluzione.
 
@@ -50,19 +50,19 @@ L'API Azure Cosmos DB per Cassandra consente di regolare la velocità effettiva 
 
 Il vantaggio di questo metodo è che è possibile automatizzare la scalabilità verso l'alto o verso il basso delle risorse in base a un timer per tenere conto di picchi di attività o periodi di bassa attività. Per ottenere questo risultato, vedere [questo esempio con funzioni di Azure](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) e PowerShell.
 
-Uno svantaggio di questo approccio può essere dovuto al fatto che non è possibile rispondere a esigenze di scalabilità mutevoli non prevedibili in tempo reale. Al contrario, potrebbe essere necessario sfruttare il contesto dell'applicazione nel sistema, a livello di client/SDK o utilizzando [Autopilot](provision-throughput-autopilot.md).
+Uno svantaggio di questo approccio può essere dovuto al fatto che non è possibile rispondere a esigenze di scalabilità mutevoli non prevedibili in tempo reale. Al contrario, potrebbe essere necessario sfruttare il contesto dell'applicazione nel sistema, a livello di client/SDK o usando la [scalabilità](provision-throughput-autoscale.md)automatica.
 
 ## <a name="use-cql-queries-with-a-specific-sdk"></a><a id="use-cql-queries"></a>Usare query CQL con un SDK specifico
 
 È possibile ridimensionare il sistema in modo dinamico con il codice eseguendo i [comandi ALTER di CQL](cassandra-support.md#keyspace-and-table-options) per il database o il contenitore specificato.
 
-Il vantaggio di questo approccio è che consente di rispondere in modo dinamico alle esigenze di scalabilità e in modo personalizzato per l'applicazione. Con questo approccio è comunque possibile sfruttare i costi e le tariffe standard di Ur/s. Se le esigenze di scalabilità del sistema sono prevedibili (circa il 70% o più), l'uso dell'SDK con CQL può essere un metodo più conveniente per la scalabilità automatica rispetto all'uso di Autopilot. Lo svantaggio di questo approccio è che può essere piuttosto complesso implementare nuovi tentativi mentre la limitazione della frequenza può aumentare la latenza.
+Il vantaggio di questo approccio è che consente di rispondere in modo dinamico alle esigenze di scalabilità e in modo personalizzato per l'applicazione. Con questo approccio è comunque possibile sfruttare i costi e le tariffe standard di Ur/s. Se le esigenze di scalabilità del sistema sono prevedibili (circa il 70% o più), l'uso dell'SDK con CQL può essere un metodo più conveniente per la scalabilità automatica rispetto all'uso della scalabilità automatica. Lo svantaggio di questo approccio è che può essere piuttosto complesso implementare nuovi tentativi mentre la limitazione della frequenza può aumentare la latenza.
 
-## <a name="use-autopilot"></a><a id="use-autopilot"></a>Usare Autopilot
+## <a name="use-autoscale"></a><a id="use-autoscale"></a>Usare la scalabilità automatica
 
-Oltre al modo manuale o programmatico di provisioning della velocità effettiva, è anche possibile configurare i contenitori di Azure Cosmos in modalità Autopilot. La modalità Autopilot verrà ridimensionata automaticamente e immediatamente in base alle esigenze di consumo entro gli intervalli di ur specificati senza compromettere i contratti di contratto. Per altre informazioni, vedere l'articolo [creare contenitori e database di Azure Cosmos in modalità Autopilot](provision-throughput-autopilot.md) .
+Oltre al modo manuale o programmatico di provisioning della velocità effettiva, è anche possibile configurare i contenitori di Azure Cosmos in modalità di scalabilità automatica. La modalità di ridimensionamento automatico si adatta automaticamente alle esigenze di consumo entro gli intervalli di ur specificati senza compromettere i contratti di contratto. Per altre informazioni, vedere l'articolo [creare contenitori e database di Azure Cosmos in modalità di scalabilità](provision-throughput-autoscale.md) automatica.
 
-Il vantaggio di questo approccio è che è il modo più semplice per gestire le esigenze di scalabilità nel sistema. Garantisce di non applicare **la limitazione della frequenza negli intervalli di ur configurati**. Lo svantaggio è che, se le esigenze di ridimensionamento nel sistema sono prevedibili, Autopilot può essere un modo meno economico per gestire le esigenze di scalabilità rispetto all'uso del piano di controllo o degli approcci a livello di SDK indicati in precedenza.
+Il vantaggio di questo approccio è che è il modo più semplice per gestire le esigenze di scalabilità nel sistema. Garantisce di non applicare **la limitazione della frequenza negli intervalli di ur configurati**. Lo svantaggio è che, se le esigenze di ridimensionamento nel sistema sono prevedibili, la scalabilità automatica può essere un modo meno conveniente per gestire le esigenze di scalabilità rispetto all'uso del piano di controllo o degli approcci a livello di SDK indicati in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

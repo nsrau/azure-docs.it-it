@@ -1,6 +1,6 @@
 ---
-title: Rimozione di account dalla cache dei token alla disconnessione - Piattaforma di identità Microsoft . Azure
-description: Informazioni su come rimuovere un account dalla cache dei token alla disconnessione
+title: 'Rimuovere gli account dalla cache dei token alla disconnessione: piattaforma di identità Microsoft | Azure'
+description: Informazioni su come rimuovere un account dalla cache dei token durante la disconnessione
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,66 +11,38 @@ ms.workload: identity
 ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 934b756329065c466f21fca1480247065bdea28b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e138b3513b42dda47b0a114d866d657e18e3e393
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881613"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181648"
 ---
-# <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Un'app Web che chiama le API Web: rimuovere gli account dalla cache dei token nella disconnessione globale
+# <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Un'app Web che chiama le API Web: rimuovere gli account dalla cache dei token per la disconnessione globale
 
-Si è appreso come aggiungere l'accesso all'app Web [nell'app Web che consente di accedere agli utenti: Accesso e disconnessione.](scenario-web-app-sign-user-sign-in.md)
+Si è appreso come aggiungere l'accesso all'app Web nell'app Web per l'accesso [degli utenti: accesso e disconnessione](scenario-web-app-sign-user-sign-in.md).
 
-La disconnessione è diversa per un'app Web che chiama api Web. Quando l'utente si disconnette dall'applicazione o da qualsiasi applicazione, è necessario rimuovere i token associati a tale utente dalla cache dei token.
+La disconnessione è diversa per un'app Web che chiama le API Web. Quando l'utente si disconnette dall'applicazione o da qualsiasi applicazione, è necessario rimuovere i token associati a tale utente dalla cache dei token.
 
-## <a name="intercept-the-callback-after-single-sign-out"></a>Intercettare il callback dopo la disconnessione singola
+## <a name="intercept-the-callback-after-single-sign-out"></a>Intercettare il callback dopo Single Sign-out
 
-Per cancellare la voce della cache dei token associata all'account che si è disconnesso, l'applicazione può intercettare l'evento after. `logout` Le app Web archiviano i token di accesso per ogni utente in una cache dei token. Intercettando il `logout` callback after, l'applicazione Web può rimuovere l'utente dalla cache.
+Per cancellare la voce della cache dei token associata all'account che ha effettuato la disconnessione, l'applicazione può `logout` intercettare l'evento After. Le app Web archiviano i token di accesso per ogni utente in una cache dei token. Intercettando il callback after `logout` , l'applicazione Web può rimuovere l'utente dalla cache.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Per ASP.NET Core, il meccanismo di `AddMsal()` intercettazione è illustrato nel metodo di [WebAppServiceCollectionExtensions.cs, L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157).
-
-L'URL di disconnessione registrato in precedenza per l'applicazione consente di implementare la disconnessione singola. L'endpoint `logout` della piattaforma di identità Microsoft chiama l'URL di disconnessione. Questa chiamata si verifica se la disconnessione è iniziata dall'app Web o da un'altra app Web o dal browser. Per ulteriori informazioni, vedere [Disconnessione singola](v2-protocols-oidc.md#single-sign-out).
-
-```csharp
-public static class WebAppServiceCollectionExtensions
-{
- public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")
- {
-  // Code omitted here
-
-  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-  {
-   // Code omitted here
-
-   // Handling the sign-out: Remove the account from MSAL.NET cache.
-   options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-   {
-    // Remove the account from MSAL.NET token cache.
-    var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-    await tokenAcquisition.RemoveAccountAsync(context).ConfigureAwait(false);
-   };
-  });
-  return services;
- }
-}
-```
-
-Il codice `RemoveAccountAsync` per è disponibile da [Microsoft.Identity.Web/TokenAcquisition.cs , L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
+Microsoft. Identity. Web si occupa dell'implementazione di disconnessione.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-L'esempio ASP.NET non rimuove gli account dalla cache durante la disconnessione globale.
+L'esempio ASP.NET non rimuove gli account dalla cache nella disconnessione globale.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nell'esempio Java non vengono rimossi gli account dalla cache durante la disconnessione globale.
+L'esempio Java non rimuove gli account dalla cache nella disconnessione globale.
 
 # <a name="python"></a>[Python](#tab/python)
 
-L'esempio Python non rimuove gli account dalla cache durante la disconnessione globale.
+L'esempio Python non rimuove gli account dalla cache nella disconnessione globale.
 
 ---
 

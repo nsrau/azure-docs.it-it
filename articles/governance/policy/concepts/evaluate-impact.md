@@ -1,16 +1,16 @@
 ---
-title: Valutare l'effetto di un nuovo criterio di Azure
+title: Valutare l'effetto di una nuova definizione di criteri di Azure
 description: Comprendere il processo da seguire quando si introduce una nuova definizione dei criteri nell'ambiente Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74463517"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187750"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Valutare l'effetto di un nuovo criterio di Azure
+# <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Valutare l'effetto di una nuova definizione di criteri di Azure
 
 Criteri di Azure è uno strumento potente per gestire le risorse di Azure in base agli standard aziendali e soddisfare le esigenze di conformità. Quando persone, processi o pipeline creano o aggiornano risorse, i criteri di Azure esaminano la richiesta. Quando l'effetto della definizione dei criteri è [Append](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), Policy modifica la richiesta o la aggiunge. Quando l'effetto della definizione dei criteri è [Audit](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), Policy causa la creazione di una voce del log attività. Quando l'effetto della definizione dei criteri è [Deny](./effects.md#deny), il criterio interrompe la creazione o l'alterazione della richiesta.
 

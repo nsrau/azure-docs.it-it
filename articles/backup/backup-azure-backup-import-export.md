@@ -4,12 +4,12 @@ description: Informazioni su come usare backup di Azure per inviare dati dalla r
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206759"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183892"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro di backup offline in backup di Azure
 
@@ -36,7 +36,7 @@ Le funzionalità o i carichi di lavoro di backup di Azure seguenti supportano l'
 > * Backup di file e cartelle con l'agente di Servizi di ripristino di Microsoft Azure (MARS), noto anche come agente di backup di Azure.
 > * Backup di tutti i carichi di lavoro e i file con System Center Data Protection Manager (DPM).
 > * Backup di tutti i carichi di lavoro e i file con Backup di Microsoft Azure server.
- 
+
    > [!NOTE]
    > Il backup offline non è supportato per i backup dello stato del sistema eseguiti con l'agente di backup di Azure.
 

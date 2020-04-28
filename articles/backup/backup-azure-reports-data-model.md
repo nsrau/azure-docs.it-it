@@ -3,12 +3,12 @@ title: Modello di dati per gli eventi di diagnostica di backup di Azure
 description: Questo modello di dati è in riferimento alla modalità specifica della risorsa di invio di eventi di diagnostica a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 267753ee1647739e36d92b64f50d8a8be87537d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0713db1cee9d6737ce69cb108f3cb8f81d1eb2ac
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77583385"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183569"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modello di dati per gli eventi di diagnostica di backup di Azure
 

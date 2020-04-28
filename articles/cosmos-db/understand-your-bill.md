@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5954c8eda370c0734985c47cfff6d073f5d76d17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258023"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186323"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -200,7 +200,7 @@ La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calco
 || |**Costo mensile totale**  | |**$38.688**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Esempi di fatturazione con account di livello gratuito
-Con Azure Cosmos DB livello gratuito, otterrai le prime 400 ur/sec e 5 GB di spazio di archiviazione nell'account gratuitamente, applicato a livello di account. Tutte le UR/s e le archiviazioni oltre 400 ur/sec e 5 GB saranno fatturate in base alle normali tariffe tariffarie per la pagina dei prezzi. Nella fattura non verrà visualizzato alcun addebito o una voce per le unità di 400 ur/sec gratuite e 5 GB, ma solo per le UR/sec e per le risorse di archiviazione superiori a quelle previste per il livello gratuito. 400 ur/sec si applica a qualsiasi tipo di velocità effettiva con provisioning di Ur/s, Autopilot (anteprima) e multimaster.  
+Con Azure Cosmos DB livello gratuito, otterrai le prime 400 ur/sec e 5 GB di spazio di archiviazione nell'account gratuitamente, applicato a livello di account. Tutte le UR/s e le archiviazioni oltre 400 ur/sec e 5 GB saranno fatturate in base alle normali tariffe tariffarie per la pagina dei prezzi. Nella fattura non verrà visualizzato alcun addebito o una voce per le unità di 400 ur/sec gratuite e 5 GB, ma solo per le UR/sec e per le risorse di archiviazione superiori a quelle previste per il livello gratuito. 400 ur/sec si applica a qualsiasi tipo di velocità effettiva con provisioning di Ur/s, scalabilità automatica e multimaster.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Esempio di fatturazione-contenitore o database con velocità effettiva con provisioning
 - Si supponga di creare un database o un contenitore in un account di livello gratuito con 400 ur/s e 5 GB di spazio di archiviazione.
@@ -208,8 +208,8 @@ Con Azure Cosmos DB livello gratuito, otterrai le prime 400 ur/sec e 5 GB di spa
 - Si supponga ora che nello stesso account venga aggiunto un altro database o contenitore con 1000 ur/sec e 10 GB di spazio di archiviazione.
 - Nella fattura verrà ora visualizzato un addebito per le UR/sec 1000 e 10 GB di spazio di archiviazione. 
 
-### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Esempio di fatturazione-contenitore o database con velocità effettiva di Autopilot (anteprima)
-- Si supponga che in un account di livello gratuito venga creato un database o un contenitore con Autopilot abilitato, con un numero massimo di Ur/s di 4000 ur/sec. Questa risorsa verrà ridimensionata automaticamente tra 400 ur/s-4000 ur/sec. 
+### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Esempio di fatturazione-contenitore o database con velocità effettiva di scalabilità automatica
+- Si supponga che in un account di livello gratuito venga creato un database o un contenitore con scalabilità automatica abilitata, con un numero massimo di Ur/s di 4000 ur/sec. Questa risorsa verrà ridimensionata automaticamente tra 400 ur/s-4000 ur/sec. 
 - Si supponga che, tra l'ora 1 e l'ora 10, la risorsa sia almeno di 400 ur/sec. Durante l'ora 11 la risorsa è scalabile fino a 1000 ur/sec e quindi viene sottoposta a 400 ur/sec entro l'ora.
 - In ore da 1 a 10 verrà addebitato il costo $0 per la velocità effettiva, perché le 400 ur/s sono state coperte dal livello gratuito. 
 - Nell'ora 11 viene addebitata una tariffa valida di 1000 ur/s-400 ur/s = 600 ur/sec, in quanto si tratta delle UR/sec più alte nell'ora. Si tratta di 6 unità di 100 ur/sec per l'ora, quindi il costo totale della velocità effettiva per l'ora sarà 6 unità * $0,012 = $0,072. 

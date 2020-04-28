@@ -1,5 +1,5 @@
 ---
-title: Usare Criteri di Azure per limitare l'installazione dell'estensione della macchina virtualeUse Azure Policy to restrict VM extension installation
+title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86429c90f436007116a45c6dbab443d6cc889e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073102"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188553"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
 
-Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Windows, è possibile creare criteri di Azure tramite PowerShell per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
+Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Windows, è possibile creare una definizione di criteri di Azure usando PowerShell per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
 
 Questa esercitazione usa Azure PowerShell all'interno di Cloud Shell, che viene costantemente aggiornato alla versione più recente. 
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testare i criteri
 
-Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il codice seguente dovrebbe avere esito negativo con il messaggio "Set-AzVMAccessExtension: Resource 'myVMAccess' non consentito dai criteri."
+Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il codice seguente dovrebbe avere esito negativo con il messaggio "set-AzVMAccessExtension: la risorsa ' myVMAccess ' non è consentita dai criteri".
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
