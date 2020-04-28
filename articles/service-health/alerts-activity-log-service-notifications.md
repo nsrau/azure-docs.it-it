@@ -4,10 +4,10 @@ description: Ricevere le notifiche tramite SMS, posta elettronica o webhook nel 
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749315"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
@@ -15,7 +15,7 @@ ms.locfileid: "75749315"
 
 Questo articolo descrive come impostare gli avvisi del log attività per le notifiche sull'integrità del servizio usando il portale di Azure.  
 
-Le notifiche sull'integrità dei servizi vengono archiviate nel [log attività](../azure-monitor/platform/platform-logs-overview.md) di Azure Dato il volume possibilmente elevato di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata per semplificare la visualizzazione e la configurazione degli avvisi per le notifiche di integrità del servizio. 
+Le notifiche sull'integrità del servizio vengono archiviate nel [log attività di Azure](../azure-monitor/platform/platform-logs-overview.md) , dato il notevole volume di informazioni archiviate nel log attività, è disponibile un'interfaccia utente separata per semplificare la visualizzazione e la configurazione degli avvisi per le notifiche sull'integrità del servizio. 
 
 È possibile ricevere un avviso quando Azure invia le notifiche sull'integrità del servizio alla sottoscrizione di Azure. È possibile configurare l'avviso in base a:
 
@@ -32,11 +32,11 @@ Le notifiche sull'integrità dei servizi vengono archiviate nel [log attività](
 - Selezionare un gruppo di azione esistente.
 - Creare un nuovo gruppo di azione che può essere usato per avvisi futuri.
 
-Per ulteriori informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi](../azure-monitor/platform/action-groups.md)di azioni .
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md).
 
 Per informazioni su come configurare gli avvisi di notifica sull'integrità del servizio usando i modelli Azure Resource Manager, vedere [Modelli di Resource Manager](../azure-monitor/platform/alerts-activity-log.md).
 
-### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Guardare un video sulla configurazione del primo avviso di integrità del servizio di Azure
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Guarda un video sulla configurazione del primo avviso di integrità dei servizi di Azure
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
@@ -72,7 +72,7 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
 
 1. Definire un elenco di ricevitori specificando i dati seguenti relativi al ricevitore:
 
-    a. **Nome**: Immettere il nome, l'alias o l'identificatore del destinatario.
+    a. **Nome**: immettere il nome, l'alias o l'identificatore del ricevitore.
 
     b. **Tipo di azione**: selezionare SMS, posta elettronica, webhook, app di Azure e altro.
 
@@ -90,7 +90,7 @@ Informazioni su come [configurare le notifiche di webhook per i sistemi di gesti
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avviso con un gruppo di azioni esistente usando il portale di Azure
 
-1. Seguire i passaggi da 1 a 6 della sezione precedente per creare la notifica di integrità del servizio. 
+1. Per creare la notifica sull'integrità del servizio, seguire i passaggi da 1 a 6 della sezione precedente. 
 
 1. In **Definire il gruppo di azioni** fare clic sul pulsante **Seleziona gruppo di azioni**. Selezionare il gruppo di azioni appropriato.
 
@@ -197,11 +197,11 @@ Dopo la creazione, l'avviso sarà visibile nella sezione **Avvisi** di **Monitor
 * Disabilitarlo o abilitarlo per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sulle [procedure consigliate per la configurazione](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa)degli avvisi di integrità dei servizi di Azure .
-- Informazioni su come [configurare le notifiche push per dispositivi mobili per Integrità dei](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)servizi di Azure.
-- Informazioni su come [configurare le notifiche webhook per](service-health-alert-webhook-guide.md)i sistemi di gestione dei problemi esistenti.
-- Informazioni sulle notifiche di integrità del [servizio](service-notifications.md).
-- Ulteriori informazioni sulla [limitazione della frequenza di notifica](../azure-monitor/platform/alerts-rate-limiting.md).
-- Esaminare lo schema webhook degli avvisi del [log attività.](../azure-monitor/platform/activity-log-alerts-webhook.md)
+- Informazioni sulle [procedure consigliate per la configurazione degli avvisi di integrità dei servizi di Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Informazioni su come [configurare le notifiche push per dispositivi mobili per l'integrità dei servizi di Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
+- Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
+- Informazioni sulle [notifiche sull'integrità del servizio](service-notifications.md).
+- Informazioni sulla [limitazione della frequenza delle notifiche](../azure-monitor/platform/alerts-rate-limiting.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leggere una [panoramica degli avvisi del log attività](../azure-monitor/platform/alerts-overview.md) e informazioni su come ricevere gli avvisi.
-- Ulteriori informazioni sui [gruppi di azioni](../azure-monitor/platform/action-groups.md).
+- Altre informazioni sui [gruppi di azioni](../azure-monitor/platform/action-groups.md).

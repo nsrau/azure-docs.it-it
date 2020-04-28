@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: e493b07814821496f941a4b81402ba0b49acbede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248827"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165689"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
 
@@ -129,7 +129,7 @@ Per informazioni su come modificare la modalità di controllo di accesso nel por
 
 Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di clienti che inviano terabyte di dati ogni mese a un ritmo crescente. La soglia della frequenza di inserimento predefinita è impostata su **6 GB/min** per area di lavoro. Si tratta di un valore approssimativo, poiché la dimensione effettiva può variare tra i tipi di dati a seconda della lunghezza del log e del relativo rapporto di compressione. Questo limite non si applica ai dati inviati dagli agenti o dall' [API dell'agente di raccolta dati](data-collector-api.md).
 
-Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro aprendo una richiesta di supporto.
+Se si inviano dati a una velocità superiore a una singola area di lavoro, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore mentre la soglia continua a essere superata. Se il volume di inserimento continua a superare il limite di velocità o se si prevede di raggiungerlo presto, è possibile richiedere un aumento dell'area di lavoro inviando un LAIngestionRate@microsoft.com messaggio di posta elettronica o aprendo una richiesta di supporto.
  
 Per ricevere una notifica su tale evento nell'area di lavoro, creare una [regola di avviso di log](alerts-log.md) usando la query seguente con la logica di avviso base su numero di risultati maggiore di zero.
 

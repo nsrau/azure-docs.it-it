@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789274"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando App per la logica di Azure
 
 > [!IMPORTANT]
-> Utilizzare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) poiché il connettore SFTP è deprecato. Non è più possibile selezionare trigger e azioni SFTP in Progettazione app per la logica.
+> Usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) perché il connettore SFTP è deprecato. Non è più possibile selezionare trigger e azioni SFTP nella finestra di progettazione dell'app per la logica.
 
 Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile. Ecco alcuni esempi di attività che è possibile automatizzare:
 
@@ -31,7 +31,7 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 
 ## <a name="limits"></a>Limiti
 
-Il connettore SFTP gestisce solo i file di dimensioni pari o inferiori a *50 MB* e che non supporta la [suddivisione in blocchi dei](../logic-apps/logic-apps-handle-large-messages.md)messaggi. Per file di dimensioni maggiori, utilizzare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md). Per le differenze tra il connettore SFTP e il connettore SFTP-SSH, vedere [Compare SFTP-SSH versu sFTP](../connectors/connectors-sftp-ssh.md#comparison) nell'articolo SFTP-SSH.
+Il connettore SFTP gestisce solo i file di *50 MB o inferiori* e non supporta la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Per i file di dimensioni maggiori, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md). Per le differenze tra il connettore SFTP e il connettore SFTP-SSH, vedere [confrontare SFTP-SSH rispetto a SFTP](../connectors/connectors-sftp-ssh.md#comparison) nell'articolo SFTP-SSH.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,18 +47,18 @@ Il connettore SFTP gestisce solo i file di dimensioni pari o inferiori a *50 MB*
   > Se si usa una chiave privata SSH, assicurarsi di ***copiare*** la chiave dal file della chiave privata SSH e ***incollare*** tale chiave nelle informazioni per la connessione. ***Non immettere o modificare la chiave manualmente***, in quanto ciò può causare un errore di connessione. 
   > Per altre informazioni, vedere i passaggi successivi in questo articolo.
 
-* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger di SFTP, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di SFTP, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
-## <a name="how-sftp-triggers-work"></a>Funzionamento dei trigger SFTP
+## <a name="how-sftp-triggers-work"></a>Come funzionano i trigger SFTP
 
-I trigger SFTP funzionano eseguendo il polling del file system SFTP e cercando qualsiasi file modificato dopo l'ultimo sondaggio. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
+I trigger SFTP funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
 | Client SFTP | Azione |
 |-------------|--------|
-| Winscp | Vai a **Opzioni** > **Preferenze** > **Trasferisci** > **Modifica** > **Mantieni timestamp** > **Disabilita** |
-| FileZilla | Vai a **Trasferisci** > **Conserva timestamp dei file** > trasferiti**Disattiva** |
+| Winscp | Vai a **Opzioni** > **Preferenze** > **trasferimento** > **Edit**modifica > **Mantieni**timestamp > **Disabilita** |
+| FileZilla | Vai al **trasferimento** > **Mantieni i timestamp dei file** > trasferiti**Disabilita** |
 |||
 
 Quando un trigger rileva un nuovo file, controlla che sia completo e non parzialmente scritto. Ad esempio, un file potrebbe avere delle modifiche in corso nel momento in cui il trigger controlla il file server. Per evitare la restituzione di un file scritto parzialmente, il trigger prende nota del timestamp del file che contiene le modifiche recenti ma non restituisce immediatamente il file. Il trigger restituisce il file solo durante il nuovo polling del server. In alcuni casi, questo comportamento potrebbe causare un ritardo fino a un massimo del doppio dell'intervallo di polling del trigger.
@@ -75,7 +75,7 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "sftp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno**+** più ( ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
 1. Specificare le informazioni necessarie per la connessione.
 
@@ -88,11 +88,11 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
    1. Aprire il file della chiave privata SSH in un editor di testo. In questi passaggi viene usato il Blocco note come esempio.
 
-   1. Scegliere **Seleziona tutto**dal menu **Modifica** blocco note .
+   1. Scegliere **Seleziona tutto**dal menu **modifica** del blocco note.
 
-   1. Selezionare **Modifica** > **copia**.
+   1. Selezionare **modifica** > **copia**.
 
-   1. Nell'azione o trigger SFTP aggiunto incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe. ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare manualmente il tasto***.
+   1. Nell'azione o trigger SFTP aggiunto incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe. ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare manualmente la chiave***.
 
 1. Dopo avere immesso le informazioni per la connessione, scegliere **Crea**.
 

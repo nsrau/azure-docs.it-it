@@ -1,19 +1,19 @@
 ---
 title: ripristinare le macchine virtuali di Azure con l'API REST
-description: In questo articolo viene illustrato come gestire le operazioni di ripristino di Backup macchina virtuale di Azure usando l'API REST.
+description: Questo articolo illustra come gestire le operazioni di ripristino del backup delle macchine virtuali di Azure usando l'API REST.
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74173375"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
-Una volta completato il backup di una macchina virtuale di Azure con Backup di Azure, è possibile ripristinare intere macchine virtuali di Azure o dischi o file dalla stessa copia di backup. Questo articolo descrive come ripristinare una macchina virtuale di Azure oppure dischi tramite l'API REST.
+Una volta completato il backup di una macchina virtuale di Azure con backup di Azure, è possibile ripristinare intere macchine virtuali o dischi o file di Azure dalla stessa copia di backup. Questo articolo descrive come ripristinare una macchina virtuale di Azure oppure dischi tramite l'API REST.
 
 Per qualsiasi operazione di ripristino, è necessario identificare innanzitutto il punto di ripristino pertinente.
 
@@ -117,7 +117,7 @@ Il punto di ripristino viene identificato con il campo `{name}` nella risposta p
 
 ## <a name="restore-disks"></a>Ripristinare i dischi
 
-Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato.
+Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("VMConfig. JSON") verranno archiviati nell'account di archiviazione specificato.
 
 L'attivazione dei dischi di ripristino è una richiesta *POST*. Per altre informazioni sull'operazione di ripristino dei dischi, fare riferimento all'[API REST per attivare il ripristino](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 

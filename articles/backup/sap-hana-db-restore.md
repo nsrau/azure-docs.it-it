@@ -4,10 +4,10 @@ description: Questo articolo illustra come ripristinare SAP HANA database in ese
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: 999edba61177758ad9039e81e789efcef99ca1de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74287918"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
@@ -104,7 +104,7 @@ Prima di ripristinare un database, tenere presente quanto segue:
 > I ripristini di Database singolo container (DSC) devono seguire questi [controlli](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
 * Se applicabile, selezionare **Sovrascrivi se il database con lo stesso nome esiste già nell'istanza di Hana selezionata**.
-* Fare clic su **OK**.
+* Selezionare **OK**.
 
 ![Configurazione ripristino-schermata finale](media/sap-hana-db-restore/restore-configuration-last.png)
 

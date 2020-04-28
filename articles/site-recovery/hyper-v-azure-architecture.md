@@ -1,5 +1,5 @@
 ---
-title: Architettura di ripristino di emergenza Hyper-V in Azure Site Recovery
+title: Architettura del ripristino di emergenza Hyper-V in Azure Site Recovery
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante l'implementazione del ripristino di emergenza di macchine virtuali Hyper-V locali (senza VMM) in Azure con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082657"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
@@ -49,7 +49,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 **Server VMM** | Il server VMM ha uno o più cloud contenenti host Hyper-V. | È necessario installare il provider di Site Recovery nel server VMM per orchestrare la replica con Site Recovery e registrare il server nell'insieme di credenziali di Servizi di ripristino.
 **Host Hyper-V** | Uno o più host/cluster Hyper-V gestiti da VMM. |  L'agente di Servizi di ripristino viene installato in ogni host o nodo del cluster Hyper-V.
 **VM Hyper-V** | Una o più macchine virtuali in esecuzione in un server host Hyper-V. | Non è necessario installare esplicitamente alcun componente nelle macchine virtuali.
-**Rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
+**Funzionalità di rete** | Reti VM e logiche configurate nel server VMM. La rete delle macchine virtuali deve essere collegata a una rete logica associata al cloud. | Viene eseguito il mapping delle reti delle macchine virtuali alle reti virtuali di Azure. Quando le macchine virtuali di Azure vengono create dopo il failover, vengono aggiunte alla rete di Azure di cui è stato eseguito il mapping alla rete delle macchine virtuali.
 
 **Architettura della replica da Hyper-V ad Azure (con VMM)**
 
@@ -69,12 +69,12 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. È possibile monitorare il processo nella scheda **Processi.**      ![](media/hyper-v-azure-architecture/image1.png) Elenco ![Processi Abilita drill-down protezione](media/hyper-v-azure-architecture/image2.png)
+4. È possibile monitorare il processo nella scheda **processi** .      ![](media/hyper-v-azure-architecture/image1.png) Elenco ![processi Abilita il drill-down di protezione](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replica iniziale dei dati
 
-1. Quando viene attivata la replica iniziale, viene creato uno [snapshot della macchina virtuale Hyper-V.When](https://technet.microsoft.com/library/dd560637.aspx) initial replication is triggered, a Hyper-V VM snapshot is taken.
+1. Quando viene attivata la replica iniziale, viene eseguita una snapshot di [snapshot della macchina virtuale Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
 2. I dischi rigidi virtuali nella macchina virtuale vengono replicati uno per volta fino a quando non vengono copiati tutti in Azure. Questa operazione può richiedere tempo, a seconda delle dimensioni della macchina virtuale e della larghezza di banda di rete. [Informazioni](https://support.microsoft.com/kb/3056159) su come aumentare la larghezza di banda di rete.
 3. Se vengono apportate modifiche ai dischi mentre è in corso la replica iniziale, Hyper-V Replica Replication Tracker tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (HRL). Questi file di log si trovano nella stessa cartella dei dischi. A ogni disco è associato un file HRL, che viene inviato alla risorsa di archiviazione secondaria. Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale.
 4. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato.
@@ -113,7 +113,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 Se si verifica un errore di replica, per impostazione predefinita viene effettuato un nuovo tentativo. I nuovi tentativi sono classificati come indicato nella tabella.
 
-**Category** | **Dettagli**
+**Categoria** | **Dettagli**
 --- | ---
 **Errori irreversibili** | Non viene eseguito alcun nuovo tentativo. Lo stato della macchina virtuale sarà **Critico** e sarà necessario l'intervento di un amministratore.<br/><br/> Esempi di questi errori includono una catena di dischi rigidi virtuali interrotta, uno stato non valido per la macchina virtuale di replica, errori di autenticazione di rete, errori di autorizzazione ed errori di macchina virtuale non trovata (per i server Hyper-V autonomi).
 **Errori reversibili** | Vengono eseguiti nuovi tentativi durante ogni intervallo di replica usando un backoff esponenziale che permette di aumentare l'intervallo tra i tentativi dall'inizio del primo tentativo di 1, 2, 4, 8 e 10 minuti. Se l'errore persiste, viene eseguito un nuovo tentativo ogni 30 minuti. Alcuni esempi includono errori di rete, errori di spazio su disco insufficiente e condizioni di memoria insufficiente.
@@ -131,7 +131,7 @@ Quando l'infrastruttura locale è di nuovo operativa, è possibile eseguire il f
 
 1. Aviare un failover pianificato da Azure al sito primario:
     - **Ridurre al minimo il tempo di inattività**: se si usa questa opzione, Site Recovery sincronizza i dati prima del failover. Il servizio verifica la presenza di blocchi di dati modificati e li scarica nel sito locale, mentre la macchina virtuale di Azure resta in esecuzione, riducendo al minimo il tempo di inattività. Quando si specifica manualmente che è necessario completare il failover, la macchina virtuale di Azure viene arrestata, vengono copiate tutte le modifiche differenziali finali e viene avviato il failover.
-    - **Download completo**: Con questa opzione i dati vengono sincronizzati durante il failover. Questa opzione scarica l'intero disco. Questa opzione è più veloce, perché non viene calcolato alcun checksum, ma il tempo di inattività è maggiore. Usare questa opzione se le macchine virtuali di Azure di replica sono state eseguite per un certo tempo o se la macchina virtuale locale è stata eliminata.
+    - **Download completo**: con questa opzione i dati vengono sincronizzati durante il failover. Questa opzione scarica l'intero disco. Questa opzione è più veloce, perché non viene calcolato alcun checksum, ma il tempo di inattività è maggiore. Usare questa opzione se le macchine virtuali di Azure di replica sono state eseguite per un certo tempo o se la macchina virtuale locale è stata eliminata.
     - **Crea macchina virtuale**: è possibile scegliere di eseguire il failback nella stessa macchina virtuale o in una alternativa. È possibile specificare che Site Recovery deve creare la macchina virtuale, se non esiste già.
 
 2. Al termine della sincronizzazione iniziale, scegliere di completare il failover. Al termine, è possibile accedere alla macchina virtuale locale per verificare che funzioni tutto come previsto. Nel portale di Azure si noterà che le macchine virtuali di Azure sono state arrestate.

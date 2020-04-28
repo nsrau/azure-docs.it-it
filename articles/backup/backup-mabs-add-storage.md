@@ -4,10 +4,10 @@ description: Informazioni sulle nuove funzionalità del server di Backup di Azur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172370"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75396357"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
@@ -19,7 +19,7 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Individuare le impostazioni di scalabilità automatica nella sottoscrizione
 È possibile individuare tutte le risorse per le quali è applicabile la scalabilità automatica in Monitoraggio di Azure. Eseguire i passaggi descritti di seguito per una procedura guidata:
 
-1. Aprire il [portale di Azure.Open][1] the Azure portal.
+1. Aprire il [portale di Azure.][1]
 1. Fare clic sull'icona di Monitoraggio di Azure nel riquadro a sinistra.
   ![Aprire Monitoraggio di Azure][2]
 1. Fare clic su **Scalabilità automatica** per visualizzare tutte le risorse per cui è applicabile, nonché il relativo stato corrente di scalabilità automatica.
@@ -42,7 +42,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
   ![Impostazione di scalabilità per la nuova app Web][5]
 1. Specificare un nome per il set di scalabilità, quindi scegliere **Aggiungi una regola**. Si notino le opzioni per le regole di scalabilità visualizzate come riquadro contesto sul lato destro. Per impostazione predefinita viene applicata l'opzione per aumentare il numero di istanze di 1 se la percentuale CPU della risorsa supera il 70 per cento. Lasciare i valori predefiniti e fare clic su **Aggiungi**.
   ![Creare l'impostazione di scalabilità per un'app Web][6]
-1. È stata così creata la prima regola di scalabilità. Si noti che l'esperienza utente indica le procedure consigliate e che "È consigliabile includere almeno una regola di riduzione del numero di istanze". A tale scopo, procedere come indicato di seguito:
+1. È stata così creata la prima regola di scalabilità. Si noti che l'esperienza utente indica le procedure consigliate e che "È consigliabile includere almeno una regola di riduzione del numero di istanze". A tale scopo:
 
     a. Fare clic su **Aggiungi regola**.
 

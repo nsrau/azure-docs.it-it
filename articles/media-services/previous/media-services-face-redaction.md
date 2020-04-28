@@ -1,6 +1,6 @@
 ---
 title: Offuscare i volti con Analisi Servizi multimediali di Azure | Documentazione Microsoft
-description: Azure Media Redactor è un processore multimediale di Azure Media Analytics che offre una redazione facciale scalabile nel cloud. Questo articolo illustra come redigere i volti con l'analisi multimediale di Azure.This article demonstrates how to redact faces with Azure media analytics.
+description: Azure Media Redactor è un processore di contenuti multimediali Analisi Servizi multimediali di Azure che offre la scalabilità dei volti nel cloud. Questo articolo illustra come offuscare i visi con analisi servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74900307"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure 
 ## <a name="overview"></a>Panoramica
-**Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, consultate [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) Blog.
 
 Questo articolo contiene informazioni dettagliate su **Azure Media Redactor** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
@@ -145,9 +145,9 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Basso
+#### <a name="low"></a>Bassa
 
-![Basso](./media/media-services-face-redaction/blur1.png)
+![Bassa](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -191,7 +191,7 @@ Il programma seguente illustra come:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 
@@ -367,10 +367,10 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

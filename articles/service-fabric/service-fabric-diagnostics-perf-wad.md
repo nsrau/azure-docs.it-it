@@ -1,15 +1,15 @@
 ---
-title: Monitoraggio delle prestazioni con Diagnostica di Windows AzurePerformance monitoring with Windows Azure Diagnostics
+title: Monitoraggio delle prestazioni con Windows Diagnostica di Azure
 description: Usare Diagnostica di Microsoft Azure per raccogliere i contatori delle prestazioni per i cluster di Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609911"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoraggio delle prestazioni con l'estensione Diagnostica di Microsoft Azure
@@ -189,9 +189,9 @@ Di seguito è riportato un esempio di configurazione con il contatore *Tempo tot
     New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-1. Al termine della distribuzione dell'aggiornamento (da 15 a 45 minuti, a seconda che si tratti della prima distribuzione o meno e in base alle dimensioni del gruppo di risorse), Diagnostica di Microsoft Azure raccoglierà i contatori delle prestazioni e li invierà a una tabella denominata WADPerformanceCountersTable nell'account di archiviazione associato al cluster. Vedere i contatori delle prestazioni in Application Insights [aggiungendo il sink di aI al modello Resource Manager.](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)
+1. Al termine della distribuzione dell'aggiornamento (da 15 a 45 minuti, a seconda che si tratti della prima distribuzione o meno e in base alle dimensioni del gruppo di risorse), Diagnostica di Microsoft Azure raccoglierà i contatori delle prestazioni e li invierà a una tabella denominata WADPerformanceCountersTable nell'account di archiviazione associato al cluster. Per visualizzare i contatori delle prestazioni in Application Insights, [aggiungere il sink ai al modello di gestione risorse](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Raccogliere altri contatori delle prestazioni per il cluster. Vedere [Metriche delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) per un elenco di contatori da raccogliere.
 * [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) per apportare altre modifiche a `WadCfg`, inclusa la configurazione di account di archiviazione aggiuntivi a cui inviare i dati di diagnostica.
-* Visita il [costruttore WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) per creare un modello da zero e assicurarti che la tua sintassi sia corretta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) per creare un modello da zero e assicurarsi che la sintassi sia corretta.
+* Visitare il [Generatore di WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) per creare un modello da zero e verificare che la sintassi sia corretta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) per compilare un modello da zero e assicurarsi che la sintassi sia corretta.

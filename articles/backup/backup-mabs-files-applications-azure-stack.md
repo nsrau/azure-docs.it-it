@@ -1,13 +1,13 @@
 ---
-title: Eseguire il backup dei file nelle macchine virtuali di Azure StackBack up files in Azure Stack VMs
+title: Eseguire il backup di file in Azure Stack macchine virtuali
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172326"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
@@ -123,7 +123,7 @@ Se si usa Modern Backup Storage (MBS), il recupero dati del file server gestito 
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>Visualizzare il server di Backup di Azure con un insieme di credenziali
 
-Per visualizzare le entità del server di Backup di Azure nel portale di Azure, è possibile eseguire la procedura seguente:To view Azure Backup Server entities in the Azure portal, you can follow the following steps:
+Per visualizzare server di Backup di Azure entità nell'portale di Azure, attenersi alla procedura seguente:
 
 1. Aprire l'insieme di credenziali dei Servizi di ripristino.
 2. Fare clic su Infrastruttura di backup.

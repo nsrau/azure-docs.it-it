@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75364306"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
@@ -91,12 +91,12 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 | Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
 | Impostazione | posizione | Posizione dell'impostazione di scalabilità automatica. Questa posizione può essere diversa dalla posizione della risorsa da ridimensionare. |
 | properties | targetResourceUri | ID della risorsa da ridimensionare. È consentita una sola impostazione di scalabilità automatica per risorsa. |
-| properties | Profili | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
-| Profilo | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
-| Profilo | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
-| Profilo | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
-| Profilo | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU di "vmss1") e la capacità corrente è inferiore a quella predefinita, la funzionalità di scalabilità automatica aumenta la capacità fino all'impostazione predefinita. Questo avviene per garantire la disponibilità della risorsa. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non riduce la capacità. |
-| Profilo | regole | La funzionalità di scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massima e minima usando le regole del profilo. È possibile avere più regole in un profilo. In genere esistono due regole, una per determinare quando aumentare la capacità e l'altra per determinare quando ridurla. |
+| properties | profiles | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
+| profile | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
+| profile | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
+| profile | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
+| profile | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU di "vmss1") e la capacità corrente è inferiore a quella predefinita, la funzionalità di scalabilità automatica aumenta la capacità fino all'impostazione predefinita. Questo avviene per garantire la disponibilità della risorsa. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non riduce la capacità. |
+| profile | regole | La funzionalità di scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massima e minima usando le regole del profilo. È possibile avere più regole in un profilo. In genere esistono due regole, una per determinare quando aumentare la capacità e l'altra per determinare quando ridurla. |
 | regola | metricTrigger | Definisce la condizione metrica della regola. |
 | metricTrigger | metricName | Nome della metrica. |
 | metricTrigger |  metricResourceUri | ID della risorsa che emette la metrica. Nella maggior parte dei casi, è lo stesso della risorsa da ridimensionare. In alcuni casi, può essere diversa. Ad esempio, è possibile ridimensionare un set di scalabilità di macchine virtuali in base al numero di messaggi in una coda di archiviazione. |

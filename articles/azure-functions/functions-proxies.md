@@ -1,15 +1,15 @@
 ---
-title: Usare i proxy in Funzioni di AzureWork with proxyxies in Azure Functions
+title: Usare i proxy in funzioni di Azure
 description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74849191"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
@@ -21,7 +21,7 @@ Questo articolo illustra come configurare e usare i proxy in Funzioni di Azure. 
 > [!NOTE] 
 > Si applicano le tariffe standard per Funzioni quando vengono eseguiti i proxy. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="create-a-proxy"></a><a name="create"></a>Creare un proxy
+## <a name="create-a-proxy"></a><a name="create"></a>Creazione di un proxy
 
 In questa sezione viene descritto come creare un proxy nel portale Funzioni.
 
@@ -61,7 +61,7 @@ La configurazione di un proxy non deve essere statica. È possibile condizionarl
 
  
 >[!Note]  
->Se la funzione usa il livello di autorizzazione *function, admin o sys*, sarà necessario specificare il codice e il clientId in base all'URL della funzione originale. In questo caso il riferimento `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` sarà simile: si consiglia di archiviare queste chiavi nelle [impostazioni dell'applicazione] e di fare riferimento a quelle nei proxy. In questo modo si evita l'archiviazione di segreti nel codice sorgente. 
+>Se la funzione usa il livello di autorizzazione *function, admin o sys*, sarà necessario specificare il codice e il clientId in base all'URL della funzione originale. In questo caso il riferimento avrà un aspetto simile `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` al seguente: è consigliabile archiviare queste chiavi nelle [impostazioni dell'applicazione] e fare riferimento a quelle presenti nei proxy. In questo modo si evita di archiviare i segreti nel codice sorgente. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parametri di riferimento della richiesta
 
@@ -76,8 +76,8 @@ Ad esempio, se un proxy ha un modello di route come `/pets/{petId}`, l'URL di ba
 Oltre ai parametri del modello di route, i valori seguenti possono essere usati nei valori di configurazione:
 
 * **{request.method}**: il metodo HTTP usato nella richiesta originale.
-* **{request.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla richiesta originale. Sostituire * \<HeaderName\> * con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
-* **{request.querystring.\<ParameterName\>}**: un parametro di stringa di query che può essere letto dalla richiesta originale. Sostituire * \<NomeParametro\> * con il nome del parametro che si desidera leggere. Se il parametro non è incluso nella richiesta, il valore sarà una stringa vuota.
+* **{request.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla richiesta originale. Sostituire * \<headerName\> * con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
+* **{request.querystring.\<ParameterName\>}**: un parametro di stringa di query che può essere letto dalla richiesta originale. Sostituire * \<ParameterName\> * con il nome del parametro che si desidera leggere. Se il parametro non è incluso nella richiesta, il valore sarà una stringa vuota.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Parametri di riferimento della risposta dal back-end
 
@@ -85,13 +85,13 @@ I parametri di risposta possono essere usati come parte della modifica della ris
 
 * **{backend.response.statusCode}**: il codice di stato HTTP restituito nella risposta dal back-end.
 * **{backend.response.statusReason}**: la frase per il motivo HTTP restituita nella risposta dal back-end.
-* **{backend.response.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla risposta dal back-end. Sostituire * \<HeaderName\> * con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella risposta, il valore sarà una stringa vuota.
+* **{backend.response.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla risposta dal back-end. Sostituire * \<headerName\> * con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella risposta, il valore sarà una stringa vuota.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Impostazioni di riferimento dell'applicazione
 
 È anche possibile fare riferimento alle [impostazioni dell'applicazione definite per l'app per le funzioni](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) racchiudendo il nome dell'impostazione tra i segni di percentuale (%).
 
-Ad esempio, un URL *https://%ORDER_PROCESSING_HOST%/api/orders* back-end di avrebbe "%ORDER_PROCESSING_HOST%" sostituito con il valore dell'impostazione ORDER_PROCESSING_HOST.
+Un URL back-end di *https://%ORDER_PROCESSING_HOST%/api/orders* , ad esempio, avrebbe sostituito "% ORDER_PROCESSING_HOST%" con il valore dell'impostazione ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Usare le impostazioni dell'applicazione per gli host di back-end quando si dispone di più distribuzioni o ambienti di test. In questo modo, è possibile assicurarsi di comunicare sempre con il back-end corretto per quell'ambiente.
@@ -184,8 +184,8 @@ I proxy leggono tutte le stringhe all'esterno di un file JSON, utilizzando \ com
 L'oggetto requestOverrides definisce le modifiche apportate alla richiesta quando viene chiamata la risorsa back-end. L'oggetto viene definito dalle proprietà seguenti:
 
 * **backend.request.method**: il metodo HTTP usato per chiamare il back-end.
-* **backend.request.querystring.\<ParameterName\>**: un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire * \<NomeParametro\> * con il nome del parametro che si desidera impostare. Si noti che se viene fornita la stringa vuota, il parametro è ancora incluso nella richiesta back-end.
-* **backend.request.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire * \<HeaderName\> * con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.querystring.\<ParameterName\>**: un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire * \<ParameterName\> * con il nome del parametro che si desidera impostare. Si noti che se viene specificata una stringa vuota, il parametro è ancora incluso nella richiesta back-end.
+* **backend.request.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire * \<headerName\> * con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione e ai parametri della richiesta del client originale.
 
@@ -217,7 +217,7 @@ L'oggetto responseOverrides definisce le modifiche apportate alla risposta passa
 * **response.statusCode**: il codice di stato HTTP da restituire al client.
 * **response.statusReason**: la frase del motivo HTTP da restituire al client.
 * **response.body**: la rappresentazione di stringa del corpo da restituire al client.
-* **response.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la risposta al client. Sostituire * \<HeaderName\> * con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, l'intestazione non viene inclusa nella richiesta al back-end.
+* **response.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la risposta al client. Sostituire * \<headerName\> * con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, l'intestazione non viene inclusa nella richiesta al back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione, ai parametri della richiesta del client originale e ai paramenti della risposta back-end.
 
@@ -243,13 +243,13 @@ Un esempio di configurazione apparirà come segue:
 > [!NOTE] 
 > In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Trigger HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
-[Definire un oggetto requestOverridesDefine a requestOverrides object]: #requestOverrides
-[Definire un oggetto responseOverridesDefine a responseOverrides object]: #responseOverrides
-[impostazioni dell'applicazione]: #use-appsettings
+[Definire un oggetto requestOverrides]: #requestOverrides
+[Definire un oggetto responseOverrides]: #responseOverrides
+[Impostazioni applicazione]: #use-appsettings
 [Usare le variabili]: #using-variables
 [parametri della richiesta del client originale]: #request-parameters
 [paramenti della risposta back-end]: #response-parameters

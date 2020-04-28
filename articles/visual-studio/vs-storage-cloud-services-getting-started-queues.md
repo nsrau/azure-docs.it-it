@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 603bb2b9a862ad4ed2cbde63e2d82b9a82fbeaa1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298787"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione di accodamento di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
@@ -26,12 +26,12 @@ ms.locfileid: "72298787"
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come iniziare a usare l'archiviazione code di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto servizio cloud usando la finestra di dialogo **Aggiungi servizi connessi** di Visual Studio.
 
-Verrà mostrato come creare una coda nel codice. Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Negli esempi, scritti in codice C#, viene usata la [libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Verrà mostrato come creare una coda nel codice. Infine verrà mostrato come eseguire operazioni relative alle code di base, come l'aggiunta, la modifica, la lettura e la rimozione di messaggi delle code. Gli esempi sono scritti in codice C# e usano la [libreria client di archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto.
 
 * Per altre informazioni sulla modifica delle code a livello di codice, vedere [Introduzione all'archiviazione code di Azure con .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) .
-* Vedere [documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/) per informazioni generali sull'archiviazione di Azure.
+* Vedere la [documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/) per informazioni generali sull'archiviazione di Azure.
 * Vedere la [documentazione dei servizi Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) per informazioni generali sui servizi cloud di Azure.
 * Vedere [ASP.NET](https://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
@@ -58,7 +58,7 @@ Per accedere alle code nei progetti Servizi cloud di Visual Studio, è necessari
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**NOTA:** Utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
+**Nota:** Utilizzare tutto il codice riportato in precedenza prima del codice negli esempi seguenti.
 
 ## <a name="create-a-queue-in-code"></a>Creare una coda in codice
 Per creare la coda nel codice, è sufficiente aggiungere una chiamata a **CreateIfNotExists**.
@@ -78,7 +78,7 @@ Di seguito è riportato un esempio che inserisce il messaggio "Hello, World".
     messageQueue.AddMessage(message);
 
 ## <a name="read-a-message-in-a-queue"></a>Leggere un messaggio in una coda
-È possibile visualizzare il messaggio successivo di una coda senza rimuoverlo dalla coda chiamando il metodo **PeekMessage** .
+È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il metodo **PeekMessage** .
 
     // Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
@@ -86,7 +86,7 @@ Di seguito è riportato un esempio che inserisce il messaggio "Hello, World".
 ## <a name="read-and-remove-a-message-in-a-queue"></a>Leggere e rimuovere un messaggio in una coda
 Il codice può rimuovere un messaggio da una coda in due passaggi.
 
-1. Chiamare **GetMessage** per ottenere il messaggio successivo in una coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi.
+1. Chiamare **GetMessage** per ottenere il messaggio successivo in una coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi da questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi.
 2. Per completare la rimozione del messaggio dalla coda, chiamare **DeleteMessage**.
 
 Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice seguente chiama **DeleteMessage** immediatamente dopo l'elaborazione del messaggio.
@@ -104,9 +104,9 @@ Questo processo in due passaggi di rimozione di un messaggio assicura che, qualo
 È possibile personalizzare il recupero di messaggi da una coda in due modi.
 
 * È possibile recuperare un batch di messaggi (massimo 32).
-* È possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **GetMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i cinque minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi cinque minuti dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
+* È possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene utilizzato il metodo **GetMessages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **foreach** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che i 5 minuti iniziano per tutti i messaggi contemporaneamente, quindi dopo che sono trascorsi 5 minuti dalla chiamata a **GetMessages**, tutti i messaggi che non sono stati eliminati diventeranno nuovamente visibili.
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
     foreach (CloudQueueMessage message in messageQueue.GetMessages(20, TimeSpan.FromMinutes(5)))
     {
@@ -130,7 +130,7 @@ Di seguito è riportato un esempio:
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Utilizzare il modello Async-Await con le API comuni di accodamento di Azure.
-In questo esempio viene illustrato come utilizzare il modello Async-Await con API di accodamento di Azure comuni. Nell'esempio viene chiamata la versione asincrona di ogni metodo specificato. Ciò può essere osservato dal suffisso **Async** di ogni metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per ulteriori informazioni sull'utilizzo del modello Async-Await in .NET, vedere [Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+In questo esempio viene illustrato come utilizzare il modello Async-Await con API di accodamento di Azure comuni. Nell'esempio viene chiamata la versione asincrona di ognuno dei metodi specificati, che può essere rilevata dalla successiva correzione **asincrona** di ogni metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altri dettagli sull'uso del modello async-await in .NET, vedere [Async e await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");

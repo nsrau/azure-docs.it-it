@@ -1,5 +1,5 @@
 ---
-title: Connettersi a OneDrive for Business
+title: Connettersi a OneDrive for business
 description: Caricare e gestire i file con le API REST di OneDrive for Business e App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 48c819566db43e2f997309d1bea55a9436ec7085
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789453"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Introduzione al connettore OneDrive for Business

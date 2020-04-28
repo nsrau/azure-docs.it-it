@@ -4,10 +4,10 @@ description: Questo articolo illustra come individuare e risolvere i problemi co
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75403372"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori

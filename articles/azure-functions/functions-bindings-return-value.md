@@ -1,22 +1,22 @@
 ---
-title: Uso del valore restituito da una funzione di AzureUsing return value from an Azure Function
-description: Informazioni su come gestire i valori restituiti per Funzioni di AzureLearn to manage return values for Azure Functions
+title: Uso del valore restituito da una funzione di Azure
+description: Informazioni su come gestire i valori restituiti per funzioni di Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74480573"
 ---
-# <a name="using-the-azure-function-return-value"></a>Uso del valore restituito della funzione di AzureUsing the Azure Function return value
+# <a name="using-the-azure-function-return-value"></a>Uso del valore restituito della funzione di Azure
 
-Questo articolo spiega come funzionano i valori restituiti all'interno di una funzione.
+Questo articolo illustra in che modo i valori restituiti funzionano all'interno di una funzione.
 
-Nei linguaggi che hanno un valore restituito, è possibile associare [un'associazione](./functions-triggers-bindings.md#binding-direction) di output della funzione al valore restituito:In languages that have a return value, you can bind a function output binding to the return value:
+Nei linguaggi che hanno un valore restituito, è possibile associare un' [associazione di output](./functions-triggers-bindings.md#binding-direction) di funzione al valore restituito:
 
 * In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
 * In Java applicare l'annotazione di associazione di output al metodo della funzione.
@@ -26,7 +26,7 @@ Se sono presenti più associazioni di output, usare il valore restituito per una
 
 Negli script C# e C# è in alternativa possibile inviare dati alle associazioni di output dati tramite i parametri `out` e gli [oggetti dell'agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Di seguito è riportato il codice C# che usa il valore restituito per un'associazione di output, seguito da un esempio asincrono:
 
@@ -107,7 +107,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Di seguito è riportata l'associazione di output nel file *function.json*:
 
@@ -155,7 +155,7 @@ def main(input: azure.functions.InputStream) -> str:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Ecco il codice Java che usa il valore restituito per un'associazione di output:Here's Java code that uses the return value for an output binding:
+Ecco il codice Java che usa il valore restituito per un'associazione di output:
 
 ```java
 @FunctionName("QueueTrigger")
@@ -176,4 +176,4 @@ public static String run(
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Gestire gli errori di associazione di Funzioni di AzureHandle Azure Functions binding errors](./functions-bindings-errors.md)
+> [Gestire gli errori di associazione di funzioni di Azure](./functions-bindings-errors.md)

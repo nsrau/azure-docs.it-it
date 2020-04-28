@@ -13,10 +13,10 @@ ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6591cdb8f19484c87bb05f9007521adc34778f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298861"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione ad Archiviazione BLOB di Azure e a Servizi connessi di Visual Studio (ASP.NET)
@@ -41,7 +41,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Controller**.
 
-2. Dal menu di scelta rapida, selezionare **Aggiungi** > **controller**.
+2. Dal menu di scelta rapida selezionare **Aggiungi** > **controller**.
 
     ![Screenshot di Esplora soluzioni con le opzioni Aggiungi e Controller evidenziate](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
@@ -65,7 +65,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 
 Un contenitore BLOB è una gerarchia nidificata di BLOB e cartelle. Il resto della procedura in questo documento richiede che venga specificato un riferimento a un contenitore BLOB. È quindi consigliabile inserire il codice nel metodo perché sia riutilizzabile.
 
-La procedura seguente consente di creare un metodo per connettersi all'account di archiviazione usando la stringa di connessione in **Web.config**. I passaggi creano anche un riferimento a un contenitore.  L'impostazione della stringa di connessione in **Web.config** viene espressa con il formato `<storageaccountname>_AzureStorageConnectionString`. 
+La procedura seguente crea un metodo per connettersi all'account di archiviazione usando la stringa di connessione in **Web. config**. La procedura crea anche un riferimento a un contenitore.  L'impostazione della stringa di connessione in **Web.config** viene espressa con il formato `<storageaccountname>_AzureStorageConnectionString`. 
 
 1. Aprire il file `BlobsController.cs` .
 
@@ -133,11 +133,11 @@ I passaggi seguenti illustrano come creare un contenitore BLOB:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Visualizzazioni**.
 
-1. Se non è presente una cartella **BLOB** crearne una. Scegliere **Aggiungi** > **nuova cartella**dal menu di scelta rapida. Assegnare alla nuova cartella il nome *Blobs*. 
+1. Se non è presente una cartella **BLOB** crearne una. Dal menu di scelta rapida selezionare **Aggiungi** > **nuova cartella**. Assegnare alla nuova cartella il nome *Blobs*. 
  
 1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni** e fare clic con il pulsante destro del mouse su **Blobs**.
 
-1. Scegliere **Aggiungi** > **vista**dal menu di scelta rapida.
+1. Scegliere **Aggiungi** > **visualizzazione**dal menu di scelta rapida.
 
 1. Nella finestra di dialogo **Aggiungi visualizzazione** immettere **CreateBlobContainer** come nome della visualizzazione e selezionare **Aggiungi**.
 
@@ -199,7 +199,7 @@ Dopo aver [creato il contenitore BLOB](#create-a-blob-container), caricarvi i fi
     > [!NOTE]
     > Il nome del BLOB è incluso nell'URL usato per recuperare un BLOB e può essere qualsiasi stringa, incluso il nome del file.
 
-1. Dopo avere ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo `UploadFromStream` dell'oggetto di riferimento al BLOB. Il metodo `UploadFromStream` crea il BLOB se non esiste o lo sovrascrive se esiste. (Modificare * &lt;il file da caricare>* in un percorso completo di un file da caricare.)
+1. Dopo avere ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo `UploadFromStream` dell'oggetto di riferimento al BLOB. Il metodo `UploadFromStream` crea il BLOB se non esiste o lo sovrascrive se esiste. Modificare la>di * &lt;file da caricare* in un percorso completo di un file da caricare.
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -342,7 +342,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
 1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni** e fare clic con il pulsante destro del mouse su **Blobs**.
 
-2. Scegliere **Aggiungi** > **vista**dal menu di scelta rapida.
+2. Scegliere **Aggiungi** > **visualizzazione**dal menu di scelta rapida.
 
 1. Nella finestra di dialogo **Aggiungi visualizzazione** immettere `ListBlobs` come nome della visualizzazione e selezionare **Aggiungi**.
 
@@ -405,7 +405,7 @@ Questa sezione illustra come scaricare un BLOB. È possibile renderlo persistent
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Per scaricare un BLOB, usare il metodo `CloudBlockBlob.DownloadToStream`. Il codice seguente trasferisce il contenuto di un BLOB a un oggetto flusso. Tale oggetto viene quindi reso persistente in un file locale. (Modificare il * &lt;nome del file locale>* al nome file completo che rappresenta dove deve essere scaricato il BLOB. 
+1. Per scaricare un BLOB, usare il metodo `CloudBlockBlob.DownloadToStream`. Il codice seguente trasferisce il contenuto di un BLOB a un oggetto flusso. Tale oggetto viene quindi reso persistente in un file locale. Modificare il nome del * &lt;file locale>* nel nome file completo che rappresenta la posizione in cui scaricare il BLOB. 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -500,5 +500,5 @@ I passaggi seguenti illustrano come eliminare un BLOB:
 
 In questa esercitazione è stato descritto come archiviare, elencare e recuperare i BLOB in Archiviazione di Azure usando ASP.NET. Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
 
-  * [Introduzione all'archiviazione tabelle di Azure e ai servizi connessi di Visual Studio (ASP.NET)Get started with Azure Table storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
-  * [Introduzione all'archiviazione delle code di Azure e ai servizi connessi di Visual Studio (ASP.NET)Get started with Azure Queue storage and Visual Studio connected services (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Introduzione all'archiviazione tabelle di Azure e ai servizi connessi di Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Introduzione all'archiviazione code di Azure e ai servizi connessi di Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

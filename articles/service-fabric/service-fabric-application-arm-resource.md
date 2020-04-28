@@ -1,13 +1,13 @@
 ---
-title: Distribuire e eseguire l'aggiornamento con Azure Resource ManagerDeploy and upgrade with Azure Resource Manager
+title: Distribuire e aggiornare con Azure Resource Manager
 description: Informazioni su come distribuire applicazioni e servizi in un cluster di Service Fabric usando un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610251"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
@@ -56,7 +56,7 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
 1. Preparare il modello di Resource Manager del cluster per la distribuzione. Per altre informazioni in proposito, vedere [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Esaminare alcune delle applicazioni che si intende distribuire nel cluster. Esistono applicazioni che saranno sempre in esecuzione e con cui altre applicazioni potrebbero stabilire dipendenze? È prevista la distribuzione di applicazioni di configurazione o governance del cluster? Questi tipi di applicazioni possono essere gestiti in modo ottimale tramite un modello di Resource Manager, come illustrato in precedenza. 
 3. Dopo aver individuato le applicazioni da distribuire in questo modo, è necessario crearne un pacchetto, comprimerlo e inserirlo in una condivisione file. La condivisione deve essere accessibile tramite un endpoint REST per poter essere utilizzata da Azure Resource Manager durante la distribuzione.
-4. Nel modello di Resource Manager, sotto la dichiarazione del cluster descrivere le proprietà di ogni applicazione. Tali proprietà includono il numero di repliche o istanze e tutte le catene di dipendenze tra le risorse (altre applicazioni o servizi). Per un elenco delle proprietà complete, vedere la specifica [Swagger dell'API REST](https://aka.ms/sfrpswaggerspec). Si noti che questo non sostituisce i manifesti dell'applicazione o del servizio, ma descrive alcuni elementi che sono in essi come parte del modello Resource Manager del cluster. Di seguito è riportato un modello di esempio che include la distribuzione di un servizio senza stato *Service1* e un servizio con stato *Service2* come parte di *Application1*:
+4. Nel modello di Resource Manager, sotto la dichiarazione del cluster descrivere le proprietà di ogni applicazione. Tali proprietà includono il numero di repliche o istanze e tutte le catene di dipendenze tra le risorse (altre applicazioni o servizi). Per un elenco delle proprietà complete, vedere la [specifica di spavalderia dell'API REST](https://aka.ms/sfrpswaggerspec). Si noti che questa operazione non sostituisce i manifesti dell'applicazione o del servizio, ma descrive alcuni elementi che li contiene come parte del modello di Gestione risorse del cluster. Di seguito è riportato un modello di esempio che include la distribuzione di un servizio senza stato *Service1* e un servizio con stato *Service2* come parte di *Application1*:
 
    ```json
    {
@@ -248,20 +248,20 @@ Il frammento seguente illustra le diverse tipologie di risorse che è possibile 
 
 5. Eseguire la distribuzione. 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Rimuovere la risorsa dell'applicazione del provider di risorse dell'infrastruttura del servizioRemove Service Fabric Resource Provider Application resource
-Quanto segue attiverà il pacchetto dell'app per l'annullamento del provisioning dal cluster e questo pulirà lo spazio su disco usato:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Rimuovere Service Fabric risorsa dell'applicazione del provider di risorse
+Il codice seguente attiverà l'annullamento del provisioning del pacchetto dell'applicazione dal cluster e verrà eseguita la pulizia dello spazio su disco utilizzato:
 ```powershell
 Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-La semplice rimozione di Microsoft.ServiceFabric/clusters/application dal modello ARM non eseguirà il deprovisioning dell'applicazione
+La semplice rimozione di Microsoft. ServiceFabric/cluster/applicazione dal modello ARM non effettuerà l'annullamento del provisioning dell'applicazione
 
 >[!NOTE]
-> Una volta che la rimozione è completa non si dovrebbe vedere la versione del pacchetto in SFX o ARM più. Non è possibile eliminare la risorsa versione del tipo di applicazione con cui è in esecuzione l'applicazione. ARM/SFRP impedirà questo. Se si tenta di annullare il provisioning del pacchetto in esecuzione, runtime SF impedirlo.
+> Al termine della rimozione, la versione del pacchetto non dovrebbe più essere visualizzata in SFX o ARM. Non è possibile eliminare la risorsa della versione del tipo di applicazione con cui è in esecuzione l'applicazione; ARM/SFRP ne impedirà questa operazione. Se si tenta di annullare il provisioning del pacchetto in esecuzione, il runtime di SF lo impedirà.
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gestire un'applicazione esistente tramite Resource Manager
 
-Se il cluster è già attivo e si vogliono gestire come risorse di Resource Manager alcune applicazioni già distribuite nel cluster, invece di rimuovere le applicazioni e ridistribuirle è possibile eseguire una chiamata PUT usando le stesse API affinché le applicazioni vengano riconosciute come risorse di Resource Manager. Per ulteriori informazioni, vedere [Che cos'è il modello di risorse dell'applicazione Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Se il cluster è già attivo e si vogliono gestire come risorse di Resource Manager alcune applicazioni già distribuite nel cluster, invece di rimuovere le applicazioni e ridistribuirle è possibile eseguire una chiamata PUT usando le stesse API affinché le applicazioni vengano riconosciute come risorse di Resource Manager. Per altre informazioni, vedere [che cos'è il modello di risorsa Service Fabric applicazione?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
 > Per consentire un aggiornamento del cluster e ignorare le app non integre, il cliente può specificare "maxPercentUnhealthyApplications: 100" nella sezione "upgradeDescription/healthPolicy". Descrizioni dettagliate per tutte le impostazioni sono disponibili nella [documentazione dei criteri di aggiornamento del cluster API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).

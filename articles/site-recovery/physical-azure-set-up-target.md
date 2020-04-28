@@ -1,5 +1,5 @@
 ---
-title: Configurare l'ambiente di destinazione per i server fisici in Azure Site RecoverySet up the target environment for physical servers in Azure Site Recovery
+title: Configurare l'ambiente di destinazione per i server fisici in Azure Site Recovery
 description: Questo articolo descrive come configurare l'ambiente di destinazione di Azure per il ripristino di emergenza di server fisici con Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953896"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparare la destinazione (da VMware ad Azure)
@@ -21,7 +21,7 @@ Questo articolo descrive come preparare l'ambiente di Azure per avviare la repli
 ## <a name="prerequisites"></a>Prerequisiti
 
 L'articolo presuppone quanto segue:
-- È stato creato un insieme di credenziali dei servizi di ripristino per proteggere i server fisici. È possibile creare un Vault di Servizi di ripristino dal portale di [Azure.](https://portal.azure.com "Portale di Azure")
+- È stato creato un insieme di credenziali dei servizi di ripristino per proteggere i server fisici. È possibile creare un insieme di credenziali dei servizi di ripristino dal [portale di Azure](https://portal.azure.com "Portale di Azure").
 - Per replicare i server fisici in Azure, è necessario aver [configurato l'ambiente locale](physical-azure-disaster-recovery.md).
 
 ## <a name="prepare-target"></a>Preparare la destinazione

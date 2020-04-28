@@ -4,10 +4,10 @@ description: Questa esercitazione illustra come distribuire un gruppo di conteni
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533598"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Esercitazione: distribuire un gruppo multicontenitore usando un file YAML

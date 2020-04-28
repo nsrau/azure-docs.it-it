@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455853"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Come configurare l'accesso Azure Active Directory per il servizio Azure blockchain
@@ -63,7 +63,7 @@ La sezione seguire la Guida introduttiva nel **file Leggimi** per compilare il c
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Connettersi usando un account utente Azure AD
 
-1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio, `yourdomain.onmicrosoft.com`
+1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio: `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Per altre informazioni su come registrare un'applicazione in Azure AD, vedere [p
 
 Per un dispositivo mobile o un browser basato su testo in cui non è possibile visualizzare la visualizzazione popup dell'autenticazione Azure AD, Azure AD genera un solo codice di accesso. È possibile copiare il codice e procedere con l'autenticazione Azure AD in un altro ambiente.
 
-Per generare il codice, sostituire **aadauthcode** con **aaddevice**. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio, `yourdomain.onmicrosoft.com`
+Per generare il codice, sostituire **aadauthcode** con **aaddevice**. Sostituire \<myAADDirectory\> con un dominio Azure ad. Ad esempio: `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

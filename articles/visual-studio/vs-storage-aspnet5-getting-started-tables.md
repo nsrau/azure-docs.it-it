@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione tabelle con Visual Studio (ASP.NET Core)Get started with table storage using Visual Studio (ASP.NET Core)
+title: Introduzione all'archiviazione tabelle con Visual Studio (ASP.NET Core)
 description: Informazioni su come iniziare con il servizio di archiviazione tabelle di Azure in un progetto ASP.NET Core in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio
 services: storage
 author: ghogen
@@ -14,19 +14,19 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d209f8117b1e061877daf2f8d316bd01ed4f84cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298820"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-Questo articolo descrive come iniziare a usare Archiviazione tabelle di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET Core usando la funzionalità **Servizi connessi** di Visual Studio. **Servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto. Per informazioni generali su Archiviazione di Azure, [vedere la documentazione](https://azure.microsoft.com/documentation/services/storage/) relativa all'archiviazione.
+Questo articolo descrive come iniziare a usare Archiviazione tabelle di Azure in Visual Studio dopo aver creato o fatto riferimento a un account di archiviazione di Azure in un progetto ASP.NET Core usando la funzionalità **Servizi connessi** di Visual Studio. **Servizi connessi** consente di installare i pacchetti NuGet appropriati per accedere all'archiviazione di Azure nel progetto e di aggiungere la stringa di connessione per l'account di archiviazione ai file di configurazione del progetto. Per informazioni generali sull'archiviazione di Azure, vedere la [documentazione relativa all'archiviazione](https://azure.microsoft.com/documentation/services/storage/) .
 
-Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per altre informazioni generali sull'uso dell'archiviazione tabelle di Azure, vedere Introduzione all'archiviazione tabelle di Azure con [.NET.](../storage/storage-dotnet-how-to-use-tables.md)
+Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per informazioni più generali sull'uso dell'archiviazione tabelle di Azure, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 Per iniziare, creare una tabella nell'account di archiviazione. Questo articolo illustrerà come creare una tabella in C# e come eseguire le operazioni di base relative alle tabelle, ad esempio l'aggiunta, la modifica, la lettura e la rimozione di voci nelle tabelle.  Il codice usa la Libreria client di archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](https://www.asp.net).
 

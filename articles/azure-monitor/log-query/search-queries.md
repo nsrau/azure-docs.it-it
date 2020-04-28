@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660241"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Query di ricerca nei log di Monitoraggio di Azure
@@ -43,7 +43,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Impostazione di una tabella e di una colonna come ambito
-Per impostazione predefinita, il comando **search** valuta tutte le colonne nel set di dati. Per cercare solo una colonna specifica (denominata Source nell'esempio seguente), utilizzare la sintassi seguente:To search only a specific column (named *Source* in the below example), use this syntax:
+Per impostazione predefinita, il comando **search** valuta tutte le colonne nel set di dati. Per eseguire la ricerca solo in una colonna specifica (denominata *source* nell'esempio seguente), usare questa sintassi:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -51,7 +51,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se si usa `==` invece di `:`, i risultati includeranno i record in cui la colonna *Source* contiene l'esatto valore "error" con l'esatta combinazione di maiuscole e minuscole. L'utilizzo di ':' includerà i record in cui *Source* ha valori come "codice di errore 404" o "Errore".
+> Se si usa `==` invece di `:`, i risultati includeranno i record in cui la colonna *Source* contiene l'esatto valore "error" con l'esatta combinazione di maiuscole e minuscole. L'utilizzo di ':' includerà i record in cui l' *origine* contiene valori quali "codice errore 404" o "errore".
 
 ## <a name="case-sensitivity"></a>Distinzione tra maiuscole e minuscole
 Per impostazione predefinita, la ricerca di termini non fa distinzione tra maiuscole e minuscole, quindi una ricerca di "dns" potrebbe restituire risultati come "DNS", "dns" o "Dns". Per eseguire una ricerca con distinzione tra maiuscole e minuscole, usare l'opzione `kind`:

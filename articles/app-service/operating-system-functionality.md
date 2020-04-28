@@ -1,15 +1,15 @@
 ---
 title: Funzionalità del sistema operativo
-description: Informazioni sulla funzionalità del sistema operativo nel servizio app di Azure in Windows.Learn about the OS functionality in Azure App Service on Windows. Scopri quali tipi di file, rete e Registro di sistema accedono alla tua app.
+description: Informazioni sulle funzionalità del sistema operativo nel servizio app Azure in Windows. Informazioni sui tipi di file, rete e accesso al registro di sistema ottenuti dall'app.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671616"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
@@ -55,7 +55,7 @@ Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura 
 
 - L'app può generare un errore che indica che non vi è sufficiente spazio su disco.
 - Potrebbero verificarsi errori del disco durante la navigazione nella console Kudu.
-- La distribuzione da Azure DevOps `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`o Visual Studio potrebbe non riuscire con .
+- La distribuzione da Azure DevOps o Visual Studio potrebbe non `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`riuscire con.
 - L'app potrebbe subire un rallentamento delle prestazioni.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +76,7 @@ Il servizio app riserva una porzione di spazio dell'unità C:\ per l'archiviazio
 
 Due esempi del modo in cui il servizio app usa le risorse di archiviazione locale temporanea sono costituiti dalla directory per i file ASP.NET temporanei e dalla directory per i file IIS compressi. Il sistema di compilazione di ASP.NET usa la directory "Temporary ASP.NET Files" come posizione cache temporanea per la compilazione. IIS usa la directory "IIS Temporary Compressed Files" per archiviare l'output della risposta in formato compresso. Entrambi i tipi di utilizzo di file (nonché altri) sono rimappati nel servizio app a una risorsa di archiviazione locale temporanea per singola app. Il remapping garantisce una funzionalità conforme alle aspettative.
 
-Ogni app nel servizio app viene eseguita come un'identità casuale del processo [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)di lavoro con privilegi limitati denominata "identità del pool di applicazioni", descritta più avanti qui: . Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità. 
+Ogni app nel servizio app viene eseguita come identità del processo di lavoro con privilegi limitati casuale, denominata "identità del pool di applicazioni", descritta [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)più avanti qui:. Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità. 
 
 <a name="multipleinstances"></a>
 
@@ -86,7 +86,7 @@ La home directory include il contenuto di un'app e il codice dell'applicazione p
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Accesso alla rete
-Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le app possono usare questi stessi protocolli per connettersi ai servizi all'interno di Azure, ad esempio stabilendo connessioni HTTPS al database SQL.
+Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le app possono usare questi stessi protocolli per connettersi ai servizi in Azure, ad esempio stabilendo connessioni HTTPS al database SQL.
 
 È anche presente una capacità limitata per le app di stabilire una connessione loopback locale e di disporre di un'app in ascolto su tale socket loopback locale. Questa funzionalità esiste principalmente per abilitare le app che includono tra le proprie funzionalità l'ascolto su socket di loopback locali. Ogni app vede una connessione loopback "privata". L'app "A" non può porsi in ascolto di un socket di loopback locale stabilito dall'app "B".
 

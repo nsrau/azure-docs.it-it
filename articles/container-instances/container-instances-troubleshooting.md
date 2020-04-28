@@ -1,23 +1,23 @@
 ---
 title: Risolvere i problemi comuni
-description: Informazioni su come risolvere i problemi comuni durante la distribuzione, l'esecuzione o la gestione delle istanze del contenitore di AzureLearn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
+description: Informazioni su come risolvere i problemi comuni durante la distribuzione, l'esecuzione o la gestione di istanze di contenitore di Azure
 ms.topic: article
 ms.date: 09/25/2019
 ms.custom: mvc
 ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533385"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
-Questo articolo mostra come risolvere i problemi comuni per la gestione o la distribuzione di contenitori in Istanze di Azure Container. Vedere anche [Domande frequenti](container-instances-faq.md).
+Questo articolo mostra come risolvere i problemi comuni per la gestione o la distribuzione di contenitori in Istanze di Azure Container. Vedere anche [domande frequenti](container-instances-faq.md).
 
-Se è necessario ulteriore supporto, vedere **Guida disponibile e opzioni** di supporto nel portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+Se è necessario supporto aggiuntivo, vedere la **Guida** disponibile e le opzioni di supporto nella [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="issues-during-container-group-deployment"></a>Problemi durante la distribuzione di Gruppo di contenitori
+## <a name="issues-during-container-group-deployment"></a>Problemi durante la distribuzione del gruppo di contenitori
 ### <a name="naming-conventions"></a>Convenzioni di denominazione
 
 Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni sulle convenzioni di denominazione di Azure, vedere [Regole di denominazione e restrizioni][azure-name-restrictions] nel Centro architettura di Azure.
@@ -44,7 +44,7 @@ Se si specifica un'immagine non supportata da Istanze di Azure Container, viene 
 }
 ```
 
-Questo errore si verifica più spesso quando si distribuiscono immagini Windows basate sulla versione 1709 o 1803 del canale semestrale, che non sono supportate. Per le immagini Windows supportate nelle istanze del contenitore di Azure, vedere [Domande frequenti.](container-instances-faq.md#what-windows-base-os-images-are-supported)
+Questo errore viene spesso rilevato quando si distribuiscono immagini Windows basate su un canale semestrale versione 1709 o 1803, che non sono supportate. Per le immagini di Windows supportate nelle istanze di contenitore di Azure, vedere [domande frequenti](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 
@@ -100,7 +100,7 @@ Questo errore indica che a causa di un carico elevato nell'area in cui si sta ce
 
 I gruppi di contenitori vengono impostati automaticamente sul [criterio di riavvio](container-instances-restart-policy.md)**Always**, in modo che i contenitori nel gruppo di contenitori eseguano sempre il riavvio dopo il completamento dell'esecuzione. Potrebbe essere necessario impostare questa opzione su **OnFailure** oppure **Never** se si prevede di eseguire i contenitori basati su attività. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
 
-Durante l'esecuzione di gruppi di contenitori senza processi a esecuzione prolungata è probabile che si verifichino ripetute uscite e riavvii con le immagini, ad esempio Ubuntu o Alpine. La connessione tramite [EXEC](container-instances-exec.md) non funzionerà in quanto il contenitore non dispone di alcun processo che lo mantiene attivo. Per risolvere questo problema, includere un comando di avvio simile al seguente con la distribuzione del gruppo di contenitori per mantenere il contenitore in esecuzione.
+Durante l'esecuzione di gruppi di contenitori senza processi a esecuzione prolungata è probabile che si verifichino ripetute uscite e riavvii con le immagini, ad esempio Ubuntu o Alpine. La connessione tramite [EXEC](container-instances-exec.md) non funzionerà in quanto il contenitore non dispone di alcun processo che lo mantiene attivo. Per risolvere questo problema, includere un comando di avvio simile al seguente con la distribuzione del gruppo di contenitori per impedire l'esecuzione del contenitore.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -158,7 +158,7 @@ L'API Istanze di Container e il portale di Azure includono una proprietà `resta
 
 ### <a name="container-takes-a-long-time-to-start"></a>L'avvio di un contenitore richiede molto tempo
 
-I tre fattori principali che contribuiscono all'ora di avvio del contenitore nelle istanze del contenitore di Azure sono:The three primary factors that contribute to container startup time in Azure Container Instances are:
+I tre fattori principali che contribuiscono al tempo di avvio dei contenitori nelle istanze di contenitore di Azure sono:
 
 * [Dimensioni dell'immagine](#image-size)
 * [Posizione dell'immagine](#image-location)
@@ -186,7 +186,7 @@ Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio de
 
 #### <a name="cached-images"></a>Immagini memorizzate nella cache
 
-Le istanze del contenitore di Azure usano un meccanismo di memorizzazione `servercore:ltsc2019`nella `servercore:1809`cache per velocizzare il tempo di avvio del contenitore per le immagini basate sulle immagini di [base](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui `nanoserver:1809`, e . Immagini Linux di `ubuntu:1604` uso `alpine:3.6` comune, ad esempio e sono anche memorizzati nella cache. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache.][list-cached-images]
+Istanze di contenitore di Azure usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini `nanoserver:1809`basate `servercore:ltsc2019`su immagini `servercore:1809`di [base di Windows](container-instances-faq.md#what-windows-base-os-images-are-supported)comuni, tra cui, e. Anche le immagini Linux usate di `ubuntu:1604` frequente `alpine:3.6` , ad esempio e, vengono memorizzate nella cache. Per un elenco aggiornato di immagini e tag memorizzati nella cache, usare l'API [Elenca immagini memorizzate nella cache][list-cached-images] .
 
 > [!NOTE]
 > L'uso di immagini basate su Windows Server 2019 in istanze di Azure Container è disponibile in anteprima.
@@ -201,22 +201,22 @@ Istanze di Azure Container non espone l'accesso diretto all'infrastruttura sotto
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>L'indirizzo IP del gruppo di contenitori potrebbe non essere accessibile a causa di porte non corrispondenti
 
-Le istanze del contenitore di Azure non supportano ancora il mapping delle porte, ad esempio con la normale configurazione della finestra mobile. Se si rileva che l'indirizzo IP di un gruppo di contenitori non è accessibile quando si ritiene che `ports` sia necessario, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto delle stesse porte esposte nel gruppo di contenitori con la proprietà .
+Istanze di contenitore di Azure non supporta ancora il mapping delle porte come con la normale configurazione di Docker. Se si rileva che l'indirizzo IP di un gruppo di contenitori non è accessibile quando si ritiene che sia necessario, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto delle stesse porte esposte nel `ports` gruppo di contenitori con la proprietà.
 
-Se si vuole verificare che le istanze del contenitore di Azure possano rimanere in ascolto sulla porta configurata nell'immagine del contenitore, testare una distribuzione dell'immagine `aci-helloworld` che espone la porta. Eseguire anche `aci-helloworld` l'app in modo che sia in ascolto sulla porta. `aci-helloworld`accetta una variabile `PORT` di ambiente facoltativa per eseguire l'override della porta predefinita 80 su cui è in ascolto. Ad esempio, per testare la porta 9000, impostare la variabile di ambiente quando si crea il gruppo di contenitori:For example, to test port 9000, set the [environment variable](container-instances-environment-variables.md) when you create the container group:
+Se si vuole verificare che le istanze di contenitore di Azure possano restare in ascolto sulla porta configurata nell'immagine del contenitore, testare `aci-helloworld` una distribuzione dell'immagine che espone la porta. Eseguire anche l' `aci-helloworld` app in modo che sia in ascolto sulla porta. `aci-helloworld`accetta una variabile `PORT` di ambiente facoltativa per sostituire la porta predefinita 80 su cui è in ascolto. Ad esempio, per testare la porta 9000, impostare la [variabile di ambiente](container-instances-environment-variables.md) quando si crea il gruppo di contenitori:
 
-1. Impostare il gruppo di contenitori per esporre la porta 9000 e passare il numero di porta come valore della variabile di ambiente. L'esempio è formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o Prompt dei comandi, sarà necessario regolare l'assegnazione delle variabili di conseguenza.
+1. Configurare il gruppo di contenitori per esporre la porta 9000 e passare il numero di porta come valore della variabile di ambiente. L'esempio è formattato per la shell bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, sarà necessario modificare di conseguenza l'assegnazione di variabili.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Individuare l'indirizzo IP del gruppo di `az container create`contenitori nell'output del comando di . Cercare il valore di **ip**. 
-1. Dopo aver eseguito correttamente il provisioning del contenitore, passare all'indirizzo `192.0.2.0:9000`IP e alla porta dell'app contenitore nel browser, ad esempio: . 
+1. Trovare l'indirizzo IP del gruppo di contenitori nell'output del comando di `az container create`. Cercare il valore di **IP**. 
+1. Dopo aver eseguito il provisioning del contenitore, passare all'indirizzo IP e alla porta dell'app contenitore nel browser, ad esempio: `192.0.2.0:9000`. 
 
-    Verrà visualizzato il messaggio "Benvenuti in Istanze del contenitore di Azure!". visualizzato dall'app Web.
-1. Al termine dell'operazione con il contenitore, rimuoverlo utilizzando il `az container delete` comando:
+    Dovrebbe essere visualizzato il benvenuto in istanze di contenitore di Azure. messaggio visualizzato dall'app Web.
+1. Al termine del contenitore, rimuoverlo usando il `az container delete` comando:
 
     ```azurecli
     az container delete --resource-group myResourceGroup --name mycontainer
@@ -224,7 +224,7 @@ Se si vuole verificare che le istanze del contenitore di Azure possano rimanere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come recuperare i log e gli eventi del [contenitore](container-instances-get-logs.md) per facilitare il debug dei contenitori.
+Informazioni su come [recuperare log del contenitore ed eventi](container-instances-get-logs.md) per facilitare il debug dei contenitori.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources

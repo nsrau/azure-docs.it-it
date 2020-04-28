@@ -1,5 +1,5 @@
 ---
-title: App singole e multi-tenant in Azure AD
+title: App Single e multi-tenant in Azure AD
 titleSuffix: Microsoft identity platform
 description: Informazioni sulle funzionalità e le differenze tra le app a tenant singolo e multi-tenant in Azure AD.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881366"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenancy in Azure Active Directory
@@ -42,7 +42,7 @@ Nel portale di Azure è possibile configurare l'app come multi-tenant o a tenant
 
 Creare ottime app multi-tenant può risultare difficile a causa del numero di diversi criteri che gli amministratori IT possono impostare nei tenant. Se si sceglie di creare un'app multi-tenant, seguire queste procedure consigliate:
 
-* Testare l'app in un tenant che ha configurato [i criteri di accesso condizionale.](../azuread-dev/conditional-access-dev-guide.md)
+* Testare l'app in un tenant con criteri di [accesso condizionale](../azuread-dev/conditional-access-dev-guide.md)configurati.
 * Seguire il principio dell'accesso utente con privilegi minimi per assicurarsi che l'app richieda solo le autorizzazioni effettivamente necessarie. Evitare di richiedere autorizzazioni che necessitino del consenso amministratore, perché in alcune organizzazioni potrebbe comportare il mancato acquisto dell'app. 
 * Specificare nomi e descrizioni appropriati per tutte le autorizzazioni esposte come parte dell'app. In questo modo, utenti e amministratori sanno esattamente quello che stanno accettando quando tentano di usare le API dell'app. Per altre informazioni, vedere la sezione delle procedure consigliate nella [guida alle autorizzazioni](v2-permissions-and-consent.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione tabelle con Visual Studio (servizi cloud)Get started with table storage using Visual Studio (cloud services)
+title: Introduzione all'archiviazione tabelle con Visual Studio (servizi cloud)
 description: Informazioni su come iniziare a usare il servizio di archiviazione di tabella in un progetto di servizio di cloud in Visual Studio dopo aver eseguito la connessione a un account di archiviazione con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5c42d65b5e2c46fcdbe1b0725f2ebce881722db3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72299984"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione di tabella di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
@@ -28,7 +28,7 @@ In questo articolo viene descritto come iniziare a utilizzare l'archiviazione ta
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
-Per iniziare, è innanzitutto necessario creare una tabella nell'account di archiviazione. Infine verrà mostrato come eseguire operazioni relative alle tabelle e all'entità di base, come l'aggiunta, la modifica, la lettura e la lettura delle entità delle tabelle. Gli esempi vengono\# scritti nel codice C e usano la libreria client di [Archiviazione di Microsoft Azure per .NET.](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+Per iniziare, è innanzitutto necessario creare una tabella nell'account di archiviazione. Infine verrà mostrato come eseguire operazioni relative alle tabelle e all'entità di base, come l'aggiunta, la modifica, la lettura e la lettura delle entità delle tabelle. Gli esempi sono scritti in codice\# C e usano la [libreria client archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 **NOTA:** alcune API che eseguono chiamate ad Archiviazione di Azure sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) . Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
 
@@ -151,7 +151,7 @@ Per eseguire una query su una tabella e recuperare tutte le entità di una parti
 
 
 ## <a name="get-a-single-entity"></a>Ottenere una singola entità
-È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce solo un'entità, anziché una raccolta, e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**. Specificare le chiavi di partizione e di riga in una query è il modo più rapido per recuperare una singola entità dal servizio **tabelle.**
+È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto **TableOperation** per specificare un cliente denominato 'Ben Smith'. Questo metodo restituisce solo un'entità, anziché una raccolta, e il valore restituito in **TableResult.Result** è un oggetto **CustomerEntity**. La specifica delle chiavi di partizione e di riga in una query rappresenta il modo più rapido per recuperare una singola entità dal servizio **tabelle** .
 
     // Create a retrieve operation that takes a customer entity.
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");

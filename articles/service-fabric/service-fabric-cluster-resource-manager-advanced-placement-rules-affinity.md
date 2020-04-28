@@ -1,6 +1,6 @@
 ---
-title: Gestione risorse cluster dell'infrastruttura di servizio - AffinityService Fabric Cluster Resource Manager - Affinity
-description: Panoramica dell'affinità di servizio per i servizi di Azure Service Fabric e indicazioni sulla configurazione dell'affinità del servizio.
+title: Gestione risorse di Service Fabric del cluster-affinità
+description: Panoramica dell'affinità del servizio per i servizi Service Fabric di Azure e indicazioni sulla configurazione dell'affinità dei servizi.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551744"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurazione e utilizzo dell'affinità del servizio in Service Fabric
@@ -64,7 +64,7 @@ Oggi Cluster Resource Manager non è in grado modellare le catene di relazioni d
 
 <center>
 
-![Catene e stelle nel contesto delle relazioni di affinità][Image2]
+![Catene rispetto alle stelle nel contesto delle relazioni di affinità][Image2]
 </center>
 
 Un altro aspetto da notare circa le relazioni di affinità attuali è che sono direzionali per impostazione predefinita. Ciò significa che la regola di affinità impone solo che l'elemento figlio sia collocato nella stessa posizione dell'elemento padre. Non garantisce che l'elemento padre sia posizionato con l'elemento figlio. Pertanto, se esiste una violazione di affinità e per correggere la violazione per qualche motivo non è possibile spostare l'elemento figlio nel nodo dell'elemento padre, l'elemento padre non verrà spostato nel nodo del figlio, anche se questa operazione correggerebbe la violazione. L'impostazione della configurazione [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) su true annullerebbe la direzionalità. È anche importante notare che la relazione di affinità non può essere perfetta o immediatamente imposta poiché diversi servizi dispongono di diversi cicli di vita e possono avere esito negativo e spostarsi in modo indipendente. Supponiamo, ad esempio, che per l'elemento padre improvvisamente si verifichi un errore su un altro nodo perché si è arrestato in modo anomalo. Cluster Resource Manager e Gestione failover gestiscono prima di tutto il failover, poiché mantenere i servizi attivi, coerenti e disponibili è la priorità. Una volta completato il failover, la relazione di affinità è interrotta, ma per Cluster Resource Manager l'operazione si svolge in modo corretto fino a quando non rileva che l'elemento figlio non si trova con l'elemento padre. Questi tipi di controlli vengono eseguiti periodicamente. Altre informazioni sulla modalità in cui Cluster Resource Manager valuta i vincoli sono disponibili in [questo articolo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), mentre [questo](service-fabric-cluster-resource-manager-balancing.md) fornisce altre indicazioni su come configurare la frequenza con cui questi vincoli vengono valutati.   

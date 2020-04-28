@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74976401"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali
@@ -32,7 +32,7 @@ Di seguito sono disponibili alcuni esempi di limitazioni che possono essere spec
 * Salvataggio della licenza in archivio permanente nel client. Le licenze permanenti vengono in genere usate per permettere la riproduzione offline del contenuto.
 * Il livello di sicurezza minimo che un lettore deve offrire per poter riprodurre il contenuto. 
 * Livello di protezione dell'output per i controlli output del contenuto audio/video. 
-* Per ulteriori informazioni, vedere la sezione "Controlli di output" (3.5) nel documento Regole di conformità PlayReady.For more information, see the "Output Controls" section (3.5) in the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
+* Per ulteriori informazioni, vedere la sezione relativa ai controlli di output (3,5) nel documento relativo alle [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/) .
 
 > [!NOTE]
 > Attualmente è possibile configurare solo l'elemento PlayRight della licenza PlayReady. È un diritto obbligatorio. PlayRight consente al client di riprodurre il contenuto. È possibile usare PlayRight anche per configurare le restrizioni specifiche per la riproduzione. Per altre informazioni, vedere [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
@@ -313,6 +313,6 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

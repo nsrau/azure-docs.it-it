@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60947233"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner 
@@ -56,7 +56,7 @@ La prima sezione mostra il costo complessivo del ripristino di emergenza per com
 
 **Network** (Rete): costo della connessione ExpressRoute e VPN da sito a sito per le esigenze del ripristino di emergenza. 
 
-**Licenza di Azure Site Recovery:** costo della licenza di Site Recovery per tutte le macchine virtuali compatibili. Se nella tabella dell'analisi dettagliata dei costi è stata immessa manualmente una VM, viene incluso anche il costo della licenza di Site Recovery per tale VM.
+**Azure Site Recovery License**: il costo della licenza Site Recovery per tutte le macchine virtuali compatibili. Se nella tabella dell'analisi dettagliata dei costi è stata immessa manualmente una VM, viene incluso anche il costo della licenza di Site Recovery per tale VM.
 
 ### <a name="overall-dr-costs-by-states"></a>Costo complessivo del ripristino di emergenza per stato
 Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza).
@@ -78,7 +78,7 @@ Selezionare l'impostazione appropriata in base ai propri requisiti.
 
 **VPN Gateway type** (Tipo di gateway VPN): selezionare il gateway VPN, se presente nell'ambiente. L'impostazione predefinita è NA (N/D).
 
-**Area di destinazione:** area di Azure specificata per il ripristino di emergenza. Il prezzo usato nel report per il calcolo, l'archiviazione, la rete e la licenza è basato sui prezzi di Azure per tale area. 
+**Area di destinazione**: area di Azure specificata per il ripristino di emergenza. Il prezzo usato nel report per il calcolo, l'archiviazione, la rete e la licenza è basato sui prezzi di Azure per tale area. 
 
 ### <a name="vm-running-on-azure"></a>VM in esecuzione in Azure
 Possono essere presenti VM DNS o controller di dominio oppure VM di SQL Server con gruppi di disponibilità Always On in esecuzione in Azure per il ripristino di emergenza. È possibile specificare il numero di VM e le dimensioni per considerare il relativo costo di calcolo nel costo totale del ripristino di emergenza. 
@@ -121,7 +121,7 @@ Per aggiungere manualmente le VM:
 
     g. **OS Type** (Tipo di sistema operativo)
 
-    h. **Data redundancy** (Ridondanza dei dati)
+    h. **Ridondanza dei dati**
 
     i. **Vantaggio Azure Hybrid Use**
 
@@ -157,7 +157,7 @@ Per aggiungere manualmente le VM:
 
 **Total DR-Drill cost (average)** (Costo totale esercitazioni sul ripristino di emergenza - media): costo di calcolo e di archiviazione per le esercitazioni sul ripristino di emergenza.
 
-Costo della licenza di **Azure Site Recovery:** il costo della licenza di Site Recovery.Azure Site Recovery license cost : The Site Recovery license cost.
+**Costo**della licenza di Azure Site Recovery: costo della licenza di Site Recovery.
 
 ## <a name="supported-target-regions"></a>Aree di destinazione supportate
 Site Recovery Deployment Planner offre la stima dei costi per le aree di Azure riportate di seguito. Se la propria area non è inclusa nell'elenco, è possibile usare qualsiasi area elencata con i prezzi più simili a quelli della propria area:

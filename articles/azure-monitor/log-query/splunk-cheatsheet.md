@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75397756"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
@@ -21,7 +21,7 @@ Questo articolo è concepito per aiutare gli utenti che hanno familiarità con S
 
 La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i log di Monitoraggio di Azure.
 
- | Concetto  | Splunk | Monitoraggio di Azure |  Comment
+ | Concetto  | Splunk | Monitoraggio di Azure |  Commento
  | --- | --- | --- | ---
  | Unità di distribuzione  | cluster |  cluster |  Monitoraggio di Azure consente query tra cluster arbitrari. Splunk non lo consente. |
  | Cache di dati |  bucket  |  Memorizzazione nella cache e criteri di conservazione |  Controlla il periodo e il livello di memorizzazione nella cache per i dati. Questa impostazione influisce direttamente sulle prestazioni delle query e sui costi della distribuzione. |
@@ -37,7 +37,7 @@ La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i l
 
 La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti alle funzioni di Splunk.
 
-|Splunk | Monitoraggio di Azure |Comment
+|Splunk | Monitoraggio di Azure |Commento
 |---|---|---
 |strcat | strcat()| (1) |
 |split  | split() | (1) |
@@ -48,7 +48,7 @@ La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti a
 | substr | substring() | (1)<br>Si noti inoltre che Splunk usa gli indici in base uno. Monitoraggio di Azure rileva indici in base zero. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| match | corrisponde a regex |   (2)  |
+| match | corrisponde a regex |  (2)  |
 | regex | corrisponde a regex | In Splunk, `regex` è un operatore. In Monitoraggio di Azure, è un operatore relazionale. |
 | searchmatch | == | In Splunk, `searchmatch` consente di cercare la stringa esatta.
 | random | rand()<br>rand(n) | La funzione di Splunk restituisce un numero compreso tra zero e 2<sup>31</sup>-1. Monitoraggio di Azure restituisce un numero compreso tra 0,0 e 1,0, o se un parametro specificato, compreso tra 0 e n-1.
@@ -71,7 +71,7 @@ In Splunk, è possibile omettere la parola chiave `search` e specificare una str
 | |  | |
 |:---|:---|:---|
 | Splunk | **ricerca** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Monitoraggio di Azure | **Trovare** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Monitoraggio di Azure | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filtro
@@ -89,8 +89,8 @@ Le query di log di Monitoraggio di Azure supportano anche `take` come alias per 
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Testa** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
-| Monitoraggio di Azure | **Limite** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
+| Splunk | **Head** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
+| Monitoraggio di Azure | **limite** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
 
@@ -100,7 +100,7 @@ Per ottenere risultati nella parte inferiore, usare in Splunk `tail`. In Monitor
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Testa** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
+| Splunk | **Head** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
 | Monitoraggio di Azure | **In alto** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
@@ -112,18 +112,18 @@ Splunk ha anche una funzione `eval` che non deve essere confrontabile con l'oper
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Eval** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
-| Monitoraggio di Azure | **Estendere** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
+| Splunk | **EVAL** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
+| Monitoraggio di Azure | **estendere** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 | | |
 
 
 ### <a name="rename"></a>Rinominare 
-Monitoraggio di `project-rename` Azure usa l'operatore per rinominare un campo. `project-rename`consente alla query di sfruttare tutti gli indici predefiniti per un campo. Splunk ha `rename` un operatore per fare lo stesso.
+Monitoraggio di Azure usa `project-rename` l'operatore per rinominare un campo. `project-rename`consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un `rename` operatore che esegue la stessa operazione.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Rinominare** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Monitoraggio di Azure | **ridenominazione del progetto** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
+| Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
+| Monitoraggio di Azure | **ridenominazione progetto** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 
@@ -134,8 +134,8 @@ Splunk sembra non disporre di un operatore simile a `project-away`. È possibile
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **tavolo** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Monitoraggio di Azure | **Progetto**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Splunk | **tabella** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| Monitoraggio di Azure | **progetto**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
@@ -146,7 +146,7 @@ Vedere le [Aggregazioni nelle query di log di Monitoraggio di Azure](aggregation
 | |  | |
 |:---|:---|:---|
 | Splunk | **Statistiche** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
-| Monitoraggio di Azure | **Riassumere** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
+| Monitoraggio di Azure | **riepilogare** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
@@ -156,8 +156,8 @@ Join in Splunk presenta limitazioni significative. La sottoquery ha un limite de
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Unirsi** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Monitoraggio di Azure | **Unirsi** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| Splunk | **Join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Monitoraggio di Azure | **Join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 
@@ -167,8 +167,8 @@ In Splunk, per ordinare in modo crescente è necessario usare l'operatore `rever
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Sorta** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
-| Monitoraggio di Azure | **ordine da** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
+| Splunk | **sort** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
+| Monitoraggio di Azure | **Ordina per** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
 | | |
 
 
@@ -178,8 +178,8 @@ Si tratta di un operatore simile in Splunk e Monitoraggio di Azure.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **mvexpand (ampliare)** |  `mvexpand foo` |
-| Monitoraggio di Azure | **mvexpand (ampliare)** | `mvexpand foo` |
+| Splunk | **mvexpand** |  `mvexpand foo` |
+| Monitoraggio di Azure | **mvexpand** | `mvexpand foo` |
 | | |
 
 
@@ -202,7 +202,7 @@ In Log Analytics nel portale di Azure, viene esposta solo la prima colonna. Tutt
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **dedup** |  <code>Event.Rule=330009.2<br>&#124; dedup device_id sortby -batterylife</code> |
+| Splunk | **deduplicazione** |  <code>Event.Rule=330009.2<br>&#124; dedup device_id sortby -batterylife</code> |
 | Monitoraggio di Azure | **summarize arg_max()** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; summarize arg_max(batterylife, *) by device_id</code> |
 | | |
 

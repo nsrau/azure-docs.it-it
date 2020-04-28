@@ -1,5 +1,5 @@
 ---
-title: Protocollo SAML di Accesso Single Sign-On di AzureAzure Single Sign On SAML Protocol
+title: Protocollo SAML per Single Sign-on di Azure
 description: Questo articolo illustra il protocollo SAML per Single Sign-On in Azure Active Directory
 services: active-directory
 documentationcenter: .net
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881283"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
@@ -51,7 +51,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
 | IsPassive | Facoltativo | È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
 
-Tutti `AuthnRequest` gli altri attributi, ad esempio Consenso, Destinazione, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName vengono **ignorati.**
+Tutti gli `AuthnRequest` altri attributi, ad esempio acconsente, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName, vengono **ignorati**.
 
 Azure AD ignora anche l'elemento `Conditions` in `AuthnRequest`.
 
@@ -85,7 +85,7 @@ Se viene specificato `NameIDPolicy` è possibile includere l'attributo facoltati
 Azure AD ignora l'attributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-L'elemento `RequestedAuthnContext` specifica i metodi di autenticazione. È facoltativo negli elementi `AuthnRequest` inviati ad Azure AD. Azure AD `AuthnContextClassRef` supporta valori `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`come .
+L'elemento `RequestedAuthnContext` specifica i metodi di autenticazione. È facoltativo negli elementi `AuthnRequest` inviati ad Azure AD. Azure AD supporta `AuthnContextClassRef` valori quali `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Scoping
 L'elemento `Scoping`, che include un elenco di provider di identità, è facoltativo negli elementi `AuthnRequest` inviati ad Azure AD.
@@ -153,7 +153,7 @@ L'elemento `Response` include il risultato della richiesta di autorizzazione. Az
 
 ### <a name="issuer"></a>Issuer
 
-Azure AD `Issuer` imposta `https://login.microsoftonline.com/<TenantIDGUID>/` l'elemento in cui \<> TenantIDGUID è l'ID tenant del tenant di Azure AD.
+Azure AD imposta l' `Issuer` elemento su `https://login.microsoftonline.com/<TenantIDGUID>/` Where \<TenantIDGUID> è l'ID tenant del tenant Azure ad.
 
 Ad esempio, una risposta con elemento Issuer può avere un aspetto simile al seguente:
 
@@ -188,7 +188,7 @@ Oltre a `ID`, `IssueInstant` e `Version`, Azure AD imposta gli elementi seguenti
 
 #### <a name="issuer"></a>Issuer
 
-È impostato `https://sts.windows.net/<TenantIDGUID>/`su \<dove TenantIDGUID> è l'ID tenant del tenant di Azure AD.
+Questa impostazione è impostata `https://sts.windows.net/<TenantIDGUID>/`su \<where TENANTIDGUID> è l'ID tenant del tenant del Azure ad.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -266,7 +266,7 @@ Contiene attestazioni relative all'oggetto o all'utente. L'estratto seguente con
 </AttributeStatement>
 ```        
 
-* **Attestazione nome:** il `Name` valore`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`dell'attributo ( ) è il `testuser@managedtenant.com`nome dell'entità utente dell'utente autenticato, ad esempio .
+* **Nome attestazione** : il valore dell' `Name` attributo (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) è il nome dell'entità utente dell'utente autenticato, ad esempio `testuser@managedtenant.com`.
 * **Attestazione ObjectIdentifier**: il valore dell'attributo `ObjectIdentifier`, `http://schemas.microsoft.com/identity/claims/objectidentifier`, è l'elemento `ObjectId` dell'oggetto directory che rappresenta l'utente autenticato in Azure AD. `ObjectId` è un identificatore non modificabile, globalmente univoco e riutilizzabile in modo sicuro dell'utente autenticato.
 
 #### <a name="authnstatement"></a>AuthnStatement

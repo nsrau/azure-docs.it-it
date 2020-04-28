@@ -1,26 +1,26 @@
 ---
-title: Segreto dell'insieme di chiavi con modelloKey Vault secret with template
+title: Key Vault segreto con il modello
 description: Viene illustrato come passare una chiave privata da un insieme di credenziali chiave come parametro durante la distribuzione.
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458267"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
-Anziché inserire un valore sicuro (ad esempio una password) direttamente nel file di modelli o parametri, è possibile recuperare il valore da un insieme di credenziali delle chiavi di [Azure](../../key-vault/general/overview.md) durante una distribuzione. Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. L'insieme di credenziali delle chiavi può essere presente in una sottoscrizione diversa rispetto al gruppo di risorse in cui si esegue la distribuzione.
+Anziché inserire un valore protetto (ad esempio una password) direttamente nel modello o nel file di parametri, è possibile recuperare il valore da un [Azure Key Vault](../../key-vault/general/overview.md) durante una distribuzione. Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. L'insieme di credenziali delle chiavi può esistere in una sottoscrizione diversa da quella del gruppo di risorse in cui si esegue la distribuzione.
 
-Questo articolo è incentrato sullo scenario del passaggio di un valore sensibile come parametro di modello. Non copre lo scenario di impostazione di una proprietà della macchina virtuale per l'URL di un certificato in un insieme di credenziali delle chiavi. Per un modello di guida introduttiva di tale scenario, vedere Installare un certificato dall'insieme di credenziali delle chiavi di [Azure in una macchina virtuale.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
+Questo articolo è incentrato sullo scenario di passaggio di un valore sensibile in come parametro di modello. Non copre lo scenario di impostazione di una proprietà della macchina virtuale sull'URL di un certificato in un Key Vault. Per un modello di avvio rapido di tale scenario, vedere [installare un certificato da Azure Key Vault in una macchina virtuale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Distribuire insiemi di credenziali delle chiavi e segreti
 
-Per accedere a un insieme `enabledForTemplateDeployment` di credenziali delle `true`chiavi durante la distribuzione del modello, impostare l'insieme di credenziali delle chiavi su .
+Per accedere a un insieme di credenziali delle chiavi durante `enabledForTemplateDeployment` la distribuzione del modello, `true`impostare nell'insieme di credenziali delle chiavi su.
 
-Se si dispone già di un insieme di credenziali delle chiavi, assicurarsi che consenta le distribuzioni dei modelli.
+Se si dispone già di un Key Vault, assicurarsi che consenta le distribuzioni del modello.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -36,7 +36,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
 
 ---
 
-Per creare un nuovo insieme di credenziali delle chiavi e aggiungere un segreto, utilizzare:To create a new Key Vault and add a secret, use:
+Per creare una nuova Key Vault e aggiungere un segreto, usare:
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -65,7 +65,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-In qualità di proprietario dell'insieme di credenziali delle chiavi, è possibile accedere automaticamente alla creazione di segreti. Se l'utente che lavora con i segreti non è il proprietario dell'insieme di credenziali delle chiavi, concedere l'accesso con:
+Il proprietario dell'insieme di credenziali delle chiavi consente di accedere automaticamente alla creazione di segreti. Se l'utente che lavora con i segreti non è il proprietario dell'insieme di credenziali delle chiavi, concedere l'accesso con:
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -89,7 +89,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
-Per ulteriori informazioni sulla creazione di insiemi di credenziali delle chiavi e sull'aggiunta di segreti, vedere:For more information about creating key vaults and adding secrets, see:
+Per ulteriori informazioni sulla creazione di insiemi di credenziali delle chiavi e sull'aggiunta di segreti, vedere:
 
 - [Impostare e recuperare un segreto usando l'interfaccia della riga di comando](../../key-vault/secrets/quick-create-cli.md)
 - [Impostare e recuperare un segreto usando Powershell](../../key-vault/secrets/quick-create-powershell.md)
@@ -99,7 +99,7 @@ Per ulteriori informazioni sulla creazione di insiemi di credenziali delle chiav
 
 ## <a name="grant-access-to-the-secrets"></a>Concedere l'accesso ai segreti
 
-L'utente che distribuisce il `Microsoft.KeyVault/vaults/deploy/action` modello deve disporre dell'autorizzazione per l'ambito del gruppo di risorse e dell'insieme di credenziali delle chiavi. Entrambi i ruoli [Proprietario](../../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso. Se è stato creato l'insieme di credenziali delle chiavi, si è il proprietario in modo da disporre dell'autorizzazione.
+L'utente che distribuisce il modello deve avere l' `Microsoft.KeyVault/vaults/deploy/action` autorizzazione per l'ambito del gruppo di risorse e di Key Vault. Entrambi i ruoli [Proprietario](../../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso. Se è stato creato l'insieme di credenziali delle chiavi, si è il proprietario, quindi si dispone dell'autorizzazione.
 
 La procedura seguente illustra come creare un ruolo con le autorizzazioni minime e come assegnarlo all'utente
 
@@ -157,9 +157,9 @@ Con questo approccio, si fa riferimento all'insieme di credenziali delle chiavi 
 
 ![Diagramma di un ID statico per l'integrazione dell'insieme di credenziali delle chiavi di Resource Manager](./media/key-vault-parameter/statickeyvault.png)
 
-[Esercitazione: Integrare l'insieme di credenziali delle chiavi di Azure nella distribuzione del modello](./template-tutorial-use-key-vault.md) di Resource Manager usa questo metodo.
+[Esercitazione: integrare Azure Key Vault in Gestione risorse distribuzione modelli](./template-tutorial-use-key-vault.md) usa questo metodo.
 
-Il modello seguente distribuisce un server SQL che include una password di amministratore. Il parametro della password è impostato su una stringa sicura, Tuttavia, il modello non specifica da dove proviene tale valore.
+Il modello seguente distribuisce un server SQL che include una password di amministratore. Il parametro della password è impostato su una stringa sicura, Tuttavia, il modello non specifica da dove deriva tale valore.
 
 ```json
 {
@@ -259,7 +259,7 @@ La sezione precedente ha illustrato come passare un ID risorsa statico per il se
 
 Non è possibile generare in modo dinamico l'ID risorsa nel file dei parametri, perché le espressioni del modello non sono consentite nel file dei parametri.
 
-Nel modello padre si aggiunge il modello annidato e si passa un parametro che contiene l'ID risorsa generato dinamicamente. La figura seguente mostra come un parametro nel modello collegato fa riferimento al segreto.
+Nel modello padre aggiungere il modello annidato e passare un parametro che contiene l'ID risorsa generato in modo dinamico. La figura seguente mostra come un parametro nel modello collegato fa riferimento al segreto.
 
 ![ID dinamico](./media/key-vault-parameter/dynamickeyvault.png)
 

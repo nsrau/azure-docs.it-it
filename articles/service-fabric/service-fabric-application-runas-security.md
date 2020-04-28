@@ -1,13 +1,13 @@
 ---
-title: Eseguire un servizio in account di sicurezza locali e di sistemaRun a service under system and local security accounts
+title: Eseguire un servizio con account di sistema e di sicurezza locale
 description: Informazioni su come eseguire un'applicazione di Service Fabric nel sistema e negli account di sicurezza locali.  Creare entità di sicurezza e applicare i criteri RunAs per eseguire in modo sicuro i servizi.
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610123"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Eseguire un servizio come account utente locale o account di sistema locale

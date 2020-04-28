@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul mapping di rete di Hyper-V (con VMM) con Site Recovery
+title: Informazioni sul mapping di rete Hyper-V (con VMM) con Site Recovery
 description: Illustra come configurare il mapping di rete per il ripristino di emergenza di macchine virtuali Hyper-V (gestite in cloud VMM) con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082569"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
@@ -53,7 +53,7 @@ Il mapping di rete funziona nel modo seguente:
 
 Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda come esempio un’organizzazione con due sedi, New York e Chicago.
 
-**Percorso** | **Server VMM** | **Reti VM** | **Mappata a**
+**Posizione** | **Server VMM** | **Reti VM** | **Mappata a**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Non mappata
@@ -73,12 +73,12 @@ Di seguito viene indicato in che modo vengono configurati i cloud VMM e in che m
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
-SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+GoldCloud2 | <p>N/D</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>N/D</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Impostazioni di rete VM e logica
 
-**Percorso** | **Rete logica** | **Rete VM associata**
+**Posizione** | **Rete logica** | **Rete VM associata**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
@@ -104,7 +104,7 @@ Se la rete di destinazione dispone di più subnet e una di esse ha lo stesso nom
 Per vedere cosa succede in caso di failback (replica inversa), si supponga che venga eseguito il mapping di VMNetwork1-NewYork a VMNetwork1-Chicago, con le impostazioni seguenti.
 
 
-**Vm** | **Connessa alla rete VM**
+**VM** | **Connessa alla rete VM**
 ---|---
 VM1 | VMNetwork1-Network
 VM2 (replica di VM1) | VMNetwork1-Chicago

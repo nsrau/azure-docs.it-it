@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671442"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controlli di sicurezza per il servizio app Azure
@@ -18,7 +18,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel servizio app A
 
 [!INCLUDE [Security controls header](../../includes/security-controls-header.md)]
 
-## <a name="network"></a>Network
+## <a name="network"></a>Rete
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione
 |---|---|--|
@@ -39,7 +39,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel servizio app A
 
 | Controllo di sicurezza | Sì/No | Note |  Documentazione
 |---|---|--|
-| Authentication| Sì | I clienti possono compilare applicazioni nel servizio app che si integrano automaticamente con [Azure Active Directory (Azure ad)](../active-directory/index.yml) e altri provider di identità compatibili con OAuth per l'accesso di gestione alle risorse del servizio app. tutti gli accessi sono controllati da una combinazione di Azure ad entità autenticata e di Azure Resource Manager ruoli RBAC. | [Autenticazione e autorizzazione nel servizio app di Azure](overview-authentication-authorization.md)
+| Autenticazione| Sì | I clienti possono compilare applicazioni nel servizio app che si integrano automaticamente con [Azure Active Directory (Azure ad)](../active-directory/index.yml) e altri provider di identità compatibili con OAuth per l'accesso di gestione alle risorse del servizio app. tutti gli accessi sono controllati da una combinazione di Azure ad entità autenticata e di Azure Resource Manager ruoli RBAC. | [Autenticazione e autorizzazione nel servizio app di Azure](overview-authentication-authorization.md)
 | Autorizzazione| Sì | Per la gestione dell'accesso alle risorse del servizio app, tutti gli accessi sono controllati da una combinazione di Azure AD entità autenticata e Azure Resource Manager ruoli RBAC.  | [Autenticazione e autorizzazione nel servizio app di Azure](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Protezione dei dati

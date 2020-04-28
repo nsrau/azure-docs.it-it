@@ -1,7 +1,7 @@
 ---
-title: Risoluzione dei problemi relativi a TLS/SSL (MSAL iOS/macOS) Azure
+title: Risolvere i problemi relativi a TLS/SSL (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su cosa fare in merito a vari problemi relativi all'utilizzo di certificati TLS/SSL con MSAL. Libreria Obiettivo-C.
+description: Informazioni sulle operazioni da eseguire per diversi problemi usando i certificati TLS/SSL con MSAL. Libreria Objective-C.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,36 +13,36 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881078"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Procedura: Risolvere i problemi relativi a MSAL per iOS e macOS TLS/SSLHow to: Troubleshoot MSAL for iOS and macOS TLS/SSL issues
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Procedura: risolvere i problemi relativi a MSAL per iOS e macOS TLS/SSL
 
-In questo articolo vengono fornite informazioni che consentono di risolvere i problemi che possono verificarsi durante l'utilizzo di [Microsoft Authentication Library (MSAL) per iOS e macOS](reference-v2-libraries.md)
+Questo articolo fornisce informazioni utili per la risoluzione dei problemi che possono verificarsi durante l'uso di [Microsoft Authentication Library (MSAL) per iOS e MacOS](reference-v2-libraries.md)
 
 ## <a name="network-issues"></a>Problemi di rete
 
-**Errore -1200:**"Si è verificato un errore SSL e non è possibile effettuare una connessione sicura al server".
+**Errore-1200**: "si è verificato un errore SSL e non è possibile effettuare una connessione protetta al server".
 
-Questo errore indica che la connessione non è sicura. Si verifica quando un certificato non è valido. Per ulteriori informazioni, incluso il server che `NSURLErrorFailingURLErrorKey` non `userInfo` supera il controllo TLS, fare riferimento a nel dizionario dell'oggetto errore.
+Questo errore indica che la connessione non è protetta. Si verifica quando un certificato non è valido. Per ulteriori informazioni, tra cui il server che non ha superato il controllo TLS `NSURLErrorFailingURLErrorKey` , fare `userInfo` riferimento a nel dizionario dell'oggetto Error.
 
-Questo errore proviene dalla libreria di rete di Apple. Un elenco completo dei codici di errore NSURL è in NSURLError.h negli SDK di macOS e iOS. Per ulteriori informazioni su questo errore, vedere [URL Caricamento codici di errore](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc)di sistema .
+Questo errore è stato dalla libreria di rete di Apple. Un elenco completo dei codici di errore NSURL si trova in NSURLError. h negli SDK macOS e iOS. Per ulteriori informazioni su questo errore, vedere [codici di errore del sistema di caricamento degli URL](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc).
 
 ## <a name="certificate-issues"></a>Problemi relativi ai certificati
 
-Se l'URL che fornisce un certificato non valido si connette al server che si intende utilizzare come parte del flusso di autenticazione, è possibile verificare il problema consiste nel testare l'URL con un servizio di convalida SSL, ad esempio [SSL Server Test](https://www.ssllabs.com/ssltest/analyze.html). Testa il server con una vasta gamma di scenari e browser e verifica la presenza di molte vulnerabilità note.
+Se l'URL che fornisce un certificato non valido si connette al server che si intende usare come parte del flusso di autenticazione, è consigliabile iniziare a diagnosticare il problema verificando l'URL con un servizio di convalida SSL, ad esempio il [test del server SSL](https://www.ssllabs.com/ssltest/analyze.html). Verifica il server su una vasta gamma di scenari e browser e controlla la presenza di molte vulnerabilità note.
 
-Per impostazione predefinita, la nuova funzionalità [APP Transport Security (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) di Apple applica criteri di sicurezza più rigorosi alle app che utilizzano certificati TLS/SSL. Alcuni sistemi operativi e browser web hanno iniziato ad applicare alcuni di questi criteri per impostazione predefinita. Per motivi di sicurezza, si consiglia di non disattivare ATS.
+Per impostazione predefinita, la nuova funzionalità [ATS (app Transport Security)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) di Apple applica criteri di sicurezza più rigorosi alle app che usano certificati TLS/SSL. Per impostazione predefinita, alcuni sistemi operativi e Web browser hanno iniziato ad applicare alcuni di questi criteri. Per motivi di sicurezza, è consigliabile non disabilitare ATS.
 
-I certificati che utilizzano gli eporti SHA-1 presentano vulnerabilità note. La maggior parte dei browser Web moderni non consente certificati con gli hashe SHA-1.
+I certificati che usano hash SHA-1 hanno vulnerabilità note. La maggior parte dei Web browser moderni non consente certificati con hash SHA-1.
 
-## <a name="captive-portals"></a>Portali in cattività
+## <a name="captive-portals"></a>Portali Captive
 
-Un portale captive presenta una pagina web a un utente quando accede per la prima volta a una rete Wi-Fi e non ha ancora ottenuto l'accesso a tale rete. Intercetta il traffico Internet fino a quando l'utente non soddisfa i requisiti del portale. Gli errori di rete perché l'utente non può connettersi alle risorse di rete sono previsti fino a quando l'utente non si connette tramite il portale.Network errors because the user can't connect to network resources are expected until the user connects through the portal.
+Un portale captive presenta una pagina Web a un utente quando accede per la prima volta a una rete Wi-Fi e non è ancora autorizzato ad accedere alla rete. Intercetta il traffico Internet fino a quando l'utente non soddisfa i requisiti del portale. Errori di rete perché l'utente non è in grado di connettersi alle risorse di rete finché l'utente non si connette tramite il portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sui [portali captive](https://en.wikipedia.org/wiki/Captive_portal) e sulla nuova funzionalità [App Transport Security (ATS) di](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) Apple.
+Informazioni sui [Portali Captive](https://en.wikipedia.org/wiki/Captive_portal) e la nuova funzionalità [ATS (app Transport Security)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) di Apple.

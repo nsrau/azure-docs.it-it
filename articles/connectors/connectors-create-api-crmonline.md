@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789881"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gestire i record di Dynamics 365 con App per la logica di Azure
@@ -21,7 +21,7 @@ ms.locfileid: "74789881"
 Con App per la logica di Azure e il connettore di Dynamics 365 è possibile creare attività e flussi di lavoro automatizzati in base ai record presenti in Dynamics 365. I flussi di lavoro possono creare record, aggiornare elementi, restituire record e altro ancora nell'account di Dynamics 365. È possibile includere azioni nelle app per la logica che ottengono risposte da Dynamics 365 e rendono l'output disponibile per altre azioni. Quando ad esempio viene aggiornato un elemento in Dynamics 365, è possibile inviare un messaggio di posta elettronica con Office 365.
 
 Questo articolo illustra come creare un'app per la logica che crea un'attività in Dynamics 365 ogni volta che viene creato un nuovo record di cliente potenziale in Dynamics 365.
-Se non si ha familiarità con le app per la logica, vedere [Che cos'è App per la logica](../logic-apps/logic-apps-overview.md)di Azure? .
+Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Se non si ha familiarità con le app per la logica, vedere [Che cos'è App per l
 
 * Un [account Dynamics 365](https://dynamics.microsoft.com)
 
-* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica a cui si vuole accedere con l'account Dynamics 365. Per avviare l'app per la logica con un trigger di Dynamics 365, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -132,11 +132,11 @@ Espandendo questi tipi di campi, ecco alcuni campi di esempio nei trigger e nell
 | Campo | Descrizione |
 |-------|-------------|
 | **Proprietario** | Deve essere un ID utente valido o un ID di record team valido. |
-| **Tipo di proprietario** | Deve essere `systemusers` `teams`uno o più file. |
+| **Tipo di proprietario** | Deve essere `systemusers` o `teams`. |
 | **Tema** | Deve contenere un ID record valido, ad esempio un ID account o un ID record contatto. |
-| **Tipo relativo** | Deve essere un tipo `accounts` di `contacts`ricerca, ad esempio o . |
+| **Tipo relativo** | Deve essere un tipo di ricerca, ad `accounts` esempio `contacts`o. |
 | **Cliente** | Deve contenere un ID record valido, ad esempio un ID account o un ID record contatto. |
-| **Tipo di cliente** | Deve essere il tipo `accounts` di `contacts`ricerca, ad esempio o . |
+| **Tipo di cliente** | Deve essere il tipo di `accounts` ricerca, ad esempio `contacts`o. |
 |||
 
 In questo esempio l'azione denominata **Crea un nuovo record** crea un nuovo record di attività:
@@ -159,7 +159,7 @@ Per trovare un ID record, seguire questa procedura:
 
 2. Nella barra degli strumenti Azioni scegliere uno di questi passaggi:
 
-   * Scegliere **Pop Out**. ![record popout](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Scegliere **Apri**. ![record popout](./media/connectors-create-api-crmonline/popout-record.png) 
    * Scegliere **Invia link tramite messaggio e-mail** per poter copiare l'URL completo nel programma di posta elettronica predefinito.
 
    L'ID record appare nell'URL tra i caratteri di codifica `%7b` e `%7d`:
@@ -186,7 +186,7 @@ Per altre informazioni sulla risoluzione dei problemi delle app per la logica, v
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore.](/connectors/dynamicscrmonline/)
+Per informazioni tecniche, ad esempio trigger, azioni e limiti, come descritto dal file OpenAPI (in precedenza spavalderia) del connettore, vedere la [pagina di riferimento del connettore](/connectors/dynamicscrmonline/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

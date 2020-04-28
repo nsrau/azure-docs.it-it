@@ -1,6 +1,6 @@
 ---
 title: Guida per la risoluzione dei problemi relativi allo streaming live | Microsoft Docs
-description: Questo articolo fornisce suggerimenti su come risolvere i problemi di live streaming di Servizi multimediali di Azure.This article gives suggestions on how to troubleshoot Azure Media Services live streaming problems.
+description: Questo articolo fornisce suggerimenti su come risolvere i problemi di streaming live di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: b00df5e8176aaad86be5cf3ae4e04c736f36cf5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74885603"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guida per la risoluzione dei problemi relativi allo streaming live  
@@ -55,6 +55,6 @@ In questa sezione sono disponibili suggerimenti su come risolvere i problemi rel
 > 
 > 
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

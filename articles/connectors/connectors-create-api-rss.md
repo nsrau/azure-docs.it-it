@@ -1,5 +1,5 @@
 ---
-title: Connettersi ai feed RSS dalle app per la logica di AzureConnect to RSS feeds from Azure Logic Apps
+title: Connettersi ai feed RSS dalle app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per il monitoraggio e la gestione dei feed RSS con App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789342"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gestire i feed RSS con App per la logica di Azure
@@ -31,7 +31,7 @@ RSS (Rich Site Summary), noto anche come Really Simple Syndication, è un format
 
 * L'URL per un feed RSS.
 
-* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere al feed RSS. Per iniziare con un trigger di RSS, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di RSS, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -53,7 +53,7 @@ RSS (Rich Site Summary), noto anche come Really Simple Syndication, è un format
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/rss/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

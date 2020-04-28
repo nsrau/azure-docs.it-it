@@ -1,5 +1,5 @@
 ---
-title: Testare la replica della macchina virtuale Hyper-V in un sito secondario con VMM tramite Azure Site Recovery
+title: Testare la replica di macchine virtuali Hyper-V in un sito secondario con VMM usando Azure Site Recovery
 description: Questo articolo fornisce informazioni sui test delle prestazioni per la replica di macchine virtuali Hyper-V in cloud VMM in un sito secondario tramite Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73663179"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Eseguire test dei risultati della replica Hyper-V in un sito secondario
@@ -175,10 +175,10 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 | CPU |\Processor(_Total)\% Processor Time |
 | Memoria disponibile |\Memoria\MByte disponibili |
 | IOPS |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
-| Operazioni di lettura VM (IOPS) al secondo  |Periferica di archiviazione virtuale\<Hyper-V(> VHD) - Operazioni di lettura al secondo |
-| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale\<Hyper-V(> VHD) - Operazioni di scrittura/S |
-| Velocità effettiva lettura VM |Periferica di archiviazione virtuale\<Hyper-V(> VHD) - Byte letti/sec |
-| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale\<Hyper-V(> VHD) - Byte scritti/sec |
+| Operazioni di lettura VM (IOPS) al secondo  |\Dispositivo dispositivo di archiviazione virtuale\<(VHD>) \Byte letti/sec |
+| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \Dispositivo\<(VHD>) \Byte scritti operazioni/sec |
+| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \Dispositivo\<(> VHD) \Byte letti/sec |
+| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \Dispositivo\<(> VHD) \Byte scritti/sec |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

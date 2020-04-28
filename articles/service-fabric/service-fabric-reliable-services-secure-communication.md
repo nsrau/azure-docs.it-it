@@ -1,20 +1,20 @@
 ---
-title: 'Comunicazioni remote di servizi remoti con C #'
+title: 'Proteggere le comunicazioni remote del servizio con C #'
 description: Informazioni su come proteggere le comunicazioni remote per Reliable Services C# in esecuzione in un cluster di Azure Service Fabric.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609622"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteggere le comunicazioni remote in un servizio C#
 > [!div class="op_single_selector"]
-> * [C'è su Windows](service-fabric-reliable-services-secure-communication.md)
+> * [C# in Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java su Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >

@@ -1,13 +1,13 @@
 ---
-title: Ciclo di vita dell'applicazione in Service FabricApplication lifecycle in Service Fabric
+title: Ciclo di vita dell'applicazione in Service Fabric
 description: Vengono descritte le operazioni di sviluppo, distribuzione, test, aggiornamento, manutenzione e rimozione per le applicazioni di Infrastruttura di servizi.
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378005"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo di vita dell'applicazione Service Fabric
@@ -18,7 +18,7 @@ Analogamente ad altre piattaforme, un'applicazione su Service Fabric di Azure in
 ## <a name="service-model-roles"></a>Ruoli del modello di servizio
 I ruoli del modello di servizio sono i seguenti:
 
-* **Sviluppatore**di servizi : Sviluppa servizi modulari e generici che possono essere riutilizzati e utilizzati in più applicazioni dello stesso tipo o tipi diversi. Un servizio di accodamento ad esempio può essere usato per creare un'applicazione di controllo di attività e richieste basata su ticket (supporto tecnico) o un'applicazione di e-commerce (carrello acquisti).
+* **Developer Service**: sviluppa servizi modulari e generici che possono essere riutilizzati e usati in più applicazioni dello stesso tipo o di tipi diversi. Un servizio di accodamento ad esempio può essere usato per creare un'applicazione di controllo di attività e richieste basata su ticket (supporto tecnico) o un'applicazione di e-commerce (carrello acquisti).
 * **Sviluppatore di applicazioni**: crea applicazioni integrando una raccolta di servizi per soddisfare determinati requisiti o scenari. Un sito Web di e-commerce ad esempio può integrare i servizi "JSON Stateless Front-end Service", "Auction Stateful Service" e "Queue Stateful Service" per creare una soluzione per vendite all'asta.
 * **Amministratore di applicazioni**: prende decisioni relative alla configurazione (specificando i parametri del modello di configurazione), alla distribuzione (eseguendo il mapping con le risorse disponibili) e alla qualità del servizio delle applicazioni. Un amministratore di applicazioni ad esempio decide le impostazioni locali della lingua (come inglese per gli Stati Uniti o giapponese per Giappone) dell'applicazione. Un'altra applicazione distribuita può avere impostazioni diverse.
 * **Operatore**: distribuisce le applicazioni in base alla configurazione e ai requisiti specificati dall'amministratore di applicazioni. Un operatore ad esempio effettua il provisioning e la distribuzione dell'applicazione e verifica che sia in esecuzione in Azure. Gli operatori monitorano l'integrità e le informazioni sulle prestazioni delle applicazioni e gestiscono l'infrastruttura fisica a seconda delle esigenze.
@@ -81,7 +81,7 @@ Per gli esempi, vedere l'articolo relativo alla [distribuzione di un'applicazion
 Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e servizi di Service Fabric, vedere:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Servizi affidabili](service-fabric-reliable-services-introduction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)
 * [Aggiornamento dell'applicazione](service-fabric-application-upgrade.md)
 * [Panoramica della testabilità](service-fabric-testability-overview.md)

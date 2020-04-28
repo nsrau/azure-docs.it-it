@@ -1,13 +1,13 @@
 ---
-title: Aggiornare la versione di Azure Service Fabric di un clusterUpgrade a cluster's Azure Service Fabric version
+title: Aggiornare la versione di Azure Service Fabric di un cluster
 description: Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell'applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti.
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451814"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Aggiornare la versione di Service Fabric di un cluster
@@ -54,7 +54,7 @@ Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito i
 Dopo aver risolto i problemi che hanno determinato il rollback, è necessario avviare di nuovo l'aggiornamento, seguendo la stessa procedura precedente.
 
 ## <a name="set-custom-health-polices-for-upgrades"></a>Impostare criteri di integrità personalizzati per gli aggiornamenti
-È possibile specificare criteri di integrità personalizzati per l'aggiornamento di Fabric. Se il cluster è stato impostato su Aggiornamenti automatici dell'infrastruttura, questi criteri vengono applicati alla [fase 1 degli aggiornamenti automatici dell'infrastruttura.](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades)
+È possibile specificare criteri di integrità personalizzati per l'aggiornamento di Fabric. Se il cluster è stato impostato per gli aggiornamenti automatici dell'infrastruttura, questi criteri vengono applicati alla [fase 1 degli aggiornamenti automatici dell'infrastruttura](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
 Se nel cluster è stato impostato l'aggiornamento manuale di Fabric, questi criteri vengono applicati ogni volta che si seleziona una nuova versione attivando nel sistema l'avvio dell'aggiornamento di Fabric nel cluster. Se non si esegue l'override dei criteri, vengono usati quelli predefiniti.
 
 È possibile specificare criteri di integrità personalizzati o esaminare le impostazioni correnti nel pannello relativo agli aggiornamenti di Fabric, selezionando le impostazioni di aggiornamento avanzate. La figura seguente illustra questo passaggio. 

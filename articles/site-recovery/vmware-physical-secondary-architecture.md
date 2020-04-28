@@ -1,5 +1,5 @@
 ---
-title: Architecture-VMware/ripristino di emergenza fisico in un sito secondario con Azure Site Recovery
+title: 'Architettura: ripristino di emergenza di VMware/fisico in un sito secondario con Azure Site Recovery'
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante il ripristino di emergenza di macchine virtuali VMware locali o di server fisici Windows/Linux in un sito VMware secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: b0a46dcf8fe298494a53713f122b1bda8ce07e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954583"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architettura per la replica di server VMware o fisici in un sito locale secondario
@@ -21,7 +21,7 @@ Questo articolo descrive l'architettura e i processi usati per la replica, il fa
 
 ## <a name="architectural-components"></a>Componenti dell'architettura
 
-**Zona** | **Componente** | **Dettagli**
+**Area** | **Componente** | **Dettagli**
 --- | --- | ---
 **Azure** | Questo scenario viene distribuito con InMage Scout. | Per ottenere InMage Scout, è necessaria una sottoscrizione di Azure.<br/><br/> Dopo aver creato un insieme di credenziali di Servizi di ripristino, scaricare InMage Scout e installare gli aggiornamenti più recenti per configurare la distribuzione.
 **Server di elaborazione** | Situato nel sito primario | Il server di elaborazione viene distribuito per gestire la memorizzazione nella cache, la compressione e l'ottimizzazione dei dati.<br/><br/> Gestisce anche l'installazione push di Unified Agent nei computer da proteggere.

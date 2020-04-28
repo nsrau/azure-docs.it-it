@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "64869017"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introduzione a Java Client SDK per Servizi multimediali di Azure  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra in modo dettagliato la procedura di implementazione di un servizio di base per la distribuzione di contenuto video con Servizi multimediali di Azure Media Services tramite Java Client SDK.
 
@@ -32,8 +32,8 @@ Questa esercitazione illustra in modo dettagliato la procedura di implementazion
 
 Per completare l'esercitazione è necessario quanto segue:
 
-* Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
-* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere [Creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
+* Un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Account di Servizi multimediali. Per creare un account di servizi multimediali, vedere [come creare un account di servizi multimediali](media-services-portal-create-account.md).
 * [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest) corrente
 
 ## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Procedura: Importare il pacchetto Java Client SDK per Servizi multimediali di Azure
@@ -53,7 +53,7 @@ Ad esempio, se lo strumento di compilazione è `gradle`, aggiungere la dipendenz
 ## <a name="how-to-use-azure-media-services-with-java"></a>Procedura: come usare Servizi multimediali di Azure con Java
 
 >[!NOTE]
->Quando viene creato l'account di Servizi multimediali, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+>Quando viene creato l'account di servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** con stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
 Il codice seguente illustra come creare un asset, caricare un file multimediale nell'asset, eseguire un processo con un'attività per trasformare l'asset e creare un localizzatore per trasmettere il video.
 
@@ -307,7 +307,7 @@ Questo codice si basa inoltre su un file video archiviato in locale. È necessar
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

@@ -6,14 +6,14 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451594"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
-In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa **i report di integrità** (componenti di sistema e watchdog). Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
+In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa i **reporter di integrità** (componenti di sistema e watchdog). Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
 
 I generatori di report di Service Fabric eseguono il monitoraggio di condizioni di particolare interesse. Generano report su tali condizioni in base alla visualizzazione locale. L'[archivio integrità](service-fabric-health-introduction.md#health-store) aggrega i dati sull'integrità inviati da tutti i reporter per determinare se le entità sono complessivamente integre. Il modello è concepito per essere completo, flessibile e facile da usare. La qualità dei report sull'integrità determina il livello di accuratezza della visualizzazione dell'integrità del cluster. I falsi positivi che visualizzano erroneamente problemi di non integrità possono influire negativamente sugli aggiornamenti o su altri servizi che usano i dati di integrità, come ad esempio i servizi di ripristino e i meccanismi di avviso. Pertanto, è necessario creare report che segnalino le condizioni a cui si è interessati nel miglior modo possibile.
 
@@ -30,8 +30,8 @@ Come indicato, i report possono essere creati da:
 
 * La replica del servizio di Service Fabric monitorato.
 * Watchdog interni distribuiti come servizio di Service Fabric, ad esempio un servizio senza stato di Service Fabric che monitora le condizioni e genera i report. Il watchdog può essere distribuito su tutti i nodi o è possibile creare un'affinità con il servizio monitorato.
-* Watchdog interni che vengono eseguiti nei nodi di Service Fabric ma *non* implementati come servizi di Service Fabric.
-* Watchdog esterni che esaminano la risorsa *dall'esterno* del cluster Service Fabric (ad esempio, il servizio di monitoraggio come Gomez).
+* Watchdog interni eseguiti sui nodi Service Fabric ma *non* implementati come servizi di Service Fabric.
+* Watchdog esterni che eseguono il probe della risorsa dall' *esterno* del cluster di Service Fabric, ad esempio il servizio di monitoraggio come Gomez.
 
 > [!NOTE]
 > Per impostazione predefinita, il cluster viene popolato con report sull'integrità inviati dai componenti di sistema. Per altre informazioni, vedere [Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). I report dell'utente devono essere inviati alle [entità di integrità](service-fabric-health-introduction.md#health-entities-and-hierarchy) già create dal sistema.
@@ -46,18 +46,18 @@ Una volta definita la progettazione dei report sull'integrità, è possibile inv
 > 
 
 ## <a name="health-client"></a>Client di integrità
-I report di integrità vengono inviati al responsabile dell'integrità tramite un client di integrità, che si trova all'interno del client di infrastruttura. Il responsabile dell'integrità salva i report nell'archivio integrità. Il client di integrità può essere configurato con le impostazioni seguenti:
+I report sull'integrità vengono inviati al gestore dell'integrità tramite un client di integrità, che risiede all'interno del client dell'infrastruttura. Il gestore integrità Salva i report nell'archivio integrità. Il client di integrità può essere configurato con le impostazioni seguenti:
 
-* **HealthReportSendInterval:** ritardo tra il momento in cui il report viene aggiunto al client e il momento in cui viene inviato al responsabile dell'integrità. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Impostazione predefinita: 30 secondi.
-* **HealthReportRetrySendInterval:** intervallo in cui il client di integrità invia nuovamente i report di integrità accumulati al gestore dell'integrità. Valore predefinito: 30 secondi, minimo: 1 secondo.
-* **HealthOperationTimeout:** periodo di timeout per un messaggio di report inviato al gestore dell'integrità. Se si verifica il timeout di un messaggio, il client di integrità ritenta finché il responsabile dell'integrità non conferma che il report è stato elaborato. Valore predefinito: due minuti.
+* **HealthReportSendInterval**: ritardo tra il momento in cui il report viene aggiunto al client e il momento in cui viene inviato al gestore dell'integrità. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Impostazione predefinita: 30 secondi.
+* **HealthReportRetrySendInterval**: intervallo al quale il client di integrità invia nuovamente i report sull'integrità accumulati al gestore dell'integrità. Impostazione predefinita: 30 secondi, minimo: 1 secondo.
+* **HealthOperationTimeout**: periodo di timeout per un messaggio di report inviato al gestore dell'integrità. Se si verifica il timeout di un messaggio, il client di integrità lo ritenta finché il gestore integrità non conferma che il report è stato elaborato. Valore predefinito: due minuti.
 
 > [!NOTE]
-> Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o il responsabile dell'integrità non è in grado di applicarli a causa di errori temporanei, il client di infrastruttura deve essere mantenuto attivo più a lungo per dargli la possibilità di riprovare.
+> Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o il gestore dell'integrità non è in grado di applicarli a causa di errori temporanei, il client di Fabric deve essere mantenuto attivo più a lungo per dare la possibilità di riprovare.
 > 
 > 
 
-La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se l'invio in batch è configurato, il numero di report inviati al gestore dell'integrità è solo uno per ogni intervallo di invio. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
+La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se la suddivisione in batch è configurata, il numero di report inviati al gestore di integrità è solo uno per ogni intervallo di invio. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
 Specificare i parametri di configurazione quando viene creato `FabricClient` passando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con i valori desiderati per le voci correlate all'integrità.
 
 L'esempio seguente crea un client Fabric e specifica che i report devono essere inviati quando vengono aggiunti. In caso di timeout ed errori che supportano nuovi tentativi, questi vengono eseguiti ogni 40 secondi.
@@ -139,7 +139,7 @@ Non è sempre possibile creare report dall'interno del servizio monitorato. Un w
 
 A volte anche un watchdog in esecuzione nel cluster può non essere una soluzione efficace. Se la condizione monitorate è la disponibilità o la funzionalità del servizio dal punto di vista degli utenti, è preferibile inserire i watchdog nella stessa posizione dei client degli utenti, dove possono testare le operazioni allo stesso modo in cui vengono eseguite dagli utenti. Ad esempio, è possibile configurare un watchdog esterno al cluster che invia le richieste al servizio e controlla la latenza e la correttezza del risultato. Ad esempio, per un servizio calcolatrice, verificare se l'operazione 2+2 restituisce 4 in tempi ragionevoli.
 
-Una volta finalizzati i dettagli del watchdog, stabilire un ID di origine che lo identifichi in modo univoco. Se nel cluster sono presenti più watchdog dello stesso tipo, devono generare report per entità diverse oppure, se generano report per la stessa entità, usare proprietà o ID di origine diversi. In questo modo, i report possono coesistere. La proprietà del report sull'integrità deve contenere la condizione monitorata. (Per l'esempio precedente, la proprietà potrebbe essere **ShareSize**.) Se più report si applicano alla stessa condizione, la proprietà deve contenere alcune informazioni dinamiche che consentono la coesistenza dei report. Ad esempio, se è necessario monitorare più condivisioni, il nome della proprietà può essere **ShareSize-sharename**.
+Una volta finalizzati i dettagli del watchdog, stabilire un ID di origine che lo identifichi in modo univoco. Se nel cluster sono presenti più watchdog dello stesso tipo, devono generare report per entità diverse oppure, se generano report per la stessa entità, usare proprietà o ID di origine diversi. In questo modo, i report possono coesistere. La proprietà del report sull'integrità deve contenere la condizione monitorata. Per l'esempio precedente, la proprietà può essere **ShareSize**. Se più report si applicano alla stessa condizione, la proprietà deve contenere alcune informazioni dinamiche che consentono la coesistenza dei report. Ad esempio, se è necessario monitorare più condivisioni, il nome della proprietà può essere **ShareSize-sharename**.
 
 > [!NOTE]
 > *Non* usare l'archivio integrità per conservare informazioni sullo stato. Nei report solo le informazioni correlate all'integrità devono essere segnalate come informazioni sull'integrità, perché influiscono sulla valutazione dell'integrità di un'entità. L'archivio integrità non è stato progettato come archivio per utilizzo generico. Usa la logica di valutazione dell'integrità per aggregare tutti i dati nello stato di integrità. L'invio di informazioni non correlate all'integrità, come la creazione di report sullo stato con stato di integrità OK, non ha ripercussioni sullo stato di integrità aggregato, ma può influire negativamente sulle prestazioni dell'archivio integrità.

@@ -1,13 +1,13 @@
 ---
-title: 'Sicurezza del cluster di Service Fabric: ruoli clientService Fabric cluster security: client roles'
+title: 'Sicurezza del cluster Service Fabric: ruoli client'
 description: In questo articolo vengono descritti i due ruoli client e le autorizzazioni fornite per i ruoli.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451891"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controllo di accesso basato sui ruoli per i client di Service Fabric
@@ -92,7 +92,7 @@ Il controllo di accesso amministratore ha accesso anche alle operazioni preceden
 Nel file manifesto del cluster è possibile assegnare al client funzionalità di amministratore, se necessario. È possibile modificare le impostazioni predefinite accedendo all'opzione **Impostazioni infrastruttura** durante la [creazione del cluster](service-fabric-cluster-creation-via-portal.md) e fornendo le impostazioni precedenti nei campi relativi a **nome**, **amministratore**, **utente** e **valore**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Sicurezza del cluster di Service FabricService Fabric cluster security](service-fabric-cluster-security.md)
+[Sicurezza del cluster Service Fabric](service-fabric-cluster-security.md)
 
 [Creazione del cluster di Service Fabric](service-fabric-cluster-creation-via-portal.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard a bitrate singolo H.264 con risoluzione 16x9 SD preimpostato - Azure | Documentazione Microsoft
-description: L'argomento fornisce una panoramica del preset di attività **H264 Single Bitrate 16x9 SD.**
+description: Questo argomento offre una panoramica del set di impostazioni dell'attività **16x9 SD a bitrate singolo** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: fcc370afeca41a8d1d227db368eeaba789c56137
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61129523"
 ---
 # <a name="h264-single-bitrate-16x9-sd"></a>Codec video H.264 a bitrate singolo con risoluzione 16x9 SD

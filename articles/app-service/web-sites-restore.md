@@ -1,21 +1,21 @@
 ---
-title: Ripristinare l'app dal backup
-description: Informazioni su come ripristinare l'app da un backup. Alcuni database collegati possono essere ripristinati insieme all'app in un'unica operazione.
+title: Ripristinare un'app da un backup
+description: Informazioni su come ripristinare l'app da un backup. È possibile ripristinare alcuni database collegati insieme all'app in un'unica operazione.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74689238"
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
 Questo articolo illustra come ripristinare un'app nel [Servizio app di Azure](../app-service/overview.md) in precedenza sottoposta a un backup. Vedere [Eseguire il backup di un'app Web del Servizio app di Azure](manage-backup.md). È possibile ripristinare su richiesta a uno stato precedente l'app con i relativi database collegati oppure creare una nuova app basata su uno dei backup dell'app originale. Servizio app di Azure supporta il backup e il ripristino dei seguenti database:
-- [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+- [Database SQL](https://azure.microsoft.com/services/sql-database/)
+- [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql)
 - [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -81,8 +81,8 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibili corr
 
 Per qualche esempio vedere:
 
-- [Esempi dell'interfaccia della riga di comando di AzureAzure](samples-cli.md)
-- [Esempi di Azure PowerShellAzure PowerShell samples](samples-powershell.md)
+- [Esempi dell'interfaccia della riga di comando di Azure](samples-cli.md)
+- [Esempi di Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

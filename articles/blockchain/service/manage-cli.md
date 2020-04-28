@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455592"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gestire il servizio Azure blockchain usando l'interfaccia della riga di comando
@@ -35,7 +35,7 @@ az resource create \
 | Parametro | Descrizione |
 |---------|-------------|
 | **resource-group** | Nome del gruppo di risorse in cui vengono create le risorse del servizio Azure Blockchain. |
-| **nome** | Nome univoco che identifica il membro della blockchain del servizio Azure Blockchain. Il nome viene usato per l'indirizzo dell'endpoint pubblico. Ad esempio, `myblockchainmember.blockchain.azure.com` |
+| **nome** | Nome univoco che identifica il membro della blockchain del servizio Azure Blockchain. Il nome viene usato per l'indirizzo dell'endpoint pubblico. Ad esempio: `myblockchainmember.blockchain.azure.com`. |
 | **location** | Area di Azure in cui viene creato il membro della blockchain. Ad esempio: `eastus`. Scegliere la località più vicina agli utenti o alle altre applicazioni Azure. |
 | **password** | Password dell'account del membro. Viene usata per eseguire l'autenticazione all'endpoint pubblico del membro della blockchain usando l'autenticazione di base. La password deve soddisfare tre dei quattro requisiti seguenti: la lunghezza deve essere compresa tra 12 & 72 caratteri, 1 carattere minuscolo, 1 carattere maiuscolo, 1 numero e 1 carattere speciale che non è un simbolo di cancelletto (#), percentuale (%), virgola (,), stella (*),\`virgolette (), virgolette doppie;)|
 | **protocol** | L'anteprima pubblica supporta il quorum. |

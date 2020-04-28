@@ -4,15 +4,15 @@ description: Le funzionalità di Azure Lighthouse possono essere usate per sempl
 ms.date: 09/25/2019
 ms.topic: conceptual
 ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749219"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
-Lo scenario più comune per [il faro di Azure](../overview.md) è un provider di servizi che gestisce le risorse nei tenant di Azure Active Directory (Azure AD) dei clienti. Le funzionalità di Azure Lighthouse possono tuttavia essere usate anche per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
+Lo scenario più comune per [Azure Lighthouse](../overview.md) è un provider di servizi che gestisce le risorse nei tenant Azure Active Directory (Azure ad) dei clienti. Le funzionalità di Azure Lighthouse possono tuttavia essere usate anche per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Tenant singolo o più tenant
 
@@ -24,7 +24,7 @@ Al tempo stesso, in determinate situazioni potrebbe essere necessario per un'org
 
 Quando si centralizzano le operazioni di gestione in più tenant, è necessario determinare in quale tenant saranno inclusi gli utenti che eseguono operazioni di gestione per gli altri tenant. In altri termini, sarà necessario determinare quale sarà il tenant di gestione per gli altri tenant.
 
-Si supponga, ad esempio, che l'organizzazione disponga di un singolo tenant che verrà chiamato *Tenant A*. L'organizzazione acquisisce quindi due tenant aggiuntivi, *Tenant B* e *Tenant C,* e si dispone di motivi aziendali che richiedono la loro gestione come tenant separati.
+Si immagini, ad esempio, che l'organizzazione disponga di un singolo tenant che chiameremo *tenant a*. L'organizzazione acquisisce quindi due tenant aggiuntivi, il *tenant B* e il *tenant C*e i motivi aziendali necessari per mantenerli come tenant distinti.
 
 L'organizzazione vuole usare le stesse definizioni di criteri e procedure di backup e gli stessi processi di sicurezza in tutti i tenant. Dato che sono già presenti utenti (inclusi gruppi di utenti ed entità servizio) incaricati di queste attività in Tenant A, è possibile eseguire l'onboarding di tutte le sottoscrizioni di Tenant B e Tenant C in modo che gli stessi utenti di Tenant A possano eseguire tali attività.
 

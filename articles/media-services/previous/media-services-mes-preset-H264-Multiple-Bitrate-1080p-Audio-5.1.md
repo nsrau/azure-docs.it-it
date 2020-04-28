@@ -1,6 +1,6 @@
 ---
 title: Codec video H.264 a bitrate multipli con risoluzione 1080p e audio 5.1 | Documentazione Microsoft
-description: L'argomento fornisce una panoramica del preset attività **H264 Multiple Bitrate 1080p Audio 5.1.**
+description: Questo argomento offre una panoramica del set di impostazioni delle attività **H264 a bitrate multipli 1080p Audio 5,1** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 53ea54406969d246845018191960b13b8ee9a08a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61129764"
 ---
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>Codec video H.264 a bitrate multipli con risoluzione 1080p e audio 5.1 

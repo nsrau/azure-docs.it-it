@@ -1,6 +1,6 @@
 ---
-title: Configurare ASE v1
-description: Configurazione, gestione e monitoraggio dell'ambiente del servizio app v1. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Configurare l'ambiente del servizio app V1
+description: Configurazione, gestione e monitoraggio del ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687266"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
 
 > [!NOTE]
-> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni sulla nuova versione, iniziare con [l'introduzione all'ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per ulteriori informazioni sulla nuova versione, iniziare con l' [Introduzione al ambiente del servizio app](intro.md).
 > 
 
 ## <a name="overview"></a>Panoramica
@@ -125,13 +125,13 @@ In un ambiente del servizio app, tutti i piani di servizio app sono dedicati. Di
 ### <a name="settings"></a>Impostazioni
 Il pannello dell'ambiente del servizio app include una sezione **Impostazioni** che contiene diverse funzionalità importanti.
 
-**Proprietà impostazioni** > **Properties**: Il pannello **Impostazioni** si apre automaticamente quando si apre il pannello dell'app. Nella parte superiore è disponibile la voce **Proprietà**. In questa sezione sono presenti alcune voci visualizzate anche nella sezione **Informazioni di base**. Le voci particolarmente utili sono **Indirizzo IP virtuale** e **Indirizzo IP in uscita**.
+**Proprietà delle impostazioni** > **Properties**: il pannello **Impostazioni** viene aperto automaticamente quando si apre il pannello dell'ambiente del servizio app. Nella parte superiore è disponibile la voce **Proprietà**. In questa sezione sono presenti alcune voci visualizzate anche nella sezione **Informazioni di base**. Le voci particolarmente utili sono **Indirizzo IP virtuale** e **Indirizzo IP in uscita**.
 
 ![Pannello Impostazioni e Proprietà][4]
 
-**Impostazioni** > **indirizzi IP**: Quando si crea un'app IP Secure Sockets Layer (SSL) nell'ambiente del servizio app, è necessario un indirizzo IP SSL. Per ottenerne uno, è necessario che l'ambiente del servizio app possieda indirizzi IP SSL da allocare. Quando viene creato, l'ambiente del servizio app ha un indirizzo IP SSL a tale scopo, ma è possibile aggiungerne altri. Per gli indirizzi IP SSL aggiuntivi è previsto un addebito, come indicato nella sezione relativa alle connessioni SSL in [Prezzi di Servizio app ][AppServicePricing]. Il prezzo indicato è il prezzo aggiuntivo per la connessione IP SSL.
+**Impostazioni** > **indirizzi IP**: quando si crea un'app IP Secure Sockets Layer (SSL) nell'ambiente del servizio app, è necessario un indirizzo di IP SSL. Per ottenerne uno, è necessario che l'ambiente del servizio app possieda indirizzi IP SSL da allocare. Quando viene creato, l'ambiente del servizio app ha un indirizzo IP SSL a tale scopo, ma è possibile aggiungerne altri. Per gli indirizzi IP SSL aggiuntivi è previsto un addebito, come indicato nella sezione relativa alle connessioni SSL in [Prezzi di Servizio app ][AppServicePricing]. Il prezzo indicato è il prezzo aggiuntivo per la connessione IP SSL.
 
-**Impostazioni** > Pool di**lavoro****del pool Front End Pool:** / ognuno di questi pannelli del pool di risorse consente di visualizzare le informazioni solo in tale pool di risorse, oltre a fornire controlli per scalare completamente tale pool di risorse.  
+**Impostazioni** > pool di / **lavoro****pool Front-End**: ognuno di questi pannelli del pool di risorse offre la possibilità di visualizzare solo le informazioni sul pool di risorse, oltre a fornire controlli per la scalabilità completa del pool di risorse.  
 
 Il pannello di base per ogni pool di risorse mostra un grafico con le metriche relative al pool di risorse specifico. Esattamente come per i grafici del pannello dell'ambiente del servizio app, è possibile passare al grafico e impostare gli avvisi desiderati. La procedura di configurazione di un avviso dal pannello dell'ambiente del servizio app per un pool di risorse specifico equivale alla stessa operazione nel pool di risorse. Dal pannello **Impostazioni** del pool di lavoro è possibile accedere a tutti i piani di servizio app o le app in esecuzione nel pool di lavoro.
 
@@ -154,7 +154,7 @@ Per eseguire l'operazione di ridimensionamento nel pannello dell'ambiente del se
 
 ![Interfaccia utente Piano][6]
 
-Per utilizzare le funzionalità di scalabilità manuale o automatica in un pool di risorse specifico, passare a Pool di lavoro**del pool** / Front End delle **impostazioni** > in**base** alle esigenze. Aprire quindi il pool che si vuole modificare. Passare a **Impostazioni** > **scalabile** orizzontalmente o **Impostazioni** > **Scala verso l'alto**. Il pannello **Aumenta istanze** consente di controllare la quantità di istanze. **Aumenta prestazioni** consente di controllare le dimensioni delle risorse.  
+Per usare le funzionalità di scalabilità automatica o manuale in un pool di risorse specifico, passare a **Impostazioni** > pool di**lavoro** pool**front-end** / in base alle esigenze. Aprire quindi il pool che si vuole modificare. Passare a **Impostazioni** > **scale out** o **Impostazioni** > **scalabilità verticale**. Il pannello **Aumenta istanze** consente di controllare la quantità di istanze. **Aumenta prestazioni** consente di controllare le dimensioni delle risorse.  
 
 ![Interfaccia utente Impostazione Piano][7]
 

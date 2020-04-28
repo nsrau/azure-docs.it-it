@@ -1,14 +1,14 @@
 ---
-title: Backup coerenti con le applicazioni delle macchine virtuali LinuxApplication-consistent backups of Linux VMs
+title: Backup coerenti con l'applicazione di macchine virtuali Linux
 description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74173013"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
@@ -19,7 +19,7 @@ Quando viene eseguito il backup di snapshot delle macchine virtuali, la coerenza
 
 Il framework offre un'opzione per eseguire script di pre e post-backup durante la creazione di snapshot delle macchine virtuali. Gli script pre-backup vengono eseguiti immediatamente prima della creazione dello snapshot della macchina virtuale e gli script post-backup vengono eseguiti immediatamente dopo la creazione dello snapshot della macchina virtuale. Gli script di pre e post-backup offrono la flessibilità necessaria per controllare l'applicazione e l'ambiente quando si creano snapshot delle macchine virtuali.
 
-Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. I post-script usano API dell'applicazione native per scongelare le operazioni di I/O, che consentono all'applicazione di riprendere le normali operazioni dopo lo snapshot della macchina virtuale.
+Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. I post-script usano le API native dell'applicazione per scongelare IOs, che consentono all'applicazione di riprendere le normali operazioni dopo lo snapshot della macchina virtuale.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Passaggi per configurare gli script di pre e post-backup
 
@@ -43,7 +43,7 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
    >
 
 5. Configurare **VMSnapshotScriptPluginConfig.json** come illustrato di seguito:
-    - **pluginName**: Lasciare questo campo così com'è o gli script potrebbero non funzionare come previsto.
+    - **pluginName**: lasciare questo campo così com'è oppure gli script potrebbero non funzionare come previsto.
 
     - **preScriptLocation**: specificare il percorso completo dello script di pre-backup nella VM di cui si eseguirà il backup.
 
@@ -57,13 +57,13 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
     - **postScriptNoOfRetries**: impostare il numero di volte in cui lo script di post-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
 
-    - **timeoutInSeconds**: Specifica i singoli timeout per il pre-script e il post-script (il valore massimo può essere 1800).
+    - **timeoutInSeconds**: specificare i timeout individuali per lo script di pre-script e il post-script (il valore massimo può essere 1800).
 
     - **continueBackupOnFailure**: impostare questo valore su **true** se si desidera che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Impostando questo valore su **false** il backup viene interrotto in caso di errore dello script (tranne nel caso in cui sia presenta una macchina virtuale con un solo disco che esegue il fallback su un backup coerente con l'arresto anomalo indipendentemente da questa impostazione).
 
     - **fsFreezeEnabled**: specificare se il comando fsfreeze di Linux deve essere chiamato durante la creazione dello snapshot della macchina virtuale per garantire la coerenza del file system. Si consiglia di mantenere questa impostazione su **true**, a meno che l'applicazione abbia legami di dipendenza con la disattivazione di fsfreeze.
 
-    - **ScriptsExecutionPollTimeSeconds:** impostare il tempo di sospensione dell'estensione tra ogni polling e l'esecuzione dello script. Ad esempio, se il valore è 2, l'estensione controlla se l'esecuzione dello script pre/post è stata completata ogni 2 secondi. Il valore minimo e massimo che può prendere è 1 e 5 rispettivamente. Il valore deve essere rigorosamente un numero intero.
+    - **ScriptsExecutionPollTimeSeconds**: consente di impostare il tempo di sospensione dell'estensione tra ogni polling e l'esecuzione dello script. Se, ad esempio, il valore è 2, l'estensione controlla se l'esecuzione dello script pre/post è stata completata ogni 2 secondi. Il valore minimo e massimo che può assumere è rispettivamente 1 e 5. Il valore deve essere rigorosamente un numero intero.
 
 6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
@@ -86,4 +86,4 @@ Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare il backup della macchina virtuale in un insieme di credenziali di Servizi di ripristinoConfigure VM backup to a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configurare il backup delle VM in un insieme di credenziali di servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

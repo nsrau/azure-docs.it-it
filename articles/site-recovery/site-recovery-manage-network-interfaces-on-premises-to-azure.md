@@ -1,5 +1,5 @@
 ---
-title: Gestire le schede di rete per il ripristino di emergenza locale con Azure Site RecoveryManage network adapters for on-premises disaster recovery with Azure Site Recovery
+title: Gestire le schede di rete per il ripristino di emergenza locale con Azure Site Recovery
 description: Questo articolo descrive come gestire le interfacce di rete per il ripristino di emergenza dall'ambiente locale ad Azure con Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954597"
 ---
-# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gestire le interfacce di rete VM per il ripristino di emergenza locale in AzureManage VM network interfaces for on-premises disaster recovery to Azure
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gestire le interfacce di rete VM per il ripristino di emergenza locale in Azure
 
 Una macchina virtuale (VM) in Azure deve avere almeno un'interfaccia di rete collegata, fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa.
 

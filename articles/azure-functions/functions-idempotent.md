@@ -1,45 +1,45 @@
 ---
-title: Progettazione di funzioni di Azure per input identicoDesigning Azure Functions for identical input
-description: Creazione di funzioni di Azure come idempotentiBuilding Azure Functions to be idempotent
+title: Progettazione di funzioni di Azure per l'input identico
+description: Creazione di funzioni di Azure da idempotente
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
 ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74226866"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Progettazione di funzioni di Azure per input identicoDesigning Azure Functions for identical input
+# <a name="designing-azure-functions-for-identical-input"></a>Progettazione di funzioni di Azure per l'input identico
 
-La realtà dell'architettura basata su eventi e dei messaggi determina la necessità di accettare richieste identiche, preservando al contempo l'integrità dei dati e la stabilità del sistema.
+La realtà di un'architettura basata su eventi e basata su messaggi impone la necessità di accettare richieste identiche mantenendo al tempo stesso l'integrità dei dati e la stabilità del sistema.
 
-Per illustrare, si consideri un pulsante di chiamata dell'ascensore. Quando si preme il pulsante, si accende e un ascensore viene inviato al piano. Pochi istanti dopo, qualcun altro si unisce a te nell'atrio. Questa persona ti sorride e preme il pulsante illuminato una seconda volta. Sorridi e ridacchiate a te stesso mentre ti viene ricordato che il comando di chiamare un ascensore è idempotente.
+Per illustrare, prendere in considerazione un pulsante di chiamata all'ascensore. Quando si preme il pulsante, viene accesa e viene inviato un ascensore al pavimento. Pochi istanti dopo, un altro utente si unirà alla lobby. Questa persona sorride e preme il pulsante illuminato una seconda volta. Sorridendo e ridacchiando a se stessi come si ricorda che il comando per chiamare un ascensore è idempotente.
 
-Premendo un pulsante di chiamata in ascensore una seconda, terza o quarta volta non ha alcuna influenza sul risultato finale. Quando si preme il pulsante, indipendentemente dal numero di volte, l'ascensore viene inviato al piano. I sistemi idempotenti, come l'ascensore, generano lo stesso risultato, indipendentemente dal numero di volte in cui vengono emessi comandi identici.
+Quando si preme un pulsante di chiamata dell'ascensore, il secondo, il terzo o il quarto orario non ha alcun impatto sul risultato finale. Quando si preme il pulsante, indipendentemente dal numero di volte, l'ascensore viene inviato al pavimento. I sistemi idempotente, ad esempio l'ascensore, comportano lo stesso risultato indipendentemente dal numero di comandi identici eseguiti.
 
-Quando si tratta di creare applicazioni, considerare gli scenari seguenti:When it comes to building applications, consider the following scenarios:
+Quando si tratta di creare applicazioni, considerare gli scenari seguenti:
 
-- Cosa succede se l'applicazione di controllo dell'inventario tenta di eliminare lo stesso prodotto più di una volta?
-- Come si comporta l'applicazione per le risorse umane se è presente più di una richiesta per creare un record dipendente per la stessa persona?
-- Dove vanno i soldi se la tua app bancaria riceve 100 richieste per effettuare lo stesso prelievo?
+- Cosa accade se l'applicazione di controllo dell'inventario tenta di eliminare lo stesso prodotto più di una volta?
+- In che modo l'applicazione di risorse umane si comporta se è presente più di una richiesta di creazione di un record dipendente per la stessa persona?
+- Dove si ottiene il denaro se l'app Banking riceve 100 richieste di effettuare lo stesso ritiro?
 
-Esistono molti contesti in cui le richieste a una funzione possono ricevere comandi identici. Alcune situazioni includono:Some situations include:
+Esistono molti contesti in cui le richieste a una funzione possono ricevere comandi identici. Alcune situazioni includono:
 
-- Criteri di ripetizione dei tentativi che inviano la stessa richiesta più volteRetry policies sending the same request times
-- Comandi memorizzati nella cache riprodotti nell'applicazione
-- Errori dell'applicazione durante l'invio di più richieste identiche
+- Criteri di ripetizione che inviano la stessa richiesta molte volte
+- Comandi memorizzati nella cache riprodotti all'applicazione
+- Errori dell'applicazione che inviano più richieste identiche
 
-Per proteggere l'integrità dei dati e l'integrità del sistema, un'applicazione idempotente contiene la logica che può contenere i comportamenti seguenti:To protect data integrity and system integrity, an idempotent application contains logic that may contain the following behaviors:
+Per proteggere l'integrità dei dati e l'integrità del sistema, un'applicazione idempotente contiene la logica che può contenere i comportamenti seguenti:
 
 - Verifica dell'esistenza dei dati prima di tentare di eseguire un'eliminazione
-- Verifica dell'esistono già dati prima di tentare di eseguire un'azione di creazione
-- Logica di riconciliazione che crea un'eventuale coerenza nei datiReconciling logic that creates eventual consistency in data
-- Controlli della concorrenzaConcurrency controls
+- Verifica per determinare se i dati esistono già prima del tentativo di eseguire un'azione di creazione
+- Riconciliazione della logica che crea la coerenza finale nei dati
+- Controlli della concorrenza
 - Rilevamento della duplicazione
 - Convalida dell'aggiornamento dei dati
-- Logica di protezione per verificare i dati di input
+- Logica di Guard per verificare i dati di input
 
-In definitiva, l'idempotency viene ottenuta assicurando che una determinata azione sia possibile e venga eseguita una sola volta.
+Infine, idempotenza viene ottenuto garantendo che sia possibile una determinata azione e che venga eseguita una sola volta.

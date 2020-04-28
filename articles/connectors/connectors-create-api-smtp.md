@@ -1,5 +1,5 @@
 ---
-title: Connettersi a SMTP da App per la logica di AzureConnect to SMTP from Azure Logic Apps
+title: Connettersi a SMTP da app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per l'invio di messaggi di posta elettronica tramite l'account SMTP (Simple Mail Transfer Protocol) usando App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656992"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
@@ -26,7 +26,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account SMTP.
 
-* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SMTP. Per usare un'azione di SMTP, avviare l'app per la logica con un trigger, ad esempio un trigger Salesforce, se si ha un account Salesforce.
 
@@ -43,7 +43,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 1. Nell'ultimo passaggio in cui si vuole aggiungere un'azione di SMTP, scegliere **Nuovo passaggio**. 
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno**+** più ( ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno più (**+**) visualizzato, quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "smtp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
@@ -65,10 +65,10 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per ulteriori dettagli tecnici su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file Swagger del connettore, vedere la [pagina di riferimento del connettore.](https://docs.microsoft.com/connectors/smtpconnector/)
+Per informazioni più tecniche su questo connettore, ad esempio trigger, azioni e limiti, come descritto dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/smtpconnector/).
 
 > [!NOTE]
-> Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

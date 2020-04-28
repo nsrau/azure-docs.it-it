@@ -1,15 +1,15 @@
 ---
-title: Gestione risorse cluster dell'infrastruttura del servizio - Gruppi di applicazioniService Fabric Cluster Resource Manager - Application Groups
+title: Gestione risorse di Service Fabric cluster-gruppi di applicazioni
 description: 'Informazioni generali sulla funzionalità dei gruppi di applicazioni in Cluster Resource Manager di Service Fabric '
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75452158"
 ---
 # <a name="introduction-to-application-groups"></a>Introduzione ai gruppi di applicazioni
@@ -206,7 +206,7 @@ Le restrizioni vengono applicate sia durante la creazione dell'applicazione sia 
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 - Partire dall'inizio e vedere l' [introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Per altre informazioni sul funzionamento generale delle metriche, vedere l'articolo sulle [metriche di carico di Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
-- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni su di essi, vedere questo articolo sulla descrizione di un cluster di [Service FabricTo](service-fabric-cluster-resource-manager-cluster-description.md) find out more about them, check out this article on describing a Service Fabric cluster
+- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni, vedere questo articolo sulla [Descrizione di un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

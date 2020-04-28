@@ -4,10 +4,10 @@ description: Consentire l'accesso a un registro contenitori di Azure solo da ris
 ms.topic: article
 ms.date: 07/01/2019
 ms.openlocfilehash: a6b89b074c25ea0948597ede7e5681b100c7f429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74454338"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Limitare l'accesso a un registro contenitori di Azure usando una rete virtuale di Azure o regole del firewall

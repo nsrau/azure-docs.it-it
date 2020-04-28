@@ -1,13 +1,13 @@
 ---
-title: Visualizzare i repository nel portaleView repositories in portal
-description: Usare il portale di Azure per visualizzare i repository del Registro di sistema del contenitore di Azure, che ospitano le immagini del contenitore Docker e altri elementi supportati.
+title: Visualizzare i repository nel portale
+description: Usare il portale di Azure per visualizzare i repository di Container Registry di Azure, che ospitano le immagini del contenitore Docker e altri elementi supportati.
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456288"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualizzare repository di registri contenitori di Azure nel portale di Azure
@@ -34,7 +34,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Per visualizzare un repository:
 
-1. Accedere al portale di [AzureSign][portal] in to the Azure portal
+1. Accedere al [portale di Azure][portal]
 1. Selezionare il **Registro Azure Container** in cui è stato effettuato il push dell'immagine di Nginx
 1. Selezionare **Repository** per visualizzare un elenco dei repository contenenti le immagini disponibili nel registro
 1. Selezionare un repository per visualizzare i tag di immagine presenti all'interno del repository

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793260"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Creare istruzioni condizionali che controllano le azioni del flusso di lavoro nelle App per la logica di Azure
@@ -26,7 +26,7 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Per seguire l'esempio di questo articolo, [creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
 
@@ -36,7 +36,7 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
 
 1. Aggiungere una condizione nella posizione desiderata. 
 
-   Per aggiungere una condizione tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere la condizione. Scegliere il segno**+** **più** ( ) visualizzato, quindi scegliere Aggiungi **un'azione**. Ad esempio:
+   Per aggiungere una condizione tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere la condizione. Scegliere il **segno più** (**+**) visualizzato, quindi scegliere **Aggiungi un'azione**. Ad esempio:
 
    ![Aggiungere l'azione tra un passaggio e l'altro](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -65,8 +65,8 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
 
    ![Condizione completa](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Per aggiungere un'altra riga alla condizione, scegliere **Aggiungi** > **riga**. 
-   Per aggiungere un gruppo con sottocondizioni, scegliere **Aggiungi** > **gruppo**. 
+   Per aggiungere un'altra riga alla condizione, scegliere **Aggiungi** > **Aggiungi riga**. 
+   Per aggiungere un gruppo con le sottocondizioni, scegliere **Aggiungi** > **Aggiungi gruppo**. 
    Per raggruppare le righe esistenti, selezionare le caselle di controllo per le righe, scegliere il pulsante dei puntini di sospensione (...) per ogni riga e quindi scegliere **Imposta come gruppo**.
 
 1. In **È true** e **Se no** aggiungere i passaggi da eseguire in base al fatto che la condizione sia soddisfatta o meno. Ad esempio:
@@ -108,7 +108,7 @@ Ecco la definizione del codice generale dietro un'istruzione condizionale:
 },
 ```
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74787337"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Ritardare l'esecuzione dell'azione successiva in app per la logica di Azure
@@ -50,10 +50,10 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
 
    ![Imposta la quantità di tempo per il ritardo](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Proprietà | Nome JSON | Obbligatoria | Type | Description |
+   | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|-----------|----------|------|-------------|
-   | Conteggio | count | SÌ | Integer | Il numero di unità di tempo di ritardo |
-   | Unità | unit | SÌ | Stringa | Unità di tempo, ad esempio: `Second`, `Minute`, `Hour`, `Day`, `Week`o `Month` |
+   | Conteggio | count | Sì | Integer | Il numero di unità di tempo di ritardo |
+   | Unità | unit | Sì | string | Unità di tempo, ad `Second`esempio:, `Minute`, `Hour`, `Day`, o `Week``Month` |
    ||||||
 
 1. Aggiungere eventuali altre azioni che si desidera eseguire nel flusso di lavoro.
@@ -76,9 +76,9 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
 
    ![Specificare il timestamp per la fine del ritardo](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Proprietà | Nome JSON | Obbligatoria | Type | Description |
+   | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | SÌ | Stringa | Data e ora di fine per la ripresa del flusso di lavoro utilizzando il formato seguente: <p>AAAA-MM-GGThh: mm: ssZ <p>Se, ad esempio, si desidera che il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00Z". <p>**Nota:** Questo formato di ora deve seguire la specifica di data e ora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Senza un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. |
+   | Timestamp | timestamp | Sì | string | Data e ora di fine per la ripresa del flusso di lavoro utilizzando il formato seguente: <p>AAAA-MM-GGThh: mm: ssZ <p>Se, ad esempio, si desidera che il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00Z". <p>**Nota:** Questo formato di ora deve seguire la specifica di data e ora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Senza un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. |
    ||||||
 
 1. Aggiungere eventuali altre azioni che si desidera eseguire nel flusso di lavoro.
@@ -88,4 +88,4 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare, pianificare ed eseguire attività e flussi di lavoro ricorrenti con il trigger di ricorrenza](../connectors/connectors-native-recurrence.md)
-* [Connettori per app per la logica](../connectors/apis-list.md)
+* [Connettori per App per la logica](../connectors/apis-list.md)

@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione BLOB con Visual Studio (progetti WebJob)Get started with blob storage using Visual Studio (WebJob projects)
+title: Introduzione all'archiviazione BLOB con Visual Studio (progetti processo Web)
 description: Informazioni su come iniziare a usare il servizio di archiviazione di BLOB di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione di Azure con i servizi connessi di Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72299970"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
@@ -79,7 +79,7 @@ L'esempio di codice seguente modifica l'estensione del file mentre copia i BLOB 
 ## <a name="types-that-you-can-bind-to-blobs"></a>Tipi che possono essere associati a BLOB
 È possibile usare l'attributo **BlobTrigger** per i tipi seguenti:
 
-* **Stringa**
+* **string**
 * **TextReader**
 * **Flusso**
 * **ICloudBlob**

@@ -1,15 +1,15 @@
 ---
-title: Architettura di Resource Manager
-description: Una panoramica e informazioni sull'architettura sul servizio Azure Service Fabric Cluster Resource Manager.
+title: Architettura Gestione risorse
+description: Panoramica delle informazioni sull'architettura e sul servizio Gestione risorse cluster di Azure Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551693"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Panoramica dell'architettura di Cluster Resource Manager
@@ -56,7 +56,7 @@ Verrà ora descritto il diagramma seguente. Si supponga che Cluster Resource Man
 </center>
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni su di essi, vedere questo articolo sulla descrizione di un cluster di [Service FabricTo](./service-fabric-cluster-resource-manager-cluster-description.md) find out more about them, check out this article on describing a Service Fabric cluster
+- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni, vedere questo articolo sulla [Descrizione di un cluster Service Fabric](./service-fabric-cluster-resource-manager-cluster-description.md)
 - I compiti primari di Cluster Resource Manager sono il ribilanciamento del cluster e l'applicazione delle regole di selezione. Per altre informazioni sulla configurazione di questi comportamenti, vedere [bilanciamento del cluster di Service Fabric](./service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png

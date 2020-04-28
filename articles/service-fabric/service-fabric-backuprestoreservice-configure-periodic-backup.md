@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610149"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
@@ -89,7 +89,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         }
         ```
 
-    2. **Condivisione file:** questo tipo di archiviazione deve essere selezionato per i cluster _autonomi_ quando è necessario archiviare il backup dei dati in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
+    2. **Condivisione file**: questo tipo di archiviazione deve essere selezionato per i cluster _autonomi_ quando è necessario archiviare il backup dei dati in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
         1. _Autenticazione di Windows integrata_: l'accesso alla condivisione di file è consentito a tutti i computer appartenenti al cluster Service Fabric. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
 
             ```json
@@ -118,8 +118,8 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
 > Verificare che l'affidabilità di archiviazione soddisfi o superi i requisiti di affidabilità dei dati di backup.
 >
 
-* **Criteri di conservazione**: Specifica il criterio per mantenere i backup nell'archivio configurato. Sono supportati solo i criteri di conservazione di base.
-    1. **Criteri di conservazione di base:** questo criterio di conservazione consente di garantire un utilizzo ottimale dello spazio di archiviazione rimuovendo i file di backup che non sono più necessari. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
+* **Criteri di conservazione**: specifica i criteri per conservare i backup nell'archiviazione configurata. Sono supportati solo i criteri di conservazione di base.
+    1. **Criteri di conservazione di base**: questi criteri di conservazione consentono di garantire un utilizzo ottimale dello spazio di archiviazione rimuovendo i file di backup che non sono più necessari. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
 
         ```json
         {

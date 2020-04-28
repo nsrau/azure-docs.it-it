@@ -1,5 +1,5 @@
 ---
-title: Pianificare la capacità per il ripristino di emergenza Hyper-V con Azure Site RecoveryPlan capacity for Hyper-V disaster recovery with Azure Site Recovery
+title: Pianificare la capacità per il ripristino di emergenza di Hyper-V con Azure Site Recovery
 description: Questo articolo illustra come calcolare la capacità quando si configura il ripristino di emergenza con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73936038"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Pianificare la capacità per il ripristino di emergenza di macchine virtuali Hyper-V 
 
-[Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) per la distribuzione da Hyper-V ad Azure offre quanto segue:
+La [Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) per la distribuzione da Hyper-V ad Azure offre quanto segue:
 
 * Valutazione dell'idoneità delle macchine virtuali in base a numero di dischi, dimensioni dei dischi, operazioni di I/O al secondo, varianza e alcune caratteristiche delle macchine virtuali
 * Valutazione della larghezza di banda di rete necessaria rispetto al valore RPO
@@ -73,9 +73,9 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
    * **Number of Blob disks required** (Numero di dischi BLOB necessari): il numero di dischi che verranno creati nello spazio di archiviazione di Azure.
    * **Number of premium storage accounts required** (Numero di account di archiviazione Premium necessari): il numero totale di account di archiviazione Premium necessari per proteggere le macchine virtuali. Per una macchina virtuale di origine con un numero di operazioni di I/O al secondo elevato (superiore a 20.000) è necessario un account di archiviazione Premium. Un account di archiviazione di questo tipo può contenere fino a 80.000 operazioni di I/O al secondo.
    * **Total IOPS on Premium Storage** (Totale operazioni di I/O al secondo in archiviazione Premium): il numero viene calcolato in base alla dimensione unitaria delle operazioni di I/O al secondo pari a 256K sul totale degli account di archiviazione Premium. Per lo strumento di pianificazione rapida, il numero viene calcolato in base a tutti i dischi di macchine virtuali di origine e alla frequenza di modifica giornaliera dei dati. Per lo strumento di pianificazione dettagliata, il numero viene calcolato in base al numero totale di macchine virtuali con mapping alle macchine virtuali Premium di Azure (serie DS e GS) e alla frequenza di modifica dei dati su tali macchine virtuali.
-   * **Numero di server di configurazione necessari:** indica il numero di server di configurazione necessari per la distribuzione.
+   * **Numero di server di configurazione necessari**: Mostra il numero di server di configurazione necessari per la distribuzione.
    * **Number of additional Process Servers required** (Numero di server di elaborazione aggiuntivi necessari): indica se sono necessari server di elaborazione aggiuntivi oltre al server di elaborazione in esecuzione nel server di configurazione per impostazione predefinita.
-   * **Archiviazione aggiuntiva al 100% nell'origine**: indica se è necessario ulteriore spazio di archiviazione nel percorso di origine.
+   * **100% di spazio di archiviazione aggiuntivo nell'origine**: indica se è necessario spazio di archiviazione aggiuntivo nella posizione di origine.
 
       ![Output](./media/site-recovery-capacity-planner/output.png)
 
@@ -95,7 +95,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
    c. In **Number of NICs** (Numero di schede di interfaccia di rete) specificare il numero di schede di rete in un server di origine.
 
-   d. In **Archiviazione totale (in GB)** specificare le dimensioni totali dell'archiviazione della macchina virtuale. Se ad esempio il server di origine ha tre dischi da 500 GB ognuno, lo spazio di archiviazione totale è di 1.500 GB.
+   d. In **Totale spazio di archiviazione (in GB)** specificare le dimensioni totali dell'archiviazione della macchina virtuale. Se ad esempio il server di origine ha tre dischi da 500 GB ognuno, lo spazio di archiviazione totale è di 1.500 GB.
 
    e. In **Number of disks attached** (Numero di dischi collegati) specificare il numero totale dei dischi di un server di origine.
 
@@ -134,13 +134,13 @@ In questo esempio, per sei macchine virtuali con i valori riportati nella tabell
   * Per VM5 e VM6 è necessario un account di archiviazione Premium ed entrambe possono usare un singolo account.
 
     > [!NOTE]
-    > Le operazioni totali di input/output in archiviazione standard e premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è capace di gestire fino a 500 operazioni di I/O al secondo per ogni disco. Se le operazioni di I/O al secondo per disco sono superiori a 500, è necessaria l'archiviazione premium. Se le operazioni di I/O al secondo per un disco sono superiori a 500 ma quelle per i dischi totali delle macchine virtuali rientrano nei limiti supportati delle macchine virtuali standard di Azure, lo strumento di pianificazione sceglie una macchina virtuale standard e non una della serie DS o GS. I limiti delle macchine virtuali di Azure sono dimensioni della macchina virtuale, numero di dischi, numero di adapter, CPU e memoria. È necessario aggiornare manualmente la cella delle dimensioni di Azure di mapping con la macchina virtuale della serie DS o GS appropriata.
+    > Le operazioni totali di input/output in archiviazione standard e premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è capace di gestire fino a 500 operazioni di I/O al secondo per ogni disco. Se le operazioni di I/O al secondo per disco sono superiori a 500, è necessaria l'archiviazione premium. Se le operazioni di I/O al secondo per un disco sono superiori a 500 ma quelle per i dischi totali delle macchine virtuali rientrano nei limiti supportati delle macchine virtuali standard di Azure, lo strumento di pianificazione sceglie una macchina virtuale standard e non una della serie DS o GS. I limiti delle macchine virtuali di Azure sono dimensioni della macchina virtuale, numero di dischi, numero di schede, CPU e memoria. È necessario aggiornare manualmente la cella del mapping delle dimensioni di Azure con la VM della serie DS o GS appropriata.
 
 
 Dopo aver immesso tutte le informazioni, fare clic su **Submit data to the planner tool** (Invia dati a strumento di pianificazione) per aprire Capacity Planner. I carichi di lavoro vengono evidenziati per mostrare se sono idonei per la protezione.
 
 ### <a name="submit-data-in-capacity-planner"></a>Inviare dati in Capacity Planner
-1. Quando si apre il foglio di lavoro di **Capacity Planner**, viene compilato in base alle impostazioni specificate. La parola "Carico di lavoro" viene visualizzata nella cella di **origine Infra inputs** per indicare che l'input è il foglio di lavoro **Workload Qualification.**
+1. Quando si apre il foglio di lavoro di **Capacity Planner**, viene compilato in base alle impostazioni specificate. La parola "carico di lavoro" viene visualizzata nella cella di **origine degli input infra** per indicare che l'input è il foglio di **lavoro di qualificazione del carico di lavoro**
 
 2. Per apportare modifiche, è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e quindi selezionare nuovamente **Submit data to the planner tool** (Invia dati a strumento di pianificazione).
 

@@ -16,23 +16,23 @@ ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
 ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69997685"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
 ## <a name="overview"></a>Panoramica
 
-**Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, consultate [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) Blog.
 
 Per informazioni dettagliate su **Azure Media Redactor**, vedere la [panoramica sull'offuscamento dei volti](media-services-face-redaction.md).
 
 Questo argomento fornisce istruzioni dettagliate su come eseguire un flusso di lavoro di offuscamento completo usando Azure Media Services Explorer (AMSE) e Azure Media Redactor Visualizer (strumento open source).
 
-Per ulteriori informazioni, consultate [questo](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
+Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/redaction-preview-available-globally) Blog.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Flusso di lavoro di Azure Media Services Explorer
 
@@ -40,7 +40,7 @@ Il modo più semplice iniziare a usare Azure Media Redactor è usare lo strument
 
 ### <a name="download-and-setup"></a>Download e installazione
 
-1. Scarica lo strumento AMSE per AMS v2 da [qui](https://aka.ms/amseforv2).
+1. Scaricare lo strumento AMSE per AMS V2 da [qui](https://aka.ms/amseforv2).
 1. Accedere al proprio account di Servizi multimediali usando la chiave del servizio.
 
     Per ottenere il nome dell'account e la chiave, accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'account AMS. Dopodiché, selezionare Impostazioni > Chiavi. Nella finestra Gestisci chiavi sono visualizzati il nome dell'account e le chiavi primaria e secondaria. Copiare i valori del nome dell'account e della chiave primaria.
@@ -125,10 +125,10 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

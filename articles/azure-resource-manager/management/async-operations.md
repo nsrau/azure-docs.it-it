@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1cf8898e5fd63e35447f6580e13347ba6d7fc413
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75485442"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone
@@ -185,4 +185,4 @@ Se la richiesta è ancora in esecuzione, viene visualizzato il codice di stato 2
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per la documentazione relativa a ogni operazione REST, consultare la [documentazione dell'API REST](/rest/api/).
-* Per informazioni sulla distribuzione di modelli tramite l'API REST di Resource Manager, vedere Distribuire risorse con i modelli di Resource Manager e l'API REST di [Resource Manager.](../templates/deploy-rest.md)
+* Per informazioni sulla distribuzione di modelli tramite l'API REST di Gestione risorse, vedere [distribuire risorse con modelli di gestione risorse e gestione risorse API REST](../templates/deploy-rest.md).
