@@ -2,17 +2,37 @@
 title: Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Stack o in un altro ambiente.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: c0dbbf9f65aa96db1ebcd0b03552bba8d1f91863
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.date: 04/22/2020
+ms.openlocfilehash: a0008f7a2d6b808a8ff55d85330801305361d7c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82143162"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185966"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
 Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per il servizio Azure Kubernetes (AKS) e il [motore AKS in Azure](https://github.com/Azure/aks-engine), che è un cluster Kubernetes self-Managed ospitato in Azure. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati all'esterno di Azure e ottenere un'esperienza di monitoraggio simile.
+
+## <a name="supported-configurations"></a>Configurazioni supportate
+
+Il codice seguente è ufficialmente supportato con monitoraggio di Azure per i contenitori.
+
+* Ambienti 
+
+    * Kubernetes locale
+    
+    * Motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versione 4 e successive, in locale o in altri ambienti cloud.
+
+* Le versioni di Kubernetes e i criteri di supporto corrispondono alle versioni di [AKS supportate](../../aks/supported-kubernetes-versions.md).
+
+* Runtime del contenitore: Runtime compatibili con Docker, Moby e CRI, ad esempio CRI-O e contenitori.
+
+* Versione del sistema operativo Linux per i nodi master e lavoro: Ubuntu (18,04 LTS e 16,04 LTS) e Red Hat Enterprise Linux CoreOS 43,81.
+
+* Controllo di accesso supportato: Kubernetes RBAC e non RBAC
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,10 +53,9 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 * Le informazioni di configurazione del proxy e del firewall seguenti sono necessarie per la comunicazione tra la versione in contenitori dell'agente di Log Analytics per Linux e il monitoraggio di Azure:
 
     |Risorsa agente|Porte |
-    |------|---------|   
-    |*.ods.opinsights.azure.com |Porta 443 |  
-    |*.oms.opinsights.azure.com |Porta 443 |  
-    |*.blob.core.windows.net |Porta 443 |  
+    |------|---------|
+    |*.ods.opinsights.azure.com |Porta 443 |
+    |*.oms.opinsights.azure.com |Porta 443 |
     |*. dc.services.visualstudio.com |Porta 443 |
 
 * Per raccogliere le metriche delle prestazioni, `cAdvisor secure port: 10250` l' `unsecure port :10255` agente in contenitori richiede l'apertura o l'apertura di Kubelet in tutti i nodi del cluster. Se non è già `secure port: 10250` configurato, è consigliabile configurare nel CAdvisor di Kubelet.
@@ -45,16 +64,6 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 >[!IMPORTANT]
 >La versione minima dell'agente supportata per il monitoraggio dei cluster Kubernetes ibridi è ciprod10182019 o successiva.
-
-## <a name="supported-configurations"></a>Configurazioni supportate
-
-Il codice seguente è ufficialmente supportato con monitoraggio di Azure per i contenitori.
-
-- Ambienti: Kubernetes locale, motore AKS in Azure e Azure Stack. Per altre informazioni, vedere [motore AKS su Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Le versioni di Kubernetes e i criteri di supporto corrispondono alle versioni di [AKS supportate](../../aks/supported-kubernetes-versions.md).
-- Runtime del contenitore: Docker e Moby
-- Versione del sistema operativo Linux per i nodi master e lavoro: Ubuntu (18,04 LTS e 16,04 LTS)
-- Controllo di accesso supportato: Kubernetes RBAC e non RBAC
 
 ## <a name="enable-monitoring"></a>Abilitare il monitoraggio
 
@@ -242,7 +251,7 @@ Per identificare prima di tutto l'ID risorsa completo dell'area di lavoro di `wo
 ## <a name="install-the-chart"></a>Installare il grafico
 
 >[!NOTE]
->I comandi seguenti sono applicabili solo per Helm versione 2. L'uso del parametro--Name non è applicabile a Helm versione 3.
+>I comandi seguenti sono applicabili solo per Helm versione 2. L' `--name` uso del parametro non è applicabile con Helm versione 3.
 
 Per abilitare il grafico HELM, procedere come segue:
 
@@ -272,6 +281,28 @@ Per abilitare il grafico HELM, procedere come segue:
     $ helm install --name myrelease-1 \
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
+### <a name="enable-the-helm-chart-using-the-api-model"></a>Abilitare il grafico Helm usando il modello API
+
+È possibile specificare un addon nel file JSON della specifica del cluster del motore AKS, noto anche come modello API. In questo addon fornire la versione con codifica Base64 di `WorkspaceGUID` e `WorkspaceKey` dell'area di lavoro log Analytics in cui sono archiviati i dati di monitoraggio raccolti.
+
+Le definizioni API supportate per il cluster di hub Azure Stack sono disponibili in questo esempio- [kubernetes-container-monitoring_existing_workspace_id_and_key. JSON](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). In particolare, trovare la proprietà **addons** in **kubernetesConfig**:
+
+```json
+"orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="configure-agent-data-collection"></a>Configurare la raccolta dati agente
 

@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199802"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729858"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per Java
 
@@ -366,6 +366,6 @@ In questo argomento di avvio rapido si è appreso come creare una coda e aggiung
 Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 
 > [!div class="nextstepaction"]
-> [Azure per sviluppatori cloud Java](https://docs.microsoft.com/azure/java/)
+> [Azure per sviluppatori cloud Java](https://docs.microsoft.com/azure/developer/java/)
 
 * Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client dell'SDK di Archiviazione code di Azure v12 per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

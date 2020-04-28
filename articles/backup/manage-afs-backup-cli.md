@@ -3,16 +3,16 @@ title: Gestire i backup di condivisione file di Azure con l'interfaccia della ri
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per gestire e monitorare le condivisioni file di Azure supportate da backup di Azure.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 44a49913abd99b285397b8b78ad9d4c0f9df52ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06e1f29874085c3943a5207f36eff313dc670e88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934885"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184113"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gestire i backup di condivisione file di Azure con l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure offre un'esperienza da riga di comando per gestire le risorse di Azure. Si tratta di uno strumento straordinario per creare un'automazione personalizzata per l'uso delle risorse di Azure. Questo articolo illustra come eseguire attività di gestione e monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview). È anche possibile eseguire questi passaggi con la [portale di Azure](https://portal.azure.com/). 
+L'interfaccia della riga di comando di Azure offre un'esperienza da riga di comando per gestire le risorse di Azure. Si tratta di uno strumento straordinario per creare un'automazione personalizzata per l'uso delle risorse di Azure. Questo articolo illustra come eseguire attività di gestione e monitoraggio delle condivisioni file di Azure di cui è stato eseguito il backup da [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview). È anche possibile eseguire questi passaggi con la [portale di Azure](https://portal.azure.com/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 03/10/2020
-ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/19/2020
+ms.openlocfilehash: b06c255f94b4d539c7c85e318238b10629cbb907
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215429"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685162"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Guida introduttiva: Crea un database SQL di Azure singolo
 
@@ -67,7 +67,7 @@ Mantenere il gruppo di risorse, il server e il database singolo per procedere co
 
 Dopo aver finito di usare queste risorse, è possibile eliminare il gruppo di risorse creato, eliminando in questo modo anche il server e il database singolo al suo interno.
 
-# <a name="portal"></a>[Portale](#tab/azure-portal)
+### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per eliminare **myResourceGroup** e tutte le relative risorse con il portale di Azure:
 
@@ -75,7 +75,7 @@ Per eliminare **myResourceGroup** e tutte le relative risorse con il portale di 
 1. Nella pagina del gruppo di risorse selezionare **Elimina gruppo di risorse**.
 1. In **Digitare il nome del gruppo di risorse** immettere *myResourceGroup* e quindi selezionare **Elimina**.
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il comando dell'interfaccia della riga di comando di Azure seguente usando il nome del gruppo di risorse:
 
@@ -83,15 +83,16 @@ Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il coma
 az group delete --name <your resource group>
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il cmdlet di PowerShell seguente, usando il nome del gruppo di risorse:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group>
 ```
 
 ---
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Connettersi ed eseguire query](sql-database-connect-query.md) sul database con strumenti e linguaggi diversi:

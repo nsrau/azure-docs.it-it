@@ -1,25 +1,19 @@
 ---
 title: Avvio rapido - Creare una macchina virtuale Linux con il portale di Azure
 description: Questa guida introduttiva illustra come usare il portale di Azure per creare una macchina virtuale Linux.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 6bf9a89a4806db53797191336578ef9148886181
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294770"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759232"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 

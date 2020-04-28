@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 2a13d4ef440a75045c72f97db02d4be6f2e2b134
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656387"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617990"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Guida introduttiva: Creare un'istanza di WAF v2 nel gateway applicazione - Modello di Resource Manager
 
@@ -54,7 +54,7 @@ Distribuire il modello di Resource Manager in Azure:
 
 1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea un gateway applicazione, l'infrastruttura di rete e due macchine virtuali nel pool back-end che esegue IIS.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json"><img src="../media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 2. Selezionare o creare un gruppo di risorse.
 3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. La distribuzione può richiedere almeno 10 minuti.

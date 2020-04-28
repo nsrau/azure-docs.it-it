@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ed477e3c1431048d60e4a696f59aa0593e1b3f1f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6681b2688c7e8884a197ebe27fb784b1a195f4b5
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136330"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732157"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Guida introduttiva: Creare un'app Java in Servizio app di Azure in Windows
 
@@ -123,10 +123,10 @@ Al termine della distribuzione, passare all'applicazione distribuita usando l'UR
 > [Connettersi al database SQL di Azure con Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Connettersi al database SQL di Azure per MySQL con Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+> [Connettersi al database SQL di Azure per MySQL con Java](/azure/mysql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Connettersi al database SQL di Azure per PostgreSQL con Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
+> [Connettersi al database SQL di Azure per PostgreSQL con Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Risorse Azure per sviluppatori Java](/java/azure/)

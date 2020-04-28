@@ -17,7 +17,7 @@
       items:
         - name: Invitare in blocco tramite PowerShell
           href: bulk-invite-powershell.md
-        - name: Invitare in blocco tramite il portale (anteprima)
+        - name: Invitare in blocco tramite il portale
           href: tutorial-bulk-invite.md
         - name: Applicare l'autenticazione a più fattori
           href: b2b-tutorial-require-mfa.md

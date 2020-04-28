@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 454278f0f45a73ec99f52d3f7e9e0c5ce95ecf7a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: f208119ce80d6b728030ea96f13d6c3d0375e74a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133296"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182940"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -39,7 +39,7 @@ Per la maggior parte delle organizzazioni, non √® necessaria la creazione di pi√
 
 1. Selezionare **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Cercare *DDoS*. Selezionare **DDoS protection plan** (Piano di protezione DDoS) quando viene visualizzato nei risultati della ricerca.
-3. Seleziona **Crea**.
+3. Selezionare **Create** (Crea).
 4. Immettere o selezionare i valori personalizzati, oppure immettere o selezionare i valori di esempio seguenti, quindi selezionare **Crea**:
 
     |Impostazione        |valore                                              |
@@ -241,4 +241,4 @@ Per abilitare la protezione DDoS per una rete virtuale, all'account devono anche
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [criteri di definizioni di Azure](policy-samples.md) per le reti virtuali

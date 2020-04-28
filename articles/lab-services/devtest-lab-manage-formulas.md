@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.author: spelluru
 ms.openlocfilehash: ce980167cd88adfada1aa294aafa885184565799
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641154"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
@@ -44,33 +44,33 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
 
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 
-4. Nella pagina del lab selezionare **Formule (basi riutilizzabili)** nel menu a sinistra.
+4. Nella pagina del Lab selezionare **formule (basi riutilizzabili)** nel menu a sinistra.
 5. Nella pagina **Formule** selezionare **+ Aggiungi**.
    
     ![Aggiungere una formula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. Nella pagina **Scegliere una base** selezionare la base (immagine personalizzata o immagine Marketplace) da cui si desidera creare la formula.
+6. Nella pagina **scegliere una base** selezionare la base (immagine personalizzata o immagine del Marketplace) da cui si desidera creare la formula.
 7. Nella scheda **Impostazioni di base** della pagina **Crea formula** specificare i valori seguenti:
    
     * **Nome formula** : immettere un nome per la formula. Questo valore verrà visualizzato nell'elenco delle immagini di base quando si crea una macchina virtuale. Il nome viene convalidato durante la digitazione e, se non è valido, un messaggio indicherà i requisiti per un nome valido.
-    - Immettere una **descrizione** facoltativa per la formula. 
+    - Immettere una **Descrizione** facoltativa per la formula. 
     * **Nome utente** - Immettere un nome utente a cui siano concessi i privilegi di amministratore.
     * **Password** : immettere o scegliere dall'elenco a discesa un valore associato al segreto (password) che si desidera usare per l'utente specificato. Per informazioni sul salvataggio dei segreti in un insieme di credenziali delle chiavi e sull'uso durante la creazione delle risorse di lab, vedere [Archiviare segreti in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 
-        Selezionare **Usa un segreto salvato** se si vuole usare un segreto dall'insieme di credenziali delle chiavi di Azure anziché usare una password. 
-    * **Dimensioni macchina virtuale:** selezionare **Modifica dimensioni** per modificare le dimensioni della macchina virtuale. 
-    - **Tipo di disco del** sistema operativo: selezionare il tipo di disco che si desidera utilizzare (HDD standard, SSD standard o SSD Premium).
+        Selezionare **Usa un segreto salvato** se si vuole usare un segreto da Azure Key Vault invece di usare una password. 
+    * **Dimensioni macchina virtuale** : selezionare **Cambia dimensione** per modificare le dimensioni della VM. 
+    - **Tipo di disco del sistema operativo** : selezionare il tipo di disco che si vuole usare (HDD Standard, SDD Standard o SSD Premium).
     * **Artefatti**: selezionare la pagina **Aggiungi o rimuovi artefatti** in cui è possibile selezionare e configurare gli artefatti da aggiungere all'immagine di base. Per altre informazioni sugli elementi, vedere [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md) (Creare elementi personalizzati per la macchina virtuale di Azure DevTest Labs).
 
-        ![Pagina delle impostazioni di base](./media/devtest-lab-create-formulas/basic-settings.png)
+        ![Pagina impostazioni di base](./media/devtest-lab-create-formulas/basic-settings.png)
 8. Passare alla scheda **Impostazioni avanzate** e specificare i valori seguenti:
     - **Rete virtuale**: per cambiare la rete virtuale, selezionare **Cambia rete virtuale**. 
     - **Subnet**: per cambiare la subnet, selezionare **Cambia subnet**. 
     - **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
-    - **Data e ora di scadenza:** non è possibile modificare questo campo. 
+    - **Data e ora di scadenza** : non è possibile modificare questo campo. 
     - **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nella pagina del lab.  
 
-        ![Pagina delle impostazioni di base](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Pagina impostazioni di base](./media/devtest-lab-create-formulas/advanced-settings.png)
 8. Selezionare **Invia** per creare la formula.
 
 9. Dopo essere stata creata, la formula viene visualizzata nell'elenco della pagina **Formule**.

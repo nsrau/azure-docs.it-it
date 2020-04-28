@@ -1,22 +1,15 @@
 ---
 title: "Guida introduttiva: Eseguire query sull'endpoint di previsione con l'SDK - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Questa guida di avvio rapido illustra come usare l'SDK per inviare un'espressione utente all'applicazione LUIS di Servizi cognitivi di Azure e ricevere una previsione.
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-services: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/17/2020
-ms.author: diberry
+ms.date: 04/20/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 42335c3d2ac5efb8ae1ede0a2076260ac9537eb5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2b85e3085a7265fa007422180ff1cfe93d4fef57
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77524428"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732097"
 ---
 # <a name="quickstart-query-v3-prediction-endpoint-with-sdk"></a>Guida introduttiva: Eseguire query sull'endpoint di previsione v3 con l'SDK
 

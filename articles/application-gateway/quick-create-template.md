@@ -1,5 +1,5 @@
 ---
-title: 'Guida di avvio rapido: Indirizzare il traffico Web con il modello di Resource Manager'
+title: 'Guida introduttiva: Indirizzare il traffico Web con il modello di Resource Manager'
 titleSuffix: Azure Application Gateway
 description: Informazioni su come usare un modello di Resource Manager per creare un gateway applicazione di Azure che indirizza il traffico Web alle macchine virtuali in un pool back-end.
 services: application-gateway
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 03/23/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0612371605f6b216eadeef49d9adb1497ba31591
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80148230"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604908"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Guida di avvio rapido: Indirizzare il traffico Web con il gateway applicazione di Azure - Modello di Resource Manager
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Guida introduttiva: Indirizzare il traffico Web con il gateway applicazione di Azure - Modello di Resource Manager
 
 In questa guida di avvio rapido si userà un modello di Resource Manager per creare un gateway applicazione di Azure. Successivamente, verrà testato il gateway applicazione per verificare che funzioni correttamente.
 
@@ -57,7 +57,7 @@ Distribuire il modello di Resource Manager in Azure:
 
 1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea un gateway applicazione, l'infrastruttura di rete e due macchine virtuali nel pool back-end che esegue IIS.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Selezionare o creare il gruppo di risorse, digitare il nome utente e la password dell'amministratore delle macchine virtuali.
 3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. Il completamento della distribuzione può richiedere più di 20 minuti.
