@@ -1,5 +1,5 @@
 ---
-title: Come risolvere i problemi relativi ai rapporti sugli errori di accesso Documenti Microsoft
+title: Come risolvere i problemi relativi ai report degli errori di accesso | Microsoft Docs
 description: Informazioni su come risolvere gli errori di accesso usando i report di Azure Active Directory nel portale di Azure
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec5fe7f62e8537a7f687202d365eb37d43b48b78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74008067"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedura: Risolvere gli errori di accesso usando i report di Azure Active Directory
@@ -37,17 +37,17 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 È necessario:
 
 * Un tenant di Azure AD con una licenza Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
-* Un utente, che fa parte del ruolo **di amministratore globale,** amministratore della **sicurezza,** **lettore di sicurezza**o lettore di **report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
+* Un utente che si trova nel ruolo **amministratore globale**, **amministratore della sicurezza**, **lettore sicurezza**o **lettore report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Risolvere gli errori di accesso usando il report degli accessi
 
 1. Passare al [portale di Azure](https://portal.azure.com) e selezionare la directory.
 2. Selezionare **Azure Active Directory** e quindi scegliere **Accessi** dalla sezione **Monitoraggio**. 
-3. Usare i filtri forniti per circoscrivere l'errore, in base a nome utente o identificatore di oggetto, nome dell'applicazione o data. Inoltre, selezionare **Errore** dall'elenco a discesa **Stato** per visualizzare solo gli accessi non riusciti. 
+3. Usare i filtri forniti per circoscrivere l'errore, in base a nome utente o identificatore di oggetto, nome dell'applicazione o data. Inoltre, selezionare **errore** nell'elenco a discesa **stato** per visualizzare solo gli accessi non riusciti. 
 
     ![Filtrare i risultati](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identificare l'accesso non riuscito che si desidera analizzare. Selezionarla per aprire la finestra dei dettagli aggiuntivi con ulteriori informazioni sull'accesso non riuscito. Annotare quanto indicato in **Codice errore di accesso** e **Motivo dell'errore**. 
+4. Identificare l'accesso non riuscito che si vuole analizzare. Selezionarla per aprire la finestra dettagli aggiuntivi con altre informazioni sull'accesso non riuscito. Annotare quanto indicato in **Codice errore di accesso** e **Motivo dell'errore**. 
 
     ![Selezionare il record](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 
     ![Risoluzione dei problemi e supporto](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. Il motivo dell'errore descrive l'errore. Ad esempio, nello scenario precedente, il motivo dell'errore è **Nome utente o password non validi o Nome utente o password locale non valido**. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
+6. Il motivo dell'errore descrive l'errore. Nello scenario precedente, ad esempio, il motivo dell'errore è un **nome utente o una password non valida o un nome utente o una password locale non valida**. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
 
 7. È possibile ottenere altre informazioni, compresi suggerimenti per la correzione, eseguendo una ricerca del codice di errore, in questo esempio **50126**, nelle [informazioni di riferimento sui codici di errore di accesso](reference-sign-ins-error-codes.md). 
 

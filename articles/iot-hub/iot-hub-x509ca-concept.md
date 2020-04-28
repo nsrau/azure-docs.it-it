@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61320527"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Comprensione concettuale dei certificati x.509 nel settore IoT
@@ -57,7 +57,7 @@ L'uso dell'autorità di certificazione X.509 viene compreso meglio in relazione 
 
 La Società-X ha la possibilità di acquistare un certificato di autorità di certificazione X.509 da un'autorità di certificazione di radice pubblica o crearne uno tramite un processo autofirmato. Una soluzione potrebbe essere ottimale rispetto all'altro in base allo scenario dell'applicazione. Indipendentemente dall'opzione, il processo comporta due passaggi fondamentali, la generazione di una coppia di chiavi pubblica/privata e la firma della chiave pubblica in un certificato.
 
-![Flusso per la generazione di un certificato X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
+![Flusso per la generazione di certificati X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 Dettagli su come l'esecuzione di questi passaggi cambi con provider di servizio diversi.
 
@@ -109,7 +109,7 @@ Delle catene alternative potrebbero avere diverse CA intermedie che interagiscon
 
 In questo esempio, sia l'Azienda-Y sia il Tecnico-Z interagiscono con lo Smart-X-Widget. Anche se la Società-X è la proprietaria dello Smart-X-Widget, non interagisce effettivamente con esso nell'intera catena di alimentazione. La catena di certificati di attendibilità per lo Smart-X-Widget comporta pertanto che la Società-X firmi per l'Azienda-Y che a sua volta firma per il Tecnico-Z che fornirà quindi la firma finale allo Smart-X-Widget. La produzione e l'installazione dello Smart-X-Widget comporta che l'Azienda-Y e il Tecnico-Z usino i loro rispettivi certificati CA intermedi per firmare ogni Smart-X-Widget. Il risultato finale di questo processo è lo Smart-X-widget con certificati univoci del dispositivo e una catena di certificati attendibili che va fino al certificato della CA della Società-X.
 
-![Catena di fiducia dai certificati di una società ai certificati di un'altra società](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![Catena di trust dai certificati di una società ai certificati di un'altra società](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 Questo è una buona occasione per esaminare il valore del metodo della CA X.509. Invece di pre-generare e distribuire i certificati per ogni Smart-X-Widget nella catena di alimentazione, la Società-X firma solo una volta per l'Azienda-Y. Invece di tenere traccia di ogni dispositivo in tutto il ciclo di vita dei dispositivi, la Società-X potrebbe adesso monitorare e gestire i dispositivi tramite i gruppi che emergono naturalmente dal processo della catena di alimentazione, ad esempio, i dispositivi installati dal Tecnico-Z dopo luglio di un qualunque anno.
 
@@ -127,6 +127,6 @@ Durante il caricamento della catena di certificati, il dispositivo carica il pro
 
 In questo esempio, ciascun Smart-X-Widget potrebbe caricare il proprio certificato univoco del dispositivo insieme ai certificati della CA X.509 dell'Azienda-Y e del Tecnico-Z e quindi rispondere alla richiesta di proof-of-possession dall'hub IoT.
 
-![Passare da un certificato all'altro, pop sfida dall'hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![Flusso da un certificato a un altro, pop Challenge dall'hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 Si noti che la base della relazione di attendibilità risiede nelle chiavi private di protezione che comprendono le chiavi private del dispositivo. Pertanto è fondamentale sottolineare l'importanza dei chip di sicurezza in silicone sotto forma di moduli di protezione hardware (HSM) per la protezione delle chiavi private del dispositivo e la procedura consigliata complessiva di non condividere mai le chiavi private, come ad esempio affidare a un'altra azienda la propria chiave privata.

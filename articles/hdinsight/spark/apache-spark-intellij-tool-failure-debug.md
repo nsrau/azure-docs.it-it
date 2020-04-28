@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494594"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
@@ -22,7 +22,7 @@ Questo articolo fornisce istruzioni dettagliate su come usare gli strumenti HDIn
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Oracle Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Questa esercitazione usa Java versione 8.0.202.
+* [Kit di sviluppo di Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Questa esercitazione usa Java versione 8.0.202.
   
 * IntelliJ IDEA. Questo articolo usa [INTELLIJ idea community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   

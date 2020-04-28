@@ -1,6 +1,6 @@
 ---
 title: Panoramica dell'acceleratore di soluzioni di manutenzione predittiva - Azure | Microsoft Docs
-description: Panoramica dell'acceleratore di soluzioni di manutenzione predittiva di Azure IoT che stima il punto in cui è probabile che si verifichi un errore per uno scenario aziendale.
+description: Panoramica dell'acceleratore di soluzioni di manutenzione predittiva di Azure, che consente di stimare il punto in cui è probabile che si verifichi un errore per uno scenario aziendale.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73827422"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di manutenzione predittiva
@@ -62,7 +62,7 @@ L'hub IoT fornisce il riconoscimento dei comandi del dispositivo.
 
 ## <a name="azure-stream-analytics-job"></a>Processo di Analisi di flusso di Azure
 
-**Processo:** la telemetria opera sul flusso di telemetria del dispositivo in ingresso usando due istruzioni:Job: Telemetry operates on the incoming device telemetry stream using two statements:
+**Processo: i dati di telemetria** operano sul flusso di dati di telemetria del dispositivo in ingresso usando due istruzioni:
 
 * La prima seleziona tutti i dati di telemetria dai dispositivi e li invia all'archivio BLOB. Da qui vengono visualizzati nell'app Web.
 * La seconda calcola i valori medi dei sensori in una finestra temporale scorrevole di due minuti e invia i dati tramite l'hub eventi a un **processore di eventi**.
@@ -71,13 +71,13 @@ L'hub IoT fornisce il riconoscimento dei comandi del dispositivo.
 L'**host processore di eventi** viene eseguito in un processo Web di Azure. Il **processore di eventi** considera i valori medi dei sensori per un ciclo completato e quindi li passa a un modello con training che calcola la vita utile rimanente di un motore. Un'API fornisce l'accesso al modello in un'area di lavoro di Machine Learning che fa parte della soluzione.
 
 ## <a name="machine-learning"></a>Machine Learning
-Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro della soluzione nella pagina [azureiotsolutions.com.][lnk-azureiotsolutions] Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
+Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro Machine Learning dal riquadro della soluzione nella pagina [azureiotsolutions.com][lnk-azureiotsolutions] . Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
 
 Per visualizzare il funzionamento dei dati di telemetria raccolti attraverso i servizi degli acceleratori di soluzioni IoT, è disponibile il modello di Azure Machine Learning. Microsoft ha creato un [modello di regressione][lnk_regression_model] basato su dati pubblici<sup>\[[1]\]</sup> e le istruzioni dettagliate su come usare il modello.
 
 L'acceleratore di soluzioni di manutenzione predittiva di Azure IoT usa il modello di regressione creato da questo modello. Il modello viene distribuito nella sottoscrizione di Azure e reso disponibile tramite un'API generata automaticamente. La soluzione include un subset di dati di test per 4 (su un totale di 100) motori e 4 (su un totale di 21) flussi di dati dei sensori. Questi dati sono sufficienti per fornire un risultato esatto dal modello con training.
 
-*\[1\] A. Saxena e K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ameshttps://c3.nasa.gov/dashlink/resources/139/)Prognostics Data Repository ( , NASA Ames Research Center , Moffett Field, CA*
+*\[1\] A. Saxena e K. Goebel (2008). "Set di dati di simulazione della riduzione del motore di turbofan", data repositoryhttps://c3.nasa.gov/dashlink/resources/139/)della NASA Ames Prognostics (, NASA Ames Research Center, campo Moffett, CA*
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere esaminato i componenti chiave dell'acceleratore di soluzioni di manutenzione predittiva, è possibile personalizzarli.

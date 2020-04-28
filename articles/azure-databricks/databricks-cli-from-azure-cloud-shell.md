@@ -1,6 +1,6 @@
 ---
 title: "Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell "
-description: Informazioni su come usare la CLI Databricks di Azure Cloud Shell per eseguire operazioni su Azure Databricks.
+description: Informazioni su come usare l'interfaccia della riga di comando di databricks da Azure Cloud Shell per eseguire operazioni sui Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73605710"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
@@ -28,7 +28,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Databricks da 
 
 ## <a name="use-the-azure-cloud-shell"></a>Usare Azure Cloud Shell
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
  
 2. Nell'angolo superiore destro fare clic sull'icona di **Cloud Shell**.
 
@@ -36,7 +36,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Databricks da 
 
 3. Assicurarsi di selezionare **Bash** per l'ambiente Cloud Shell. È possibile effettuare la selezione dell'opzione nel menu a discesa, come illustrato nello screenshot seguente.
 
-   ![Selezionare Bash per l'ambiente Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selezionare Bash") 
+   ![Selezionare bash per l'ambiente Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Selezionare Bash") 
 
 4. Creare un ambiente virtuale in cui è possibile installare l'interfaccia della riga di comando di Databricks. Nel frammento di codice seguente si crea un ambiente virtuale denominato `databrickscli`.
 

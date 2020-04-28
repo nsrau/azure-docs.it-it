@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: a1ab684f13c56698d4359f2bf74826f3dd696c6d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823503"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Aggiornare un'app in modo da usare la libreria client dei database elastici più recente
@@ -30,9 +30,9 @@ Seguendo l'ordine di questi passaggi è possibile essere sicuri che le versioni 
 
 ## <a name="upgrade-steps"></a>Passaggi dell'aggiornamento
 
-**1. Aggiornare le applicazioni.** In Visual Studio, scaricare e fare riferimento alla versione più recente della libreria client in tutti i progetti di sviluppo che usano tale libreria; quindi ricompilare e distribuire.
+**1. Aggiornare le applicazioni.**  In Visual Studio, scaricare e fare riferimento alla versione più recente della libreria client in tutti i progetti di sviluppo che usano tale libreria; quindi ricompilare e distribuire.
 
-* Nella soluzione Visual Studio in uso selezionare **Strumenti** --> **Gestione pacchetti NuGet** -->  **Gestisci pacchetti NuGet per la soluzione**.
+* Nella soluzione di Visual Studio selezionare **strumenti** --> **gestione** -->  pacchetti NuGet**Gestisci pacchetti NuGet per la soluzione**.
 * (Visual Studio 2013) Nel riquadro sinistro selezionare **Aggiornamenti**, quindi il pulsante **Aggiorna** del pacchetto **Libreria client di scalabilità elastica del database SQL di Azure** che viene visualizzato nella finestra.
 * (2015 di Visual Studio) Impostare la casella del filtro su **aggiornamento disponibile**. Selezionare il pacchetto da aggiornare, e fare clic sul pulsante **Aggiorna** .
 * (Visual Studio 2017) Nella parte superiore della finestra di dialogo selezionare **Aggiornamenti**. Selezionare il pacchetto da aggiornare, e fare clic sul pulsante **Aggiorna** .
@@ -69,7 +69,7 @@ In alternativa, creare un'applicazione Visual Studio che apre ShardMapManager, s
 
 Tali tecniche di aggiornamento dei metadati possono essere applicate più volte senza creare problemi. Se, ad esempio, una versione client precedente crea inavvertitamente una partizione dopo che è già stato eseguito l'aggiornamento, è possibile eseguire nuovamente l'aggiornamento in tutte le partizioni per garantire che nell'infrastruttura sia presente la versione dei metadati più aggiornata.
 
-**Nota:** le nuove versioni della libreria client pubblicate fino a oggi continuano a funzionare con le versioni precedenti dei metadati di Gestore mappe partizioni sul database SQL di Azure e viceversa.   Tuttavia, per sfruttare alcune delle nuove funzionalità nel client più recente, è necessario aggiornare i metadati.   Tenere presente che gli aggiornamenti dei metadati non influiscono sui dati utente o sui dati specifici dell'applicazione, solo gli oggetti creati e utilizzati da Gestore mappe partizioni.  E le applicazioni continuano a funzionare nel corso della sequenza di aggiornamento descritta in precedenza.
+**Nota:**  Le nuove versioni della libreria client pubblicate fino a oggi continuano a funzionare con le versioni precedenti dei metadati del gestore delle mappe partizioni nel database SQL di Azure e viceversa.   Tuttavia, per sfruttare alcune delle nuove funzionalità nel client più recente, è necessario aggiornare i metadati.   Tenere presente che gli aggiornamenti dei metadati non influiscono sui dati utente o sui dati specifici dell'applicazione, solo gli oggetti creati e utilizzati da Gestore mappe partizioni.  E le applicazioni continuano a funzionare nel corso della sequenza di aggiornamento descritta in precedenza.
 
 ## <a name="elastic-database-client-version-history"></a>Cronologia delle versioni del client di database elastico
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiunta di una partizione con strumenti di database elastici
+title: Aggiunta di una partizione utilizzando gli strumenti di database elastici
 description: Informazioni su come impostare API di scalabilità elastica per aggiungere nuove partizioni a un set di partizioni.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 4043fd374a314735173a1f07f46c8394592b81e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823704"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Aggiunta di una partizione utilizzando gli strumenti di database elastici
@@ -28,7 +28,7 @@ Se il nuovo intervallo di valori di chiave non è già incluso in una mappa esis
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Esempio: aggiungere una partizione e il relativo intervallo a una mappa partizioni esistente
 
-In questo esempio viene utilizzata la classe TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [metodi .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) e viene creata un'istanza della classe ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). Nell'esempio seguente un database denominato **sample_shard_2** e tutti gli oggetti di schema necessari in esso contenuti sono stati creati per contenere l'intervallo [300, 400).  
+Questo esempio usa i metodi metodi[(Java,](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard) [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) e crea un'istanza della classe ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). Nell'esempio seguente un database denominato **sample_shard_2** e tutti gli oggetti di schema necessari in esso contenuti sono stati creati per contenere l'intervallo [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -78,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante**: Utilizzare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato è vuoto.  Poiché i metodi precedenti non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.  Se esistono righe nell'intervallo da spostare, la distribuzione dei dati effettivi non corrisponderà alla mappa partizioni aggiornata. In questi casi utilizzare invece lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) per eseguire l'operazione.  
+**Importante**: usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto.  Poiché i metodi precedenti non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.  Se esistono righe nell'intervallo da spostare, la distribuzione dei dati effettivi non corrisponderà alla mappa partizioni aggiornata. In questi casi utilizzare invece lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) per eseguire l'operazione.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

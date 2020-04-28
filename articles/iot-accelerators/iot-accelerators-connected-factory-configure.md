@@ -1,6 +1,6 @@
 ---
 title: Configurare la topologia di Fabbrica connessa - Azure | Microsoft Docs
-description: In questo articolo viene descritto come configurare l'acceleratore di soluzioni Connected Factory, inclusa la topologia.
+description: Questo articolo descrive come configurare l'acceleratore della soluzione di Connected Factory, inclusa la relativa topologia.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73820124"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
@@ -282,7 +282,7 @@ I valori OEE/KPI per la simulazione di Fabbrica connessa sono parametrizzati in 
 * Valori del nodo OPC UA da includere nel calcolo.
 * Modalità di calcolo del valore dai valori di telemetria.
 
-Connected Factory utilizza le formule OEE pubblicate dal file [http://www.oeefoundation.org](http://www.oeefoundation.org).
+Connected Factory usa le formule OEE pubblicate da [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
 Gli oggetti nodo OPC UA nelle stazioni consentono l'uso di tag nel calcolo dei valori OEE/KPI. La proprietà **Relevance** indica per quale valore OEE/KPI deve essere usato il valore del nodo OPC UA. La proprietà **OpCode** definisce come viene incluso il valore nel calcolo.
 
@@ -307,7 +307,7 @@ Per alcune operazioni, ad esempio la visualizzazione dell'ultimo valore o la cre
 
   Identifica il valore del nodo nel server OPC UA. Il formato della proprietà deve essere quello indicato nella specifica OPC UA. Nei messaggi inseriti questa proprietà viene inviata come **NodeId**.
 
-Per altre informazioni su come i dati di telemetria vengono resi in stati di estratti in Connected Factory, vedere [Che cos'è OPC Publisher.](overview-opc-publisher.md)
+Per altre informazioni sulla modalità di inserimento dei dati di telemetria nella fabbrica connessa, vedere [che cos'è il server di pubblicazione OPC](overview-opc-publisher.md) .
 
 ## <a name="example-how-kpi1-is-calculated"></a>Esempio: modalità di calcolo dell'indicatore KPI1
 
@@ -340,4 +340,4 @@ Una caratteristica del valore del nodo **NumberOfManufactureredProducts** è che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Un passaggio successivo suggerito consiste [nell'imparare](iot-accelerators-connected-factory-customize.md)a personalizzare la soluzione Connected Factory .
+Un passaggio successivo suggerito consiste nell'apprendere come [personalizzare la soluzione di fabbrica connessa](iot-accelerators-connected-factory-customize.md).

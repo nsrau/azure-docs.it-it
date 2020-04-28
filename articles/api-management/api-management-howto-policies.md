@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70072313"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
@@ -25,7 +25,7 @@ In Gestione API di Azure i criteri sono una potente funzionalità del sistema ch
 
 I criteri vengono applicati nel gateway che si trova tra il consumer di API e l'API gestita. Il gateway riceve tutte le richieste e in genere le inoltra invariate all'API sottostante. Tuttavia i criteri possono applicare modifiche sia alla richiesta in ingresso che alla risposta in uscita.
 
-Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][Control flow] e [set variable][Set variable], sono basati su espressioni di criteri. Per ulteriori informazioni, vedere [Criteri avanzati][Advanced policies] ed [Espressioni dei criteri][Policy expressions].
+Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose][Control flow] e [set variable][Set variable], sono basati su espressioni di criteri. Per altre informazioni, vedere [criteri avanzati][Advanced policies] ed [espressioni di criteri][Policy expressions].
 
 ## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Informazioni sulla configurazione dei criteri
 

@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69032674"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Reimpostare la password di un utente con Azure Active Directory
@@ -33,7 +33,7 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 
 ## <a name="to-reset-a-password"></a>Per reimpostare la password
 
-1. Accedere al [portale](https://portal.azure.com/) di Azure come amministratore utente o amministratore della password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore utente o password. Per altre informazioni sui ruoli disponibili, vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 2. Selezionare **Azure Active Directory**, selezionare **Utenti**, cercare e selezionare l'utente che richiede la reimpostazione e quindi selezionare **Reimposta password**.
 
@@ -44,7 +44,7 @@ Se un utente dimentica la propria password, non riesce ad accedere a un disposit
 3. Nella pagina **Reimposta password** selezionare **Reimposta password**.
 
     > [!Note]
-    > Quando si usa Azure Active Directory, viene generata automaticamente una password temporanea per l'utente. Quando si utilizza Active Directory locale, si crea la password per l'utente.
+    > Quando si usa Azure Active Directory, viene generata automaticamente una password temporanea per l'utente. Quando si usa Active Directory in locale, si crea la password per l'utente.
 
 4. Copiare la password e assegnarla all'utente. L'utente dovrà modificare la password durante il processo di accesso successivo.
 

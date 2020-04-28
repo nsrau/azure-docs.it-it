@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73826465"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
@@ -41,8 +41,8 @@ Questa esercitazione illustra entrambi i flussi di lavoro di ripristino e ricoll
  
 
 Prima di iniziare questa esercitazione, eseguire queste operazioni:
-* Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare il database Wingtip Tickets SaaS per ogni applicazione tenant.](saas-dbpertenant-get-started-deploy.md) 
-* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell.](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md). 
+* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introduzione al modello di ripristino geografico
 
@@ -62,12 +62,12 @@ Il ripristino di emergenza è importante per molte applicazioni, per motivi di c
 Questa esercitazione usa le funzionalità del database SQL di Azure e della piattaforma Azure per risolvere i problemi seguenti:
 
 * [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server e dei pool elastici di origine nell'area di ripristino. Per il provisioning di nuovi tenant vengono creati anche un server e un pool separati.
-* [EdCL (Elastic Database Client Library)](sql-database-elastic-database-client-library.md) per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
-* Funzionalità di ripristino della gestione dei [frammenti](sql-database-elastic-database-recovery-manager.md) dell'EDCL, per mantenere le voci di posizione del database nel catalogo durante il ripristino e il rimpatrio.  
+* [Libreria client del database elastico](sql-database-elastic-database-client-library.md) (libreria EDCL) per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
+* [Funzionalità di ripristino della gestione](sql-database-elastic-database-recovery-manager.md) delle partizioni di libreria EDCL per mantenere le voci del percorso del database nel catalogo durante il ripristino e il ricollocamento.  
 * [Ripristino geografico](sql-database-disaster-recovery.md), per ripristinare i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. 
 * [Operazioni di ripristino asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità di tenant, vengono inserite in coda per ogni pool dal sistema ed elaborate in batch per evitare il sovraccarico del pool. Queste operazioni possono essere annullate prima o durante l'esecuzione, se necessario.   
 * [Replica geografica](sql-database-geo-replication-overview.md), per ricollocare i database nell'area di origine dopo l'interruzione. Quando si usa la replica geografica, non si verifica alcuna perdita di dati e l'impatto sul tenant è minimo.
-* [Alias DNS](dns-alias-overview.md)di SQL Server , per consentire al processo di sincronizzazione del catalogo di connettersi al catalogo attivo indipendentemente dalla posizione.  
+* [Alias DNS di SQL Server](dns-alias-overview.md)per consentire al processo di sincronizzazione del catalogo di connettersi al catalogo attivo indipendentemente dalla relativa posizione.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza
 

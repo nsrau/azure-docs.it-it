@@ -1,7 +1,7 @@
 ---
 title: Competenza Estrazione frasi chiave della ricerca cognitiva
 titleSuffix: Azure Cognitive Search
-description: Valuta il testo non strutturato e, per ogni record, restituisce un elenco di frasi chiave in una pipeline di arricchimento dell'iastrutturazione in Ricerca cognitiva di Azure.Evaluates unstructured text, and for each record, returns a list of key phrases in an AI enrichment pipeline in Azure Cognitive Search.
+description: Valuta il testo non strutturato e, per ogni record, restituisce un elenco di frasi chiave in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791969"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competenza Estrazione frasi chiave della ricerca cognitiva
@@ -22,7 +22,7 @@ La competenza **Estrazione frasi chiave** valuta il testo non strutturato e rest
 Questa funzionalità è utile se occorre identificare rapidamente i punti di discussione principali nel record. Ad esempio, dato il testo di input "Il cibo era delizioso e il personale era meraviglioso", il servizio restituisce "cibo" e "personale meraviglioso".
 
 > [!NOTE]
-> Man mano che si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti o aggiungendo più algoritmi di ia', sarà necessario [collegare una risorsa servizi cognitivi fatturabile.](cognitive-search-attach-cognitive-services.md) Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> Quando si espande l'ambito aumentando la frequenza di elaborazione, l'aggiunta di altri documenti o l'aggiunta di altri algoritmi di intelligenza artificiale, sarà necessario [alleghi una risorsa di servizi cognitivi fatturabile](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
 > L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione di immagini sono descritti nella [pagina dei prezzi di Ricerca cognitiva di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -31,7 +31,7 @@ Questa funzionalità è utile se occorre identificare rapidamente i punti di dis
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limiti dei dati
-La dimensione massima di un record deve essere di [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caratteri misurata da . Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 
@@ -39,7 +39,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Input                | Descrizione |
 |---------------------|-------------|
-| defaultLanguageCode | (Facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua.  Se il codice lingua predefinito non è specificato, Inglese (en) verrà usato come il codice lingua predefinito. <br/> Vedere [Elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| defaultLanguageCode | (Facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua.  Se il codice lingua predefinito non è specificato, Inglese (en) verrà usato come il codice lingua predefinito. <br/> Vedere l' [elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Facoltativo) Il numero massimo di frasi chiave da produrre. |
 
 ## <a name="skill-inputs"></a>Input competenze

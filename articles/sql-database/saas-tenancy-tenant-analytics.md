@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
 ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73826374"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
@@ -24,7 +24,7 @@ Questa esercitazione illustra in dettaglio uno scenario di analisi completo per 
 
 1.  **Estrarre** i dati dal database di ogni tenant e **caricarli** in un archivio di analisi.
 2.  **Trasformare i dati estratti** per l'elaborazione dell'analisi.
-3.  Utilizzare gli strumenti di **business intelligence** per ottenere informazioni utili, che possono guidare il processo decisionale. 
+3.  Usare gli strumenti di **Business Intelligence** per creare informazioni utili, che possono guidare il processo decisionale. 
 
 In questa esercitazione si apprenderà come:
 
@@ -79,7 +79,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite di biglietti. In questo passaggio si generano i dati relativi ai biglietti per tutti i tenant.  Successivamente, questi dati verranno estratti per l'analisi. *Assicurarsi di aver effettuato il provisioning del batch di tenant come descritto in precedenza, per avere una quantità significativa di dati*. Una quantità sufficientemente elevata di dati può esporre vari modelli diversi di acquisto dei biglietti.
 
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* e impostare il valore seguente:
-    - **$DemoScenario** = **1** Acquistare biglietti per eventi in tutte le sedi
+    - **$DemoScenario** = **1** acquistare i ticket per gli eventi in tutte le sedi
 2. Premere **F5** per eseguire lo script e creare la cronologia di acquisto dei biglietti per ogni evento in ogni sede.  Lo script viene eseguito per diversi minuti per generare decine di migliaia di biglietti.
 
 ### <a name="deploy-the-analytics-store"></a>Distribuire l'archivio di analisi
@@ -88,11 +88,11 @@ Spesso tutti i dati dei tenant sono contenuti in numerosi database transazionali
 Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics**, e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto:
-    - Per utilizzare il database SQL senza archivio colonne, impostare $DemoScenario**2To** use SQL database without column store, set **$DemoScenario** = 2
-    - Per usare il database SQL con l'archivio colonne, impostare $DemoScenario**3To** use SQL database with column store, set **$DemoScenario** = 3  
-3. Premere **F5** per eseguire lo script demo (che chiama lo script *Deploy-TenantAnalytics\<XX>.ps1)* che crea l'archivio di analisi tenant. 
+    - Per usare il database SQL senza l'archivio colonne, impostare **$DemoScenario** = **2**
+    - Per usare il database SQL con l'archivio colonne, impostare **$DemoScenario** = **3**  
+3. Premere **F5** per eseguire lo script demo (che chiama lo script *deploy-\<TenantAnalytics XX>. ps1* ) che crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e averla riempita con dati di tenant interessanti, utilizzare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere i server utente **tenants1-dpt-&lt;User&gt; ** e **catalog-dpt-&lt;&gt; ** utilizzando i server utente Login , *Developer*, Password e *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Ora che l'applicazione è stata distribuita e è stata compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere i server **tenants1-ssword1-&lt;user&gt; ** e **Catalog--&lt;user&gt; ** usando login = *Developer*, password = *P\@*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -174,7 +174,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro, quindi immettere il nome utente , *lo sviluppatore*e immettere la password , *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -239,6 +239,6 @@ Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Esercitazioni aggiuntive [che si basano sull'applicazione Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Lavori elastici](elastic-jobs-overview.md).
+- Altre [esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Processi elastici](elastic-jobs-overview.md).
 - [Analisi su più tenant con dati estratti in un'app multi-tenant](saas-multitenantdb-tenant-analytics.md)

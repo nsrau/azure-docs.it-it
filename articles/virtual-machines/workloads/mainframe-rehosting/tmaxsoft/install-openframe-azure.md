@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72436055"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in Azure
@@ -108,7 +108,7 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
 - Ottenere una sottoscrizione di Azure, se non è già presente. È anche possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Facoltativo. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
+- Facoltativa. Configurare un tunnel VPN da sito a sito o un JumpBox per limitare l'accesso alla macchina virtuale di Azure agli utenti autorizzati dell'organizzazione. Questo passaggio non è obbligatorio, ma è una procedura consigliata.
 
 ## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>Configurare una macchina virtuale in Azure per OpenFrame e tibero
 

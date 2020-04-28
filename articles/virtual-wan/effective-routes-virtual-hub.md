@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73515850"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Visualizzare le route valide di un hub virtuale
@@ -42,9 +42,9 @@ Utilizzare la barra di scorrimento nella parte inferiore della tabella per visua
 
 | **Prefisso** |  **Tipo hop successivo** | **Hop successivo** |  **Origine route** |**Percorso AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|Connessione |10.1.0.6, 10.1.0.7| /Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
+| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
 |10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
-|10.23.1.0/24| Connessione |10.1.0.6, 10.1.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
+|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
 |10.4.0.0/16|Connessione alla rete virtuale| Collegamento |  |  |
 |10.5.0.0/16| Indirizzo IP| 10.4.0.6|/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/Table_1| |
 |0.0.0.0/0| Indirizzo IP| `<Azure Firewall IP>` |/Subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/Table_1| |

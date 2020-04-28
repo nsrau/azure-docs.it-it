@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74023139"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Attiva i ruoli delle risorse di Azure in Privileged Identity Management
@@ -120,7 +120,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
    ![Elenco di richieste con azione di annullamento evidenziato](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Le autorizzazioni non vengono concesse dopo l'attivazione di un ruolo
 

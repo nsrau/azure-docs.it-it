@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
 ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73931148"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usare le identità gestite di Azure per distribuire gli ambienti in un Lab 
@@ -34,7 +34,7 @@ In questa sezione, in qualità di proprietario del Lab, usare il portale di Azur
 1. Selezionare **Identity (identità** ) nella sezione **Settings (impostazioni** ).
 1. Per aggiungere un'identità assegnata a un utente, selezionare **Aggiungi** sulla barra degli strumenti. 
 1. Selezionare un' **identità** da un elenco a discesa pre-popolato.
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
     ![Aggiungi identità gestita dall'utente](./media/use-managed-identities-environments/add-user-managed-identity.png)
 2. Nell'elenco viene visualizzata l'identità gestita dall'utente aggiunta. 

@@ -16,10 +16,10 @@ ms.date: 05/16/2016
 ms.author: narayan
 ms.reviewer: aglick
 ms.openlocfilehash: 3f91d24bff0bec540ff0e7964f21c2f47c03638c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67876180"
 ---
 # <a name="virtual-network--business-continuity"></a>Rete virtuale - Continuità aziendale
@@ -27,13 +27,13 @@ ms.locfileid: "67876180"
 ## <a name="overview"></a>Panoramica
 Una rete virtuale è una rappresentazione logica della propria rete personalizzata nel cloud. Consente di definire il proprio spazio di indirizzi IP privato e segmentare la rete in subnet. Le reti virtuali vengono usate come limite di attendibilità per ospitare le risorse di calcolo quali macchine virtuali di Azure e servizi cloud (ruoli Web/di lavoro). Una rete virtuale consente la comunicazione IP privata diretta tra le risorse ospitate al suo interno. È possibile collegare una rete virtuale a una rete locale tramite Gateway VPN o ExpressRoute.
 
-Una rete virtuale viene creata nell'ambito di un'area. È possibile *creare* reti virtuali con lo stesso spazio di indirizzi in due aree diverse (ad esempio, Stati Uniti orientali e Stati Uniti occidentali), ma poiché hanno lo stesso spazio di indirizzi, non è possibile connetterle tra loro. 
+Una rete virtuale viene creata nell'ambito di un'area. È possibile *creare* reti virtuali con lo stesso spazio di indirizzi in due aree diverse, ad esempio Stati Uniti orientali e Stati Uniti occidentali, ma poiché hanno lo stesso spazio di indirizzi, non è possibile connetterle insieme. 
 
 ## <a name="business-continuity"></a>Continuità aziendale
 
 Le applicazioni potrebbero essere soggette a interruzioni di varia natura. Un'area può essere interessata da un'interruzione totale dovuta a una calamità naturale o da un'emergenza parziale causata da un guasto di più dispositivi o servizi. L'impatto sul servizio di rete virtuale è diverso in ognuna di queste situazioni.
 
-**D: Se si verifica un'interruzione per un'intera area, cosa devo fare? Ad esempio, se una regione è completamente interrotta a causa di un disastro naturale? Cosa succede alle reti virtuali ospitate nell'area?**
+**D: se si verifica un'interruzione per un'intera area, cosa devo fare? Ad esempio, se un'area è completamente tagliata a causa di una calamità naturale? Cosa accade alle reti virtuali ospitate nell'area?**
 
 R: Durante il periodo di interruzione del servizio la rete virtuale e le risorse presenti nell'area interessata sono inaccessibili.
 

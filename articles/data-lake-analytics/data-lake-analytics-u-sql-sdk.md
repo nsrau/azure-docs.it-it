@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309693"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
@@ -340,26 +340,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Proprietà|Type|Descrizione|
 |--------|----|-----------|
-|AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
-|CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
-|CppSdkDir|string|Directory CppSDK|
-|CurrentDir|string|La directory corrente|
-|DataRoot|string|Il percorso della radice dei dati|
-|DebuggerMailPath|string|Il percorso alla porta di inserimento/espulsione del debugger|
+|AlgebraPath|stringa|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
+|CodeBehindReferences|stringa|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
+|CppSdkDir|stringa|Directory CppSDK|
+|CurrentDir|stringa|La directory corrente|
+|DataRoot|stringa|Il percorso della radice dei dati|
+|DebuggerMailPath|stringa|Il percorso alla porta di inserimento/espulsione del debugger|
 |GenerateUdoRedirect|bool|Se si vuole generare il reindirizzamento di caricamento dell'assembly eseguire l'override della configurazione|
 |HasCodeBehind|bool|Indica se lo script ha code-behind|
-|InputDir|string|La directory per i dati di input|
-|MessagePath|string|Il percorso del file dump del messaggio|
-|OutputDir|string|La directory per i dati di output|
+|InputDir|stringa|La directory per i dati di input|
+|MessagePath|stringa|Il percorso del file dump del messaggio|
+|OutputDir|stringa|La directory per i dati di output|
 |Parallelismo|INT|Il parallelismo per eseguire l'algebra|
 |ParentPid|INT|Il PID dell'entità principale in cui il servizio esegue il monitoraggio per uscire, impostato su 0 o su un numero negativo se va ignorato|
-|ResultPath|string|Il percorso del file dump del risultato|
-|RuntimeDir|string|La directory di runtime|
-|ScriptPath|string|Indica dove trovare lo script|
+|ResultPath|stringa|Il percorso del file dump del risultato|
+|RuntimeDir|stringa|La directory di runtime|
+|ScriptPath|stringa|Indica dove trovare lo script|
 |Shallow|bool|Indica se la compilazione è superficiale o no|
-|TempDir|string|Directory temporanea|
-|UseDataBase|string|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
-|WorkDir|string|La directory di lavoro preferita|
+|TempDir|stringa|Directory temporanea|
+|UseDataBase|stringa|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
+|WorkDir|stringa|La directory di lavoro preferita|
 
 
 **Metodo**

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69614831"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
@@ -44,7 +44,7 @@ L'SDK offre varie opzioni per l'esecuzione di query. Ad esempio, in .NET queste 
 | `EnableScanInQuery` | Deve essere impostato su true se è stata rifiutata esplicitamente l'indicizzazione, ma si vuole comunque eseguire la query tramite un'analisi. Applicabile solo se l'indicizzazione per il percorso di filtro richiesto è disabilitata. | 
 | `MaxItemCount` | Numero massimo di elementi da restituire per ogni round trip al server. Impostando -1, è possibile lasciare che sia il server a gestire il numero di elementi. In alternativa, è possibile ridurre questo valore per recuperare solo un numero limitato di elementi per ogni round trip. 
 | `MaxBufferedItemCount` | Questa è un'opzione sul lato client e viene usata per limitare l'uso della memoria durante l'esecuzione di clausole ORDER BY tra partizioni. Un valore più alto consente di ridurre la latenza di ordinamento tra partizioni. |
-| `MaxDegreeOfParallelism` | Ottiene o imposta il numero di operazioni simultanee eseguite lato client durante l'esecuzione di query parallele nel servizio di database Cosmos di Azure. Un valore di proprietà positivo limita il numero di operazioni simultanee al valore impostato. Se è impostato un valore minore di 0, il sistema decide automaticamente il numero di operazioni simultanee da eseguire. |
+| `MaxDegreeOfParallelism` | Ottiene o imposta il numero di operazioni simultanee eseguite sul lato client durante l'esecuzione di query parallele nel servizio Azure Cosmos database. Un valore di proprietà positivo limita il numero di operazioni simultanee al valore impostato. Se è impostato un valore minore di 0, il sistema decide automaticamente il numero di operazioni simultanee da eseguire. |
 | `PopulateQueryMetrics` | Consente la registrazione dettagliata delle statistiche sul tempo impiegato nelle varie fasi di esecuzione della query, come il tempo di compilazione, il tempo del ciclo di indice e il tempo di caricamento dei documenti. È possibile condividere l'output delle statistiche sulle query con il supporto tecnico di Azure per la diagnostica dei problemi di prestazioni delle query. |
 | `RequestContinuation` | È possibile riprendere l'esecuzione delle query passando il token di continuazione opaco restituito da qualsiasi query. Il token di continuazione incapsula tutti gli stati necessari per l'esecuzione delle query. |
 | `ResponseContinuationTokenLimitInKb` | È possibile limitare la dimensione massima del token di continuazione restituito dal server. Potrebbe essere necessario eseguire questa operazione se l'host applicazione applica limiti per le dimensioni delle intestazioni delle risposte. L'impostazione di questa opzione può determinare un aumento della durata complessiva e delle unità di richieste usate per la query.  |
@@ -216,7 +216,7 @@ La sezione sulle metriche di esecuzione delle query descrive come recuperare la 
 ### <a name="indexing-policy"></a>Criterio di indicizzazione
 Per informazioni su percorsi, tipi e modalità di indicizzazione e sul relativo impatto sull'esecuzione delle query, vedere [Configurazione dei criteri di indicizzazione](index-policy.md). Per impostazione predefinita, i criteri di indicizzazione usano l'indicizzazione hash per le stringhe, che è efficace per le query di uguaglianza, ma non per le query di intervallo o orderby. Se sono necessarie query di intervallo per le stringhe, è consigliabile specificare il tipo di indice di intervallo per tutte le stringhe. 
 
-Per impostazione predefinita, Azure Cosmos DB applicherà l'indicizzazione automatica a tutti i dati. Per gli scenari di inserimento ad alte prestazioni, è consigliabile escludere i percorsi in quanto ciò ridurrà il costo RU per ogni operazione di inserimento. 
+Per impostazione predefinita, Azure Cosmos DB applicherà l'indicizzazione automatica a tutti i dati. Per gli scenari di inserimento a prestazioni elevate, provare a escludere i percorsi, in modo da ridurre il costo delle unità richiesta per ogni operazione di inserimento 
 
 ## <a name="query-execution-metrics"></a>Metriche di esecuzione delle query
 È possibile ottenere metriche dettagliate sull'esecuzione delle query passando l'intestazione facoltativa `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` in .NET SDK). Il valore restituito in `x-ms-documentdb-query-metrics` contiene le seguenti coppie chiave-valore, pensate per risoluzione dei problemi più avanzati di esecuzione delle query. 

@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: bad52b364dc83994e7985fc80b1b9f9e7f50481e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823782"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Creare report in database cloud con numero maggiore di istanze (anteprima)
@@ -33,7 +33,7 @@ Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elast
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio
 Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguita dall'inserimento di dati nelle partizioni. Se si dispone già di programma di installazione di partizioni con dati partizionati in essi, è possibile ignorare i passaggi seguenti e passare alla sezione successiva.
 
-1. Compilare ed eseguire l'applicazione di esempio Introduzione agli strumenti per il **database elastico** seguendo la procedura descritta nella sezione [dell'articolo Scaricare ed eseguire l'app di esempio.](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1) Una volta completati tutti i passaggi, verrà visualizzato il seguente prompt dei comandi:
+1. Compilare ed eseguire l'applicazione di esempio **Introduzione a strumenti di database elastici** attenendosi alla procedura descritta nella sezione [scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Al termine di tutti i passaggi, verrà visualizzato il prompt dei comandi seguente:
 
     ![prompt dei comandi][1]
 2. Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
@@ -68,7 +68,7 @@ Questi vengono utilizzati per la connessione per la gestione di gestore di mappe
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" e "password" devono essere le stesse utilizzate nel passaggio 3 della sezione [Scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) nell'articolo Introduzione agli strumenti di database **elastico.**
+    "username" e "password" devono essere le stesse informazioni di accesso usate nel passaggio 3 della sezione [scaricare ed eseguire l'app di esempio](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) nell'articolo **Introduzione agli strumenti di database elastici** .
 
 ### <a name="external-data-sources"></a>Origini dati esterne
 Per creare un'origine dati esterna, eseguire il comando seguente sul database ElasticDBQuery:
@@ -114,9 +114,9 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 3. Fare clic su **Da altre origini** e quindi su **Da SQL Server**.
 
    ![Importazione di Excel da altre origini][5]
-4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Fare quindi clic su **Avanti**.
+4. In **Connessione guidata dati** digitare le credenziali di accesso e il nome del server. Quindi fare clic su **Next**.
 5. Nella finestra di dialogo **Selezionare il database contenente i dati desiderati** selezionare il database **ElasticDBQuery**.
-6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare quindi clic su **Fine**.
+6. Selezionare la tabella **Customers** nella visualizzazione elenco e fare clic su **Avanti**. Fare clic su **Fine**.
 7. Nel modulo **Importa dati** in **Specificare come visualizzare i dati nella cartella di lavoro** selezionare **Tabella** e fare clic su **OK**.
 
 Tutte le righe dalla tabella **Clienti** , archiviate in diverse partizioni sono riportate nel foglio Excel.

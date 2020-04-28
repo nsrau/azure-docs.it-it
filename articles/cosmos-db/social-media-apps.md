@@ -1,5 +1,5 @@
 ---
-title: 'Modello di progettazione di Azure Cosmos DB: app di social mediaAzure Cosmos DB design pattern: Social media apps'
+title: 'Modello di progettazione Azure Cosmos DB: app per social media'
 description: Informazioni su uno schema progettuale per social network che sfrutta la flessibilità di archiviazione di Azure Cosmos DB e altri servizi di Azure.
 author: ealsur
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
 ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73827305"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
@@ -96,7 +96,7 @@ Per la creazione di feed è sufficiente creare documenti che possano contenere u
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-È possibile usare un flusso "più recenti" con i post ordinati per data di creazione. Oppure è possibile creare un flusso "più interessanti" con i post con il maggior numero di Mi piace nelle ultime 24 ore. Si potrebbe anche implementare un flusso personalizzato per ogni utente basato su logica, ad esempio follower e interessi. Rimarrebbe comunque un elenco di post. Il fulcro è come compilare questi elenchi, ma le prestazioni di lettura rimangono invariate. Una volta acquisito uno di questi elenchi, si invia una singola query a Cosmos DB utilizzando la [parola chiave IN](sql-query-keywords.md#in) per ottenere pagine di post alla volta.
+È possibile usare un flusso "più recenti" con i post ordinati per data di creazione. Oppure è possibile creare un flusso "più interessanti" con i post con il maggior numero di Mi piace nelle ultime 24 ore. Si potrebbe anche implementare un flusso personalizzato per ogni utente basato su logica, ad esempio follower e interessi. Rimarrebbe comunque un elenco di post. Il fulcro è come compilare questi elenchi, ma le prestazioni di lettura rimangono invariate. Una volta acquisito uno di questi elenchi, viene eseguita una singola query per Cosmos DB usando la [parola chiave in](sql-query-keywords.md#in) per recuperare le pagine di post alla volta.
 
 I flussi di feed possono essere creati usando i processi in background dei [servizi app di Azure](https://azure.microsoft.com/services/app-service/), ovvero [Processi Web](../app-service/webjobs-create.md). Dopo che un post è stato creato, l'elaborazione in background può essere attivata tramite le [code di ](https://azure.microsoft.com/services/storage/) [Archiviazione di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md), mentre i Processi Web possono essere attivati tramite [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagazione dei post all'interno dei flussi in base a una logica personalizzata.
 
@@ -194,13 +194,13 @@ Quando subentra una modifica che interessa un attributo di un blocco, è possibi
 
 Gli utenti generano molto contenuto e devono avere la possibilità di cercare e trovare anche contenuti non presenti direttamente nel proprio flusso di contenuti, perché non seguono gli autori o semplicemente perché si tratta di post vecchi di sei mesi.
 
-Poiché si usa Azure Cosmos DB, è possibile implementare facilmente un motore di ricerca usando [Ricerca cognitiva](https://azure.microsoft.com/services/search/) di Azure in pochi minuti senza digitare codice, ad esempio il processo di ricerca e l'interfaccia utente.
+Poiché si usa Azure Cosmos DB, è possibile implementare facilmente un motore di ricerca usando [Azure ricerca cognitiva](https://azure.microsoft.com/services/search/) in pochi minuti senza digitare alcun codice, oltre al processo di ricerca e all'interfaccia utente.
 
 Perché questo processo è così semplice?
 
-Ricerca cognitiva di Azure implementa quelli che chiamano [indicizzatori,](https://msdn.microsoft.com/library/azure/dn946891.aspx)processi in background che si agganciano agli archivi dati e aggiungono, aggiornano o rimuovono automaticamente gli oggetti negli indici. Supportano gli [indicizzatori di database SQL di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), gli [indicizzatori di BLOB di Azure](../search/search-howto-indexing-azure-blob-storage.md) e, soprattutto, gli [indicizzatori di Azure Cosmos DB](../search/search-howto-index-documentdb.md). La transizione delle informazioni da Cosmos DB a Ricerca cognitiva di Azure è semplice. Entrambe le tecnologie archiviano le informazioni in formato JSON, pertanto è sufficiente [creare l'indice](../search/search-create-index-portal.md) ed eseguire il mapping degli attributi dai documenti da indicizzare. La procedura è terminata. A seconda delle dimensioni dei dati, tutto il contenuto sarà disponibile per la ricerca entro pochi minuti dalla soluzione di ricerca distribuita come servizio migliore nell'infrastruttura cloud.
+Azure ricerca cognitiva implementa gli [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx), i processi in background che si agganciano ai repository di dati e aggiungono, aggiornano o rimuovono gli oggetti negli indici in automagici. Supportano gli [indicizzatori di database SQL di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), gli [indicizzatori di BLOB di Azure](../search/search-howto-indexing-azure-blob-storage.md) e, soprattutto, gli [indicizzatori di Azure Cosmos DB](../search/search-howto-index-documentdb.md). La transizione delle informazioni dal Cosmos DB al ricerca cognitiva di Azure è semplice. Entrambe le tecnologie archiviano le informazioni in formato JSON, pertanto è sufficiente [creare l'indice](../search/search-create-index-portal.md) ed eseguire il mapping degli attributi dai documenti da indicizzare. La procedura è terminata. A seconda delle dimensioni dei dati, tutto il contenuto sarà disponibile per la ricerca entro pochi minuti dalla soluzione di ricerca distribuita come servizio migliore nell'infrastruttura cloud.
 
-Per altre informazioni su Ricerca cognitiva di Azure, è possibile visitare la [Guida alla ricerca dell'autostoppista](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Per ulteriori informazioni su Azure ricerca cognitiva, è possibile visitare la [Guida per la ricerca tramite l'Autostoppier](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## <a name="the-underlying-knowledge"></a>Conoscenza sottostante
 
@@ -224,7 +224,7 @@ C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilit�
 
 Cosmos DB supporta il partizionamento dinamico per impostazione predefinita. e crea automaticamente partizioni in base a una determinata **chiave di partizione**, definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
 
-Per un'esperienza social, è necessario allineare la strategia di partizionamento al modo in cui si eseguono query e scrittura. Ad esempio, le letture all'interno della stessa partizione sono desiderabili ed evitare "hot spot" diffondendo scritture su più partizioni. Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), per categoria di contenuto, per area geografica o per utente. Tutto dipende da come verranno eseguite le query sui dati e visualizzati i dati nell'esperienza social.
+Per un'esperienza social, è necessario allineare la strategia di partizionamento al modo in cui si eseguono query e scrittura. È consigliabile, ad esempio, leggere all'interno della stessa partizione ed evitare "aree sensibili" diffondendo le Scritture in più partizioni. Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), per categoria di contenuto, per area geografica o per utente. Tutto dipende da come verranno eseguite le query sui dati e visualizzati i dati nell'esperienza social.
 
 Cosmos DB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover quindi aggiungere logica con l'aumento dei dati.
 
@@ -248,7 +248,7 @@ Questo articolo mette in luce alcune alternative per la creazione di social netw
 
 ![Diagramma di interazione tra servizi di Azure per il social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-La verità è che non esiste un'unica soluzione infallibile per questo tipo di scenari. È la sinergia creata dalla combinazione di ottimi servizi che ci permettono di creare grandi esperienze: la velocità e la libertà di Azure Cosmos DB per fornire un'ottima applicazione sociale, l'intelligenza alla base di una soluzione di ricerca di prima classe come Ricerca cognitiva di Azure, la flessibilità dei servizi app di Azure per ospitare non nemmeno le applicazioni indipendenti dalla lingua, ma potenti processi in background e l'archiviazione di Azure e il database SQL di Azure espandibili per l'archiviazione di enormi quantità di dati e la potenza analitica di Azure Machine Learning per creare conoscenze e informazioni in grado di fornire feedback ai vostri processi e aiutarci a fornire i contenuti giusti agli utenti giusti.
+La verità è che non esiste un'unica soluzione infallibile per questo tipo di scenari. Si tratta della sinergia creata dalla combinazione di servizi eccezionali che ci permettono di creare esperienze eccezionali: la velocità e la libertà di Azure Cosmos DB per offrire un'ottima applicazione Social, l'intelligence dietro una soluzione di ricerca di prima classe come Azure ricerca cognitiva, la flessibilità dei servizi di app Azure per ospitare applicazioni indipendenti dal linguaggio, ma potenti processi in background e l'archiviazione di Azure espandibile e il database SQL di Azure per l'archiviazione di grandi quantità di dati e la potenza analitica del computer di Azure Impara a creare informazioni e intelligence in grado di fornire commenti e suggerimenti ai tuoi processi e contribuire a fornire i contenuti appropriati agli utenti appropriati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

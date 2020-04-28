@@ -1,5 +1,5 @@
 ---
-title: Porte oltre il 1433
+title: Porte successive alla 1433
 description: Le connessioni client da ADO.NET al database SQL di Azure possono ignorare il proxy e interagire direttamente con il database usando porte diverse da 1433.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
 ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73828068"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
@@ -42,11 +42,11 @@ La sequenza è la seguente:
 
 1. ADO.NET 4.5 (o versione successiva) avvia una breve interazione con il cloud di Azure e riceve un numero di porta identificato in modo dinamico.
 
-   * Il numero di porta identificato dinamicamente è compreso nell'intervallo 11000-11999.
+   * Il numero di porta identificato in modo dinamico è compreso nell'intervallo 11000-11999.
 2. ADO.NET quindi si connette direttamente al server di database SQL, senza alcun middleware intermedio.
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
 
-Verificare che gli intervalli di porte 11000-11999 nel computer client di Azure siano disponibili per le interazioni client ADO.NET 4.5 con il database SQL.
+Assicurarsi che gli intervalli di porte di 11000-11999 nel computer client di Azure siano disponibili per le interazioni del client ADO.NET 4,5 con il database SQL.
 
 * In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
 * Nella macchina virtuale di Azure, il **Windows Firewall con sicurezza avanzata** controlla le impostazioni della porta.
@@ -70,7 +70,7 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 
 * Microsoft SQL Server JDBC 4.2 o versione successiva. JDBC 4.0 supporta TDS 7.4 ma non implementa il reindirizzamento
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 
 * ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. È disponibile un annuncio di blog del team .NET [qui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
 * ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
@@ -82,7 +82,7 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 
 * [Elenco versioni del protocollo TDS](https://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
-* [Firewall del database SQL di AzureAzure SQL Database firewall](sql-database-firewall-configure.md)
+* [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
 * [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
 
 

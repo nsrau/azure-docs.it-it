@@ -9,13 +9,13 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4842c55b2b1fd23f4d6b7996ccf02e7141504836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73495772"
 ---
-È possibile `Resize-AzVirtualNetworkGateway` utilizzare il cmdlet PowerShell per aggiornare o eseguire il downgrade di uno SKU di generazione 1 o generazione2 (tutti gli SKU VpnGw possono essere ridimensionati ad eccezione degli SKU di base). Se si usa lo SKU di gateway Basic [seguire in alternativa queste istruzioni](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) per ridimensionare il gateway.
+È possibile usare il `Resize-AzVirtualNetworkGateway` cmdlet di PowerShell per eseguire l'aggiornamento o il downgrade di uno SKU Generation1 o Generation2 (tutti gli SKU VpnGw possono essere ridimensionati ad eccezione degli SKU Basic). Se si usa lo SKU di gateway Basic [seguire in alternativa queste istruzioni](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) per ridimensionare il gateway.
 
 L'esempio di PowerShell seguente illustra uno SKU del gateway che viene ridimensionato come VpnGw2.
 

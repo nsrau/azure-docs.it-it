@@ -1,6 +1,6 @@
 ---
-title: Che cos'è la funzionalità di registrazione automatica delle zone private DNS di AzureWhat is autoregistration feature of Azure DNS private zones
-description: Panoramica della funzionalità di registrazione automatica delle zone private DNS di AzureOverview of autoregistration feature of Azure DNS private zones
+title: Che cos'è la funzionalità autoregistration delle zone private di DNS di Azure
+description: Panoramica della funzionalità di registrazione dell'autoregistrazione delle zone private di DNS di Azure
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71961249"
 ---
-# <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual è la funzionalità di registrazione automatica delle zone private DNS di AzureWhat is the autoregistration feature of Azure DNS private zones
+# <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual è la funzionalità di registrazione autoregistrazione delle zone private di DNS di Azure
 
-La funzionalità di registrazione automatica delle zone private delle zone private DNS di Azure elimina il problema della gestione dei record DNS per le macchine virtuali distribuite in una rete virtuale. Quando si collega una [rete virtuale](./private-dns-virtual-network-links.md) a una zona DNS privata e si abilita la registrazione automatica per tutte le macchine virtuali, i record DNS per le macchine virtuali distribuite nella rete virtuale vengono creati automaticamente nella zona DNS privata. Oltre ai record di aspetto avanti (record A), vengono creati automaticamente anche i record di ricerca inversa (record PTR) per le macchine virtuali.
-Se si aggiungono altre macchine virtuali alla rete virtuale, i record DNS per queste macchine virtuali vengono creati automaticamente anche nella zona DNS privata collegata.
+La funzionalità di registrazione automatica di zone private di DNS di Azure Elimina la gestione dei record DNS per le macchine virtuali distribuite in una rete virtuale. Quando si [collega una rete virtuale](./private-dns-virtual-network-links.md) a una zona DNS privata e si Abilita la registrazione automatica per tutte le macchine virtuali, i record DNS per le macchine virtuali distribuite nella rete virtuale vengono creati automaticamente nella zona DNS privata. Oltre ai record di aspetto (record A), vengono creati automaticamente anche i record di ricerca inversa (record PTR) per le macchine virtuali.
+Se si aggiungono altre macchine virtuali alla rete virtuale, anche i record DNS per queste macchine virtuali vengono creati automaticamente nella zona DNS privata collegata.
 
 Quando si elimina una macchina virtuale, i record DNS per la macchina virtuale vengono eliminati automaticamente dalla zona DNS privata.
 
@@ -27,9 +27,9 @@ Quando si elimina una macchina virtuale, i record DNS per la macchina virtuale v
 
 ## <a name="restrictions"></a>Restrizioni
 
-* La registrazione automatica funziona solo per le macchine virtuali. Per tutte le altre risorse, ad esempio i servizi di bilanciamento del carico interni e così via, è possibile creare manualmente i record DNS nella zona DNS privata collegata alla rete virtuale.
-* I record DNS vengono creati automaticamente solo per la scheda NIC della macchina virtuale primaria. Se le macchine virtuali dispongono di più schede di interfaccia di rete, è possibile creare manualmente i record DNS per altre interfacce di rete.
-* la registrazione automatica per i Record IPv6 (record AAAA) non è supportata.
+* La registrazione automatici funziona solo per le macchine virtuali. Per tutte le altre risorse, ad esempio i bilanciamento del carico interno e così via, è possibile creare manualmente i record DNS nella zona DNS privata collegata alla rete virtuale.
+* I record DNS vengono creati automaticamente solo per la scheda di interfaccia di rete primaria della macchina virtuale. Se le macchine virtuali hanno più di una scheda di interfaccia di rete, è possibile creare manualmente i record DNS per altre interfacce di rete.
+* la registrazione autoregistrazione per IPv6 (record AAAA) non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

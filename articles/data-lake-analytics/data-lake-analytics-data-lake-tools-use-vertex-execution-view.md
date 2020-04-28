@@ -1,5 +1,5 @@
 ---
-title: Visualizzazione esecuzione vertici in Data Lake Tools per Visual StudioVertex Execution View in Data Lake Tools for Visual Studio
+title: Visualizzazione esecuzioni vertici in Data Lake Tools per Visual Studio
 description: Questo articolo descrive su come usare la visualizzazione esecuzioni vertici per esaminare i processi di Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,10 +9,10 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: f5adbb75e6852551976aa040a1a1c723d2e3f59b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309720"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio

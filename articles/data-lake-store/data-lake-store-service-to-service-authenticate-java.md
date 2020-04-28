@@ -1,5 +1,5 @@
 ---
-title: Autenticazione da servizio a servizio - Data Lake Storage Gen1 – Java SDK
+title: Autenticazione da servizio a servizio-Data Lake Storage Gen1-Java SDK
 description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory con Java
 author: twooley
 ms.service: data-lake-store
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f355da7cd9c035b4ed0845bbd374a93bfb4a7350
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904544"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite Java
@@ -27,11 +27,11 @@ Questo articolo illustra come usare Java SDK per eseguire l'autenticazione da se
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Creare un'applicazione "Web" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-* [Maven](https://maven.apache.org/install.html). Questa esercitazione usa Maven per compilare e progettare le dipendenze. Sebbene sia possibile compilare senza utilizzare un sistema di compilazione come Maven o Gradle, questi sistemi semplificano molto la gestione delle dipendenze.
+* [Maven](https://maven.apache.org/install.html). Questa esercitazione usa Maven per compilare e progettare le dipendenze. Sebbene sia possibile compilare senza usare un sistema di compilazione come Maven o Gradle, questi sistemi semplificano la gestione delle dipendenze.
 
 * (Facoltativo) Un IDE come [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) oppure [Eclipse](https://www.eclipse.org/downloads/) o simili.
 
@@ -39,7 +39,7 @@ Questo articolo illustra come usare Java SDK per eseguire l'autenticazione da se
 
 1. Creare un progetto Maven usando l'[archetipo mvn](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) dalla riga di comando o con un IDE. Per istruzioni su come creare un progetto Java usando IntelliJ, vedere [qui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Per istruzioni su come creare un progetto Java usando Eclipse, vedere [qui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
-2. Aggiungere le dipendenze seguenti al file **pom.xml** di Maven. Aggiungere il frammento ** \<** di codice seguente prima del tag /project>:
+2. Aggiungere le dipendenze seguenti al file **pom.xml** di Maven. Aggiungere il frammento di codice seguente prima del ** \<Tag>/Project** :
 
         <dependencies>
           <dependency>

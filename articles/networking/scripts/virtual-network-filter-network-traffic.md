@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: e91e59e8e8acbf76ed35cff6b2f654103bb763b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73888564"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrare il traffico della VM in ingresso e in uscita
@@ -60,4 +60,4 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Ulteriori esempi di script CLI di rete sono disponibili nella documentazione relativa alla panoramica della rete di [AzureAdditional](../cli-samples.md) networking CLI script samples can be found in the Azure Networking Overview documentation
+Altri esempi di script dell'interfaccia della riga di comando di rete sono disponibili nella [documentazione di panoramica sulle reti di Azure](../cli-samples.md)

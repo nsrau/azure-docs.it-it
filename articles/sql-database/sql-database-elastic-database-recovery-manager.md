@@ -1,5 +1,5 @@
 ---
-title: Gestione ripristino per risolvere i problemi relativi alla mappa partizioni
+title: Gestione ripristino per risolvere i problemi della mappa partizioni
 description: Usare la classe RecoveryManager per risolvere i problemi relativi alle mappe partizioni.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 6101e00ab98b0d8d901f2e42bf4083d40d0a3227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823840"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 
-La classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) fornisce alle applicazioni ADO.NET la possibilità di rilevare e correggere facilmente eventuali incoerenze tra la mappa partizioni globale (GSM) e la mappa partizioni locale (LSM) in un ambiente di database partizionato.
+La classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) offre alle applicazioni ADO.NET la possibilità di rilevare e correggere facilmente eventuali incoerenze tra la mappa globale partizioni (GSM) e la mappa partizioni locale (LSM) in un ambiente di database partizionato.
 
 La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. Si verifica a volte un'interruzione tra la mappa globale partizioni e la mappa locale partizioni. In tal caso usare la classe RecoveryManager per rilevare e correggere l'interruzione.
 
@@ -37,13 +37,13 @@ In un ambiente di database partizionato c'è un unico tenant per database e ci s
 La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazione per i motivi seguenti:
 
 1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-recovery-using-backups.md).
-2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server e il nome del database dello strumento di gestione della mappa partizioni all'interno dell'applicazione e quindi aggiornare i dettagli del mapping di partizione per tutte le partizioni nella mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali. Per informazioni sulle opzioni per il ripristino di un database in caso di interruzione di un data center, vedere [Continuità aziendale](sql-database-business-continuity.md) e [ripristino di emergenza](sql-database-disaster-recovery.md).
+2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server e il nome del database dello strumento di gestione della mappa partizioni all'interno dell'applicazione e quindi aggiornare i dettagli del mapping di partizione per tutte le partizioni nella mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali. Per informazioni sulle opzioni per il ripristino di un database in caso di interruzione del data center, vedere [continuità aziendale](sql-database-business-continuity.md) e [ripristino di emergenza](sql-database-disaster-recovery.md).
 3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente. Per informazioni sul recupero temporizzato tramite i backup, vedere l'articolo sul [ripristino mediante backup](sql-database-recovery-using-backups.md).
 
 Per altre informazioni sugli strumenti di database elastici per i database SQL di Azure, la replica geografica e il ripristino, vedere:
 
 * [Panoramica: Continuità aziendale del cloud e ripristino di emergenza del database con database SQL](sql-database-business-continuity.md)
-* [Introduzione agli strumenti di database elastici](sql-database-elastic-scale-get-started.md)  
+* [Inizia a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)  
 * [Gestione di mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Ripristino di RecoveryManager da un oggetto ShardMapManager
@@ -76,7 +76,7 @@ Questo esempio rimuove le partizioni dalla mappa partizioni.
    rm.DetachShard(s.Location, customerMap);
    ```
 
-La mappa partizioni riflette il percorso della partizione nella mappa globale delle partizioni precedente l'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In tal caso, esaminare la sezione seguente per rilevare le incoerenze delle partizioni. Per eseguire il ripristino, vedere [Ripristino temporizzato](sql-database-recovery-using-backups.md).
+La mappa partizioni riflette il percorso della partizione nella mappa globale delle partizioni precedente l'eliminazione della partizione. Poiché la partizione è stata eliminata, si presuppone che questa operazione sia stata intenzionale che l'intervallo di chiavi di partizionamento orizzontale non venga più usato. Se non è questo il caso, è possibile eseguire un ripristino temporizzato. Per ripristinare le partizioni da un punto nel tempo precedente. In tal caso, rivedere la sezione seguente per rilevare le incoerenze della partizione. Per eseguire il ripristino, vedere [recupero temporizzato](sql-database-recovery-using-backups.md).
 
 Presupponendo che l'eliminazione del database sia stata intenzionale, l'azione di pulizia amministrativa finale consiste nell'eliminare la voce relativa alla partizione nel gestore delle mappe partizioni. In questo modo si impedisce all'applicazione di scrivere inavvertitamente informazioni in un intervallo non previsto.
 

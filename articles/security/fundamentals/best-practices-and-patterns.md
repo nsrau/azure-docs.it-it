@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate e modelli di sicurezza - Microsoft Azure Documenti Microsoft
-description: Questo articolo contiene collegamenti alle procedure consigliate per la sicurezza e ai modelli per le diverse risorse di Azure.This article links you to security best practices and patterns for different Azure resources.
+title: 'Procedure consigliate e modelli per la sicurezza: Microsoft Azure | Microsoft Docs'
+description: Questo articolo illustra le procedure consigliate e i modelli di sicurezza per le diverse risorse di Azure.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889846"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure
@@ -31,14 +31,14 @@ Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potr
 * [Procedure consigliate per la sicurezza dei limiti di Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Procedure consigliate per la sicurezza del database di Azure](database-best-practices.md)
 * [Procedure consigliate per la sicurezza dei dati e la crittografia in Azure](data-encryption-best-practices.md)
-* [Procedure consigliate per la sicurezza delle identità e dei controlli di accesso di AzureAzure identity management and access control security best practices](identity-management-best-practices.md)
-* [Procedure consigliate per la sicurezza di rete di AzureAzure network security best practices](network-best-practices.md)
+* [Gestione delle identità di Azure e procedure consigliate per la sicurezza del controllo di accesso](identity-management-best-practices.md)
+* [Procedure consigliate per la sicurezza di rete di Azure](network-best-practices.md)
 * [Procedure consigliate per la sicurezza operativa di Azure](operational-best-practices.md)
-* [Azure PaaS Best Practices](paas-deployments.md)
+* [Procedure consigliate di Azure PaaS](paas-deployments.md)
 * [Procedure consigliate per la sicurezza di Azure Service Fabric](service-fabric-best-practices.md)
 * [Procedure consigliate per la sicurezza delle VM di Azure](iaas.md)
 * [Implementazione di un'architettura di rete ibrida sicura in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Best practice di sicurezza dell'Internet of Things](iot-best-practices.md)
+* [Procedure consigliate per la sicurezza Internet delle cose](iot-best-practices.md)
 * [Protezione di database PaaS in Azure](paas-applications-using-sql.md)
 * [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure](paas-applications-using-app-services.md)
 * [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure](paas-applications-using-storage.md)

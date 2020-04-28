@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65953132"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
@@ -30,8 +30,8 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud o sul dispositivo su cui si desidera intervenire. Ad esempio, un evento è quando si crea un file in una condivisione. I trigger generano gli eventi. In Azure Data Box Edge, i trigger possono essere in risposta a eventi del file o a una schedule (pianificazione).
 
-- **File**: Questi trigger sono in risposta a eventi di file come la creazione di un file, la modifica di un file.
-- **Pianificato:** questi trigger sono in risposta a una pianificazione che è possibile definire con una data di inizio, un'ora di inizio e l'intervallo di ripetizione.
+- **File**: questi trigger sono in risposta a eventi di file, ad esempio la creazione di un file, la modifica di un file.
+- **Pianificata**: questi trigger sono in risposta a una pianificazione che è possibile definire con una data di inizio, un'ora di inizio e l'intervallo di ripetizione.
 
 
 ### <a name="add-a-trigger"></a>Aggiungere un trigger
@@ -131,4 +131,4 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come gestire la [rete di elaborazione Edge tramite il portale](data-box-edge-extend-compute-access-modules.md)di Azure.
+- Informazioni su come [gestire la rete di calcolo Edge tramite portale di Azure](data-box-edge-extend-compute-access-modules.md).

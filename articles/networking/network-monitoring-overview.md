@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul monitoraggio della rete nei log di Monitoraggio di Azure . Documenti Microsoft
+title: Informazioni sul monitoraggio della rete nei log di monitoraggio di Azure | Microsoft Docs
 description: Panoramica sulle soluzioni di monitoraggio della rete, incluso Monitoraggio prestazioni rete, per la gestione di rete in ambienti cloud, locali e ibridi.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67672173"
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
@@ -51,7 +51,7 @@ Performance Monitor è un componente di Monitoraggio prestazioni rete ed è una 
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-* [Configurare una soluzione Monitoraggio prestazioni rete nei log di Monitoraggio di AzureConfigure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
+* [Configurare una soluzione Monitoraggio prestazioni rete nei log di monitoraggio di Azure](../azure-monitor/insights/network-performance-monitor.md) 
 * [Casi d'uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 * Aggiornamenti del prodotto:
   * [Febbraio 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
@@ -73,7 +73,7 @@ Monitoraggio prestazioni rete per ExpressRoute offre una soluzione di monitoragg
 Per altre informazioni, vedere gli articoli seguenti:
 
 * [Configurare Monitoraggio prestazioni rete per ExpressRoute](../expressroute/how-to-npm.md)
-* [Post di blog](https://aka.ms/NPMExRmonitorGA)
+* [Post di Blog](https://aka.ms/NPMExRmonitorGA)
 
 ## <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -89,7 +89,7 @@ Con il monitoraggio della connettività di servizio è possibile testare la ragg
 Per altre informazioni, vedere gli articoli seguenti:
 
 * [Configurare Monitoraggio prestazioni rete per il monitoraggio degli endpoint di servizio](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
-* [Post di blog](https://aka.ms/svcendptmonitor)
+* [Post di Blog](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Analisi del traffico
 Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità delle attività di utenti e applicazioni nella rete cloud. Vengono analizzati i log del flusso dei gruppi di sicurezza di rete per fornire informazioni sugli argomenti seguenti:

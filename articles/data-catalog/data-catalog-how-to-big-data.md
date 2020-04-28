@@ -1,5 +1,5 @@
 ---
-title: Come catalogare i Big Data in Azure Data CatalogHow to catalog big data in Azure Data Catalog
+title: Come catalogare Big Data in Azure Data Catalog
 description: Articolo di procedure che descrive gli schemi per usare Azure Data Catalog con origini dati di tipo Big Data, incluso l'archiviazione BLOB di Azure, Azure Data Lake e HDFS di Hadoop.
 author: JasonWHowell
 ms.author: jasonh
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71300580"
 ---
-# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Come catalogare i Big Data in Azure Data CatalogHow to catalog big data in Azure Data Catalog
+# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Come catalogare Big Data in Azure Data Catalog
 
 ## <a name="introduction"></a>Introduzione
 
@@ -66,6 +66,6 @@ In questo schema può essere utile registrare i singoli file di dati di riferime
 
 Gli schemi descritti nella sezione precedente sono solo due possibili modalità di organizzazione di un archivio di Big Data, ma ogni implementazione è diversa. Indipendentemente da come sono strutturate le origini dati, quando si registrano origini dati di tipo Big Data con **Azure Data Catalog**, concentrarsi sulla registrazione di file e directory che rappresentano i set di dati importanti per altri utenti dell'organizzazione. La registrazione di tutti i file e tutte le directory può creare confusione nel catalogo, rendendo più difficile per gli utenti trovare le informazioni necessarie.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 La registrazione di origini dati con il **Catalogo dati di Azure** ne rende più semplice l'individuazione e la comprensione. La registrazione e l'annotazione dei file e delle directory di Big Data che rappresentano set di dati logici permettono agli utenti di trovare e usare le origini dati di tipo Big Data necessarie.

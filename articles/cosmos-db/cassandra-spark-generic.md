@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70241251"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connettersi all'API Cassandra di Azure Cosmos DB da Spark
@@ -20,16 +20,16 @@ ms.locfileid: "70241251"
 Questo articolo è uno di una serie di articoli sull'integrazione dell'API Cassandra di Azure Cosmos DB da Spark. Gli articoli trattano la connettività, le operazioni DDL (Data Definition Language), le operazioni DML (Data Manipulation Language) e l'integrazione avanzata dell'API Cassandra di Azure Cosmos DB da Spark. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Effettuare il provisioning di un account API Cassandra db di Azure.Provision an Azure Cosmos DB Cassandra API account.](create-cassandra-dotnet.md#create-a-database-account)
+* [Effettuare il provisioning di un account di API Cassandra Azure Cosmos DB.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Effettuare il provisioning dell'ambiente Spark[[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) Altri].
+* Effettuare il provisioning dell'ambiente Spark scelto [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Altre].
 
 ## <a name="dependencies-for-connectivity"></a>Dipendenze per la connettività
 * **Connettore Spark per Cassandra:** il connettore Spark viene usato per connettersi all'API Cassandra di Azure Cosmos DB.  Identificare e usare la versione del connettore nel [repository Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatibile con le versioni di Spark e Scala dell'ambiente Spark.
 
 * **Libreria helper di Azure Cosmos DB per l'API Cassandra:** oltre al connettore Spark, è necessaria un'altra libreria chiamata [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) da Azure Cosmos DB. Questa libreria contiene una classe factory di connessione e una classe per i criteri di ripetizione, entrambe personalizzate.
 
-  I criteri di ripetizione in Azure Cosmos DB sono configurati per gestire le eccezioni con codice stato HTTP 429 ("La frequenza delle richieste è troppo elevata"). L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra ed è possibile riprovare con backoff. Dato che Azure Cosmos DB usa il modello di velocità effettiva con provisioning, quando il traffico in ingresso/uscita aumenta si verificano eccezioni di limitazione della frequenza delle richieste. I criteri di ripetizione dei tentativi proteggono i processi di spark da picchi di dati che superano momentaneamente la velocità effettiva allocata per il contenitore.
+  I criteri di ripetizione in Azure Cosmos DB sono configurati per gestire le eccezioni con codice stato HTTP 429 ("La frequenza delle richieste è troppo elevata"). L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra ed è possibile riprovare con backoff. Dato che Azure Cosmos DB usa il modello di velocità effettiva con provisioning, quando il traffico in ingresso/uscita aumenta si verificano eccezioni di limitazione della frequenza delle richieste. Il criterio di ripetizione dei tentativi protegge i processi Spark rispetto ai picchi di dati che superano momentaneamente la velocità effettiva allocata per il contenitore.
 
   > [!NOTE] 
   > I criteri di ripetizione possono proteggere i processi di Spark solo da picchi momentanei. Se non è stato configurato un numero sufficiente di UR per eseguire il carico di lavoro, i criteri di ripetizione non sono applicabili e la classe dei criteri di ripetizione genera nuovamente l'eccezione.
@@ -46,8 +46,8 @@ La tabella seguente elenca i parametri di configurazione della velocità effetti
 | spark.cassandra.connection.connections_per_executor_max  | nessuno | Numero massimo di connessioni per ogni nodo per ogni executor. 10*n equivale a 10 connessioni per nodo in un cluster Cassandra con n-nodi. Pertanto, se sono necessarie 5 connessioni per nodo per ogni executor per un cluster Cassandra a 5 nodi, è necessario impostare questa configurazione su 25. Modificare questo valore in base al grado di parallelismo o al numero di executor per cui sono configurati i processi Spark.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Definisce il numero di scritture parallele che possono verificarsi per ogni executor. Dato che "batch.size.rows" è impostato su 1, assicurarsi di aumentare questo valore di conseguenza. Modificare questo valore in base al grado di parallelismo o alla velocità effettiva che si vuole ottenere per il carico di lavoro. |
 | spark.cassandra.concurrent.reads |  512 | Definisce il numero di letture parallele che possono verificarsi per ogni executor. Modificare questo valore in base al grado di parallelismo o alla velocità effettiva che si vuole ottenere per il carico di lavoro.  |
-| spark.cassandra.output.throughput_mb_per_sec  | nessuno | Definisce la velocità effettiva di scrittura totale per ogni executor. Questo parametro può essere utilizzato come limite superiore per la velocità effettiva del processo di creazione di spark e basarlo sulla velocità effettiva di cui è stato eseguito il provisioning del contenitore Cosmos.   |
-| spark.cassandra.input.reads_per_sec| nessuno   | Definisce la velocità effettiva di lettura totale per ogni executor. Questo parametro può essere utilizzato come limite superiore per la velocità effettiva del processo di creazione di spark e basarlo sulla velocità effettiva di cui è stato eseguito il provisioning del contenitore Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | nessuno | Definisce la velocità effettiva di scrittura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.   |
+| spark.cassandra.input.reads_per_sec| nessuno   | Definisce la velocità effettiva di lettura totale per ogni executor. Questo parametro può essere usato come limite superiore per la velocità effettiva del processo Spark e basarlo sulla velocità effettiva con provisioning del contenitore Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Definisce il numero di batch per ogni singola attività Spark che possono essere archiviati in memoria prima dell'invio all'API Cassandra |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Definisce il periodo di tempo fino a quando sono disponibili connessioni inutilizzate. | 
 
@@ -73,7 +73,7 @@ L'articolo seguente descrive il provisioning di cluster Azure Databricks, la con
 L'articolo seguente descrive il servizio HDinsight-Spark, il provisioning, la configurazione del cluster per la connessione all'API Cassandra di Azure Cosmos DB e vari notebook di esempio che illustrano le operazioni DDL, le operazioni DML e altro.<BR>
 [Accedere all'API Cassandra di Azure Cosmos DB da Spark in YARN con HDInsight](cassandra-spark-hdinsight.md)
  
-### <a name="3--spark-environment-in-general"></a>3. Ambiente Spark in generale
+### <a name="3--spark-environment-in-general"></a>3. ambiente Spark in generale
 Mentre le sezioni precedenti sono specifiche per servizi PaaS basati su Spark di Azure, questa sezione è dedicata agli ambienti Spark generali.  Di seguito sono indicate in dettaglio le dipendenze del connettore, le importazioni e la configurazione della sessione Spark. La sezione "Passaggi successivi" include collegamenti a esempi di codice per operazioni DDL, operazioni DML e altro.  
 
 #### <a name="connector-dependencies"></a>Dipendenze del connettore:

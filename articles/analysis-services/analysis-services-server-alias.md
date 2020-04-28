@@ -1,6 +1,6 @@
 ---
 title: Nomi del server alias di Azure Analysis Services | Documentazione Microsoft
-description: Informazioni su come creare alias dei nomi del server di Azure Analysis Services.Learn how to create Azure Analysis Services server name aliases. Gli utenti possono quindi connettersi al server con un nome alias più breve anziché il nome del server.
+description: Informazioni su come creare Azure Analysis Services alias del nome del server. Gli utenti possono quindi connettersi al server con un nome alias più breve anziché il nome del server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572284"
 ---
 # <a name="alias-server-names"></a>Nomi del server alias

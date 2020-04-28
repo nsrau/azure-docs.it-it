@@ -1,5 +1,5 @@
 ---
-title: Gestire i database con Automazione di AzureManage databases with Azure Automation
+title: Gestire i database con automazione di Azure
 description: Informazioni su come è possibile usare il servizio Automazione di Azure per gestire database SQL di Azure su vasta scala.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 9d826a75f05cf2031565f89e21d7f3667ecc8f17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822816"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestire i database SQL di Azure tramite Automazione di Azure
@@ -47,6 +47,6 @@ La [raccolta di runbook di Automazione di Azure](https://azure.microsoft.com/blo
 
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire i database SQL di Azure, seguire i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
-- [Panoramica di Automazione di Azure](../automation/automation-intro.md)
+- [Panoramica di automazione di Azure](../automation/automation-intro.md)
 - [Il primo runbook](../automation/automation-first-runbook-graphical.md)
 - [Automazione di Azure: SQL Agent nel cloud](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

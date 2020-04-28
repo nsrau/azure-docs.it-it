@@ -1,5 +1,5 @@
 ---
-title: Caricare dati da un file CSV in un database (bcp)Load data from CSV file into a database (bcp)
+title: Caricare dati da un file CSV in un database (BCP)
 description: Per dati di piccole dimensioni, usa bcp per importare dati nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: b0df3d588f1d9b0a50c3ea7a583b0704e7e85c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827481"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Caricare dati da CSV in un database SQL di Azure (file flat)
@@ -38,7 +38,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari:
 
 Se si prova a eseguire questa esercitazione con dati personalizzati, è necessario che i dati usino la codifica ASCII o UTF-16, perché bcp non supporta UTF-8. 
 
-## <a name="1-create-a-destination-table"></a>1. Creare una tabella di destinazione
+## <a name="1-create-a-destination-table"></a>1. creare una tabella di destinazione
 
 Definire una tabella nel database SQL come tabella di destinazione. Le colonne della tabella devono corrispondere ai dati in ogni riga del file di dati.
 
@@ -57,7 +57,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## <a name="2-create-a-source-data-file"></a>2. Creare un file di dati di origine
+## <a name="2-create-a-source-data-file"></a>2. creare un file di dati di origine
 
 Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt. I dati hanno formato ASCII.
 
@@ -82,7 +82,7 @@ Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di tes
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
-## <a name="3-load-the-data"></a>3. Caricare i dati
+## <a name="3-load-the-data"></a>3. caricare i dati
 
 Per caricare i dati, aprire un prompt dei comandi ed eseguire il comando seguente, sostituendo i valori per nome server, nome database, nome utente e password con le informazioni personalizzate.
 

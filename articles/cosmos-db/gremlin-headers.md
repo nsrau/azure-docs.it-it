@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72755089"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Intestazioni di risposta del server Azure Cosmos DB Gremlin

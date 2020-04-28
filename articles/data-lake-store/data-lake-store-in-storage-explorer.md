@@ -1,5 +1,5 @@
 ---
-title: Gestire le risorse di Data Lake Storage Gen1 - Azure Storage ExplorerManage Data Lake Storage Gen1 resources - Azure Storage Explorer
+title: Gestire risorse Data Lake Storage Gen1-Azure Storage Explorer
 description: Informazioni su come accedere e gestire dati e risorse di Azure Data Lake Storage Gen1 in Azure Storage Explorer
 author: jejiang
 ms.service: data-lake-store
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73832269"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gestire le risorse di Azure Data Lake Storage Gen1 con Storage Explorer
@@ -195,7 +195,7 @@ Se si ha un URL, è possibile immettere l'URL come percorso in forma di indirizz
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Note sulla versione e video più recenti per Storage Explorer](https://www.storageexplorer.com).
-* Informazioni su come gestire il database Cosmos di [Azure in Azure Storage Explorer.](https://docs.microsoft.com/azure/cosmos-db/storage-explorer)
-* [Introduzione a Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Informazioni su come [gestire Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Inizia a usare Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Iniziare a usare Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * [Video di YouTube su come usare Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

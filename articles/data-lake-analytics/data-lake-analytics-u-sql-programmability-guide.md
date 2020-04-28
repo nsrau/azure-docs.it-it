@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73162572"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
@@ -133,7 +133,7 @@ Come indicato in precedenza, U-SQL esegue il codice in un formato a 64 bit (x64)
 
 Ogni DLL di assembly e file di risorse caricato (ad esempio un diverso runtime, un assembly nativo o un file di configurazione) può essere al massimo di 400 MB. Le dimensioni totali delle risorse distribuite, tramite DEPLOY RESOURCE o riferimenti agli assembly e ai relativi file aggiuntivi, non possono superare 3 GB.
 
-Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Ad esempio, se sono necessarie sia la versione 7 che la versione 8 della libreria di Json.NET NewtonSoft, è necessario registrarle in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
+Si noti infine che ogni database U-SQL può contenere solo una versione di un determinato assembly. Se, ad esempio, sono necessarie sia la versione 7 che la versione 8 della libreria NewtonSoft Json.NET, è necessario registrarle in due database diversi. Ogni script, inoltre, può fare riferimento a una sola versione di una determinata DLL di assembly. A tale riguardo, U-SQL segue la semantica di gestione e controllo delle versioni degli assembly di C#.
 
 ## <a name="use-user-defined-functions-udf"></a>Usare funzioni definite dall'utente (UDF)
 Le funzioni definite dall'utente (UDF) di U-SQL sono routine di programmazione che accettano parametri, eseguono un'azione, ad esempio un calcolo complesso, e restituiscono il risultato di tale azione come valore. Il valore restituito della funzione UDF può essere solo un valore scalare singolo. Una funzione UDF di U-SQL può essere chiamata nello script di base di U-SQL come qualsiasi altra funzione scalare di C#.
@@ -946,7 +946,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: primo parametro per Accumulate
-* T2: Secondo parametro da accumulare
+* T2: secondo parametro da accumulare
 * TResult: tipo restituito di Terminate
 
 Ad esempio:
@@ -1873,11 +1873,11 @@ I principali oggetti di programmabilità sono i seguenti:
         IUpdatableRow output
 ```
 
-I set di righe di input vengono passati come tipo di interfaccia **a sinistra** e **a destra.** `IRowset` Entrambi i set di righe devono essere enumerati per l'elaborazione. È possibile enumerare ogni interfaccia una sola volta, quindi deve essere enumerata e memorizzata nella cache, se necessario.
+I set di righe di input vengono passati come tipo di interfaccia a **sinistra** e a **destra** `IRowset` . Entrambi i set di righe devono essere enumerati per l'elaborazione. È possibile enumerare ogni interfaccia una sola volta, quindi deve essere enumerata e memorizzata nella cache, se necessario.
 
 Per la memorizzazione nella cache, è possibile creare un tipo di struttura di memoria List\<T\> come risultato dell'esecuzione di una query LINQ, specificamente List<`IRow`>. Durante l'enumerazione è possibile usare anche il tipo di dati anonimo.
 
-Per ulteriori [\<\> ](/dotnet/api/system.collections.generic.ienumerable-1) informazioni sull'interfaccia\<IEnumerable T,\> vedere Introduzione alle query LINQ [(C).](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)
+Per ulteriori informazioni sull'\<interfaccia IEnumerable t\> , vedere [Introduzione alle query LINQ (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) per ulteriori informazioni sulle query LINQ e sull' [interfaccia\<IEnumerable t\> ](/dotnet/api/system.collections.generic.ienumerable-1) .
 
 Per ottenere i valori di dati effettivi da `IRowset` in ingresso, si usa il metodo Get() dell'interfaccia `IRow`.
 

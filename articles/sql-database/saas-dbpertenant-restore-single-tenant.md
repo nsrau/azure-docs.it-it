@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
 ms.openlocfilehash: a54e8e5629f6f8ad688b6fe11bbf50fc038095bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73818519"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Ripristinare un singolo tenant con un'applicazione SaaS di database per tenant
@@ -36,7 +36,7 @@ Questa esercitazione illustra due modelli di ripristino dei dati:
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* L'app SaaS Wingtip viene distribuita. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione Wingtip SaaS](saas-dbpertenant-get-started-deploy.md).
+* L'app SaaS Wingtip viene distribuita. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introduzione ai modelli di ripristino dei tenant SaaS
@@ -63,7 +63,7 @@ Per illustrare questi scenari di ripristino, è prima necessario eliminare "acci
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>Aprire l'app Eventi per esaminare gli eventi correnti
 
-1. Aprire l'Hubhttp://events.wtp.&lteventi&gt;( ;user .trafficmanager.net) e selezionare **Contoso Concert Hall**.
+1. Aprire l'hub eventi (http://events.wtp.&lt; user&gt;. Trafficmanager.NET) e selezionare **Contoso Concert Hall**.
 
    ![Hub eventi](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
@@ -75,7 +75,7 @@ Per illustrare questi scenari di ripristino, è prima necessario eliminare "acci
 
 1. In PowerShell ISE aprire ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1* e impostare il valore seguente:
 
-   * **$DemoScenario** = **1**, *Elimina l'ultimo evento (senza vendita di biglietti)*.
+   * **$DemoScenario** = **1**, *eliminare l'ultimo evento (senza vendite di ticket)*.
 2. Premere F5 per eseguire lo script ed eliminare l'ultimo evento. Viene visualizzato il messaggio di conferma seguente:
 
    ```Console
@@ -94,7 +94,7 @@ Questo esercizio ripristina il database Contoso Concert Hall a un punto nel temp
 
 1. Completare la sezione [Simulare un tenant che elimina accidentalmente i dati](#simulate-a-tenant-accidentally-deleting-data).
 2. In PowerShell ISE aprire ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
-3. Impostare **$DemoScenario** = **2**, Ripristina tenant *in parallelo*.
+3. Impostare **$DemoScenario** = **2**, *ripristinare il tenant in parallelo*.
 4. Per eseguire lo script, premere F5.
 
 Lo script ripristina lo stato del database tenant precedente rispetto all'eliminazione dell'evento. Il database viene ripristinato in un nuovo database, denominato _ContosoConcertHall\_old_. I metadati di catalogo esistenti nel database ripristinato vengono eliminati e quindi il database viene aggiunto al catalogo tramite una chiave calcolata dal nome *ContosoConcertHall\_old*.
@@ -105,7 +105,7 @@ Scorrere gli eventi elencati nel browser per confermare che l'evento eliminato n
 
 È improbabile che si usi l'esposizione del tenant ripristinato come tenant aggiuntivo, con una propria app Eventi, come metodo per fornire al tenant l'accesso ai dati ripristinati, ma questo metodo è utile per illustrare il modello di ripristino. In genere, si concede l'accesso in sola lettura ai dati precedenti e il database viene mantenuto solo per un periodo definito. Nell'esempio, al termine è possibile eliminare la voce del tenant ripristinato eseguendo lo scenario _Rimuovere il tenant ripristinato_.
 
-1. Impostare **$DemoScenario** = **4**, Rimuovi *tenant ripristinato*.
+1. Impostare **$DemoScenario** = **4**, *rimuovere il tenant ripristinato*.
 2. Per eseguire lo script, premere F5.
 3. La voce *ContosoConcertHall\_old* viene ora eliminata dal catalogo. Chiudere la pagina degli eventi per questo tenant nel browser.
 
@@ -114,7 +114,7 @@ Scorrere gli eventi elencati nel browser per confermare che l'evento eliminato n
 Questo esercizio ripristina uno stato del tenant Contoso Concert Hall precedente rispetto all'eliminazione dell'evento. Lo script *Restore-TenantInPlace* ripristina un database tenant in un nuovo database ed elimina l'originale. Questo modello di ripristino è particolarmente adatto per il ripristino dopo un grave danneggiamento dei dati, quando il tenant deve gestire una perdita significativa di dati.
 
 1. In PowerShell ISE aprire il file **Demo-RestoreTenant.ps1**.
-2. Impostare **$DemoScenario** = **5**, Ripristina tenant *sul posto*.
+2. Impostare **$DemoScenario** = **5**, *ripristinare il tenant sul posto*.
 3. Per eseguire lo script, premere F5.
 
 Lo script ripristina uno stato del database tenant precedente l'eliminazione dell'evento. Prima porta il tenant Contoso Concert Hall offline in modo che non si verifichino altri aggiornamenti. Un database parallelo viene quindi creato tramite il ripristino dal punto di ripristino e denominato con un timestamp per garantire che il nome del database non sia in conflitto con il nome del database tenant esistente. Successivamente, il database tenant precedente viene eliminato e il database ripristinato viene rinominato con il nome del database originale. Infine, Contoso Concert Hall viene portato online per consentire all'applicazione l'accesso al database ripristinato.

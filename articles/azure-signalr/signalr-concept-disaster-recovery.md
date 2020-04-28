@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73747640"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
@@ -19,7 +19,7 @@ La resilienza e il ripristino di emergenza sono un'esigenza comune per i sistemi
 L'istanza del servizio è sempre in esecuzione in un'area e non esegue il failover in un'altra area quando si verifica un'interruzione a livello di area.
 
 L'SDK del servizio offre invece una funzionalità per supportare più istanze del servizio SignalR e passare automaticamente ad altre istanze quando alcune non sono disponibili.
-Con questa funzionalità, sarà possibile eseguire il ripristino in caso di emergenza, ma sarà necessario configurare la topologia di sistema corretta manualmente. Questo documento illustra come procedere.
+Grazie a questa funzionalità, sarà possibile eseguire il ripristino quando si verifica un'emergenza, ma sarà necessario configurare la topologia di sistema appropriata. Questo documento illustra come procedere.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>Architettura a disponibilità elevata per il servizio SignalR
 
@@ -28,8 +28,8 @@ Quando si connettono più istanze del servizio al server app, esistono due ruoli
 Il ruolo primario è un'istanza che gestisce il traffico online, mentre quello secondario è un'istanza dotata di funzionalità complete ma di backup per il ruolo primario.
 Nell'implementazione dell'SDK, la negoziazione restituirà solo gli endpoint primari, quindi normalmente i client si connettono solo agli endpoint primari.
 Quando l'istanza primaria è inattiva, tuttavia, la negoziazione restituirà gli endpoint secondari affinché il client possa comunque connettersi.
-L'istanza primaria e il server applicazioni sono connessi tramite connessioni server normali, ma l'istanza secondaria e il server applicazioni sono connessi tramite un tipo speciale di connessione denominato connessione debole.
-La differenza principale di una connessione debole è che non accetta il routing della connessione client, perché l'istanza secondaria si trova in un'altra area. Il routing di un client a un'altra area non è una scelta ottimale (aumenta la latenza).
+L'istanza primaria e il server applicazioni sono connessi tramite connessioni server normali, ma l'istanza secondaria e il server app sono connessi tramite un tipo speciale di connessione denominata connessione debole.
+La differenza principale di una connessione vulnerabile consiste nel fatto che non accetta il routing della connessione client perché l'istanza secondaria si trova in un'altra area. Il routing di un client a un'altra area non è una scelta ottimale (aumenta la latenza).
 
 Un'istanza del servizio può avere diversi ruoli se connessa a più server app.
 Una configurazione tipica per uno scenario che include più aree consiste nell'avere due o più coppie di server app e istanze del servizio SignalR.
@@ -51,7 +51,7 @@ Questa operazione può essere eseguita in due modi.
 
 ### <a name="through-config"></a>Tramite configurazione
 
-Si dovrebbe già sapere come impostare la stringa di connessione del servizio SignalR tramite le variabili di ambiente/impostazioni dell'app/web.cofig, in una voce di configurazione denominata `Azure:SignalR:ConnectionString`.
+Si dovrebbe già essere in grado di impostare la stringa di connessione del servizio SignalR tramite le variabili di ambiente/impostazioni app/Web. cofig `Azure:SignalR:ConnectionString`in una voce di configurazione denominata.
 Se sono presenti più endpoint, si possono impostare in più voci di configurazione, ognuna con il formato seguente:
 
 ```
@@ -63,7 +63,7 @@ Il nome è facoltativo, ma sarà utile se si vuole personalizzare ulteriormente 
 
 ### <a name="through-code"></a>Tramite codice
 
-Se si preferisce archiviare le stringhe di connessione in un'altra posizione, `AddAzureSignalR()` è anche possibile `MapAzureSignalR()` leggerle nel codice e usarle come parametri quando si chiama (in ASP.NET Core) o (in ASP.NET).
+Se si preferisce archiviare le stringhe di connessione in un altro punto, è anche possibile leggerle nel codice e usarle come parametri quando `AddAzureSignalR()` si chiama (in ASP.NET Core `MapAzureSignalR()` ) o (in ASP.NET).
 
 Di seguito viene riportato il codice di esempio:
 
@@ -88,10 +88,10 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
     };
 ```
 
-È possibile configurare più istanze primarie o secondarie. Se sono presenti più istanze primarie e/o secondarie, negotiate restituirà un endpoint nell'ordine seguente:If there're multiple primary and/or secondary instances, negotiate will return an endpoint in the following order:
+È possibile configurare più istanze primarie o secondarie. Se sono presenti più istanze primarie e/o secondarie, Negotiate restituirà un endpoint nell'ordine seguente:
 
-1. Se è presente almeno un'istanza primaria online, restituire un'istanza online primaria casuale.
-2. Se tutte le istanze primarie sono inattivo, restituire un'istanza online secondaria casuale.
+1. Se è presente almeno un'istanza primaria online, restituire un'istanza in linea primaria casuale.
+2. Se tutte le istanze primarie sono inattive, restituire un'istanza in linea secondaria casuale.
 
 ## <a name="failover-sequence-and-best-practice"></a>Sequenza di failover e procedure consigliate
 
@@ -126,7 +126,7 @@ Il servizio SignalR può supportare entrambi i modelli. La differenza principale
 In caso di server app attivi/passivi, anche il servizio SignalR sarà attivo/passivo, perché il server app primario restituisce solo la propria istanza primaria del servizio SignalR.
 In caso di server app attivi/attivi, anche il servizio SignalR sarà attivo/attivo, perché tutti i server app restituiranno le rispettive istanze del servizio SignalR e tutte le istanze potranno quindi ricevere traffico.
 
-Tenere annotato indipendentemente i modelli che si sceglie di utilizzare, è necessario connettere ogni istanza del servizio SignalR a un server applicazioni come primario.
+Si noti che, indipendentemente da quali modelli si sceglie di usare, è necessario connettere ogni istanza del servizio SignalR a un server app come primario.
 
 Dato che la connessione di SignalR è una connessione lunga, inoltre, i client subiranno interruzioni delle connessioni in caso di emergenza e failover.
 Sarà necessario gestire questi casi sul lato client in modo che siano trasparenti per i clienti finali, ad esempio eseguendo la riconnessione dopo la chiusura di una connessione.
@@ -135,4 +135,4 @@ Sarà necessario gestire questi casi sul lato client in modo che siano trasparen
 
 Questo articolo ha illustrato come configurare l'applicazione per ottenere la resilienza per il servizio SignalR. Per altre informazioni dettagliate sulla connessione client/server e il routing di connessione nel servizio SignalR, vedere [questo articolo](signalr-concept-internals.md) relativo agli elementi interni del servizio SignalR.
 
-Per scenari di ridimensionamento, ad esempio il partizionamento orizzontale, che utilizzano più istanze insieme per gestire un numero elevato di connessioni, leggere [come ridimensionare più istanze.](signalr-howto-scale-multi-instances.md)
+Per scenari di ridimensionamento, ad esempio il partizionamento orizzontale, che usano più istanze insieme per gestire un numero elevato di connessioni, vedere [come ridimensionare più istanze](signalr-howto-scale-multi-instances.md).

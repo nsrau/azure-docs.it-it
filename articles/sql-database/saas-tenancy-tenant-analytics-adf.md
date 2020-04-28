@@ -1,5 +1,5 @@
 ---
-title: Eseguire query di analisi sui database tenant
+title: Eseguire query di analisi su database tenant
 description: Query di analisi su più tenant con dati estratti dal database SQL di Azure, SQL Data Warehouse, Azure Data Factory o Power BI.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73816774"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Esplorare l'analisi basata su SaaS con il database SQL di Azure, SQL Data Warehouse, Data Factory e Power BI
@@ -70,9 +70,9 @@ Questa esercitazione offre esempi di base delle informazioni dettagliate che è 
 > Questa esercitazione usa funzionalità di Azure Data Factory, per la parametrizzazione dei servizi collegati, che sono attualmente disponibili in anteprima limitata. Per eseguire questa esercitazione, specificare l'ID della sottoscrizione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Si riceverà una conferma non appena la sottoscrizione verrà abilitata.
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
-- È stata distribuita l'applicazione SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione Wingtip SaaS](saas-dbpertenant-get-started-deploy.md).
+- È stata distribuita l'applicazione SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md).
 - Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) dell'applicazione SaaS di database per tenant Wingtip Tickets sono stati scaricati da GitHub. Vedere le istruzioni di download. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto.
-- Power BI Desktop è installato. [Scaricare Power BI Desktop](https://powerbi.microsoft.com/downloads/).
+- Power BI Desktop è installato. [Scaricare Power bi desktop](https://powerbi.microsoft.com/downloads/).
 - È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l'[**esercitazione sul provisioning di tenant**](saas-dbpertenant-provision-and-catalog.md).
 
 ### <a name="create-data-for-the-demo"></a>Creare dati per la dimostrazione
@@ -80,7 +80,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 Questa esercitazione esplora l'analisi sui dati relativi alle vendite di biglietti. In questo passaggio si generano i dati relativi ai biglietti per tutti i tenant. In un passaggio successivo, questi dati verranno estratti per l'analisi. _Assicurarsi di aver effettuato il provisioning del batch di tenant_ come descritto in precedenza, in modo da avere dati sufficienti per esporre vari modelli diversi di acquisto dei biglietti.
 
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e impostare il valore seguente:
-    - **$DemoScenario** = **1** Acquistare biglietti per eventi in tutte le sedi
+    - **$DemoScenario** = **1** acquistare i ticket per gli eventi in tutte le sedi
 2. Premere **F5** per eseguire lo script e creare la cronologia di acquisto dei biglietti per tutte le sedi. Con 20 tenant, lo script genera decine di migliaia di biglietti e può impiegare 10 minuti o più.
 
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Distribuire SQL Data Warehouse, Data Factory e l'archivio BLOB 
@@ -88,20 +88,20 @@ Nell'app Wingtip Tickets, i dati transazionali dei tenant sono distribuiti in pi
 
 In questo passaggio si distribuiscono le risorse aggiuntive usate nell'esercitazione: un'istanza di SQL Data Warehouse denominata _tenantanalytics_, un'istanza di Azure Data Factory denominata _dbtodwload-\<utente\>_ e un account di archiviazione di Azure denominato _wingtipstaging\<utente\>_. L'account di archiviazione viene usato per inserirvi temporaneamente i file di dati estratti come BLOB prima di caricarli nel data warehouse. Questo passaggio include anche la distribuzione dello schema del data warehouse e la definizione delle pipeline di Azure Data Factory che orchestrano il processo di estrazione, caricamento e trasformazione.
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e impostare:
-    - **$DemoScenario** = **2** Distribuire il data warehouse di analisi tenant, l'archiviazione BLOB e la data factory 
+    - **$DemoScenario** = **2** distribuire data warehouse di analisi tenant, archiviazione BLOB e data factory 
 1. Premere **F5** per eseguire lo script dimostrativo e distribuire le risorse di Azure. 
 
 Esaminare ora le risorse di Azure distribuite.
 #### <a name="tenant-databases-and-analytics-store"></a>Database tenant e archivio di analisi
-Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;**. Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Utilizzare Login , *sviluppatore* e Password , *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;**. Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Usare login = *Developer* and password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![Connettersi al server di database SQL da SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 In Esplora oggetti:
 
-1. Espandere il server *utente&lt;&gt; tenants1-dpt-user.*
+1. Espandere il server *tenants1-server&lt;-&gt; utente* .
 1. Espandere il nodo Database per visualizzare l'elenco dei database dei tenant.
-1. Espandere il server *&lt;catalog-dpt- user.&gt; *
+1. Espandere il server *Catalog-server&lt;-&gt; utente* .
 1. Verificare che venga visualizzato l'archivio di analisi contenente gli oggetti seguenti:
     1. Tabelle **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues**, che contengono i dati non elaborati estratti dai database tenant.
     1. Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
@@ -109,7 +109,7 @@ In Esplora oggetti:
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Archiviazione BLOB
+#### <a name="blob-storage"></a>Archiviazione - BLOB
 1. Nel [portale di Azure](https://ms.portal.azure.com) passare al gruppo di risorse usato per la distribuzione dell'applicazione. Verificare che sia stato aggiunto un account di archiviazione denominato **wingtipstaging\<utente\>**.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
@@ -158,7 +158,7 @@ Tre set di dati corrispondenti ai tre servizi collegati fanno riferimento ai dat
 ### <a name="data-warehouse-pattern-overview"></a>Panoramica del modello del data warehouse
 SQL Data Warehouse viene usato come archivio di analisi per eseguire l'aggregazione dei dati dei tenant. In questo esempio, i dati vengono caricati in SQL Data Warehouse usando PolyBase. I dati non elaborati vengono caricati in tabelle di staging che includono una colonna Identity per tenere traccia delle righe che sono state trasformate nelle tabelle dello schema star. L'immagine seguente illustra il modello di caricamento: ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
 
-In questo esempio vengono usate tabelle delle dimensioni a modifica lenta di tipo 1. Ogni dimensione ha una chiave sostitutiva definita con una colonna Identity. Come procedura consigliata, la tabella delle dimensioni di data viene prepopolata per risparmiare tempo. Per le altre tabelle delle dimensioni, un'istruzione CREATE TABLE AS SELECT... L'istruzione (CTAS) viene utilizzata per creare una tabella temporanea contenente le righe modificate e non modificate esistenti, insieme alle chiavi surrogate. A questo scopo viene usato IDENTITY_INSERT=ON. Le nuove righe vengono quindi inserite nella tabella con IDENTITY_INSERT=OFF. Per facilitare il rollback, la tabella delle dimensioni esistente viene rinominata e la tabella temporanea viene a propria volta rinominata in modo da diventare la nuova tabella delle dimensioni. Prima di ogni esecuzione, la tabella delle dimensioni precedente viene eliminata.
+In questo esempio vengono usate tabelle delle dimensioni a modifica lenta di tipo 1. Ogni dimensione ha una chiave sostitutiva definita con una colonna Identity. Come procedura consigliata, la tabella delle dimensioni di data viene prepopolata per risparmiare tempo. Per le altre tabelle delle dimensioni, un CREATE TABLE come SELECT... L'istruzione (CTAS) viene utilizzata per creare una tabella temporanea contenente le righe modificate e non modificate esistenti, insieme alle chiavi surrogate. A questo scopo viene usato IDENTITY_INSERT=ON. Le nuove righe vengono quindi inserite nella tabella con IDENTITY_INSERT=OFF. Per facilitare il rollback, la tabella delle dimensioni esistente viene rinominata e la tabella temporanea viene a propria volta rinominata in modo da diventare la nuova tabella delle dimensioni. Prima di ogni esecuzione, la tabella delle dimensioni precedente viene eliminata.
 
 Le tabelle delle dimensioni vengono caricate prima della tabella dei fatti. Questa sequenza garantisce che per ogni fatto in arrivo esistano già tutte le dimensioni a cui viene fatto riferimento. Quando i fatti vengono caricati, viene associata la chiave business per ogni dimensione corrispondente e a ogni fatto vengono aggiunte le chiavi sostitutive corrispondenti.
 
@@ -189,16 +189,16 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
 1. Avviare Power BI Desktop.
 2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro**  dal menu.
-3. Nella finestra **Recupero dati** selezionare Database SQL di **Azure**.
-4. Nella finestra di accesso al database, immettere il nome del server (**catalog-dpt-&lt;&gt;User .database.windows.net**). Selezionare **Importa** per **modalità di integrazione applicativa dati**e quindi fare clic su **OK**. 
+3. Nella finestra **recuperare i dati** selezionare **database SQL di Azure**.
+4. Nella finestra di accesso al database immettere il nome del server (**Catalog-database.Windows.NET&lt;-&gt;User.**). Selezionare **Importa** per **modalità di connettività dati**, quindi fare clic su **OK**. 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro, quindi immettere il nome utente , *lo sviluppatore*e immettere la password , *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. Nel riquadro **Strumento di navigazione,** nel database di analisi, selezionare le tabelle dello schema a stella: **fact_Tickets**, **dim_Events**, **dim_Venues dim_Venues** **dim_Customers** e **dim_Dates**. Selezionare quindi **Carica**. 
+6. Nel riquadro **strumento di navigazione** selezionare le tabelle dello schema star nel database di analytics: **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** e **dim_Dates**. Selezionare quindi **Carica**. 
 
 Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora possibile esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Verrà illustrato in dettaglio come l'analisi possa offrire al team aziendale di Wingtip Tickets alcune raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
 
@@ -261,4 +261,4 @@ Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Esercitazioni aggiuntive [che si basano sull'applicazione Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- Altre [esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

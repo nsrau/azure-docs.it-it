@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820679"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione

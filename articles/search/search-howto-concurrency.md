@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792206"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
@@ -214,7 +214,7 @@ Provare a modificare uno dei due esempi seguenti per includere ETag o oggetti Ac
 + [Esempio di API REST in GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Esempio .NET SDK su GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Questa soluzione include il progetto "DotNetEtagsExplainer" contenente il codice presentato in questo articolo.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Intestazioni di richiesta e risposta HTTP comuni operazioni di](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 indicizzazione di[codici](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

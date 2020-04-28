@@ -1,5 +1,5 @@
 ---
-title: Reindirizzamento del traffico esterno tramite l'interfaccia della riga di comando - Gateway applicazione di AzureExternal traffic redirection using CLI - Azure Application Gateway
+title: Reindirizzamento del traffico esterno tramite l'interfaccia della riga di comando-applicazione Azure gateway
 description: Informazioni su come creare un gateway applicazione che reindirizza il traffico Web interno al pool appropriato usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74011605"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento esterno tramite l'interfaccia della riga di comando di Azure
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -88,7 +88,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* al gateway applicazione utilizzando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* al gateway applicazione usando [AZ Network Application-Gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70071695"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
@@ -29,7 +29,7 @@ Per informazioni dettagliate sui criteri, vedere [Criteri in Gestione API di Azu
 
 Per impostare o modificare un criterio, seguire questa procedura:
 
-1. Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Passare all'istanza di Gestione API.
 3. Fare clic sulla scheda **API**.
 
@@ -38,7 +38,7 @@ Per impostare o modificare un criterio, seguire questa procedura:
 4. Selezionare una delle API importate in precedenza.
 5. Selezionare la scheda **Progettazione**.
 6. Selezionare un'operazione a cui si vuole applicare il criterio. Per applicare il criterio a tutte le operazioni, selezionare **Tutte le operazioni**.
-7. Selezionare **</>** l'icona (editor di codice) nella sezione **Elaborazione in ingresso** o **Elaborazione in uscita.**
+7. Selezionare l' **</>** icona (editor di codice) nella sezione **elaborazione in ingresso** o elaborazione in **uscita** .
 8. Incollare il codice del criterio desiderato in uno dei blocchi appropriati.
 
     ```XML
@@ -120,7 +120,7 @@ L'ambito dell'API è configurato per **tutte le operazioni** dell'API selezionat
 
 L'ambito dell'operazione è configurato per l'operazione selezionata.
 
-1. Selezionare **un'API**.
+1. Selezionare un' **API**.
 2. Selezionare l'operazione a cui si vogliono applicare i criteri.
 
     ![Ambito dell'operazione](./media/api-management-howto-policies/operation-scope.png)

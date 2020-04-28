@@ -1,5 +1,5 @@
 ---
-title: Eseguire query su database cloud con schema diversoQuery across cloud databases with different schema
+title: Eseguire query su database cloud con schemi diversi
 description: Informazioni su come configurare le query tra database su partizioni verticali.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: d5983d25685242a696300f293231bbf987e8442d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823724"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Eseguire query in database cloud con schemi diversi (anteprima)
@@ -38,7 +38,7 @@ I database con partizionamento verticale usano set di tabelle diversi su databas
 1. [CREA CHIAVE MASTER](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREA TABELLA ESTERNA](https://msdn.microsoft.com/library/dn935021.aspx) 
+4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Creare la chiave master e le credenziali con ambito database
 
@@ -50,7 +50,7 @@ Le credenziali vengono usate dalla query elastica per connettersi ai database re
     [;]
 
 > [!NOTE]
-> Assicurarsi `<username>` che il non include alcun suffisso **"nomeserver".\@** 
+> Verificare che `<username>` non includa alcun suffisso **\@"ServerName"** . 
 >
 
 ## <a name="create-external-data-sources"></a>Creare origini dati esterne

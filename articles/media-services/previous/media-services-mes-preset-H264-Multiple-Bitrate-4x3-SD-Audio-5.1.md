@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 7f5ea80a055c34cddeab042c33071c6f5799a443
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61463668"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd-audio-51"></a>Codec video H.264 a bitrate multipli con risoluzione 4x3 SD e audio 5.1
@@ -26,7 +26,7 @@ ms.locfileid: "61463668"
   
  Questo argomento illustra il set di impostazioni `H264 Multiple Bitrate 4x3 SD Audio 5.1` nei formati XML e JSON.  
   
- Il set di impostazioni genera un set di 5 file MP4 con audio AAC 5.1 e allineamento GOP, con velocità compresa tra 1600 e 400 kbps. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per una spiegazione del significato di ogni elemento e dei valori validi per ogni elemento, vedere [lo schema Standard del codificatore multimediale](media-services-mes-schema.md)..  
+ Il set di impostazioni genera un set di 5 file MP4 con audio AAC 5.1 e allineamento GOP, con velocità compresa tra 1600 e 400 kbps. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per una spiegazione del significato di ogni elemento e dei valori validi per ogni elemento, vedere lo [schema di media encoder standard](media-services-mes-schema.md).  
   
 > [!NOTE]
 >  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio: 1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  

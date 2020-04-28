@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69533693"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
@@ -103,7 +103,7 @@ L'elenco completo dei tag di codice HTML che il proxy di applicazione supporta l
 * link
 * MenuItem
 * meta
-* object
+* oggetto
 * script
 * source
 * track
@@ -145,7 +145,7 @@ Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un
 
 Ora, quando gli utenti accedono a questa applicazione, il proxy esegue automaticamente un'analisi per individuare gli URL interni che sono stati pubblicati tramite il proxy di applicazione nel tenant.
 
-## <a name="send-feedback"></a>Invia commenti
+## <a name="send-feedback"></a>Inviare un feedback
 
 Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità operante per tutte le app. La ricerca viene eseguita in oltre 30 tag del codice HTML e CSS. Se si hanno esempi di collegamenti generati che non vengono convertiti, inviare un frammento di codice all'area [commenti sul proxy di applicazione](mailto:aadapfeedback@microsoft.com). 
 

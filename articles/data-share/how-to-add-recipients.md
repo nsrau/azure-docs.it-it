@@ -1,35 +1,35 @@
 ---
-title: Aggiungere destinatari nella condivisione dati di AzureAdd recipients in Azure Data Share
-description: Informazioni su come aggiungere destinatari a una condivisione dati esistente in Condivisione dati di Azure.Learn how to add recipients to an existing data share in Azure Data Share.
+title: Aggiungere destinatari nella condivisione dati di Azure
+description: Informazioni su come aggiungere destinatari a una condivisione dati esistente in una condivisione dati di Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 9f49ab3aed60bfbe04ad022070a931461e3f52f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73490527"
 ---
-# <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Come aggiungere un destinatario a una condivisione dati esistente in Azure Data ShareHow to add a recipient to an existing data share in Azure Data Share
+# <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Come aggiungere un destinatario a una condivisione dati esistente in una condivisione dati di Azure
 
-Questo articolo ti mostrerà come aggiungere destinatari a una condivisione dati preesistente.
+In questo articolo viene illustrato come aggiungere destinatari a una condivisione dati preesistente.
 
-Per informazioni su come aggiungere destinatari durante la creazione di una condivisione, vedere l'esercitazione [Condividere dati.](share-your-data.md)
+Per informazioni su come aggiungere i destinatari quando si crea una condivisione, vedere l'esercitazione su come [condividere i dati](share-your-data.md) .
 
 ## <a name="navigate-to-a-sent-data-share"></a>Passare a una condivisione dati inviata
 
-In Condivisione dati di Azure passare alla condivisione inviata e selezionare la scheda **Inviti.** Per aggiungerne uno nuovo, fare clic su **Aggiungi destinatario**.
+In condivisione dati di Azure passare alla condivisione inviata e selezionare la scheda **inviti** . elencati di seguito sono tutti i destinatari degli inviti a questa condivisione di dati. Per aggiungerne una nuova, fare clic su **Aggiungi destinatario**.
 
 ![Aggiungi destinatario](./media/how-to/how-to-add-recipients/add-recipient.png)
 
-Sul lato destro della pagina verrà visualizzato un pannello. Fare clic su **Aggiungi destinatario** e quindi immettere l'e-mail del nuovo destinatario nella riga vuota. Aggiungere tutti i destinatari che si desidera.
+Sul lato destro della pagina viene visualizzato un pannello. Fare clic su **Aggiungi destinatario** e quindi immettere il messaggio di posta elettronica del nuovo destinatario nella riga vuota. Aggiungere tutti i destinatari desiderati.
 
 ![Aggiungi destinatario](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
-Fare clic su **Aggiungi e invia invito**. Ai nuovi destinatari verranno inviate e-mail di invito a questa condivisione dati.
+Fare clic su **Aggiungi e inviare un invito**. I nuovi destinatari riceveranno messaggi di posta elettronica di invito a questa condivisione di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni su come [eliminare un invito a una condivisione](how-to-delete-invitation.md).
+Altre informazioni su come [eliminare un invito a una condivisione](how-to-delete-invitation.md).

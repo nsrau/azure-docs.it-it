@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
 ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72439065"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gestione dei Servizi cloud di Azure mediante Automazione di Azure
@@ -38,5 +38,5 @@ Gli esempi che usano Automazione di Azure per gestire i Servizi cloud di Azure i
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire i Servizi cloud di Azure, seguire i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
-* [Panoramica di Automazione di Azure](../automation/automation-intro.md)
+* [Panoramica di automazione di Azure](../automation/automation-intro.md)
 * [Il primo runbook](../automation/automation-first-runbook-graphical.md)

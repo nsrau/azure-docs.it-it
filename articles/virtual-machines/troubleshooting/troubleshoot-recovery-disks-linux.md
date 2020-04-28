@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73620570"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino con l'interfaccia della riga di comando di Azure
@@ -27,10 +27,10 @@ Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere
 I passaggi per la risoluzione dei problemi sono i seguenti:
 
 1. Arrestare la VM interessata.
-1. Creare uno snapshot dal disco del sistema operativo della macchina virtuale.
+1. Eseguire uno snapshot dal disco del sistema operativo della macchina virtuale.
 1. Creare un disco dallo snapshot del disco del sistema operativo.
-1. Collegare e montare il nuovo disco del sistema operativo a un'altra macchina virtuale Linux per la risoluzione dei problemi.
-1. Connettersi alla macchina virtuale usata per la risoluzione dei problemi. Modificare i file o eseguire qualsiasi strumento per risolvere i problemi sul nuovo disco del sistema operativo.
+1. Connettere e montare il nuovo disco del sistema operativo in un'altra VM Linux per la risoluzione dei problemi.
+1. Connettersi alla macchina virtuale usata per la risoluzione dei problemi. Modificare i file o eseguire qualsiasi strumento per risolvere i problemi nel nuovo disco del sistema operativo.
 1. Smontare e scollegare il nuovo disco del sistema operativo dalla macchina virtuale per la risoluzione dei problemi.
 1. Modificare il disco del sistema operativo per la VM interessata.
 
@@ -39,7 +39,7 @@ Per eseguire questi passaggi per la risoluzione dei problemi, è necessario aver
 > [!Important]
 > Gli script in questo articolo si applicano solo alle VM che usano [Managed Disks](../linux/managed-disks-overview.md). 
 
-Negli esempi seguenti sostituire i nomi dei parametri `myResourceGroup` `myVM`con valori personalizzati, ad esempio e .
+Negli esempi seguenti sostituire i nomi dei parametri con valori personalizzati, ad esempio `myResourceGroup` e. `myVM`
 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Esaminare l'output seriale per determinare perché la macchina virtuale non è in grado di avviarsi correttamente. Un esempio comune è una voce non valida in `/etc/fstab`, oppure l'eliminazione o lo spostamento del disco rigido virtuale sottostante.
@@ -59,7 +59,7 @@ L'esempio seguente arresta la VM `myVM` dal gruppo di risorse `myResourceGroup`:
 ```azurecli
 az vm stop --resource-group MyResourceGroup --name MyVm
 ```
-## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>Creare uno snapshot dal disco del sistema operativo della macchina virtuale interessata
+## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>Eseguire uno snapshot dal disco del sistema operativo della macchina virtuale interessata
 
 Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. Non può essere collegato a una VM. Nel passaggio successivo si creerà un disco da questo snapshot. L'esempio seguente crea uno snapshot denominato `mySnapshot` dal disco del sistema operativo della VM denominata "myVM". 
 
@@ -105,14 +105,14 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```
 
-Se il gruppo di risorse e lo snapshot di origine non si trovano nella stessa `az disk create`area, quando si esegue . In questo caso, `--location <region>` è necessario specificare di creare il disco nella stessa area dello snapshot di origine.
+Se il gruppo di risorse e lo snapshot di origine non si trovano nella stessa area, verrà visualizzato l'errore "risorsa non trovata" quando si esegue `az disk create`. In questo caso, è necessario specificare `--location <region>` per creare il disco nella stessa area dello snapshot di origine.
 
-A questo punto si ha una copia del disco del sistema operativo originale. È possibile montare il nuovo disco in un'altra macchina virtuale Windows per la risoluzione dei problemi.
+A questo punto si ha una copia del disco del sistema operativo originale. È possibile montare questo nuovo disco in un'altra macchina virtuale Windows per la risoluzione dei problemi.
 
-## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Collegare il nuovo disco rigido virtuale a un'altra macchina virtualeAttach the new virtual hard disk to another VM
-Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Collegare il disco a questa macchina virtuale di risoluzione dei problemi per esplorare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro dell'applicazione o del sistema.
+## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Connetti il nuovo disco rigido virtuale a un'altra macchina virtuale
+Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Il disco viene collegato a questa macchina virtuale per la risoluzione dei problemi per esplorare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro di sistema o dell'applicazione.
 
-Questo script collega `myNewOSDisk` il `MyTroubleshootVM`disco alla macchina virtuale:
+Questo script connette il disco `myNewOSDisk` alla macchina virtuale `MyTroubleshootVM`:
 
 ```azurecli
 # Get ID of the OS disk that you just created.
@@ -160,7 +160,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
     > Si consiglia di montare i dischi dati nelle macchine virtuali in Azure usando l'identificatore univoco universale (UUID) del disco rigido virtuale. Per questo scenario, non è necessario montare il disco rigido virtuale usando il relativo l'UUID. Durante il normale utilizzo, invece, modificare `/etc/fstab` per montare i dischi rigidi virtuali usando il nome di dispositivo anziché l'UUID può impedire il corretto avvio della macchina virtuale.
 
 
-## <a name="fix-issues-on-the-new-os-disk"></a>Risolvere i problemi sul nuovo disco del sistema operativo
+## <a name="fix-issues-on-the-new-os-disk"></a>Risolvere i problemi nel nuovo disco del sistema operativo
 Dopo aver montato il disco rigido virtuale eseguire tutte le operazioni di manutenzione e i passaggi necessari per la risoluzione dei problemi. Dopo avere risolto i problemi, continuare con la procedura seguente.
 
 
@@ -179,7 +179,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco rigido virtuale esi
     sudo umount /dev/sdc1
     ```
 
-2. Scollegare il disco rigido virtuale dalla macchina virtuale. Uscire dalla sessione SSH per la macchina virtuale di risoluzione dei problemi:Exit the SSH session to your troubleshooting VM:
+2. Scollegare il disco rigido virtuale dalla macchina virtuale. Uscire dalla sessione SSH alla macchina virtuale per la risoluzione dei problemi:
 
     ```azurecli
     az vm disk detach -g MyResourceGroup --vm-name MyTroubleShootVm --name myNewOSDisk
@@ -187,7 +187,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco rigido virtuale esi
 
 ## <a name="change-the-os-disk-for-the-affected-vm"></a>Modificare il disco del sistema operativo per la VM interessata
 
-È possibile usare l'interfaccia della riga di comando di Azure per scambiare i dischi del sistema operativo. Non è necessario eliminare e ricreare la macchina virtuale.
+È possibile usare l'interfaccia della riga di comando di Azure per scambiare dischi del sistema operativo. Non è necessario eliminare e ricreare la macchina virtuale.
 
 Questo esempio arresta la VM `myVM` e assegna il disco `myNewOSDisk` come nuovo disco del sistema operativo.
 

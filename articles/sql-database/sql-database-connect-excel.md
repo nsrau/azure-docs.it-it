@@ -1,5 +1,5 @@
 ---
-title: Connettere Excel a un singolo database
+title: Connettere Excel a un database singolo
 description: Informazioni su come connettere Microsoft Excel a un database singolo in database SQL di Azure. Importare i dati in Excel per creare report ed esplorare i dati.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
 ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827123"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database singolo in database SQL di Azure e creare un report
@@ -38,9 +38,9 @@ Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [
    Si apre la Connessione guidata dati.
 3. Nella finestra di dialogo **Connessione al server di database** digitare il **Nome del server** per il database SQL a cui si vuole stabilire la connessione nel formato <*nomeserver*>**.database.windows.net**. Ad esempio, **msftestserver.database.windows.net**. Se si vuole, immettere il nome del database. Scegliere **OK** per aprire la finestra delle credenziali. 
 
-   ![Finestra di dialogo Connetti a server di database](media/sql-database-connect-excel/server-name.png)
+   ![Finestra di dialogo Connetti al server di database](media/sql-database-connect-excel/server-name.png)
 
-4. Nella finestra di dialogo Database di **SQL Server** selezionare **Database** sul lato sinistro e quindi immettere il **nome utente** e la **password** per il server di database SQL a cui si desidera connettersi. Selezionare **Connetti** per aprire lo **Strumento di navigazione**. 
+4. Nella finestra di dialogo **SQL Server database** selezionare **database** a sinistra, quindi immettere il **nome utente** e la **password** per il server di database SQL a cui si desidera connettersi. Selezionare **Connetti** per aprire lo **Strumento di navigazione**. 
 
    ![Digitare il nome del server e le credenziali di accesso](./media/sql-database-connect-excel/connect-to-server.png)
 
@@ -67,7 +67,7 @@ Ora che è stata stabilita la connessione, è possibile caricare i dati in diver
 
 > [!TIP]
 > Per connettere altre cartelle di lavoro e altri fogli di lavoro di Excel al database, selezionare la scheda **Dati** e quindi selezionare **Origini recenti** per aprire la finestra di dialogo **Origini recenti**. In questa finestra selezionare la connessione creata dall'elenco e fare clic su **Apri**.
-> ![Finestra di dialogo Origini recenti](media/sql-database-connect-excel/recent-connections.png)
+> ![Finestra di dialogo origini recenti](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Creare una connessione permanente mediante un file con estensione odc
 
@@ -77,12 +77,12 @@ Per salvare i dettagli della connessione in modo permanente, è possibile creare
    1. Selezionare **Sfoglia** per aprire la finestra di dialogo **Seleziona origine dati**.   
    2. Selezionare il file **+NewSqlServerConnection.odc** e quindi scegliere **Apri** per aprire la **Connessione guidata dati**.
 
-      ![Finestra di dialogo Nuova connessione](media/sql-database-connect-excel/new-connection.png)
+      ![Finestra di dialogo nuova connessione](media/sql-database-connect-excel/new-connection.png)
 
-2. In **Connessione guidata dati** digitare il nome del server e le credenziali del database SQL. Fare clic su **Avanti**. 
+2. In **Connessione guidata dati** digitare il nome del server e le credenziali del database SQL. Selezionare **Avanti**. 
    1. Nell'elenco a discesa selezionare il database che contiene i dati. 
    2. Selezionare la tabella o la vista desiderata. In questo esempio abbiamo selezionato vGetAllCategories.
-   3. Fare clic su **Avanti**. 
+   3. Selezionare **Avanti**. 
 
       ![Connessione guidata dati](media/sql-database-connect-excel/data-connection-wizard.png) 
 

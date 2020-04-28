@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60779836"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
@@ -29,8 +29,8 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare un account microsoft Azure di [prova gratuito di 30 giorni](https://azure.microsoft.com/free/)
-* Richiedere il credito di [Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si è abbonati MSDN o Visual Studio
+* Attivare una [versione di valutazione gratuita di 30 giorni Microsoft Azure account](https://azure.microsoft.com/free/)
+* Richiedi il tuo [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se sei un abbonato a MSDN o a Visual Studio
 
 ## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
 
@@ -88,11 +88,11 @@ Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e avviare la di
 
 Compilare e caricare quindi il codice del dispositivo.
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
-2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere come indicato di seguito:
+2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere nel seguente modo:
 
    * Tenere premuto il pulsante A
 

@@ -1,6 +1,6 @@
 ---
-title: Usare il desktop remoto per Linux in Azure Lab Services . Documenti Microsoft
-description: Informazioni su come usare il desktop remoto per le macchine virtuali Linux in un lab in Azure Lab Services.Learn how to use remote desktop for Linux virtual machines in a lab in Azure Lab Services.
+title: Usare desktop remoto per Linux in Azure Lab Services | Microsoft Docs
+description: Informazioni su come usare desktop remoto per le macchine virtuali Linux in un Lab in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,38 +14,38 @@ ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73585087"
 ---
-# <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Usare il desktop remoto per le macchine virtuali Linux in un laboratorio di classe di Azure Lab ServicesUse remote desktop for Linux virtual machines in a classroom lab of Azure Lab Services
-Questo articolo illustra come gli studenti possono connettersi a una macchina virtuale (VM) Linux in un lab usando RDP/SSH. 
+# <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Usare desktop remoto per le macchine virtuali Linux in un Lab della classe Azure Lab Services
+Questo articolo illustra in che modo gli studenti possono connettersi a una macchina virtuale (VM) Linux in un Lab usando RDP/SSH. 
 
-Un istruttore deve abilitare la funzionalità di connessione desktop remoto prima che gli studenti possano connettersi alla macchina virtuale del laboratorio di classe. Per istruzioni su come un istruttore può abilitare la funzionalità di connessione desktop remoto, vedere [Abilitare il desktop remoto per le macchine virtuali Linux.](how-to-enable-remote-desktop-linux.md)
+Un insegnante deve abilitare la funzionalità di connessione Desktop remoto prima che gli studenti possano connettersi alla macchina virtuale del Lab della classe. Per istruzioni su come un insegnante può abilitare la funzionalità di connessione Desktop remoto, vedere [Enable Remote Desktop for Linux Virtual Machines](how-to-enable-remote-desktop-linux.md).
 
 > [!IMPORTANT] 
-> L'abilitazione della **connessione desktop remoto** apre solo la porta **RDP** sui computer Linux. Un istruttore può connettersi alla macchina Linux utilizzando SSH per la prima volta e installare i pacchetti RDP e GUI in modo che sia possibile connettersi alla macchina Linux utilizzando RDP in un secondo momento. 
+> L'abilitazione di **Connessione desktop remoto** apre solo la porta **RDP** nei computer Linux. Un insegnante può connettersi al computer Linux usando SSH per la prima volta e installare i pacchetti RDP e GUI per potersi connettere al computer Linux usando RDP in un secondo momento. 
 
-## <a name="connect-to-the-student-vm"></a>Connettersi alla macchina virtuale studenteConnect to the student VM
-Gli studenti possono RDP nelle loro macchine virtuali Linux dopo che il proprietario del lab (insegnante/professore) **pubblica** la macchina virtuale del modello con i pacchetti RDP e GUI installati nel computer. I passaggi necessari sono i seguenti: 
+## <a name="connect-to-the-student-vm"></a>Connettersi alla macchina virtuale per studenti
+Gli studenti possono usare il protocollo RDP nelle VM Linux dopo che il proprietario del Lab (docente/Docente) **pubblica** la VM modello con i pacchetti RDP e GUI installati nel computer. I passaggi necessari sono i seguenti: 
 
-1. Quando uno studente accede direttamente al`https://labs.azure.com`portale Labs ( )`https://labs.azure.com/register/<registrationCode>`o utilizzando un collegamento di registrazione ( ), viene visualizzato un riquadro per ogni lab a cui lo studente ha accesso. 
-2. Nel riquadro attivare o disattivare il pulsante per avviare la macchina virtuale se è in stato di arresto. 
+1. Quando uno studente accede direttamente al portale Labs (`https://labs.azure.com`) o usando un collegamento di registrazione (`https://labs.azure.com/register/<registrationCode>`), viene visualizzato un riquadro per ogni Lab a cui lo studente può accedere. 
+2. Sul riquadro, impostare il pulsante per avviare la VM se è in stato interrotto. 
 3. Selezionare **Connetti**. Vengono visualizzate due opzioni per connettersi alla macchina virtuale: **SSH** e **Desktop remoto**.
 
-    ![VM studente - opzioni di connessione](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
+    ![VM studente-opzioni di connessione](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
-## <a name="connect-using-ssh-or-rdp"></a>Connettersi utilizzando SSH o RDP
-Se si seleziona l'opzione **SSH,** viene visualizzata la finestra di dialogo Connetti alla macchina virtuale seguente:If you select the SSH option, you see the following **Connect to your virtual machine** dialog box:  
+## <a name="connect-using-ssh-or-rdp"></a>Connettersi tramite SSH o RDP
+Se si seleziona l'opzione **SSH** , viene visualizzata la finestra **di dialogo Connetti alla macchina virtuale** seguente:  
 
 ![Stringa di connessione SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-Selezionare il pulsante **Copia** accanto alla casella di testo per copiarla negli Appunti. Salvare la stringa di connessione SSH. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale.
+Selezionare il pulsante **copia** accanto alla casella di testo per copiarlo negli Appunti. Salvare la stringa di connessione SSH. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale.
 
-Se si seleziona l'opzione **RDP,** viene scaricato un file RDP nel computer. Salvarlo e aprirlo per connettersi alla macchina. 
+Se si seleziona l'opzione **RDP** , nel computer viene scaricato un file RDP. Salvarlo e aprirlo per connettersi al computer. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come abilitare la funzionalità di connessione desktop remoto per le macchine virtuali Linux in un lab di classe, vedere [Abilitare il desktop remoto per le macchine virtuali Linux.](how-to-enable-remote-desktop-linux.md) 
+Per informazioni su come abilitare la funzionalità di connessione Desktop remoto per le VM Linux in un Lab della classe, vedere [abilitare Desktop remoto per le macchine virtuali Linux](how-to-enable-remote-desktop-linux.md). 
 

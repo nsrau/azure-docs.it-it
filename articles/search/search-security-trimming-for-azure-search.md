@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72794270"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtri di sicurezza per tagliare i risultati in Azure ricerca cognitiva
@@ -153,7 +153,7 @@ Specificare il filtro nel corpo della richiesta:
 
 In questo modo è possibile filtrare i risultati in base all'identità dell'utente `search.in()` e alla funzione di ricerca cognitiva di Azure. È possibile usare questa funzione per passare gli identificatori di principio che l'utente richiedente deve confrontare con gli identificatori di entità associati a ogni documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Active Directory il controllo degli accessi in base all'identità usando i filtri ricerca cognitiva di Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtri in ricerca cognitiva di Azure](search-filters.md)

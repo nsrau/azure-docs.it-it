@@ -1,5 +1,5 @@
 ---
-title: Visualizzare la telemetria simulata con Time Series Insights - Azure Documenti Microsoft
+title: Visualizzare i dati di telemetria simulati con Time Series Insights-Azure | Microsoft Docs
 description: Informazioni su come configurare l'ambiente Time Series Insights per esplorare e analizzare i dati di telemetria generati dall'acceleratore della soluzione Simulazione dispositivi.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889337"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Usare Time Series Insights per visualizzare i dati di telemetria inviati dall'acceleratore della soluzione Simulazione dispositivi
@@ -53,11 +53,11 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
 
 ## <a name="create-a-new-time-series-insights-environment"></a>Creare un nuovo ambiente Azure Time Series Insights
 
-[Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) è un servizio di analisi, archiviazione e visualizzazione completamente gestito per la gestione dei dati delle serie temporali con scalabilità IoT nel cloud. Per creare un nuovo ambiente Time Series Insights:
+[Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) è un servizio di analisi, archiviazione e visualizzazione completamente gestito per la gestione di dati di serie temporali su larga scala nel cloud. Per creare un nuovo ambiente Time Series Insights:
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Selezionare **Crea una risorsa** > **Internet of Things** > **Time Series Insights**:
+1. Selezionare **Crea una risorsa** > **Internet delle cose** > **Time Series Insights**:
 
     ![Nuovo ambiente Azure Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
@@ -66,7 +66,7 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
     | Impostazione | valore |
     | ------- | ----- |
     | Nome ambiente | Nella screenshot seguente viene usato il nome **Contoso-TSI**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
-    | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
+    | Sottoscrizione | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **contoso-simulation**. Usare il nome dell'acceleratore di soluzioni. |
     | Location | In questo esempio viene usato **Stati Uniti orientali**. Creare l'ambiente nella stessa area dell'acceleratore di Simulazione dispositivi. |
     | Sku |**S1** |
@@ -98,14 +98,14 @@ Creare una nuova origine evento per la connessione all'hub IoT. Usare il gruppo 
     | Impostazione | valore |
     | ------- | ----- |
     | Nome Origine evento | Nella screenshot seguente viene usato il nome **contoso-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
-    | Source (Sorgente) | **IoT Hub** |
+    | Source (Sorgente) | **Hub IoT** |
     | Opzione di importazione | **Usare un hub IoT delle sottoscrizioni disponibili** |
     | ID sottoscrizione | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Nome dell'hub IoT | **contoso-simulation7d894**. Usare il nome dell'hub IoT dall'acceleratore di soluzioni Simulazione dispositivi. |
     | Nome dei criteri dell'hub IoT | **iothubowner** |
     | Chiave dei criteri dell'hub IoT | Il campo viene popolato automaticamente. |
     | Gruppo di consumer dell'hub IoT | **devicesimulationtsi** |
-    | Formato di serializzazione eventi | **Json** |
+    | Formato di serializzazione eventi | **JSON** |
     | Nome della proprietà Timestamp | Lasciare vuoto |
 
     ![Creare un'origine evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
@@ -167,7 +167,7 @@ Lo strumento di esplorazione di Azure Time Series Insights è un'app Web che si 
 
 Se si prevede di esplorare la soluzione ulteriormente, lasciare distribuito l'acceleratore di soluzione.
 
-Se l'acceleratore di soluzioni non è più necessario, eliminarlo dalla pagina [Soluzioni](https://www.azureiotsolutions.com/Accelerators#dashboard) di cui è stato eseguito il provisioning selezionandolo e quindi facendo clic su **Elimina soluzione**.
+Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina soluzioni di cui è stato effettuato il [provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard) , selezionandolo e quindi facendo clic su **Elimina soluzione**.
 
 Se è stato aggiunto l'ambiente Time Series Insights al gruppo di risorse dell'acceleratore di soluzioni significa che viene eliminato quando si elimina l'acceleratore di soluzioni. In caso contrario, è necessario rimuovere manualmente l'ambiente Time Series Insights dal portale di Azure.
 

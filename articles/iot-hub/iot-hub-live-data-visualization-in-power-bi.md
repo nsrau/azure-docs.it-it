@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/06/2019
 ms.author: robinsh
 ms.openlocfilehash: f0b909d10790511408e090546fd3359889ea5aca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954636"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
@@ -64,7 +64,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
    ![Creare un processo di analisi di flusso in Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job-azure.png)
 
-3. Seleziona **Crea**.
+3. Selezionare **Create** (Crea).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 

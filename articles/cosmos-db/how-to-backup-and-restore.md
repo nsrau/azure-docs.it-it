@@ -8,15 +8,15 @@ ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70240775"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Ripristinare i dati da un backup in Azure Cosmos DB 
 
-Se si elimina accidentalmente il database o un contenitore, è possibile [inviare un ticket di supporto]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure]( https://azure.microsoft.com/support/options/) per ripristinare i dati dai backup automatici online. Il supporto di Azure è disponibile solo per i piani selezionati, ad esempio **Standard**, **Sviluppatore**e piani superiori a essi. Il supporto di Azure non è disponibile con il piano **Basic**. Per altre informazioni sui diversi piani di supporto, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/). 
+Se si elimina accidentalmente il database o un contenitore, è possibile [inviare un ticket di supporto]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure]( https://azure.microsoft.com/support/options/) per ripristinare i dati dai backup automatici online. Il supporto tecnico di Azure è disponibile solo per i piani selezionati, ad esempio **standard**, **Developer**e piani più elevati. Il supporto di Azure non è disponibile con il piano **Basic**. Per altre informazioni sui diversi piani di supporto, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/). 
 
 Per il ripristino di uno snapshot specifico del backup, Azure Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
 
@@ -34,12 +34,12 @@ Prima di richiedere un ripristino, è necessario avere a disposizione i dettagli
 
 * Se vengono eliminati uno o più contenitori, è necessario comunicare il nome dell'account Azure Cosmos, i nomi dei database e i nomi dei contenitori. Specificare inoltre se esiste un contenitore con lo stesso nome.
 
-* Se i dati sono stati accidentalmente eliminati o danneggiati, è necessario contattare il supporto di [Azure](https://azure.microsoft.com/support/options/) entro 8 ore in modo che il team di Azure Cosmos DB possa aiutarti a ripristinare i dati dai backup.
+* Se i dati sono stati eliminati o danneggiati per errore, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro 8 ore, in modo che il team di Azure Cosmos DB possa aiutare a ripristinare i dati dai backup.
   
-  * Se il database o il contenitore è stato eliminato accidentalmente, aprire un caso di supporto di Sev B o Sev C Azure. 
-  * Se alcuni documenti sono stati accidentalmente eliminati o danneggiati all'interno del contenitore, aprire un caso di supporto Sev A. 
+  * Se il database o il contenitore è stato eliminato accidentalmente, aprire un caso di supporto di Azure gravità B o SEV C. 
+  * Se sono stati accidentalmente eliminati o danneggiati alcuni documenti all'interno del contenitore, aprire un caso di supporto. 
 
-Quando si verifica un danneggiamento dei dati e se i documenti all'interno di un contenitore vengono modificati o eliminati, **eliminare il contenitore appena possibile**. Con l'eliminazione del contenitore è possibile evitare che Azure Cosmos DB sovrascriva i backup. Se per qualche motivo l'eliminazione non è possibile, è necessario aprire un ticket appena possibile. Oltre al nome dell'account Cosmos di Azure, ai nomi dei database e ai nomi dei contenitori, è necessario specificare il momento in cui è possibile ripristinare i dati. È importante essere il più precisi possibile per consentire a Microsoft di determinare i backup disponibili migliori nell'intervallo di tempo specificato. È anche importante specificare l'ora in formato UTC. 
+Quando si verifica un danneggiamento dei dati e se i documenti all'interno di un contenitore vengono modificati o eliminati, **eliminare il contenitore appena possibile**. Con l'eliminazione del contenitore è possibile evitare che Azure Cosmos DB sovrascriva i backup. Se per qualche motivo l'eliminazione non è possibile, è necessario aprire un ticket appena possibile. Oltre al nome dell'account Azure Cosmos, ai nomi dei database e ai nomi dei contenitori, è necessario specificare il punto nel tempo in cui è possibile ripristinare i dati. È importante essere il più precisi possibile per consentire a Microsoft di determinare i backup disponibili migliori nell'intervallo di tempo specificato. È anche importante specificare l'ora in formato UTC. 
 
 Lo screenshot seguente illustra come creare una richiesta di supporto per un contenitore (raccolta/grafo/tabella) per ripristinare i dati tramite il portale di Azure. Specificare ulteriori dettagli, come tipo di dati, scopo del ripristino e ora di eliminazione dei dati per consentire a Microsoft di definire più facilmente la priorità della richiesta.
 

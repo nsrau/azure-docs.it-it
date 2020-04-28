@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572360"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
@@ -144,7 +144,7 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |Valore  |
+|Proprietà  |valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https:\//westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |

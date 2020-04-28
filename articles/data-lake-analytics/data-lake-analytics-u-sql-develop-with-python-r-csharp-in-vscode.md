@@ -1,5 +1,5 @@
 ---
-title: Eseguire i processi U-SQL in Python, R e C 'NET - Azure Data Lake AnalyticsRun U-SQL jobs in Python, R, and C'è - Azure Data Lake Analytics
+title: Eseguire processi U-SQL in Python, R e C#-Azure Data Lake Analytics
 description: Informazioni su come usare il code-behind con Python, R e C# per inviare un processo in Azure Data Lake.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
 ms.openlocfilehash: cb3ddf0c4147fa982e8ab0f9d440292d12803d35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309698"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Eseguire lo sviluppo U-SQL con Python, R e C# per Azure Data Lake Analytics in Visual Studio Code

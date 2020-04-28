@@ -12,10 +12,10 @@ ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: d233d3c98cc495e4b9e84142781f5eb9faa7eec8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820833"
 ---
 # <a name="stream-data-by-using-azure-sql-database-stream-analytics-integration-preview"></a>Trasmettere dati tramite l'integrazione di analisi di flusso del database SQL di Azure (anteprima)

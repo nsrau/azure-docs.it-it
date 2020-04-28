@@ -1,5 +1,5 @@
 ---
-title: Monitorare e gestire le pipeline tramite il portale di Azure e PowerShellMonitor and manage pipelines by using the Azure portal and PowerShell
+title: Monitorare e gestire le pipeline usando il portale di Azure e PowerShell
 description: Informazioni su come usare il portale di Azure e Azure PowerShell per monitorare e gestire le pipeline e le data factory di Azure create.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73666973"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
@@ -46,7 +46,7 @@ L'uso del portale di Azure consente di:
 Questa sezione illustra anche come avviene la transizione di una sezione di un set di dati da uno stato a un altro.   
 
 ### <a name="navigate-to-your-data-factory"></a>Passare alla data factory
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Data factory** nel menu a sinistra. Se non è visibile, fare clic su **Altri servizi >**, quindi selezionare **Data factory** nella categoria **Intelligence e analisi**.
 
    ![Esplora tutto > Data factory](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -173,7 +173,7 @@ La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è ne
 > [!NOTE] 
 > La vista diagramma non supporta la sospensione e la ripresa di pipeline. Se si vuole usare un'interfaccia utente, usare l'applicazione di gestione e monitoraggio. Per dettagli sull'uso dell'applicazione, vedere l'articolo [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
-È possibile sospendere/sospendere le pipeline utilizzando il cmdlet **PowerShell Suspend-AzDataFactoryPipeline.** Questo cmdlet è utile quando non si desidera eseguire le pipeline finché non viene risolto un problema. 
+È possibile sospendere/sospendere le pipeline usando il cmdlet di PowerShell **Suspend-AzDataFactoryPipeline** . Questo cmdlet è utile quando non si desidera eseguire le pipeline finché non viene risolto un problema. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -229,7 +229,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     ```
 
    Sostituire **StartDateTime** con l'ora di inizio della pipeline. 
-3. A questo punto, eseguire il cmdlet **Get-AzDataFactoryRun** per ottenere informazioni dettagliate sull'attività eseguita per la sezione.
+3. Eseguire ora il cmdlet **Get-AzDataFactoryRun** per ottenere i dettagli sull'esecuzione dell'attività per la sezione.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
@@ -267,7 +267,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. È possibile eseguire il cmdlet **Save-AzDataFactoryLog** con il valore Id visualizzato dall'output e scaricare i file di log utilizzando **l'opzione -DownloadLogs** per il cmdlet.
+5. È possibile eseguire il cmdlet **Save-AzDataFactoryLog** con il valore ID visualizzato nell'output e scaricare i file di log usando il cmdlet **-DownloadLogsoption** per il cmdlet.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -288,7 +288,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 ![Correggere gli errori e convalidare](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usare Azure PowerShell
-È possibile rieseguire gli errori utilizzando il cmdlet **Set-AzDataFactorySliceStatus.** Vedere l'argomento [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) per la sintassi e altri dettagli sul cmdlet.
+È possibile rieseguire gli errori usando il cmdlet **set-AzDataFactorySliceStatus** . Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) .
 
 **Esempio:**
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Creare un nuovo avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definire la **condizione di avviso**. Assicurarsi di selezionare **Data factory** nel campo Filtra per tipo **di risorsa.** È inoltre possibile specificare i valori per **Quote**.
+3.  Definire la **condizione di avviso**. Assicurarsi di selezionare **Data Factory** nel campo **Filtra per tipo di risorsa** . È inoltre possibile specificare i valori per le **dimensioni**.
 
     ![Definire la condizione dell'avviso: selezionare la destinazione](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,7 +317,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definire la condizione dell'avviso: aggiungere la logica di avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Definire i **dettagli dell'avviso**.
+4.  Definire i **Dettagli dell'avviso**.
 
     ![Definire i dettagli dell'avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 

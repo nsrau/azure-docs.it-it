@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73683134"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
@@ -627,7 +627,7 @@ Per specificare i valori dei parametri del servizio Web, aggiungere una sezione 
 >
 >
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Post di blog di Azure: Guida introduttiva a Data Factory di Azure e ad Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md

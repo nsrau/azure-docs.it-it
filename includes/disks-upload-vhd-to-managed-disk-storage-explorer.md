@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74013792"
 ---
 Storage Explorer 1.10.0 consente agli utenti di caricare, scaricare e copiare dischi gestiti, nonché creare snapshot. A causa di queste funzionalità aggiuntive, è possibile usare Storage Explorer per eseguire la migrazione dei dati dall'ambiente locale ad Azure ed eseguire la migrazione dei dati tra le aree di Azure.

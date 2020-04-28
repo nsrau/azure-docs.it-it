@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73847517"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 10

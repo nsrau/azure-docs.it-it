@@ -1,6 +1,6 @@
 ---
-title: Creare una pipeline di apprendimento automatico Apache Spark - Azure HDInsightCreate Apache Spark machine learning pipeline - Azure HDInsight
-description: Usare la libreria di Machine Learning Apache Spark per creare pipeline di dati in Azure HDInsight.Use the Apache Spark machine learning library to create data pipelines in Azure HDInsight.
+title: Creare una pipeline di Machine Learning Apache Spark-Azure HDInsight
+description: Usare la libreria di Machine Learning Apache Spark per creare pipeline di dati in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73494659"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creare una pipeline di apprendimento automatico di Apache Spark
 
-La libreria scalabile per il Machine Learning (MLlib) di Spark introduce funzionalità di modellazione in un ambiente distribuito. Il pacchetto [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) Spark è un set di API di alto livello basate su frame di dati. Queste API consentono di creare e ottimizzare pipeline di Machine Learning pratiche.  La funzionalità di *Machine Learning di Spark* fa riferimento a questa API basata su DataFrame MLlib e non all'API precedente per pipeline basate su RDD.
+La libreria scalabile per il Machine Learning (MLlib) di Spark introduce funzionalità di modellazione in un ambiente distribuito. Il pacchetto [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) Spark è un set di API di alto livello basate su dataframe. Queste API consentono di creare e ottimizzare pipeline di Machine Learning pratiche.  La funzionalità di *Machine Learning di Spark* fa riferimento a questa API basata su DataFrame MLlib e non all'API precedente per pipeline basate su RDD.
 
 Una pipeline di Machine Learning è un flusso di lavoro completo che combina più algoritmi di Machine Learning. Possono essere molti i passaggi richiesti per elaborare i dati e apprendere da essi, che richiedono una sequenza di algoritmi. Le pipeline definiscono le fasi e l'ordinamento di un processo di Machine Learning. In MLlib, le fasi di una pipeline sono rappresentate da una sequenza specifica di PipelineStages, in cui vengono eseguite attività da un trasformatore e da un estimatore.
 

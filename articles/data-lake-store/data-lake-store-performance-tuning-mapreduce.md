@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: a645049665bc1d51efa94a879b9d2e4e5529282f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904582"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e Azure Data Lake Storage Gen1
@@ -42,7 +42,7 @@ Modificare questo numero in base alla quantità di memoria necessaria per l'atti
 
 Questo determina il numero massimo di Mapper o riduttori da creare. Il numero di divisioni determina il numero di Mapper creati per il processo MapReduce. Pertanto, è possibile ottenere un numero inferiore di Mapper rispetto a quello richiesto se sono presenti meno divisioni rispetto al numero di Mapper richiesti.
 
-## <a name="guidance"></a>Materiale sussidiario
+## <a name="guidance"></a>Indicazioni
 
 ### <a name="step-1-determine-number-of-jobs-running"></a>Passaggio 1: determinare il numero di processi in esecuzione
 

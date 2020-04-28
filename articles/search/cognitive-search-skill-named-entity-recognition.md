@@ -1,7 +1,7 @@
 ---
 title: Competenza cognitiva di Riconoscimento di entità denominate
 titleSuffix: Azure Cognitive Search
-description: Estrarre entità denominate per persona, posizione e organizzazione dal testo in una pipeline di arricchimento dell'iaformazione in Ricerca cognitiva di Azure.Extract named entities for person, location and organization from text in an AI enrichment pipeline in Azure Cognitive Search.
+description: Estrai entità denominate per persona, posizione e organizzazione da testo in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791941"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competenza cognitiva di Riconoscimento di entità denominate
@@ -20,10 +20,10 @@ ms.locfileid: "72791941"
 La competenza **Riconoscimento di entità denominate** estrae le entità denominate dal testo. Le entità disponibili includono i tipi `person`, `location` e `organization`.
 
 > [!IMPORTANT]
-> L'abilità di riconoscimento delle entità denominate è ora interrotta sostituita da [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Il supporto si è interrotto il 15 febbraio 2019 e l'API è stata rimossa dal prodotto il 2 maggio 2019. Seguire i consigli in Capacità di [ricerca cognitiva deprecate](cognitive-search-skill-deprecated.md) per eseguire la migrazione a una competenza supportata.
+> La funzionalità di riconoscimento entità denominata ora non è più disponibile, sostituito da [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Il supporto è stato interrotto il 15 febbraio 2019 e l'API è stata rimossa dal prodotto il 2 maggio 2019. Per eseguire la migrazione a una competenza supportata, seguire le indicazioni riportate nelle [competenze di ricerca cognitive deprecate](cognitive-search-skill-deprecated.md) .
 
 > [!NOTE]
-> Man mano che si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti o aggiungendo più algoritmi di ia', sarà necessario [collegare una risorsa servizi cognitivi fatturabile.](cognitive-search-attach-cognitive-services.md) Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> Quando si espande l'ambito aumentando la frequenza di elaborazione, l'aggiunta di altri documenti o l'aggiunta di altri algoritmi di intelligenza artificiale, sarà necessario [alleghi una risorsa di servizi cognitivi fatturabile](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
 > L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione di immagini sono descritti nella [pagina dei prezzi di Ricerca cognitiva di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -32,7 +32,7 @@ La competenza **Riconoscimento di entità denominate** estrae le entità denomin
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-La dimensione massima di un record deve essere di [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)50.000 caratteri misurata da . Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 50.000 caratteri misurata [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)da. Se è necessario suddividere i dati prima di inviarli all'estrattore di frasi chiave, è possibile usare la competenza [Divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametri della competenza
 

@@ -1,5 +1,5 @@
 ---
-title: Dispositivo simulato nella soluzione di monitoraggio remoto - Azure Documenti Microsoft
+title: Dispositivo simulato nella soluzione di monitoraggio remoto-Azure | Microsoft Docs
 description: Questo articolo descrive come usare JavaScript per definire il comportamento di un dispositivo simulato nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890852"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementare il comportamento del modello di dispositivo
 
 L'articolo [Understand the device model schema](iot-accelerators-remote-monitoring-device-schema.md) (Conoscere lo schema del modello di dispositivo) descrive lo schema che definisce un modello di dispositivo simulato. L'articolo fa riferimento a due tipi di file JavaScript che implementano il comportamento di un dispositivo simulato:
 
-- **Stato membro** File JavaScript che vengono eseguiti a intervalli fissi per aggiornare lo stato interno del dispositivo.
+- **Stato** di File JavaScript eseguiti a intervalli fissi per aggiornare lo stato interno del dispositivo.
 - **Metodo** File JavaScript che vengono eseguiti quando la soluzione richiama un metodo nel dispositivo.
 
 > [!NOTE]
@@ -270,7 +270,7 @@ Ora che si è appreso come specificare il comportamento di un dispositivo simula
 
 Per altre informazioni per sviluppatori sulla soluzione di monitoraggio remoto, vedere:
 
-* [Guida di riferimento per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Guida alla risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+* [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guida alla risoluzione dei problemi per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 
 <!-- Next tutorials in the sequence -->

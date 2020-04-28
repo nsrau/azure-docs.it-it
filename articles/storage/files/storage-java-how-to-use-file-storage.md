@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73837467"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Sviluppare per File di Azure con Java
@@ -31,7 +31,7 @@ Questa esercitazione illustra le nozioni di base per l'uso di Java per sviluppar
 > Poiché File di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi I/O standard di Java. Questo articolo illustra come scrivere applicazioni che usano l'SDK Java di Archiviazione di Azure, che usa l'[API REST di File di Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) per comunicare con File di Azure.
 
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
-Per compilare gli esempi, sono necessari Java Development Kit (JDK) e [Azure Storage SDK per Java.](https://github.com/Azure/azure-storage-java) È inoltre necessario aver creato un account di archiviazione di Azure.
+Per compilare gli esempi, sarà necessario Java Development Kit (JDK) e [Azure Storage SDK per Java](https://github.com/Azure/azure-storage-java). È inoltre necessario aver creato un account di archiviazione di Azure.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configurare l'applicazione per usare File di Azure
 Per utilizzare le API di archiviazione di Azure, aggiungere le seguenti istruzioni all'inizio del file Java da cui si desidera accedere al servizio di archiviazione.
@@ -121,7 +121,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Creare una directory
-È possibile anche organizzare l'archiviazione inserendo i file all'interno di sottodirectory anziché inserirli tutti nella directory radice. In File di Azure è possibile creare tutte le directory consentite dall'account. Il codice seguente creerà una sottodirectory denominata **sampledir** nella directory radice.
+È possibile anche organizzare l'archiviazione inserendo i file all'interno di sottodirectory anziché inserirli tutti nella directory radice. In File di Azure è possibile creare tutte le directory consentite dall'account. Il codice riportato di seguito creerà una sottodirectory denominata **SampleDir** nella directory radice.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -228,7 +228,7 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 * [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK per Android](https://github.com/azure/azure-storage-android)
 * [Riferimento all'SDK del client di archiviazione di Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [API REST di Servizi di archiviazione di AzureAzure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog del team di Archiviazione di AzureAzure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
+* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Blog del team di archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](../common/storage-use-azcopy.md)
 * [Risoluzione dei problemi di File di Azure - Windows](storage-troubleshoot-windows-file-connection-problems.md)

@@ -1,7 +1,7 @@
 ---
 title: Competenza cognitiva OCR
 titleSuffix: Azure Cognitive Search
-description: Estrarre testo da file di immagine usando il riconoscimento ottico dei caratteri (OCR) in una pipeline di arricchimento in Ricerca cognitiva di Azure.Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+description: Estrarre il testo dai file di immagine usando il riconoscimento ottico dei caratteri (OCR) in una pipeline di arricchimento in Azure ricerca cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791918"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
-La abilità **Riconoscimento ottico dei caratteri (OCR)** riconosce il testo stampato e scritto a mano nei file di immagine. Questa competenza usa i modelli di Machine Learning forniti da [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Servizi cognitivi. La competenza **OCR** corrisponde alle funzionalità seguenti:
+Il **riconoscimento ottico dei caratteri (OCR)** riconosce il testo stampato e scritto a mano nei file di immagine. Questa competenza usa i modelli di Machine Learning forniti da [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Servizi cognitivi. La competenza **OCR** corrisponde alle funzionalità seguenti:
 
-+ L'API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) viene utilizzata per lingue diverse dall'inglese. 
-+ Per l'inglese, viene utilizzata la nuova API ["Read".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
++ L'API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) viene usata per lingue diverse dall'inglese. 
++ Per l'inglese, viene usata la nuova API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
 
 La competenza **OCR** estrae il testo dai file di immagine. I formati di file supportati comprendono:
 
@@ -29,10 +29,10 @@ La competenza **OCR** estrae il testo dai file di immagine. I formati di file su
 + .PNG
 + .BMP
 + .GIF
-+ . Tiff
++ . TIFF
 
 > [!NOTE]
-> Man mano che si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti o aggiungendo più algoritmi di ia', sarà necessario [collegare una risorsa servizi cognitivi fatturabile.](cognitive-search-attach-cognitive-services.md) Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> Quando si espande l'ambito aumentando la frequenza di elaborazione, l'aggiunta di altri documenti o l'aggiunta di altri algoritmi di intelligenza artificiale, sarà necessario [alleghi una risorsa di servizi cognitivi fatturabile](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
 > L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione di immagini sono descritti nella [pagina dei prezzi di Ricerca cognitiva di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -45,9 +45,9 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 |--------------------|-------------|
 | detectOrientation | Abilita il rilevamento automatico dell'orientamento dell'immagine. <br/> Valori validi: true / false.|
 |defaultLanguageCode | <p>  Codice lingua del testo di input. Le lingue supportate comprendono: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (ceco) <br/>da (danese) <br/>nl (olandese) <br/>en (inglese) <br/>fi (finlandese)  <br/>fr (francese) <br/>  de (tedesco) <br/>el (greco) <br/> hu (ungherese) <br/> it (italiano) <br/>  ja (giapponese) <br/> ko (coreano) <br/> nb (norvegese) <br/>   pl (polacco) <br/> pt (portoghese) <br/>  ru (russo) <br/>  es (spagnolo) <br/>  sv (svedese) <br/>  tr (turco) <br/> ar (arabo) <br/> ro (romeno) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (slovacco). <br/>  unk (sconosciuto) <br/><br/> Se il codice lingua non è specificato o è Null, la lingua verrà impostata sull'inglese. Se la lingua è impostata esplicitamente su "unk", la lingua verrà rilevata automaticamente. </p> |
-|lineending (Fine riga) | Valore da utilizzare tra ogni riga rilevata. Valori possibili: 'Space','CarriageReturn','LineFeed'.  Il valore predefinito è 'Space' |
+|lineEnding | Valore da utilizzare tra ogni riga rilevata. Valori possibili:' Space ',' CarriageReturn ',' avanzamento riga '.  Il valore predefinito è' Space ' |
 
-In precedenza, esisteva un parametro chiamato "textExtractionAlgorithm" per specificare se la competenza deve estrarre il testo "stampato" o "scritto a mano".  Questo parametro è deprecato e non è più necessario poiché l'ultimo algoritmo dell'API di lettura è in grado di estrarre entrambi i tipi di testo contemporaneamente.  Se la definizione della competenza include già questo parametro, non è necessario rimuoverlo, ma non verrà più utilizzato ed entrambi i tipi di testo verranno estratti in futuro indipendentemente da ciò che è impostato su.
+In precedenza era presente un parametro denominato "textExtractionAlgorithm" per specificare se l'abilità deve estrarre il testo "stampato" o "scritto a mano".  Questo parametro è deprecato e non è più necessario perché l'algoritmo più recente dell'API Read è in grado di estrarre entrambi i tipi di testo in una sola volta.  Se la definizione delle competenze include già questo parametro, non è necessario rimuoverlo, ma non verrà più usato ed entrambi i tipi di testo verranno estratti in futuro indipendentemente dall'impostazione.
 
 ## <a name="skill-inputs"></a>Input competenze
 

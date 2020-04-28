@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
 ms.openlocfilehash: e642454807511e8e0bc0b6b6ca7af837e03de2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73821344"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Scegliere l'opzione di distribuzione corretta in SQL di Azure

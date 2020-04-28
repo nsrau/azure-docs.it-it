@@ -1,5 +1,5 @@
 ---
-title: Trasmettere i dati dal monitoraggio remoto all'archivio dati - Azure Documenti Microsoft
+title: Trasmettere i dati dal monitoraggio remoto al Data Lake Store-Azure | Microsoft Docs
 description: Informazioni su come integrare la soluzione di monitoraggio remoto con Azure Data Lake Store usando un processo di Analisi di flusso di Azure.
 author: philmea
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889246"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
@@ -154,7 +154,7 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
 1. Impostare l'ora personalizzata per tornare indietro di alcune ore e selezionare i dati dal momento in cui il dispositivo ha iniziato a eseguire lo streaming.
 
-1. Fare clic su **Start**.
+1. Fare clic su **Avvia**.
 
     ![Selezionare la data personalizzata](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

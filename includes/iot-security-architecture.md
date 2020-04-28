@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73034547"
 ---
 Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate fin dall'inizio.
@@ -116,7 +116,7 @@ Un gateway sul campo è diverso da un semplice router di traffico, perché ha av
 
 ### <a name="the-cloud-gateway-zone"></a>Zona Gateway cloud
 
-Un gateway cloud è un sistema che consente la comunicazione remota da e verso dispositivi o gateway sul campo da diversi siti diversi attraverso lo spazio di rete pubblica, in genere verso un sistema di controllo e analisi dei dati basato su cloud, una federazione di tali sistemi. In alcuni casi, un gateway cloud può immediatamente facilitare l'accesso ai dispositivi per scopi specifici dai terminali, ad esempio tablet o telefoni. Nel contesto presentato in questo argomento, "cloud" fa riferimento a un sistema di elaborazione dati dedicato che non è associato allo stesso sito dei dispositivi o gateway sul campo collegati. In una zona cloud le misure operative impediscono anche l'accesso fisico mirato ed essa non è necessariamente esposta a un'infrastruttura di "cloud pubblico".  
+Un gateway cloud è un sistema che consente la comunicazione remota da e verso dispositivi o gateway sul campo da più siti diversi attraverso lo spazio di rete pubblico, in genere verso un controllo basato sul cloud e un sistema di analisi dei dati, una Federazione di tali sistemi. In alcuni casi, un gateway cloud può immediatamente facilitare l'accesso ai dispositivi per scopi specifici dai terminali, ad esempio tablet o telefoni. Nel contesto presentato in questo argomento, "cloud" fa riferimento a un sistema di elaborazione dati dedicato che non è associato allo stesso sito dei dispositivi o gateway sul campo collegati. In una zona cloud le misure operative impediscono anche l'accesso fisico mirato ed essa non è necessariamente esposta a un'infrastruttura di "cloud pubblico".  
 
 Un gateway cloud potrebbe essere potenzialmente mappata a una sovrapposizione di virtualizzazione rete per isolare da qualsiasi altro traffico di rete il gateway cloud e tutti i relativi dispositivi o gateway sul campo collegati. Il gateway cloud stesso non è né un sistema di controllo del dispositivo né una risorsa di elaborazione o archiviazione per i dati del dispositivo; queste funzionalità si interfacciano con il gateway cloud. La zona di gateway cloud include il gateway cloud stesso assieme a tutti i gateway sul campo e ai dispositivi direttamente o indirettamente a esso collegati. Il bordo della zona è una superficie di attacco distinta in cui tutte le entità esterne comunicano.
 
@@ -177,9 +177,9 @@ In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo es
 
 **Elevazione dei privilegi (E)**: è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
-| **Componente** | **Threat** | **Mitigazione** | **Rischio** | **Implementazione** |
+| **Componente** | **Threat** | **Misura di prevenzione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Sfruttare Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Utilizzare Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Applicare meccanismi a prova di manomissione al dispositivo, ad esempio rendendo molto difficile, se non impossibile, estrarre chiavi e altro materiale crittografico dallo stesso. |Il rischio esiste se un utente sta manomettendo il dispositivo (intromissione fisica). Come è possibile accertarsi che il dispositivo non sia stato manomesso. |La soluzione più efficace è una funzionalità TPM (Trusted Platform Module) che consente l'archiviazione delle chiavi in speciali circuiti su chip da cui non è possibile leggerle, ma solo usarle per le operazioni di crittografia che le adoperano, senza mai divulgarle. Crittografia della memoria del dispositivo. Gestione delle chiavi per il dispositivo. Firma del codice. |
 || E |Avere il controllo di accesso del dispositivo. Schema di autorizzazione. |Se il dispositivo consente di eseguire singole azioni in base ai comandi da un'origine esterna o persino a sensori compromessi, l'attacco può eseguire operazioni non altrimenti accessibili. |Avere uno schema di autorizzazione per il dispositivo |
 | Gateway sul campo |S |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK o basata su attestazione). |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
@@ -206,7 +206,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Denial of Service**: il dispositivo potrebbe essere spento oppure commutato in una modalità in cui la comunicazione non è possibile, il che è intenzionale in molti macchinari industriali.
 
-**Manomissione**: Il dispositivo può essere riconfigurato per funzionare in uno stato sconosciuto al sistema di controllo (al di fuori dei parametri di calibrazione noti) e quindi fornire dati che possono essere interpretati in modo errato
+**Manomissione**: il dispositivo può essere riconfigurato in modo da operare in uno stato sconosciuto al sistema di controllo (al di fuori dei parametri di calibrazione noti) e quindi fornire dati che possono essere interpretati erroneamente
 
 **Elevazione dei privilegi**: è possibile forzare un dispositivo che esegue una funzione specifica a eseguire un'altra operazione. Ad esempio, una valvola che è programmata per aprirsi a metà può essere indotta ad aprirsi completamente.
 
@@ -214,13 +214,13 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 **Manomissione**: il dispositivo può essere riconfigurato in modo da operare in uno stato sconosciuto al sistema di controllo, al di fuori dei parametri di calibrazione noti, e quindi offrire dati che possono essere interpretati erroneamente.
 
-**Spoofing/Tampering/Repudiation**: Se non è protetto (come raramente accade con i telecomandi consumer), un utente malintenzionato può manipolare lo stato di un dispositivo in modo anonimo. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
+**Spoofing/manomissione/ripudio**: se non è protetto, ovvero raramente con i controlli remoti del consumer, un utente malintenzionato può modificare lo stato di un dispositivo in modo anonimo. Un buon esempio sono i telecomandi che possono accendere qualsiasi televisore e sono popolari strumenti per burloni.
 
 #### <a name="communication"></a>Comunicazione
 
 Minacce presenti nel percorso di comunicazione tra dispositivi, dispositivi e gateway sul campo e dispositivo e gateway cloud. La tabella seguente contiene alcune indicazioni sui socket aperti nel dispositivo/VPN:
 
-| **Componente** | **Threat** | **Mitigazione** | **Rischio** | **Implementazione** |
+| **Componente** | **Threat** | **Misura di prevenzione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Dispositivo - Hub IoT |TID |(D)TLS (PSK/RSA) per crittografare il traffico |Intercettazione o interferenza nella comunicazione tra il dispositivo e il gateway |Sicurezza a livello di protocollo. Con i protocolli personalizzati, è necessario capire come proteggerli. Nella maggior parte dei casi, la comunicazione avviene dal dispositivo all'hub IoT (connessione avviata dal dispositivo). |
 | Da dispositivo a dispositivo |TID |(D) TLS (PSK/RSA) per crittografare il traffico. |Lettura dei dati in transito tra i dispositivi. Manomissione dei dati. Sovraccarico del dispositivo con nuove connessioni |Sicurezza a livello di protocollo (MQTT/AMQP/HTTP/CoAP). Con i protocolli personalizzati, è necessario capire come proteggerli. La soluzione per la minaccia Denial of Service consiste nell'eseguire il peering dei dispositivi attraverso un gateway cloud o sul campo e far sì che agiscano solo da client verso la rete. Il peering può comportare una connessione diretta tra i peer dopo che è stata negoziata dal gateway |
@@ -244,7 +244,7 @@ Ecco alcuni esempi di minacce in questa categoria:
 
 Ogni dispositivo e gateway sul campo prevede un tipo di archiviazione (temporanea per accodamento dei dati, archiviazione di immagini del sistema operativo).
 
-| **Componente** | **Threat** | **Mitigazione** | **Rischio** | **Implementazione** |
+| **Componente** | **Threat** | **Misura di prevenzione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Archiviazione nel dispositivo |TRID |Crittografia di archiviazione, firma dei log |Lettura dei dati dalla risorsa di archiviazione (dati PII), manomissione dei dati di telemetria. Manomissione dei dati di controllo del comando in coda o memorizzati nella cache. La manomissione di pacchetti di configurazione o aggiornamento del firmware memorizzati nella cache o in coda in locale può compromettere il sistema operativo e/o i componenti del sistema |Crittografia, codice di autenticazione messaggi (MAC) o firma digitale. Laddove possibile, un controllo di accesso complesso attraverso elenchi di controllo di accesso (ACL) o autorizzazioni. |
 | Immagine del sistema operativo del dispositivo |TRID | |Manomissione del sistema operativo/sostituzione dei componenti del sistema operativo |Partizione del sistema operativo di sola lettura, immagine del sistema operativo firmata, crittografia |
@@ -253,7 +253,7 @@ Ogni dispositivo e gateway sul campo prevede un tipo di archiviazione (temporane
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Elaborazione di dispositivi ed eventi/zona gateway cloud
 
-Un gateway cloud è un sistema che consente la comunicazione remota da e verso dispositivi o gateway sul campo da diversi siti diversi attraverso lo spazio di rete pubblica, in genere verso un sistema di controllo e analisi dei dati basato su cloud, una federazione di tali sistemi. In alcuni casi, un gateway cloud può immediatamente facilitare l'accesso ai dispositivi per scopi specifici dai terminali, ad esempio tablet o telefoni. Nel contesto presentato in questo argomento, "cloud" fa riferimento a un sistema di elaborazione dati dedicato che non è associato allo stesso sito dei dispositivi o gateway sul campo collegati e in cui le misure operative prevengono l'accesso fisico mirato, ma che non rappresenta necessariamente un'infrastruttura di "cloud pubblico". Un gateway cloud potrebbe essere potenzialmente mappata a una sovrapposizione di virtualizzazione rete per isolare da qualsiasi altro traffico di rete il gateway cloud e tutti i relativi dispositivi o gateway sul campo collegati. Il gateway cloud stesso non è né un sistema di controllo del dispositivo né una risorsa di elaborazione o archiviazione per i dati del dispositivo; queste funzionalità si interfacciano con il gateway cloud. La zona di gateway cloud include il gateway cloud stesso assieme a tutti i gateway sul campo e ai dispositivi direttamente o indirettamente a esso collegati.
+Un gateway cloud è un sistema che consente la comunicazione remota da e verso dispositivi o gateway sul campo da più siti diversi attraverso lo spazio di rete pubblico, in genere verso un controllo basato sul cloud e un sistema di analisi dei dati, una Federazione di tali sistemi. In alcuni casi, un gateway cloud può immediatamente facilitare l'accesso ai dispositivi per scopi specifici dai terminali, ad esempio tablet o telefoni. Nel contesto presentato in questo argomento, "cloud" fa riferimento a un sistema di elaborazione dati dedicato che non è associato allo stesso sito dei dispositivi o gateway sul campo collegati e in cui le misure operative prevengono l'accesso fisico mirato, ma che non rappresenta necessariamente un'infrastruttura di "cloud pubblico". Un gateway cloud potrebbe essere potenzialmente mappata a una sovrapposizione di virtualizzazione rete per isolare da qualsiasi altro traffico di rete il gateway cloud e tutti i relativi dispositivi o gateway sul campo collegati. Il gateway cloud stesso non è né un sistema di controllo del dispositivo né una risorsa di elaborazione o archiviazione per i dati del dispositivo; queste funzionalità si interfacciano con il gateway cloud. La zona di gateway cloud include il gateway cloud stesso assieme a tutti i gateway sul campo e ai dispositivi direttamente o indirettamente a esso collegati.
 
 Un gateway cloud è in gran parte un software personalizzato ed eseguito come servizio, con endpoint esposti a cui si connettono i dispositivi e il gateway sul campo. Di conseguenza deve essere progettato tenendo presente la sicurezza. Seguire il processo [SDL](https://www.microsoft.com/sdl) per la progettazione e la creazione di questo servizio.
 

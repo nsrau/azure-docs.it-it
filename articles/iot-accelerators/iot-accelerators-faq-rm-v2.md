@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sull'acceleratore di soluzioni di monitoraggio remoto - Azure | Microsoft Docs
-description: Questo articolo risponde alle domande frequenti per gli acceleratori della soluzione di monitoraggio remoto.
+description: Questo articolo risponde alle domande frequenti relative agli acceleratori della soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73826247"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di monitoraggio remoto
@@ -40,13 +40,13 @@ Per altre informazioni, vedere [Upgrade map key to see devices on a dynamic map]
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Dove è possibile reperire informazioni sulla versione precedente della soluzione di monitoraggio remoto?
 
-La versione precedente dell'acceleratore di soluzione di monitoraggio remoto era nota come soluzione di monitoraggio remoto IoT Suite preconfigurata. La documentazione archiviata [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)è redata a .
+La versione precedente dell'acceleratore di soluzione di monitoraggio remoto era nota come soluzione di monitoraggio remoto IoT Suite preconfigurata. È possibile trovare la documentazione archiviata all' [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/)indirizzo.
 
 ### <a name="next-steps"></a>Passaggi successivi
 
 È anche possibile esplorare alcune altre funzionalità degli acceleratori di soluzioni IoT:
 
-* [Esplorare le funzionalità dell'acceleratore di soluzioni di monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
+* [Esplorare le funzionalità di Remote Monitoring Solution Accelerator](quickstart-remote-monitoring-deploy.md)
 * [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](iot-accelerators-predictive-overview.md)
 * [Distribuire l'acceleratore di soluzioni di connected factory](quickstart-connected-factory-deploy.md)
 * [Sicurezza IoT sin dall'inizio](/azure/iot-fundamentals/iot-security-ground-up)

@@ -1,5 +1,5 @@
 ---
-title: Debug U-SQL jobs - Azure Data Lake Tools for Visual Studio Code
+title: Eseguire il debug di processi U-SQL-codice Strumenti Azure Data Lake per Visual Studio
 description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio Code per l'esecuzione e il debug dei processi U-SQL in locale.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
 ms.openlocfilehash: e51b5640163546c673a1b0f61da47ccd992f27ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72030045"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Eseguire U-SQL e il debug in locale in Visual Studio Code
@@ -45,19 +45,19 @@ Solo le installazioni di Windows degli strumenti Azure Data Lake per Visual Stud
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Avviare il servizio di esecuzione locale e inviare il processo U-SQL a un account locale 
-Per il primo utente, utilizzare **ADL: Scarica pacchetto di esecuzione locale** per scaricare i pacchetti di esecuzione locale, se non è stato configurato l'ambiente di esecuzione locale [U-SQL.](#set-up-the-u-sql-local-run-environment)
+Per il primo utente, usare **ADL: scaricare il pacchetto di esecuzione locale** per scaricare i pacchetti di esecuzione locali, se non è stato [configurato l'ambiente di esecuzione locale di U-SQL](#set-up-the-u-sql-local-run-environment).
 
 1. Premere CTRL+MAIUSC+P per aprire il riquadro comandi e immettere **ADL: Start Local Run Service** (ADL: avvia servizio di esecuzione locale).   
 2. Selezionare **Accetto** per accettare le condizioni di licenza software Microsoft per la prima volta. 
 
    ![Accettare le condizioni di licenza software Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. Viene aperta la console dei comandi. Dato che si accede per la prima volta immettere **3** e quindi individuare il percorso di cartella locale per l'input e l'output di dati. Se non si riesce a definire il percorso con barre, provare a eseguire le barre. Per le altre opzioni è possibile usare il valore predefinito.
+3. Viene aperta la console dei comandi. Dato che si accede per la prima volta immettere **3** e quindi individuare il percorso di cartella locale per l'input e l'output di dati. Se non si riesce a definire il percorso con barre rovesciate, provare a usare le barre. Per le altre opzioni è possibile usare il valore predefinito.
 
    ![Console dei comandi per esecuzione locale di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Premere CTRL+MAIUSC+P per aprire il riquadro comandi, immettere **ADL: Submit Job** (ADL: Invia processo), quindi selezionare **Local** (Locale) per inviare il processo all'account locale.
 
    ![Selezionare Local (Locale) in Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
-5. Dopo aver inviato il processo è possibile visualizzare i dettagli di invio. Per visualizzare i dettagli dell'invio, selezionare **jobUrl** nella finestra **Output.** È possibile visualizzare lo stato di invio del processo anche dalla console dei comandi. Immettere **7** nella console dei comandi se si desidera conoscere ulteriori dettagli del processo.
+5. Dopo aver inviato il processo è possibile visualizzare i dettagli di invio. Per visualizzare i dettagli di invio, selezionare **jobUrl** nella finestra **output** . È possibile visualizzare lo stato di invio del processo anche dalla console dei comandi. Immettere **7** nella console dei comandi se si desidera conoscere ulteriori dettagli del processo.
 
    ![Output dell'esecuzione locale di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
    ![Stato comandi dell'esecuzione locale di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 
@@ -66,10 +66,10 @@ Per il primo utente, utilizzare **ADL: Scarica pacchetto di esecuzione locale** 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Avviare il debug locale per il processo U-SQL  
 Per gli utenti non esperti:
 
-1. Utilizzare **ADL: Scaricare** il pacchetto di esecuzione locale per scaricare i pacchetti di esecuzione locali, se non è stato configurato l'ambiente di [esecuzione locale U-SQL.](#set-up-the-u-sql-local-run-environment)
+1. Usare **ADL: scaricare il pacchetto di esecuzione locale** per scaricare i pacchetti di esecuzione locali se non è stato [configurato l'ambiente di esecuzione locale di U-SQL](#set-up-the-u-sql-local-run-environment).
 2. Installare .NET Core SDK 2.0 come suggerito nella finestra di messaggio, se non è già installato.
  
-  ![promemoria installa Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
+  ![promemoria installa DotNet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
 3. Installare C# per Visual Studio Code come suggerito nella finestra di messaggio, se non è già installato.Fare clic su **Installa** per continuare e quindi riavviare VSCode.
 
     ![Promemoria di installazione di C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)

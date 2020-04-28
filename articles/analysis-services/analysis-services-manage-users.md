@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572757"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
@@ -22,7 +22,7 @@ Azure Analysis Services supporta la [collaborazione B2B di Azure AD](../active-d
 
 ![Architettura dell'autenticazione di Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Per connettersi a un server tutti gli strumenti e le applicazioni client usano una o più [librerie client](analysis-services-data-providers.md) di Analysis Services (AMO, MSOLAP, ADOMD). 
 

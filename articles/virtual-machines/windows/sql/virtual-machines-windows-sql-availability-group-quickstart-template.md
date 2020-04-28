@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74022375"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Usare i modelli di avvio rapido di Azure per configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure
@@ -58,7 +58,7 @@ L'aggiunta delle macchine virtuali di SQL Server al gruppo di risorse *SqlVirtua
 
    Nella tabella seguente vengono illustrati i valori necessari per il modello: 
 
-   | **Campo** | Valore |
+   | **Campo** | valore |
    | --- | --- |
    | **Sottoscrizione** |  Sottoscrizione in cui si trovano le VM di SQL Server. |
    |**Gruppo di risorse** | Gruppo di risorse in cui si trovano le VM di SQL Server. | 
@@ -102,7 +102,7 @@ Il listener del gruppo di disponibilità Always On richiede un'istanza interna d
 4. Nel pannello **Load Balancer** selezionare **Crea**.
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | Valore |
+   | Impostazione | valore |
    | --- | --- |
    | **Nome** |Immettere un nome di testo che rappresenti il servizio di bilanciamento del carico. Ad esempio, immettere **sqlLB**. |
    | **Type** |**Interno**: la maggior parte delle implementazioni usano un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -115,7 +115,7 @@ Il listener del gruppo di disponibilità Always On richiede un'istanza interna d
    | **Posizione** |Selezionare il percorso di Azure in cui si trovano le istanze di SQL Server. |
    | &nbsp; | &nbsp; |
 
-6. Seleziona **Crea**. 
+6. Selezionare **Create** (Crea). 
 
 
 >[!IMPORTANT]
@@ -140,7 +140,7 @@ Per configurare il servizio di bilanciamento del carico interno e creare il list
 
    Nella tabella seguente vengono illustrati i valori necessari per il modello: 
 
-   | **Campo** | Valore |
+   | **Campo** | valore |
    | --- | --- |
    |**Gruppo di risorse** | Gruppo di risorse in cui si trovano le VM di SQL Server e il gruppo di disponibilità. | 
    |**Existing Failover Cluster Name** (Nome cluster di failover esistente) | Nome del cluster a cui sono aggiunte le VM di SQL Server. |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795498"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Usare IP privato per il routing interno per un endpoint in ingresso 
@@ -26,7 +26,7 @@ Esistono due modi per configurare il controller per l'uso dell'indirizzo IP priv
 ## <a name="assign-to-a-particular-ingress"></a>Assegna a un determinato ingresso
 Per esporre un determinato ingresso sull'IP privato, usare l'annotazione [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) in ingresso.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
@@ -53,7 +53,7 @@ Per i gateway applicazione senza IP privato, le Ingres annotate con `appgw.ingre
 ## <a name="assign-globally"></a>Assegna a livello globale
 Nel caso in cui il requisito sia quello di limitare l'esposizione di tutti i file in ingresso tramite `appgw.usePrivateIP: true` IP `helm` privato, usare nella configurazione.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 ```yaml
 appgw:
     subscriptionId: <subscriptionId>

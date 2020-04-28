@@ -1,6 +1,6 @@
 ---
 title: Pianificare processi U-SQL di Azure Data Lake Analytics tramite SSIS
-description: Informazioni su come usare SQL Server Integration Services integration Services per pianificare processi U-SQL con script inline o da file di query U-SQL.
+description: Informazioni su come usare SQL Server Integration Services per pianificare processi U-SQL con script inline o da file di query U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71672904"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Pianificare processi U-SQL tramite SQL Server Integration Services (SSIS)
@@ -93,7 +93,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
     
     Per creare questa connessione file:
 
-   1. Scegliere ** \<Nuova connessione... >** in FileConnection impostazione.
+   1. Scegliere ** \<nuova connessione... >** nell'impostazione FileConnection.
    2. Impostare **Tipo di utilizzo** su **File esistente**e **File** sul percorso di qualsiasi file esistente.
 
        ![Configurare il contenitore del ciclo ForEach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -119,7 +119,7 @@ Nella visualizzazione struttura del pacchetto SSIS aggiungere un'**attività Fil
 
 È possibile usare file U-SQL in Archiviazione BLOB di Azure tramite l'**attività di download di BLOB di Azure** nel Feature Pack di Azure. Questo approccio consente di usare gli script nel cloud.
 
-I passaggi sono simili con [Scenario 2: Usare i file U-SQL in Azure Data Lake Store.](#scenario-2-use-u-sql-files-in-azure-data-lake-store) Modificare l'attività File system di Azure Data Lake Store nell'attività di download di BLOB di Azure. [Altre informazioni sull'attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+I passaggi sono simili allo [scenario 2: usare i file U-SQL in Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Modificare l'attività File system di Azure Data Lake Store nell'attività di download di BLOB di Azure. [Altre informazioni sull'attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Il flusso di controllo è simile al seguente.
 
@@ -137,7 +137,7 @@ Oltre ai file U-SQL archiviati nel cloud, è possibile usare anche file nel comp
 
     ![Aggiungere una connessione al file locale](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. Aggiungere l'attività di analisi di Azure Data Lake E:Add **Azure Data Lake Analytics** Task and:
+4. Aggiungere **Azure Data Lake Analytics** attività e:
     1. Impostare **SourceType** su **FileConnection**.
     2. Impostare **FileConnection** sulla connessione file appena creata.
 
@@ -169,5 +169,5 @@ In alcuni casi può essere necessario impostare il valore della variabile U-SQL 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire pacchetti SSIS in Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
-- [Feature Pack di Azure per Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
+- [Feature Pack di Integration Services (SSIS) per Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Pianificare processi U-SQL tramite Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)

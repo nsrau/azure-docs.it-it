@@ -1,5 +1,5 @@
 ---
-title: Abilitare la rete accelerata per il ripristino di emergenza della macchina virtuale di Azure con Azure Site RecoveryEnable accelerated networking for Azure VM disaster recovery with Azure Site Recovery
+title: Abilitare la rete accelerata per il ripristino di emergenza di macchine virtuali di Azure con Azure Site Recovery
 description: Procedura per abilitare Rete accelerata con Azure Site Recovery per il ripristino di emergenza di macchine virtuali di Azure
 services: site-recovery
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73622438"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rete accelerata con il ripristino di emergenza di macchine virtuali di Azure
@@ -37,7 +37,7 @@ Azure Site Recovery supporta l'abilitazione di Rete accelerata per le macchine v
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure:
-* **Windows Server 2016 Datacenter**
+* **Windows Server 2016 Datacenter**
 * **Windows Server 2012 R2 Datacenter**
 
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate

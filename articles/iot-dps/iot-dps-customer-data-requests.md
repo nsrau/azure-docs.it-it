@@ -1,6 +1,6 @@
 ---
-title: Funzionalità di richiesta dati dei clienti per i dispositivi DPS di AzureCustomer data request features for Azure DPS devices
-description: Per i dispositivi gestiti nel servizio di provisioning dei dispositivi di Azure che sono personali, questo articolo mostra agli amministratori come esportare o eliminare i dati personali.
+title: Funzionalità di richiesta dei dati del cliente per i dispositivi di Azure DPS
+description: Per i dispositivi gestiti nel servizio Device provisioning di Azure (DPS) personali, questo articolo illustra come esportare o eliminare i dati personali da parte degli amministratori.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890642"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
@@ -62,6 +62,6 @@ Per altre informazioni su come gestire le registrazioni, vedere l'argomento rela
 
 ## <a name="links-to-additional-documentation"></a>Collegamenti a documentazione aggiuntiva
 
-La documentazione completa per le API [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)del servizio Device Provisioning si trova in .
+La documentazione completa per le API del servizio Device provisioning [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)è disponibile all'indirizzo.
 
 [Funzionalità di richiesta dati dei clienti](../iot-hub/iot-hub-customer-data-requests.md) hub IoT.

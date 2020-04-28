@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 6ad9c7912eee6c3f5ec55b9cd7ab340bc79c9db7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73837766"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
@@ -32,7 +32,7 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
 
 * Video 1: [5 domande a cui può rispondere l'analisi scientifica dei dati](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 sec)*
-* Video 2: [I dati sono pronti per l'analisi scientifica dei dati?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 2: [i dati sono pronti per la Data Science?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
 * Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
 * Video 4: Prevedere una risposta con un modello semplice
 * Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
@@ -124,8 +124,8 @@ E se al posto di una semplice manciata diamanti, si trattasse di duemila o due m
 
 Oggi l'argomento del video è stata la creazione di una regressione lineare e la realizzazione di una previsione usando i dati.
 
-Assicurarsi di controllare gli altri video in "Data Science for Beginners" di Microsoft Azure Machine Learning Studio (classico).
+Assicurarsi di consultare gli altri video in "analisi scientifica dei dati per principianti" da Microsoft Azure Machine Learning Studio (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Provare un primo esperimento di data science con Machine Learning Studio (classico)Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

@@ -1,6 +1,6 @@
 ---
 title: Gestire Azure Analysis Services | Documentazione Microsoft
-description: In questo articolo vengono descritti gli strumenti usati per gestire le attività di amministrazione e gestione per un server di Azure Analysis Services.This article describes the tools used to manage administration and management tasks for an Azure Analysis Services server.
+description: Questo articolo descrive gli strumenti usati per gestire le attività di amministrazione e gestione per un server Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572806"
 ---
 # <a name="manage-analysis-services"></a>Gestire Analysis Services
@@ -56,11 +56,11 @@ Per ottenere tutte le funzionalità più recenti e un'esperienza ottimale quando
     ![Connessione in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Amministratori del server e utenti del database
-In Azure Analysis Services ci sono due tipi di utenti, gli amministratori del server e gli utenti del database. Entrambi i tipi di utenti devono essere in Azure Active Directory ed essere specificati dal nome UPN o dall'indirizzo di posta elettronica dell'organizzazione. Per ulteriori informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
+In Azure Analysis Services ci sono due tipi di utenti, gli amministratori del server e gli utenti del database. Entrambi i tipi di utenti devono essere in Azure Active Directory ed essere specificati dal nome UPN o dall'indirizzo di posta elettronica dell'organizzazione. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Risoluzione dei problemi di connessione
-Quando ci si connette tramite SSMS, se si riscontra un problema, potrebbe essere necessario cancellare la cache di accesso. Nulla viene memorizzato nella cache su disco. Per cancellare la cache, chiudere e riavviare il processo di connessione. 
+Quando ci si connette tramite SSMS, se si riscontra un problema, potrebbe essere necessario cancellare la cache di accesso. Nessun elemento memorizzato nella cache su disco. Per cancellare la cache, chiudere e riavviare il processo di connessione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è mai stato distribuito un modello tabulare nel nuovo server, questo è il momento migliore. Per altre informazioni, vedere [Distribuire in Azure Analysis Services](analysis-services-deploy.md).

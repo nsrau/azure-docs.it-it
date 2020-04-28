@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60822838"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK Griglia di eventi per la gestione e la pubblicazione
@@ -24,7 +24,7 @@ La Griglia di eventi fornisce gli SDK che consentono di gestire a livello di cod
 Gli SDK di gestione consentono di creare, aggiornare ed eliminare gli argomenti della griglia di eventi e le sottoscrizioni. Attualmente sono disponibili gli SDK seguenti:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
-* [invio](https://github.com/Azure/azure-sdk-for-go)
+* [Go](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
 * [Nodo](https://www.npmjs.com/package/azure-arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
@@ -35,7 +35,7 @@ Gli SDK di gestione consentono di creare, aggiornare ed eliminare gli argomenti 
 Gli SDK del piano dati consentono di pubblicare eventi sugli argomenti occupandosi dell'autenticazione, formando l'evento e pubblicando in modo asincrono sull'endpoint specificato. Consentono inoltre di utilizzare eventi proprietari. Attualmente sono disponibili gli SDK seguenti:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
-* [invio](https://github.com/Azure/azure-sdk-for-go)
+* [Go](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)
 * [Nodo](https://www.npmjs.com/package/azure-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-eventgrid)

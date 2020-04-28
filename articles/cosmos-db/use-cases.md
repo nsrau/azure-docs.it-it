@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: de2bc551547706fb820813e57996e77bf49148d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73888926"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casi d'uso comuni di Azure Cosmos DB
@@ -40,11 +40,11 @@ Di seguito sono indicati alcuni attributi di Azure Cosmos DB che lo rendono part
 Questi attributi sono utili nel caso di applicazioni Web, mobili, di gioco e IoT che necessitano di tempi di risposta ridotti e che devono gestire grandi quantità di letture e scritture.
 
 ## <a name="iot-and-telematics"></a>IoT e dati telematici
-I casi di utilizzo IoT condividono di solito alcuni modelli di inserimento, elaborazione e archiviazione dei dati.  Questi sistemi devono prima di tutto inserire grandi quantità di dati dai sensori dei dispositivi di diverse impostazioni locali. In secondo luogo, questi sistemi elaborano e analizzano i dati di streaming per ottenere informazioni in tempo reale. I dati vengono quindi archiviati nell'archiviazione offline sicura per l'analisi batch. Microsoft Azure offre servizi avanzati che possono essere applicati per i casi d'uso IoT, tra cui Azure Cosmos DB, Hub eventi di Azure, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight e Power BI. 
+I casi di utilizzo IoT condividono di solito alcuni modelli di inserimento, elaborazione e archiviazione dei dati.  Questi sistemi devono prima di tutto inserire grandi quantità di dati dai sensori dei dispositivi di diverse impostazioni locali. In secondo luogo, questi sistemi elaborano e analizzano i dati di streaming per ottenere informazioni in tempo reale. I dati vengono quindi archiviati nell'archiviazione offline sicura per l'analisi batch. Microsoft Azure offre servizi avanzati che possono essere applicati per i casi d'uso di Internet, tra cui Azure Cosmos DB, Hub eventi di Azure, analisi di flusso di Azure, hub di notifica di Azure, Azure Machine Learning, Azure HDInsight e Power BI. 
 
 ![Architettura di riferimento di IoT per Azure Cosmos DB](./media/use-cases/iot.png)
 
-Grandi quantità di dati possono essere acquisite da Hub eventi di Azure che consente di inserire i dati con una velocità effettiva elevata e una bassa latenza. I dati inseriti che devono essere elaborati per ottenere informazioni in tempo reale possono essere incanalati in Analisi di flusso di Azure per l'analisi in tempo reale. I dati possono essere caricati in Azure Cosmos DB per l'esecuzione di query ad hoc. Una volta caricati in Azure Cosmos DB, i dati sono pronti per l'esecuzione delle query. Inoltre, i nuovi dati e le modifiche ai dati esistenti possono essere letti nel feed di modifica. Il feed di modifiche è un persistente, aggiunge solo il log che archivia le modifiche ai contenitori Cosmos in ordine sequenziale. Tutti i dati o solo le modifiche ai dati in Azure Cosmos DB possono essere usati come dati di riferimento nell'ambito di analisi in tempo reale. Inoltre, possono essere ulteriormente affinati ed elaborati connettendo i dati di Azure Cosmos DB a HDInsight per processi Pig, Hive o MapReduce.  I dati affinati vengono quindi ricaricati in Azure Cosmos DB per la creazione di report.   
+Grandi quantità di dati possono essere acquisite da Hub eventi di Azure che consente di inserire i dati con una velocità effettiva elevata e una bassa latenza. I dati inseriti che devono essere elaborati per ottenere informazioni in tempo reale possono essere incanalati in Analisi di flusso di Azure per l'analisi in tempo reale. I dati possono essere caricati in Azure Cosmos DB per l'esecuzione di query ad hoc. Una volta caricati in Azure Cosmos DB, i dati sono pronti per l'esecuzione delle query. Inoltre, i nuovi dati e le modifiche ai dati esistenti possono essere letti nel feed di modifica. Il feed delle modifiche è un log permanente di sola aggiunta che archivia le modifiche apportate ai contenitori Cosmos in ordine sequenziale. Tutti i dati o solo le modifiche ai dati in Azure Cosmos DB possono essere usati come dati di riferimento nell'ambito di analisi in tempo reale. Inoltre, possono essere ulteriormente affinati ed elaborati connettendo i dati di Azure Cosmos DB a HDInsight per processi Pig, Hive o MapReduce.  I dati affinati vengono quindi ricaricati in Azure Cosmos DB per la creazione di report.   
 
 Per una soluzione IoT di esempio con Azure Cosmos DB, EventHubs e Storm, vedere l'[archivio hdinsight-storm-examples su GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
@@ -101,4 +101,4 @@ JSON, supportato da Cosmos DB, è un formato adatto a rappresentare i dati di la
 
 * Per iniziare a usare Azure Cosmos DB, seguire le [guide introduttive](create-sql-api-dotnet.md), che illustrano come creare un account ed eseguire le prime operazioni con Cosmos DB.
 
-* Per altre informazioni sui clienti che usano Azure Cosmos DB, vedere la pagina dei case study dei [clienti.](https://azure.microsoft.com/case-studies/?service=cosmos-db)
+* Per altre informazioni sui clienti che usano Azure Cosmos DB, vedere la pagina [Case Study del cliente](https://azure.microsoft.com/case-studies/?service=cosmos-db) .

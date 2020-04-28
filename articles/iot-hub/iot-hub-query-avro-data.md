@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73605609"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Eseguire query sui dati di Avro con Azure Data Lake Analytics
 
-Questo articolo illustra come eseguire query sui dati di Avro per un routing efficiente dei messaggi provenienti dall'hub IoT di Azure ai servizi di Azure. [Routing dei messaggi](iot-hub-devguide-messages-d2c.md) consente di filtrare i dati usando query avanzate basate sulle proprietà dei messaggi, sul corpo del messaggio, sui tag e sulle proprietà del dispositivo gemello. Per ulteriori informazioni sulle funzionalità di query in Routing dei messaggi, vedere l'articolo sulla sintassi delle query di [routing dei messaggi.](iot-hub-devguide-routing-query-syntax.md)
+Questo articolo illustra come eseguire query sui dati di Avro per un routing efficiente dei messaggi provenienti dall'hub IoT di Azure ai servizi di Azure. [Routing dei messaggi](iot-hub-devguide-messages-d2c.md) consente di filtrare i dati usando query avanzate basate sulle proprietà dei messaggi, sul corpo del messaggio, sui tag e sulle proprietà del dispositivo gemello. Per ulteriori informazioni sulle funzionalità di query nel routing dei messaggi, vedere l'articolo relativo alla [sintassi delle query di routing dei messaggi](iot-hub-devguide-routing-query-syntax.md).
 
-La sfida è che quando l'hub IoT di Azure instrada i messaggi all'archiviazione BLOB di Azure, per impostazione predefinita l'hub IoT scrive il contenuto in formato Avro, che ha sia una proprietà del corpo del messaggio che una proprietà del messaggio. Il formato Avro non viene utilizzato per altri endpoint. Anche se il formato Avro è molto utile per la conservazione dei dati e dei messaggi, è difficile da usare per eseguire query sui dati. In confronto, il formato JSON o CSV è molto più semplice per l'esecuzione di query sui dati. L'hub IoT supporta ora la scrittura di dati nell'archiviazione BLOB in JSON e in AVRO.
+Il problema è che, quando l'hub Azure Internet instrada i messaggi nell'archiviazione BLOB di Azure, per impostazione predefinita l'hub Internet scrive il contenuto in formato Avro, che include sia una proprietà del corpo del messaggio che una proprietà del messaggio. Il formato avro non viene usato per altri endpoint. Anche se il formato Avro è molto utile per la conservazione dei dati e dei messaggi, è difficile da usare per eseguire query sui dati. In confronto, il formato JSON o CSV è molto più semplice per l'esecuzione di query sui dati. L'hub Internet delle cose supporta ora la scrittura dei dati nell'archivio BLOB in JSON e AVRO.
 
-Per altre informazioni, vedere Uso di Archiviazione di Azure come endpoint di [routing.](iot-hub-devguide-messages-d2c.md#azure-storage)
+Per altre informazioni, vedere [uso di archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage).
 
 Per soddisfare esigenze e formati di Big Data non relazionali e superare questo problema, è possibile usare molti dei modelli di Big Data per la trasformazione e il ridimensionamento dei dati. Uno dei modelli, basato sul "pagamento per query" è Azure Data Lake Analytics, che viene illustrato in dettaglio in questo articolo. Nonostante sia possibile eseguire facilmente la query in Hadoop o con altre soluzioni, Data Lake Analytics è spesso più indicato per questo approccio basato sul "pagamento per query".
 

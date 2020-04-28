@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72794311"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtri di sicurezza per tagliare i risultati di ricerca cognitiva di Azure usando Active Directory identità
@@ -186,7 +186,7 @@ La risposta include un elenco filtrato dei documenti, costituito da quelli che l
 
 In questa procedura dettagliata sono state apprese le tecniche per l'uso degli accessi ad AAD per filtrare i documenti in Azure ricerca cognitiva risultati, tagliando i risultati dei documenti che non corrispondono al filtro specificato nella richiesta.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Controllo degli accessi in base all'identità con i filtri ricerca cognitiva di Azure](search-security-trimming-for-azure-search.md)
 + [Filtri in ricerca cognitiva di Azure](search-filters.md)

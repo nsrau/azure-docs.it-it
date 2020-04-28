@@ -1,6 +1,6 @@
 ---
-title: Eseguire lo streaming dei log su SumoLogic con Monitoraggio di Azure Documenti Microsoft
-description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic usando Monitoraggio di Azure
+title: Eseguire lo streaming dei log in SumoLogic con monitoraggio di Azure | Microsoft Docs
+description: Informazioni su come integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cdfc4e393ca7bf4bcbd523b4fad72690d5f2744
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014394"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrare i log di Azure Active Directory con SumoLogic tramite Monitoraggio di AzureIntegrate Azure Active Directory logs with SumoLogic using Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrare i log di Azure Active Directory con SumoLogic usando monitoraggio di Azure
 
 Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con SumoLogic tramite Monitoraggio di Azure. Innanzitutto indirizzare i log a un hub eventi di Azure e quindi integrare l'hub eventi con SumoLogic.
 
@@ -44,6 +44,6 @@ Per usare questa funzionalità, sono necessari:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di controllo in Monitoraggio di AzureInterpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Interpretare lo schema dei log di accesso in Monitoraggio di AzureInterpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpretare lo schema dei log di controllo in monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
+* [Interpretare lo schema dei log di accesso in monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

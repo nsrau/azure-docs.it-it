@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle tabelle temporali
+title: Introduzione con le tabelle temporali
 description: Informazioni introduttive sull'uso delle tabelle temporali nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820715"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introduzione alle tabelle temporali nel database SQL di Azure
@@ -108,7 +108,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Passaggio 2: Eseguire regolarmente il carico di lavoro
 Il vantaggio principale delle tabelle temporali è che non è necessario modificare il sito Web in alcun modo per eseguire il rilevamento delle modifiche. Dopo la creazione, le tabelle temporali mantengono in modo trasparente le versioni precedenti delle righe ogni volta che si apportano modifiche ai dati. 
 
-Per sfruttare il rilevamento automatico delle modifiche per questo particolare scenario, aggiorniamo semplicemente la colonna **PagesVisited** ogni volta che un utente termina la propria sessione sul sito Web:
+Per sfruttare il rilevamento automatico delle modifiche per questo particolare scenario, è sufficiente aggiornare la colonna **PagesVisited** ogni volta che un utente termina la sessione nel sito Web:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -195,6 +195,6 @@ Con le tabelle temporali con controllo delle versioni di sistema, la tabella del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sulle tabelle temporali, vedere Estrarre [tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Per altre informazioni sulle tabelle temporali, vedere Estrai [tabelle temporali](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
 - Andare su Channel 9 per ascoltare una [storia di successo reale relativa all'implementazione temporale di un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale in tempo reale](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72793242"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure
@@ -214,7 +214,7 @@ Per esplorare visivamente la grammatica del linguaggio OData supportata da Azure
 > [!div class="nextstepaction"]
 > [Diagramma della sintassi OData per ricerca cognitiva di Azure](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
 - [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

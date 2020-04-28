@@ -1,35 +1,35 @@
 ---
-title: Microsoft Azure FXT Edge Filer - Documentazione aggiuntiva
-description: Documenti di riferimento aggiuntivi per l'installazione di Filer di Azure FXT EdgeAdditional reference documents for Azure FXT Edge Filer installation
+title: Microsoft Azure FXT Edge Filer-documentazione aggiuntiva
+description: Documenti di riferimento aggiuntivi per l'installazione di Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: e3205827f9603545b0a99b064a53e50fc94c374e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72254908"
 ---
 # <a name="additional-documentation"></a>Documentazione aggiuntiva 
 
-Alcune risorse esterne a questo docs.microsoft.com sito Web possono essere utili per comprendere e usare la cache ibrida di Microsoft Azure FXT Edge Filer.Some resources outside of this docs.microsoft.com web might help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache.
+Alcune risorse esterne a questo sito Web docs.microsoft.com possono essere utili per comprendere e usare la Microsoft Azure la cache ibrida di FXT Edge.
 
-## <a name="avere-vfxt-for-azure-cache-documentation"></a>Video di Avere vFXT per la documentazione della cache di Azure
+## <a name="avere-vfxt-for-azure-cache-documentation"></a>Documentazione di vFXT per la cache di Azure
 
-[Avere vFXT per Azure](https://docs.microsoft.com/azure/avere-vfxt/) è un prodotto cache cluster simile che usa nodi virtuali in Microsoft Azure.Avere vFXT for Azure is a similar cluster cache product that uses virtual nodes in Microsoft Azure. Viene creato con il portale di Azure, ma usa lo stesso software di configurazione del pannello di controllo della cache hardware di Azure FXT Edge Filer.It is created with the Azure portal, but uses the same control panel configuration software as the Azure FXT Edge Filer hardware cache. 
+[VFXT per Azure](https://docs.microsoft.com/azure/avere-vfxt/) è un prodotto di cache del cluster simile che usa nodi virtuali in Microsoft Azure. Viene creato con il portale di Azure, ma usa lo stesso software di configurazione del pannello di controllo della cache hardware del filer di Azure FXT Edge. 
 
-## <a name="legacy-hardware-documentation"></a>Documentazione sull'hardware legacy 
+## <a name="legacy-hardware-documentation"></a>Documentazione hardware legacy 
 
-Questa tecnologia è stata precedentemente utilizzata nei prodotti di Avere Systems. La documentazione utente per tali prodotti meno recenti è disponibile sul [sito Web Avere Legacy Documentation](https://azure.github.io/Avere/). 
+Questa tecnologia è stata usata in precedenza nei prodotti dei sistemi. La documentazione per gli utenti di questi prodotti meno recenti è disponibile nel [sito Web della documentazione legacy](https://azure.github.io/Avere/). 
 
-In particolare, questi documenti potrebbero avere dettagli utili:Specifically, these documents might have helpful details:
+In particolare, questi documenti potrebbero avere informazioni utili:
 
-* [Guida](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) alla configurazione del cluster - Include informazioni generali sulle attività comuni di configurazione e gestione dei cluster e contiene spiegazioni dettagliate delle pagine delle impostazioni del cluster 
+* [Guida alla configurazione dei cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) : include informazioni generali sulle attività di configurazione e gestione dei cluster comuni e spiegazioni dettagliate sulle pagine delle impostazioni del cluster 
 
-* [Dashboard Guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) - Spiega le caratteristiche della scheda **Dashboard** del pannello di controllo
+* [Guida del dashboard](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) -spiega le funzionalità della scheda **Dashboard** del pannello di controllo
 
-* [Guida alla creazione di cluster FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) - Guida alla creazione di cluster da prodotti precedenti
+* [Guida alla creazione di cluster FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) -Guida alla creazione di cluster da prodotti precedenti
 

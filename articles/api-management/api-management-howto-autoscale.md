@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70018272"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Ridimensionare automaticamente un'istanza di Gestione API di Azure  
@@ -25,7 +25,7 @@ L'istanza del servizio Gestione API di Azure esegue la scalabilità automaticame
 L'articolo illustra il processo di configurazione della scalabilità automatica e suggerisce una configurazione ottimale delle regole di scalabilità automatica.
 
 > [!NOTE]
-> Il servizio Gestione API nel livello **Consumo** viene ridimensionato automaticamente in base al traffico, senza alcuna configurazione aggiuntiva.
+> Il servizio gestione API nel livello **consumo** si ridimensiona automaticamente in base al traffico, senza necessità di alcuna configurazione aggiuntiva.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -87,7 +87,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
     | *Azione*              |                   |                                                                                                                                                                                                                                                                                 |
     | Operazione             | Aumenta numero di |                                                                                                                                                                                                                                                                                 |
     | Numero di istanze        | 1                 | Scalare orizzontalmente un'istanza di Gestione API di Azure di 1 unità.                                                                                                                                                                                                                          |
-    | Disattiva regole dopo (minuti)   | 60                | La scalabilità orizzontale del servizio Gestione API di Azure richiede almeno 20 minuti. Nella maggior parte dei casi, il periodo di raffreddamento di 60 minuti impedisce di attivare molti scale-out.                                                                                                  |
+    | Disattiva regole dopo (minuti)   | 60                | Sono necessari almeno 20 minuti per la scalabilità orizzontale del servizio gestione API di Azure. Nella maggior parte dei casi, il periodo di raffreddamento di 60 minuti impedisce l'attivazione di numerose scale-out.                                                                                                  |
 
 8. Fare clic su **Aggiungi** per salvare la regola.
 

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73682214"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selezione delle dimensioni di macchina virtuale corrette per il cluster HDInsight di Azure
@@ -53,7 +53,7 @@ In presenza di requisiti di elaborazione leggeri, la [serie F](https://azure.mic
 
 La tabella seguente descrive i tipi di cluster e i tipi di nodo che possono essere creati con le macchine virtuali della serie Fsv2.
 
-| Tipo di cluster | Version | Nodo del ruolo di lavoro | Nodo head | Nodo Zookeeper |
+| Tipo di cluster | Versione | Nodo del ruolo di lavoro | Nodo head | Nodo Zookeeper |
 |---|---|---|---|---|
 | Spark | Tutti | F4 e versioni successive | no | no |
 | Hadoop | Tutti | F4 e versioni successive | no | no |

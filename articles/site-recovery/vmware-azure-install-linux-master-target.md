@@ -1,5 +1,5 @@
 ---
-title: Installare un failback di destinazione master per la macchina virtuale Linux con Azure Site RecoveryInstall a master target server for Linux VM failback with Azure Site Recovery
+title: Installare un server di destinazione master per il failback della VM Linux con Azure Site Recovery
 description: Informazioni su come configurare un server di destinazione master Linux per eseguire il failback in un sito locale durante il ripristino di emergenza di macchine virtuali VMware in Azure tramite Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954372"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
@@ -46,7 +46,7 @@ Creare il server di destinazione master in base alle linee guida per il ridimens
 - **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
 - **Core CPU**: almeno 4 core
 
-Sono supportati i seguenti kernel Ubuntu.
+Sono supportati i kernel Ubuntu seguenti.
 
 
 |Serie di kernel  |Supporta fino a  |
@@ -62,7 +62,7 @@ Sono supportati i seguenti kernel Ubuntu.
 
 Attenersi ai passaggi seguenti per installare il sistema operativo a 64 bit di Ubuntu 16.04.2.
 
-1.   Vai al link di [download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegli il mirror più vicino e scarica un Ubuntu 16.04.2 ISO a 64 bit minimo.
+1.   Passare al collegamento per il [download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegliere il mirror più vicino e scaricare un'immagine ISO di Ubuntu 16.04.2 minimal minimal 64 bit.
 Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il sistema.
 
 1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
@@ -83,7 +83,7 @@ Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il 
 1. Selezionare **No** (opzione predefinita) e premere **Invio**.
 
      ![Configurare la tastiera](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selezionare **Inglese (Stati Uniti)** come paese/area geografica di origine per la tastiera, quindi immettere **.**
+1. Selezionare **inglese (Stati Uniti)** come paese/area di origine per la tastiera e quindi premere **invio**.
 
 1. Selezionare **English (US)** (Inglese Stati Uniti) come layout per la tastiera e premere **Invio**.
 
@@ -160,7 +160,7 @@ Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il 
 
 3. Scegliere la scheda **Options** (Opzioni).
 
-4. Nel riquadro sinistro selezionare**Generale** **avanzato** > , quindi selezionare il pulsante Parametri di **configurazione** nella parte inferiore destra dello schermo.
+4. Nel riquadro sinistro selezionare **Avanzate** > **generale**e quindi selezionare il pulsante parametri di **configurazione** nella parte inferiore destra della schermata.
 
     ![Aprire il parametro di configurazione.](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -209,12 +209,12 @@ Per scaricarli usando Linux, digitare:
 
 1. Sul server di elaborazione passare alla directory **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
 
-2. Copiare il file di installazione richiesto dal server di elaborazione e salvarlo come **latestlinuxmobsvc.tar.gz** nella home directory.
+2. Copiare il file del programma di installazione necessario dal server di elaborazione e salvarlo come **latestlinuxmobsvc. tar. gz** nella Home Directory.
 
 
 ### <a name="apply-custom-configuration-changes"></a>Applicare le modifiche di configurazione personalizzate
 
-Per applicare modifiche di configurazione personalizzate, attenersi alla seguente procedura come utente ROOT:
+Per applicare le modifiche di configurazione personalizzate, attenersi alla procedura seguente come utente ROOT:
 
 1. Eseguire il seguente comando per decomprimere il file binario.
 
@@ -244,7 +244,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
     ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formattare l'unità, quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/\<l'ID multipath del disco di conservazione>**.
+3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs. ext4/dev/mapper/\<multipath ID del disco di conservazione>**.
     
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     
     Selezionare **Inserisci** per iniziare a modificare il file. Creare una nuova riga e inserirvi il testo seguente. Modificare l'ID a percorsi multipli disco in base all'ID a percorsi multipli evidenziato dal comando precedente.
 
-    **/dev/mapper/\<Dischi di conservazione id multipercorso> /mnt/retention ext4 rw 0 0**
+    **ID\<percorsi multipli dei dischi di conservazione/dev/mapper/>/mnt/retention ext4 RW 0 0**
 
     Premere **Esc** e digitare **:wq**, che sta per scrivi ed esci, per chiudere la finestra dell'editor.
 
@@ -272,7 +272,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
 
 > [!NOTE]
-> Prima di installare il server di destinazione master, verificare che il file **/etc/hosts** nella macchina virtuale contenga voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
+> Prima di installare il server di destinazione master, verificare che il file/ **hosts** nella macchina virtuale contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
 
 1. Copiare la passphrase CS da **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** nel server di configurazione. Quindi salvarla come **passphrase.txt** nella stessa directory locale eseguendo il comando seguente:
 
@@ -326,7 +326,7 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-     Attendere il termine dello script. Se la destinazione master è stata registrata correttamente, la destinazione master viene elencata nella pagina **Infrastruttura di Site Recovery** del portale.
+     Attendere il termine dello script. Se il database di destinazione master viene registrato correttamente, la destinazione master viene elencata nella pagina **infrastruttura Site Recovery** del portale.
 
 
 ### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installare gli strumenti VMware/open-vm-tools nel server master di destinazione
@@ -335,7 +335,7 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
 
 ### <a name="upgrade-the-master-target-server"></a>Aggiornare il server di destinazione master
 
-Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Per eseguire l'aggiornamento, selezionare **Y**.  Al termine dell'installazione, controllare la versione della destinazione master installata utilizzando il comando seguente:
+Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Per eseguire l'aggiornamento, selezionare **Y**.  Al termine dell'installazione, controllare la versione della destinazione master installata usando il comando seguente:
 
 `cat /usr/local/.vx_version`
 
@@ -356,5 +356,5 @@ Eseguire il programma di installazione. Tale programma rileva automaticamente ch
 ## <a name="next-steps"></a>Passaggi successivi
 Al termine dell'installazione e della registrazione del server di destinazione master, quest'ultimo viene visualizzato nella sezione **Destinazione master** della pagina **Infrastruttura di Site Recovery** nelle informazioni generali sul server di configurazione.
 
-È ora possibile procedere con la [riprotezione](vmware-azure-reprotect.md), seguita da failback.
+È ora possibile procedere con la [riprotezione](vmware-azure-reprotect.md), seguita dal failback.
 

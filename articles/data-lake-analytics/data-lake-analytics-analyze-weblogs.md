@@ -1,6 +1,6 @@
 ---
 title: Analizzare i log dei siti Web con Azure Data Lake Analytics
-description: Informazioni su come analizzare i log del sito Web usando Azure Data Lake Analytics per eseguire query e funzioni U-SQL.
+description: Informazioni su come analizzare i log dei siti Web usando Azure Data Lake Analytics per eseguire query e funzioni di U-SQL.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 04c6d4c74a82ccfbcbb0faecb0dca5ec495f6663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71672886"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
@@ -32,7 +32,7 @@ Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in par
 * **Un account Data Lake Analytics.**  Vedere la sezione relativa alla [creazione di un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 * **Installare i dati di esempio.** Nel portale di Azure aprire l'account Data Lake Analytics e fare clic su **Script di esempio** nel menu a sinistra, quindi fare clic su **Copia dati di esempio**. 
 
-## <a name="connect-to-azure"></a>Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connettiti ad Azure
 Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connettersi ad Azure.
 
 **Per connettersi ad Analisi Data Lake**
@@ -45,7 +45,7 @@ Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connett
 **Per accedere agli account Analisi Data Lake personali**
 
 1. In Visual Studio aprire **Esplora server** premendo i tasti **CTRL + ALT + S**.
-2. Da **Esplora server** espandere **Azure** e quindi **Data Lake Analytics**. Verrà visualizzato l'elenco degli account di Analisi Data Lake personali, se disponibili. Non è possibile creare account Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione ad Azure Data Lake Analytics con il portale](data-lake-analytics-get-started-portal.md) di Azure o Introduzione ad Azure Data Lake Analytics con Azure [PowerShell.](data-lake-analytics-get-started-powershell.md)
+2. Da **Esplora server** espandere **Azure** e quindi **Data Lake Analytics**. Verrà visualizzato l'elenco degli account di Analisi Data Lake personali, se disponibili. Non è possibile creare account Analisi Data Lake da Visual Studio. Per creare un account, vedere [Introduzione a Azure Data Lake Analytics usando il portale di Azure](data-lake-analytics-get-started-portal.md) o iniziare [a usare Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## <a name="develop-u-sql-application"></a>Sviluppare un'applicazione U-SQL
 Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione a U-SQL](data-lake-analytics-u-sql-get-started.md).

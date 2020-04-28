@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ms.openlocfilehash: 1e3fb218e6cda5619bfa1a0936e07d6731a9cc93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73648454"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Informazioni su come risolvere gli errori di runtime di U-SQL a causa di modifiche di runtime
@@ -62,7 +62,7 @@ Esistono due possibili problemi di versione di runtime che possono verificarsi:
 
 2. Si è usato un runtime non predefinito in modo esplicito o implicito quando è stato aggiunto all'account e tale Runtime è stato rimosso in un secondo momento. Se si verificano runtime mancanti, aggiornare gli script per l'esecuzione con il runtime predefinito corrente. Se è necessario ulteriore tempo, contattare supporto tecnico Microsoft
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Gestire Azure Data Lake Analytics tramite portale di Azure](data-lake-analytics-manage-use-portal.md)

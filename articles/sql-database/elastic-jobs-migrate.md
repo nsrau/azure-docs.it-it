@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione a nuovi processi di database elasticoMigrate to new Elastic Database Jobs
+title: Eseguire la migrazione a nuovi processi di database elastici
 description: Eseguire la migrazione ai nuovi processi di database elastico.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 5a7ed254de7b7ea32f2fb357d860354693e46e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73827223"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Eseguire la migrazione ai nuovi processi di database elastico
@@ -31,7 +31,7 @@ La versione aggiornata dei processi di database elastico include un nuovo set di
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installare la versione più recente dei cmdlet per i processi elastici
 
-Se non si dispone già di una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se non si ha già una sottoscrizione di Azure, [creare un account gratuito prima di](https://azure.microsoft.com/free/) iniziare.
 
 Installare il modulo **Az.Sql** 1.1.1-preview per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
 
@@ -629,5 +629,5 @@ $jobs | Set-AzSqlElasticJob -Enable
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare e gestire processi elastici tramite PowerShellCreate and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md)
+- [Creare e gestire processi elastici con PowerShell](elastic-jobs-powershell.md)
 - [Creare e gestire processi elastici usando Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
