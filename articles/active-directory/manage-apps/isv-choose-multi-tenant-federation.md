@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443383"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Scegliere il protocollo federativo appropriato per l'applicazione multi-tenant

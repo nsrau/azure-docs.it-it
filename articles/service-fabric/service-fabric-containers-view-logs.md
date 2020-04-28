@@ -1,13 +1,13 @@
 ---
-title: Visualizzare i log dei contenitori in Azure Service FabricView containers logs in Azure Service Fabric
+title: Visualizzare i log dei contenitori in Azure Service Fabric
 description: Viene descritto come visualizzare i log dei contenitori per un servizio contenitore di Service Fabric in esecuzione tramite Service Fabric Explorer.
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458189"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualizzare i log per un servizio contenitore di Service Fabric
@@ -16,7 +16,7 @@ Azure Service Fabric è un agente di orchestrazione dei contenitori e supporta [
 ## <a name="access-the-logs-of-a-running-container"></a>Accedere ai log di un contenitore in esecuzione
 I log dei contenitori sono accessibili mediante [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  In un Web browser aprire Service Fabric Explorer dall'endpoint di gestione del cluster, visitando l'indirizzo `http://mycluster.region.cloudapp.azure.com:19080/Explorer`.  
 
-I log dei contenitori sono disponibili nel nodo del cluster in cui è in esecuzione l'istanza del servizio contenitore. Ad esempio, è possibile visualizzare i log del contenitore front-end Web dell'[applicazione di voto di esempio per Linux](service-fabric-quickstart-containers-linux.md). Nella visualizzazione albero espandere**Applicazioni**> **cluster**>**VotingType**>**fabric:/Voting/azurevotefront**.  Espandere quindi la partizione (d1aa737e-f22a-e347-be16-eec90be24bc1 in questo esempio) e verificare che il contenitore sia in esecuzione nel nodo del cluster *_lnxvm_0*.
+I log dei contenitori sono disponibili nel nodo del cluster in cui è in esecuzione l'istanza del servizio contenitore. Ad esempio, è possibile visualizzare i log del contenitore front-end Web dell'[applicazione di voto di esempio per Linux](service-fabric-quickstart-containers-linux.md). Nella visualizzazione albero espandere **cluster**>**Applications**>**VotingType**>**Fabric:/voter/azurevotefront**.  Espandere quindi la partizione (d1aa737e-f22a-e347-be16-eec90be24bc1 in questo esempio) e verificare che il contenitore sia in esecuzione nel nodo del cluster *_lnxvm_0*.
 
 Nella visualizzazione struttura ad albero individuare il pacchetto di codice nel nodo *_lnxvm_0* espandendo **Nodi**>**_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Pacchetti di codice**>**codice**.  Selezionare quindi l'opzione **Log contenitori** per visualizzare i log del contenitore.
 
@@ -31,7 +31,7 @@ Per semplificare la diagnosi degli errori di avvio dei contenitori, Service Fabr
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
  ```
 
-L'impostazione **ContainersRetentionCount** specifica il numero di contenitori da conservare in caso di errore. Se viene specificato un valore negativo, verranno conservati tutti i contenitori con errori. Quando l'attributo **ContainersRetentionCount** non è specificato, non verrà mantenuto alcun contenitore. L'attributo **ContainersRetentionCount** supporta anche i parametri dell'applicazione, quindi gli utenti possono specificare valori diversi per cluster di test e di produzione. Usare vincoli di posizionamento per specificare come destinazione un nodo specifico per il servizio contenitore quando si usa questa funzionalità, per evitare che il servizio contenitore passi ad altri nodi. Eventuali contenitori conservati tramite questa funzionalità devono essere rimossi manualmente.
+L'impostazione **ContainersRetentionCount** specifica il numero di contenitori da conservare in caso di errore. Se viene specificato un valore negativo, verranno conservati tutti i contenitori con errori. Se l'attributo **ContainersRetentionCount** non è specificato, non verrà mantenuto alcun contenitore. L'attributo **ContainersRetentionCount** supporta anche i parametri dell'applicazione, quindi gli utenti possono specificare valori diversi per cluster di test e di produzione. Usare vincoli di posizionamento per specificare come destinazione un nodo specifico per il servizio contenitore quando si usa questa funzionalità, per evitare che il servizio contenitore passi ad altri nodi. Eventuali contenitori conservati tramite questa funzionalità devono essere rimossi manualmente.
 
 L'impostazione **RunInteractive** corrisponde ai `tty` [flag](https://docs.docker.com/engine/reference/commandline/run/#options)`--interactive` e  di Docker. Quando questa impostazione è true nel file manifesto, tali flag vengono usati per avviare il contenitore.  
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Relay Hybrid Connections - HTTP requests in Node
+title: Connessioni ibride di inoltro di Azure-richieste HTTP nel nodo
 description: Scrivere un'applicazione console Node.js per le richieste HTTP per Connessioni ibride di Inoltro di Azure in Node.
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462031"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azure in Node
@@ -37,7 +37,7 @@ In questa guida introduttiva vengono completati i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 - [Node.js](https://nodejs.org/en/).
-- Una sottoscrizione di Azure. Se non ne hai uno, [crea un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- Una sottoscrizione di Azure. Se non si ha un [account, creare un account gratuito prima di](https://azure.microsoft.com/free/) iniziare.
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi tramite il portale di Azure
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

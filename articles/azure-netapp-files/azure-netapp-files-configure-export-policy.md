@@ -1,6 +1,6 @@
 ---
-title: Configurare i criteri di esportazione per il volume NFS - File NetApp di AzureConfigure export policy for NFS volume - Azure NetApp Files
-description: Descrive come configurare i criteri di esportazione per controllare l'accesso a un volume NFS usando I file NetApp di AzureDescribes how to configure export policy to control access to an NFS volume using Azure NetApp Files
+title: Configurare i criteri di esportazione per il volume Azure NetApp Files NFS
+description: Viene descritto come configurare i criteri di esportazione per controllare l'accesso a un volume NFS utilizzando Azure NetApp Files
 services: azure-netapp-files
 author: b-juche
 ms.author: b-juche
@@ -9,19 +9,19 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551559"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
-È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. I criteri di esportazione File NetApp di Azure supportano solo volumi NFS.  Sono supportati sia NFSv3 che NFSv4. 
+È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. Azure NetApp Files i criteri di esportazione supportano solo i volumi NFS.  Sono supportati sia NFSv3 che NFSv4. 
 
 ## <a name="steps"></a>Passaggi 
 
-1.  Fare clic su Esporta criteri nel riquadro di spostamento File NetApp di Azure.Click **Export policy** from the Azure NetApp Files navigation pane. 
+1.  Fare clic su **Esporta criterio** nel riquadro di spostamento Azure NetApp files. 
 
 2.  Specificare le informazioni nei campi seguenti creare una regola di criteri di esportazione:   
     *  **Indice**   

@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio - Inviare errori a Stackify per la registrazioneSample API management policy - Send errors to Stackify for logging
+title: Criteri di gestione API di esempio-inviare errori a Stackify per la registrazione
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure che illustra come aggiungere criteri di registrazione degli errori per inviare gli errori a Stackify per la registrazione.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 6662761df005211729dffb16282b8e0a8e2a8444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442452"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Inviare errori a Stackify per la registrazione

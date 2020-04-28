@@ -4,10 +4,10 @@ description: Panoramica di Service Fabric e dell'uso dei contenitori per la dist
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458216"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
@@ -51,7 +51,7 @@ Service Fabric supporta i contenitori sia in Linux che in Windows e in Windows s
 Docker fornisce le API per creare e gestire contenitori su contenitori del kernel Linux. Docker Hub è un repository centrale per archiviare e recuperare immagini contenitore.
 Per un'esercitazione basata su Linux, vedere [Creare la prima applicazione contenitore di Service Fabric in Linux](service-fabric-get-started-containers-linux.md).
 
-#### <a name="windows-server-containers"></a>Contenitori Windows Server
+#### <a name="windows-server-containers"></a>Contenitori di Windows Server
 
 Windows Server 2016 offre due diversi tipi di contenitori che si differenziano per livello di isolamento. I contenitori Windows Server e i contenitori Docker sono simili perché usufruiscono entrambi dell'isolamento dello spazio dei nomi e del file system, ma condividono il kernel con l'host in cui vengono eseguiti. In Linux, questo isolamento viene tradizionalmente fornito con cgroup e spazi dei nomi e i contenitori Windows Server presentano un comportamento simile.
 

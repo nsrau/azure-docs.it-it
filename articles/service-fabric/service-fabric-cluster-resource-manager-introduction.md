@@ -1,15 +1,15 @@
 ---
-title: Introduzione a Gestione risorse cluster di Service FabricIntroducing the Service Fabric Cluster Resource Manager
-description: Informazioni su Gestione risorse cluster di Service Fabric, un modo per gestire l'orchestrazione dei servizi dell'applicazione.
+title: Introduzione al cluster di Service Fabric Gestione risorse
+description: Informazioni sul Gestione risorse del cluster Service Fabric, un modo per gestire l'orchestrazione dei servizi dell'applicazione.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75563327"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzione a Cluster Resource Manager di Service Fabric
@@ -45,7 +45,7 @@ Anche se alcune di queste strategie sono interessanti, Cluster Resource Manager 
 Poiché Cluster Resource Manager è responsabile dello spostamento dei servizi contiene un set di funzionalità diverso rispetto a quello di un servizio di bilanciamento del carico di rete. Questo avviene perché i bilanciamenti del carico di rete inviano il traffico di rete dove già si trovano i servizi, anche se tale posizione non è ideale per l'esecuzione del servizio stesso. Cluster Resource Manager di Service Fabric impiega strategie essenzialmente diverse per garantire che le risorse del cluster vengano ben usate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni sull'architettura e sul flusso di informazioni all'interno di Gestione risorse cluster, consulta [questo articolo](service-fabric-cluster-resource-manager-architecture.md)
+- Per informazioni sull'architettura e sul flusso di informazioni all'interno del cluster Gestione risorse, vedere [questo articolo](service-fabric-cluster-resource-manager-architecture.md) .
 - Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni sulle metriche vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - Per altre informazioni sulla configurazione dei servizi, [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
 - Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)

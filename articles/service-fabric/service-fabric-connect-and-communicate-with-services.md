@@ -1,15 +1,15 @@
 ---
-title: Connettersi e comunicare con i servizi in Azure Service FabricConnect and communicate with services in Azure Service Fabric
+title: Connettersi e comunicare con i servizi in Azure Service Fabric
 description: Informazioni su come risolvere, connettersi e comunicare con i servizi in Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458234"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Connettersi e comunicare con i servizi in Service Fabric
@@ -23,7 +23,7 @@ Service Fabric semplifica la gestione del ciclo di vita dei servizi ma non prend
 ![endpoint di servizio][1]
 
 ## <a name="service-discovery-and-resolution"></a>Individuazione e risoluzione del servizio
-In un sistema distribuito è possibile che i servizi si spostino da un computer a un altro nel tempo Questa situazione può verificarsi per vari motivi, tra cui bilanciamento delle risorse, aggiornamenti, failover o scalabilità orizzontale. Ciò significa che gli indirizzi degli endpoint del servizio cambiano quando il servizio si sposta su nodi con indirizzi IP diversi e possono aprirsi su porte diverse se il servizio utilizza una porta selezionata dinamicamente.
+In un sistema distribuito è possibile che i servizi si spostino da un computer a un altro nel tempo Questo problema può verificarsi per diversi motivi, tra cui il bilanciamento delle risorse, gli aggiornamenti, i failover o il ridimensionamento orizzontale. Questo significa che gli indirizzi degli endpoint di servizio cambiano quando il servizio viene spostato nei nodi con indirizzi IP diversi e possono essere aperti in porte diverse se il servizio usa una porta selezionata dinamicamente.
 
 ![Distribuzione dei servizi][7]
 
@@ -162,7 +162,7 @@ Ad esempio, per accettare il traffico esterno sulla porta **80**, è necessario 
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: opzioni predefinite per l'API di comunicazione
 Il framework Reliable Services include alcune opzioni di comunicazione predefinite. la cui scelta dipende dal modello di programmazione adottato, dal framework di comunicazione e dal linguaggio di programmazione usato per scrivere i servizi.
 
-* **Nessun protocollo specifico:**  Se non si dispone di una particolare scelta di framework di comunicazione, ma si desidera ottenere qualcosa rapidamente, l'opzione ideale per voi è [la comunicazione remota](service-fabric-reliable-services-communication-remoting.md)del servizio , che consente chiamate di procedura remota fortemente tipizzate per Reliable Services e Reliable Actors. Questo è il modo più semplice e veloce per iniziare a comunicare con i servizi. Le comunicazioni remote del servizio gestiscono la risoluzione degli indirizzi del servizio, la connessione, la ripetizione dei tentativi e la gestione degli errori. Questo è disponibile sia per applicazioni C# che per applicazioni Java.
+* **Nessun protocollo specifico:**  Se non si ha una scelta particolare del Framework di comunicazione, ma si vuole che l'operazione venga eseguita rapidamente, l'opzione ideale per l'utente è la comunicazione [remota del servizio](service-fabric-reliable-services-communication-remoting.md), che consente chiamate a procedure remote fortemente tipizzate per Reliable Services e reliable Actors. Questo è il modo più semplice e veloce per iniziare a comunicare con i servizi. Le comunicazioni remote del servizio gestiscono la risoluzione degli indirizzi del servizio, la connessione, la ripetizione dei tentativi e la gestione degli errori. Questo è disponibile sia per applicazioni C# che per applicazioni Java.
 * **HTTP**: per comunicazioni indipendenti dal linguaggio, HTTP costituisce la scelta standard di settore, con strumenti e server HTTP disponibili in molti linguaggi diversi, tutti supportati da Service Fabric. I servizi possono usare qualsiasi stack HTTP disponibile, inclusa l'[API Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) per applicazioni C#. I client scritti in C# possono sfruttare le classi `ICommunicationClient` e `ServicePartitionClient`. Per Java usare invece le classi `CommunicationClient` e `FabricServicePartitionClient`[per la risoluzione del servizio, le connessioni HTTP e i cicli di ripetizione dei tentativi](service-fabric-reliable-services-communication.md).
 * **WCF**: se il codice esistente usa WCF come framework di comunicazione, è possibile scegliere `WcfCommunicationListener` per il lato server e le classi `WcfCommunicationClient` e `ServicePartitionClient` per il client. Questo comunque è disponibile solo per applicazioni C# in cluster basati su Windows. Per altre informazioni, vedere l'articolo [Stack di comunicazione basato su WCF per Reliable Services](service-fabric-reliable-services-communication-wcf.md).
 

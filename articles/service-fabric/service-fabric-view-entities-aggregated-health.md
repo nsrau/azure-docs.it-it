@@ -1,15 +1,15 @@
 ---
-title: Come visualizzare l'integrità aggregata delle entità di Azure Service FabricHow to view Azure Service Fabric entities' aggregate ed health
+title: Come visualizzare l'integrità aggregata delle entità Service Fabric di Azure
 description: Descrive come eseguire una query dell'integrità aggregata delle entità di Azure Service Fabric, come visualizzarla e come valutarla con query di integrità e query generali.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464123"
 ---
 # <a name="view-service-fabric-health-reports"></a>Come visualizzare i report sull'integrità di Service Fabric
@@ -1044,7 +1044,7 @@ Di seguito sono elencate le query che contengono **HealthState** per le entità:
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Alcune query restituiscono risultati di paging. La restituzione di queste query è un elenco derivato da [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
+> Alcune query restituiscono risultati di paging. La restituzione di queste query è un elenco derivato [da\<PagedList T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se questi risultati non corrispondono a un messaggio, viene restituita solo una pagina e un ContinuationToken che tiene traccia del punto in cui l'enumerazione è stata arrestata. Continuare a chiamare la stessa query e passare il token di continuazione dalla query precedente per ottenere i risultati successivi.
 
 ### <a name="examples"></a>Esempi
 Il codice seguente permette di ottenere le applicazioni non integre nel cluster:

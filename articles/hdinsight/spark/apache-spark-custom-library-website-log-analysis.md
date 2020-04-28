@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: c6bf26d8f3a73db6ee69b2aa0de73872911893bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552713"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analizzare i log del sito Web usando una libreria Python personalizzata con cluster Apache Spark in HDInsight
@@ -29,7 +29,7 @@ In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) asso
 
 Una volta salvati i dati come Apache Hive tabella, nella sezione successiva si eseguirà la connessione alla tabella hive usando gli strumenti di business intelligence, ad esempio Power BI e tableau.
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/jupyter`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/jupyter` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Creare un nuovo notebook. Selezionare **nuovo**e quindi **PySpark**.
 

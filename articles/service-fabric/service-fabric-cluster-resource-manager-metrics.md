@@ -1,15 +1,15 @@
 ---
-title: Gestire il carico dell'app Azure Service Fabric usando le metricheManage Azure Service Fabric app load using metrics
+title: Gestire il carico delle app Service Fabric di Azure con le metriche
 description: Informazioni su come configurare e usare le metriche in Service Fabric per gestire il consumo delle risorse dei servizi.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451990"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
@@ -27,8 +27,8 @@ Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Anc
 | Metrica | Carico di istanza senza stato | Carico secondario con stato | Carico primario con stato | Peso |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Alto |
-| ReplicaCount |0 |1 |1 |Media |
-| Conteggio |1 |1 |1 |Basso |
+| ReplicaCount |0 |1 |1 |Medio |
+| Conteggio |1 |1 |1 |Bassa |
 
 
 Per i carichi di lavoro di base, le metriche predefinite forniscono una distribuzione ragionevole del lavoro nel cluster. L'esempio seguente illustra che cosa accade quando si creano due servizi e ci si affida alle metriche predefinite per il bilanciamento. Il primo è un servizio con stato con tre partizioni e dimensioni del set di repliche di destinazione pari a tre. Il secondo è un servizio senza stato con una partizione e un numero di istanze pari a tre.
@@ -233,7 +233,7 @@ L'esempio seguente illustra alcuni report di carico e come pesi diversi delle me
 
 <center>
 
-![Esempio di peso metrico e suo impatto sulle soluzioni di bilanciamento][Image3]
+![Esempio di peso delle metriche e impatto sulle soluzioni di bilanciamento][Image3]
 </center>
 
 In questo esempio sono presenti quattro diversi servizi, tutti con valori diversi nei report di due diverse metriche, MetricA e MetricB. In un caso, tutti i servizi definiscono MetricA come la più importante (Peso = High) e MetricB come non importante (Peso = Low). Di conseguenza, Cluster Resource Manager posiziona i servizi in modo da ottenere per MetricA un bilanciamento migliore rispetto a MetricB. "Bilanciamento migliore" significa che MetricA presenta una deviazione standard inferiore rispetto a MetricB. Nel secondo caso, i pesi delle metriche sono invertiti. Di conseguenza, Cluster Resource Manager scambia i servizi A e B in modo da ottenere un'allocazione in cui il bilanciamento di MetricB è migliore rispetto a MetricA.
@@ -260,7 +260,7 @@ Nell'esempio in basso, Cluster Resource Manager ha distribuito le repliche in ba
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulla configurazione dei servizi vedere [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
-- La definizione delle metriche di deframmentazione è un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, fare riferimento a [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- La definizione delle metriche di deframmentazione è un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, vedere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
 - Partire dall'inizio e vedere l' [introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Il costo dello spostamento è un modo per segnalare a Cluster Resource Manager che alcuni servizi sono più costosi da spostare rispetto ad altri. Per altre informazioni sui costi di spostamento, vedere [questo articolo](service-fabric-cluster-resource-manager-movement-cost.md)

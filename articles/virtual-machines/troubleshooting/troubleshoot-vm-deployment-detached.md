@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi alla distribuzione di macchine virtuali a causa di dischi scollegati. Documenti Microsoft
-description: Risolvere i problemi di distribuzione delle macchine virtuali a causa di dischi scollegatiTroubleshoot virtual machine deployment due to detached disks
+title: Risolvere i problemi di distribuzione della macchina virtuale a causa di dischi scollegati | Microsoft Docs
+description: Risolvere i problemi di distribuzione della macchina virtuale a causa di dischi scollegati
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 10/31/2019
 ms.author: vaaga
 ms.openlocfilehash: e049a2b914cbf9c4f0ca0f3a1dd0281d58f881b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75486820"
 ---
-# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Risolvere i problemi di distribuzione delle macchine virtuali a causa di dischi scollegatiTroubleshoot virtual machine deployment due to detached disks
+# <a name="troubleshoot-virtual-machine-deployment-due-to-detached-disks"></a>Risolvere i problemi di distribuzione della macchina virtuale a causa di dischi scollegati
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si sta tentando di aggiornare una macchina virtuale il cui precedente disconnessione del disco dati non è riuscita, è possibile che si verifichi questo codice di errore.
+Quando si tenta di aggiornare una macchina virtuale in cui si è verificato un errore di scollegamento del disco dati precedente, è possibile che venga riportato il codice di errore.
 
 ```
 Code=\"AttachDiskWhileBeingDetached\" 
@@ -32,11 +32,11 @@ Message=\"Cannot attach data disk '{disk ID}' to virtual machine '{vmName}' beca
 
 ## <a name="cause"></a>Causa
 
-Questo errore si verifica quando si tenta di ricollegare un disco dati la cui ultima operazione di scollegamento non è riuscita. Il modo migliore per uscire da questo stato consiste nello scollegare il disco in errore.
+Questo errore si verifica quando si tenta di riconnettere un disco dati la cui ultima operazione di scollegamento non è riuscita. Il modo migliore per uscire da questo stato è scollegare il disco che ha avuto esito negativo.
 
-## <a name="solution-1-powershell"></a>Soluzione 1: Powershell
+## <a name="solution-1-powershell"></a>Soluzione 1: PowerShell
 
-### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>Passaggio 1: Ottenere i dettagli della macchina virtuale e del discoStep 1: Get the virtual machine and disk details
+### <a name="step-1-get-the-virtual-machine-and-disk-details"></a>Passaggio 1: ottenere i dettagli della macchina virtuale e del disco
 
 ```azurepowershell-interactive
 PS D:> $vm = Get-AzureRmVM -ResourceGroupName "Example Resource Group" -Name "ERGVM999999" 
@@ -51,23 +51,23 @@ diskSizeGB   : 8
 toBeDetached : False 
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passaggio 2: Impostare il flag per i dischi con errori su "true".
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passaggio 2: impostare il flag per i dischi in errore su "true".
 
-Ottenere l'indice di array del disco in errore e impostare il flag **toBeDetached** per il disco in errore (per il quale si è verificato l'errore **AttachDiskWhileBeingDetached)** su "true". Questa impostazione implica lo scollegamento del disco dalla macchina virtuale. Il nome del disco in errore è disponibile nel **messaggio di errore**.
+Ottenere l'indice della matrice del disco guasto e impostare il flag **toBeDetached** per il disco che ha avuto esito negativo (per il quale si è verificato l'errore **AttachDiskWhileBeingDetached** ) su "true". Questa impostazione implica lo scollegamento del disco dalla macchina virtuale. Il nome del disco che ha avuto esito negativo è reperibile in **ErrorMessage**.
 
-> ! Nota: la versione dell'API specificata per le chiamate Get e Put deve essere 2019-03-01 o superiore.
+> ! Nota: la versione dell'API specificata per le chiamate Get e put deve essere 2019-03-01 o successiva.
 
 ```azurepowershell-interactive
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
 ```
 
-In alternativa, è anche possibile scollegare questo disco utilizzando il comando seguente, che sarà utile per gli utenti che utilizzano le versioni API prima del 01 marzo 2019.
+In alternativa, è anche possibile scollegare il disco usando il comando seguente, che sarà utile per gli utenti che usano le versioni API prima del 01 marzo 2019.
 
 ```azurepowershell-interactive
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "<disk ID>" 
 ```
 
-### <a name="step-3-update-the-virtual-machine"></a>Passaggio 3: Aggiornare la macchina virtualeStep 3: Update the virtual machine
+### <a name="step-3-update-the-virtual-machine"></a>Passaggio 3: aggiornare la macchina virtuale
 
 ```azurepowershell-interactive
 PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm 
@@ -75,15 +75,15 @@ PS D:> Update-AzureRmVM -ResourceGroupName "Example Resource Group" -VM $vm
 
 ## <a name="solution-2-rest"></a>Soluzione 2: REST
 
-### <a name="step-1-get-the-virtual-machine-payload"></a>Passaggio 1: Ottenere il payload della macchina virtuale.
+### <a name="step-1-get-the-virtual-machine-payload"></a>Passaggio 1: ottenere il payload della macchina virtuale.
 
 ```azurepowershell-interactive
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?$expand=instanceView&api-version=2019-03-01
 ```
 
-### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passaggio 2: Impostare il flag per i dischi con errori su "true".
+### <a name="step-2-set-the-flag-for-failing-disks-to-true"></a>Passaggio 2: impostare il flag per i dischi in errore su "true".
 
-Impostare il flag **toBeDetached** per il disco in errore su true nel payload restituito nel passaggio 1. Nota: la versione API specificata per le `2019-03-01` chiamate Get and Put deve essere maggiore o superiore.
+Impostare il flag **toBeDetached** per la mancata riuscita del disco su true nel payload restituito nel passaggio 1. Nota: la versione dell'API specificata per le chiamate Get e put deve essere `2019-03-01` maggiore o uguale a.
 
 **Corpo della richiesta di esempio**
 
@@ -143,17 +143,17 @@ Impostare il flag **toBeDetached** per il disco in errore su true nel payload re
 }
 ```
 
-In alternativa è anche possibile rimuovere il disco dati in errore dal payload precedente, che è utile per gli utenti che utilizzano versioni API prima del 01 marzo 2019.
+In alternativa, è anche possibile rimuovere il disco dati in errore dal payload precedente, utile per gli utenti che usano le versioni API prima del 01 marzo 2019.
 
-### <a name="step-3-update-the-virtual-machine"></a>Passaggio 3: Aggiornare la macchina virtualeStep 3: Update the virtual machine
+### <a name="step-3-update-the-virtual-machine"></a>Passaggio 3: aggiornare la macchina virtuale
 
-Usare il payload del corpo della richiesta impostato nel passaggio 2 e aggiornare la macchina virtuale come segue:Use the request body payload set in Step 2 and update the virtual machine as follows:
+Usare il payload del corpo della richiesta impostato nel passaggio 2 e aggiornare la macchina virtuale come indicato di seguito:
 
 ```azurepowershell-interactive
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2019-03-01
 ```
 
-**Esempio di risposta:**
+**Risposta di esempio:**
 
 ```azurepowershell-interactive
 {

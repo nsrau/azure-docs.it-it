@@ -1,5 +1,5 @@
 ---
-title: Modellare e partizionare i dati in Azure Cosmos DB con un esempio realeModel and partition data on Azure Cosmos DB with a real-world example
+title: Modellare e partizionare i dati in Azure Cosmos DB con un esempio reale
 description: Informazioni su come modellare e partizionare un esempio reale usando l'API Core di Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445385"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
@@ -43,21 +43,21 @@ Per rendere l'intero processo più semplice da seguire, le diverse richieste ven
 Ecco l'elenco di richieste che la piattaforma dovrà esporre:
 
 - **[C1]** Creare/modificare un utente
-- **[Q1]** Recuperare un utenteRetrieve a user
+- **[Q1]** Recuperare un utente
 - **[C2]** Creare/modificare un post
 - **[Q2] ** Recuperare un post
 - **[Q3]** Elencare i post di un utente in forma breve
 - **[C3]** Creare un commento
-- **[Q4]** Elencare i commenti di un post
+- **[Q4]** Elenca i commenti di un post
 - **[C4]** Aggiungere Mi piace a un post
 - **[Q5] ** Elencare i Mi piace ricevuti da un post
-- **[Q6]** Elencare i *x* post più recenti creati in forma breve (feed)
+- **[Q6]** Elenca gli *x* post più recenti creati in forma breve (feed)
 
-In questa fase, non sono ancora stati considerati i dettagli sul contenuto di ciascuna entità (utente, post, ecc.). Questo passaggio è in genere tra i primi ad essere affrontati quando si progetta su un archivio relazionale, perché dobbiamo capire come tali entità si tradurranno in termini di tabelle, colonne, chiavi esterne e così via. È molto meno di un problema con un database di documenti che non impone alcuno schema in scrittura.
+In questa fase, non sono ancora stati considerati i dettagli sul contenuto di ciascuna entità (utente, post, ecc.). Questo passaggio è in genere tra le prime da affrontare quando si progetta in un archivio relazionale, perché è necessario determinare il modo in cui tali entità verranno convertite in termini di tabelle, colonne, chiavi esterne e così via. È molto meno problematico per un database di documenti che non impone alcuno schema in fase di scrittura.
 
 Il motivo principale per cui è importante identificare i modelli di accesso sin dall'inizio è che questo elenco di richieste diventerà il gruppo di test. Ogni volta che si esegue l'iterazione del modello di dati, si verificheranno le prestazioni e la scalabilità di ciascuna richiesta.
 
-## <a name="v1-a-first-version"></a>V1: Una prima versione
+## <a name="v1-a-first-version"></a>V1: una prima versione
 
 Si inizia con due contenitori: `users` e `posts`.
 
@@ -223,7 +223,7 @@ Si recuperano i post più recenti eseguendo la query del contenitore `posts` per
 
 ![Recupero dei post più recenti e aggregazione dei dati aggiuntivi](./media/how-to-model-partition-example/V1-Q6.png)
 
-Ancora una volta, la query iniziale non `posts` filtra la chiave di partizione del contenitore, che attiva un costoso fan-out. Questo è ancora peggio in quanto scegliamo di mira `ORDER BY` un set di risultati molto più grande e li sordina con una clausola, il che lo rende più costoso in termini di unità di richiesta.
+Ancora una volta, la query iniziale non filtra sulla chiave di partizione del `posts` contenitore, che attiva un fan-out costoso. Questo è ancora peggio quando si fa riferimento a un set di risultati molto più ampio e si ordinano i risultati con una `ORDER BY` clausola, il che rende più costosa in termini di unità richiesta.
 
 | **Latenza** | **Addebito UR** | **Prestazioni** |
 | --- | --- | --- |
@@ -394,7 +394,7 @@ La stessa esatta situazione di quando si elencano i Mi piace.
 | --- | --- | --- |
 | 4 ms | 8,92 UR | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Assicurarsi che tutte le richieste siano scalabili
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: assicurarsi che tutte le richieste siano scalabili
 
 Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]**. Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
 
@@ -544,14 +544,14 @@ Verranno ora esaminati i miglioramenti complessivi delle prestazioni e della sca
 
 | | V1 | V2 | V3 |
 | --- | --- | --- | --- |
-| **[C1]** | 7 ms/5,71 UR | 7 ms/5,71 UR | 7 ms/5,71 UR |
-| **[Q1]** | 2 ms/1 UR | 2 ms/1 UR | 2 ms/1 UR |
-| **[C2]** | 9 ms/8,76 UR | 9 ms/8,76 UR | 9 ms/8,76 UR |
+| **C1** | 7 ms/5,71 UR | 7 ms/5,71 UR | 7 ms/5,71 UR |
+| **Q1** | 2 ms/1 UR | 2 ms/1 UR | 2 ms/1 UR |
+| **C2** | 9 ms/8,76 UR | 9 ms/8,76 UR | 9 ms/8,76 UR |
 | **[Q2]** | 9 ms/ 19,54 UR | 2 ms/1 UR | 2 ms/1 UR |
-| **[Q3]** | 130 ms/619,41 UR | 28 ms/201,54 UR | 4 ms/6,46 UR |
-| **[C3]** | 7 ms/8,57 UR | 7 ms /15.27 RU | 7 ms /15.27 RU |
+| **Q3** | 130 ms/619,41 UR | 28 ms/201,54 UR | 4 ms/6,46 UR |
+| **C3** | 7 ms/8,57 UR | 7 ms /15.27 RU | 7 ms /15.27 RU |
 | **[Q4]** | 23 ms/27,72 UR | 4 ms/7,72 UR | 4 ms/7,72 UR |
-| **[C4]** | 6 ms/7,05 UR | 7 ms/14,67 UR | 7 ms/14,67 UR |
+| **C4** | 6 ms/7,05 UR | 7 ms/14,67 UR | 7 ms/14,67 UR |
 | **[Q5]** | 59 ms/58,92 UR | 4 ms/8,92 UR | 4 ms/8,92 UR |
 | **[Q6]** | 306 ms/2063,54 UR | 83 ms/532,33 UR | 9 ms/16,97 UR |
 

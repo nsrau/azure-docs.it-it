@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552611"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Caricamento bulk di dati in Apache Phoenix tramite psql
@@ -167,7 +167,7 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
 
 1. Per eseguire una query e visualizzare i dati, è possibile usare **PSQL** come descritto in precedenza. È anche possibile usare [HBase Shell](./query-hbase-with-hbase-shell.md)o [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md).
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 
 * Usare lo stesso supporto di archiviazione per le cartelle di input e di output: Archiviazione di Azure (WASB) o Azure Data Lake Storage (ADL). Per trasferire i dati da Archiviazione di Azure ad Azure Data Lake Storage, è possibile usare il comando `distcp`:
 

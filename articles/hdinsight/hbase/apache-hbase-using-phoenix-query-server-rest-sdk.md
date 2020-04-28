@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75612258"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
@@ -94,7 +94,7 @@ Ecco i valori di `TransactionIsolation`:
 
 HBase, come qualsiasi altro sistema RDBMS, archivia i dati nelle tabelle. Phoenix usa query SQL standard per creare nuove tabelle, definendo la chiave primaria e i tipi di colonna.
 
-In questo esempio e in tutti `PhoenixClient` gli esempi successivi, utilizzare l'oggetto di cui è stata creata un'istanza come definito in [Creare un nuovo oggetto PhoenixClient](#instantiate-new-phoenixclient-object).
+Questo esempio e tutti gli esempi successivi usano l' `PhoenixClient` oggetto di cui è stata creata un'istanza come definito in creare un'istanza di [un nuovo oggetto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +170,7 @@ Questo esempio mostra una singola operazione di inserimento di dati, che fa rife
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-Il valore `StateProvince` della colonna della tabella verrà utilizzato in un'operazione di selezione successiva.
+Il valore della `StateProvince` colonna della tabella verrà utilizzato in un'operazione SELECT successiva.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
 ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75466179"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Distribuire in un contenitore Reliable Services di Service Fabric e Reliable Actors in Windows
@@ -111,7 +111,7 @@ Questo documento fornisce linee guida per eseguire il servizio all'interno di un
    ```
 
 > [!NOTE] 
-> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di endpoint che accetta le richieste specifiche dell'applicazione. Valutare la possibilità di disabilitare questo accesso quando l'applicazione ospita codice non attendibile. Per altre informazioni, vedere Procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Per disabilitare l'accesso al runtime di Service Fabric, aggiungere l'impostazione seguente nella sezione Criteri del manifesto dell'applicazione corrispondente al manifesto del servizio importato, come indicato di seguito:
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione. Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile. Per ulteriori informazioni, vedere la pagina relativa alle [procedure consigliate per la sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Per disabilitare l'accesso al runtime di Service Fabric, aggiungere l'impostazione seguente nella sezione criteri del manifesto dell'applicazione corrispondente al manifesto del servizio importato, come indicato di seguito:
 >
 ```xml
   <Policies>

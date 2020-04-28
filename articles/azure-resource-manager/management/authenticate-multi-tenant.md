@@ -4,10 +4,10 @@ description: Descrive il modo in cui Azure Resource Manager gestisce le richiest
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75478825"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Eseguire l'autenticazione delle richieste su più tenant
@@ -21,7 +21,7 @@ La richiesta include i valori di intestazione di autenticazione seguenti:
 | Nome intestazione | Descrizione | Valore di esempio |
 | ----------- | ----------- | ------------ |
 | Autorizzazione | Token primario | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt;&gt;ausiliario-token1 , EncryptedBearer &lt;ausiliary-token2&gt;, Bearer &lt;ausiliary-token3&gt; |
+| x-ms-authorization-auxiliary | Token ausiliari | Bearer &lt;ausiliario-&gt;token1, &lt;EncryptedBearer ausiliario&gt;-token2, &lt;portar ausiliario-token3&gt; |
 
 L'intestazione ausiliaria può contenere fino a tre token ausiliari. 
 
@@ -35,5 +35,5 @@ Quando la richiesta fa riferimento a una risorsa da un altro tenant, Resource Ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle richieste di autenticazione, vedere [Flussi](../../active-directory/develop/authentication-flows-app-scenarios.md)di autenticazione e scenari di applicazioni .
+* Per informazioni sulle richieste di autenticazione, vedere [flussi di autenticazione e scenari di applicazione](../../active-directory/develop/authentication-flows-app-scenarios.md).
 * Per altre informazioni sui token, vedere [Token di accesso di Azure Active Directory](../../active-directory/develop/access-tokens.md).

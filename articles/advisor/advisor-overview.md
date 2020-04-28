@@ -4,10 +4,10 @@ description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443086"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
@@ -30,7 +30,7 @@ Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte 
 * **Sicurezza**: per rilevare le minacce e le vulnerabilità che potrebbero portare a potenziali violazioni della sicurezza. Per altre informazioni, vedere [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza).
 * **Prestazioni**: per aumentare la velocità delle applicazioni. Per altre informazioni, vedere [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni).
 * **Costo**: per ottimizzare e ridurre la spesa complessiva di Azure. Per altre informazioni, vedere [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Azure sui costi).
-* **Eccellenza operativa**: Per aiutarti a raggiungere l'efficienza dei processi e del flusso di lavoro, la gestibilità delle risorse e le best practice di distribuzione. . Per ulteriori informazioni, vedere Consigli di [eccellenza operativa](advisor-operational-excellence-recommendations.md)di Advisor .
+* **Eccellenza operativa**: per ottenere l'efficienza dei processi e dei flussi di lavoro, la gestibilità delle risorse e le procedure consigliate per la distribuzione. . Per ulteriori informazioni, vedere [consigli sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md).
 
   ![Tipi di consigli di Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -55,9 +55,9 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per il gateway applicazione, i servizi app, i set di disponibilità, la cache di Azure, Azure Data Factory, il database di Azure per MySQL, il database di Azure per PostgreSQL, il database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public Indirizzi IP, SQL Data Warehouse, server SQL, account di archiviazione, profili di Gestione traffico e macchine virtuali.
+Advisor fornisce consigli per gateway applicazione, servizi app, set di disponibilità, cache di Azure, Azure Data Factory, database di Azure per MySQL, database di Azure per PostgreSQL, database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, indirizzi IP pubblici di Azure, SQL Data Warehouse, server SQL, account di archiviazione, profili di gestione traffico e macchine virtuali.
 
-Azure Advisor include anche i consigli del [Centro sicurezza](https://docs.microsoft.com/azure/security-center/security-center-recommendations) di Azure che possono includere suggerimenti per tipi di risorse aggiuntivi.
+Azure Advisor include anche le raccomandazioni del [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) che possono includere consigli per altri tipi di risorse.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 

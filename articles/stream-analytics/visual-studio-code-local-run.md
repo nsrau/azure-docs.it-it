@@ -7,13 +7,13 @@ ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: conceptual
 ms.openlocfilehash: c29d0d9ecd856ee9611df21d23b1b2b763e24652
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75486469"
 ---
-# <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testare le query di analisi di flusso localmente con dati di esempio usando Visual Studio Code
+# <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code
 
 È possibile usare gli strumenti di analisi di flusso di Azure per Visual Studio Code per testare i processi di analisi di flusso localmente con dati di esempio. È possibile trovare i risultati della query in file JSON nella cartella **LocalRunOutputs** del progetto.
 

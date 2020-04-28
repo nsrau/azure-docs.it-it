@@ -1,5 +1,5 @@
 ---
-title: Volume del disco affidabile di Service Fabric con Service Fabric Mesh
+title: Service Fabric volume del disco affidabile con Service Fabric mesh
 description: Informazioni sull'archiviazione dello stato in un'applicazione Azure Service Fabric Mesh con il montaggio di un volume basato su Reliable Disk di Service Fabric all'interno del contenitore usando l'interfaccia della riga di comando di Azure.
 author: ashishnegi
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75497958"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montare il volume basato su Reliable Disk di Service Fabric a disponibilità elevata in un'applicazione Service Fabric Mesh 

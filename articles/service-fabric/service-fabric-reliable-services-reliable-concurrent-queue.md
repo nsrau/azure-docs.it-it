@@ -1,13 +1,13 @@
 ---
 title: ReliableConcurrentQueue in Azure Service Fabric
-description: ReliableConcurrentQueue è una coda ad alta velocità effettiva che consente code e dequeue paralleli.
+description: Coda reliableconcurrentqueue è una coda con velocità effettiva elevata che consente l'accodamento e la rimozione di code parallele.
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462734"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduzione a ReliableConcurrentQueue in Azure Service Fabric
@@ -34,15 +34,15 @@ Un esempio di caso d'uso per ReliableConcurrentQueue è lo scenario della [coda 
 * La coda non garantisce l'ordine FIFO in modo vincolante.
 * La coda non legge le proprie scritture. Se un elemento viene accodato all'interno di una transazione, non sarà visibile a un dequeuer all'interno della stessa transazione.
 * Le rimozioni dalla coda non sono isolate tra loro. Se l'elemento *A* viene rimosso dalla coda nella transazione *txnA*, anche se non viene eseguito il commit di *txnA*, l'elemento *A* non sarà visibile a una transazione simultanea *txnB*.  Se la transazione *txnA* viene interrotta, *A* diventa immediatamente visibile alla transazione *txnB*.
-* Il comportamento di *TryPeekAsync* può essere implementato usando un *TryDequeueAsync* e quindi interrompendo la transazione. Un esempio di questo comportamento è disponibile nella sezione Modelli di programmazione.
+* Il comportamento di *TryPeekAsync* può essere implementato usando un *TryDequeueAsync* e quindi interrompendo la transazione. Un esempio di questo comportamento è disponibile nella sezione modelli di programmazione.
 * Il conteggio non è transazionale. Può dare un'idea del numero di elementi in una coda, ma rappresenta un valore temporizzato e non può essere ritenuto affidabile.
-* L'elaborazione costosa degli elementi deaccodati non deve essere eseguita mentre la transazione è attiva, per evitare transazioni a esecuzione prolungata che possono avere un impatto sulle prestazioni del sistema.
+* L'elaborazione costosa sugli elementi rimossi dalla coda non deve essere eseguita mentre la transazione è attiva, per evitare transazioni con esecuzione prolungata che potrebbero avere un effetto sulle prestazioni del sistema.
 
 ## <a name="code-snippets"></a>Frammenti di codice
 Ecco alcuni frammenti di codice e i relativi output previsti. La gestione delle eccezioni viene ignorata in questa sezione.
 
 ### <a name="instantiation"></a>Creazione di istanze
-La creazione di un'istanza di una coda simultanea affidabile è simile a qualsiasi altra raccolta Affidabile.Creating an instance of a Reliable Concurrent Queue is similar to any other Reliable Collection.
+La creazione di un'istanza di una coda simultanea affidabile è simile a qualsiasi altra raccolta Reliable Collections.
 
 ```csharp
 IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
@@ -170,7 +170,7 @@ Lo stesso vale per tutti i casi in cui la transazione non è stata *eseguita* co
 In questa sezione verranno esaminati alcuni modelli di programmazione che possono risultare utili usando ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Rimozioni dalla coda in batch
-Un modello di programmazione consigliato per l'attività di tipo consumer è inserire in batch le operazioni di rimozione dalla coda, anziché eseguire una rimozione alla volta. L'utente può scegliere di limitare i ritardi tra ogni batch o la dimensione del batch. Il frammento di codice seguente illustra questo modello di programmazione. Tenere presente che in questo esempio l'elaborazione viene eseguita dopo il commit della transazione, pertanto se si verifica un errore durante l'elaborazione, gli elementi non elaborati andranno persi senza essere stati elaborati.  In alternativa, l'elaborazione può essere eseguita all'interno dell'ambito della transazione, tuttavia può avere un impatto negativo sulle prestazioni e richiede la gestione degli elementi già elaborati.
+Un modello di programmazione consigliato per l'attività di tipo consumer è inserire in batch le operazioni di rimozione dalla coda, anziché eseguire una rimozione alla volta. L'utente può scegliere di limitare i ritardi tra ogni batch o la dimensione del batch. Il frammento di codice seguente illustra questo modello di programmazione. Tenere presente che, in questo esempio, l'elaborazione viene eseguita dopo il commit della transazione, pertanto se si verifica un errore durante l'elaborazione, gli elementi non elaborati andranno persi senza essere stati elaborati.  In alternativa, l'elaborazione può essere eseguita nell'ambito della transazione, ma potrebbe avere un impatto negativo sulle prestazioni e richiede la gestione degli elementi già elaborati.
 
 ```
 int batchSize = 5;
@@ -264,9 +264,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Svuotamento in base al migliore sforzo
-Lo svuotamento della coda non può essere garantito a causa della natura simultanea della struttura di dati.  È possibile che, anche se nessuna operazione utente nella coda è in corso, una particolare chiamata a TryDequeueAsync potrebbe non restituire un elemento precedentemente accodato e di cui è stato eseguito il commit.  L'elemento accodato *alla fine* diventerà visibile per la rimozione dalla coda; tuttavia senza un meccanismo di comunicazione fuori banda, un consumer indipendente non può sapere se la coda ha raggiunto uno stato stabile, anche se sono stati arrestati tutti i producer e non sono consentite nuove operazione di accodamento. Di conseguenza l'operazione di svuotamento avviene in base al migliore sforzo, come implementato di seguito.
+Lo svuotamento della coda non può essere garantito a causa della natura simultanea della struttura di dati.  È possibile che, anche se non sono in corso operazioni utente nella coda, una particolare chiamata a TryDequeueAsync non può restituire un elemento accodato in precedenza e di cui è stato eseguito il commit.  L'elemento accodato *alla fine* diventerà visibile per la rimozione dalla coda; tuttavia senza un meccanismo di comunicazione fuori banda, un consumer indipendente non può sapere se la coda ha raggiunto uno stato stabile, anche se sono stati arrestati tutti i producer e non sono consentite nuove operazione di accodamento. Di conseguenza l'operazione di svuotamento avviene in base al migliore sforzo, come implementato di seguito.
 
-L'utente deve arrestare tutte le successive attività di producer e consumer e attendere il commit o l'interruzione delle transazioni in transito prima di tentare di svuotare la coda.  Se l'utente conosce il numero previsto di elementi nella coda, può impostare una notifica che indica che tutti gli elementi sono stati rimossi dalla coda.
+L'utente deve arrestare tutte le successive attività di producer e consumer e attendere il commit o l'interruzione delle transazioni in transito prima di tentare di svuotare la coda.  Se l'utente conosce il numero previsto di elementi della coda, può impostare una notifica che segnala che tutti gli elementi sono stati rimossi dalla coda.
 
 ```
 int numItemsDequeued;
@@ -336,8 +336,8 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
-* [Backup e ripristino di servizi affidabili (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
-* [Configurazione di Reliable State Manager](service-fabric-reliable-services-configuration.md)
-* [Introduzione aservice fabric Web API Services](service-fabric-reliable-services-communication-webapi.md)
+* [Reliable Services backup e ripristino (ripristino di emergenza)](service-fabric-reliable-services-backup-restore.md)
+* [Configurazione di Reliable state Manager](service-fabric-reliable-services-configuration.md)
+* [Introduzione con Service Fabric servizi API Web](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-* [Guida di riferimento per sviluppatori per raccolte affidabiliDeveloper Reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

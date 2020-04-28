@@ -1,15 +1,15 @@
 ---
-title: Preparazione della distribuzione del cluster autonomo
+title: Preparazione della distribuzione di cluster autonomi
 description: Documentazione relativa alla preparazione dell'ambiente e alla creazione della configurazione del cluster, da esaminare prima di distribuire un cluster progettato per gestire un carico di lavoro di produzione.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
 ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610064"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
@@ -20,7 +20,7 @@ ms.locfileid: "75610064"
 Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio successivo). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Identificazione del numero di domini di errore e di aggiornamento
-Un dominio di [ *errore* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
+Un [ *dominio di errore* ](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
 
 Quando si specificano domini di errore nel file ClusterConfig.json, è possibile scegliere il nome di ogni dominio di errore. Il Service Fabric supporta i domini di errore gerarchici, in modo che possano rispecchiare la topologia infrastrutturale.  Di seguito sono riportati esempi di domini di errore validi:
 
@@ -57,11 +57,11 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * Un minimo di 40 GB di spazio disponibile su disco
 * CPU 4 core o superiore
 * Connessione a una o più reti protette per tutti i computer
-* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803). Service Fabric versione 6.4.654.9590 e successive supporta anche Server 2019 e 1809.
-* [.NET Framework 4.5.1 o versione successiva,](https://www.microsoft.com/download/details.aspx?id=40773)installazione completa
+* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803). Service Fabric versione 6.4.654.9590 e successive supporta anche server 2019 e 1809.
+* [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere in esecuzione su tutti i computer
-* L'unità di installazione di Service Fabric deve essere NTFS File System
+* Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere in esecuzione in tutti i computer
+* Service Fabric unità di installazione deve essere un file system NTFS
 
 L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
 
@@ -101,8 +101,8 @@ Quando un amministratore di cluster configura un cluster autonomo di Service Fab
 3. Nessuna delle macchine ai nodi del cluster deve essere un controller di dominio.
 4. Se il cluster da distribuire è protetto, convalidare che i prerequisiti di sicurezza necessari siano corretti e che siano stati configurati correttamente in base alla configurazione.
 5. Se i computer del cluster non sono accessibili da Internet, impostare quanto segue nella configurazione del cluster:
-   * Disabilitare la telemetria: nelle proprietà impostate *"enableTelemetry": falseDisable* telemetry: Under *properties* set "enableTelemetry": false
-   * Disabilitare il download automatico della versione di Infrastruttura & notifiche che la versione del cluster corrente sta per terminare il supporto: nelle *proprietà* impostare *"fabricClusterAutoupgradeEnabled": false*
+   * Disabilitare la telemetria: in *Properties* impostare *"enableTelemetry": false*
+   * Disabilitare la versione di Fabric automatica che Scarica & notifiche che la versione corrente del cluster è prossima alla fine del supporto: in *Properties* impostare *"fabricClusterAutoupgradeEnabled": false*
    * In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, i domini seguenti sono necessari per l'aggiornamento automatico: go.microsoft.com download.microsoft.com
 
 6. Impostare le esclusioni antivirus di Service Fabric appropriate:

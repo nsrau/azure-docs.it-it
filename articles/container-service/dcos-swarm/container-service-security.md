@@ -8,10 +8,10 @@ ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: d90d872175febf775e7d0892e133883f1a8ff8a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552386"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(DEPRECATO) Protezione dei contenitori Docker nel servizio Azure Container
@@ -53,7 +53,7 @@ Dopo la distribuzione dell'applicazione nell'ambiente di produzione, è essenzia
 ## <a name="host-level-container-isolation"></a>Isolamento del contenitore a livello di host
 Quando un cliente distribuisce le applicazioni del contenitore nelle risorse di Azure, queste vengono distribuite a livello di sottoscrizione nei gruppi di risorse e non sono multi-tenant. Ciò significa che se un cliente condivide una sottoscrizione con altri utenti, non è possibile inserire limiti tra le due distribuzioni nella stessa sottoscrizione. Pertanto, la sicurezza a livello di contenitore non viene garantita. 
 
-È inoltre importante comprendere che i contenitori condividono il kernel e le risorse dell'host, che nel servizio Azure Container è una macchina virtuale di Azure in un cluster. Pertanto, è necessario eseguire i contenitori in esecuzione nell'ambiente di produzione in modalità utente senza privilegi. L'esecuzione di un contenitore con privilegi radice può compromettere l'intero ambiente. Con accesso a livello di radice in un contenitore, un pirata informatico può accedere ai privilegi radice completi sull'host. Inoltre, è importante eseguire contenitori con file system di sola lettura. Ciò impedisce a un utente che ha accesso al contenitore di compromesso di scrivere script dannosi nel file system e di ottenere l'accesso ad altri file. Analogamente, è importante limitare le risorse, ad esempio memoria, CPU e larghezza di banda, allocate in un contenitore. In questo modo si impedisce agli hacker di agguaccare risorse e di perseguire attività illegali come frodi con carta di credito o l'estrazione di monete bit, che potrebbero impedire l'esecuzione di altri contenitori nell'host o nel cluster.
+È inoltre importante comprendere che i contenitori condividono il kernel e le risorse dell'host, che nel servizio Azure Container è una macchina virtuale di Azure in un cluster. Pertanto, è necessario eseguire i contenitori in esecuzione nell'ambiente di produzione in modalità utente senza privilegi. L'esecuzione di un contenitore con privilegi radice può compromettere l'intero ambiente. Con accesso a livello di radice in un contenitore, un pirata informatico può accedere ai privilegi radice completi sull'host. Inoltre, è importante eseguire contenitori con file system di sola lettura. Ciò impedisce a un utente che ha accesso al contenitore di compromesso di scrivere script dannosi nel file system e di ottenere l'accesso ad altri file. Analogamente, è importante limitare le risorse, ad esempio memoria, CPU e larghezza di banda, allocate in un contenitore. Ciò consente di impedire ai pirati informatici di monopolizzare le risorse e di eseguire attività illegali come la frode della carta di credito o il data mining di bit, che potrebbero impedire l'esecuzione di altri contenitori nell'host o nel cluster.
 
 ## <a name="orchestrator-considerations"></a>Considerazioni sull'orchestrator
 

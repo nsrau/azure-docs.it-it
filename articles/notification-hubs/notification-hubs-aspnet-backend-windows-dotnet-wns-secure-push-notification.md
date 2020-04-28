@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs Secure Push for Windows
+title: Push sicuro di hub di notifica di Azure per Windows
 description: Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
 documentationcenter: windows
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530732"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push in modo sicuro da Hub di notifica di Azure
@@ -159,7 +159,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. Nel progetto **NotifyUserWindowsPhone (Windows Phone 8.1)** di Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti**, quindi **scegliere Aggiungi riferimento...**. Nella finestra di dialogo Gestione riferimenti selezionare la casella accanto a **PushBackgroundComponent**, quindi scegliere **OK**.
+11. In Esplora soluzioni, nel progetto **NotifyUserWindowsPhone (Windows Phone 8,1)** , fare clic con il pulsante destro del mouse su **riferimenti**, quindi scegliere **Aggiungi riferimento.** Nella finestra di dialogo Gestione riferimenti selezionare la casella accanto a **PushBackgroundComponent**, quindi fare clic su **OK**.
 12. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** nel progetto **NotifyUserWindowsPhone (Windows Phone 8.1)**. In **Notifiche** impostare **Popup supportati** su **Sì**.
 
     ![][3]
@@ -168,7 +168,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
 15. Nel file **Package.appxmanifest**, in **Impostazioni app** digitare **PushBackgroundComponent.PushBackgroundTask** nel campo **Punto di ingresso**.
 
     ![][13]
-16. Scegliere **Salva tutto**dal menu **File** .
+16. Scegliere **Salva tutto**dal menu **file** .
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 

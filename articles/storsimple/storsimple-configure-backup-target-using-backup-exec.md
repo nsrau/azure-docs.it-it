@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75561644"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple come destinazione di backup con Backup Exec
@@ -55,8 +55,8 @@ Come con qualsiasi soluzione di archiviazione, per ottenere un esito positivo è
 
 StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello, il working set di dati viene archiviato nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
 
-**StorSimple tiering**
-![Diagramma di tiering StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
+**StorSimple tiering**Diagramma di suddivisione in livelli![StorSimple di StorSimple
+](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 Tenendo presente questa architettura, si noterà che StorSimple è particolarmente adatto a essere usato come destinazione di backup. È possibile usare StorSimple per:
 -   Eseguire le operazioni di ripristino più frequenti dal working set di dati locale.
@@ -233,7 +233,7 @@ Configurare la soluzione in base alle linee guida riportate nelle sezioni seguen
 -   StorSimple supporta i backup completi e incrementali di Backup Exec. Si consiglia di non usare backup sintetici e differenziali.
 -   I file dei dati di backup devono contenere solo i dati per un processo specifico. Non è ad esempio consentito alcun supporto di aggiunta tra diversi processi.
 -   Disabilitare la verifica dei processi. Se necessario, pianificare la verifica dopo l'ultimo processo di backup. È importante tenere presente che questo processo influisce sulla finestra di backup.
--   Selezionare **Storage** > **Your disk** > **Details** > **Properties**. Disattivare **Pre-allocate disk space** (Prealloca spazio del disco).
+-   Selezionare **Archivia** > le**Proprietà**dei**Dettagli** > **del disco** > . Disattivare **Pre-allocate disk space** (Prealloca spazio del disco).
 
 Per le ultime impostazioni di Backup Exec e le procedure consigliate per l'implementazione di questi requisiti, vedere [il sito Web di Veritas](https://www.veritas.com).
 
@@ -267,7 +267,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
 ### <a name="to-set-up-backup-exec-storage"></a>Per configurare l'archiviazione con Backup Exec
 
-1.  Nella console di gestione Backup Exec selezionare **Storage** > Configure**Storage-Based Storage-Based Storage** > Next **(Configurazione archiviazione** > basata su disco di archiviazione**successivo ).**
+1.  Nella console di gestione di backup exec selezionare **archiviazione** > **Configura** > archiviazione**basata** > su disco di archiviazione**Avanti**.
 
     ![Console di gestione di Backup Exec, pagina di configurazione dell'archiviazione](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -275,7 +275,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
     ![Console di gestione di Backup Exec, pagina di selezione dell'archiviazione](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
-3.  Inserire un nome rappresentativo, ad esempio **Saturday Full** (Sabato completo), e una descrizione. Fare clic su **Avanti**.
+3.  Inserire un nome rappresentativo, ad esempio **Saturday Full** (Sabato completo), e una descrizione. Selezionare **Avanti**.
 
     ![Console di gestione di Backup Exec, pagina del nome e descrizione](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
@@ -313,7 +313,7 @@ Di seguito è riportato un esempio di una pianificazione a rotazione GFS per qua
 | Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Mensile  | Sabato  |   |
+| Ogni mese  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -323,7 +323,7 @@ Nella sequenza seguente si presuppone che Veritas Backup Exec, l'host di destina
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Per assegnare volumi StorSimple a un processo di backup di Backup Exec
 
-1.  Nella console di gestione Backup Exec selezionare **Host** > **backup** > **su disco**.
+1.  Nella console di gestione di Backup Exec**selezionare backup** >  **host** > backup**su disco**.
 
     ![Nella console di gestione di Backup Exec selezionare Host (Host), Backup (Backup), Backup to Disk (Backup su disco)](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -387,7 +387,7 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Mensile | StorSimple Mensile |   |   |   |   |   |
+| Ogni mese | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 
@@ -395,11 +395,11 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Per assegnare volumi StorSimple a un processo di archiviazione e duplicazione di Backup Exec
 
-1.  Nella console di gestione di Backup Exec fare clic con il pulsante destro del mouse sul processo che si desidera archiviare in un volume StorSimple, quindi scegliere > **Modifica** **proprietà definizione backup**.
+1.  Nella console di gestione di backup exec, fare clic con il pulsante destro del mouse sul processo che si desidera archiviare in un volume StorSimple, quindi scegliere > **modifica** **Proprietà definizione di backup**.
 
     ![Console di gestione di Backup Exec, scheda Backup Definition Properties (Proprietà definizione backup)](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Selezionare **Aggiungi stage** > **Duplicato su disco** > **Modifica**.
+2.  Selezionare **Aggiungi fase** > **duplicato a** > **modifica**disco.
 
     ![Console di gestione di Backup Exec, aggiungere una fase](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 

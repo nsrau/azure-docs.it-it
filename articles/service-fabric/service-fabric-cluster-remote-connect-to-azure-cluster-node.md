@@ -1,13 +1,13 @@
 ---
-title: Connessione remota a un nodo cluster di Azure Service FabricRemote connect to an Azure Service Fabric cluster node
+title: Connettersi in remoto a un nodo del cluster di Azure Service Fabric
 description: Informazioni su come connettersi in remoto a un'istanza di set di scalabilità, ovvero a un nodo di cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458323"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
@@ -19,7 +19,7 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
 
     In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il bilanciamento del carico per un tipo di nodo è denominato in base al formato seguente: *LB-{nome-cluster}-{tipo-di-nodo}*, ad esempio *LB-mycluster-FrontEnd*. 
     
-    Nella pagina del servizio di bilanciamento del carico nel portale di Azure selezionare Regole**NAT in ingresso** **impostazioni:** >  
+    Nella pagina del servizio di bilanciamento del carico in portale di Azure selezionare **Impostazioni** > **regole NAT in ingresso**: 
 
     ![Regole NAT in ingresso di bilanciamento del carico](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
@@ -52,7 +52,7 @@ Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'
 
 Per i passaggi successivi, leggere gli articoli seguenti:
 * Vedere la [panoramica della funzionalità "Distribuzione in qualsiasi ambiente" e un confronto con i cluster gestiti da Azure](service-fabric-deploy-anywhere.md).
-* Informazioni sulla [protezione del cluster](service-fabric-cluster-security.md).
+* Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
 * [Aggiornare i valori dell'intervallo di porte RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) nelle macchine virtuali del cluster dopo la distribuzione
 * [Cambiare il nome utente e la password dell'amministratore](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) per le macchine virtuali del cluster
 

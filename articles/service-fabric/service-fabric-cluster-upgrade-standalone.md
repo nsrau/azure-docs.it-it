@@ -1,13 +1,13 @@
 ---
-title: Aggiornare un cluster autonomo di Azure Service FabricUpgrade an Azure Service Fabric standalone cluster
+title: Aggiornare un cluster autonomo di Azure Service Fabric
 description: Informazioni sull'aggiornamento della versione o della configurazione di un cluster autonomo di Service Fabric.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451834"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Aggiornamento di un cluster autonomo di Service Fabric
@@ -15,7 +15,7 @@ ms.locfileid: "75451834"
 Per i sistemi attuali la progettazione a livello di aggiornamento è fondamentale per il successo a lungo termine di un prodotto. Un cluster autonomo di Azure Service Fabric è una risorsa di cui si è proprietari. Questo articolo descrive ciò che può essere aggiornato.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controllo della versione di Fabric eseguita nel cluster
-Assicurarsi che il cluster esegua sempre una [versione di Service Fabric supportata.](service-fabric-versions.md) Quando Microsoft annuncia il rilascio di una nuova versione di Service Fabric, viene segnalato il termine del periodo di supporto per la versione precedente dopo un minimo di 60 giorni dalla data dell'annuncio. Le nuove versioni vengono annunciate nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). A questo punto è possibile scegliere la nuova versione.
+Verificare che il cluster esegua sempre una [versione di Service Fabric supportata](service-fabric-versions.md). Quando Microsoft annuncia il rilascio di una nuova versione di Service Fabric, viene segnalato il termine del periodo di supporto per la versione precedente dopo un minimo di 60 giorni dalla data dell'annuncio. Le nuove versioni vengono annunciate nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). A questo punto è possibile scegliere la nuova versione.
 
 È possibile impostare il cluster in modo che riceva gli aggiornamenti automatici di Fabric man mano che vengono rilasciati da Microsoft. In alternativa, è possibile selezionare manualmente una versione di Fabric supportata da eseguire nel cluster. Per altre informazioni, vedere [Aggiornare la versione di Service Fabric eseguita nel cluster](service-fabric-cluster-upgrade-windows-server.md).
 

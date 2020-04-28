@@ -1,15 +1,15 @@
 ---
-title: Deframmentazione delle metriche in Azure Service FabricDefragmentation of Metrics in Azure Service Fabric
-description: Informazioni sull'uso della deframmentazione o del trasporto come strategia per le metriche in Service Fabric. Questa tecnica è utile per servizi di grandi dimensioni.
+title: Deframmentazione delle metriche in Azure Service Fabric
+description: Informazioni su come usare la deframmentazione o la compressione come strategia per le metriche in Service Fabric. Questa tecnica è utile per i servizi di grandi dimensioni.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75563361"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Deframmentazione delle metriche e del carico in Service Fabric
@@ -33,7 +33,7 @@ Il diagramma di seguito offre una rappresentazione visiva di due cluster, uno de
 
 <center>
 
-![Confronto di cluster bilanciati e deframmentati][Image1]
+![Confronto tra cluster bilanciati e deframmentati][Image1]
 </center>
 
 Nel caso bilanciato, considerare il numero di spostamenti necessari per posizionare uno degli oggetti servizio di dimensioni più grandi. Nel cluster deframmentato il carico di lavoro di grandi dimensioni potrebbe trovarsi nel nodo quattro o cinque senza dover attendere lo spostamento di altri servizi.
@@ -89,7 +89,7 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni su di essi, vedere questo articolo sulla descrizione di un cluster di [Service FabricTo](service-fabric-cluster-resource-manager-cluster-description.md) find out more about them, check out this article on describing a Service Fabric cluster
-- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, consulta [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
+- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni, vedere questo articolo sulla [Descrizione di un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio - Genera firma di accesso condivisoSample API management policy - Generate Shared Access Signature
+title: Criteri di gestione API di esempio-generare una firma di accesso condiviso
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure che illustra come generare una firma di accesso condiviso tramite espressioni e inoltrare la richiesta ad Archiviazione di Azure con il criterio rewrite-uri.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f003bc268af6b7f8bd6b046ae84734dbefeac28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442469"
 ---
 # <a name="generate-shared-access-signature"></a>Generare una firma di accesso condiviso

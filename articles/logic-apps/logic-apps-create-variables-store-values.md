@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75456686"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Archiviare e gestire i valori usando le variabili in app per la logica di Azure
@@ -65,7 +65,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
 1. Fornire queste informazioni sulla variabile come descritto di seguito:
 
-   | Proprietà | Obbligatoria | Valore |  Descrizione |
+   | Proprietà | Obbligatoria | valore |  Descrizione |
    |----------|----------|-------|--------------|
    | **Nome** | Sì | <*nome variabile*> | Nome della variabile da incrementare |
    | **Type** | Sì | <*tipo di variabile*> | Tipo di dati per la variabile |
@@ -205,7 +205,7 @@ Per aumentare o *incrementare* una variabile con un valore costante, aggiungere 
 
 1. Fornire queste informazioni per incrementare la variabile:
 
-   | Proprietà | Obbligatoria | Valore |  Descrizione |
+   | Proprietà | Obbligatoria | valore |  Descrizione |
    |----------|----------|-------|--------------|
    | **Nome** | Sì | <*nome variabile*> | Nome della variabile da incrementare |
    | **Valore** | No | <*valore di incremento*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per incrementare la variabile. |
@@ -326,7 +326,7 @@ Per ridurre o *decrementare* una variabile in base a un valore costante, attener
 
 Ecco le proprietà per l'azione **Decrementare una variabile**:
 
-| Proprietà | Obbligatoria | Valore |  Descrizione |
+| Proprietà | Obbligatoria | valore |  Descrizione |
 |----------|----------|-------|--------------|
 | **Nome** | Sì | <*nome variabile*> | Nome della variabile da decrementare | 
 | **Valore** | No | <*valore di incremento*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per decrementare la variabile. |
@@ -359,7 +359,7 @@ Per assegnare un valore diverso a una variabile esistente, seguire gli passaggi 
 
 Ecco le proprietà per l'azione **Set variable** (Impostare una variabile):
 
-| Proprietà | Obbligatoria | Valore |  Descrizione |
+| Proprietà | Obbligatoria | valore |  Descrizione |
 |----------|----------|-------|--------------|
 | **Nome** | Sì | <*nome variabile*> | Nome della variabile da modificare |
 | **Valore** | Sì | <*nuovo valore*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. |
@@ -417,7 +417,7 @@ Per le variabili che memorizzano stringhe o matrici è possibile inserire o *acc
 
 Ecco le proprietà per le azioni **Append to...** (Accodare a...):
 
-| Proprietà | Obbligatoria | Valore |  Descrizione |
+| Proprietà | Obbligatoria | valore |  Descrizione |
 |----------|----------|-------|--------------|
 | **Nome** | Sì | <*nome variabile*> | Nome della variabile da modificare |
 | **Valore** | Sì | <*Accoda-valore*> | Valore da accodare, di qualsiasi tipo |

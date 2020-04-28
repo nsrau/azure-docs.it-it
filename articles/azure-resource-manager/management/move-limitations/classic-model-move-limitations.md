@@ -1,20 +1,20 @@
 ---
-title: Spostare le risorse di distribuzione di Azure classicoMove Azure Classic deployment resources
-description: Usare Azure Resource Manager per spostare le risorse di distribuzione classica in un nuovo gruppo di risorse o sottoscrizione.
+title: Spostare le risorse di distribuzione classica di Azure
+description: Usare Azure Resource Manager per spostare le risorse di distribuzione classica in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 78b9769a31fa0c96c12e18d05cb9c484aa52a1d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75485286"
 ---
-# <a name="move-guidance-for-classic-deployment-model-resources"></a>Spostare le linee guida per le risorse del modello di distribuzione classicaMove guidance for Classic deployment model resources
+# <a name="move-guidance-for-classic-deployment-model-resources"></a>Spostare le linee guida per le risorse del modello di distribuzione classica
 
-I passaggi per spostare le risorse distribuite tramite il modello classico variano a seconda che si spostino le risorse all'interno di una sottoscrizione o in una nuova sottoscrizione.
+I passaggi per spostare le risorse distribuite con il modello classico variano a seconda che si stiano spostando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
-## <a name="move-in-the-same-subscription"></a>Spostarsi nello stesso abbonamento
+## <a name="move-in-the-same-subscription"></a>Sposta nella stessa sottoscrizione
 
 Quando si spostano risorse da un gruppo di risorse a un altro gruppo di risorse nella stessa sottoscrizione, sono valide le restrizioni seguenti:
 
@@ -27,7 +27,7 @@ Quando si spostano risorse da un gruppo di risorse a un altro gruppo di risorse 
 
 Per spostare le risorse classiche in un nuovo gruppo di risorse all'interno della stessa sottoscrizione, usare le [operazioni di spostamento standard](../move-resource-group-and-subscription.md) tramite il portale, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Usare le stesse operazioni eseguite per lo spostamento di risorse di Resource Manager.
 
-## <a name="move-across-subscriptions"></a>Spostarsi tra gli abbonamenti
+## <a name="move-across-subscriptions"></a>Sposta tra sottoscrizioni
 
 Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizioni seguenti:
 
@@ -35,7 +35,7 @@ Quando si spostano risorse in una nuova sottoscrizione, sono valide le restrizio
 * La sottoscrizione di destinazione non deve contenere nessuna delle altre risorse classiche.
 * Lo spostamento può essere richiesto solo tramite un'API REST separata per gli spostamenti di risorse classiche. I comandi di spostamento standard di Resource Manager non funzionano quando si spostano risorse classiche a una nuova sottoscrizione.
 
-Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, eseguire la procedura seguente:To use REST, do the following steps:
+Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazioni REST specifiche per le risorse classiche. Per usare REST, seguire questa procedura:
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 
@@ -96,6 +96,6 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In caso di problemi con lo spostamento delle risorse classiche, contattare [il supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)tecnico .
+Se si riscontrano problemi durante lo trasferimento delle risorse classiche, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Per i comandi sullo spostamento di risorse, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../move-resource-group-and-subscription.md).

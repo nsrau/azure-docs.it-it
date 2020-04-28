@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di failback nel ripristino di emergenza della macchina virtuale VMware con Azure Site RecoveryTroubleshoot failback in VMware VM disaster recovery with Azure Site Recovery
+title: Risolvere i problemi di failback nel ripristino di emergenza delle macchine virtuali VMware con Azure Site Recovery
 description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75498094"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
@@ -29,7 +29,7 @@ Il failback è composto essenzialmente da due passaggi. Innanzitutto, dopo il fa
 - Se non è possibile raggiungere il server di configurazione dal server di elaborazione, usare Telnet per verificare la connettività al server di configurazione sulla porta 443. È anche possibile provare a eseguire il ping del server di configurazione dal server di elaborazione. Un server di elaborazione deve avere anche un heartbeat quando è connesso al server di configurazione.
 - Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
 - Non è possibile eseguire il failback nelle circostanze seguenti:
-    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Scopri di più](migrate-overview.md#what-do-we-mean-by-migration).
+    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration)
     - Una macchina virtuale è stata spostata in un altro gruppo di risorse.
     - La macchina virtuale Azure è stata eliminata.
     - È stata disabilitata la protezione della macchina virtuale.
@@ -69,11 +69,11 @@ Per risolvere il problema:
 
 ### <a name="error-code-78093"></a>Codice di errore 78093
 
-**La macchina virtuale non è in esecuzione, in stato bloccato o non è accessibile.**
+**La macchina virtuale non è in esecuzione, è bloccata o non è accessibile.**
 
 Per risolvere il problema:
 
-Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale di Azure deve essere eseguita in modo che il servizio Mobility venga registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di elaborazione. Se il computer si trova in una rete non corretta o non è in esecuzione (non risponde o si arresta), il server di configurazione non può raggiungere il servizio Mobility nella macchina virtuale per avviare la riprotezione.
+Per riproteggere la macchina virtuale sottoposta a failover, la machina virtuale di Azure deve essere eseguita in modo che il servizio Mobility venga registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di elaborazione. Se il computer si trova in una rete non corretta o non è in esecuzione (non risponde o non è stato arrestato), il server di configurazione non riesce a raggiungere il servizio Mobility nella macchina virtuale per avviare la riprotezione.
 
 * Riavviare la macchina virtuale in modo che possa a ristabilire la comunicazione in locale.
 * Riavviare il processo di riprotezione dopo l'avvio della macchina virtuale di Azure.
@@ -91,7 +91,7 @@ Questa sezione descrive i più comuni errori che possono verificarsi durante il 
 
 ### <a name="error-code-8038"></a>Codice di errore 8038
 
-**Impossibile visualizzare la macchina virtuale locale a causa dell'errore.**
+**Non è stato possibile visualizzare la macchina virtuale locale a causa dell'errore.**
 
 Questo problema si verifica quando si accede alla macchina virtuale locale su un host in cui non è stato effettuato il provisioning di una quantità di memoria sufficiente. 
 

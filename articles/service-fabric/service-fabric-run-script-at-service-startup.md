@@ -1,15 +1,15 @@
 ---
-title: Eseguire uno script all'avvio di un servizio di Azure Service FabricRun a script when an Azure Service Fabric service starts
+title: Eseguire uno script all'avvio di un servizio Service Fabric di Azure
 description: Informazioni su come configurare criteri per un punto di ingresso dell'installazione di un servizio di Service Fabric e su come eseguire uno script al momento dell'avvio del servizio.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464280"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Eseguire uno script di avvio del servizio come account utente o di sistema locale
@@ -58,7 +58,7 @@ Ecco un esempio semplice di manifesto per un servizio senza stato con uno script
 </ServiceManifest>
 ```
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configurare i criteri per il punto di ingresso dell'installazione del servizio
-Per impostazione predefinita, il file eseguibile del punto di ingresso dell'installazione del servizio viene eseguito con le stesse credenziali di Service Fabric (in genere, l'account *NetworkService*).  Nel manifesto dell'applicazione, è possibile modificare le autorizzazioni di sicurezza per eseguire lo script di avvio con un account di sistema locale o un account amministratore.
+Per impostazione predefinita, il file eseguibile del punto di ingresso dell'installazione del servizio viene eseguito con le stesse credenziali di Service Fabric (in genere l'account *NetworkService* ).  Nel manifesto dell'applicazione, è possibile modificare le autorizzazioni di sicurezza per eseguire lo script di avvio con un account di sistema locale o un account amministratore.
 
 ### <a name="configure-the-policy-by-using-a-local-system-account"></a>Configurare i criteri tramite un account di sistema locale
 L'esempio di manifesto dell'applicazione seguente illustra come configurare il punto di ingresso dell'installazione del servizio per l'esecuzione con un account utente amministratore (SetupAdminUser).
@@ -168,7 +168,7 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Eseguire comandi PowerShell da un punto di ingresso dell'installazione
-Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire **PowerShell.exe** in un file batch che punta a un file di PowerShell. Aggiungere prima di tutto un file PowerShell al progetto del servizio, ad esempio **MySetup.ps1**. Ricordarsi di impostare la proprietà *Copia se più recente* in modo che il file venga incluso anche nel pacchetto servizio. L'esempio seguente illustra un file batch di esempio per avviare un file PowerShell denominato MySetup.ps1, che imposta una variabile di ambiente di sistema denominata **TestVariable**.
+Per eseguire PowerShell dal punto **SetupEntryPoint** , è possibile eseguire **PowerShell. exe** in un file batch che punta a un file di PowerShell. Aggiungere prima di tutto un file PowerShell al progetto del servizio, ad esempio **MySetup.ps1**. Ricordarsi di impostare la proprietà *Copia se più recente* in modo che il file venga incluso anche nel pacchetto servizio. L'esempio seguente illustra un file batch di esempio per avviare un file PowerShell denominato MySetup.ps1, che imposta una variabile di ambiente di sistema denominata **TestVariable**.
 
 MySetup.bat per avviare il file PowerShell:
 
