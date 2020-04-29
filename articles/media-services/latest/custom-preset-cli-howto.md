@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382954"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure
@@ -140,6 +140,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione. Per un esempio completo in cui viene illustrato come inviare un processo in una trasformazione, vedere [Guida introduttiva: eseguire lo streaming di file video-interfaccia](stream-files-cli-quickstart.md)della riga di comando di Azure.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Interfaccia della riga di comando di Azure](/cli/azure/ams)

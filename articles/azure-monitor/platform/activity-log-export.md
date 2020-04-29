@@ -1,6 +1,6 @@
 ---
 title: Esportare il log attività di Azure
-description: Esportare il log attività di Azure nell'archiviazione per l'archiviazione o Hub eventi di Azure per l'esportazione all'esterno di Azure.Export Azure Activity log to storage for archiving or Azure Event Hubs for exporting outside of Azure.
+description: Esportare il log attività di Azure nella risorsa di archiviazione per l'archiviazione o hub eventi di Azure per l'esportazione all'esterno di Azure.
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
@@ -8,87 +8,87 @@ ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396727"
 ---
-# <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o nelle hub eventi di AzureExport Azure Activity log to storage or Azure Event Hubs
+# <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 
 > [!IMPORTANT]
-> Il metodo per l'invio del log attività di Azure ad Archiviazione di Azure e agli hub eventi di Azure è stato modificato in [impostazioni di diagnostica.](diagnostic-settings.md) In questo articolo viene descritto il metodo legacy che è in fase di essere deprecato. Per un confronto, vedere Aggiornamento per [raccogliere e analizzare](activity-log-collect.md) il log attività di Azure in Monitoraggio di Azure.See Update to Collect and analyze Azure Activity log in Azure Monitor for a comparison.
+> Il metodo per l'invio del log attività di Azure ad archiviazione di Azure e hub eventi di Azure è stato modificato in [impostazioni di diagnostica](diagnostic-settings.md). Questo articolo descrive il metodo legacy che è in fase di deprecazione. Per un confronto, vedere Aggiornamento per [raccogliere e analizzare i log attività di Azure in monitoraggio di Azure](activity-log-collect.md) .
 
 
-Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni dettagliate sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure.The Azure Activity Log provides insight into subscription-level events that have occurred in your Azure subscription. Oltre a visualizzare il log attività nel portale di Azure o a copiarlo in un'area di lavoro di Log Analytics in cui può essere analizzato con altri dati raccolti da Monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o trasmetterlo in un hub eventi.
+Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure. Oltre a visualizzare il log attività nel portale di Azure o copiarlo in un'area di lavoro Log Analytics in cui può essere analizzato con altri dati raccolti da monitoraggio di Azure, è possibile creare un profilo di log per archiviare il log attività in un account di archiviazione di Azure o inviarlo a un hub eventi.
 
-## <a name="archive-activity-log"></a>Registro attività archiviazione
-L'archiviazione del registro attività in un account di archiviazione è utile se si desidera conservare i dati del log per più di 90 giorni (con controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni o meno, non è necessario configurare l'archiviazione in un account di archiviazione, poiché gli eventi del log attività vengono mantenuti nella piattaforma Azure per 90 giorni.
+## <a name="archive-activity-log"></a>Archiviare il log attività
+L'archiviazione del log attività in un account di archiviazione è utile se si desidera conservare i dati di log con una durata superiore a 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi solo per 90 giorni o meno, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni.
 
-## <a name="stream-activity-log-to-event-hub"></a>Registro attività flusso all'hub eventi
-[Hub eventi di Azure](/azure/event-hubs/) è una piattaforma di streaming dati e un servizio di inserimento eventi in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Due modi in cui è possibile usare la funzionalità di streaming per il log attività:
+## <a name="stream-activity-log-to-event-hub"></a>Trasmettere il log attività a hub eventi
+[Hub eventi di Azure](/azure/event-hubs/) è una piattaforma di streaming di dati e un servizio di inserimento di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. È possibile usare la funzionalità di streaming per il log attività in due modi:
 * **Trasmettere a sistemi di telemetria e registrazione di terze parti** : in futuro, la funzionalità di trasmissione di Hub eventi di Azure diventerà il meccanismo di invio del log attività a soluzioni di analisi dei log e SIEM di terze parti.
 * **Creare una piattaforma di telemetria e registrazione personalizzata** : se si ha già una piattaforma di telemetria personalizzata o si intende crearne una, le caratteristiche di pubblicazione-sottoscrizione altamente scalabili di Hub eventi consentono di inserire il log attività con la massima flessibilità.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="storage-account"></a>Account di archiviazione
-Se si archivia il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) se non ne è già stato. È consigliabile non usare un account di archiviazione esistente contenente altri dati non di monitoraggio archiviati in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche i log e le metriche in un account di archiviazione, è tuttavia possibile scegliere di usare lo stesso account di archiviazione per mantenere tutti i dati di monitoraggio in una posizione centrale.
+Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
 
 L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni. 
 
 > [!TIP]
-> Vedere [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) di Archiviazione di Azure per fornire l'accesso a un account di archiviazione dietro una rete virtuale protetta.
+> Vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) per fornire l'accesso a un account di archiviazione dietro una rete virtuale protetta.
 
 ### <a name="event-hubs"></a>Hub eventi
-Se si invia il log attività a un hub eventi, è necessario [creare un hub eventi](../../event-hubs/event-hubs-create.md) se non ne è già presente uno. Se in precedenza sono stati trasmessi eventi del Log attività a questo spazio dei nomi Hub eventi, l'hub eventi verrà riutilizzato.
+Se si sta inviando il log attività a un hub eventi, è necessario [creare un hub eventi](../../event-hubs/event-hubs-create.md) , se non è già presente. Se in precedenza sono stati trasmessi eventi del log attività a questo spazio dei nomi di hub eventi, l'hub eventi verrà riutilizzato.
 
-Il criterio di accesso condiviso definisce le autorizzazioni per il meccanismo di trasmissione. Lo streaming in Hub eventi richiede le autorizzazioni di gestione, invio e ascolto. È possibile creare o modificare i criteri di accesso condiviso per lo spazio dei nomi di Hub eventi nel portale di Azure, nella scheda Configura relativa a tale spazio dei nomi.
+Il criterio di accesso condiviso definisce le autorizzazioni per il meccanismo di trasmissione. Per lo streaming a hub eventi sono necessarie autorizzazioni di gestione, invio e ascolto. È possibile creare o modificare i criteri di accesso condiviso per lo spazio dei nomi di Hub eventi nel portale di Azure, nella scheda Configura relativa a tale spazio dei nomi.
 
-Per aggiornare il profilo del log attività per includere lo streaming, è necessario disporre dell'autorizzazione ListKey per la regola di autorizzazione Hub eventi. Lo spazio dei nomi di Hub eventi non deve necessariamente trovarsi nella stessa sottoscrizione in cui vengono creati i log, purché l'utente che configura l'impostazione abbia l'accesso RBAC appropriato a entrambe le sottoscrizioni e queste ultime si trovino entrambe nello stesso tenant AAD.
+Per aggiornare il profilo di log del log attività in modo da includere il flusso, è necessario disporre dell'autorizzazione ListKey per la regola di autorizzazione di hub eventi. Lo spazio dei nomi di Hub eventi non deve necessariamente trovarsi nella stessa sottoscrizione in cui vengono creati i log, purché l'utente che configura l'impostazione abbia l'accesso RBAC appropriato a entrambe le sottoscrizioni e queste ultime si trovino entrambe nello stesso tenant AAD.
 
-Trasmettere il log attività a un hub eventi [creando un profilo di log.](#create-a-log-profile)
+Trasmettere il log attività a un hub eventi [creando un profilo di log](#create-a-log-profile).
 
-## <a name="create-a-log-profile"></a>Creare un profilo di logCreate a log profile
-Definire la modalità di esportazione del log attività di Azure usando un profilo di **log.** Ogni sottoscrizione di Azure può avere un solo profilo di log. Queste impostazioni possono essere configurate tramite l'opzione **Esporta** nel pannello Log attività nel portale. oppure a livello di codice tramite l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx), i cmdlet di PowerShell o l'interfaccia della riga di comando.
+## <a name="create-a-log-profile"></a>Creare un profilo di log
+Definire il modo in cui il log attività di Azure viene esportato usando un **profilo di log**. Ogni sottoscrizione di Azure può avere un solo profilo di log. Queste impostazioni possono essere configurate tramite l'opzione **Esporta** nel pannello log attività nel portale. oppure a livello di codice tramite l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx), i cmdlet di PowerShell o l'interfaccia della riga di comando.
 
-Il profilo di log definisce quanto segue.
+Il profilo di log definisce gli elementi seguenti.
 
-**Dove deve essere inviato il log attività.** Attualmente, le opzioni disponibili sono Account di archiviazione o Hub eventi.
+**Dove deve essere inviato il log attività.** Attualmente, le opzioni disponibili sono account di archiviazione o hub eventi.
 
-**Quali categorie di eventi devono essere inviate.** Il significato della *categoria* negli eventi Log Profiles e Activity Log è diverso. Nel Profilo log, *Categoria* rappresenta il tipo di operazione (Scrittura, Eliminazione, Azione). In un evento del registro attività, la *categoria*"proprietà z rappresenta l'origine o il tipo di evento (ad esempio, amministrazione, ServiceHealth e alert).
+**Le categorie di eventi da inviare.** Il significato della *categoria* nei profili di log e negli eventi del log attività è diverso. Nel profilo di log, *Category* rappresenta il tipo di operazione (Write, DELETE, Action). In un evento del log attività, la proprietà *Category*"* rappresenta l'origine o il tipo di evento (ad esempio, amministrazione, ServiceHealth e avviso).
 
-**Quali regioni (località) devono essere esportate.** È necessario includere tutte le posizioni poiché molti eventi nel Log attività sono eventi globali.
+**Quali aree (posizioni) devono essere esportate.** È necessario includere tutti i percorsi poiché molti eventi nel log attività sono eventi globali.
 
 **Per quanto tempo il log attività deve essere mantenuto nell'account di archiviazione.** Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. In caso contrario, il valore può essere un numero qualsiasi di giorni compreso tra 1 e 365.
 
-Se i criteri di conservazione sono impostati, ma l'archiviazione dei log in un account di archiviazione è disabilitata, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
+Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
 
 
 > [!IMPORTANT]
-> È possibile che venga visualizzato un errore durante la creazione di un profilo di log se il provider di risorse Microsoft.Insights non è registrato. Per registrare questo provider, vedere [Tipi e provider di risorse di Azure.See Azure resource providers](../../azure-resource-manager/management/resource-providers-and-types.md) and types to register this provider.
+> Se il provider di risorse Microsoft. Insights non è registrato, è possibile che venga visualizzato un errore durante la creazione di un profilo di log. Per registrare questo provider [, vedere provider e tipi di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md) .
 
 
-### <a name="create-log-profile-using-the-azure-portal"></a>Creare il profilo di log usando il portale di AzureCreate log profile using the Azure portal
+### <a name="create-log-profile-using-the-azure-portal"></a>Creare un profilo di log usando il portale di Azure
 
-Creare o modificare un profilo di log con l'opzione Esporta nell'hub eventi nel portale di Azure.Create or edit a log profile with the **Export to Event Hub** option in the Azure portal.
+Creare o modificare un profilo di log con l'opzione **Esporta in hub eventi** nel portale di Azure.
 
-1. Dal menu **Monitoraggio di Azure** nel portale di Azure selezionare Log **attività**.
-3. Fare clic su **Impostazioni di diagnostica**.
+1. Dal menu **monitoraggio di Azure** nella portale di Azure selezionare **log attività**.
+3. Fare clic su **impostazioni di diagnostica**.
 
    ![Impostazioni di diagnostica](media/diagnostic-settings-subscription/diagnostic-settings.png)
 
-4. Fai clic sul banner viola per l'esperienza legacy.
+4. Fare clic sul banner viola per l'esperienza legacy.
 
     ![Esperienza legacy](media/diagnostic-settings-subscription/legacy-experience.png)
 
-3. Nel pannello visualizzato specificare quanto segue:
-   * Regioni con gli eventi da esportare. È necessario selezionare tutte le aree per assicurarsi di non perdere gli eventi chiave poiché il log attività è un log globale (non regionale) e pertanto alla maggior parte degli eventi non è associata un'area.
-   * Se si vuole scrivere nell'account di archiviazione:If you want to write to storage account:
-       * Account di archiviazione in cui si desidera salvare gli eventi.
-       * Il numero di giorni in cui si desidera mantenere questi eventi nell'archivio. (se si impostano 0 giorni, i log vengono conservati all'infinito)
-   * Se si desidera scrivere nell'hub eventi:
-       * Spazio dei nomi del bus di servizio in cui si desidera creare un hub eventi per lo streaming di questi eventi.
+3. Nel pannello che viene visualizzato specificare quanto segue:
+   * Aree con gli eventi da esportare. È necessario selezionare tutte le aree per assicurarsi di non perdere gli eventi chiave perché il log attività è un log globale (non regionale), quindi la maggior parte degli eventi non dispone di un'area associata.
+   * Se si vuole scrivere nell'account di archiviazione:
+       * L'account di archiviazione in cui si desidera salvare gli eventi.
+       * Il numero di giorni per cui si vogliono conservare questi eventi nell'archivio. (se si impostano 0 giorni, i log vengono conservati all'infinito)
+   * Se si vuole scrivere nell'hub eventi:
+       * Lo spazio dei nomi del bus di servizio in cui si vuole creare un hub eventi per lo streaming di questi eventi.
 
      ![Pannello Esporta log di controllo](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 
@@ -96,13 +96,13 @@ Creare o modificare un profilo di log con l'opzione Esporta nell'hub eventi nel 
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
 
-### <a name="configure-log-profile-using-powershell"></a>Configurare il profilo di log tramite PowerShellConfigure log profile using PowerShell
+### <a name="configure-log-profile-using-powershell"></a>Configurare il profilo di log con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profilo di log esistente e quindi crearne uno nuovo.
+Se esiste già un profilo di log, prima di tutto è necessario rimuovere il profilo di log esistente e quindi crearne uno nuovo.
 
-1. Usare `Get-AzLogProfile` per determinare se esiste già un profilo di log.  Se esiste un profilo di log, prendere nota della proprietà *name.*
+1. Usare `Get-AzLogProfile` per determinare se esiste già un profilo di log.  Se esiste un profilo di log, annotare la proprietà *Name* .
 
 1. Usare `Remove-AzLogProfile` per rimuovere il profilo di log usando il valore della proprietà *name*.
 
@@ -121,13 +121,13 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | --- | --- | --- |
     | Nome |Sì |Nome del profilo di log. |
     | StorageAccountId |No |ID risorsa dell'account di archiviazione in cui deve essere salvato il log attività. |
-    | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una `{service bus resource ID}/authorizationrules/{key name}`stringa con il formato: . |
-    | Location |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-    | RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere mantenuti nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
+    | serviceBusRuleId |No |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | Percorso |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+    | RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere conservati nell'account di archiviazione, tra 1 e 365. Se il valore è zero, i log vengono conservati all'infinito. |
     | Category |No |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono _Write_, _Delete_e _Action_. |
 
 ### <a name="example-script"></a>Script di esempio
-Di seguito è riportato uno script di PowerShell di esempio per creare un profilo di log che scrive il log attività sia in un account di archiviazione che in un hub eventi.
+Di seguito è riportato uno script di PowerShell di esempio per creare un profilo di log che scrive il log attività in un account di archiviazione e in un hub eventi.
 
    ```powershell
    # Settings needed for the new log profile
@@ -148,7 +148,7 @@ Di seguito è riportato uno script di PowerShell di esempio per creare un profil
    ```
 
 
-### <a name="configure-log-profile-using-azure-cli"></a>Configurare il profilo di log usando l'interfaccia della riga di comando di AzureConfigure log profile using
+### <a name="configure-log-profile-using-azure-cli"></a>Configurare il profilo di log tramite l'interfaccia della riga di comando
 
 Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profilo di log esistente e quindi crearne uno nuovo.
 
@@ -165,7 +165,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
     | name |Sì |Nome del profilo di log. |
     | storage-account-id |Sì |ID risorsa dell'account di archiviazione in cui salvare i log attività. |
     | locations |Sì |Elenco delimitato da spazi di aree per cui raccogliere eventi del log attività. È possibile visualizzare un elenco di tutte le aree per la sottoscrizione tramite `az account list-locations --query [].name`. |
-    | days |Sì |Numero di giorni per i quali gli eventi devono essere conservati, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se zero, il parametro enabled deve essere impostato su false. |
+    | days |Sì |Numero di giorni per cui devono essere conservati gli eventi, tra 1 e 365. Se il valore è zero, i log vengono archiviati per un periodo illimitato.  Se è zero, il parametro Enabled deve essere impostato su false. |
     |Enabled | Sì |True o False.  Consente di abilitare o disabilitare i criteri di conservazione.  Se True, il parametro days deve essere un valore maggiore di 0.
     | Categorie |Sì |Elenco delimitato da spazi di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
@@ -173,5 +173,5 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ulteriori informazioni sul Log attività](../../azure-resource-manager/management/view-activity-logs.md)
-* [Raccogliere il log attività nei log di Monitoraggio di AzureCollect Activity Log into Azure Monitor Logs](activity-log-collect.md)
+* [Altre informazioni sul log attività](../../azure-resource-manager/management/view-activity-logs.md)
+* [Raccogliere log attività nei log di monitoraggio di Azure](activity-log-collect.md)

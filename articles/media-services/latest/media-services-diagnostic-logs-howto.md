@@ -1,6 +1,6 @@
 ---
-title: Monitorare i log di diagnostica di Servizi multimediali tramite Monitoraggio di Azure Documenti Microsoft
-description: Questo articolo illustra come instradare e visualizzare i log di diagnostica tramite Monitoraggio di Azure.This article demonstrates how to route and view diagnostic logs via Azure Monitor.
+title: Monitorare i log di diagnostica di servizi multimediali tramite monitoraggio di Azure | Microsoft Docs
+description: Questo articolo illustra come indirizzare e visualizzare i log di diagnostica tramite monitoraggio di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382920"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di Servizi multimedialiMonitor Media Services diagnostic logs
+# <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per informazioni sul motivo per cui si vuole usare le metriche e i log di diagnostica di Servizi multimediali di Azure, vedere [Monitorare le metriche e i log](media-services-metrics-diagnostic-logs.md)di diagnostica di Servizi multimediali.
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per sapere perché si vuole usare i log di diagnostica e le metriche di servizi multimediali di Azure, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
 
 Questo articolo illustra come instradare i dati all'account di archiviazione e quindi visualizzare i dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
-- Esaminare [Monitorare le metriche e i log di diagnostica](media-services-metrics-diagnostic-logs.md)di Servizi multimediali.
+- Vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>Instradare i dati all'account di archiviazione usando il portale
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>Indirizzare i dati all'account di archiviazione usando il portale
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-1. Passare all'account di Servizi multimediali in e fare clic su **Impostazioni di diagnostica** in **Monitor**. Di seguito viene visualizzato un elenco di tutte le risorse nella sottoscrizione che genera dati di monitoraggio tramite Monitoraggio di Azure.
+1. Passare all'account di servizi multimediali in e fare clic su **impostazioni di diagnostica** in **monitoraggio**. Di seguito viene visualizzato un elenco di tutte le risorse nella sottoscrizione che genera dati di monitoraggio tramite Monitoraggio di Azure.
 
     ![Sezione sulle impostazioni di diagnostica](media/media-services-diagnostic-logs/logs01.png)
 
@@ -44,18 +44,18 @@ Questo articolo illustra come instradare i dati all'account di archiviazione e q
 
 1. Nella sezione che viene visualizzata assegnare un **nome** all'impostazione e selezionare la casella **Archivia in un account di archiviazione**.
 
-    Selezionare l'account di archiviazione a cui si desidera inviare i log e premere **OK**.
+    Selezionare l'account di archiviazione a cui si vogliono inviare i log e fare clic su **OK**.
 1. Selezionare tutte le caselle in **Log** e **Metrica**. A seconda del tipo di risorsa, si può avere solo una di queste opzioni. Queste caselle di controllo consentono di controllare le categorie di log e dati di metrica disponibili per il tipo di risorsa che vengono inviate alla destinazione selezionata, in questo caso, un account di archiviazione.
 
    ![Sezione sulle impostazioni di diagnostica](media/media-services-diagnostic-logs/logs02.png)
 1. Impostare il dispositivo di scorrimento **Retention (days)** (Conservazione (giorni)) su 30. Questo dispositivo di scorrimento consente di impostare un numero di giorni per conservare i dati di monitoraggio nell'account di archiviazione. Monitoraggio di Azure elimina automaticamente i dati precedenti al numero di giorni specificato. Se il valore di conservazione è zero giorni, i dati vengono conservati all'infinito.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di archiviazione.
 
-## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Instradare i dati all'account di archiviazione usando l'interfaccia della riga di comando di AzureRoute data to the storage account using the Azure CLI
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Indirizzare i dati all'account di archiviazione usando l'interfaccia della riga di comando di Azure
 
-Per abilitare l'archiviazione dei log di diagnostica `az monitor diagnostic-settings` in un account di archiviazione, è necessario eseguire il comando dell'interfaccia della riga di comando di Azure seguente:To enable storage of diagnostic logs in a Storage Account, you would run the following Azure CLI command:
+Per abilitare l'archiviazione dei log di diagnostica in un account di archiviazione, eseguire il `az monitor diagnostic-settings` comando dell'interfaccia della riga di comando di Azure seguente:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -83,7 +83,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="view-data-in-the-storage-account-using-the-portal"></a>Visualizzare i dati nell'account di archiviazione tramite il portaleView data in the storage account using the portal
+## <a name="view-data-in-the-storage-account-using-the-portal"></a>Visualizzare i dati nell'account di archiviazione usando il portale
 
 Se è stata seguita la procedura precedente, il processo di trasmissione dei dati all'account di archiviazione è iniziato.
 
@@ -91,14 +91,14 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 
 1. Nel portale passare alla sezione **Account di archiviazione** cercandola sulla barra di navigazione a sinistra.
 1. Identificare l'account di archiviazione creato nella sezione precedente e fare clic su di esso.
-1. Fare clic su **BLOB**, quindi sul contenitore con etichetta **insights-logs-keydeliveryrequests**. Questo è il contenitore che contiene i log. I dati di monitoraggio vengono suddivisi in contenitori in base all'ID risorsa, quindi in base alla data e all'ora.
+1. Fare clic su **BLOB**, quindi sul contenitore con etichetta **Insights-logs-keydeliveryrequests**. Si tratta del contenitore in cui sono presenti i log. Il monitoraggio dei dati è suddiviso in contenitori per ID di risorsa, quindi in base a data e ora.
 1. Passare al file PT1H.json facendo clic sui contenitori per l'ID di risorsa, data e ora. Fare clic sul file PT1H.json e quindi su **Download**.
 
  È ora possibile visualizzare l'evento JSON che è stato archiviato nell'account di archiviazione.
 
-### <a name="examples-of-pt1hjson"></a>Esempi di PT1H.json
+### <a name="examples-of-pt1hjson"></a>Esempi di PT1H. JSON
 
-#### <a name="clear-key-delivery-log"></a>Cancella registro di recapito delle chiavi
+#### <a name="clear-key-delivery-log"></a>Cancella log di recapito chiave
 
 ```json
 {
@@ -136,7 +136,7 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 }
 ```
 
-#### <a name="widevine-encrypted-key-delivery-log"></a>Log di recapito delle chiavi crittografate Widevine
+#### <a name="widevine-encrypted-key-delivery-log"></a>Log di recapito della chiave crittografato Widevine
 
 ```json
 {
@@ -180,9 +180,9 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Metriche di Monitoraggio di AzureAzure Monitor Metrics](../../azure-monitor/platform/data-platform.md)
-* [Log di diagnostica di Monitoraggio di AzureAzure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md)
-* [Come raccogliere e usare i dati di log dalle risorse di AzureHow to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md)
+* [Metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
+* [Log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

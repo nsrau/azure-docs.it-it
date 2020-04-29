@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sul Centro sicurezza di Azure- domande sulle macchine virtualiAzure Security Center FAQ - questions about virtual machines
-description: Domande frequenti sulle macchine virtuali nel Centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce
+title: Domande frequenti sul centro sicurezza di Azure-Domande sulle macchine virtuali
+description: Domande frequenti sulle macchine virtuali nel centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80436003"
 ---
-# <a name="faq---questions-about-virtual-machines"></a>Domande frequenti - Domande sulle macchine virtualiFAQ - Questions about virtual machines
+# <a name="faq---questions-about-virtual-machines"></a>Domande frequenti sulle macchine virtuali
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Quali tipi di macchine virtuali sono supportati?
@@ -42,7 +42,7 @@ Questo messaggio viene visualizzato quando non sono presenti dati di analisi per
 
 ## <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Con quale frequenza il Centro sicurezza esegue l'analisi alla ricerca di vulnerabilità del sistema operativo, aggiornamenti del sistema e problemi di protezione degli endpoint?
 
-Di seguito sono riportati i tempi di latenza per le analisi di vulnerabilità, aggiornamenti e problemi del Centro sicurezza:
+Di seguito sono riportati i tempi di latenza per le analisi delle vulnerabilità, degli aggiornamenti e dei problemi del Centro sicurezza:
 
 - Configurazioni di sicurezza del sistema operativo: i dati vengono aggiornati entro 48 ore
 - Aggiornamenti di sistema: i dati vengono aggiornati entro 24 ore

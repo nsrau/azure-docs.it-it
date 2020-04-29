@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79499659"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gestire un account di Video Indexer connesso ad Azure
@@ -56,7 +56,7 @@ Nella finestra di dialogo **Aggiorna connessione a servizi multimediali di Azure
 
 |Impostazione|Descrizione|
 |---|---|
-|ID sottoscrizione di Azure|L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **tutti i servizi** nel riquadro a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
+|ID della sottoscrizione di Azure|L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **tutti i servizi** nel riquadro a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
 |Nome del gruppo di risorse di Servizi multimediali di Azure|Nome del gruppo di risorse in cui è stato creato l'account di Servizi multimediali.|
 |ID applicazione|L'ID dell'applicazione Azure AD (con le autorizzazioni per l'account di servizi multimediali specificato) creato per questo account di Video Indexer. <br/><br/>Per ottenere l'ID app, passare a portale di Azure. Nell'account di servizi multimediali scegliere l'account e passare ad **accesso all'API**. Selezionare **Connetti all'API servizi multimediali con l'entità** -> servizio**app Azure ad**. Copiare i parametri pertinenti.|
 |Chiave applicazione|Chiave dell'applicazione Azure AD associata all'account di servizi multimediali specificato in precedenza. <br/><br/>Per ottenere la chiave dell'app, passare a portale di Azure. Nell'account di servizi multimediali scegliere l'account e passare ad **accesso all'API**. Selezionare **Connetti all'API servizi multimediali con l'entità** -> servizio**Gestisci** -> **certificati applicazione & segreti**. Copiare i parametri pertinenti.|

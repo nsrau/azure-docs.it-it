@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294728"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
@@ -68,7 +68,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 3. Selezionare la propria sottoscrizione.
 4. Selezionare o creare un gruppo di risorse.
 5. Selezionare o creare un piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro in cui si vuole creare il piano di servizio. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro. Quando si specifica il nome dell'app, si noterà che il sottodominio sotto il nome dell'app verrà sostituito con il sottodominio dell'ambiente del servizio app. 
-6. Seleziona **Crea**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
+6. Selezionare **Crea**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
 
 ![][2]
 
@@ -122,7 +122,7 @@ Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi
     *.scm ftp publish 
 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

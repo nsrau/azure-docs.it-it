@@ -1,5 +1,5 @@
 ---
-title: App multi-tenant con strumenti di database RLS ed elastici
+title: App multi-tenant con strumenti di database elastico e RLS
 description: Usare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un'applicazione con un livello dati altamente scalabile.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398332"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
@@ -56,7 +56,7 @@ Si noti che poiché RLS non è stata ancora abilitata nei database di partiziona
 1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo.
 2. **Livello dati**: creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Livello applicazione: impostare\_TenantId nel CONTESTO DI SESSIONE
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. livello applicazione: impostare TenantId nel contesto della\_sessione
 
 Per prima cosa, connettersi a un database di partizionamento tramite le API di routing dipendente dai dati della libreria client dei database elastici. L'applicazione deve comunque indicare al database quale TenantId userà la connessione, mentre il TenantId indica ai criteri di sicurezza a livello di riga quali righe dovranno essere escluse in quanto appartenenti ad altri tenant. Archiviare il TenantId corrente in [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) della connessione.
 
@@ -212,7 +212,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Livello dati: creare criteri di sicurezza a livello di riga
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. livello dati: creare criteri di sicurezza a livello di riga
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Creare i criteri di sicurezza per filtrare le righe accessibili a ogni tenant
 
@@ -351,7 +351,7 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 
 - [Che cos'è un pool elastico di Azure?](sql-database-elastic-pool.md)
 - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
-- [Modelli di progettazione per applicazioni SaaS multi-tenant con il database SQL di AzureDesign Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
+- [Modelli di progettazione per applicazioni SaaS multi-tenant con il database SQL di Azure](saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382937"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorare le metriche di Servizi multimediali
@@ -67,7 +67,7 @@ az monitor metrics list --resource \
 
 Per ottenere altre metriche, sostituire "in uscita" con il nome della metrica a cui si è interessati.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
 * [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).

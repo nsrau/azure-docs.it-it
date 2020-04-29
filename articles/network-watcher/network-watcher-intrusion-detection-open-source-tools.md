@@ -1,5 +1,5 @@
 ---
-title: Eseguire il rilevamento delle intrusioni di rete con gli strumenti open source
+title: Eseguire il rilevamento delle intrusioni di rete con strumenti open source
 titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come usare Azure Network Watcher e strumenti open source per eseguire il rilevamento di intrusioni di rete
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474919"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurare Elastic Stack
 
-Mentre i log che Suricata produce contengono informazioni preziose su ciò che sta accadendo sulla nostra rete, questi file di log non sono i più facili da leggere e capire. Connettendo Suricata con Elastic Stack, è possibile creare un dashboard Kibana che consente di cercare, creare grafici, analizzare e derivare informazioni dettagliate dai log.
+Sebbene i registri prodotti da Suricata contengano informazioni preziose su ciò che accade nella rete, questi file di log non sono più facili da leggere e comprendere. Connettendo Suricata con Elastic Stack, è possibile creare un dashboard Kibana che consente di cercare, creare grafici, analizzare e derivare informazioni dettagliate dai log.
 
 #### <a name="install-elasticsearch"></a>Installare Elasticsearch
 
@@ -215,7 +215,7 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
     sudo /etc/init.d/logstash start
     ```
 
-Per ulteriori istruzioni sull'installazione di Logstash, fare riferimento alla [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Per altre istruzioni sull'installazione di logstash, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
 ### <a name="install-kibana"></a>Installare Kibana
 
@@ -254,7 +254,7 @@ Per questo articolo, è stato fornito un dashboard di esempio per visualizzare t
 
 Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suricata:
 
-1. Avvisi per GeoIP: una mappa che mostra la distribuzione degli avvisi in base al paese/area geografica di origine in base alla posizione geografica (determinata da IP)
+1. Avvisi di GeoIP: una mappa che mostra la distribuzione degli avvisi in base al paese/regione di origine in base alla posizione geografica (determinata dall'IP)
 
     ![IP geografico][3]
 
@@ -268,13 +268,13 @@ Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suric
 
 1. Top 20 Source/Destination IPs/Ports (Primi 20 IP/porte di origine/destinazione): grafici a torta che illustrano i primi 20 IP e porte in cui sono stati attivati avvisi. È possibile filtrare specifici IP/porte per visualizzare quanti avvisi e di quale tipo sono stati attivati.
 
-    ![Immagine 6][6]
+    ![immagine 6][6]
 
 1. Alert Summary (Riepilogo avvisi): tabella che riepiloga specifici dettagli di ogni singolo avviso. È possibile personalizzare questa tabella per visualizzare altri parametri di interesse per ogni avviso.
 
     ![Immagine 7][7]
 
-Per ulteriori documentazione sulla creazione di visualizzazioni e dashboard personalizzati, vedere la documentazione ufficiale di [Kibana.](https://www.elastic.co/guide/en/kibana/current/introduction.html)
+Per ulteriori informazioni sulla creazione di visualizzazioni e dashboard personalizzati, vedere [la documentazione ufficiale di Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## <a name="conclusion"></a>Conclusioni
 

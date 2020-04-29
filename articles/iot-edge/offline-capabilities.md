@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80236068"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informazioni sulle funzionalità estese offline per IoT Edge dispositivi, moduli e dispositivi figlio
 
 Azure IoT Edge supporta le operazioni offline estese nei dispositivi IoT Edge e Abilita le operazioni offline nei dispositivi figlio non IoT Edge. Fino a quando un dispositivo IoT Edge ha avuto la possibilità di connettersi all'hub Internet, il dispositivo e tutti i dispositivi figlio possono continuare a funzionare con una connessione Internet intermittente o senza connessione.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando un dispositivo IoT Edge passa alla modalità offline, l'hub di IoT Edge svolge tre ruoli. Prima di tutto, archivia i messaggi diretti upstream e li salva fino a quando il dispositivo si riconnette. In secondo luogo, agisce per conto dell'hub IoT per l'autenticazione dei moduli e dei dispositivi figlio in modo che possano continuare a funzionare. In terzo luogo, consente le comunicazioni tra i dispositivi figlio che normalmente passerebbero attraverso l'hub IoT.
 
@@ -143,5 +143,5 @@ I messaggi e le informazioni sullo stato del modulo vengono archiviati nel file 
 Altre informazioni su come configurare un gateway trasparente per le connessioni del dispositivo padre/figlio:
 
 * [Configurare un dispositivo IoT Edge come gateway trasparente](how-to-create-transparent-gateway.md)
-* [Autenticare un dispositivo downstream sull'hub IoT di Azure](how-to-authenticate-downstream-device.md)
+* [Autenticare un dispositivo downstream con l'hub IoT di Azure](how-to-authenticate-downstream-device.md)
 * [Connettere un dispositivo downstream a un gateway Azure IoT Edge](how-to-connect-downstream-device.md)

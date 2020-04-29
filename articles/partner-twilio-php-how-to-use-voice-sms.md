@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: f9fb250109a1c9000eae8da0d6337c96f19f0f89
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410550"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Come usare Twilio per le funzionalità voce ed SMS in PHP
-In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di voce e SMS nelle applicazioni, vedere la sezione [Passaggi successivi.](#NextSteps)
+In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
 
 ## <a name="what-is-twilio"></a><a id="WhatIs"></a>Informazioni su Twilio
 Twilio è una tecnologia all'avanguardia per le comunicazioni aziendali che consente agli sviluppatori di incorporare funzionalità voce, VoIP e di messaggistica nelle applicazioni. Consente di virtualizzare tutta l'infrastruttura necessaria in un ambiente globale basato su cloud, esponendolo attraverso la piattaforma API per le comunicazioni Twilio. Le applicazioni sono scalabili e facili da compilare. Offre flessibilità, grazie a un modello di prezzi con pagamento al consumo, e l'affidabilità del cloud.
@@ -28,7 +28,7 @@ Twilio è una tecnologia all'avanguardia per le comunicazioni aziendali che cons
 **Twilio Voice** consente alle applicazioni di effettuare e ricevere chiamate telefoniche. **Twilio SMS** consente alle applicazioni di inviare e ricevere messaggi di testo. **Twilio Client** consente di effettuare chiamate VoIP da qualsiasi telefono, tablet o browser e supporta WebRTC.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Prezzi e offerte speciali di Twilio
-I clienti di Azure riceveranno un' [offerta speciale](https://www.twilio.com/azure): $ 10 di credito Twilio all'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi utilizzo di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Riscatta questo credito Twilio [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure)e inizia a: .
+I clienti di Azure riceveranno un' [offerta speciale](https://www.twilio.com/azure): $ 10 di credito Twilio all'aggiornamento dell'account Twilio. Il credito Twilio può essere applicato a qualsiasi utilizzo di Twilio ($ 10 di credito equivalgono all'invio di 1.000 SMS o a 1.000 minuti voce per le chiamate in entrata, a seconda della località del numero di telefono, del messaggio o della destinazione della chiamata). Riscattare il credito Twilio e iniziare a: [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure).
 
 Twilio è un servizio con pagamento in base al consumo. Non prevede spese iniziali ed è possibile chiudere l'account in qualsiasi momento. Per altre informazioni, vedere la pagina [Twilio Pricing][twilio_pricing] (Prezzi di Twilio).
 
@@ -38,20 +38,20 @@ L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le app
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbi Twilio
-L'API utilizza i verbi Twilio; ad esempio, ** &lt;&gt; ** il verbo Say indica a Twilio di recapitare udibile un messaggio su una chiamata.
+L'API usa i verbi Twilio; il ** &lt;verbo Say&gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
 
 Di seguito è riportato un elenco dei verbi Twilio. Per altre informazioni su altri verbi e funzionalità, vedere la [documentazione relativa al linguaggio di markup Twilio](https://www.twilio.com/docs/api/twiml).
 
-* Composizione : Connette il chiamante a un altro telefono. ** &lt;&gt;**
-* Gather : Raccoglie le cifre numeriche immesse sul tastierino del telefono. ** &lt;&gt;**
-* **Hangup&gt;: Termina una &lt;** chiamata.
-* **Riproduci:&gt;riproduce un file &lt;** audio.
-* Pausa : Attende automaticamente per un numero di secondi specificato. ** &lt;&gt;**
-* Record : Registra la voce del chiamante e restituisce l'URL di un file che contiene la registrazione. ** &lt;&gt;**
-* Redirect : Trasferisce il controllo di una chiamata o SMS al TwiML a un URL diverso. ** &lt;&gt;**
-* Rifiuta : Rifiuta una chiamata in arrivo al tuo numero Twilio senza fatturarti ** &lt;&gt;**
-* **Dire:&gt;converte il testo in voce eseguito durante una &lt;** chiamata.
-* Sms : Invia un messaggio SMS. ** &lt;&gt;**
+* Dial: connette il chiamante a un altro telefono. ** &lt;&gt;**
+* Raccolta: raccoglie le cifre numeriche immesse sul tastierino telefonico. ** &lt;&gt;**
+* Hangup: termina una chiamata. ** &lt;&gt;**
+* Play: riproduce un file audio. ** &lt;&gt;**
+* Pause: attende in modo invisibile all'utente un numero di secondi specificato. ** &lt;&gt;**
+* Record: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione. ** &lt;&gt;**
+* Reindirizzamento: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso. ** &lt;&gt;**
+* Rifiuta: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione ** &lt;&gt;**
+* Say: converte il testo in sintesi vocale eseguita in una chiamata. ** &lt;&gt;**
+* SMS: Invia un messaggio SMS. ** &lt;&gt;**
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML è un set di istruzioni basate su XML e sui verbi Twilio che indicano a Twilio come elaborare una chiamata o un SMS.
@@ -138,10 +138,10 @@ Di seguito è illustrato come effettuare una chiamata in uscita tramite la class
 
 Come indicato in precedenza, questo codice utilizza un sito fornito da Twilio per restituire la risposta TwiML. Per fornire la risposta TwiML è inoltre possibile usare il proprio sito. Per altre informazioni, vedere [Come fornire risposte TwiML dal proprio sito Web](#howto_provide_twiml_responses).
 
-* **Nota:** per risolvere gli errori di convalida dei certificati TLS/SSL, vedere[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **Nota**: per risolvere gli errori di convalida del certificato TLS/SSL, vedere[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Procedura: Inviare un messaggio SMS
-Nella schermata seguente è illustrato come inviare un SMS tramite la classe **Services_Twilio**. Il numero **Da** viene fornito da Twilio per gli account di prova per l'invio di messaggi SMS. Il numero **A** deve essere verificato per l'account Twilio prima di eseguire il codice.
+Nella schermata seguente è illustrato come inviare un SMS tramite la classe **Services_Twilio**. Il numero **da** viene fornito da Twilio per gli account di prova per l'invio di messaggi SMS. Prima di eseguire il codice, è necessario verificare il numero **a** per l'account Twilio.
 
     // Include the Twilio PHP library.
     require_once 'Services/Twilio.php';
@@ -172,7 +172,7 @@ Nella schermata seguente è illustrato come inviare un SMS tramite la classe **S
     }
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Procedura: Fornire risposte TwiML dal proprio sito Web
-Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene utilizzato l'URL [https://twimlets.com/message][twimlet_message_url]fornito da Twilio . Poiché TwiML è progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, [https://twimlets.com/message][twimlet_message_url] fare clic `<Response>` per visualizzare un elemento vuoto; come altro esempio, fare clic [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] per visualizzare un `<Response>` elemento che contiene un `<Say>` elemento.)
+Quando l'applicazione avvia una chiamata all'API Twilio, Twilio invia la richiesta a un URL che deve restituire una risposta TwiML. Nell'esempio precedente viene usato l'URL [https://twimlets.com/message][twimlet_message_url]fornito da Twilio. Poiché TwiML è progettato per essere usato da Twilio, è possibile visualizzarlo nel browser. Ad esempio, fare [https://twimlets.com/message][twimlet_message_url] clic per visualizzare un `<Response>` elemento vuoto; come altro esempio, fare [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] clic per visualizzare `<Response>` un elemento che contiene `<Say>` un elemento.
 
 Anziché utilizzare l'URL fornito da Twilio, è possibile creare un sito personalizzato che restituisce risposte HTTP. È possibile creare il sito in qualsiasi linguaggio che restituisca risposte XML. In questo argomento si presuppone che si userà PHP per creare TwiML.
 
@@ -233,7 +233,7 @@ Oltre agli esempi illustrati in questa pagina, Twilio offre API basate su Web ch
 Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegamenti seguenti per ulteriori informazioni:
 
 * [Twilio Security Guidelines][twilio_security_guidelines] (Linee guida sulla sicurezza di Twilio)
-* [Twilio HowTo's e codice di esempio][twilio_howtos]
+* [Twilio HowTo e codice di esempio][twilio_howtos]
 * [Twilio Quickstart Tutorials][twilio_quickstarts] (Esercitazioni con guide rapide su Twilio) 
 * [Twilio on GitHub][twilio_on_github] (Twilio su GitHub)
 * [Talk to Twilio Support][twilio_support] (Contattare il supporto di Twilio)

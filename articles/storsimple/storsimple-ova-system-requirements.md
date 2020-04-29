@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298813"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -36,7 +36,7 @@ Le informazioni sui requisiti di sistema StorSimple pubblicate in questo articol
 I requisiti software includono le informazioni su Web browser supportati, versioni SMB, piattaforme di virtualizzazione e i requisiti minimi del dispositivo virtuale.
 
 ### <a name="supported-virtualization-platforms"></a>Piattaforme di virtualizzazione supportate
-| **Hypervisor** | **Version** |
+| **Hypervisor** | **Versione** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e versioni successive |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
@@ -58,7 +58,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 <sup>2</sup>: i requisiti di rete possono variare a seconda della frequenza di modifica dei dati giornaliera. Ad esempio, se un dispositivo deve eseguire il backup di 10 GB o di più modifiche durante la giornata, il backup giornaliero con una connessione da 5 Mbps potrebbe richiedere fino a 4,25 ore (se i dati non possono essere compressi o deduplicati).
 
 ### <a name="supported-web-browsers"></a>Web browser supportati
-| **Componente** | **Version** | **Requisiti aggiuntivi/note** |
+| **Componente** | **Versione** | **Requisiti aggiuntivi/note** |
 | --- | --- | --- |
 | Microsoft Edge |Versione più recente | |
 | Internet Explorer |Versione più recente |Testato con Internet Explorer 11 |
@@ -89,7 +89,7 @@ Solo l'archiviazione BLOB in blocchi di Azure è supportata. I BLOB di pagine no
 ## <a name="networking-requirements"></a>Requisiti di rete
 La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico iSCSI, SMB, cloud o di gestione. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Fuori* o *in uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
-| **Numero porta<sup>1</sup>** | **In ingresso/In uscita** | **Ambito porta** | **Obbligatorio** | **Note** |
+| **Numero porta<sup>1</sup>** | **In ingresso/In uscita** | **Ambito porta** | **Richiesto** | **Note** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |In uscita |WAN |No |La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
 | TCP 443 (HTTPS) |In uscita |WAN |Sì |La porta in uscita viene usata per accedere ai dati nel cloud. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
@@ -102,7 +102,7 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
 
 > [!IMPORTANT]
-> Verificare che il firewall non modifichi o decrittografate il traffico TLS tra il dispositivo StorSimple e Azure.
+> Verificare che il firewall non modifichi o decrypti il traffico TLS tra il dispositivo StorSimple e Azure.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento | Microsoft Docs
-description: Usare gli ID evento per risolvere vari problemi che impediscono una connessione RDP (Remote Desktop Protocol) a una macchina virtuale (VM) di Azure.Use event IDs to troubleshoot various issues that prevent a Remote Desktop protocol connection (RDP) connection to an Azure Virtual Machine (VM).
+description: Usare gli ID evento per risolvere vari problemi che impediscono una connessione RDP (Desktop remoto Protocol) a una macchina virtuale (VM) di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437070"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
@@ -29,7 +29,7 @@ Questo articolo illustra come usare gli ID evento per risolvere i problemi che i
 
 Si prova a usare una sessione Remote Desktop Protocol (RDP) per connettersi a una macchina virtuale di Azure. Dopo aver immesso le credenziali, la connessione ha esito negativo e viene visualizzato il messaggio di errore seguente:
 
-**Questo computer non è in grado di connettersi al computer remoto. Se il problema persiste, contattare il proprietario del computer remoto o l'amministratore di rete.**
+**Il computer non è in grado di connettersi al computer remoto. Provare a connettersi di nuovo. se il problema persiste, contattare il proprietario del computer remoto o l'amministratore di rete.**
 
 Per risolvere questo problema, esaminare i log eventi nella macchina virtuale e quindi fare riferimento agli scenari seguenti.
 
@@ -61,9 +61,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Categoria attività:** Nessuno <br />
 **Livello:**         Errore <br />
 **Parole chiave:**      Classico <br />
-**Utente:**          N/D <br />
+**Utente:**          N/A <br />
 **Computer:**      *computer* <br />
-**Descrizione:** Il server Host sessione Desktop remoto non è riuscito a sostituire il certificato autofirmato scaduto utilizzato per l'autenticazione del Server Host sessione Desktop remoto nelle connessioni TLS. Il codice di stato pertinente era Accesso negato.
+**Descrizione:** Il server Host sessione Desktop remoto non è stato in grado di sostituire il certificato autofirmato scaduto usato per l'autenticazione del server Host sessione Desktop remoto nelle connessioni TLS. Il codice di stato pertinente era Accesso negato.
 
 **Nome registro:**      Sistema <br />
 **Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -72,9 +72,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Categoria attività:** Nessuno <br />
 **Livello:**         Errore <br />
 **Parole chiave:**      Classico <br />
-**Utente:**          N/D <br />
+**Utente:**          N/A <br />
 **Computer:**      *computer* <br />
-**Descrizione:** Il server host della sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da utilizzare per l'autenticazione del server host della sessione Desktop remoto nelle connessioni TLS, il codice di stato pertinente era che esiste già un oggetto.
+**Descrizione:** Il server Host sessione Desktop remoto non è stato in grado di creare un nuovo certificato autofirmato da utilizzare per l'autenticazione del server Host sessione Desktop remoto nelle connessioni TLS. il codice di stato pertinente era oggetto già esistente.
 
 **Nome registro:**      Sistema <br />
 **Origine:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -83,9 +83,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Categoria attività:** Nessuno <br />
 **Livello:**         Errore <br />
 **Parole chiave:**      Classico <br />
-**Utente:**          N/D <br />
+**Utente:**          N/A <br />
 **Computer:**      *computer* <br />
-**Descrizione:** Il server Host sessione Desktop remoto non è riuscito a creare un nuovo certificato autofirmato da utilizzare per l'autenticazione del server Host sessione Desktop remoto nelle connessioni TLS. Il codice di stato pertinente era Keyset does not exist (Il set di chiavi non esiste).
+**Descrizione:** Il server Host sessione Desktop remoto non è stato in grado di creare un nuovo certificato autofirmato da utilizzare per l'autenticazione del server Host sessione Desktop remoto nelle connessioni TLS. Il codice di stato pertinente era Keyset does not exist (Il set di chiavi non esiste).
 
 È anche possibile cercare gli eventi di errore SCHANNEL 36872 e 36870 eseguendo i comandi seguenti:
 
@@ -100,7 +100,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **ID evento:** 36870 <br />
 **Categoria attività:** Nessuno <br />
 **Livello:**         Errore <br />
-**Parole chiavi:**       <br />
+**Parole**       <br />
 **Utente:** SYSTEM <br />
 **Computer:**      *computer* <br />
 **Descrizione:** Si è verificato un errore irreversibile durante il tentativo di accedere alla chiave privata delle credenziali del server TLS. Il codice errore restituito dal modulo di crittografia è 0x8009030D.  <br />
@@ -113,7 +113,7 @@ Questo problema si verifica perché le chiavi di crittografia RSA locali nella c
 
 2. Chiave RSA danneggiata o mancante.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, è necessario configurare le autorizzazioni corrette per il certificato RDP seguendo questa procedura.
 
@@ -186,9 +186,9 @@ Se non è possibile rinnovare il certificato, seguire questa procedura per prova
 
 Provare nuovamente ad accedere alla macchina virtuale usando RDP.
 
-#### <a name="update-tlsssl-certificate"></a>Aggiorna certificato TLS/SSL
+#### <a name="update-tlsssl-certificate"></a>Aggiornare il certificato TLS/SSL
 
-Se si configura la macchina virtuale per l'utilizzo di un certificato TLS/SSL, eseguire il comando seguente per ottenere l'identificazione personale. Controllare quindi se si tratta della stessa identificazione personale del certificato:
+Se si configura la macchina virtuale per l'uso di un certificato TLS/SSL, eseguire il comando seguente per ottenere l'identificazione personale. Controllare quindi se si tratta della stessa identificazione personale del certificato:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
@@ -222,7 +222,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **ID evento:** 36871 <br />
 **Categoria attività:** Nessuno <br />
 **Livello:**         Errore <br />
-**Parole chiavi:**       <br />
+**Parole**       <br />
 **Utente:** SYSTEM <br />
 **Computer:**      *computer* <br />
 **Descrizione:** si è verificato un errore irreversibile durante la creazione di una credenziale del server TLS. Lo stato dell'errore interno è 10013.
@@ -231,7 +231,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 
 Questo problema è causato dai criteri di sicurezza. Quando le versioni precedenti di TLS (ad esempio, la versione 1.0) sono disabilitate, l'accesso RDP non riesce.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, il protocollo può essere sostituito con TLS 1.1, che è il nuovo standard.
 
@@ -252,7 +252,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **ID evento:** 2056 <br />
 **Categoria attività:** (109) <br />
 **Livello:**         Errore <br />
-**Parole chiavi:**       <br />
+**Parole**       <br />
 **Utente:** NETWORK SERVICE <br />
 **Computer:**      *FQDN del computer* <br />
 **Descrizione:** non è possibile trovare la descrizione dell'ID evento 2056 da Microsoft-Windows-TerminalServices-SessionBroker. Il componente che genera questo evento non è installato nel computer locale o l'installazione è danneggiata. È possibile installare o riparare il componente nel computer locale. <br />
@@ -268,7 +268,7 @@ L'accesso al database non è riuscito.
 **ID evento:** 1296 <br />
 **Categoria attività:** (104) <br />
 **Livello:**         Errore <br />
-**Parole chiavi:**       <br />
+**Parole**       <br />
 **Utente:** NETWORK SERVICE <br />
 **Computer:**      *FQDN del computer* <br />
 **Descrizione:** non è possibile trovare la descrizione dell'ID evento 1296 da Microsoft-Windows-TerminalServices-SessionBroker-Client. Il componente che genera questo evento non è installato nel computer locale o l'installazione è danneggiata. È possibile installare o riparare il componente nel computer locale.
@@ -284,7 +284,7 @@ Questo problema è dovuto al fatto che viene modificato il nome host del server 
 
 Il nome host ha voci e dipendenze in Database interno di Windows, che è necessario per il funzionamento di servizi Desktop Remoto. La modifica del nome host dopo che la farm è già stata compilata comporta molti errori e può impedire il funzionamento del server gestore.
 
-### <a name="resolution"></a>Risoluzione 
+### <a name="resolution"></a>Soluzione 
 
 Per risolvere questo problema, è necessario reinstallare il ruolo Gestore connessione Desktop remoto e Database interno di Windows.
 

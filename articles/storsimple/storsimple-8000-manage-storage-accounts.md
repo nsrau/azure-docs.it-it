@@ -1,5 +1,5 @@
 ---
-title: Gestire le credenziali dell'account di archiviazione, dispositivo della serie StorSimple 8000Manage storage account credentials, StorSimple 8000 series device
+title: Gestire le credenziali dell'account di archiviazione, dispositivo StorSimple serie 8000
 description: Viene illustrato come utilizzare la pagina Configura di Gestione dispositivi StorSimple per aggiungere, modificare, eliminare o ruotare le chiavi di protezione per un account di archiviazione.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297738"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
@@ -40,7 +40,7 @@ Gli account di archiviazione contengono le credenziali usate dal dispositivo Sto
 Nel pannello **Credenziali dell'account di archiviazione** tutti gli account di archiviazione creati per la sottoscrizione di fatturazione vengono visualizzati in un formato tabulare con le informazioni seguenti:
 
 * **Nome**: nome univoco assegnato all'account al momento della creazione.
-* **ABILITATO SSL:** indica se TLS è abilitato e la comunicazione da dispositivo a cloud avviene tramite il canale sicuro.
+* **SSL abilitato** : indica se TLS è abilitato e la comunicazione da dispositivo a cloud si trova sul canale sicuro.
 * **Utilizzato da**: numero di volumi che usano l'account di archiviazione.
 
 Le attività più comuni relative agli account di archiviazione che possono essere eseguite sono:
@@ -60,7 +60,7 @@ Esistono tre tipi di account di archiviazione che è possibile utilizzare con il
 
 ## <a name="add-a-storage-account"></a>Aggiungere un account di archiviazione
 
-È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione (con il provider del servizio cloud specificato). È inoltre possibile abilitare la modalità TLS (Transport Layer Security), precedentemente nota come modalità SSL (Secure Sockets Layer), per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud.
+È possibile aggiungere un account di archiviazione fornendo un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione (con il provider del servizio cloud specificato). È anche possibile abilitare la modalità Transport Layer Security (TLS), nota in precedenza come Secure Sockets Layer (SSL), per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud.
 
 È possibile creare più account per un provider del servizio cloud specificato. Tenere presente, tuttavia, che dopo aver creato un account di archiviazione non è possibile modificare il provider di servizi cloud.
 

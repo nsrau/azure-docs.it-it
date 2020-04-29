@@ -1,20 +1,20 @@
 ---
-title: Offerte di conformità di Backup di AzureAzure Backup compliance offerings
-description: Riepilogo delle offerte di conformità per Azure BackupSummary of compliance offerings for Azure Backup
+title: Offerte di conformità di backup di Azure
+description: Riepilogo delle offerte di conformità per backup di Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: da25c6b9b8206ebd2e7ca1a3d90ec88a6efe04b8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80423119"
 ---
-# <a name="azure-backup-compliance-offerings"></a>Offerte di conformità di Backup di AzureAzure Backup compliance offerings
+# <a name="azure-backup-compliance-offerings"></a>Offerte di conformità di backup di Azure
 
-Per consentire alle organizzazioni di rispettare i requisiti nazionali, regionali e specifici del settore che disciplinano la raccolta e l'utilizzo dei dati delle persone, Microsoft Azure & Backup di Azure offre un set completo di certificazioni e inquietazioni.
+Per aiutare le organizzazioni a soddisfare i requisiti nazionali, regionali e specifici del settore che regolano la raccolta e l'uso dei dati degli utenti, Microsoft Azure & backup di Azure offre un set completo di certificazioni e attestazioni.
 
-È possibile trovare di seguito le offerte di conformità per Backup di Azure per assicurarsi che il servizio sia regolamentato quando si usa il servizio Backup di Azure.You can find below compliance offerings for Azure Backup to ensure your service is regulated when using the Azure Backup service.
+Per assicurarsi che il servizio sia regolato quando si usa il servizio backup di Azure, è possibile trovare le offerte di conformità per backup di Azure.
 
 ## <a name="global"></a>Global
 
@@ -27,9 +27,9 @@ Per consentire alle organizzazioni di rispettare i requisiti nazionali, regional
 * [ISO 27017](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27018](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018)
 * [ISO 9001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001)
-* [SOC 1,2,3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
+* [SOC 1, 2, 3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
 
-## <a name="us-government"></a>US Gov
+## <a name="us-government"></a>Enti pubblici Stati Uniti
 
 * [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
 * [FedRAMP](https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp)
@@ -48,4 +48,4 @@ Per consentire alle organizzazioni di rispettare i requisiti nazionali, regional
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Trova la copertura e i dettagli più recenti sulla conformità in [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+Trovare la copertura più recente e i dettagli sulla conformità in [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).

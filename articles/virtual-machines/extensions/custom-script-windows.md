@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
 ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478160"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
@@ -110,17 +110,17 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | Data |
-| publisher | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| publisher | Microsoft.Compute | stringa |
+| type | CustomScriptExtension | stringa |
 | typeHandlerVersion | 1,10 | INT |
 | fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
-| commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| storageAccountName (es.) | examplestorageacct | string |
-| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | stringa |
+| storageAccountName (es.) | examplestorageacct | stringa |
+| storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | stringa |
 | managedIdentity (ad esempio) | {} o {"ClientID": "31b403aa-C364-4240-a7ff-d85fb6cd7232"} o {"objectId": "12dd289c-0583-46e5-B9B4-115d5c19ef4b"} | JSON (oggetto) |
 
 >[!NOTE]
@@ -308,7 +308,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente:
 

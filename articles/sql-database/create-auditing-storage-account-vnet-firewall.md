@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 6345d210e26747f921595039a2a3c8e11be11fda
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387632"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Scrivere il controllo in un account di archiviazione dietro VNet e firewall
@@ -72,7 +72,7 @@ Per gli script di esempio di questa sezione è necessario aggiornare lo script p
 
 |Valore di esempio|Descrizione di esempio|
 |:-----|:-----|
-|`<subscriptionId>`| ID sottoscrizione di Azure|
+|`<subscriptionId>`| ID della sottoscrizione di Azure|
 |`<resource group>`| Resource group|
 |`<sql database server>`| Nome del server di database SQL di Azure|
 |`<administrator login>`| Account amministratore database SQL |
@@ -98,7 +98,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2015-05-01-preview
    ```
 
-   Corpo della richiesta
+   Testo della richiesta
 
    ```json
    {
@@ -127,7 +127,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
    ```
 
-   Corpo della richiesta
+   Testo della richiesta
 
    ```json
    {

@@ -1,6 +1,6 @@
 ---
 title: Come usare Hub di notifica con Python
-description: Informazioni su come usare gli hub di notifica di Azure da un'applicazione Python.Learn how to use Azure Notification Hubs from a Python application.
+description: Informazioni su come usare hub di notifica di Azure da un'applicazione Python.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76313828"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
@@ -450,7 +450,7 @@ hub.send_template_notification(template_payload)
 Questo articolo ha illustrato come creare un client REST Python per Hub di notifica. Da qui è possibile:
 
 - Scaricare l'intero [esempio di wrapper REST Python], che contiene tutto il codice indicato in questo articolo.
-- Continua a imparare la funzione di tagging degli hub di notifica [nell'esercitazione sulle ultime notizie]
+- Continua a conoscere la funzionalità di assegnazione di tag di hub di notifica nell' [esercitazione sulle ultime notizie]
 - Per altre informazioni sulla funzionalità relativa ai modelli di Hub di notifica, vedere l' [esercitazione sull'invio di notizie localizzate]
 
 <!-- URLs -->

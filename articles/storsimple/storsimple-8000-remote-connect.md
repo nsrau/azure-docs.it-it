@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 58d61df932da06e32bb4c8f21a3a296b185f02d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298999"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
@@ -97,7 +97,7 @@ Eseguire le operazioni seguenti sul client per abilitare la gestione remota.
 4. Nella finestra di dialogo visualizzata:
    
    1. Digitare il nome utente nel formato: *ip_dispositivo\SSAdmin*.
-   2. Digitare la password di amministratore del dispositivo impostata quando il dispositivo è stato configurato con la configurazione guidata. Il valore predefinito è *Password1*.
+   2. Digitare la password di amministratore del dispositivo impostata quando il dispositivo è stato configurato con la configurazione guidata. La password predefinita è *Password1*.
 5. Avviare una sessione di Windows PowerShell sul dispositivo digitando questo comando:
    
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`

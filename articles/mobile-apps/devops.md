@@ -1,6 +1,6 @@
 ---
-title: Tutto su DevOps con Visual Studio App Center e i servizi di Azure
-description: Scopri tutto su DevOps nello sviluppo di applicazioni per dispositivi mobili.
+title: Tutte le informazioni su DevOps con Visual Studio App Center e i servizi di Azure
+description: Scopri tutte le informazioni su DevOps nello sviluppo di applicazioni per dispositivi mobili.
 author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2323-ccff02097224
 ms.service: vs-appcenter
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 1c87dc01d6fda5032556c175218d9aea46bed495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240901"
 ---
 # <a name="what-is-devops"></a>Che cos'è DevOps?
-La parola "DevOps" deriva da una combinazione di "Sviluppo" e "Operazioni". DevOps sottolinea l'importanza della comunicazione e della collaborazione tra gli sviluppatori di software e i professionisti IT di produzione, automatizzando al contempo la distribuzione delle modifiche del software e dell'infrastruttura. DevOps si concentra sull'adozione di metodologie agili e snelle e sull'automazione di attività ripetitive. L'obiettivo di DevOps è il tempo, rilasci di applicazioni di successo.
+La parola "DevOps" deriva da una combinazione di "sviluppo" e "operazioni". DevOps enfatizza l'importanza della comunicazione e della collaborazione tra gli sviluppatori di software e i professionisti IT di produzione, automatizzando al tempo stesso la distribuzione delle modifiche al software e all'infrastruttura. DevOps si concentra sull'adozione di metodologie agile e snella e sull'automazione delle attività ripetitive. L'obiettivo di DevOps è il rilascio tempestivo delle applicazioni.
 
-Microsoft dispone di un set completo di [soluzioni DevOps](https://azure.microsoft.com/solutions/devops/) tramite [DevOps](https://azure.microsoft.com/services/devops/) di Azure (cloud) e [Visual Studio App Center](https://azure.microsoft.com/services/app-center/). Questi prodotti creano un ambiente di lavoro in cui i membri del team possono creare, testare e distribuire il software in modo rapido, frequente e affidabile. Le organizzazioni possono raggiungere i propri obiettivi più rapidamente grazie a tempi di consegna più rapidi nella distribuzione di nuove funzionalità, patch di sicurezza e correzioni di bug.
+Microsoft offre un set completo di [soluzioni DevOps](https://azure.microsoft.com/solutions/devops/) tramite [Azure DevOps](https://azure.microsoft.com/services/devops/) (cloud) e [Visual Studio App Center](https://azure.microsoft.com/services/app-center/). Questi prodotti creano un ambiente di lavoro in cui i membri del team possono compilare, testare e distribuire software in modo rapido, frequente e affidabile. Le organizzazioni possono raggiungere i propri obiettivi in modo più rapido a causa del tempo di turnaround più rapido nella distribuzione di nuove funzionalità, patch di sicurezza e correzioni di bug.
 
 **Importanza di DevOps**
-- Rende più veloce l'intero ciclo di vita del software, dal commit del codice alla distribuzione di produzione.
-- Consente alle organizzazioni di distribuire più rapidamente aggiornamenti software e di sicurezza internamente e ai clienti.
-- Mira a ridurre i conflitti che sorgono tra i team di sviluppo e operativi. Gli sviluppatori in genere si concentrano sulla riunione delle esigenze aziendali per aggiungere funzionalità e migliorare l'usabilità delle applicazioni. I team operativi sono tradizionalmente più concentrati sulla stabilità e la sicurezza degli ambienti informatici.
-- Garantisce una maggiore agilità, migliora la reattività del cliente e riduce il time-to-market.
-- Estende l'agilità riunendo persone, processi e prodotti per consentire la fornitura continua di valore agli utenti.
-- Riduce i costi quando le organizzazioni seguono le procedure DevOps. Le organizzazioni sono meglio in grado di raggiungere i loro obiettivi, non importa quale sia la loro missione.
+- Rende l'intero ciclo di vita del software più veloce, dal commit del codice alla distribuzione di produzione.
+- Consente alle organizzazioni di fornire in modo più rapido aggiornamenti software e della sicurezza interni e ai clienti.
+- Mira a ridurre i conflitti che si verificano tra i team di sviluppo e operativi. Gli sviluppatori in genere si concentrano sulla riunione delle richieste aziendali per aggiungere funzionalità e migliorare l'usabilità delle applicazioni. I team operativi sono tradizionalmente più mirati alla stabilità e alla sicurezza degli ambienti di elaborazione.
+- Offre maggiore flessibilità, migliora la velocità di risposta dei clienti e riduce i tempi di immissione sul mercato.
+- Estende l'agilità riunendo persone, processi e prodotti per consentire il recapito continuo di valore agli utenti.
+- Comporta costi ridotti quando le organizzazioni seguono le procedure DevOps. Le organizzazioni sono in grado di raggiungere i propri obiettivi a prescindere dalla loro missione.

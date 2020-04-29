@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5cedde1e7daa49aaa7a2786c9ad8a65fb8e452f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297570"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
@@ -38,7 +38,7 @@ Le credenziali dell'account di archiviazione contengono le credenziali usate dal
 Nel pannello **Credenziali dell'account di archiviazione** tutte le credenziali dell'account di archiviazione create per la sottoscrizione di fatturazione vengono visualizzate in un formato tabulare con le informazioni seguenti:
 
 * **Nome**: nome univoco assegnato all'account al momento della creazione.
-* **ABILITATO SSL:** indica se TLS è abilitato e la comunicazione da dispositivo a cloud avviene tramite il canale sicuro.
+* **SSL abilitato** : indica se TLS è abilitato e la comunicazione da dispositivo a cloud si trova sul canale sicuro.
   
   ![Sezione Configurazione](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
@@ -56,7 +56,7 @@ Esistono tre tipi di credenziali dell'account di archiviazione che è possibile 
 * **Credenziali dell'account di archiviazione esterne alla sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure non associate al servizio e probabilmente esistenti prima che il servizio fosse creato.
 
 ## <a name="add-a-storage-account-credential"></a>Aggiungere una credenziale dell'account di archiviazione
-È possibile aggiungere una credenziale dell'account di archiviazione al servizio Gestione dispositivi StorSimple indicando un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione. È inoltre possibile abilitare la modalità TLS (Transport Layer Security), precedentemente nota come modalità SSL (Secure Sockets Layer), per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud.
+È possibile aggiungere una credenziale dell'account di archiviazione al servizio Gestione dispositivi StorSimple indicando un nome descrittivo univoco e le credenziali di accesso collegate all'account di archiviazione. È anche possibile abilitare la modalità Transport Layer Security (TLS), nota in precedenza come Secure Sockets Layer (SSL), per creare un canale sicuro per la comunicazione di rete tra il dispositivo e il cloud.
 
 È possibile creare più account per un provider del servizio cloud specificato. Durante il salvataggio della credenziale dell'account di archiviazione, il servizio tenta di comunicare con il provider di servizi cloud. Le credenziali e i dati di accesso forniti vengono autenticati in questa fase. La credenziale dell'account di archiviazione viene creata solo se l'autenticazione ha esito positivo. Se l'autenticazione non riesce, viene visualizzato un messaggio di errore appropriato.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76774928"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
@@ -42,7 +42,7 @@ Ogni processo può includere una o più attività in base al tipo di elaborazion
 
 È consigliabile codificare sempre i file di origine in un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
-Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per ulteriori informazioni, consultate Configurazione dei criteri di [distribuzione degli asset.](media-services-rest-configure-asset-delivery-policy.md)
+Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [configurazione dei criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -59,7 +59,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 > [!NOTE]
 > Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
-> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere Configurazione per lo sviluppo di API REST di [Servizi multimediali.](media-services-rest-how-to-use.md)
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [configurazione per lo sviluppo di API REST di servizi multimediali](media-services-rest-how-to-use.md).
 >
 > Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) è necessario impostare l'intestazione **Accetta** sul [formato JSON Verbose](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accetta: application/json;odata=verbose.
 >
@@ -273,7 +273,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

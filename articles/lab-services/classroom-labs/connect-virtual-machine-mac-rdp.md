@@ -1,5 +1,5 @@
 ---
-title: Come connettersi a una macchina virtuale di Azure Lab Services dal Mac Documenti Microsoft
+title: Come connettersi a una macchina virtuale Azure Lab Services da Mac | Microsoft Docs
 description: Questo articolo
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: spelluru
 ms.openlocfilehash: 0d3484c1008e00bcfde3adb399e925c0e054f49e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503088"
 ---
 # <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Connettersi a una macchina virtuale usando RDP in un Mac
-Questa sezione mostra come uno studente può connettersi a una macchina virtuale del laboratorio in classe da un Mac tramite RDP.
+Questa sezione illustra come uno studente può connettersi a una macchina virtuale di Lab in aula da un Mac usando RDP.
 
 ## <a name="install-microsoft-remote-desktop-on-a-mac"></a>Installare Desktop remoto Microsoft in un Mac
 1. Aprire l'App Store nel Mac e cercare **Desktop remoto Microsoft.**
@@ -45,6 +45,6 @@ Questa sezione mostra come uno studente può connettersi a una macchina virtuale
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come connettersi a macchine virtuali Linux tramite RDP, vedere [Usare desktop remoto per macchine virtuali LinuxTo](how-to-use-remote-desktop-linux-student.md) learn how to connect to Linux VMs using RDP, see Use remote desktop for Linux virtual machines
+Per informazioni su come connettersi alle VM Linux tramite RDP, vedere [usare desktop remoto per macchine virtuali Linux](how-to-use-remote-desktop-linux-student.md)
 
 

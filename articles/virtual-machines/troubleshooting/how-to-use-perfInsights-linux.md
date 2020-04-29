@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266988"
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
@@ -125,7 +125,7 @@ Vengono raccolte informazioni su macchina virtuale Linux, sistema operativo, dis
 
 - Attualmente sono supportate le distribuzioni seguenti:
 
-    | Distribuzione               | Version                                         |
+    | Distribuzione               | Versione                                         |
     |----------------------------|-------------------------------------------------|
     | Server Oracle Linux        | 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-database-EE 13,8 Marketplace image)|
     | CentOS                     | 6,5 [`*`], 7,6                                    |

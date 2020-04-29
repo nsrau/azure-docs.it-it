@@ -1,6 +1,6 @@
 ---
 title: Disponibilità elevata di Azure Analysis Services | Documentazione Microsoft
-description: Questo articolo descrive come Azure Analysis Services offre disponibilità elevata durante l'interruzione del servizio.
+description: Questo articolo descrive il modo in cui Azure Analysis Services garantisce un'elevata disponibilità durante le rotture del servizio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 78a6d41b638d79111a58830f0cb0d5190ea0796c
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80408674"
 ---
 # <a name="analysis-services-high-availability"></a>Disponibilità elevata di Azure Analysis Services
@@ -24,7 +24,7 @@ Sebbene accada raramente, un data center di Azure può subire un'interruzione de
 
 * Distribuire i modelli nei server ridondanti in altre aree. Questo metodo richiede l'elaborazione dei dati in parallelo sia sul server primario sia sui server, assicurando così la sincronizzazione di tutti i server.
 
-* [Eseguire il backup dei](analysis-services-backup.md) database dal server primario e il ripristino su server ridondanti. È possibile ad esempio automatizzare i backup notturni nell'archiviazione di Azure e il ripristino nei server ridondanti in altre aree. 
+* [Eseguire il backup](analysis-services-backup.md) dei database dal server primario e il ripristino nei server ridondanti. È possibile ad esempio automatizzare i backup notturni nell'archiviazione di Azure e il ripristino nei server ridondanti in altre aree. 
 
 In entrambi i casi, se il server principale subisce un'interruzione, è necessario modificare le stringhe di connessione nei client di segnalazione report affinché eseguano la connessione al server del data center di un'altra area. Questa modifica deve essere presa in considerazione come soluzione estrema e solo quando si verifica un'interruzione del data center dell'area. È più probabile che un'interruzione del data center che ospita il server principale venga risolta prima che sia possibile aggiornare le connessioni in tutti i client. 
 
@@ -33,6 +33,6 @@ Per evitare di dover modificare le stringhe di connessione nei client di creazio
 ## <a name="related-information"></a>Informazioni correlate
 
 [Backup e ripristino](analysis-services-backup.md)   
-[Gestire Azure Analysis ServicesManage Azure Analysis Services](analysis-services-manage.md)   
+[Gestisci Azure Analysis Services](analysis-services-manage.md)   
 [Nomi del server alias](analysis-services-server-alias.md) 
 

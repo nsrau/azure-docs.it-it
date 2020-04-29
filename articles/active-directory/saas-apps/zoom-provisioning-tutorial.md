@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
 ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384076"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Esercitazione: configurare lo zoom per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e lo zoom](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare lo zoom per supportare il provisioning con Azure AD
+## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare lo zoom per supportare il provisioning con Azure AD
 
 1. Accedere alla console di [amministrazione dello zoom](https://zoom.us/signin). Passare a **Advanced > zoom for Developers** nel riquadro di spostamento a sinistra.
 
@@ -121,12 +121,12 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
+   |userName|Stringa|
    |active|Boolean|
-   |name.givenName|string|
-   |name.familyName|string|
-   |messaggi di posta elettronica [digitare EQ "Work"]|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|string|
+   |name.givenName|Stringa|
+   |name.familyName|Stringa|
+   |messaggi di posta elettronica [digitare EQ "Work"]|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|Stringa|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

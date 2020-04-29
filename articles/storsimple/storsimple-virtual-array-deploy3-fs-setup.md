@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297635"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
@@ -73,7 +73,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
    2. Fare clic sull'icona ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png)**File server** per il **Tipo** di dispositivo che si sta creando. Un file server consente la creazione di cartelle condivise.
    3. Il dispositivo è un file server, quindi è necessario aggiungerlo a un dominio. Immettere un **nome di dominio**.
    4. Fare clic su **Applica**.
-7. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
+7. Verrà visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
 8. Fare clic su **Applica**. Si applicano e convalidano così le impostazioni del dispositivo.
@@ -109,8 +109,8 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     1. Immettere la **Chiave di registrazione del servizio** ottenuta in [Passaggio 2: Ottenere la chiave di registrazione del servizio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) per l'array virtuale StorSimple.
     2. Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la **chiave di crittografia dati del servizio**. Copiare questo codice e salvarlo in un luogo sicuro. Questa chiave viene richiesta con la chiave di registrazione del servizio per registrare altri dispositivi con il servizio Gestione dispositivi StorSimple. 
        
-       Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la chiave di crittografia dati del servizio. Per altre informazioni, vedere Ottenere la chiave di crittografia dei dati del [servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
-    3. Fare clic su **Registra**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
+       Se questo non è il primo dispositivo che si registra con questo servizio, è necessario fornire la chiave di crittografia dati del servizio. Per altre informazioni, vedere ottenere la [chiave di crittografia dei dati del servizio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) nell'interfaccia utente Web locale.
+    3. Fare clic su **Register**. Il dispositivo viene così riavviato. È necessario attendere 2-3 minuti per la corretta registrazione del dispositivo. Dopo avere riavviato il dispositivo, si passa alla pagina di accesso.
        
        ![](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Tornare al portale di Azure. Passare a **Tutte le risorse**, cercare il servizio Gestione dispositivi StorSimple.
@@ -124,7 +124,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/) per completare l'installazione richiesta del dispositivo.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Per configurare il dispositivo come file server
-1. Accedere al servizio Gestione dispositivi StorSimple e quindi a **Gestione > dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Pronto per la configurazione**.
+1. Passare al servizio StorSimple Device Manager, quindi passare a **gestione > dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Pronto per la configurazione**.
    
    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Fare clic sul dispositivo e verrà visualizzato un messaggio di intestazione che indica che il dispositivo è pronto per la configurazione.
@@ -185,7 +185,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) p
    3. Un **Tipo** per la condivisione. Il tipo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale** . Per tutti gli altri dati, selezionare una **Condivisione a livelli** .
       Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
    
-   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti in formato *\@john contoso.com.* Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel *formato\@John contoso.com* . Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
    
    5. Fare clic su **Aggiungi** per creare la condivisione. 
     
@@ -212,5 +212,5 @@ A questo punto, è necessario connettersi a una o più condivisioni create nel p
 3. È ora possibile aggiungere file a queste condivisioni ed eseguire un backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come utilizzare l'interfaccia utente Web locale per [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
 

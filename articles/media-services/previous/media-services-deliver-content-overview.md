@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476749"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
@@ -33,7 +33,7 @@ Per raggiungere questo obiettivo è possibile:
     * **Smooth Streaming**.
 
 >[!NOTE]
->Quando viene creato l'account AMS, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
 In questo articolo viene fornita una panoramica di importanti concetti di consegna dei contenuti.
 
@@ -48,7 +48,7 @@ La creazione dinamica dei pacchetti consente di archiviare e pagare i file in un
 
 La creazione dinamica dei pacchetti è disponibile per endpoint di streaming Standard e Premium. 
 
-Per ulteriori informazioni, consultate [Creazione dinamica di pacchetti](media-services-dynamic-packaging-overview.md).
+Per altre informazioni, vedere Creazione [dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
 ## <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 Con Servizi multimediali è possibile definire filtri per i propri asset. I filtri sono costituiti da regole lato server che aiutano i clienti a eseguire operazioni come riprodurre una determinata sezione di un video oppure specificare un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro viene eseguito attraverso *manifesti dinamici* creati su richiesta del cliente per trasmettere un video in streaming in base a uno o più filtri specificati.
@@ -82,32 +82,32 @@ Le tecnologie a bitrate adattivo consentono al lettore video di determinare le c
 Per poter fornire agli utenti URL di streaming, è prima necessario creare un localizzatore OnDemandOrigin. Creando il localizzatore è possibile ottenere il valore Path di base dell'asset che include i contenuti da trasmettere in streaming. Tuttavia, per trasmettere in streaming questi contenuti, è necessario modificare ulteriormente il percorso. Per creare un URL completo per il file manifesto di streaming, si deve concatenare il valore Path del localizzatore e il nome del file manifesto (nomefile.ism). Quindi aggiungere **/Manifest** e un formato appropriato (se necessario) al percorso di origine del localizzatore.
 
 > [!NOTE]
-> Puoi anche trasmettere i tuoi contenuti tramite una connessione TLS. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Si noti che, attualmente, AMS non supporta TLS con domini personalizzati.  
+> È anche possibile trasmettere il contenuto tramite una connessione TLS. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Si noti che, attualmente, AMS non supporta TLS con domini personalizzati.  
 > 
 
-È possibile eseguire lo streaming su TLS solo se l'endpoint di streaming da cui vengono recapitati i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net". Gli URL di streaming che contengono "origin.mediaservices.windows.net" (il vecchio formato) non supportano TLS. Se l'URL è nel formato precedente e si desidera essere in grado di eseguire lo streaming su TLS, creare un nuovo endpoint di streaming. Usa gli URL basati sul nuovo endpoint di streaming per trasmettere il contenuto tramite TLS.
+È possibile trasmettere il flusso su TLS solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net". Gli URL di streaming che contengono "origin.mediaservices.windows.net" (il vecchio formato) non supportano TLS. Se l'URL è nel vecchio formato e si vuole essere in grado di eseguire lo streaming su TLS, creare un nuovo endpoint di streaming. Usare gli URL basati sul nuovo endpoint di streaming per lo streaming del contenuto su TLS.
 
 ## <a name="streaming-url-formats"></a><a id="URLs"/>Formati degli URL di streaming
 
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=mpd-time-csf)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecbb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format
+http:\//testendpoint-TestAccount.streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = MPD-Time-CSF)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Formato Apple HTTP Live Streaming (HLS) V4
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecbb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format
+http:\//testendpoint-TestAccount.streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Formato Apple HTTP Live Streaming (HLS) V3
 {nome endpoint di streaming-nome account servizi multimediali}.streaming.mediaservices.windows.net/{ID localizzatore}/{nome file}.ism/Manifest(format=m3u8-aapl-v3)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecbb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format
+http:\//testendpoint-TestAccount.streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = m3u8-aapl-V3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Formato Apple HTTP Live Streaming (HLS) con il filtro solo audio
 Per impostazione predefinita le tracce di solo audio sono incluse nel contenuto HLS del manifesto. È necessario per la certificazione di Apple store per reti cellulari. In questo caso, se un client non dispone di larghezza di banda sufficiente o connessa tramite una connessione 2G, si passa alla sola riproduzione di audio. Ciò aiuta a mantenere il flusso del contenuto senza memorizzarlo nel buffer, ma senza video. In alcuni scenari si potrebbe preferire il buffer del lettore di Windows solamente per l'audio. Se si desidera rimuovere la traccia solo audio, aggiungere **solo audio = false** per l'URL.
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecbb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format
+http:\//testendpoint-TestAccount.streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (format = m3u8-aapl-V3, solo audio = false)
 
 Per altre informazioni, vedere l'articolo sul [supporto della composizione di Dynamic Manifest e sulle funzioni aggiuntive di HLS](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -116,7 +116,7 @@ Per altre informazioni, vedere l'articolo sul [supporto della composizione di Dy
 
 Esempio:
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-TestAccount.streaming.MediaServices.Windows.NET/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
 
 ### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifesto Smooth Streaming 2.0 (manifesto legacy)
 Per impostazione predefinita, il manifesto Smooth Streaming contiene il tag di ripetizione (r-tag). Alcuni lettori, tuttavia, non supportano gli r-tag. I client con questi lettori possono usare un formato che disabilita gli r-tag:
@@ -151,7 +151,7 @@ Si applicano le considerazioni seguenti:
 Un endpoint di streaming rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. Sono disponibili due tipi di endpoint di streaming, **Standard** e **Premium**. Per altre informazioni, vedere [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Panoramica degli endpoint di streaming).
 
 >[!NOTE]
->Quando viene creato l'account AMS, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Modifiche alla versione del manifesto Smooth Streaming
@@ -184,7 +184,7 @@ Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming genera
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati

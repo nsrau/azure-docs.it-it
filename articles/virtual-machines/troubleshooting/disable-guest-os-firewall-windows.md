@@ -1,6 +1,6 @@
 ---
 title: Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure | Microsoft Docs
-description: Informazioni su un metodo di soluzione alternativa per la risoluzione dei problemi in cui un firewall del sistema operativo guest filtra il traffico parziale o completo verso una macchina virtuale.
+description: Informazioni su un metodo alternativo per la risoluzione dei problemi relativi alle situazioni in cui un firewall del sistema operativo guest filtra il traffico parziale o completo verso una macchina virtuale.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422372"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
@@ -27,7 +27,7 @@ Questo articolo fornisce informazioni di riferimento per le situazioni in cui si
 
 ## <a name="solution"></a>Soluzione
 
-La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. È consigliabile Microsoft avere attivato il componente Windows Firewall. La modalità di configurazione delle regole del firewall dipende dal livello di accesso alla macchina virtuale necessario.
+La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. È consigliabile abilitare il componente Windows Firewall per Microsoft. Il modo in cui vengono configurate le regole del firewall dipende dal livello di accesso alla macchina virtuale richiesta.
 
 ### <a name="online-solutions"></a>Soluzioni online 
 
@@ -90,9 +90,9 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
 
 Seguire questa procedura per usare il [Registro di sistema remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema e quindi passare a**Registro**di sistema di rete **di Connessione file** > .
+1.  Nella macchina virtuale per la risoluzione dei problemi, avviare l'editor del registro di sistema, quindi passare a **file** > **Connetti registro di rete**.
 
-2.  Aprire il ramo *TARGET MACHINE*-SYSTEM e specificare i seguenti valori:
+2.  Aprire il ramo \System del *computer di destinazione*e specificare i valori seguenti:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione utilizzando il Registro di sistema remoto, è necessario utilizzare Remote Service Console.
+3.  Riavviare il servizio. Poiché non è possibile eseguire questa operazione utilizzando il registro di sistema remoto, è necessario utilizzare la console del servizio remoto.
 
-4.  Aprire un'istanza di **Services.msc**.
+4.  Aprire un'istanza di **Services. msc**.
 
 5.  Fare clic su **Servizi (computer locale)**.
 
 6.  Selezionare **Connetti a un altro computer**.
 
-7.  Immettere **l'indirizzo IP privato (DIP)** della macchina virtuale che presenta il problema.
+7.  Immettere l' **indirizzo IP privato (DIP)** della macchina virtuale con problemi.
 
 8.  Riavviare il criterio firewall locale.
 
@@ -116,7 +116,7 @@ Seguire questa procedura per usare il [Registro di sistema remoto](https://suppo
 
 ### <a name="offline-solutions"></a>Soluzioni offline 
 
-In una situazione in cui non è possibile accedere alla macchina virtuale con uno di questi metodi, l'uso dell'estensione dello script personalizzata avrà esito negativo e sarà necessario passare in modalità OFFLINE lavorando direttamente sul disco di sistema. A tale scopo, seguire questi passaggi:
+In una situazione in cui non è possibile accedere alla macchina virtuale con uno di questi metodi, l'uso dell'estensione dello script personalizzata avrà esito negativo e sarà necessario passare in modalità OFFLINE lavorando direttamente sul disco di sistema. A tale scopo, seguire questa procedura:
 
 1.  [Collegare il disco di sistema a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md).
 

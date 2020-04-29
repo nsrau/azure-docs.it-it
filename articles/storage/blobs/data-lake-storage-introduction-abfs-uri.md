@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437138"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Usare l'URI di Azure Data Lake Storage Gen2
@@ -27,7 +27,7 @@ Se l'account con supporto per Data Lake Storage Gen2 che si vuole indirizzare **
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Identificatore di schema**: il protocollo `abfs` viene usato come identificatore di schema. È possibile connettersi con o senza una connessione TLS (Transport Layer Security), precedentemente nota come Secure Sockets Layer (SSL). Utilizzare `abfss` per connettersi con una connessione TLS.
+1. **Identificatore di schema**: il protocollo `abfs` viene usato come identificatore di schema. È possibile connettersi con o senza un Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL), connessione. Usare `abfss` per connettersi a una connessione TLS.
 
 2. **File system**: il percorso padre che contiene i file e le cartelle. È uguale a Contenitori nel servizio BLOB di Archiviazione di Azure.
 
@@ -43,7 +43,7 @@ Se, tuttavia, l'account che si vuole indirizzare è impostato come file system p
 
 1. **Percorso**: una rappresentazione della struttura della directory delimita da una barra (`/`).
 
-2. **Nome file**: Il nome del singolo file.
+2. **Nome file**: nome del singolo file.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

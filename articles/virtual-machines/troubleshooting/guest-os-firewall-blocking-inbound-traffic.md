@@ -1,6 +1,6 @@
 ---
 title: Il firewall del sistema operativo guest della macchina virtuale di Azure blocca il traffico in ingresso | Microsoft Docs
-description: Informazioni su come risolvere il problema di connessione di Remote Desktop Portal (RDP) che il firewall del sistema operativo guest blocca il traffico in ingresso.
+description: Informazioni su come risolvere il problema di connessione del portale di Desktop remoto (RDP) che il firewall del sistema operativo guest blocca il traffico in ingresso.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422546"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Il firewall del sistema operativo guest della macchina virtuale di Azure blocca il traffico in ingresso
@@ -53,7 +53,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
 
 #### <a name="mitigation-1"></a>Mitigazione 1
 
-1.  Se l'agente di Azure è installato e funziona correttamente nella macchina virtuale, è possibile usare l'opzione "Reimposta solo configurazione" in **Supporto e risoluzione dei problemi** > **Reimposta password** nel menu della macchina virtuale.
+1.  Se l'agente di Azure è installato e funzionante correttamente nella macchina virtuale, è possibile usare l'opzione "Reimposta solo configurazione" in **supporto e risoluzione dei problemi** > **Reimposta password** dal menu VM.
 
 2.  Questa opzione di ripristino esegue le operazioni seguenti:
 
@@ -102,7 +102,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
 
 #### <a name="mitigation-2"></a>Mitigazione 2
 
-1.  Eseguire una query sui profili firewall per determinare se il criterio firewall in ingresso è impostato su *BlockInboundAlways*:
+1.  Eseguire una query sui profili firewall per determinare se i criteri del firewall in ingresso sono impostati su *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
     >    * *BlockInbound*: tutto il traffico in ingresso verrà bloccato, a meno che non sia attiva una regola per consentire il traffico.
     >    * *BlockInboundAlways*: tutte le regole del firewall verranno ignorate e tutto il traffico verrà bloccato.
 
-2.  Modificare *DefaultInboundAction* per impostare questi profili **su Consenti** traffico. A tale scopo, usare il comando seguente:
+2.  Modificare il *DefaultInboundAction* per impostare questi profili in modo da **consentire** il traffico. A tale scopo, usare il comando seguente:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ Connettersi alla [console seriale e quindi aprire un'istanza di PowerShell](seri
 
 2.  Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3.  Assicurarsi che il disco sia contrassegnato come **in linea** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
+3.  Verificare che il disco sia contrassegnato come **online** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
 
 #### <a name="mitigation-1"></a>Mitigazione 1
 
@@ -150,7 +150,7 @@ Consultare  [Abilitare o disabilitare una regola del firewall in un sistema ope
 
 2.  Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3.  Dopo aver collegato il disco di sistema alla macchina virtuale di ripristino, assicurarsi che il disco sia contrassegnato come **in linea** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
+3.  Dopo aver collegato il disco di sistema alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **online** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 
 4.  Aprire un'istanza di CMD con privilegi elevati e quindi eseguire lo script seguente:
 

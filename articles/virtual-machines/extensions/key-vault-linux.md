@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410873"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault estensione della macchina virtuale per Linux
@@ -72,16 +72,16 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | Data |
-| publisher | Microsoft.Azure.KeyVault | string |
-| type | KeyVaultForLinux | string |
+| publisher | Microsoft.Azure.KeyVault | stringa |
+| type | KeyVaultForLinux | stringa |
 | typeHandlerVersion | 1.0 | INT |
-| pollingIntervalInS | 3600 | string |
-| certificateStoreName | MY | string |
+| pollingIntervalInS | 3600 | stringa |
+| certificateStoreName | MY | stringa |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
+| certificateStoreLocation  | LocalMachine | stringa |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
 
@@ -199,7 +199,7 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
 

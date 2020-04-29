@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478811"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni perenni in Funzioni permanenti (Funzioni di Azure)
@@ -18,11 +18,11 @@ Le *orchestrazioni perenni* sono funzioni di orchestrazione che non terminano ma
 
 ## <a name="orchestration-history"></a>Cronologia di orchestrazione
 
-Come spiegato nell'argomento [cronologia dell'orchestrazione,](durable-functions-orchestrations.md#orchestration-history) il framework di attività durevole tiene traccia della cronologia di ogni orchestrazione di funzione. Questa cronologia aumenta in modo costante finché la funzione dell'agente di orchestrazione continua a pianificare nuovo lavoro. Se la funzione dell'agente di orchestrazione entra in un ciclo infinito e pianifica lavoro in modo continuo, le dimensioni della cronologia potrebbero diventare eccessive con notevoli problemi a livello di prestazioni. Il concetto di *orchestrazione perenne* è stato ideato per ridurre questa tipologia di problemi per le applicazioni che necessitano di un ciclo infinito.
+Come illustrato nell'argomento relativo alla [cronologia dell'orchestrazione](durable-functions-orchestrations.md#orchestration-history) , il Framework di attività permanenti tiene traccia della cronologia di ogni orchestrazione di funzioni. Questa cronologia aumenta in modo costante finché la funzione dell'agente di orchestrazione continua a pianificare nuovo lavoro. Se la funzione dell'agente di orchestrazione entra in un ciclo infinito e pianifica lavoro in modo continuo, le dimensioni della cronologia potrebbero diventare eccessive con notevoli problemi a livello di prestazioni. Il concetto di *orchestrazione perenne* è stato ideato per ridurre questa tipologia di problemi per le applicazioni che necessitano di un ciclo infinito.
 
 ## <a name="resetting-and-restarting"></a>Reimpostazione e riavvio
 
-Anziché utilizzare cicli infiniti, le funzioni dell'agente di orchestrazione reimpostano il proprio stato chiamando il `ContinueAsNew` metodo (.NET) o `continueAsNew` (JavaScript) dell'associazione del trigger di [orchestrazione.](durable-functions-bindings.md#orchestration-trigger) Questo metodo accetta un singolo parametro serializzabile in JSON, che diventa il nuovo input per la generazione delle funzioni di orchestrazione successive.
+Anziché utilizzare cicli infiniti, le funzioni dell'agente di orchestrazione `ContinueAsNew` reimpostano il `continueAsNew` proprio stato chiamando il metodo (.NET) o (JavaScript) dell' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger). Questo metodo accetta un singolo parametro serializzabile in JSON, che diventa il nuovo input per la generazione delle funzioni di orchestrazione successive.
 
 Quando viene chiamato il metodo `ContinueAsNew`, l'istanza accoda un messaggio a se stessa prima della chiusura. Il messaggio riavvia l'istanza con il nuovo valore di input. Viene mantenuto lo stesso ID istanza, ma la cronologia della funzione dell'agente di orchestrazione viene di fatto troncata.
 
@@ -33,7 +33,7 @@ Quando viene chiamato il metodo `ContinueAsNew`, l'istanza accoda un messaggio a
 
 Un caso d'uso di orchestrazioni perenni è il codice che deve eseguire operazioni periodiche per un periodo illimitato.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -51,7 +51,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> L'esempio precedente in Cè è per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
+> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario usare `DurableOrchestrationContext` anziché `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -74,14 +74,14 @@ module.exports = df.orchestrator(function*(context) {
 
 La differenza tra questo esempio e una funzione attivata da timer è che i tempi del trigger di pulizia non sono basati su una pianificazione. Ad esempio, una pianificazione CRON che esegue una funzione ogni ora verrà eseguita all'1:00, alle 2:00, alle 3:00 e così via e potrebbe potenzialmente generare problemi di sovrapposizione. In questo esempio, tuttavia, se la pulizia richiede 30 minuti, verrà pianificata all'1:00, alle 2:30, alle 4:00 e così via senza possibilità di sovrapposizione.
 
-## <a name="starting-an-eternal-orchestration"></a>Iniziare un'orchestrazione eterna
+## <a name="starting-an-eternal-orchestration"></a>Avvio di un'orchestrazione eterna
 
-Utilizzare `StartNewAsync` il metodo (.NET) o `startNew` (JavaScript) per avviare un'orchestrazione eterna, come si farebbe con qualsiasi altra funzione di orchestrazione.  
+Utilizzare il `StartNewAsync` metodo (.NET) o `startNew` (JavaScript) per avviare un'orchestrazione eterna, analogamente a qualsiasi altra funzione di orchestrazione.  
 
 > [!NOTE]
-> Se è necessario assicurarsi che un'orchestrazione eterna singleton sia `id` in esecuzione, è importante mantenere la stessa istanza quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
+> Se è necessario assicurarsi che l'orchestrazione di un singleton eterna sia in esecuzione, è importante mantenere la `id` stessa istanza quando si avvia l'orchestrazione. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -97,7 +97,7 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> Il codice precedente è per Funzioni durevoli 2.x. Per Funzioni durevoli 1.x, è `OrchestrationClient` `DurableClient` necessario utilizzare l'attributo anziché l'attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché . Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
+> Il codice precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `OrchestrationClient` l'attributo anziché l' `DurableClient` attributo ed è necessario utilizzare il `DurableOrchestrationClient` tipo di `IDurableOrchestrationClient`parametro anziché. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -122,7 +122,7 @@ module.exports = async function (context, req) {
 
 Se una funzione dell'agente di orchestrazione deve essere completata, è sufficiente *non* chiamare `ContinueAsNew` e consentire l'uscita della funzione.
 
-Se una funzione dell'agente di orchestrazione si trova `TerminateAsync` in un ciclo `terminate` infinito e deve essere arrestata, usare il metodo (.NET) o (JavaScript) dell'associazione client dell'orchestrazione per arrestarla. [orchestration client binding](durable-functions-bindings.md#orchestration-client) Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
+Se una funzione dell'agente di orchestrazione si trova in un ciclo infinito e deve essere `TerminateAsync` arrestata, utilizzare `terminate` il metodo (.NET) o (JavaScript) dell' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) per arrestarla. Per altre informazioni, vedere [Gestione delle istanze](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

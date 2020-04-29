@@ -1,5 +1,5 @@
 ---
-title: Stringhe di connessione in Azure Application Insights . Documenti Microsoft
+title: Stringhe di connessione in applicazione Azure Insights | Microsoft Docs
 description: Come utilizzare le stringhe di connessione.
 ms.topic: conceptual
 author: timothymothra
@@ -7,43 +7,43 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410620"
 ---
 # <a name="connection-strings"></a>Stringhe di connessione
 
 ## <a name="overview"></a>Panoramica
 
-Le stringhe di connessione forniscono agli utenti di Application Insight un'unica impostazione di configurazione, eliminando la necessità di più impostazioni proxy. Altamente utile per i server web intranet, ambienti cloud sovrani o ibridi che desiderano inviare dati al servizio di monitoraggio.
+Le stringhe di connessione forniscono agli utenti di Application Insight una singola impostazione di configurazione, eliminando la necessità di più impostazioni proxy. Particolarmente utile per i server Web Intranet, gli ambienti di cloud ibrido o sovrano che vogliono inviare dati al servizio di monitoraggio.
 
-Le coppie di valori chiave forniscono agli utenti un modo semplice per definire una combinazione di suffissi di prefisso per ogni servizio/prodotto di Application Insights (AI).
+Le coppie chiave-valore forniscono agli utenti un modo semplice per definire una combinazione di suffisso di prefisso per ogni servizio/prodotto Application Insights (AI).
 
 > [!IMPORTANT]
-> Non è consigliabile impostare sia stringa di connessione che chiave di strumentazione. Nel caso in cui un utente imposta entrambi, a seconda di quale sia stato impostato per ultimo avrà la precedenza. 
+> Non è consigliabile impostare sia la stringa di connessione che la chiave di strumentazione. Nel caso in cui un utente imposti entrambi, a seconda del valore impostato per ultimo, avrà la precedenza. 
 
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario 
 
-Scenari dei clienti in cui viene visualizzato l'impatto maggiore:Customer scenarios where We visualize this having the most impact:
+Scenari per i clienti in cui viene visualizzato questo comportamento con maggiore effetto:
 
-- Eccezioni firewall o reindirizzamenti proxy 
+- Eccezioni del firewall o reindirizzamenti proxy 
 
-    Nei casi in cui è necessario il monitoraggio per il server Web Intranet, la soluzione precedente ha richiesto ai clienti di aggiungere singoli endpoint di servizio alla configurazione. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
-    Le stringhe di connessione offrono un'alternativa migliore riducendo questo sforzo a una singola impostazione. Un prefisso semplice, la modifica del suffisso consente il popolamento automatico e il reindirizzamento di tutti gli endpoint ai servizi corretti. 
+    Nei casi in cui è richiesto il monitoraggio per il server Web Intranet, la soluzione precedente ha richiesto ai clienti di aggiungere singoli endpoint di servizio alla configurazione. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Le stringhe di connessione offrono un'alternativa migliore riducendo questo impegno a una singola impostazione. Un prefisso semplice, la modifica del suffisso consente il popolamento automatico e il reindirizzamento di tutti gli endpoint ai servizi corretti. 
 
 - Ambienti cloud sovrani o ibridi
 
-    Gli utenti possono inviare dati a [un'area di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definita.
+    Gli utenti possono inviare dati a un' [area di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definita.
     Le stringhe di connessione consentono di definire le impostazioni degli endpoint per i server Intranet o le impostazioni del cloud ibrido. 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 ### <a name="finding-my-connection-string"></a>Trovare la stringa di connessione?
 
-La stringa di connessione viene visualizzata nel pannello Panoramica della risorsa Application Insights.Your connection string is displayed on the Overview blade of your Application Insights resource.
+La stringa di connessione viene visualizzata nel pannello panoramica della risorsa Application Insights.
 
 ![stringa di connessione nel pannello Panoramica](media/overview-dashboard/overview-connection-string.png)
 
@@ -51,28 +51,28 @@ La stringa di connessione viene visualizzata nel pannello Panoramica della risor
 
 #### <a name="max-length"></a>Lunghezza massima
 
-La connessione ha una lunghezza massima supportata di 4096 caratteri.
+La lunghezza massima supportata per la connessione è di 4096 caratteri.
 
 #### <a name="key-value-pairs"></a>Coppie chiave-valore
 
-La stringa di connessione è costituita da un elenco di impostazioni rappresentate come coppie chiave-valore separate da punto e virgola:Connection string consists of a list of settings represented as key-value pairs separated by semipunto:`key1=value1;key2=value2;key3=value3`
+La stringa di connessione è costituita da un elenco di impostazioni rappresentate come coppie chiave-valore separate da punto e virgola:`key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Sintassi
 
-- `InstrumentationKey`(ad esempio: 00000000-0000-0000-0000-00000000000000)  La stringa di connessione è un campo **obbligatorio.**
-- `Authorization`(ad esempio: ikey) Questa impostazione è facoltativa perché oggi è supportata solo l'autorizzazione ikey.
-- `EndpointSuffix`(ad es: applicationinsights.azure.cn) L'impostazione del suffisso dell'endpoint indicherà all'SDK a quale cloud di Azure connettersi. L'SDK assembla il resto dell'endpoint per i singoli servizi.
+- `InstrumentationKey`(ad esempio: 00000000-0000-0000-0000-000000000000)  La stringa di connessione è un campo **obbligatorio** .
+- `Authorization`(ad esempio: Ikey) Questa impostazione è facoltativa perché oggi è supportata solo l'autorizzazione Ikey.
+- `EndpointSuffix`(ad esempio: applicationinsights.azure.cn) L'impostazione del suffisso dell'endpoint indicherà all'SDK il cloud di Azure a cui connettersi. L'SDK assembla il resto dell'endpoint per i singoli servizi.
 - Endpoint espliciti.
   Qualsiasi servizio può essere sottoposto a override in modo esplicito nella stringa di connessione.
-   - `IngestionEndpoint`(ad es.:https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`(ad es.:https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`(ad es.:https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`(ad es.:https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`exhttps://dc.applicationinsights.azure.com)
+   - `LiveEndpoint`exhttps://live.applicationinsights.azure.com)
+   - `ProfilerEndpoint`exhttps://profiler.applicationinsights.azure.com)
+   - `SnapshotEndpoint`exhttps://snapshot.applicationinsights.azure.com)
 
-#### <a name="endpoint-schema"></a>Schema endpoint
+#### <a name="endpoint-schema"></a>Schema dell'endpoint
 
 `<prefix>.<suffix>`
-- Prefisso: definisce un servizio. 
+- Prefix: definisce un servizio. 
 - Suffisso: definisce il nome di dominio comune.
 
 ##### <a name="valid-suffixes"></a>Suffissi validi
@@ -87,14 +87,14 @@ Vedere anche: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoint
 
 ##### <a name="valid-prefixes"></a>Prefissi validi
 
-- [Inserimento di telemetria](./app-insights-overview.md):`dc`
-- [Metriche dal vivo](./live-stream.md):`live`
+- Inserimento di dati di [telemetria](./app-insights-overview.md):`dc`
+- [Metriche attive](./live-stream.md):`live`
 - [Profiler](./profiler-overview.md):`profiler`
-- [Istantanea](./snapshot-debugger.md):`snapshot`
+- [Snapshot](./snapshot-debugger.md):`snapshot`
 
 
 
-## <a name="connection-string-examples"></a>Esempi di stringhe di connessioneConnection string examples
+## <a name="connection-string-examples"></a>Esempi di stringhe di connessione
 
 
 ### <a name="minimal-valid-connection-string"></a>Stringa di connessione valida minima
@@ -103,13 +103,13 @@ Vedere anche: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoint
 
 In questo esempio è stata impostata solo la chiave di strumentazione.
 
-- Lo schema di autorizzazione è impostato su "ikey" 
-- Chiave di strumentazione: 00000000-0000-0000-0000-00000000000000
-- Gli URI del servizio regionale sono basati sulle impostazioni predefinite dell'SDK e si connetteranno all'Azure globale pubblico:The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) and will connect to the public global Azure:
-   - Ingestione:https://dc.services.visualstudio.com/
-   - Metriche dal vivo:https://rt.services.visualstudio.com/
-   - Profiler:https://agent.azureserviceprofiler.net/
-   - Debugger:https://agent.azureserviceprofiler.net/  
+- Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
+- Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
+- Gli URI del servizio regionale sono basati sulle [impostazioni predefinite dell'SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e si connetteranno all'Azure globale pubblico:
+   - Ingestionehttps://dc.services.visualstudio.com/
+   - Metriche attive:https://rt.services.visualstudio.com/
+   - Profilerhttps://agent.azureserviceprofiler.net/
+   - Debuggerhttps://agent.azureserviceprofiler.net/  
 
 
 
@@ -117,43 +117,43 @@ In questo esempio è stata impostata solo la chiave di strumentazione.
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In questo esempio, questa stringa di connessione specifica il suffisso dell'endpoint e l'SDK creerà gli endpoint del servizio.
+In questo esempio, questa stringa di connessione specifica il suffisso dell'endpoint e l'SDK creerà gli endpoint di servizio.
 
-- Lo schema di autorizzazione è impostato su "ikey" 
-- Chiave di strumentazione: 00000000-0000-0000-0000-00000000000000
-- Gli URI del servizio regionale sono basati sul suffisso dell'endpoint fornito:The regional service URIs are based on provided endpoint suffix: 
-   - Ingestione:https://dc.ai.contoso.com
-   - Metriche dal vivo:https://live.ai.contoso.com
-   - Profiler:https://profiler.ai.contoso.com 
-   - Debugger:https://snapshot.ai.contoso.com   
+- Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
+- Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
+- Gli URI del servizio regionale sono basati sul suffisso dell'endpoint fornito: 
+   - Ingestionehttps://dc.ai.contoso.com
+   - Metriche attive:https://live.ai.contoso.com
+   - Profilerhttps://profiler.ai.contoso.com 
+   - Debuggerhttps://snapshot.ai.contoso.com   
 
 
 
-### <a name="connection-string-with-explicit-endpoint-overrides"></a>Stringa di connessione con sostituzioni endpoint espliciteConnection string with explicit endpoint overrides 
+### <a name="connection-string-with-explicit-endpoint-overrides"></a>Stringa di connessione con override esplicito dell'endpoint 
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In questo esempio, questa stringa di connessione specifica gli override espliciti per ogni servizio. L'SDK utilizzerà gli endpoint esatti forniti senza modifiche.
+In questo esempio, questa stringa di connessione specifica le sostituzioni esplicite per ogni servizio. L'SDK userà gli endpoint esatti forniti senza modifiche.
 
-- Lo schema di autorizzazione è impostato su "ikey" 
-- Chiave di strumentazione: 00000000-0000-0000-0000-00000000000000
+- Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
+- Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
 - Gli URI del servizio regionale sono basati sui valori di override espliciti: 
-   - Inserimento: https:\//custom.com:111/
-   - Metriche live:\/https: /custom.com:222/
-   - Profiler: https:\//custom.com:333/ 
-   - Debugger: https: /custom.com:444/Debugger: https:\//custom.com:444/   
+   - Inserimento: https:\//Custom.com:111/
+   - Metriche attive: https:\//Custom.com:222/
+   - Profiler:\/https:/Custom.com:333/ 
+   - Debugger: https:\//Custom.com:444/   
 
 
-## <a name="how-to-set-a-connection-string"></a>Come impostare una stringa di connessioneHow to set a connection string
+## <a name="how-to-set-a-connection-string"></a>Come impostare una stringa di connessione
 
-Le stringhe di connessione sono supportate nelle versioni SDK seguenti:Connection Strings are supported in the following SDK versions:
-- .NET e .NET Core v2.12.0
-- Java v2.5.1 e Java 3.0
-- Javascript v2.3.0
-- Nodo JS v1.5.0
-- Python v1.0.0
+Le stringhe di connessione sono supportate nelle versioni dell'SDK seguenti:
+- .NET e .NET Core v 2.12.0
+- Java v 2.5.1 e Java 3,0
+- JavaScript v 2.3.0
+- NodeJS v 1.5.0
+- Python v 1.0.0
 
-Una stringa di connessione può essere impostata da nel codice, nella variabile di ambiente o nel file di configurazione.
+Una stringa di connessione può essere impostata sia nel codice, nella variabile di ambiente o nel file di configurazione.
 
 
 
@@ -161,11 +161,11 @@ Una stringa di connessione può essere impostata da nel codice, nella variabile 
 
 - Stringa di connessione: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
+# <a name="netnetcore"></a>[.NET/. NetCore](#tab/net)
 
-TelemetryConfiguration.ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net Impostato in modo esplicito:
+Set .NET in modo esplicito:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-File di configurazione .Net:
+File di configurazione .NET:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -183,7 +183,7 @@ File di configurazione .Net:
 ```
 
 
-NetCore config.json: 
+NetCore config. JSON: 
 
 ```json
 {
@@ -197,7 +197,7 @@ NetCore config.json:
 # <a name="java"></a>[Java](#tab/java)
 
 
-Java (v2.5.x) Impostazione esplicita:
+Java (v 2.5. x) impostato in modo esplicito:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -212,9 +212,9 @@ ApplicationInsights.xml
 
 # <a name="javascript"></a>[JavaScript](#tab/js)
 
-Importante: Javascript non supporta l'utilizzo di variabili di ambiente.
+Importante: JavaScript non supporta l'uso di variabili di ambiente.
 
-Utilizzando lo snippet:
+Usando il frammento di codice:
 
 ```javascript
 <script type="text/javascript">
@@ -227,7 +227,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ```
 
 
-Configurazione manuale:
+Installazione manuale:
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
@@ -251,7 +251,7 @@ appInsights.start();
 
 Si consiglia agli utenti di impostare la variabile di ambiente.
 
-Per impostare in modo esplicito la stringa di connessione:To explicitly set the connection string:
+Per impostare in modo esplicito la stringa di connessione:
 
 ```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -268,7 +268,7 @@ Introduzione in fase di esecuzione a:
 
 * [App ospitate in IIS in macchine virtuali di Azure e set di scalabilità di macchine virtuali di Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Server IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [App Web di Azure ](../../azure-monitor/app/azure-web-apps.md)
+* [App Web di Azure](../../azure-monitor/app/azure-web-apps.md)
 
 Introduzione in fase di sviluppo a:
 

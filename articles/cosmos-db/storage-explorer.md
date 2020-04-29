@@ -8,10 +8,10 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411662"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Gestire i dati con Azure Storage Explorer
@@ -29,7 +29,7 @@ Installare i bit più recenti di Azure Storage Explorer qui: [Azure Storage Expl
 
 ## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
-1. Dopo aver installato **Azure Storage Explorer**, fare clic sull'icona del plug-in a sinistra, come illustrato nell'immagine seguente:After installing the Azure Storage Explorer , click the **plug-in** i con left as shown in the following image:
+1. Dopo aver installato il **Azure Storage Explorer**, fare clic sull'icona del **plug-in** a sinistra, come illustrato nell'immagine seguente:
        
    ![Icona plug-in](./media/storage-explorer/plug-in-icon.png)
  
@@ -37,7 +37,7 @@ Installare i bit più recenti di Azure Storage Explorer qui: [Azure Storage Expl
 
    ![Connettersi a una sottoscrizione di Azure](./media/storage-explorer/connect-to-azure-subscription.png)
 
-2. Nella finestra di dialogo Accesso di Azure selezionare Accedi e quindi immettere le credenziali di Azure.In the **Azure Sign in** dialog box, select Sign **in**, and then enter your Azure credentials.
+2. Nella finestra **di dialogo Azure Sign in (accesso ad Azure** ) selezionare **Sign in (accedi**) e immettere le credenziali di Azure.
 
     ![Accesso](./media/storage-explorer/sign-in.png)
 
@@ -59,7 +59,7 @@ Un modo alternativo per connettersi a un Azure Cosmos DB consiste nell'usare una
 
     ![Connettersi a Cosmos DB usando una stringa di connessione](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Attualmente sono supportate solo API SQL e di tabella. Scegliere API, incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [Ottenere la stringa](manage-with-powershell.md#list-keys)di connessione .
+2. Attualmente sono supportate solo API SQL e di tabella. Scegliere API, incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [ottenere la stringa di connessione](manage-with-powershell.md#list-keys).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Usare la procedura seguente per connettersi ad Azure Cosmos DB tramite un emulat
 
     ![Connettersi a Cosmos DB tramite un emulatore](./media/storage-explorer/emulator-entry.png)
 
-3. Attualmente sono supportate solo API SQL. Incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [Ottenere la stringa](manage-with-powershell.md#list-keys)di connessione .
+3. Attualmente sono supportate solo API SQL. Incollare la **stringa di connessione**, immettere un valore in **Account label** (Etichetta account), fare clic su **Next** (Avanti) per verificare il riepilogo e quindi fare clic su **Connect** (Connetti) per connettersi all'account Azure Cosmos DB. Per informazioni sul recupero della stringa di connessione primaria, vedere [ottenere la stringa di connessione](manage-with-powershell.md#list-keys).
 
     ![Finestra di dialogo per la connessione a Cosmos DB tramite un emulatore](./media/storage-explorer/emulator-dialog.png)
 
@@ -116,7 +116,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
     ![Elimina database2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Creare una raccolta
-1. Fare clic con il pulsante destro del mouse sul database, **scegliere Crea raccolta**, quindi specificare le informazioni seguenti, ad esempio ID **raccolta,** **Capacità di archiviazione**e così via. Fare clic **su OK** per terminare. 
+1. Fare clic con il pulsante destro del mouse sul database, scegliere **Crea raccolta**, quindi specificare le informazioni seguenti, ad esempio **ID raccolta**, **capacità di archiviazione**e così via. Fare clic su **OK** per terminare. 
 
     ![Crea collection1](./media/storage-explorer/create-collection.png)
 
@@ -215,20 +215,20 @@ Questo errore può essere visualizzato per una serie di motivi, tra cui i due de
 
 + L'ambiente è protetto da un *proxy trasparente*, ovvero qualcuno, ad esempio il reparto IT, intercetta il traffico HTTPS, ne esegue la decrittografia e quindi lo crittografa con un certificato autofirmato.
 
-+ Si esegue software, ad esempio un software antivirus, che inserisce un certificato TLS/SSL autofirmato nei messaggi HTTPS ricevuti.
++ Si sta eseguendo software, ad esempio un software antivirus, che inserisce un certificato TLS/SSL autofirmato nei messaggi HTTPS ricevuti.
 
 Quando Storage Explorer rileva uno di questi "certificati autofirmati", è possibile che l'informazione relativa alla possibile manomissione del messaggio HTTPS ricevuto non sia nota. Se tuttavia si dispone di una copia del certificato autofirmato, è possibile indicare a Storage Explorer di considerarlo attendibile. Se non si conosce l'autore dell'inserimento del certificato, è possibile provare a trovarlo seguendo questa procedura:
 
 1. Installare OpenSSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html), è sufficiente una delle versioni light
      - Mac e Linux: devono essere inclusi nel sistema operativo
-2. Eseguire OpenSSL
+2. Esegui OpenSSL
     - Windows: passare alla directory di installazione, alla directory **/bin/** e quindi fare doppio clic su **openssl.exe**.
     - Mac e Linux: eseguire **openssl** da un terminale
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`
 4. Cercare i certificati autofirmati. Se non si sa con certezza quali certificati sono autofirmati, verificare ovunque che l'oggetto ("s") e l'autorità emittente ("i:") siano uguali.
 5.  Dopo aver trovato i certificati autofirmati, per ognuno di essi copiare e incollare tutto il testo da **-----BEGIN CERTIFICATE-----** a **-----END CERTIFICATE-----** (inclusi) in un nuovo file con estensione CER.
-6.  Aprire Esplora archivi e quindi passare a **Modifica** > **certificati** > SSL**importazione certificati**. Usando lo strumento di selezione file, trovare, selezionare e aprire i file con estensione CER creati.
+6.  Aprire Storage Explorer e quindi fare clic su **modifica** > **certificati** > SSL**Importa certificati**. Usando lo strumento di selezione file, trovare, selezionare e aprire i file con estensione CER creati.
 
 Se non è possibile trovare alcun certificato autofirmato seguendo la procedura precedente, usare lo strumento di feedback per ricevere assistenza.
 
@@ -268,7 +268,7 @@ Se non è possibile rimuovere un account o se il collegamento per eseguire nuova
   - la cartella %AppData%/StorageExplorer per Windows
   - /Utenti/<your_name>/Library/Application Support/StorageExplorer per Mac
   - ~/.config/StorageExplorer per Linux
-  - **Sarà necessario reinserire tutte le credenziali** se si eliminano questi file
+  - Se si eliminano questi file, **sarà necessario immettere nuovamente tutte le credenziali**
 
 
 ### <a name="httphttps-proxy-issue"></a>Problema del proxy Http/Https
@@ -300,7 +300,7 @@ Attenersi ai suggerimenti seguenti:
 
 ## <a name="contact-us"></a>Contatti
 
-Se nessuna delle soluzioni funziona correttamente, inviare un messaggio[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)di posta elettronica al team di sviluppo per sviluppatori di database di Azure Cosmos ( ) con i dettagli sul problema, per la risoluzione dei problemi.
+Se nessuna delle soluzioni funziona, inviare un messaggio di posta elettronica al team Azure Cosmos DB dev Tooling[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)() con informazioni dettagliate sul problema, per risolvere i problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

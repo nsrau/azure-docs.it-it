@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
 ms.openlocfilehash: b778ad8c59cf51f92584cd3590f7d99244f37b2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76774962"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure 
@@ -38,7 +38,7 @@ Questo articolo illustra come usare le API REST per creare, aggiornare ed elimin
 ## <a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
 Durante la creazione dei filtri vengono usati i tipi seguenti:  
 
-* [Filtro](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
 * [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
@@ -69,7 +69,7 @@ Intestazioni richiesta
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
-Corpo della richiesta 
+Testo della richiesta 
 
     {  
        "Name":"GlobalFilter",
@@ -122,7 +122,7 @@ Intestazioni richiesta
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
-Corpo della richiesta 
+Testo della richiesta 
 
     {   
        "Name":"AssetFilter", 
@@ -325,7 +325,7 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
-**Streaming fluido**
+**Smooth Streaming**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
@@ -333,7 +333,7 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

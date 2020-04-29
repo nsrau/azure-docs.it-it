@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297718"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
@@ -56,7 +56,7 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 
 | Componente | Piattaforma host | Requisiti aggiuntivi/note |
 | --- | --- | --- |
-| Gestione snapshot StorSimple  |Windows Server 2008 R2 SP1, 2012, 2012 R2 |L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> StorSimple Snapshot Manager è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare StorSimple Snapshot Manager.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare StorSimple Snapshot Manager.</li></ul> |
+| Gestione snapshot StorSimple |Windows Server 2008 R2 SP1, 2012, 2012 R2 |L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> StorSimple Snapshot Manager è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare StorSimple Snapshot Manager.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare StorSimple Snapshot Manager.</li></ul> |
 | Adattatore StorSimple per SharePoint |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>L'adattatore StorSimple per SharePoint è supportato solo in SharePoint 2010 e SharePoint 2013.</li><li>Per RBS è necessario SQL Server Enterprise Edition, versioni 2008 R2 o 2012.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>Requisiti di rete per il dispositivo StorSimple
@@ -81,7 +81,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 <sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet direttamente o tramite il proxy Web configurato. Gli indirizzi IP fissi per vengono usati per rendere gli aggiornamenti disponibili al dispositivo e per Garbage Collection. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple e Garbage Collection non funzionerà correttamente.
 
 > [!IMPORTANT]
-> Verificare che il firewall non modifichi o decrittografate il traffico TLS tra il dispositivo StorSimple e Azure.
+> Verificare che il firewall non modifichi o decrypti il traffico TLS tra il dispositivo StorSimple e Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Modelli URL per le regole del firewall
@@ -233,7 +233,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 * Verificare che entrambi i moduli controller dello chassis EBOD, entrambi i cavi SAS e tutte le unità disco rigido siano sempre installati.
 * In caso di guasto di un modulo controller dell'enclosure EBOD, richiedere immediatamente una sostituzione.
 * Se un modulo controller dello chassis EBOD smette di funzionare, prima di sostituirlo assicurarsi che l'altro modulo controller sia attivo. Per verificare che un controller sia attivo, vedere [Identificare il controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante la sostituzione di un modulo di controllo EBOD, monitorare continuamente lo stato del componente nel servizio StorSimple Device Manager accedendo a **Monitor** > **Hardware Health**.
+* Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio Device Manager di StorSimple accedendo a **monitoraggio** > **integrità hardware**.
 * Se un cavo SAS non funziona o deve essere sostituito (per determinare lo stato del cavo, coinvolgere il supporto tecnico Microsoft), assicurarsi di rimuovere solo il cavo SAS che richiede la sostituzione.
 * Non rimuovere contemporaneamente entrambi i cavi SAS dal sistema in qualsiasi momento.
 

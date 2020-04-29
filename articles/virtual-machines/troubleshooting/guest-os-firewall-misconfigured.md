@@ -1,6 +1,6 @@
 ---
 title: Il firewall del sistema operativo guest della macchina virtuale di Azure non è configurato correttamente | Microsoft Docs
-description: Informazioni su come usare la Console seriale o il metodo offline per diagnosticare e correggere un firewall del sistema operativo guest non configurato correttamente in una macchina virtuale di Azure remota.
+description: Informazioni su come usare la console seriale o il metodo offline per diagnosticare e correggere un firewall del sistema operativo guest configurato in modo non corretto in una macchina virtuale di Azure remota.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e6f42bdf462ac5261f77bc05c62e50500345fe37
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422542"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Il firewall del sistema operativo guest della macchina virtuale di Azure non è configurato correttamente
@@ -98,7 +98,7 @@ Nell'istanza di accesso della console seriale, è possibile eseguire una query s
 
 ### <a name="offline-mitigations"></a>Procedure di mitigazione offline
 
-1.  Per abilitare o disabilitare le regole del firewall, vedere [Abilitare o disabilitare una regola del firewall in un](enable-disable-firewall-rule-guest-os.md)sistema operativo guest VM di Azure.
+1.  Per abilitare o disabilitare le regole del firewall, vedere [abilitare o disabilitare una regola del firewall in un sistema operativo guest della macchina virtuale di Azure](enable-disable-firewall-rule-guest-os.md).
 
 2.  Controllare se si è verificato lo [scenario di blocco del traffico in ingresso da parte del firewall del sistema operativo guest](guest-os-firewall-blocking-inbound-traffic.md).
 

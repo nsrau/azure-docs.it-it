@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396915"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
@@ -442,21 +442,21 @@ I record con un tipo di *InsightsMetrics* hanno dati sulle prestazioni del siste
 |Computer | FQDN del computer | 
 |Origine | *vm.azm.ms* |
 |Spazio dei nomi | Categoria del contatore delle prestazioni | 
-|Nome | Nome del contatore delle prestazioni. |
+|Name | Nome del contatore delle prestazioni. |
 |Val | Valore raccolto | 
 |Tag | Dettagli correlati sul record. Vedere la tabella seguente per i tag usati con tipi di record diversi.  |
 |AgentId | Identificatore univoco per l'agente di ogni computer |
-|Type | *InsightsMetrics* |
+|Tipo | *InsightsMetrics* |
 |_ResourceId_ | ID risorsa della macchina virtuale |
 
 Nella tabella seguente sono elencati i contatori delle prestazioni attualmente raccolti nella tabella *InsightsMetrics* :
 
-| Spazio dei nomi | Nome | Descrizione | Unità | Tag |
+| Spazio dei nomi | Name | Descrizione | Unità | Tag |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Heartbeat computer                        | | |
 | Memoria      | AvailableMB           | Byte disponibili memoria                    | Byte          | memorySizeMB-dimensioni totali della memoria|
-| Network     | WriteBytesPerSecond   | Byte di scrittura di rete al secondo            | Byte al secondo | NetworkDeviceId-ID del dispositivo<br>byte-totale byte inviati |
-| Network     | ReadBytesPerSecond    | Byte di lettura rete al secondo             | Byte al secondo | networkDeviceId-ID del dispositivo<br>byte-totale byte ricevuti |
+| Rete     | WriteBytesPerSecond   | Byte di scrittura di rete al secondo            | Byte al secondo | NetworkDeviceId-ID del dispositivo<br>byte-totale byte inviati |
+| Rete     | ReadBytesPerSecond    | Byte di lettura rete al secondo             | Byte al secondo | networkDeviceId-ID del dispositivo<br>byte-totale byte ricevuti |
 | Processore   | UtilizationPercentage | Percentuale di utilizzo del processore          | Percentuale        | totalCpus-CPU totali |
 | LogicalDisk | WritesPerSecond       | Scritture disco logico al secondo            | Conteggio al secondo | mountId-ID montaggio del dispositivo |
 | LogicalDisk | WriteLatencyMs        | Millisecondo Latenza scrittura disco logico    | Millisecondi   | mountId-ID montaggio del dispositivo |

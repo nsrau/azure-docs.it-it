@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476698"
 ---
 # <a name="publish-media-services-content-using-net"></a>Pubblicare contenuti di Servizi multimediali tramite .NET  
@@ -53,7 +53,7 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
 
 
 >[!NOTE]
->È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Se si usano sempre gli stessi giorni/autorizzazioni di accesso, usare lo stesso ID criterio. Ad esempio, i criteri dei localizzatori che devono rimanere sul posto per molto tempo (criteri di non-caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Se si usano sempre gli stessi giorni/autorizzazioni di accesso, usare lo stesso ID criterio. Ad esempio, i criteri dei localizzatori che devono rimanere sul posto per molto tempo (criteri di non-caricamento). Per ulteriori informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
 ### <a name="use-media-services-net-sdk"></a>Usare l'SDK di Servizi multimediali per .NET
 Creare URL di streaming 
@@ -108,7 +108,7 @@ Gli output:
 
 
 > [!NOTE]
-> Puoi anche trasmettere i tuoi contenuti tramite una connessione TLS. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Attualmente, AMS non supporta TLS con domini personalizzati.
+> È anche possibile trasmettere il contenuto tramite una connessione TLS. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Attualmente, AMS non supporta TLS con domini personalizzati.
 > 
 > 
 
@@ -175,7 +175,7 @@ Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

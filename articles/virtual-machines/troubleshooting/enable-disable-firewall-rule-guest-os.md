@@ -1,6 +1,6 @@
 ---
 title: Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure | Microsoft Docs
-description: Informazioni su come usare strumenti remoti online o offline o impostazioni del Registro di sistema per abilitare o disabilitare le regole del firewall del sistema operativo guest in una macchina virtuale di Azure remota.
+description: Informazioni su come usare gli strumenti remoti online o offline o le impostazioni del registro di sistema per abilitare o disabilitare le regole del firewall del sistema operativo guest in una VM di Azure remota.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422887"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
@@ -97,9 +97,9 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
 Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile usare il [Registro di sistema remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) nell'altra macchina virtuale.
 
-1.  Nella macchina virtuale per la risoluzione dei problemi avviare l'Editor del Registro di sistema (regedit.exe) e quindi selezionare **Registro** > di**sistema di rete per**la connessione a file .
+1.  Nella macchina virtuale per la risoluzione dei problemi, avviare l'editor del registro di sistema (Regedit. exe), quindi selezionare **file** > **Connetti registro di rete**.
 
-2.  Aprire il ramo *TARGET MACHINE*-SYSTEM, quindi specificare i seguenti valori:
+2.  Aprire il ramo \System del *computer di destinazione*e quindi specificare i valori seguenti:
 
     * Per abilitare una regola, aprire il valore del Registro di sistema seguente:
     
@@ -107,7 +107,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
     
         Cambiare quindi **Active=FALSE** in **Active=TRUE** nella stringa:
 
-        **v2.22 Azione - Consenti Attivo , VERO , Dir: in Protocollo di protocollo 6 Profilo - Dominio Profilo - Privato Profilo - Pubblico LPort 3389 App: %SystemRoot%, system32 e svchost.exe Svc-termservice Nome:\@FirewallAPI.dll,-28775 Desc\@FirewallAPI.dll,-28756 EmbedCtxt\@FirewallAPI.dll,-28752**
+        **v 2.22 | Azione = Consenti | Attivo = TRUE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@firewallapi. dll,-28775 | DESC =\@firewallapi. dll,-28756 | EmbedCtxt =\@firewallapi. dll,-28752 |**
     
     * Per disabilitare una regola, aprire il valore del Registro di sistema seguente:
     
@@ -115,7 +115,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
         Cambiare quindi **Active=TRUE** in **Active=FALSE**:
         
-        **v2.22 Azione - Consenti Attivo , FALSO , falso Dir: in Protocollo di protocollo 6 Profilo - Dominio Profilo - Privato Profilo - Pubblico LPort 3389 App: %SystemRoot%, system32 e svchost.exe Svc-termservice Nome:\@FirewallAPI.dll,-28775 Desc\@FirewallAPI.dll,-28756 EmbedCtxt\@FirewallAPI.dll,-28752**
+        **v 2.22 | Azione = Consenti | Attivo = FALSE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@firewallapi. dll,-28775 | DESC =\@firewallapi. dll,-28756 | EmbedCtxt =\@firewallapi. dll,-28752 |**
 
 3.  Riavviare la macchina virtuale per applicare le modifiche.
 
@@ -129,20 +129,20 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
 
 2.  Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3.  Assicurarsi che il disco sia contrassegnato come **in linea** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
+3.  Verificare che il disco sia contrassegnato come **online** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
 
 4.  Prima di apportare qualsiasi modifica, creare una copia della cartella \windows\system32\config nel caso in cui sia necessario un ripristino dello stato precedente.
 
 5.  Nella macchina virtuale per la risoluzione dei problemi avviare l'editor del Registro di sistema (regedit.exe).
 
-6.  Evidenziare la chiave **HKEY_LOCAL_MACHINE,** quindi selezionare **Caricamento file** > **Hive** dal menu.
+6.  Evidenziare la chiave di **HKEY_LOCAL_MACHINE** e quindi selezionare **file** > **Load hive** dal menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Individuare e aprire il file \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Viene chiesto di immettere un nome. Immettere **BROKENSYSTEM**, quindi **espandere HKEY_LOCAL_MACHINE**. Verrà visualizzata una chiave aggiuntiva denominata **BROKENSYSTEM**. Per questa risoluzione dei problemi, stiamo montando questi hives problema come **BROKENSYSTEM**.
+    > Viene chiesto di immettere un nome. Immettere **BROKENSYSTEM**, quindi espandere **HKEY_LOCAL_MACHINE**. Verrà ora visualizzata una chiave aggiuntiva denominata **BROKENSYSTEM**. Per questa risoluzione dei problemi, gli hive di questo problema vengono montati come **BROKENSYSTEM**.
 
 8.  Apportare le modifiche seguenti al ramo BROKENSYSTEM:
 
@@ -154,7 +154,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
         
         Cambiare quindi **Active=FALSE** in **Active=TRUE**.
         
-        **v2.22 Azione - Consenti Attivo , VERO , Dir: in Protocollo di protocollo 6 Profilo - Dominio Profilo - Privato Profilo - Pubblico LPort 3389 App: %SystemRoot%, system32 e svchost.exe Svc-termservice Nome:\@FirewallAPI.dll,-28775 Desc\@FirewallAPI.dll,-28756 EmbedCtxt\@FirewallAPI.dll,-28752**
+        **v 2.22 | Azione = Consenti | Attivo = TRUE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@firewallapi. dll,-28775 | DESC =\@firewallapi. dll,-28756 | EmbedCtxt =\@firewallapi. dll,-28752 |**
 
     3.  Per disabilitare una regola, aprire la chiave del Registro di sistema seguente:
 
@@ -162,9 +162,9 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
 
         Cambiare quindi **Active=TRUE** in **Active=FALSE**.
         
-        **v2.22 Azione - Consenti Attivo , FALSO , falso Dir: in Protocollo di protocollo 6 Profilo - Dominio Profilo - Privato Profilo - Pubblico LPort 3389 App: %SystemRoot%, system32 e svchost.exe Svc-termservice Nome:\@FirewallAPI.dll,-28775 Desc\@FirewallAPI.dll,-28756 EmbedCtxt\@FirewallAPI.dll,-28752**
+        **v 2.22 | Azione = Consenti | Attivo = FALSE | Dir = in | Protocollo = 6 | Profile = dominio | Profilo = privato | Profilo = public | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nome =\@firewallapi. dll,-28775 | DESC =\@firewallapi. dll,-28756 | EmbedCtxt =\@firewallapi. dll,-28752 |**
 
-9.  Evidenziare **BROKENSYSTEM**, quindi scegliere **File** > **Unload Hive** dal menu.
+9.  Evidenziare **BROKENSYSTEM**, quindi selezionare **file** > **unload hive** dal menu.
 
 10. [Scollegare il disco di sistema e creare di nuovo la macchina virtuale](troubleshoot-recovery-disks-portal-windows.md).
 

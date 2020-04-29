@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array Update 0.2 & note sulla versione 0.1
+title: Note sulla versione dell'aggiornamento 0,2 & 0,1 per l'array virtuale StorSimple
 description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'Aggiornamento 0.2 e 0.1.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397873"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Note sulla versione dell'Aggiornamento 0.2 e 0.1 per l'array virtuale StorSimple
@@ -63,7 +63,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 | 5 |Grafici di monitoraggio |Nella versione precedente, dopo un failover del dispositivo, i grafici di utilizzo della capacità cloud visualizzavano valori non corretti nel portale di Azure classico. Questo problema è stato risolto nella versione corrente. |
 
 ## <a name="known-issues-in-the-update-01"></a>Problemi noti nell'aggiornamento 0.1
-La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. **La versione dei problemi rilevata in questa versione è contrassegnata da un asterisco. Quasi tutti i problemi in questo elenco hanno riportato dalla versione GA di StorSimple Virtual Array.**
+La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. **La versione dei problemi indicata in questa versione è contrassegnata con un asterisco. Quasi tutti i problemi in questo elenco sono stati trasferiti dalla versione GA di StorSimple Virtual Array.**
 
 | No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
@@ -83,5 +83,5 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **14.** |File server* |Se un file contenuto in una cartella è associato a un flusso di dati alternativi (ADS), sul flusso non viene eseguito il backup o il ripristino tramite ripristino di emergenza, clonazione e ripristino a livello di elemento. | |
 
 ## <a name="next-step"></a>Passaggio successivo
-[Installare gli aggiornamenti](storsimple-ova-install-update-01.md) nella matrice virtuale StorSimple.
+[Installare gli aggiornamenti](storsimple-ova-install-update-01.md) nell'array virtuale StorSimple.
 

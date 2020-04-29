@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi al client Desktop remoto Di Windows Virtual Desktop - Azure
-description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di Windows Virtual Desktop.
+title: Risolvere i problemi relativi a Desktop remoto desktop virtuale Windows client-Azure
+description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di desktop virtuali Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,79 +9,79 @@ ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80473844"
 ---
-# <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi relativi al client Desktop remoto
+# <a name="troubleshoot-the-remote-desktop-client"></a>Risolvere i problemi relativi al client di Desktop remoto
 
-In questo articolo vengono descritti i problemi comuni con il client Desktop remoto e come risolverli.
+Questo articolo descrive i problemi comuni con il client di Desktop remoto e come risolverli.
 
-## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Il client Desktop remoto per Windows 7 o Windows 10 si blocca o non può essere aperto
+## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Desktop remoto client per Windows 7 o Windows 10 smette di rispondere o non può essere aperto
 
-A partire dalla versione 1.2.790, è possibile reimpostare i dati utente dalla pagina Informazioni su o utilizzando un comando.
+A partire dalla versione 1.2.790, è possibile reimpostare i dati utente dalla pagina about o usando un comando.
 
-Utilizzare il comando seguente per rimuovere i dati utente, ripristinare le impostazioni predefinite e annullare la sottoscrizione a tutte le aree di lavoro.
+Usare il comando seguente per rimuovere i dati utente, ripristinare le impostazioni predefinite e annullare la sottoscrizione da tutte le aree di lavoro.
 
 ```cmd
 msrdcw.exe /reset [/f]
 ```
 
-Se si utilizza una versione precedente del client Desktop remoto, è consigliabile disinstallare e reinstallare il client.
+Se si usa una versione precedente del client di Desktop remoto, è consigliabile disinstallare e reinstallare il client.
 
-## <a name="web-client-wont-open"></a>Il client Web non si apre
+## <a name="web-client-wont-open"></a>Il client Web non verrà aperto
 
-In primo luogo, testare la connessione a Internet aprendo un altro sito web nel browser; ad esempio, [www.bing.com](https://www.bing.com).
+Per prima cosa, testare la connessione Internet aprendo un altro sito Web nel browser; ad esempio, [www.Bing.com](https://www.bing.com).
 
-Utilizzare **nslookup** per verificare che DNS possa risolvere il nome di dominio completo:
+Usare **nslookup** per confermare che DNS può risolvere il nome di dominio completo:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
-Prova a connetterti con un altro client, ad esempio il client Desktop remoto per Windows 7 o Windows 10, e verifica se riesci ad aprire il client Web.
+Provare a connettersi con un altro client, ad esempio Desktop remoto client per Windows 7 o Windows 10, e verificare se è possibile aprire il client Web.
 
-### <a name="opening-another-site-fails"></a>Apertura di un altro sito non riesce
+### <a name="opening-another-site-fails"></a>L'apertura di un altro sito non riesce
 
-Ciò è in genere causato da problemi di connessione di rete o da un'interruzione della rete. Si consiglia di contattare il supporto di rete.
+Ciò è in genere causato da problemi di connessione di rete o da un'interruzione di rete. È consigliabile contattare il supporto di rete.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup non è in grado di risolvere il nome
+### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup: Impossibile risolvere il nome
 
-Ciò è in genere causato da problemi di connessione di rete o da un'interruzione della rete. Si consiglia di contattare il supporto di rete.
+Ciò è in genere causato da problemi di connessione di rete o da un'interruzione di rete. È consigliabile contattare il supporto di rete.
 
-### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>Il client non può connettersi, ma altri client della rete possono connettersi
+### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>Il client non è in grado di connettersi, ma altri client nella rete possono connettersi
 
-Se il browser inizia a agire o smette di funzionare mentre si utilizza il client Web, segui queste istruzioni per risolverlo:
+Se il browser inizia a funzionare o smette di funzionare mentre si usa il client Web, seguire queste istruzioni per risolvere i problemi:
 
 1. Riavvia il browser.
-2. Cancellare i cookie del browser. Vedere [Come eliminare i file cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Cancellare la cache del browser. Vedere [cancellare la cache](https://binged.it/2RKyfdU)del browser per il browser .
+2. Cancella i cookie del browser. Vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+3. Cancellare la cache del browser. Vedere [Cancella cache del browser per il browser](https://binged.it/2RKyfdU).
 4. Aprire il browser in modalità privata.
 
-## <a name="web-client-stops-responding-or-disconnects"></a>Il client Web si blocca o si disconnette
+## <a name="web-client-stops-responding-or-disconnects"></a>Il client Web smette di rispondere o si disconnette
 
-Provare a connettersi utilizzando un altro browser o client.
+Provare a connettersi usando un altro browser o client.
 
-### <a name="other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Anche altri browser e client non funzionano correttamente o non riescono ad aprire
+### <a name="other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Anche altri browser e client malfunzionanti o non vengono aperti
 
-Se i problemi persistono anche dopo aver cambiato browser, il problema potrebbe non riguardare il browser, ma con la rete. Si consiglia di contattare il supporto di rete.
+Se i problemi continuano anche dopo aver cambiato i browser, il problema potrebbe non essere quello del browser, ma con la rete. È consigliabile contattare il supporto di rete.
 
 ## <a name="web-client-keeps-prompting-for-credentials"></a>Il client Web continua a richiedere le credenziali
 
 Se il client Web continua a richiedere le credenziali, seguire queste istruzioni:
 
 1. Verificare che l'URL del client Web sia corretto.
-2. Verificare che le credenziali in uso siano per l'ambiente Desktop virtuale di Windows collegato all'URL.
-3. Cancellare i cookie del browser. Per ulteriori informazioni, vedere Come eliminare i [file cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cancellare la cache del browser. Per ulteriori dettagli, consultate Cancellare la cache del [browser per il browser.](https://binged.it/2RKyfdU)
+2. Verificare che le credenziali utilizzate siano per l'ambiente di desktop virtuale Windows associato all'URL.
+3. Cancella i cookie del browser. Per ulteriori informazioni, vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Cancellare la cache del browser. Per altri dettagli, vedere [deselezionare la cache del browser per il browser](https://binged.it/2RKyfdU).
 5. Aprire il browser in modalità privata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi di Desktop virtuale di Windows e sulle tracce di escalation, vedere [Panoramica della risoluzione dei problemi, feedback e supporto.](troubleshoot-set-up-overview.md)
-- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente Windows Virtual Desktop, vedere Creazione di [pool host e tenant](troubleshoot-set-up-issues.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in Windows Virtual Desktop, vedere Configurazione della [macchina virtuale dell'host di sessione](troubleshoot-vm-configuration.md).
-- Per risolvere i problemi relativi all'utilizzo di PowerShell con Windows Virtual Desktop, vedere [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Per eseguire un'esercitazione sulla risoluzione dei problemi, vedere [Esercitazione: Risolvere i problemi relativi alle distribuzioni](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)di modelli di Resource Manager .
+- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
+- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
+- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
+- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476562"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilizzo di canali che ricevono streaming live a bitrate multipla da codificatori locali
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso di canali che ricevono il flusso live a bitrate multipli da codificatori locali
 
 > [!NOTE]
 > A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
@@ -45,7 +45,7 @@ A partire da Servizi multimediali versione 2.10, quando si crea un canale è pos
 > [!NOTE]
 > Questo articolo illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live. Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
->Per informazioni sui codificatori locali consigliati, vedere [Codificatori locali consigliati](media-services-recommended-encoders.md).
+>Per informazioni sui codificatori locali consigliati, vedere la pagina [relativa ai codificatori locali consigliati](media-services-recommended-encoders.md).
 
 Il diagramma seguente rappresenta un flusso di lavoro di streaming live che usa un codificatore live locale per generare flussi in formato RTMP o MP4 frammentato (Smooth Streaming) a bitrate multipli come output.
 
@@ -112,7 +112,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 
 È possibile ottenere gli URL di inserimento quando si crea il canale. Per ottenere questi URL, non è necessario che il canale sia nello stato **In esecuzione** . Quando si è pronti per avviare l'esecuzione del push dei dati nel canale, il canale dovrà essere nello stato **In esecuzione** . Dopo l'avvio dell'inserimento di dati nel canale, è possibile visualizzare in anteprima il flusso tramite l'URL di anteprima.
 
-È possibile ingerire un flusso live MP4 (Smooth Streaming) frammentato su una connessione TLS. Per eseguire l'inserimento tramite TLS, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente, non è possibile ingerire RTMP su TLS.
+È possibile inserire un flusso Live MP4 frammentato (Smooth Streaming) tramite una connessione TLS. Per eseguire l'inserimento su TLS, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Attualmente non è possibile inserire RTMP su TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervallo tra fotogrammi chiave
 Quando si usa un codificatore live locale per generare un flusso a bitrate multipli, l'intervallo tra fotogrammi chiave specifica la durata Group of Pictures (GOP) usata dal codificatore esterno. Dopo la ricezione del flusso in ingresso da parte del canale, è possibile distribuire il flusso live alle applicazioni di riproduzione client in uno dei formati seguenti: Smooth Streaming, DASH (Dynamic Adaptive Streaming over HTTP) e HLS (HTTP Live Streaming). Quando si esegue lo streaming live, la creazione di pacchetti in HLS avviene sempre in modo dinamico. Per impostazione predefinita, Servizi multimediali calcola automaticamente il rapporto per la creazione di pacchetti dei segmenti HLS (FragmentsPerSegment) in base all'intervallo tra fotogrammi chiave ricevuti dal codificatore live.
@@ -186,10 +186,10 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
-| **A partire** |**A partire** |No (stato temporaneo) |
+| **Avvio in corso** |**Avvio in corso** |No (stato temporaneo) |
 | **In esecuzione** |**Pronto** (nessun programma in esecuzione)<p><p>o<p>**Streaming** (almeno un programma in esecuzione) |Sì |
-| **Arresto** |**Arresto** |No (stato temporaneo) |
-| **Fermato** |**Fermato** |No |
+| **Stopping** |**Stopping** |No (stato temporaneo) |
+| **Arrestato** |**Arrestato** |No |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Sottotitoli codificati e inserimento di annunci
 La tabella seguente illustra gli standard supportati per i sottotitoli codificati e l'inserimento di annunci.

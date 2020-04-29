@@ -1,6 +1,6 @@
 ---
 title: Integrare con il gateway applicazione
-description: Informazioni su come integrare un'app nell'ambiente del servizio app ILB con un gateway applicazione in questa procedura utente end-to-end.
+description: Informazioni su come integrare un'app nel ambiente del servizio app ILB con un gateway applicazione in questa procedura dettagliata end-to-end.
 author: ccompy
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476897"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
@@ -20,7 +20,7 @@ L'[ambiente del servizio app](./intro.md) è una distribuzione del servizio app 
 
 I dispositivi WAF (Web Application Firewall) consentono di proteggere le applicazioni Web controllando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. È possibile ottenere un dispositivo WAF da Azure Marketplace oppure usare il [gateway applicazione di Azure][appgw].
 
-Il gateway applicazione di Azure è un'appliance virtuale che fornisce il bilanciamento del carico di livello 7, la ripartizione del carico TLS/SSL e la protezione WAF (Web Application Firewall). Può essere in ascolto su un indirizzo IP pubblico e instradare il traffico all'endpoint applicazione. Le informazioni seguenti illustrano come integrare un gateway applicazione configurato WAF con un'app di un ambiente del servizio app con bilanciamento del carico interno.  
+Il gateway applicazione Azure è un'appliance virtuale che offre bilanciamento del carico di livello 7, offload TLS/SSL e protezione web application firewall (WAF). Può essere in ascolto su un indirizzo IP pubblico e instradare il traffico all'endpoint applicazione. Le informazioni seguenti illustrano come integrare un gateway applicazione configurato WAF con un'app di un ambiente del servizio app con bilanciamento del carico interno.  
 
 L'integrazione del gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno viene eseguita a livello di app. La configurazione del gateway applicazione con l'ambiente del servizio app con bilanciamento del carico interno viene eseguita per app specifiche nell'ambiente del servizio app con bilanciamento del carico interno. Questa tecnica consente l'hosting di applicazioni multitenant sicure in un unico ambiente del servizio app con bilanciamento del carico interno.  
 
@@ -40,7 +40,7 @@ Per integrare il gateway applicazione con l'ambiente del servizio app con bilanc
 * Un ambiente del servizio app con bilanciamento del carico interno.
 * Un'app in esecuzione nell'ambiente del servizio app con bilanciamento del carico interno.
 * Un nome di dominio instradabile su Internet da usare con l'app nell'ambiente del servizio app con bilanciamento del carico interno.
-* L'indirizzo del servizio di bilanciamento del carico interno usato nell'ambiente del servizio app. Queste informazioni si trova nel portale dell'ambiente del servizio app in**Indirizzi IP** **delle impostazioni:** > 
+* L'indirizzo del servizio di bilanciamento del carico interno usato nell'ambiente del servizio app. Queste informazioni sono disponibili nel portale di ambiente del servizio app in **Impostazioni** > **indirizzi IP**:
 
     ![Esempio di elenco di indirizzi IP usati nell'ambiente del servizio app con bilanciamento del carico interno][9]
     
@@ -56,7 +56,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
 ## <a name="configuration-steps"></a>Passaggi di configurazione ##
 
-1. Nel portale di Azure passare a **Nuovo** > **gateway applicazione**di**rete** > .
+1. Nel portale di Azure passare a **nuovo** > **rete** > **gateway applicazione**.
 
 2. Nell'area **Informazioni di base**:
 
@@ -106,7 +106,7 @@ Non è possibile inserire il gateway nemmeno nella subnet usata dall'ambiente de
 
    ![Portale del gateway applicazione][7]
 
-9. Impostare il nome di dominio personalizzato per l'app nell'ambiente del servizio app con bilanciamento del carico interno. Passare all'app nel portale e in **Impostazioni**selezionare **Domini personalizzati**.
+9. Impostare il nome di dominio personalizzato per l'app nell'ambiente del servizio app con bilanciamento del carico interno. Passare all'app nel portale e in **Impostazioni**selezionare **domini personalizzati**.
 
    ![Impostare il nome di dominio personalizzato per l'app][8]
 

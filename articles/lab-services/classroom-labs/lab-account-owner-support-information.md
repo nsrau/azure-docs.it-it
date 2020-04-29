@@ -1,44 +1,44 @@
 ---
-title: Servizi lab di Azure - configurare le informazioni di supporto (proprietario dell'account lab)Azure Lab Services - set up support information (lab account owner)
-description: Viene descritto come il proprietario di un account lab può impostare le informazioni di contatto del supporto tecnico. I creatori di lab e gli utenti del lab possono visualizzarlo e usarlo per ottenere assistenza.
+title: Azure Lab Services-configurare le informazioni di supporto (proprietario dell'account Lab)
+description: Descrive in che modo un proprietario dell'account Lab può impostare le informazioni di contatto per il supporto. I creatori di Lab e gli utenti del Lab possono visualizzarli e usarli per ottenere assistenza.
 author: spelluru
 ms.author: spelluru
 ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
 ms.openlocfilehash: f387e6b8832d8e7144b8338a3fc887b6b27db789
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80109342"
 ---
-# <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Configurare le informazioni di supporto (proprietario dell'account lab in Azure Lab Services)Set up support information (lab account owner in Azure Lab Services)
-In questo articolo viene illustrato come è possibile specificare le informazioni di supporto che gli autori di lab (istruttori) e gli utenti del lab (studenti) possono utilizzare per ottenere assistenza in caso di problemi tecnici relativi all'utilizzo dell'account lab o del lab. 
+# <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Configurare le informazioni di supporto (proprietario dell'account Lab in Azure Lab Services)
+Questo articolo illustra come il proprietario di un account Lab può specificare le informazioni di supporto che i creatori di Lab (docenti) e gli utenti del Lab (studenti) possono usare per ottenere assistenza in caso di problemi tecnici con l'uso dell'account Lab o del Lab. 
 
 Le informazioni di supporto includono:
 
 - URL
-- Email
+- Posta elettronica
 - Telefono
 - Istruzioni aggiuntive 
 
 ## <a name="specify-support-information"></a>Specificare le informazioni di supporto
-1. Accedere al portale di [Azure](https://portal.azure.com).
-2. Nella barra di ricerca immettere **Lab Services**e selezionare **Servizi lab** nei risultati della ricerca. 
-3. Selezionare l'account lab dall'elenco degli account lab. 
-4. Passare alla pagina **Supporto interno,** procedere come segue:
-    1. Immettere **l'URL**di supporto . 
-     2. Inserisci **l'e-mail di supporto**. 
-     3. Inserire il **telefono di supporto**.
-     4. Immettere **istruzioni** di supporto dettagliate (facoltativo). I proprietari e gli utenti del lab visualizzeranno questo testo insieme alle informazioni di contatto del supporto tecnico. Gli URL verranno trasformati automaticamente in collegamenti. 
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nella barra di ricerca immettere **Lab Services**, quindi selezionare **Lab Services** nei risultati della ricerca. 
+3. Selezionare l'account Lab dall'elenco di account Lab. 
+4. Passare alla pagina **supporto interno** , seguire questa procedura:
+    1. Immettere l' **URL di supporto**. 
+     2. Immettere il **messaggio di posta elettronica di supporto**. 
+     3. Immettere il **telefono del supporto**.
+     4. Immettere **istruzioni di supporto** dettagliate (facoltativo). I proprietari e gli utenti del Lab vedranno questo testo insieme alle informazioni di contatto per il supporto. Gli URL verranno automaticamente convertiti in collegamenti. 
      5. Sulla barra degli strumenti selezionare **Salva**.
 
-         ![Pagina di supporto interna](../media/lab-account-owner-support-information/internal-support-page.png)     
+         ![Pagina supporto interno](../media/lab-account-owner-support-information/internal-support-page.png)     
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 
-- [Visualizzare le informazioni di contatto (creatore del lab)](lab-creator-support-information.md)
-- [Visualizzare le informazioni di contatto (utente lab)](lab-user-support-information.md)
+- [Visualizzare le informazioni di contatto (creatore del Lab)](lab-creator-support-information.md)
+- [Visualizza le informazioni di contatto (utente del Lab)](lab-user-support-information.md)

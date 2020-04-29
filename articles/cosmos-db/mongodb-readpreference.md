@@ -1,5 +1,5 @@
 ---
-title: Usare la preferenza Lettura con l'API di Azure Cosmos DB per MongoDBUse Read preference with the Azure Cosmos DB's API for MongoDB
+title: Usare la preferenza di lettura con l'API Azure Cosmos DB per MongoDB
 description: Informazioni su come usare le preferenze di lettura di MongoDB con l'API di Azure Cosmos DB per MongoDB
 author: sivethe
 ms.author: sivethe
@@ -9,10 +9,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80410011"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Come distribuire a livello globale le letture tramite l'API di Azure Cosmos DB per MongoDB
@@ -86,7 +86,7 @@ Vedere la documentazione sul [preferenze di lettura di MongoDB](https://docs.mon
 In base agli scenari comuni, è consigliabile usare le impostazioni seguenti:
 
 1. Se sono necessarie **letture a bassa latenza**, usare la modalità **NEAREST**. Questa impostazione indirizza le operazioni di lettura all'area disponibile più vicina. Si noti che se l'area più vicina è l'area di scrittura, queste operazioni vengono indirizzate a tale area.
-2. Se sono necessarie la disponibilità elevata e la **distribuzione geografica delle letture** (la latenza non è un vincolo), utilizzare la modalità di preferenza di lettura **PRIMARY PREFERRED** o **SECONDARY PREFERRED.** Questa impostazione indirizza le operazioni di lettura rispettivamente a un'area WRITE o READ disponibile. Se l'area non è disponibile, le richieste vengono indirizzate alla successiva area disponibile in base al comportamento della preferenza di lettura.
+2. Se è richiesta la **disponibilità elevata e la distribuzione geografica delle letture** (la latenza non è un vincolo), usare la modalità preferenza di lettura preferita **primaria** o **secondaria** preferita. Questa impostazione indirizza le operazioni di lettura rispettivamente a un'area di scrittura o di lettura disponibile. Se l'area non è disponibile, le richieste vengono indirizzate all'area disponibile successiva in base al comportamento della preferenza di lettura.
 
 Il frammento di codice seguente tratto dall'applicazione di esempio mostra come configurare le preferenze di lettura NEAREST in NodeJS:
 
@@ -161,7 +161,7 @@ Fare riferimento al repository dell'applicazione di esempio corrispondente per a
 
 In questo articolo si è appreso come distribuire a livello globale le operazioni di lettura usando le preferenze di lettura con l'API di Azure Cosmos DB per MongoDB.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se non si intende continuare a usare l'app, eliminare tutte le risorse create tramite questo articolo nel portale di Azure eseguendo questi passaggi:
 

@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire uno snapshot BLOB in .NET - Archiviazione di AzureCreate and manage a blob snapshot in .NET - Azure Storage
+title: Creare e gestire uno snapshot BLOB in .NET-archiviazione di Azure
 description: Informazioni su come creare uno snapshot di sola lettura di un BLOB per eseguire il backup dei dati BLOB in un determinato momento.
 services: storage
 author: tamram
@@ -9,15 +9,15 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9bf5eea55002814f461d375b3db43a37fe4f7aa9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474091"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire uno snapshot BLOB in .NETCreate and manage a blob snapshot in .NET
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire uno snapshot BLOB in .NET
 
-Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Questo articolo illustra come creare e gestire snapshot BLOB usando la [libreria client di Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Gli snapshot sono utili per il backup dei BLOB. Questo articolo illustra come creare e gestire snapshot BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-blob-snapshots"></a>Informazioni sugli snapshot BLOB
 
@@ -29,7 +29,7 @@ Uno snapshot di un BLOB è identico al relativo BLOB di base, ad eccezione del f
 > Tutti gli snapshot condividono l'URI del BLOB di base. L'unica distinzione tra il BLOB di base e lo snapshot è il valore **DateTime** aggiunto.
 >
 
-Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino a quando non vengono eliminati in modo esplicito, ovvero uno snapshot non può sopravvivere al BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
+Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenuti fino a quando non vengono eliminati in modo esplicito, ovvero uno snapshot non può sopravvivere al relativo BLOB di base. È possibile enumerare gli snapshot associati al BLOB di base per tenere traccia degli snapshot correnti.
 
 Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengono copiate nello snapshot con gli stessi valori. Anche i metadati del BLOB di base vengono copiati nello snapshot, se non si specificano metadati separati per lo snapshot durante la creazione. Dopo aver creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
@@ -39,12 +39,12 @@ Un file di disco rigido virtuale viene usato per archiviare lo stato e le inform
 
 ## <a name="create-a-snapshot"></a>Creare uno snapshot
 
-Per creare uno snapshot di un BLOB in blocchi, usare uno dei metodi seguenti:To create a snapshot of a block blob, use one of the following methods:
+Per creare uno snapshot di un BLOB in blocchi, usare uno dei metodi seguenti:
 
-- [CreaSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
+- [CreateSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
-Esempio di codice seguente viene illustrato come creare uno snapshot. Questo esempio specifica metadati aggiuntivi per lo snapshot al momento della creazione.
+Nell'esempio di codice seguente viene illustrato come creare uno snapshot. Questo esempio specifica metadati aggiuntivi per lo snapshot al momento della creazione.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -81,9 +81,9 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## <a name="delete-snapshots"></a>Eliminare gli snapshot
 
-Per eliminare un BLOB, è innanzitutto necessario eliminare tutti gli snapshot di tale BLOB. È possibile eliminare uno snapshot singolarmente o specificare di eliminare tutti gli snapshot quando si elimina il BLOB di origine. Se si tenta di eliminare un BLOB per il quale esistono ancora degli snapshot, viene restituito un errore.
+Per eliminare un BLOB, è necessario innanzitutto eliminare gli snapshot del BLOB. È possibile eliminare uno snapshot singolarmente o specificare di eliminare tutti gli snapshot quando si elimina il BLOB di origine. Se si tenta di eliminare un BLOB per il quale esistono ancora degli snapshot, viene restituito un errore.
 
-Per eliminare gli snapshot BLOB, usare uno dei metodi di eliminazione BLOB seguenti e includere l'enumerazione [DeleteSnapshotsOption.To](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) delete blob snapshots, use one of the following blob deletion methods, and include the DeleteSnapshotsOption enum.
+Per eliminare gli snapshot BLOB, usare uno dei metodi di eliminazione BLOB seguenti e includere l'enumerazione [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) .
 
 - [Elimina](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
@@ -98,7 +98,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Restituire l'URI assoluto a uno snapshot
 
-Nell'esempio di codice riportato di seguito viene creato uno snapshot e viene scritto l'URI assoluto per la posizione primaria.
+Nell'esempio di codice seguente viene creato uno snapshot e viene scritto l'URI assoluto per la posizione primaria.
 
 ```csharp
 //Create the blob service client object.

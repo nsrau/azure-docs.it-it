@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387802"
 ---
 # <a name="build-your-landing-page"></a>Creare una pagina di destinazione
@@ -32,7 +32,7 @@ Una pagina di destinazione nel sito Web della propria azienda è un punto di col
 
 Quanto più coerenti sono il messaggio e l'invito all'azione, tanto più facile sarà per il cliente trovare la soluzione.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 
 Quando si dispone di un piano campagna pronto, creare la pagina di destinazione nel Marketplace. La tabella seguente descrive alcuni modi per ottimizzare l'efficacia della pagina di destinazione: 
 
@@ -45,7 +45,7 @@ Quando si dispone di un piano campagna pronto, creare la pagina di destinazione 
 | **Inserire l'invito all'azione in un'intestazione o in una sezione ben definita** | Incorporare i collegamenti all'inserzione pubblicata nel Marketplace in un paragrafo di testo. |
 | **Cercare le parole chiave più significative e ottimizzare la pagina per la ricerca** | Presupporre che il nome del prodotto influisca sulla maggiore visibilità nei risultati della ricerca. |
 | **Sfruttare le parole chiave usate nelle campagne pubblicitarie** | L'uso di molte parole chiave poco mirate nelle varie proprietà Web rende meno efficaci gli investimenti in pubblicità. |
-| **Inserisci i nomi dei prodotti e le parole chiave pertinenti "sopra la piega"** | Costringere gli utenti a scorrere la pagina per visualizzare il nome del prodotto o della soluzione che si sta presentando. |
+| **Inserire i nomi di prodotto e le parole chiave pertinenti "sopra la sezione"** | Costringere gli utenti a scorrere la pagina per visualizzare il nome del prodotto o della soluzione che si sta presentando. |
 | **Usare immagini con il marchio per accreditare la soluzione offerta, rispettando le linee guida definite da Microsoft, ad esempio Azure Certified** | Usare immagini del marchio Microsoft non approvate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
