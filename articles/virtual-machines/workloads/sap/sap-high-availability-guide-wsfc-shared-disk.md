@@ -1,5 +1,5 @@
 ---
-title: Istanza di SAP ASCS/SCS del cluster in WSFC usando il disco condiviso in Azure. Documenti Microsoft
+title: Istanza di SAP ASC/SCS del cluster in WSFC usando un disco condiviso in Azure | Microsoft Docs
 description: Informazioni sul clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8156f8706828afae30889b3250cf0b26252bf394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598477"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -184,7 +184,7 @@ ms.locfileid: "77598477"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure
 
-> ![WINDOWS][Logo_Windows] WINDOWS
+> ![Windows][Logo_Windows] Windows
 >
 
 Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di SAP a disponibilità elevata e di un sistema DBMS in Windows.
@@ -219,7 +219,7 @@ In Windows, un'istanza di SAP ASCS/SCS contiene i servizi centrali SAP, il serve
 Un'istanza di SAP ASCS/SCS include i componenti seguenti:
 
 * Servizi centrali SAP:
-    * Due processi, un server di messaggi e \<accodamento e un nome host virtuale ASCS/SCS>, utilizzato per accedere a questi due processi.
+    * Due processi, un server di messaggi e di Accodamento e \<un nome host virtuale ASC/SCS>, usato per accedere a questi due processi.
     * Struttura del file: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numero di istanza\>
 
 
@@ -227,22 +227,22 @@ Un'istanza di SAP ASCS/SCS include i componenti seguenti:
   * Struttura del file: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * La condivisione file sapmnt, che consente l'accesso a questi file globali S:\usr\sap\\&lt;SID&gt;\SYS\... usando il percorso UNC seguente:
 
-    \\\\\><nome dell'host virtuale ASCS/SCS , SID\\&lt;&gt;sapmnt , SYS\..
+    \\\\\><nome host virtuale ASC/SCS \sapmnt\\&lt;SID&gt;\sys\...
 
 
 ![Figura 2: Processi, struttura del file e condivisione file sapmnt host globale di un'istanza di SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figura 2:** Processi, struttura di file e condivisione file host sapmnt globale di un'istanza SAP ASCS/SCS_
+_**Figura 2:** Processi, struttura dei file e condivisione file sapmnt host globale di un'istanza di SAP ASC/SCS_
 
 In un'impostazione con disponibilità elevata eseguire il clustering delle istanze di SAP ASCS/SCS. Per inserire i file SAP ASCS/SCS e i file host globali di SAP vengono usati i *dischi condivisi del cluster*, unità S nel nostro esempio.
 
 ![Figura 3: Architettura a disponibilità elevata di SAP ASCS/SCS con disco condiviso][sap-ha-guide-figure-8002]
 
-_**Figura 3:** Architettura SAP ASCS/SCS HA con disco condiviso_
+_**Figura 3:** Architettura a disponibilità elevata di SAP ASC/SCS con disco condiviso_
 
 > [!IMPORTANT]
 > Questi due componenti vengono eseguiti nella stessa istanza di SAP ASCS/SCS:
->* Lo \<stesso nome host virtuale ASCS/SCS> viene utilizzato per accedere ai processi del server di accodamento e dei messaggi SAP e ai file host globali SAP tramite la condivisione file sapmnt.
+>* Lo stesso \<nome host virtuale ASC/SCS> viene usato per accedere ai processi del server SAP e di Accodamento e ai file dell'host globale SAP tramite la condivisione file sapmnt.
 >* Lo stesso disco condiviso del cluster S viene condiviso tra loro.
 >
 

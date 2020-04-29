@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77590013"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configurare il bilanciamento del carico e le regole in uscita in Load Balancer Standard usando il portale di Azure
@@ -38,7 +38,7 @@ In questa sezione viene creato un servizio di bilanciamento del carico per il bi
 1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa** > **rete** > **Load Balancer**.
 2. Nella scheda **nozioni di base** della pagina Crea servizio di **bilanciamento del carico** immettere o selezionare le informazioni seguenti:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare **myResourceGroupSLB** nella casella di testo.|
@@ -87,7 +87,7 @@ Viene usato un probe di integrità per monitorare lo stato dell'app. Il probe di
     | Interval | Immettere **15** in **Intervallo** come numero di secondi tra i tentativi del probe. |
     | Soglia non integra | Selezionare **2** per **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.|
     | | |
-4. Fare clic su **OK**.
+4. Selezionare **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. 
@@ -133,7 +133,7 @@ Le regole in uscita del servizio di bilanciamento del carico configurano SNAT in
     | Nome | Immettere **LoadBalancerFrontEndOutbound**. |
     | Versione IP | Selezionare **IPv4**. |
     | Tipo IP | Selezionare **indirizzo IP**.|
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Nell' **aggiungere un indirizzo IP pubblico**immettere **myPublicIPOutbound**.  Fare clic su **OK**. |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Nell' **aggiungere un indirizzo IP pubblico**immettere **myPublicIPOutbound**.  Selezionare **OK**. |
 
 4. Selezionare **Aggiungi**.
 
@@ -166,7 +166,7 @@ Le regole in uscita del servizio di bilanciamento del carico configurano SNAT in
 
 4. Selezionare **Aggiungi**.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate. Selezionare il gruppo di risorse **myResourceGroupSLB** che contiene il servizio di bilanciamento del carico e quindi selezionare **Elimina**.
 

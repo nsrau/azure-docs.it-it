@@ -7,10 +7,10 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654393"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modifiche ai prezzi per il Monitoraggio prestazioni rete di Azure
@@ -18,7 +18,7 @@ ms.locfileid: "77654393"
 In risposta al feedback degli utenti, di recente è stata introdotta una [nuova esperienza di acquisto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) per i vari servizi di monitoraggio disponibili in Azure. Questo articolo illustra le modifiche ai prezzi relative a [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview) di Azure in un semplice formato basato su domanda e risposta.
 
 Monitoraggio prestazioni rete è costituito da tre componenti:
-* [Monitoraggio delle prestazioni](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
+* [Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
 * [Monitoraggio endpoint di servizio](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
 * [Monitoraggio di ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
@@ -29,12 +29,12 @@ Le sezioni seguenti illustrano le modifiche dei prezzi per i componenti di Monit
 **Come era fatturato l'utilizzo di Performance Monitor nel vecchio modello?**
 
 La fatturazione per Monitoraggio delle prestazioni di rete era basata sull'uso e il consumo di due componenti:
-* **Nodi**: Tutte le transazioni sintetiche hanno origine e terminano in corrispondenza dei nodi. I nodi sono anche denominati agenti o Microsoft Monitoring Agent.
-* **Dati:** i risultati dei vari test di rete vengono archiviati nell'area di lavoro di Log Analytics.
+* **Nodi**: tutte le transazioni sintetiche hanno origine e terminano nei nodi. I nodi sono anche denominati agenti o Microsoft Monitoring Agent.
+* **Dati**: i risultati dei vari test di rete vengono archiviati nell'area di lavoro log Analytics.
 
 Nel modello precedente, la fattura era calcolata in base al numero di nodi e al volume dei dati generati. 
 
-**Come viene addebitato l'utilizzo di Performance Monitor nel nuovo modello?**
+**Come viene addebitato l'utilizzo di performance monitor nel nuovo modello?**
 
 La funzionalità Performance Monitor in Monitoraggio delle prestazioni di rete viene ora fatturata in base a una combinazione di: 
 
@@ -45,7 +45,7 @@ La funzionalità Performance Monitor in Monitoraggio delle prestazioni di rete v
 
 Performance Monitor monitora la connettività tra due o più posizioni nella rete. La connessione tra un gruppo di nodi o agenti in una subnet e un gruppo di nodi in un'altra subnet è detto collegamento a subnet.
 
-**Ho due subnet (A e B) e ho diversi agenti su ogni subnet. Performance Monitor monitor monitora la connettività da tutti gli agenti nella subnet A a tutti gli agenti nella subnet B. L'addebito verrà effettuato in base al numero di connessioni tra subnet?**
+**Ho due subnet (A e B) e ho diversi agenti in ogni subnet. Performance Monitor monitora la connettività da tutti gli agenti nella subnet a a tutti gli agenti nella subnet B. Verranno addebitati i costi in base al numero di connessioni tra subnet?**
 
 No. Ai fini della fatturazione, tutte le connessioni dalla subnet A alla subnet B vengono raggruppate in un unico collegamento a subnet e la fatturazione avviene per una singola connessione. Performance Monitor continua a monitorare la connettività tra i vari agenti su ciascuna subnet.
 
@@ -55,7 +55,7 @@ Fare riferimento alla sezione [Ping Mesh](https://azure.microsoft.com/pricing/de
 
 **Quali sono i costi per i dati generati da Performance Monitor?**
 
-L'addebito per l'inserimento (caricamento dei dati nell'area di lavoro di Log Analytics in Monitoraggio, elaborazione e indicizzazione di Azure) è disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) per Log Analytics, nella sezione Inserimento dati. Il costo per la conservazione dati (opzione dei dati conservati presso il cliente, oltre il primo mese) è anch'esso disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/), nella sezione Conservazione dati.
+L'addebito per l'inserimento (caricamento dei dati nell'area di lavoro Log Analytics in monitoraggio, elaborazione e indicizzazione di Azure) è disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) per log Analytics, nella sezione inserimento dati. Il costo per la conservazione dati (opzione dei dati conservati presso il cliente, oltre il primo mese) è anch'esso disponibile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/), nella sezione Conservazione dati.
 
 
 ## <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
@@ -64,7 +64,7 @@ L'addebito per l'inserimento (caricamento dei dati nell'area di lavoro di Log An
 
 I costi per Monitoraggio di ExpressRoute vengono addebitati in base al volume dei dati generati durante il monitoraggio. Per altre informazioni, vedere "Quali sono i costi per i dati generati da Performance Monitor?"
 
-**Utilizzo ExpressRoute Monitor per monitorare più circuiti ExpressRoute.I use ExpressRoute Monitor to monitor multiple ExpressRoute circuits. L'addebito viene effettuato in base al numero di circuiti monitorati?**
+**Si usa ExpressRoute monitor per monitorare più circuiti ExpressRoute. Vengono addebitati i costi in base al numero di circuiti monitorati?**
 
 Gli addebiti non sono basati sul numero di circuiti, né sul tipo di peering (ad esempio, peering privato o peering Microsoft), bensì sul volume dei dati, come illustrato in precedenza.
 
@@ -107,7 +107,7 @@ Una connessione è un test della raggiungibilità di un endpoint (URL o servizio
 
 **Quali sono i costi di Monitoraggio endpoint di servizio?**
 
-Fare riferimento alla sezione [Monitoraggio connessione](https://azure.microsoft.com/pricing/details/network-watcher/) per il costo del monitoraggio di un endpoint per l'intero mese. Gli addebiti per i dati sono disponibili nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) di Log Analytics, nella sezione Inserimento dati.
+Vedere la sezione [monitoraggio della connessione](https://azure.microsoft.com/pricing/details/network-watcher/) per il costo del monitoraggio di un endpoint per l'intero mese. Gli addebiti per i dati sono disponibili nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) di Log Analytics, nella sezione Inserimento dati.
 
 ## <a name="references"></a>Riferimenti
 

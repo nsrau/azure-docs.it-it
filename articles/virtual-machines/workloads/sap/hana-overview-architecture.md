@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616963"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
@@ -26,7 +26,7 @@ SAP HANA in Azure (istanze Large) è una soluzione esclusiva per Azure. Oltre a 
 
 L'isolamento dei clienti nel modulo dell'infrastruttura viene realizzato in base a tenant, nel modo seguente:
 
-- **Rete:** isolamento dei clienti all'interno dello stack dell'infrastruttura tramite reti virtuali per tenant assegnato dal cliente. Un tenant viene assegnato a un singolo cliente. Un cliente può avere più tenant. L'isolamento dei tenant basato su rete impedisce le comunicazioni di rete tra i tenant a livello del modulo dell'infrastruttura, anche se i tenant appartengono allo stesso cliente.
+- **Rete**: isolamento dei clienti nello stack dell'infrastruttura tramite reti virtuali per ogni tenant assegnato al cliente. Un tenant viene assegnato a un singolo cliente. Un cliente può avere più tenant. L'isolamento dei tenant basato su rete impedisce le comunicazioni di rete tra i tenant a livello del modulo dell'infrastruttura, anche se i tenant appartengono allo stesso cliente.
 - **Componenti di archiviazione**: isolamento tramite macchine virtuali di archiviazione a cui sono assegnati volumi di archiviazione. I volumi di archiviazione possono essere assegnati a una sola macchina virtuale di archiviazione. Una macchina virtuale di archiviazione viene assegnata esclusivamente a un solo tenant nello stack dell'infrastruttura con certificazione SAP HANA TDI. I volumi di archiviazione assegnati a una macchina virtuale di archiviazione sono pertanto accessibili solo in uno specifico tenant correlato e non sono visibili tra i diversi tenant distribuiti.
 - **Server o host**: un'unità server o host non viene condivisa tra clienti o tenant. Un server o un host distribuito a un cliente è un'unità di calcolo bare metal atomica assegnata a un solo tenant. *Non* vengono usati partizionamenti hardware o software con i quali un cliente potrebbe trovarsi a condividere un host o un server con un altro cliente. I volumi di archiviazione assegnati alla macchina virtuale di archiviazione del tenant specifico vengono montati in tale server. A un tenant può essere assegnata in modo esclusivo una o più unità server di SKU diversi.
 - In un modulo dell'infrastruttura SAP HANA in Azure (istanze Large) più tenant diversi vengono distribuiti e isolati l'uno dall'altro in base a concetti definiti a livello di rete, archiviazione e calcolo. 
@@ -34,10 +34,10 @@ L'isolamento dei clienti nel modulo dell'infrastruttura viene realizzato in base
 
 Queste unità server bare metal sono supportate solo per l'esecuzione di SAP HANA. Il livello applicazione SAP o il livello middleware dei carichi di lavoro viene eseguito nelle macchine virtuali. I moduli dell'infrastruttura che eseguono le unità SAP HANA in Azure (istanze Large) sono connessi ai backbone dei servizi di rete di Azure. In questo modo, viene fornita connettività a bassa latenza tra le unità SAP HANA in Azure (istanze Large) e le macchine virtuali.
 
-A partire da luglio 2019, si distinguono tra due diverse revisioni dei timbri HANA Large Instance e la posizione delle distribuzioni:
+A partire dal 2019 luglio, viene differenziata tra due revisioni diverse dei timbri delle istanze large di HANA e il percorso delle distribuzioni:
 
-- "Revisione 3" (Rev 3): sono i francobolli che sono stati resi disponibili per il cliente da distribuire prima di luglio 2019
-- "Revisione 4" (Revisione 4): nuova progettazione del timbro distribuita in prossimità degli host di macchine virtuali di Azure e che finora vengono rilasciate nelle aree di Azure di:"Revision 4" (Rev 4): New stamp design that is deployed in closeproximity to Azure VM hosts and which finora are released in the Azure regions of:
+- "Revisione 3" (Rev 3): sono i timbri che sono stati resi disponibili per il cliente per la distribuzione prima del 2019 luglio
+- "Revisione 4" (Rev 4): nuova progettazione di timbri distribuita in prossimità degli host di macchine virtuali di Azure e che finora vengono rilasciate nelle aree di Azure di:
     -  Stati Uniti occidentali 2 
     -  Stati Uniti orientali 
     -  Europa occidentale
@@ -49,13 +49,13 @@ Questo è uno dei documenti dedicati a SAP HANA in Azure (istanze Large) che pre
 
 I vari documenti della guida per HANA (istanza di grandi dimensioni) trattano le aree seguenti:
 
-- [Panoramica e architettura SAP HANA (Large Instances) in Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infrastruttura e connettività SAP HANA (Large Instances) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Panoramica e architettura di SAP HANA (istanze large) in Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infrastruttura e connettività di SAP HANA (istanze large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Installare e configurare SAP HANA (istanze Large) in Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze large) in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (istanze large) risoluzione dei problemi e monitoraggio in Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Configurazione della disponibilità elevata in SUSE con STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Backup e ripristino del sistema operativo per SKU di tipo II di revisione 3 francobolli](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Backup e ripristino del sistema operativo per SKU di tipo II di indicatori di revisione 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Passaggi successivi**
 - Consultare [Conoscere i termini](hana-know-terms.md)

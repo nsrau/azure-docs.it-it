@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver Documenti Microsoft
+title: Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver | Microsoft Docs
 description: Guida alle funzionalità di disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 25a0ac9ab349cfe8bef8e33d3f533bc5942e6323
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623836"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver
@@ -205,7 +205,7 @@ Negli articoli seguenti viene descritto come proteggere i componenti del singolo
 
 **Riepilogo:** in questo articolo viene illustrata l'architettura a disponibilità elevata di un sistema SAP in Azure. Viene descritto come risolvere la disponibilità elevata del singolo punto di guasto SAP e dei componenti ridondanti e le specifiche della disponibilità elevata dell'infrastruttura di Azure. Viene illustrato anche come queste parti siano correlate ai componenti di sistema SAP. La discussione è suddivisa in base alle specifiche di Windows e Linux. Vengono descritti anche vari scenari a disponibilità elevata SAP.
 
-**Aggiornato:** Ottobre 2017
+Data **aggiornamento:** 2017 ottobre
 
 * [Scenari e architettura di disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
@@ -216,7 +216,7 @@ Questo articolo tratta sia ![Windows][Logo_Windows] **Windows** che ![Linux][Log
 
 **Riepilogo:** negli articoli elencati di seguito viene illustrata la procedura da eseguire per distribuire l'infrastruttura di Azure nella preparazione all'installazione di SAP. Per semplificare la distribuzione dell'infrastruttura di Azure, vengono usati i modelli di Azure Resource Manager di SAP per automatizzare l'intero processo.
 
-**Aggiornato:** Marzo 2019
+Data **aggiornamento:** 2019 marzo
 
 * ![Windows][Logo_Windows] [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e **dischi condivisi** per le istanze di SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -224,17 +224,17 @@ Questo articolo tratta sia ![Windows][Logo_Windows] **Windows** che ![Linux][Log
 
 * ![Linux][Logo_Linux] [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un framework del cluster SUSE Linux Enterprise Server cluster per le istanze di SAP ASCS/SCS][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP usando un framework cluster SUSE Linux Enterprise Server per le istanze SAP ASCS/SCS con i file NetApp][sap-suse-ascs-ha-setting-ha-anf] di Azure
+* ![Linux][Logo_Linux] [preparare l'infrastruttura di Azure per la disponibilità elevata di SAP usando un Framework del cluster SUSE Linux Enterprise Server per le istanze di SAP ASC/SCS con i file NetApp di Azure][sap-suse-ascs-ha-setting-ha-anf]
 
-* ![RHEL][Logo_Linux] [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP ASCS/SCS - configurare GlusterFS in RHEL][high-availability-guide-rhel-glusterfs]
+* ![RHEL][Logo_Linux] [preparare l'infrastruttura di Azure per la disponibilità elevata di SAP ASC/SCS-configurare GlusterFS in RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP ASCS/SCS - configurare Pacemaker in RHEL][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [preparare l'infrastruttura di Azure per la disponibilità elevata di SAP ASC/SCS: impostare pacemaker in RHEL][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Installazione di un sistema a disponibilità elevata di SAP NetWeaver in Azure
 
 **Riepilogo:** gli articoli elencati di seguito contengono esempi passo per passo per l'installazione e la configurazione di un sistema SAP a disponibilità elevata in un cluster Windows Server Failover Clustering e in un framework cluster Linux in Azure.
 
-**Aggiornato:** Marzo 2019
+Data **aggiornamento:** 2019 marzo
 
 * ![Windows][Logo_Windows] [Installare la disponibilità elevata di SAP NetWeaver con un cluster di failover Windows e i **dischi condivisi** per le istanze SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]
 
@@ -242,9 +242,9 @@ Questo articolo tratta sia ![Windows][Logo_Windows] **Windows** che ![Linux][Log
 
 * ![Linux][Logo_Linux] [Installare la disponibilità elevata di SAP NetWeaver con un framework cluster di SUSE Linux Enterprise Server per le istanze SAP ASCS/SCS][sap-suse-ascs-ha-sap-installation]
 
-* ![Linux][Logo_Linux] installare la disponibilità elevata di [SAP NetWeaver utilizzando un framework cluster SUSE Linux Enterprise Server per le istanze SAP ASCS/SCS con i file NetApp][sap-suse-ascs-ha-sap-installation-anf] di Azure
+* ![Linux][Logo_Linux] [installare la disponibilità elevata di SAP NetWeaver usando un Framework del cluster SUSE Linux Enterprise Server per le istanze di SAP ASC/SCS con Azure NetApp files][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![RHEL][Logo_Linux] [Installare SAP NetWeaver ASCS/SCS nella configurazione a disponibilità elevata su RHEL][sap-rhel-ascs-ha]
+* ![RHEL][Logo_Linux] [installare SAP NetWeaver ASC/SCS in configurazione a disponibilità elevata in RHEL][sap-rhel-ascs-ha]
 
-* ![RHEL][Logo_Linux] [Installare SAP NetWeaver ASCS/SCS nella configurazione a disponibilità elevata in RHEL con i file di Azure NetApp][sap-rhel-ascs-ha-sap-installation-anf]
+* ![RHEL][Logo_Linux] [installare SAP NetWeaver ASC/SCS in una configurazione a disponibilità elevata in RHEL con Azure NetApp files][sap-rhel-ascs-ha-sap-installation-anf]
 

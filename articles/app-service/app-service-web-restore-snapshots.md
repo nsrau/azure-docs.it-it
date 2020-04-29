@@ -1,16 +1,16 @@
 ---
-title: Ripristinare l'app da un'istantaneaRestore app from a snapshot
-description: Informazioni su come ripristinare l'app da uno snapshot. Recuperare da una perdita di dati imprevista nel livello Premium con le copie shadow automatiche.
+title: Ripristinare un'app da uno snapshot
+description: Informazioni su come ripristinare l'app da uno snapshot. Eseguire il ripristino da una perdita di dati imprevista nel livello Premium con le copie shadow automatiche.
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255140"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Ripristinare un'app in Azure da uno snapshot
@@ -35,7 +35,7 @@ Il ripristino da snapshot è disponibile per le app in esecuzione a livello **Pr
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Ripristinare un'app da uno snapshot
 
-1. Nella pagina **Impostazioni** dell'app nel [portale](https://portal.azure.com)di Azure fare clic su **Backup** per visualizzare la pagina **Backup.** Fare quindi clic su **Ripristina** nella sezione **Snapshot (anteprima)**.
+1. Nella [portale di Azure](https://portal.azure.com)della pagina **Impostazioni** dell'app fare clic su **backup** per visualizzare la pagina **backup** . Fare quindi clic su **Ripristina** nella sezione **Snapshot (anteprima)**.
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 

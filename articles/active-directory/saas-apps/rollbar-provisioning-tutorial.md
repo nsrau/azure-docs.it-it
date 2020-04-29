@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 27a26a0c8378f34794afd87cf11b6bb878f7b53c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78248469"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Esercitazione: configurare Rollbar per il provisioning utenti automatico
@@ -49,7 +49,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e rollbar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Rollbar per supportare il provisioning con Azure AD
+## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Rollbar per supportare il provisioning con Azure AD
 
 Prima di configurare Rollbar per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in rollbar.
 
@@ -117,12 +117,12 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |externalId|string|
+   |userName|Stringa|
+   |externalId|Stringa|
    |active|Boolean|
-   |name.familyName|string|
-   |name.givenName|string|
-   |messaggi di posta elettronica [digitare EQ "Work"]|string|
+   |name.familyName|Stringa|
+   |name.givenName|Stringa|
+   |messaggi di posta elettronica [digitare EQ "Work"]|Stringa|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to rollbar**.
 
@@ -130,8 +130,8 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
       |Attributo|Type|
       |---|---|
-      |displayName|string|
-      |externalId|string|
+      |displayName|Stringa|
+      |externalId|Stringa|
       |Membri di|Informazioni di riferimento|
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

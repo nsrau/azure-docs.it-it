@@ -1,21 +1,21 @@
 ---
 title: Visualizzare i log di kubelet nel servizio Azure Kubernetes
-description: Informazioni su come visualizzare le informazioni sulla risoluzione dei problemi nei log kubelet dai nodi del servizio Azure Kubernetes (AKS)
+description: Informazioni su come visualizzare le informazioni sulla risoluzione dei problemi nei log di kubelet dai nodi del servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77595383"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Ottenere i log di kubelet dai nodi del cluster del servizio Azure Kubernetes
 
-Come parte del funzionamento di un cluster AKS, potrebbe essere necessario esaminare i registri per risolvere un problema. Il portale di Azure integrato consente di visualizzare i log per i componenti o i contenitori [master AKS][aks-master-logs] [in un cluster AKS.][azure-container-logs] In alcuni casi, potrebbe essere necessario ottenere i log *kubelet* da un nodo AKS per la risoluzione dei problemi.
+Come parte del funzionamento di un cluster AKS, potrebbe essere necessario esaminare i log per risolvere un problema. Il portale di Azure è la possibilità di visualizzare i log per i [componenti Master AKS][aks-master-logs] o i [contenitori in un cluster AKS][azure-container-logs]. Occasionalmente, potrebbe essere necessario ottenere i registri *kubelet* da un nodo AKS per la risoluzione dei problemi.
 
-In questo articolo viene `journalctl` illustrato come utilizzare per visualizzare i log *kubelet* in un nodo AKS.
+Questo articolo illustra come è possibile usare `journalctl` per visualizzare i log di *kubelet* in un nodo AKS.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -27,7 +27,7 @@ Per prima cosa, creare una connessione SSH con il nodo da cui occorre visualizza
 
 ## <a name="get-kubelet-logs"></a>Ottenere i log di kubelet
 
-Una volta stabilita la connessione al nodo, eseguire il comando seguente per estrarre i registri *di kubelet:*
+Dopo aver stabilito la connessione al nodo, eseguire il comando seguente per eseguire il pull dei log *kubelet* :
 
 ```console
 sudo journalctl -u kubelet -o cat

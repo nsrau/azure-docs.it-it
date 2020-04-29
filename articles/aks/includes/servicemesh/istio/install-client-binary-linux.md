@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: b310de560f9791e1fc49d54dfbf0789c38d37f57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593977"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Scaricare e installare il file binario del client Istio Istio Istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Scaricare e installare il file binario client istioctl di Istio
 
-In una shell basata su bash su Linux o [Windows Subsystem per Linux][install-wsl], utilizzare `curl` per scaricare la versione Istio e quindi estrarre con `tar` come segue:
+In una shell basata su bash in Linux o nel [sottosistema Windows per Linux][install-wsl], `curl` usare per scaricare la versione Istio e quindi estrarla con `tar` come indicato di seguito:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -21,7 +21,7 @@ ISTIO_VERSION=1.4.0
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
 
-Il `istioctl` file binario client viene eseguito nel computer client e consente di interagire con la rete mesh del servizio Istio. Per installare il file binario del client `istioctl` di Istio in una shell basata su bash in Linux o in un [sottosistema di Windows per Linux][install-wsl], usare i comandi indicati di seguito. Questi comandi copiano il file binario del client `istioctl` nel percorso del programma dell'utente standard in `PATH`.
+Il `istioctl` file binario client viene eseguito nel computer client e consente di interagire con la mesh del servizio Istio. Per installare il file binario del client `istioctl` di Istio in una shell basata su bash in Linux o in un [sottosistema di Windows per Linux][install-wsl], usare i comandi indicati di seguito. Questi comandi copiano il file binario del client `istioctl` nel percorso del programma dell'utente standard in `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION

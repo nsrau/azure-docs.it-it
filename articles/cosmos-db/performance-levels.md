@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623338"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
@@ -26,7 +26,7 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 - [Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?](#uninterrupted-access)
 - [Dopo la migrazione, come cambierà una raccolta esistente?](#collection-change)
 - [Dopo la migrazione a raccolte a partizione singola, come cambierà la fatturazione?](#billing-change)
-- [Cosa succede se ho bisogno di più di 20 GB di spazio di archiviazione?](#more-storage-needed)
+- [Cosa accade se sono necessari più di 20 GB di spazio di archiviazione?](#more-storage-needed)
 - [È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima della migrazione pianificata?](#change-before)
 - [Come è possibile eseguire autonomamente la migrazione dai livelli di prestazioni S1, S2, S3 a raccolte a partizione singola?](#migrate-diy)
 - [Quali sono le conseguenze per i clienti EA?](#ea-customer)
@@ -80,9 +80,9 @@ Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio 
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Cosa succede se ho bisogno di più di 20 GB di spazio di archiviazione?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Cosa accade se sono necessari più di 20 GB di spazio di archiviazione?
 
-Sia che si disponga di una raccolta con livello di prestazioni S1, S2 o S3 o che si disponga di una singola raccolta di partizioni, tutte dotate di 20 GB di spazio di archiviazione, è possibile usare lo strumento di migrazione dei dati di Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con virtualmente 20 GB di spazio di archiviazione, è possibile usare lo strumento di migrazione dei dati di Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con virtualmente 20 GB di spazio di archiviazione, è possibile usare lo strumento di migrazione dei dati di Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con virtualmente 20 GB di spazio di archiviazione, è possibile usare lo strumento di migrazione dei dati di Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionat spazio di archiviazione illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](sql-api-partition-data.md). 
+Sia che si disponga di una raccolta con livello di prestazioni S1, S2 o S3 o che si disponga di una raccolta a partizione singola, in cui sono disponibili almeno 20 GB di spazio di archiviazione, è possibile usare lo strumento di migrazione dei dati Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con archiviazione virtualmente illimitata. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -134,4 +134,4 @@ Per altre informazioni sui prezzi e sulla gestione dei dati con Azure Cosmos DB,
 
 1.  [Partizionamento dei dati in Cosmos DB](sql-api-partition-data.md). Informazioni sulla differenza tra contenitore a partizione singola e contenitori partizionati e suggerimenti sull'implementazione di una strategia di partizionamento per eseguire facilmente il ridimensionamento.
 2.  [Prezzi di Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
-3.  [Richiedi unità](request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
+3.  [Unità richiesta](request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.

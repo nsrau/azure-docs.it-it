@@ -5,15 +5,15 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77602460"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
-Questo articolo illustra come ripristinare i backup dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure. Per ripristinare lo stato del sistema, è necessario disporre di un backup dello stato del sistema (creato seguendo le istruzioni in Backup dello [stato](backup-azure-system-state.md#back-up-windows-server-system-state)del sistema e assicurarsi di aver installato la [versione più recente dell'agente di Microsoft Azure Recovery Services (MARS).](https://aka.ms/azurebackup_agent) Il ripristino dei dati dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure è un processo in due passaggi:
+Questo articolo illustra come ripristinare i backup dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure. Per ripristinare lo stato del sistema, è necessario disporre di un backup dello stato del sistema, creato usando le istruzioni disponibili in eseguire il backup [dello stato del sistema](backup-azure-system-state.md#back-up-windows-server-system-state), e assicurarsi di aver installato la [versione più recente dell'agente di servizi di ripristino di Microsoft Azure (Mars)](https://aka.ms/azurebackup_agent). Il ripristino dei dati dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure è un processo in due passaggi:
 
 1. Ripristinare lo stato del sistema sotto forma di file da Backup di Azure. Quando si ripristina lo stato del sistema sotto forma di file da Backup di Azure, è possibile eseguire una di queste operazioni:
    * Ripristinare lo stato del sistema nello stesso server in cui è stato creato il backup.
@@ -35,7 +35,7 @@ La procedura seguente illustra come eseguire il rollback della configurazione di
 
 3. Nel riquadro **Guida introduttiva** selezionare l'opzione **This server (Questo server) (`<server name>`)** e fare clic su **Avanti** per ripristinare i dati nello stesso server o computer.
 
-    ![Scegliere questa opzione server per ripristinare i dati sulla stessa macchina](./media/backup-azure-restore-system-state/samemachine.png)
+    ![Scegliere questa opzione del server per ripristinare i dati nello stesso computer](./media/backup-azure-restore-system-state/samemachine.png)
 
 4. Nel riquadro **Seleziona modalità di ripristino** scegliere **Stato del sistema** e quindi fare clic su **Avanti**.
 
@@ -89,9 +89,9 @@ Include la terminologia utilizzata in questi passaggi:
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
 7. Nel riquadro Seleziona modalità di ripristino scegliere **Stato del sistema** e quindi fare clic su **Avanti**.
 
-    ![Ricerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Cerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
-8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere il punto di ripristino specifico dal menu a discesa **Ora.**
+8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere il punto di ripristino specifico dal menu a discesa **ora** .
 
     ![Ricerca di elementi](./media/backup-azure-restore-system-state/select-date.png)
 
@@ -103,7 +103,7 @@ Include la terminologia utilizzata in questi passaggi:
 
     L'opzione **Crea copie in modo da mantenere entrambe le versioni** crea copie dei singoli file in un archivio di file dello stato del sistema esistente invece di creare la copia dell'intero archivio dello stato del sistema.
 
-11. Verificare i dettagli del ripristino nel riquadro Conferma e fare clic su **Ripristina**.
+11. Verificare i dettagli del ripristino nel riquadro conferma e fare clic su **Ripristina**.
 
     ![Fare clic sul pulsante Ripristina per confermare il processo di ripristino](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
@@ -159,11 +159,11 @@ Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agent
 Il backup dello stato del sistema include i dati di Active Directory. Seguire questa procedura per ripristinare Active Directory Domain Service (AD DS) dallo stato corrente a uno stato precedente.
 
 1. Riavviare il controller di dominio in Modalità ripristino servizi directory.
-2. Seguire i passaggi [qui](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) per utilizzare i cmdlet di Windows Server Backup per ripristinare Servizi di dominio Active Directory.
+2. Per usare i cmdlet di Windows Server Backup per ripristinare servizi di dominio Active Directory, seguire [questa procedura.](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore)
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Risolvere i problemi relativi a un ripristino non riuscito dello stato del sistema
 
-Se il processo precedente di applicazione dello stato del sistema non viene completato correttamente, usare Ambiente ripristino Windows per ripristinare l'istanza di Windows Server. La procedura seguente illustra come eseguire il ripristino con Ambiente ripristino Windows. Utilizzare questa opzione solo se Windows Server non viene avviato normalmente dopo un ripristino dello stato del sistema. Il processo seguente cancella i dati non di sistema, quindi occorre eseguirlo con cautela.
+Se il processo precedente di applicazione dello stato del sistema non viene completato correttamente, usare Ambiente ripristino Windows per ripristinare l'istanza di Windows Server. La procedura seguente illustra come eseguire il ripristino con Ambiente ripristino Windows. Usare questa opzione solo se Windows Server non viene avviato normalmente dopo un ripristino dello stato del sistema. Il processo seguente cancella i dati non di sistema, quindi occorre eseguirlo con cautela.
 
 1. Avviare l'istanza di Windows Server in Ambiente ripristino Windows.
 

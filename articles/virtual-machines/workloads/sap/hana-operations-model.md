@@ -14,10 +14,10 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e147e4a5f104ca4cd1a10a776c907e3f9f1d6128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616964"
 ---
 # <a name="operations-model-and-responsibilities"></a>Responsabilità e modello operativo
@@ -34,13 +34,13 @@ L'elenco seguente fornisce informazioni dettagliate su ogni livello e indica le 
 
 **Rete**: tutte le reti interne del modulo per istanze Large su cui è in esecuzione SAP HANA. Le responsabilità del cliente includono l'accesso alle risorse di archiviazione, la connettività tra le istanze per la scalabilità orizzontale e altre funzioni, la connettività con il panorama applicativo e la connettività con Azure, dove il livello applicazione SAP è ospitato nelle VM. Tra le responsabilità rientra anche la connettività WAN tra data center di Azure per la replica a scopo di ripristino di emergenza. Tutte le reti vengono partizionate dal tenant e configurate con criteri di qualità del servizio.
 
-**Archiviazione:** archiviazione partizionata virtualizzata per tutti i volumi necessari per i server SAP HANA e per gli snapshot. 
+**Archiviazione**: archiviazione partizionata virtualizzata per tutti i volumi necessari per i server SAP HANA e per gli snapshot. 
 
-**Server:** i server fisici dedicati per eseguire i database SAP HANA assegnati ai tenant. I server di SKU Classe di tipo I sono indipendenti dall'hardware. La configurazione di questi tipi di server viene raccolta e mantenuta in profili che possono essere spostati da un hardware fisico a un altro. Queste operazioni (manuali) di spostamento di un profilo sono in parte paragonabili ad attività di correzione dei servizi di Azure. I server di SKU della classe di tipo II non offrono tale funzionalità.
+**Server**: server fisici dedicati per l'esecuzione dei SAP Hana database assegnati ai tenant. I server di SKU Classe di tipo I sono indipendenti dall'hardware. La configurazione di questi tipi di server viene raccolta e mantenuta in profili che possono essere spostati da un hardware fisico a un altro. Queste operazioni (manuali) di spostamento di un profilo sono in parte paragonabili ad attività di correzione dei servizi di Azure. I server di SKU della classe di tipo II non offrono tale funzionalità.
 
 **SDDC**: il software usato per gestire i data center come entità definite da software. Consente a Microsoft di creare pool delle risorse ai fini della scalabilità, della disponibilità e delle prestazioni.
 
-**O/S**: Il sistema operativo scelto (SUSE Linux o Red Hat Linux) in esecuzione sui server. Le immagini del sistema operativo disponibili sono state offerte dal singolo fornitore di Linux a Microsoft per l'esecuzione di SAP HANA. È necessario disporre di una sottoscrizione con il fornitore di Linux per la specifica immagine ottimizzata per SAP HANA. Il cliente è responsabile della registrazione delle immagini con il fornitore del sistema operativo. 
+**O/S**: il sistema operativo scelto (SUSE Linux o Red Hat Linux) in esecuzione nei server. Le immagini del sistema operativo disponibili sono state offerte dal singolo fornitore di Linux a Microsoft per l'esecuzione di SAP HANA. È necessario disporre di una sottoscrizione con il fornitore di Linux per la specifica immagine ottimizzata per SAP HANA. Il cliente è responsabile della registrazione delle immagini con il fornitore del sistema operativo. 
 
 Dal momento del trasferimento da Microsoft, l'utente è responsabile di eventuali altre applicazioni di patch del sistema operativo Linux. L'applicazione di patch include i pacchetti aggiuntivi che possono essere necessari per una corretta installazione di SAP HANA e che non sono stati inseriti dallo specifico fornitore di Linux nelle immagini del sistema operativo ottimizzate per SAP HANA. Per altre informazioni, vedere la documentazione e le note SAP relative all'installazione di SAP HANA. 
 
@@ -55,13 +55,13 @@ Le responsabilità del cliente includono inoltre il monitoraggio e la pianificaz
 
 L'infrastruttura sottostante delle istanze Large di HANA fornisce funzionalità per il backup e il ripristino del volume del sistema operativo. Anche l'uso di queste funzionalità è responsabilità del cliente.
 
-**Middleware**: L'istanza SAP HANA, principalmente. L'amministrazione, le operazioni e il monitoraggio sono responsabilità del cliente. Sono disponibili funzionalità che consentono di usare gli snapshot di archiviazione a scopo di backup/ripristino e ripristino di emergenza. Queste funzionalità sono offerte dall'infrastruttura. Tra le responsabilità del cliente rientra anche la progettazione della disponibilità elevata o del ripristino di emergenza con queste funzionalità, il relativo uso e il monitoraggio della corretta esecuzione degli snapshot di archiviazione.
+**Middleware**: principalmente l'istanza di SAP Hana. L'amministrazione, le operazioni e il monitoraggio sono responsabilità del cliente. Sono disponibili funzionalità che consentono di usare gli snapshot di archiviazione a scopo di backup/ripristino e ripristino di emergenza. Queste funzionalità sono offerte dall'infrastruttura. Tra le responsabilità del cliente rientra anche la progettazione della disponibilità elevata o del ripristino di emergenza con queste funzionalità, il relativo uso e il monitoraggio della corretta esecuzione degli snapshot di archiviazione.
 
-**Dati**: i dati gestiti da SAP HANA e altri dati, ad esempio i backup di file che si trovano su volumi o condivisioni file. Le responsabilità del cliente includono il monitoraggio dello spazio disponibile su disco e la gestione del contenuto nei volumi, nonché il monitoraggio della corretta esecuzione dei backup dei volumi dei dischi e degli snapshot di archiviazione. La corretta esecuzione della replica dei dati nei siti di ripristino di emergenza è responsabilità di Microsoft.
+**Dati**: i dati gestiti da SAP HANA e altri dati, ad esempio i file di backup che si trovano su volumi o condivisioni file. Le responsabilità del cliente includono il monitoraggio dello spazio disponibile su disco e la gestione del contenuto nei volumi, nonché il monitoraggio della corretta esecuzione dei backup dei volumi dei dischi e degli snapshot di archiviazione. La corretta esecuzione della replica dei dati nei siti di ripristino di emergenza è responsabilità di Microsoft.
 
 **Applicazioni**: le istanze di applicazioni SAP o, in caso di applicazioni non SAP, il relativo livello applicazione. Le responsabilità del cliente includono la distribuzione, l'amministrazione, l'esecuzione di operazioni e il monitoraggio di tali applicazioni. Il cliente è responsabile della pianificazione della capacità per l'utilizzo delle risorse della CPU, della memoria, delle risorse di archiviazione di Azure, della larghezza di banda di rete nelle reti virtuali e per l'utilizzo delle risorse dalle reti virtuali di Azure a SAP HANA in Azure (istanze Large).
 
-**Reti:** le connessioni stabilite dalle distribuzioni locali alle distribuzioni di Azure per i carichi di lavoro. Tutti i clienti con istanze Large di HANA usano Azure ExpressRoute per la connettività. Questa connessione non fa parte della soluzione SAP HANA in Azure (istanze Large) e pertanto la relativa configurazione è responsabilità del cliente.
+**WAN**: le connessioni stabilite dalle distribuzioni locali ad Azure per i carichi di lavoro. Tutti i clienti con istanze Large di HANA usano Azure ExpressRoute per la connettività. Questa connessione non fa parte della soluzione SAP HANA in Azure (istanze Large) e pertanto la relativa configurazione è responsabilità del cliente.
 
 **Archivio**: può essere preferibile archiviare copie dei dati usando i metodi preferiti negli account di archiviazione. L'archiviazione comporta gestione, conformità, costi e operazioni. Il cliente è responsabile della generazione di copie di archivio e backup in Azure e della relativa archiviazione in base ai criteri di conformità.
 

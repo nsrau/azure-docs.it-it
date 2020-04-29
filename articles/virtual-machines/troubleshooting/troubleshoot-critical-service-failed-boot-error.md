@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921454"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Visualizzazione dell'errore "CRITICAL SERVICE FAILED" su schermata blu all'avvio di una macchina virtuale di Azure
@@ -44,7 +44,7 @@ Per risolvere questo problema, [contattare il supporto tecnico e inviare un file
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Collegare il disco del sistema operativo a una macchina virtuale](./troubleshoot-recovery-disks-portal-windows.md)di ripristino. 
+2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Stabilire una connessione Desktop remoto alla macchina virtuale di ripristino.
 
 ### <a name="enable-dump-logs-and-serial-console"></a>Abilitare i log di dump e la console seriale
@@ -90,7 +90,7 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Scollegare il disco del sistema operativo e quindi ricollegare il disco del sistema operativo alla macchina virtuale interessata.](troubleshoot-recovery-disks-portal-windows.md) La macchina virtuale verrà avviata in modalità provvisoria. Se l'errore persiste, eseguire il passaggio facoltativo.
+2. [Scollegare il disco del sistema operativo e quindi collegare nuovamente il disco del sistema operativo alla VM interessata](troubleshoot-recovery-disks-portal-windows.md). La macchina virtuale verrà avviata in modalità provvisoria. Se l'errore persiste, eseguire il passaggio facoltativo.
 3. Aprire la casella **Esegui** ed eseguire **verifier** per avviare Driver Verifier Manager.
 4. Fare clic su **Seleziona automaticamente i driver non firmati** e quindi su **Avanti**.
 5. Si otterrà l'elenco dei file di driver non firmati. Prendere nota dei nomi dei file.
@@ -103,19 +103,19 @@ Per abilitare i log di dump e la console seriale, eseguire lo script seguente.
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facoltativo: Analizzare i log di dump in modalità di dump di arresto anomalo
 
-Per analizzare manualmente i registri di dump, attenersi alla seguente procedura:
+Per analizzare i log di dump manualmente, attenersi alla procedura seguente:
 
 1. Collegare il disco del sistema operativo alla macchina virtuale di ripristino.
-2. Sul disco del sistema operativo collegato, passare a **.** Copiare tutti i file come backup nel caso in cui sia necessario un rollback.
+2. Nel disco del sistema operativo collegato passare a **\Windows\System32\Config**. Copiare tutti i file come backup nel caso in cui sia necessario eseguire il rollback.
 3. Avviare **Editor del Registro di sistema** (regedit.exe).
-4. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Scegliere **Caricamento file** > **Hive**dal menu .
+4. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Nel menu selezionare **file** > **Load hive**.
 5. Passare alla cartella **\windows\system32\config\SYSTEM** nel disco del sistema operativo collegato. Immettere il nome di hive **BROKENSYSTEM**. Il nuovo hive del Registro di sistema viene visualizzato per la chiave **HKEY_LOCAL_MACHINE**.
 6. Passare a **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e apportare le modifiche seguenti:
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  Selezionare **BROKENSYSTEM**. Dal menu, selezionare **File** > **Unload Hive**.
+7.  Selezionare **BROKENSYSTEM**. Dal menu selezionare **file** > **unload hive**.
 8.  Modificare i dati della configurazione di avvio in modo da avviare il sistema in modalità di debug. Eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
 
     ```cmd
@@ -132,7 +132,7 @@ Per analizzare manualmente i registri di dump, attenersi alla seguente procedura
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} recoveryenabled no
     bcdedit /store <OS DISK LETTER>:\boot\bcd /set {default} integrityservices disable
     ```
-9. [Scollegare il disco del sistema operativo e quindi ricollegare il disco del sistema operativo alla macchina virtuale interessata.](troubleshoot-recovery-disks-portal-windows.md)
+9. [Scollegare il disco del sistema operativo e quindi collegare nuovamente il disco del sistema operativo alla VM interessata](troubleshoot-recovery-disks-portal-windows.md).
 10. Avviare la macchina virtuale per vedere se mostra l'analisi del dump. Trovare il file che non viene caricato. È necessario sostituire questo file con un file della macchina virtuale in esecuzione. 
 
     Di seguito è riportato un esempio di analisi del dump. È possibile notare la presenza di **FAILURE** in filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".

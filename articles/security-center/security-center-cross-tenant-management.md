@@ -1,6 +1,6 @@
 ---
-title: Gestione cross-tenant nel Centro sicurezza di Azure Documenti Microsoft
-description: Informazioni su come configurare la gestione tra tenant per gestire il livello di sicurezza di più tenant nel Centro sicurezza usando la gestione delle risorse delegate di Azure.Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Security Center using Azure delegated resource management.
+title: Gestione tra tenant nel centro sicurezza di Azure | Microsoft Docs
+description: Informazioni su come configurare la gestione tra tenant per gestire il comportamento di sicurezza di più tenant nel centro sicurezza usando la gestione delle risorse delegate di Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,47 +14,47 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919482"
 ---
-# <a name="cross-tenant-management-in-security-center"></a>Gestione cross-tenant nel Centro sicurezza
+# <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
 
-La gestione intertenant consente di visualizzare e gestire il livello di sicurezza di più tenant nel Centro sicurezza sfruttando la gestione delle risorse delegate di [Azure.](../lighthouse/concepts/azure-delegated-resource-management.md) Gestire più tenant in modo efficiente, da un'unica visualizzazione, senza dover accedere alla directory di ogni tenant.
+La gestione tra tenant consente di visualizzare e gestire il comportamento di sicurezza di più tenant nel centro sicurezza sfruttando la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md) . Gestire più tenant in modo efficiente, da una singola visualizzazione senza dover accedere alla directory di ogni tenant.
 
-- I fornitori di servizi possono gestire la sicurezza delle risorse, per più clienti, dall'interno del proprio tenant.
+- I provider di servizi possono gestire il comportamento di sicurezza delle risorse, per più clienti, dall'interno del proprio tenant.
 
-- I team di sicurezza delle organizzazioni con più tenant possono visualizzare e gestire la propria sicurezza da un'unica posizione.
+- I team di sicurezza di organizzazioni con più tenant possono visualizzare e gestire il proprio comportamento di sicurezza da un'unica posizione.
 
-## <a name="set-up-cross-tenant-management"></a>Configurare la gestione cross-tenant
+## <a name="set-up-cross-tenant-management"></a>Configurare la gestione tra tenant
 
-Configurare la gestione tra tenant delegando l'accesso alle risorse dei tenant gestiti al proprio tenant usando la gestione delle risorse delegate di [Azure.](../lighthouse/concepts/azure-delegated-resource-management.md)
+Configurare la gestione tra tenant delegando l'accesso alle risorse dei tenant gestiti al tenant usando la [gestione delle risorse delegata di Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > La gestione risorse delegate di Azure è uno dei componenti principali di Azure Lighthouse.
 
-## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Funzionamento della gestione tra tenant nel Centro sicurezza
+## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Funzionamento della gestione tra tenant nel centro sicurezza
 
-È possibile esaminare e gestire le sottoscrizioni tra più tenant nello stesso modo in cui si gestiscono più sottoscrizioni in un singolo tenant.
+È possibile esaminare e gestire le sottoscrizioni in più tenant nello stesso modo in cui si gestiscono più sottoscrizioni in un singolo tenant.
 
-Nella barra dei menu superiore fare clic sull'icona del filtro e selezionare le sottoscrizioni, dalla directory di ogni tenant, che si desidera visualizzare.
+Dalla barra dei menu in alto fare clic sull'icona del filtro e selezionare le sottoscrizioni, dalla directory di ogni tenant, che si desidera visualizzare.
 
-  ![Filtrare i tenant](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![Filtra tenant](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Le opinioni e le azioni sono fondamentalmente le stesse. Di seguito sono riportati alcuni esempi:
+Le visualizzazioni e le azioni sono fondamentalmente le stesse. Di seguito sono riportati alcuni esempi:
 
-- **Gestire i criteri**di sicurezza : Da un'unica vista, gestire il livello di sicurezza di molte risorse con [i criteri,](tutorial-security-policy.md)eseguire azioni con consigli di sicurezza e raccogliere e gestire i dati relativi alla sicurezza.
-- **Migliorare la sicurezza e**la postura di conformità: la visibilità cross-tenant consente di visualizzare la posizione di sicurezza complessiva di tutti i tenant e dove e come migliorare al meglio il [punteggio sicuro](security-center-secure-score.md) e la [postura](security-center-compliance-dashboard.md) di conformità per ognuno di essi.
-- **Correggere i suggerimenti:** monitorare e correggere un [suggerimento](security-center-recommendations.md) per molte risorse da vari tenant contemporaneamente. È quindi possibile affrontare immediatamente le vulnerabilità che presentano il rischio più elevato in tutti gli inquilini.
-- **Gestisci avvisi:** consente di rilevare [gli avvisi](security-center-alerts-overview.md) tra i diversi tenant. Intervenire sulle risorse non conformi alle procedure di [correzione utilizzabili.](security-center-managing-and-responding-alerts.md)
+- **Gestire i criteri di sicurezza**: da una visualizzazione, gestire il comportamento di sicurezza di molte risorse con [criteri](tutorial-security-policy.md), intraprendere azioni con consigli per la sicurezza e raccogliere e gestire i dati relativi alla sicurezza.
+- **Miglioramento del Punteggio sicuro e della conformità**: la visibilità tra tenant consente di visualizzare il comportamento di sicurezza complessivo di tutti i tenant e dove e come migliorare il [Punteggio sicuro](security-center-secure-score.md) e la [conformità](security-center-compliance-dashboard.md) per ognuno di essi.
+- **Correggere le raccomandazioni**: monitorare e correggere una [raccomandazione](security-center-recommendations.md) per molte risorse di diversi tenant contemporaneamente. È quindi possibile affrontare immediatamente le vulnerabilità che presentano il rischio più elevato in tutti i tenant.
+- **Gestire gli avvisi**: rilevare gli [avvisi](security-center-alerts-overview.md) in tutti i tenant. Intervenire sulle risorse non conformi alle procedure correttive per la [correzione](security-center-managing-and-responding-alerts.md).
 
-- Gestire le funzionalità avanzate di **difesa cloud e altro ancora:** gestire i vari servizi di protezione dalle minacce, ad esempio [l'accesso JIT (Just-In-Time VM),](security-center-just-in-time.md)l'Hardening [della rete adattiva,](security-center-adaptive-network-hardening.md)i [controlli adattivi delle applicazioni](security-center-adaptive-application.md)e altro ancora.
+- **Gestisci le funzionalità avanzate di difesa del cloud e altro ancora**: Gestisci i vari servizi di protezione dalle minacce, ad esempio [l'accesso JIT (just-in-Time) alle VM](security-center-just-in-time.md), la protezione avanzata della [rete adattiva](security-center-adaptive-network-hardening.md), i [controlli delle applicazioni adattivi](security-center-adaptive-application.md)e altro ancora.
  
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo illustra il funzionamento della gestione tra tenant nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+Questo articolo illustra il funzionamento della gestione tra tenant nel centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Rafforzare la posizione di sicurezza con](security-center-monitoring.md) il Centro sicurezza di Azure: informazioni su come monitorare l'integrità delle risorse di Azure.Microsoft your security posture with Azure Security Center - Learn how to monitor the health of your Azure resources.
+* Rafforzare il comportamento di [sicurezza con il Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio.
-* [Informazioni su Azure Lighthouse negli scenari aziendali:](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) scopri come Azure Lighthouse può semplificare la gestione cross-tenant all'interno di un'azienda che usa più tenant di Azure AD.
+* Informazioni [sul faro di Azure in scenari aziendali](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) : Scopri come Azure Lighthouse può semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant Azure ad.

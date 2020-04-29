@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918224"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Desktop remoto non si avvia in una macchina virtuale di Azure
@@ -34,7 +34,7 @@ Questo problema può verificarsi se il Listener RDP non è configurato correttam
 
 ## <a name="solution"></a>Soluzione
 
-Prima di eseguire questa procedura, [eseguire uno snapshot del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) della macchina virtuale interessata come backup. 
+Prima di seguire questa procedura, [eseguire uno snapshot del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) della macchina virtuale interessata come backup. 
 
 Per risolvere questo problema, usare i controllo seriale o [riparare la macchina virtuale in modalità offline](#repair-the-vm-offline) collegando il disco del sistema operativo della macchina virtuale a una macchina virtuale di ripristino.
 
@@ -87,11 +87,11 @@ Per risolvere questo problema, usare i controllo seriale o [riparare la macchina
 
 ### <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
-1. [Collegare il disco del sistema operativo a una macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md)di ripristino.
+1. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
 2. Dopo aver collegato il disco del sistema operativo alla macchina virtuale di ripristino, verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Nel disco del sistema operativo collegato passare alla cartella **\windows\system32\config**. Copiare tutti i file in questa cartella come backup, nel caso risulti necessario un ripristino dello stato precedente.
 4. Avviare Editor del Registro di sistema (regedit.exe).
-5. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Nel menu, selezionare **Caricamento file** > **Hive**:
+5. Selezionare la chiave **HKEY_LOCAL_MACHINE**. Nel menu selezionare **file** > **Load hive**:
 6. Passare alla cartella **\windows\system32\config\SYSTEM** nel disco del sistema operativo collegato. Immettere il nome di hive **BROKENSYSTEM**. Il nuovo hive del Registro di sistema viene visualizzato per la chiave **HKEY_LOCAL_MACHINE**. Quindi caricare l'hive del software **\windows\system32\config\SOFTWARE** nella chiave **HKEY_LOCAL_MACHINE**. Immettere il nome di hive **BROKENSOFTWARE**. 
 7. Aprire una finestra del prompt dei comandi con privilegi elevati (**Esegui come amministratore**) ed eseguire i comandi nei passaggi successivi per reimpostare le configurazioni RDP. 
 8. Abbassare il livello di protezione RDP su 0 in modo che le comunicazioni tra server e client usino la crittografia RDP nativa:

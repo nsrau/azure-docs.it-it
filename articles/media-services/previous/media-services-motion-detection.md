@@ -15,16 +15,16 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77913005"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
 
 > [!NOTE]
-> Il processore **multimediale Azure Media Motion Detector** verrà ritirato. Per la data di pensionamento, vedere l'argomento relativo ai [componenti legacy.](legacy-components.md)
+> Il processore di contenuti multimediali **Azure Media Motion Detector** verrà ritirato. Per la data di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
  
 ## <a name="overview"></a>Panoramica
 
@@ -45,7 +45,7 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
 ### <a name="parameters"></a>Parametri
 È possibile usare i parametri seguenti:
 
-| Nome | Opzioni | Descrizione | Predefinito |
+| Name | Options | Descrizione | Predefinito |
 | --- | --- | --- | --- |
 | sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
 | frameSamplingValue |Intero positivo |Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via. |1 |
@@ -100,7 +100,7 @@ La tabella seguente illustra gli elementi del file di output JSON.
 
 | Elemento | Descrizione |
 | --- | --- |
-| version |Indica la versione dell'API Video. La versione corrente è 2. |
+| Versione |Indica la versione dell'API Video. La versione corrente è 2. |
 | timescale |"Scatti" al secondo del video. |
 | offset |Differenza di orario dei timestamp in "scatti". Nella versione 1.0 delle API Video, questo valore è sempre 0. Negli scenari futuri supportati questo valore potrebbe cambiare. |
 | framerate |Fotogrammi al secondo del video. |
@@ -208,7 +208,7 @@ Il programma seguente illustra come:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 
@@ -384,10 +384,10 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 [Blog di Azure Media Motion Detector](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)

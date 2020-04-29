@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919431"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
@@ -43,7 +43,7 @@ A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o 
 ### <a name="remove-the-update-that-causes-the-problem"></a>Rimuovere l'aggiornamento che causa il problema
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md). 
-2. [Collegare il disco del sistema operativo a una macchina virtuale](troubleshoot-recovery-disks-portal-windows.md)di ripristino.
+2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md).
 3. Una volta collegato il disco del sistema operativo alla macchina virtuale di ripristino, eseguire **diskmgmt.msc** per aprire Gestione disco e verificare che il disco collegato sia **ONLINE**. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato in cui è contenuta la cartella \windows. Se il disco è crittografato, decrittografarlo prima di procedere con gli altri passaggi descritti in questo documento.
 
 4. Aprire un'istanza del prompt dei comandi con privilegi elevati (Esegui come amministratore). Eseguire il comando seguente per ottenere l'elenco dei pacchetti di aggiornamento in esecuzione sul disco del sistema operativo collegato:

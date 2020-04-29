@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594746"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes
@@ -23,7 +23,7 @@ Questo articolo illustra in particolare come proteggere i contenitori nel serviz
 
 È anche possibile leggere le procedure consigliate per la [sicurezza dei cluster][best-practices-cluster-security] e la [sicurezza dei pod][best-practices-pod-security].
 
-È anche possibile usare [La sicurezza dei contenitori nel Centro sicurezza][security-center-containers] per eseguire la scansione dei contenitori alla ricerca di vulnerabilità.  È inoltre disponibile [l'integrazione del Registro][security-center-acr] di sistema del contenitore di Azure con il Centro sicurezza per proteggere le immagini e il Registro di sistema dalle vulnerabilità.
+È anche possibile usare la [sicurezza del contenitore nel centro sicurezza][security-center-containers] per analizzare i contenitori per individuare eventuali vulnerabilità.  È disponibile anche l' [integrazione container Registry di Azure][security-center-acr] con il Centro sicurezza per proteggere le immagini e il registro di sistema da vulnerabilità.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteggere le immagini e il runtime
 

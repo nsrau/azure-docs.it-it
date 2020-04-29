@@ -6,42 +6,42 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593768"
 ---
-# <a name="linkerd"></a>Linkerd (Al linker)
+# <a name="linkerd"></a>Linkerd
 
 ## <a name="overview"></a>Panoramica
 
-[Il linkerd][linkerd] è una mesh di servizio semplice e leggera.
+[Linkerd][linkerd] è una rete di servizi facile da usare e leggero.
 
 ## <a name="architecture"></a>Architecture
 
-Linkerd fornisce un piano dati composto da sidecar proxy specializzati [ultraleggeri Linkerd.][linkerd-proxy] Questi proxy intelligenti controllano tutto il traffico di rete in e in uscita dalle app e dai carichi di lavoro mesh. I proxy espongono anche le metriche tramite gli endpoint delle metriche [Prometheus.The][prometheus] proxyies also expose metrics via Prometheus metrics endpoints.
+Linkerd fornisce un piano dati costituito da sidecar di [Linkerd][linkerd-proxy] per proxy specialistici ultraleggeri. Questi proxy intelligenti controllano tutto il traffico di rete all'interno e all'esterno delle app e dei carichi di lavoro in rete. I proxy espongono anche le metriche tramite gli endpoint di metrica [Prometeo][prometheus] .
 
-Il piano di controllo gestisce la configurazione e la telemetria aggregata tramite i [componenti][linkerd-architecture]seguenti:
+Il piano di controllo gestisce la configurazione e i dati di telemetria aggregati tramite i [componenti][linkerd-architecture]seguenti:
 
-- **Controller** - Fornisce api che guida l'interfaccia della riga di comando e il dashboard di Linkerd. Fornisce la configurazione per i proxy.
+- **Controller** : fornisce un'API che guida l'interfaccia della riga di comando e il dashboard di Linkerd. Fornisce la configurazione per i proxy.
 
-- **Tocca** - Stabilisci orologi in tempo reale su richieste e risposte.
+- **Toccare** -stabilisce gli orologi in tempo reale su richieste e risposte.
 
-- **Identità:** fornisce funzionalità di identità e sicurezza che consentono l'mTLS tra i servizi.
+- **Identity** : fornisce le funzionalità di identità e sicurezza che consentono MTLS tra i servizi.
 
-- **Web** - Fornisce il dashboard del linker.
-
-
-Nel diagramma dell'architettura seguente viene illustrato l'interazione tra i vari componenti all'interno del piano dati e del piano di controllo.
+- **Web** : fornisce il dashboard di Linkerd.
 
 
-![Panoramica dei componenti e dell'architettura del linker.](media/servicemesh/linkerd/about-architecture.png)
+Il diagramma dell'architettura seguente illustra il modo in cui i vari componenti all'interno del piano dati e del piano di controllo interagiscono.
+
+
+![Panoramica dei componenti e dell'architettura di Linkerd.](media/servicemesh/linkerd/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Criteri di selezione
 
-È importante comprendere e considerare le aree seguenti durante la valutazione di Linkerd per i carichi di lavoro:It's important to understand and consider the following areas when evaluating Linkerd for your workloads:
+Quando si valuta Linkerd per i carichi di lavoro, è importante comprendere e considerare le aree seguenti:
 
 - [Principi di progettazione](#design-principles)
 - [Capabilities](#capabilities)
@@ -50,48 +50,48 @@ Nel diagramma dell'architettura seguente viene illustrato l'interazione tra i va
 
 ### <a name="design-principles"></a>Principi di progettazione
 
-I seguenti principi di progettazione [guidano][design-principles] il progetto Linkerd:
+I principi di progettazione seguenti [guidano][design-principles] il progetto Linkerd:
 
-- **Semplicità** - Deve essere facile da usare e capire.
+- **Semplicità** : deve essere facile da usare e comprendere.
 
-- **Riduci i requisiti delle risorse** : impone prestazioni e costi delle risorse minimi.
+- **Ridurre i requisiti delle risorse** : imporre prestazioni minime e costi delle risorse.
 
-- **Solo lavoro** - Non rompere le applicazioni esistenti e non richiedono una configurazione complessa.
+- **Basta lavorare** : non interrompere le applicazioni esistenti e non è necessaria una configurazione complessa.
 
 
 ### <a name="capabilities"></a>Capabilities
 
-Linkerd fornisce il set di funzionalità seguente:
+In Linkerd è disponibile il set di funzionalità seguente:
 
-- **Mesh** – built in opzione di debug
+- **Mesh** : opzione di debug incorporata
 
-- **Gestione del traffico:** suddivisione, timeout, tentativi, ingresso
+- **Gestione del traffico** : suddivisione, timeout, tentativi, ingresso
 
-- **Sicurezza** – crittografia (mTLS), certificati ruotati automaticamente ogni 24 ore
+- **Sicurezza** -crittografia (MTLS), certificati autoruotati ogni 24 ore
 
-- **Osservabilità** – metriche dorate, tocco, traccia, profili di servizio e metriche per percorso, dashboard web con grafici di topologia, prometeo, grafana
+- **Osservabilità** : metriche finali, tap, traccia, profili dei servizi e metriche per Route, dashboard Web con grafici della topologia, Prometeo, grafana
 
 
 ### <a name="scenarios"></a>Scenari
 
-Linkerd è adatto e consigliato per gli scenari seguenti:Linkerd is wellsuited to and suggested for the following scenarios:
+Linkerd è particolarmente adatto e consigliato per gli scenari seguenti:
 
-- Semplice da usare con solo l'essenziale set di requisiti di capacità
+- Semplice da usare con solo il set di requisiti di funzionalità essenziali
 
-- Bassa latenza, basso sovraccarico, con particolare attenzione all'osservabilità e alla semplice gestione del traffico
+- Bassa latenza, sovraccarico basso, concentrandosi sull'osservabilità e sulla semplice gestione del traffico
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La documentazione seguente descrive come è possibile installare Linkerd nel servizio Azure Kubernetes (AKS):The following documentation describes how you can install Linkerd on Azure Kubernetes Service (AKS):
+La documentazione seguente descrive come installare Linkerd in Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Installare Linker nel servizio Azure Kubernetes (AKS)Install Linkerd in Azure Kubernetes Service (AKS)][linkerd-install]
+> [Installare Linkerd nel servizio Azure Kubernetes (AKS)][linkerd-install]
 
-È inoltre possibile esplorare ulteriormente le funzionalità e l'architettura del linker:You can also explore Linkerd features and architecture:
+È anche possibile esplorare ulteriormente le funzionalità e l'architettura di Linkerd:
 
-- [Funzionalità del linker][linkerd-features]
-- [Architettura del linker][linkerd-architecture]
+- [Funzionalità di Linkerd][linkerd-features]
+- [Architettura Linkerd][linkerd-architecture]
 
 <!-- LINKS - external -->
 [linkerd]: https://linkerd.io/2/overview/

@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617403"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID
@@ -241,10 +241,10 @@ Il processo completo di installazione di un secondo sistema SAP SID2 è descritt
 
 La procedura di alto livello è la seguente:
 
-1. [Installare il primo nodo del cluster SAP.][sap-ha-guide-9.1.2]  
- In questo passaggio SI installa SAP con un'istanza ASCS/SCS a disponibilità elevata nel **nodo cluster WSFC esistente 1**.
+1. [Installare il primo nodo del cluster SAP][sap-ha-guide-9.1.2].  
+ In questo passaggio si sta installando SAP con un'istanza di ASC/SCS a disponibilità elevata nel **nodo 1 del cluster WSFC esistente**.
 
-2. [Modificare il profilo SAP dell'istanza ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modificare il profilo SAP dell'istanza di ASC/SCS][sap-ha-guide-9.1.3].
 
 3. [Configurare una porta probe][sap-ha-guide-9.1.4].  
  In questo passaggio si sta configurando una porta probe SAP-SID2-IP della risorsa nel cluster SAP tramite PowerShell. Eseguire questa configurazione in uno dei nodi del cluster SAP ASCS/SCS.
@@ -265,7 +265,7 @@ La procedura di alto livello è la seguente:
 
 9. [Installare il server applicazione SAP aggiuntivo][sap-ha-guide-9.6] nella nuova VM dedicata.
 
-10. [Testare il failover dell'istanza SAP ASCS/SCS e la replica SIOS.][sap-ha-guide-10]
+10. [Testare il failover e la replica dell'istanza di SAP ASC/SCS][sap-ha-guide-10].
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616215"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Azure
@@ -75,7 +75,7 @@ La pagina **Solutions** (Soluzioni) illustra alcune delle soluzioni SAP CAL basa
 
    ![Conferma dei servizi cloud di Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
 
-1. Fare clic su **Accetta**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
+1. Fare clic **Accept**. Se l'autorizzazione ha esito positivo, viene visualizzata nuovamente la definizione dell'account SAP CAL. Dopo un breve periodo, viene visualizzato un messaggio di conferma del completamento del processo di autorizzazione.
 
 1. Per assegnare a un utente l'account SAP CAL appena creato, immettere l'**ID utente** nella casella di testo a destra e fare clic su **Add** (Aggiungi).
 
@@ -115,7 +115,7 @@ In questo articolo verrà illustrato il percorso di distribuzione di base.
 
     b. Immettere un **nome** di istanza.
 
-    c. Selezionare un'area **di**Azure . SAP CAL suggerisce un'area. Se è necessaria un'altra area di Azure e non si ha una sottoscrizione SAP CAL, è necessario ordinare una sottoscrizione CAL a SAP.
+    c. Selezionare un' **area**di Azure. SAP CAL suggerisce un'area. Se è necessaria un'altra area di Azure e non si ha una sottoscrizione SAP CAL, è necessario ordinare una sottoscrizione CAL a SAP.
 
     d. Immettere una **password** master di otto o nove caratteri per la soluzione. La password viene usata per gli amministratori dei diversi componenti.
 

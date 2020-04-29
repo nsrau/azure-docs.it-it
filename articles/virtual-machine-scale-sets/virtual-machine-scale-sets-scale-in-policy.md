@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919839"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Usare i criteri di scalabilità personalizzati con i set di scalabilità di macchine virtuali di Azure
@@ -24,7 +24,7 @@ Una distribuzione del set di scalabilità di macchine virtuali può essere scala
 
 La funzionalità per i criteri di scalabilità consente agli utenti di configurare l'ordine in cui le macchine virtuali vengono ridimensionate in base a tre configurazioni con scalabilità orizzontale: 
 
-1. Impostazione predefinita
+1. Predefinito
 2. NewestVM
 3. OldestVM
 
@@ -235,7 +235,7 @@ Per i set di scalabilità di macchine virtuali non di zona, il criterio selezion
 
 Per i set di scalabilità di macchine virtuali non di zona, il criterio seleziona la macchina virtuale più recente nel set di scalabilità per l'eliminazione. Eventuali macchine virtuali "protette" verranno ignorate per l'eliminazione. 
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 1. Errore di abilitazione di scaleInPolicy se viene visualizzato un errore ' richiesta non valida ' con un messaggio di errore che indica che "non è stato possibile trovare il membro ' scaleInPolicy ' nell'oggetto di tipo ' Properties '", quindi controllare la versione dell'API usata per il set di scalabilità di macchine virtuali. Per questa funzionalità è necessaria l'API versione 2019-03-01 o successiva.
 

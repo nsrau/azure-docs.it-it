@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: 74f5b22ccc822a188059b29d9c661a15cf8412bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593978"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Scaricare e installare il file binario del client Istio Istio Istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Scaricare e installare il file binario client istioctl di Istio
 
-In una shell a base bash `curl` su MacOS, utilizzare per `tar` scaricare la versione Istio e quindi estrarre con come segue:
+In una shell basata su bash in MacOS usare `curl` per scaricare la versione Istio e quindi estrarla con `tar` come indicato di seguito:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -21,7 +21,7 @@ ISTIO_VERSION=1.4.0
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
-Il `istioctl` file binario client viene eseguito nel computer client e consente di interagire con la rete mesh del servizio Istio. Utilizzare i seguenti comandi per `istioctl` installare il binario del client Istio in una shell basata su bash su MacOS. Questi comandi copiano il file binario del client `istioctl` nel percorso del programma dell'utente standard in `PATH`.
+Il `istioctl` file binario client viene eseguito nel computer client e consente di interagire con la mesh del servizio Istio. Usare i comandi seguenti per installare il file `istioctl` binario del client Istio in una shell basata su bash in MacOS. Questi comandi copiano il file binario del client `istioctl` nel percorso del programma dell'utente standard in `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION

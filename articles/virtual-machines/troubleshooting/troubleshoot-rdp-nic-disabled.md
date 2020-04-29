@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
 ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918241"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata
@@ -37,7 +37,7 @@ Per abilitare l'interfaccia per la macchina virtuale, usare il controllo seriale
 ### <a name="use-serial-control"></a>Usare il controllo seriale
 
 1. Connettersi alla [console seriale e aprire un'istanza CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se la console seriale non è abilitata nella macchina virtuale, vedere [Reimpostare l'interfaccia](#reset-network-interface)di rete .
+). Se la console seriale non è abilitata nella macchina virtuale, vedere [Reimposta interfaccia di rete](#reset-network-interface).
 2. Controllare lo stato dell'interfaccia di rete:
 
         netsh interface show interface
