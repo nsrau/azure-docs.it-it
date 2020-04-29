@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79269731"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [Php](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 È possibile usare Servizi multimediali per distribuire flussi HTTP Live Streaming (HLS) e Smooth Streaming crittografati con AES usando chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Per consentire a Servizi multimediali di crittografare un asset, è necessario associare una chiave di crittografia all'asset e configurare anche i criteri di autorizzazione per la chiave. Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati token [Web semplice](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e JSON [Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Per ulteriori informazioni, vedere Configurare i criteri di [autorizzazione della chiave simmetrica.](media-services-protect-with-aes128.md#configure_key_auth_policy)
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [Simple Web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [JSON Web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Per altre informazioni, vedere [configurare i criteri di autorizzazione della chiave](media-services-protect-with-aes128.md#configure_key_auth_policy)simmetrica.
 
 Per sfruttare la crittografia dinamica, è necessario disporre di un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. È inoltre necessario configurare i criteri di distribuzione dell'asset (descritti più avanti in questo articolo). Quindi, in base al formato specificato nell'URL di streaming, il server di streaming on demand garantisce che il flusso venga distribuito nel protocollo scelto. Di conseguenza, è necessario archiviare e pagare solo i file in un singolo formato di archiviazione. Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
 
@@ -47,17 +47,17 @@ Per una panoramica di come proteggere il contenuto multimediale con la crittogra
 
 Eseguire i passaggi generali illustrati di seguito quando si crittografano gli asset con AES usando il servizio di distribuzione delle chiavi di Servizi multimediali e la crittografia dinamica:
 
-1. [Create una risorsa e caricate i file nell'asset.](media-services-protect-with-aes128.md#create_asset)
+1. [Creare un asset e caricare i file nell'asset](media-services-protect-with-aes128.md#create_asset).
 
-2. [Codificare l'asset che contiene il file nel set MP4 bitrate adattivo.](media-services-protect-with-aes128.md#encode_asset)
+2. [Codificare l'asset contenente il file nel set MP4 a velocità in bit adattiva](media-services-protect-with-aes128.md#encode_asset).
 
-3. Create una chiave di [contenuto e associatela all'asset codificato.](media-services-protect-with-aes128.md#create_contentkey) In Servizi multimediali la chiave simmetrica contiene la chiave di crittografia dell'asset.
+3. [Creare una chiave simmetrica e associarla all'asset codificato](media-services-protect-with-aes128.md#create_contentkey). In Servizi multimediali la chiave simmetrica contiene la chiave di crittografia dell'asset.
 
-4. [Configurare i criteri](media-services-protect-with-aes128.md#configure_key_auth_policy)di autorizzazione della chiave simmetrica. È necessario configurare i criteri di autorizzazione della chiave simmetrica. Il client deve soddisfare i criteri prima che la chiave simmetrica venga distribuita al client stesso.
+4. [Configurare i criteri di autorizzazione della chiave](media-services-protect-with-aes128.md#configure_key_auth_policy)simmetrica. È necessario configurare i criteri di autorizzazione della chiave simmetrica. Il client deve soddisfare i criteri prima che la chiave simmetrica venga distribuita al client stesso.
 
-5. [Configurare i criteri di distribuzione di un asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configurazione di criteri di distribuzione include l'URL di acquisizione della chiave e un vettore di inizializzazione (IV). (AES-128 richiede lo stesso IV per la crittografia e la decrittografia.) La configurazione include anche il protocollo di recapito (ad esempio, MPEG-DASH, HLS, Smooth Streaming o tutti) e il tipo di crittografia dinamica (ad esempio, busta o nessuna crittografia dinamica).
+5. [Configurare i criteri di distribuzione di un asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configurazione di criteri di distribuzione include l'URL di acquisizione della chiave e un vettore di inizializzazione (IV). (AES-128 richiede lo stesso IV per la crittografia e la decrittografia). La configurazione include anche il protocollo di recapito (ad esempio, MPEG-DASH, HLS, Smooth Streaming o tutti) e il tipo di crittografia dinamica (ad esempio, envelope o nessuna crittografia dinamica).
 
-    È possibile applicare criteri diversi per ogni protocollo nello stesso asset. È ad esempio possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Il flusso di eventuali protocolli che non sono definiti in un criterio di distribuzione viene bloccato. (Un esempio è se si aggiunge un singolo criterio che specifica solo HLS come protocollo.) L'eccezione è se non è stata definita alcuna politica di distribuzione delle risorse. In tal caso, sono consentiti tutti i protocolli in chiaro.
+    È possibile applicare criteri diversi per ogni protocollo nello stesso asset. È ad esempio possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Il flusso di eventuali protocolli che non sono definiti in un criterio di distribuzione viene bloccato. Ad esempio, se si aggiunge un singolo criterio che specifica solo HLS come protocollo. L'eccezione è rappresentata dal caso in cui non siano definiti criteri di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
 6. [Creare un localizzatore OnDemand](media-services-protect-with-aes128.md#create_locator) per ottenere un URL di streaming.
 
@@ -159,7 +159,7 @@ Il client deve estrarre il valore URL (che contiene anche l'ID della chiave simm
 
 Nel caso di HLS, il manifesto radice viene suddiviso in file di segmento. 
 
-Ad esempio, il manifesto radice\/è: http: http: /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format-m3u8-aapl). e contiene un elenco di nomi di file di segmento.
+Ad esempio, il manifesto radice è: http:\//test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/manifest (format = m3u8-aapl). e contiene un elenco di nomi di file di segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Ad esempio, il manifesto radice\/è: http: http: /test001.origin.mediaservices.w
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Se si apre uno dei file di segmento in\/un editor di testo (ad esempio, http: /test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format-m3u8-aapl), contiene #EXT-X-KEY, che indica che il file è crittografato.
+Se si apre uno dei file di segmenti in un editor di testo (ad esempio, http\/:/test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (video, format = m3u8-aapl), contiene #EXT-X-Key, che indica che il file è crittografato.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -260,5 +260,5 @@ Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui s
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

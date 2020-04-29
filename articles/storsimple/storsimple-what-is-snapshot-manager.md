@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: twooley
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267417"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Introduzione a StorSimple Snapshot Manager
@@ -47,7 +47,7 @@ Gestione snapshot StorSimple fornisce una console di gestione centrale che conse
 
 Snapshot Manager di StorSimple recupera l'elenco delle applicazioni registrate con il provider VSS nell'host. Per creare backup coerenti con l'applicazione, controlla quindi i volumi usati da un'applicazione e suggerisce i gruppi di volumi da configurare. Gestione snapshot StorSimple utilizza questi gruppi di volumi per generare copie di backup coerenti con l'applicazione. (La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale dell'applicazione in un momento specifico). 
 
-I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. Per altre informazioni, vai alla sezione Integrazione con il servizio Copia Shadow del volume di Windows. Con StorSimple Snapshot Manager è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
+I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. Per ulteriori informazioni, vedere la sezione integrazione con Windows Servizio Copia Shadow del volume. Con StorSimple Snapshot Manager è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
 
 ![Architettura di Gestione snapshot StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
@@ -57,7 +57,7 @@ I backup di Gestione snapshot StorSimple assumono la forma di snapshot increment
 È possibile utilizzare Gestione snapshot StorSimple, per configurare ed eseguire il backup dei tipi di volumi seguenti: 
 
 * **Volumi di base** - Un volume di base è una singola partizione su un disco di base. 
-* **Volumi semplici** - Un volume semplice è un volume dinamico contenente lo spazio su disco di un singolo disco dinamico. Un volume semplice è costituito da una singola area su un disco o da più aree collegate insieme sullo stesso disco. È possibile creare volumi semplici solo su dischi dinamici. I volumi semplici non sono a tolleranza d'errore.
+* **Volumi semplici** - Un volume semplice è un volume dinamico contenente lo spazio su disco di un singolo disco dinamico. Un volume semplice è costituito da una singola area su un disco o da più aree collegate insieme sullo stesso disco. È possibile creare volumi semplici solo sui dischi dinamici. I volumi semplici non sono a tolleranza d'errore.
 * **Volumi dinamici** - Un volume dinamico è un volume creato su un disco dinamico. I dischi dinamici utilizzano un database per tenere traccia delle informazioni sui volumi contenuti nei dischi dinamici di un computer. 
 * **Volumi dinamici con mirroring** - I volumi dinamici con mirroring si basano sull'architettura RAID 1. Con RAID 1 i dati identici vengono scritti su due o più dischi, creando un set con mirroring. Una richiesta di lettura può quindi essere gestita da qualsiasi disco contenente i dati richiesti.
 * **Volumi condivisi del cluster** - Con i volumi condivisi del cluster, più nodi in un cluster di failover possono leggere o scrivere nello stesso disco contemporaneamente. Il failover da un nodo a un altro nodo può verificarsi rapidamente, senza necessità di modificare la proprietà dell'unità o di montare, smontare e rimuovere un volume. 
@@ -139,5 +139,5 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull’ [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-* Scarica [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+* Scaricare [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 

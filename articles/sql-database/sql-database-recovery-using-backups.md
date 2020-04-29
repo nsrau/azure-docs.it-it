@@ -12,15 +12,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268743"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Ripristinare un database SQL di Azure usando i backup automatici del database
 
-Per impostazione predefinita, i backup del database SQL di Azure vengono archiviati in un archivio BLOB con replica geografica (tipo di archiviazione RA-GRS). Le opzioni seguenti sono disponibili per il ripristino del database usando i [backup automatici del database](sql-database-automated-backups.md). È possibile:
+Per impostazione predefinita, i backup del database SQL di Azure vengono archiviati in un archivio BLOB con replica geografica (tipo di archiviazione RA-GRS). Le opzioni seguenti sono disponibili per il ripristino del database usando i [backup automatici del database](sql-database-automated-backups.md). È possibile scegliere:
 
 - Consente di creare un nuovo database nello stesso server di database SQL, ripristinato fino a un punto nel tempo specificato entro il periodo di memorizzazione.
 - Creare un database nello stesso server di database SQL, ripristinato fino all'ora di eliminazione per un database eliminato.

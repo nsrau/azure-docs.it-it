@@ -1,16 +1,16 @@
 ---
-title: Esempi di codice per l'utilizzo di operazioni sui datiCode samples for using data operations
-description: Provare questi esempi di codice che illustrano come usare le operazioni sui dati nei flussi di lavoro automatizzati creati con le app per la logica di AzureTry these code samples that show how you can use data operations in automated workflows created with Azure Logic Apps
+title: Esempi di codice per l'uso di operazioni sui dati
+description: Provare questi esempi di codice che illustrano come è possibile usare le operazioni dati nei flussi di lavoro automatizzati creati con app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270524"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Esempi di codice per operazioni sui dati per App per la logica di Azure

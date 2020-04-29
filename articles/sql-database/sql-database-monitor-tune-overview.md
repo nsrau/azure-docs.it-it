@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 837d88665c1fdffe902c9c478e5d6dc65a2e402a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268730"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database"></a>Monitoraggio e ottimizzazione delle prestazioni nel database SQL di Azure

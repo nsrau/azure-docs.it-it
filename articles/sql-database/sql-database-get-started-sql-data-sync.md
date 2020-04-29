@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
 ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268964"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra il database SQL di Azure e SQL Server localeTutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Esercitazione: configurare sincronizzazione dati SQL tra il database SQL di Azure e SQL Server locale
 
 In questa esercitazione si imparerà a configurare la sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il gruppo di sincronizzazione ha una configurazione personalizzata ed esegue la sincronizzazione in base alla pianificazione impostata dall'utente.
 
@@ -29,24 +29,24 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, vedere [Come eseguire la sincronizzazione tra database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md) o [tra un database SQL di Azure e un database SQL Server locale](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
-> La sincronizzazione dati SQL di Azure **non** supporta l'istanza gestita del database SQL di Azure in questo momento.
+> Il sincronizzazione dati SQL di Azure **non supporta istanza gestita di database SQL di Azure** al momento.
 
 ## <a name="create-sync-group"></a>Creare un gruppo di sincronizzazione
 
-1. Passare al portale di [Azure](https://portal.azure.com) per trovare il database SQL. Cercare e selezionare **Database SQL**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per trovare il database SQL. Cercare e selezionare **Database SQL**.
 
-    ![Cercare database SQL, portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+    ![Ricerca di database SQL, portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
 
-1. Selezionare il database che si desidera utilizzare come database hub per la sincronizzazione dei dati.
+1. Selezionare il database che si vuole usare come database hub per la sincronizzazione dei dati.
 
-    ![Seleziona dall'elenco di database SQL, portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
+    ![Selezionare dall'elenco database SQL portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > Il database hub è l'endpoint centrale di una topologia di sincronizzazione, in cui un gruppo di sincronizzazione dispone di più endpoint di database. Tutti gli altri database membri con endpoint nel gruppo di sincronizzazione eseguono la sincronizzazione con il database hub.
+    > Il database hub è un endpoint centrale della topologia di sincronizzazione, in cui un gruppo di sincronizzazione dispone di più endpoint di database. Tutti gli altri database membri con endpoint nel gruppo di sincronizzazione eseguono la sincronizzazione con il database hub.
 
-1. Nel menu **Database SQL** per il database selezionato selezionare Sincronizza con **altri database.**
+1. Nel menu **database SQL** per il database selezionato selezionare **Sincronizza con altri database**.
 
-    ![Sincronizzazione con altri database, database SQL, portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
+    ![Sincronizzare con altri database, database SQL portale di Microsoft Azure](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. Nella pagina **Sincronizza con altri database** selezionare **Nuovo gruppo di sincronizzazione**. Verrà aperta la pagina **Nuovo gruppo di sincronizzazione** con il primo passaggio di **Crea gruppo di sincronizzazione** in evidenza.
 
@@ -56,7 +56,7 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
 
    | Impostazione                        | Descrizione |
    | ------------------------------ | ------------------------------------------------- |
-   | **Nome gruppo di sincronizzazione** | Immettere un nome per il nuovo gruppo di sincronizzazione. Questo nome è distinto dal nome del database stesso. |
+   | **Nome del gruppo di sincronizzazione** | Immettere un nome per il nuovo gruppo di sincronizzazione. Questo nome è distinto dal nome del database stesso. |
    | **Database dei metadati di sincronizzazione** | Scegliere di creare un database (scelta consigliata) o usare un database esistente.<br/><br/>Se si sceglie **Nuovo database**, selezionare **Crea nuovo database**. Nella pagina **Database SQL**, quindi, specificare un nome per il nuovo database, configurarlo e selezionare **OK**.<br/><br/>Se si sceglie **Usa database esistente**, selezionare il database dall'elenco. |
    | **Sincronizzazione automatica** | Selezionare **Sì** o **No**.<br/><br/>Se si sceglie **Sì**, immettere un numero e selezionare **Secondi**, **Minuti**, **Ore** o **Giorni** nella sezione **Frequenza sincronizzazione**. |
    | **Risoluzione dei conflitti** | Selezionare **Priorità hub** o **Priorità membro**.<br/><br/>**Priorità hub** significa che, quando si verifica un conflitto, i dati nel database hub sovrascrivono i dati in conflitto nel database membro.<br/><br/>**Priorità membro** significa che, quando si verifica un conflitto, i dati nel database membro sovrascrivono i dati in conflitto nel database hub. |
@@ -125,7 +125,7 @@ Nella sezione **Database membro** aggiungere facoltativamente un'istanza di SQL 
 
     1. Nell'app dell'agente di sincronizzazione selezionare **Submit Agent Key** (Invia chiave agente). Verrà aperta la finestra di dialogo **Sync Metadata Database Configuration** (Configurazione del database dei metadati di sincronizzazione).
 
-    1. Nella finestra di dialogo **Sync Metadata Database Configuration** (Configurazione del database dei metadati di sincronizzazione) incollare la chiave dell'agente copiata dal portale di Azure. Specificare anche le credenziali esistenti per il server di database SQL di Azure in cui si trova il database dei metadati. Se è stato creato un database di metadati, questo database si trova nello stesso server del database hub. Selezionare **OK** e attendere il completamento della configurazione.
+    1. Nella finestra di dialogo **Sync Metadata Database Configuration** (Configurazione del database dei metadati di sincronizzazione) incollare la chiave dell'agente copiata dal portale di Azure. Specificare anche le credenziali esistenti per il server di database SQL di Azure in cui si trova il database dei metadati. Se è stato creato un database di metadati, il database si trova nello stesso server del database hub. Selezionare **OK** e attendere il completamento della configurazione.
 
         ![Immettere la chiave dell'agente e le credenziali del server](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -161,7 +161,7 @@ Dopo la creazione e la distribuzione dei nuovi membri del gruppo di sincronizzaz
 
 1. Nella pagina **Tabelle** selezionare un database dall'elenco dei membri del gruppo di sincronizzazione e selezionare **Aggiorna schema**.
 
-1. Nell'elenco selezionare le tabelle da sincronizzare. Per impostazione predefinita, tutte le colonne sono selezionate, pertanto disattivare la casella di controllo per le colonne che non si desidera sincronizzare. Assicurarsi di lasciare selezionata la colonna della chiave primaria.
+1. Nell'elenco selezionare le tabelle che si desidera sincronizzare. Per impostazione predefinita, tutte le colonne sono selezionate, quindi disabilitare la casella di controllo per le colonne che non si desidera sincronizzare. Assicurarsi di lasciare selezionata la colonna chiave primaria.
 
 1. Selezionare **Salva**.
 
@@ -242,5 +242,5 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 Per altre informazioni sul database SQL, vedere:
 
-- [Panoramica del database SQLSQL Database Overview](sql-database-technical-overview.md)
+- [Panoramica sul database SQL](sql-database-technical-overview.md)
 - [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)

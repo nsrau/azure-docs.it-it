@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267690"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple
@@ -44,7 +44,7 @@ Il pannello **Impostazioni** nella sezione **Impostazioni del dispositivo** del 
 
 A un dispositivo StorSimple connesso al servizio Gestione dispositivi StorSimple viene assegnato un nome predefinito. Il nome predefinito riflette in genere il numero di serie del dispositivo. Ad esempio, un nome di dispositivo predefinito che è composto da 15 caratteri, ad esempio 8600-SHX0991003G44HT indica quanto segue:
 
-* **8600** – Indica il modello di dispositivo.
+* **8600** : indica il modello del dispositivo.
 * **SHX**: sito di produzione.
 * **0991003**: prodotto specifico.
 * **G44HT**: numero di serie univoco, risultante dall'incremento progressivo degli ultimi cinque caratteri. Questo potrebbe non essere un insieme sequenziale.

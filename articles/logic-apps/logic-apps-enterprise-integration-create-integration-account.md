@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270329"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Creare e gestire gli account di integrazione per B2B Enterprise Integrations in app per la logica di Azure
@@ -55,7 +55,7 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
    ![Specificare i dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Proprietà | Obbligatoria | Valore | Descrizione |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome** | Sì | <*nome-account-integrazione*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-``_`), caratteri di sottolineatura (), parentesi`(`( `)`,) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
    | **Sottoscrizione** | Sì | <*Azure-Subscription-Name*> | Nome della sottoscrizione di Azure |
