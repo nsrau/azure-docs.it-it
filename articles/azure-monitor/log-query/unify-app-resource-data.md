@@ -8,10 +8,10 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77137487"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
@@ -91,7 +91,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| OS | client_OS | 
+| Sistema operativo | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 

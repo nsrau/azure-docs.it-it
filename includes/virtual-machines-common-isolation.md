@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: ayshakeen
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77123225"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente.  Queste dimensioni delle macchine virtuali sono particolarmente adatte ai carichi di lavoro che richiedono un elevato livello di isolamento dagli altri clienti, per i carichi di lavoro con aspetti come i requisiti normativi e di conformità.  I clienti possono anche scegliere di suddividere ulteriormente le risorse di tali macchine virtuali con piano Isolato usando il [supporto di Azure per le macchine virtuali annidate](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -51,7 +51,7 @@ Se è necessario l'isolamento, prima del 15 maggio 2020, è necessario eseguire 
 Per informazioni dettagliate, vedere di seguito:
 
 ## <a name="timeline"></a>Sequenza temporale
-| Data | Azione | 
+| Data | Action | 
 | --- | --- |
 | 18 novembre 2019 | Disponibilità di D/DS15i_v2 (PAYG, 1 anno RI) |
 | 14 maggio 2020  | Ultimo giorno per l'acquisto di D/DS15i_v2 1 anno RI | 
