@@ -1,5 +1,5 @@
 ---
-title: Creare utenti - Database di Azure per MySQLCreate users - Azure Database for MySQL
+title: Creare utenti-database di Azure per MySQL
 description: Questo articolo descrive come creare nuovi account utente per interagire con un database di Azure per il server MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
 ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81263472"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creare utenti in Database di Azure per MySQL
@@ -24,7 +24,7 @@ L'utente amministratore del server ottiene determinati privilegi per il server, 
 Dopo aver creato il database di Azure per il server MySQL, è possibile usare il primo account utente amministratore del server per creare altri utenti e concedere loro l'accesso con privilegi di amministratore. Inoltre, l'account amministratore del server può essere usato per creare utenti con privilegi meno elevati che possono accedere a singoli schemi di database.
 
 > [!NOTE]
-> Il privilegio SUPER e il ruolo DBA non sono supportati. Esaminare [i privilegi](concepts-limits.md#privilege-support) nell'articolo delle limitazioni per comprendere gli elementi non supportati nel servizio.
+> Il privilegio SUPER e il ruolo DBA non sono supportati. Esaminare i [privilegi](concepts-limits.md#privilege-support) nell'articolo limitazioni per comprendere ciò che non è supportato nel servizio.
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Come creare altri utenti amministratore in Database di Azure per MySQL
 

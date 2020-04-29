@@ -1,5 +1,5 @@
 ---
-title: Recuperare un'API di offerta specifica. Azure Marketplace
+title: Recuperare un'API offerta specifica | Azure Marketplace
 description: API recupera l'offerta specificata all'interno dello spazio dei nomi del server di pubblicazione.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: f2182ed2377a392f55af2c1f723be325bd518349
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255916"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
 =========================
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Recupera l'offerta specificata all'interno dello spazio dei nomi del server di pubblicazione.  
 
@@ -43,9 +43,9 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 
 | **Nome**    | **Descrizione**                                                                          | **Tipo di dati** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherid. Ad esempio, Contoso                                                        | string        |
-| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | string        |
-| version     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
+| publisherId | publisherid. Ad esempio, Contoso                                                        | Stringa        |
+| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | Stringa        |
+| Versione     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
 | slotId      | Lo slot da cui deve essere recuperata l'offerta, può essere uno dei seguenti:      <br/>  - `Draft` (impostazione predefinita) recupera la versione dell'offerta attualmente in bozza.  <br/>  -  `Preview` recupera la versione dell'offerta attualmente in anteprima.     <br/>  -  `Production` recupera la versione dell'offerta attualmente in produzione.          |      enum |
 | api-version | Ultima versione dell'API                                                                    | Data          |
 |  |  |  |
@@ -54,7 +54,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 <a name="header"></a>Intestazione
 ------
 
-|  **Nome**          |   **valore**            |
+|  **Nome**          |   **Valore**            |
 |  ---------------   |  --------------        |
 |  Content-Type      | `application/json`     |
 |  Autorizzazione     | `Bearer YOUR_TOKEN`    |
@@ -177,7 +177,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  publisherId    | Identificatore univoco della pubblicazione                                                                                              |
 |  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                                  |
 |  ID             | GUID che identifica in modo univoco l'offerta                                                                                         |
-|  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione.    |
+|  Versione        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione.    |
 |  Definizione     | Definizione effettiva del carico di lavoro                                                                                               |
 |  changedTime    | Ora UTC dell'ultima modifica dell'offerta                                                                                   |
 |  |  |
@@ -202,7 +202,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  NotStarted                 | L'offerta è nuova, ma non è stata attivata.              |
 |  WaitingForPublisherReview  | L'offerta è in attesa di approvazione da parte dell'editore.      |
 |  In esecuzione                    | Invio dell'offerta in corso.          |
-|  Operazione completata                  | Invio dell'offerta completato.    |
+|  Operazione riuscita                  | Invio dell'offerta completato.    |
 |  Cancellati                   | Invio dell'offerta annullato.                |
 |  Operazione non riuscita                     | Invio dell'offerta non riuscito.                      |
 |  |  |

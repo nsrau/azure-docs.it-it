@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260939"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
@@ -32,7 +32,7 @@ Per informazioni dettagliate su come creare un hub eventi e ottenere le stringhe
 ## <a name="create-an-api-management-logger"></a>Creare un logger di Gestione API
 Dopo aver creato un hub eventi, è necessario configurare un [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) nel servizio Gestione API, in modo che possa registrare eventi nell'hub eventi.
 
-I logger di Gestione API vengono configurati mediante l' [API REST Gestione API](https://aka.ms/apimapi). Per esempi di richieste dettagliate, vedere [come creare logger.](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate)
+I logger di Gestione API vengono configurati mediante l' [API REST Gestione API](https://aka.ms/apimapi). Per esempi di richiesta dettagliati, vedere [come creare logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configurare i criteri log-to-eventhubs
 
@@ -46,7 +46,7 @@ Dopo la configurazione del logger in Gestione API, è possibile configurare i cr
 6. Nella finestra Elaborazione in ingresso o Elaborazione in uscita fare clic sul triangolo (accanto alla matita).
 7. Selezionare l'editor di codice. Per altre informazioni, vedere [Come configurare o modificare i criteri](set-edit-policies.md).
 8. Posizionare il cursore nella sezione relativa ai criteri `inbound` o `outbound`.
-9. Nella finestra a destra selezionare **Criteri** > avanzati**Registra a EventHub**. In questo modo viene inserito il modello di istruzione del criterio `log-to-eventhub`.
+9. Nella finestra a destra selezionare **criteri** > avanzati**Accedi a EventHub**. In questo modo viene inserito il modello di istruzione del criterio `log-to-eventhub`.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>

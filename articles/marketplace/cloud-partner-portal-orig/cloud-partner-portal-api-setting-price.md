@@ -1,5 +1,5 @@
 ---
-title: Prezzi per le offerte di macchine virtuali Azure Marketplace
+title: Prezzi per le offerte della macchina virtuale | Azure Marketplace
 description: Illustra i tre metodi disponibili per specificare i prezzi delle offerte delle macchine virtuali.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 487e66b39bc63363497cb3497d32158efd0c6c8a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255890"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 ==================================
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Esistono tre modi per specificare i prezzi per le offerte di macchine virtuali: prezzi core personalizzati, prezzi per core e fogli di calcolo dei prezzi.
 
@@ -26,7 +26,7 @@ Esistono tre modi per specificare i prezzi per le offerte di macchine virtuali: 
 <a name="customized-core-pricing"></a>Prezzi core personalizzati
 -----------------------
 
-I prezzi sono specifici per ogni combinazione di area e di core. Ogni area nell'elenco di vendita deve essere specificata nella sezione **virtualMachinePricing**/**Prices** della definizione.  Nella richiesta, usare i codici di valuta corretti per ogni [area](#regions).  L'esempio seguente illustra questi requisiti:
+I prezzi sono specifici per ogni combinazione di area e di core. Ogni area nell'elenco sell deve essere specificata nella sezione **virtualMachinePricing**/**regionPrices** della definizione.  Nella richiesta, usare i codici di valuta corretti per ogni [area](#regions).  L'esempio seguente illustra questi requisiti:
 
 ``` json
     "virtualMachinePricing": 
@@ -103,10 +103,10 @@ L'editore può anche caricare il foglio di calcolo dei prezzi in un percorso di 
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni del nucleo aggiunte il 2/07/2019
+<a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni core aggiunte il 7/2/2019
 ---------------------------
 
-Gli editori di macchine virtuali sono stati notificati il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni delle macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le taglie core 10, 44, 48, 60, 120, 208 e 416.  Per le VM esistenti offre nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti.  Gli editori hanno tempo fino al 1 agosto 2019 per rivedere i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dall'editore, i prezzi calcolati automaticamente per queste nuove dimensioni di base avranno effetto.
+Gli editori di VM hanno ricevuto una notifica il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni di macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le dimensioni di base 10, 44, 48, 60, 120, 208 e 416.  Per le macchine virtuali esistenti, i nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti.  Gli editori hanno fino al 1 ° agosto 2019 per esaminare i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dal server di pubblicazione, i prezzi calcolati automaticamente per queste nuove dimensioni di core diverranno effettivi.
 
 
 <a name="regions"></a>Regioni

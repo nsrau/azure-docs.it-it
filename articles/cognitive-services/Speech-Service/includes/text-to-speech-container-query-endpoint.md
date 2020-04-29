@@ -1,5 +1,5 @@
 ---
-title: Endpoint del contenitore di sintesi vocale della queryQuery Text-to-speech container endpoint
+title: Query sull'endpoint contenitore sintesi vocale
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81274833"
 ---
-Il contenitore fornisce [API endpoint basate su REST.](../rest-text-to-speech.md) Sono disponibili molti progetti di [codice sorgente di esempio](https://github.com/Azure-Samples/Cognitive-Speech-TTS) per le varianti di piattaforma, framework e lingua.
+Il contenitore fornisce [API endpoint basate su REST](../rest-text-to-speech.md). Sono disponibili molti [progetti di codice sorgente di esempio](https://github.com/Azure-Samples/Cognitive-Speech-TTS) per la piattaforma, il Framework e le varianti del linguaggio disponibili.
 
-Con il contenitore *Standard Text-to-speech,* è necessario fare affidamento sulle impostazioni locali e sulla voce del tag immagine scaricato. Ad esempio, se `latest` hai scaricato il `en-US` tag, le impostazioni locali predefinite sono e la `JessaRUS` voce. L'argomento `{VOICE_NAME}` sarebbe [`en-US-JessaRUS`](../language-support.md#standard-voices)quindi . Vedere l'esempio SSML di seguito:See the example SSML below:
+Con il contenitore *di sintesi vocale standard* , è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato `latest` il tag le impostazioni locali predefinite `en-US` sono e `JessaRUS` la voce. L' `{VOICE_NAME}` argomento sarà [`en-US-JessaRUS`](../language-support.md#standard-voices)quindi. Vedere l'esempio di SSML di seguito:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -27,11 +27,11 @@ Con il contenitore *Standard Text-to-speech,* è necessario fare affidamento sul
 </speak>
 ```
 
-Tuttavia, per la sintesi *vocale personalizzata* è necessario ottenere il **modello Voice /** dal portale vocale [personalizzato.](https://aka.ms/custom-voice-portal) Il nome del modello personalizzato è sinonimo del nome vocale. Passare alla pagina **Formazione** e copiare la voce `{VOICE_NAME}` / **modello** da utilizzare come argomento.
+Tuttavia, per la sintesi vocale *personalizzata* è necessario ottenere la **voce o il modello** dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal). Il nome del modello personalizzato è sinonimo del nome della voce. Passare alla pagina **Training** e copiare la **voce o il modello** da usare come `{VOICE_NAME}` argomento.
 <br><br>
-:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Modello vocale personalizzato - nome vocale":::
+:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Modello Voice personalizzato-nome vocale":::
 
-Vedere l'esempio SSML di seguito:See the example SSML below:
+Vedere l'esempio di SSML di seguito:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -41,7 +41,7 @@ Vedere l'esempio SSML di seguito:See the example SSML below:
 </speak>
 ```
 
-Costruiamo una richiesta HTTP POST, fornendo alcune intestazioni e un payload di dati. Sostituire `{VOICE_NAME}` il segnaposto con un valore personalizzato.
+Viene ora creata una richiesta HTTP POST, che fornisce alcune intestazioni e un payload di dati. Sostituire il `{VOICE_NAME}` segnaposto con il proprio valore.
 
 ```curl
 curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 \
@@ -53,8 +53,8 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
 
 Questo comando:
 
-* Costruisce una richiesta HTTP `speech/synthesize/cognitiveservices/v1` POST per l'endpoint.
-* Specifica un'intestazione `Accept` di`audio/*`
-* Specifica un'intestazione `Content-Type` di `application/ssml+xml`, per ulteriori informazioni, vedere corpo della [richiesta](../rest-text-to-speech.md#request-body).
-* Specifica un'intestazione `X-Microsoft-OutputFormat` di `riff-16khz-16bit-mono-pcm`, per altre opzioni vedere Output [audio](../rest-text-to-speech.md#audio-outputs).
-* Invia la richiesta [SSML (Speech Synthesis Markup Language)](../speech-synthesis-markup.md) specificata all'endpoint. `{VOICE_NAME}`
+* Costruisce una richiesta HTTP POST per l' `speech/synthesize/cognitiveservices/v1` endpoint.
+* Specifica un' `Accept` intestazione di`audio/*`
+* Specifica un' `Content-Type` intestazione di `application/ssml+xml`. per ulteriori informazioni, vedere il [corpo della richiesta](../rest-text-to-speech.md#request-body).
+* Specifica un' `X-Microsoft-OutputFormat` intestazione di `riff-16khz-16bit-mono-pcm`, per altre opzioni vedere [output audio](../rest-text-to-speech.md#audio-outputs).
+* Invia la richiesta [SSML (Speech Synthesis Markup Language)](../speech-synthesis-markup.md) fornita `{VOICE_NAME}` all'endpoint.

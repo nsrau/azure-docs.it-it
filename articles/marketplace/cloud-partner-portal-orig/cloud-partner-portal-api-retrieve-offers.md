@@ -1,5 +1,5 @@
 ---
-title: API per il recupero delle offerte Azure Marketplace
+title: API di recupero offerte | Azure Marketplace
 description: L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del server di pubblicazione.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 0413bc71c113bf1eef9f761dbeed4c0d0afe735c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255958"
 ---
 <a name="retrieve-offers"></a>Recuperare le offerte
 ===============
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del server di pubblicazione.
 
@@ -29,7 +29,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 
 | **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   string    |
+|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   Stringa    |
 |  api-version     | Ultima versione dell'API                    |    Data        |
 |  |  |
 
@@ -37,7 +37,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 <a name="header"></a>Intestazione
 ------
 
-|  **Nome**        |         **valore**       |
+|  **Nome**        |         **Valore**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
 |  Autorizzazione   | `Bearer YOUR_TOKEN`     |
@@ -74,7 +74,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  publisherId    | Identificatore univoco dell'editore                                                                      |
 |  status         | Stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito:                         |
 |  id             | GUID che identifica in modo univoco l'offerta, nello spazio dei nomi del server di pubblicazione.                                                    |
-|  version        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione. |
+|  Versione        | Versione corrente dell'offerta. La proprietà della versione non può essere modificata dal client. Viene incrementata dopo ogni pubblicazione. |
 |  Definizione     | Contiene la visualizzazione del riepilogo della definizione stessa del carico di lavoro. Per ottenere una definizione dettagliata, usare l'API per il [recupero di un'offerta specifica](./cloud-partner-portal-api-retrieve-specific-offer.md). |
 |  changedTime    | Ora UTC dell'ultima modifica dell'offerta                                                                              |
 |  |  |
@@ -99,7 +99,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  NotStarted                  | L'offerta è nuova, ma non è stata attivata.                 |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.         |
 |  In esecuzione                     | Invio dell'offerta in corso.             |
-|  Operazione completata                   | Invio dell'offerta completato.       |
+|  Operazione riuscita                   | Invio dell'offerta completato.       |
 |  Cancellati                    | Invio dell'offerta annullato.                   |
 |  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
 |  |  |

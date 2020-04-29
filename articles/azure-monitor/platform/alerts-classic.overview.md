@@ -1,25 +1,25 @@
 ---
-title: Panoramica degli avvisi classici in Monitoraggio di AzureOverview of classic alerts in Azure Monitor
+title: Panoramica degli avvisi classici in monitoraggio di Azure
 description: Gli avvisi classici sono in fase di deprecazione. Gli avvisi consentono di monitorare le metriche, gli eventi e i log delle risorse di Azure e, successivamente, inviare una notifica quando una condizione specificata viene soddisfatta.
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114492"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
 > [!NOTE]
-> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi di metrica in tempo quasi reale più recenti e una nuova esperienza di avviso.](../../azure-monitor/platform/alerts-overview.md) Gli avvisi classici vengono [ritirati,](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora [avvisi delle metriche near Real time più recenti e una nuova esperienza di avvisi](../../azure-monitor/platform/alerts-overview.md). Gli avvisi classici vengono [ritirati](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), anche se ancora in uso limitato per le risorse che non supportano ancora i nuovi avvisi. 
 >
 
 Gli avvisi consentono di configurare le condizioni sui dati e la notifica di quando le condizioni corrispondono ai dati di monitoraggio più recenti.
 
-## <a name="old-and-new-alerting-capabilities"></a>Vecchie e nuove funzionalità di avviso
+## <a name="old-and-new-alerting-capabilities"></a>Funzionalità per gli avvisi obsolete e nuove
 
 In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integrità dei servizi di Azure avevano funzionalità di avviso separate. Con il tempo Azure ha migliorato e combinato sia l'interfaccia utente che i diversi metodi di invio degli avvisi. Il consolidamento è ancora in corso.
 
@@ -29,7 +29,7 @@ In precedenza Monitoraggio di Azure, Application Insights, Log Analytics e Integ
 
 La nuova esperienza utente degli avvisi offre i vantaggi seguenti rispetto all'esperienza degli avvisi in versione classica:
 - **Migliore sistema di notifica**: tutti gli avvisi più recenti usano gruppi di azioni, ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics di tipo precedente non usano gruppi di azioni.
-- **Un'esperienza** di creazione unificata: tutta la creazione di avvisi per metriche, log e log attività tra Monitoraggio di Azure, Log Analytics e Application Insights è in un'unica posizione.
+- **Esperienza di creazione unificata** : tutti gli avvisi per le metriche, i log e i log attività in monitoraggio di Azure, Log Analytics e Application Insights sono in un'unica posizione.
 - **Visualizzazione degli avvisi di Log Analytics attivati nel portale di Azure**: è ora possibile visualizzare anche gli avvisi di Log Analytics attivati nella sottoscrizione. In precedenza, era necessario un portale separato.
 - **Separazione tra avvisi attivati e regole di avviso**: viene fatta distinzione tra regole di avviso (definizioni delle condizioni che attivano gli avvisi) e avvisi attivati (istanze di attivazione delle regole di avviso) e sono pertanto disponibili visualizzazioni separate per le attività operative e la configurazione.
 - **Flusso di lavoro migliore**: la nuova esperienza di creazione di avvisi guida l'utente nel processo di configurazione di una regola di avviso, rendendo più semplice l'identificazione delle condizioni per cui è opportuno ricevere un avviso.
@@ -51,7 +51,7 @@ Sono disponibili due tipi di avvisi classici, vale a dire gli avvisi delle metri
 
 * **Avvisi classici del log attività**: un avviso di log in streaming che si attiva per una voce di evento del log attività corrispondente ai criteri di filtro. Questi avvisi hanno solo lo stato "Attivato". Il motore degli avvisi applica semplicemente i criteri di filtro a tutti i nuovi eventi. Non esegue una ricerca per trovare voci meno recenti. Questi avvisi possono notificare quando si verifica un nuovo evento imprevisto relativo all'integrità dei servizi o quando un utente o un'applicazione esegue un'operazione nella sottoscrizione, ad esempio "Elimina macchina virtuale."
 
-Per i dati del log delle risorse disponibili tramite Monitoraggio di Azure, instradare i dati in Log Analytics e usare un avviso di query del log. Log Analytics ora usa il nuovo metodo di avvisoLog Analytics now uses the [new alerting method](../../azure-monitor/platform/alerts-overview.md) 
+Per i dati dei log delle risorse disponibili tramite monitoraggio di Azure, indirizzare i dati in Log Analytics e usare un avviso di query di log. Log Analytics ora usa il [nuovo metodo di avviso](../../azure-monitor/platform/alerts-overview.md) 
 
 Il diagramma seguente riepiloga le origini dei dati in Monitoraggio di Azure e, a livello concettuale, i modi per avvisare di tali dati.
 
@@ -85,14 +85,14 @@ I webhook consentono l'automazione e la correzione, ad esempio, usando:
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:
 
-* Ulteriori informazioni sulle [metriche](data-platform.md)
+* Altre informazioni sulle [metriche](data-platform.md)
 * Configurare gli [avvisi delle metriche classici tramite il portale di Azure](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per PowerShell](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'API REST del Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Ulteriori informazioni sul [log attività](platform-logs-overview.md)
+* Altre informazioni sul [log attività](platform-logs-overview.md)
 * Configurare [gli avvisi del log attività tramite il portale di Azure](activity-log-alerts.md)
 * Configurare [gli avvisi del log attività tramite Resource Manager](alerts-activity-log.md)
 * Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md)
 * Altre informazioni sui [gruppi di azioni](action-groups.md)
-* Configurare [gli avvisi più recentiConfigure newer Alerts](alerts-metric.md)
+* Configurare [avvisi più recenti](alerts-metric.md)

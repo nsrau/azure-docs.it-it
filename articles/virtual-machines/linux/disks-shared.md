@@ -1,6 +1,6 @@
 ---
-title: Condividere un disco gestito di Azure tra macchine virtuali (anteprima)Share an Azure managed disk across VMs (preview)
-description: Informazioni sulla condivisione di dischi gestiti di Azure tra più macchine virtuali.
+title: Condividere un disco gestito di Azure tra macchine virtuali (anteprima)
+description: Informazioni sulla condivisione di Azure Managed disks in più macchine virtuali.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 3792a98c4ddcab36496f7e83482f2a1382c93d0d
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008539"
 ---
-# <a name="azure-shared-disks"></a>Dischi condivisi di AzureAzure shared disks
+# <a name="azure-shared-disks"></a>Dischi condivisi di Azure
 
 [!INCLUDE [virtual-machines-disks-shared](../../../includes/virtual-machines-disks-shared.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sei interessato all'abilitazione e all'utilizzo di dischi condivisi per i dischi gestiti, vai al nostro articolo [Abilitare il disco condiviso](disks-shared-enable.md)
+Se si è interessati a abilitare e usare dischi condivisi per i dischi gestiti, passare all'articolo [abilitare il disco condiviso](disks-shared-enable.md)

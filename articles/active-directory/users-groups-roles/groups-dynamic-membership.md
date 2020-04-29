@@ -1,5 +1,5 @@
 ---
-title: Regole per l'appartenenza a gruppi popolati dinamicamente - Azure AD Documenti Microsoft
+title: Regole per l'appartenenza dinamica ai gruppi compilati-Azure AD | Microsoft Docs
 description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114730"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
@@ -32,27 +32,27 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 
 > [!NOTE]
 > Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente univoco membro di almeno un gruppo dinamico. Perché gli utenti siano membri dei gruppi dinamici, non è obbligatorio che vengano effettivamente assegnate loro le licenze, ma è necessario avere il numero necessario di licenze nel tenant per coprire tutti gli utenti. Se ad esempio si ha un totale di 1.000 utenti univoci in tutti i gruppi dinamici del tenant, è necessario avere almeno 1.000 licenze di Azure AD Premium P1 per soddisfare il requisito delle licenze.
-> Non è richiesta alcuna licenza per i dispositivi membri di un gruppo di dispositivi dinamico.
+> Per i dispositivi che sono membri di un gruppo di dispositivi dinamici non è necessaria alcuna licenza.
 
-## <a name="rule-builder-in-the-azure-portal"></a>Generatore di regole nel portale di AzureRule builder in the Azure portal
+## <a name="rule-builder-in-the-azure-portal"></a>Generatore regole nella portale di Azure
 
-Azure AD offre un generatore di regole per creare e aggiornare le regole importanti più rapidamente. Il generatore di regole supporta la costruzione fino a cinque espressioni. Il Generatore di regole semplifica la creazione di una regola con alcune espressioni semplici, tuttavia non può essere utilizzato per riprodurre ogni regola. Se il Generatore di regole non supporta la regola che si desidera creare, è possibile utilizzare la casella di testo.
+Azure AD fornisce un generatore di regole per creare e aggiornare le regole importanti più rapidamente. Il generatore regole supporta la costruzione di un massimo di cinque espressioni. Il generatore regole rende più semplice formare una regola con alcune semplici espressioni, ma non può essere usata per riprodurre ogni regola. Se il generatore regole non supporta la regola che si desidera creare, è possibile utilizzare la casella di testo.
 
-Di seguito sono riportati alcuni esempi di regole o sintassi avanzate per le quali è consigliabile creare utilizzando la casella di testo:
+Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è consigliabile costruire utilizzando la casella di testo:
 
 - Regola con più di cinque espressioni
-- La regola Rapporti diretti
-- Impostazione della [precedenza](groups-dynamic-membership.md#operator-precedence) degli operatori
+- Regola dei report diretti
+- Impostazione della [precedenza degli operatori](groups-dynamic-membership.md#operator-precedence)
 - [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); Per esempio`(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> Il Generatore di regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. È possibile che venga visualizzato un messaggio quando il Generatore di regole non è in grado di visualizzare la regola. Il Generatore di regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione supportata delle regole di gruppo dinamiche.
+> Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
 
-Per ulteriori istruzioni dettagliate, vedere [Creare o aggiornare un gruppo dinamico.](groups-create-rule.md)
+Per altre istruzioni dettagliate, vedere [creare o aggiornare un gruppo dinamico](groups-create-rule.md).
 
-![Aggiungere una regola di appartenenza per un gruppo dinamico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
+![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression"></a>Sintassi delle regole per una singola espressione
+### <a name="rule-syntax-for-a-single-expression"></a>Sintassi della regola per una singola espressione
 
 Una singola espressione è la forma più semplice per una regola di appartenenza e include solo le tre parti indicate in precedenza. Una regola con una singola espressione è simile a quanto segue: `Property Operator Value`, dove la sintassi per la proprietà è il nome di oggetto.proprietà.
 
@@ -79,52 +79,52 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
 - Boolean
-- string
+- Stringa
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Proprietà | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Proprietà | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
-| city |Qualsiasi valore stringa o *nullAny* string value or null |(user.city -eq "valore") |
-| country |Qualsiasi valore stringa o *nullAny* string value or null |(user.country -eq "valore") |
-| companyName | Qualsiasi valore stringa o *nullAny* string value or null | (user.companyName -eq "value") |
-| department |Qualsiasi valore stringa o *nullAny* string value or null |(user.department -eq "valore") |
+| city |Qualsiasi valore stringa o *null* |(user.city -eq "valore") |
+| country |Qualsiasi valore stringa o *null* |(user.country -eq "valore") |
+| companyName | Qualsiasi valore stringa o *null* | (user.companyName -eq "value") |
+| department |Qualsiasi valore stringa o *null* |(user.department -eq "valore") |
 | displayName |Qualsiasi valore di stringa |(user.displayName -eq "valore") |
-| employeeId |Qualsiasi valore di stringa |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |Qualsiasi valore stringa o *nullAny* string value or null |(user.facsimileTelephoneNumber -eq "valore") |
-| givenName |Qualsiasi valore stringa o *nullAny* string value or null |(user.givenName -eq "valore") |
-| jobTitle |Qualsiasi valore stringa o *nullAny* string value or null |(user.jobTitle -eq "valore") |
+| employeeId |Qualsiasi valore di stringa |(user.employeeId -eq "valore")<br>(User. employeeId-ne *null*) |
+| facsimileTelephoneNumber |Qualsiasi valore stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
+| givenName |Qualsiasi valore stringa o *null* |(user.givenName -eq "valore") |
+| jobTitle |Qualsiasi valore stringa o *null* |(user.jobTitle -eq "valore") |
 | mail |Qualsiasi valore stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
-| mobile |Qualsiasi valore stringa o *nullAny* string value or null |(user.mobile -eq "valore") |
+| mobile |Qualsiasi valore stringa o *null* |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Identificatore di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualsiasi valore stringa o *nullAny* string value or null |(user.physicalDeliveryOfficeName -eq "valore") |
-| postalCode |Qualsiasi valore stringa o *nullAny* string value or null |(user.postalCode -eq "valore") |
+| physicalDeliveryOfficeName |Qualsiasi valore stringa o *null* |(user.physicalDeliveryOfficeName -eq "valore") |
+| postalCode |Qualsiasi valore stringa o *null* |(user.postalCode -eq "valore") |
 | preferredLanguage |Codice ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Qualsiasi valore stringa o *nullAny* string value or null |(user.sipProxyAddress -eq "valore") |
-| state |Qualsiasi valore stringa o *nullAny* string value or null |(user.state -eq "valore") |
-| streetAddress |Qualsiasi valore stringa o *nullAny* string value or null |(user.streetAddress -eq "valore") |
-| surname |Qualsiasi valore stringa o *nullAny* string value or null |(user.surname -eq "valore") |
-| telephoneNumber |Qualsiasi valore stringa o *nullAny* string value or null |(user.telephoneNumber -eq "valore") |
+| sipProxyAddress |Qualsiasi valore stringa o *null* |(user.sipProxyAddress -eq "valore") |
+| state |Qualsiasi valore stringa o *null* |(user.state -eq "valore") |
+| streetAddress |Qualsiasi valore stringa o *null* |(user.streetAddress -eq "valore") |
+| surname |Qualsiasi valore stringa o *null* |(user.surname -eq "valore") |
+| telephoneNumber |Qualsiasi valore stringa o *null* |(user.telephoneNumber -eq "valore") |
 | usageLocation |Codice di paese di due lettere |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualsiasi valore di stringa |(user.userPrincipalName -eq "alias@domain") |
-| userType |membro guest *null* |(user.userType -eq "Membro") |
+| userType |*null* Guest membro |(user.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| Proprietà | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore di stringa |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -144,7 +144,7 @@ Nella tabella seguente sono elencati tutti gli operatori supportati e la relativ
 | Non contiene |-notContains |
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
-| Corrispondente |-match |
+| Corrispondenza |-match |
 | In ingresso | -in |
 | Non incluso | -notIn |
 
@@ -249,7 +249,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Proprietà | Valori | Uso |
+| Proprietà | Valori | Utilizzo |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -301,7 +301,7 @@ La regola per i dipendenti diretti viene costruita usando la sintassi seguente:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Di seguito è riportato un esempio di una regola valida in cui "62e19b97-8b3d-4d4a-a106-4ce66896a863" è l'objectID del gestore:
+Di seguito è riportato un esempio di una regola valida in cui "62e19b97-8b3d-4d4a-A106-4ce66896a863" è il valore objectID del gestore:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -318,22 +318,22 @@ I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
 
 È possibile creare un gruppo contenente tutti gli utenti di un tenant usando una regola di appartenenza. Quando in futuro gli utenti vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
 
-La regola "Tutti gli utenti" viene costruita utilizzando l'espressione singola utilizzando l'operatore -ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
+La regola "tutti gli utenti" viene costruita usando un'espressione singola usando l'operatore-ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
 
 ```
 user.objectId -ne null
 ```
-Se si desidera che il gruppo escluda gli utenti guest e includa solo i membri del tenant, è possibile utilizzare la sintassi seguente:
+Se si vuole che il gruppo escluda gli utenti guest e includa solo i membri del tenant, è possibile usare la sintassi seguente:
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
-### <a name="create-an-all-devices-rule"></a>Creare una regola "Tutti i dispositivi"Create an "All devices" rule
+### <a name="create-an-all-devices-rule"></a>Creare una regola "tutti i dispositivi"
 
 È possibile creare un gruppo contenente tutti i dispositivi di un tenant usando una regola di appartenenza. Quando in futuro i dispositivi vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
 
-La regola "Tutti i dispositivi" viene costruita utilizzando l'operatore -ne e il valore null:
+La regola "tutti i dispositivi" viene costruita usando un'espressione singola usando l'operatore-ne e il valore null:
 
 ```
 device.objectId -ne null
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
 
-Gli attributi di estensione e le proprietà di estensione personalizzate sono supportati come proprietà stringa nelle regole di appartenenza dinamica. [Gli attributi](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) di estensione vengono sincronizzati da Windows Server AD locale e assumono il formato di "ExtensionAttributeX", dove X è uguale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
+Gli attributi di estensione e le proprietà dell'estensione personalizzata sono supportati come proprietà di stringa nelle regole di appartenenza dinamiche. [Gli attributi di estensione](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) vengono sincronizzati dall'istanza locale di Windows Server ad e hanno il formato "ExtensionAttributeX", dove X è uguale a 1-15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Le proprietà](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) di estensione personalizzate vengono sincronizzate da Windows Server AD locale o da `user.extension_[GUID]_[Attribute]`un'applicazione SaaS connessa e sono del formato di , dove:
+Le [proprietà dell'estensione personalizzata](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) vengono sincronizzate da Active Directory di Windows Server locale o da un'applicazione SaaS connessa e hanno il formato `user.extension_[GUID]_[Attribute]`, dove:
 
 * [GUID] è l'identificatore univoco in Azure AD per l'applicazione che ha creato la proprietà in Azure AD
 * [Attribute] è il nome della proprietà quando è stata creata
@@ -368,29 +368,29 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 > L'attributo **organizationalUnit** non viene più elencato e non deve essere usato. Questa stringa viene impostata da Intune in casi specifici ma non viene riconosciuta da Azure AD, quindi nessun dispositivo viene aggiunto ai gruppi in base a questo attributo.
 
 > [!NOTE]
-> systemlabels è un attributo di sola lettura che non può essere impostato con Intune.systemlabels is a read-only attribute that cannot be set with Intune.
+> systemlabels è un attributo di sola lettura che non può essere impostato con Intune.
 >
-> Per Windows 10, il formato corretto dell'attributo deviceOSVersion è il seguente: (device.deviceOSVersion -eq "10.0.17763"). La formattazione può essere convalidata con il cmdlet PowerShell Get-MsolDevice.
+> Per Windows 10, il formato corretto dell'attributo deviceOSVersion è il seguente: (Device. deviceOSVersion-EQ "10.0.17763"). La formattazione può essere convalidata con il cmdlet Get-MsolDevice di PowerShell.
 
 È possibile usare gli attributi del dispositivo seguenti.
 
  Attributo del dispositivo  | Valori | Esempio
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | Qualsiasi valore stringa. |(device.displayName -eq "Rob iPhone")
- deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contiene "AndroidEnterprise")<br>(dispositivo.deviceOSType -eq "AndroidForWork")
+ displayName | Qualsiasi valore stringa. |(Device. displayName-EQ "Rob iPhone")
+ deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "iPad") o (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contiene "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
  deviceOSVersion | Qualsiasi valore stringa. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Qualsiasi valore stringa. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personale, Azienda, Sconosciuto | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Profilo di registrazione dispositivi Apple, registrazione dispositivi - Identificatori di dispositivi aziendali (Android - Kiosk) o nome del profilo Di Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Profilo di registrazione del dispositivo Apple, registrazione del dispositivo-identificatori di dispositivi aziendali (Android-chiosco) o nome del profilo di Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ID oggetto di Azure AD valido |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
- devicePhysicalIds | qualsiasi valore stringa utilizzato da Autopilot, ad esempio tutti i dispositivi Autopilot, OrderID o PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contiene "[TDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
- systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (device.systemLabels -contiene "M365Managed")
+ devicePhysicalIds | qualsiasi valore stringa utilizzato da Autopilot, ad esempio tutti i dispositivi Autopilot, OrderID o PurchaseOrderID  | (Device. devicePhysicalIDs-any _-contains "[ZTDId]") (Device. devicePhysicalIds-any _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-any _-EQ "[PurchaseOrderId]: 76222342342")
+ systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (Device. systemLabels-contiene "M365Managed")
 
 > [!Note]  
 > Per deviceOwnership durante la creazione di gruppi dinamici per i dispositivi, è necessario impostare il valore uguale a "Company". In Intune la proprietà del dispositivo viene invece rappresentata come aziendale. Fare riferimento a [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) per altri dettagli. 

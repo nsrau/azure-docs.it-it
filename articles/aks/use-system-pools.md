@@ -1,78 +1,78 @@
 ---
-title: Usare i pool di nodi di sistema nel servizio Azure Kubernetes (AKS)Use system node pools in Azure Kubernetes Service (AKS)
-description: Informazioni su come creare e gestire pool di nodi di sistema nel servizio Azure Kubernetes (AKS)Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
+title: Usare i pool di nodi di sistema in Azure Kubernetes Service (AKS)
+description: Informazioni su come creare e gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
 ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259069"
 ---
-# <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema nel servizio Azure Kubernetes (AKS)Manage system node pools in Azure Kubernetes Service (AKS)
+# <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 
-Nel servizio Azure Kubernetes (AKS), i nodi della stessa configurazione vengono raggruppati in pool di *nodi.* I pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. I pool di nodi di sistema e i pool di nodi utente sono due diverse modalità di pool di nodi per i cluster AKS. I pool di nodi di sistema hanno lo scopo principale di ospitare pod di sistema critici come CoreDNS e tunnelfront. I pool di nodi utente servono allo scopo principale dell'hosting dei pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si desidera avere un solo pool nel cluster AKS. Ogni cluster AKS deve contenere almeno un pool di nodi di sistema con almeno un nodo. 
+In Azure Kubernetes Service (AKS) i nodi della stessa configurazione sono raggruppati in pool di *nodi*. I pool di nodi contengono le macchine virtuali sottostanti che eseguono le applicazioni. I pool di nodi di sistema e i pool di nodi utente sono due diverse modalità di pool di nodi per i cluster AKS. I pool di nodi di sistema servono lo scopo principale di ospitare i pod di sistema critici, ad esempio CoreDNS e tunnelfront. I pool di nodi utente servono lo scopo principale di ospitare i pod dell'applicazione. Tuttavia, i pod dell'applicazione possono essere pianificati nei pool di nodi di sistema se si vuole avere un solo pool nel cluster AKS. Ogni cluster AKS deve contenere almeno un pool di nodi di sistema con almeno un nodo. 
 
 > [!Important]
 > Se si esegue un singolo pool di nodi di sistema per il cluster AKS in un ambiente di produzione, è consigliabile usare almeno tre nodi per il pool di nodi.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* È necessaria l'interfaccia della riga di comando di Azure versione 2.3.1 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+* È necessario aver installato e configurato l'interfaccia della riga di comando di Azure 2.3.1 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="limitations"></a>Limitazioni
 
-Le limitazioni seguenti si applicano quando si creano e si gestiscono cluster AKS che supportano pool di nodi di sistema.
+Quando si creano e si gestiscono cluster AKS che supportano i pool di nodi di sistema, si applicano le limitazioni seguenti.
 
-* Vedere Quote, restrizioni sulle dimensioni delle [macchine virtuali e disponibilità dell'area nel servizio Azure Kubernetes (AKS).][quotas-skus-regions]
-* Il cluster AKS deve essere compilato con set di scalabilità di macchine virtuali come tipo di macchina virtuale.
+* Vedere [quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions].
+* Il cluster AKS deve essere compilato con i set di scalabilità di macchine virtuali come tipo di VM.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux, la lunghezza deve essere compresa tra 1 e 12 caratteri. Per i pool di nodi di Windows, la lunghezza deve essere compresa tra 1 e 6 caratteri.
 
 ## <a name="system-and-user-node-pools"></a>Pool di nodi di sistema e utente
 
-I nodi del pool di nodi di sistema dispongono ciascuno dell'etichetta **kubernetes.azure.com/mode: system .** Ogni cluster AKS contiene almeno un pool di nodi di sistema. I pool di nodi di sistema presentano le restrizioni seguenti:System node pools have the following restrictions:
+I nodi del pool di nodi di sistema hanno l'etichetta **kubernetes.Azure.com/mode: System**. Ogni cluster AKS contiene almeno un pool di nodi di sistema. I pool di nodi di sistema presentano le restrizioni seguenti:
 
-* I pool di sistema osType devono essere Linux.System pools osType must be Linux.
-* I pool di nodi utente osType possono essere Linux o Windows.User node pools osType may be Linux or Windows.
+* I pool di sistema osType devono essere Linux.
+* I pool di nodi utente osType possono essere Linux o Windows.
 * I pool di sistema devono contenere almeno un nodo e i pool di nodi utente possono contenere zero o più nodi.
-* I pool di nodi di sistema richiedono uno SKU della macchina virtuale di almeno 2 vCPU e una memoria di 4 GB.
-* I pool di nodi di sistema devono supportare almeno 30 pod, come descritto dalla formula del [valore minimo e massimo per i pod][maximum-pods].
+* I pool di nodi di sistema richiedono uno SKU di VM di almeno 2 vCPU e 4 GB di memoria.
+* I pool di nodi di sistema devono supportare almeno 30 POD come descritto dalla [formula valore minimo e massimo per i pod][maximum-pods].
 * I pool di nodi spot richiedono pool di nodi utente.
 
-È possibile eseguire le operazioni seguenti con i pool di nodi:You can do the following operations with node pools:
+Con i pool di nodi è possibile eseguire le operazioni seguenti:
 
-* Modificare un pool di nodi di sistema in modo che sia un pool di nodi utente, a condizione che si disponga di un altro pool di nodi di sistema per prendere il suo posto nel cluster AKS.
-* Modificare un pool di nodi utente in pool di nodi di sistema.
+* Modificare un pool di nodi di sistema in modo che sia un pool di nodi utente, purché si disponga di un altro pool di nodi di sistema da inserire nel cluster AKS.
+* Modificare un pool di nodi utente in modo che sia un pool di nodi di sistema.
 * Eliminare i pool di nodi utente.
-* È possibile eliminare i pool di nodi di sistema, purché si disponga di un altro pool di nodi di sistema per prendere il suo posto nel cluster AKS.
+* È possibile eliminare i pool di nodi di sistema, purché si disponga di un altro pool di nodi di sistema per sostituirlo nel cluster AKS.
 * Un cluster AKS può avere più pool di nodi di sistema e richiede almeno un pool di nodi di sistema.
 
-## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Creare un nuovo cluster AKS con un pool di nodi di sistemaCreate a new AKS cluster with a system node pool
+## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Creare un nuovo cluster AKS con un pool di nodi di sistema
 
-Quando si crea un nuovo cluster AKS, si crea automaticamente un pool di nodi di sistema con un singolo nodo. Il pool di nodi iniziale per impostazione predefinita è una modalità di tipo sistema. Quando si creano nuovi pool di nodi con az aks nodepool add, tali pool di nodi sono pool di nodi utente a meno che non si specifichi in modo esplicito il parametro mode.
+Quando si crea un nuovo cluster AKS, viene creato automaticamente un pool di nodi di sistema con un solo nodo. Per impostazione predefinita, il pool di nodi iniziale è una modalità di tipo System. Quando si creano nuovi pool di nodi con AZ AKS nodepool Add, i pool di nodi sono pool di nodi utente a meno che non si specifichi in modo esplicito il parametro mode.
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus.*
+Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Usare il comando [az servizio Azure Kubernetes create][az-aks-create] per creare un cluster del servizio Azure Container. Nell'esempio seguente viene creato un cluster denominato *myAKSCluster* con un pool di sistema contenente un nodo. Per i carichi di lavoro di produzione, assicurarsi di utilizzare pool di nodi di sistema con almeno tre nodi. Il completamento dell'operazione può richiedere alcuni minuti.
+Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio Azure Kubernetes. Nell'esempio seguente viene creato un cluster denominato *myAKSCluster* con un pool di sistema che contiene un nodo. Per i carichi di lavoro di produzione, assicurarsi di usare i pool di nodi di sistema con almeno tre nodi. Il completamento dell'operazione può richiedere alcuni minuti.
 
 ```azurecli-interactive
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Aggiungere un pool di nodi di sistema a un cluster AKS esistenteAdd a system node pool to an existing AKS cluster
+## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Aggiungere un pool di nodi di sistema a un cluster AKS esistente
 
-È possibile aggiungere uno o più pool di nodi di sistema ai cluster AKS esistenti. Il comando seguente aggiunge un pool di nodi di tipo di modalità system con un conteggio predefinito di tre nodi.
+È possibile aggiungere uno o più pool di nodi di sistema ai cluster AKS esistenti. Il comando seguente aggiunge un pool di nodi di tipo System con un numero predefinito di tre nodi.
 
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
-## <a name="show-details-for-your-node-pool"></a>Visualizzare i dettagli per il pool di nodi
+## <a name="show-details-for-your-node-pool"></a>Mostra i dettagli per il pool di nodi
 
 È possibile controllare i dettagli del pool di nodi con il comando seguente.  
 
@@ -80,7 +80,7 @@ az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-Una modalità di tipo **Sistema** è definita per i pool di nodi di sistema e una modalità di tipo **Utente** è definita per i pool di nodi utente.
+Per i pool di nodi di sistema è definita una modalità di tipo **System** e per i pool di nodi utente viene definita una modalità di tipo **User** .
 
 ```output
 {
@@ -112,28 +112,28 @@ Una modalità di tipo **Sistema** è definita per i pool di nodi di sistema e un
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Aggiornare i pool di nodi utente e di sistema
+## <a name="update-system-and-user-node-pools"></a>Aggiornare i pool di nodi di sistema e utente
 
-È possibile modificare le modalità per i pool di nodi di sistema e utente. È possibile modificare un pool di nodi di sistema in un pool di utenti solo se esiste già un altro pool di nodi di sistema nel cluster AKS.
+È possibile modificare le modalità per i pool di nodi del sistema e dell'utente. È possibile modificare un pool di nodi di sistema in un pool di utenti solo se nel cluster AKS è già presente un altro pool di nodi di sistema.
 
-Questo comando modifica un pool di nodi di sistema in un pool di nodi utente.
+Questo comando consente di modificare un pool di nodi di sistema in un pool di nodi utente.
 
 ```azurecli-interactive
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode user
 ```
 
-Questo comando modifica un pool di nodi utente in un pool di nodi di sistema.
+Questo comando consente di modificare un pool di nodi utente in un pool di nodi di sistema.
 
 ```azurecli-interactive
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
 
-## <a name="delete-a-system-node-pool"></a>Eliminare un pool di nodi di sistemaDelete a system node pool
+## <a name="delete-a-system-node-pool"></a>Eliminare un pool di nodi di sistema
 
 > [!Note]
-> Per utilizzare i pool di nodi di sistema nei cluster AKS prima della versione API 2020-03-02, aggiungere un nuovo pool di nodi di sistema, quindi eliminare il pool di nodi predefinito originale.
+> Per usare i pool di nodi di sistema nei cluster AKS prima dell'API versione 2020-03-02, aggiungere un nuovo pool di nodi di sistema, quindi eliminare il pool di nodi predefinito originale.
 
-In precedenza non era possibile eliminare il pool di nodi di sistema, ovvero il pool di nodi predefinito iniziale in un cluster AKS. È ora possibile eliminare qualsiasi pool di nodi dai cluster. Poiché i cluster AKS richiedono almeno un pool di nodi di sistema, è necessario disporre di almeno due pool di nodi di sistema nel cluster AKS prima di poter eliminare uno di essi.
+In precedenza non è stato possibile eliminare il pool di nodi di sistema, che era il pool di nodi predefinito iniziale in un cluster AKS. È ora possibile eliminare qualsiasi pool di nodi dai cluster. Poiché i cluster AKS richiedono almeno un pool di nodi di sistema, prima di poter eliminare uno di essi è necessario disporre di almeno due pool di nodi di sistema nel cluster AKS.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
@@ -141,7 +141,7 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare e gestire pool di nodi di sistema in un cluster AKS. Per ulteriori informazioni sull'utilizzo di più pool di nodi, vedere [Utilizzare pool di più nodi.][use-multiple-node-pools]
+In questo articolo si è appreso come creare e gestire i pool di nodi di sistema in un cluster AKS. Per altre informazioni su come usare più pool di nodi, vedere [usare pool di nodi multipli][use-multiple-node-pools].
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

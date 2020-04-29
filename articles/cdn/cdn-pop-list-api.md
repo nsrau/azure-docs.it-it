@@ -1,5 +1,5 @@
 ---
-title: Recuperare l'elenco di indirizzi IP POP corrente per la rete CDN di Azure Documenti Microsoft
+title: Recuperare l'elenco di indirizzi IP POP correnti per la rete CDN di Azure | Microsoft Docs
 description: Informazioni su come recuperare l'elenco POP corrente.
 services: cdn
 documentationcenter: ''
@@ -16,28 +16,28 @@ ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260191"
 ---
-# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco IP POP corrente per la rete CDN di AzureRetrieve the current POP IP list for Azure CDN
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP correnti per la rete CDN di Azure
 
-## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco IP POP Verizon corrente per la rete CDN di AzureRetrieve the current Verizon POP IP list for Azure CDN
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco di indirizzi IP POP Verizon corrente per la rete CDN di Azure
 
 È possibile usare l'API REST per recuperare il set di indirizzi IP per i server POP (point of presence) di Verizon. Questi server POP effettuano richieste ai server di origine associati agli endpoint della rete per la distribuzione di contenuti di Azure (CDN) in un profilo Verizon (**Rete CDN Standard di Azure fornita da Verizon** o **Rete CDN Premium di Azure fornita da Verizon**). Si noti che questo set di indirizzi IP è diverso dagli indirizzi IP che un client visualizza quando si effettuano richieste ai POP. 
 
 Per la sintassi dell'operazione dell'API REST per il recupero dell'elenco POP, vedere [Edge Nodes - List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list) (Nodi perimetrali - Elenco).
 
-## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco IP Pop Microsoft corrente per la rete CDN di AzureRetrieve the current Microsoft POP IP list for Azure CDN
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Recuperare l'elenco Microsoft POP IP corrente per la rete CDN di Azure
 
-Per bloccare l'applicazione in modo che accetti traffico solo dalla rete CDN di Azure da Microsoft, è necessario configurare gli ACL IP per il back-end. È inoltre possibile limitare il set di valori accettati per l'intestazione 'X-Forwarded-Host' inviata dalla rete CDN di Azure da Microsoft.You may also restrict the set of accepted values for the header 'X-Forwarded-Host' sent by Azure CDN from Microsoft. Questi passaggi sono descritti in dettaglio come di seguito:These steps are detailed out as below:
+Per bloccare l'applicazione in modo che accetti il traffico solo dalla rete CDN di Azure di Microsoft, è necessario configurare gli ACL IP per il back-end. È anche possibile limitare il set di valori accettati per l'intestazione ' X-Inoltred-host ' inviata dalla rete CDN di Azure da Microsoft. Questi passaggi sono descritti di seguito:
 
-Configurare l'aclling IP affinché i back-end accettino il traffico dalla rete CDN di Azure dallo spazio di indirizzi IP back-end di Microsoft e solo dai servizi di infrastruttura di Azure.Configure IP ACLing for your backends to accept traffic from Azure CDN from Microsoft's back-end IP address space and Azure's infrastructure services only. 
+Configurare ACLing IP per i back-end in modo da accettare il traffico dalla rete CDN di Azure dallo spazio degli indirizzi IP back-end di Microsoft e dai servizi di infrastruttura di Azure. 
 
-* Rete CDN di Azure dallo spazio IP back-end IPv4 di Microsoft: 147.243.0.0/16Azure CDN from Microsoft's IPv4 backend IP space: 147.243.0.0/16
-* Rete CDN di Azure dallo spazio IP back-end IPv6 di Microsoft: 2a01:111:2050::/44Azure CDN from Microsoft's IPv6 backend IP space: 2a01:111:2050::/44
+* Rete CDN di Azure dello spazio IP back-end IPv4 di Microsoft: 147.243.0.0/16
+* Rete CDN di Azure dello spazio IP back-end IPv6 di Microsoft: 2a01:111:2050::/44
 
 Gli intervalli IP e i tag di servizio per i servizi Microsoft sono disponibili [qui](https://www.microsoft.com/download/details.aspx?id=56519)
 

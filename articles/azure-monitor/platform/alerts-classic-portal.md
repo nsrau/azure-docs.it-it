@@ -1,15 +1,15 @@
 ---
-title: Creare e gestire avvisi di metrica classica tramite Monitoraggio di AzureCreate and manage classic metric alerts using Azure Monitor
+title: Creare e gestire avvisi di metrica classici con monitoraggio di Azure
 description: Informazioni su come usare il portale di Azure, l'interfaccia della riga di comando o Powershell per creare, visualizzare e gestire regole di avviso classico per le metriche.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114590"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
@@ -34,7 +34,7 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 6. Selezionare **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** se si vuole che gli amministratori e i coamministratori ricevano una notifica tramite posta elettronica quando si attiva l'avviso.
 
-7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare più messaggi di posta elettronica con un punto e virgola nel formato seguente: *email\@\@contoso.com;email2 contoso.com*
+7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare più messaggi di posta elettronica con punti e virgola, nel formato seguente: *email\@Contoso\@. com; email2 contoso.com*
 
 8. Inserire un URI valido nel campo **Webhook** per eseguire la chiamata quando viene attivato l'avviso.
 
@@ -88,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 Questa sezione illustra come usare i comandi PowerShell per creare, visualizzare e gestire gli avvisi delle metriche classiche. Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure per gli avvisi classici per le metriche.
 
-1. Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per ulteriori informazioni, vedere [Come installare e configurare PowerShell.](/powershell/azure/overview) È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+1. Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per ulteriori informazioni, vedere [come installare e configurare PowerShell](/powershell/azure/overview). È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
 2. Per prima cosa, accedere alla sottoscrizione di Azure.
 
@@ -126,7 +126,7 @@ Questa sezione illustra come usare i comandi PowerShell per creare, visualizzare
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Le regole di avviso classiche non possono più essere create tramite PowerShell. Per creare una regola di avviso è necessario utilizzare il nuovo comando ['Add-AzMetricAlertRule'.](/powershell/module/az.monitor/add-azmetricalertrule)
+8. Le regole di avviso classiche non possono più essere create tramite PowerShell. Per creare una regola di avviso, è necessario usare il nuovo comando ["Add-AzMetricAlertRule"](/powershell/module/az.monitor/add-azmetricalertrule) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Scalabilità automatica dei set di scalabilità delle macchine virtuali nel portale di AzureAutoscale virtual machine scale sets in the Azure portal
+title: Ridimensionare automaticamente i set di scalabilità di macchine virtuali nella portale di Azure
 description: Come creare regole di scalabilità automatica per i set di scalabilità di macchine virtuali nel portale di Azure
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: jushiman
 ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010291"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
@@ -47,10 +47,10 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
     | *Statistica intervallo di tempo* | Definisce la modalità di aggregazione delle metriche raccolte in ogni intervallo di tempo per l'analisi.                             | Media        |
     | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Maggiore di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 70             |
-    | *Durata*             | Il tempo monitorato prima che vengano confrontati i valori delle metriche e delle soglie.                                   | 10 minuti     |
+    | *Duration*             | Il tempo monitorato prima che vengano confrontati i valori delle metriche e delle soglie.                                   | 10 minuti     |
     | *Operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                        | Aumenta percentuale di |
-    | *Conteggio istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                            | 20             |
-    | *Raffreddare (minuti)*  | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti      |
+    | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                            | 20             |
+    | *Spegni a freddo (minuti)*  | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti      |
 
     Gli esempi seguenti mostrano una regola creata nel portale di Azure che corrisponde a queste impostazioni:
 
@@ -72,7 +72,7 @@ Nelle ore serali o nel fine settimana è possibile che la richiesta delle applic
     | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                      | Minore di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 30             |
     | *Operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                         | Riduci percentuale di |
-    | *Conteggio istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                             | 20             |
+    | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                             | 20             |
 
 3. Per creare la regola, selezionare **Aggiungi**
 
@@ -120,7 +120,7 @@ Per visualizzare la modalità in cui vengono applicate le regole di scalabilità
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per ulteriori informazioni, vedere [Scalabilità automatica verticale con set](virtual-machine-scale-sets-vertical-scale-reprovision.md)di scalabilità di macchine virtuali .
+In questo articolo si è appreso come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [scalabilità automatica verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Per informazioni su come gestire le istanze di macchine virtuali, vedere [Gestire set di scalabilità di macchine virtuali con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

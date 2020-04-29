@@ -1,5 +1,5 @@
 ---
-title: Azure Services that support managed identities - Azure AD
+title: Servizi di Azure che supportano identità gestite-Azure AD
 description: Elenco di servizi che supportano le identità gestite per le risorse di Azure e l'autenticazione di Azure AD
 services: active-directory
 author: MarkusVi
@@ -11,10 +11,10 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991280"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
@@ -79,10 +79,10 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 | Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile |
 | Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile |
 
-Fare riferimento all'elenco seguente per usare un'identità gestita con [Azure Blueprints:](../../governance/blueprints/overview.md)
+Vedere l'elenco seguente per usare un'identità gestita con i [progetti di Azure](../../governance/blueprints/overview.md):
 
-- [Portale di Azure - assegnazione del blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [API REST - assegnazione del blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Assegnazione portale di Azure-Blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API REST-assegnazione progetto](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 
@@ -156,19 +156,19 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 | Assegnata dal sistema | ![Disponibile][check] | Non disponibile | Non disponibile | Non disponibile |
 | Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
 
-Fare riferimento all'elenco seguente per configurare l'identità gestita per le attività del Registro di sistema del contenitore di Azure (nelle aree in cui è disponibile):Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
+Vedere l'elenco seguente per configurare l'identità gestita per le attività di Container Registry di Azure (nelle aree in cui sono disponibili):
 
 - [Interfaccia della riga di comando di Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
-[L'identità gestita per](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) le applicazioni Service Fabric è in anteprima e disponibile in tutte le aree.
+L' [identità gestita per le applicazioni Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) è in anteprima e disponibile in tutte le aree geografiche.
 
 Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
 | Assegnata dal sistema | ![Disponibile][check] | Non disponibile | Non disponibile | non disponibile |
 | Assegnata dall'utente | ![Disponibile][check] | Non disponibile | Non disponibile |Non disponibile |
 
-Fare riferimento all'elenco seguente per configurare l'identità gestita per le applicazioni di Azure Service Fabric in tutte le aree:Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+Vedere l'elenco seguente per configurare l'identità gestita per le applicazioni Service Fabric di Azure in tutte le aree:
 - [Modello di Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
@@ -177,12 +177,12 @@ I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati 
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Fare riferimento all'elenco seguente per configurare l'accesso a Azure Resource Manager:Refer to the following list to configure access to Azure Resource Manager:
+Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
-- [Assegnare l'accesso tramite il portale di AzureAssign access via Azure portal](howto-assign-access-portal.md)
-- [Assegnare l'accesso tramite PowerShellAssign access via PowerShell](howto-assign-access-powershell.md)
-- [Assegnare l'accesso tramite l'interfaccia della riga di comando di AzureAssign](howto-assign-access-CLI.md)
-- [Assegnare l'accesso tramite il modello di Azure Resource ManagerAssign access via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
+- [Assegnare l'accesso tramite portale di Azure](howto-assign-access-portal.md)
+- [Assegnare l'accesso tramite PowerShell](howto-assign-access-powershell.md)
+- [Assegnare l'accesso tramite l'interfaccia della riga di comando Azure](howto-assign-access-CLI.md)
+- [Assegnare l'accesso tramite Azure Resource Manager modello](../../role-based-access-control/role-assignments-template.md)
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|:-:|
@@ -244,7 +244,7 @@ Fare riferimento all'elenco seguente per configurare l'accesso a Azure Resource 
 
 
 
-### <a name="azure-storage-blobs-and-queues"></a>BLOB e code di Archiviazione di AzureAzure Storage blobs and queues
+### <a name="azure-storage-blobs-and-queues"></a>BLOB e code di archiviazione di Azure
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|:-:|
@@ -272,7 +272,7 @@ Fare riferimento all'elenco seguente per configurare l'accesso a Azure Resource 
 | 21Vianet per Azure Cina | `https://*.asazure.chinacloudapi.cn` | ![Disponibile][check] |
 
 > [!Note]
-> Microsoft Power BI supporta anche [le identità gestite.](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
+> Microsoft Power BI supporta anche le [identità gestite](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
 [check]: media/services-support-managed-identities/check.png "Disponibile"

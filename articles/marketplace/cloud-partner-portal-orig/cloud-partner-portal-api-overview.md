@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento all'API del portale per i partner cloud Azure Marketplace
+title: Informazioni di riferimento sull'API portale Cloud Partner | Azure Marketplace
 description: Descrizione dei prerequisiti per usare ed elencare le operazioni all'API marketplace.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: b9f698ea81830aaa8761c05012cf6843d07ad5a4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81256417"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Riferimento all'API del portale Cloud Partner
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le [modifiche alle API CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) elencate in questo documento per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le [modifiche apportate alle API cpp](#changes-to-cpp-apis-after-the-migration-to-partner-center) elencate in questo documento per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Le API REST del portale Cloud Partner consentono il recupero programmatico e la manipolazione di carichi di lavoro, offerte e profili di pubblicazione. Le API usano il controllo degli accessi in base al ruolo (RBAC) per applicare le autorizzazioni corrette in fase di elaborazione.
 
@@ -28,15 +28,15 @@ Questo riferimento fornisce i dettagli tecnici per le API REST del portale Cloud
 Prima di usare le API, è opportuno rivedere:
 
 - L'articolo [Prerequisiti](./cloud-partner-portal-api-prerequisites.md) per informazioni su come aggiungere un'entità servizio al proprio account e ottenere un token di accesso di Azure Active Directory (Azure AD) per l'autenticazione.
-- Le due strategie di [controllo della concorrenza](./cloud-partner-portal-api-concurrency-control.md) disponibili per chiamare queste API.
+- Le due strategie di [controllo della concorrenza](./cloud-partner-portal-api-concurrency-control.md) disponibili per la chiamata di queste API.
 - API aggiuntiva [Considerazioni](./cloud-partner-portal-api-considerations.md), ad esempio il controllo delle versioni e la gestione degli errori.
 
-## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Modifiche alle API CPP dopo la migrazione al Centro per i partnerChanges to CPP APIs after the migration to Partner Center
+## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Modifiche alle API CPP dopo la migrazione al centro per i partner
 
 | **API** | **Descrizione modifica:** | **Impatto** |
 | ------- | ---------------------- | ---------- |
-| Pubblica Pubblicazione, GoLive, Annulla | Per le offerte migrate, l'intestazione della risposta avrà un formato diverso, ma continuerà a funzionare nello stesso modo, indicando un percorso relativo per recuperare lo stato dell'operazione. | Quando si inviauna una delle richieste POST corrispondenti per un'offerta, l'intestazione Location avrà uno dei due formati a seconda dello stato di migrazione dell'offerta:<ul><li>Offerte non migrate<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offerte migrate<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| Operazione GET | Per i tipi di offerta che in precedenza supportavano il campo 'notification-email' nella risposta, questo campo sarà deprecato e non tornerà più per le offerte migrate. | Per le offerte migrate, non invieremo più notifiche all'elenco dei messaggi di posta elettronica specificati nelle richieste. Al contrario, il servizio API si allineerà con il processo di posta elettronica di notifica nel Centro per i partner per l'invio di messaggi di posta elettronica. In particolare, le notifiche verranno inviate all'indirizzo e-mail impostato nella sezione Informazioni di contatto del venditore delle impostazioni dell'account nel Centro per i partner, per notificarti lo stato di avanzamento dell'operazione.<br><br>Controlla l'indirizzo email impostato nella sezione Informazioni di contatto del venditore delle [impostazioni dell'account](https://partner.microsoft.com/dashboard/account/management) nel Centro per i partner per assicurarti che venga fornita l'email corretta per le notifiche.  |
+| POST Publish, tentare, Cancel | Per le offerte migrate, l'intestazione della risposta avrà un formato diverso ma continuerà a funzionare nello stesso modo, indicando un percorso relativo per recuperare lo stato dell'operazione. | Quando si inviano le richieste POST corrispondenti per un'offerta, l'intestazione Location avrà uno dei due formati seguenti a seconda dello stato di migrazione dell'offerta:<ul><li>Offerte non migrate<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Offerte migrate<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
+| Operazione GET | Per i tipi di offerta che in precedenza supportano il campo ' Notification-email ' nella risposta, questo campo sarà deprecato e non verrà più restituito per le offerte migrate. | Per le offerte migrate, non verranno più inviate notifiche all'elenco dei messaggi di posta elettronica specificati nelle richieste. Al contrario, il servizio API si allineerà con il processo di posta elettronica di notifica nel centro partner per inviare messaggi di posta elettronica. In particolare, le notifiche verranno inviate all'indirizzo di posta elettronica impostato nella sezione informazioni di contatto del venditore delle impostazioni dell'account nel centro per i partner, per notificare l'avanzamento dell'operazione.<br><br>Per assicurarsi che venga fornita la posta elettronica corretta per le notifiche, vedere l'indirizzo di posta elettronica indicato nella sezione informazioni di contatto del venditore delle [impostazioni dell'account](https://partner.microsoft.com/dashboard/account/management) nel centro per i partner.  |
 
 ## <a name="common-tasks"></a>Attività comuni
 

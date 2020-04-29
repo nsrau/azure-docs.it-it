@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259171"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
@@ -52,7 +52,7 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 ![Abilitare GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e riabilita l'accesso Git. I valori denominati forniscono una posizione sicura per gestire valori stringa costanti, inclusi i segreti, in tutte le configurazioni e i criteri dell'API, in modo da non doverli archiviare direttamente nelle istruzioni dei criteri. Per altre informazioni vedere [Come usare i valori denominati nei criteri di Gestione API di Azure](api-management-howto-properties.md).
+> Tutti i segreti che non sono definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a quando non si disabilita e si riabilita l'accesso git. I valori denominati forniscono una posizione sicura per gestire i valori stringa costanti, inclusi i segreti, in tutti i criteri e la configurazione dell'API, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni vedere [Come usare i valori denominati nei criteri di Gestione API di Azure](api-management-howto-properties.md).
 >
 >
 
@@ -148,7 +148,7 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Elemento | Descrizione |
+| Item | Descrizione |
 | --- | --- |
 | Cartella api-management radice |Contiene la configurazione di livello superiore per l'istanza del servizio |
 | Cartella apis |Contiene la configurazione per le API nell'istanza del servizio |

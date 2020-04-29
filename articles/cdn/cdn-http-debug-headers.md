@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260497"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
 L' intestazione della richiesta di debug della cache, `X-EC-Debug`, fornisce ulteriori informazioni sui criteri della cache applicati all'asset richiesto. Queste intestazioni sono specifiche dei prodotti **Azure CDN Premium di Verizon**.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 La risposta inviata dai server POP a un utente include l'intestazione `X-EC-Debug` solo quando sono soddisfatte le condizioni seguenti:
 
 - Nel motore regole per la richiesta specificata è stata abilitata la [funzionalità relativa alle intestazioni di risposta di debug per la cache](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers).
@@ -151,7 +151,7 @@ I termini usati nella sintassi dell'intestazione della risposta riportata sopra 
 
 - MATimePeriod: converte il valore della durata massima (ossia MASeconds) nell'equivalente approssimativo di un'unità superiore (ad esempio giorni). 
 
-- UnixTime: indica il timestamp della cache del contenuto richiesto in unisx time (noto anche come ora POSIX o Unix epoch). Il timestamp della cache indica la data/ora a partire dalla quale verrà calcolato il TTL di un asset. 
+- UnixTime: indica il timestamp della cache del contenuto richiesto in tempo UNIX (noto anche come ora POSIX o UNIX Epoch). Il timestamp della cache indica la data/ora a partire dalla quale verrà calcolato il TTL di un asset. 
 
     Se il server di origine non usa un server di memorizzazione nella cache HTTP di terze parti o se tale server non restituisce l'intestazione di risposta Age, il timestamp della cache corrisponderà sempre alla data/ora in cui l'asset è stato recuperato o riconvalidato. In caso contrario, i server POP useranno il campo Age per calcolare il TTL dell'asset nel modo seguente: Retrieval/RevalidateDateTime - Age.
 

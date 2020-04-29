@@ -1,25 +1,25 @@
 ---
-title: SQL keywords for Azure Cosmos DB
-description: Informazioni sulle parole chiave SQL per il database Cosmos di Azure.Learn about SQL keywords for Azure Cosmos DB.
+title: Parole chiave SQL per Azure Cosmos DB
+description: Informazioni sulle parole chiave SQL per Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261568"
 ---
-# <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DBKeywords in Azure Cosmos DB
+# <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DB
 
-Questo articolo descrive in dettaglio le parole chiave che possono essere usate nelle query SQL del database di Azure.This article details keywords which may be used in Azure Cosmos DB SQL queries.
+Questo articolo descrive in dettaglio le parole chiave che possono essere usate nelle query SQL Azure Cosmos DB.
 
 ## <a name="between"></a>BETWEEN
 
-È possibile `BETWEEN` utilizzare la parola chiave per esprimere query su intervalli di valori stringa o numerici. Ad esempio, la query seguente restituisce tutti gli elementi in cui il primo grado figlio è 1-5, inclusi.
+È possibile usare la `BETWEEN` parola chiave per esprimere query su intervalli di valori stringa o numerici. Ad esempio, la query seguente restituisce tutti gli elementi in cui la qualità del primo figlio è 1-5, inclusi.
 
 ```sql
     SELECT *
@@ -27,23 +27,23 @@ Questo articolo descrive in dettaglio le parole chiave che possono essere usate 
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-È inoltre possibile `BETWEEN` utilizzare `SELECT` la parola chiave nella clausola, come nell'esempio seguente.
+È anche possibile usare la `BETWEEN` parola chiave nella `SELECT` clausola, come nell'esempio seguente.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 ```
 
-Nell'API SQL, a differenza di ANSI SQL, è possibile esprimere query di intervallo su proprietà di tipi misti. Ad esempio, `grade` potrebbe essere `5` un numero come `grade4` in alcuni elementi e una stringa come in altri. In questi casi, come in JavaScript, il confronto `Undefined`tra i due tipi diversi determina , in modo che l'elemento venga ignorato.
+Diversamente da ANSI SQL, nell'API SQL è possibile esprimere query di intervallo su proprietà di tipi misti. Ad esempio, `grade` può essere un numero come `5` in alcuni elementi e una stringa come `grade4` in altri. In questi casi, come in JavaScript, il confronto tra i due tipi diversi restituisce `Undefined`, quindi l'elemento viene ignorato.
 
 > [!TIP]
-> Per tempi di esecuzione delle query più rapidi, creare un criterio di `BETWEEN` indicizzazione che usa un tipo di indice di intervallo su qualsiasi proprietà numerica o percorso filtrato dalla clausola.
+> Per velocizzare i tempi di esecuzione delle query, creare un criterio di indicizzazione che utilizza un tipo di indice di intervallo `BETWEEN` rispetto a qualsiasi proprietà o percorso numerico che la clausola filtra.
 
 ## <a name="distinct"></a>DISTINCT
 
 La `DISTINCT` parola chiave elimina i duplicati nella proiezione della query.
 
-In questo esempio, la query proietta i valori per ogni cognome:In this example, the query projects values for each last name:
+In questo esempio la query proietta i valori per ogni cognome:
 
 ```sql
 SELECT DISTINCT VALUE f.lastName
@@ -58,7 +58,7 @@ I risultati sono:
 ]
 ```
 
-È inoltre possibile proiettare oggetti univoci. In questo caso, il campo lastName non esiste in uno dei due documenti, pertanto la query restituisce un oggetto vuoto.
+È anche possibile proiettare oggetti univoci. In questo caso, il campo lastName non esiste in uno dei due documenti, quindi la query restituisce un oggetto vuoto.
 
 ```sql
 SELECT DISTINCT f.lastName
@@ -76,14 +76,14 @@ I risultati sono:
 ]
 ```
 
-DISTINCT può essere utilizzato anche nella proiezione all'interno di una sottoquery:
+DISTINCT può essere usato anche nella proiezione all'interno di una sottoquery:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
 FROM f
 ```
 
-Questa query proietta una matrice che contiene givenName di ogni figlio con duplicati rimossi. Questa matrice viene alias come ChildNames e proiettata nella query esterna.
+Questa query proietta una matrice che contiene il valore specificato di ogni figlio con i duplicati rimossi. Questa matrice viene sottoposta a alias come ChildNames e proiettata nella query esterna.
 
 I risultati sono:
 
@@ -103,7 +103,7 @@ I risultati sono:
 ]
 ```
 
-Le query con una funzione di `DISTINCT` sistema di aggregazione e una sottoquery con non sono supportate. Ad esempio, la query seguente non è supportata:
+Le query con una funzione di sistema di aggregazione e `DISTINCT` una sottoquery con non sono supportate. Ad esempio, la query seguente non è supportata:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -111,7 +111,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Utilizzare la parola chiave IN per verificare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, la query seguente restituisce `WakefieldFamily` `AndersenFamily`tutti gli elementi della famiglia in cui è `id` o .
+Usare la parola chiave IN per verificare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, la query seguente restituisce tutti gli elementi della `id` famiglia in `WakefieldFamily` cui `AndersenFamily`è o.
 
 ```sql
     SELECT *
@@ -127,15 +127,15 @@ Nell'esempio seguente vengono restituiti tutti gli elementi in cui lo stato è u
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-L'API SQL fornisce il supporto per [l'iterazione su matrici JSON](sql-query-object-array.md#Iteration), con un nuovo costrutto aggiunto tramite la parola chiave in nell'origine FROM.
+L'API SQL fornisce supporto per l' [iterazione su matrici JSON](sql-query-object-array.md#Iteration), con un nuovo costrutto aggiunto tramite la parola chiave in nell'origine da.
 
-Se si include la `IN` chiave di partizione nel filtro, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
+Se si include la chiave di partizione nel `IN` filtro, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
 
 ## <a name="top"></a>TOP
 
-La parola chiave `N` TOP restituisce il primo numero di risultati della query in un ordine indefinito. Come procedura consigliata, utilizzare `ORDER BY` TOP con la `N` clausola per limitare i risultati al primo numero di valori ordinati. La combinazione di queste due clausole è l'unico modo per indicare in modo prevedibile quali righe si attivano TOP.
+La parola chiave TOP restituisce il `N` primo numero di risultati della query in un ordine non definito. Come procedura consigliata, utilizzare TOP con la `ORDER BY` clausola per limitare i risultati al primo `N` numero di valori ordinati. La combinazione di queste due clausole è l'unico modo per indicare in modo prevedibile quali righe hanno effetto.
 
-È possibile utilizzare TOP con un valore costante, come nell'esempio seguente, o con un valore variabile utilizzando query con parametri.
+È possibile utilizzare TOP con un valore costante, come nell'esempio seguente, oppure con un valore di variabile utilizzando query con parametri.
 
 ```sql
     SELECT TOP 1 *
@@ -166,6 +166,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Guida introduttiva](sql-query-getting-started.md)
 - [Join](sql-query-join.md)
 - [Sottoquery:](sql-query-subquery.md)

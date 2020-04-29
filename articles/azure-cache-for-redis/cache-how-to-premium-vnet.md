@@ -1,5 +1,5 @@
 ---
-title: Configurare una rete virtuale - Cache di Azure Premium per RedisConfigure a Virtual Network - Premium Azure Cache for Redis
+title: Configurare una rete virtuale-cache di Azure Premium per Redis
 description: In questo articolo viene spiegato come creare e gestire il supporto di una rete virtuale per le istanze di Cache Redis di Azure Premium
 author: yegu-ms
 ms.author: yegu
@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010886"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
@@ -24,7 +24,7 @@ Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità d
 Per informazioni su altre funzionalità della cache di livello Premium, vedere [Introduzione al livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
 
 ## <a name="why-vnet"></a>Perché usare una rete virtuale?
-[La](https://azure.microsoft.com/services/virtual-network/) distribuzione della rete virtuale di Azure offre sicurezza e isolamento avanzati per la cache di Azure per Redis, nonché subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso.
+La distribuzione di [rete virtuale di Azure (VNet)](https://azure.microsoft.com/services/virtual-network/) offre sicurezza e isolamento avanzati per la cache di Azure per Redis, oltre a subnet, criteri di controllo di accesso e altre funzionalità per limitare ulteriormente l'accesso.
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 Il supporto della rete virtuale viene configurato nel pannello **Nuova cache Redis di azure** durante la creazione della cache. 
@@ -37,7 +37,7 @@ Per configurare la rete virtuale per la nuova cache, fare clic su **Rete virtual
 
 ![Rete virtuale][redis-cache-vnet]
 
-Selezionare la subnet desiderata dall'elenco a discesa **Subnet.**  Se lo si desidera, specificare un **indirizzo IP statico**. Il campo **Indirizzo IP statico** è facoltativo e, se non ne viene specificato alcuno, ne viene scelto uno dalla subnet selezionata.
+Selezionare la subnet desiderata dall'elenco a discesa **subnet** .  Se lo si desidera, specificare un **indirizzo IP statico**. Il campo **indirizzo IP statico** è facoltativo e, se non ne viene specificato alcuno, ne viene scelto uno dalla subnet selezionata.
 
 > [!IMPORTANT]
 > Quando si distribuisce Cache Redis di Azure in una rete virtuale di Resource Manager, la cache deve trovarsi in una subnet dedicata che non contenga altre risorse, ad eccezione delle istanze di Cache Redis di Azure. Se si tenta di distribuire un'istanza di Cache Redis di Azure in una rete virtuale di Resource Manager all'interno di una subnet contenente altre risorse, la distribuzione non riesce.
@@ -96,29 +96,29 @@ Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le p
 
 #### <a name="outbound-port-requirements"></a>Requisiti delle porte in uscita
 
-Esistono nove requisiti per le porte in uscita. Le richieste in uscita in questi intervalli sono in uscita verso altri servizi necessari per il funzionamento della cache o interne alla subnet Redis per la comunicazione internade. Per la replica geografica, esistono requisiti in uscita aggiuntivi per la comunicazione tra subnet della cache primaria e secondaria.
+Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in questi intervalli sono in uscita con altri servizi necessari per il funzionamento della cache o interni alla subnet Redis per la comunicazione tra nodi. Per la replica geografica sono disponibili altri requisiti in uscita per la comunicazione tra subnet della cache primaria e secondaria.
 
 | Porte | Direction | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | (Subnet Redis) |* |
-| 443 | In uscita | TCP | Redis dependency on Azure Key Vault | (Subnet Redis) | AzureKeyVault <sup>1</sup> |
+| 443 | In uscita | TCP | Dipendenza Redis da Azure Key Vault | (Subnet Redis) | AzureKeyVault <sup>1</sup> |
 | 53 |In uscita |TCP/UDP |Dipendenze Redis nel DNS (Internet/rete virtuale) | (Subnet Redis) | 168.63.129.16 e 169.254.169.254 <sup>2</sup> e qualsiasi server DNS personalizzato per la subnet <sup>3</sup> |
 | 8443 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) | (Subnet Redis) |
 | 10221-10231 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) | (Subnet Redis) |
 | 20226 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 | 13000-13999 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
-| 15000-15999 |In uscita |TCP |Comunicazioni interne per Redis e Replica geografica | (Subnet Redis) |(subnet Redis) (Subnet peer-replica geografica) |
+| 15000-15999 |In uscita |TCP |Comunicazioni interne per Redis e la replica geografica | (Subnet Redis) |(Subnet Redis) (Subnet peer di replica geografica) |
 | 6379-6380 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 
-<sup>1</sup> È possibile usare il tag di servizio 'AzureKeyVault' con i gruppi di sicurezza di rete di Resource Manager.1 You can use the service tag 'AzureKeyVault' with Resource Manager Network Security Groups.
+<sup>1</sup> è possibile usare il tag di servizio ' AzureKeyVault ' con gestione risorse gruppi di sicurezza di rete.
 
-<sup>2</sup> Questi indirizzi IP di proprietà di Microsoft vengono usati per indirizzare la macchina virtuale host che serve il DNS di Azure.
+<sup>2</sup> questi indirizzi IP di proprietà di Microsoft vengono usati per gestire la macchina virtuale host che funge da DNS di Azure.
 
-<sup>3</sup> Non necessario per le subnet senza server DNS personalizzato o le cache redis più recenti che ignorano il DNS personalizzato.
+<sup>3</sup> non necessario per le subnet senza server DNS personalizzato o cache Redis più recenti che ignorano il DNS personalizzato.
 
-#### <a name="geo-replication-peer-port-requirements"></a>Requisiti delle porte peer di replica geografica
+#### <a name="geo-replication-peer-port-requirements"></a>Requisiti della porta peer per la replica geografica
 
-Se si usa la replica geografica tra le cache nelle reti virtuali di Azure, tenere presente che la configurazione consigliata consiste nello sbloccare le porte 15000-15999 per l'intera subnet in entrambe le indicazioni in ingresso e in uscita per entrambe le cache, in modo che tutti i componenti di replica nella subnet possano comunicare direttamente tra loro anche in caso di failover geografico futuro.
+Se si usa la replica geografica tra le cache nelle reti virtuali di Azure, si noti che la configurazione consigliata prevede di sbloccare le porte 15000-15999 per l'intera subnet in entrambe le direzioni in ingresso e in uscita per entrambe le cache, in modo che tutti i componenti di replica nella subnet possano comunicare direttamente tra loro anche in caso di failover geografico futuro.
 
 #### <a name="inbound-port-requirements"></a>Requisiti delle porte in ingresso
 
@@ -126,16 +126,16 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 
 | Porte | Direction | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (subnet Redis), Rete virtuale, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), rete virtuale, Azure Load Balancer <sup>1</sup> |
 | 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 | 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
 | 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), bilanciamento del carico di Azure |
 | 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
-| 15000-15999 |In ingresso |TCP |Client communication to Redis Clusters, Azure load Balancing, and Geo-Replication | (Subnet Redis) |Rete virtuale, Azure Load Balancer (subnet peer di replica geografica)Virtual Network, Azure Load Balancer, (Geo-replica peer subnet) |
+| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure e replica geografica | (Subnet Redis) |Rete virtuale, Azure Load Balancer, (subnet peer di replica geografica) |
 | 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
 | 20226 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 
-<sup>1</sup> È possibile usare il tag di servizio 'AzureLoadBalancer' (Gestione risorse) (o 'AZURE_LOADBALANCER' per la composizione classica) per la creazione delle regole del gruppo di sicurezza di rete.
+<sup>1</sup> è possibile usare il tag di servizio ' AzureLoadBalancer ' (Gestione risorse) (o ' AZURE_LOADBALANCER ' per la distribuzione classica) per la creazione delle regole NSG.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Ulteriori requisiti di connettività della rete VNET
 
@@ -149,7 +149,7 @@ Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebb
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Come è possibile verificare che la cache funzioni in una rete virtuale?
 
 >[!IMPORTANT]
->Quando ci si connette a un'istanza della cache di Azure per Redis ospitata in una rete virtuale, i client della cache devono trovarsi nella stessa rete virtuale o in una rete virtuale con peering vNET abilitato all'interno della stessa area di Azure.When connecting to an Azure Cache for Redis instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled within the same Azure region. Il peering VNET globale non è attualmente supportato. Questo vale anche per le applicazioni di test e per gli strumenti per l'esecuzione di ping di diagnostica. Indipendentemente dalla posizione che ospita l'applicazione client, i gruppi di sicurezza di rete devono essere configurati in modo che il traffico di rete del client sia autorizzato a raggiungere l'istanza di Redis.
+>Quando ci si connette a una cache di Azure per l'istanza di redis ospitata in una VNET, i client della cache devono trovarsi nello stesso VNET o in un VNET con peering VNET abilitato nella stessa area di Azure. La Peering reti virtuali globale non è attualmente supportata. Questo vale anche per le applicazioni di test e per gli strumenti per l'esecuzione di ping di diagnostica. Indipendentemente dalla posizione che ospita l'applicazione client, i gruppi di sicurezza di rete devono essere configurati in modo che il traffico di rete del client sia autorizzato a raggiungere l'istanza di Redis.
 >
 >
 

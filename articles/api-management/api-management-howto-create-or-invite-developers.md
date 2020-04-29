@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260973"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
@@ -36,7 +36,7 @@ Completare le attività riportate in questo articolo: [Creare un'istanza di Gest
 Per aggiungere un nuovo utente, eseguire la procedura in questa sezione:
 
 1. Selezionare la scheda **Utenti** a sinistra della schermata.
-2. Premere **il tasto Aggiungi**.
+2. Premere **+ Aggiungi**.
 3. Immettere le informazioni appropriate per l'utente.
 4. Fare clic su **Aggiungi**.
 
@@ -68,7 +68,7 @@ Per bloccare un utente, eseguire la procedura seguente.
 
 ## <a name="reset-a-user-password"></a>Reimpostare la password di un utente
 
-Per usare gli account utente a livello di codice, vedere la documentazione dell'entità utente in [Riferimento all'API Management.To programmatically](/rest/api/apimanagement/) work with user accounts, see the User entity documentation in the API Management REST API reference. Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
+Per usare gli account utente a livello di codice, vedere la documentazione relativa all'entità User in informazioni di riferimento sull' [API REST di gestione API](/rest/api/apimanagement/) . Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>Passaggi successivi
 Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed effettuarne la sottoscrizione a prodotti e API. Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].

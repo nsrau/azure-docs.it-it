@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261602"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clausola GROUP BY in Azure Cosmos DB
@@ -18,8 +18,8 @@ ms.locfileid: "81261602"
 La clausola GROUP BY divide i risultati della query in base ai valori di una o più proprietà specificate.
 
 > [!NOTE]
-> Azure Cosmos DB supporta attualmente GROUP BY in .NET SDK 3.3 e versioni successive, nonché JavaScript SDK 3.4 e versioni successive.
-> Il supporto per altri SDK di lingua non è attualmente disponibile, ma è pianificato.
+> Azure Cosmos DB supporta attualmente GROUP BY in .NET SDK 3,3 e versioni successive, oltre a JavaScript SDK 3,4 e versioni successive.
+> Il supporto per altri linguaggi SDK non è attualmente disponibile ma è pianificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -39,21 +39,21 @@ La clausola GROUP BY divide i risultati della query in base ai valori di una o p
 
 - `<scalar_expression>`
   
-   È consentita qualsiasi espressione scalare, ad eccezione delle sottoquery scalari e delle aggregazioni scalari. Ogni espressione scalare deve contenere almeno un riferimento di proprietà. Non esiste alcun limite al numero di singole espressioni o alla cardinalità di ogni espressione.
+   Qualsiasi espressione scalare è consentita ad eccezione di sottoquery scalari e aggregazioni scalari. Ogni espressione scalare deve contenere almeno un riferimento a una proprietà. Non esiste alcun limite al numero di singole espressioni o alla cardinalità di ogni espressione.
 
 ## <a name="remarks"></a>Osservazioni
   
-  Quando una query utilizza una clausola GROUP BY, la clausola SELECT può contenere solo il sottoinsieme di proprietà e funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è [l'aggregazione](sql-query-aggregates.md)delle funzioni di sistema , che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola GROUP BY. È inoltre possibile includere sempre valori letterali nella clausola SELECT.
+  Quando in una query viene utilizzata una clausola GROUP BY, la clausola SELECT può contenere solo il subset di proprietà e le funzioni di sistema incluse nella clausola GROUP BY. Un'eccezione è rappresentata dalle [funzioni di sistema aggregate](sql-query-aggregates.md), che possono essere visualizzate nella clausola SELECT senza essere incluse nella clausola Group by. Nella clausola SELECT è inoltre possibile includere sempre valori letterali.
 
-  La clausola GROUP BY deve trovarsi dopo la clausola SELECT, FROM e WHERE e prima della clausola OFFSET LIMIT. Al momento non è possibile utilizzare GROUP BY con una clausola ORDER BY, ma questa operazione è stata pianificata.
+  La clausola GROUP BY deve essere successiva alla clausola SELECT, FROM e WHERE e prima della clausola OFFSET limite. Attualmente non è possibile utilizzare GROUP BY con una clausola ORDER BY, ma questo è pianificato.
 
-  La clausola GROUP BY non consente alcuna delle seguenti operazioni:
+  La clausola GROUP BY non consente le operazioni seguenti:
   
-- Proprietà aliaso o funzioni di sistema di alias (alias è ancora consentito all'interno della clausola SELECT)
+- Proprietà di aliasing o funzioni di sistema di alias (l'aliasing è ancora consentito nella clausola SELECT)
 - Sottoquery:
-- Funzioni di sistema di aggregazione (consentite solo nella clausola SELECT)
+- Funzioni di sistema aggregate (sono consentite solo nella clausola SELECT)
 
-Le query con una funzione di `GROUP BY` sistema di aggregazione e una sottoquery con non sono supportate. Ad esempio, la query seguente non è supportata:
+Le query con una funzione di sistema di aggregazione e `GROUP BY` una sottoquery con non sono supportate. Ad esempio, la query seguente non è supportata:
 
 ```sql
 SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
@@ -61,9 +61,9 @@ SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName
 
 ## <a name="examples"></a>Esempi
 
-In questi esempi viene usato il set di dati nutrizionali disponibile tramite [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
+In questi esempi viene usato il set di dati nutrizionale disponibile tramite il [Playground per le query Azure Cosmos DB](https://www.documentdb.com/sql/demo).
 
-Ad esempio, ecco una query che restituisce il conteggio totale di elementi in ogni foodGroup:For example, here's a query which returns the total count of items in each foodGroup:
+Ad esempio, ecco una query che restituisce il numero totale di elementi in ogni foodGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -71,7 +71,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Alcuni risultati sono (la parola chiave TOP viene utilizzata per limitare i risultati):
+Alcuni risultati sono (la parola chiave TOP viene usata per limitare i risultati):
 
 ```json
 [{
@@ -92,7 +92,7 @@ Alcuni risultati sono (la parola chiave TOP viene utilizzata per limitare i risu
 }]
 ```
 
-Questa query include due espressioni utilizzate per dividere i risultati:This query has two expressions used to divide results:
+Questa query include due espressioni utilizzate per dividere i risultati:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -125,7 +125,7 @@ Alcuni risultati sono:
 }]
 ```
 
-Questa query ha una funzione di sistema nella clausola GROUP BY:
+Questa query include una funzione di sistema nella clausola GROUP BY:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -154,7 +154,7 @@ Alcuni risultati sono:
 }]
 ```
 
-Questa query utilizza sia parole chiave che funzioni di sistema nell'espressione di proprietà dell'elemento:This query uses both keywords and system functions in the item property expression:
+Questa query usa le parole chiave e le funzioni di sistema nell'espressione di proprietà Item:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -179,6 +179,6 @@ I risultati sono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione](sql-query-getting-started.md)
+- [Guida introduttiva](sql-query-getting-started.md)
 - [Clausola SELECT](sql-query-select.md)
 - [Funzioni di aggregazione](sql-query-aggregates.md)

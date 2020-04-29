@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
 ms.openlocfilehash: 135dd92f7af4397f2053ea0bdc15d98dfad93914
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253357"
 ---
 # <a name="use-service-management-from-python"></a>Usare la gestione dei servizi da Python
@@ -30,9 +30,9 @@ L'API Gestione dei servizi di Azure fornisce l'accesso a livello di codice alla 
 Per usare l'API Gestione dei servizi, è necessario [creare un account Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="concepts"></a><a name="Concepts"> </a>Concetti
-Azure SDK per Python include l'[API Gestione dei servizi][svc-mgmt-rest-api], ovvero un'API REST. Tutte le operazioni API vengono eseguite su TLS e autenticate reciprocamente utilizzando certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure. È anche possibile accedervi direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
+Azure SDK per Python include l'[API Gestione dei servizi][svc-mgmt-rest-api], ovvero un'API REST. Tutte le operazioni dell'API vengono eseguite su TLS e autenticate reciprocamente usando i certificati X. 509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure. È anche possibile accedervi direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
-## <a name="installation"></a><a name="Installation"> </a>Installazione
+## <a name="installation"></a><a name="Installation"> </a>Installazione di
 Tutte le funzionalità descritte in questo articolo sono disponibili nel pacchetto `azure-servicemanagement-legacy` che è possibile installare tramite pip. Per altre informazioni sull'installazione, ad esempio se non si ha familiarità con Python, vedere [Installazione di Python e dell'SDK](/azure/developer/python/azure-sdk-install).
 
 ## <a name="connect-to-service-management"></a><a name="Connect"> </a>Connettersi alla gestione dei servizi
@@ -52,7 +52,7 @@ Per creare il certificato `.cer` , eseguire:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Per altre informazioni sui certificati di Azure, vedere [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md) (Panoramica sui certificati per Servizi cloud di Azure). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione all'indirizzo [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html).
+Per altre informazioni sui certificati di Azure, vedere [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md) (Panoramica sui certificati per Servizi cloud di Azure). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione all' [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html)indirizzo.
 
 Dopo avere creato questi file, caricare il file `.cer` in Azure. Nel [portale di Azure][management-portal] nella scheda **impostazioni** selezionare **Carica**. Prendere nota del percorso in cui è stato salvato il file `.pem`.
 
@@ -119,7 +119,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Australia sud-orientale
 
 ## <a name="create-a-cloud-service"></a><a name="CreateCloudService"> </a>Creare un servizio cloud
-Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][cloud service] di Azure (Era noto come un *servizio ospitato* nelle versioni precedenti di Azure.) È possibile utilizzare il metodo **Create\_hosted\_service** per creare un nuovo servizio ospitato. Creare il servizio specificando un nome di servizio ospitato univoco in Azure, un'etichetta con codifica base64 automatica, una descrizione e una località.
+Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][cloud service] di Azure (Noto come *servizio ospitato* nelle versioni precedenti di Azure). Per creare un nuovo servizio ospitato, è possibile usare il metodo **Create\_Hosted\_Service** . Creare il servizio specificando un nome di servizio ospitato univoco in Azure, un'etichetta con codifica base64 automatica, una descrizione e una località.
 
     from azure import *
     from azure.servicemanagement import *
@@ -133,7 +133,7 @@ Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codi
 
     sms.create_hosted_service(name, label, desc, location)
 
-È possibile elencare tutti i servizi ospitati per la sottoscrizione con il metodo **dell'elenco\_dei servizi ospitati.\_**
+È possibile elencare tutti i servizi ospitati per la sottoscrizione con il metodo **List\_Hosted\_Services** .
 
     result = sms.list_hosted_services()
 
@@ -154,7 +154,7 @@ Per ottenere informazioni su un particolare servizio ospitato, passare il nome d
 Dopo avere creato un servizio cloud, distribuire il codice al servizio con il metodo **create\_deployment**.
 
 ## <a name="delete-a-cloud-service"></a><a name="DeleteCloudService"> </a>Eliminare un servizio cloud
-È possibile eliminare un servizio cloud passando il nome del servizio al metodo di servizio ospitato Delete.You can delete a cloud service by passing the service name to the **delete\_hosted\_service** method.
+È possibile eliminare un servizio cloud passando il nome del servizio al metodo **Delete\_Hosted\_Service** .
 
     sms.delete_hosted_service('myhostedservice')
 
@@ -171,7 +171,7 @@ Per eliminare una distribuzione, usare il metodo **delete\_deployment**. L'esemp
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>Creare un servizio di archiviazione
-Un [servizio di archiviazione](../storage/common/storage-create-storage-account.md) consente di accedere a [BLOB,](../storage/blobs/storage-python-how-to-use-blob-storage.md) [tabelle](../cosmos-db/table-storage-how-to-use-python.md)e [code](../storage/queues/storage-python-how-to-use-queue-storage.md)di Azure. Per creare un servizio di archiviazione, è necessario un nome per il servizio, compreso tra 3 e 24 caratteri minuscoli e univoco in Azure. Sono inoltre richieste una descrizione, un'etichetta fino a 100 caratteri con codifica base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località:
+Un [servizio di archiviazione](../storage/common/storage-create-storage-account.md) consente di accedere a [BLOB](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabelle](../cosmos-db/table-storage-how-to-use-python.md)e [Code](../storage/queues/storage-python-how-to-use-queue-storage.md)di Azure. Per creare un servizio di archiviazione, è necessario un nome per il servizio, compreso tra 3 e 24 caratteri minuscoli e univoco in Azure. Sono inoltre richieste una descrizione, un'etichetta fino a 100 caratteri con codifica base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località:
 
     from azure import *
     from azure.servicemanagement import *
@@ -190,7 +190,7 @@ Un [servizio di archiviazione](../storage/common/storage-create-storage-account.
 
 Nell'esempio precedente lo stato dell'operazione **create\_storage\_account** può essere recuperato passando il risultato restituito da **create\_storage\_account** al metodo **get\_operation\_status**. 
 
-È possibile elencare gli account di archiviazione e le relative proprietà con il metodo **degli account di\_archiviazione\_elenco.**
+È possibile elencare gli account di archiviazione e le relative proprietà con il metodo **List\_\_Storage Accounts** .
 
     from azure import *
     from azure.servicemanagement import *
@@ -214,7 +214,7 @@ Per eliminare un servizio di archiviazione, passare il relativo nome al metodo *
     sms.delete_storage_account('mystorageaccount')
 
 ## <a name="list-available-operating-systems"></a><a name="ListOperatingSystems"> </a>Elencare i sistemi operativi disponibili
-Per elencare i sistemi operativi disponibili per i servizi di hosting, utilizzare il metodo **dei sistemi operativi\_\_di elenco.**
+Per elencare i sistemi operativi disponibili per i servizi di hosting, usare **il\_metodo\_list Operating Systems** .
 
     from azure import *
     from azure.servicemanagement import *
@@ -228,7 +228,7 @@ Per elencare i sistemi operativi disponibili per i servizi di hosting, utilizzar
         print('Family: ' + os.family_label)
         print('Active: ' + str(os.is_active))
 
-In alternativa, è possibile utilizzare il metodo **di elenco\_famiglie del sistema\_\_operativo,** che raggruppa i sistemi operativi per famiglia.
+In alternativa, è possibile usare il **metodo\_List\_Operating System\_families** , che raggruppa i sistemi operativi in base alla famiglia.
 
     result = sms.list_operating_system_families()
 
@@ -241,7 +241,7 @@ In alternativa, è possibile utilizzare il metodo **di elenco\_famiglie del sist
         print('')
 
 ## <a name="create-an-operating-system-image"></a><a name="CreateVMImage"> </a>Creare un'immagine del sistema operativo
-Per aggiungere un'immagine del sistema operativo al repository di immagini, utilizzare il metodo **add\_os\_image.**
+Per aggiungere un'immagine del sistema operativo all'archivio di immagini, usare **il\_metodo\_Aggiungi immagine** del sistema operativo.
 
     from azure import *
     from azure.servicemanagement import *
@@ -273,7 +273,7 @@ Per elencare le immagini del sistema operativo disponibili, usare il metodo **li
         print('')
 
 ## <a name="delete-an-operating-system-image"></a><a name="DeleteVMImage"> </a>Eliminare un'immagine del sistema operativo
-Per eliminare un'immagine utente, utilizzare il metodo **delete\_os\_image.**
+Per eliminare un'immagine utente, usare il **metodo\_Delete\_OS Image** .
 
     from azure import *
     from azure.servicemanagement import *
@@ -339,7 +339,7 @@ Sarà quindi possibile eliminare il servizio cloud usando il metodo **delete\_ho
     sms.delete_hosted_service(service_name='myvm')
 
 ## <a name="create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Creare una macchina virtuale da un'immagine di macchina virtuale acquisita
-Per acquisire un'immagine di macchina virtuale, è innanzitutto necessario chiamare il metodo **di acquisizione\_dell'immagine della\_macchina virtuale.**
+Per acquisire un'immagine di macchina virtuale, chiamare prima **il\_metodo\_Capture VM Image** .
 
     from azure import *
     from azure.servicemanagement import *
@@ -400,7 +400,7 @@ Per altre informazioni su come acquisire una macchina virtuale Linux nel modello
 Per altre informazioni su come acquisire una macchina virtuale Windows nel modello di distribuzione classica, vedere [Acquisire una macchina virtuale Windows](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>Passaggi successivi
-Dopo aver appreso le nozioni di base sulla gestione dei servizi, è possibile accedere alla documentazione di [riferimento completa dell'API per Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente attività complesse per gestire l'applicazione Python.Now that you've learned the basics of service management, you can access the Complete API reference documentation for the Azure Python SDK and perform complex tasks easily to manage your Python application.
+Ora che sono state apprese le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente attività complesse per gestire l'applicazione Python.
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/).
 

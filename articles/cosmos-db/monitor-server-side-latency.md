@@ -1,59 +1,59 @@
 ---
-title: Come monitorare la latenza lato server per le operazioni in Azure Cosmos DBHow to monitor the server-side latency for operations in Azure Cosmos DB
-description: Informazioni su come monitorare la latenza del server per le operazioni nell'account di Azure Cosmos DB o in un contenitore. I proprietari di un account di database Cosmos di Azure possono comprendere i problemi di latenza sul lato server con gli account Cosmos di Azure.Owners of an Azure Cosmos DB account can understand the server-side latency issues with your Azure Cosmos accounts.
+title: Come monitorare la latenza lato server per le operazioni in Azure Cosmos DB
+description: Informazioni su come monitorare la latenza del server per le operazioni nell'account Azure Cosmos DB o in un contenitore. I proprietari di un account Azure Cosmos DB possono comprendere i problemi di latenza lato server con gli account Azure Cosmos.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
 ms.openlocfilehash: 0f1e6d07afb3b7b4d26081bc9e34ac257b280d0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113917"
 ---
-# <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Come monitorare la latenza lato server per le operazioni in un account o un contenitore di database Cosmos di AzureHow to monitor the server-side latency for operations in an Azure Cosmos DB container or account
+# <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Come monitorare la latenza lato server per le operazioni in un contenitore Azure Cosmos DB o in un account
 
-Monitoraggio di Azure per Azure Cosmos DB offre una visualizzazione delle metriche per monitorare l'account e creare dashboard. Le metriche di Azure Cosmos DB vengono raccolte per impostazione predefinita, questa funzionalità non richiede di abilitare o configurare nulla in modo esplicito. La metrica di latenza lato server viene utilizzata per visualizzare la latenza lato server di un'operazione. Azure Cosmos DB offre un sla di meno di 10 ms per le operazioni di lettura/scrittura dei punti con connettività diretta. Per le operazioni di lettura e scrittura dei punti, i contratti di servizio vengono calcolati come descritto nel [documento del servizio SLA.](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
+Monitoraggio di Azure per Azure Cosmos DB fornisce una visualizzazione delle metriche per monitorare l'account e creare dashboard. Per impostazione predefinita, la metrica Azure Cosmos DB viene raccolta, per questa funzionalità non è necessario abilitare o configurare elementi in modo esplicito. La metrica di latenza lato server viene usata per visualizzare la latenza lato server di un'operazione. Azure Cosmos DB fornisce un contratto di manutenzione inferiore a 10 ms per operazioni di lettura/scrittura di punti con connettività diretta. Per le operazioni di lettura e scrittura di punti, i contratti di contratto vengono calcolati come descritto in dettaglio nel [documento del contratto di contratto](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
 
-Se viene visualizzata una latenza insolitamente grande per operazioni puntuali, ad esempio:If you see unusual large latency for point operations such as:
+Se viene visualizzata una latenza insolitamente elevata per le operazioni su punti, ad esempio:
 
-* Un'operazione get o set con chiave di partizione e ID in modalità diretta
-* Un'operazione di lettura o scrittura o
+* Operazione get o set con la chiave di partizione e l'ID in modalità diretta
+* Operazione di lettura o scrittura o
 * Una query
 
-È possibile cercare il log di diagnostica per visualizzare le dimensioni dei dati restituiti. Se viene visualizzata una latenza elevata sostenuta per le operazioni di query, è possibile cercare nel log di diagnostica le dimensioni dei dati restituiti, la [velocità effettiva o](cosmosdb-monitor-resource-logs.md#diagnostic-queries) le RU utilizzate o il numero di tali operazioni in un determinato periodo. In questo modo, è possibile eseguire il debug dei problemi di latenza lato server.
+È possibile cercare il log di diagnostica per visualizzare le dimensioni dei dati restituiti. Se viene visualizzata una latenza elevata per le operazioni di query, è possibile cercare il log di diagnostica per le dimensioni dei dati restituiti, la [velocità effettiva o le UR/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) usati o il numero di tali operazioni in un determinato periodo. In questo modo, è possibile eseguire il debug dei problemi di latenza lato server.
 
-## <a name="view-the-server-side-latency-metric"></a>Visualizzare la metrica di latenza lato serverView the server-side latency metric
+## <a name="view-the-server-side-latency-metric"></a>Visualizzare la metrica di latenza lato server
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Selezionare **Monitor** nella barra di navigazione a sinistra e selezionare **Metriche**.
+1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **metrica**.
 
-   ![Riquadro Metriche in Monitoraggio di Azure](./media/monitor-server-side-latency/monitor-metrics-blade.png)
+   ![Riquadro metriche in monitoraggio di Azure](./media/monitor-server-side-latency/monitor-metrics-blade.png)
 
-1. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione**richiesta e il gruppo **di risorse**. Per **Tipo di risorsa**selezionare **Account di Azure Cosmos DB**, scegliere uno degli account Cosmos di Azure esistenti e selezionare **Applica**.
+1. Dal riquadro **metriche** > **selezionare una risorsa** > scegliere la **sottoscrizione**e il **gruppo di risorse**richiesti. Per il **tipo di risorsa**selezionare **account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **applica**.
    
-   ![Scegliere l'account azure Cosmos DB per visualizzare le metricheChoose the Azure Cosmos DB account to view metrics](./media/monitor-server-side-latency/select-cosmos-db-account.png)
+   ![Scegliere l'account Azure Cosmos DB per visualizzare le metriche](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
-1. Selezionare quindi la **metrica Latenza lato server** dall'elenco delle metriche disponibili. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria.](monitor-cosmos-db-reference.md) In questo esempio, selezioniamo **Latenza lato server** e **Avg** come valore di aggregazione. Oltre a questi dettagli, puoi anche selezionare **l'intervallo** di tempo e la **granularità temporale** delle metriche. Al massimo, puoi visualizzare le metriche per gli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico basato sul filtro. È possibile visualizzare la latenza lato server al minuto per il periodo selezionato.  
+1. Selezionare quindi la metrica **latenza lato server** nell'elenco delle metriche disponibili. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [metriche per categoria](monitor-cosmos-db-reference.md) . In questo esempio, selezionare **latenza lato server** e **AVG** come valore di aggregazione. Oltre a questi dettagli, è anche possibile selezionare l' **intervallo di tempo** e la **granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche negli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro. È possibile visualizzare la latenza lato server al minuto per il periodo selezionato.  
 
-   ![Scegliere la metrica Latenza lato server dal portale di AzureChoose the Server-Side Latency metric from the Azure portal](./media/monitor-server-side-latency/server-side-latency-metric.png)
+   ![Scegliere la metrica di latenza lato server dalla portale di Azure](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
-## <a name="filters-for-server-side-latency"></a>Filtri per latenza lato server
+## <a name="filters-for-server-side-latency"></a>Filtri per la latenza lato server
 
-È inoltre possibile filtrare le metriche e ottenere i grafici visualizzati da un **oggetto CollectionName**, **ConnectionMode**, **DatabaseName**, **OperationType**, **Region**e **PublicAPIType**. 
+È anche possibile filtrare le metriche e ottenere i grafici visualizzati da uno specifico **CollectionName**, **ConnectionMode**, **DatabaseName**, **OperationType**, **Region**e **PublicAPIType**. 
 
-Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà richiesta, ad esempio **PublicAPIType,** e selezionare il valore **sql**. Aggiungere un altro filtro per **OperationType**. Il grafico visualizza quindi la latenza lato server per le diverse operazioni durante il periodo selezionato. Le operazioni eseguite tramite Stored procedure non vengono registrate in modo che non siano disponibili nella metrica OperationType.
+Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà obbligatoria, ad esempio **PublicAPIType** , e selezionare il valore **SQL**. Aggiungere un altro filtro per **OperationType**. Il grafico Visualizza quindi la latenza lato server per diverse operazioni durante il periodo selezionato. Le operazioni eseguite tramite la stored procedure non vengono registrate in modo che non siano disponibili nella metrica OperationType.
 
-Le metriche **Latenza lato server** per ogni operazione vengono visualizzate come illustrato nell'immagine seguente:The Server Side Latency metrics for each operation are displayed as shown in the following image:
+Le metriche relative alla **latenza lato server** per ogni operazione vengono visualizzate come illustrato nell'immagine seguente:
 
-![Filtri per le metriche di latenza lato serverFilters for server-side latency metrics](./media/monitor-server-side-latency/server-side-latency-filters.png)
+![Filtri per le metriche di latenza lato server](./media/monitor-server-side-latency/server-side-latency-filters.png)
 
-È inoltre possibile raggruppare le metriche utilizzando l'opzione **Applica divisione.**  
+È anche possibile raggruppare le metriche usando l'opzione **applica suddivisione** .  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Monitorare i dati del database Cosmos di Azure usando le impostazioni di diagnostica in Azure.Monitor Azure Cosmos DB data by using [diagnostic settings](cosmosdb-monitor-resource-logs.md) in Azure.
-* [Controllare le operazioni del piano di controllo di Azure Cosmos DBAudit Azure Cosmos DB control plane operations](audit-control-plane-logs.md)
+* Monitorare i dati Azure Cosmos DB usando [le impostazioni di diagnostica](cosmosdb-monitor-resource-logs.md) in Azure.
+* [Controllare le operazioni del piano di controllo Azure Cosmos DB](audit-control-plane-logs.md)

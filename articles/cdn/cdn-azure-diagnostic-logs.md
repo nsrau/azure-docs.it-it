@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: allensu
 ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254802"
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
@@ -35,7 +35,7 @@ I log di diagnostica di Azure consentono di esportare le metriche di utilizzo di
 
 - Esportare i dati in archivi BLOB, esportare in file CSV e generare grafici in Excel.
 - Esportare i dati in Hub eventi e correlarli con dati provenienti da altri servizi di Azure.
-- Esportare i dati nei log di Monitoraggio di Azure e visualizzare i dati nella propria area di lavoro di Log AnalyticsExport data to Azure Monitor logs and view data in your own Log Analytics workspace
+- Esportare i dati nei log di monitoraggio di Azure e visualizzare i dati nell'area di lavoro Log Analytics
 
 La figura seguente mostra una tipica visualizzazione dei dati di analisi principale della rete CDN.
 
@@ -77,7 +77,7 @@ Per usare un account di archiviazione per archiviare i log, seguire questa proce
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
-3. Selezionare **Account di archiviazione**.
+3. Selezionare **account di archiviazione**.
 
     Verrà visualizzata la pagina **Selezionare un account di archiviazione**.
 
@@ -87,15 +87,15 @@ Per usare un account di archiviazione per archiviare i log, seguire questa proce
 
 5. Dopo aver completato le impostazioni dei log di diagnostica, selezionare **Salva**.
 
-### <a name="logging-with-azure-monitor"></a>Registrazione con Monitoraggio di AzureLogging with Azure Monitor
+### <a name="logging-with-azure-monitor"></a>Registrazione con monitoraggio di Azure
 
-Per usare Monitoraggio di Azure per archiviare i log, eseguire la procedura seguente:To use Azure Monitor to store the logs, follow these steps:
+Per usare monitoraggio di Azure per archiviare i log, seguire questa procedura:
 
 1. Nella pagina **Log di diagnostica** selezionare **Invia a Log Analytics**. 
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Selezionare Configura per configurare la registrazione di Monitoraggio di Azure.Select **Configure** to configure Azure Monitor logging. 
+2. Selezionare **Configura** per configurare la registrazione di monitoraggio di Azure. 
 
    Viene visualizzata la pagina **Aree di lavoro di Log Analytics**.
 
@@ -135,7 +135,7 @@ Per usare Monitoraggio di Azure per archiviare i log, eseguire la procedura segu
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    L'area di lavoro Log Analytics è ora pronta per la registrazione dei dati. Per usare questi dati, è necessario usare una soluzione per i log di [Monitoraggio di Azure,](#consuming-diagnostics-logs-from-a-log-analytics-workspace)descritta più avanti in questo articolo.
+    L'area di lavoro Log Analytics è ora pronta per la registrazione dei dati. Per utilizzare tali dati, è necessario utilizzare una soluzione di [log di monitoraggio di Azure](#consuming-diagnostics-logs-from-a-log-analytics-workspace), illustrata più avanti in questo articolo.
 
 Per altre informazioni sui ritardi dei dati di log, vedere [Ritardi dei dati di log](#log-data-delays).
 
@@ -172,7 +172,7 @@ Questa sezione descrive lo schema dell'analisi principale della rete CDN e il mo
 ### <a name="using-microsoft-azure-storage-explorer"></a>Uso di Microsoft Azure Storage Explorer
 Prima di poter accedere ai dati dell'analisi principale dell'account di archiviazione di Azure, è necessario uno strumento per accedere al contenuto in un account di archiviazione. Sebbene siano disponibili sul mercato diversi strumenti, si consiglia l'uso di Microsoft Azure Storage Explorer. Per scaricare lo strumento, vedere [Azure Storage Explorer](https://storageexplorer.com/). Dopo aver scaricato e installato il software, configurarlo per usare lo stesso account di archiviazione di Azure impostato come destinazione dei log di diagnostica della rete CDN.
 
-1.  Aprire **Esplora archivi di Microsoft AzureOpen Microsoft Azure Storage Explorer**
+1.  Apri **Microsoft Azure Storage Explorer**
 2.  Individuare l'account di archiviazione
 3.  Espandere il nodo **Contenitori BLOB** in questo account di archiviazione.
 4.  Selezionare il contenitore denominato *insights-logs-coreanalytics*.
@@ -196,7 +196,7 @@ I log dell'analisi principale vengono generati ogni ora e i dati vengono raccolt
 |Nome profilo |Nome del profilo CDN|
 |Nome endpoint |Nome dell'endpoint della rete CDN|
 |Year|  Rappresentazione a quattro cifre dell'anno, ad esempio 2017|
-|Month| Rappresentazione a due cifre del numero del mese. 01 - Gennaio ... 12-Dicembre|
+|Month| Rappresentazione a due cifre del numero del mese. 01 = gennaio... 12 = dicembre|
 |Giorno|   Rappresentazione a due cifre del giorno del mese|
 |PT1H.json| File JSON effettivo in cui vengono archiviati i dati di analisi|
 
@@ -206,16 +206,16 @@ Per rendere più semplice l'accesso all'analisi principale, viene fornito il cod
 
 Di seguito è illustrato come è possibile usare lo strumento:
 
-1.  Visita il link GitHub:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Visitare il collegamento di GitHub:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Scaricare il codice.
 3.  Seguire le istruzioni per la compilazione e la configurazione.
 4.  Eseguire lo strumento.
 5.  Il file CSV risultate mostra i dati di analisi in una semplice gerarchia.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Utilizzo dei log di diagnostica da un'area di lavoro Log Analytics
-Monitoraggio di Azure è un servizio di Azure che monitora gli ambienti cloud e locali per mantenere la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini. 
+Monitoraggio di Azure è un servizio di Azure che monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini. 
 
-Per usare Monitoraggio di Azure, è necessario [abilitare la registrazione nell'area](#enable-logging-with-azure-storage) di lavoro di Azure Log Analytics, descritta in precedenza in questo articolo.
+Per usare monitoraggio di Azure, è necessario [abilitare la registrazione](#enable-logging-with-azure-storage) nell'area di lavoro di Azure log Analytics, descritta in precedenza in questo articolo.
 
 ### <a name="using-the-log-analytics-workspace"></a>Uso dell'area di lavoro Log Analytics
 
@@ -227,11 +227,11 @@ Per usare Monitoraggio di Azure, è necessario [abilitare la registrazione nell'
 
 È possibile visualizzare i dati in svariati modi tramite soluzioni di gestione. È possibile ottenere soluzioni di gestione da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-È possibile installare soluzioni di monitoraggio dal marketplace di Azure selezionando il collegamento **Scarica ora** nella parte inferiore di ogni soluzione.
+È possibile installare le soluzioni di monitoraggio da Azure Marketplace selezionando il collegamento **Get it Now (Ottieni ora** ) nella parte inferiore di ogni soluzione.
 
-### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Aggiungere una soluzione di monitoraggio della rete CDN di Monitoraggio di AzureAdd an Azure Monitor CDN monitoring solution
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Aggiungere una soluzione di monitoraggio della rete CDN di monitoraggio di Azure
 
-Seguire questi passaggi per aggiungere una soluzione di monitoraggio di Monitoraggio di Azure:Follow these steps to add an Azure Monitor monitoring solution:
+Per aggiungere una soluzione di monitoraggio di monitoraggio di Azure, seguire questa procedura:
 
 1.   Accedere al portale di Azure tramite la sottoscrizione di Azure e passare al dashboard.
     ![Dashboard di Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +443,7 @@ Proprietà di esempio:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Log di diagnostica di AzureAzure Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Analisi principale tramite il portale supplementare della rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API REST di Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)

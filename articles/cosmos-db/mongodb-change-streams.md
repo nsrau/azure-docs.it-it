@@ -1,6 +1,6 @@
 ---
-title: Modificare i flussi nell'API di Azure Cosmos DB per MongoDBChange streams in Azure Cosmos DB's API for MongoDB
-description: Informazioni su come usare i flussi di modifiche nell'API di Azure Cosmos DB per MongoDB per ottenere le modifiche apportate ai dati.
+title: Modificare i flussi nell'API Azure Cosmos DB per MongoDB
+description: Informazioni su come usare i flussi delle modifiche nell'API Azure Cosmos DB per MongoDB per ottenere le modifiche apportate ai dati.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,42 +8,42 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
 ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114155"
 ---
-# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Modificare i flussi nell'API di Azure Cosmos DB per MongoDBChange streams in Azure Cosmos DB's API for MongoDB
+# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Modificare i flussi nell'API Azure Cosmos DB per MongoDB
 
-[Il](change-feed.md) supporto dei feed di modifiche nell'API di Azure Cosmos DB per MongoDB è disponibile tramite l'API dei flussi di modifiche. Utilizzando l'API dei flussi di modifiche, le applicazioni possono ottenere le modifiche apportate alla raccolta o agli elementi in una singola partizione. Successivamente è possibile eseguire ulteriori azioni in base ai risultati. Le modifiche apportate agli elementi nella raccolta vengono acquisite nell'ordine dell'ora di modifica e l'ordinamento è garantito in base alla chiave di partizione.
+Il supporto del [feed delle modifiche](change-feed.md) nell'API Azure Cosmos DB per MongoDB è disponibile tramite l'API Change Streams. Usando l'API Change Streams, le applicazioni possono ottenere le modifiche apportate alla raccolta o agli elementi in una singola partizione. In seguito è possibile eseguire ulteriori azioni in base ai risultati. Le modifiche apportate agli elementi nella raccolta vengono acquisite nell'ordine in cui sono state modificate e il tipo di ordinamento è garantito per ogni chiave di partizione.
 
 > [!NOTE]
-> Per usare i flussi di modifica, creare l'account con la versione 3.6 dell'API di Azure Cosmos DB per MongoDB o versione successiva. Se si eseguono gli esempi di flusso di `Unrecognized pipeline stage name: $changeStream` modifica rispetto a una versione precedente, è possibile che venga visualizzato l'errore.
+> Per usare i flussi delle modifiche, creare l'account con la versione 3,6 dell'API Azure Cosmos DB per MongoDB o una versione successiva. Se si eseguono gli esempi del flusso di modifiche rispetto a una versione precedente, è `Unrecognized pipeline stage name: $changeStream` possibile che venga visualizzato l'errore.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-Le limitazioni seguenti sono applicabili quando si usano flussi di modifiche:The following limitations are applicable when using change streams:
+Quando si usano i flussi di modifiche, si applicano le limitazioni seguenti:
 
-* Le `operationType` `updateDescription` proprietà e non sono ancora supportate nel documento di output.
-* I `insert` `update`tipi `replace` di operazioni , e sono attualmente supportati. 
+* Le `operationType` proprietà `updateDescription` e non sono ancora supportate nel documento di output.
+* I `insert`tipi `update`di operazioni `replace` , e sono attualmente supportati. 
 * L'operazione di eliminazione o altri eventi non sono ancora supportati.
 
-A causa di queste limitazioni, la fase $match, $project fase e le opzioni fullDocument sono necessarie, come illustrato negli esempi precedenti.
+A causa di queste limitazioni, le opzioni $match stage, $project stage e fullDocument sono obbligatorie, come illustrato negli esempi precedenti.
 
-A differenza del feed di modifiche nell'API SQL di Azure Cosmos DB, non esiste una libreria del processore del [feed](change-feed-processor.md) di modifiche separata per l'utilizzo di flussi di modifiche o la necessità di un contenitore di lease. Non è attualmente disponibile il supporto per [i trigger di Funzioni](change-feed-functions.md) di Azure per elaborare i flussi di modifiche.
+A differenza del feed delle modifiche nell'API SQL di Azure Cosmos DB, non è disponibile una [libreria del processore dei feed delle modifiche](change-feed-processor.md) separata per utilizzare i flussi di modifica o la necessità di un contenitore lease. Attualmente non è disponibile il supporto per i [trigger di funzioni di Azure](change-feed-functions.md) per elaborare i flussi delle modifiche.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
-I seguenti codici di errore e messaggi sono supportati quando si usano i flussi di modifica:
+Quando si usano i flussi di modifiche, sono supportati i codici di errore e i messaggi seguenti:
 
-* **Codice di errore HTTP 16500** - Quando il flusso di modifiche viene limitato, restituisce una pagina vuota.
+* **Codice di errore HTTP 16500** : quando il flusso di modifiche è limitato, viene restituita una pagina vuota.
 
-* **NamespaceNotFound (OperationType Invalidate)** - Se si esegue il flusso di modifica nella raccolta `NamespaceNotFound` che non esiste o se la raccolta viene eliminata, viene restituito un errore. Poiché `operationType` la proprietà non può essere restituita nel `operationType Invalidate` documento `NamespaceNotFound` di output, anziché l'errore, viene restituito l'errore.
+* **NamespaceNotFound (OperationType Invalidate)** : se si esegue Change Stream sulla raccolta che non esiste o se la raccolta viene eliminata, viene restituito un `NamespaceNotFound` errore. Poiché la `operationType` proprietà non può essere restituita nel documento di output, anziché `operationType Invalidate` l'errore, `NamespaceNotFound` viene restituito l'errore.
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene illustrato come ottenere flussi di modifica su tutti gli elementi nella raccolta. In questo esempio viene creato un cursore per controllare gli elementi quando vengono inseriti, aggiornati o sostituiti. La `$match` fase, `$project` la `fullDocument` fase e l'opzione sono necessarie per ottenere i flussi di modifica. Il controllo delle operazioni di eliminazione tramite flussi di modifiche non è attualmente supportato. In alternativa, è possibile aggiungere un indicatore soft marker sugli elementi che vengono eliminati. Ad esempio, è possibile aggiungere un attributo nell'elemento denominato "deleted". Quando si desidera eliminare l'elemento, è possibile `true` impostare "eliminato" su e impostare un valore TTL sull'elemento. Poiché l'aggiornamento `true` di "eliminato" a è un aggiornamento, questa modifica sarà visibile nel flusso di modifiche.
+Nell'esempio seguente viene illustrato come ottenere i flussi delle modifiche in tutti gli elementi della raccolta. Questo esempio crea un cursore per controllare gli elementi quando vengono inseriti, aggiornati o sostituiti. La `$match` fase, `$project` la fase e `fullDocument` l'opzione sono necessarie per ottenere i flussi delle modifiche. Il monitoraggio delle operazioni di eliminazione mediante flussi di modifiche non è attualmente supportato. Come soluzione alternativa, è possibile aggiungere un marcatore Soft sugli elementi da eliminare. Ad esempio, è possibile aggiungere un attributo nell'elemento denominato "Deleted". Quando si desidera eliminare l'elemento, è possibile impostare "eliminato" su e impostare `true` una durata (TTL) per l'elemento. Poiché l'aggiornamento di "Deleted `true` " a è un aggiornamento, questa modifica sarà visibile nel flusso di modifiche.
 
 ### <a name="javascript"></a>JavaScript:
 
@@ -83,9 +83,9 @@ while (enumerator.MoveNext()){
 enumerator.Dispose();
 ```
 
-## <a name="changes-within-a-single-shard"></a>Modifiche all'interno di una singola partizioneChanges within a single shard
+## <a name="changes-within-a-single-shard"></a>Modifiche all'interno di una singola partizione
 
-Nell'esempio seguente viene illustrato come ottenere le modifiche agli elementi all'interno di una singola partizione. In questo esempio vengono ottenute le modifiche degli elementi con chiave di partizione uguale a "a" e il valore della chiave di partizione uguale a "1". È possibile avere client diversi che leggono le modifiche da partizioni diverse in parallelo.
+Nell'esempio seguente viene illustrato come ottenere le modifiche agli elementi all'interno di una singola partizione. Questo esempio Mostra come ottenere le modifiche apportate agli elementi con una chiave di partizione uguale a "a" e il valore della chiave di partizione uguale a "1". È possibile che client diversi leggano le modifiche da diverse partizioni in parallelo.
 
 ```javascript
 var cursor = db.coll.watch(
@@ -106,5 +106,5 @@ var cursor = db.coll.watch(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Usare il tempo di attesa per la scadenza automatica dei dati nell'API di Azure Cosmos DB per MongoDBUse time to live to expire data automatically in Azure Cosmos DB's API for MongoDB](mongodb-time-to-live.md)
+* [Usare la durata (TTL) per la scadenza automatica dei dati nell'API Azure Cosmos DB per MongoDB](mongodb-time-to-live.md)
 * [Indicizzazione nell'API di Azure Cosmos DB per MongoDB](mongodb-indexing.md)

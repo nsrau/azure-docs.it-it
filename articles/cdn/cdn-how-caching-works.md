@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253714"
 ---
 # <a name="how-caching-works"></a>Funzionamento della memorizzazione nella cache
@@ -86,7 +86,7 @@ La rete CDN di Azure supporta le seguenti intestazioni di direttive della cache 
 - Simile a `Cache-Control: max-age`.
 - Usata quando `Cache-Control` non esiste.
 
-**Pragma:**
+**Pragma**
    - Per impostazione predefinita, non viene rispettata dalla rete CDN di Azure.
    - Intestazione legacy introdotta in HTTP 1.0; supportata per la compatibilità con le versioni precedenti.
    - Usata come intestazione della richiesta client con la direttiva seguente: `no-cache`. Questa direttiva indica al server di distribuire una versione aggiornata della risorsa.
@@ -96,7 +96,7 @@ La rete CDN di Azure supporta le seguenti intestazioni di direttive della cache 
 
 Quando la cache non è aggiornata, vengono usati validator della cache HTTP per confrontare la versione di un file memorizzata nella cache con la versione presente nel server di origine. La **rete CDN Standard/Premium di Azure con tecnologia Verizon** supporta entrambi i controlli server di convalida `ETag` e `Last-Modified` per impostazione predefinita, mentre la **rete CDN Standard/Premium di Azure con tecnologia Microsoft** e la **rete CDN Standard/Premium di Azure con tecnologia Akamai** supporta solo `Last-Modified` per impostazione predefinita.
 
-**ETag:**
+**ETag**
 - La **rete CDN Standard/Premium di Azure con tecnologia Verizon** supporta `ETag` per impostazione predefinita, a differenza della **rete CDN Standard/Premium di Azure con tecnologia Microsoft** e della **rete CDN Standard di Azure con tecnologia Akamai**.
 - `ETag` definisce una stringa univoca per ogni file e versione di un file, Ad esempio: `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introdotta nella specifica HTTP 1.1 ed è più recente di `Last-Modified`. È utile quando è difficile determinare la data dell'ultima modifica.
@@ -126,8 +126,8 @@ La tabella seguente descrive il comportamento predefinito di memorizzazione nell
 
 |    | Microsoft: distribuzione Web generale | Verizon: distribuzione Web generale | Verizon: DSA | Akamai: distribuzione Web generale | Akamai: DSA | Akamai: download di file di grandi dimensioni | Akamai: streaming multimediale generale o di video on demand |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Origine dell'onore**       | Sì    | Sì   | No   | Sì    | No   | Sì   | Sì    |
-| **Durata cache CDN** | 2 giorni |7 giorni | nessuno | 7 giorni | nessuno | 1 giorno | 1 anno |
+| **Rispetta origine**       | Sì    | Sì   | No   | Sì    | No   | Sì   | Sì    |
+| **Durata cache rete CDN** | 2 giorni |7 giorni | Nessuno | 7 giorni | Nessuno | 1 giorno | 1 anno |
 
 **Honor origin** (Rispetta intestazioni origine): specifica se rispettare le intestazioni di direttive di memorizzazione nella cache supportate se presenti nella risposta HTTP del server di origine.
 

@@ -1,5 +1,5 @@
 ---
-title: Recuperare lo stato dell'offerta Azure Marketplace
+title: Recuperare lo stato dell'offerta | Azure Marketplace
 description: L'API recupera lo stato corrente dell'offerta.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255915"
 ---
 # <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Recupera lo stato corrente dell'offerta.
 
@@ -27,8 +27,8 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**       |   **Descrizione**                            |  **Tipo di dati** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     string     |
-|  offerId        | GUID che identifica in modo univoco l'offerta      |     string     |
+|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     Stringa     |
+|  offerId        | GUID che identifica in modo univoco l'offerta      |     Stringa     |
 |  api-version    | Ultima versione dell'API                        |     Data       |
 |  |  |
 
@@ -124,18 +124,18 @@ Recupera lo stato corrente dell'offerta.
 |  **Nome**             |    **Descrizione**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito: |
-|   del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
+|  del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
 |  steps                | Matrice dei passaggi di pubblicazione di un'offerta                      |
 |  estimatedTimeFrame   | Stima del tempo necessario per completare questo passaggio, in formato descrittivo                       |
 |  id                   | Identificatore del passaggio                                                                         |
 |  stepName             | Nome del passaggio                                                                               |
 |  description          | Descrizione del passaggio                                                                        |
 |  status               | Stato del passaggio. Per l'elenco di valori possibili, vedere [Stato del passaggio](#step-status) di seguito:    |
-|   del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
+|  del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
 |  previewLinks         | *Non attualmente implementato*                                                                    |
 |  liveLinks            | *Non attualmente implementato*                                                                    |
-|  notificationEmails   | Deprecato per le offerte migrate al Centro per i partner. Le e-mail di notifica per le offerte migrate verranno inviate all'e-mail specificata nelle informazioni di contatto del venditore in Impostazioni account.<br><br>Per le offerte non migrate, l'elenco delimitato da virgole di indirizzi di posta elettronica per ricevere una notifica dello stato di avanzamento dell'operazione        |
+|  notificationEmails   | Deprecato per le offerte migrate al centro per i partner. I messaggi di posta elettronica di notifica per le offerte migrate verranno inviati al messaggio di posta elettronica specificato con le informazioni di contatto del venditore nelle impostazioni dell'account.<br><br>Per le offerte non migrate, elenco delimitato da virgole di indirizzi di posta elettronica a cui notificare lo stato di avanzamento dell'operazione        |
 |  |  |
 
 ### <a name="response-status-codes"></a>Codici di stato della risposta
@@ -155,7 +155,7 @@ Recupera lo stato corrente dell'offerta.
 |  NotStarted                  | L'offerta è nuova e non è stata attivata.                            |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
-|  Operazione completata                   | Invio dell'offerta completato.               |
+|  Operazione riuscita                   | Invio dell'offerta completato.               |
 |  Cancellati                    | Invio dell'offerta annullato.                           |
 |  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
 |  |  |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 2931dffaaab2d06b2c06f03770a66d78d6466787
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260480"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Ottimizzazione dello streaming multimediale con la rete CDN di Azure 
@@ -79,7 +79,7 @@ Dopo avere creato l'endpoint, questo applicherà l'ottimizzazione per tutti i fi
 
 ### <a name="caching"></a>Memorizzazione nella cache
 
-Se la **rete CDN Standard di Azure di Akamai** rileva che la risorsa è un manifesto o un frammento di streaming, usa tempi di scadenza per la memorizzazione nella cache diversi rispetto alla distribuzione Web generale. (Vedere l'elenco completo nella tabella seguente.) Come sempre, vengono rispettate le intestazioni cache-control o Expires inviate dall'origine. Se la risorsa non è una risorsa multimediale, viene memorizza nella cache con i tempi di scadenza per la distribuzione Web generale.
+Se la **rete CDN Standard di Azure di Akamai** rileva che la risorsa è un manifesto o un frammento di streaming, usa tempi di scadenza per la memorizzazione nella cache diversi rispetto alla distribuzione Web generale. Vedere l'elenco completo nella tabella seguente. Come sempre, vengono rispettate le intestazioni Cache-Control o Expires inviate dall'origine. Se la risorsa non è una risorsa multimediale, viene memorizza nella cache con i tempi di scadenza per la distribuzione Web generale.
 
 I tempi negativi e brevi di memorizzazione nella cache sono utili per l'offload di origine quando molti utenti richiedono un frammento che non esiste ancora. Ne è un esempio uno streaming live in cui i pacchetti non sono disponibili dall'origine in quel momento. Un intervallo di memorizzazione nella cache più lungo consente anche l'offload delle richieste dall'origine poiché il contenuto video in genere non viene modificato.
  
@@ -87,7 +87,7 @@ I tempi negativi e brevi di memorizzazione nella cache sono utili per l'offload 
 |   | Distribuzione Web generale | Streaming multimediale generale | Streaming multimediale di video on demand  
 --- | --- | --- | ---
 Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |365 giorni | 365 giorni   
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | nessuno | 1 secondo | 1 secondo
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuno | 1 secondo | 1 secondo
  
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine  
 

@@ -1,7 +1,7 @@
 ---
-title: Creare aree di lavoro di Azure Machine Learning nel portaleCreate Azure Machine Learning workspaces in the portal
+title: Creare aree di lavoro Azure Machine Learning nel portale
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare, visualizzare ed eliminare aree di lavoro di Azure Machine Learning nel portale di Azure.Learn how to create, view, and delete Azure Machine Learning workspaces in the Azure portal.
+description: Informazioni su come creare, visualizzare ed eliminare aree di lavoro Azure Machine Learning nel portale di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81269730"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire aree di lavoro di Azure Machine Learning nel portale di AzureCreate and manage Azure Machine Learning workspaces in the Azure portal
+# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire aree di lavoro Azure Machine Learning nel portale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questo articolo verranno create, visualizzate ed eliminate [**le aree**](concept-workspace.md) di lavoro di Azure Machine Learning nel portale di Azure per [Azure Machine Learning.](overview-what-is-azure-ml.md)  Il portale è il modo più semplice per iniziare a utilizzare le aree di lavoro, ma man mano che le esigenze cambiano o aumentano i requisiti per l'automazione è anche possibile creare ed eliminare aree di lavoro [utilizzando la CLI](reference-azure-machine-learning-cli.md), con codice [Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [tramite l'estensione del codice VS](tutorial-setup-vscode-extension.md).
+Questo articolo illustra come creare, visualizzare ed eliminare [**Azure Machine Learning aree di lavoro**](concept-workspace.md) nel portale di Azure per [Azure Machine Learning](overview-what-is-azure-ml.md).  Il portale è il modo più semplice per iniziare a usare le aree di lavoro, ma in base alle esigenze modificate o ai requisiti per l'aumento dell'automazione è anche possibile creare ed eliminare aree di lavoro [tramite l'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando, [con codice Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [tramite l'estensione vs code](tutorial-setup-vscode-extension.md).
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
@@ -45,12 +45,12 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non fa distinzione tra maiuscole e minuscole.
    Subscription |Selezionare la sottoscrizione di Azure da usare.
    Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. 
-   Location | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
-   Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e prezzi. Ulteriori informazioni sulle [offerte basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
+   Percorso | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
+   Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurare l'area di lavoro](./media/how-to-manage-workspace/select-edition.png)
 
-1. Al termine della configurazione dell'area di lavoro, selezionare **Rivedi e crea**.
+1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea**.
 2. Rivedere le impostazioni e apportare eventuali modifiche o correzioni aggiuntive. Quando si è soddisfatti delle impostazioni, selezionare **Crea**.
 
    > [!Warning] 
@@ -62,7 +62,7 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 ### <a name="download-a-configuration-file"></a>Scaricare un file di configurazione
 
-1. Se si creerà [un'istanza di calcolo,](tutorial-1st-experiment-sdk-setup.md#azure)ignorare questo passaggio.
+1. Se si vuole creare un' [istanza di calcolo](tutorial-1st-experiment-sdk-setup.md#azure), ignorare questo passaggio.
 
 1. Se si prevede di usare codice nell'ambiente locale che fa riferimento a questa area di lavoro, selezionare **Scarica config json** dalla sezione **Panoramica** dell'area di lavoro.  
 
@@ -70,23 +70,23 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
    
    Inserire il file nella struttura di directory che contiene gli script Python o i notebook di Jupyter. Può trattarsi della stessa directory, in una sottodirectory denominata *.azureml* o in una directory padre. Quando si crea un'istanza di calcolo, questo file viene aggiunto alla directory corretta nella macchina virtuale.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Eseguire l'aggiornamento all'edizione Enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Eseguire l'aggiornamento a Enterprise Edition
 
-È possibile aggiornare l'area di lavoro dall'edizione Basic all'edizione Enterprise per sfruttare le funzionalità avanzate, ad esempio le esperienze con basso codice e le funzionalità di sicurezza avanzate.
+È possibile aggiornare l'area di lavoro da Basic Edition a Enterprise Edition per sfruttare le funzionalità avanzate, ad esempio esperienze con codice basso e funzionalità di sicurezza avanzate.
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Selezionare l'area di lavoro che si desidera aggiornare.
 
-1. Seleziona **Ulteriori informazioni** in alto a destra nella pagina.
+1. Selezionare **altre informazioni** nella parte superiore destra della pagina.
 
-   [![Aggiornare](./media/how-to-manage-workspace/upgrade.png) un'area di lavoro](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![Aggiornare un'area](./media/how-to-manage-workspace/upgrade.png) di lavoro](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. Selezionare **Aggiorna** nella finestra visualizzata.
 
 
 > [!IMPORTANT]
-> Non è possibile eseguire il downgrade di un'area di lavoro Enterprise Edition a un'area di lavoro edizione Basic. 
+> Non è possibile effettuare il downgrade di un'area di lavoro Enterprise Edition a un'area di lavoro Basic Edition. 
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Trovare un'area di lavoro
 
@@ -96,7 +96,7 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 1. Selezionare **Machine Learning**.
 
-   ![Cercare l'area di lavoro di Azure Machine LearningSearch for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
+   ![Cerca area di lavoro Azure Machine Learning](./media/how-to-manage-workspace/find-workspaces.png)
 
 1. Esaminare l'elenco delle aree di lavoro trovate. È possibile filtrarle in base alla sottoscrizione, ai gruppi di risorse e alle posizioni.  
 
@@ -104,11 +104,11 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
 
 ## <a name="delete-a-workspace"></a>Eliminazione di un'area di lavoro
 
-Nel [portale di Azure](https://portal.azure.com/)selezionare **Elimina** nella parte superiore dell'area di lavoro che si vuole eliminare.
+Nella [portale di Azure](https://portal.azure.com/)selezionare **Elimina** nella parte superiore dell'area di lavoro che si vuole eliminare.
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Eliminare l'area di lavoro":::
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
@@ -118,20 +118,20 @@ Nel [portale di Azure](https://portal.azure.com/)selezionare **Elimina** nella p
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Spostamento dell'area di lavoro
+### <a name="moving-the-workspace"></a>Trasferimento dell'area di lavoro
 
 > [!WARNING]
-> Lo spostamento dell'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o lo spostamento della sottoscrizione proprietaria in un nuovo tenant non sono supportati. Questa operazione può causare errori.
+> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
 
-### <a name="deleting-the-azure-container-registry"></a>Eliminazione del Registro di sistema del contenitore di AzureDeleting the Azure Container Registry
+### <a name="deleting-the-azure-container-registry"></a>Eliminazione del Container Registry di Azure
 
-L'area di lavoro di Azure Machine Learning usa il Registro di sistema del contenitore di Azure (ACR) per alcune operazioni. Verrà creata automaticamente un'istanza ACR quando ne ha bisogno per la prima volta.
+L'area di lavoro Azure Machine Learning USA Azure Container Registry (ACR) per alcune operazioni. Verrà creata automaticamente un'istanza di ACR quando è necessaria per la prima volta.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire l'esercitazione completa per informazioni su come usare un'area di lavoro per compilare, eseguire il training e distribuire modelli con Azure Machine Learning.Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning.
+Seguire l'esercitazione completa per apprendere come usare un'area di lavoro per creare, eseguire il training e distribuire modelli con Azure Machine Learning.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Eseguire il training dei modelli](tutorial-train-models-with-aml.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: 7124dd40d4510674014afe012a8f40dcb5bb6153
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253765"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
@@ -27,7 +27,7 @@ La compressione dei file è un metodo semplice ed efficace per aumentare la velo
 Esistono due modi per abilitare la compressione dei file:
 
 - Abilitare la compressione nel server di origine. In questo caso, la rete CDN di Azure trasmette i file compressi e li distribuisce ai client che li richiedono.
-- Abilitare la compressione direttamente sui server POP della rete CDN *(compressione in tempo reale).* In questo caso, la rete CDN comprime i file e li trasmette agli utenti finali anche se non erano stati compressi dal server di origine.
+- Abilitare la compressione direttamente sui server POP della rete CDN (*compressione immediata*). In questo caso, la rete CDN comprime i file e li trasmette agli utenti finali anche se non erano stati compressi dal server di origine.
 
 > [!IMPORTANT]
 > La propagazione delle modifiche alla configurazione della rete CDN di Azure può richiedere tempo: 
@@ -101,8 +101,8 @@ I livelli della rete CDN Standard e Premium forniscono la stessa funzionalità d
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profili di rete CDN Standard di Azure con tecnologia Microsoft
 
 Per i profili della **rete CDN Standard di Azure con tecnologia Microsoft** vengono compressi solo i file idonei. Per essere idoneo per la compressione, un file deve essere:
-- Essere di un tipo MIME configurato per la [compressione.](#enabling-compression)
-- Essere più grande di 1 KB
+- Essere di un tipo MIME [configurato per la compressione](#enabling-compression).
+- Maggiore di 1 KB
 - Essere inferiore a 8 MB
 
 Questi profili supportano le codifiche di compressione seguenti:

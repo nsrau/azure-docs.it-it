@@ -1,6 +1,6 @@
 ---
-title: Funzionalità del motore regole di Azure CDN da Verizon Premium Documenti Microsoft
-description: Documentazione di riferimento per la rete CDN di Azure dalle funzionalità del motore regole di Verizon Premium.Reference documentation for Azure CDN from Verizon Premium rules engine features.
+title: Funzionalità del motore regole di rete CDN di Azure di Verizon Premium | Microsoft Docs
+description: Documentazione di riferimento per le funzionalità del motore regole Premium della rete CDN di Azure di Verizon.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253493"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure da Verizon PremiumAzure CDN from Verizon Premium rules engine features
+# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure di Verizon Premium
 
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-verizon-premium-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
 
@@ -39,7 +39,7 @@ Queste funzionalità sono progettate per personalizzare come e quando il contenu
 Nome | Scopo
 -----|--------
 [Parametri larghezza di banda](#bandwidth-parameters) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
-[Limitazione della larghezza di banda](#bandwidth-throttling) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
+[Limitazione larghezza di banda](#bandwidth-throttling) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
 [Ignora cache](#bypass-cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
 [Gestione intestazione Cache-Control](#cache-control-header-treatment) | Controlla la generazione di intestazioni `Cache-Control` da parte del POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 [Stringa di query chiave cache](#cache-key-query-string) | Determina se la chiave della cache include o esclude i parametri della stringa di query associati a una richiesta.
@@ -51,8 +51,8 @@ Nome | Scopo
 [Max-Age esterno](#external-max-age) | Determina l'intervallo massimo di validità per la riconvalida della cache dal browser al POP.
 [Forza Max-Age interno](#force-internal-max-age) | Determina l'intervallo massimo di validità per la riconvalida della cache dal POP al server di origine.
 [Supporto H.264 (download progressivo HTTP)](#h264-support-http-progressive-download) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
-[Richiesta No-Cache onorario](#honor-no-cache-request) | Determina se le richieste no-cache di un client HTTP vengono inoltrate al server di origine.
-[Ignora nessuna cache di origine](#ignore-origin-no-cache) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
+[Richiesta no-cache rispettata](#honor-no-cache-request) | Determina se le richieste no-cache di un client HTTP vengono inoltrate al server di origine.
+[Ignora origine no-cache](#ignore-origin-no-cache) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
 [Ignora gli intervalli che non è possibile soddisfare](#ignore-unsatisfiable-ranges) | Determina la risposta che viene restituita ai client quando una richiesta genera un codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
 [Max-Stale interno](#internal-max-stale) | Controlla l'intervallo di tempo dopo la normale scadenza in cui un asset memorizzato nella cache può essere servito da un POP quando il POP non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
 [Condivisione cache parziale](#partial-cache-sharing) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
@@ -165,7 +165,7 @@ Nome | Scopo
 [Reindirizzamento URL](#url-redirect) | Reindirizza le richieste tramite l'intestazione Location.
 [Riscrittura URL](#url-rewrite)  | Riscrive l'URL della richiesta.
 
-## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Informazioni di riferimento sulle funzionalità del motore regole di Azure CDN da Verizon PremiumAzure CDN from Verizon Premium rules engine features reference
+## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Guida di riferimento alle funzionalità del motore regole di rete CDN di Azure di Verizon Premium
 
 ---
 
@@ -178,7 +178,7 @@ valore|Risultato
 Attivato | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata al richiedente.
 
-**Comportamento predefinito**: Disabilitato.
+**Comportamento predefinito**: Disabled.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -216,7 +216,7 @@ Opzione|Descrizione
 Kbytes per second (KB al secondo)|Impostare questa opzione sulla larghezza di banda massima (KB al secondo) che è possibile usare per inviare la risposta.
 Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi che i POP devono attendere prima che sia attivata la limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -320,7 +320,7 @@ Informazioni chiave:
 - Specificare uno o più nomi di parametro di stringa di query e separare ogni nome di parametro con uno spazio singolo.
 - Questa funzionalità determina se nella chiave di cache i parametri della stringa di query vengono inclusi o esclusi. La tabella seguente contiene informazioni aggiuntive per ogni opzione.
 
-Type|Descrizione
+Type|Description
 --|--
  Includi|  Indica che nella chiave di cache deve essere incluso ogni parametro specificato. Viene generata una chiave di cache univoca per ogni richiesta in cui sia contenuto un valore univoco per un parametro della stringa di query definito in questa funzionalità.
  Includi tutto  |Indica che viene creata una chiave di cache univoca per ogni richiesta a un asset contenente una stringa di query univoca. Questo tipo di configurazione in genere non è consigliato, perché può comportare una piccola percentuale di riscontri nella cache. Un numero ridotto di riscontri nella cache produce un aumento del carico sul server di origine, che deve gestire un maggior numero di richieste. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache noto come "unique-cache" nella pagina di memorizzazione nella cache della stringa di query.
@@ -338,7 +338,7 @@ Per duplicare il comportamento di memorizzazione nella cache della stringa di qu
 
 Il seguente esempio di utilizzo per questa funzionalità fornisce un esempio di richiesta e la chiave di cache predefinita:
 
-- **Richiesta di esempio:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessioni&&d
+- **Richiesta di esempio:** http://wpc.0001.&lt;D&gt;ominio/800001/Origin/Folder/asset.htm? SessionID = 1234&Language = en&UserID = 01
 - **Chiave di cache predefinita:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Includi
@@ -367,7 +367,7 @@ Questo tipo di configurazione genera la chiave di cache del parametro della stri
 Configurazione di esempio:
 
 - **Tipo:** Escludi
-- **Parametro(i):** id utente con sessioneParameter(s): sessioned userid
+- **Parametro/i:** userid con sessione
 
 Questo tipo di configurazione genera la chiave di cache del parametro della stringa di query seguente:
 
@@ -400,7 +400,7 @@ Per configurare questa funzionalità è necessario definire entrambe le opzioni 
 Opzione|Descrizione
 --|--
 Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui viene riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
-Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere costruito dinamicamente tramite l'utilizzo di [variabili HTTP.](cdn-http-variables.md)
+Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere costruito dinamicamente tramite l'utilizzo di [variabili http](cdn-http-variables.md).
 
 **Comportamento predefinito:** la chiave di cache di una richiesta è determinata dall'URI della richiesta.
 
@@ -410,7 +410,7 @@ Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di c
 
 ---
 
-### <a name="comment"></a>Comment
+### <a name="comment"></a>Commento
 
 **Scopo:** consente di aggiungere una nota all'interno di una regola.
 
@@ -458,12 +458,12 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Espressione regolare parametro cookie
 - Country
 - Dispositivo
-- Nome Cdi Microsoft Edge
+- CNAME Microsoft Edge
 - Dominio di riferimento
 - Valore letterale intestazione richiesta
 - Espressione regolare intestazione richiesta
 - Carattere jolly intestazione richiesta
-- Metodo richiesta
+- Metodo Request
 - Schema richiesta
 - Valore letterale query URL
 - Espressione regolare query URL
@@ -516,7 +516,7 @@ Il formato per specificare le intestazioni di richiesta e risposta è definito c
 
 Tipo di intestazione|Format|Esempi
 -|-|-
-Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> "Referrer" i <br/> %{Authorization}i
+Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer} i <br/> %{Authorization}i
 Intestazione di risposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informazioni chiave:
@@ -556,7 +556,7 @@ valore|Risultato
 Attivato|Le richieste di intestazioni di risposta di debug per la cache restituiranno una risposta che include l'intestazione X-EC-Debug.
 Disabled|L'intestazione di risposta X-EC-Debug verrà esclusa dalla risposta.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -595,7 +595,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Valore letterale intestazione richiesta
 - Espressione regolare intestazione richiesta
 - Carattere jolly intestazione richiesta
-- Metodo richiesta
+- Metodo Request
 - Schema richiesta
 - Valore letterale query URL
 - Espressione regolare query URL
@@ -683,7 +683,7 @@ valore|Risultato
 Attivato|Le richieste possono essere reindirizzate.
 Disabled|Le richieste non verranno reindirizzate.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -722,7 +722,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Valore letterale intestazione richiesta
 - Espressione regolare intestazione richiesta
 - Carattere jolly intestazione richiesta
-- Metodo richiesta
+- Metodo Request
 - Schema richiesta
 - Valore letterale query URL
 - Espressione regolare query URL
@@ -767,7 +767,7 @@ Per tutto il traffico di produzione, è consigliabile lasciare questa funzionali
 
 Lo stato della cache visualizzato per una richiesta che può essere inoltrata a un server di origine grazie a questa funzionalità è `TCP_Client_Refresh_Miss`. Il report sugli stati della cache, disponibile nel modulo di report principale, fornisce informazioni statistiche in base allo stato della cache. Consente di monitorare il numero e la percentuale di richieste inoltrate a un server di origine a causa di questa funzionalità.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -806,7 +806,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Valore letterale intestazione richiesta
 - Espressione regolare intestazione richiesta
 - Carattere jolly intestazione richiesta
-- Metodo richiesta
+- Metodo Request
 - Schema richiesta
 - Valore letterale query URL
 - Espressione regolare query URL
@@ -830,7 +830,7 @@ valore|Risultato
 Attivato|Impedisce ai POP di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 - Impossibile attenersi all'intervallo richiesto. I server forniranno invece l'asset richiesto e restituiranno al client il codice 200 - OK.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rispettare il codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -874,7 +874,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Valore letterale intestazione richiesta
 - Espressione regolare intestazione richiesta
 - Carattere jolly intestazione richiesta
-- Metodo richiesta
+- Metodo Request
 - Schema richiesta
 - Valore letterale query URL
 - Espressione regolare query URL
@@ -896,7 +896,7 @@ valore|Risultato
 Attivato|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di ignorare le stringhe di query durante la registrazione degli URL in un log di accesso.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -938,7 +938,7 @@ Opzione|Descrizione|Esempio
 -|-|-
 Accoda|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione richiesta:** <br/>Value1Value2
 Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione richiesta:**<br/> Value2 <br/>
-Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Result:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
+Elimina|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Result:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
 
 Informazioni chiave:
 
@@ -978,7 +978,7 @@ Opzione|Descrizione|Esempio
 -|-|-
 Accoda|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (client):**<br />Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione risposta:**<br/>Value1Value2
 Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione risposta:**<br/>Value2 <br/>
-Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Result:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
+Elimina|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Result:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
 
 Informazioni chiave:
 
@@ -991,7 +991,7 @@ Informazioni chiave:
 - Le intestazioni seguenti sono riservate e non possono essere modificate da questa funzionalità:
     - accept-encoding
     - age
-    - connessione
+    - connection
     - content-encoding
     - content-length
     - content-range
@@ -1022,7 +1022,7 @@ valore|Risultato
 Attivato|Le richieste possono generare contenuti parzialmente memorizzati nella cache.
 Disabled|Le richieste possono generare solo una versione completamente memorizzata nella cache dei contenuti richiesti.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1040,7 +1040,7 @@ Informazioni chiave:
 
 - Se si imposta l'unità di tempo su "Off", la riconvalida dovrà essere eseguita dopo la scadenza della durata dei contenuti memorizzati nella cache. Non è necessario specificare alcun valore di tempo poiché viene ignorato.
 
-**Comportamento predefinito:** Fuori. La riconvalida può aver luogo solo dopo la scadenza della durata dei contenuti memorizzati nella cache.
+**Comportamento predefinito:** Off. La riconvalida può aver luogo solo dopo la scadenza della durata dei contenuti memorizzati nella cache.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1086,9 +1086,9 @@ valore|Risultato
 Attivato|Fa in modo che il POP recuperi nuovamente l'asset dal server di origine.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rendere disponibili asset di cache validi su richiesta.
 
-Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai POP. Questi tipi di risposte vengono in genere memorizzati nella cache dai POP. Se si sa che una risposta a 0 byte non è mai una risposta valida per tali contenuti, questa funzionalità può impedire la pubblicazione di questi tipi di risorse ai client.
+Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai POP. Questi tipi di risposte vengono in genere memorizzati nella cache dai POP. Se si è certi che una risposta di 0 byte non è mai una risposta valida per tale contenuto, questa funzionalità può impedire che questi tipi di asset vengano serviti ai client.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1153,7 +1153,7 @@ valore|Risultato
 Attivato|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
 Disabled|L'errore del server di origine viene inoltrato al richiedente.
 
-**Comportamento predefinito:** Disabili
+**Comportamento predefinito:** Disabilitato
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1168,11 +1168,11 @@ Disabled|L'errore del server di origine viene inoltrato al richiedente.
 Informazioni chiave:
 
 - Il comportamento di questa funzionalità varia in base all'unità di tempo selezionata.
-    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere il periodo di tempo in cui può fornire contenuto prima di richiedere la convalida in base alla formula seguente: **TTL** + **Stale While Revalidate Time**
+    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere l'intervallo di tempo durante il quale può distribuire contenuti prima di richiedere la convalida in base alla formula seguente: durata **TTL** + non**aggiornata durante la riconvalida**
     - **Off:** selezionare "Off" per richiedere la riconvalida prima che possa essere servita una richiesta di contenuti non aggiornati.
         - Non specificare un intervallo di tempo poiché non è applicabile e verrebbe ignorato.
 
-**Comportamento predefinito:** Fuori. La riconvalida deve aver luogo prima che possano essere serviti i contenuti richiesti.
+**Comportamento predefinito:** Off. La riconvalida deve aver luogo prima che possano essere serviti i contenuti richiesti.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1188,7 +1188,7 @@ Se l'autenticazione basata su token è abilitata, verranno soddisfatte solo le r
 
 La chiave di crittografia usata per crittografare e decrittografare i valori dei token viene determinata dalle opzioni relative alla chiave primaria e alla chiave di backup disponibili nella pagina di autenticazione del token. Tenere presente che le chiavi di crittografia sono specifiche della piattaforma.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 Questa funzionalità ha la precedenza sulla maggior parte delle funzionalità ad eccezione di Riscrittura URL.
 
@@ -1240,7 +1240,7 @@ Il reindirizzamento degli URL può essere usato solo per i codici di risposta 3x
 
 L'opzione Optional Header Value (Valore intestazione facoltativo) supporta caratteri alfanumerici, virgolette e spazi.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autenticazione
 
 Questa funzionalità prevede la possibilità di includere l'intestazione WWW-Authenticate quando si risponde a una richiesta non autorizzata di contenuti protetti con l'autenticazione basata su token. Se nella configurazione l'intestazione WWW-Authenticate è stata impostata su "basic", all'utente non autorizzato verrà richiesto di specificare le credenziali dell'account.
 
@@ -1275,7 +1275,7 @@ valore|Risultato
 Attivato|Fa in modo che il POP non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL per i parametri dell'autenticazione basata su token.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di applicare la distinzioni tra maiuscole e minuscole durante i confronti di URL per l'autenticazione basata su token.
 
-**Comportamento predefinito:** Disabili.
+**Comportamento predefinito:** Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1298,7 +1298,7 @@ valore|Risultato
 Attivato|L'opzione Valore definisce il nome del parametro della stringa di query tramite il quale devono essere definiti i token.
 Disabled|Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
 
-**Comportamento predefinito:** Disabili. Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
+**Comportamento predefinito:** Disabilitato. Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1360,8 +1360,8 @@ Informazioni chiave:
 
 Opzione|Descrizione
 -|-
- Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/><br/>  - **Origine (o punto di accesso al contenuto):** Selezionare un percorso relativo che identifichi un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate.
- Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezione di un punto di accesso al contenuto che identifica un server di origine. <br/>    2. Definizione di un percorso relativo utilizzando: <br/>        - Un modello di espressione regolare <br/>        - [Variabili HTTP](cdn-http-variables.md) <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore.
+ Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/><br/>  - **Origine (o punto di accesso del contenuto):** Consente di selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate.
+ Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. selezione di un punto di accesso al contenuto che identifica un server di origine. <br/>    2. definizione di un percorso relativo utilizzando: <br/>        - Un modello di espressione regolare <br/>        - [Variabili HTTP](cdn-http-variables.md) <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore.
 
  Questa funzionalità consente ai POP di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. Questo significa che il richiedente riceve lo stesso codice di risposta che riceverebbe se avesse richiesto l'URL riscritto.
 

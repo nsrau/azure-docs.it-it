@@ -1,6 +1,6 @@
 ---
-title: Espressioni condizionali per la rete CDN di Azure - Motore regole Verizon PremiumConditional expressions for Azure CDN - Verizon Premium rules engine
-description: La documentazione di riferimento per la rete CDN di Azure dal motore regole di Verizon Premium soddisfa le condizioni e le funzionalità.
+title: Espressioni condizionali per la rete CDN di Azure-motore regole Verizon Premium
+description: La documentazione di riferimento per le condizioni e le funzionalità del motore regole di rete CDN di Azure da Verizon Premium è.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253510"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>La rete CDN di Azure da Verizon Premium motore espressioni condizionaliAzure CDN from Verizon Premium rules engine conditional expressions
+# <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Espressioni condizionali del motore regole di rete CDN di Azure di Verizon Premium
 
-Questo articolo elenca le descrizioni dettagliate del motore regole Espressioni condizionali per la rete per la distribuzione di contenuti di Azure.This article lists detailed descriptions of the Conditional Expressions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-verizon-premium-rules-engine.md).
+Questo articolo elenca le descrizioni dettagliate delle espressioni condizionali per il [motore regole](cdn-verizon-premium-rules-engine.md)della rete per la distribuzione di contenuti (CDN) di Azure.
 
 La prima parte di una regola è l'espressione condizionale.
 
 Espressione condizionale | Descrizione
 -----------------------|-------------
-IF | Un'espressione IF è sempre una parte della prima istruzione in una regola. Come tutte le altre espressioni condizionali, l'istruzione IF deve essere associata a una corrispondenza. Se non sono definite espressioni condizionali aggiuntive, questa corrispondenza determina il criterio che deve essere soddisfatto prima di poter applicare un set di funzionalità a una richiesta.
+IF | Un'espressione IF è sempre una parte della prima istruzione in una regola. Come tutte le altre espressioni condizionali, l'istruzione IF deve essere associata a una corrispondenza. Se non vengono definite espressioni condizionali aggiuntive, questa corrispondenza determina il criterio che deve essere soddisfatto prima che un set di funzionalità possa essere applicato a una richiesta.
 AND IF | Un'espressione AND IF può essere aggiunta solo dopo i tipi di espressioni condizionali seguenti: IF e AND IF. Indica che esiste un'altra condizione che deve essere soddisfatta per l'istruzione IF iniziale.
 ELSE IF| Un'espressione ELSE IF specifica una condizione alternativa che deve essere soddisfatta prima che venga eseguita una serie di funzionalità specifiche di questa istruzione ELSE IF. La presenza di un'istruzione ELSE IF indica la fine dell'istruzione precedente. L'unica espressione condizionale che può essere inserita dopo un'istruzione ELSE IF è un'altra istruzione ELSE IF. Ciò significa che un'istruzione ELSE IF può essere usata solo per specificare una sola condizione aggiuntiva da soddisfare.
 
-**Esempio:** condizione di corrispondenza CDNExample : ![CDN match condition](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
+**Esempio**: ![condizione di corrispondenza della rete CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
    > Una regola successiva potrebbe seguire l'override delle azioni specificate da una regola precedente.

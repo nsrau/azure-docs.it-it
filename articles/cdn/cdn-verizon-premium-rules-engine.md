@@ -1,6 +1,6 @@
 ---
-title: Eseguire l'override del comportamento HTTP con la rete CDN di Azure - Motore regole di Verizon PremiumOverride HTTP behavior with Azure CDN - Verizon Premium rules engine
-description: Il motore regole consente di personalizzare il modo in cui le richieste HTTP vengono gestite dalla rete CDN di Azure da Verizon Premium, ad esempio il blocco del recapito di determinati tipi di contenuto, la definizione di criteri di memorizzazione nella cache e la modifica delle intestazioni HTTP.
+title: Eseguire l'override del comportamento HTTP con la rete CDN di Azure-motore regole Verizon Premium
+description: Il motore regole consente di personalizzare il modo in cui le richieste HTTP vengono gestite dalla rete CDN di Azure da Verizon Premium, ad esempio bloccando la distribuzione di determinati tipi di contenuto, definendo un criterio di memorizzazione nella cache e modificando le intestazioni HTTP.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253476"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Eseguire l'override del comportamento HTTP usando la rete CDN di Azure dal motore delle regole di Verizon PremiumOverride HTTP behavior using the Azure CDN from Verizon Premium rules engine
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Eseguire l'override del comportamento HTTP usando il motore delle regole della rete CDN di Azure da Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -42,7 +42,7 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
 
 ## <a name="tutorial"></a>Esercitazione
 
-1. Nella pagina del **profilo della rete CDN** selezionare **Gestisci.**
+1. Nella pagina **profilo rete CDN** selezionare **Gestisci**.
    
     ![Pulsante Manage (Gestisci) del profilo di rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
@@ -73,7 +73,7 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
    >
    >
 
-5. Per aggiungere una nuova **+** funzione, selezionare il pulsante accanto a **Funzioni**.  Nell'elenco a discesa a sinistra, selezionare **Forza interna Max-Age**.  Nella casella di testo che viene visualizzata, inserire **300**. Non modificare i valori predefiniti restanti.
+5. Per aggiungere una nuova funzionalità, selezionare il **+** pulsante accanto a **funzionalità**.  Nell'elenco a discesa a sinistra, selezionare **Forza interna Max-Age**.  Nella casella di testo che viene visualizzata, inserire **300**. Non modificare i valori predefiniti restanti.
    
    ![Funzionalità della regola CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    

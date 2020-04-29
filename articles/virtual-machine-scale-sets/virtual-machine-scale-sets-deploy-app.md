@@ -1,5 +1,5 @@
 ---
-title: Distribuire un'applicazione in un set di scalabilità di macchine virtuali di AzureDeploy an application to an Azure virtual machine scale set
+title: Distribuire un'applicazione in un set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come distribuire applicazioni nelle istanze di macchine virtuali Linux e Windows in un set di scalabilità
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: jushiman
 ms.openlocfilehash: e157db79f1835a8ca891dd360a99e3319565d1d4
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011464"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
@@ -30,7 +30,7 @@ Per ridurre la gestione della configurazione e il tempo per eseguire il provisio
 
 
 ## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Installare un'app con l'estensione dello script personalizzata
-L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come installare un'app con un'estensione di script personalizzata, vedere le esercitazioni seguenti:For more information on how to install an app with a Custom Script Extension, see the following tutorials:
+L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come installare un'app con un'estensione di script personalizzata, vedere le esercitazioni seguenti:
 
 - [Interfaccia della riga di comando di Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
@@ -42,7 +42,7 @@ L'estensione script personalizzata scarica ed esegue gli script sulle macchine v
 
 L'estensione PowerShell DSC consente di personalizzare le istanze di macchine virtuali in un set di scalabilità con PowerShell. L'esempio seguente:
 
-- Indica alle istanze della macchina virtuale di scaricare un pacchetto DSC da GitHub -*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Indica alle istanze di macchine virtuali di scaricare un pacchetto DSC da GitHub-*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Imposta l'estensione in modo da eseguire uno script di installazione: `configure-http.ps1`
 - Ottiene informazioni su un set di scalabilità con [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Applica l'estensione alle istanze di macchine virtuali con [Update-AzVmss](/powershell/module/az.compute/update-azvmss)

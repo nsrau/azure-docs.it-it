@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254224"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
@@ -62,7 +62,7 @@ Quando si usa l'archiviazione BLOB di Azure come origine per il contenuto, è ne
 - Trasferimenti in GB: quantità di dati trasferiti per riempire la cache della rete CDN.
 
 > [!NOTE]
-> A partire da ottobre 2019, se si usa la rete CDN di Azure di Microsoft, il costo del trasferimento dei dati da Origins ospitato in Azure a i PoP DELLA rete CDN è gratuito. La rete CDN di Azure di Verizon e la rete CDN di Azure di Akamai sono soggette alle tariffe descritte di seguito.
+> A partire dall'ottobre 2019, se si usa la rete CDN di Azure di Microsoft, il costo del trasferimento dei dati dalle origini ospitate in Azure ai pop della rete CDN è gratuito. La rete CDN di Azure di Verizon e la rete CDN di Azure di Akamai sono soggette alle tariffe descritte di seguito.
 
 Per altre informazioni sulla fatturazione di Archiviazione di Azure, vedere [Informazioni sulla fatturazione di archiviazione di Azure (larghezza di banda, transazioni e capacità)](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
@@ -87,8 +87,8 @@ Ogni volta che un POP della rete CDN deve riempire la cache, presenta una richie
 
 - Influenza TTL: un TTL maggiore per l'oggetto indica che questo deve essere recuperato dall'origine con una frequenza minore. Esso indica anche che i client, come ad esempio i browser, possono memorizzare nella cache l'oggetto per un tempo più lungo, riducendo le transazioni nella rete CDN.
 
-## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quali servizi di origine sono idonei per il trasferimento gratuito dei dati con la rete CDN di Azure di Microsoft? 
-Se si usa uno dei seguenti servizi di Azure come origine della rete CDN, non verrà addebitato il trasferimento dei dati dall'origine ai PoP CDN. 
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quali servizi di origine sono idonei per il trasferimento dati gratuito con la rete CDN di Azure di Microsoft? 
+Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non verrà addebitato il trasferimento dei dati dall'origine ai pop della rete CDN. 
 
 - Archiviazione di Azure
 - Servizi multimediali di Azure
@@ -96,7 +96,7 @@ Se si usa uno dei seguenti servizi di Azure come origine della rete CDN, non ver
 - Rete virtuale
 - Load Balancer
 - Gateway applicazione
-- DNS di Azure
+- Azure DNS
 - ExpressRoute
 - Gateway VPN
 - Gestione traffico

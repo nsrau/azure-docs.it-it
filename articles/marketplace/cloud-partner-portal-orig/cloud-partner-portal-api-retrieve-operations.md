@@ -1,5 +1,5 @@
 ---
-title: Recuperare l'API delle operazioni . Azure Marketplace
+title: API per il recupero delle operazioni | Azure Marketplace
 description: Recupera tutte le operazioni relative all'offerta o per ottenere una particolare operazione per l'operationId specificato.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255873"
 ---
 # <a name="retrieve-operations"></a>Recuperare le operazioni
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Recupera tutte le operazioni relative all'offerta o per ottenere una particolare operazione per l'operationId specificato. Il client può usare i parametri di query per filtrare operazioni in esecuzione.
 
@@ -34,8 +34,8 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 
 |  **Nome**          |      **Descrizione**                                                                                           | **Tipo di dati** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  string       |
-|  offerId           |  Identificatore dell'offerta                                                                                              |  string       |
+|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  Stringa       |
+|  offerId           |  Identificatore dell'offerta                                                                                              |  Stringa       |
 |  operationId       |  GUID che identifica in modo univoco l'operazione sull'offerta. L'oprationId può essere recuperato tramite questa API e viene inoltre restituito nell'intestazione HTTP della risposta per tutte le operazioni a esecuzione prolungata, ad esempio l'API [Pubblica offerta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  api-version       | Ultima versione dell'API |    Data      |
 |  |  |  |
@@ -43,7 +43,7 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 ## <a name="header"></a>Intestazione
 
 
-|  **Nome**          |  **valore**           |
+|  **Nome**          |  **Valore**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Autorizzazione     | `Bearer YOUR_TOKEN`  |
@@ -178,21 +178,21 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 |  submissionType              | Identifica il tipo di operazione segnalata per l'offerta, ad esempio `Publish/GoLive`      |
 |  createdDateTime             | Datetime UTC in cui è stata creata l'operazione                                                       |
 |  lastActionDateTime          | Datetime UTC in cui è stato eseguito l'ultimo aggiornamento dell'operazione                                       |
-|  status                      | Stato dell'operazione, `not started` \| `running` \| `failed` \| `completed`ovvero . Una sola operazione alla volta può avere lo stato `running`. |
+|  status                      | `not started` \| `running` \| Stato dell' `failed` operazione \| . `completed` Una sola operazione alla volta può avere lo stato `running`. |
 |  error                       | Messaggio di errore per le operazioni non riuscite                                                               |
 |  |  |
 
-### <a name="response-step-properties"></a>Proprietà del passaggio di risposta
+### <a name="response-step-properties"></a>Proprietà passaggio risposta
 
 |  **Nome**                    |  **Descrizione**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
-| estimatedTimeFrame | La durata stimata di questa operazione |
-| id | Identificatore univoco del processo di passaggio |
+| estimatedTimeFrame | Durata stimata di questa operazione |
+| id | Identificatore univoco per il processo del passaggio |
 | description | Descrizione del passaggio |
-| stepName | Nome descrittivo del passaggio |
-| status | Lo stato del passo, `notStarted` \| `running` \| `failed` \|`completed` |
-|  del cloud al dispositivo | Eventuali notifiche o avvisi rilevati durante il passaggio. Matrice di stringhe |
-| progressPercentage (Percentualeprog) | Un numero intero compreso tra 0 e 100 che indica l'avanzamento del passaggio |
+| stepName | Nome descrittivo per il passaggio |
+| status | `notStarted` \| `running` \| `failed` Stato del passaggio, \|`completed` |
+| del cloud al dispositivo | Eventuali notifiche o avvisi rilevati durante il passaggio. Matrice di stringhe |
+| progressPercentage | Intero compreso tra 0 e 100 che indica l'avanzamento del passaggio |
 | | |
 
 ### <a name="response-status-codes"></a>Codici di stato della risposta

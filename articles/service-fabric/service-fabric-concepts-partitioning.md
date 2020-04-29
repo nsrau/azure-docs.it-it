@@ -4,10 +4,10 @@ description: Illustra come partizionare i servizi con stato di Service Fabric. L
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115155"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
@@ -44,11 +44,11 @@ La figura 2 illustra la distribuzione di 10 partizioni prima e dopo il ridimensi
 La scalabilità orizzontale è quindi garantita perché le richieste dei client vengono distribuite tra i computer, le prestazioni generali dell'applicazione vengono migliorate e la contesa in caso di accesso a blocchi di dati viene ridotta.
 
 ## <a name="plan-for-partitioning"></a>Pianificazione del partizionamento
-Prima di implementare un servizio, è necessario considerare sempre la strategia di partizionamento necessaria per la scalabilità orizzontale. Ci sono diversi modi, ma tutti si concentrano su ciò che l'applicazione deve raggiungere. Nell'ambito di questo articolo verranno illustrati alcuni degli aspetti più importanti.
+Prima di implementare un servizio, è necessario considerare sempre la strategia di partizionamento necessaria per la scalabilità orizzontale. Esistono diversi modi, ma tutti si concentrano su ciò che l'applicazione deve realizzare. Nell'ambito di questo articolo verranno illustrati alcuni degli aspetti più importanti.
 
 Un valido approccio consiste nel considerare la struttura dello stato che deve essere partizionato come primo passaggio.
 
-Un semplice esempio viene riportato di seguito. Se si dovesse costruire un servizio per un sondaggio a livello di contea, è possibile creare una partizione per ogni città della contea. e quindi archiviare i voti per ogni persona della città nella partizione corrispondente a tale città. La figura 3 illustra un gruppo di persone e la città in cui risiedono.
+Un semplice esempio viene riportato di seguito. Se si compila un servizio per un polling a livello di contea, è possibile creare una partizione per ogni città della regione. e quindi archiviare i voti per ogni persona della città nella partizione corrispondente a tale città. La figura 3 illustra un gruppo di persone e la città in cui risiedono.
 
 ![Partizione semplice](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -115,7 +115,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
 > 
 > 
 
-1. Aprire **Visual Studio** > **File** > **New**Nuovo > progetto file**di**Visual Studio .
+1. Aprire > **file**di **Visual Studio** > **nuovo** > **progetto**.
 2. Nella finestra di dialogo **Nuovo progetto** scegliere l'applicazione Service Fabric.
 3. Assegnare al progetto il nome "AlphabetPartitions".
 4. Nella finestra di dialogo **Create a Service** (Crea un servizio) scegliere il servizio **con stato** e assegnargli il nome "Alphabet.Processing".
@@ -152,7 +152,7 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
    
     Poiché è possibile che più repliche di questo servizio siano ospitate sullo stesso computer, questo indirizzo deve essere univoco per la replica ed è per questo motivo che nell'URL sono presenti un ID partizione e un ID replica. HttpListener può essere in ascolto di più indirizzi sulla stessa porta, purché il prefisso dell'URL sia univoco.
    
-    Il GUID aggiuntivo è presente per un caso avanzato in cui anche le repliche secondarie sono in ascolto delle richieste di sola lettura. In questo caso, è opportuno assicurarsi che venga usato un nuovo indirizzo univoco quando si passa dalla replica primaria a quelle secondarie per obbligare i client a risolvere nuovamente l'indirizzo. L'indirizzo di accesso a questa posizione viene utilizzato come indirizzo in modo che la replica sia in ascolto su tutti gli host disponibili (IP, FQDN, localhost e così via). Il codice seguente mostra un esempio.
+    Il GUID aggiuntivo è presente per un caso avanzato in cui anche le repliche secondarie sono in ascolto delle richieste di sola lettura. In questo caso, è opportuno assicurarsi che venga usato un nuovo indirizzo univoco quando si passa dalla replica primaria a quelle secondarie per obbligare i client a risolvere nuovamente l'indirizzo. ' +' viene usato come indirizzo qui in modo che la replica sia in ascolto su tutti gli host disponibili (IP, FQDN, localhost e così via) Il codice seguente illustra un esempio.
    
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()

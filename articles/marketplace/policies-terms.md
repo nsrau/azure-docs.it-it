@@ -1,6 +1,6 @@
 ---
-title: Politiche e termini del mercato commerciale Azure
-description: I criteri e le condizioni del marketplace commerciale Microsoft si applicano a tutti gli editori e le offerte in Microsoft Azure Marketplace.
+title: Termini e condizioni per il Marketplace commerciale | Azure
+description: I termini e le condizioni di Microsoft Commercial Marketplace si applicano a tutti gli editori e le offerte del Microsoft Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: dsindona
 ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262163"
 ---
-# <a name="commercial-marketplace-policies-and-terms"></a>Politiche e termini del mercato commerciale
+# <a name="commercial-marketplace-policies-and-terms"></a>Informative e condizioni del marketplace commerciale
 
 >[!Note]
->Per "mercato commerciale Microsoft" si intende una piattaforma di proprietà o gestita da Microsoft, per quanto denominata, tramite la quale le offerte possono essere presentate o acquisite dai clienti. Se non diversamente specificato, il marketplace commerciale include Microsoft Azure Marketplace e Microsoft AppSource.
+>"Microsoft Commercial Marketplace" indica una piattaforma di proprietà o gestita da Microsoft, tuttavia denominata, tramite cui le offerte possono essere presentate o acquisite dai clienti. Se non diversamente specificato, il Marketplace commerciale include il Microsoft Azure Marketplace e la Microsoft AppSource.
 
-Grazie per il vostro interesse per l'editoria di offerte sul mercato commerciale. Ci impegniamo a collaborare con voi per creare una ricca fonte di soluzioni cloud e una linea di soluzioni di business, che deliziano i clienti in tutto il mondo e vi aiutano a costruire il vostro business.
+Grazie per il tuo interesse per la pubblicazione di offerte sul Marketplace commerciale. Ci impegniamo a collaborare con te per creare un'ampia gamma di soluzioni cloud e offerte line-of-business, che deliziano i clienti di tutto il mondo e ti aiutano a sviluppare la tua attività.
 
-Le offerte sul mercato devono rispettare le nostre norme e condizioni. Aggiorniamo di tanto in tanto queste norme e questi termini per garantire una buona esperienza del cliente e offrire ai partner l'opportunità di avere successo. Se hai commenti e suggerimenti sui nostri criteri o condizioni, comunicacelo commentando il [forum di Azure Marketplace e Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Le offerte sul Marketplace devono essere conformi ai criteri e alle condizioni. Questi criteri e termini vengono aggiornati di tanto in tanto per garantire una corretta esperienza del cliente e fornire ai partner un'opportunità di successo. Per commenti e suggerimenti su criteri o termini, inviare commenti in [Azure Marketplace e in Microsoft AppSource Forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
 ## <a name="policies-and-terms"></a>Criteri e termini
 
 * [Criteri di certificazione del marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
-* [Politiche di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy)
+* [Criteri di partecipazione](https://docs.microsoft.com/legal/marketplace/participation-policy)
 
 * [Criteri per la classificazione e la recensione](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
@@ -35,6 +35,6 @@ Le offerte sul mercato devono rispettare le nostre norme e condizioni. Aggiornia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visita la pagina della guida alla pubblicazione del [mercato commerciale.](./marketplace-publishers-guide.md)
+Visitare la pagina della [Guida alla pubblicazione nel Marketplace commerciale](./marketplace-publishers-guide.md) .
 
 ---

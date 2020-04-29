@@ -1,5 +1,5 @@
 ---
-title: Annullare l'API dell'operazione . Azure Marketplace
+title: Annulla operazione API | Azure Marketplace
 description: Annullare le operazioni.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: f9e55ff2c581f9392a125f6dc3ec8d903e9876a4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81256434"
 ---
 # <a name="cancel-operation"></a>Annulla operazione
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Questa API consente di annullare un'operazione in corso sull'offerta. Usare l'[API di recupero informazioni](./cloud-partner-portal-api-retrieve-operations.md) per ottenere un `operationId` da passare a questa API. L'annullamento è in genere un'operazione sincrona, ma in alcuni scenari complessi può essere necessaria una nuova operazione per cancellarne una esistente. In questo caso, il corpo della risposta HTTP contiene il percorso dell'operazione da usare per eseguire una query sullo stato.
 
@@ -29,15 +29,15 @@ Questa API consente di annullare un'operazione in corso sull'offerta. Usare l'[A
 
 |  **Nome**    |      **Descrizione**                                  |    **Tipo di dati**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificatore del server di pubblicazione, ad esempio `contoso`         |   string          |
-| offerId      |  Identificatore dell'offerta                                     |   string          |
+| publisherId  |  Identificatore del server di pubblicazione, ad esempio `contoso`         |   Stringa          |
+| offerId      |  Identificatore dell'offerta                                     |   Stringa          |
 | api-version  |  Versione corrente dell'API                               |    Data           |
 |  |  |  |
 
 ## <a name="header"></a>Intestazione
 ------
 
-|  **Nome**              |  **valore**         |
+|  **Nome**              |  **Valore**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
 |  Autorizzazione         |  Bearer TOKEN |
@@ -75,9 +75,9 @@ Questa API consente di annullare un'operazione in corso sull'offerta. Usare l'[A
 
 ### <a name="response-header"></a>Intestazione di risposta
 
-|  **Nome**             |    **valore**                       |
+|  **Nome**             |    **Valore**                       |
 |  ---------            |    ----------                      |
-| Location    | Percorso relativo per recuperare lo stato dell'operazione. |
+| Percorso    | Percorso relativo per recuperare lo stato di questa operazione. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Codici di stato della risposta

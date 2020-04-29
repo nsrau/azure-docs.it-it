@@ -1,6 +1,6 @@
 ---
-title: Aggiungere il monitoraggio della diagnostica & a una macchina virtuale di AzureAdd monitoring & diagnostics to an Azure virtual machine
-description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione di diagnostica di Azure.Use an Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
+title: Aggiungere la diagnostica del & di monitoraggio a una macchina virtuale di Azure
+description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione diagnostica di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mimckitt
@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258831"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
@@ -167,7 +167,7 @@ Esempio: *WADMetricsPT1HP10DV2S20151108* include i dati aggregati delle metriche
 
 Ogni tabella WADMetrics include le colonne seguenti:
 
-* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID* per identificare in modo univoco la risorsa di macchina virtuale, Ad esempio: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID* per identificare in modo univoco la risorsa di macchina virtuale, ad esempio `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: usa il formato `<Descending time tick>:<Performance Counter Name>`. Il calcolo relativo ai tick temporali decrescenti corrisponde al numero massimo di tick temporali meno l'ora di inizio del periodo di aggregazione. Ad esempio, se il periodo di campionamento è stato avviato il 10 novembre 2015 alle 00:00 UTC, il calcolo sarebbe: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Per il contatore delle prestazioni dei byte di memoria disponibili, la chiave di riga avrà un aspetto simile al seguente: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: nome del contatore delle prestazioni. Corrisponde al valore *counterSpecifier* definito nel file di configurazione XML.
 * **Maximum**: valore massimo del contatore delle prestazioni nel periodo di aggregazione.
@@ -177,6 +177,6 @@ Ogni tabella WADMetrics include le colonne seguenti:
 * **Average**: valore medio (totale/conteggio) del contatore delle prestazioni nel periodo di aggregazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un modello di esempio completo di una macchina virtuale Windows con estensione di diagnostica, vedere [201-vm-monitoring-diagnostics-extensionFor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension) a complete sample template of a Windows virtual machine with diagnostics extension, see 201-vm-monitoring-diagnostics-extension   
+* Per un modello di esempio completo di una macchina virtuale Windows con estensione diagnostica, vedere [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Distribuire il modello di Azure Resource Manager con [Azure PowerShell](../windows/ps-template.md) o la [riga di comando di Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Altre informazioni sulla creazione di modelli di [Azure Resource ManagerLearn](../../resource-group-authoring-templates.md) more about authoring Azure Resource Manager templates
+* Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../../resource-group-authoring-templates.md)

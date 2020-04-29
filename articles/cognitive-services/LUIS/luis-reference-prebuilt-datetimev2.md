@@ -1,5 +1,5 @@
 ---
-title: DatetimeV2 Entità predefinite - LUIS
+title: Entità predefinite di DatetimeV2-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita datetimeV2 in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 04/13/2020
 ms.author: diberry
 ms.openlocfilehash: 33f8b787119e1c5d6d1a1bb28c94d9791a1c048e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272611"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
@@ -23,11 +23,11 @@ ms.locfileid: "81272611"
 L'entità predefinita **datetimeV2** estrae i valori di data e ora. Questi valori vengono risolti in un formato standardizzato per l'uso da parte dei programmi client. Quando un'espressione ha una data o un'ora non complete, LUIS include _i valori passati e futuri_ nella risposta dell'endpoint. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti datetimeV2 per le finalità dell'applicazione.
 
 ## <a name="types-of-datetimev2"></a>Tipi di datetimeV2
-DatetimeV2 viene gestito dal repository GitHub [di tipo Recognizers-text.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
+DatetimeV2 è gestito dal repository GitHub del [testo dei riconoscitori](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) .
 
 ## <a name="example-json"></a>JSON di esempio
 
-L'espressione seguente e la relativa risposta JSON parziale sono illustrate di seguito.
+Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
 `8am on may 2nd 2019`
 
@@ -146,9 +146,9 @@ Ogni elemento della matrice `values` può contenere i campi seguenti:
 |Nome proprietà|Descrizione proprietà|
 |--|--|
 |timex|Ora, data o intervallo di date espressi nel formato TIMEX che segue lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e gli attributi TIMEX3 per l'annotazione con il linguaggio TimeML.|
-|mod|termine utilizzato per descrivere come utilizzare `before` `after`il valore, ad esempio , .|
-|type|Sottotipo , che può essere uno `datetime`dei `date` `time`seguenti `daterange` `timerange`elementi: , , , , , `datetimerange`, `duration`, `set`.|
-|value|**Opzionale.** Oggetto datetime nel formato aaaa-MM-gg (data), HH:mm:ss (ora) aaaa-MM-gg HH:mm:ss (datetime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
+|mod|termine usato per descrivere come usare il valore `before`, ad esempio, `after`.|
+|type|Sottotipo, che può essere uno degli elementi seguenti: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`,. `set`|
+|value|**Facoltativo.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
 
 ## <a name="valid-date-values"></a>Valori di daae validi
 
@@ -162,7 +162,7 @@ Ogni elemento della matrice `values` può contenere i campi seguenti:
 
 Se la data può essere nel passato o nel futuro, LUIS fornisce entrambi i valori. Un esempio è un'espressione che include il mese e la data senza l'anno.
 
-Ad esempio, data l'espressione seguente:For example, given the following utterance:
+Ad esempio, data la seguente espressione:
 
 `May 2nd`
 
@@ -172,10 +172,10 @@ Ad esempio, data l'espressione seguente:For example, given the following utteran
 L'esempio seguente illustra la risoluzione dell'entità "may 2nd". Questa risoluzione presuppone che la data corrente sia compresa tra il 2 maggio 2017 e il 1° maggio 2018.
 I campi con `X` nel campo `timex` sono parti della data non specificati in modo esplicito nell'espressione.
 
-## <a name="date-resolution-example"></a>Esempio di risoluzione data
+## <a name="date-resolution-example"></a>Esempio di risoluzione della data
 
 
-L'espressione seguente e la relativa risposta JSON parziale sono illustrate di seguito.
+Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
 `May 2nd`
 
@@ -274,9 +274,9 @@ L'espressione seguente e la relativa risposta JSON parziale sono illustrate di s
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Esempi di risoluzione di un intervallo di date per data numerica
 
-L'entità `datetimeV2` estrae gli intervalli di data e tempo. I campi `start` e `end` specificano l'inizio e la fine dell'intervallo. Per `May 2nd to May 5th`l'espressione, LUIS fornisce valori **daterange** sia per l'anno corrente che per l'anno successivo. Nel campo `timex`, i valori `XXXX` indicano l'ambiguità dell'anno. `P3D` indica che il periodo di tempo è di tre giorni.
+L'entità `datetimeV2` estrae gli intervalli di data e tempo. I campi `start` e `end` specificano l'inizio e la fine dell'intervallo. Per l'espressione `May 2nd to May 5th`, Luis fornisce valori **DateRange** per l'anno corrente e per l'anno successivo. Nel campo `timex`, i valori `XXXX` indicano l'ambiguità dell'anno. `P3D` indica che il periodo di tempo è di tre giorni.
 
-L'espressione seguente e la relativa risposta JSON parziale sono illustrate di seguito.
+Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
 `May 2nd to May 5th`
 
@@ -378,9 +378,9 @@ L'espressione seguente e la relativa risposta JSON parziale sono illustrate di s
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Esempi di risoluzione di un intervallo di date per giorno della settimana
 
-Nell'esempio seguente viene illustrato come LUIS utilizza `Tuesday to Thursday` **datetimeV2** per risolvere l'espressione . In questo esempio la data corrente è il 19 giugno. LUIS include valori **daterange** per entrambi gli intervalli di date che precedono e seguono la data corrente.
+Nell'esempio seguente viene illustrato il modo **datetimeV2** in cui Luis USA datetimeV2 `Tuesday to Thursday`per risolvere l'espressione. In questo esempio la data corrente è il 19 giugno. LUIS include valori **daterange** per entrambi gli intervalli di date che precedono e seguono la data corrente.
 
-L'espressione seguente e la relativa risposta JSON parziale sono illustrate di seguito.
+Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
 `Tuesday to Thursday`
 
@@ -482,19 +482,19 @@ La matrice di valori ha due elementi ora se l'ora o l'intervallo di tempo sono a
 
 ## <a name="time-range-resolution-example"></a>Esempio di risoluzione di un intervallo di tempo
 
-La risposta JSON di DatetimeV2 è stata modificata nell'API V3. L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espressione con un intervallo di tempo.
+La risposta JSON DatetimeV2 è cambiata nell'API V3. L'esempio seguente illustra come LUIS usa **datetimeV2** per risolvere l'espressione con un intervallo di tempo.
 
-Modifiche dall'API V2:
-* `datetimeV2.timex.type`proprietà non viene più restituita perché viene restituita a livello padre, `datetimev2.type`.
-* La `datetimeV2.value` proprietà è stata `datetimeV2.timex`rinominata in .
+Modifiche dall'API v2:
+* `datetimeV2.timex.type`la proprietà non viene più restituita perché viene restituita a livello padre `datetimev2.type`.
+* La `datetimeV2.value` proprietà è stata rinominata in `datetimeV2.timex`.
 
-L'espressione seguente e la relativa risposta JSON parziale sono illustrate di seguito.
+Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
 `from 6pm to 7pm`
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/5-1)
 
-Il codice JSON `verbose` seguente è `false`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```JSON
 
@@ -519,7 +519,7 @@ Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/5-2)
 
-Il codice JSON `verbose` seguente è `true`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 
@@ -582,9 +582,9 @@ Il codice JSON `verbose` seguente è `true`impostato con il parametro :
 
 * * *
 
-## <a name="time-resolution-example"></a>Esempio di risoluzione del tempo
+## <a name="time-resolution-example"></a>Esempio di risoluzione temporale
 
-L'espressione seguente e la relativa risposta JSON parziale sono illustrate di seguito.
+Di seguito è riportato il seguente enunciato e la relativa risposta JSON parziale.
 
 `8am`
 

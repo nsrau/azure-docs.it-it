@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 473636dc95d96ea348a42ec0f1090029bf3a7728
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260447"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Ottimizzare la rete CDN di Azure per il tipo di distribuzione di contenuti
 
-Quando si distribuisce il contenuto a un pubblico globale ampio, è fondamentale garantirne la distribuzione ottimizzata. La rete per la distribuzione di [contenuti di Azure (CDN)](cdn-overview.md) può ottimizzare l'esperienza di distribuzione in base al tipo di contenuto in genere. I contenuti possono essere un sito Web, un flusso live, un video o un file di grandi dimensioni per il download. Quando si crea un endpoint della rete CDN, specificare uno scenario nell'opzione di menu **Ottimizzato per**. La scelta determina quale ottimizzazione verrà applicata al contenuto distribuito dall'endpoint della rete per la distribuzione di contenuti.
+Quando si distribuisce il contenuto a un pubblico globale ampio, è fondamentale garantirne la distribuzione ottimizzata. La rete per la [distribuzione di contenuti (CDN) di Azure](cdn-overview.md) consente di ottimizzare l'esperienza di distribuzione in base al tipo di contenuto. I contenuti possono essere un sito Web, un flusso live, un video o un file di grandi dimensioni per il download. Quando si crea un endpoint della rete CDN, specificare uno scenario nell'opzione di menu **Ottimizzato per**. La scelta determina quale ottimizzazione verrà applicata al contenuto distribuito dall'endpoint della rete per la distribuzione di contenuti.
 
 Le opzioni di ottimizzazione sono progettate per usare i comportamenti basati sulle procedure consigliate per migliorare le prestazioni a livello di distribuzione di contenuti e l'offload dell'origine. Le scelte dello scenario influiranno sulle prestazioni modificando le configurazioni per la memorizzazione nella cache parziale, la suddivisione in blocchi di oggetti e i criteri di ripetizione in caso di errore dell'origine. 
 
@@ -39,7 +39,7 @@ I profili di **rete CDN Standard di Azure con tecnologia Microsoft** supportano 
 * [Distribuzione Web generale](#general-web-delivery). Questa ottimizzazione viene usata anche per scaricare flussi multimediali e file di grandi dimensioni.
 
 > [!NOTE]
-> L'accelerazione dinamica del sito da Microsoft viene offerta tramite [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> L'accelerazione sito dinamico da Microsoft viene offerta tramite il [servizio front door di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 I profili di **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon** supportano le ottimizzazioni seguenti:
 
@@ -50,7 +50,7 @@ I profili di **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN 
 
 I profili di **rete CDN Standard di Azure con tecnologia Akamai** supportano le ottimizzazioni seguenti:
 
-* [Consegna Web generale](#general-web-delivery) 
+* [Distribuzione Web generale](#general-web-delivery) 
 
 * [Streaming multimediale generale](#general-media-streaming)
 
@@ -70,7 +70,7 @@ Quando si crea un nuovo endpoint, selezionare un tipo di ottimizzazione che megl
 
     ![Selezione dell'endpoint](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. In IMPOSTAZIONI selezionare **Ottimizzazione**. Quindi, selezionare un tipo dall'elenco a discesa **Ottimizzato per.**
+2. In IMPOSTAZIONI selezionare **Ottimizzazione**. Quindi selezionare un tipo dall'elenco **a discesa ottimizzato per** .
 
     ![Selezione dell'ottimizzazione e del tipo](./media/cdn-optimization-overview/02_Select.png)
 
@@ -108,7 +108,7 @@ Per i profili di **rete CDN Standard di Azure con tecnologia Microsoft**, **rete
 Per altre informazioni sull'ottimizzazione dello streaming multimediale, vedere [Ottimizzazione dello streaming multimediale](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> Se l'endpoint della rete CDN viene usato principalmente per il contenuto di video on demand, usare questo tipo di ottimizzazione. La differenza principale tra questo tipo di ottimizzazione e il tipo di ottimizzazione generale del flusso multimediale è il timeout dei tentativi di connessione. Il timeout è molto più breve per lavorare con scenari di live streaming.
+> Se l'endpoint della rete CDN viene usato principalmente per il contenuto di video on demand, usare questo tipo di ottimizzazione. La differenza principale tra questo tipo di ottimizzazione e il tipo di ottimizzazione del flusso multimediale generale è il timeout dei tentativi di connessione. Il timeout è molto più breve da usare con gli scenari di streaming live.
 >
 
 ### <a name="large-file-download"></a>Download di file di grandi dimensioni
@@ -124,7 +124,7 @@ Per altre informazioni sull'ottimizzazione di file di grandi dimensioni vedere [
  L'accelerazione dinamica del sito è disponibile per i profili di **rete CDN Standard di Azure con tecnologia Akamai**, **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon**. Per usare questa ottimizzazione, viene applicata una tariffa aggiuntiva. Per altre informazioni, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> L'accelerazione dinamica del sito da Microsoft viene offerta tramite [Azure Front Door Service,](https://docs.microsoft.com/azure/frontdoor/front-door-overview) un servizio [anycast](https://en.wikipedia.org/wiki/Anycast) globale che sfrutta la rete globale privata di Microsoft per distribuire i carichi di lavoro delle app.
+> L'accelerazione sito dinamico da Microsoft è disponibile tramite il [servizio front](https://docs.microsoft.com/azure/frontdoor/front-door-overview) -end di Azure, che è un servizio [anycast](https://en.wikipedia.org/wiki/Anycast) globale che sfrutta la rete globale privata di Microsoft per distribuire i carichi di lavoro delle app.
 
 L'accelerazione di sito dinamico include diverse tecniche che sfruttano la latenza e le prestazioni di contenuto dinamico. Le tecniche includono l'ottimizzazione di route e rete, l'ottimizzazione TCP e molto altro. 
 

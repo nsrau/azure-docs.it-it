@@ -1,16 +1,16 @@
 ---
-title: Debug Azure Service Fabric apps in Linux
+title: Eseguire il debug di app Service Fabric di Azure in Linux
 description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi Service Fabric in un computer di sviluppo locale Linux.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991331"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorare e diagnosticare i servizi in una configurazione di sviluppo del computer Linux localeMonitor and diagnose services in a local Linux machine development setup
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorare e diagnosticare i servizi in una configurazione di sviluppo per computer Linux locale
 
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi 
 
 ## <a name="debugging-service-fabric-java-applications"></a>Debug delle applicazioni Java di Service Fabric
 
-Per le applicazioni Java sono disponibili [più framework di registrazione](https://en.wikipedia.org/wiki/Java_logging_framework) . Poiché `java.util.logging` è l'opzione predefinita con JRE, viene utilizzata anche per gli esempi di [codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Di seguito viene illustrato come configurare il framework `java.util.logging` .
+Per le applicazioni Java sono disponibili [più framework di registrazione](https://en.wikipedia.org/wiki/Java_logging_framework) . Poiché `java.util.logging` è l'opzione predefinita con JRE, viene usata anche per gli [esempi di codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Di seguito viene illustrato come configurare il framework `java.util.logging` .
 
 Usando java.util.logging è possibile reindirizzare i log dell'applicazione a memoria, flussi di output, file di console o socket. Nel framework sono disponibili gestori predefiniti per ognuna di queste opzioni. È possibile creare un file `app.properties` per configurare il gestore di file per l'applicazione in modo da reindirizzare tutti i log a un file locale.
 
@@ -53,13 +53,13 @@ Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicef
 
 Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
 
-Per ulteriori informazioni, vedere gli esempi di [codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
+Per altre informazioni, vedere gli [esempi di codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Debug di applicazioni C# di Service Fabric
 
 
-Sono disponibili vari framework per il tracciamento delle applicazioni CoreCLR in Linux. Per ulteriori informazioni, vedere [Estensioni .NET per la registrazione](https://github.com/dotnet/extensions/tree/master/src/Logging).  In questo articolo viene usato EventSource, già noto agli sviluppatori C#, per la traccia negli esempi CoreCLR in Linux.
+Sono disponibili vari framework per il tracciamento delle applicazioni CoreCLR in Linux. Per ulteriori informazioni, vedere [estensioni .NET per la registrazione](https://github.com/dotnet/extensions/tree/master/src/Logging).  In questo articolo viene usato EventSource, già noto agli sviluppatori C#, per la traccia negli esempi CoreCLR in Linux.
 
 Il primo passaggio consiste nell'includere System.Diagnostics.Tracing in modo da poter scrivere i log in m in memoria, flussi di output o file di console.  Per la registrazione tramite EventSource, aggiungere il seguente progetto a project.json:
 

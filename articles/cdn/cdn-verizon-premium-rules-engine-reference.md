@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: bda817712faf1f54287e880dc62ef2b08273ff42
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253391"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Guida di riferimento al motore regole di Azure CDN da Verizon PremiumAzure CDN from Verizon Premium rules engine reference
+# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Riferimento al motore delle regole della rete CDN di Azure di Verizon Premium
 
 Questo articolo fornisce descrizioni dettagliate delle funzionalità e dalle condizioni di corrispondenza disponibili per il [motore regole](cdn-verizon-premium-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
 
@@ -38,7 +38,7 @@ Una regola è definita con l'uso di [**espressioni condizionali**](cdn-verizon-p
 Il modo in cui verranno trattati i caratteri speciali varia a seconda del modo in cui una condizione di corrispondenza o funzionalità gestisce i valori di testo. Una condizione di corrispondenza o funzionalità potrebbe interpretare il testo in uno dei modi seguenti:
 
 1. [**Valori letterali**](#literal-values)
-2. [**Valori con caratteri jolly**](#wildcard-values)
+2. [**Valori jolly**](#wildcard-values)
 3. [**Espressioni regolari**](#regular-expressions)
 
 ### <a name="literal-values"></a>Valori letterali
@@ -71,7 +71,7 @@ Carattere speciale | Descrizione
 Space | Un carattere di spazio in genere è considerato come un carattere letterale.
 "value" | Le virgolette singole vengono trattate come caratteri letterali. Un set di virgolette singole non ha un significato speciale.
 
-Le condizioni di corrispondenza e le funzionalità che supportano le espressioni regolari accettano modelli definiti da espressioni regolari compatibili con Perl (PCRE).
+Le condizioni di corrispondenza e le funzionalità che supportano le espressioni regolari accettano modelli definiti dalle espressioni regolari compatibili con Perl (PCRE).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

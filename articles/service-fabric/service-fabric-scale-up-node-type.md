@@ -1,13 +1,13 @@
 ---
-title: Scalabilità verticale di un tipo di nodo di Azure Service FabricScale up an Azure Service Fabric node type
+title: Ridimensionare un tipo di nodo di Service Fabric di Azure
 description: Informazioni su come ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998934"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentare le prestazioni di un tipo di nodo primario di un cluster di Service Fabric
@@ -34,7 +34,7 @@ Di seguito è illustrato il processo per l'aggiornamento delle dimensioni e del 
     Per trovare il nuovo set di scalabilità nel modello, cercare la risorsa "Microsoft.Compute/virtualMachineScaleSets" tramite il parametro *vmNodeType2Name*.  Il nuovo set di scalabilità verrà aggiunto al tipo di nodo primario usando l'impostazione proprietà -> virtualMachineProfile - > extensionProfile -> estensioni -> proprietà -> impostazioni -> nodeTypeRef.
 4. Controllare l'integrità del cluster e verificare che tutti i nodi siano integri.
 5. Disabilitare i nodi nel set di scalabilità precedente del tipo di nodo primario allo scopo di rimuovere il nodo. È possibile disabilitare tutti i nodi contemporaneamente e le operazioni verranno inserite nella coda. Attendere che tutti i nodi vengano disabilitati. L'operazione potrebbe richiedere un certo tempo.  Poiché i nodi precedenti nel tipo di nodo sono disabilitati, i servizi di sistema e i nodi di inizializzazione eseguono la migrazione alle macchine virtuali del nuovo set di scalabilità nel tipo di nodo primario.
-6. Rimuovere il set di scalabilità precedente dal tipo di nodo primario. Dopo che i nodi sono stati disabilitati come nel passaggio 5, nel pannello del set di scalabilità della macchina virtuale nel portale di Azure deallocare i nodi dal tipo di nodo precedente uno alla volta.
+6. Rimuovere il set di scalabilità precedente dal tipo di nodo primario. Dopo che i nodi sono stati disabilitati come nel passaggio 5, nel pannello del set di scalabilità di macchine virtuali nella portale di Azure deallocare i nodi del vecchio nodo di tipo uno alla volta.
 7. Rimuovere il bilanciamento del carico associato al set di scalabilità precedente. Il cluster non è disponibile durante la configurazione del nuovo indirizzo IP pubblico e del bilanciamento del carico per il nuovo set di scalabilità.  
 8. Archiviare in una variabile le impostazioni DNS dell'indirizzo IP pubblico associato al set di scalabilità del tipo di nodo primario precedente e rimuovere tale indirizzo IP pubblico.
 9. Sostituire le impostazioni DNS dell'indirizzo IP pubblico associato al nuovo set di scalabilità del tipo di nodo primario con le impostazioni DNS dell'indirizzo IP pubblico eliminato.  Ora il cluster è nuovamente raggiungibile.

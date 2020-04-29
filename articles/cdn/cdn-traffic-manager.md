@@ -1,5 +1,5 @@
 ---
-title: Failover tra più endpoint della rete CDN di Azure con Gestione traffico
+title: Failover tra più endpoint della rete CDN di Azure con gestione traffico
 description: Informazioni su come configurare Gestione traffico di Azure con gli endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259851"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
@@ -77,12 +77,12 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
     >
 
 
-2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e immettere *cdndemo101.dustydogpetcare.online*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
+2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e input *cdndemo101. dustydogpetcare. online*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
 
     La rete CDN di Azure usa il sottodominio *cdnverify* per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
     
     > [!NOTE]
-    > Per abilitare TLS in una rete CDN di Azure dai profili **Akamai,** è necessario assegnare direttamente il nome del dominio personalizzato all'endpoint. cdnverify per l'abilitazione di TLS non è ancora supportata. 
+    > Per abilitare TLS in una rete **CDN di Azure da profili Akamai** , è necessario eseguire il CNAME direttamente del dominio personalizzato all'endpoint. la cdnverify per l'abilitazione di TLS non è ancora supportata. 
     >
 
 3.  Tornare al sito Web per il provider di dominio del dominio personalizzato e aggiornare il primo mapping DNS creato, in modo che il dominio personalizzato sia mappato al secondo endpoint della rete CDN.
@@ -91,7 +91,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato**e immettere *cdndemo101.dustydogpetcare.online*.
+4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato**e immettere *cdndemo101. dustydogpetcare. online*.
  
 Dopo aver completato questi passaggi, il servizio con più reti CDN e funzionalità di failover è configurato con Gestione traffico di Azure. Si potrà accedere agli URL di test dal dominio personalizzato. Per testare la funzionalità, disabilitare l'endpoint primario della rete CDN e verificare che la richiesta sia spostata correttamente all'endpoint secondario della rete CDN. 
 

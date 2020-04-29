@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: mjbrown
 ms.openlocfilehash: 3f86468bcafe3d7ce78827aba761bb4e1bf920fa
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273631"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
@@ -23,10 +23,10 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
 
-Creare un account di database Cosmos di Azure con l'API SQL, la coerenza delle sessioni nelle aree Stati Uniti occidentali 2 e Stati Uniti orientali 2:Create an Azure Cosmos DB account with SQL API, Session consistency in West US 2 and East US 2 regions:
+Creare un account di Azure Cosmos DB con l'API SQL, coerenza della sessione nelle aree Stati Uniti occidentali 2 e Stati Uniti orientali 2:
 
 > [!IMPORTANT]
-> Il nome dell'account Cosmos di Azure deve essere minuscolo e inferiore a 31 caratteri.
+> Il nome dell'account Azure Cosmos deve essere minuscolo e inferiore a 31 caratteri.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -42,12 +42,12 @@ az cosmosdb create \
 
 ## <a name="add-or-remove-regions"></a>Aggiungere o rimuovere aree
 
-Creare un account Cosmos di Azure con due aree, aggiungere un'area e rimuovere un'area.
+Creare un account Azure Cosmos con due aree, aggiungere un'area e rimuovere un'area.
 
 > [!NOTE]
 > Non è possibile aggiungere o rimuovere simultaneamente aree `locations` e cambiare l'ordine delle proprietà per un account Azure Cosmos. La modifica delle aree deve essere eseguita come operazione distinta rispetto a qualsiasi altra modifica apportata alla risorsa dell'account.
 > [!NOTE]
-> Questo comando consente di aggiungere e rimuovere aree, ma non di modificare le priorità di failover o attivare un failover manuale. Consultate [Impostare la priorità](#set-failover-priority) del failover e [Attivare il failover manuale.](#trigger-manual-failover)
+> Questo comando consente di aggiungere e rimuovere aree, ma non di modificare le priorità di failover o attivare un failover manuale. Vedere [impostare la priorità di failover](#set-failover-priority) e [attivare il failover manuale](#trigger-manual-failover).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -70,9 +70,9 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
     --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="enable-multiple-write-regions"></a>Abilitare più aree di scritturaEnable multiple write regions
+## <a name="enable-multiple-write-regions"></a>Abilita più aree di scrittura
 
-Abilitare più master per un account Cosmos
+Abilitare la funzionalità multimaster per un account Cosmos
 
 ```azurecli-interactive
 # Update an Azure Cosmos account from single to multi-master
@@ -85,9 +85,9 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 ```
 
-## <a name="set-failover-priority"></a>Impostare la priorità di failover
+## <a name="set-failover-priority"></a>Imposta priorità di failover
 
-Impostare la priorità di failover per un account Azure Cosmos configurato per il failover automaticoSet the failover priority for an Azure Cosmos account configured for automatic failover
+Impostare la priorità di failover per un account Azure Cosmos configurato per il failover automatico
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
@@ -115,10 +115,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-automatic-failover true
 ```
 
-## <a name="trigger-manual-failover"></a>Attivare il failover manualeTrigger manual failover
+## <a name="trigger-manual-failover"></a>Attivare il failover manuale
 
 > [!CAUTION]
-> La modifica dell'area con priorità 0 attiverà un failover manuale per un account Azure Cosmos.Changing region with priority as 0 will trigger a manual failover for an Azure Cosmos account. Qualsiasi altra modifica della priorità non attiverà un failover.
+> Se si modifica Region con Priority = 0, viene attivato un failover manuale per un account Azure Cosmos. Qualsiasi altra modifica della priorità non attiverà un failover.
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
@@ -135,7 +135,7 @@ az cosmosdb failover-priority-change --ids $accountId \
 
 ## <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Elencare tutte le chiavi dell'account
 
-Ottieni tutte le chiavi per un account Cosmos.
+Ottenere tutte le chiavi per un account Cosmos.
 
 ```azurecli-interactive
 # List all account keys
@@ -149,7 +149,7 @@ az cosmosdb keys list \
 
 ## <a name="list-read-only-account-keys"></a>Elencare le chiavi dell'account di sola lettura
 
-Ottenere chiavi di sola lettura per un account Cosmos.
+Ottenere le chiavi di sola lettura per un account Cosmos.
 
 ```azurecli-interactive
 # List read-only account keys
@@ -205,9 +205,9 @@ az cosmosdb sql database create \
     -n $databaseName
 ```
 
-## <a name="create-a-database-with-shared-throughput"></a>Creare un database con velocità effettiva condivisaCreate a database with shared throughput
+## <a name="create-a-database-with-shared-throughput"></a>Creazione di un database con velocità effettiva condivisa
 
-Creare un database Cosmos con velocità effettiva condivisa.
+Creare un database Cosmos con una velocità effettiva condivisa.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -222,9 +222,9 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
-## <a name="change-the-throughput-of-a-database"></a>Modificare la velocità effettiva di un databaseChange the throughput of a database
+## <a name="change-the-throughput-of-a-database"></a>Modificare la velocità effettiva di un database
 
-Aumentare la velocità effettiva di un database Cosmos di 1000 RU/s.
+Aumentare la velocità effettiva di un database Cosmos di 1000 ur/sec.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -250,7 +250,7 @@ az cosmosdb sql database throughput update \
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Creare un contenitore Cosmos con criteri di indice predefiniti, chiave di partizione e RU/s pari a 400.Create a Cosmos container with default index policy, partition key and RU/s of 400.
+Creare un contenitore Cosmos con criteri di indice predefiniti, chiave di partizione e ur/s di 400.
 
 ```azurecli-interactive
 # Create a SQL API container
@@ -267,7 +267,7 @@ az cosmosdb sql container create \
     -p $partitionKey --throughput $throughput
 ```
 
-## <a name="create-a-container-with-ttl"></a>Creare un contenitore con TTLCreate a container with TTL
+## <a name="create-a-container-with-ttl"></a>Creare un contenitore con TTL
 
 Creare un contenitore Cosmos con TTL abilitato.
 
@@ -286,9 +286,9 @@ az cosmosdb sql container update \
     --ttl=86400
 ```
 
-## <a name="create-a-container-with-a-custom-index-policy"></a>Creare un contenitore con un criterio di indice personalizzatoCreate a container with a custom index policy
+## <a name="create-a-container-with-a-custom-index-policy"></a>Creare un contenitore con criteri di indice personalizzati
 
-Creare un contenitore Cosmos con una politica di indice personalizzata, un indice spaziale, un indice composito, una chiave di partizione e RU/s di 400.Create a Cosmos container with a custom index policy, a spatial index, composite index, a partition key and RU/s of 400.
+Creare un contenitore Cosmos con criteri di indice personalizzati, un indice spaziale, un indice composto, una chiave di partizione e ur/s di 400.
 
 ```azurecli-interactive
 # Create a SQL API container
@@ -340,7 +340,7 @@ rm -f "idxpolicy-$uniqueId.json"
 
 ## <a name="change-the-throughput-of-a-container"></a>Cambiare la velocità effettiva di un contenitore
 
-Aumentare la velocità effettiva di un contenitore Cosmos di 1000 RU/s.
+Aumentare la velocità effettiva di un contenitore Cosmos di 1000 ur/sec.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
@@ -371,5 +371,5 @@ az cosmosdb sql container throughput update \
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere:
 
 - [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
-- [Guida di riferimento all'interfaccia della riga di comando di](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Riferimenti per l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Esempi dell'interfaccia della riga di comando di Azure Cosmos DB](cli-samples.md)

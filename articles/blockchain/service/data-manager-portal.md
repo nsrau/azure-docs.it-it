@@ -1,39 +1,39 @@
 ---
-title: Configurare Blockchain Data Manager usando il portale di Azure - Servizio Blockchain di AzureConfigure Blockchain Data Manager using Azure portal - Azure Blockchain Service
-description: Creare e gestire il servizio Blockchain Data Manager per Azure Blockchain usando il portale di Azure.Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
+title: Configurare Data Manager blockchain usando portale di Azure-Azure blockchain Service
+description: Creare e gestire Data Manager blockchain per il servizio Azure blockchain usando il portale di Azure.
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
 ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260599"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurare Blockchain Data Manager con il portale di Azure
 
-Configurare Il servizio Blockchain Data Manager per Azure Per acquisire i dati blockchain e inviarli a un argomento griglia di eventi di Azure.Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data and send it to an Azure Event Grid Topic.
+Configurare blockchain Data Manager per il servizio Azure blockchain per acquisire i dati blockchain e inviarli a un argomento di griglia di eventi di Azure.
 
-Per configurare un'istanza di Blockchain Data Manager, è necessario:
+Per configurare un'istanza di Data Manager blockchain, è necessario:
 
-* Creare un'istanza di Blockchain Data Manager per un nodo di transazione del servizio Blockchain di AzureCreate a Blockchain Data Manager instance for an Azure Blockchain Service transaction node
-* Aggiungi le tue applicazioni blockchain
+* Creare un'istanza di Data Manager blockchain per un nodo di transazione del servizio blockchain di Azure
+* Aggiungere le applicazioni blockchain
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Guida [introduttiva completa: Creare un membro blockchain usando il portale di Azure](create-member.md) o Guida introduttiva: Creare un membro blockchain del servizio Blockchain di Azure usando l'interfaccia della riga di comando di Azure.Complete Quickstart: Create a blockchain member using the Azure portal or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI.](create-member-cli.md) Il livello Standard di servizio di Azure Blockchain è consigliato quando si usa Blockchain Data Manager.Azure Blockchain Service *Standard* tier is recommended when using Blockchain Data Manager.
-* Creare un [argomento della griglia di eventiCreate](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) an Event Grid Topic
+* [Guida introduttiva: creare un membro blockchain usando il portale di Azure o la](create-member.md) [Guida introduttiva: creare un membro blockchain del servizio blockchain di Azure usando l'interfaccia](create-member-cli.md)della riga di comando di Azure Il livello *standard* del servizio Azure blockchain è consigliato quando si usa blockchain Data Manager.
+* Creare un [argomento di griglia di eventi](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Informazioni su [Gestori eventi di Griglia di eventi di Azure](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>Creare un'istanza
 
-Un'istanza di Blockchain Data Manager connette e monitora un nodo della transazione del servizio Azure Blockchain. Solo gli utenti con accesso al nodo della transazione possono creare una connessione. Un'istanza acquisisce tutti i dati di blocchi e transazioni non elaborati dal nodo della transazione. Blockchain Data Manager pubblica un messaggio **RawBlockAndTransactionMsg** che è un superset di informazioni restituite da web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) query.
+Un'istanza di Blockchain Data Manager connette e monitora un nodo della transazione del servizio Azure Blockchain. Solo gli utenti con accesso al nodo di transazione possono creare una connessione. Un'istanza acquisisce tutti i dati di blocchi e transazioni non elaborati dal nodo della transazione. Blockchain Data Manager pubblica un messaggio **RawBlockAndTransactionMsg** che è un superset di informazioni restituite dalle query Web3. ETH [getblock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e [GetTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) .
 
 Una connessione in uscita invia i dati della blockchain a Griglia di eventi di Azure. Quando si crea l'istanza, viene configurata una singola connessione in uscita. Blockchain Data Manager supporta più connessioni in uscita per gli argomenti di Griglia di eventi per qualsiasi istanza di Blockchain Data Manager specificata. È possibile inviare i dati della blockchain a una o più destinazioni. Per aggiungere un'altra destinazione, è sufficiente aggiungere altre connessioni in uscita all'istanza.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare al membro del servizio Blockchain di Azure che si vuole connettere a Blockchain Data Manager.Go to the Azure Blockchain Service member you want to connect to Blockchain Data Manager. Selezionare **Blockchain Data Manager**.
+1. Passare al membro del servizio Azure blockchain che si vuole connettere a blockchain Data Manager. Selezionare **Blockchain Data Manager**.
 1. Selezionare **Aggiungi**.
 
     ![Aggiungere Blockchain Data Manager](./media/data-manager-portal/add-instance.png)
@@ -42,29 +42,29 @@ Una connessione in uscita invia i dati della blockchain a Griglia di eventi di A
 
     Impostazione | Descrizione
     --------|------------
-    Nome | Immettere un nome univoco per un'istanza di Blockchain Data Manager connessa. Il nome Blockchain Data Manager può contenere lettere minuscole e numeri e ha una lunghezza massima di 20 caratteri.
-    Nodo di transazione | Scegliere un nodo di transazione. Vengono elencati solo i nodi di transazione di cui si dispone dell'accesso in lettura.
+    Nome | Immettere un nome univoco per un'istanza di Blockchain Data Manager connessa. Il nome del Data Manager blockchain può contenere lettere minuscole e numeri e ha una lunghezza massima di 20 caratteri.
+    Nodo di transazione | Scegliere un nodo di transazione. Sono elencati solo i nodi di transazione per i quali si dispone dell'accesso in lettura.
     Nome connessione | Immettere un nome univoco della connessione in uscita a cui vengono inviati i dati della transazione blockchain.
-    Endpoint di Griglia di eventi | Scegliere un argomento della griglia di eventi nella stessa sottoscrizione dell'istanza di Blockchain Data Manager.Choose an event grid topic in the same subscription as the Blockchain Data Manager instance.
+    Endpoint di Griglia di eventi | Scegliere un argomento di griglia di eventi nella stessa sottoscrizione dell'istanza di Data Manager blockchain.
 
 1. Selezionare **OK**.
 
-    La creazione di un'istanza di Blockchain Data Manager richiede meno di un minuto. Una volta distribuita, l'istanza viene avviata automaticamente. Un'istanza di Blockchain Data Manager in esecuzione acquisisce gli eventi blockchain dal nodo della transazione e invia i dati alle connessioni in uscita.
+    La creazione di un'istanza di Blockchain Data Manager richiede meno di un minuto. Una volta distribuita, l'istanza viene avviata automaticamente. Un'istanza in esecuzione di Data Manager blockchain acquisisce gli eventi blockchain dal nodo della transazione e invia i dati alle connessioni in uscita.
 
-    La nuova istanza viene visualizzata nell'elenco delle istanze di Blockchain Data Manager per il membro del servizio Blockchain di Azure.The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
+    La nuova istanza viene visualizzata nell'elenco di istanze di blockchain Data Manager per il membro del servizio blockchain di Azure.
 
-    ![Elenco delle istanze di Blockchain Data Member](./media/data-manager-portal/instance-list.png)
+    ![Elenco di istanze del membro dati blockchain](./media/data-manager-portal/instance-list.png)
 
 ## <a name="add-blockchain-application"></a>Aggiungi applicazione blockchain
 
-Se si aggiunge un'applicazione blockchain, Blockchain Data Manager decodifica lo stato dell'evento e della proprietà per l'applicazione. In caso contrario, vengono inviati solo i dati non elaborati relativi ai blocchi e alle transazioni non elaborati. Blockchain Data Manager scopre anche gli indirizzi del contratto quando il contratto viene distribuito. È possibile aggiungere più applicazioni blockchain a un'istanza di Blockchain Data Manager.You can add multiple blockchain applications to a Blockchain Data Manager instance.
+Se si aggiunge un'applicazione blockchain, blockchain Data Manager decodifica l'evento e lo stato della proprietà per l'applicazione. In caso contrario, vengono inviati solo i dati delle transazioni RAW e i blocchi Raw. Blockchain Data Manager individua anche gli indirizzi del contratto quando il contratto viene distribuito. È possibile aggiungere più applicazioni blockchain a un'istanza di blockchain Data Manager.
 
 > [!IMPORTANT]
-> Attualmente, le applicazioni blockchain che dichiarano tipi di [matrice](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) Solidity o tipi di [mapping](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) non sono completamente supportate. Le proprietà dichiarate come tipi di matrice o mapping non verranno decodificate nei messaggi *ContractPropertiesMsg* o *DecodedContractEventsMsg.*
+> Attualmente, le applicazioni blockchain che dichiarano [tipi di matrici](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) di solidità o [tipi di mapping](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) non sono completamente supportate. Le proprietà dichiarate come matrici o tipi di mapping non verranno decodificate nei messaggi *ContractPropertiesMsg* o *DecodedContractEventsMsg* .
 
-Blockchain Data Manager richiede un contratto intelligente ABI e distribuito file bytecode per aggiungere l'applicazione.
+Per aggiungere l'applicazione, blockchain Data Manager richiede un file con estensione bytecode di Smart contract e un file bytecode distribuito.
 
-### <a name="get-contract-abi-and-bytecode"></a>Ottenere l'ABI del contratto e il bytecodeGet Contract ABI and bytecode
+### <a name="get-contract-abi-and-bytecode"></a>Ottenere l'ABI e il bytecode del contratto
 
 L'interfaccia ABI (Application Binary Interface) del contratto definisce le interfacce del contratto intelligente. Descrive come interagire con il contratto intelligente. È possibile usare l'[estensione Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) per copiare l'ABI del contratto negli Appunti.
 
@@ -158,17 +158,17 @@ Per ogni BLOB, generare una firma di accesso condiviso.
 
 È possibile eliminare l'account di archiviazione di Azure o usarlo per configurare altre applicazioni blockchain. Se si vuole eliminare l'account di archiviazione di Azure, è possibile eliminare il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminati anche l'account di archiviazione associato e tutte le altre risorse correlate al gruppo di risorse.
 
-## <a name="stop-instance"></a>Interrompi istanza
+## <a name="stop-instance"></a>Arresta istanza
 
-Arrestare l'istanza di Blockchain Manager quando si desidera interrompere l'acquisizione di eventi blockchain e l'invio di dati alle connessioni in uscita. Quando l'istanza viene arrestata, non vengono addebitati addebiti per Blockchain Data Manager. Per ulteriori informazioni, vedere [prezzi](https://azure.microsoft.com/pricing/details/blockchain-service).
+Arrestare l'istanza di blockchain Manager quando si desidera arrestare l'acquisizione degli eventi blockchain e l'invio dei dati alle connessioni in uscita. Quando l'istanza viene arrestata, non vengono addebitati costi per blockchain Data Manager. Per ulteriori informazioni, vedere [prezzi](https://azure.microsoft.com/pricing/details/blockchain-service).
 
-1. Passare a **Panoramica** e selezionare **Interrompi**.
+1. Passare a **Panoramica** e selezionare **Arresta**.
 
-    ![Interrompi istanza](./media/data-manager-portal/stop-instance.png)
+    ![Arresta istanza](./media/data-manager-portal/stop-instance.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare l'esercitazione successiva sulla creazione di un esploramessaggi di transazioni blockchain usando Blockchain Data Manager e Azure Cosmos DB.
+Provare l'esercitazione successiva creazione di un Visualizzatore messaggi di transazione blockchain usando blockchain Data Manager e Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Usare Blockchain Data Manager per inviare dati ad Azure Cosmos DB](data-manager-cosmosdb.md)

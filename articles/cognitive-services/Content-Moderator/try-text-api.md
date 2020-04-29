@@ -11,15 +11,15 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272594"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderare il testo dalla console dell'API
 
-Usare l'API di [moderazione](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) del testo in Azure Content Moderator per eseguire la scansione del contenuto di testo alla ricerca di volgarità e confrontarlo con elenchi personalizzati e condivisi.
+Usare l' [API di moderazione del testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator per analizzare il contenuto di testo in modo volgare e confrontarlo con elenchi personalizzati e condivisi.
 
 ## <a name="get-your-api-key"></a>Ottenere la chiave dell'API
 
@@ -69,7 +69,7 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP:
 
 ## <a name="analyze-the-response"></a>Analizzare la risposta
 
-La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene potenziali volgarità, dati personali, classificazione (anteprima) e la versione corretta automaticamente.
+La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene potenziali volgarità, dati personali, classificazione (anteprima) e la versione con correzione automatica.
 
 > [!NOTE]
 > La funzionalità "Classification" (Classificazione) automatica è disponibile in anteprima e supporta solo la lingua inglese.
@@ -133,8 +133,8 @@ La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene
 }
 ```
 
-Per una spiegazione dettagliata di tutte le sezioni nella risposta JSON, fare riferimento alla guida concettuale sulla [moderazione](text-moderation-api.md) del testo.
+Per una spiegazione dettagliata di tutte le sezioni della risposta JSON, vedere la Guida concettuale relativa alla [moderazione del testo](text-moderation-api.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o seguire la guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) per l'integrazione con l'applicazione.
+Usare l'API REST nel codice o seguire la [Guida introduttiva di .NET SDK](dotnet-sdk-quickstart.md) per l'integrazione con l'applicazione.

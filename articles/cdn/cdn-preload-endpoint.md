@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: c45d0a9195a719d830753a9614cfa7efb6f1c23d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260276"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Precaricamento di risorse in un endpoint della rete CDN di Azure
@@ -67,7 +67,7 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 > 
 
 ## <a name="see-also"></a>Vedere anche
-* [Eliminare un endpoint della rete CDN di AzurePurge an Azure CDN endpoint](cdn-purge-endpoint.md)
+* [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 * [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent) (Riferimento API REST della rete CDN di Azure: Precacaricare contenuto su un endpoint)
 * [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent) (Riferimento API REST della rete CDN di Azure: Ripulire contenuto da un endpoint)
 

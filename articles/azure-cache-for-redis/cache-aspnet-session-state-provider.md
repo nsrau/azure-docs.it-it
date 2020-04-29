@@ -1,16 +1,16 @@
 ---
 title: Provider di stato della sessione ASP.NET per la cache
-description: Informazioni su come archiviare ASP.NET in memoria lo stato della sessione usando cache di Azure per Redis.Learn how to store a Session State in-memory using Azure Cache for Redis.
+description: Informazioni su come archiviare lo stato della sessione ASP.NET in memoria usando cache di Azure per Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010903"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider di stato sessione ASP.NET per Cache Redis di Azure
@@ -82,10 +82,10 @@ La sezione commentata fornisce un esempio degli attributi e delle impostazioni d
 Configurare gli attributi con i valori del pannello Cache nel portale di Microsoft Azure e configurare gli altri valori come desiderato. Per istruzioni sull'accesso alle proprietà della cache, vedere [Configurare le impostazioni di Cache Redis di Azure](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** : specificare l'endpoint della cache.
-* **port** – utilizzare la porta non TLS/SSL o la porta TLS/SSL, a seconda delle impostazioni TLS.
+* **porta** : usare la porta non TLS/SSL o la porta TLS/SSL, a seconda delle impostazioni TLS.
 * **accessKey** : usare la chiave primaria o secondaria per la cache.
-* **ssl** – true se si desidera proteggere le comunicazioni cache/client con TLS; in caso contrario false. Assicurarsi di specificare la porta corretta.
-  * La porta non TLS è disabilitata per impostazione predefinita per le nuove cache. Specificare true per questa impostazione per utilizzare la porta TLS. Per ulteriori informazioni sull'abilitazione della porta non TLS, vedere la sezione Porte di [accesso](cache-configure.md#access-ports) nell'argomento [Configure a cache.](cache-configure.md)
+* **SSL** : true se si vuole proteggere le comunicazioni tra cache e client con TLS; in caso contrario, false. Assicurarsi di specificare la porta corretta.
+  * La porta non TLS è disabilitata per impostazione predefinita per le nuove cache. Specificare true per usare la porta TLS per questa impostazione. Per ulteriori informazioni sull'abilitazione della porta non TLS, vedere la sezione [porte di accesso](cache-configure.md#access-ports) nell'argomento [configurare una cache](cache-configure.md) .
 * **throwOnError**: impostare su true se si vuole che venga generata un'eccezione in caso di errore durante l'operazione; in caso contrario, scegliere false. È possibile verificare la presenza di un errore controllando la proprietà statica Microsoft.Web.Redis.RedisSessionStateProvider.LastException. Il valore predefinito è true.
 * **retryTimeoutInMilliseconds** : le operazioni non riuscite vengono ritentate durante questo intervallo, specificato in millisecondi. Il primo tentativo si verifica dopo 20 millisecondi e quelli successivi dopo ogni secondo fino alla scadenza dell'intervallo retryTimeoutInMilliseconds. Immediatamente dopo questo intervallo, l'operazione viene ritentata un'ultima volta. Se l'operazione non riesce ancora, l'eccezione viene generata per il chiamante, in base all'impostazione di throwOnError. Il valore predefinito è 0 che indica nessun tentativo.
 * **databaseId** : specifica il database da usare per i dati di output della cache. Se non è specificato alcun valore, verrà usato il valore predefinito 0.
@@ -126,10 +126,10 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 
 Per altre informazioni sullo stato della sessione e altre procedure consigliate, vedere [Procedure consigliate per lo sviluppo Web (compilazione di app reali per il cloud con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
-## <a name="third-party-session-state-providers"></a>Provider di stato sessione di terze parti
+## <a name="third-party-session-state-providers"></a>Provider di stato della sessione di terze parti
 
-* [NCache (informazioni in stato inquesto](https://www.alachisoft.com/ncache/session-index.html)
-* [Accensione Apache](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
+* [NCache](https://www.alachisoft.com/ncache/session-index.html)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

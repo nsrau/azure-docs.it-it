@@ -1,6 +1,6 @@
 ---
-title: Specificare le immagini del marketplace per un lab in Azure Lab ServicesSpecify marketplace images for a lab in Azure Lab Services
-description: Questo articolo illustra come specificare le immagini del Marketplace che l'autore del lab può usare per creare lab in un account lab in Azure Lab Services.This article shows you how to specify the Marketplace images that lab creator can use to create labs in a lab account in Azure Lab Services.
+title: Specificare le immagini del Marketplace per un Lab in Azure Lab Services
+description: Questo articolo illustra come specificare le immagini del Marketplace che Lab Creator può usare per creare Lab in un account Lab in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: spelluru
 ms.openlocfilehash: a64dee6da521764a38fc60bee06545f6a561c297
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81257700"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Specificare le immagini del Marketplace disponibili per gli autori di lab
 In quanto proprietario di un account del lab, è possibile specificare le immagini del Marketplace che gli autori di lab possono usare per creare lab nell'account del lab. 
 
-## <a name="select-images-available-for-labs"></a>Selezionare le immagini disponibili per i laboratori
-Selezionare **Immagini del Marketplace** nel menu a sinistra. Per impostazione predefinita, verrà visualizzato l'elenco completo delle immagini (abilitate e disabilitate). È possibile filtrare l'elenco per visualizzare solo le immagini abilitate/disabilitate selezionando l'opzione **Solo abilitato**/**Solo disattivato** dall'elenco a discesa in alto. 
+## <a name="select-images-available-for-labs"></a>Selezionare le immagini disponibili per i Lab
+Selezionare **Immagini del Marketplace** nel menu a sinistra. Per impostazione predefinita, verrà visualizzato l'elenco completo delle immagini (abilitate e disabilitate). È possibile filtrare l'elenco in modo da visualizzare solo le immagini abilitate o **Enabled only**/disabilitate selezionando l'opzione solo**disabilitato solo disabilitato** nell'elenco a discesa nella parte superiore. 
     
 ![Pagina Immagini del Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
@@ -34,33 +34,33 @@ Nell'elenco vengono visualizzate solo le immagini del Marketplace che soddisfano
 - Usa Azure Resource Manager per il provisioning di macchine virtuali
 - Non richiede l'acquisto di un piano di licenze aggiuntivo
 
-## <a name="disable-images-for-a-lab"></a>Disabilitare le immagini per un labDisable images for a lab 
-Per disabilitare una singola immagine per un lab, selezionare **... (ellipsi)** nell'ultima colonna e selezionare **Disattiva immagine**. 
+## <a name="disable-images-for-a-lab"></a>Disabilitare le immagini per un Lab 
+Per disabilitare una singola immagine per un Lab, selezionare **... (puntini** di sospensione) nell'ultima colonna, quindi selezionare **Disabilita immagine**. 
 
 ![Disabilitare un'immagine](../media/tutorial-setup-lab-account/disable-one-image.png) 
 
-In alternativa, selezionare la casella di controllo prima del nome dell'immagine e selezionare **Disattiva le immagini selezionate** sulla barra degli strumenti. 
+In alternativa, è possibile selezionare la casella di controllo prima del nome dell'immagine e selezionare **Disattiva immagini selezionate** sulla barra degli strumenti. 
 
-Per disabilitare più immagini contemporaneamente, selezionare le caselle di controllo prima dei nomi delle immagini e selezionare **Disattiva le immagini selezionate** sulla barra degli strumenti. 
+Per disabilitare più immagini contemporaneamente, selezionare le caselle di controllo prima dei nomi delle immagini e selezionare **Disattiva immagini selezionate** sulla barra degli strumenti. 
 
 ![Disabilitare più immagini](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
 
 
-## <a name="enable-images-for-a-lab"></a>Abilitare le immagini per un labEnable images for a lab
-Per abilitare un'immagine disabilitata, selezionare **... (ellipsi)** nell'ultima colonna e selezionare **Abilita immagine**. In alternativa, selezionare la casella di controllo prima del nome dell'immagine e selezionare **Abilita immagini selezionate** sulla barra degli strumenti. 
+## <a name="enable-images-for-a-lab"></a>Abilitare le immagini per un Lab
+Per abilitare un'immagine disabilitata, selezionare **... (puntini** di sospensione) nell'ultima colonna, quindi selezionare **Abilita immagine**. In alternativa, è possibile selezionare la casella di controllo prima del nome dell'immagine e selezionare **Abilita immagini selezionate** sulla barra degli strumenti. 
 
 Per disabilitare più immagini contemporaneamente, selezionare le caselle di controllo prima dei nomi delle immagini e selezionare **Abilita immagini selezionate** sulla barra degli strumenti. 
 
-## <a name="enable-images-at-the-time-of-lab-creation"></a>Abilitare le immagini al momento della creazione del labEnable images at the time of lab creation
-È possibile abilitare più immagini al momento della creazione del lab:You can enable more images at the time lab creation: 
+## <a name="enable-images-at-the-time-of-lab-creation"></a>Abilita le immagini al momento della creazione del Lab
+È possibile abilitare più immagini al momento della creazione del Lab: 
 
-1. Accedere al [sito Web](https://labs.azure.com) di Azure Lab Services usando le credenziali del proprietario **dell'account labSign** in to the Azure Lab Services website using lab account owner credentials
-2. Selezionare l'immagine predefinita della macchina virtuale o la freccia in giù. 
-3. Selezionare **Abilita altre opzioni immagine**. 
+1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com) usando le credenziali del **proprietario dell'account Lab**
+2. Selezionare l'immagine della macchina virtuale predefinita o la freccia verso il basso. 
+3. Selezionare **Abilita altre opzioni**per le immagini. 
 
-    ![Abilitare altre opzioni per le immagini](../media/specify-marketplace-images/enable-more-images-menu.png)
-4. Seguire le istruzioni della sezione precedente per abilitare le immagini selezionate. 
-5. Potrebbe essere necessario chiudere la finestra **Nuovo lab** e riaprirla per visualizzare le immagini selezionate nel passaggio precedente. 
+    ![Abilita altre opzioni per le immagini](../media/specify-marketplace-images/enable-more-images-menu.png)
+4. Per abilitare le immagini selezionate, seguire le istruzioni riportate nella sezione precedente. 
+5. Potrebbe essere necessario chiudere la nuova finestra del **Lab** e riaprirla per visualizzare le immagini selezionate nel passaggio precedente. 
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Pubblicare un'offerta Azure Marketplace
+title: Pubblicare un'offerta | Azure Marketplace
 description: API per pubblicare l'offerta specificata.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 960d5facb53f20719045c5fdbe2179f549aca3f2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255941"
 ---
 # <a name="publish-an-offer"></a>Pubblicare un'offerta
 
 > [!NOTE]
-> Le API del portale per i partner cloud sono integrate con il Centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al Centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in Riferimento all'API del [portale per i partner cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al Centro per i partner.
+> Le API portale Cloud Partner sono integrate con il centro per i partner e continueranno a funzionare dopo la migrazione delle offerte al centro per i partner. L'integrazione introduce piccole modifiche. Esaminare le modifiche elencate in [portale cloud partner riferimento API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) per assicurarsi che il codice continui a funzionare dopo la migrazione al centro per i partner.
 
 Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√≤ richiedere molto tempo.
 
@@ -28,15 +28,15 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 |  **Nome**      |    **Descrizione**                               |  **Tipo di dati** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   string       |
-|  offerId       | Identificatore dell'offerta                                 |   string       |
+|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   Stringa       |
+|  offerId       | Identificatore dell'offerta                                 |   Stringa       |
 |  api-version   | Versione pi√π recente dell'API                        |   Data         |
 |  |  |
 
 ## <a name="header"></a>Intestazione
 ------
 
-|  **Nome**        |    **valore**          |
+|  **Nome**        |    **Valore**          |
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
 |  Autorizzazione   |  `Bearer YOUR_TOKEN`  |
@@ -78,9 +78,9 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 ### <a name="response-header"></a>Intestazione di risposta
 
-|  **Nome**             |    **valore**                                                                 |
+|  **Nome**             |    **Valore**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Location    | Percorso relativo per recuperare lo stato dell'operazione     |
+| Percorso    | Percorso relativo per recuperare lo stato di questa operazione     |
 |  |  |
 
 

@@ -1,6 +1,6 @@
 ---
-title: Dashboard di utilizzo nell'analisi del marketplace commerciale nel Centro per i partner
-description: Informazioni su come accedere a tutte le macchine virtuali offerte e metriche di fatturazione a consumo.
+title: Dashboard di utilizzo in analisi del Marketplace commerciale nel centro per i partner
+description: Informazioni su come accedere a tutte le macchine virtuali offre l'utilizzo e le metriche di fatturazione a consumo.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,120 +8,120 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262180"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi del mercato commerciale
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo in analisi del Marketplace commerciale
 
-In questo articolo vengono fornite informazioni sul dashboard Utilizzo nel Centro per i partner. Questo dashboard visualizza tutte le macchine virtuali offre l'utilizzo e le metriche di fatturazione a consumo in due schede separate: utilizzo della macchina virtuale e utilizzo della fatturazione a consumo.
+Questo articolo fornisce informazioni sul dashboard Usage (utilizzo) nel centro per i partner. Questo dashboard mostra che tutte le macchine virtuali offrono metriche di fatturazione di utilizzo e a consumo in due schede separate: utilizzo della macchina virtuale e fatturazione a consumo.
 
-Per accedere al dashboard Utilizzo, aprire il dashboard **[Analizza](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
+Per accedere al dashboard Usage, aprire il dashboard di **[analisi](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** in Marketplace commerciale.
 
 >[!NOTE]
-> Per le definizioni dettagliate della terminologia dell'analisi, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.
+> Per le definizioni dettagliate della terminologia di analisi, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Dashboard Utilizzo
 
-Il dashboard di utilizzo rappresenta le metriche per tutte le macchine virtuali (VM) che offrono l'utilizzo e l'utilizzo della fatturazione a consumo. Questi si trovano in due schede separate: utilizzo della macchina virtuale e utilizzo della fatturazione a consumo.
+Il dashboard Usage (utilizzo) rappresenta la metrica per tutte le macchine virtuali (VM) che offre l'utilizzo e la fatturazione a consumo. Si trovano in due schede separate: utilizzo della macchina virtuale e utilizzo della fatturazione a consumo.
 
-Nella scheda Utilizzo macchina virtuale sono disponibili rappresentazioni grafiche degli elementi seguenti:In the VM usage tab, there are graphical representations of the following items:
+Nella scheda utilizzo VM sono presenti rappresentazioni grafiche degli elementi seguenti:
 
 - [Riepilogo utilizzo](#usage-summary)
-- [Utilizzo per area geografica](#usage-by-geography)
-- [Utilizzo da parte delle offerte](#usage-by-offers)
-- [Tendenza all'utilizzo da parte di offerte e SKU](#usage-trend-by-offers-and-skus)
+- [Utilizzo per geografia](#usage-by-geography)
+- [Utilizzo per offerte](#usage-by-offers)
+- [Tendenza di utilizzo per offerte e SKU](#usage-trend-by-offers-and-skus)
 - [Utilizzo per tipo di offerta](#usage-by-offer-type)
-- [Utilizzo in base alle dimensioni della macchina virtualeUsage by VM size](#usage-by-vm-size)
+- [Utilizzo in base alle dimensioni della macchina virtuale](#usage-by-vm-size)
 - [Utilizzo per canale di vendita](#usage-by-sales-channel)
 - [Dati di utilizzo dettagliati](#detailed-usage-data)
 
 > [!NOTE]
-> I report di Analytics vengono visualizzati in modo diverso nel portale per i partner cloud (CPP) e nel Centro per i partner. **Le informazioni dettagliate** sui venditori in CPP hanno una scheda ordini e utilizzo, che visualizza i dati sia per le offerte basate sull'utilizzo che per le offerte non basate sull'utilizzo. Nel Centro per i partner, le metriche di utilizzo vengono visualizzate in una pagina separata.
+> I report di analisi vengono visualizzati in modo diverso in portale Cloud Partner (CPP) e centro per i partner. **Seller Insights** in cpp include una scheda Orders and Usage che Visualizza i dati per le offerte basate sull'utilizzo e le offerte non basate sull'utilizzo. Nel centro per i partner, le metriche di utilizzo vengono visualizzate in una pagina separata.
 
 ### <a name="usage-summary"></a>Riepilogo utilizzo
 
-Nella tabella di riepilogo dell'utilizzo vengono visualizzate le ore di utilizzo del cliente per tutte le offerte acquistate.
+Nella tabella Riepilogo utilizzo vengono visualizzate le ore di utilizzo del cliente per tutte le offerte acquistate.
 
-- Le ore di utilizzo normalizzate sono definite come le ore di utilizzo normalizzate per tenere conto del numero di core della macchina virtuale ([numero di core di macchine virtuali] x [ore di utilizzo non elaborato]). Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore [numero di core di VM].
-- Le ore di utilizzo non elaborate sono definite come la quantità di tempo per cui le macchine virtuali sono state eseguite in termini di ore.
-- Il valore percentuale rappresenta la variazione di crescita dell'utilizzo per l'intervallo di date selezionato ([ultimo mese di utilizzo – utilizzo del primo mese])/utilizzo del primo mese).
-- I triangoli verdi rietti verso l'alto indicano un cambiamento di crescita.
-- Triangolo rosso rivolto verso il basso indica una variazione di crescita negativa rispetto al mese precedente.
-- I grafici a barre micro rappresentano valori mensili. È possibile visualizzare il valore di ogni mese passando il mouse sulle colonne all'interno del grafico.
+- Le ore di utilizzo normalizzate sono definite come ore di utilizzo normalizzate per tenere conto del numero di core VM ([numero di core VM] x [ore di utilizzo non elaborato]). Le macchine virtuali designate come "SHAREDCORE" usano 1/6 (o 0,1666) come moltiplicatore [Number of VM Cores].
+- Le ore di utilizzo non elaborato sono definite come quantità di tempo di esecuzione delle macchine virtuali in termini di ore.
+- Il valore percentuale rappresenta la modifica della crescita dell'utilizzo per l'intervallo di date selezionato ([utilizzo del mese precedente, utilizzo del primo mese])/utilizzo del primo mese).
+- I triangoli verdi che puntano verso l'alto indicano una variazione di crescita.
+- Il triangolo rosso che punta verso il basso indica una modifica di crescita negativa rispetto al mese precedente.
+- I grafici a barre micro rappresentano i valori mensili. È possibile visualizzare il valore per ogni mese passando il mouse sulle colonne all'interno del grafico.
 
-### <a name="usage-by-geography"></a>Utilizzo per area geografica
+### <a name="usage-by-geography"></a>Utilizzo per geografia
 
-**L'utilizzo normalizzato per** mappa termica geografica visualizza le ore di utilizzo mappate in base al paese del cliente. Variazione di colore paese rappresenta la concentrazione di utilizzo normalizzato. Ripristinare la visualizzazione originale premendo il pulsante **Home** sulla mappa.
+L' **utilizzo normalizzato da geography** mappa termica Visualizza le ore di utilizzo mappate in base al paese del cliente. La variazione del colore del paese rappresenta una concentrazione di utilizzo normalizzata. Ripristinare la visualizzazione originale premendo il pulsante **Home** sulla mappa.
 
-### <a name="usage-by-offers"></a>Utilizzo da parte delle offerte
+### <a name="usage-by-offers"></a>Utilizzo per offerte
 
-- **L'utilizzo normalizzato per grafico** a torta delle offerte visualizza una suddivisione delle ore di utilizzo normalizzate per le offerte in base all'intervallo di date selezionato. Le prime 5 offerte sono visualizzate nel grafico, mentre le altre sono raggruppate nella categoria "resto tutto".
-- Il grafico a barre illustra una tendenza di crescita mese per mese per l'intervallo di date selezionato. Le colonne del mese rappresentano le ore di utilizzo delle offerte con le ore di utilizzo più elevate per il rispettivo mese. Il grafico a linee mostra la tendenza percentuale di crescita tracciata sull'asse Y secondario.
-- Utilizzare il dispositivo di scorrimento nella parte superiore del grafico per scorrere da destra a sinistra lungo l'asse x e/o concentrarsi su punti dati specifici.
+- Il grafico a torta **utilizzo normalizzato per offerte** Visualizza una suddivisione delle ore di utilizzo normalizzate in base alle offerte in base all'intervallo di date selezionato. Le prime 5 offerte vengono visualizzate in Graph, mentre le altre sono raggruppate nella categoria "Rest all".
+- Il grafico a barre illustra una tendenza di crescita mensile per mese per l'intervallo di date selezionato. Le colonne month rappresentano le ore di utilizzo dalle offerte con le ore di utilizzo massime per il mese corrispondente. Il grafico a linee rappresenta la tendenza percentuale di crescita tracciata sull'asse Y secondario.
+- Utilizzare il dispositivo di scorrimento nella parte superiore del grafico per scorrere a destra verso sinistra lungo l'asse x e/o concentrarsi su punti dati specifici.
 
-### <a name="usage-trend-by-offers-and-skus"></a>Tendenza all'utilizzo da parte di offerte e SKU
+### <a name="usage-trend-by-offers-and-skus"></a>Tendenza di utilizzo per offerte e SKU
 
-Questo grafico mostra la tendenza dell'utilizzo normalizzato per gli SKU selezionati di un'offerta. La classifica dell'offerta visualizza le prime 50 offerte con il massimo utilizzo e vengono ordinate in base alle ore di utilizzo. Nella classifica SKU vengono visualizzati i primi 50 SKU con il massimo utilizzo per l'offerta selezionata.
+Questo grafico mostra la tendenza dell'utilizzo normalizzato per gli SKU selezionati di un'offerta. La classifica dell'offerta Visualizza le prime 50 offerte con l'utilizzo più elevato e sono ordinate in base alle ore di utilizzo. La classifica SKU Visualizza i primi 50 SKU con l'utilizzo più elevato per l'offerta selezionata.
 
 ### <a name="usage-by-offer-type"></a>Utilizzo per tipo di offerta
 
-- **L'utilizzo per tipo di offerta** grafico a torta organizza l'utilizzo in base al tipo di offerta.
-- Le offerte principali sono visualizzate nel grafico e le altre offerte sono raggruppate come 'Rest All'.
-- Il grafico **delle tendenze** mostra le tendenze di crescita mese per mese. La colonna del mese rappresenta l'utilizzo in base ai principali tipi di offerta in quel mese.
+- Il grafico **a torta utilizzo per tipo di offerta** organizza l'utilizzo in base al tipo di offerta.
+- Le offerte principali vengono visualizzate nel grafico e il resto delle offerte viene raggruppato come "Rest all".
+- Il grafico **tendenza** Visualizza le tendenze di crescita mensili per mese. La colonna Month rappresenta l'utilizzo da parte dei principali tipi di offerta in quel mese.
 
-### <a name="usage-by-vm-size"></a>Utilizzo in base alle dimensioni della macchina virtualeUsage by VM size
+### <a name="usage-by-vm-size"></a>Utilizzo in base alle dimensioni della macchina virtuale
 
-Questo grafico rappresenta la tendenza di utilizzo per le dimensioni di VM selezionate (massimo 5) di tutte le offerte/SKU. L'istogramma è in pila con le ore di utilizzo delle dimensioni della macchina virtuale selezionata.
+Questo grafico rappresenta la tendenza di utilizzo per le dimensioni di VM selezionate (max 5) di tutte le offerte/SKU. L'istogramma è in pila con le ore di utilizzo delle dimensioni delle VM selezionate.
 
-La classifica visualizza le prime 50 dimensioni delle macchine virtuali con il massimo utilizzo e ordinate in base alle ore di utilizzo.
+Nella classifica vengono visualizzate le prime 50 dimensioni delle VM con l'utilizzo più elevato e ordinate in base alle ore di utilizzo.
 
 ### <a name="usage-by-sales-channel"></a>Utilizzo per canale di vendita
 
-- L'utilizzo per grafico a torta del canale di vendita organizza l'utilizzo in base al canale di vendita
-- Il canale di vendita superiore con il più alto utilizzo viene visualizzato nel grafico e il resto del canale di vendita viene raggruppato come 'Rest All'.
-- La colonna del mese rappresenta l'utilizzo per il canale di vendita principale in quel mese.
-- Le caratteristiche di questo grafico sono le stesse del grafico "Utilizzo per offerte"
+- Il grafico a torta utilizzo per canale di vendita organizza l'utilizzo in base al canale di vendita
+- Il canale di vendita principale con l'utilizzo più elevato viene visualizzato nel grafico e il resto del canale di vendita viene raggruppato come "Rest all".
+- La colonna Month rappresenta l'utilizzo in base al canale di vendita principale del mese.
+- Le funzionalità di questo grafico corrispondono al grafico "utilizzo per offerte"
 
 ### <a name="detailed-usage-data"></a>Dati di utilizzo dettagliati
 
-Nella tabella dei dettagli di **utilizzo** viene visualizzato un elenco numerato dei primi 1000 record di utilizzo ordinati in base all'utilizzo.
+Nella **tabella dettagli utilizzo** viene visualizzato un elenco numerato dei primi 1000 record di utilizzo ordinati in base all'utilizzo.
 
 - Ogni colonna della griglia è ordinabile.
-- I dati possono essere estratti in un file CSV se il conteggio dei record è inferiore a 1000.
-- Se il numero di record è superiore a 1000, i dati di esportazione verranno inseriti in modo asincrono in una pagina di download che sarà disponibile per i prossimi 30 giorni.
-- I filtri possono essere applicati **ai dati di utilizzo dettagliati** per visualizzare solo i dati a cui si è interessati. I dati possono essere filtrati per paese, canale di vendita, tipo di licenza Marketplace, tipo di utilizzo, nome dell'offerta, tipo di offerta, versioni di valutazione gratuite, ID sottoscrizione Marketplace, ID cliente e nome della società.
+- I dati possono essere estratti in un file CSV se il numero di record è inferiore a 1000.
+- Se il numero di record è superiore a 1000, i dati di esportazione verranno posizionati in modo asincrono in una pagina di download che sarà disponibile per i 30 giorni successivi.
+- I filtri possono essere applicati ai **dati di utilizzo dettagliati** per visualizzare solo i dati a cui si è interessati. I dati possono essere filtrati in base a paese, canale di vendita, tipo di licenza Marketplace, tipo di utilizzo, nome dell'offerta, tipo di offerta, versioni di valutazione gratuite, ID sottoscrizione del Marketplace, ID cliente e nome della società.
 
 > [!NOTE]
-> Selezionare il **tipo di utilizzo** nel filtro di pagina per visualizzare i grafici nella pagina in "Visualizzazione normalizzata" o "Visualizzazione non elaborata". La visualizzazione predefinita per questi grafici è "Visualizzazione normalizzata".
+> Selezionare il **tipo di utilizzo** nel filtro della pagina per visualizzare i grafici nella pagina in "visualizzazione normalizzata" o "visualizzazione non elaborata". La visualizzazione predefinita per questi grafici è "visualizzazione normalizzata".
 
-I **filtri di pagina Utilizzo** vengono applicati a livello di pagina. È possibile selezionare più filtri per eseguire il rendering del grafico per i criteri che si sceglie di visualizzare e i dati che si desidera visualizzare nella griglia/esportazione dei dati di utilizzo dettagliati. I filtri vengono applicati ai dati estratti per l'intervallo di dati selezionato nell'angolo in alto a destra della pagina degli ordini.
+I **filtri della pagina utilizzo** vengono applicati a livello di pagina. È possibile selezionare più filtri per eseguire il rendering del grafico per i criteri che si desidera visualizzare e i dati da visualizzare nella griglia "dati di utilizzo dettagliati"/esportazione. I filtri vengono applicati ai dati estratti per l'intervallo di dati selezionato nell'angolo superiore destro della pagina Orders.
 
-- **I tipi di offerta** e **i nomi delle offerte** sono elencati solo per le offerte acquisite durante l'intervallo di date selezionato. I nomi delle offerte nell'elenco vengono visualizzati per i tipi di offerta selezionati dall'elenco.
-- La selezione predefinita è "Tutti" per ciascuna delle opzioni di filtro, ad eccezione di **Tipo di utilizzo**. La selezione predefinita per **Tipo di utilizzo** è l'utilizzo normalizzato. Per visualizzare l'utilizzo non elaborato nei grafici, selezionare "utilizzo non elaborato".
+- I **tipi di offerta** e **i nomi delle offerte** sono elencati solo per le offerte acquisite durante l'intervallo di date selezionato. I nomi delle offerte nell'elenco vengono visualizzati per i tipi di offerta selezionati nell'elenco.
+- La selezione predefinita è "All" per ogni opzione di filtro, ad eccezione del **tipo di utilizzo**. La selezione predefinita per il **tipo di utilizzo** è l'utilizzo normalizzato. Per visualizzare l'utilizzo non elaborato nei grafici, selezionare "utilizzo non elaborato".
 - I filtri applicati mostrano le selezioni di conteggio per le selezioni di filtro effettuate. I filtri applicati non vengono visualizzati per le selezioni predefinite.
 
 > [!NOTE]
-> Una definizione dettagliata di ciascuno dei campi nella griglia "dati dettagliati dell'ordine", i filtri di pagina e tutte le possibili selezioni sono definiti nella sezione dizionario dei dati dell'articolo [FAQ e terminologia.](link needed)
+> Una definizione dettagliata di ognuno dei campi nella griglia "dati dettagliati dell'ordine", dei filtri di pagina e di tutte le selezioni possibili è definita nella sezione Dizionario dei dati dell'articolo [domande frequenti e terminologia](link needed) .
 
-La scheda **Utilizzo fatturazione a consumo** presenta informazioni sull'utilizzo per i tipi di offerta in cui l'utilizzo viene misurato in base alla dimensione del contatore. Attualmente viene presentata l'overage del tipo di offerta SaaS. La scheda presenta le rappresentazioni grafiche delle tendenze di esatura per l'utilizzo della fatturazione a consumo SaaS:
+La scheda **utilizzo fatturazione a consumo** Visualizza le informazioni sull'utilizzo per i tipi di offerta in cui l'utilizzo viene misurato in base alla dimensione del contatore. L'eccedenza del tipo di offerta SaaS è attualmente visualizzata. La scheda presenta le rappresentazioni grafiche delle tendenze di eccedenza per l'utilizzo della fatturazione a consumo SaaS:
 
-- **Tendenza overage per dimensione contatore**: Visualizza la tendenza mensile di superamento per la dimensione del contatore selezionato di un'offerta. L'asse X rappresenta il mese e l'asse Y rappresenta la quantità di utilizzo. L'unità di misura del misuratore personalizzato viene visualizzata anche sull'asse Y.
-- **Tendenza dell'overage per SKU**: rappresenta la tendenza della quantità di utilizzo della dimensione del contatore selezionata in base alle SKU. Gli SKU visualizzati rappresenteranno i primi 5 SKU con la massima quantità di utilizzo per l'offerta selezionata.
-- **Tendenza di overage da Top 50 Clienti**: Le prime 50 offerte con le ore di utilizzo più alte vengono visualizzate in una ***classifica*** e sono classificate in base all'utilizzo più elevato del contatore personalizzato. Selezionare un cliente nella classifica per visualizzare la tendenza all'utilizzo di una dimensione contatore selezionata.
-- **Tendenza dell'overage da parte dei principali clienti**: Presenta i percentili dei migliori clienti che contribuiscono alla percentuale di utilizzo complessivo. Il percentile principale del cliente viene visualizzato lungo l'asse X ed è determinato dalla quantità di utilizzo del cliente. Sull'asse Y viene visualizzata la quantità di utilizzo. È possibile visualizzare i dettagli passando il mouse sui punti lungo il grafico a linee.
+- **Tendenza in eccedenza per dimensione contatore**: Visualizza la tendenza in eccedenza mensile per la dimensione del contatore selezionata di un'offerta. L'asse X rappresenta il mese e l'asse Y rappresenta la quantità di utilizzo. Anche l'unità di misura del contatore personalizzato viene visualizzata sull'asse Y.
+- **Tendenza in eccedenza per SKU**: rappresenta la tendenza della quantità di utilizzo della dimensione del contatore selezionata per SKU. Gli SKU visualizzati rappresenteranno i primi 5 SKU con la quantità massima di utilizzo per l'offerta selezionata.
+- **Tendenza in eccedenza per i primi 50 clienti**: le prime 50 offerte con le ore di utilizzo più elevate vengono visualizzate in una ***bacheca*** e vengono classificate in base all'utilizzo più elevato del contatore personalizzato. Selezionare un cliente nella classifica per visualizzare la tendenza di utilizzo di una dimensione del contatore selezionata.
+- **Tendenza in eccedenza per i clienti principali**: presenta i primi percentile dei clienti che contribuiscono alla percentuale di utilizzo complessivo. Il primo percentile del cliente viene visualizzato lungo l'asse X ed è determinato dalla quantità di utilizzo del cliente. L'asse Y Visualizza la quantità di utilizzo. È possibile visualizzare i dettagli posizionando il puntatore del mouse sui punti lungo il grafico a linee.
 
 > [!NOTE]
 > I dettagli di utilizzo e tutti i grafici in questa pagina vengono visualizzati per qualsiasi dimensione del contatore selezionata per il filtro di pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere Analisi per il marketplace commerciale nel Centro per i [partner.](./analytics.md)
-- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del marketplace per la tua offerta, vedi [Dashboard di riepilogo nell'analisi](./summary-dashboard.md)del marketplace commerciale.
-- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
-- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Download Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- Per visualizzare una visualizzazione consolidata dei commenti e suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Valutazioni e recensioni del dashboard nell'analisi](./ratings-reviews.md)del marketplace commerciale.
-- Per le domande frequenti sull'analisi del mercato commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi](./faq-terminology.md)del mercato commerciale.
+- Per una panoramica dei report di analisi disponibili nel Marketplace commerciale del centro per i partner, vedere [analisi per il Marketplace commerciale nel centro per i partner](./analytics.md).
+- Per i grafici, le tendenze e i valori dei dati aggregati che riepilogano l'attività del Marketplace per l'offerta, vedere [dashboard di riepilogo in analisi del Marketplace commerciale](./summary-dashboard.md).
+- Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard Orders in Commercial Marketplace Analytics](./orders-dashboard.md).
+- Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [dashboard dei clienti in analisi del Marketplace commerciale](./customer-dashboard.md).
+- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere la pagina relativa ai [download del dashboard in Commercial Marketplace Analytics](./downloads-dashboard.md).
+- Per una visualizzazione consolidata dei suggerimenti dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard ratings and Reviews in Commercial Marketplace Analytics](./ratings-reviews.md).
+- Per le domande frequenti sull'analisi del Marketplace commerciale e per un dizionario completo dei termini dati, vedere [le domande frequenti e la terminologia per l'analisi del Marketplace commerciale](./faq-terminology.md).

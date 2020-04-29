@@ -4,38 +4,38 @@ description: Mostra come applicare i tag per organizzare le risorse Azure per la
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255125"
 ---
-# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestioneUse tags to organize your Azure resources and management hierarchy
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
-I tag vengono applicati alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azure per organizzarli logicamente in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
+I tag vengono applicati alle risorse, ai gruppi di risorse e alle sottoscrizioni di Azure per organizzarli in modo logico in una tassonomia. Ogni tag è costituito da una coppia di nome e valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
-Per suggerimenti su come implementare una strategia di tagging, vedere Guida alla [pianificazione della denominazione e del tagging delle risorse.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+Per indicazioni su come implementare una strategia di assegnazione di tag, vedere la pagina [relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Per i nomi dei tag non viene fatta distinzione tra maiuscole e minuscole. Per i valori dei tag viene fatta distinzione tra maiuscole e minuscole.
+> I nomi di tag non fanno distinzione tra maiuscole e minuscole. I valori dei tag distinguono tra maiuscole e minuscole
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="required-access"></a>Accesso richiesto
 
-Per applicare tag a una risorsa, è necessario disporre dell'accesso in scrittura al tipo di risorsa **Microsoft.Resources/tags.** Il ruolo [Collaboratore tag](../../role-based-access-control/built-in-roles.md#tag-contributor) consente di applicare tag a un'entità senza avere accesso all'entità stessa. Attualmente, il ruolo di collaboratore tag non può applicare tag alle risorse o ai gruppi di risorse tramite il portale. Può applicare tag alle sottoscrizioni tramite il portale. Supporta tutte le operazioni di tag tramite PowerShell e l'API REST.  
+Per applicare i tag a una risorsa, è necessario disporre dell'accesso in scrittura al tipo di risorsa **Microsoft. resources/Tags** . Il ruolo di [collaboratore Tag](../../role-based-access-control/built-in-roles.md#tag-contributor) consente di applicare tag a un'entità senza avere accesso all'entità stessa. Attualmente, il ruolo Collaboratore tag non può applicare tag a risorse o gruppi di risorse tramite il portale. Può applicare tag alle sottoscrizioni tramite il portale. Supporta tutte le operazioni sui tag tramite PowerShell e l'API REST.  
 
-Il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) concede inoltre l'accesso necessario per applicare i tag a qualsiasi entità. Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+Il ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) concede anche l'accesso richiesto per applicare tag a qualsiasi entità. Per applicare tag a un solo tipo di risorsa, usare il ruolo di collaboratore per tale risorsa. Ad esempio, per applicare tag a macchine virtuali, usare il ruolo di [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
-### <a name="apply-tags"></a>Applicare i tag
+### <a name="apply-tags"></a>Applica tag
 
-Azure PowerShell offre due comandi per l'applicazione di tag: [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). È necessario disporre del modulo Az.Resources 1.12.0 o versione successiva. È possibile controllare `Get-Module Az.Resources`la versione con . È possibile installare il modulo o [Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o versione successiva.
+Azure PowerShell offre due comandi per l'applicazione di tag- [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). È necessario avere il modulo AZ. resources 1.12.0 o versione successiva. È possibile controllare la versione con `Get-Module Az.Resources`. È possibile installare il modulo o [installare Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 o versione successiva.
 
-**New-AzTag** sostituisce tutti i tag della risorsa, del gruppo di risorse o della sottoscrizione. Quando si chiama il comando, passare l'ID risorsa dell'entità che si desidera contrassegnare.
+**New-AzTag** sostituisce tutti i tag per la risorsa, il gruppo di risorse o la sottoscrizione. Quando si chiama il comando, passare l'ID risorsa dell'entità a cui si vuole assegnare un tag.
 
-L'esempio seguente applica un set di tag a un account di archiviazione:The following example applies a set of tags to a storage account:
+Nell'esempio seguente viene applicato un set di tag a un account di archiviazione:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -43,7 +43,7 @@ $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-Al termine del comando, si noti che la risorsa dispone di due tag.
+Al termine del comando, si noti che la risorsa ha due tag.
 
 ```output
 Properties :
@@ -53,7 +53,7 @@ Properties :
         Status  Normal
 ```
 
-Se si esegue nuovamente il comando ma questa volta con tag diversi, si noti che i tag precedenti vengono rimossi.
+Se si esegue di nuovo il comando, ma questa volta con tag diversi, si noterà che i tag precedenti vengono rimossi.
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Compliance"; "Environment"="Production"}
@@ -68,7 +68,7 @@ Properties :
         Team         Compliance
 ```
 
-Per aggiungere tag a una risorsa che dispone già di tag, utilizzare **Update-AzTag**. Impostare il parametro **-Operation** su **Merge**.
+Per aggiungere tag a una risorsa che dispone già di tag, usare **Update-AzTag**. Impostare il parametro **-Operation** su **merge**.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -87,7 +87,7 @@ Properties :
         Environment  Production
 ```
 
-Ogni nome di tag può avere un solo valore. Se si specifica un nuovo valore per un tag, il valore precedente viene sostituito anche se si utilizza l'operazione di unione. Nell'esempio seguente viene modificato il tag Status da Normale a Verde.
+Ogni nome di tag può avere un solo valore. Se si specifica un nuovo valore per un tag, il valore precedente viene sostituito anche se si utilizza l'operazione di Unione. Nell'esempio seguente viene modificato il tag di stato da Normal a Green.
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -124,7 +124,7 @@ Properties :
 
 Gli stessi comandi funzionano anche con i gruppi di risorse o le sottoscrizioni. Si passa l'identificatore per il gruppo di risorse o la sottoscrizione che si vuole contrassegnare.
 
-Per aggiungere un nuovo set di tag a un gruppo di risorse, usare:To add a new set of tags to a resource group, use:
+Per aggiungere un nuovo set di tag a un gruppo di risorse, usare:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -132,7 +132,7 @@ $resourceGroup = Get-AzResourceGroup -Name demoGroup
 New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
 ```
 
-Per aggiornare i tag per un gruppo di risorse, usare:To update the tags for a resource group, use:
+Per aggiornare i tag per un gruppo di risorse, usare:
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Production"}
@@ -148,7 +148,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 New-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags
 ```
 
-Per aggiornare i tag per una sottoscrizione, utilizzare:
+Per aggiornare i tag per una sottoscrizione, usare:
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Web Apps"}
@@ -156,7 +156,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
-In un gruppo di risorse è possibile avere più di una risorsa con lo stesso nome. In tal caso, è possibile impostare ogni risorsa con i comandi seguenti:In that case, you can set each resource with the following commands:
+È possibile avere più di una risorsa con lo stesso nome in un gruppo di risorse. In tal caso, è possibile impostare ogni risorsa con i comandi seguenti:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
@@ -167,50 +167,50 @@ $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Te
 
 Per ottenere i tag per una risorsa, un gruppo di risorse o una sottoscrizione, usare il comando [Get-AzTag](/powershell/module/az.resources/get-aztag) e passare l'ID risorsa per l'entità.
 
-Per visualizzare i tag per una risorsa, usa:
+Per visualizzare i tag per una risorsa, usare:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 Get-AzTag -ResourceId $resource.id
 ```
 
-Per visualizzare i tag per un gruppo di risorse, usare:To see the tags for a resource group, use:
+Per visualizzare i tag per un gruppo di risorse, usare:
 
 ```azurepowershell-interactive
 $resourceGroup = Get-AzResourceGroup -Name demoGroup
 Get-AzTag -ResourceId $resourceGroup.ResourceId
 ```
 
-Per visualizzare i tag per una sottoscrizione, usa:
+Per visualizzare i tag per una sottoscrizione, usare:
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
-### <a name="list-by-tag"></a>Elenco per tag
+### <a name="list-by-tag"></a>Elenca per tag
 
-Per ottenere le risorse con un nome e un valore di tag specifici, usa:To get resources that have a specific tag name and value name, use:
+Per ottenere le risorse con un nome e un valore di tag specifici, usare:
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
 ```
 
-Per ottenere le risorse con un nome di tag specifico con qualsiasi valore di tag, usa:To get resources that have a specific tag name with any tag value, use:
+Per ottenere le risorse con un nome di tag specifico con qualsiasi valore di tag, usare:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
 
-Per ottenere i gruppi di risorse con un nome e un valore di tag specifici, usare:To get resource groups that have a specific tag name and value, use:
+Per ottenere i gruppi di risorse con un nome e un valore di tag specifici, usare:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
 ```
 
-### <a name="remove-tags"></a>Rimuovere i tag
+### <a name="remove-tags"></a>Rimuovi Tag
 
-Per rimuovere tag specifici, utilizzare **Update-AzTag** e impostare **-Operation** su **Delete**. Passare i tag che si desidera eliminare.
+Per rimuovere tag specifici, usare **Update-AzTag** e set **-Operation** per **eliminare**. Passare i tag che si desidera eliminare.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -226,7 +226,7 @@ Properties :
         CostCenter  00123
 ```
 
-Per rimuovere tutti i tag, utilizzare il comando [Remove-AzTag.](/powershell/module/az.resources/remove-aztag)
+Per rimuovere tutti i tag, usare il comando [Remove-AzTag](/powershell/module/az.resources/remove-aztag) .
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
@@ -235,39 +235,39 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-### <a name="apply-tags"></a>Applicare i tag
+### <a name="apply-tags"></a>Applica tag
 
 Quando si aggiungono tag a un gruppo di risorse o a una risorsa, è possibile sovrascrivere i tag esistenti o aggiungere nuovi tag ai tag esistenti.
 
-Per sovrascrivere i tag di una risorsa, utilizzare:
+Per sovrascrivere i tag in una risorsa, usare:
 
 ```azurecli-interactive
 az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Per aggiungere un tag ai tag esistenti in una risorsa, usa:
+Per aggiungere un tag ai tag esistenti in una risorsa, usare:
 
 ```azurecli-interactive
 az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Per sovrascrivere i tag esistenti in un gruppo di risorse, usare:To overwrite the existing tags on a resource group, use:
+Per sovrascrivere i tag esistenti in un gruppo di risorse, usare:
 
 ```azurecli-interactive
 az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 ```
 
-Per aggiungere un tag ai tag esistenti in un gruppo di risorse, usare:To append a tag to the existing tags on a resource group, use:
+Per aggiungere un tag ai tag esistenti in un gruppo di risorse, usare:
 
 ```azurecli-interactive
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Attualmente, l'interfaccia della riga di comando di Azure non supporta l'applicazione di tag alle sottoscrizioni.
+Attualmente l'interfaccia della riga di comando di Azure non supporta l'applicazione di tag alle sottoscrizioni
 
 ### <a name="list-tags"></a>Elencare tag
 
-Per visualizzare i tag esistenti per una risorsa, usa:
+Per visualizzare i tag esistenti per una risorsa, usare:
 
 ```azurecli-interactive
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
@@ -288,7 +288,7 @@ Lo script restituisce il formato seguente:
 }
 ```
 
-### <a name="list-by-tag"></a>Elenco per tag
+### <a name="list-by-tag"></a>Elenca per tag
 
 Per ottenere tutte le risorse che hanno un tag e un valore specifici, usare `az resource list`:
 
@@ -302,9 +302,9 @@ Per ottenere i gruppi di risorse con un tag specifico, usare `az group list`:
 az group list --tag Dept=IT
 ```
 
-### <a name="handling-spaces"></a>Gestione degli spazi
+### <a name="handling-spaces"></a>Gestione di spazi
 
-Se i nomi o i valori dei tag includono spazi, è necessario eseguire un paio di passaggi aggiuntivi. L'esempio seguente applica tutti i tag da un gruppo di risorse alle relative risorse quando i tag possono contenere spazi.
+Se i nomi o i valori dei tag includono spazi, è necessario eseguire un paio di passaggi aggiuntivi. L'esempio seguente applica tutti i tag di un gruppo di risorse alle risorse quando i tag possono contenere spazi.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -322,11 +322,11 @@ IFS=$origIFS
 
 ## <a name="templates"></a>Modelli
 
-È possibile contrassegnare risorse, gruppi di risorse e sottoscrizioni durante la distribuzione con un modello di Resource Manager.You can tag resources, resource groups, and subscriptions during deployment with a Resource Manager template.
+È possibile contrassegnare risorse, gruppi di risorse e sottoscrizioni durante la distribuzione con un modello di Gestione risorse.
 
-### <a name="apply-values"></a>Applicare valori
+### <a name="apply-values"></a>Applica valori
 
-Nell'esempio seguente viene distribuito un account di archiviazione con tre tag. Due dei tag`Dept` `Environment`( e ) sono impostati su valori letterali. Un tag`LastDeployed`( ) è impostato su un parametro che per impostazione predefinita è la data corrente.
+Nell'esempio seguente viene distribuito un account di archiviazione con tre tag. Due dei tag (`Dept` e `Environment`) sono impostati su valori letterali. Un tag (`LastDeployed`) è impostato su un parametro il cui valore predefinito è la data corrente.
 
 ```json
 {
@@ -365,7 +365,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione con tre tag.
 
 ### <a name="apply-an-object"></a>Applicare un oggetto
 
-È possibile definire un parametro oggetto in cui vengono memorizzati diversi tag e applicare tale oggetto all'elemento tag. Questo approccio offre maggiore flessibilità rispetto all'esempio precedente perché l'oggetto può avere proprietà diverse. Ogni proprietà nell'oggetto diventa un tag separato per la risorsa. L'esempio seguente include un parametro denominato `tagValues` che viene applicato all'elemento tag.
+È possibile definire un parametro oggetto in cui vengono memorizzati diversi tag e applicare tale oggetto all'elemento tag. Questo approccio offre una maggiore flessibilità rispetto all'esempio precedente, perché l'oggetto può avere proprietà diverse. Ogni proprietà nell'oggetto diventa un tag separato per la risorsa. L'esempio seguente include un parametro denominato `tagValues` che viene applicato all'elemento tag.
 
 ```json
 {
@@ -401,7 +401,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione con tre tag.
 }
 ```
 
-### <a name="apply-a-json-string"></a>Applicare una stringa JSONApply a JSON string
+### <a name="apply-a-json-string"></a>Applicare una stringa JSON
 
 Per memorizzare più valori in un singolo tag, è possibile applicare una stringa JSON che rappresenta tali valori. L'intera stringa JSON viene archiviata come un tag che non può superare i 256 caratteri. L'esempio seguente include un tag singolo denominato `CostCenter` che contiene più valori da una stringa JSON:  
 
@@ -434,9 +434,9 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Applicare tag al gruppo di risorseApply tags from resource group
+### <a name="apply-tags-from-resource-group"></a>Applicare i tag dal gruppo di risorse
 
-Per applicare tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup.To](../templates/template-functions-resource.md#resourcegroup) apply tags from a resource group to a resource, use the resourceGroup function. Quando si ottiene il `tags[tag-name]` valore del `tags.tag-name` tag, utilizzare la sintassi anziché la sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
+Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](../templates/template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, `tags[tag-name]` usare la sintassi invece `tags.tag-name` della sintassi, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
 
 ```json
 {
@@ -470,7 +470,7 @@ Per applicare tag da un gruppo di risorse a una risorsa, usare la funzione [reso
 
 ### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Applicare tag a gruppi di risorse o sottoscrizioni
 
-È possibile aggiungere tag a un gruppo di risorse o a una sottoscrizione distribuendo il tipo di risorsa **Microsoft.Resources/tags.You** can add tags to a resource group or subscription by deploying the Microsoft.Resources/tags resource type. I tag vengono applicati al gruppo di risorse di destinazione o alla sottoscrizione per la distribuzione. Ogni volta che si distribuisce il modello si sostituiscono i tag applicati in precedenza.
+È possibile aggiungere tag a un gruppo di risorse o a una sottoscrizione distribuendo il tipo di risorsa **Microsoft. resources/Tags** . I tag vengono applicati al gruppo di risorse o alla sottoscrizione di destinazione per la distribuzione. Ogni volta che si distribuisce il modello, sostituire eventuali tag applicati in precedenza.
 
 ```json
 {
@@ -503,7 +503,7 @@ Per applicare tag da un gruppo di risorse a una risorsa, usare la funzione [reso
 }
 ```
 
-To apply the tags to a resource group, use either PowerShell or Azure CLI. Distribuire nel gruppo di risorse che si vuole assegnare un tag.
+Per applicare i tag a un gruppo di risorse, usare PowerShell o l'interfaccia della riga di comando di Azure. Eseguire la distribuzione nel gruppo di risorse che si desidera contrassegnare.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -513,7 +513,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile http
 az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-To apply the tags to a subscription, use either PowerShell or Azure CLI. Distribuire nella sottoscrizione che si vuole contrassegnare.
+Per applicare i tag a una sottoscrizione, usare PowerShell o l'interfaccia della riga di comando di Azure. Eseguire la distribuzione nella sottoscrizione che si vuole contrassegnare.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -559,16 +559,16 @@ Il modello seguente aggiunge i tag da un oggetto a un gruppo di risorse o a una 
 
 ## <a name="rest-api"></a>API REST
 
-Per usare i tag tramite l'API REST di Azure, usare:To work with tags through the Azure REST API, use:
+Per lavorare con i tag tramite l'API REST di Azure, usare:
 
-* [Tag - Crea o aggiorna in base all'ambito](/rest/api/resources/tags/createorupdateatscope) (operazione PUT)
-* [Tag - Aggiorna in base all'ambito](/rest/api/resources/tags/updateatscope) (operazione PATCH)
-* [Tag - Get At Scope](/rest/api/resources/tags/getatscope) (operazione GET)
-* [Tag - Elimina in base all'ambito](/rest/api/resources/tags/deleteatscope) (operazione DELETE)
+* [Tag-crea o Aggiorna nell'ambito](/rest/api/resources/tags/createorupdateatscope) (operazione Put)
+* [Tag-aggiornamento nell'ambito](/rest/api/resources/tags/updateatscope) (operazione patch)
+* [Tag-Get nell'ambito](/rest/api/resources/tags/getatscope) (operazione get)
+* [Tag-Delete nell'ambito](/rest/api/resources/tags/deleteatscope) (operazione di eliminazione)
 
-## <a name="inherit-tags"></a>Eredita tag
+## <a name="inherit-tags"></a>Eredita Tag
 
-I tag applicati al gruppo di risorse o alla sottoscrizione non vengono ereditati dalle risorse. Per applicare tag da una sottoscrizione o un gruppo di risorse alle risorse, vedere [Criteri di Azure - tag.](tag-policies.md)
+I tag applicati al gruppo di risorse o alla sottoscrizione non vengono ereditati dalle risorse. Per applicare tag da una sottoscrizione o un gruppo di risorse alle risorse, vedere [criteri di Azure-Tag](tag-policies.md).
 
 ## <a name="tags-and-billing"></a>Tag e fatturazione
 
@@ -584,16 +584,16 @@ Ai tag si applicano le limitazioni seguenti:
 
 * Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](tag-support.md).
 * I gruppi di gestione attualmente non supportano i tag.
-* Ogni risorsa, gruppo di risorse e sottoscrizione può avere un massimo di 50 coppie nome/valore tag. Se è necessario applicare più tag rispetto al numero massimo consentito, usare una stringa JSON per il valore del tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. Un gruppo di risorse o una sottoscrizione può contenere molte risorse, ognuna con 50 coppie nome/valore tag.
+* Ogni risorsa, gruppo di risorse e sottoscrizione può avere un massimo di 50 coppie nome/valore di tag. Se è necessario applicare più tag rispetto al numero massimo consentito, usare una stringa JSON per il valore del tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. Un gruppo di risorse o una sottoscrizione può contenere molte risorse, ognuna delle quali ha 50 coppie nome/valore di tag.
 * Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
 * Le macchine virtuali generalizzate non supportano i tag.
 * Non è possibile applicare tag alle risorse classiche, ad esempio Servizi cloud.
 * I nomi dei tag non possono contenere i caratteri seguenti: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Attualmente le zone DNS di Azure e i servizi di Gestione traffico non consentono inoltre l'uso di vani nel tag.
+   > Attualmente le zone DNS di Azure e i servizi di gestione traffico non consentono l'uso di spazi nel tag.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](tag-support.md).
-* Per suggerimenti su come implementare una strategia di tagging, vedere Guida alla [pianificazione della denominazione e del tagging delle risorse.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* Per indicazioni su come implementare una strategia di assegnazione di tag, vedere la pagina [relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
