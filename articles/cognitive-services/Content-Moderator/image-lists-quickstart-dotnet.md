@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72931761"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Eseguire la moderazione con elenchi personalizzati di immagini in C#
@@ -32,7 +32,7 @@ Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l
 > [!NOTE]
 > È previsto un limite massimo di **5 elenchi di immagini** e ogni elenco **non può includere più di 10.000 immagini**.
 
-L'applicazione console per questa guida simula alcune delle attività che è possibile eseguire con l'API dell'elenco immagini.
+L'applicazione console per questa guida simula alcune delle attività che è possibile eseguire con l'API dell'elenco di immagini.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Creare il client di Content Moderator
 
-Aggiungere il codice seguente per creare un client di Content Moderator per la sottoscrizione. Aggiornare `AzureEndpoint` `CMSubscriptionKey` i campi e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **Avvio rapido** della risorsa nel portale di Azure.You can find these in the Quick start tab of your resource in the Azure portal.
+Aggiungere il codice seguente per creare un client di Content Moderator per la sottoscrizione. Aggiornare i `AzureEndpoint` campi `CMSubscriptionKey` e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **avvio rapido** della risorsa nel portale di Azure.
 
 ```csharp
 /// <summary>
@@ -242,7 +242,7 @@ private static Body listDetails;
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Creare un metodo per scrivere messaggi nel file di log
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -263,7 +263,7 @@ private static void WriteLine(string message = null, bool echo = false)
 
 ## <a name="create-a-method-to-create-the-custom-list"></a>Creare un metodo per creare l'elenco personalizzato
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Creare un metodo per aggiungere una raccolta di immagini all'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** Questa guida non illustra come applicare i tag alle immagini nell'elenco. 
+Aggiungere il metodo seguente alla classe **Program**. Questa guida non illustra come applicare tag alle immagini nell'elenco. 
 
 ```csharp
 /// <summary>
@@ -336,7 +336,7 @@ IEnumerable<string> imagesToAdd, string label)
 
 ## <a name="create-a-method-to-remove-images-from-the-list"></a>Creare un metodo per rimuovere le immagini dall'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -373,7 +373,7 @@ private static void RemoveImages(
 
 ## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Creare un metodo per ottenere tutti gli ID contenuto per le immagini nell'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -400,7 +400,7 @@ private static ImageIds GetAllImageIds(
 
 ## <a name="create-a-method-to-update-the-details-of-the-list"></a>Creare un metodo per aggiornare i dettagli dell'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -430,7 +430,7 @@ private static ImageList UpdateListDetails(
 
 ## <a name="create-a-method-to-retrieve-the-details-of-the-list"></a>Creare un metodo per recuperare i dettagli dell'elenco
 
-Aggiungere il metodo seguente alla classe **Program.**
+Aggiungere il metodo seguente alla classe **Program**.
 
 ```csharp
 /// <summary>
@@ -457,7 +457,7 @@ private static ImageList GetListDetails(
 
 ## <a name="create-a-method-to-refresh-the-search-index-of-the-list"></a>Creare un metodo per aggiornare l'indice di ricerca dell'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** Ogni volta che si aggiorna un elenco, è necessario aggiornare l'indice di ricerca prima di usare l'elenco per filtrare le immagini.
+Aggiungere il metodo seguente alla classe **Program**. Ogni volta che si aggiorna un elenco, è necessario aggiornare l'indice di ricerca prima di usare l'elenco per filtrare le immagini.
 
 ```csharp
 /// <summary>
@@ -484,7 +484,7 @@ private static RefreshIndex RefreshSearchIndex(
 
 ## <a name="create-a-method-to-match-images-against-the-list"></a>Creare un metodo per confrontare le immagini con l'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -514,7 +514,7 @@ private static void MatchImages(
 
 ## <a name="create-a-method-to-delete-all-images-from-the-list"></a>Creare un metodo per eliminare tutte le immagini dall'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -538,7 +538,7 @@ private static void DeleteAllImages(
 
 ## <a name="create-a-method-to-delete-the-list"></a>Creare un metodo per eliminare l'elenco
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -562,7 +562,7 @@ private static void DeleteCustomList(
 
 ## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Creare un metodo per recuperare gli ID per tutti gli elenchi di immagini
 
-Aggiungere il metodo seguente alla classe **Program.** 
+Aggiungere il metodo seguente alla classe **Program**. 
 
 ```csharp
 /// <summary>
@@ -587,7 +587,7 @@ private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Aggiungere il codice per simulare l'uso di un elenco di immagini
 
-Aggiungere il codice seguente al metodo **Main.Add** the following code to the Main method. Questo codice simula molte operazioni eseguite nella definizione e nella gestione dell'elenco, nonché nell'uso dell'elenco per filtrare le immagini. Le funzionalità di registrazione consentono di visualizzare gli oggetti di risposta generati dalle chiamate SDK al servizio Content Moderator.
+Aggiungere il codice seguente al metodo **Main** . Questo codice simula molte operazioni eseguite nella definizione e nella gestione dell'elenco, nonché nell'uso dell'elenco per filtrare le immagini. Le funzionalità di registrazione consentono di visualizzare gli oggetti di risposta generati dalle chiamate SDK al servizio Content Moderator.
 
 ```csharp
 // Create the text writer to use for logging, and cache a static reference to it.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78668954"
 ---
 ## <a name="authentication"></a>Authentication
@@ -26,13 +26,13 @@ Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fo
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Quando si usa l'intestazione `Authorization: Bearer`, è necessario effettuare una richiesta per l'endpoint `issueToken`. In questa richiesta viene scambiata la chiave di sottoscrizione per un token di accesso che è valido per 10 minuti. Nelle prossime sezioni si apprenderà come ottenere un token e usare un token.
+Quando si usa l'intestazione `Authorization: Bearer`, è necessario effettuare una richiesta per l'endpoint `issueToken`. In questa richiesta viene scambiata la chiave di sottoscrizione per un token di accesso che è valido per 10 minuti. Nelle prossime sezioni verrà illustrato come ottenere un token e come usare un token.
 
 ### <a name="how-to-get-an-access-token"></a>Come ottenere un token di accesso
 
 Per ottenere un token di accesso, è necessario effettuare una richiesta all'endpoint `issueToken` usando la `Ocp-Apim-Subscription-Key` e la propria chiave di sottoscrizione.
 
-L'endpoint ha questo formato:The `issueToken` endpoint has this format:
+Il `issueToken` formato dell'endpoint è il seguente:
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken

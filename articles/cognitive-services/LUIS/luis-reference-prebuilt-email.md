@@ -1,5 +1,5 @@
 ---
-title: LUIS Informazioni di riferimento sulla posta elettronica delle entità precostruite
+title: Riferimento per la posta elettronica delle entità predefinite LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita posta elettronica in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273472"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Entità predefinita posta elettronica per un'app LUIS
@@ -23,13 +23,13 @@ L'estrazione della posta elettronica include l'indirizzo di posta elettronica co
 
 ## <a name="resolution-for-prebuilt-email"></a>Risoluzione per il numero predefinito
 
-Per la query vengono restituiti i seguenti oggetti entità:
+Per la query vengono restituiti gli oggetti entità seguenti:
 
 `please send the information to patti@contoso.com`
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON `verbose` seguente è `false`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 "entities": {
@@ -40,7 +40,7 @@ Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 
-Il codice JSON `verbose` seguente è `true`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 "entities": {

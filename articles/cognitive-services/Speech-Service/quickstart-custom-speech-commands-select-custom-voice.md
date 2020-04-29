@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Usare comandi personalizzati con la voce personalizzata (anteprima) - Servizio di riconoscimento vocale'
+title: 'Guida introduttiva: usare comandi personalizzati con voce personalizzata (anteprima)-servizio riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: In questo articolo si specificherà la voce di output di un'applicazione comandi personalizzati.
+description: In questo articolo si specificherà la voce di output di un'applicazione Commands personalizzata.
 services: cognitive-services
 author: anhoang
 manager: yetian
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
 ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75456410"
 ---
-# <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Guida introduttiva: Utilizzare comandi personalizzati con la voce personalizzata (anteprima)
+# <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Guida introduttiva: usare comandi personalizzati con la voce personalizzata (anteprima)
 
-[Nell'articolo precedente](./quickstart-custom-speech-commands-create-parameters.md)è stato creato un nuovo progetto Comandi personalizzati per rispondere ai comandi con parametri.
+Nell' [articolo precedente](./quickstart-custom-speech-commands-create-parameters.md)è stato creato un nuovo progetto di comandi personalizzati per rispondere ai comandi con parametri.
 
-In questo articolo, selezioneremo una voce di output personalizzata per l'applicazione che abbiamo creato.
+In questo articolo verrà selezionata una voce di output personalizzata per l'applicazione creata.
 
 ## <a name="select-a-custom-voice"></a>Selezionare una voce personalizzata
 
 1. Aprire il progetto [creato in precedenza](./quickstart-custom-speech-commands-create-parameters.md)
-1. Selezionare **Impostazioni** nel riquadro sinistro
-1. Selezionare **Voce personalizzata** dal riquadro centrale
-1. Selezionare la voce pubblica o personalizzata desiderata dalla tabella
+1. Selezionare **Impostazioni** dal riquadro sinistro
+1. Seleziona **voce personalizzata** nel riquadro centrale
+1. Selezionare la voce personalizzata o pubblica desiderata dalla tabella
 1. Selezionare **Salva**
 
 > [!div class="mx-imgBorder"]
 > ![Frasi di esempio con parametri](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Le voci personalizzate possono essere create dalla pagina del progetto Custom Voice. Seleziona il link **Speech Studio,** quindi **Voice personalizzato** per iniziare.
+> È possibile creare voci personalizzate dalla pagina del progetto Voice personalizzato. Selezionare il collegamento **speech studio** , quindi **Custom Voice** per iniziare.
 
-Ora l'applicazione risponderà con la voce selezionata, invece della voce predefinita.
+A questo punto, l'applicazione risponderà alla voce selezionata, anziché alla voce predefinita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Connettersi a un'applicazione di comando personalizzato con Speech SDK (Anteprima)Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Guida introduttiva: connettersi a un'applicazione di comando personalizzata con Speech SDK (anteprima)](./quickstart-custom-speech-commands-speech-sdk.md)
 

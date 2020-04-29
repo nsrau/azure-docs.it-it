@@ -1,7 +1,7 @@
 ---
 title: Come selezionare un dispositivo di input audio con Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Scopri come selezionare i dispositivi di input audio nell'SDK di riconoscimento vocale (C, C, Python, Objective-C, Java, JavaScript) ottenendo gli ID dei dispositivi audio connessi a un sistema.
+description: Informazioni su come selezionare i dispositivi di input audio nell'SDK di riconoscimento vocale (C++, C#, Python, Objective-C, Java, JavaScript) ottenendo gli ID dei dispositivi audio connessi a un sistema.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74109968"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procedura: selezionare un dispositivo di input audio con Speech SDKHow to: Select an audio input device with the Speech SDK
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procedura: selezionare un dispositivo di input audio con l'SDK di riconoscimento vocale
 
 La versione 1.3.0 di Speech SDK introduce un'API per la selezione dell'input audio. Questo articolo illustra come ottenere gli ID dei dispositivi audio connessi a un sistema, che potranno quindi essere usati in Speech SDK configurando il dispositivo audio tramite l'oggetto `AudioConfig`:
 
@@ -175,7 +175,7 @@ Un ID dispositivo di esempio è `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414
 
 ## <a name="audio-device-ids-on-uwp"></a>ID dei dispositivi audio nella piattaforma UWP
 
-Nella piattaforma UWP (Universal Windows Platform), i `Id()` dispositivi di [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) input audio possono essere ottenuti utilizzando la proprietà dell'oggetto corrispondente.
+Nella piattaforma UWP (Universal Windows Platform) (UWP) i dispositivi di input audio possono essere ottenuti usando `Id()` la proprietà dell'oggetto [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) corrispondente.
 
 Gli esempi di codice seguenti mostrano come eseguire questa operazione in C++ e C#:
 
@@ -365,7 +365,7 @@ L'UID per il microfono incorporato, ad esempio, è `BuiltInMicrophoneDevice`.
 
 ## <a name="audio-device-ids-on-ios"></a>ID dei dispositivi audio in iOS
 
-La selezione dei dispositivi audio con Speech SDK non è supportata in iOS. Tuttavia, le app che usano [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) l'SDK possono influenzare il routing audio tramite Framework.
+La selezione dei dispositivi audio con Speech SDK non è supportata in iOS. Tuttavia, le app che usano l'SDK possono influenzare il routing [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) audio tramite il Framework.
 
 Ad esempio, l'istruzione
 

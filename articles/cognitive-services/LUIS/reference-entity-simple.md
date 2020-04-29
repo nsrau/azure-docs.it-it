@@ -1,7 +1,7 @@
 ---
-title: Tipo di entità semplice - LUIS
+title: Tipo di entità semplice-LUIS
 titleSuffix: Azure Cognitive Services
-description: Un'entità semplice descrive un singolo concetto dal contesto appreso dal computer. Aggiungere un elenco di frasi quando si usa un'entità semplice per migliorare i risultati.
+description: Un'entità semplice descrive un singolo concetto dal contesto acquisito dal computer. Aggiungere un elenco di frasi quando si usa un'entità semplice per migliorare i risultati.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74894768"
 ---
 # <a name="simple-entity"></a>Entità semplice
@@ -51,7 +51,7 @@ I dati restituiti dall'endpoint includono il nome dell'entità, il testo individ
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -88,11 +88,11 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * *
 
-|Oggetto dati|Nome dell'entità|valore|
+|Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
 |Entità semplice|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Imparare la sintassi del modello](reference-pattern-syntax.md)
+> [Sintassi del modello Learn](reference-pattern-syntax.md)

@@ -1,5 +1,5 @@
 ---
-title: Collegamenti dell'esercitazione sulle entità scomponibili
+title: Collegamenti dell'esercitazione di entità decomponibile
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: diberry
 ms.openlocfilehash: f292fe5d658133c670c2813f2133492663493257
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74383673"
 ---
-Per sfruttare i [concetti decomponibili,](../luis-concept-model.md#v3-authoring-model-decomposition)iniziare con l'entità appresa dal computer. Seguire [l'esercitazione sull'entità appresa](../tutorial-machine-learned-entity.md) dal computer per istruzioni su come creare questo tipo di entità, inclusi esempi di:Follow the machine-learned entity tutorial for steps on how to create this type of entity including examples of:
+Per sfruttare i [concetti decomponibili](../luis-concept-model.md#v3-authoring-model-decomposition), iniziare con l'entità Machine-Learned. Per istruzioni su come creare questo tipo di entità, inclusi esempi di, seguire l' [esercitazione sull'entità Machine-learned](../tutorial-machine-learned-entity.md) .
 
-* [Creare ed etichettare entità apprese dal computer](../tutorial-machine-learned-entity.md#label-text-as-entities-in-example-utterances) con struttura e un descrittore (elenco di frasi) dall'espressione di esempio nella **pagina Dettagli intento**
-* [Aggiungere un'entità numerica predefinita](../tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data) dalla **pagina elenco Entità**.
-* [Aggiungere un'entità sottocomponente con vincolo](../tutorial-machine-learned-entity.md#create-subcomponent-entity-with-constraint-to-help-extract-data) dalla **pagina Dettagli entità**.
-* [Espressione di esempio di etichetta con sottocomponente](../tutorial-machine-learned-entity.md#label-example-utterance-to-teach-luis-about-the-entity) nella **pagina Dettagli intento**
+* [Creare ed etichettare un'entità appresa dal computer](../tutorial-machine-learned-entity.md#label-text-as-entities-in-example-utterances) con la struttura e un descrittore (elenco di frasi) da un enunciato di esempio nella **pagina dei dettagli**
+* [Aggiungere un'entità numero predefinita](../tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data) dalla **pagina dell'elenco di entità**.
+* [Aggiungere un'entità sottocomponente con vincolo](../tutorial-machine-learned-entity.md#create-subcomponent-entity-with-constraint-to-help-extract-data) dalla **pagina dei dettagli dell'entità**.
+* [Espressione di esempio di etichetta con sottocomponente](../tutorial-machine-learned-entity.md#label-example-utterance-to-teach-luis-about-the-entity) nella **pagina Dettagli preventivo**

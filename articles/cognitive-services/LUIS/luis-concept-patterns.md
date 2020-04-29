@@ -1,5 +1,5 @@
 ---
-title: Stima della guida dei modelli - LUISPatterns help prediction - LUIS
+title: Patterns Help Prediction-LUIS
 titleSuffix: Azure Cognitive Services
 description: Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
 ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75890281"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
@@ -35,19 +35,19 @@ Se un'app ha tra le 10 e le 20 espressioni con diverse lunghezze di frase, diver
 
 I criteri risolvono le situazioni seguenti: 
 
-* Il punteggio dell'intento è basso
-* L'intento corretto non è il punteggio più alto, ma troppo vicino al punteggio più alto. 
+* Il Punteggio preventivo è basso
+* Lo scopo corretto non è il punteggio superiore ma troppo vicino al punteggio superiore. 
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>I criteri non sono una garanzia della finalità
 I criteri usano una combinazione di tecnologie di stima. L'impostazione di una finalità per l'espressione di un modello in un criterio non è una garanzia per la stima della finalità ma è un segnale. 
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>I modelli non migliorano il rilevamento delle entità apprese dal computerPatterns do not improve machine-learned entity detection
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>I modelli non migliorano il rilevamento delle entità acquisite dal computer
 
-Un modello ha principalmente lo scopo di aiutare la previsione di finalità e ruoli. L'entità _pattern.any_ viene utilizzata per estrarre entità in formato libero. Mentre i modelli usano le entità, un modello non consente di rilevare un'entità appresa dal computer.  
+Un modello è concepito principalmente per aiutare la stima di Intent e ruoli. _Modello. qualsiasi_ entità viene utilizzata per estrarre le entità in formato libero. Sebbene i modelli usino le entità, un modello non consente di rilevare un'entità appresa dal computer.  
 
-Non aspettarsi un miglioramento della stima delle entità se si comprimono più espressioni in un singolo criterio. Per l'impostazione di entità semplici, è necessario aggiungere espressioni o usare le entità di elenco altrimenti il modello non verrà attivato.
+Non aspettarsi un miglioramento della stima delle entità se si comprimono più espressioni in un singolo criterio. Per l'attivazione di entità semplici, è necessario aggiungere espressioni o usare le entità dell'elenco altrimenti il modello non viene attivato.
 
 ## <a name="patterns-use-entity-roles"></a>I criteri usano i ruoli delle entità
 Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità.  
@@ -55,26 +55,26 @@ Se due o più entità in un criterio hanno una relazione di tipo contestuale, i 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Punteggi di stima con e senza criteri
 Con un numero sufficiente di espressioni di esempio, LUIS dovrebbe poter aumentare l'attendibilità delle stime anche senza criteri. I criteri aumentano il punteggio di attendibilità senza dovere specificare un numero così elevato di espressioni.  
 
-## <a name="pattern-matching"></a>Corrispondenza dei criteri
+## <a name="pattern-matching"></a>Criteri di ricerca
 Per cercare una corrispondenza tra criteri, prima vengono rilevate le entità all'interno del criterio, poi vengono convalidate le parole restanti e l'ordine delle parole del criterio. Le entità nel criterio sono necessarie perché venga individuata una corrispondenza del criterio. Il criterio viene applicato a livello di token, non a livello di carattere. 
 
 ## <a name="pattern-only-apps"></a>App solo modello
-È possibile compilare un'app con finalità senza espressioni di esempio, purché sia presente un modello per ogni finalità. Per un'app solo modello, il modello non deve contenere entità apprese dal computer perché richiedono espressioni di esempio. 
+È possibile compilare un'app con Intent senza espressioni di esempio, purché esista un modello per ogni finalità. Per un'app solo modello, il modello non deve contenere entità apprese dal computer perché queste richiedono espressioni di esempio. 
 
 ## <a name="best-practices"></a>Procedure consigliate
 Apprendere le [procedure consigliate](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Sintassi dei criteri
 
-Imparare la sintassi del modello dal riferimento alla [sintassi](reference-pattern-syntax.md)del modello . 
+Informazioni sulla sintassi dei modelli dalla Guida di [riferimento alla sintassi](reference-pattern-syntax.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sui modelli:
+Altre informazioni sui modelli:
 
 * [Come aggiungere modelli](luis-how-to-model-intent-pattern.md)
-* [Come aggiungere un'entità pattern.anyHow to add pattern.any entity](luis-how-to-add-entities.md#add-a-patternany-entity)
-* [Sintassi dei modelli](reference-pattern-syntax.md)
+* [Come aggiungere pattern. any Entity](luis-how-to-add-entities.md#add-a-patternany-entity)
+* [Sintassi degli schemi](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]
 > [Esegui l'esercitazione per implementare i criteri](luis-tutorial-pattern.md)

@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77086902"
 ---
-# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipi supportati per il riconoscimento delle entità denominate versione 3 (anteprima)Supported Types for Named Entity Recognition Version 3 (Preview)
+# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipi supportati per il riconoscimento delle entità denominato versione 3 (anteprima)
 
-L'API Analisi del testo consente di identificare e disambiguare le entità presenti nel testo. [Il riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md) (NER) è la possibilità di identificare entità diverse nel testo e categorizzarle in classi predefinite.
+Il API Analisi del testo fornisce la possibilità di identificare e risolvere le ambiguità delle entità trovate nel testo. Il [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md) (ner) è la possibilità di identificare entità diverse nel testo e di classificarle in classi predefinite.
 
 ## <a name="entity-types"></a>Tipi di entità
 
-I tipi di entità e i sottotipi supportati (se applicabile) sono elencati di seguito:The supported entity types and sub-types (where applicable) are listed below:
+I tipi di entità e i sottotipi supportati (se applicabile) sono elencati di seguito:
 
-#### <a name="general"></a>[Generale](#tab/general)
+#### <a name="general"></a>[Generalee](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
@@ -37,4 +37,4 @@ I tipi di entità e i sottotipi supportati (se applicabile) sono elencati di seg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come utilizzare il riconoscimento delle entità denominate nell'analisi del testo](how-tos/text-analytics-how-to-entity-linking.md)
+* [Come usare il riconoscimento delle entità denominate in Analisi del testo](how-tos/text-analytics-how-to-entity-linking.md)

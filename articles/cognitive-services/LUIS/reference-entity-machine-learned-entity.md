@@ -1,7 +1,7 @@
 ---
-title: Tipo di entità appresa dal computer - LUISMachine-learned entity type - LUIS
+title: Tipo di entità Machine-learned-LUIS
 titleSuffix: Azure Cognitive Services
-description: L'entità appresa dal computer è l'entità preferita per la creazione di applicazioni LUIS.
+description: L'entità Machine-Learned è l'entità preferita per la compilazione di applicazioni LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75551999"
 ---
 # <a name="machine-learned-entity"></a>Entità basata su Machine Learning
 
-L'entità appresa dal computer è l'entità preferita per la creazione di applicazioni LUIS.
+L'entità Machine-Learned è l'entità preferita per la compilazione di applicazioni LUIS.
 
 
 ## <a name="example-json"></a>JSON di esempio
 
-Si supponga che l'app accetta ordini di pizza, ad esempio [l'esercitazione sull'entità scomponibile](tutorial-machine-learned-entity.md). Ogni ordine può includere diverse pizze diverse, tra cui diverse dimensioni.
+Si supponga che l'app accetti gli ordini di pizza, ad esempio l'esercitazione relativa all' [entità decomponibile](tutorial-machine-learned-entity.md). Ogni ordine può includere più pizze diverse, incluse le dimensioni diverse.
 
 Le espressioni di esempio includono:
 
-|Espressioni di esempio per l'app per la pizza|
+|Espressioni di esempio per l'app pizza|
 |--|
 |`Can I get a pepperoni pizza and a can of coke please`|
 |`can I get a small pizza with onions peppers and olives`|
@@ -38,13 +38,13 @@ Le espressioni di esempio includono:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Poiché un'entità appresa dal computer può avere molti sottocomponenti con vincoli e descrittori, questo è solo un esempio. Deve essere considerata una guida per ciò che verrà restituito dalla tua entità.
+Poiché un'entità appresa dal computer può avere molti sottocomponenti con vincoli e descrittori, questo è solo un esempio. Deve essere considerata una guida per ciò che verrà restituito dall'entità.
 
 Si consideri la query:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:
 
 ```
 
-Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -348,6 +348,6 @@ Questa entità non è disponibile nel runtime di stima V2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sull'entità appresa dal computer, tra cui [un'esercitazione,](tutorial-machine-learned-entity.md) [i concetti](luis-concept-entity-types.md#design-entities-for-decomposition)e le [procedure.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
+Scopri di più sull'entità appresa dal computer, tra cui un' [esercitazione](tutorial-machine-learned-entity.md), [concetti](luis-concept-entity-types.md#design-entities-for-decomposition)e [procedure guidate](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
-Informazioni sull'entità [elenco](reference-entity-list.md) e [sull'entità dell'espressione regolare.](reference-entity-regular-expression.md)
+Informazioni sull'entità [List](reference-entity-list.md) e sull'entità di [espressioni regolari](reference-entity-regular-expression.md) .

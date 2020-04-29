@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
 ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75531480"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
-Servizi cognitivi offre funzionalità di apprendimento automatico per risolvere problemi generali, ad esempio l'analisi del testo per il sentiment emotivo o l'analisi delle immagini per riconoscere oggetti o volti. Per usare questi servizi non sono necessarie conoscenze speciali di apprendimento automatico o di analisi scientifica dei dati. 
+Servizi cognitivi fornisce funzionalità di machine learning per risolvere i problemi generali, ad esempio l'analisi del testo per i sentimenti emotivi o l'analisi delle immagini per riconoscere oggetti o visi. Per usare questi servizi, non è necessario un apprendimento automatico speciale o data science Knowledge base. 
 
-[Servizi cognitivi](welcome.md) è un gruppo di servizi, ognuno dei quali supporta funzionalità di stima diverse e generalizzate. I servizi sono suddivisi in diverse categorie per aiutarti a trovare il servizio giusto. 
+[Servizi cognitivi](welcome.md) è un gruppo di servizi, ognuno dei quali supporta funzionalità di stima generalizzate diverse. I servizi sono divisi in categorie diverse che consentono di trovare il servizio corretto. 
 
-|Categoria di servizio|Scopo|
+|Categoria servizio|Scopo|
 |--|--|
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
 |[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
@@ -31,115 +31,115 @@ Servizi cognitivi offre funzionalità di apprendimento automatico per risolvere 
 |[Visione](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.|
 ||||
 
-Utilizzare i servizi cognitivi quando:
+Usare servizi cognitivi quando:
 
-* Può utilizzare una soluzione generalizzata.
-* Accedi alla soluzione da un'API REST di programmazione o da un SDK. 
+* Può usare una soluzione generalizzata.
+* Accedere alla soluzione da un'API REST di programmazione o da un SDK. 
 
-Usare un'altra soluzione di apprendimento automatico quando:Use another machine-learning solution when you:
+Usare un'altra soluzione di apprendimento automatico quando si:
 
-* Necessità di scegliere l'algoritmo e la necessità di allenarsi su dati molto specifici.
+* È necessario scegliere l'algoritmo ed è necessario eseguire il training su dati molto specifici.
 
 ## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
 
-L'apprendimento automatico è un concetto in cui si riuniscono i dati e un algoritmo per risolvere un'esigenza specifica. Dopo il training dei dati e dell'algoritmo, l'output è un modello che è possibile usare nuovamente con dati diversi. Il modello sottoposto a training fornisce informazioni dettagliate basate sui nuovi dati. 
+Machine Learning è un concetto in cui è possibile riunire i dati e un algoritmo per risolvere una necessità specifica. Una volta sottoposto a training i dati e l'algoritmo, l'output è un modello che è possibile utilizzare di nuovo con dati diversi. Il modello con training fornisce informazioni dettagliate in base ai nuovi dati. 
 
-Il processo di creazione di un sistema di apprendimento automatico richiede una certa conoscenza dell'apprendimento automatico o dell'analisi scientifica dei dati.
+Il processo di creazione di un sistema di apprendimento automatico richiede una certa conoscenza di Machine Learning o data science.
 
-L'apprendimento automatico viene fornito tramite [i prodotti e i servizi di Azure Machine Learning (AML).](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context)
+Machine Learning viene fornito usando i [prodotti e i servizi Azure Machine Learning (AML)](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Che cos'è un servizio cognitivo?
 
-Un servizio cognitivo fornisce parte o tutti i componenti in una soluzione di apprendimento automatico: dati, algoritmo e modello sottoposto a training. Questi servizi hanno lo scopo di richiedere conoscenze generali sui dati senza dover esperienza con l'apprendimento automatico o l'analisi scientifica dei dati. Questi servizi forniscono API REST e SDK basati sul linguaggio. Di conseguenza, è necessario disporre di conoscenze del linguaggio di programmazione per utilizzare i servizi.
+Un servizio cognitivo fornisce parte o tutti i componenti in una soluzione di apprendimento automatico: dati, algoritmo e modello sottoposto a training. Questi servizi sono destinati a richiedere una conoscenza generale dei dati senza che sia necessaria un'esperienza di apprendimento automatico o data science. Questi servizi forniscono sia API REST che SDK basati su linguaggio. Di conseguenza, è necessario disporre di una Knowledge base per il linguaggio di programmazione per l'utilizzo dei servizi.
 
-## <a name="how-are-cognitive-services-and-azure-machine-learning-aml-similar"></a>In che modo i servizi cognitivi e Azure Machine Learning (AML) sono simili?
+## <a name="how-are-cognitive-services-and-azure-machine-learning-aml-similar"></a>Come sono simili i servizi cognitivi e Azure Machine Learning (AML)?
 
-Entrambi hanno l'obiettivo finale di applicare l'intelligenza artificiale (AI) per migliorare le operazioni di business, anche se il modo in cui ognuno fornisce questo nelle rispettive offerte è diverso. 
+Entrambi hanno lo scopo di applicare l'intelligenza artificiale per migliorare le operazioni aziendali, anche se il modo in cui ognuno fornisce questo comportamento nelle rispettive offerte è diverso. 
 
-Generalmente, il pubblico è diverso:
+In genere, i destinatari sono diversi:
 
-* Servizi cognitivi sono per gli sviluppatori senza esperienza di apprendimento automatico.
-* Azure Machine Learning è personalizzato per i data scientist. 
+* I servizi cognitivi sono destinati agli sviluppatori senza esperienza di machine learning.
+* Azure Machine Learning è adattato ai data scientist. 
 
-## <a name="how-is-a-cognitive-service-different-from-machine-learning"></a>In che modo un servizio cognitivo è diverso dall'apprendimento automatico?
+## <a name="how-is-a-cognitive-service-different-from-machine-learning"></a>In che modo un servizio cognitivo è diverso da Machine Learning?
 
-Un servizio cognitivo fornisce un modello di training per l'utente. In questo modo i dati e un algoritmo vengono uniti, disponibili da un'API REST o da un SDK. È possibile implementare questo servizio in pochi minuti, a seconda dello scenario.  Un servizio cognitivo fornisce risposte a problemi generali, ad esempio frasi chiave nel testo o l'identificazione di elementi nelle immagini. 
+Un servizio cognitivo fornisce un modello sottoposto a training. In questo modo, i dati e un algoritmo vengono combinati, disponibili da un'API REST o da un SDK. È possibile implementare questo servizio entro pochi minuti, a seconda dello scenario.  Un servizio cognitivo fornisce risposte a problemi generali come le frasi chiave nel testo o nell'identificazione dell'elemento nelle immagini. 
 
-L'apprendimento automatico è un processo che in genere richiede un periodo di tempo più lungo per implementare correttamente. Questo tempo viene dedicato alla raccolta, alla pulizia, alla trasformazione, alla selezione degli algoritmi, al training dei modelli e alla distribuzione dei dati per ottenere lo stesso livello di funzionalità fornito da un servizio cognitivo. Con l'apprendimento automatico, è possibile fornire risposte a problemi altamente specializzati e/o specifici. I problemi di apprendimento automatico richiedono familiarità con l'argomento specifico e i dati del problema in esame, nonché l'esperienza nella scienza dei dati.
+Machine Learning è un processo che in genere richiede un periodo di tempo più lungo per l'implementazione corretta. Questo tempo è dedicato alla raccolta dei dati, alla pulizia, alla trasformazione, alla selezione degli algoritmi, al training del modello e alla distribuzione per ottenere lo stesso livello di funzionalità fornito da un servizio cognitivo. Con machine learning, è possibile fornire risposte a problemi altamente specializzati e/o specifici. I problemi di Machine Learning richiedono una certa familiarità con l'oggetto specifico e i dati del problema in considerazione, nonché le competenze in data science.
 
-## <a name="what-kind-of-data-do-you-have"></a>Che tipo di dati hai?
+## <a name="what-kind-of-data-do-you-have"></a>Quali tipi di dati sono disponibili?
 
-Servizi cognitivi, come gruppo di servizi, può richiedere nessuno, alcuni o tutti i dati personalizzati per il modello sottoposto a training. 
+I servizi cognitivi, come un gruppo di servizi, possono richiedere nessuno, alcuni o tutti i dati personalizzati per il modello sottoposto a training. 
 
 ### <a name="no-additional-training-data-required"></a>Non sono necessari dati di training aggiuntivi
 
-I servizi che forniscono un modello con training completo possono essere considerati come una _casella nera._ Non è necessario sapere come funzionano o quali dati sono stati utilizzati per addestrarli. Portare i dati a un modello di training completo per ottenere una stima. 
+I servizi che forniscono un modello completamente sottoposto a training possono essere considerati come _Black Box_. Non è necessario conoscere il modo in cui funzionano o i dati usati per eseguirne il training. È possibile importare i dati in un modello completamente sottoposto a training per ottenere una stima. 
 
-### <a name="some-or-all-training-data-required"></a>Alcuni o tutti i dati di training necessari
+### <a name="some-or-all-training-data-required"></a>Sono necessari alcuni o tutti i dati di training
 
-Alcuni servizi consentono di portare i propri dati, quindi eseguire il training di un modello. Ciò consente di estendere il modello utilizzando i dati e l'algoritmo del Servizio con i propri dati. L'output corrisponde alle proprie esigenze. Quando si portano i propri dati, potrebbe essere necessario taggare i dati in un modo specifico per il servizio. Ad esempio, se si esegue il training di un modello per identificare i fiori, è possibile fornire un catalogo di immagini di fiori insieme alla posizione del fiore in ogni immagine per addestrare il modello. 
+Alcuni servizi consentono di importare i propri dati, quindi di eseguire il training di un modello. In questo modo è possibile estendere il modello usando i dati e l'algoritmo del servizio con i propri dati. L'output corrisponde alle esigenze. Quando si portano i propri dati, potrebbe essere necessario contrassegnare i dati in modo specifico per il servizio. Se, ad esempio, si esegue il training di un modello per identificare i fiori, è possibile fornire un catalogo di immagini floreali insieme alla posizione del fiore in ogni immagine per eseguire il training del modello. 
 
-Un servizio può _consentire_ di fornire dati per migliorare i propri dati. Un servizio potrebbe _richiedere_ la fornitura di dati. 
+Un servizio può _consentire_ di fornire dati per migliorare i propri dati. Un servizio può _richiedere_ la fornitura di dati. 
 
-### <a name="real-time-or-near-real-time-data-required"></a>Dati in tempo reale o quasi in tempo reale richiesti
+### <a name="real-time-or-near-real-time-data-required"></a>Dati in tempo reale o quasi in tempo reale necessari
 
-Un servizio potrebbe richiedere dati in tempo reale o quasi in tempo reale per creare un modello efficace. Questi servizi elaborano quantità significative di dati del modello. 
+Un servizio può richiedere dati in tempo reale o quasi in tempo reale per creare un modello efficace. Questi servizi elaborano quantità significative di dati del modello. 
 
-## <a name="service-requirements-for-the-data-model"></a>Requisiti di servizio per il modello di datiService requirements for the data model
+## <a name="service-requirements-for-the-data-model"></a>Requisiti del servizio per il modello di dati
 
-I dati seguenti classificano ogni servizio in base al tipo di dati che consente o richiede.
+I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente o richiede.
 
-|Servizio cognitivo|Nessun dato di training richiesto|Fornisci alcuni o tutti i dati di training|Raccolta di dati in tempo reale o quasi in tempo reale|
+|Servizio cognitivo|Non sono necessari dati di training|Sono disponibili alcuni o tutti i dati di training|Raccolta dati in tempo reale o quasi in tempo reale|
 |--|--|--|--|
 |[Rilevamento anomalie](./Anomaly-Detector/overview.md)|x|x|x|
 |Ricerca Bing |x|||
 |[Visione artificiale](./Computer-vision/Home.md)|x|||
-|[Moderatore dei contenuti](./Content-Moderator/overview.md)|x||x|
-|[Visione personalizzata](./Custom-Vision-Service/home.md)||x||
+|[Content Moderator](./Content-Moderator/overview.md)|x||x|
+|[Servizio visione artificiale personalizzato](./Custom-Vision-Service/home.md)||x||
 |[Viso](./Face/Overview.md)|x|x||
 |[Riconoscimento modulo](./form-recognizer/overview.md)||x||
 |[Strumento di lettura immersiva](./immersive-reader/overview.md)|x|||
 |[Riconoscimento input penna](./Ink-recognizer/overview.md)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
-|[Creatore QnA](./QnAMaker/Overview/overview.md)||x||
-|[Riconoscitore altoparlante](./speaker-recognition/home.md)||x||
+|[Personalizza esperienze](./personalizer/what-is-personalizer.md)|x*|x*|x|
+|[QnA Maker](./QnAMaker/Overview/overview.md)||x||
+|[Riconoscimento voce](./speaker-recognition/home.md)||x||
 |[Sintesi vocale (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Sintesi vocale (STT)](speech-service/speech-to-text.md)|x|x||
+|[Riconoscimento vocale vocale (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traduzione vocale](speech-service/speech-translation.md)|x|||
-|[Analisi del testo](./text-analytics/overview.md)|x|||
-|[Testo traduttore](./translator/translator-info-overview.md)|x|||
-|[Traduttore Testo - Traduttore personalizzato](./translator/custom-translator/overview.md)||x||
+|[Text Analytics](./text-analytics/overview.md)|x|||
+|[Traduzione testuale](./translator/translator-info-overview.md)|x|||
+|[Traduzione testuale-convertitore personalizzato](./translator/custom-translator/overview.md)||x||
 
-Il personalizer ha bisogno solo dei dati di training raccolti dal servizio (in quanto opera in tempo reale) per valutare le norme e i dati. Personalizer non necessita di set di dati cronologici di grandi dimensioni per il training iniziale o batch. 
+* Il Personalizzatore necessita solo dei dati di training raccolti dal servizio (in quanto Funziona in tempo reale) per valutare i criteri e i dati. Il Personalizzatore non necessita di set di impostazioni cronologici di grandi dimensioni per il training iniziale o di batch. 
 
-## <a name="where-can-you-use-cognitive-services"></a>Dove è possibile utilizzare i servizi cognitivi?
+## <a name="where-can-you-use-cognitive-services"></a>Dove è possibile usare servizi cognitivi?
  
-I servizi vengono usati in qualsiasi applicazione in grado di effettuare chiamate all'API REST o SDK. Esempi di applicazioni includono siti web, bot, realtà virtuale o mista, applicazioni desktop e mobili. 
+I servizi vengono usati in qualsiasi applicazione che può effettuare chiamate API REST o SDK. Esempi di applicazioni includono siti Web, bot, realtà virtuale o mista, applicazioni desktop e per dispositivi mobili. 
 
-## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>In che modo Ricerca cognitiva di Azure è correlata ai servizi cognitivi?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>In che modo Azure ricerca cognitiva correlato ai servizi cognitivi?
 
-[Ricerca cognitiva di Azure](../search/search-what-is-azure-search.md) è un servizio di ricerca cloud separato che usa facoltativamente Servizi cognitivi per aggiungere l'elaborazione di immagini e linguagginaturali ai carichi di lavoro di indicizzazione. Servizi cognitivi è esposto in Ricerca cognitiva di Azure tramite [competenze incorporate](../search/cognitive-search-predefined-skills.md) che eseguono il wrapping di singole API. È possibile usare una risorsa gratuita per le procedure dettagliate, ma pianificare la creazione e il collegamento di una [risorsa fatturabile](../search/cognitive-search-attach-cognitive-services.md) per volumi di dimensioni maggiori.
+[Azure ricerca cognitiva](../search/search-what-is-azure-search.md) è un servizio di ricerca cloud separato che, facoltativamente, USA Servizi cognitivi per aggiungere immagini e l'elaborazione del linguaggio naturale ai carichi di lavoro di indicizzazione. Servizi cognitivi viene esposto in Azure ricerca cognitiva tramite [competenze predefinite](../search/cognitive-search-predefined-skills.md) che incapsulano le singole API. È possibile usare una risorsa gratuita per le procedure dettagliate, ma pianificare la creazione e il fissaggio di una [risorsa fatturabile](../search/cognitive-search-attach-cognitive-services.md) per volumi più grandi.
 
-## <a name="how-can-you-use-cognitive-services"></a>Come si possono utilizzare i Servizi cognitivi?
+## <a name="how-can-you-use-cognitive-services"></a>Come è possibile usare servizi cognitivi?
 
-Ogni servizio fornisce informazioni sui dati. È possibile combinare i servizi insieme per concatenare soluzioni come la conversione vocale (audio) in testo, la traduzione del testo in molte lingue, quindi utilizzando le lingue tradotte per ottenere risposte da una Knowledge Base. Mentre i servizi cognitivi possono essere utilizzati per creare soluzioni intelligenti da soli, possono anche essere combinati con i progetti di apprendimento automatico tradizionali per integrare i modelli o accelerare il processo di sviluppo. 
+Ogni servizio fornisce informazioni sui dati. È possibile combinare i servizi per concatenare soluzioni come la conversione vocale (audio) in testo, tradurre il testo in molti linguaggi, quindi utilizzare le lingue tradotte per ottenere risposte da una Knowledge base. Sebbene i servizi cognitivi possano essere usati per creare soluzioni intelligenti in modo autonomo, possono anche essere combinati con progetti di apprendimento automatico tradizionali per integrare i modelli o accelerare il processo di sviluppo. 
 
-Servizi cognitivi che forniscono modelli esportati per altri strumenti di apprendimento automatico:Cognitive Services that provide exported models for other machine learning tools:
+Servizi cognitivi che forniscono modelli esportati per altri strumenti di Machine Learning:
 
 |Servizio cognitivo|Informazioni sul modello|
 |--|--|
-|[Visione personalizzata](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per iOS11, ONNX per Windows ML|
+|[Servizio visione artificiale personalizzato](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
 
 ## <a name="learn-more"></a>Altre informazioni
 
-* [Guida all'architettura - Quali sono i prodotti di apprendimento automatico di Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Apprendimento automatico - Introduzione al deep learning e all'apprendimento automatico](../machine-learning/concept-deep-learning-vs-machine-learning.md)
+* [Guida all'architettura: quali sono i prodotti di Machine Learning in Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine Learning: Introduzione a Deep Learning e Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare l'account del servizio cognitivo nel portale di Azure o con [l'interfaccia della riga di comando](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)di Azure.Create your Cognitive Service account in the Azure [portal](cognitive-services-apis-create-account.md) or with Azure CLI .
-* Informazioni su come [eseguire l'autenticazione](authentication.md) a un servizio cognitivo.
-* Utilizzare [la registrazione diagnostica](diagnostic-logging.md) per l'identificazione e il debug dei problemi. 
-* Distribuire un servizio cognitivo in un [contenitore](cognitive-services-container-support.md)Docker .
-* Resta aggiornato con [gli aggiornamenti](https://azure.microsoft.com/updates/?product=cognitive-services)del servizio .
+* Creare l'account del servizio cognitivo nell' [portale di Azure](cognitive-services-apis-create-account.md) o con l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Informazioni su come eseguire l' [autenticazione](authentication.md) a un servizio cognitivo.
+* Usare la [registrazione diagnostica](diagnostic-logging.md) per l'identificazione e il debug dei problemi. 
+* Distribuire un servizio cognitivo in un [contenitore](cognitive-services-container-support.md)docker.
+* [Aggiornamenti dei servizi](https://azure.microsoft.com/updates/?product=cognitive-services)aggiornati.

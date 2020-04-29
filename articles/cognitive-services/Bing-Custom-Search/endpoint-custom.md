@@ -1,7 +1,7 @@
 ---
 title: Endpoint di Ricerca personalizzata Bing
 titleSuffix: Azure Cognitive Services
-description: Crea esperienze di ricerca personalizzate per gli argomenti che ti interessano. Gli utenti visualizzano i risultati di ricerca personalizzati in base ai contenuti che interessano.
+description: Creazione di esperienze di ricerca personalizzate per gli argomenti a cui si è interessati. Gli utenti visualizzano i risultati della ricerca personalizzati per il contenuto di cui si occupano.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072794"
 ---
 # <a name="custom-search"></a>Ricerca personalizzata

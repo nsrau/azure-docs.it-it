@@ -1,5 +1,5 @@
 ---
-title: Invio e utilizzo di query e risposte API - Ricerca di business locale BingSending and using API queries and responses - Bing Local Business Search
+title: Invio e uso di query e risposte API-ricerca aziendale locale Bing
 titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per informazioni su come inviare e usare query di ricerca con l'API di ricerca di attività locali Bing.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74326730"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
@@ -148,6 +148,6 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Local Business Search quickstart](quickstarts/local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-- [Guida introduttiva di Local Business Search Java](quickstarts/local-search-java-quickstart.md)
-- [Guida introduttiva del nodo di ricerca aziendale localeLocal Business Search Node quickstart](quickstarts/local-search-node-quickstart.md)
+- [Guida introduttiva a Local Business Search in Java](quickstarts/local-search-java-quickstart.md)
+- [Guida introduttiva a Local Business Search in Node](quickstarts/local-search-node-quickstart.md)
 - [Guida introduttiva a Local Business Search in Python](quickstarts/local-search-python-quickstart.md)

@@ -1,7 +1,7 @@
 ---
 title: Avviare lo strumento di lettura immersiva con contenuto HTML
 titleSuffix: Azure Cognitive Services
-description: Questo articolo ti mostrerà come lanciare Immersive Reader con contenuti HTML.
+description: In questo articolo viene illustrato come avviare il lettore immersivo con contenuto HTML.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: bc7ab46113e1b819fc71a9f6e8a18400f8acfbef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75946243"
 ---
-# <a name="how-to-launch-the-immersive-reader-with-html-content"></a>Come avviare Immersive Reader con contenuti HTML
+# <a name="how-to-launch-the-immersive-reader-with-html-content"></a>Come avviare il lettore immersivo con contenuto HTML
 
-In questo articolo viene illustrato come avviare Immersive Reader con contenuto HTML.
+Questo articolo illustra come avviare il lettore immersivo con contenuto HTML.
 
 ## <a name="prepare-the-html-content"></a>Preparare il contenuto HTML
 
-Inserire il contenuto di cui si desidera eseguire il rendering nel lettore Immersive all'interno di un elemento contenitore. Assicurarsi che l'elemento `id`contenitore abbia un oggetto univoco. Immersive Reader fornisce supporto per gli elementi HTML di base, vedere il [riferimento](./reference.md#html-support) per ulteriori informazioni.
+Posizionare il contenuto di cui si desidera eseguire il rendering nel Reader immersivo all'interno di un elemento contenitore. Assicurarsi che l'elemento contenitore disponga di un univoco `id`. Il lettore immersivo fornisce supporto per gli elementi HTML di base. per altre informazioni, vedere il [riferimento](./reference.md#html-support) .
 
 ```html
 <div id='immersive-reader-content'>
@@ -38,17 +38,17 @@ Inserire il contenuto di cui si desidera eseguire il rendering nel lettore Immer
 </div>
 ```
 
-## <a name="get-the-html-content-in-javascript"></a>Ottenere il contenuto HTML in JavaScriptGet the HTML content in JavaScript
+## <a name="get-the-html-content-in-javascript"></a>Ottenere il contenuto HTML in JavaScript
 
-Usa `id` l'elemento container per ottenere il contenuto HTML nel codice JavaScript.
+Usare l' `id` oggetto dell'elemento contenitore per ottenere il contenuto HTML nel codice JavaScript.
 
 ```javascript
 const htmlContent = document.getElementById('immersive-reader-content').innerHTML;
 ```
 
-## <a name="launch-the-immersive-reader-with-your-html-content"></a>Lancia Immersive Reader con i tuoi contenuti HTML
+## <a name="launch-the-immersive-reader-with-your-html-content"></a>Avviare il lettore immersivo con il contenuto HTML
 
-Quando `ImmersiveReader.launchAsync`si chiama , `mimeType` impostare `text/html` la proprietà del blocco su per abilitare il rendering HTML.
+Quando si `ImmersiveReader.launchAsync`chiama, impostare la `mimeType` proprietà del blocco `text/html` su per abilitare il rendering del codice HTML.
 
 ```javascript
 const data = {

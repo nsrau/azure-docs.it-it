@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti su Sintesi vocale
 titleSuffix: Azure Cognitive Services
-description: Risposte alle domande frequenti sul servizio di sintesi vocale.
+description: Risposte alle domande frequenti sul servizio Sintesi vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
 ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110502"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Domande frequenti su Sintesi vocale
@@ -29,7 +29,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Da dove è necessario iniziare per usare un modello di voce standard?**
 
-**R**: Attraverso richieste HTTP sono disponibili più di 80 modelli di voce standard in oltre 45 lingue. In primo luogo, ottenere una [chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Per eseguire chiamate REST ai modelli di voce già distribuiti, vedere l'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**R**: Attraverso richieste HTTP sono disponibili più di 80 modelli di voce standard in oltre 45 lingue. Per prima cosa, ottenere una [chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Per eseguire chiamate REST ai modelli di voce già distribuiti, vedere l'[API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 **D: Per usare un modello di voce personalizzata, l'API è la stessa che viene usata per le voci standard?**
 
@@ -41,7 +41,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 Per creare un modello di voce personalizzato è necessaria una raccolta di dati vocali. Questa raccolta è costituita da un set di file audio con registrazioni vocali e da un file di testo con la trascrizione di ogni file audio. Il risultato della voce digitale dipende principalmente dalla qualità dei dati di training. Per produrre una buona sintesi vocale, è importante che le registrazioni vengano eseguite in un ambiente silenzioso con un microfono a stelo di alta qualità. Volume, velocità di pronuncia e tono uniformi e perfino l'uniformità dei manierismi espressivi sono elementi essenziali per la creazione di una voce digitale di buona qualità. È consigliabile registrare le voci in uno studio di registrazione.
 
-Attualmente non viene fornito supporto per la registrazione online né sono disponibili raccomandazioni per gli studi di registrazione. Per i requisiti di formato, vedere [come preparare le registrazioni e le trascrizioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Attualmente non viene fornito supporto per la registrazione online né sono disponibili raccomandazioni per gli studi di registrazione. Per il requisito del formato, vedere [come preparare le registrazioni e le trascrizioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **D: Quali script è necessario usare per la registrazione dei dati vocali per il training della voce personalizzata?**
 

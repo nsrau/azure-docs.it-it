@@ -1,5 +1,5 @@
 ---
-title: Scalabilità e prestazioni - Personalizer
+title: Scalabilità e prestazioni-personalizzatore
 titleSuffix: Azure Cognitive Services
 description: 'Nei siti Web e nelle applicazioni ad alte prestazioni e con traffico elevato è necessario tenere in considerazione due fattori principali in merito alla scalabilità e alle prestazioni di Personalizza esperienze: latenza e velocità effettiva di training.'
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: diberry
 ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73490790"
 ---
 # <a name="scalability-and-performance"></a>Scalabilità e prestazioni
@@ -28,7 +28,7 @@ La personalizzazione può restituire rapidamente un rango, con la maggior parte 
 
 ##  <a name="low-latency-scenarios"></a>Scenari a bassa latenza
 
-Alcune applicazioni richiedono bassi livelli di latenza quando restituiscono una classificazione. Sono necessarie basse latenze:
+Alcune applicazioni richiedono bassi livelli di latenza quando restituiscono una classificazione. Sono necessarie latenze basse:
 
 * Evitare che l'utente resti in attesa per molto tempo prima che venga visualizzato il contenuto classificato.
 * Evitare che un server con molto traffico occupi tempo di elaborazione o connessioni di rete disponibili in quantità limitata.
@@ -51,4 +51,4 @@ Se si raggiungono questi limiti, contattare il team di supporto per ricevere con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare e configurare Personalizer](how-to-settings.md).
+[Creare e configurare la personalizzazione](how-to-settings.md).

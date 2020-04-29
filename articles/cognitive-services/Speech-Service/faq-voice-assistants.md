@@ -1,7 +1,7 @@
 ---
-title: Domande frequenti sulle assistenti vocali
+title: Domande frequenti sugli assistenti vocali
 titleSuffix: Azure Cognitive Services
-description: Risposte alle domande più frequenti sugli assistenti vocali che utilizzano i comandi personalizzati (anteprima) o il canale Direct Line Speech.
+description: Ottieni risposte alle domande più diffuse sugli assistenti vocali usando i comandi personalizzati (anteprima) o il canale di sintesi vocale diretta.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,62 +11,62 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110352"
 ---
-# <a name="voice-assistants-frequently-asked-questions"></a>Domande frequenti sulle assistenti vocali
+# <a name="voice-assistants-frequently-asked-questions"></a>Domande frequenti sugli assistenti vocali
 
-Se non riesci a trovare le risposte alle tue domande in questo documento, consulta altre opzioni di [supporto.](support.md)
+Se non si riesce a trovare le risposte alle domande in questo documento, vedere [altre opzioni di supporto](support.md).
 
 ## <a name="general"></a>Generale
 
-**D: Cos'è un assistente vocale?**
+**D: che cos'è un assistente vocale?**
 
-**A:** Come Cortana, un assistente vocale è una soluzione che ascolta le espressioni vocali di un utente, analizza il contenuto di tali espressioni per il significato, esegue una o più azioni in risposta alle intenzioni dell'espressione e quindi fornisce una risposta all'utente che spesso include un componente parlato. È un'esperienza "voice-in, voice-out" per interagire con un sistema. Gli autori degli assistenti vocali `DialogServiceConnector` creano un'applicazione sul dispositivo utilizzando l'SDK di riconoscimento vocale per comunicare con un assistente creato utilizzando i [comandi personalizzati (anteprima)](custom-commands.md) o il canale [di riconoscimento vocale](direct-line-speech.md) diretto di Bot Framework. Questi assistenti possono utilizzare parole chiave personalizzate, riconoscimento vocale personalizzato e voce personalizzata per offrire un'esperienza personalizzata per il tuo marchio o prodotto.
+**R:** Analogamente a Cortana, un assistente vocale è una soluzione che rimane in ascolto delle espressioni vocali di un utente, analizza il contenuto di tali espressioni per significare, esegue una o più azioni in risposta allo scopo dell'espressione, quindi fornisce una risposta all'utente che spesso include un componente parlato. Si tratta di un'esperienza di "Voice-in-out" per l'interazione con un sistema. gli autori di Assistente vocale creano un'applicazione su dispositivo usando `DialogServiceConnector` il nell'SDK di riconoscimento vocale per comunicare con un assistente creato con [comandi personalizzati (anteprima)](custom-commands.md) o con il canale di [sintesi vocale Direct Line](direct-line-speech.md) di bot Framework. Questi assistenti possono usare parole chiave personalizzate, riconoscimento vocale personalizzato e una voce personalizzata per offrire un'esperienza personalizzata al proprio marchio o prodotto.
 
-**D: È necessario usare i comandi personalizzati (anteprima) o Direct Line Speech? Qual è la differenza?**
+**D: è consigliabile usare I comandi personalizzati (anteprima) o la voce Direct Line? Qual è la differenza?**
 
-**R:** [Comandi personalizzati (anteprima)](custom-commands.md) è un set di strumenti con complessità inferiore per creare e ospitare facilmente un assistente adatto agli scenari di completamento delle attività. [Direct Line Speech](direct-line-speech.md) offre funzionalità più ricche e sofisticate che possono consentire scenari di conversazione affidabili. Per ulteriori informazioni, vedere il [confronto delle soluzioni per gli assistenti.](voice-assistants.md#choosing-an-assistant-solution)
+**R:** i [comandi personalizzati (anteprima)](custom-commands.md) sono un set di strumenti di complessità inferiore che consente di creare e ospitare facilmente un assistente particolarmente adatto agli scenari di completamento delle attività. [Direct Line Speech](direct-line-speech.md) fornisce funzionalità più avanzate e sofisticate che possono consentire scenari di conversazione affidabili. Per ulteriori informazioni, vedere [confronto tra le soluzioni Assistant](voice-assistants.md#choosing-an-assistant-solution) .
 
 **D: Come iniziare?**
 
-**A:** Il modo migliore per iniziare con la creazione di un'applicazione di comandi personalizzati (anteprima) o bot Framework di base.
+**R:** Il modo migliore per iniziare con la creazione di un'applicazione comandi personalizzata (anteprima) o bot di base bot Framework.
 
-- [Creare un'applicazione Di comandi personalizzati (anteprima)Create a Custom Commands (Preview) application](quickstart-custom-speech-commands-create-new.md)
-- [Creare un bot di Bot Framework di baseCreate a basic Bot Framework bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-- [Connettere un bot al canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Creare un'applicazione di comandi personalizzati (anteprima)](quickstart-custom-speech-commands-create-new.md)
+- [Creare un bot di base per bot Framework](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Connettere un bot al canale vocale direct line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Debug
 
-**D: Dov'è il mio canale segreto?**
+**D: dove si trova il segreto del canale?**
 
-**A:** Se hai usato la versione di anteprima di Direct Line Speech o stai leggendo la documentazione correlata, potresti aspettarti di trovare una chiave segreta nella pagina di registrazione del canale Direct Line Speech. Anche il metodo `DialogServiceConfig` `FromBotSecret` factory v1.7 in Speech SDK prevede questo valore.
+**R:** Se è stata usata la versione di anteprima di direct line Speech o si sta leggendo la documentazione correlata, è possibile che si desideri trovare una chiave privata nella pagina di registrazione del canale vocale direct line. Il metodo `FromBotSecret` factory `DialogServiceConfig` v 1.7 nell'SDK di riconoscimento vocale prevede anche questo valore.
 
-La versione più recente di Direct Line Speech semplifica il processo di contatto del bot da un dispositivo. Nella pagina di registrazione del canale, il menu a discesa nella parte superiore associa la registrazione del canale Direct Line Speech a una risorsa vocale. Una volta associato, l'SDK di `BotFrameworkConfig::FromSubscription` riconoscimento vocale `DialogServiceConnector` v1.8 include un metodo factory che configurerà un oggetto per contattare il bot associato alla sottoscrizione.
+La versione più recente di direct line Speech semplifica il processo di contatto del bot da un dispositivo. Nella pagina di registrazione del canale, l'elenco a discesa nella parte superiore associa la registrazione del canale vocale direct line a una risorsa di riconoscimento vocale. Una volta associato, l'SDK di riconoscimento vocale v `BotFrameworkConfig::FromSubscription` 1.8 include un metodo factory che `DialogServiceConnector` configurerà un per contattare il bot associato alla sottoscrizione.
 
-Se si sta ancora eseguendo la migrazione dell'applicazione client `DialogServiceConfig::FromBotSecret` dalla versione 1.7 alla v1.8, è possibile continuare a utilizzare un valore non null non vuoto per il relativo parametro segreto del canale, ad esempio il segreto precedente utilizzato. Verrà semplicemente ignorato quando si utilizza una sottoscrizione vocale associata a una registrazione del canale più recente. Si prega di notare che il valore _deve_ essere non null e non vuoto, come questi vengono controllati sul dispositivo prima che l'associazione lato servizio sia rilevante.
+Se si sta ancora migrando l'applicazione client da v 1.7 a v 1.8 `DialogServiceConfig::FromBotSecret` , può continuare a usare un valore non vuoto e non null per il relativo parametro del segreto del canale, ad esempio il segreto precedente usato. Verrà semplicemente ignorato quando si usa una sottoscrizione vocale associata a una registrazione del canale più recente. Si noti che il valore _deve_ essere non null e non vuoto, perché questi vengono controllati nel dispositivo prima che l'associazione sul lato del servizio sia pertinente.
 
-Per una guida più dettagliata, vedere la [sezione tutorial](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) che illustra la registrazione del canale.
+Per una guida più dettagliata, vedere la [sezione relativa all'esercitazione](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) che illustra la registrazione del canale.
 
-**D: Viene visualizzato un errore 401 durante la connessione e non funziona nulla. So che la mia chiave di sottoscrizione è valida. Cosa sta succedendo?**
+**D: si verifica un errore 401 durante la connessione e non funziona nulla. So che la mia chiave di sottoscrizione vocale è valida. Cosa sta succedendo?**
 
-**A:** Quando si gestisce la sottoscrizione nel portale di Azure, assicurarsi di usare la risorsa **Riconoscimento vocale** (Microsoft.CognitiveServicesSpeechServices, "Speech") e _non_ la risorsa **Servizi cognitivi** (Microsoft.CognitiveServicesAllInOne, "Tutti i servizi cognitivi"). Inoltre, si prega di controllare [il supporto dell'area del servizio di riconoscimento vocale per gli assistenti vocali](regions.md#voice-assistants).
+**R:** Quando si gestisce la sottoscrizione nel portale di Azure, assicurarsi di usare la risorsa **vocale** (Microsoft. CognitiveServicesSpeechServices, "speech") e _non_ la risorsa **Servizi cognitivi** (Microsoft. CognitiveServicesAllInOne, "all cognitive Services"). Controllare anche il [supporto per l'area del servizio vocale per gli assistenti vocali](regions.md#voice-assistants).
 
-![abbonamento corretto per il discorso linea diretta](media/voice-assistants/faq-supported-subscription.png "esempio di abbonamento Speech compatibile")
+![correzione della sottoscrizione per la voce Direct Line](media/voice-assistants/faq-supported-subscription.png "esempio di sottoscrizione vocale compatibile")
 
-**D: Ottengo il testo `DialogServiceConnector`di riconoscimento dal mio , ma viene visualizzato un errore '1011' e nulla dal bot. Perché?**
+**D: il testo di riconoscimento viene restituito da `DialogServiceConnector`My, ma viene visualizzato un errore "1011" e niente dal bot. Perché?**
 
-**A:** Questo errore indica un problema di comunicazione tra l'assistente e il servizio assistente vocale.
+**R:** Questo errore indica un problema di comunicazione tra l'assistente e il servizio Voice Assistant.
 
-- Per i comandi personalizzati (anteprima), assicurarsi che l'applicazione Comandi personalizzati (anteprima) sia pubblicata
-- Per Direct Line Speech, verificare di aver [connesso il bot al canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), di aver aggiunto il supporto del protocollo [Streaming](https://aka.ms/botframework/addstreamingprotocolsupport) al bot (con il supporto Web Socket correlato) e quindi verificare che il bot risponda alle richieste in arrivo dal canale.
+- Per i comandi personalizzati (anteprima), assicurarsi che l'applicazione comandi personalizzati (anteprima) sia pubblicata
+- Per la comunicazione diretta della linea, assicurarsi di aver [connesso il bot al canale di riconoscimento vocale diretto](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [aggiunto il supporto del protocollo di streaming](https://aka.ms/botframework/addstreamingprotocolsupport) al bot (con il supporto per il socket Web correlato) e quindi verificare che il bot stia rispondendo alle richieste in ingresso dal canale.
 
-**D: Questo codice non funziona ancora e/o ricevo un errore `DialogServiceConnector`diverso quando si utilizza un file . Cosa dovrei fare?**
+**D: questo codice non funziona ancora e/o si verifica un errore diverso quando si usa un `DialogServiceConnector`oggetto. Cosa dovrei fare?**
 
-**A:** La registrazione basata su file fornisce un livello di dettaglio sostanzialmente maggiore e consente di accelerare le richieste di supporto. Per attivare questa funzionalità, vedere [come utilizzare la registrazione dei file](how-to-use-logging.md).
+**R:** La registrazione basata su file fornisce un maggior numero di dettagli e consente di accelerare le richieste di supporto. Per abilitare questa funzionalità, vedere [come usare la registrazione di file](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

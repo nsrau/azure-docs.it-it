@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73499488"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
-In questo articolo viene illustrato l'utilizzo di [un'entità elenco](luis-concept-entity-types.md) per aumentare il rilevamento delle entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
+Questo articolo illustra l'uso di un' [entità elenco](luis-concept-entity-types.md) per aumentare il rilevamento delle entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -39,7 +39,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > [!Tip]
 > Se non si ha già una sottoscrizione, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-Tutto il codice in questo articolo è disponibile nel repository GitHub di [Azure-Samples.](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity) 
+Tutto il codice in questo articolo è disponibile nel [repository GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Usare l'app HomeAutomation
 L'app HomeAutomation consente di controllare i dispositivi, ad esempio luci, sistemi di intrattenimento e controlli dell'ambiente, come riscaldamento e aria condizionata. Questi sistemi hanno numerosi nomi diversi che possono includere nomi di produttori, nomi alternativi, acronimi e parole gergali. 
@@ -61,7 +61,7 @@ L'entità HomeAutomation.Device è ideale per un numero ridotto di dispositivi o
 
 Un'**entità elenco** è una buona scelta per questo scenario, perché il set di termini per un dispositivo in un palazzo o in un campus è un set noto, anche se ha dimensioni molto grandi. Usando un'entità elenco, LUIS può ricevere tutti i valori possibili del set per il termostato e risolverli nel singolo dispositivo termostato. 
 
-Questo articolo creerà un elenco di entità con il termostato. I nomi alternativi per un termostato in questo articolo sono: 
+In questo articolo verrà creato un elenco di entità con il termostato. I nomi alternativi per un termostato in questo articolo sono i seguenti: 
 
 |Nomi alternativi per thermostat|
 |--|
@@ -214,7 +214,7 @@ Il dispositivo specifico **Thermostat** viene identificato con una query orienta
 
 Provare le altre due espressioni per vedere che anche per esse viene restituito il valore thermostat. 
 
-|#|Espressione|Entità|type|value|
+|#|Espressione|Entità|type|Valore|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

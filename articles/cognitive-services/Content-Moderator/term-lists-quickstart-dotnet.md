@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72935947"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Controllare testo in base a un elenco personalizzato di termini in C#
 
 L'elenco globale di termini predefinito in Azure Content Moderator è sufficiente per quasi tutte le esigenze di moderazione del contenuto. Può tuttavia essere necessario filtrare termini specifici per la propria organizzazione. Può ad esempio essere opportuno contrassegnare con tag i nomi delle società concorrenti per una successiva analisi. 
 
-È possibile utilizzare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) per creare elenchi personalizzati di termini da utilizzare con l'API di moderazione del testo.
+È possibile usare [Content MODERATOR SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo.
 
 Questo articolo contiene informazioni ed esempi di codice per iniziare a usare Content Moderator SDK per .NET allo scopo di:
 - Crea un elenco
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Creare il client di Content Moderator
 
-Aggiungere il codice seguente per creare un client di Content Moderator per la sottoscrizione. Aggiornare `AzureEndpoint` `CMSubscriptionKey` i campi e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **Avvio rapido** della risorsa nel portale di Azure.You can find these in the Quick start tab of your resource in the Azure portal.
+Aggiungere il codice seguente per creare un client di Content Moderator per la sottoscrizione. Aggiornare i `AzureEndpoint` campi `CMSubscriptionKey` e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **avvio rapido** della risorsa nel portale di Azure.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ Si filtra il testo usando un elenco di termini con **ContentModeratorClient.Text
 - Un tipo MIME, che può essere "text/html", "text/xml", "text/markdown" o "text/plain".
 - Il testo da filtrare.
 - Un valore booleano. Impostare questo campo su **true** per correggere automaticamente il testo prima di filtrarlo.
-- Un valore booleano. Impostare questo campo **su true** per rilevare i dati personali nel testo.
+- Un valore booleano. Impostare questo campo su **true** per rilevare i dati personali nel testo.
 - L'ID dell'elenco di termini.
 
 Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).

@@ -1,7 +1,7 @@
 ---
 title: Personalizzare il pulsante Lettore immersivo
 titleSuffix: Azure Cognitive Services
-description: Questo articolo ti mostrerà come personalizzare il pulsante che avvia Immersive Reader.
+description: In questo articolo viene illustrato come personalizzare il pulsante che avvia il lettore immersivo.
 services: cognitive-services
 author: metanMSFT
 manager: guillasi
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 6461cc60a237cf834226b07db5e1ea6fbbea7a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75946210"
 ---
-# <a name="how-to-customize-the-immersive-reader-button"></a>Come personalizzare il pulsante Immersive Reader
+# <a name="how-to-customize-the-immersive-reader-button"></a>Come personalizzare il pulsante Lettore immersivo
 
-In questo articolo viene illustrato come personalizzare il pulsante che avvia Immersive Reader per soddisfare le esigenze dell'applicazione.
+Questo articolo illustra come personalizzare il pulsante che avvia il lettore immersivo per soddisfare le esigenze dell'applicazione.
 
 ## <a name="add-the-immersive-reader-button"></a>Aggiungere il pulsante Lettore immersivo
 
-L'SDK di Immersive Reader fornisce lo stile predefinito per il pulsante che avvia Immersive Reader. Utilizzare `immersive-reader-button` l'attributo class per abilitare questo stile.
+Immersion Reader SDK fornisce lo stile predefinito per il pulsante che avvia il lettore immersivo. Usare l' `immersive-reader-button` attributo Class per abilitare questo stile.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -31,7 +31,7 @@ L'SDK di Immersive Reader fornisce lo stile predefinito per il pulsante che avvi
 
 ## <a name="customize-the-button-style"></a>Personalizzare lo stile del pulsante
 
-Utilizzare `data-button-style` l'attributo per impostare lo stile del pulsante. I valori `icon`consentiti sono , `text`, e `iconAndText`. Il valore predefinito è `icon`.
+Utilizzare l' `data-button-style` attributo per impostare lo stile del pulsante. I valori `icon`consentiti `text`sono, `iconAndText`e. Il valore predefinito è `icon`.
 
 ### <a name="icon-button"></a>Pulsante icona
 
@@ -39,17 +39,17 @@ Utilizzare `data-button-style` l'attributo per impostare lo stile del pulsante. 
 <div class='immersive-reader-button' data-button-style='icon'></div>
 ```
 
-Questo rende il rendering di quanto segue:
+Viene eseguito il rendering degli elementi seguenti:
 
 ![Pulsante icona](./media/button-icon.png)
 
-### <a name="text-button"></a>Pulsante Testo
+### <a name="text-button"></a>Pulsante testo
 
 ```html
 <div class='immersive-reader-button' data-button-style='text'></div>
 ```
 
-Questo rende il rendering di quanto segue:
+Viene eseguito il rendering degli elementi seguenti:
 
 ![Pulsante icona](./media/button-text.png)
 
@@ -59,13 +59,13 @@ Questo rende il rendering di quanto segue:
 <div class='immersive-reader-button' data-button-style='iconAndText'></div>
 ```
 
-Questo rende il rendering di quanto segue:
+Viene eseguito il rendering degli elementi seguenti:
 
 ![Pulsante icona](./media/button-icon-and-text.png)
 
 ## <a name="customize-the-button-text"></a>Personalizzare il testo del pulsante
 
-Configurare la lingua e il testo `data-locale` alternativo per il pulsante utilizzando l'attributo . La lingua predefinita è l'italiano.
+Configurare la lingua e il testo alternativo per il pulsante usando l' `data-locale` attributo. La lingua predefinita è l'italiano.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>
@@ -73,7 +73,7 @@ Configurare la lingua e il testo `data-locale` alternativo per il pulsante utili
 
 ## <a name="customize-the-size-of-the-icon"></a>Personalizzare le dimensioni dell'icona
 
-La dimensione dell'icona Lettore immersivo può `data-icon-px-size` essere configurata utilizzando l'attributo . In questo modo vengono impostate le dimensioni dell'icona in pixel. La dimensione predefinita è 20px.
+La dimensione dell'icona del lettore immersivo può essere configurata `data-icon-px-size` usando l'attributo. Questo consente di impostare le dimensioni dell'icona in pixel. La dimensione predefinita è 20px.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>

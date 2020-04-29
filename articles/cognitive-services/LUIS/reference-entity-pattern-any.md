@@ -1,5 +1,5 @@
 ---
-title: Pattern.any tipo di entità - LUIS
+title: Modello. qualsiasi tipo di entità-LUIS
 titleSuffix: Azure Cognitive Services
 description: Pattern.any è un segnaposto di lunghezza variabile usato solo nell'espressione del modello del criterio per contrassegnare l'inizio e la fine dell'entità.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75979169"
 ---
 # <a name="patternany-entity"></a>Entità pattern.any
@@ -27,18 +27,18 @@ Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pat
 
 * La fine dell'entità può essere confusa con il testo rimanente dell'espressione.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Data un'applicazione client che esegue la ricerca di libri in base al titolo, l'entità pattern.any estrae il titolo completo. Un'espressione di criterio con pattern.any per questa ricerca è `Was {BookTitle} written by an American this year[?]`.
 
-Nella tabella seguente, ogni riga presenta due versioni dell'espressione. L'espressione superiore è il modo in cui LUIS vede inizialmente l'espressione. Non è chiaro dove inizia e finisce il titolo del libro. L'espressione inferiore usa un'entità Pattern.any per contrassegnare l'inizio e la fine dell'entità.
+Nella tabella seguente, ogni riga presenta due versioni dell'espressione. Il primo enunciato è il modo in cui LUIS considera inizialmente il enunciato. Non è chiaro dove inizia e termina il titolo del libro. Il enunciato inferiore usa un'entità pattern. Any per contrassegnare l'inizio e la fine dell'entità.
 
-|Utterance con entità in grassetto|
+|Espressione con entità in grassetto|
 |--|
 |`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>Mezza **addormentata in pigiama rana** scritta da un americano quest'anno?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>La **particolare tristezza della torta al limone: un romanzo** scritto da un americano quest'anno?|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**C'era un Wocket nella mia tasca!** written by an American this year?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>Era **mezza addormentata nei pigiami rana** scritti da un americano quest'anno?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>Era **la tristezza di Lemon cake: un romanzo** scritto da un americano quest'anno?|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**C'è un Wocket in tasca!** written by an American this year?|
 ||
 
 
@@ -49,7 +49,7 @@ Si consideri la query seguente:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-Con il nome del modulo incorporato da estrarre come Pattern.any:
+Con il nome del form incorporato da estrarre come modello. Any:
 
 `Understand your responsibilities as a member of the community`
 
@@ -69,7 +69,7 @@ Con il nome del modulo incorporato da estrarre come Pattern.any:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -79,7 +79,7 @@ Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:
 }
 ```
 
-Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -108,4 +108,4 @@ Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:T
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa [esercitazione](luis-tutorial-pattern.md)usare l'entità **Pattern.any** per estrarre dati dalle espressioni in cui le espressioni sono ben formattate e in cui la fine dei dati può essere facilmente confusa con le parole rimanenti dell'espressione.
+In questa [esercitazione](luis-tutorial-pattern.md)usare l'entità **pattern. any** per estrarre i dati da espressioni in cui le espressioni sono ben formattate e dove la fine dei dati può essere confusa facilmente con le parole rimanenti dell'espressione.

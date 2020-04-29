@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75448254"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 
-Usare l'[API di moderazione di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator per avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto delle immagini. Il processo di moderazione analizza il contenuto alla ricerca di volgarità e lo confronta con gli elenchi di blocco personalizzati e condivisi.
+Usare l'[API di moderazione di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator per avviare flussi di lavoro di moderazione di analisi e revisione per il contenuto delle immagini. Il processo di moderazione analizza il contenuto per la volgarità e lo confronta con elenchi dei blocchi personalizzati e condivisi.
 
 ## <a name="use-the-api-console"></a>Usare la console dell'API
 Prima di poter eseguire il test drive dell'API nella console online è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
@@ -102,4 +102,4 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o seguire la guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) per aggiungere moderazione dell'immagine all'applicazione.
+Usare l'API REST nel codice oppure seguire la [Guida introduttiva di .NET SDK](dotnet-sdk-quickstart.md) per aggiungere la moderazione dell'immagine all'applicazione.
