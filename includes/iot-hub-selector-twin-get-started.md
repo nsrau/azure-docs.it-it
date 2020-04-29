@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 08/20/2019
 ms.openlocfilehash: c412f7f3e20e4d04083e457bfb245b850b65e126
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70050448"
 ---
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ Usare i dispositivi gemelli per:
 
 * Archiviare i metadati dei dispositivi dal back-end della soluzione.
 
-* Segnala le informazioni sullo stato corrente, ad esempio le funzionalità e le condizioni disponibili, ad esempio il metodo di connettività usato dall'app per dispositivi.
+* Segnalare informazioni sullo stato corrente, ad esempio le funzionalità e le condizioni disponibili, ad esempio il metodo di connettività usato dall'app per dispositivi.
 
 * Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata, ad esempio gli aggiornamenti del firmware e della configurazione, tra un'app per dispositivi e un'app back-end.
 
@@ -33,22 +33,22 @@ Usare i dispositivi gemelli per:
 
 I dispositivi gemelli sono progettati per la sincronizzazione e per l'esecuzione di query sulle configurazioni e le condizioni dei dispositivi. Altre informazioni su quando usare i dispositivi gemelli sono reperibili in [Informazioni sui dispositivi gemelli](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-I dispositivi gemelli vengono archiviati in un hub IoT e contengono gli elementi seguenti:Device twins are stored in an IoT hub and contain the following elements:
+I dispositivi gemelli vengono archiviati in un hub Internet e contengono gli elementi seguenti:
 
 * **Tag**. Metadati del dispositivo accessibili solo dal back-end della soluzione.
 
-* **Proprietà desiderate**. Oggetti JSON modificabili dal back-end della soluzione e osservabili dall'app del dispositivo.
+* **Proprietà desiderate**. Oggetti JSON modificabili dal back-end della soluzione e osservabili dall'app per dispositivi.
 
 * **Proprietà segnalate**. Oggetti JSON modificabili dall'app per dispositivi e leggibili dal back-end della soluzione.
 
 I tag e le proprietà non possono contenere matrici, ma gli oggetti possono essere annidati.
 
-La figura seguente mostra l'organizzazione del dispositivo gemello:The following illustration shows device twin organization:
+Nella figura seguente viene illustrata l'organizzazione del dispositivo gemello:
 
 ![Immagine che illustra le funzionalità del dispositivo gemello](./media/iot-hub-selector-twin-get-started/twin.png)
 
 Il back-end della soluzione può anche eseguire query sui dispositivi gemelli in base a tutti i dati sopra indicati.
-Per ulteriori informazioni sui dispositivi gemelli, vedere [Informazioni sui dispositivi gemelli](../articles/iot-hub/iot-hub-devguide-device-twins.md). Per altre informazioni sull'esecuzione di query, vedere Linguaggio di [query dell'hub IoT](../articles/iot-hub/iot-hub-devguide-query-language.md).
+Per altre informazioni sui dispositivi gemelli, vedere [comprendere i dispositivi gemelli](../articles/iot-hub/iot-hub-devguide-device-twins.md). Per ulteriori informazioni sull'esecuzione di query, vedere il [linguaggio di query dell'hub](../articles/iot-hub/iot-hub-devguide-query-language.md)Internet.
 
 
 Questa esercitazione illustra come:

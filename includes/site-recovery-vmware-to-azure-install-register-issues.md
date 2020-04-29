@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 5f794420eebb052538de0903727951de39f44a48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73747833"
 ---
 ### <a name="installation-failures"></a>Errori di installazione
@@ -17,7 +17,7 @@ ms.locfileid: "73747833"
 |ERRORE. Non è stato possibile caricare gli account. Errore: System.IO.IOException. Impossibile leggere dati dalla connessione del trasporto, durante l'installazione e la registrazione del server CS.| Verificare che nel computer sia abilitato TLS 1.0. |
 
 ### <a name="registration-failures"></a>Errori di registrazione
-È possibile eseguire il debug degli errori di registrazione esaminando i registri nella cartella **%ProgramData%**
+È possibile eseguire il debug degli errori di registrazione esaminando i log nella cartella **%ProgramData%\ASRLogs** .
 
 | **Messaggio di errore di esempio** | **Azione consigliata** |
 |--------------------------|------------------------|

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67180484"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Trasferire file locali in Cloud Shell
@@ -19,7 +19,7 @@ La directory `clouddrive` viene sincronizzata con il pannello di archiviazione d
 ![Elenco di file locali](../articles/cloud-shell/media/persisting-shell-storage/download.png)
 1. Nel portale di Azure passare alla condivisione file montata.
 2. Selezionare il file di destinazione.
-3. Selezionare il pulsante **Download.**
+3. Selezionare il pulsante **download** .
 
 ### <a name="upload-files"></a>Caricare file
 
