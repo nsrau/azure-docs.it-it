@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67180227"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Ottenere la stringa di connessione dal portale di Azure
 Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il database SQL di Azure.
 
-1. Selezionare Tutti i**database SQL** **dei servizi** > .
+1. Selezionare **tutti i servizi** > **database SQL**.
 
 2. Immettere il nome del database nella casella di testo di filtro vicino alla parte superiore sinistra del pannello **Database SQL**.
 
@@ -38,7 +38,7 @@ Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa d
 
 8. In un formato o un altro, incollare le informazioni sulla stringa di connessione nel codice del programma client.
 
-Per ulteriori informazioni, vedere [Stringhe di connessione e file](https://msdn.microsoft.com/library/ms254494.aspx)di configurazione .
+Per altre informazioni, vedere [stringhe di connessione e file di configurazione](https://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 
