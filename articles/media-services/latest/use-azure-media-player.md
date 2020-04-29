@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
 ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673573"
 ---
 # <a name="azure-media-player-overview"></a>Panoramica di Azure Media Player
@@ -25,7 +25,7 @@ Azure Media Player è un lettore video Web progettato per consentire la riproduz
 Servizi multimediali di Microsoft Azure consente di distribuire contenuti nei formati di streaming HLS; DASH e Smooth Streaming per consentirne la riproduzione. Azure Media Player prende in considerazione tutti i vari formati e automaticamente riproduce il link migliore in base alle funzionalità della piattaforma o del browser. Servizi multimediali consente inoltre la crittografia dinamica degli asset con la crittografia PlayReady o la crittografia della busta AES a 128 bit. Anche Azure Media Player consente la decrittografia di contenuti crittografati con PlayReady o AES a 128 bit, se correttamente configurati. 
 
 > [!NOTE]
-> La riproduzione HTTPS è necessaria per il contenuto crittografato Widevine.
+> La riproduzione HTTPS è necessaria per il contenuto crittografato con Widevine.
 
 ## <a name="use-azure-media-player-demo-page"></a>Usare la pagina demo di Azure Media Player
 

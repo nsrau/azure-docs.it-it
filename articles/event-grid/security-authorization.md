@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899282"
 ---
-# <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di Griglia di eventi
+# <a name="authorizing-access-to-event-grid-resources"></a>Autorizzazione dell'accesso alle risorse di griglia di eventi
 Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. Griglia di eventi usa a questo scopo il controllo degli accessi in base al ruolo di Azure.
 
 ## <a name="operation-types"></a>Tipi di operazioni
@@ -33,11 +33,11 @@ Le ultime tre operazioni restituiscono informazioni potenzialmente riservate che
 
 ## <a name="built-in-roles"></a>Ruoli predefiniti
 
-Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizioni di eventi. Sono importanti quando implementano [i domini](event-domains.md) di eventi perché concedono agli utenti le autorizzazioni necessarie per sottoscrivere gli argomenti nel dominio dell'evento. Questi ruoli sono finalizzati soprattutto alle sottoscrizioni di eventi e non concedono l'accesso per azioni come la creazione di argomenti.
+Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizioni di eventi. Sono importanti quando si implementano i [domini eventi](event-domains.md) perché forniscono agli utenti le autorizzazioni necessarie per sottoscrivere gli argomenti nel dominio dell'evento. Questi ruoli sono finalizzati soprattutto alle sottoscrizioni di eventi e non concedono l'accesso per azioni come la creazione di argomenti.
 
 È possibile [assegnare questi ruoli a un utente o a un gruppo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor**: gestire le operazioni di sottoscrizione di Griglia di eventiEventGrid EventSubscription Contributor : manage Event Grid subscription operations
+**EventGrid sottoscrizione evento Contributor**: gestire le operazioni di sottoscrizione di griglia di eventi
 
 ```json
 [
@@ -73,7 +73,7 @@ Griglia di eventi offre due ruoli predefiniti per la gestione delle sottoscrizio
 ]
 ```
 
-**EventGrid EventSubscription Reader**: leggere le sottoscrizioni di Griglia di eventiEventGrid EventSubscription Reader : read Event Grid subscriptions
+**EventGrid sottoscrizione evento Reader**: lettura sottoscrizioni di griglia di eventi
 
 ```json
 [
@@ -181,8 +181,8 @@ Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che conse
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-Tutti gli eventi o i dati scritti su disco dal servizio Griglia di eventi vengono crittografati da una chiave gestita da Microsoft, assicurandosi che sia crittografata inattivi. Inoltre, il periodo di tempo massimo per cui gli eventi o i dati conservati sono 24 ore in conformità con il [criterio di ripetizione della griglia di](delivery-and-retry.md)eventi. Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati dopo 24 ore o la time-to-live dell'evento, a seconda del valore minore.
+Tutti gli eventi o i dati scritti sul disco dal servizio griglia di eventi vengono crittografati da una chiave gestita da Microsoft, assicurando che siano crittografati. Inoltre, il periodo massimo di tempo per cui gli eventi o i dati conservati sono pari a 24 ore rispetto ai [criteri di ripetizione dei tentativi di griglia di eventi](delivery-and-retry.md). Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati dopo 24 ore o la durata (TTL) dell'evento, a seconda del numero minore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a Griglia di eventi, vedere [Informazioni sulla griglia di eventiFor](overview.md) an introduction to Event Grid, see About Event Grid
+* Per un'introduzione a griglia di eventi, vedere [informazioni su griglia di eventi](overview.md)

@@ -1,7 +1,7 @@
 ---
-title: Scene, riprese e fotogrammi chiave dell'indicizzatore video
+title: Video Indexer scene, scatti e fotogrammi chiave
 titleSuffix: Azure Media Services
-description: Questo argomento offre una panoramica delle scene, delle riprese e dei fotogrammi chiave dell'indicizzatore video.
+description: In questo argomento viene illustrata una panoramica delle Video Indexer scene, degli scatti e dei fotogrammi chiave.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,52 +11,52 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245941"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scene, scatti e fotogrammi chiave
 
-Video Indexer supporta la segmentazione di video in unità temporali basate su proprietà strutturali e semantiche. Questa funzionalità consente ai clienti di sfogliare, gestire e modificare facilmente i propri contenuti video in base a diverse granularità. Ad esempio, in base a scene, riprese e fotogrammi chiave, descritti in questo argomento.   
+Video Indexer supporta la segmentazione dei video in unità temporali in base alle proprietà strutturali e semantiche. Questa funzionalità consente ai clienti di esplorare, gestire e modificare facilmente i contenuti video in base a diverse granularità. Ad esempio, in base a scene, scatti e fotogrammi chiave, descritti in questo argomento.   
 
 ![Scene, scatti e fotogrammi chiave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  
-## <a name="scene-detection"></a>Rilevamento scena  
+## <a name="scene-detection"></a>Rilevamento della scena  
  
-L'indicizzatore video determina quando una scena cambia nel video in base a segnali visivi. Una scena raffigura un singolo evento ed è composta da una serie di scatti consecutivi, che sono semanticamente correlati. L'anteprima di una scena è il primo fotogramma chiave della ripresa sottostante. L'indicizzatore video segmenta un video in scene in base alla coerenza dei colori tra riprese consecutive e recupera l'ora di inizio e di fine di ogni scena. Il rilevamento delle scene è considerato un compito impegnativo in quanto comporta la quantificazione degli aspetti semantici dei video.
+Video Indexer determina quando una scena viene modificata in video in base a segnali visivi. Una scena raffigura un singolo evento ed è costituita da una serie di scatti consecutivi, che sono semanticamente correlati. Un'anteprima della scena è il primo fotogramma chiave dell'immagine sottostante. L'indicizzatore video suddivide un video in scene basate sulla coerenza dei colori in scatti consecutivi e recupera l'ora di inizio e di fine di ogni scena. Il rilevamento della scena è considerato un'attività complessa perché comporta la quantificazione degli aspetti semantici dei video.
 
 > [!NOTE]
-> Applicabile ai video che contengono almeno 3 scene.
+> Applicabile ai video contenenti almeno tre scene.
 
 ## <a name="shot-detection"></a>Rilevamento inquadratura
 
-L'indicizzatore video determina quando una ripresa cambia nel video in base a segnali visivi, tracciando transizioni improvvise e graduali nella combinazione di colori dei fotogrammi adiacenti. I metadati della ripresa includono un'ora di inizio e di fine, nonché l'elenco dei fotogrammi chiave inclusi in quella ripresa. Le riprese sono fotogrammi consecutivi presi dalla stessa fotocamera contemporaneamente.
+Video Indexer determina quando un video viene modificato in base ai segnali visivi, monitorando transizioni improvvise e graduali nella combinazione di colori dei frame adiacenti. I metadati dell'immagine includono un'ora di inizio e di fine, nonché l'elenco dei fotogrammi chiave inclusi in tale scatto. Gli scatti sono i frame consecutivi ricavati dalla stessa fotocamera nello stesso momento.
 
-## <a name="keyframe-detection"></a>Rilevamento dei fotogrammi chiave
+## <a name="keyframe-detection"></a>Rilevamento di fotogrammi chiave
 
-L'indicizzatore video seleziona i fotogrammi che meglio rappresentano ogni ripresa. I fotogrammi chiave sono i fotogrammi rappresentativi selezionati dall'intero video in base alle proprietà estetiche (ad esempio, contrasto e stabilità). L'indicizzatore video recupera un elenco di ID fotogrammi chiave come parte dei metadati della ripresa, in base ai quali i clienti possono estrarre il fotogramma chiave come immagine ad alta risoluzione.  
+Video Indexer seleziona i frame che meglio rappresentano ogni scatto. I fotogrammi chiave sono i fotogrammi rappresentativi selezionati dall'intero video in base alle proprietà estetiche, ad esempio contrasto e stabilità. Video Indexer recupera un elenco di ID di fotogrammi chiave come parte dei metadati dell'immagine, in base ai clienti che possono estrarre il fotogramma chiave come immagine ad alta risoluzione.  
 
 ### <a name="extracting-keyframes"></a>Estrazione di fotogrammi chiave
 
-Per estrarre fotogrammi chiave ad alta risoluzione per il video, dovete prima caricare e indicizzare il video.
+Per estrarre fotogrammi chiave ad alta risoluzione per il video, è necessario innanzitutto caricare e indicizzare il video.
 
-![Fotogrammi chiave](./media/scenes-shots-keyframes/extracting-keyframes.png)
+![KeyFrames](./media/scenes-shots-keyframes/extracting-keyframes.png)
 
 #### <a name="with-the-video-indexer-website"></a>Con il sito Web Video Indexer
 
-Per estrarre i fotogrammi chiave utilizzando il sito Web Indicizzatore video, caricate e indicizzate il video. Una volta completato il processo di indicizzazione, fare clic sul pulsante **Download** e selezionare **Elementi (CAP)**. La cartella degli elementi verrà scaricata nel computer. 
+Per estrarre fotogrammi chiave tramite il sito Web Video Indexer, caricare e indicizzare il video. Al termine del processo di indicizzazione, fare clic sul pulsante **download** e selezionare **elementi (zip)**. In questo modo verrà scaricata la cartella artefatti nel computer. 
 
-![Fotogrammi chiave](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![KeyFrames](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
-Decomprimere e aprire la cartella. Nella *cartella _KeyframeThumbnail,* troverete tutti i fotogrammi chiave estratti dal video. 
+Decomprimere e aprire la cartella. Nella cartella *_KeyframeThumbnail* , sono disponibili tutti i fotogrammi chiave estratti dal video. 
 
-#### <a name="with-the-video-indexer-api"></a>Con l'API Dell'indicizzatore video
+#### <a name="with-the-video-indexer-api"></a>Con l'API Video Indexer
 
-Per ottenere i fotogrammi chiave utilizzando l'API Dell'indicizzatore video, carica e indicizza il video tramite la chiamata [Carica video.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) Una volta completato il processo di indicizzazione, chiamare [Get Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). In questo modo verranno dettagliate l'indicizzatore video estratto dal contenuto in un file JSON.  
+Per ottenere fotogrammi chiave usando l'API Video Indexer, caricare e indicizzare il video usando la chiamata [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) . Al termine del processo di indicizzazione, chiamare [Get video index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Ciò consentirà di ottenere tutte le informazioni che Video Indexer estratte dal contenuto in un file JSON.  
 
-Otterrete un elenco di ID fotogrammi chiave come parte dei metadati di ogni ripresa. 
+Si otterrà un elenco di ID del fotogramma chiave come parte dei metadati di ogni shot. 
 
 ```json
 "shots":[  
@@ -98,35 +98,35 @@ Otterrete un elenco di ID fotogrammi chiave come parte dei metadati di ogni ripr
 ]
 ```
 
-A questo punto è necessario eseguire ognuno di questi ID dei fotogrammi chiave nella chiamata [Ottieni miniature.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) Questo scaricherà ciascuna delle immagini dei fotogrammi chiave sul tuo computer. 
+A questo punto sarà necessario eseguire ognuno di questi ID di fotogrammi chiave nella chiamata [Get anteprime](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) . Ogni immagine del fotogramma chiave verrà scaricata nel computer. 
 
 ## <a name="editorial-shot-type-detection"></a>Rilevamento del tipo di ripresa editoriale
 
-I fotogrammi chiave sono associati alle schermate nel codice JSON di output. 
+I fotogrammi chiave sono associati a scatti nel codice JSON di output. 
 
-Il tipo di ripresa associato a una singola ripresa nelle informazioni JSON rappresenta il tipo editoriale. Queste caratteristiche del tipo di ripresa possono risultare utili quando si modificano video in clip, trailer o quando si cerca uno stile specifico di fotogramma chiave per scopi artistici. I diversi tipi vengono determinati in base all'analisi del primo fotogramma chiave di ogni ripresa. Le riprese sono identificate dalla scala, dalle dimensioni e dalla posizione delle facce visualizzate nel primo fotogramma chiave. 
+Il tipo di tiro associato a un singolo scatto nel codice JSON di Insights rappresenta il tipo editoriale. Queste caratteristiche di tipo Shot possono risultare utili quando si modificano i video in clip, trailer o quando si cerca uno stile specifico di fotogramma chiave per scopi artistici. I diversi tipi vengono determinati in base all'analisi del primo fotogramma chiave di ogni scatto. Gli scatti sono identificati dalla scala, dalle dimensioni e dalla posizione delle facce visualizzate nel primo fotogramma chiave. 
 
-Le dimensioni e la scala dello scatto sono determinate in base alla distanza tra la fotocamera e le facce che appaiono nel fotogramma. Utilizzando queste proprietà, Video Indexer rileva i seguenti tipi di ripresa:
+Le dimensioni e la scala dei colpi vengono determinate in base alla distanza tra la fotocamera e le facce visualizzate nel frame. Utilizzando queste proprietà, Video Indexer rileva i tipi di shot seguenti:
 
-* Ampio: mostra il corpo di un'intera persona.
-* Medio: mostra la parte superiore del corpo e il viso di una persona.
-* Da vicino: mostra principalmente il volto di una persona.
-* Primo piano estremo: mostra il volto di una persona che riempie lo schermo. 
+* Wide: Mostra il corpo di un'intera persona.
+* Media: Mostra la faccia e il corpo superiore di una persona.
+* Close up: Mostra principalmente la faccia di una persona.
+* Extreme close-up: Mostra la superficie di una persona che riempie lo schermo. 
 
-I tipi di ripresa possono anche essere determinati dalla posizione dei caratteri soggetto rispetto al centro della cornice. Questa proprietà definisce i seguenti tipi di inquadrature nell'indicizzatore video:
+I tipi di cattura possono anche essere determinati in base alla posizione dei caratteri soggetto rispetto al centro del frame. Questa proprietà definisce i tipi di cattura seguenti in Video Indexer:
 
-* Faccia sinistra: una persona appare sul lato sinistro della cornice.
-* Faccia centrale: una persona viene visualizzata nell'area centrale della cornice.
-* Faccia destra: una persona appare nella parte destra del telaio.
-* All'aperto: una persona appare in un ambiente esterno.
-* Indoor: una persona appare in un ambiente interno.
+* Left Face: una persona viene visualizzata sul lato sinistro del frame.
+* Center Face: viene visualizzata una persona nell'area centrale del frame.
+* Right Face: viene visualizzata una persona sul lato destro del frame.
+* Outdoor: una persona viene visualizzata in un'impostazione esterna.
+* Interno: una persona viene visualizzata in un'impostazione interna.
 
 Caratteristiche aggiuntive:
 
-* Due scatti: mostra volti di due persone di medie dimensioni.
-* Facce multiple: più di due persone.
+* Due scatti: Mostra i visi di due persone di dimensioni medie.
+* Più visi: più di due persone.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare l'output dell'indicizzatore video prodotto dall'API](video-indexer-output-json-v2.md#scenes)
+[Esaminare l'output del Video Indexer prodotto dall'API](video-indexer-output-json-v2.md#scenes)

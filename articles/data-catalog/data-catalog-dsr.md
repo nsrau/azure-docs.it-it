@@ -1,16 +1,16 @@
 ---
 title: Origini dati supportate in Azure Data Catalog
-description: Questo articolo elenca le specifiche delle origini dati attualmente supportate per Azure Data Catalog.This article lists specifications of the currently supported data sources for Azure Data Catalog.
+description: In questo articolo vengono elencate le specifiche delle origini dati attualmente supportate per Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898156"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origini dati supportate in Azure Data Catalog
@@ -25,11 +25,11 @@ ms.locfileid: "78898156"
        <td><b>API</b></td>
        <td><b>Immissione manuale</b></td>
        <td><b>Strumento di registrazione</b></td>
-       <td><b>Strumenti aperti</b></td>
+       <td><b>Strumenti di apertura</b></td>
        <td><b>Note</b></td>
     </tr>
     <tr>
-      <td>Directory di Azure Data Lake Store (solo generazione 1)Azure Data Lake Store directory (Only Gen 1)</td>
+      <td>Azure Data Lake Store directory (solo generazione 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -37,7 +37,7 @@ ms.locfileid: "78898156"
       <td></td>
     </tr>
     <tr>
-      <td>File di Azure Data Lake Store (solo generazione 1)Azure Data Lake Store file (Only Gen 1)</td>
+      <td>File Azure Data Lake Store (solo generazione 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ ms.locfileid: "78898156"
       <td></td>
     </tr>
     <tr>
-      <td>Visualizzazione del data warehouse SQL di AzureAzure SQL Data Warehouse view</td>
+      <td>Visualizzazione Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -196,7 +196,7 @@ ms.locfileid: "78898156"
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Solo server in modalità nativa. Modalità SharePoint non supportata. SOLO SQL Server 2008 e versioni successive</td>
+      <td>Solo server in modalità nativa. Modalità SharePoint non supportata. Solo SQL Server 2008 e versioni successive</td>
     </tr>
     <tr>
       <td>Tabella di SQL Server</td>
@@ -236,7 +236,7 @@ ms.locfileid: "78898156"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Funziona solo in inglese. Le misure non sono supportate.</td>
+      <td>Funziona solo in lingua inglese. Misure non supportate.</td>
     </tr>
     <tr>
       <td>Vista di SAP HANA</td>

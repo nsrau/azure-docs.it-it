@@ -1,5 +1,5 @@
 ---
-title: Gestire un'identità gestita assegnata dall'utente nel portale di Azure - Azure ADManage a user-assigned managed identity in the Azure portal - Azure AD
+title: Gestire un'identità gestita assegnata dall'utente nell'portale di Azure-Azure AD
 description: Istruzioni dettagliate su come creare, elencare, eliminare e assegnare un ruolo a un'identità gestita assegnata dall'utente.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10caa9e5e61dc1dd0c1062583f55a7357c643ce5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244134"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure
@@ -40,13 +40,13 @@ Questo articolo illustra come creare, elencare, eliminare o assegnare un ruolo a
 Per creare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per creare l'identità gestita assegnata dall'utente.
-2. Nella casella di ricerca *digitare Identità gestite*e in **Servizi**fare clic su **Identità gestite**.
+2. Nella casella di ricerca digitare *identità gestite*e in **Servizi**fare clic su **identità gestite**.
 3. Fare clic su **Aggiungi** e immettere i valori nei campi seguenti nel riquadro **Crea identità gestita assegnata dall'utente**:
    - **Nome risorsa**: si tratta del nome dell'identità gestita assegnata dall'utente, ad esempio UAI1.
    - **Sottoscrizione**: scegliere la sottoscrizione in cui creare l'identità gestita assegnata dall'utente
    - **Gruppo di risorse**: creare un nuovo gruppo di risorse che conterrà l'identità gestita assegnata dall'utente o scegliere **Usa esistente** per creare l'identità gestita assegnata dall'utente in un gruppo di risorse esistente.
    - **Posizione**: scegliere la posizione in cui distribuire l'identità gestita assegnata dall'utente, ad esempio **Stati Uniti occidentali**.
-4. Fare clic su **Crea**.
+4. Scegliere **Crea**.
 
 ![Creare un'identità gestita assegnata dall'utente](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 
@@ -79,7 +79,7 @@ Per assegnare un ruolo a un'identità gestita assegnata dall'utente, all'account
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per elencare le identità gestite assegnate dall'utente.
 2. Nella casella di ricerca digitare *Identità gestite* e in Servizi fare clic su **Identità gestite**.
 3. Verrà restituito un elenco delle identità gestite assegnate dall'utente per la sottoscrizione.  Selezionare l'identità gestita assegnata dall'utente a cui si vuole assegnare un ruolo.
-4. Selezionare Controllo di accesso **(IAM)** e quindi **Aggiungi assegnazione ruolo**.
+4. Selezionare **controllo di accesso (IAM)** e quindi selezionare **Aggiungi assegnazione ruolo**.
 
    ![Avvio dell'identità gestita assegnata dall'utente](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 

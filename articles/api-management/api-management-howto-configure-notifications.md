@@ -1,5 +1,5 @@
 ---
-title: Configurare notifiche e modelli di messaggio di posta elettronica
+title: Configurare notifiche e modelli di posta elettronica
 titleSuffix: Azure API Management
 description: Informazioni su come configurare notifiche e modelli di posta elettronica in Gestione API di Azure.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244069"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
@@ -32,7 +32,7 @@ Se non si dispone di un'istanza del servizio Gestione API, completare la guida i
 
 ## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configurare le notifiche
 
-1.  Selezionare **l'istanza di GESTIONE API.**
+1.  Selezionare l'istanza di **gestione API** .
 2.  Fare clic su **Notifiche** per visualizzare le notifiche disponibili.
 
     ![Notifiche dell'editore][api-management-publisher-notifications]
@@ -48,7 +48,7 @@ Se non si dispone di un'istanza del servizio Gestione API, completare la guida i
     -   **Raggiungimento limite quota sottoscrizione** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando l'uso della sottoscrizione si avvicina al limite di quota di utilizzo.
 
         > [!NOTE]
-        > Le notifiche vengono attivate dalla quota solo dai criteri di [sottoscrizione.](api-management-access-restriction-policies.md#SetUsageQuota) [La quota in base](api-management-access-restriction-policies.md#SetUsageQuotaByKey) ai criteri chiave non genera notifiche.
+        > Le notifiche vengono attivate solo dalla [quota per criterio di sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) . La [quota per criterio chiave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) non genera notifiche.
 
     Per ogni evento, è possibile specificare i destinatari di posta elettronica usando la casella di testo per l'indirizzo di posta elettronica oppure è possibile selezionare gli utenti da un elenco.
 
@@ -77,7 +77,7 @@ Questi modelli possono essere modificati a piacimento.
 
 Per visualizzare e configurare i modelli di messaggio di posta elettronica per l'istanza di Gestione API, fare clic su **Modelli di notifica**.
 
-![Modelli di posta elettronica][api-management-email-templates]
+![Modelli di messaggi di posta][api-management-email-templates]
 
 Ogni modello di posta elettronica ha un oggetto in testo normale e una definizione di corpo in formato HTML. Ogni elemento può essere personalizzato a piacimento.
 

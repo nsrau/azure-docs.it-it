@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898393"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
@@ -81,7 +81,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
    ![File di esempio di caricamento di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Fare clic su **OK**.
+5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Selezionare **OK**.
 
    ![File di esempio di caricamento di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243952"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
@@ -43,7 +43,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="profile"></a><a name="Profile"></a>Profilo  
  Il modello **Profilo** consente di personalizzare la sezione profili utente della pagina del profilo utente nel portale per sviluppatori.  
   
- ![Pagina profilo utente](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Pagina profilo utente APIM")  
+ ![Pagina del profilo utente](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Pagina del profilo utente gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -98,7 +98,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```  
   
 ### <a name="controls"></a>Controlli  
- Questo modello non può utilizzare alcun [controllo di pagina](api-management-page-controls.md).  
+ Questo modello non può usare alcun [controllo pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  
   
@@ -108,14 +108,14 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
-|`lastName`|string|Cognome dell'utente corrente.|  
-|`companyName`|string|Il nome della società dell'utente corrente.|  
-|`addresserEmail`|string|Indirizzo di posta elettronica dell'utente corrente.|  
-|`developersUsageStatisticsLink`|string|URL relativo per visualizzare l'analisi per l'utente corrente.|  
+|`lastName`|stringa|Cognome dell'utente corrente.|  
+|`companyName`|stringa|Il nome della società dell'utente corrente.|  
+|`addresserEmail`|stringa|Indirizzo di posta elettronica dell'utente corrente.|  
+|`developersUsageStatisticsLink`|stringa|URL relativo per visualizzare l'analisi per l'utente corrente.|  
 |`subscriptions`|Raccolta di entità [Sottoscrizione](api-management-template-data-model-reference.md#Subscription).|Le sottoscrizioni dell'utente corrente.|  
 |`applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni dell'utente corrente.|  
-|`changePasswordUrl`|string|L'URL relativo per modificare la password dell'utente corrente.|  
-|`changeNameOrEmailUrl`|string|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
+|`changePasswordUrl`|stringa|L'URL relativo per modificare la password dell'utente corrente.|  
+|`changeNameOrEmailUrl`|stringa|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
 |`canChangePassword`|boolean|Indica se l'utente corrente può modificare la propria password.|  
 |`isSystemUser`|boolean|Indica se l'utente corrente è membro di uno dei [gruppi](api-management-key-concepts.md#groups) predefiniti.|  
   
@@ -188,7 +188,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="subscriptions"></a><a name="Subscriptions"></a>Sottoscrizioni  
  Il modello **Sottoscrizioni** consente di personalizzare la sezione sottoscrizioni della pagina del profilo utente nel portale per sviluppatori.  
   
- ![Pagina Sottoscrizione utente](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Pagina Sottoscrizione utente APIM")  
+ ![Pagina sottoscrizione utente](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Pagina sottoscrizione utente gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -319,7 +319,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ### <a name="controls"></a>Controlli  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
--   [abbonamento-annullare](api-management-page-controls.md#subscription-cancel)  
+-   [sottoscrizione-Annulla](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modello di dati  
   
@@ -329,14 +329,14 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
-|`lastName`|string|Cognome dell'utente corrente.|  
-|`companyName`|string|Il nome della società dell'utente corrente.|  
-|`addresserEmail`|string|Indirizzo di posta elettronica dell'utente corrente.|  
-|`developersUsageStatisticsLink`|string|URL relativo per visualizzare l'analisi per l'utente corrente.|  
+|`lastName`|stringa|Cognome dell'utente corrente.|  
+|`companyName`|stringa|Il nome della società dell'utente corrente.|  
+|`addresserEmail`|stringa|Indirizzo di posta elettronica dell'utente corrente.|  
+|`developersUsageStatisticsLink`|stringa|URL relativo per visualizzare l'analisi per l'utente corrente.|  
 |`subscriptions`|Raccolta di entità [Sottoscrizione](api-management-template-data-model-reference.md#Subscription).|Le sottoscrizioni dell'utente corrente.|  
 |`applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni dell'utente corrente.|  
-|`changePasswordUrl`|string|L'URL relativo per modificare la password dell'utente corrente.|  
-|`changeNameOrEmailUrl`|string|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
+|`changePasswordUrl`|stringa|L'URL relativo per modificare la password dell'utente corrente.|  
+|`changeNameOrEmailUrl`|stringa|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
 |`canChangePassword`|boolean|Indica se l'utente corrente può modificare la propria password.|  
 |`isSystemUser`|boolean|Indica se l'utente corrente è membro di uno dei [gruppi](api-management-key-concepts.md#groups) predefiniti.|  
   
@@ -409,7 +409,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="applications"></a><a name="Applications"></a>Applicazioni  
  Il modello **Applicazioni** consente di personalizzare la sezione applicazioni della pagina del profilo utente nel portale per sviluppatori.  
   
- ![Pagina Applicazioni account utente](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Pagina Applicazioni account utente di APIM")  
+ ![Pagina applicazioni account utente](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Pagina applicazioni account utente gestione API")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -482,7 +482,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ### <a name="controls"></a>Controlli  
  Questo modello può usare i [controlli di pagina](api-management-page-controls.md) seguenti.  
   
--   [azioni app](api-management-page-controls.md#app-actions)  
+-   [app-azioni](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modello di dati  
   
@@ -492,14 +492,14 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nome dell'utente corrente.|  
-|`lastName`|string|Cognome dell'utente corrente.|  
-|`companyName`|string|Il nome della società dell'utente corrente.|  
-|`addresserEmail`|string|Indirizzo di posta elettronica dell'utente corrente.|  
-|`developersUsageStatisticsLink`|string|URL relativo per visualizzare l'analisi per l'utente corrente.|  
+|`lastName`|stringa|Cognome dell'utente corrente.|  
+|`companyName`|stringa|Il nome della società dell'utente corrente.|  
+|`addresserEmail`|stringa|Indirizzo di posta elettronica dell'utente corrente.|  
+|`developersUsageStatisticsLink`|stringa|URL relativo per visualizzare l'analisi per l'utente corrente.|  
 |`subscriptions`|Raccolta di entità [Sottoscrizione](api-management-template-data-model-reference.md#Subscription).|Le sottoscrizioni dell'utente corrente.|  
 |`applications`|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni dell'utente corrente.|  
-|`changePasswordUrl`|string|L'URL relativo per modificare la password dell'utente corrente.|  
-|`changeNameOrEmailUrl`|string|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
+|`changePasswordUrl`|stringa|L'URL relativo per modificare la password dell'utente corrente.|  
+|`changeNameOrEmailUrl`|stringa|L'URL relativo per modificare il nome e l'indirizzo di posta elettronica dell'utente corrente.|  
 |`canChangePassword`|boolean|Indica se l'utente corrente può modificare la propria password.|  
 |`isSystemUser`|boolean|Indica se l'utente corrente è membro di uno dei [gruppi](api-management-key-concepts.md#groups) predefiniti.|  
   
@@ -572,7 +572,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Aggiorna info account  
  Il modello **Aggiorna info account** consente di personalizzare la pagina di **aggiornamento delle informazioni dell'account** nel portale per sviluppatori.  
   
- ![Modelli del portale per sviluppatori della pagina Informazioni sull'account utente](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelli del portale per sviluppatori della pagina delle informazioni sull'account utente di APIM")  
+ ![Pagina informazioni account utente modelli del portale per sviluppatori](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "GESTIONE API pagina informazioni account utente modelli del portale per sviluppatori")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -607,7 +607,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```  
   
 ### <a name="controls"></a>Controlli  
- Questo modello non può utilizzare alcun [controllo di pagina](api-management-page-controls.md).  
+ Questo modello non può usare alcun [controllo pagina](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modello di dati  
  Entità [Informazioni sull'account utente](api-management-template-data-model-reference.md#UserAccountInfo).  

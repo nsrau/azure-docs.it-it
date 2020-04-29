@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137629"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure
@@ -286,7 +286,7 @@ I cluster di servizi centrali SAP che usano dischi condivisi (Windows), condivis
 
 Altri scenari, che non sono supportati, sono scenari come:
 
-- Scenari di distribuzione che introducono una latenza di rete più ampia tra il livello applicazione SAP e il livello DBMS SAP nell'architettura comune di SAP, come illustrato in NetWeaver, `Hybris`s/4HANA e ad esempio. ad esempio:
+- Scenari di distribuzione che introducono una latenza di rete più ampia tra il livello applicazione SAP e il livello DBMS SAP nell'architettura comune di SAP, come illustrato in NetWeaver, `Hybris`s/4HANA e ad esempio. Sono inclusi:
     - Distribuzione di uno dei livelli in locale, mentre l'altro livello viene distribuito in Azure
     - Distribuzione del livello applicazione SAP di un sistema in un'area di Azure diversa rispetto al livello DBMS
     - Distribuzione di un livello nei data center con percorso condiviso in Azure e nell'altro livello in Azure, tranne nel caso di modelli di architettura di questo tipo forniti da un servizio nativo di Azure

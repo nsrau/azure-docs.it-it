@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78897870"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
@@ -112,4 +112,4 @@ foreach (string location in readLocations)
 * Vedere le informazioni su [come gestire il controllo degli account di database](how-to-manage-database-account.md) in Azure Cosmos DB
 * Vedere le informazioni sulla [disponibilità elevata](high-availability.md) in Azure Cosmos DB
 * Vedere le informazioni sulla [distribuzione globale con Azure Cosmos DB - informazioni sul funzionamento](global-dist-under-the-hood.md)
-* [Esempi dell'interfaccia della riga di](cli-samples.md) comando di Azure per Azure Cosmos DBAzure CLI Samples for Azure Cosmos DB
+* [Esempi dell'interfaccia](cli-samples.md) della riga di comando di Azure per Azure Cosmos DB

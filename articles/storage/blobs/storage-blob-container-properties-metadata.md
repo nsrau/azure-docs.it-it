@@ -1,7 +1,7 @@
 ---
-title: Usare .NET per gestire proprietà e metadati per un contenitore BLOBUse .NET to manage properties and metadata for a blob container
+title: Usare .NET per gestire proprietà e metadati per un contenitore BLOB
 titleSuffix: Azure Storage
-description: Informazioni su come impostare e recuperare le proprietà di sistema e archiviare i metadati personalizzati nei contenitori BLOB nell'account di Archiviazione di Azure usando la libreria client .NET.
+description: Informazioni su come impostare e recuperare le proprietà di sistema e archiviare metadati personalizzati nei contenitori BLOB nell'account di archiviazione di Azure usando la libreria client .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,37 +9,37 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79135922"
 ---
-# <a name="manage-container-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati del contenitore con .NETManage container properties and metadata with .NET
+# <a name="manage-container-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati del contenitore con .NET
 
-I contenitori BLOB supportano le proprietà di sistema e i metadati definiti dall'utente, oltre ai dati che contengono. Questo articolo illustra come gestire le proprietà di sistema e i metadati definiti dall'utente con la [libreria client di Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+I contenitori BLOB supportano le proprietà di sistema e i metadati definiti dall'utente, oltre ai dati che contengono. Questo articolo illustra come gestire le proprietà di sistema e i metadati definiti dall'utente con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-properties-and-metadata"></a>Informazioni su proprietà e metadati
 
-- **Proprietà di sistema:** proprietà di sistema in ogni risorsa di archiviazione BLOB. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di Archiviazione di Azure per .NET gestisce automaticamente queste proprietà.
+- **Proprietà di sistema**: sono presenti proprietà di sistema in ogni risorsa di archiviazione BLOB. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure per .NET gestisce queste proprietà.
 
-- **Metadati definiti dall'utente:** i metadati definiti dall'utente sono costituiti da una o più coppie nome-valore specificate per una risorsa di archiviazione BLOB. È possibile usare i metadati per archiviare valori aggiuntivi con la risorsa. I valori di metadati sono solo per le proprie esigenze e non influiscono sul comportamento della risorsa.
+- **Metadati definiti dall'utente**: i metadati definiti dall'utente sono costituiti da una o più coppie nome/valore specificate per una risorsa di archiviazione BLOB. È possibile usare i metadati per archiviare valori aggiuntivi con la risorsa. I valori di metadati sono solo per le proprie esigenze e non influiscono sul comportamento della risorsa.
 
-Il recupero dei valori di proprietà e metadati per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** o **FetchAttributesAsync**. L'eccezione a questa regola è che il **Exists** ed **ExistsAsync** metodi chiamano il metodo **FetchAttributes** appropriato sotto le coperte. Quando si chiama uno di questi metodi, non è necessario chiamare anche **FetchAttributes**.
+Il recupero dei valori di proprietà e metadati per una risorsa di archiviazione BLOB è un processo in due passaggi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** o **FetchAttributesAsync**. L'eccezione a questa regola è che i metodi **Exists** e **ExistsAsync** chiamano il metodo **FetchAttributes** appropriato dietro le quinte. Quando si chiama uno di questi metodi, non è necessario chiamare anche **FetchAttributes**.
 
 > [!IMPORTANT]
 > Se si ritiene che la proprietà o i valori dei metadati per una risorsa di archiviazione non siano stati popolati, verificare che il codice chiami il metodo **FetchAttributes** o **FetchAttributesAsync**.
 
-Le coppie nome/valore dei metadati sono intestazioni HTTP valide e pertanto devono rispettare tutte le restrizioni che regolano le intestazioni HTTP. I nomi dei metadati devono essere nomi di intestazione HTTP validi e identificatori validi di C, possono contenere solo caratteri ASCII e devono essere considerati senza distinzione tra maiuscole e minuscole. I valori dei metadati contenenti caratteri non ASCII devono essere con codifica Base64 o con codifica URL.
+Le coppie nome/valore dei metadati sono intestazioni HTTP valide, pertanto devono essere conformi a tutte le restrizioni che regolano le intestazioni HTTP. I nomi dei metadati devono essere nomi di intestazioni HTTP validi e identificatori C# validi, possono contenere solo caratteri ASCII e devono essere considerati senza distinzione tra maiuscole e minuscole. I valori dei metadati che contengono caratteri non ASCII devono essere codificati in base 64 o con codifica URL.
 
-## <a name="retrieve-container-properties"></a>Recuperare le proprietà del contenitoreRetrieve container properties
+## <a name="retrieve-container-properties"></a>Recuperare le proprietà del contenitore
 
-Per recuperare le proprietà del contenitore, chiamare uno dei seguenti metodi:
+Per recuperare le proprietà del contenitore, chiamare uno dei metodi seguenti:
 
-- [FetchAttributi](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributes)
+- [FetchAttributes](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributes)
 - [FetchAttributesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributesasync)
 
-Nell'esempio di codice riportato di seguito vengono recuperate le proprietà di sistema di un contenitore e vengono scritti alcuni valori di proprietà in una finestra della console:The following code example fetches a container's system properties and writes some property values to a console window:
+Nell'esempio di codice seguente vengono recuperate le proprietà di sistema di un contenitore e vengono scritti alcuni valori di proprietà in una finestra della console:
 
 ```csharp
 private static async Task ReadContainerPropertiesAsync(CloudBlobContainer container)
@@ -65,12 +65,12 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## <a name="set-and-retrieve-metadata"></a>Impostare e recuperare i metadati
 
-È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i metadati, aggiungere coppie nome-valore alla raccolta **di metadati** nella risorsa, quindi chiamare uno dei metodi seguenti per scrivere i valori:
+È possibile specificare i metadati come uno o più coppie nome-valore in una risorsa BLOB o contenitore. Per impostare i metadati, aggiungere coppie nome-valore alla raccolta di **metadati** nella risorsa, quindi chiamare uno dei metodi seguenti per scrivere i valori:
 
-- [SetMetadata (Metadati)](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
+- [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-Il nome dei metadati deve essere conforme alle convenzioni di denominazione degli identificatori C#. I nomi dei metadati mantengono la distinzione tra maiuscole e minuscole con cui sono stati creati, ma non fanno distinzione tra maiuscole e minuscole quando vengono impostati o letti. Se due o più intestazioni di metadati con lo stesso nome vengono inviate per una risorsa, l'archiviazione BLOB restituisce il codice di errore HTTP 400 (richiesta non valida).
+Il nome dei metadati deve essere conforme alle convenzioni di denominazione degli identificatori C#. I nomi dei metadati mantengono il caso in cui sono stati creati, ma non fanno distinzione tra maiuscole e minuscole durante l'impostazione o la lettura. Se vengono inviate due o più intestazioni di metadati con lo stesso nome per una risorsa, l'archivio BLOB restituisce il codice di errore HTTP 400 (richiesta non valida).
 
 Il seguente codice di esempio imposta i metadati in un contenitore. Un valore è impostato mediante l'utilizzo del metodo di raccolta **Aggiungi** . L'altro valore è impostato utilizzando la sintassi implicita chiave/valore. Entrambi sono validi.
 
@@ -131,5 +131,5 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 ## <a name="see-also"></a>Vedere anche
 
 - [Operazione Get Container Properties](/rest/api/storageservices/get-container-properties)
-- [Operazione Imposta metadati contenitore](/rest/api/storageservices/set-container-metadata)
+- [Operazione di impostazione dei metadati del contenitore](/rest/api/storageservices/set-container-metadata)
 - [Operazione Get Container Metadata](/rest/api/storageservices/set-container-metadata)

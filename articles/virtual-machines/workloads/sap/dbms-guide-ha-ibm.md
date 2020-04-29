@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: 614ac8b651224a3b6ec605a6bffd520449a1d793
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78926739"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -134,7 +134,7 @@ Completare il processo di pianificazione prima di eseguire la distribuzione. La 
 | Nome host virtuale e IP virtuale per il database IBM DB2| Indirizzo IP virtuale o nome host usato per la connessione dei server applicazioni SAP. **DB-virt-hostname**, **DB-virt-IP**. |
 | Schermatura di Azure | Schermatura di Azure o schermatura SBD (altamente consigliata). Metodo che consente di evitare situazioni di divisione cerebrale. |
 | VM SBD | Dimensioni, archiviazione e rete della macchina virtuale SBD. |
-| Servizio di bilanciamento del carico di Azure | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
+| Azure Load Balancer | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
 | Risoluzione dei nomi| Funzionamento della risoluzione dei nomi nell'ambiente. Il servizio DNS è altamente consigliato. È possibile usare il file hosts locale. |
     
 Per altre informazioni su pacemaker per Linux in Azure, vedere [configurare pacemaker in SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker).
@@ -436,7 +436,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
    c. Impostare l' **assegnazione** su **statico**e immettere l'indirizzo IP **virtuale-IP** definito all'inizio.
 
-   d. Fare clic su **OK**.
+   d. Selezionare **OK**.
 
    e. Dopo aver creato il nuovo pool di indirizzi IP front-end, annotare l'indirizzo IP del pool.
 
@@ -462,7 +462,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
    c. Selezionare **TCP** come protocollo e la porta **62500**. Per impostare il valore di **intervallo** su **5**, impostare valore **soglia non integro** su **2**.
 
-   d. Fare clic su **OK**.
+   d. Selezionare **OK**.
 
 1. Creare le regole di bilanciamento del carico:
 
@@ -478,7 +478,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
    f. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
 
-   g. Fare clic su **OK**.
+   g. Selezionare **OK**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Apportare modifiche ai profili SAP per l'uso dell'indirizzo IP virtuale per la connessione

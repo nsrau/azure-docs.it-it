@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244394"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer
 
 ## <a name="overview"></a>Panoramica
 
-[Archiviazione BLOB](storage/blobs/storage-dotnet-how-to-use-blobs.md) di Azure è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS.
+[Archiviazione BLOB di Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite http o HTTPS.
 L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer per l'uso di contenitori BLOB e BLOB.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -33,7 +33,7 @@ L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello 
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
 * [Scaricare e installare Storage Explorer](https://www.storageexplorer.com)
-* [Connettersi a un account o servizio di archiviazione di AzureConnect to an Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Connettersi a un account o un servizio di archiviazione di Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Creare un contenitore BLOB
 
@@ -46,7 +46,7 @@ I passaggi seguenti illustrano come creare un contenitore BLOB all'interno di St
 3. Fare clic con il pulsante destro del mouse su **Contenitori BLOB** e scegliere **Crea contenitore BLOB** dal menu di scelta rapida.
 
    ![Menu di scelta rapida Crea contenitore BLOB][0]
-4. Sotto la cartella **contenitori BLOB** verrà visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e le restrizioni sulla denominazione dei contenitori BLOB, vedere [Creare un contenitore.](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container)
+4. Sotto la cartella **contenitori BLOB** verrà visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
 
    ![Casella di testo Crea contenitore BLOB][1]
 5. Premere **INVIO** al termine della creazione del contenitore BLOB o **ESC** per annullare. Dopo aver creato il contenitore BLOB, verrà visualizzato sotto la cartella **contenitori BLOB** per l'account di archiviazione selezionato.
@@ -105,7 +105,7 @@ I passaggi seguenti illustrano come copiare un contenitore BLOB da un account di
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Ottenere la firma di accesso condiviso per un contenitore BLOB
 
-Una firma di [accesso condiviso](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornisce l'accesso delegato alle risorse nell'account di archiviazione.
+Una [firma di accesso condiviso (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornisce accesso delegato alle risorse nell'account di archiviazione.
 Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account.
 
 I passaggi seguenti illustrano come creare una firma di accesso condiviso per un contenitore BLOB:
@@ -142,7 +142,7 @@ I passaggi seguenti illustrano come gestire, ovvero aggiungere e rimuovere, crit
 6. Seguire questi passaggi a seconda dell'attività di gestione dei criteri di accesso:
 
    * **Aggiungere nuovi criteri di accesso**: selezionare **Aggiungi**. Una volta generati, nella finestra di dialogo **Criteri di accesso** verranno visualizzati i criteri di accesso appena aggiunti, con le impostazioni predefinite.
-   * **Modificare un criterio** di accesso - Apportare le modifiche desiderate e selezionare **Salva**.
+   * **Modificare i criteri di accesso** : apportare le modifiche desiderate e selezionare **Salva**.
    * **Rimuovere criteri di accesso**: selezionare **Rimuovi** accanto ai criteri di accesso da rimuovere.
 
 ## <a name="set-the-public-access-level-for-a-blob-container"></a>Impostare il livello di accesso pubblico per un contenitore BLOB
@@ -180,13 +180,13 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
 
    * **Caricare file in un contenitore BLOB**
 
-     1. Nella barra degli strumenti del riquadro principale selezionare **Carica**, quindi **Carica file** dal menu a discesa.
+     1. Sulla barra degli strumenti del riquadro principale selezionare **carica**e quindi **Carica file** dal menu a discesa.
 
         ![Menu Carica i file][15]
      2. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella **File** per selezionare i file da caricare.
 
         ![Opzioni di Carica i file][16]
-     3. Specificare un valore per tipo **Tipo BLOB**. Per altre informazioni, vedere [Creare un contenitore.](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container)
+     3. Specificare un valore per tipo **Tipo BLOB**. Per ulteriori informazioni, vedere [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. È possibile specificare una cartella di destinazione in cui verranno caricati i file selezionati. Se la cartella di destinazione non esiste, verrà creata.
      5. Selezionare **Carica**.
    * **Caricare una cartella in un contenitore BLOB**
@@ -197,7 +197,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
      2. Nella finestra di dialogo **Upload Folder** (Carica cartella) scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella di testo **Cartella** per selezionare la cartella di cui si vuole caricare il contenuto.
 
         ![Opzioni di Upload Folder (Carica cartella)][18]
-     3. Specificare un valore per tipo **Tipo BLOB**. Per altre informazioni, vedere [Creare un contenitore.](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container)
+     3. Specificare un valore per tipo **Tipo BLOB**. Per ulteriori informazioni, vedere [creare un contenitore](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. È possibile specificare una cartella di destinazione in cui verrà caricato il contenuto della cartella selezionata. Se la cartella di destinazione non esiste, verrà creata.
      5. Selezionare **Carica**.
    * **Scaricare un BLOB nel computer locale**

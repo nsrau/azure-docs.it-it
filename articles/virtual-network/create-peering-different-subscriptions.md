@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
 ms.openlocfilehash: d085279167b498b13cfb79b97703cfdff7d6dd8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245122"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
@@ -165,7 +165,7 @@ Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è
 
 8. Disconnettere UserA da Azure e accedere come UserB.
 9. Creare il peering da myVnetB a myVnetA. Copiare il contenuto dello script riportato nel passaggio 6 in un editor di testo nel PC. Sostituire `<SubscriptionB-Id>` con l'ID per SubscriptionA e modificare tutte le A in B e tutte le B in A. Dopo avere apportato le modifiche, copiare lo script modificato nella sessione dell'interfaccia della riga di comando e premere `Enter`.
-10. Visualizzare lo stato di peering di myVnetB. Copiare il contenuto dello script del passaggio 7 in un editor di testo nel PC. Modificare A in B per i nomi del gruppo di risorse e della rete virtuale, copiare lo script, incollare lo script modificato nell'interfaccia della riga di comando e quindi premere `Enter`. Lo stato di peering è **Connesso**. Lo stato di peering di myVnetA viene modificato in **connesso** dopo la creazione del peering da MyVnetB a myVnetA. È possibile accedere ad Azure di nuovo come UserA e ripetere il passaggio 7 per verificare lo stato di peering di myVnetA. 
+10. Visualizzare lo stato di peering di myVnetB. Copiare il contenuto dello script del passaggio 7 in un editor di testo nel PC. Modificare A in B per i nomi del gruppo di risorse e della rete virtuale, copiare lo script, incollare lo script modificato nell'interfaccia della riga di comando e quindi premere `Enter`. Lo stato di peering è **Connesso**. Lo stato di peering di myVnetA viene modificato in **Connesso** dopo la creazione del peering da myVnetB a myVnetA. È possibile accedere ad Azure di nuovo come UserA e ripetere il passaggio 7 per verificare lo stato di peering di myVnetA. 
 
     > [!NOTE]
     > Il peering viene stabilito correttamente solo dopo che lo stato di peering per entrambe le reti virtuali è **Connesso**.
@@ -233,7 +233,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 
 10. Disconnettere UserA da Azure e accedere come UserB.
 11. Creare il peering da myVnetB a myVnetA. Copiare il contenuto dello script del passaggio 8 in un editor di testo nel PC. Sostituire `<SubscriptionB-Id>` con l'ID della sottoscrizione A e modificare tutte le A in B e tutte le B in A. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
-12. Visualizzare lo stato di peering di myVnetB. Copiare il contenuto dello script del passaggio 9 in un editor di testo nel PC. Modificare le A in B per i nomi del gruppo di risorse e della rete virtuale. Per eseguire lo script, incollare lo script modificato in PowerShell e quindi premere `Enter`. Lo stato è **Connesso**. Lo stato di peering di **myVnetA** viene modificato in **Connesso** dopo la creazione del peering da **myVnetB** a **myVnetA**. È possibile accedere ad Azure di nuovo come UserA e ripetere il passaggio 9 per verificare lo stato di peering di myVnetA.
+12. Visualizzare lo stato di peering di myVnetB. Copiare il contenuto dello script del passaggio 9 in un editor di testo nel PC. Modificare le A in B per i nomi del gruppo di risorse e della rete virtuale. Per eseguire lo script, incollare lo script modificato in PowerShell e quindi premere `Enter`. Lo stato è **Connesso**. Lo stato di peering di **myVnetA** viene modificato in **connesso** dopo la creazione del peering da **myVnetB** a **myVnetA**. È possibile accedere ad Azure di nuovo come UserA e ripetere il passaggio 9 per verificare lo stato di peering di myVnetA.
 
     > [!NOTE]
     > Il peering viene stabilito correttamente solo dopo che lo stato di peering per entrambe le reti virtuali è **Connesso**.
@@ -296,7 +296,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 5. Disconnettersi dal portale come UserA e accedere come UserB.
 6. Completare i passaggi da 2 a 4 per myResourceGroupB.
 
-### <a name="azure-cli"></a><a name="delete-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a><a name="delete-cli"></a>INTERFACCIA della riga di comando di Azure
 
 1. Accedere ad Azure come UserA ed eseguire il comando seguente:
 

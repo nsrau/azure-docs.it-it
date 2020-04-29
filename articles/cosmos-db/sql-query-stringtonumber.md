@@ -1,5 +1,5 @@
 ---
-title: StringToNumber nel linguaggio di query di Azure Cosmos DBStringToNumber in Azure Cosmos DB query language
+title: StringToNumber in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL StringToNumber in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296423"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
@@ -26,7 +26,7 @@ StringToNumber(<str_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   È un'espressione stringa da analizzare come espressione Number JSON. I numeri in JSON devono essere un numero intero o una virgola mobile. Per informazioni dettagliate sul formato JSON, vedere [json.org](https://json.org/)  
+   Espressione stringa da analizzare come espressione numerica JSON. I numeri in JSON devono essere un numero intero o un punto a virgola mobile. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/)  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ StringToNumber(<str_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente `StringToNumber` viene illustrato come si comporta in diversi tipi. 
+  Nell'esempio seguente viene illustrato `StringToNumber` il comportamento di tra tipi diversi. 
 
 Gli spazi vuoti sono consentiti solo prima o dopo il numero.
 
@@ -65,7 +65,7 @@ SELECT
 {{}}
 ```  
 
-L'espressione passata verrà analizzata come espressione Number. questi input non restituiscono il tipo Number e pertanto restituiscono undefined. 
+L'espressione passata verrà analizzata come espressione numerica. questi input non restituiscono il tipo Number e pertanto restituiscono undefined. 
 
 ```sql
 SELECT 
@@ -89,6 +89,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduzione ad Azure Cosmos DB](introduction.md)

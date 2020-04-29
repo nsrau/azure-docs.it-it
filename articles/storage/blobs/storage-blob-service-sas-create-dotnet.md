@@ -1,7 +1,7 @@
 ---
-title: Creare una classe di accesso client per un contenitore o un BLOB con .NETCreate a service SAS for a container or blob with .NET
+title: Creare una firma di accesso condiviso del servizio per un contenitore o un BLOB con .NET
 titleSuffix: Azure Storage
-description: Informazioni su come creare una firma di accesso condiviso del servizio per un contenitore o un BLOB usando la libreria client .NET.
+description: Informazioni su come creare una firma di accesso condiviso (SAS) del servizio per un contenitore o un BLOB usando la libreria client .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,23 +11,23 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: 10045a760d7e0fcb02a754bc9bb52a5ebca970f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137212"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Creare una classe di accesso client per un contenitore o un BLOB con .NETCreate a service SAS for a container or blob with .NET
+# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Creare una firma di accesso condiviso del servizio per un contenitore o un BLOB con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare la chiave dell'account di archiviazione per creare una sessione di accesso client del servizio per un contenitore o un BLOB con la [libreria client di Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+Questo articolo illustra come usare la chiave dell'account di archiviazione per creare una firma di accesso condiviso del servizio per un contenitore o un BLOB con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="create-a-service-sas-for-a-blob-container"></a>Creare una classe di disponibilità del servizio per un contenitore BLOBCreate a service SAS for a blob container
+## <a name="create-a-service-sas-for-a-blob-container"></a>Creare una firma di accesso condiviso del servizio per un contenitore BLOB
 
-Per creare una firma di accesso condiviso del servizio per un contenitore, chiamare il metodo [CloudBlobContainer.GetSharedAccessSignature.To](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) create a service SAS for a container, call the CloudBlobContainer.GetSharedAccessSignature method.
+Per creare una firma di accesso condiviso del servizio per un contenitore, chiamare il metodo [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
 
-Esempio di codice seguente crea una firma di accesso base in un contenitore. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non vengono forniti criteri di accesso archiviati, il codice crea una firma di accesso zo cand ad hoc nel contenitore.
+L'esempio di codice seguente crea una firma di accesso condiviso in un contenitore. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non viene specificato alcun criterio di accesso archiviato, il codice crea una firma di accesso condiviso ad hoc nel contenitore.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -69,11 +69,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-## <a name="create-a-service-sas-for-a-blob"></a>Creare una contratto di servizio per un BLOBCreate a service SAS for a blob
+## <a name="create-a-service-sas-for-a-blob"></a>Creare una firma di accesso condiviso del servizio per un BLOB
 
-Per creare una firma di accesso condiviso del servizio per un BLOB, chiamare il metodo [CloudBlob.GetSharedAccessSignature.To](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) create a service SAS for a blob, call the CloudBlob.GetSharedAccessSignature method.
+Per creare una firma di accesso condiviso del servizio per un BLOB, chiamare il metodo [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
-L'esempio di codice seguente crea una firma di accesso base in un BLOB. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non vengono forniti criteri di accesso archiviati, il codice crea una firma di accesso zo cand inhoc nel BLOB.
+L'esempio di codice seguente crea una firma di accesso condiviso su un BLOB. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non viene specificato alcun criterio di accesso archiviato, il codice crea una firma di accesso condiviso ad hoc nel BLOB.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -122,5 +122,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme di accesso condivisoGrant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
+- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](../common/storage-sas-overview.md)
 - [Creare un SAS di servizio](/rest/api/storageservices/create-service-sas)
