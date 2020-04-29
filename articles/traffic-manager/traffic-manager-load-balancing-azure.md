@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
 ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757195"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
@@ -38,8 +38,8 @@ A livello concettuale, ognuno di questi servizi svolge un ruolo distinto nella g
   * Routing multivalore che consente di inviare gli indirizzi IP di più endpoint applicazione in una singola risposta DNS.
 
   Il client si connette direttamente all'endpoint restituito da Gestione traffico. Gestione traffico di Azure rileva gli endpoint non integri e reindirizza i client a un'altra istanza integra. Per altre informazioni sul servizio, vedere [Gestione traffico di Azure](traffic-manager-overview.md).
-* **Il gateway applicazione** fornisce il controller di distribuzione delle applicazioni (ADC) come servizio, offrendo varie funzionalità di bilanciamento del carico di livello 7 per l'applicazione. Consente ai clienti di ottimizzare la produttività della Web farm eseguendo l'offload della terminazione TLS con utilizzo intensivo della CPU al gateway applicazione. Altre funzionalità di routing di livello 7 includono la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità.
-* **Load Balancer** è parte integrante dello stack SDN di Azure e fornisce servizi di bilanciamento del carico di livello 4 ad alte prestazioni e a bassa latenza per tutti i protocolli UDP e TCP. Gestisce le connessioni in ingresso e in uscita. È possibile configurare endpoint pubblici e interni con carico bilanciato e definire regole per mappare le connessioni in ingresso a destinazioni pool back-end con opzioni di probe dell'integrità TCP e HTTP per gestire la disponibilità del servizio.
+* Il **gateway applicazione** offre un servizio di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), che offre diverse funzionalità di bilanciamento del carico di livello 7 per l'applicazione. Consente ai clienti di ottimizzare la produttività Web farm eseguendo l'offload della terminazione TLS a elevato utilizzo di CPU al gateway applicazione. Altre funzionalità di routing di livello 7 includono la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità.
+* **Load Balancer** è parte integrante dello stack Sdn di Azure, offrendo servizi di bilanciamento del carico di livello 4 a prestazioni elevate e a bassa latenza per tutti i protocolli UDP e TCP. Gestisce le connessioni in ingresso e in uscita. È possibile configurare endpoint pubblici e interni con carico bilanciato e definire regole per mappare le connessioni in ingresso a destinazioni pool back-end con opzioni di probe dell'integrità TCP e HTTP per gestire la disponibilità del servizio.
 
 ## <a name="scenario"></a>Scenario
 
@@ -59,13 +59,13 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 ![Diagramma dell'architettura di bilanciamento del carico](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> Questo esempio è solo una delle numerose configurazioni possibili dei servizi di bilanciamento del carico offerti da Azure. È possibile combinare e associare Gestione traffico, il gateway applicazione e Load Balancer per soddisfare al meglio le specifiche esigenze di bilanciamento del carico. Ad esempio, se l'offload TLS o l'elaborazione di livello 7 non è necessaria, Load Balancer può essere utilizzato al posto del gateway applicazione.
+> Questo esempio è solo una delle numerose configurazioni possibili dei servizi di bilanciamento del carico offerti da Azure. È possibile combinare e associare Gestione traffico, il gateway applicazione e Load Balancer per soddisfare al meglio le specifiche esigenze di bilanciamento del carico. Ad esempio, se non è necessaria l'elaborazione di offload TLS o di livello 7, è possibile usare Load Balancer al posto del gateway applicazione.
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Impostazione dello stack di bilanciamento del carico
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passaggio 1: creare un profilo di Gestione traffico
 
-1. Nel portale di Azure fare clic su **Crea un** > **profilo** > di Gestione traffico**di** > rete delle risorse**Crea.**
+1. Nella portale di Azure fare clic su **Crea una risorsa** > **rete** > **profilo** > di gestione traffico**Crea**.
 2. Immettere le informazioni di base seguenti:
 
    * **Nome**: assegnare al profilo di Gestione traffico un nome del prefisso DNS.
@@ -74,13 +74,13 @@ Il diagramma seguente illustra l'architettura di questi scenario:
    * **Gruppo di risorse**: selezionare il gruppo di risorse contenente il profilo. Può trattarsi di un gruppo di risorse nuovo o esistente.
    * **Percorso gruppo di risorse**: il servizio Gestione traffico è globale e non legato a una località. Tuttavia, è necessario specificare un'area per il gruppo in cui risiedono i metadati associati al profilo di Gestione traffico. La località non ha alcun impatto sulla disponibilità di runtime del profilo.
 
-3. Fare clic su **Crea** per generare il profilo di Gestione traffico.
+3. Fare clic su **Crea** per generare il profilo di gestione traffico.
 
    ![Pannello "Crea profilo di Gestione traffico"](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Passaggio 2: creare il gateway applicazione
 
-1. Nel riquadro sinistro del portale di Azure fare clic su Crea un**Networking** > **gateway applicazione**di **rete per le risorse.** > 
+1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa** > **rete** > **gateway applicazione**.
 2. Inserire le seguenti informazioni di base sul gateway applicazione:
 
    * **Nome** : nome del gateway applicazione.
@@ -158,12 +158,12 @@ Se il cluster di database a disponibilità elevata usa SQL Server AlwaysOn, per 
 
 Per altri dettagli sulla configurazione di un servizio di bilanciamento del carico interno, vedere [Creare un servizio di bilanciamento del carico interno nel portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. Nel portale di Azure fare clic su **Crea un** > **Networking** > servizio di**bilanciamento**del carico di rete delle risorse nel riquadro sinistro.
+1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa** > **rete** > **bilanciamento del carico**.
 2. Scegliere un nome per il bilanciamento del carico.
-3. Impostare **Tipo** su **Interno**e scegliere la rete virtuale e la subnet appropriate in cui risiedere il servizio di bilanciamento del carico.
-4. In **Assegnazione indirizzo IP**selezionare **Dinamico** o **Statico**.
+3. Impostare **tipo** su **interno**e scegliere la rete virtuale e la subnet appropriate per il servizio di bilanciamento del carico.
+4. In **assegnazione indirizzo IP**selezionare **dinamico** o **statico**.
 5. In **Gruppo di risorse** scegliere il gruppo di risorse per il servizio di bilanciamento del carico.
-6. In **Posizione**scegliere l'area appropriata per il servizio di bilanciamento del carico.
+6. In **località**scegliere l'area appropriata per il servizio di bilanciamento del carico.
 7. Al termine, fare clic su **Crea** per generare il servizio di bilanciamento del carico.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Connettere un livello del database back-end al servizio di bilanciamento del carico
@@ -186,20 +186,20 @@ Per altri dettagli sulla configurazione di un servizio di bilanciamento del cari
 3. Selezionare il **Protocollo** per il probe. Per un database, può essere preferibile un probe TCP anziché un probe HTTP. Per altre informazioni sui probe del servizio di bilanciamento del carico, vedere [Probe del servizio di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Immettere la **Porta** del database da usare per l'accesso al probe.
 5. In **Intervallo** specificare la frequenza di probe per l'applicazione.
-6. In **Soglia non integro**specificare il numero di errori di probe continui che devono verificarsi affinché la macchina virtuale back-end venga considerata non integra.
-7. Fare clic **su OK** per creare il probe.
+6. In **soglia**di non integrità specificare il numero di errori di probe continui che devono verificarsi perché la macchina virtuale back-end venga considerata non integra.
+7. Fare clic su **OK** per creare il probe.
 
 #### <a name="configure-the-load-balancing-rules"></a>Configurare le regole del servizio di bilanciamento del carico
 
 1. Nella sezione **Impostazioni** del servizio di bilanciamento del carico selezionare **Regole di bilanciamento del carico** e quindi selezionare **Aggiungi** per creare una regola.
 2. Immettere il **nome** per la regola di bilanciamento del carico.
-3. Scegliere **l'indirizzo IP front-end** del servizio di bilanciamento del carico, **del protocollo**e della **porta**.
-4. In **Porta backend**specificare la porta da utilizzare nel pool back-end.
+3. Scegliere l' **indirizzo IP** front-end del servizio di bilanciamento del carico, **protocollo**e **porta**.
+4. In **porta back**-end specificare la porta da usare nel pool back-end.
 5. Selezionare il **Pool back-end** e il **Probe** creati nei passaggi precedenti per applicarvi la regola.
-6. In **Persistenza sessione**scegliere la modalità di persistenza delle sessioni.
-7. In **Timeout di inattività**specificare il numero di minuti che precede un timeout di inattività.
+6. In **salvataggio permanente sessione**scegliere come si desidera che le sessioni vengano mantenute.
+7. In **timeout di inattività**specificare il numero di minuti prima di un timeout di inattività.
 8. Per **Indirizzo IP mobile** selezionare **Disabilitato** o **Abilitato**.
-9. Fare clic **su OK** per creare la regola.
+9. Fare clic su **OK** per creare la regola.
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Passaggio 5: connettere macchine virtuali di livello Web al servizio di bilanciamento del carico
 

@@ -1,6 +1,6 @@
 ---
-title: Connettersi con sqlcmdConnect with sqlcmd
-description: Utilizzare l'utilità della riga di comando sqlcmd per connettersi a un pool SQL Synapse ed eseguire una query.
+title: Connettersi con sqlcmd
+description: Usare l'utilità della riga di comando sqlcmd per connettersi ed eseguire query in un pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,36 +12,36 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 02157ca0d32d2347e50cc84a5c52e9c47b0f33b5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745194"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Connettersi al pool SQL Synapse con sqlcmdConnect to Synapse SQL pool with sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Connettersi al pool SQL sinapsi con sqlcmd
 
 > [!div class="op_single_selector"]
 >
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Utilizzare l'utilità della riga di comando [sqlcmd][sqlcmd] per connettersi a un pool SQL ed eseguire query su un pool SQL.  
+Utilizzare l'utilità della riga di comando [sqlcmd] [sqlcmd] per connettersi a un pool SQL ed eseguire query su di esso.  
 
-## <a name="1-connect"></a>1. Connetti
+## <a name="1-connect"></a>1. Connessione
 
-Per iniziare a utilizzare [sqlcmd][sqlcmd], aprire il prompt dei comandi e immettere **sqlcmd** seguito dalla stringa di connessione per il database del pool SQL. La stringa di connessione richiede i parametri seguenti:
+Per iniziare a usare [sqlcmd] [sqlcmd], aprire il prompt dei comandi e immettere **SQLCMD** seguito dalla stringa di connessione per il database del pool SQL. La stringa di connessione richiede i parametri seguenti:
 
-* **Server (-S):** server nel formato `<`Server Name`>`.database.windows.net
-* **Database (-d):** nome del database.
-* **Abilita identificatori quotati (-I):** Gli identificatori tra virgolette devono essere abilitati per connettersi a un'istanza del pool SQL.
+* **Server (-S):** server nel formato `<`Nome server`>`.database.windows.net
+* **Database (-d):** Nome del database.
+* **Abilita identificatori delimitati (-I):** Gli identificatori delimitati devono essere abilitati per la connessione a un'istanza del pool SQL.
 
 Per usare l'autenticazione di SQL Server è necessario aggiungere i parametri nome utente e password:
 
-* **Utente (-U):** utente del server nel formato `<`User`>`
-* **Password (-P):** password associata all'utente.
+* **Utente (-U):** utente server nel formato `<`Utente`>`
+* **Password (-P):** Password associata all'utente.
 
 Ad esempio, la stringa di connessione sarà simile alla seguente:
 
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > [!NOTE]
 > Per eseguire l'autenticazione tramite Active Directory, è necessario [abilitare l'autenticazione di Azure Active Directory](sql-data-warehouse-authentication.md) .
 
-## <a name="2-query"></a>2. Interrogazione
+## <a name="2-query"></a>2. Query
 
 Dopo la connessione sarà possibile eseguire qualsiasi istruzione Transact-SQL supportata nell'istanza.  In questo esempio le query vengono inviate in modalità interattiva.
 
@@ -85,4 +85,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulle opzioni disponibili in sqlcmd, vedere [la documentazione](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)di sqlcmd .
+Per ulteriori informazioni sulle opzioni disponibili in sqlcmd, vedere la [documentazione di sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

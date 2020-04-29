@@ -1,7 +1,7 @@
 ---
 title: Come filtrare i risultati della ricerca - API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
-description: È possibile filtrare i tipi di risposte inclusi in Bing nella risposta, ad esempio immagini, video e notizie, usando il parametro di query 'responseFilter'.
+description: È possibile filtrare i tipi di risposte inclusi in Bing nella risposta, ad esempio immagini, video e notizie, usando il parametro di query ' responseFilter '.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220270"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrare i riscontri inclusi nella risposta della ricerca  
@@ -49,11 +49,11 @@ Quando si eseguono query nel Web, Bing restituisce tutto il contenuto rilevante 
 
 Per filtrare le risposte restituite da Bing, usare i parametri di query seguenti quando si chiama l'API.  
 
-### <a name="responsefilter"></a>ResponseFilter (Filtro risposta)
+### <a name="responsefilter"></a>ResponseFilter
 
-È possibile filtrare i tipi di risposte inclusi in Bing nella risposta, ad esempio immagini, video e notizie, usando il parametro di query [responseFilter,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) che è un elenco delimitato da virgole di risposte. Una risposta verrà inclusa nella risposta se Bing trova contenuto pertinente. 
+È possibile filtrare i tipi di risposte inclusi in Bing nella risposta, ad esempio immagini, video e notizie, usando il parametro di query [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , che è un elenco di risposte delimitato da virgole. Una risposta verrà inclusa nella risposta se Bing ne rileva il contenuto pertinente. 
 
-Per escludere risposte specifiche dalla risposta, ad `-` esempio immagini, anteporre un carattere al tipo di risposta. Ad esempio:
+Per escludere risposte specifiche dalla risposta, ad esempio immagini, anteporre `-` un carattere al tipo di risposta. Ad esempio:
 
 ```
 &responseFilter=-images,-videos
@@ -102,7 +102,7 @@ Anche se Bing non ha restituito risultati per video e notizie nella risposta pre
 
 ### <a name="site"></a>Sito
 
-Per ottenere i risultati della ricerca `site:` da un dominio specifico, includere il parametro query nella stringa di query.  
+Per ottenere i risultati della ricerca da un dominio specifico, `site:` includere il parametro di query nella stringa di query.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -115,11 +115,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 
 Per limitare i risultati della risposta Web alle pagine Web individuate da Bing durante un periodo specifico, impostare il parametro di query di [aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) su uno dei seguenti valori senza distinzione tra maiuscole e minuscole:
 
-* `Day`- Restituire le pagine web che Bing ha scoperto nelle ultime 24 ore
-* `Week`- Restituisci le pagine web che Bing ha scoperto negli ultimi 7 giorni
-* `Month`- Restituire le pagine web che scoperte negli ultimi 30 giorni
+* `Day`: Restituisce le pagine Web individuate da Bing nelle ultime 24 ore
+* `Week`: Restituisce le pagine Web individuate da Bing negli ultimi 7 giorni
+* `Month`: Restituisce pagine Web individuate negli ultimi 30 giorni
 
-È inoltre possibile impostare questo parametro su `YYYY-MM-DD..YYYY-MM-DD`un intervallo di date personalizzato nel modulo , . 
+È anche possibile impostare questo parametro su un intervallo di date personalizzato nel formato `YYYY-MM-DD..YYYY-MM-DD`. 
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
 
@@ -127,11 +127,11 @@ Per limitare i risultati a una singola data, impostare il parametro di aggiornam
 
 `https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
 
-I risultati possono includere pagine Web che non rientrano nel periodo specificato se il numero di pagine Web che Bing corrisponde ai criteri di filtro è inferiore al numero di pagine Web richieste (o il numero predefinito restituito da Bing).
+I risultati possono includere pagine Web che non rientrano nel periodo specificato se il numero di pagine Web che Bing corrisponde ai criteri di filtro è inferiore al numero di pagine Web richieste o il numero predefinito restituito da Bing.
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitazione del numero di riscontri nella risposta
 
-Bing può restituire più tipi di risposta nella risposta JSON. Se, ad esempio, si esegue una query su `webpages` `images` *salper i gommoni*, Bing potrebbe restituire , , `videos`e `relatedSearches`.
+Bing può restituire più tipi di risposte nella risposta JSON. Se ad esempio si esegue una query su *Sailing + derive*, Bing `webpages`potrebbe `images`restituire `videos`,, `relatedSearches`e.
 
 ```json
 {

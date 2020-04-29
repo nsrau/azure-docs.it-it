@@ -1,34 +1,34 @@
 ---
-title: Importare le linee guida per il formato del documento - QnA Maker
-description: Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare coppie QnA.
+title: Importare le linee guida per il formato del documento-QnA Maker
+description: Informazioni sul modo in cui vengono usati i tipi di URL per importare e creare coppie QnA.
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804334"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Linee guida per il formato di documenti e URL importati
 
-Consulta queste linee guida per la formattazione per ottenere i migliori risultati per i tuoi contenuti.
+Esaminare queste linee guida per la formattazione per ottenere i risultati migliori per il contenuto.
 
 ## <a name="formatting-considerations"></a>Considerazioni di formattazione
 
-Dopo aver importato un file o un URL, QnA Maker converte e memorizza i contenuti nel [formato markdown.](https://en.wikipedia.org/wiki/Markdown) Il processo di conversione aggiunge nuove `\n\n`righe nel testo, ad esempio . Una conoscenza del formato markdown consente di comprendere il contenuto convertito e gestire il contenuto della Knowledge Base.
+Dopo aver importato un file o un URL, QnA Maker converte e archivia il contenuto nel [formato Markdown](https://en.wikipedia.org/wiki/Markdown). Il processo di conversione aggiunge nuove righe nel testo, ad esempio `\n\n`. Una conoscenza del formato Markdown consente di comprendere il contenuto convertito e gestire il contenuto della Knowledge base.
 
-Se si aggiunge o si modifica il contenuto direttamente nella Knowledge Base, utilizzare la **formattazione markdown** per creare contenuto RTF o modificare il contenuto in formato markdown già presente nella risposta. QnA Maker supporta gran parte del formato markdown per portare funzionalità RTF ai tuoi contenuti. Tuttavia, l'applicazione client, ad esempio un bot di chat, potrebbe non supportare lo stesso set di formati markdown. È importante testare la visualizzazione delle risposte dell'applicazione client.
+Se si aggiunge o modifica il contenuto direttamente nella Knowledge base, utilizzare la **formattazione Markdown** per creare contenuto RTF o modificare il contenuto del formato Markdown già presente nella risposta. QnA Maker supporta gran parte del formato Markdown per fornire funzionalità di testo avanzate ai contenuti. Tuttavia, l'applicazione client, ad esempio un bot di chat, potrebbe non supportare lo stesso set di formati Markdown. È importante testare la visualizzazione delle risposte dell'applicazione client.
 
-Vedere un elenco completo dei [tipi di contenuto e degli esempi](./Concepts/content-types.md#file-and-url-data-types).
+Vedere un elenco completo di [tipi di contenuto ed esempi](./Concepts/content-types.md#file-and-url-data-types).
 
-## <a name="basic-document-formatting"></a>Formattazione di base dei documenti
+## <a name="basic-document-formatting"></a>Formattazione di documenti di base
 
-QnA Maker identifica sezioni e sottosezioni e relazioni nel file in base a indizi visivi come:
+QnA Maker identifica le sezioni e le sottosezioni e le relazioni nel file in base a indizi visivi come:
 
-* dimensione del carattere
-* stile del carattere
-* Numerazione
+* Dimensioni carattere
+* stile carattere
+* numerazione
 * colori
 
 ## <a name="product-manuals"></a>Manuali di prodotti
@@ -44,7 +44,7 @@ Di seguito è riportato un esempio di un manuale con una pagina di indice e con 
 
 ## <a name="brochures-guidelines-papers-and-other-files"></a>Brochure, linee guida, documenti e altri file
 
-Possono essere elaborati anche molti altri tipi di documento in modo che possano generare coppie di controllo qualità, purché essi dispongano di una struttura e di un layout chiari. Questi includono: brochure, linee guida, relazioni, white paper, documenti scientifici, politiche, libri, ecc. Vedere un esempio [qui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Possono essere elaborati anche molti altri tipi di documento in modo che possano generare coppie di controllo qualità, purché essi dispongano di una struttura e di un layout chiari. Sono inclusi: brochure, linee guida, report, white paper, articoli scientifici, criteri, libri e così via. Vedere un esempio [qui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Di seguito è riportato un esempio di documento semistrutturato, senza un indice:
 
@@ -79,21 +79,21 @@ Anche i documenti domanda-risposta sotto forma di file *.txt*, *.tsv* oppure *.x
 
 Qualsiasi colonna aggiuntiva nel file di origine viene ignorata.
 
-### <a name="example-of-structured-excel-file"></a>Esempio di file Excel strutturato
+### <a name="example-of-structured-excel-file"></a>Esempio di file di Excel strutturato
 
 Di seguito è riportato un esempio di file *.xls* domanda-risposta strutturato, con contenuto HTML:
 
  ![Esempio di file Excel domanda-risposta strutturato per una knowledge base](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
-### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Esempio di domande alternative per una singola risposta nel file Excel
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Esempio di domande alternative per una singola risposta in un file di Excel
 
-Di seguito è riportato un esempio di file QnA *.xls* strutturato, con diverse domande alternative per una singola risposta:
+Di seguito è riportato un esempio di un file QnA *. xls* strutturato, con diverse domande alternative per una singola risposta:
 
- ![Esempio di domande alternative per una singola risposta nel file Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+ ![Esempio di domande alternative per una singola risposta in un file di Excel](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
-Dopo l'importazione del file, la coppia domanda-risposta si trova nella Knowledge Base come illustrato di seguito:
+Una volta importato il file, la coppia di domande e risposte si trova nella Knowledge base, come illustrato di seguito:
 
- ![Screenshot di domande alternative per una singola risposta importata nella Knowledge Base](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+ ![Screenshot delle domande alternative per la singola risposta importata nella Knowledge base](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato di dati strutturati tramite l'importazione
 
@@ -106,14 +106,14 @@ L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Ba
 
 <a href="#formatting-considerations"></a>
 
-## <a name="multi-turn-document-formatting"></a>Formattazione di più documenti
+## <a name="multi-turn-document-formatting"></a>Formattazione del documento a più turni
 
-* Utilizzare intestazioni e sottotitoli per indicare la gerarchia. Ad esempio, è possibile indicare la QnA padre e h2 per indicare la QnA che deve essere considerata come prompt. Utilizzare dimensioni ridotte per indicare la gerarchia successiva. Non usare lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrarrà i prompt a più turni.
-* Il primo carattere dell'intestazione deve essere maiuscolo.
-* Non terminare un titolo con `?`un punto interrogativo, .
+* Usare le intestazioni e le sottointestazioni per indicare la gerarchia. Ad esempio, è possibile denotare il QnA padre e H2 per indicare la QnA che deve essere eseguita come richiesta. Utilizzare dimensioni di intestazione ridotte per indicare la gerarchia successiva. Non usare lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrae i prompt a più turni.
+* Il primo carattere dell'intestazione deve essere in maiuscolo.
+* Non terminare un'intestazione con un punto interrogativo, `?`.
 
-**Documenti di esempio**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Vantaggi di Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Vantaggi di Contoso (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
+**Documenti di esempio**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Vantaggi di Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Vantaggi di Contoso (PDF)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare un elenco completo dei [tipi di contenuto e degli esempi](./Concepts/content-types.md#file-and-url-data-types)
+Vedere un elenco completo di [tipi di contenuto ed esempi](./Concepts/content-types.md#file-and-url-data-types)

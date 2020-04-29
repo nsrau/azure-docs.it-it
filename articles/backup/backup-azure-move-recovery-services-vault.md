@@ -1,50 +1,50 @@
 ---
-title: Come spostare gli insiemi di credenziali di Azure Backup Recovery Services
-description: Istruzioni su come spostare l'insieme di credenziali dei servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure.Instructions on how to move recovery services vault across Azure subscriptions and resource groups.
+title: Come spostare gli insiemi di credenziali dei servizi di ripristino di backup di Azure
+description: Istruzioni su come spostare l'insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure.
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804419"
 ---
-# <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di Servizi di ripristino tra sottoscrizioni e gruppi di risorse di AzureMove a Recovery Services vault across Azure Subscriptions and Resource Groups
+# <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
 Questo articolo illustra come spostare un insieme di credenziali di Servizi di ripristino configurato per Backup di Azure tra sottoscrizioni di Azure o in un altro gruppo di risorse nella stessa sottoscrizione. È possibile usare il portale di Azure o PowerShell per spostare un insieme di credenziali di Servizi di ripristino.
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Lo spostamento delle risorse per il vault dei servizi di ripristino è supportato in Australia Orientale, Australia Sud Est, Canada Centrale, Canada Est, Sud Est Asiatico, Asia Orientale, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali, Stati Uniti centrali occidentali2, Stati Uniti occidentali, India centrale, India meridionale, Giappone orientale, Giappone occidentale, Corea centrale, Corea del Sud, Europa settentrionale, Europa occidentale, Sud Africa Nord , Sudafrica occidentale, Regno Unito meridionale e Regno Unito occidentale.
+Lo spostamento di risorse per l'insieme di credenziali di servizi di ripristino è supportato in Australia orientale, Australia sud-orientale, Canada centrale, Canada orientale, Sud Asia orientale, Asia orientale, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-occidentali, Stati Uniti occidentali, India centrale, India meridionale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale , Sud Africa occidentale, Regno Unito meridionale e Regno Unito occidentale.
 
 ## <a name="unsupported-regions"></a>Aree non supportate
 
-Francia Centrale, Francia Meridionale, Germania Nordest, Germania Centrale, US Gov Iowa, Cina Nord, Cina Nord2, Cina Est, Cina Orientale2
+Francia centrale, Francia meridionale, Germania nord-orientale, Germania centrale, US Gov Iowa, Cina settentrionale, Cina North2, Cina orientale, Cina orientali 2
 
-## <a name="prerequisites-for-moving-recovery-services-vault"></a>Prerequisiti per lo spostamento dell'insieme di credenziali dei servizi di ripristinoPrerequisites for moving Recovery Services vault
+## <a name="prerequisites-for-moving-recovery-services-vault"></a>Prerequisiti per lo stato di trasferimento dell'insieme di credenziali di servizi di ripristino
 
-- Durante lo spostamento dell'insieme di credenziali tra gruppi di risorse, i gruppi di risorse di origine e di destinazione vengono bloccati impedendo le operazioni di scrittura ed eliminazione. Per ulteriori informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
-- Solo la sottoscrizione amministratore dispone delle autorizzazioni per spostare un insieme di credenziali.
-- Per lo spostamento di insiemi di credenziali tra sottoscrizioni, la sottoscrizione di destinazione deve risiedere nello stesso tenant della sottoscrizione di origine e il relativo stato deve essere abilitato.
+- Durante lo spostamento dell'insieme di credenziali tra gruppi di risorse, i gruppi di risorse di origine e di destinazione sono bloccati impedendo le operazioni di scrittura ed eliminazione. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Solo la sottoscrizione amministrativa dispone delle autorizzazioni per spostare un insieme di credenziali.
+- Per lo trasferimento di insiemi di credenziali tra le sottoscrizioni, la sottoscrizione di destinazione deve trovarsi nello stesso tenant della sottoscrizione di origine e il relativo stato deve essere abilitato.
 - È necessario avere l'autorizzazione per eseguire operazioni di scrittura sul gruppo di risorse di destinazione.
-- Lo spostamento dell'insieme di credenziali modifica solo il gruppo di risorse. L'insieme di credenziali dei servizi di ripristino risiederà nella stessa posizione e non potrà essere modificato.
-- È possibile spostare un solo insieme di credenziali di Servizi di ripristino, per area, alla volta.
-- Se una macchina virtuale non si sposta con l'insieme di credenziali di Servizi di ripristino tra sottoscrizioni o in un nuovo gruppo di risorse, i punti di ripristino della macchina virtuale corrente rimarranno intatti nell'insieme di credenziali fino alla scadenza.
+- Lo spostamento dell'insieme di credenziali modifica solo il gruppo di risorse. L'insieme di credenziali di servizi di ripristino si trova nello stesso percorso e non può essere modificato.
+- È possibile spostare solo un insieme di credenziali di servizi di ripristino, per ogni area, alla volta.
+- Se una macchina virtuale non viene spostata con l'insieme di credenziali di servizi di ripristino tra sottoscrizioni o in un nuovo gruppo di risorse, i punti di ripristino della macchina virtuale correnti rimarranno intatti nell'insieme di credenziali fino a quando non scadono.
 - Sia che macchina virtuale venga spostata nell'insieme di credenziali o meno, è sempre possibile ripristinare la macchina virtuale dalla cronologia di backup conservata nell'insieme di credenziali.
-- Crittografia disco di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali risiedano nella stessa area e sottoscrizione di Azure.The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
+- Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e nella stessa sottoscrizione di Azure.
 - Per spostare una macchina virtuale con dischi gestiti, vedere questo [articolo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- Le opzioni per lo spostamento delle risorse distribuite tramite il modello classico variano a seconda che si spostino le risorse all'interno di una sottoscrizione o in una nuova sottoscrizione. Per ulteriori informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Le opzioni per lo scorrimento delle risorse distribuite con il modello classico variano a seconda che si stiano migrando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - I criteri di backup definiti per l'insieme di credenziali vengono conservati dopo che l'insieme di credenziali viene spostato tra le sottoscrizioni o in un nuovo gruppo di risorse.
-- Lo spostamento di insiemi di credenziali con File di Azure, Sincronizzazione file di Azure o SQL nelle macchine virtuali IaaS tra sottoscrizioni e gruppi di risorse non è supportato.
-- Se si sposta un insieme di credenziali contenente i dati di backup della macchina virtuale tra sottoscrizioni, è necessario spostare le macchine virtuali nella stessa sottoscrizione e usare lo stesso nome del gruppo di risorse VM di destinazione (come nella sottoscrizione precedente) per continuare i backup.
+- Lo stato di archiviazione con File di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS tra sottoscrizioni e gruppi di risorse non è supportato.
+- Se si sposta un insieme di credenziali contenente i dati di backup delle VM, tra le sottoscrizioni, è necessario spostare le macchine virtuali nella stessa sottoscrizione e usare lo stesso nome del gruppo di risorse della VM di destinazione (come nella sottoscrizione precedente) per continuare i backup.
 
 > [!NOTE]
-> Lo spostamento di elementi nel tempo in cui i servizi di ripristino per Backup di Azure nelle aree di Azure non sono supportati.<br><br>
-> Se sono state configurate macchine virtuali (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza tramite **Azure Site Recovery**, l'operazione di spostamento verrà bloccata. Se si desidera spostare gli elementi del secondo database per Azure Site Recovery, leggere [questo articolo](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) per informazioni sullo spostamento manuale degli insiemi di credenziali.
+> Lo stato di un insieme di credenziali di servizi di ripristino per backup di Azure in aree di Azure non è supportato<br><br>
+> Se sono state configurate VM (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza con **Azure Site Recovery**, l'operazione di spostamento verrà bloccata. Per spostare gli insiemi di credenziali per Azure Site Recovery, vedere [questo articolo](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) per informazioni sullo spostamento manuale degli insiemi di credenziali.
 
-## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Usare il portale di Azure per spostare l'insieme di credenziali di Servizi di ripristino in un gruppo di risorse diversoUse Azure portal to move Recovery Services vault to different resource group
+## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Usare portale di Azure per spostare l'insieme di credenziali di servizi di ripristino in un gruppo di risorse diverso
 
 Per spostare un insieme di credenziali di Servizi di ripristino e le risorse associate in un gruppo di risorse diverso
 
@@ -53,7 +53,7 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
    ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   Se le informazioni di **Essentials** non sono visualizzate per il vault, fare clic sull'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
+   Se non vengono visualizzate le **informazioni di base per l'insieme** di credenziali, fare clic sull'icona a discesa. Le informazioni di base dovrebbero ora essere visualizzate.
 
    ![Scheda delle informazioni di base](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
@@ -61,7 +61,7 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
    ![Cambiare il gruppo di risorse](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. Nel pannello **Sposta risorse,** per il vault selezionato, è consigliabile spostare le risorse correlate facoltative selezionando la casella di controllo come illustrato nell'immagine seguente.
+4. Nel pannello **Sposta risorse** , per l'insieme di credenziali selezionato è consigliabile spostare le risorse correlate facoltative selezionando la casella di controllo come illustrato nella figura seguente.
 
    ![Spostare la sottoscrizione](./media/backup-azure-move-recovery-services/move-resource.png)
 
@@ -73,7 +73,7 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
    ![Messaggio di conferma](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
-## <a name="use-azure-portal-to-move-recovery-services-vault-to-a-different-subscription"></a>Usare il portale di Azure per spostare l'insieme di credenziali di Servizi di ripristino in una sottoscrizione diversaUse Azure portal to move Recovery Services vault to a different subscription
+## <a name="use-azure-portal-to-move-recovery-services-vault-to-a-different-subscription"></a>Usare portale di Azure per spostare l'insieme di credenziali di servizi di ripristino in una sottoscrizione diversa
 
 È possibile spostare un insieme di credenziali di Servizi di ripristino e le risorse associate in una sottoscrizione diversa
 
@@ -106,7 +106,7 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 >
 >
 
-## <a name="use-powershell-to-move-recovery-services-vault"></a>Usare PowerShell per spostare l'insieme di credenziali di Servizi di ripristinoUse PowerShell to move Recovery Services vault
+## <a name="use-powershell-to-move-recovery-services-vault"></a>Usare PowerShell per spostare l'insieme di credenziali di servizi di ripristino
 
 Per spostare un insieme di credenziali di Servizi di ripristino in un altro gruppo di risorse, usare il cmdlet `Move-AzureRMResource`. `Move-AzureRMResource` richiede il nome e il tipo della risorsa. È possibile ottenerli entrambi dal cmdlet `Get-AzureRmRecoveryServicesVault`.
 
@@ -124,7 +124,7 @@ Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -D
 
 Dopo aver eseguito i cmdlet precedenti, verrà chiesto di confermare che si desidera spostare le risorse specificate. Digitare **Y** per confermare. Dopo la convalida, la risorsa viene spostata.
 
-## <a name="use-cli-to-move-recovery-services-vault"></a>Usare l'interfaccia della riga di comando per spostare l'insieme di credenziali di Servizi di ripristinoUse CLI to
+## <a name="use-cli-to-move-recovery-services-vault"></a>Usare CLI per spostare l'insieme di credenziali di servizi di ripristino
 
 Per spostare un insieme di credenziali di Servizi di ripristino in un altro gruppo di risorse, usare il cmdlet seguente:
 

@@ -1,7 +1,7 @@
 ---
 title: Etica e uso responsabile - Personalizza esperienze
 titleSuffix: Azure Cognitive Services
-description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurati di soffermarti alla ricerca, imparare e deliberare sull'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
+description: Queste linee guida hanno lo scopo di consentire un'implementazione della personalizzazione che generi fiducia nell'azienda e nel servizio. Assicurarsi di sospendere la ricerca, apprendere e deliberare l'effetto della personalizzazione sulla vita degli utenti. In caso di dubbi, chiedere indicazioni.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
 ms.openlocfilehash: e422284b871214dbeca31b5dd17b9177a18ad3c8
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80478099"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
 
-Affinché le persone e la società sfruttino tutto il potenziale dell'intelligenza artificiale, è necessario che le implementazioni siano progettate in modo tale conquistare la fiducia sia di coloro che aggiungono l'intelligenza artificiale alle proprie applicazioni che degli utenti delle applicazioni create con l'intelligenza artificiale. Queste linee guida hanno lo scopo di consentire un'implementazione di Personalizza esperienze che generi fiducia nell'azienda e nel servizio. Assicurati di soffermarti alla ricerca, imparare e deliberare sull'impatto della personalizzazione sulla vita delle persone. In caso di dubbi, chiedere indicazioni.
+Affinché le persone e la società sfruttino tutto il potenziale dell'intelligenza artificiale, è necessario che le implementazioni siano progettate in modo tale conquistare la fiducia sia di coloro che aggiungono l'intelligenza artificiale alle proprie applicazioni che degli utenti delle applicazioni create con l'intelligenza artificiale. Queste linee guida hanno lo scopo di consentire un'implementazione di Personalizza esperienze che generi fiducia nell'azienda e nel servizio. Assicurarsi di sospendere la ricerca, apprendere e deliberare l'effetto della personalizzazione sulla vita degli utenti. In caso di dubbi, chiedere indicazioni.
 
 Queste linee guida non sono da intendersi come una consulenza legale ed è necessario assicurarsi in separata sede che l'applicazione sia conforme ai rapidi sviluppi normativi in quest'area e nel proprio settore.
 
 Quando si progetta un'applicazione con Personalizza esperienze, inoltre, è necessario considerare le numerose responsabilità associate allo sviluppo di qualsiasi sistema di intelligenza artificiale incentrato sui dati, che includono etica, privacy, sicurezza, inclusione, trasparenza e responsabilizzazione. Per altre informazioni in merito, vedere la sezione [Letture consigliate](#recommended-reading).
 
-È possibile usare il contenuto seguente come un elenco di controllo di partenza, da personalizzare e perfezionare in base al proprio scenario. Questo documento ha due sezioni principali: la prima è dedicata a evidenziare considerazioni sull'uso responsabile nella scelta di scenari, caratteristiche e premi per Personalizer. La seconda illustra un insieme di valori che Microsoft ritiene debba essere tenuto in considerazione quando si creano sistemi di intelligenza artificiale, con suggerimenti di utilità pratica e i rischi di influire su tali valori con l'uso di Personalizza esperienze.
+È possibile usare il contenuto seguente come un elenco di controllo di partenza, da personalizzare e perfezionare in base al proprio scenario. Questo documento è costituito da due sezioni principali: la prima è dedicata ad evidenziare considerazioni sull'uso responsabile quando si scelgono scenari, funzionalità e premi per la personalizzazione. La seconda illustra un insieme di valori che Microsoft ritiene debba essere tenuto in considerazione quando si creano sistemi di intelligenza artificiale, con suggerimenti di utilità pratica e i rischi di influire su tali valori con l'uso di Personalizza esperienze.
 
 
 ## <a name="your-responsibility"></a>Responsabilità
@@ -50,21 +50,21 @@ L'implementazione di Personalizza esperienze può essere di grande valore per gl
 
 Usare un servizio che apprende come personalizzare il contenuto e le interfacce utente è utile. Un servizio di questo tipo può tuttavia essere usato in modo improprio se la modalità di personalizzazione genera effetti collaterali negativi nel mondo reale e se gli utenti non sono a conoscenza della personalizzazione del contenuto.
 
-Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Queste tendono ad essere considerate scelte "consequenziali", o scelte che comportano un rischio di danno. Ad esempio:
+Gli usi di Personalizza esperienze con elevato potenziale di effetti collaterali negativi o mancanza di trasparenza includono ad esempio gli scenari in cui la "ricompensa" dipende da molti fattori complessi a lungo termine che, se ipersemplificati in una ricompensa immediata, possono avere risultati sfavorevoli per gli utenti. Questi tendono a essere considerati scelte "consequenziali" o scelte che comportano un rischio di danni. Ad esempio:
 
 
-* **Finanza**: Personalizzazione delle offerte su prestiti, prodotti finanziari e assicurativi, in cui i fattori di rischio si basano su dati che le persone non conoscono, non possono ottenere o non possono contestare.
-* **Istruzione**: Personalizzazione dei ranghi per i corsi scolastici e gli istituti di istruzione in cui le raccomandazioni possono propagare i pregiudizi e ridurre la consapevolezza degli utenti di altre opzioni.
-* **Democrazia e partecipazione civica**: Personalizzare i contenuti per gli utenti con l'obiettivo di influenzare le opinioni è consequenziale e manipolativo.
-* **Valutazione**della ricompensa di terze parti : Personalizzazione degli elementi in cui il premio si basa su una valutazione dell'utente di ultima terze parti, invece di avere una ricompensa generata dal comportamento dell'utente.
-* **Intolleranza all'esplorazione**: Qualsiasi situazione in cui il comportamento di esplorazione del Personalizer può causare danni.
+* **Finanza**: le offerte di personalizzazione sui prodotti di prestito, finanziario e assicurativo, in cui i fattori di rischio si basano sui dati che i singoli utenti non conoscono, non possono ottenere o non possono disputare.
+* **Istruzione**: personalizzazione delle classificazioni per corsi scolastici e istituti di istruzione in cui le raccomandazioni possono propagare le distorsioni e ridurre la consapevolezza degli utenti di altre opzioni.
+* **Democrazia e partecipazione Civica**: la personalizzazione del contenuto per gli utenti con l'obiettivo di influenzare le opinioni è consequenziale e manipolativa.
+* **Valutazione del premio di terze parti**: personalizzazione degli elementi in cui la ricompensa si basa su una valutazione di terze parti dell'utente, anziché avere un premio generato dal comportamento dell'utente.
+* **Intolleranza per l'esplorazione**: qualsiasi situazione in cui il comportamento di esplorazione della personalizzazione può causare danni.
 
 Quando si scelgono i casi d'uso per Personalizza esperienze:
 
 * Iniziare il processo di progettazione considerando i vantaggi offerti agli utenti dalla personalizzazione.
 * Considerare le conseguenze negative che si possono verificare nel mondo reale se alcuni elementi non vengono classificati per gli utenti a causa dei modelli di personalizzazione o dell'esplorazione.
-* Valutare se il caso d'uso costituisce un'elaborazione automatizzata che influisce in modo significativo sugli argomenti di dati regolamentati ai sensi dell'articolo 22 del [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) o di altre leggi.
-* Considerare i cicli di profezia autoavverante, che possono verificarsi se una ricompensa della personalizzazione determina il training di un modello in modo che possa successivamente escludere ulteriormente un gruppo demografico dall'accesso a contenuto rilevante. Per esempio, la maggior parte delle persone in un quartiere a basso reddito non ottiene un'offerta assicurativa premium, e lentamente nessuno nel quartiere tende a vedere l'offerta a tutti se non c'è abbastanza esplorazione.
+* Valutare se il caso d'uso costituisce un'elaborazione automatizzata che influisca in modo significativo sugli oggetti dati regolamentati in [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) articolo 22 o altre leggi.
+* Considerare i cicli di profezia autoavverante, che possono verificarsi se una ricompensa della personalizzazione determina il training di un modello in modo che possa successivamente escludere ulteriormente un gruppo demografico dall'accesso a contenuto rilevante. Ad esempio, la maggior parte delle persone in un quartiere a basso reddito non ottiene un'offerta Premium assicurativa e lentamente nessuno nel quartiere tende a vedere l'offerta se non è disponibile un'esplorazione sufficiente.
 * Salvare copie dei modelli e dei criteri di apprendimento nel caso in cui sia necessario riprodurre Personalizza esperienze in futuro. È possibile eseguire questa operazione periodicamente o in ogni periodo di aggiornamento dei modelli.
 * Considerare il livello di esplorazione adeguato per lo spazio e come può essere usato come strumento per mitigare gli effetti "camera d'eco".
 
@@ -75,16 +75,16 @@ La personalizzazione del contenuto dipende dalla disponibilità di informazioni 
 
 Considerare l'effetto delle caratteristiche descritte di seguito.
 
-* **Dati demografici degli**utenti : Caratteristiche riguardanti il sesso, il sesso, l'età, la razza, la religione: queste caratteristiche potrebbero non essere consentite in alcune applicazioni per motivi normativi e potrebbe non essere etico personalizzare intorno a loro perché la personalizzazione propaga generalizzazioni e pregiudizi. Un esempio di questa diffusione di pregiudizi è un'offerta di lavoro per ingegneri che non viene visualizzata a destinatari anziani o in base al genere.
-* **Informazioni locali**: In molti luoghi del mondo, le informazioni sulla posizione (come un codice postale, un codice postale o un nome di quartiere) possono essere altamente correlate al reddito, alla razza e alla religione.
-* **Percezione dell'equità dell'utente**: Anche nei casi in cui l'applicazione sta prendendo decisioni valide, considerare l'effetto degli utenti che percepiscono che il contenuto visualizzato nell'applicazione cambia in un modo che sembra essere correlato a funzionalità che sarebbero discriminatorie.
-* **Bias non intenzionale nelle lavorazioni**: Esistono tipi di distorsioni che possono essere introdotte utilizzando funzionalità che interessano solo un sottoinsieme della popolazione. È necessario prestare particolare attenzione se le caratteristiche vengono generate modo algoritmico, ad esempio quando si usa l'analisi di immagini per estrarre gli elementi di un'immagine o l'analisi del testo per individuare le entità in un testo. Conoscere le funzionalità dei servizi usati per creare queste caratteristiche.
+* **Dati demografici degli utenti**: funzionalità relative al sesso, al sesso, all'età, alla razza, alla religione: queste funzionalità potrebbero non essere consentite in determinate applicazioni per motivi normativi e potrebbe non essere etico personalizzarle in quanto la personalizzazione propagherà generalizzazioni e distorsioni. Un esempio di questa diffusione di pregiudizi è un'offerta di lavoro per ingegneri che non viene visualizzata a destinatari anziani o in base al genere.
+* **Informazioni sulle impostazioni locali**: in molte posizioni del mondo, le informazioni sulla posizione, ad esempio un codice postale, un CAP o un nome di quartiere, possono essere strettamente correlate al reddito, alla razza e alla religione.
+* **Percezione dell'equità da**parte dell'utente: anche nei casi in cui l'applicazione sta prendendo decisioni valide, considerare gli effetti degli utenti che percepiscono che il contenuto visualizzato nell'applicazione cambia in un modo apparentemente correlato alle funzionalità che sarebbero discriminatorie.
+* **Distorsione indesiderata nelle funzionalità**: esistono tipi di distorsioni che possono essere introdotte usando funzionalità che influiscono solo su un subset della popolazione. È necessario prestare particolare attenzione se le caratteristiche vengono generate modo algoritmico, ad esempio quando si usa l'analisi di immagini per estrarre gli elementi di un'immagine o l'analisi del testo per individuare le entità in un testo. Conoscere le funzionalità dei servizi usati per creare queste caratteristiche.
 
 Quando si scelgono le caratteristiche da inviare in contesti e azioni a Personalizza esperienze, applicare le procedure seguenti:
 
 * Considerare se l'uso di determinate caratteristiche per alcune applicazioni è legale ed etico e se caratteristiche apparentemente inoffensive potrebbero rappresentarne altre da evitare.
 * Garantire trasparenza agli utenti in merito all'uso di algoritmi e analisi dei dati per la personalizzazione delle opzioni visualizzate.
-* Chiediti: I miei utenti si preoccuperebbero e sarebbero felici se ho usato queste informazioni per personalizzare il contenuto per loro? Mi sentirei a mio agio se dovessi mostrare agli utenti come è stata presa la decisione di evidenziare o nascondere determinati elementi?
+* Domanda: gli utenti si preoccupano di essere felici se ho usato queste informazioni per personalizzare il contenuto? Mi sentirei a mio agio se dovessi mostrare agli utenti come è stata presa la decisione di evidenziare o nascondere determinati elementi?
 * Usare dati comportamentali anziché dati di classificazione o segmentazione basati su altre caratteristiche. Le informazioni demografiche venivano tradizionalmente usate dai rivenditori per motivi storici, perché risultavano semplici da raccogliere e sfruttare prima dell'era digitale. È tuttavia opportuno chiedersi quanto siano rilevanti le informazioni demografiche quando sono disponibili dati contestuali e cronologici sull'effettiva interazione che sono più strettamente correlati alle preferenze e all'identità degli utenti.
 * Considerare come si può impedire che le caratteristiche vengano "falsificate" da utenti malintenzionati, che con un elevato numero di attacchi di spoofing potrebbero fuorviare il training di Personalizza esperienze in modo da disturbare, mettere in imbarazzo e molestare determinate classi di utenti.
 * Quando appropriato e fattibile, progettare l'applicazione in modo che gli utenti possano acconsentire esplicitamente all'uso di alcune caratteristiche personali o rifiutarlo esplicitamente. Queste caratteristiche potrebbe essere raggruppate, ad esempio, come "Informazioni sull'ubicazione", "Informazioni sul dispositivo", "Cronologia degli acquisti precedenti" e così via.
@@ -103,7 +103,7 @@ Un sito di notizie, al contrario, potrebbe voler impostare ricompense collegate 
 ### <a name="unintended-consequences-from-reward-scores"></a>Conseguenze impreviste dei punteggi di ricompensa
 Pur essendo creati con le migliori intenzioni, i punteggi di ricompensa possono comunque generare conseguenze o risultati imprevisti nella classificazione del contenuto da parte di Personalizza esperienze.
 
-Considerare gli esempi seguenti:
+Considera gli esempi che seguono:
 
 * Basando la ricompensa per la personalizzazione di contenuto video sulla percentuale di lunghezza del video visualizzata si tenderà probabilmente a classificare i video più brevi.
 * La ricompensa per le condivisioni sui social media, senza analisi del sentiment in relazione alla modalità di condivisione o al contenuto stesso, potrebbe determinare la classificazione di contenuto offensivo, non moderato o provocatorio che tende a suscitare un "engagement" considerevole ma aggiunge scarso valore.
@@ -184,7 +184,7 @@ Valutare la possibilità di creare metodi con cui i membri del team, gli utenti 
 
 Nel considerare gli effetti collaterali dell'uso di qualsiasi tecnologia, chiunque è limitato dalla propria prospettiva ed esperienza di vita. Ampliare la gamma di opinioni disponibile integrando più voci eterogenee nei team, tra gli utenti o nei comitati consultivi, in modo che possano esprimersi e siano incoraggiate a farlo. Prendere in considerazione materiali di formazione e apprendimento per ampliare ulteriormente le conoscenze del team in questo campo e per aumentare la capacità di affrontare argomenti complessi e sensibili.
 
-Valutare la possibilità di trattare le attività relative all'utilizzo responsabile come altre attività trasversali nel ciclo di vita dell'applicazione, ad esempio le attività correlate all'esperienza utente, alla sicurezza o a DevOps. Queste attività e i relativi requisiti non possono essere rimandati a un secondo momento. L'uso responsabile deve essere discusso e verificato in tutto il ciclo di vita dell'applicazione.
+Prendere in considerazione le attività relative all'uso responsabile proprio come le altre attività crosscutting nel ciclo di vita dell'applicazione, ad esempio le attività relative all'esperienza utente, alla sicurezza o DevOps. Queste attività e i relativi requisiti non possono essere rimandati a un secondo momento. L'uso responsabile deve essere discusso e verificato in tutto il ciclo di vita dell'applicazione.
 
 ## <a name="questions-and-feedback"></a>Domande, commenti e suggerimenti
 
@@ -192,7 +192,7 @@ Microsoft si impegna continuamente per offrire strumenti e documenti che consent
 
 ## <a name="recommended-reading"></a>Letture consigliate
 
-* Scopri i sei principi di Microsoft per lo sviluppo responsabile dell'IA pubblicato nel libro di gennaio 2018, [The Future Computed](https://news.microsoft.com/futurecomputed/)
+* Vedere i sei principi Microsoft per lo sviluppo responsabile di intelligenza artificiale pubblicata nel libro di gennaio 2018, [il futuro calcolato](https://news.microsoft.com/futurecomputed/)
 * [Who Owns the Future?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) (A chi appartiene il futuro?) di Jaron Lanier
 * [Armi di distruzione matematica](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) di Cathy O'Neil
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) (Etica e data science) di DJ Patil, Hilary Mason, Mike Loukides
@@ -203,4 +203,4 @@ Microsoft si impegna continuamente per offrire strumenti e documenti che consent
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Caratteristiche: azione e contesto](concepts-features.md).
+[Funzionalità: azione e contesto](concepts-features.md).

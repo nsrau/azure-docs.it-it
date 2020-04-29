@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811420"
 ---
 # <a name="azure-customer-data-protection"></a>Protezione dei dati dei clienti di Azure   
@@ -33,7 +33,7 @@ Al personale di supporto di Azure vengono assegnati account aziendali Active Dir
 
 Tutti i tentativi di accesso vengono monitorati e possono essere visualizzati tramite un set di report di base.
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 Azure offre ai clienti un livello efficace di sicurezza dei dati, per impostazione predefinita e come opzione.
 
 **Separazione dei dati**: Azure è un servizio multi-tenant, ovvero un servizio in cui le distribuzioni e le macchine virtuali di molti clienti vengono archiviate nello stesso hardware fisico. Microsoft usa l'isolamento logico per separare i dati di ogni cliente dagli altri. La separazione offre i vantaggi economici e di ridimensionamento dei servizi multi-tenant, impedendo al contempo in modo rigoroso ai clienti di accedere ai dati altrui.
@@ -45,12 +45,12 @@ Azure offre ai clienti un livello efficace di sicurezza dei dati, per impostazio
 - il cliente e il cloud e
 - i sistemi e i data center di Azure (internamente).
 
-**Crittografia**: la crittografia dei dati archiviati e in transito può essere distribuita da clienti come procedura consigliata per garantire la riservatezza e l'integrità dei dati. È semplice per i clienti configurare i servizi cloud di Azure per usare TLS per proteggere le comunicazioni da Internet e anche tra le macchine virtuali ospitate da Azure.It is straightforward for customers to configure their Azure cloud services to use TLS to protect communications from the internet and even between their Azure-hosted VMs.
+**Crittografia**: la crittografia dei dati archiviati e in transito può essere distribuita da clienti come procedura consigliata per garantire la riservatezza e l'integrità dei dati. È semplice per i clienti configurare i servizi cloud di Azure per l'uso di TLS per proteggere le comunicazioni da Internet e anche tra le macchine virtuali ospitate da Azure.
 
 **Ridondanza dei dati**: Microsoft consente di assicurare la protezione dei dati in caso di attacco informatico o danni fisici in un data center. I clienti possono scegliere varie opzioni:
 
-- Archiviazione nazionale/area geografica per considerazioni sulla conformità o sulla latenza.
-- Archiviazione fuori paese/fuori area per motivi di sicurezza o ripristino di emergenza.
+- Archiviazione in-Country/in-Region per considerazioni sulla conformità o sulla latenza.
+- Archiviazione out-of-Country/out-of-Region a scopo di sicurezza o ripristino di emergenza.
 
 I dati possono essere replicati all'interno di un'area geografica selezionata per la ridondanza, ma non possono essere trasmessi al suo esterno. I clienti hanno più opzioni a disposizione per la replica dei dati, tra cui il numero delle copie e il numero e la posizione dei data center di replica.
 
@@ -81,7 +81,7 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Funzionalità di sicurezza del database SQL di AzureAzure SQL Database security features](infrastructure-sql.md)
+- [Funzionalità di sicurezza del database SQL di Azure](infrastructure-sql.md)
 - [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)

@@ -11,10 +11,10 @@ author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756588"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
@@ -43,7 +43,7 @@ Un notebook di esempio che illustra le distribuzioni locali è incluso nell'ista
 
     ![Screenshot del servizio locale in esecuzione nel notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio, `https://localhost:6789` È anche possibile eseguire la cella che `print('Local service port: {}'.format(local_service.port))` contiene per visualizzare la porta.
+1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio: `https://localhost:6789`. È anche possibile eseguire la cella che `print('Local service port: {}'.format(local_service.port))` contiene per visualizzare la porta.
 
     ![Screenshot della porta del servizio locale in esecuzione](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 

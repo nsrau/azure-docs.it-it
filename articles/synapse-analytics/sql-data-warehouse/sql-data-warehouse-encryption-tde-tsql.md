@@ -1,6 +1,6 @@
 ---
-title: Crittografia dei dati trasparente (T-SQL)Transparent data encryption (T-SQL)
-description: Crittografia dei dati trasparente (TDE) in Azure Synapse Analytics (T-SQL)Transparent data encryption (TDE) in Azure Synapse Analytics (T-SQL)
+title: Transparent Data Encryption (T-SQL)
+description: Transparent Data Encryption (Transparent Data Encryption) in Azure sinapsi Analytics (T-SQL)
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ms.openlocfilehash: ae751cc5b8e3ab67f3e65757724d0ebae1c45e02
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745242"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introduzione a Transparent Data Encryption (TDE)
@@ -33,7 +33,7 @@ Per abilitare Transparent Data Encryption (TDE), è necessario essere un amminis
 
 ## <a name="enabling-encryption"></a>Abilitazione della crittografia
 
-Attenersi alla seguente procedura per abilitare TDE:
+Per abilitare Transparent Data Encryption, seguire questa procedura:
 
 1. Connettere il database *master* sul server che ospita il database usando un account di accesso di un amministratore o di un membro del ruolo **dbmanager** nel database master.
 2. Eseguire l'istruzione seguente per crittografare il database.
@@ -44,7 +44,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ## <a name="disabling-encryption"></a>Disabilitazione della crittografia
 
-Attenersi alla seguente procedura per disattivare TDE:
+Per disabilitare Transparent Data Encryption, seguire questa procedura:
 
 1. Connettere il database *master* usando un account di accesso di un amministratore o di un membro del ruolo **dbmanager** nel database master.
 2. Eseguire l'istruzione seguente per crittografare il database.
@@ -54,11 +54,11 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Un pool SQL in pausa deve essere ripreso prima di apportare modifiche alle impostazioni TDE.
+> Prima di apportare modifiche alle impostazioni di Transparent Data Encryption, è necessario riavviare un pool SQL sospeso.
 
 ## <a name="verifying-encryption"></a>Verifica della crittografia
 
-Per verificare lo stato di crittografia, attenersi alla seguente procedura:
+Per verificare lo stato della crittografia, attenersi alla procedura seguente:
 
 1. Connettere il database *master* o dell'istanza usando un account di accesso di un amministratore o di un membro del ruolo **dbmanager** nel database master.
 2. Eseguire l'istruzione seguente per crittografare il database.

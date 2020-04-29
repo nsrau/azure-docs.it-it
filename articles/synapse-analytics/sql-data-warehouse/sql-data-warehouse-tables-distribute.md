@@ -1,6 +1,6 @@
 ---
-title: Linee guida per la progettazione di tabelle distribuiteDistributed tables design guidance
-description: Suggerimenti per la progettazione di tabelle distribuite distribuite distribuite con distribuzione hash e round robin nel pool SQL Synapse.
+title: Linee guida per la progettazione di tabelle distribuite
+description: Suggerimenti per la progettazione di tabelle distribuite con distribuzione hash e Round Robin nel pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742876"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Linee guida per la progettazione di tabelle distribuite nel pool SQL SynapseGuidance for designing distributed tables in Synapse SQL pool
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Linee guida per la progettazione di tabelle distribuite nel pool SQL sinapsi
 
-Suggerimenti per la progettazione di tabelle distribuite distribuite distribuite con distribuzione hash e round robin nei pool SQL di Synapse.
+Suggerimenti per la progettazione di tabelle distribuite con distribuzione hash e Round Robin in pool SQL sinapsi.
 
-In questo articolo si presuppone che l'utente abbia familiarità con i concetti di distribuzione e spostamento dei dati nel pool SQL Synapse.Per altre informazioni, vedere [Architettura MPP (Azure Synapse Analytics massicciamente parallela).](massively-parallel-processing-mpp-architecture.md)
+Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati nel pool SQL sinapsi.Per altre informazioni, vedere [Architettura MPP (Massive Parallel Processing) di Azure sinapsi Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
 
@@ -36,7 +36,7 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 
 - Quali sono le dimensioni della tabella?
 - Quanto spesso viene aggiornata la tabella?
-- Sono disponibili tabelle dei fatti e delle dimensioni in un pool SQL Synapse?
+- Sono presenti tabelle dei fatti e delle dimensioni in un pool SQL sinapsi?
 
 ### <a name="hash-distributed"></a>Tabelle con distribuzione hash
 
@@ -44,7 +44,7 @@ Una tabella con distribuzione hash distribuisce le righe della tabella nei vari 
 
 ![Tabella distribuita](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabella distribuita")  
 
-Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. Nel pool SQL Synapse questa conoscenza viene utilizzata per ridurre al minimo lo spostamento dei dati durante le query, con conseguente miglioramento delle prestazioni delle query.
+Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. Nel pool SQL sinapsi questa conoscenza viene usata per ridurre al minimo lo spostamento dei dati durante le query, migliorando le prestazioni delle query.
 
 Le tabelle con distribuzione hash sono particolarmente indicate per le tabelle dei fatti di grandi dimensioni in uno schema star. Possono contenere un numero molto elevato di righe e conseguire comunque prestazioni elevate. È necessario, ovviamente, considerare anche alcuni aspetti di progettazione per ottenere le prestazioni che il sistema distribuito è in grado di offrire. Uno di questi riguarda la scelta di una colonna di distribuzione appropriata, illustrata in questo articolo.
 
@@ -63,12 +63,12 @@ Valutare l'opportunità di usare la distribuzione round robin per una tabella ne
 
 - Quando si inizia come punto di partenza semplice (impostazione predefinita)
 - Se non è presente una chiave di join ovvia.
-- Se non esiste una buona colonna candidata per la distribuzione hash della tabella
+- Se non è presente alcuna colonna candidata corretta per la distribuzione di hash della tabella
 - Se la tabella non condivide una chiave di join comune con altre tabelle.
 - Se il join è meno significativo di altri join nella query.
 - Quando si tratta di una tabella di staging temporaneo.
 
-L'esercitazione Caricare i dati del taxi di [New York](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornisce un esempio di caricamento dei dati in una tabella di gestione temporanea round robin.
+L'esercitazione [caricare i dati sui taxi di New York](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornisce un esempio di caricamento dei dati in una tabella di staging Round Robin.
 
 ## <a name="choosing-a-distribution-column"></a>Scelta di una colonna di distribuzione
 
@@ -109,16 +109,16 @@ Per bilanciare l'elaborazione parallela, selezionare una colonna di distribuzion
 
 - **Contenga molti valori univoci.** La colonna può includere alcuni valori duplicati, ma tutte le righe con lo stesso valore vengono assegnate alla stessa distribuzione. Poiché sono presenti 60 distribuzioni, la colonna deve avere almeno 60 valori univoci.  In genere, tuttavia, il numero di valori univoci è molto più elevato.
 - **Non contenga valori null o ne contenga un numero limitato.** Come esempio estremo, se tutti i valori della colonna sono NULL, tutte le righe vengono assegnate alla stessa distribuzione. L'elaborazione della query, quindi, è assegnata a un'unica distribuzione e non può usufruire dei vantaggi dell'elaborazione in parallelo.
-- **Non è una colonna data**. Tutti i dati relativi alla stessa data vengono inseriti nella stessa distribuzione. In questo modo, se più utenti filtrano in base alla stessa data, l'intero lavoro di elaborazione viene eseguito solo da una delle 60 distribuzioni.
+- **Non è una colonna Data**. Tutti i dati relativi alla stessa data vengono inseriti nella stessa distribuzione. In questo modo, se più utenti filtrano in base alla stessa data, l'intero lavoro di elaborazione viene eseguito solo da una delle 60 distribuzioni.
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Scegliere una colonna di distribuzione che riduca al minimo lo spostamento dei dati
 
-Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. La scelta di una colonna di distribuzione che consenta di ridurre al minimo lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del pool SQL Synapse.Choosing a distribution column that helps minimize data movement is one of the most important strategies for optimizing performance of your Synapse SQL pool.
+Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. La scelta di una colonna di distribuzione che consente di ridurre al minimo lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del pool SQL sinapsi.
 
 Per ridurre al minimo lo spostamento dei dati, selezionare una colonna di distribuzione che:
 
 - Viene usata in clausole `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING`. Se due tabelle dei fatti di grandi dimensioni hanno join frequenti, le prestazioni delle query migliorano se si distribuiscono entrambe le tabelle in una delle colonne di join.  Se una tabella non viene usata in operazioni di join, valutare l'opportunità di distribuire la tabella in una colonna che si trova spesso nella clausola `GROUP BY`.
-- *Non* viene `WHERE` utilizzato nelle clausole. Questo potrebbe limitare la query in modo che non venga eseguita in tutte le distribuzioni.
+- *Non* viene utilizzata nelle `WHERE` clausole. Questo potrebbe limitare la query in modo che non venga eseguita in tutte le distribuzioni.
 - *Non* è una colonna dati. Le clausole WHERE filtrano spesso per data.  Quando si verifica questa situazione, l'intera elaborazione può essere eseguita solo su alcune distribuzioni.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Cosa fare quando nessuna delle colonne è una colonna di distribuzione appropriata
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Per creare una tabella distribuita, usare una di queste istruzioni:
 
-- [CREATE TABLE (pool SQL Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (pool SQL Synapse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool SQL sinapsi)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE come SELECT (pool SQL sinapsi)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

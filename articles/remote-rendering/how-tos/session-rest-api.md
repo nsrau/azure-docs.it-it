@@ -1,33 +1,33 @@
 ---
-title: L'API REST di gestione della sessioneThe session management REST API
-description: Descrive come gestire le sessioni
+title: API REST di gestione della sessione
+description: Viene descritto come gestire le sessioni
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681246"
 ---
-# <a name="use-the-session-management-rest-api"></a>Usare l'API REST di gestione della sessioneUse the session management REST API
+# <a name="use-the-session-management-rest-api"></a>Usare l'API REST di gestione delle sessioni
 
-Per usare la funzionalità di rendering remoto di Azure, è necessario creare una *sessione*. Ogni sessione corrisponde a una macchina virtuale (VM) allocata in Azure e in attesa della connessione di un dispositivo client. Quando un dispositivo si connette, la macchina virtuale esegue il rendering dei dati richiesti e serve il risultato come flusso video. Durante la creazione della sessione, si sceglie il tipo di server in cui eseguire, che determina i prezzi. Una volta che la sessione non è più necessaria, dovrebbe essere interrotta. Se non viene interrotto manualmente, verrà arrestato automaticamente alla scadenza del tempo di *lease* della sessione.
+Per usare la funzionalità di rendering remoto di Azure, è necessario creare una *sessione*. Ogni sessione corrisponde a una macchina virtuale (VM) allocata in Azure e in attesa della connessione di un dispositivo client. Quando un dispositivo si connette, la macchina virtuale esegue il rendering dei dati richiesti e fornisce il risultato come flusso video. Durante la creazione della sessione, è stato scelto il tipo di server in cui si desidera eseguire, che determina i prezzi. Quando la sessione non è più necessaria, è consigliabile arrestarla. Se non viene arrestato manualmente, viene arrestato automaticamente al termine del *periodo di lease* della sessione.
 
-Viene fornito uno script di PowerShell nel [repository degli esempi DI ARR](https://github.com/Azure/azure-remote-rendering) nella cartella *Scripts,* denominata *RenderingSession.ps1*, che illustra l'utilizzo del servizio. Lo script e la relativa configurazione sono descritti di seguito: [Script di PowerShell](../samples/powershell-example-scripts.md) di esempio
+Viene fornito uno script di PowerShell nel [repository di esempi arr](https://github.com/Azure/azure-remote-rendering) nella cartella *Scripts* , denominata *RenderingSession. ps1*, che illustra l'uso del servizio. Lo script e la relativa configurazione sono descritti di seguito: [script di PowerShell di esempio](../samples/powershell-example-scripts.md)
 
 > [!TIP]
-> I comandi di PowerShell elencati in questa pagina hanno lo scopo di completarsi a vicenda. Se si eseguono tutti gli script in sequenza all'interno dello stesso prompt dei comandi di PowerShell, questi verranno compilati uno sopra l'altro.
+> I comandi di PowerShell elencati in questa pagina sono destinati a essere integrati tra loro. Se si eseguono tutti gli script in sequenza all'interno dello stesso prompt dei comandi di PowerShell, verranno compilati uno sopra l'altro.
 
 ## <a name="regions"></a>Regioni
 
-Consulta [l'elenco delle aree disponibili](../reference/regions.md) per gli URL di base a cui inviare le richieste.
+Vedere l' [elenco delle aree disponibili](../reference/regions.md) per gli URL di base a cui inviare le richieste.
 
-Per gli script di esempio riportati di seguito è stata scelta l'area *westus2*.
+Per gli script di esempio seguenti è stata scelta l'area *westus2*.
 
-### <a name="example-script-choose-an-endpoint"></a>Script di esempio: scegliere un endpointExample script: Choose an endpoint
+### <a name="example-script-choose-an-endpoint"></a>Script di esempio: scegliere un endpoint
 
 ```PowerShell
 $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
@@ -35,9 +35,9 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 ## <a name="accounts"></a>Account
 
-Se non si dispone di un account di rendering remoto, [crearne uno](create-an-account.md). Ogni risorsa è identificata da un *accountId*, che viene utilizzato in tutte le API della sessione.
+Se non si dispone di un account di rendering remoto, [crearne uno](create-an-account.md). Ogni risorsa viene identificata da un *accountId*, che viene usato in tutte le API della sessione.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>Script di esempio: Impostare accountId e accountKeyExample script: Set accountId and accountKey
+### <a name="example-script-set-accountid-and-accountkey"></a>Script di esempio: set accountId e accountKey
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
@@ -46,9 +46,9 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>Intestazioni di richiesta comuni
 
-* L'intestazione *Authorization* deve`Bearer TOKEN`avere il`TOKEN`valore di " ", dove " " è il token di autenticazione [restituito dal servizio token di](tokens.md)sicurezza .
+* L'intestazione dell' *autorizzazione* deve avere il valore "`Bearer TOKEN`", dove "`TOKEN`" è il token di autenticazione [restituito dal servizio token di sicurezza](tokens.md).
 
-### <a name="example-script-request-a-token"></a>Script di esempio: richiedere un tokenExample script: Request a token
+### <a name="example-script-request-a-token"></a>Script di esempio: richiedere un token
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
@@ -59,7 +59,7 @@ $token = $response.AccessToken;
 
 ## <a name="common-response-headers"></a>Intestazioni di risposta comuni
 
-* L'intestazione *MS-CV* può essere utilizzata dal team del prodotto per tracciare la chiamata all'interno del servizio.
+* L'intestazione *MS-CV* può essere usata dal team del prodotto per tracciare la chiamata all'interno del servizio.
 
 ## <a name="create-a-session"></a>Creare una sessione
 
@@ -67,21 +67,21 @@ Questo comando crea una sessione. Restituisce l'ID della nuova sessione. È nece
 
 | URI | Metodo |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions/create | POST |
+| /V1/Accounts/*accountId*/Sessions/create | POST |
 
 **Corpo della richiesta:**
 
-* maxLeaseTime (timespan): un valore di timeout quando la macchina virtuale verrà rimossa automaticamente
-* models (array): URL del contenitore di asset da precaricare
-* size (stringa): la dimensione della macchina virtuale (**"standard"** o **"premium"**). Vedere [limitazioni](../reference/limits.md#overall-number-of-polygons)specifiche delle dimensioni della macchina virtuale.
+* maxLeaseTime (TimeSpan): valore di timeout quando la macchina virtuale verrà ritirata automaticamente
+* modelli (Array): URL del contenitore di asset da precaricare
+* Size (String): dimensioni della macchina virtuale (**"standard"** o **"Premium"**). Vedere limitazioni specifiche delle [dimensioni della macchina virtuale](../reference/limits.md#overall-number-of-polygons).
 
-**Risposte:**
+**Risposte**
 
 | Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
-| 202 | - sessionId: GUID | Operazione completata |
+| 202 | -sessionId: GUID | Operazione completata |
 
-### <a name="example-script-create-a-session"></a>Script di esempio: creare una sessioneExample script: Create a session
+### <a name="example-script-create-a-session"></a>Script di esempio: creare una sessione
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/create" -Method Post -ContentType "application/json" -Body "{ 'maxLeaseTime': '4:0:0', 'models': [], 'size': 'standard' }" -Headers @{ Authorization = "Bearer $token" }
@@ -109,9 +109,9 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 52
 ```
 
-### <a name="example-script-store-sessionid"></a>Script di esempio: Store sessionIdExample script: Store sessionId
+### <a name="example-script-store-sessionid"></a>Script di esempio: Archivio sessionId
 
-La risposta dalla richiesta precedente include un **sessionId**, che è necessario per tutte le richieste di completamento.
+La risposta della richiesta precedente include un **SessionID**, necessario per tutte le richieste di completamento.
 
 ```PowerShell
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
@@ -119,26 +119,26 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 
 ## <a name="update-a-session"></a>Aggiornare una sessione
 
-Questo comando aggiorna i parametri di una sessione. Attualmente è possibile estendere solo il tempo di lease di una sessione.
+Questo comando Aggiorna i parametri di una sessione. Attualmente è possibile estendere solo il tempo di lease di una sessione.
 
 > [!IMPORTANT]
-> Il tempo di lease viene sempre assegnato come tempo totale dall'inizio della sessione. Ciò significa che se è stata creata una sessione con un tempo di lease di un'ora e si desidera estendere il tempo di lease per un'altra ora, è necessario aggiornare maxLeaseTime a due ore.
+> Il tempo di lease viene sempre fornito come tempo totale dall'inizio della sessione. Ciò significa che se è stata creata una sessione con una durata di lease di un'ora e si desidera estendere la durata del lease per un'altra ora, è necessario aggiornare il maxLeaseTime a due ore.
 
 | URI | Metodo |
 |-----------|:-----------|
-| /v1/accounts/*accountID*/sessions/*iddellasessione* | PATCH |
+| /V1/Accounts/*AccountID*/Sessions/*SessionID* | PATCH |
 
 **Corpo della richiesta:**
 
-* maxLeaseTime (timespan): un valore di timeout quando la macchina virtuale verrà rimossa automaticamente
+* maxLeaseTime (TimeSpan): valore di timeout quando la macchina virtuale verrà ritirata automaticamente
 
-**Risposte:**
+**Risposte**
 
 | Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | | Operazione completata |
 
-### <a name="example-script-update-a-session"></a>Script di esempio: aggiornare una sessioneExample script: Update a session
+### <a name="example-script-update-a-session"></a>Script di esempio: aggiornare una sessione
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -160,21 +160,21 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## <a name="get-active-sessions"></a>Ottenere sessioni attiveGet active sessions
+## <a name="get-active-sessions"></a>Ottenere sessioni attive
 
 Questo comando restituisce un elenco di sessioni attive.
 
 | URI | Metodo |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions | GET |
+| /V1/Accounts/*accountId*/Sessions | GET |
 
-**Risposte:**
+**Risposte**
 
 | Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
-| 200 | - sessioni: matrice di proprietà della sessione- sessions: array of session properties | vedere la sezione "Ottenere le proprietà della sessione" per una descrizione delle proprietà della sessione |
+| 200 | -Sessions: matrice di proprietà della sessione | vedere la sezione "ottenere le proprietà della sessione" per una descrizione delle proprietà della sessione |
 
-### <a name="example-script-query-active-sessions"></a>Script di esempio: eseguire query sulle sessioni attiveExample script: Query active sessions
+### <a name="example-script-query-active-sessions"></a>Script di esempio: eseguire query sulle sessioni attive
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -203,21 +203,21 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
 
-## <a name="get-sessions-properties"></a>Ottenere le proprietà delle sessioniGet sessions properties
+## <a name="get-sessions-properties"></a>Proprietà Get Sessions
 
 Questo comando restituisce informazioni su una sessione, ad esempio il nome host della macchina virtuale.
 
 | URI | Metodo |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions/*sessionId*/properties | GET |
+| /V1/Accounts/*accountId*/Sessions/*SessionID*/Properties | GET |
 
-**Risposte:**
+**Risposte**
 
 | Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
-| 200 | - messaggio: stringa<br/>- sessionElapsedTime: periodo di tempo<br/>- sessionHostname: stringa<br/>- sessionId: stringa<br/>- sessionMaxLeaseTime: intervallo di tempo<br/>- sessionSize: enum<br/>- sessionStatus: enum | enum sessionStatus - avvio, pronto, arresto, arresto, scaduto, errore<br/>Se lo stato è 'errore' o 'scaduto', il messaggio conterrà ulteriori informazioni |
+| 200 | -Message: stringa<br/>-sessionElapsedTime: TimeSpan<br/>-sessionHostname: stringa<br/>-sessionId: stringa<br/>-sessionMaxLeaseTime: TimeSpan<br/>-sessionSize: enumerazione<br/>-sessionStatus: enumerazione | enum sessionStatus {starting, Ready, stoping, Stopped, expired, Error}<br/>Se lo stato è' Error ' o ' expired ', il messaggio conterrà ulteriori informazioni |
 
-### <a name="example-script-get-session-properties"></a>Script di esempio: ottenere le proprietà della sessioneExample script: Get session properties
+### <a name="example-script-get-session-properties"></a>Script di esempio: ottenere le proprietà della sessione
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -246,21 +246,21 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 60
 ```
 
-## <a name="stop-a-session"></a>Interrompere una sessione
+## <a name="stop-a-session"></a>Arrestare una sessione
 
-Questo comando interrompe una sessione. La macchina virtuale allocata verrà recuperata poco dopo.
+Questo comando Arresta una sessione. La macchina virtuale allocata verrà recuperata subito dopo.
 
 | URI | Metodo |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/session/*iddellasessione* | DELETE |
+| /V1/Accounts/*accountId*/Sessions/*SessionID* | DELETE |
 
-**Risposte:**
+**Risposte**
 
 | Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 204 | | Operazione completata |
 
-### <a name="example-script-stop-a-session"></a>Script di esempio: interrompere una sessioneExample script: Stop a session
+### <a name="example-script-stop-a-session"></a>Script di esempio: arrestare una sessione
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Delete -Headers @{ Authorization = "Bearer $token" }
@@ -283,4 +283,4 @@ RawContentLength  : 0
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Script di PowerShell di esempioExample PowerShell scripts](../samples/powershell-example-scripts.md)
+* [Script di Azure PowerShell di esempio](../samples/powershell-example-scripts.md)

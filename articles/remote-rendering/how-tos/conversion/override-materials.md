@@ -1,28 +1,28 @@
 ---
-title: Sostituzione dei materiali durante la conversione del modello
-description: Spiega il flusso di lavoro che esegue l'override del materiale in fase di conversione
+title: Sostituire i materiali durante la conversione di modelli
+description: Illustra il flusso di lavoro di sostituzione del materiale al momento della conversione
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681480"
 ---
-# <a name="override-materials-during-model-conversion"></a>Sostituzione dei materiali durante la conversione del modello
+# <a name="override-materials-during-model-conversion"></a>Sostituire i materiali durante la conversione di modelli
 
-Durante la conversione, le impostazioni del materiale nel modello di origine vengono utilizzate per definire i [materiali PBR](../../overview/features/pbr-materials.md) utilizzati dal renderer.
+Durante la conversione, le impostazioni del materiale nel modello di origine vengono utilizzate per definire i [materiali di PBR](../../overview/features/pbr-materials.md) utilizzati dal renderer.
 A volte la [conversione predefinita](../../reference/material-mapping.md) non fornisce i risultati desiderati ed è necessario apportare modifiche.
-Quando un modello viene convertito per l'uso nel rendering remoto di Azure, è possibile fornire un file di sostituzione del materiale per personalizzare la modalità di conversione del materiale in base al materiale.
-La sezione sulla [configurazione della conversione](configure-model-conversion.md) del modello contiene istruzioni per dichiarare il nome del file di override del materiale.
+Quando un modello viene convertito per l'uso nel rendering remoto di Azure, è possibile fornire un file di sostituzione del materiale per personalizzare il modo in cui la conversione del materiale viene eseguita in base al materiale.
+Nella sezione relativa alla [configurazione della conversione del modello](configure-model-conversion.md) sono disponibili istruzioni per dichiarare il nome del file di sostituzione del materiale.
 
-## <a name="the-override-file-used-during-conversion"></a>Il file di sostituzione utilizzato durante la conversione
+## <a name="the-override-file-used-during-conversion"></a>File di sostituzione usato durante la conversione
 
-Come semplice esempio, diciamo che un modello box ha un unico materiale, chiamato "Default". Il colore albedo deve essere regolato per l'uso in ARR.
-In questo caso, è possibile creare un `box_materials_override.json` file come segue:
+Come esempio semplice, supponiamo che un modello di riquadro disponga di un unico materiale, denominato "default". È necessario modificare il colore dell'albedo per l'uso in ARR.
+In questo caso, è `box_materials_override.json` possibile creare un file nel modo seguente:
 
 ```json
 [
@@ -38,7 +38,7 @@ In questo caso, è possibile creare un `box_materials_override.json` file come s
 ]
 ```
 
-Il `box_materials_override.json` file viene inserito nel `ConversionSettings.json` contenitore `box.fbx`di input e viene aggiunto un accanto a , che indica alla conversione dove trovare il file di sostituzione (vedere [Configurazione della conversione del modello](configure-model-conversion.md)):
+Il `box_materials_override.json` file viene inserito nel contenitore di input e viene aggiunto `ConversionSettings.json` un oggetto accanto `box.fbx`, che indica alla conversione dove trovare il file di sostituzione (vedere [configurazione della conversione del modello](configure-model-conversion.md)):
 
 ```json
 {
@@ -48,11 +48,11 @@ Il `box_materials_override.json` file viene inserito nel `ConversionSettings.jso
 
 Quando il modello viene convertito, verranno applicate le nuove impostazioni.
 
-### <a name="color-materials"></a>Materiali colore
+### <a name="color-materials"></a>Materiali a colori
 
-Il modello [di materiale](../../overview/features/color-materials.md) a colori descrive una superficie costantemente ombreggiata che è indipendente dall'illuminazione.
-Ciò è utile, ad esempio, per le risorse create dagli algoritmi di fotogrammetria.
-Nei file di sostituzione del materiale, un materiale `unlit` può `true`essere dichiarato come materiale a colori impostando su .
+Il modello [Material color](../../overview/features/color-materials.md) descrive una superficie costantemente ombreggiata che è indipendente dall'illuminazione.
+Questa operazione è utile per gli asset creati dagli algoritmi fotogrammetria, ad esempio.
+Nei file di override del materiale un materiale può essere dichiarato come materiale a colori impostando `unlit` su `true`.
 
 ```json
 [
@@ -67,11 +67,11 @@ Nei file di sostituzione del materiale, un materiale `unlit` può `true`essere d
 ]
 ```
 
-### <a name="ignore-specific-texture-maps"></a>Ignora mappe texture specifiche
+### <a name="ignore-specific-texture-maps"></a>Ignora mappe di trama specifiche
 
-A volte è possibile che il processo di conversione ignori mappe di trama specifiche. Questo potrebbe essere il caso quando il modello è stato generato da uno strumento che genera mappe speciali non comprese correttamente dal renderer. Ad esempio, un "OpacityMap" che viene utilizzato per definire un elemento diverso da opacità, o un modello in cui il "NormalMap" è memorizzato come "BumpMap". (In quest'ultimo caso si desidera ignorare "NormalMap", che causerà il convertitore di utilizzare "BumpMap" come "NormalMap".)
+In alcuni casi potrebbe essere necessario che il processo di conversione ignori mappe di trama specifiche. Questo potrebbe essere il caso in cui il modello è stato generato da uno strumento che genera mappe speciali non riconosciute correttamente dal renderer. Ad esempio, un "OpacityMap" usato per definire un valore diverso da Opacity o un modello in cui "NormalMap" viene archiviato come "sbalzo". Nel secondo caso si vuole ignorare "NormalMap", che farà sì che il convertitore usi "sbalzo" come "NormalMap".
 
-Il principio è semplice. Basta aggiungere una `ignoreTextureMaps` proprietà chiamata e aggiungere qualsiasi mappa texture che si desidera ignorare:
+Il principio è semplice. È sufficiente aggiungere una proprietà `ignoreTextureMaps` denominata e aggiungere qualsiasi mappa di trama che si desidera ignorare:
 
 ```json
 [
@@ -86,7 +86,7 @@ Per l'elenco completo delle mappe di trama che è possibile ignorare, vedere lo 
 
 ## <a name="json-schema"></a>Schema JSON
 
-Lo schema JSON completo per i file di materiale è fornito qui. Ad eccezione `unlit` `ignoreTextureMaps`di e , le proprietà disponibili sono un sottoinsieme delle proprietà descritte nelle sezioni sui modelli di [materiale di colore](../../overview/features/color-materials.md) e materiale [PBR.](../../overview/features/pbr-materials.md)
+Di seguito è riportato lo schema JSON completo per i file di materiali. Ad eccezione `unlit` di `ignoreTextureMaps`e, le proprietà disponibili sono un subset delle proprietà descritte nelle sezioni sui modelli di materiali [color Material](../../overview/features/color-materials.md) e [PBR](../../overview/features/pbr-materials.md) .
 
 ```json
 {
@@ -172,5 +172,5 @@ Lo schema JSON completo per i file di materiale è fornito qui. Ad eccezione `un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Materiali colore](../../overview/features/color-materials.md)
+* [Materiali a colori](../../overview/features/color-materials.md)
 * [Materiali PBR](../../overview/features/pbr-materials.md)

@@ -1,6 +1,6 @@
 ---
-title: Partizionamento delle tabelle
-description: Suggerimenti ed esempi per l'utilizzo di partizioni di tabella nel pool SQL SynapseRecommendations and examples for using table partitions in Synapse SQL pool
+title: Tabelle di partizionamento
+description: Suggerimenti ed esempi per l'uso di partizioni di tabella nel pool SQL sinapsi
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,41 +12,41 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742682"
 ---
-# <a name="partitioning-tables-in-synapse-sql-pool"></a>Partizionamento delle tabelle nel pool SQL Synapse
+# <a name="partitioning-tables-in-synapse-sql-pool"></a>Partizionamento delle tabelle nel pool SQL sinapsi
 
-Suggerimenti ed esempi per l'utilizzo di partizioni di tabella nel pool SQL Synapse.
+Suggerimenti ed esempi per l'uso di partizioni di tabella nel pool SQL sinapsi.
 
 ## <a name="what-are-table-partitions"></a>Introduzione alle partizioni di tabella
 
-Le partizioni di tabella consentono di suddividere i dati in gruppi più piccoli. Nella maggior parte dei casi, le partizioni di tabella vengono create in una colonna data. Il partizionamento è supportato in tutti i tipi di tabella del pool SQL Synapse. inclusi l'archivio colonne cluster, l'indice cluster e l'heap. Il partizionamento è supportato anche in tutti i tipi di distribuzione, sia hash che round robin.  
+Le partizioni di tabella consentono di suddividere i dati in gruppi più piccoli. Nella maggior parte dei casi, le partizioni di tabella vengono create in una colonna data. Il partizionamento è supportato in tutti i tipi di tabella del pool SQL sinapsi; inclusi columnstore cluster, indice cluster e heap. Il partizionamento è supportato anche in tutti i tipi di distribuzione, sia hash che round robin.  
 
 Il partizionamento può recare vantaggio alle prestazioni di query e di conservazione dei dati. Il fatto di recare vantaggio a entrambi i tipi di prestazioni o solo a uno dei due dipende dalla modalità di caricamento dei dati e dalla possibilità di usare la stessa colonna per entrambi gli scopi, poiché il partizionamento può essere eseguito solo su una colonna.
 
 ### <a name="benefits-to-loads"></a>Vantaggi in termini di caricamento
 
-Il vantaggio principale del partizionamento nel pool Synapse SQL consiste nel migliorare l'efficienza e le prestazioni del caricamento dei dati mediante l'eliminazione, il passaggio e l'unione delle partizioni. Nella maggior parte dei casi viene eseguito il partizionamento dei dati in una colonna di date strettamente legata all'ordine in cui i dati vengono caricati nel database. Uno dei principali vantaggi dell'uso di partizioni per conservare i dati è che evita la registrazione delle transazioni. Mentre le semplici operazioni di inserimento, aggiornamento o eliminazione dei dati possono rappresentare l'approccio più semplice, con un po' di impegno e di ragionamento, l'uso del partizionamento durante il processo di caricamento può migliorare notevolmente le prestazioni.
+Il vantaggio principale del partizionamento nel pool SQL sinapsi è quello di migliorare l'efficienza e le prestazioni del caricamento dei dati tramite l'eliminazione, il cambio e l'Unione delle partizioni. Nella maggior parte dei casi viene eseguito il partizionamento dei dati in una colonna di date strettamente legata all'ordine in cui i dati vengono caricati nel database. Uno dei principali vantaggi dell'uso di partizioni per conservare i dati è che evita la registrazione delle transazioni. Mentre le semplici operazioni di inserimento, aggiornamento o eliminazione dei dati possono rappresentare l'approccio più semplice, con un po' di impegno e di ragionamento, l'uso del partizionamento durante il processo di caricamento può migliorare notevolmente le prestazioni.
 
 Il cambio di partizioni consente di rimuovere o sostituire rapidamente una sezione di tabella.  Ad esempio, una tabella dei fatti delle vendite potrebbe contenere solo i dati relativi agli ultimi 36 mesi. Alla fine di ogni mese, il mese dei dati di vendita meno recenti viene eliminato dalla tabella.  Questi dati potrebbero essere eliminati tramite un'istruzione delete per eliminare i dati relativi al mese meno recente. Tuttavia, l'eliminazione di una grande quantità di dati riga per riga con un'istruzione delete può richiedere troppo tempo e inoltre creare il rischio di transazioni di grandi dimensioni il cui rollback può richiedere molto tempo nel caso in cui qualcosa andasse storto. Un approccio più appropriato consiste nel rilasciare la partizione dei dati meno recente. Nei casi in cui l'eliminazione delle singole righe arrivasse a richiedere alcune ore, l'eliminazione di un'intera partizione potrebbe richiedere pochi secondi.
 
 ### <a name="benefits-to-queries"></a>Vantaggi in termini di query
 
-Il partizionamento può essere usato anche per aumentare le prestazioni delle query. Una query che applica un filtro ai dati partizionati può limitare l'analisi solo alle partizioni idonee. Questo metodo di filtraggio può evitare un'analisi completa della tabella e analizzare solo un subset di dati più piccolo. Con l'introduzione di indici columnstore cluster, i vantaggi delle prestazioni di eliminazione del predicato sono meno utili, ma in alcuni casi possono esserci vantaggi per le query. Ad esempio, se la tabella dei fatti delle vendite viene partizionata in 36 mesi utilizzando il campo della data di vendita, le query che filtrano in base alla data di vendita possono ignorare la ricerca nelle partizioni che non corrispondono al filtro.
+Il partizionamento può essere usato anche per aumentare le prestazioni delle query. Una query che applica un filtro ai dati partizionati può limitare l'analisi solo alle partizioni idonee. Questo metodo di filtraggio può evitare un'analisi completa della tabella e analizzare solo un subset di dati più piccolo. Con l'introduzione di indici columnstore cluster, i vantaggi delle prestazioni di eliminazione del predicato sono meno utili, ma in alcuni casi possono esserci vantaggi per le query. Se, ad esempio, la tabella dei fatti delle vendite è partizionata in 36 mesi usando il campo Sales date, le query che filtrano la data di vendita possono ignorare la ricerca nelle partizioni che non corrispondono al filtro.
 
 ## <a name="sizing-partitions"></a>Ridimensionamento delle partizioni
 
 Mentre il partizionamento può essere usato per aumentare le prestazioni di alcuni scenari, in alcune circostanze la creazione di una tabella con **troppe** partizioni può influire negativamente sulle prestazioni.  Questi problemi valgono soprattutto per le tabelle columnstore cluster. Affinché il partizionamento sia utile, per un amministratore di database è importante capire quando usare il partizionamento e il numero di partizioni da creare. Non esiste una regola assoluta che chiarisca cosa si intende per troppe partizioni, perché dipende dai dati e dal numero di partizioni caricate contemporaneamente. In genere, uno schema di partizione corretto ha decine di centinaia di partizioni, non migliaia.
 
-Quando si creano partizioni in tabelle **columnstore cluster**, è importante tenere in considerazione il numero di righe appartenenti a ogni partizione. Per ottenere risultati ottimali in termini di compressione e prestazioni delle tabelle columnstore cluster, è necessario almeno 1 milione di righe per distribuzione e partizione. Prima della creazione delle partizioni, il pool SQL Synapse divide già ogni tabella in 60 database distribuiti. Eventuali partizionamenti aggiunti a una tabella sono in più rispetto alle distribuzioni create in background. Utilizzando questo esempio, se la tabella dei fatti delle vendite conteneva 36 partizioni mensili e dato che un pool SQL Synapse dispone di 60 distribuzioni, la tabella dei fatti delle vendite deve contenere 60 milioni di righe al mese o 2,1 miliardi di righe quando tutti i mesi vengono popolati. Se una tabella contiene un numero di righe inferiore a quello minimo consigliato per partizione, è necessario prendere in considerazione l'uso di un minor numero di partizioni per aumentare il numero di righe per partizione. Per altre informazioni, vedere anche l'articolo sull'[indicizzazione](sql-data-warehouse-tables-index.md), che include le query che possono valutare la qualità degli indici columnstore cluster.
+Quando si creano partizioni in tabelle **columnstore cluster**, è importante tenere in considerazione il numero di righe appartenenti a ogni partizione. Per ottenere risultati ottimali in termini di compressione e prestazioni delle tabelle columnstore cluster, è necessario almeno 1 milione di righe per distribuzione e partizione. Prima della creazione delle partizioni, il pool SQL sinapsi divide già ogni tabella in database distribuiti 60. Eventuali partizionamenti aggiunti a una tabella sono in più rispetto alle distribuzioni create in background. Usando questo esempio, se la tabella dei fatti delle vendite conteneva 36 partizioni mensili e dato che un pool SQL sinapsi ha 60 distribuzioni, la tabella dei fatti delle vendite dovrebbe contenere 60 milioni righe al mese o 2,1 miliardi righe quando tutti i mesi sono popolati. Se una tabella contiene un numero di righe inferiore a quello minimo consigliato per partizione, è necessario prendere in considerazione l'uso di un minor numero di partizioni per aumentare il numero di righe per partizione. Per altre informazioni, vedere anche l'articolo sull'[indicizzazione](sql-data-warehouse-tables-index.md), che include le query che possono valutare la qualità degli indici columnstore cluster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Differenze di sintassi rispetto a SQL Server
 
-Synapse SQL pool introduces a way to define partitions that is simpler than SQL Server. Le funzioni e gli schemi di partizionamento non vengono utilizzati nel pool SQL Synapse come in SQL Server. Piuttosto, è necessario identificare la colonna partizionata e le delimitazioni. Mentre la sintassi del partizionamento può essere leggermente diversa da quella di SQL Server, i concetti di base sono gli stessi. Il pool SQL di SQL Server e Synapse supporta una colonna di partizione per tabella, che può essere suddivisa in una partizione. Per altre informazioni sul partizionamento, vedere [Tabelle e indici partizionati](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Il pool SQL sinapsi introduce un modo per definire partizioni più semplici rispetto a SQL Server. Le funzioni e gli schemi di partizionamento non vengono usati nel pool SQL sinapsi, così come sono in SQL Server. Piuttosto, è necessario identificare la colonna partizionata e le delimitazioni. Mentre la sintassi del partizionamento può essere leggermente diversa da quella di SQL Server, i concetti di base sono gli stessi. SQL Server e il pool SQL sinapsi supportano una colonna di partizione per ogni tabella, che può essere una partizione con intervallo. Per altre informazioni sul partizionamento, vedere [Tabelle e indici partizionati](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 L'esempio seguente usa l'istruzione [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per eseguire il partizionamento della tabella FactInternetSales nella colonna OrderDateKey:
 
@@ -76,12 +76,12 @@ WITH
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrazione del partizionamento da SQL Server
 
-Per eseguire la migrazione delle definizioni di partizione di SQL Server al pool SQL Synapse è sufficiente:To migrate SQL Server partition definitions to Synapse SQL pool simply:
+Per eseguire la migrazione delle definizioni delle partizioni SQL Server al pool SQL sinapsi, è sufficiente:
 
 - Eliminare lo [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) di SQL Server.
 - Aggiungere la definizione di [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) all'istruzione CREATE TABLE.
 
-Se si sta migrando una tabella con partizionamento da un'istanza di SQL Server, l'SQL di seguito è utile per calcolare il numero di righe in ogni partizione. Tenere presente che se la stessa granularità di partizionamento viene utilizzata nel pool SQL Synapse, il numero di righe per partizione diminuisce di un fattore di 60.  
+Se si sta migrando una tabella con partizionamento da un'istanza di SQL Server, l'SQL di seguito è utile per calcolare il numero di righe in ogni partizione. Tenere presente che se si usa la stessa granularità di partizionamento nel pool SQL sinapsi, il numero di righe per partizione diminuisce di un fattore di 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -119,7 +119,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Cambio di partizione
 
-Il pool SQL Synapse supporta la suddivisione, l'unione e il passaggio delle partizioni. Ognuna di queste funzioni viene eseguita usando l'istruzione [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Il pool SQL sinapsi supporta la suddivisione, l'Unione e il cambio di partizioni. Ognuna di queste funzioni viene eseguita usando l'istruzione [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Per il cambio di partizione tra due tabelle, è necessario verificare che le partizioni siano allineate sui rispettivi limiti e che le definizioni delle tabelle corrispondano. Poiché non sono disponibili vincoli CHECK per imporre l'intervallo di valori in una tabella, la tabella di origine deve contenere gli stessi limiti di partizione della tabella di destinazione. Se i limiti di partizione non sono uguali, il cambio di partizione non riuscirà, perché i metadati della partizione non verranno sincronizzati.
 
@@ -235,9 +235,9 @@ Dopo aver completato lo spostamento dei dati, è consigliabile aggiornare le sta
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Caricare nuovi dati in partizioni che contengono dati in un unico passaggioLoad new data into partitions that contain data in one step
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Caricare nuovi dati in partizioni che contengono dati in un unico passaggio
 
-Il caricamento dei dati nelle partizioni con cambio di partizione è un modo pratico modo fase nuovi dati in una tabella che non è visibile agli utenti il passaggio nei nuovi dati.  Può essere difficile per i sistemi occupati gestire i conflitti di blocco associati al cambio di partizione.  Per cancellare i dati esistenti `ALTER TABLE` in una partizione, era necessario un utilizzo necessario per la commutazione dei dati.  Poi `ALTER TABLE` un altro è stato necessario per passare nei nuovi dati.  Nel pool Synapse `TRUNCATE_TARGET` SQL, l'opzione è supportata nel `ALTER TABLE` comando.  Con `TRUNCATE_TARGET` `ALTER TABLE` il comando sovrascrive i dati esistenti nella partizione con i nuovi dati.  Di seguito è `CTAS` riportato un esempio che utilizza per creare una nuova tabella con i dati esistenti, inserisce nuovi dati, quindi riporta tutti i dati nella tabella di destinazione, sovrascrivendo i dati esistenti.
+Il caricamento dei dati nelle partizioni con cambio di partizione è un modo pratico per organizzare i nuovi dati in una tabella che non è visibile agli utenti nel passaggio dei nuovi dati.  Per gestire la contesa di blocco associata al cambio di partizione, è possibile che si tratti di una sfida sui sistemi occupati.  Per cancellare i dati esistenti in una partizione, un `ALTER TABLE` utilizzato per disattivare i dati.  Quindi, `ALTER TABLE` era necessario un altro per attivare i nuovi dati.  Nel pool di SQL sinapsi, `TRUNCATE_TARGET` l'opzione è supportata nel `ALTER TABLE` comando.  Con `TRUNCATE_TARGET` il `ALTER TABLE` comando sovrascrive i dati esistenti nella partizione con nuovi dati.  Di seguito è riportato un esempio `CTAS` che usa per creare una nuova tabella con i dati esistenti, inserire nuovi dati, quindi riportare tutti i dati nella tabella di destinazione, sovrascrivendo i dati esistenti.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -263,7 +263,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 
 ### <a name="table-partitioning-source-control"></a>Controllo del codice sorgente del partizionamento della tabella
 
-Per evitare che la definizione della tabella si **arrugginisca** nel sistema di controllo del codice sorgente, è possibile considerare il seguente approccio:
+Per evitare che la definizione della tabella venga **arrugginita** nel sistema di controllo del codice sorgente, è consigliabile considerare l'approccio seguente:
 
 1. Creare la tabella come tabella partizionata, ma senza valori di partizione.
 
@@ -339,7 +339,7 @@ Per evitare che la definizione della tabella si **arrugginisca** nel sistema di 
     DROP TABLE #partitions;
     ```
 
-Con questo approccio il codice nel controllo del codice sorgente rimane statico e i valori dei limiti di partizionamento possono essere dinamici; evolvendo con il database nel tempo.
+Con questo approccio il codice nel controllo del codice sorgente rimane statico e i valori limite del partizionamento possono essere dinamici; evoluzione con il database nel tempo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

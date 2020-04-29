@@ -1,6 +1,6 @@
 ---
-title: Configurare Azure ExpressRoute v1
-description: Configurazione di rete per l'ambiente del servizio app per PowerApps con Azure ExpressRoute.Network configuration for App Service Environment for PowerApps with Azure ExpressRoute. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Configurare Azure ExpressRoute V1
+description: Configurazione di rete per ambiente del servizio app per PowerApps con Azure ExpressRoute. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804436"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Dettagli della configurazione di rete per l'ambiente del servizio app per PowerApps con Azure ExpressRoute
@@ -87,20 +87,20 @@ Questa sezione mostra un esempio di configurazione di route definita dall'utente
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Installare Azure PowerShell dalla [pagina Download di Azure][AzureDownloads]. Scegliere un download con la data del mese di giugno 2015 o una data successiva. In **Strumenti** > da riga di comando**Windows PowerShell**selezionare **Installa** per installare i cmdlet di PowerShell più recenti.
+* Installare Azure PowerShell dalla [pagina Download di Azure][AzureDownloads]. Scegliere un download con la data del mese di giugno 2015 o una data successiva. In **strumenti** > da riga di comando**Windows PowerShell**selezionare **Installa** per installare i cmdlet di PowerShell più recenti.
 
 * Creare una subnet univoca da usare esclusivamente con l'ambiente del servizio app. In questo modo, le route definite dall'utente applicate alla subnet aprono solo il traffico in uscita per l'ambiente del servizio app.
 
 > [!IMPORTANT]
 > Distribuire l'ambiente del servizio app solo dopo aver completato la procedura di configurazione. Questi passaggi consentono di assicurarsi che la connettività di rete in uscita sia disponibile prima di tentare di distribuire l'ambiente del servizio app.
 
-### <a name="step-1-create-a-route-table"></a>Passaggio 1: Creare una tabella di routeStep 1: Create a route table
+### <a name="step-1-create-a-route-table"></a>Passaggio 1: creare una tabella di route
 
 Creare una tabella di route denominata **DirectInternetRouteTable** nell'area Stati Uniti occidentali di Azure, come mostrato in questo frammento di codice:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Passaggio 2: Creare route nella tabellaStep 2: Create routes in the table
+### <a name="step-2-create-routes-in-the-table"></a>Passaggio 2: creare route nella tabella
 
 Aggiungere route alla tabella per abilitare l'accesso in uscita a Internet.  
 
@@ -119,13 +119,13 @@ In alternativa, scaricare un elenco completo e aggiornato di intervalli CIDR usa
 > Una singola route definita dall'utente ha un limite massimo predefinito di 100 route. È necessario compattare gli intervalli di indirizzi IP di Azure in modo da rientrare nel limite di 100 route. Le route definite dall'utente devono essere più specifiche rispetto a quelle annunciate dalla connessione ExpressRoute.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>Passaggio 3: Associare la tabella alla subnetStep 3: Associate the table to the subnet
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Passaggio 3: associare la tabella alla subnet
 
 Associare la tabella di route alla subnet in cui si intende distribuire l'ambiente del servizio app. Questo comando associa la tabella **DirectInternetRouteTable** alla subnet **ASESubnet** che conterrà l'ambiente del servizio app.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>Fase 4: Verificare e confermare il percorso
+### <a name="step-4-test-and-confirm-the-route"></a>Passaggio 4: testare e confermare la route
 
 Dopo aver associato la tabella di route alla subnet, testare e confermare la route.
 

@@ -1,5 +1,5 @@
 ---
-title: Connettersi al pool SQL SynapseConnect to Synapse SQL pool
+title: Connettersi al pool SQL sinapsi
 description: Connettersi al pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -12,13 +12,13 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e5c015751e8b0aeed7bd84086cc4f65c234fdb41
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745323"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Connettersi al pool SQL SynapseConnect to Synapse SQL pool
+# <a name="connect-to-synapse-sql-pool"></a>Connettersi al pool SQL sinapsi
 
 Connettersi al pool SQL.
 
@@ -27,15 +27,15 @@ Connettersi al pool SQL.
 Il nome del server nell'esempio seguente è sqlpoolservername.database.windows.net. Per trovare il nome completo del server, procedere come segue:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Analisi synapse di Azure**.
-3. Fare clic sul pool SQL a cui si desidera connettersi.
+2. Fare clic su **Azure sinapsi Analytics**.
+3. Fare clic sul pool SQL a cui ci si vuole connettere.
 4. Individuare il nome completo del server.
 
    ![Nome completo del server](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Driver supportati e stringhe di connessione
 
-Il pool SQL supporta [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Per trovare la versione e la documentazione più recenti, fare clic su uno dei driver precedenti.
+Il pool SQL supporta [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Per trovare la versione e la documentazione più recenti, fare clic su uno dei driver precedenti.
 
 Per generare automaticamente la stringa di connessione per il driver in uso dal portale di Azure, fare clic su **Mostra stringhe di connessione del database** nell'esempio precedente. Di seguito sono riportati alcuni esempi di come si presenta la stringa di connessione per ogni driver.
 
@@ -68,15 +68,15 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="connection-settings"></a>Impostazioni di connessione
 
-Il pool SQL standardizza alcune impostazioni durante la creazione di connessione e oggetti. Queste impostazioni, di cui non è possibile eseguire l'override, includono:
+Il pool SQL standardizza alcune impostazioni durante la connessione e la creazione di oggetti. Queste impostazioni, di cui non è possibile eseguire l'override, includono:
 
 | Impostazione del database | valore |
 |:--- |:--- |
-| [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ATTIVA |
-| [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ATTIVA |
+| [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |
+| [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |
 | [DATEFORMAT](/sql/t-sql/statements/set-dateformat-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |mdy |
-| [DATEFIRST](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |7 |
+| [DATEFORMAT](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |7 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con Visual Studio](sql-data-warehouse-query-visual-studio.md). Per altre informazioni sulle opzioni di autenticazione, vedere [Autenticazione in Analisi synapse](sql-data-warehouse-authentication.md)di Azure.
+Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con Visual Studio](sql-data-warehouse-query-visual-studio.md). Per altre informazioni sulle opzioni di autenticazione, vedere [autenticazione in Azure sinapsi Analytics](sql-data-warehouse-authentication.md).

@@ -1,6 +1,6 @@
 ---
-title: Funzionalità del gateway applicazione di AzureAzure Application Gateway features
-description: Informazioni sulle funzionalità del gateway applicazione di AzureLearn about Azure Application Gateway features
+title: Funzionalità del gateway applicazione Azure
+description: Informazioni sulle funzionalità del gateway applicazione Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
 ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810237"
 ---
-# <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione di AzureAzure Application Gateway features
+# <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione Azure
 
 Il [gateway applicazione di Azure](overview.md) è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web.
 
 ![Concetti relativi al gateway applicazione](media/overview/figure1-720.png)
 
-Il gateway applicazione include le funzionalità seguenti:Application Gateway includes the following features:
+Il gateway applicazione include le funzionalità seguenti:
 
 - [Terminazione Secure Sockets Layer (SSL/TLS)](#secure-sockets-layer-ssltls-termination)
 - [Scalabilità automatica](#autoscaling)
-- [Ridondanza di zona](#zone-redundancy)
-- [VIP statico](#static-vip)
+- [Ridondanza della zona](#zone-redundancy)
+- [Indirizzo VIP statico](#static-vip)
 - [Web application firewall](#web-application-firewall)
 - [Controller di ingresso per il servizio Azure Kubernetes](#ingress-controller-for-aks)
 - [Routing basato su URL](#url-based-routing)
@@ -40,36 +40,36 @@ Il gateway applicazione include le funzionalità seguenti:Application Gateway in
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminazione Secure Sockets Layer (SSL/TLS)
 
-Il gateway applicazione supporta la terminazione SSL/TLS nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. Ma a volte la comunicazione non crittografata con i server non è un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni sicure. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL/TLS end-to-end.
+Il gateway applicazione supporta la terminazione SSL/TLS nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. Tuttavia, a volte le comunicazioni non crittografate con i server non sono un'opzione accettabile. Questo può dipendere dai requisiti di sicurezza e conformità o dal fatto che l'applicazione può accettare solo connessioni sicure. Per queste applicazioni, il gateway applicazione supporta la crittografia SSL/TLS end-to-end.
 
-Per ulteriori informazioni, vedere [Panoramica della terminazione SSL e SSL end-to-end con il gateway applicazioneFor](ssl-overview.md) more information, see Overview of SSL termination and end to end SSL with Application Gateway
+Per altre informazioni, vedere [Panoramica della terminazione SSL e del protocollo SSL end-to-end con il gateway applicazione](ssl-overview.md)
 
 ## <a name="autoscaling"></a>Scalabilità automatica
 
-Il Standard_v2 del gateway applicazione supporta la scalabilità automatica e può aumentare o ridurre le dimensioni in base alla modifica dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. 
+Il Standard_v2 del gateway applicazione supporta la scalabilità automatica e può aumentare o ridurre le prestazioni in base alla modifica di modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. 
 
-Per ulteriori informazioni sulle funzionalità di Standard_v2 del gateway applicazione, vedere [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+Per altre informazioni sul gateway applicazione Standard_v2 funzionalità, vedere la pagina relativa alla [scalabilità automatica V2](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="zone-redundancy"></a>Ridondanza della zona
 
-Un gateway applicazione Standard_v2 può estendersi su più zone di disponibilità, offrendo una migliore resilienza degli errori e rimuovendo la necessità di eseguire il provisioning di gateway applicazione separati in ogni zona.
+Un gateway applicazione Standard_v2 può estendersi su più zone di disponibilità, offrendo una migliore resilienza degli errori e rimuovendo la necessità di effettuare il provisioning di gateway applicazione distinti in ogni zona.
 
 ## <a name="static-vip"></a>Indirizzo VIP statico
 
-Il gateway applicazione Standard_v2 SKU supporta esclusivamente il tipo VIP statico. Questa funzionalità garantisce che l'indirizzo VIP associato al gateway applicazione non cambi nel corso del ciclo di vita del gateway applicazione.
+Il gateway applicazione Standard_v2 SKU supporta esclusivamente il tipo di indirizzo VIP statico. Questa funzionalità garantisce che l'indirizzo VIP associato al gateway applicazione non cambi nel corso del ciclo di vita del gateway applicazione.
 
 ## <a name="web-application-firewall"></a>Web application firewall
 
-Web Application Firewall (WAF) è un servizio che fornisce protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole dei [set di regole principali OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (solo WAF_v2), 3.0 e 2.2.9. 
+Web Application Firewall (WAF) è un servizio che offre una protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. WAF si basa su regole dei [set di regole principali OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (solo WAF_v2), 3.0 e 2.2.9. 
 
-Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può essere un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. I gateway applicazione esistenti possono essere convertiti facilmente in un gateway applicazione abilitato per Web Application Firewall.
+Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può essere un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione abilitato per il Web Application Firewall.
 
 Per altre informazioni, vedere [Che cos'è Azure Web Application Firewall?](../web-application-firewall/overview.md).
 
 ## <a name="ingress-controller-for-aks"></a>Controller di ingresso per il servizio Azure Kubernetes
 Il controller di ingresso del gateway applicazione consente di usare il gateway applicazione come ingresso per un cluster del [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/). 
 
-Il controller in ingresso viene eseguito come un pod all'interno del cluster AKS e utilizza [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) e le converte in una configurazione del gateway applicazione, che consente al gateway di bilanciare il carico del traffico verso i pod Kubernetes. Il controller di ingresso supporta solo gli SKU gateway applicazione Standard_v2 e WAF_v2. 
+Il controller di ingresso viene eseguito come Pod nel cluster AKS e USA [le risorse di ingresso Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) e le converte in una configurazione del gateway applicazione, che consente al gateway di bilanciare il carico del traffico ai pod Kubernetes. Il controller di ingresso supporta solo gli SKU gateway applicazione Standard_v2 e WAF_v2. 
 
 Per altre informazioni, vedere [Controller di ingresso del gateway applicazione di Azure](ingress-controller-overview.md).
 
@@ -79,7 +79,7 @@ Il routing basato su percorso URL consente di instradare il traffico a pool di s
 
 Ad esempio, per le richieste `http://contoso.com/video/*` viene eseguito il rounting verso VideoServerPool mentre per le richieste `http://contoso.com/images/*` viene eseguito il rounting verso ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
 
-Per ulteriori informazioni, consultate [Cenni preliminari sul routing basato sul percorso URL.](url-route-overview.md)
+Per altre informazioni, vedere [Panoramica del routing basato sul percorso URL](url-route-overview.md).
 
 ## <a name="multiple-site-hosting"></a>Hosting di più siti
 
@@ -89,7 +89,7 @@ Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoSer
 
 Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere `http://blog.contoso.com` e `http://app.contoso.com` ospitati in una singola distribuzione del gateway applicazione.
 
-Per ulteriori informazioni, vedere [Hosting di più siti del gateway applicazione](multiple-site-overview.md).
+Per altre informazioni, vedere [hosting di più siti nel gateway applicazione](multiple-site-overview.md).
 
 ## <a name="redirection"></a>Reindirizzamento
 
@@ -103,27 +103,27 @@ Il supporto del reindirizzamento nel gateway applicazione offre le funzionalità
 - Reindirizzamento basato sul percorso. Questo tipo di reindirizzamento consente il reindirizzamento da HTTP a HTTPS solo in un'area specifica del sito, ad esempio l'area del carrello acquisti indicata da `/cart/*`.
 - Reindirizzamento a un sito esterno.
 
-Per ulteriori informazioni, vedere Panoramica del [reindirizzamento del gateway applicazione](redirect-overview.md).
+Per altre informazioni, vedere [Panoramica del reindirizzamento del gateway applicazione](redirect-overview.md).
 
 ## <a name="session-affinity"></a>Affinità di sessione
 
 L'affinità di sessione basata su cookie è utile quando si vuole mantenere una sessione utente nello stesso server. Usando cookie gestiti dal gateway, il gateway applicazione può indirizzare il traffico successivo proveniente da una sessione utente allo stesso server per l'elaborazione. Questo è importante nei casi in cui lo stato della sessione viene salvato in locale sul server per una sessione utente.
 
-Per ulteriori informazioni, vedere [Funzionamento di un gateway applicazione](how-application-gateway-works.md#modifications-to-the-request).
+Per altre informazioni, vedere funzionamento di [un gateway applicazione](how-application-gateway-works.md#modifications-to-the-request).
 
 ## <a name="websocket-and-http2-traffic"></a>Traffico Websocket e HTTP/2
 
 Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HTTP/2. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket.
 
-I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. Questi protocolli hanno un overhead basso, a differenza di HTTP, e possono riutilizzare la stessa connessione TCP per più richieste/risposte, con conseguente utilizzo delle risorse più efficiente. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
+I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. Questi protocolli presentano un sovraccarico ridotto, a differenza di HTTP, e possono riutilizzare la stessa connessione TCP per più richieste/risposte, causando un utilizzo più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
 Per altre informazioni, vedere [Supporto per WebSocket](application-gateway-websocket.md) e [supporto per HTTP/2](configuration-overview.md#http2-support).
 
 ## <a name="connection-draining"></a>Esaurimento delle connessioni
 
-Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Una volta abilitato, il gateway applicazione garantisce che tutte le istanze di annullamento della registrazione di un pool back-end non ricevano alcuna nuova richiesta consentendo il completamento delle richieste esistenti entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una modifica di configurazione dell'utente, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità. L'unica eccezione sono le richieste associate per l'annullamento della registrazione delle istanze, che sono state annullate in modo esplicito, a causa dell'affinità di sessione gestita dal gateway e continuano a essere propigate alle istanze di annullamento della registrazione.
+Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Dopo l'abilitazione, il gateway applicazione assicura che tutte le istanze di annullamento della registrazione di un pool back-end non ricevano alcuna nuova richiesta, consentendo al tempo stesso di completare le richieste esistenti entro un limite di tempo Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una modifica di configurazione dell'utente, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità. L'unica eccezione è costituita dalle richieste associate per l'annullamento della registrazione delle istanze, che sono state annullate in modo esplicito a causa dell'affinità di sessione gestita dal gateway e continuano a essere inviate tramite proxy alle istanze di annullamento della registrazione.
 
-Per ulteriori informazioni, vedere [Cenni preliminari](configuration-overview.md#connection-draining)sulla configurazione del gateway applicazione .
+Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
@@ -145,15 +145,15 @@ Per altre informazioni, vedere [Riscrivere le intestazioni HTTP](rewrite-http-he
 
 ## <a name="sizing"></a>Ridimensionamento
 
-I Standard_v2 del gateway applicazione possono essere configurati per la scalabilità automatica o le distribuzioni a dimensione fissa. Questo SKU non offre dimensioni di istanza diverse. Per altre informazioni sulle prestazioni e sui prezzi di v2, vedere [Ridimensionamento automatico nello SKU v2](application-gateway-autoscaling-zone-redundant.md#pricing).
+Il Standard_v2 del gateway applicazione può essere configurato per la scalabilità automatica o per le distribuzioni a dimensione fissa. Questo SKU non offre dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di v2, vedere [Ridimensionamento automatico nello SKU v2](application-gateway-autoscaling-zone-redundant.md#pricing).
 
-Lo standard del gateway applicazione è disponibile in tre dimensioni: **Small**, **Medium**e **Large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
+Lo standard del gateway applicazione è disponibile in tre dimensioni: **small**, **medium**e **large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
 Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione v1 con offload SSL abilitato:
 
-| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | large |
+| Dimensioni medie risposta della pagina di back-end | Piccolo | Medio | large |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 kB |35 Mbps |100 Mbps |200 Mbps |
@@ -161,10 +161,10 @@ La tabella seguente illustra una velocità effettiva media delle prestazioni per
 > [!NOTE]
 > Questi valori sono indicazioni approssimative della velocità effettiva di un gateway applicazione. La velocità effettiva dipende da vari dettagli ambientali come le dimensioni medie delle pagine, la posizione delle istanze back-end e il tempo di elaborazione per gestire una pagina. Per dati esatti sulle prestazioni, è consigliabile eseguire propri test. Questi valori vengono forniti solo come indicazioni per la pianificazione della capacità.
 
-## <a name="version-feature-comparison"></a>Confronto delle funzionalità di versione
+## <a name="version-feature-comparison"></a>Confronto delle funzionalità della versione
 
-Per un confronto tra funzionalità del gateway applicazione v1-v2, vedere Scalabilità automatica e gateway applicazione con ridondanza di zona v2For an Application Gateway v1-v2 feature comparison, see [Autoscaling and zona-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
+Per un confronto tra le funzionalità del gateway applicazione V1-V2, vedere [scalabilità automatica e gateway applicazione con ridondanza della zona V2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul funzionamento del gateway applicazione - [Funzionamento di un gateway applicazione](how-application-gateway-works.md)
+- Informazioni sul funzionamento del gateway applicazione: funzionamento del [gateway applicazione](how-application-gateway-works.md)

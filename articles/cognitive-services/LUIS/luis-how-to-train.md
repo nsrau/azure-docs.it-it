@@ -1,5 +1,5 @@
 ---
-title: Train app - LUIS
+title: Train app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Il training è il processo di appredimento per la propria versione applicazione Language Understanding (LUIS) al fine di migliorare la comprensione del linguaggio naturale. Eseguire il training dell'app LUIS dopo gli aggiornamenti al modello, ad esempio aggiunta, modifica, aggiunta di etichette o eliminazione di entità, finalità o espressioni.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219863"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Eseguire il training della versione attiva dell'app LUIS 
@@ -34,19 +34,19 @@ Per avviare il processo iterativo nel [portale LUIS](https://www.luis.ai), è pr
 
 1. Nell'app selezionare **Train** (Esegui training) nel riquadro superiore. 
 
-1. Al termine della formazione, viene visualizzata una notifica nella parte superiore del browser.
+1. Al termine del training, viene visualizzata una notifica nella parte superiore del browser.
 
-## <a name="training-date-and-time"></a>Data e ora dell'allenamento
+## <a name="training-date-and-time"></a>Data e ora di training
 
-La data e l'ora dell'allenamento sono GMT - 2. 
+La data e l'ora di training sono GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Eseguire il training con tutti i dati
 
-Il training usa una piccola percentuale di campionamento negativo. Se si desidera utilizzare tutti i dati anziché il piccolo campionamento negativo, utilizzare [l'API](#version-settings-api-use-of-usealltrainingdata).
+Il training usa una piccola percentuale di campionamento negativo. Se si desidera utilizzare tutti i dati anziché il piccolo campionamento negativo, utilizzare l' [API](#version-settings-api-use-of-usealltrainingdata).
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Utilizzo dell'API delle impostazioni di versione di UseAllTrainingDataVersion settings API use of UseAllTrainingData
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Impostazioni della versione utilizzo dell'API di UseAllTrainingData
 
-Utilizzare [l'API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) delle `UseAllTrainingData` impostazioni di versione con l'impostazione impostata su true per disattivare questa funzionalità. 
+Usare l' [API delle impostazioni](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) della versione `UseAllTrainingData` con impostato su true per disattivare questa funzionalità. 
 
 ## <a name="unnecessary-training"></a>Training non necessario
 
@@ -61,4 +61,4 @@ Per sapere quando il training è completo, è necessario eseguire il polling del
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Test interattivi](luis-interactive-test.md)
-* [Test di batch](luis-how-to-batch-test.md)
+* [Test in batch](luis-how-to-batch-test.md)

@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: batch
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
 ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80657491"
 ---
 ### <a name="general-requirements"></a>Requisiti generali
@@ -71,7 +71,7 @@ Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo
 
 **Regole di sicurezza in ingresso**
 
-| Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| Indirizzi IP di origine | Tag del servizio di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement`[Tag del servizio](../articles/virtual-network/security-overview.md#service-tags) (se si usa una variante regionale, nella stessa area dell'account batch) | * | Qualsiasi | 29876-29877 | TCP | Allow |
 | Indirizzi IP di origine utente per accedere in remoto ai nodi di calcolo e/o alla subnet del nodo di calcolo per le attività a istanze diverse di Linux, se necessario. | N/D | * | Qualsiasi | 3389 (Windows), 22 (Linux) | TCP | Allow |
@@ -81,7 +81,7 @@ Configurare il traffico in ingresso sulla porta 3389 (Windows) o 22 (Linux) solo
 
 **Regole di sicurezza in uscita**
 
-| Origine | Porte di origine | Destination | Tag del servizio di destinazione | Porte di destinazione | Protocollo | Azione |
+| Source (Sorgente) | Porte di origine | Destination | Tag del servizio di destinazione | Porte di destinazione | Protocollo | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Qualsiasi | * | [Tag servizio](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(se si usa una variante regionale, nella stessa area dell'account batch) | 443 | TCP | Allow |
 
@@ -107,13 +107,13 @@ Configurare il traffico in ingresso sulla porta 3389 per Windows se è necessari
 
 **Regole di sicurezza in ingresso**
 
-| Indirizzi IP di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| Indirizzi IP di origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Action |
 | --- | --- | --- | --- | --- | --- |
 Qualsiasi <br /><br />Anche se per questa operazione sono richieste in effetti autorizzazioni di tipo "Consenti tutto", il servizio Batch applica una regola ACL a livello di ogni nodo per escludere tutti gli indirizzi IP di servizio non Batch. | * | Qualsiasi | 10100, 20100, 30100 | TCP | Allow |
 | Facoltativo, per consentire l'accesso RDP ai nodi di calcolo. | * | Qualsiasi | 3389 | TCP | Allow |
 
 **Regole di sicurezza in uscita**
 
-| Origine | Porte di origine | Destination | Porte di destinazione | Protocollo | Azione |
+| Source (Sorgente) | Porte di origine | Destination | Porte di destinazione | Protocollo | Action |
 | --- | --- | --- | --- | --- | --- |
 | Qualsiasi | * | Qualsiasi | 443  | Qualsiasi | Allow |

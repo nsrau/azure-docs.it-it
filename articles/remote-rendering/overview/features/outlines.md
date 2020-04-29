@@ -1,38 +1,38 @@
 ---
-title: Rendering della struttura
-description: Spiega come eseguire il rendering del contorno di selezione
+title: Rendering del contorno
+description: Viene illustrato come eseguire il rendering della struttura di selezione
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680830"
 ---
-# <a name="outline-rendering"></a>Rendering della struttura
+# <a name="outline-rendering"></a>Rendering del contorno
 
-Gli oggetti selezionati possono essere evidenziati visivamente aggiungendo il rendering del contorno tramite il [componente di sostituzione dello stato gerarchico](../../overview/features/override-hierarchical-state.md). Questo capitolo spiega come vengono modificati i parametri globali per il rendering della struttura tramite l'API client.
+Gli oggetti selezionati possono essere evidenziati visivamente aggiungendo il rendering del contorno tramite il [componente di override dello stato gerarchico](../../overview/features/override-hierarchical-state.md). Questo capitolo illustra il modo in cui i parametri globali per il rendering della struttura vengono modificati tramite l'API client.
 
-Le proprietà della struttura sono un'impostazione globale. Tutti gli oggetti che utilizzano il rendering del contorno utilizzeranno la stessa impostazione: non è possibile utilizzare un colore del contorno per oggetto.
+Le proprietà della struttura sono un'impostazione globale. Tutti gli oggetti che usano il rendering della struttura utilizzeranno la stessa impostazione. non è possibile usare un colore di contorno per oggetto.
 
 ## <a name="parameters-for-outlinesettings"></a>Parametri per`OutlineSettings`
 
-Classe `OutlineSettings` contiene le impostazioni relative alle proprietà della struttura globale. Espone i seguenti membri:
+La `OutlineSettings` classe include le impostazioni correlate alle proprietà della struttura globale. Espone i membri seguenti:
 
 | Parametro      | Type    | Descrizione                                             |
 |----------------|---------|---------------------------------------------------------|
-| `Color`          | Color4Ub | Colore utilizzato per disegnare il contorno. La parte alfa viene ignorata.         |
-| `PulseRateHz`    | float   | Velocità con cui il contorno oscilla al secondo|
-| `PulseIntensity` | float   | L'intensità dell'effetto impulso del contorno. Deve essere compreso tra 0,0 per nessuna pulsazione e 1,0 per il pulsare completo. Intensità imposta implicitamente l'opacità `MinOpacity = 1.0 - PulseIntensity`minima del contorno come . |
+| `Color`          | Color4Ub | Colore utilizzato per disegnare la struttura. La parte alfa viene ignorata.         |
+| `PulseRateHz`    | float   | Velocità con cui viene oscillato il contorno al secondo|
+| `PulseIntensity` | float   | Intensità dell'effetto di impulso del contorno. Il numero deve essere compreso tra 0,0 e 1,0 per la pulsazione completa. L'intensità imposta in modo implicito l'opacità minima `MinOpacity = 1.0 - PulseIntensity`del contorno come. |
 
-![Contorni](./media/outlines.png) L'effetto `color` della modifica del parametro da giallo (a sinistra) a magenta (al centro) e `pulseIntensity` da 0 a 0,8 (a destra).
+![Descrive](./media/outlines.png) l'effetto della modifica del `color` parametro da giallo (a sinistra) a Magenta (al centro) e `pulseIntensity` da 0 a 0,8 (a destra).
 
 ## <a name="example"></a>Esempio
 
-The following code shows an example for setting outline parameters via the API:
+Il codice seguente illustra un esempio per l'impostazione dei parametri della struttura tramite l'API:
 
 ``` cs
 void SetOutlineParameters(AzureSession session)
@@ -46,8 +46,8 @@ void SetOutlineParameters(AzureSession session)
 
 ## <a name="performance"></a>Prestazioni
 
-Il rendering della struttura può avere un impatto significativo sulle prestazioni di rendering. Questo impatto varia in base alla relazione spaziale dello spazio dello schermo tra gli oggetti selezionati e non selezionati per un determinato fotogramma.
+Il rendering del contorno può avere un impatto significativo sulle prestazioni di rendering. Questo effetto varia in base alla relazione spaziale dello spazio dello schermo tra oggetti selezionati e non selezionati per un frame specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Componente di sostituzione dello stato gerarchico](../../overview/features/override-hierarchical-state.md)
+* [Componente di override dello stato gerarchico](../../overview/features/override-hierarchical-state.md)

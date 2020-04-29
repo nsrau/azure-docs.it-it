@@ -1,36 +1,36 @@
 ---
 title: Query spaziali
-description: Come eseguire query spaziali in una scenaHow to do spatial queries in a scene
+description: Come eseguire query spaziali in una scena
 author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 9a981aeb08ec46900994fd599b592b9f16034f34
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680531"
 ---
 # <a name="spatial-queries"></a>Query spaziali
 
-Le query spaziali sono operazioni con cui è possibile chiedere al servizio di rendering remoto quali oggetti si trovano in un'area. Le query spaziali vengono spesso utilizzate per implementare interazioni, ad esempio per capire a quale oggetto punta un utente.
+Le query spaziali sono operazioni con le quali è possibile richiedere al servizio di rendering remoto quali oggetti si trovano in un'area. Le query spaziali vengono spesso usate per implementare interazioni, ad esempio individuare l'oggetto a cui un utente sta puntando.
 
-Tutte le query spaziali vengono valutate sul server. Di conseguenza si tratta di operazioni asincrone e i risultati arriveranno con un ritardo che dipende dalla latenza di rete. Poiché ogni query spaziale genera traffico di rete, fare attenzione a non eseguire troppe query contemporaneamente.
+Tutte le query spaziali vengono valutate nel server. Di conseguenza, si tratta di operazioni asincrone e i risultati arrivano con un ritardo che dipende dalla latenza di rete. Poiché ogni query spaziale genera traffico di rete, prestare attenzione a non eseguire troppe operazioni contemporaneamente.
 
-## <a name="collision-meshes"></a>Maglie di collisione
+## <a name="collision-meshes"></a>Mesh di collisioni
 
-Le query spaziali sono alimentate dal motore [Havok Physics](https://www.havok.com/products/havok-physics) e richiedono la presenza di una mesh di collisione dedicata. Per impostazione predefinita, la [conversione](../../how-tos/conversion/model-conversion.md) del modello genera le dimensioni di collisione. Se non sono necessarie query spaziali su un modello complesso, è consigliabile disabilitare la generazione della mesh di collisione nelle opzioni di [conversione,](../../how-tos/conversion/configure-model-conversion.md)in quanto ha un impatto in diversi modi:
+Le query spaziali sono basate sul motore di [fisica Havok](https://www.havok.com/products/havok-physics) e richiedono la presenza di una mesh di collisione dedicata. Per impostazione predefinita, la [conversione del modello](../../how-tos/conversion/model-conversion.md) genera mesh di collisione. Se non è necessario eseguire query spaziali su un modello complesso, è consigliabile disabilitare la generazione della mesh di collisione nelle [Opzioni di conversione](../../how-tos/conversion/configure-model-conversion.md), in quanto ha un impatto in diversi modi:
 
-* [La conversione](../../how-tos/conversion/model-conversion.md) del modello richiederà molto più tempo.
-* Le dimensioni dei file del modello convertiti sono notevolmente maggiori, con un impatto sulla velocità di download.
-* I tempi di caricamento in fase di esecuzione sono più lunghi.
-* Il consumo di memoria della CPU di runtime è maggiore.
-* C'è un leggero sovraccarico delle prestazioni di runtime per ogni istanza del modello.
+* La [conversione del modello](../../how-tos/conversion/model-conversion.md) può richiedere molto più tempo.
+* Le dimensioni dei file di modello convertite sono notevolmente maggiori e influiscano sulla velocità di download.
+* I tempi di caricamento del runtime sono più lunghi.
+* Il consumo di memoria della CPU di runtime è superiore.
+* Si verifica un lieve sovraccarico delle prestazioni in fase di esecuzione per ogni istanza del modello.
 
-## <a name="ray-casts"></a>Cast di raggi
+## <a name="ray-casts"></a>Cast Ray
 
-Un cast a *raggi* è una query spaziale in cui il runtime controlla quali oggetti vengono intersecati da un raggio, a partire da una determinata posizione e puntando in una determinata direzione. Come ottimizzazione, viene data anche una distanza massima del raggio, per non cercare oggetti troppo lontani.
+Un *cast di raggio* è una query spaziale in cui il runtime controlla quali oggetti sono intersecati da un raggio, iniziando da una posizione specificata e puntando a una determinata direzione. Come ottimizzazione, viene anche fornita una distanza massima del raggio, in modo da non cercare oggetti troppo lontani.
 
 ````c#
 async void CastRay(AzureSession session)
@@ -54,13 +54,13 @@ async void CastRay(AzureSession session)
 }
 ````
 
-Ci sono tre modalità di raccolta dei colpi:
+Sono disponibili tre modalità di raccolta riscontri:
 
-* **Più vicino:** In questa modalità, verrà segnalato solo il colpo più vicino.
-* **Qualsiasi:** Preferisci questa modalità quando tutto quello che vuoi sapere è *se* un raggio colpirebbe qualsiasi cosa, ma non importa cosa è stato colpito esattamente. Questa query può essere notevolmente più economica da valutare, ma ha anche solo poche applicazioni.
-* **Tutti:** In questa modalità, vengono segnalati tutti i colpi lungo il raggio, ordinati per distanza. Non utilizzare questa modalità a meno che non sia necessario più del primo colpo. Limita il numero di `MaxHits` hit segnalati con l'opzione.
+* **Più vicino:** In questa modalità verrà segnalato solo il hit più vicino.
+* **Qualsiasi:** Preferisci questa modalità quando si vuole sapere *se* un raggio raggiunge qualcosa, ma non importa cosa è stato raggiunto esattamente. Questa query può essere notevolmente più economica per la valutazione, ma dispone anche di poche applicazioni.
+* **Tutti:** In questa modalità, tutti i riscontri lungo il raggio vengono segnalati, ordinati in base alla distanza. Non usare questa modalità a meno che non sia effettivamente necessario più del primo hit. Limitare il numero di riscontri segnalati `MaxHits` con l'opzione.
 
-Per escludere gli oggetti in modo selettivo dall'essere considerati per i cast di raggi, è possibile utilizzare il componente [HierarchicalStateOverrideComponent.](override-hierarchical-state.md)
+Per escludere gli oggetti in modo selettivo da considerare per i cast di raggio, è possibile usare il componente [HierarchicalStateOverrideComponent](override-hierarchical-state.md) .
 
 <!--
 The CollisionMask allows the quey to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
@@ -68,19 +68,19 @@ It is useful in case you want to ignore objects, for instance when setting an ob
 TODO : Add an API to make that possible.
 -->
 
-### <a name="hit-result"></a>Risultato del colpo
+### <a name="hit-result"></a>Risultato hit
 
-Il risultato di una query di cast a raggi è una matrice di hit. La matrice è vuota, se non è stato raggiunto alcun oggetto.
+Il risultato di una query ray cast è una matrice di riscontri. La matrice è vuota, se nessun oggetto è stato raggiunto.
 
-Un Hit ha le seguenti proprietà:
+Un hit presenta le proprietà seguenti:
 
-* **HitEntity:** Quale [entità](../../concepts/entities.md) è stata colpita.
-* **SubPartId:** Quale *sottomesh* è stato colpito in un [MeshComponent](../../concepts/meshes.md). Può essere utilizzato `MeshComponent.UsedMaterials` per indicizzare e cercare il [materiale](../../concepts/materials.md) in quel punto.
+* **HitEntity:** [Entità](../../concepts/entities.md) raggiunta.
+* **Sottopartita:** Quale *submesh* è stato raggiunto in un [MeshComponent](../../concepts/meshes.md). Può essere usato per indicizzare `MeshComponent.UsedMaterials` e cercare il [materiale](../../concepts/materials.md) in quel punto.
 * **HitPosition:** Posizione dello spazio globale in cui il raggio interseca l'oggetto.
-* **HitNormale:** Superficie dello spazio globale normale della mesh nella posizione dell'intersezione.
-* **DistanzaToHit:** La distanza dalla posizione di partenza del raggio al colpo.
+* **HitNormal:** Il normale della superficie di spazio globale della mesh in corrispondenza della posizione dell'intersezione.
+* **DistanceToHit:** Distanza dalla posizione iniziale del raggio al riscontro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Limiti dell'oggetto](../../concepts/object-bounds.md)
-* [Sostituzione degli stati gerarchici](override-hierarchical-state.md)
+* [Limiti degli oggetti](../../concepts/object-bounds.md)
+* [Override degli Stati gerarchici](override-hierarchical-state.md)

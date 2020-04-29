@@ -1,5 +1,5 @@
 ---
-title: Correggere le parole errate - LUIS
+title: Correggi parole errate-LUIS
 titleSuffix: Azure Cognitive Services
 description: È possibile correggere le parole in espressioni errate aggiungendo API Controllo ortografico Bing v7 alle query di endpoint LUIS.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80396823"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
@@ -36,7 +36,7 @@ La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/
 ## <a name="create-endpoint-key"></a>Creare una chiave endpoint
 Se la chiave gratuita è scaduta, creare una chiave endpoint.
 
-1. Accedere al [portale](https://portal.azure.com)di Azure . 
+1. Accedere al [Portale di Azure](https://portal.azure.com). 
 
 2. Nell'angolo superiore sinistro selezionare **Crea una risorsa**.
 
@@ -96,12 +96,12 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorare errori di ortografia
 
-Se non si vuole usare il servizio API controllo ortografico Bing v7, è necessario aggiungere l'ortografia corretta e non corretta. 
+Se non si vuole usare il servizio Controllo ortografico Bing API V7, è necessario aggiungere l'ortografia corretta e non corretta. 
 
-Due soluzioni sono:
+Sono disponibili due soluzioni:
 
-* Espressioni di esempio di etichetta con tutte le diverse ortografie in modo che LUIS possa apprendere l'ortografia corretta e gli errori di battitura. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
-* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione, non è necessario etichettare la parola variazioni nelle espressioni di esempio. 
+* Etichettare espressioni di esempio con tutte le ortografie diverse in modo che LUIS possa apprendere l'ortografia corretta e gli errori di digitazione. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
+* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione non è necessario etichettare le varianti di parola nelle espressioni di esempio. 
 
 ## <a name="publishing-page"></a>Pubblicazione di una pagina
 La pagina di [pubblicazione](luis-how-to-publish-app.md) contiene una casella di controllo **Abilita correttore ortografico Bing**. Si tratta di una comodità per creare la chiave e capire come cambia l'URL dell'endpoint. È comunque necessario usare i parametri di endpoint corretti per avere il controllo ortografico corretto per ogni espressione. 

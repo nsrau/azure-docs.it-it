@@ -1,15 +1,15 @@
 ---
-title: "Guida introduttiva: Pubblicazione della Knowledge Base, REST, C ' C ' - QnA Maker"
+title: 'Guida introduttiva: pubblicare la Knowledge base, REST, C#-QnA Maker'
 description: In questa guida di avvio rapido basata su REST e C# viene pubblicata una knowledge base e creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 0a2f64795d82928e33a10c7e9d162f2333cdf7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851707"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con C#
@@ -30,7 +30,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
     Se non si ha ancora una knowledge base, è possibile crearne una di esempio da usare per questa guida introduttiva: [Creare una nuova knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE]
-> I file di soluzione completi sono disponibili nel repository GitHub di [ **Azure-Samples/cognitive-services-qnamaker-csharp** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> I file della soluzione completa sono disponibili nel [repository GitHub **Azure-Samples/cognitive-Services-qnamaker-CSharp** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-knowledge-base-project"></a>Creare il progetto per la knowledge base
 

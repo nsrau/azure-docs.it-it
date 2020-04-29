@@ -1,7 +1,7 @@
 ---
-title: Come configurare RHEL/CentOS 7 - Servizio di riconoscimento vocale
+title: Come configurare RHEL/CentOS 7-servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come configurare RHEL/CentOS 7 in modo che sia possibile usare Speech SDK.
+description: Informazioni su come configurare RHEL/CentOS 7 in modo che sia possibile usare l'SDK di riconoscimento vocale.
 services: cognitive-services
 author: pankopon
 manager: jhakulin
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80639163"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configurare RHEL/CentOS 7 per Speech SDK
 
-Red Hat Enterprise Linux (RHEL) 8 x64 e CentOS 8 x64 sono ufficialmente supportati da Speech SDK versione 1.10.0 e successive. È anche possibile utilizzare l'SDK di riconoscimento vocale in RHEL/CentOS 7 x64, ma ciò richiede l'aggiornamento del compilatore C .
+Red Hat Enterprise Linux (RHEL) 8 x64 e CentOS 8 x64 sono ufficialmente supportati dalla versione 1.10.0 e successive dell'SDK per la sintesi vocale. È anche possibile usare l'SDK di riconoscimento vocale in RHEL/CentOS 7 x64, ma è necessario aggiornare il compilatore C++ (per lo sviluppo in C++) e la libreria di runtime C++ condivisa nel sistema.
 
-Per verificare la versione del compilatore di C, eseguire:
+Per controllare la versione del compilatore C++, eseguire:
 
 ```bash
 g++ --version
 ```
 
-Se il compilatore è installato, l'output dovrebbe essere simile al seguente:If the compiler is installed, the output should look like this:
+Se il compilatore è installato, l'output dovrebbe essere simile al seguente:
 
 ```bash
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-Questo messaggio indica che è installato GCC versione principale 4. Questa versione non dispone del supporto completo per lo standard C, utilizzato da Speech SDK. Se si tenta di compilare un programma in C, con questa versione di GCC e le intestazioni di Speech SDK, si creeranno errori di compilazione.
+Questo messaggio informa che è installato GCC Major versione 4. Questa versione non dispone del supporto completo per lo standard C++ 11, che viene usato dall'SDK di riconoscimento vocale. Il tentativo di compilare un programma C++ con questa versione di GCC e le intestazioni dell'SDK vocale comporteranno errori di compilazione.
 
-È anche importante controllare la versione della libreria di runtime condivisa di C, ovvero libstdc. La maggior parte dell'SDK vocale viene implementata come librerie native di C, il che significa che dipende da libstdc, indipendentemente dal linguaggio utilizzato per sviluppare applicazioni.
+È anche importante controllare la versione della libreria di runtime C++ condivisa (libstdc + +). La maggior parte dell'SDK per la sintesi vocale è implementata come librerie C++ native, vale a dire che dipende da libstdc + + indipendentemente dal linguaggio usato per sviluppare le applicazioni.
 
-Per trovare il percorso di libstdc nel sistema, eseguire:
+Per trovare il percorso di libstdc + + nel sistema, eseguire:
 
 ```bash
 ldconfig -p | grep libstdc++
 ```
 
-L'uscita su vaniglia RHEL/CentOS 7 (x64) è:
+L'output in Vanilla RHEL/CentOS 7 (x64) è:
 
 ```
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-In base a questo messaggio, è consigliabile controllare le definizioni di versione con questo comando:Based on this message, you'll want to check the version definitions with this command:
+In base a questo messaggio, è necessario controllare le definizioni di versione con questo comando:
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
@@ -65,14 +65,14 @@ CXXABI_1.3.7
 ...
 ```
 
-Speech SDK richiede **CXXABI_1.3.9** e **GLIBCXX_3.4.21.** È possibile trovare queste `ldd libMicrosoft.CognitiveServices.Speech.core.so` informazioni eseguendo sulle librerie Speech SDK dal pacchetto Linux.You can find this information by running on the Speech SDK libraries from the Linux package.
+Per Speech SDK sono necessari **CXXABI_1.3.9** e **GLIBCXX_3.4.21**. È possibile trovare queste informazioni eseguendo `ldd libMicrosoft.CognitiveServices.Speech.core.so` sulle librerie di Speech SDK dal pacchetto Linux.
 
 > [!NOTE]
-> È consigliabile che la versione di GCC installata nel sistema sia almeno **5.4.0,** con librerie di runtime corrispondenti.
+> È consigliabile che la versione di GCC installata nel sistema sia almeno **5.4.0**, con librerie di runtime corrispondenti.
 
 ## <a name="example"></a>Esempio
 
-Questo è un comando di esempio che illustra come configurare RHEL/CentOS 7 x64 per lo sviluppo (C , C , Java, Python) con Speech SDK 1.10.0 o versione successiva:
+Questo è un comando di esempio che illustra come configurare RHEL/CentOS 7 x64 per lo sviluppo (C++, C#, Java, Python) con l'SDK di riconoscimento vocale 1.10.0 o versione successiva:
 
 ```bash
 # Only run ONE of the following two commands

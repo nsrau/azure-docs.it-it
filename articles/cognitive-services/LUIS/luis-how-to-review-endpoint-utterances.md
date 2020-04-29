@@ -1,7 +1,7 @@
 ---
-title: Esaminare le espressioni utente - LUISReview user utterances - LUIS
+title: Esaminare le espressioni utente-LUIS
 titleSuffix: Azure Cognitive Services
-description: Esaminare le espressioni acquisite dall'apprendimento attivo per selezionare le finalità e contrassegnare le entità per le espressioni del mondo di lettura. accettare le modifiche, addestrare e pubblicare.
+description: Esaminare le espressioni acquisite da Active Learning per selezionare le entità Intent e Mark per le espressioni Read-World; accettare le modifiche, eseguire il training e pubblicare.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,59 +12,59 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219852"
 ---
-# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando le espressioni endpoint
+# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando gli enunciati degli endpoint
 
-Il processo di revisione delle espressioni endpoint per le stime corrette è denominato [Apprendimento attivo](luis-concept-review-endpoint-utterances.md). L'apprendimento attivo acquisisce le query endpoint e seleziona le espressioni endpoint dell'utente di cui non è sicuro. Queste espressioni vengono esaminate per selezionare la finalità e contrassegnare le entità per queste espressioni del mondo di lettura. Accettare queste modifiche nelle espressioni di esempio, quindi eseguire il training e la pubblicazione. LUIS identifica quindi le espressioni in modo più accurato.
+Il processo di revisione degli enunciati degli endpoint per le stime corrette è denominato [apprendimento attivo](luis-concept-review-endpoint-utterances.md). L'apprendimento attivo acquisisce le query dell'endpoint e seleziona le espressioni dell'endpoint dell'utente che non sono sicure. Si esaminano queste espressioni per selezionare le entità Intent e Mark per queste espressioni di lettura. Accettare queste modifiche nelle espressioni di esempio, quindi eseguire il training e la pubblicazione. LUIS identifica quindi le espressioni in modo più accurato.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="enable-active-learning"></a>Consentire l'apprendimento attivo
+## <a name="enable-active-learning"></a>Abilita apprendimento attivo
 
-Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando `log=true` la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con il valore e il parametro querystring.
+Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con `log=true` il parametro e il valore QueryString.
 
-Utilizzare il portale LUIS per creare la query dell'endpoint corretta.
+Usare il portale LUIS per costruire la query dell'endpoint corretta.
 
-1. Nel [portale LUIS](https://preview.luis.ai/)preview selezionare l'app dall'elenco delle app.
-1. Passare alla sezione **Gestisci,** quindi selezionare **Risorse di Azure.**
-1. Per la risorsa di stima assegnata, selezionare **Modifica parametri di query**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Utilizzare il portale LUIS per salvare i log, necessari per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
-
-1. Attiva/disattiva **Salva registri,** quindi salva selezionando **Fine**.
+1. Nel [portale di anteprima Luis](https://preview.luis.ai/)selezionare l'app dall'elenco di app.
+1. Passare alla sezione **Gestisci** e quindi selezionare **risorse di Azure**.
+1. Per la risorsa di stima assegnata, selezionare **modifica parametri query**.
 
     > [!div class="mx-imgBorder"]
-    > ![Utilizzare il portale LUIS per salvare i log, necessari per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+    > ![Usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Impostare **Salva log** , quindi Salva, quindi **fare**clic su fine.
+
+    > [!div class="mx-imgBorder"]
+    > ![Usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
      Questa azione modifica l'URL di esempio aggiungendo il parametro di stringa di query `log=true`. Copiare e usare l'URL della query di esempio modificato per l'esecuzione di query di previsione nell'endpoint di runtime.
 
-## <a name="correct-intent-predictions-to-align-utterances"></a>Correggere le stime delle finalità per allineare le espressioniCorrect intent predictions to align utterances
+## <a name="correct-intent-predictions-to-align-utterances"></a>Correggere le stime di finalità per allineare le espressioni
 
 Ogni espressione ha una finalità consigliata che è visualizzata nella colonna **Finalità allineata**.
 
 > [!div class="mx-imgBorder"]
-> [![Esaminare le espressioni endpoint di cui LUIS non è sicuro](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
+> [![Esaminare le espressioni dell'endpoint che LUIS non è sicuro](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-Se si è d'accordo con tale finalità, selezionare il segno di spunta. Se non concordi con il suggerimento, seleziona la finalità corretta dall'elenco a discesa della finalità allineata, quindi seleziona il segno di spunta a destra della finalità allineata. Dopo aver selezionato il segno di spunta, l'espressione viene spostata alla finalità e rimossa dall'elenco **Rivedere le espressioni endpoint.**
+Se si accetta tale scopo, selezionare il segno di spunta. Se non concordi con il suggerimento, seleziona la finalità corretta dall'elenco a discesa della finalità allineata, quindi seleziona il segno di spunta a destra della finalità allineata. Dopo aver selezionato il segno di spunta, l'espressione viene spostata nella finalità ed è stata rimossa dall'elenco **Verifica espressioni endpoint** .
 
 > [!TIP]
-> È importante passare alla pagina Dettagli intento per esaminare e correggere le stime di entità da tutte le espressioni di esempio dall'elenco **Rivedi espressioni endpoint.**
+> È importante passare alla pagina dei dettagli dello scopo per esaminare e correggere le stime delle entità da tutte le espressioni di esempio dall'elenco **Verifica espressioni endpoint** .
 
 ## <a name="delete-utterance"></a>Eliminare le espressioni
 
 Ogni espressione può essere eliminata dall'elenco di riesame. Una volta eliminate, queste non verranno più visualizzate nell'elenco. Questo vale anche se l'utente inserisce la stessa espressione dall'endpoint.
 
-Se non si è sicuri se è necessario eliminare l'espressione, spostarla nella finalità Nessuno oppure creare una nuova finalità, ad `miscellaneous` esempio e spostare l'espressione in tale finalità.
+Se non si è certi che sia necessario eliminare l'espressione, spostarla nella finalità None oppure creare un nuovo scopo, ad esempio, `miscellaneous` e spostare l'espressione a tale scopo.
 
 ## <a name="disable-active-learning"></a>Disabilitare l'apprendimento attivo
 
-Per disabilitare l'apprendimento attivo, non registrare le query utente. Questa operazione viene eseguita impostando `log=false` la [query dell'endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) con il parametro querystring e valore o non utilizzando il valore querystring perché il valore predefinito è false.
+Per disabilitare l'apprendimento attivo, non registrare le query utente. Questa operazione viene eseguita impostando la [query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) dell'endpoint `log=false` con il parametro e il valore QueryString oppure non usando il valore QueryString perché il valore predefinito è false.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

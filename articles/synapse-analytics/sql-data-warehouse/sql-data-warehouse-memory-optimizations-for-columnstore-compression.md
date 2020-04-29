@@ -1,6 +1,6 @@
 ---
-title: Migliorare le prestazioni dell'indice columnstore
-description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per massimizzare il numero di righe all'interno di ogni gruppo di righe.
+title: Migliorare le prestazioni degli indici columnstore
+description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per ottimizzare il numero di righe all'interno di ogni rowgroup.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d2cbe9b94c4698a93b93c032ee4dcb421a78e59b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743082"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
-La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. L'aumento della memoria disponibile consente di ottimizzare il numero di righe che un indice columnstore comprime in ogni gruppo di righe.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
+La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. Aumentando la memoria disponibile è possibile massimizzare il numero di righe che un indice columnstore comprime in ogni rowgroup.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Perché sono importanti le dimensioni del gruppo di righe
 
@@ -38,15 +38,15 @@ Per ottimizzare le prestazioni delle query, l'obiettivo è accrescere al massimo
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>I gruppi di righe possono essere tagliati durante la compressione
 
-Durante un caricamento bulk o la ricompilazione di un indice columnstore, talvolta non è disponibile memoria sufficiente per comprimere tutte le righe per ogni gruppo di righe. Quando è presente un utilizzo eccessivo della memoria, gli indici columnstore tagliano le dimensioni dei gruppi di righe in modo che la compressione nell'archivio colonne possa avere esito positivo.
+Durante un caricamento bulk o la ricompilazione di un indice columnstore, talvolta non è disponibile memoria sufficiente per comprimere tutte le righe per ogni gruppo di righe. Quando è presente un numero eccessivo di richieste di memoria, gli indici columnstore tagliano le dimensioni rowgroup in modo che la compressione nel columnstore riesca
 
-Quando la memoria non è sufficiente per comprimere almeno 10.000 righe in ogni rowgroup, verrà generato un errore.
+Quando la memoria disponibile non è sufficiente per comprimere almeno 10.000 righe in ogni rowgroup, viene generato un errore.
 
 Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Come monitorare la qualità di un gruppo di righe
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contiene la definizione della vista corrispondente al db SQL) che espone informazioni utili, ad esempio il numero di righe nei gruppi di righe e il motivo del taglio, se è stato eseguito il taglio.
+La DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contiene la definizione della vista che corrisponde al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio.
 
 Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
 
@@ -77,8 +77,8 @@ from cte;
 
 trim_reason_desc specifica se il gruppo di righe è stato tagliato (trim_reason_desc = NO_TRIM indica che il gruppo di righe è di qualità ottimale e non è stato tagliato). I motivi seguenti indicano che il gruppo di righe è stato tagliato prematuramente:
 
-- BULKLOAD: questo motivo viene usato se il batch di righe in ingresso per il caricamento è inferiore a 1 milione di righe. Il motore creerà gruppi di righe compressi se devono essere inserite più di 100.000 righe (a differenza dell'inserimento nell'archivio differenziale), ma imposta il motivo per cui il gruppo è stato tagliato su BULKLOAD. In questo scenario, è consigliabile aumentare il carico batch per includere più righe. Inoltre, rivalutare lo schema di partizionamento per assicurarsi che non sia troppo granulare in quanto i gruppi di righe non possono estendersi oltre i limiti delle partizioni.
-- MEMORY_LIMITATION: per creare gruppi di righe con 1 milione di righe, il motore richiede una certa quantità di memoria di lavoro. Se la memoria disponibile nella sessione di caricamento è inferiore alla memoria di lavoro necessaria, i gruppi di righe vengono tagliati in modo prematuro. Nelle sezioni seguenti viene illustrato come stimare la memoria necessaria e allocare più memoria.
+- BULKLOAD: questo motivo viene usato se il batch di righe in ingresso per il caricamento è inferiore a 1 milione di righe. Il motore creerà gruppi di righe compressi se devono essere inserite più di 100.000 righe (a differenza dell'inserimento nell'archivio differenziale), ma imposta il motivo per cui il gruppo è stato tagliato su BULKLOAD. In questo scenario, prendere in considerazione l'aumento del carico batch per includere più righe. Inoltre, rivalutare lo schema di partizionamento per assicurarsi che non sia troppo granulare perché i gruppi di righe non possono estendersi sui limiti della partizione.
+- MEMORY_LIMITATION: per creare gruppi di righe con 1 milione di righe, il motore richiede una certa quantità di memoria di lavoro. Se la memoria disponibile nella sessione di caricamento è inferiore alla memoria di lavoro necessaria, i gruppi di righe vengono tagliati in modo prematuro. Le sezioni seguenti illustrano come stimare la memoria necessaria e allocare ulteriore memoria.
 - DICTIONARY_SIZE: questo motivo indica che il gruppo di righe è stato tagliato perché era presente almeno una colonna di stringhe con stringhe "wide" e/o a cardinalità elevata. Le dimensioni del dizionario sono limitate a 16 MB di memoria e, al raggiungimento di questo limite, il gruppo di righe viene compresso. Se si verifica questa situazione, valutare l'opportunità di isolare la colonna problematica in una tabella separata.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Come stimare i requisiti di memoria
@@ -90,16 +90,16 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 La memoria massima necessaria per comprimere un gruppo di righe è circa
 
 - 72 MB +
-- \#righe \* \# \* colonne 8 byte
-- \#righe \* \#short-string-columns \* 32 byte
+- \#righe \* \#colonne \* 8 byte +
+- \#righe \* \#stringa breve-colonne \* 32 byte +
 - \#colonne stringa lunga \* 16 MB per il dizionario di compressione
 
 > [!NOTE]
-> Le colonne stringa corte utilizzano tipi di dati stringa di <32 byte e colonne a stringa lunga utilizzano tipi di dati stringa di > 32 byte.
+> Le colonne Short String utilizzano i tipi di dati stringa di <= 32 byte e le colonne con stringhe lunghe utilizzano i tipi di dati stringa di > 32 byte.
 
 Le stringhe lunghe vengono compresse con un metodo di compressione progettato per la compressione del testo. Questo metodo di compressione usa un *dizionario* per archiviare i modelli di testo. La dimensione massima di un oggetto dictionary è 16 MB. Esiste un solo dizionario per ogni colonna stringa lunga nel gruppo di righe.
 
-Per una descrizione approfondita dei requisiti di memoria columnstore, vedere il video [Synapse SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Per una descrizione approfondita dei requisiti di memoria per columnstore, vedere il video relativo al [ridimensionamento del pool SQL di sinapsi: configurazione e indicazioni](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Modi per ridurre i requisiti di memoria
 
@@ -109,7 +109,7 @@ Usare le tecniche seguenti per ridurre i requisiti di memoria per la compression
 
 Se possibile, progettare la tabella con meno colonne. Quando un gruppo di righe viene compresso nel columnstore, l'indice columnstore comprime ogni segmento di colonna separatamente.
 
-Di conseguenza, i requisiti di memoria per comprimere un rowgroup aumentano con l'aumentare del numero di colonne.
+Di conseguenza, i requisiti di memoria per comprimere un rowgroup aumentano man mano che aumenta il numero di colonne.
 
 ### <a name="use-fewer-string-columns"></a>Usare meno colonne di stringhe
 
@@ -122,9 +122,9 @@ Requisiti di memoria aggiuntivi per la compressione di stringhe:
 
 ### <a name="avoid-over-partitioning"></a>Evitare il partizionamento eccessivo
 
-Gli indici columnstore creano uno o più gruppi di righe per partizione. Per il pool SQL in Azure Synapse Analytics, il numero di partizioni aumenta rapidamente perché i dati vengono distribuiti e ogni distribuzione è partizionata.
+Gli indici columnstore creano uno o più gruppi di righe per partizione. Per il pool SQL in Azure sinapsi Analytics, il numero di partizioni cresce rapidamente perché i dati vengono distribuiti e ogni distribuzione è partizionata.
 
-Se la tabella ha troppe partizioni, potrebbero esserci abbastanza righe per riempire i gruppi di righe. La mancanza di righe non crea pressione della memoria durante la compressione. Tuttavia, porta a gruppi di righe che non ottengono le migliori prestazioni di query columnstore.
+Se la tabella ha troppe partizioni, potrebbero esserci abbastanza righe per riempire i gruppi di righe. La mancanza di righe non crea un numero eccessivo di richieste di memoria durante la compressione. Ma conduce a RowGroups che non raggiungono le migliori prestazioni di query columnstore.
 
 Un altro motivo per evitare l'eccessivo partizionamento è che il caricamento di righe in un indice columnstore in una tabella partizionata comporta un sovraccarico della memoria.
 
@@ -165,4 +165,4 @@ Per aumentare la concessione di memoria per una query di caricamento, è possibi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per trovare altri modi per migliorare le prestazioni per il pool SQL, vedere [Panoramica delle prestazioni](cheat-sheet.md).
+Per ulteriori modi per migliorare le prestazioni del pool SQL, vedere [Panoramica delle prestazioni](cheat-sheet.md).

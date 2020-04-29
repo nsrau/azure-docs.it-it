@@ -1,13 +1,13 @@
 ---
-title: Esaminare l'espressione utente - LUISReview user utterance - LUIS
+title: Esaminare l'espressione utente-LUIS
 description: Con l'apprendimento attivo, è possibile verificare la correttezza della finalità e dell'entità delle espressioni di endpoint. LUIS sceglie espressioni di endpoint di cui è certo.
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80546860"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Concetti per abilitare l'apprendimento attivo tramite la revisione delle espressioni di endpoint
@@ -22,20 +22,20 @@ LUIS aggiunge espressioni all'elenco di revisione quando la finalità di attivaz
 ## <a name="single-pool-for-utterances-per-app"></a>Singolo pool per espressioni per app
 L'elenco **Esaminare le espressioni endpoint** non cambia in base alla versione. È disponibile un singolo pool di espressioni da esaminare, indipendentemente dalla versione dell'espressione che si sta modificando attivamente o dalla versione dell'app pubblicata nell'endpoint.
 
-[Nell'API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)il nome della versione è obbligatorio ed è presente nell'applicazione, ma non viene usato oltre tale convalida. Le espressioni di revisione si applicano a un'intera applicazione. Se si rimuovono espressioni da una _versione,_ tutte le versioni sono interessate.
+Nell' [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)il nome della versione è obbligatorio e deve esistere nell'applicazione, ma non viene utilizzato oltre tale convalida. Le espressioni di revisione si applicano a un'intera applicazione. Se si rimuovono le espressioni da una _versione_, tutte le versioni sono interessate.
 
 ## <a name="where-are-the-utterances-from"></a>Da dove provengono le espressioni
-Le espressioni endpoint vengono ricavate dalle query degli utenti finali nell'endpoint HTTP dell'applicazione. Se l'app non è pubblicata o non ha ancora ricevuto riscontri, non è presente alcuna espressione da esaminare. Se non ricevi alcun riscontro di endpoint per una finalità o un'entità specifica, non è presente alcuna espressione da esaminare che li contenga.
+Le espressioni endpoint vengono prese dalle query dell'utente finale sull'endpoint HTTP dell'applicazione. Se l'app non è pubblicata o non ha ancora ricevuto riscontri, non è presente alcuna espressione da esaminare. Se non ricevi alcun riscontro di endpoint per una finalità o un'entità specifica, non è presente alcuna espressione da esaminare che li contenga.
 
 ## <a name="schedule-review-periodically"></a>Pianificare periodicamente le revisioni
 La revisione delle espressioni consigliate non deve essere eseguita ogni giorno, ma deve far parte della manutenzione di routine di LUIS.
 
 ## <a name="delete-review-items-programmatically"></a>Eliminare gli elementi di revisione a livello di codice
-Usare l'API **[Elimina espressioni senza etichetta.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** Eseguire il backup di queste espressioni prima dell'eliminazione **[esportando i file di log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
+Usare l'API **[Delete senza etichetta](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** . Eseguire il backup di queste espressioni prima dell'eliminazione **[esportando i file di log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
-## <a name="enable-active-learning"></a>Consentire l'apprendimento attivo
+## <a name="enable-active-learning"></a>Abilita apprendimento attivo
 
-Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando `log=true` la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con il valore e il parametro querystring.
+Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con `log=true` il parametro e il valore QueryString.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

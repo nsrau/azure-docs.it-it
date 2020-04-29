@@ -6,13 +6,13 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 78608d3acdfea07f21ccc42e8d530ff502fbb0b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851927"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Guida introduttiva: Creare una Knowledge Base in QnA Maker usando C 'NET con REST
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Guida introduttiva: creare una Knowledge base in QnA Maker usando C# con REST
 
 Questa guida introduttiva illustra come creare e pubblicare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/knowledge-base.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API.
 
@@ -20,20 +20,20 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 * [Creare la knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Ottenere i dettagli dell'operazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Esempio](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs) di documentazione di riferimento in C
+[Documentazione di riferimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | di[esempio C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* La versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 * È necessario avere una [risorsa QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
 
 ### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
 Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o nell'editor preferito.
 
-In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `qna-maker-quickstart`. Questo comando consente di creare un semplice progetto "Hello World" in C, con un singolo file di origine: *Program.cs*.
+In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `qna-maker-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs*.
 
 ```dotnetcli
 dotnet new console -n qna-maker-quickstart
@@ -138,7 +138,7 @@ Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 
 ## <a name="add-createkb-method"></a>Aggiungere il metodo CreateKB
 
-Il metodo seguente consente di creare la knowledge base e ripetere i controlli sullo stato.  _create_ **L'ID operazione** create viene restituito nel campo dell'intestazione della risposta POST **Location**, quindi utilizzato come parte della route nella richiesta GET. Dal momento che la creazione della knowledge base può richiedere tempo, è necessario ripetere le chiamate per controllare lo stato fino a quando questo indica un esito positivo o negativo dell'operazione. Quando l'operazione riesce, viene restituito l'ID della knowledge base in **resourceLocation**.
+Il metodo seguente consente di creare la knowledge base e ripetere i controlli sullo stato.  L' _create_ **ID dell'operazione** di creazione viene restituito nella **posizione**del campo dell'intestazione Post-risposta, quindi viene usato come parte della route nella richiesta GET. Dal momento che la creazione della knowledge base può richiedere tempo, è necessario ripetere le chiamate per controllare lo stato fino a quando questo indica un esito positivo o negativo dell'operazione. Quando l'operazione riesce, viene restituito l'ID della knowledge base in **resourceLocation**.
 
 [!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=189-254 "Add CreateKB method")]
 

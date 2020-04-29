@@ -1,15 +1,15 @@
 ---
-title: 'Guida introduttiva: Pubblicazione della Knowledge Base, REST, Java - QnA Maker'
+title: 'Guida introduttiva: pubblicare la Knowledge base, REST, Java-QnA Maker'
 description: In questo avvio rapido basato su Java REST viene pubblicata la knowledge base e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 149d7963f29bf041cda75fffaac533e0a62ee7a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851685"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con Java
@@ -35,7 +35,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
     Se non si ha ancora una knowledge base, è possibile crearne una di esempio da usare per questa guida introduttiva: [Creare una nuova knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE]
-> I file di soluzione completi sono disponibili nel repository [ **GitHub di Azure-Samples/cognitive-services-qnamaker-java** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> I file della soluzione completa sono disponibili nel [repository GitHub **Azure-Samples/cognitive-Services-qnamaker-Java** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-java-file"></a>Creare un file Java
 
@@ -62,7 +62,7 @@ public class PublishKB {
 
 ## <a name="add-required-constants"></a>Aggiungere le costanti obbligatorie
 
-Nel metodo **principale,** aggiungere le costanti necessarie per accedere a QnA Maker. Sostituire i valori con quelli personalizzati.
+Nel metodo **Main** aggiungere le costanti obbligatorie per accedere QnA Maker. Sostituire i valori con quelli personalizzati.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
 

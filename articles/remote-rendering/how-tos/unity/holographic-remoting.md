@@ -1,27 +1,27 @@
 ---
-title: Utilizzo della comunicazione remota olografica e del rendering remoto in Unity
-description: Come usare l'anteprima dei servizi remoti olografici in combinazione con il rendering remoto di AzureHow Holographic Remoting preview can be used in combination with Azure Remote Rendering
+title: Usare Holographic Remoting e Rendering remoto in Unity
+description: Come è possibile usare l'anteprima di comunicazione remota olografica in combinazione con il rendering remoto di Azure
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
 ms.openlocfilehash: ac47a2922e92233f0acabf75817a712671306bc1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681207"
 ---
-# <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Utilizzo della comunicazione remota olografica e del rendering remoto in Unity
+# <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Usare Holographic Remoting e Rendering remoto in Unity
 
-[I servizi remoti olografici](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) e il rendering remoto di Azure si escludono a vicenda all'interno di un'unica applicazione. Come tale, anche la [modalità di riproduzione Unity](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) non è disponibile.
+La [comunicazione remota olografica](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) e il rendering remoto di Azure si escludono a vicenda all'interno di un'applicazione. Di conseguenza, la [modalità di riproduzione Unity](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) non è disponibile.
 
-Per ogni esecuzione dell'editor Unity è possibile utilizzare solo uno dei due. Per utilizzare l'altro, riavviare prima Unity.
+Per ogni esecuzione dell'editor di Unity è possibile usare solo uno dei due. Per usare l'altro, riavviare Unity prima di tutto.
 
-## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Utilizzare la modalità di riproduzione Unity per visualizzare l'anteprima su Hololens 2
+## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Usare la modalità di riproduzione Unity per l'anteprima in Hololens 2
 
- La modalità di riproduzione Unity può comunque essere utilizzata, ad esempio per testare l'interfaccia utente dell'applicazione. Tuttavia, è fondamentale che ARR non viene mai inizializzato. Altrimenti andrà in crash.
+ È comunque possibile usare la modalità di riproduzione Unity, ad esempio per testare l'interfaccia utente dell'applicazione. Tuttavia, è essenziale che ARR non venga mai inizializzato. In caso contrario, verrà arrestato in modo anomalo.
 
-## <a name="use-a-wmr-vr-headset-to-preview-on-desktop"></a>Utilizzare un auricolare WMR VR per visualizzare l'anteprima sul desktop
+## <a name="use-a-wmr-vr-headset-to-preview-on-desktop"></a>Usare un auricolare WMR VR per l'anteprima sul desktop
 
-Se è presente un auricolare Windows Mixed Reality VR, può essere utilizzato per visualizzare l'anteprima all'interno di Unity. In questo caso, è bene inizializzare ARR, tuttavia non sarà possibile connettersi a una sessione mentre viene utilizzato l'auricolare WMR.
+Se è presente una serie di cuffie VR di realtà mista di Windows, è possibile usarla per l'anteprima all'interno di Unity. In questo caso, è bene inizializzare ARR, ma non sarà possibile connettersi a una sessione mentre viene usata la cuffia WMR.

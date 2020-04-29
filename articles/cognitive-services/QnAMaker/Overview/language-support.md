@@ -11,23 +11,23 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220556"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto linguistico per una risorsa e una knowledge base QnA Maker
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto delle lingue per una risorsa QnA Maker e Knowledge base
 
-La lingua per il servizio viene selezionata quando si crea la prima Knowledge Base nella risorsa. Tutte le basi di conoscenza aggiuntive nella risorsa devono essere nella stessa lingua. 
+La lingua per il servizio viene selezionata quando si crea la prima Knowledge base nella risorsa. Tutte le Knowledge base aggiuntive nella risorsa devono essere nella stessa lingua. 
 
-La lingua determina la pertinenza dei risultati forniti da QnA Maker in risposta alle query degli utenti.
+La lingua determina la pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti.
 
-Ulteriori informazioni [sull'impatto della selezione della lingua](../how-to/language-knowledge-base.md).
+Altre informazioni sull' [effetto della selezione della lingua](../how-to/language-knowledge-base.md).
 
 ## <a name="languages-supported"></a>Lingue supportate
 
-L'elenco seguente contiene le lingue supportate per una risorsa QnA Maker.The following list contains the languages supported for a QnA Maker resource. 
+L'elenco seguente contiene le lingue supportate per una risorsa QnA Maker. 
 
 |Linguaggio|
 |--|

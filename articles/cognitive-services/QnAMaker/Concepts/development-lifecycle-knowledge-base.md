@@ -4,10 +4,10 @@ description: QnA Maker apprende meglio in un ciclo iterativo di modifiche ai mod
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 98fbd81baa717c981486f33cfb2b3a608cec27c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77914953"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
@@ -16,18 +16,18 @@ QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi 
 ![Ciclo di creazione](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## <a name="creating-a-qna-maker-knowledge-base"></a>Creazione di una knowledge base di QnA Maker
-L'endpoint della knowledge base (KB) di QnA Maker fornisce una risposta scelta in base alla corrispondenza migliore per una query utente basata sul contenuto della KB. La creazione di una Knowledge Base è un'azione una tantera per impostare un archivio di contenuto di domande, risposte e metadati associati. È possibile creare una knowledge effettuando una ricerca per indicizzazione nel contenuto pre-esistente, ad esempio pagine di domande frequenti, manuali di prodotti o coppie strutturate di domande e risposte. Leggere le informazioni su come [creare una knowledge base](../quickstarts/create-publish-knowledge-base.md).
+L'endpoint della knowledge base (KB) di QnA Maker fornisce una risposta scelta in base alla corrispondenza migliore per una query utente basata sul contenuto della KB. La creazione di una Knowledge base è un'azione unica per la configurazione di un repository di contenuto di domande, risposte e metadati associati. È possibile creare una knowledge effettuando una ricerca per indicizzazione nel contenuto pre-esistente, ad esempio pagine di domande frequenti, manuali di prodotti o coppie strutturate di domande e risposte. Leggere le informazioni su come [creare una knowledge base](../quickstarts/create-publish-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test e aggiornamento della knowledge base
 
-La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. I test interattivi possono essere eseguiti nel portale QnA Maker tramite il pannello **Test** immettendo query utente comuni e verificando che le risposte siano restituite con la risposta corretta e un punteggio di confidenza sufficiente.
+La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Il test interattivo può essere eseguito nel portale di QnA Maker tramite il pannello di **test** immettendo query utente comuni e verificando che le risposte restituite con la risposta corretta e un punteggio di confidenza sufficiente.
 
-* **Per correggere i punteggi di confidenza bassi**: aggiungere domande alternative.
-* **Quando una query restituisce erroneamente la [risposta predefinita:](../How-to/change-default-answer.md)** aggiungere nuove risposte alla domanda corretta.
+* **Per correggere i punteggi di confidenza basso**: aggiungere domande alternative.
+* **Quando una query restituisce erroneamente la [risposta predefinita](../How-to/change-default-answer.md)**, aggiungere nuove risposte alla domanda corretta.
 
 Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
-Per KB di grandi dimensioni, usare test automatizzati con l'API [generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà body, `isTest` che esegue una query nella `test` Knowledge Base anziché nella Knowledge Base pubblicata.
+Per le KB di grandi dimensioni, utilizzare test automatizzati con l' `isTest` [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e la proprietà Body `test` , che esegue una query sulla Knowledge base anziché sulla Knowledge base pubblicata.
 
 ```json
 {
@@ -39,11 +39,11 @@ Per KB di grandi dimensioni, usare test automatizzati con l'API [generateAnswer]
 ```
 
 ## <a name="publish-the-knowledge-base"></a>Pubblicare la knowledge base
-Una volta testata la knowledge base, è possibile pubblicarla. Pubblica inserisce la versione più recente della Knowledge Base testata in un indice di Ricerca cognitivo di Azure dedicato che rappresenta la Knowledge Base **pubblicata.** Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
+Una volta testata la knowledge base, è possibile pubblicarla. Publish esegue il push della versione più recente della Knowledge base verificata in un indice di ricerca cognitiva di Azure dedicato che rappresenta la Knowledge base **pubblicata** . Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
 
 In questo modo, eventuali modifiche apportate alla versione di test della knowledge base non influiscono sulla versione pubblicata, che potrebbe essere in uso in un'applicazione di produzione.
 
-Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Usando le API, è possibile scegliere come destinazione `isTest` la versione di test della Knowledge Base con la proprietà body nella chiamata generateAnswer.
+Ognuna di queste knowledge base può essere scelta come destinazione per i test separatamente. Utilizzando le API, è possibile specificare come destinazione la versione di prova della Knowledge `isTest` base con la proprietà Body nella chiamata generateAnswer.
 
 Leggere le informazioni su come [pubblicare la knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
@@ -54,26 +54,26 @@ Per poter registrare i log di chat del servizio, è necessario abilitare Applica
 
 In base alle informazioni ottenute dall'analisi, apportare [aggiornamenti alla knowledge base](../How-To/edit-knowledge-base.md) come appropriato.
 
-## <a name="version-control-for-data-in-your-knowledge-base"></a>Controllo della versione per i dati nella Knowledge Base
+## <a name="version-control-for-data-in-your-knowledge-base"></a>Controllo della versione per i dati nella Knowledge base
 
-Il controllo della versione per i dati viene fornito tramite le funzionalità di importazione/esportazione nella pagina **Impostazioni** del portale QnA Maker.
+Il controllo della versione per i dati viene fornito tramite le funzionalità di importazione/esportazione nella pagina **Impostazioni** del portale di QnA Maker.
 
-È possibile eseguire il backup di una Knowledge `.tsv` Base `.xls` esportando la Knowledge Base, in uno o in formato. Una volta esportato, includere questo file come parte del controllo del codice sorgente regolare.
+È possibile eseguire il backup di una Knowledge base esportando la Knowledge base `.tsv` , `.xls` in formato o. Una volta esportato, includere questo file come parte del normale controllo del controllo del codice sorgente.
 
-Quando è necessario tornare a una versione specifica, è necessario importare il file dal sistema locale. Una Knowledge Base esportata **deve** essere utilizzata solo tramite importazione nella pagina **Impostazioni.** Non può essere utilizzato come origine dati di file o documento URL. Questo sostituirà le domande e le risposte attualmente nella Knowledge Base con il contenuto del file importato.
+Quando è necessario tornare a una versione specifica, è necessario importare il file dal sistema locale. Una Knowledge base esportata **deve** essere utilizzata solo tramite Import nella pagina **Settings** . Non può essere usato come origine dati del documento file o URL. In questo articolo vengono sostituite le domande e le risposte attualmente presenti nella Knowledge base con il contenuto del file importato.
 
-## <a name="test-and-production-knowledge-base"></a>Conoscenza di test e produzione
-Una Knowledge Base è il repository di domande e gruppi di risposte creati, mantenuti e utilizzati tramite QnA Maker. Ogni risorsa QnA Maker può contenere più knowledge base.
+## <a name="test-and-production-knowledge-base"></a>Knowledge base di test e produzione
+Una Knowledge base è il repository di domande e set di risposte creati, gestiti e utilizzati tramite QnA Maker. Ogni risorsa QnA Maker può ospitare più Knowledge base.
 
-Una Knowledge Base ha due stati: *test* e *pubblicato*.
+Una Knowledge base dispone di due stati: *test* e *Published*.
 
-### <a name="test-knowledge-base"></a>Test della knowledge base
+### <a name="test-knowledge-base"></a>Knowledge base test
 
-La *Knowledge Base* di test è la versione attualmente modificata, salvata e testata per verificarne l'accuratezza e la completezza delle risposte. Le modifiche apportate alla Knowledge Base di test non influiscono sull'utente finale dell'applicazione o del bot di chat. La Knowledge Base di `test` test è nota come nella richiesta HTTP. La `test` conoscenza è disponibile con il riquadro **di test** interattivo del portale QnA Maker.
+La *Knowledge base test* è la versione attualmente modificata, salvata e testata per l'accuratezza e la completezza delle risposte. Le modifiche apportate alla Knowledge base di test non influiscono sull'utente finale dell'applicazione o del bot di chat. La Knowledge base test è nota come `test` nella richiesta HTTP. Le `test` informazioni sono disponibili nel riquadro di **test** interattivo del portale QnA Maker.
 
-### <a name="production-knowledge-base"></a>Knowledge Base di produzione
+### <a name="production-knowledge-base"></a>Knowledge base di produzione
 
-La *Knowledge Base pubblicata* è la versione usata nel bot di chat o nell'applicazione. L'azione di pubblicazione di una Knowledge Base inserisce il contenuto della Knowledge Base di test nella versione pubblicata della Knowledge Base. Poiché la Knowledge Base pubblicata è la versione utilizzata dall'applicazione tramite l'endpoint, assicurarsi che il contenuto sia corretto e ben testato. La Knowledge Base pubblicata è nota come `prod` nella richiesta HTTP.
+La *Knowledge base pubblicata* è la versione usata nel bot o nell'applicazione di chat. L'azione di pubblicazione di una Knowledge base inserisce il contenuto della Knowledge base di test nella versione pubblicata della Knowledge base. Poiché la Knowledge base pubblicata è la versione usata dall'applicazione tramite l'endpoint, assicurarsi che il contenuto sia corretto e ben testato. La Knowledge base pubblicata è nota come `prod` nella richiesta HTTP.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

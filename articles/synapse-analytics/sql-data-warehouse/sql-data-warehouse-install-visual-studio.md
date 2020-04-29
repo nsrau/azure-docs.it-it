@@ -1,6 +1,6 @@
 ---
 title: Installare Visual Studio 2019
-description: Installare Visual Studio e gli strumenti di sviluppo di SQL Server (SSDT) per Synapse SQLInstall Visual Studio and SQL Server Development Tools (SSDT) for Synapse SQL
+description: Installare Visual Studio e SQL Server Development Tools (SSDT) per sinapsi SQL
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
@@ -13,41 +13,41 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f83ae9c8290a52381c8087b46da959d4723d7f4e
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745158"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introduzione a Visual Studio 2019
 
-Visual Studio 2019 SQL Server Data Tools (SSDT) è un singolo strumento che consente di eseguire le operazioni seguenti:Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing you to do the following:
+Visual Studio **2019** SQL Server Data Tools (SSDT) è un singolo strumento che consente di eseguire le operazioni seguenti:
 
-- Connettere, eseguire query e sviluppare applicazioni
-- Sfruttare un Esplora oggetti per esplorare visivamente tutti gli oggetti nel modello di dati, tra cui tabelle, viste, stored procedure e così via.
-- Generare script DDL (Data Definition Language) T-SQL per gli oggetti
-- Sviluppa il tuo data warehouse usando un approccio basato sullo stato con progetti di database SSDTDevelop your data warehouse using a state-based approach with SSDT Database Projects
-- Integrare il progetto di database con sistemi di controllo del codice sorgente, ad esempio Git con Azure Repos
-- Configurare pipeline di integrazione e distribuzione continue con server di automazione, ad esempio DevOps di AzureSet up continuous integration and deployment pipelines with automation servers such as Azure DevOps
+- Connessione, query e sviluppo di applicazioni
+- Utilizzare Esplora oggetti per esplorare visivamente tutti gli oggetti nel modello di dati, tra cui tabelle, viste, stored procedure e così via.
+- Genera script T-SQL Data Definition Language (DDL) per gli oggetti
+- Sviluppare il data warehouse usando un approccio basato sullo stato con i progetti di database SSDT
+- Integrare il progetto di database con sistemi di controllo del codice sorgente come Git con Azure Repos
+- Configurare pipeline di integrazione e distribuzione continue con server di automazione come Azure DevOps
 
 ## <a name="install-visual-studio-2019"></a>Installare Visual Studio 2019
 
-Vedere [Scaricare Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) per scaricare e installare Visual Studio **16.3 e versioni successive.** Durante l'installazione, selezionare il carico di lavoro di archiviazione ed elaborazione dei dati. L'installazione autonoma di SSDT non è più necessaria in Visual Studio 2019.Standalone SSDT installation is no longer required in Visual Studio 2019.
+Vedere [scaricare Visual studio 2019](https://visualstudio.microsoft.com/downloads/) per scaricare e installare visual Studio **16,3 e versioni successive**. Durante l'installazione, selezionare il carico di lavoro elaborazione ed archiviazione dati. L'installazione autonoma di SSDT non è più necessaria in Visual Studio 2019.
 
-## <a name="unsupported-features-in-ssdt"></a>Funzionalità non supportate in SSDTUnsupported features in SSDT
+## <a name="unsupported-features-in-ssdt"></a>Funzionalità non supportate in SSDT
 
-In alcuni casi le versioni delle funzionalità per Synapse SQL potrebbero non includere il supporto per SSDT. Le seguenti funzionalità non sono attualmente supportate:
+In alcuni casi le versioni delle funzionalità per sinapsi SQL possono non includere il supporto per SSDT. Le funzionalità seguenti non sono attualmente supportate:
 
 - [Viste materializzate](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Indici Columnstore cluster ordinati](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
+- [Indici columnstore cluster ordinati](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
 - [Istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Gestione del carico di lavoro](sql-data-warehouse-workload-management.md) - gruppi e classificatori del carico di lavoroWorkload management - workload groups and classifiers
+- [Gestione del carico di lavoro](sql-data-warehouse-workload-management.md) -gruppi e classificatori del carico di lavoro
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-  - Invia un [ticket di supporto o una votazione](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) per supportare la funzione.
+  - Inviare un [ticket di supporto o votare](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) per ottenere la funzionalità supportata.
 - [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
-   - Invia un [ticket di supporto o una votazione](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) per supportare la funzione.
-- [Le tabelle con vincoli](sql-data-warehouse-table-constraints.md#table-constraints) non sono supportate. Per questi oggetti tabella, impostare l'azione di compilazione su "Nessuno".
+   - Inviare un [ticket di supporto o votare](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) per ottenere la funzionalità supportata.
+- [Le tabelle con vincoli](sql-data-warehouse-table-constraints.md#table-constraints) non sono supportate. Per questi oggetti tabella, impostare l'azione di compilazione su "None".
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si dispone della versione più recente di SSDT, si è pronti per [connettersi](sql-data-warehouse-query-visual-studio.md) al pool SQL.
+Ora che è disponibile la versione più recente di SSDT, è possibile [connettersi](sql-data-warehouse-query-visual-studio.md) al pool SQL.

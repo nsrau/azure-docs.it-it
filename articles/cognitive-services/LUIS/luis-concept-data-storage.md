@@ -1,5 +1,5 @@
 ---
-title: Archiviazione dati - LUIS
+title: Archiviazione dati-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220017"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
@@ -26,27 +26,27 @@ Gli utenti hanno il controllo completo sull'[esportazione](luis-how-to-start-new
 
 ## <a name="utterances"></a>Espressioni
 
-Gli utterances possono essere archiviati in due luoghi diversi. 
+Le espressioni possono essere archiviate in due posizioni diverse. 
 
-* Durante il processo di **creazione,** le espressioni vengono create e archiviate nel file Intent. Le espressioni nelle finalità sono necessarie per un'app LUIS riuscita. Una volta pubblicata l'app e ricevuta le query nell'endpoint, la stringa di query della richiesta dell'endpoint `log=false`determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di apprendimento attivo disponibili nella sezione **Compila** del portale, nella sezione Esaminare le **espressioni degli endpoint.** 
-* Quando si **esaminano le espressioni endpoint**e si aggiunge un'espressione a una finalità, l'espressione non viene più archiviata come parte delle espressioni endpoint da rivedere. Viene aggiunto alle finalità dell'app. 
+* Durante **il processo di creazione**, le espressioni vengono create e archiviate nello scopo. Le espressioni negli Intent sono necessarie per un'app LUIS riuscita. Dopo la pubblicazione dell'app e la ricezione di query sull'endpoint, la QueryString `log=false`della richiesta dell'endpoint determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di formazione attive disponibili nella sezione **Build** del portale, nella sezione **Review endpoint enunciations** . 
+* Quando si **esaminano le espressioni dell'endpoint**e si aggiunge un enunciato a un preventivo, l'espressione non viene più archiviata come parte delle espressioni di endpoint da rivedere. Viene aggiunto agli Intent dell'app. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Eliminare espressioni di esempio da una finalitàDelete example utterances from an intent
+### <a name="delete-example-utterances-from-an-intent"></a>Elimina le espressioni di esempio da un Intent
 
 Eliminare le espressioni di esempio usate per il training di [LUIS](luis-reference-regions.md). Le espressioni di esempio eliminate dall'app LUIS vengono rimosse dal servizio Web LUIS e non sono più disponibili per l'esportazione.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>Eliminare le espressioni nella revisione dall'apprendimento attivoDelete utterances in review from active learning
+### <a name="delete-utterances-in-review-from-active-learning"></a>Elimina le espressioni nella revisione dall'apprendimento attivo
 
 È possibile eliminare le espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Esamina espressioni endpoint). Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
 
-Se non si desidera espressioni di apprendimento attive, è possibile [disabilitare l'apprendimento attivo.](luis-how-to-review-endpoint-utterances.md#disable-active-learning) La disabilitazione dell'apprendimento attivo disabilita anche la registrazione.
+Se non si desiderano espressioni di apprendimento attive, è possibile [disabilitare l'apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). La disabilitazione dell'apprendimento attivo Disabilita anche la registrazione.
 
-### <a name="disable-logging-utterances"></a>Disabilitare la registrazione delle espressioniDisable logging utterances
-[La disabilitazione dell'apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning) disabilita la registrazione.
+### <a name="disable-logging-utterances"></a>Disabilitare le espressioni di registrazione
+La [disabilitazione dell'apprendimento attivo Disabilita](luis-how-to-review-endpoint-utterances.md#disable-active-learning) la registrazione.
 
 
 <a name="accounts"></a>

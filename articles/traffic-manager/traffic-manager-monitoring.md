@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
 ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80757269"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
@@ -25,13 +25,13 @@ Gestione traffico di Azure include il monitoraggio degli endpoint e il failover 
 
 Per configurare il monitoraggio degli endpoint è necessario specificare le seguenti impostazioni nel profilo di Gestione traffico:
 
-* **Protocollo**. Scegliere HTTP, HTTPS o TCP come protocollo che Gestione traffico usa quando esegue il sondaggio dell'endpoint per verificarne l'integrità. Il monitoraggio HTTPS non verifica se il certificato TLS/SSL è valido, ma controlla solo la presenza del certificato.
+* **Protocollo**. Scegliere HTTP, HTTPS o TCP come protocollo che Gestione traffico usa quando esegue il sondaggio dell'endpoint per verificarne l'integrità. Il monitoraggio HTTPS non verifica se il certificato TLS/SSL è valido. verifica solo che il certificato sia presente.
 * **Porta**. scegliere la porta usata per la richiesta.
 * **Percorso**. Questa impostazione di configurazione è valida solo per i protocolli HTTP e HTTPS, per i quali è necessario specificare l'impostazione del percorso. Se si specifica questa impostazione per il protocollo di monitoraggio TCP, viene generato un errore. Per i protocolli HTTP e HTTPS specificare il percorso relativo e il nome della pagina Web o il file a cui accede il monitoraggio. Una barra (/) è una voce valida per il percorso relativo. Questo valore implica che il file sia nella directory radice (impostazione predefinita).
-* **Impostazioni intestazione personalizzata**. Questa impostazione di configurazione consente di aggiungere specifiche intestazioni HTTP ai controlli di integrità che Gestione traffico invia agli endpoint in un profilo. È possibile specificare le intestazioni personalizzate a livello di profilo (rendendole applicabili per tutti gli endpoint nel profilo) e/o a livello di endpoint (rendendole applicabili solo a tale endpoint). È possibile usare le intestazioni personalizzate per garantire che i controlli di integrità per gli endpoint in un ambiente multi-tenant vengano instradati correttamente alla relativa destinazione specificando un'intestazione host. È anche possibile usare questa impostazione mediante l'aggiunta di intestazioni univoche che possono essere usate per identificare le richieste HTTP(S) originate da Gestione traffico ed elaborarle in modo diverso. È possibile specificare fino a otto coppie header:value separate da una virgola. Ad esempio, "header1:value1,header2:value2". 
+* **Impostazioni intestazione personalizzata**. Questa impostazione di configurazione consente di aggiungere specifiche intestazioni HTTP ai controlli di integrità che Gestione traffico invia agli endpoint in un profilo. È possibile specificare le intestazioni personalizzate a livello di profilo (rendendole applicabili per tutti gli endpoint nel profilo) e/o a livello di endpoint (rendendole applicabili solo a tale endpoint). È possibile usare le intestazioni personalizzate per garantire che i controlli di integrità per gli endpoint in un ambiente multi-tenant vengano instradati correttamente alla relativa destinazione specificando un'intestazione host. È anche possibile usare questa impostazione mediante l'aggiunta di intestazioni univoche che possono essere usate per identificare le richieste HTTP(S) originate da Gestione traffico ed elaborarle in modo diverso. È possibile specificare fino a otto coppie intestazione: valore separate da una virgola. Ad esempio, "Header1: value1, header2: Value2". 
 * **Intervalli di codici di stato previsti**. Questa impostazione consente di specificare più intervalli di codici di riuscita nel formato 200-299, 301-301. Se questi codici di stato vengono ricevuti come risposta da un endpoint quando viene avviato un controllo di integrità, Gestione traffico contrassegna tale endpoint come integro. È possibile specificare un massimo di 8 intervalli di codici di stato. Questa impostazione è applicabile solo al protocollo HTTP e HTTPS e a tutti gli endpoint. Questa impostazione è a livello di profilo di Gestione traffico e per impostazione predefinita è definito il valore 200 come il codice di stato di riuscita.
 * **Intervallo sondaggio**. Questo valore specifica la frequenza con cui viene controllata l'integrità di un endpoint dall'agente di sondaggio di Gestione traffico. È possibile specificare due valori qui: 30 secondi (sondaggio normale) e 10 secondi (sondaggio veloce). Se non viene specificato alcun valore, il profilo imposta un valore predefinito di 30 secondi. Per altre informazioni sui prezzi per il sondaggio rapido, visitare la pagina dei [prezzi per Gestione traffico](https://azure.microsoft.com/pricing/details/traffic-manager).
-* **Numero tollerato di errori**. Questo valore specifica il numero di errori tollerati da un agente di sondaggio di Gestione traffico prima di contrassegnare l'endpoint come non integro. Il valore può essere compreso tra 0 e 9. Un valore pari a 0 indica che un singolo errore di monitoraggio può far sì che l'endpoint venga contrassegnato come non integro. Se non si specifica alcun valore, viene usato il valore predefinito di 3.
+* **Numero di errori tollerati**. Questo valore specifica il numero di errori tollerati da un agente di sondaggio di Gestione traffico prima di contrassegnare l'endpoint come non integro. Il valore può essere compreso tra 0 e 9. Un valore pari a 0 indica che un singolo errore di monitoraggio può far sì che l'endpoint venga contrassegnato come non integro. Se non si specifica alcun valore, viene usato il valore predefinito di 3.
 * **Timeout sondaggio**. Questa proprietà specifica la quantità di tempo che l'agente di sondaggio di Gestione traffico deve attendere prima di considerare il controllo come un errore quando un sondaggio di controllo di integrità viene inviato all'endpoint. Se l'intervallo sondaggio è impostato su 30 secondi, è possibile impostare il valore di timeout tra 5 e 10 secondi. Se non si specifica alcun valore, viene usato il valore predefinito di 10 secondi. Se l'intervallo sondaggio è impostato su 10 secondi, è possibile impostare il valore di timeout tra 5 e 9 secondi. Se non si specifica alcun valore di timeout, viene usato il valore predefinito di 9 secondi.
 
     ![Monitoraggio degli endpoint di Gestione traffico](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
@@ -40,7 +40,7 @@ Per configurare il monitoraggio degli endpoint è necessario specificare le segu
 
 ## <a name="how-endpoint-monitoring-works"></a>Funzionamento del monitoraggio degli endpoint
 
-Se il protocollo di monitoraggio è impostato come HTTP o HTTPS, l'agente di sondaggio di Gestione traffico esegue una richiesta GET all'endpoint usando il protocollo, la porta e il percorso relativo specificati. Se viene riricevuta una risposta 200-OK o una delle risposte configurate negli **intervalli \*** di codici di stato Previsto, l'endpoint viene considerato integro. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di tentativi tollerati, l'endpoint viene contrassegnato come non integro. 
+Se il protocollo di monitoraggio è impostato come HTTP o HTTPS, l'agente di sondaggio di Gestione traffico esegue una richiesta GET all'endpoint usando il protocollo, la porta e il percorso relativo specificati. Se viene restituita una risposta 200-OK o una qualsiasi delle risposte configurate negli **intervalli di codice \*di stato previsti**, l'endpoint viene considerato integro. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di tentativi tollerati, l'endpoint viene contrassegnato come non integro. 
 
 Se il protocollo di monitoraggio è TCP, l'agente di sondaggio di Gestione traffico avvia una richiesta di connessione TCP usando la porta specificata. Se l'endpoint risponde alla richiesta con una risposta per stabilire la connessione, il controllo integrità viene contrassegnato come esito positivo e l'agente di sondaggio di Gestione traffico reimposta la connessione TCP. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di errori tollerati, l'endpoint viene contrassegnato come non integro.
 
@@ -61,7 +61,7 @@ Gli endpoint e i profili di Gestione traffico possono essere abilitati e disabil
 
 ### <a name="profile-status"></a>Stato profilo
 
-Usando l'impostazione dello stato del profilo è possibile abilitare o disabilitare un profilo specifico. Mentre lo stato dell'endpoint interessa un solo endpoint, lo stato del profilo interessa l'intero profilo, che include tutti gli endpoint. Quando si disabilita un profilo, l'integrità degli endpoint non viene verificata e nessun endpoint viene incluso in una risposta DNS. Viene restituito un codice di risposta [NXDOMAIN](https://tools.ietf.org/html/rfc2308) per la query DNS.
+Usando l'impostazione dello stato del profilo è possibile abilitare o disabilitare un profilo specifico. Mentre lo stato dell'endpoint interessa un solo endpoint, lo stato del profilo interessa l'intero profilo, che include tutti gli endpoint. Quando si disabilita un profilo, l'integrità degli endpoint non viene verificata e nessun endpoint viene incluso in una risposta DNS. Per la query DNS viene restituito un codice di risposta [NXDOMAIN](https://tools.ietf.org/html/rfc2308) .
 
 ### <a name="endpoint-monitor-status"></a>Endpoint monitor status (Stato monitoraggio endpoint)
 
@@ -102,7 +102,7 @@ Un endpoint non è integro quando si verifica uno degli eventi seguenti:
 - Se il protocollo di monitoraggio è HTTP o HTTPS:
     - Viene ricevuta una risposta diversa da 200 o una risposta che non include l'intervallo di stato specificato nell'impostazione **Intervalli di codici di stato previsti** (incluso un codice 2xx diverso o un reindirizzamento 301/302).
 - Se il protocollo di monitoraggio è TCP: 
-    - Viene ricevuta una risposta diversa da ACK o SYN-ACK in risposta alla richiesta SYN inviata da Gestione traffico per tentare una connessione.
+    - Una risposta diversa da ACK o SYN-ACK viene ricevuta in risposta alla richiesta SYN inviata da Gestione traffico per tentare di stabilire una connessione.
 - Timeout. 
 - Qualsiasi altro problema di connessione che determina l'irraggiungibilità dell'endpoint.
 
@@ -114,7 +114,7 @@ La sequenza temporale nella figura seguente è una descrizione dettagliata del p
 
 **Figura: Sequenza di failover e ripristino degli endpoint di Gestione traffico**
 
-1. **OTTENERE .** Per ogni endpoint, il sistema di monitoraggio di Gestione traffico esegue una richiesta GET sul percorso specificato nelle impostazioni di monitoraggio.
+1. **Ottenere**. Per ogni endpoint, il sistema di monitoraggio di Gestione traffico esegue una richiesta GET sul percorso specificato nelle impostazioni di monitoraggio.
 2. **200 OK o intervallo di codici personalizzato specificato nelle impostazioni di monitoraggio del profilo di Gestione traffico**. Il sistema di monitoraggio si aspetta che venga restituito entro 10 secondi un codice HTTP 200 OK o un intervallo di codici personalizzato specificato nelle impostazioni di monitoraggio del profilo di Gestione traffico. Alla ricezione della risposta, il sistema riconosce la disponibilità del servizio.
 3. **30 secondi tra i controlli**. Il controllo di integrità dell'endpoint viene ripetuto ogni 30 secondi.
 4. **Servizio non disponibile**. il servizio diventa non disponibile. Gestione traffico non avrà informazioni fino al successivo controllo di integrità.
@@ -135,7 +135,7 @@ Un endpoint il cui stato è Degraded non viene restituito nella risposta alle qu
 * **Priorità**. gli endpoint formano un elenco con priorità. Viene sempre restituito il primo endpoint disponibile nell'elenco. Se lo stato di un endpoint è Degraded, viene restituito il successivo endpoint disponibile.
 * **Ponderato**. Viene scelto in modo casuale uno degli endpoint disponibili, in base ai pesi assegnati e ai pesi degli altri endpoint disponibili.
 * **Prestazioni**. Viene restituito l'endpoint più vicino all'utente finale. Se l'endpoint non è disponibile, Gestione traffico sposta il traffico sugli endpoint dell'area di Azure più vicina. È possibile configurare piani di failover alternativi per il routing del traffico con il metodo Prestazioni usando [profili di Gestione traffico nidificati](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
-* **Geografico**. Viene restituito l'endpoint mappato per fornire la posizione geografica in base all'IP della richiesta di query. Se tale endpoint non è disponibile, non verrà selezionato un altro endpoint per eseguire il failover, poiché un'area geografica può essere mappata solo a un endpoint in un profilo. Per altre informazioni, vedere le [domande frequenti](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method). Come procedura consigliata, quando si usa il routing geografico, si consiglia ai clienti di usare profili di Gestione traffico annidati con più di un endpoint come endpoint del profilo.
+* Area **geografica**. Viene restituito l'endpoint mappato per fornire la posizione geografica in base all'IP della richiesta di query. Se tale endpoint non è disponibile, non verrà selezionato un altro endpoint per eseguire il failover, poiché un'area geografica può essere mappata solo a un endpoint in un profilo. Per altre informazioni, vedere le [domande frequenti](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method). Come procedura consigliata, quando si usa il routing geografico, si consiglia ai clienti di usare profili di Gestione traffico annidati con più di un endpoint come endpoint del profilo.
 * **MultiValue**. Vengono restituiti più endpoint associati agli indirizzi IPv4 e IPv6. Quando viene ricevuta una query per questo profilo, vengono restituiti gli endpoint integri in base al valore specificato per **Numero massimo di record nella risposta**. Il numero predefinito di risposte è due endpoint.
 * **Subnet**. Viene restituito l'endpoint mappato a un set di intervalli di indirizzi IP. Quando viene ricevuta una richiesta dall'indirizzo IP, l'endpoint restituito è quello mappato per tale indirizzo IP. 
 
@@ -173,7 +173,7 @@ Per altre informazioni su come risolvere i problemi relativi ai controlli di int
 
 * [È possibile usare un profilo con endpoint con indirizzi IPv4 o IPv6 in un profilo annidato?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [Ho arrestato un endpoint dell'applicazione Web nel profilo di Gestione traffico, ma non ricevo alcun traffico anche dopo il riavvio. Come posso risolvere questo problema?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [Ho arrestato un endpoint dell'applicazione Web nel profilo di gestione traffico, ma non ricevo alcun traffico anche dopo il riavvio. Come si può risolvere il problema?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
 * [È possibile usare Gestione traffico anche se l'applicazione non supporta HTTP o HTTPS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
 
@@ -195,7 +195,7 @@ Per altre informazioni su come risolvere i problemi relativi ai controlli di int
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri [come funziona Gestione traffico](traffic-manager-how-it-works.md)
+Informazioni [sul funzionamento di gestione traffico](traffic-manager-how-it-works.md)
 
 Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 

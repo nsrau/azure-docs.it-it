@@ -1,24 +1,24 @@
 ---
-title: Gestire le basi di conoscenza - QnA Maker
-description: QnA Maker consente di gestire le proprie basi di conoscenza fornendo l'accesso alle impostazioni e ai contenuti della Knowledge Base.
+title: Gestisci Knowledge base-QnA Maker
+description: QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazioni e al contenuto della Knowledge base.
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756811"
 ---
-# <a name="create-knowledge-base-and-manage-settings"></a>Creare una Knowledge Base e gestire le impostazioni
+# <a name="create-knowledge-base-and-manage-settings"></a>Creazione della Knowledge base e gestione delle impostazioni
 
-QnA Maker consente di gestire le basi di conoscenza fornendo l'accesso alle impostazioni della Knowledge Base e alle origini dati.
+QnA Maker consente di gestire le Knowledge base fornendo accesso alle impostazioni e alle origini dati della Knowledge base.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!div class="checklist"]
 > * Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-> * Risorsa QnA Maker creata nel portale di Azure.A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Prendere nota dei valori di ID di Azure Active Directory, sottoscrizione e nome della risorsa di QnA selezionati durante la creazione della risorsa.
+> * [Risorsa QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) creata nel portale di Azure. Prendere nota dei valori di ID di Azure Active Directory, sottoscrizione e nome della risorsa di QnA selezionati durante la creazione della risorsa.
 
 ## <a name="create-a-knowledge-base"></a>Creare una knowledge base
 
@@ -36,7 +36,7 @@ QnA Maker consente di gestire le basi di conoscenza fornendo l'accesso alle impo
 
    ![Screenshot della selezione di una knowledge base per il servizio QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Nel **passaggio 3**assegnare alla Knowledge Base `My Sample QnA KB`il nome .
+1. Nel **passaggio 3**assegnare un nome alla Knowledge `My Sample QnA KB`base.
 
 1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
 
@@ -47,7 +47,7 @@ QnA Maker consente di gestire le basi di conoscenza fornendo l'accesso alle impo
     |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Chit-chat**|Selezionare **Professional**|
 
-1. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
+1. Nel **passaggio 5**selezionare **Crea la KB**.
 
     Il processo di estrazione impiega alcuni minuti per leggere il documento e identificare le domande e risposte.
 
@@ -63,18 +63,18 @@ QnA Maker consente di gestire le basi di conoscenza fornendo l'accesso alle impo
 
 1. Selezionare una Knowledge Base per modificarla.
 
-1.  Selezionare **Impostazioni**. L'elenco seguente contiene campi che è possibile modificare.
+1.  Selezionare **Impostazioni**. L'elenco seguente contiene i campi che è possibile modificare.
 
-       |Obiettivo|Azione|
+       |Obiettivo|Action|
        |--|--|
        |Aggiungere URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"**.|
        |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
-       |Aggiornare il contenuto|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. In questo modo la Knowledge Base verrà aggiornata con il contenuto dell'URL più recente una sola volta. Non si tratta di impostare una pianificazione regolare degli aggiornamenti.|
+       |Aggiorna contenuto|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La Knowledge base verrà aggiornata con il contenuto dell'URL più recente. Questa operazione non sta impostando una pianificazione regolare degli aggiornamenti.|
        |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
-    |Importa|È inoltre possibile importare qualsiasi Knowledge Base esistente selezionando il pulsante **Importa Knowledge Base.** |
-    |Aggiornamento|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.You can also update the management tier from Azure portal if necessary.
+    |Importa|È inoltre possibile importare qualsiasi Knowledge Base esistente selezionando il pulsante **Importa Knowledge base** . |
+    |Aggiornamento|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione da portale di Azure.
 
-  1. Dopo aver apportato le modifiche alla Knowledge Base, selezionare **Salva e esegui il training** nell'angolo superiore destro della pagina per rendere persistenti le modifiche.
+  1. Dopo aver apportato le modifiche alla Knowledge base, selezionare **Salva e** Esegui il training nell'angolo superiore destro della pagina per rendere permanente le modifiche.
 
        ![Save and train (Salva ed esegui training)](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
@@ -85,15 +85,15 @@ QnA Maker consente di gestire le basi di conoscenza fornendo l'accesso alle impo
 
 ## <a name="manage-large-knowledge-bases"></a>Gestire Knowledge Base di grandi dimensioni
 
-* **Gruppi di origini dati:** le Qna vengono raggruppate in base all'origine dati da cui sono state estratte. È possibile espandere o comprimere l'origine dati.
+* **Gruppi di origini dati**: i QnAs vengono raggruppati in base all'origine dati da cui sono stati estratti. È possibile espandere o comprimere l'origine dati.
 
     ![Usare la barra di origine dati di QnA Maker per comprimere ed espandere le risposte e le domande sull'origine dati](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Ricerca nella Knowledge Base**: È possibile cercare nella Knowledge Base digitando nella casella di testo nella parte superiore della tabella della Knowledge Base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
+* **Ricerca**nella Knowledge Base: è possibile eseguire ricerche nella Knowledge base digitando nella casella di testo nella parte superiore della tabella della Knowledge base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
 
     ![Usare la casella di ricerca di QnA Maker sopra alle domande e risposte, per limitare la visualizzazione solo agli elementi corrispondenti al filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Paginazione**: Spostarsi rapidamente tra le origini dati per gestire grandi knowledge base
+* **Paginazione**: spostarsi rapidamente tra le origini dati per gestire le Knowledge base di grandi dimensioni
 
     ![Usare le funzionalità di paginazione QnA Maker sopra alle domande e risposte, per spostarsi tra le pagine di domande e risposte](../media/qnamaker-how-to-edit-kb/pagination.png)
 
@@ -101,11 +101,11 @@ QnA Maker consente di gestire le basi di conoscenza fornendo l'accesso alle impo
 
 L'eliminazione di una knowledge base (KB) è un'operazione definitiva. Non può essere modificata. Prima di eliminare una knowledge base è necessario esportarla dalla pagina **Impostazioni** del portale di QnA Maker.
 
-Se si condivide la Knowledge Base con i collaboratori,](base.md di conoscenza-collaborazione), quindi eliminarla, tutti perdono l'accesso alla KB.
+Se si condivide la Knowledge base con collaboratori,] (collaborate-Knowledge-base.md) e quindi lo si elimina, tutti gli utenti perderanno l'accesso alla KB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulla [gestione della lingua](language-knowledge-base.md) di tutte le Knowledge Base in una risorsa.
+Informazioni sulla [gestione della lingua](language-knowledge-base.md) di tutte le Knowledge base in una risorsa.
 
 * Modifica coppie QnA
-* Gestire le risorse di Azure usate da QnA MakerManage Azure resources used by QnA Maker
+* Gestire le risorse di Azure usate da QnA Maker

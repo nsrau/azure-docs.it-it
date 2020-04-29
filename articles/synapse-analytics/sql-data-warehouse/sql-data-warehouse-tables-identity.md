@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di IDENTITY per creare chiavi surrogateUsing IDENTITY to create surrogate keys
-description: Suggerimenti ed esempi per l'utilizzo della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL Synapse.
+title: Uso di IDENTITY per la creazione di chiavi surrogate
+description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742648"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utilizzo di IDENTITY per creare chiavi surrogate nel pool Synapse SQLUsing IDENTITY to create surrogate keys in Synapse SQL pool
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso di IDENTITY per la creazione di chiavi surrogate nel pool SQL sinapsi
 
-Suggerimenti ed esempi per l'utilizzo della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL Synapse.
+Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL sinapsi.
 
 ## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata
 
@@ -28,7 +28,7 @@ Una chiave surrogata in una tabella è una colonna con un identificatore univoco
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
 
-La proprietà IDENTITY è progettata per la scalabilità orizzontale in tutte le distribuzioni nel pool SQL Synapse senza influire sulle prestazioni del carico. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
+La proprietà IDENTITY è progettata per scalare orizzontalmente tutte le distribuzioni nel pool SQL sinapsi senza influire sulle prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
 
 È possibile definire una tabella con la proprietà IDENTITY al momento della creazione, usando una sintassi simile all'istruzione seguente:
 
@@ -50,7 +50,7 @@ La parte rimanente di questa sezione illustra le varie sfumature dell'implementa
 
 ### <a name="allocation-of-values"></a>Allocazione dei valori
 
-La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, nel pool Synapse SQL, l'assenza di una garanzia è più pronunciata.
+La proprietà IDENTITY non garantisce l'ordine di allocazione dei valori surrogati, in modo conforme al comportamento di SQL Server e del database SQL di Azure. Tuttavia, nel pool di SQL sinapsi, l'assenza di una garanzia è più evidente.
 
 L'esempio seguente è una dimostrazione:
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) ha lo stesso comportamento di SQL Server documenta
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserimento in modo esplicito di valori in una colonna IDENTITY
 
-Il pool SQL Synapse supporta la `SET IDENTITY_INSERT <your table> ON|OFF` sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
+Il pool SQL sinapsi `SET IDENTITY_INSERT <your table> ON|OFF` supporta la sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
 
 Molti progettisti di modelli di dati preferiscono usare valori negativi predefiniti per alcune righe nelle dimensioni. Un esempio è la riga -1 o "membro sconosciuto".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Non è attualmente possibile usare `CREATE TABLE AS SELECT` per il caricamento di dati in una tabella con una colonna IDENTITY.
 >
 
-Per ulteriori informazioni sul caricamento dei dati, vedere Progettazione di [estrai, operazioni di caricamento e trasformazione (ELT) per il pool SQL Synapse](design-elt-data-loading.md) e [Caricamento delle procedure consigliate](guidance-for-loading-data.md).
+Per altre informazioni sul caricamento dei dati, vedere [progettazione di Extract, Load e Transform (ELT) per il pool SQL sinapsi](design-elt-data-loading.md) e [caricamento delle procedure consigliate](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Viste di sistema
 
@@ -195,9 +195,9 @@ Non è possibile usare la proprietà IDENTITY:
 - Quando la colonna è anche la chiave di distribuzione
 - Quando la tabella è una tabella esterna
 
-Le seguenti funzioni correlate non sono supportate nel pool Sql Synapse:
+Le funzioni correlate seguenti non sono supportate nel pool SQL sinapsi:
 
-- [IDIDE/](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENTITY ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -241,6 +241,6 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica della tabella](sql-data-warehouse-tables-overview.md)
+- [Panoramica delle tabelle](sql-data-warehouse-tables-overview.md)
 - [CREATE TABLE (Transact-SQL) IDENTITY (proprietà)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

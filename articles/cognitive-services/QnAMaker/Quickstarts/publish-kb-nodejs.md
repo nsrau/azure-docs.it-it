@@ -1,18 +1,18 @@
 ---
-title: 'Guida introduttiva: QnA Maker con API REST per Node.js'
+title: 'Guida introduttiva: QnA Maker con le API REST per node. js'
 description: Questo argomento di avvio rapido illustra come usare le API REST di QnA Maker per Node.js. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: ecc3fb144fb4b4e27182567925199f841b1c4357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851674"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Guida introduttiva: API REST di QnA Maker per Node.js
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Guida introduttiva: API REST di QnA Maker per node. js
 
 Introduzione alle API REST di QnA Maker per Node.js. Seguire questi passaggi per provare il codice di esempio per le attività di base.  QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti.
 
@@ -25,14 +25,14 @@ Usare le API REST di QnA Maker per Node.js per eseguire queste operazioni:
 * Scaricare una knowledge base
 * Ottenere lo stato di un'operazione
 
-[Documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | di riferimento[Node.js Esempi](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentazione di riferimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [esempi node. js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* La versione corrente di [Node.js](https://nodejs.org).
+* Versione corrente di [Node.js](https://nodejs.org).
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
 
 ## <a name="setting-up"></a>Configurazione
@@ -70,7 +70,7 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con le 
 * [Creare una knowledge base](#create-a-knowledge-base)
 * [Sostituire una knowledge base](#replace-a-knowledge-base)
 * [Pubblicare una knowledge base](#publish-a-knowledge-base)
-* [Eliminare una Knowledge Base](#delete-a-knowledge-base)
+* [Eliminare una knowledge base](#delete-a-knowledge-base)
 * [Scaricare una knowledge base](#download-the-knowledge-base)
 * [Ottenere lo stato di un'operazione](#get-status-of-an-operation)
 
@@ -88,7 +88,7 @@ Creare le variabili per l'endpoint e la chiave di Azure della risorsa. Se la var
 
 Impostare i valori di ambiente seguenti:
 
-* `QNAMAKER_RESOURCE_KEY`- La **chiave** è una stringa di 32 caratteri ed è disponibile nel portale di Azure, nella risorsa QnA Maker, nella pagina **iniziale rapida.-** The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. Non è la stessa chiave dell'endpoint di previsione.
+* `QNAMAKER_RESOURCE_KEY`-La **chiave** è una stringa di caratteri 32 ed è disponibile nel portale di Azure, nella risorsa QnA Maker, nella pagina **avvio rapido** . Non è la stessa chiave dell'endpoint di previsione.
 * `QNAMAKER_AUTHORING_ENDPOINT` - L'endpoint di creazione, nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, include il **nome della risorsa**. Non è lo stesso URL usato per eseguire query sull'endpoint di previsione.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
@@ -157,12 +157,12 @@ node rest-apis.js
 Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate.
 
 * [Portale](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interfaccia della riga di comando di AzureAzure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Interfaccia della riga di comando di Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
->[Esercitazione: Creare e rispondere a una KBTutorial: Create and answer a KB](../tutorials/create-publish-query-in-portal.md)
+>[Esercitazione: creare e rispondere a una KB](../tutorials/create-publish-query-in-portal.md)
 
 * [Informazioni sull'API QnA Maker](../Overview/overview.md)
 * [Modificare una knowledge base](../how-to/edit-knowledge-base.md)

@@ -1,6 +1,6 @@
 ---
-title: Accesso condizionale - Richiedere l'autenticazione a più fattori per la gestione di Azure - Azure Active DirectoryConditional Access - Require MFA for Azure management - Azure Active Directory
-description: Creare criteri di accesso condizionale personalizzati per richiedere l'autenticazione a più fattori per le attività di gestione di AzureCreate a custom Conditional Access policy to require multi-factor authentication for Azure management tasks
+title: "Accesso condizionale: richiedere l'autenticazione a più fattori per la gestione di Azure-Azure Active Directory"
+description: Creare un criterio di accesso condizionale personalizzato per richiedere l'autenticazione a più fattori per le attività di gestione di Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,53 +12,53 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b92d833e6f32821ad907ff966771bbba8bbb77ce
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755178"
 ---
-# <a name="conditional-access-require-mfa-for-azure-management"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per la gestione di AzureConditional Access: Require MFA for Azure management
+# <a name="conditional-access-require-mfa-for-azure-management"></a>Accesso condizionale: Richiedi autenticazione a più fattori per la gestione di Azure
 
-Le organizzazioni usano un'ampia gamma di servizi di Azure e li gestiscono da strumenti basati su Azure Resource Manager, ad esempio:Organizations use a variety of Azure services and manage them from Azure Resource Manager based tools like:
+Le organizzazioni usano un'ampia gamma di servizi di Azure e li gestiscono da strumenti Azure Resource Manager basati su, ad esempio:
 
 * Portale di Azure
 * Azure PowerShell
 * Interfaccia della riga di comando di Azure
 
-Questi strumenti possono fornire accesso con privilegi elevati alle risorse, che possono modificare le configurazioni a livello di sottoscrizione, le impostazioni del servizio e la fatturazione delle sottoscrizioni. Per proteggere queste risorse con privilegi, Microsoft consiglia di richiedere l'autenticazione a più fattori per qualsiasi utente che accede a queste risorse.
+Questi strumenti possono fornire accesso con privilegi elevati alle risorse, che possono modificare le configurazioni a livello di sottoscrizione, le impostazioni del servizio e la fatturazione della sottoscrizione. Per proteggere queste risorse con privilegi, Microsoft consiglia di richiedere l'autenticazione a più fattori per tutti gli utenti che accedono a queste risorse.
 
-## <a name="user-exclusions"></a>Esclusioni di utenti
+## <a name="user-exclusions"></a>Esclusioni utente
 
-I criteri di accesso condizionale sono strumenti potenti, è consigliabile escludere i seguenti account dai criteri:
+I criteri di accesso condizionale sono strumenti avanzati, quindi è consigliabile escludere dal criterio i seguenti account:
 
-* **Accesso di emergenza** o **account break-glass** per impedire il blocco degli account a livello di tenant. Nell'improbabile scenario in cui tutti gli amministratori sono bloccati dal tenant, l'account amministrativo di accesso di emergenza può essere usato per accedere al tenant per ripristinare l'accesso.
-   * Altre informazioni sono disponibili nell'articolo Gestire gli account di [accesso di emergenza in Azure AD.](../users-groups-roles/directory-emergency-access.md)
-* **Account di servizio** ed entità servizio, ad esempio l'account di sincronizzazione di Azure AD Connect.Service accounts and **service principals**, such as the Azure AD Connect Sync Account. Gli account di servizio sono account non interattivi che non sono legati ad alcun utente specifico. Vengono normalmente utilizzati dai servizi back-end che consentono l'accesso a livello di codice alle applicazioni, ma vengono utilizzati anche per accedere ai sistemi per scopi amministrativi. Gli account di servizio come questi devono essere esclusi poiché l'autenticazione a più fattori non può essere completata a livello di codice. Le chiamate effettuate dalle entità servizio non sono bloccate dall'accesso condizionale.
+* Account di **accesso di emergenza** o **break-Glass** per impedire il blocco degli account a livello di tenant. Nello scenario improbabile che tutti gli amministratori siano bloccati dal tenant, è possibile usare l'account amministrativo di accesso di emergenza per accedere al tenant per recuperare l'accesso.
+   * Altre informazioni sono disponibili nell'articolo [gestire gli account di accesso di emergenza in Azure ad](../users-groups-roles/directory-emergency-access.md).
+* Gli **account del servizio** e le **entità servizio**, ad esempio l'account Azure ad Connect Sync. Gli account del servizio sono account non interattivi che non sono collegati a un utente specifico. Vengono in genere usate dai servizi back-end che consentono l'accesso a livello di codice alle applicazioni, ma vengono usate anche per accedere ai sistemi per scopi amministrativi. Gli account del servizio come questi devono essere esclusi perché non è possibile completare l'autenticazione a livello di codice. Le chiamate effettuate dalle entità servizio non sono bloccate dall'accesso condizionale.
    * Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md). Come soluzione temporanea, è possibile escludere questi account specifici dai criteri di base.
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
-I passaggi seguenti consentono di creare un criterio di accesso condizionale per richiedere ai ruoli amministrativi assegnati di eseguire l'autenticazione a più fattori.
+La procedura seguente consente di creare un criterio di accesso condizionale per richiedere che i ruoli amministrativi assegnati eseguano la funzionalità di autenticazione a più fattori.
 
-1. Accedere al **portale** di Azure come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
-1. Passare ad Accesso**condizionale**alla**sicurezza** > di **Azure Active Directory** > .
+1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
+1. Passare a **Azure Active Directory** > **Security** > **accesso condizionale**di sicurezza.
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
-1. In **Assegnazioni**selezionare **Utenti e gruppi**
-   1. In **Includi**selezionare **Tutti gli utenti**.
-   1. In **Escludi**selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o di rottavetro dell'organizzazione. 
-   1. Selezionare **Fatto**.
-1. In **Includi app o azioni** > **Include**cloud **selezionare Seleziona app**, Gestione di **Microsoft Azure**e **selezionare Seleziona,** quindi **Fine**.
-1. In **Condizioni** > **App client (anteprima)** impostare **Configura** su **Sì**e selezionare **Fatto**.
-1. In **Controlli di** > accesso**Concedi**, selezionare **Concedi accesso**, Richiedi **autenticazione**a più fattori e selezionare **Seleziona**.
-1. Confermare le impostazioni e **impostare Abilita criterio** su **Attivato**.
+1. In **assegnazioni**selezionare **utenti e gruppi** .
+   1. In **Includi**selezionare **tutti gli utenti**.
+   1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
+   1. Seleziona **Chiudi**.
+1. In **app Cloud o azioni** > **Includi**selezionare **selezionare le app**, scegliere **gestione Microsoft Azure**e fare clic su **Seleziona** e quindi su **fine**.
+1. In **condizioni** > **app client (anteprima)** impostare **Configura** su **Sì**e fare clic su **fine**.
+1. In **controllo** > di accesso**concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e selezionare **Seleziona**.
+1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare per abilitare i criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Criteri comuni di Accesso condizionaleConditional Access common policies](concept-conditional-access-policy-common.md)
+[Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto utilizzando la modalità solo report di accesso condizionaleDetermine impact using Conditional Access report-only](howto-conditional-access-report-only.md)
+[Determinare l'effetto usando la modalità solo report di accesso condizionale](howto-conditional-access-report-only.md)
 
-[Simulare il comportamento di accesso con lo strumento Elementi di ricerca condizionali](troubleshoot-conditional-access-what-if.md)
+[Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)

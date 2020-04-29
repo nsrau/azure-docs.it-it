@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811313"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
@@ -33,12 +33,12 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 ## <a name="documentation"></a>Documentazione
 
 1. [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Configurazione della sicurezza Split-Merge](sql-database-elastic-scale-split-merge-security-configuration.md)
+2. [Configurazione della sicurezza di suddivisione-Unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Considerazioni sulla sicurezza dello strumento di suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
 5. [Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [Strumenti di database elastici](sql-database-elastic-scale-introduction.md)
-7. [Glossario degli strumenti di Elastic Database](sql-database-elastic-scale-glossary.md)
+7. [Glossario sugli strumenti di database elastici](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>Perché usare lo strumento di suddivisione-unione
 
@@ -62,7 +62,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 
 - **Servizi ospitati dal cliente**
 
-  Il servizio di suddivisione-unione viene offerto come servizio ospitato dal cliente. È necessario distribuire e ospitare il servizio nella sottoscrizione di Microsoft Azure. Il pacchetto scaricato da NuGet include un modello di configurazione da completare con le informazioni specifiche per la distribuzione. Per informazioni dettagliate, vedere l' [esercitazione relativa alla suddivisione-unione](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Poiché il servizio è in esecuzione nella sottoscrizione Azure, sarà possibile controllare e configurare la maggior parte degli aspetti relativi alla sicurezza del servizio. Il modello predefinito include le opzioni per configurare TLS, l'autenticazione client basata su certificati, la crittografia per le credenziali archiviate, la protezione DoS e le restrizioni IP. Altre informazioni sugli aspetti relativi alla sicurezza sono disponibili nel documento seguente relativo alla [configurazione di sicurezza della suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md).
+  Il servizio di suddivisione-unione viene offerto come servizio ospitato dal cliente. È necessario distribuire e ospitare il servizio nella sottoscrizione di Microsoft Azure. Il pacchetto scaricato da NuGet include un modello di configurazione da completare con le informazioni specifiche per la distribuzione. Per informazioni dettagliate, vedere l' [esercitazione relativa alla suddivisione-unione](sql-database-elastic-scale-configure-deploy-split-and-merge.md) . Poiché il servizio è in esecuzione nella sottoscrizione Azure, sarà possibile controllare e configurare la maggior parte degli aspetti relativi alla sicurezza del servizio. Il modello predefinito include le opzioni per configurare TLS, l'autenticazione client basata su certificato, la crittografia per le credenziali archiviate, la protezione DoS e le restrizioni IP. Altre informazioni sugli aspetti relativi alla sicurezza sono disponibili nel documento seguente relativo alla [configurazione di sicurezza della suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md).
 
   Il servizio distribuito predefinito viene eseguito con un ruolo di lavoro e un ruolo Web. Ogni ruolo usa la dimensione di VM A1 in Servizi cloud di Azure. Benché non sia possibile modificare queste impostazioni durante la distribuzione del pacchetto, è possibile modificarle dopo una distribuzione corretta nel servizio cloud in esecuzione, tramite il portale di Azure. Si noti che per motivi tecnici il ruolo di lavoro deve essere configurato solo per un'istanza.
 
@@ -190,7 +190,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Ora e data di inizio della richiesta.
 
-- **IDOperazione**
+- **OperationId**
 
   GUID che identifica in modo univoco la richiesta. Questa richiesta può essere usata anche per annullare l'operazione durante l'esecuzione.
 
@@ -202,7 +202,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Flag che indica se la richiesta è stata annullata.
 
-- **Progresso**
+- **Corso**
 
   Stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
 
@@ -219,7 +219,7 @@ Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo di PowerShell Azure Resource Manager è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Per questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione della diagnostica per i ruoli Web e di lavoro forniti dal pacchetto NuGet, eseguire i seguenti comandi utilizzando Azure PowerShell:
 

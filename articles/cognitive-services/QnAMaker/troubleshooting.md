@@ -1,36 +1,36 @@
 ---
-title: Risoluzione dei problemi - QnA Maker
-description: L'elenco curato delle domande più frequenti riguardanti il servizio QnA Maker ti aiuterà ad adottare il servizio più velocemente e con risultati migliori.
+title: Risoluzione dei problemi-QnA Maker
+description: L'elenco curato delle domande più frequenti relative al servizio QnA Maker consentirà di adottare il servizio più rapidamente e con risultati migliori.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
 ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804351"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
-L'elenco curato delle domande più frequenti riguardanti il servizio QnA Maker ti aiuterà ad adottare il servizio più velocemente e con risultati migliori.
+L'elenco curato delle domande più frequenti relative al servizio QnA Maker consentirà di adottare il servizio più rapidamente e con risultati migliori.
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="manage-predictions"></a>Gestire le stime
+## <a name="manage-predictions"></a>Gestisci stime
 
 <details>
-<summary><b>Come è possibile migliorare le prestazioni di velocità effettiva per le stime delle query?</b></summary>
+<summary><b>Come è possibile migliorare le prestazioni della velocità effettiva per le stime delle query?</b></summary>
 
-Risposta: I problemi di prestazioni della velocità effettiva indicano che è necessario aumentare le prestazioni sia per il servizio app che per la ricerca **cognitiva.** Valutare la possibilità di aggiungere una replica alla ricerca cognitiva per migliorare le prestazioni.
+**Risposta**: i problemi di prestazioni della velocità effettiva indicano che è necessario eseguire la scalabilità verticale sia per il servizio app che per il ricerca cognitiva. Prendere in considerazione l'aggiunta di una replica al ricerca cognitiva per migliorare le prestazioni.
 
-Ulteriori informazioni sui [piani tariffari](Concepts/azure-resources.md).
+Altre informazioni sui [piani tariffari](Concepts/azure-resources.md).
 </details>
 
 <details>
 <summary><b>Come ottenere l'endpoint del servizio QnAMaker</b></summary>
 
-**Risposta:** L'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto QnAMaker o UserVoice. L'endpoint è un URL `https://your-resource-name.azurewebsites.net`nel formato seguente: .
+**Risposta**: l'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il supporto di QnAMaker o UserVoice. L'endpoint è un URL nel formato seguente: `https://your-resource-name.azurewebsites.net`.
 
 1. Passare al servizio QnA Maker (gruppo di risorse) nel [portale di Azure](https://portal.azure.com)
 
@@ -51,7 +51,7 @@ Ulteriori informazioni sui [piani tariffari](Concepts/azure-resources.md).
 <details>
 <summary><b>Ho accidentalmente eliminato una parte di QnA Maker, cosa devo fare?</b></summary>
 
-**Risposta:** non eliminare i servizi di Azure creati insieme alla risorsa QnA Maker, ad esempio Ricerca o App Web. Questi sono necessari per QnA Maker per funzionare, se si elimina uno, QnA Maker smetterà di funzionare correttamente.
+**Risposta**: non eliminare i servizi di Azure creati insieme alla risorsa QnA Maker come la ricerca o l'app Web. Per il corretto funzionamento di QnA Maker, è necessario eliminarne uno QnA Maker smette di funzionare correttamente.
 
 Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, i file, gli URL, le domande e risposte personalizzate, le knowledge base e le risorse di Azure. Prima di eliminare qualsiasi parte della knowledge base, quindi, assicurarsi di esportare le knowledge base dalla pagina **Impostazioni**.
 
@@ -60,49 +60,49 @@ Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, 
 <details>
 <summary><b>Perché i miei URL/file non estraggono coppie di domanda/risposta?</b></summary>
 
-**Risposta**: È possibile che QnA Maker non sia in grado di estrarre automaticamente alcuni contenuti QnA (Question-and-Answer) da URL FAQ validi. In questi casi è possibile incollare il contenuto di domande/risposte in un file TXT e verificare se lo strumento è in grado di inglobarlo. In alternativa è possibile aggiungere contenuti alla Knowledge Base in modo editoriale tramite il [portale QnA Maker](https://qnamaker.ai).
+**Risposta**: è possibile che QnA Maker non possa estrarre automaticamente il contenuto di domande e risposte (QnA) da URL di domande frequenti valide. In questi casi è possibile incollare il contenuto di domande/risposte in un file TXT e verificare se lo strumento è in grado di inglobarlo. In alternativa è possibile aggiungere contenuti alla Knowledge Base in modo editoriale tramite il [portale QnA Maker](https://qnamaker.ai).
 
 </details>
 
 <details>
 <summary><b>Quali sono le dimensioni massime consentite per la creazione di Knowledge Base?</b></summary>
 
-**Risposta**: La dimensione della Knowledge Base dipende dallo SKU della ricerca di Azure scelto durante la creazione del servizio QnA Maker. Vedere [qui](./Tutorials/choosing-capacity-qnamaker-deployment.md) per altri dettagli.
+**Risposta**: le dimensioni della Knowledge base variano a seconda dello SKU di ricerca di Azure scelto durante la creazione del servizio QnA Maker. Vedere [qui](./Tutorials/choosing-capacity-qnamaker-deployment.md) per altri dettagli.
 
 </details>
 
 <details>
 <summary><b>Perché non vedo nulla nell'elenco a discesa quando cerco di creare una nuova Knowledge Base?</b></summary>
 
-**Risposta:** non sono ancora stati creati servizi QnA Maker in Azure.Answer : You haven't created any QnA Maker services in Azure haven't created any QnA Maker services in Azure' Per altre informazioni su come eseguire questa operazione, leggere [qui](./How-To/set-up-qnamaker-service-azure.md).
+**Risposta**: non sono stati ancora creati servizi di QnA Maker in Azure. Per altre informazioni su come eseguire questa operazione, leggere [qui](./How-To/set-up-qnamaker-service-azure.md).
 
 </details>
 
 <details>
 <summary><b>Come si condivide una Knowledge Base?</b></summary>
 
-**Risposta**: La condivisione funziona a livello di un servizio QnA Maker, ovvero tutte le knowledge base nel servizio verranno condivise. Vedere [qui](./How-To/collaborate-knowledge-base.md) per informazioni su come collaborare a una Knowledge Base.
+**Risposta**: la condivisione funziona a livello di servizio di QnA Maker, ovvero tutte le Knowledge base nel servizio verranno condivise. Vedere [qui](./How-To/collaborate-knowledge-base.md) per informazioni su come collaborare a una Knowledge Base.
 
 </details>
 
 <details>
 <summary><b>È possibile condividere una knowledge base con un collaboratore che non è nello stesso tenant di AAD, per modificare una knowledge base?</b></summary>
 
-**Risposta:** La condivisione è basata sul controllo degli accessi in base al ruolo di Azure.Answer : Sharing is based on Azure role-based access control (RBAC). Se è possibile condividere _qualsiasi_ risorsa in Azure con un altro utente, è anche possibile condividere QnA Maker.
+**Risposta**: la condivisione si basa sul controllo degli accessi in base al ruolo di Azure (RBAC). Se è possibile condividere _qualsiasi_ risorsa in Azure con un altro utente, è anche possibile condividere QnA Maker.
 
 </details>
 
 <details>
-<summary><b>Se si dispone di un piano di servizio app con 5 Knowledge Base QnAMaker. È possibile assegnare diritti di lettura/scrittura a 5 utenti diversi in modo che ognuno di essi possa accedere solo a 1 Knowledge Base QnAMaker?</b></summary>
+<summary><b>Se si dispone di un piano di servizio app con 5 Knowledge base QnAMaker. È possibile assegnare diritti di lettura/scrittura a 5 utenti diversi, in modo che ognuno di essi possa accedere solo a 1 QnAMaker Knowledge base?</b></summary>
 
-**Risposta**: È possibile condividere un intero servizio QnAMaker, non singole basi di conoscenza.
+**Risposta**: è possibile condividere un intero servizio QnAMaker, non le singole Knowledge base.
 
 </details>
 
 <details>
 <summary><b>Come si modifica il messaggio predefinito visualizzato se non viene trovata alcuna corrispondenza?</b></summary>
 
-**Risposta:** il messaggio predefinito fa parte delle impostazioni nel servizio app.
+**Risposta**: il messaggio predefinito fa parte delle impostazioni nel servizio app.
 - Passare alla risorsa del servizio app nel portale di Azure
 
 ![Servizio app QnA Maker](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
@@ -120,14 +120,14 @@ Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, 
 <details>
 <summary><b>Perché il collegamento SharePoint non viene estratto?</b></summary>
 
-**Risposta**: Per ulteriori informazioni, vedere [Percorsi delle origini dati.](./Concepts/knowledge-base.md#data-source-locations)
+**Risposta**: per ulteriori informazioni, vedere [percorsi origine dati](./Concepts/knowledge-base.md#data-source-locations) .
 
 </details>
 
 <details>
-<summary><b>Gli aggiornamenti apportati alla Knowledge Base non si riflettono sulla pubblicazione. Perché no?</b></summary>
+<summary><b>Gli aggiornamenti apportati alla Knowledge base non si riflettono sulla pubblicazione. Perché no?</b></summary>
 
-**Risposta**: Ogni operazione di modifica, sia in un aggiornamento, un test o un'impostazione di tabella, deve essere salvata prima di poter essere pubblicata. Assicurarsi di fare clic sul pulsante **Salva e addestra** dopo ogni operazione di modifica.
+**Risposta**: ogni operazione di modifica, in una tabella di aggiornamento, test o impostazione, deve essere salvata prima di poterla pubblicare. Assicurarsi di fare clic sul pulsante **Salva e Train** dopo ogni operazione di modifica.
 
 </details>
 
@@ -138,11 +138,11 @@ Tutte le eliminazioni sono permanenti, incluse le coppie di domande e risposte, 
 
 #### <a name="multimedia-auto-extraction-for-files-and-urls"></a>Estrazione automatica multimediale per file e URL
 
-* URL: funzionalità di conversione da HTML a Markdown limitata.
-* File - non supportati
+* Funzionalità di conversione da HTML a Markdown limitata agli URL.
+* File: non supportato
 
-#### <a name="answer-text-in-markdown"></a>Testo della risposta in markdown
-Una volta che le coppie QnA si trovano nella Knowledge Base, è possibile modificare il testo markdown di una risposta per includere collegamenti a i contenuti multimediali disponibili dagli URL pubblici.
+#### <a name="answer-text-in-markdown"></a>Testo della risposta in Markdown
+Quando le coppie di QnA sono nella Knowledge base, è possibile modificare il testo Markdown di una risposta per includere i collegamenti ai supporti disponibili dagli URL pubblici.
 
 
 </details>
@@ -150,7 +150,7 @@ Una volta che le coppie QnA si trovano nella Knowledge Base, è possibile modifi
 <details>
 <summary><b>QnA Maker supporta lingue diverse dall'inglese?</b></summary>
 
-**Risposta**: Vedere ulteriori dettagli sulle [lingue supportate](./Overview/languages-supported.md).
+**Risposta**: vedere altri dettagli sulle [lingue supportate](./Overview/languages-supported.md).
 
 Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio separato per ciascuna lingua.
 
@@ -161,64 +161,64 @@ Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio sep
 <details>
 <summary><b>Quando è consigliabile riavviare un servizio app?</b></summary>
 
-**Risposta:** aggiornare il servizio app quando l'icona di cautela è accanto al valore della versione per la Knowledge Base nella tabella **Chiavi endpoint** della [pagina](https://www.qnamaker.ai/UserSettings) **Impostazioni utente** .
+**Risposta**: aggiornare il servizio app quando l'icona di attenzione è accanto al valore della versione per la Knowledge base nella tabella **chiavi endpoint** nella pagina **impostazioni utente** [page](https://www.qnamaker.ai/UserSettings).
 
 </details>
 
 <details>
-<summary><b>Ho eliminato il mio servizio di ricerca esistente. Come posso risolvere questo problema?</b></summary>
+<summary><b>Il servizio di ricerca esistente è stato eliminato. Come si può risolvere il problema?</b></summary>
 
-**Risposta:** Se si elimina un indice di Ricerca cognitiva di Azure, l'operazione è finale e l'indice non può essere recuperato.
+**Risposta**: se si elimina un indice ricerca cognitiva di Azure, l'operazione è finale e non è possibile recuperare l'indice.
 
 </details>
 
 <details>
-<summary><b>Ho eliminato `testkb` il mio indice nel mio servizio di ricerca. Come posso risolvere questo problema?</b></summary>
+<summary><b>Ho eliminato l' `testkb` indice nel servizio di ricerca. Come si può risolvere il problema?</b></summary>
 
-**Risposta**: I tuoi vecchi dati non possono essere recuperati. Creare una nuova risorsa QnA Maker e creare nuovamente la Knowledge Base.
+**Risposta**: i dati precedenti non possono essere recuperati. Creare una nuova risorsa di QnA Maker e creare di nuovo la Knowledge base.
 
 </details>
 
 <details>
 <summary><b>Quando è necessario aggiornare le chiavi endpoint?</b></summary>
 
-**Risposta**: Aggiornare le chiavi dell'endpoint se si sospetta che siano state compromesse.
+**Risposta**: aggiornare le chiavi dell'endpoint se si ritiene che siano state compromesse.
 
 </details>
 
 <details>
-<summary><b>È possibile usare la stessa risorsa Ricerca cognitiva di Azure per le Knowledge Base che usano più lingue?</b></summary>
+<summary><b>È possibile usare la stessa risorsa ricerca cognitiva di Azure per le Knowledge base usando più lingue?</b></summary>
 
-**Risposta**: Per usare più lingue e più Knowledge Base, l'utente deve creare una risorsa QnA Maker per ogni lingua. Verrà creato un servizio di ricerca di Azure separato per ogni lingua. La combinazione di knowledge base in lingue diverse in un singolo servizio di Ricerca di Azure comporterà una ridotta pertinenza dei risultati.
-
-</details>
-
-<details>
-<summary><b>Come è possibile modificare il nome della risorsa Ricerca cognitiva di Azure usata da QnA Maker?</b></summary>
-
-**Risposta:** Il nome della risorsa Ricerca cognitiva di Azure è il nome della risorsa QnA Maker con alcune lettere casuali aggiunte alla fine. La distinzione tra più risorse di ricerca per QnA Maker risulta quindi più difficile. Creare un servizio di ricerca separato (denominandolo nel modo desiderato) e collegarlo al servizio QnA. I passaggi sono simili a quelli da eseguire per aggiornare una ricerca di [Azure.](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service)
+**Risposta**: per usare più lingue e più Knowledge base, l'utente deve creare una risorsa QnA Maker per ciascuna lingua. Verrà creato un servizio di ricerca di Azure separato per ogni lingua. La combinazione di knowledge base in lingue diverse in un singolo servizio di Ricerca di Azure comporterà una ridotta pertinenza dei risultati.
 
 </details>
 
 <details>
-<summary><b>Quando QnA `Runtime core is not initialized,` Maker restituisce come posso risolvere il problema?</b></summary>
+<summary><b>Come è possibile modificare il nome della risorsa ricerca cognitiva di Azure usata da QnA Maker?</b></summary>
 
-**Risposta:** lo spazio su disco per il servizio app potrebbe essere pieno. Passaggi per correggere lo spazio su disco:
+**Risposta**: il nome della risorsa ricerca cognitiva di Azure è il nome della risorsa QnA Maker con alcune lettere casuali aggiunte alla fine. La distinzione tra più risorse di ricerca per QnA Maker risulta quindi più difficile. Creare un servizio di ricerca separato (denominarlo come si desidera) e connetterlo al servizio QnA. I passaggi sono simili ai passaggi necessari per [aggiornare una ricerca di Azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
 
-1. Nel [portale di Azure](https://portal.azure.com)selezionare il servizio App di QnA Maker, quindi arrestare il servizio.
-1. Mentre si è ancora nel servizio app, selezionare Strumenti di **sviluppo**, quindi **Strumenti avanzati**, quindi **Vai**. Si apre una nuova finestra del browser.
-1. Selezionare **Console di debug**, quindi **CMD** per aprire uno strumento della riga di comando.
-1. Passare alla directory _site/wwwroot/Data/QnAMaker/._
-1. Rimuovere tutte le cartelle `rd`il cui nome inizia con .
+</details>
 
-    **Non eliminare** quanto segue:
+<details>
+<summary><b>Quando QnA Maker restituisce `Runtime core is not initialized,` come risolvere il problema?</b></summary>
 
-    * KbIdToRankerMappings.txt file
-    * File EndpointSettings.json
+**Risposta**: lo spazio su disco per il servizio app potrebbe essere pieno. Passaggi per la correzione dello spazio su disco:
+
+1. Nella [portale di Azure](https://portal.azure.com)selezionare il servizio App del QnA Maker, quindi arrestare il servizio.
+1. Sempre nel servizio app, selezionare strumenti di **sviluppo**, **strumenti avanzati**, quindi **fare**clic su. Verrà visualizzata una nuova finestra del browser.
+1. Selezionare **console di debug**, quindi **cmd** per aprire uno strumento da riga di comando.
+1. Passare alla directory _site/wwwroot/data/QnAMaker/_ .
+1. Rimuovere tutte le cartelle il cui nome inizia `rd`con.
+
+    Non **eliminare** gli elementi seguenti:
+
+    * File KbIdToRankerMappings. txt
+    * File EndpointSettings. JSON
     * Cartella EndpointKeys
 
 1. Avviare il servizio app.
-1. Accedi alla tua knowledge base per verificare che funzioni ora.
+1. Accedere alla Knowledge base per verificarne il funzionamento.
 
 </details>
 
@@ -227,43 +227,43 @@ Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio sep
 <details>
 <summary><b>È necessario usare Bot Framework per usare QnA Maker?</b></summary>
 
-**Risposta**: No, non è necessario utilizzare [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) con QnA Maker. Tuttavia, QnA Maker è offerto come uno dei diversi modelli nel servizio bot di Azure.However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Il servizio Bot consente di sviluppare rapidamente bot intelligenti con Microsoft Bot Framework e viene eseguito in un ambiente senza server.
+**Risposta**: No, non è necessario usare [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) con QnA Maker. Tuttavia, QnA Maker è disponibile come uno dei diversi modelli nel [servizio Azure bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Il servizio Bot consente di sviluppare rapidamente bot intelligenti con Microsoft Bot Framework e viene eseguito in un ambiente senza server.
 
 </details>
 
 <details>
-<summary><b>Come posso creare un nuovo bot con QnA Maker?</b></summary>
+<summary><b>Come è possibile creare un nuovo bot con QnA Maker?</b></summary>
 
-**Risposta**: seguire le istruzioni in questa documentazione per creare il bot con il servizio Bot di Azure.Answer : Follow the instructions in [this](./Quickstarts/create-publish-knowledge-base.md) documentation to create your Bot with Azure Bot Service.
-
-</details>
-
-<details>
-<summary><b>Come si usa una Knowledge Base diversa con un servizio bot di Azure esistente?</b></summary>
-
-**Risposta**: È necessario disporre delle seguenti informazioni sulla Knowledge Base:
-
-* ID della Knowledge Base.
-* Nome sottodominio personalizzato dell'endpoint pubblicato `host`della Knowledge Base, noto come , disponibile nella pagina **Impostazioni** dopo la pubblicazione.
-* Chiave endpoint pubblicata della Knowledge Base, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
-
-Con queste informazioni, passare al servizio app del bot nel portale di Azure.With this information, go to your bot's app service in the Azure portal. In **Impostazioni -> Configurazione -> Impostazioni applicazione**modificare tali valori.
-
-La chiave dell'endpoint della `QnAAuthkey` Knowledge Base è etichettata nel servizio ABS.
+**Risposta**: seguire le istruzioni riportate in [questa](./Quickstarts/create-publish-knowledge-base.md) documentazione per creare il bot con il servizio Azure bot.
 
 </details>
 
 <details>
-<summary><b>Due o più applicazioni client possono condividere una Knowledge Base?</b></summary>
+<summary><b>Ricerca per categorie usare una Knowledge base diversa con un servizio Azure bot esistente?</b></summary>
 
-**Risposta**: Sì, è possibile eseguire query sulla Knowledge Base da un numero qualsiasi di client. Se la risposta dalla Knowledge Base sembra essere lenta o timeout, prendere in considerazione l'aggiornamento del livello di servizio per il servizio app associato alla Knowledge Base.
+**Risposta**: è necessario disporre delle informazioni seguenti sulla Knowledge Base:
+
+* ID della Knowledge base.
+* Nome del sottodominio personalizzato dell'endpoint pubblicato della Knowledge base, `host`noto come, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
+* Chiave endpoint pubblicata della Knowledge base, disponibile nella pagina **Impostazioni** dopo la pubblicazione.
+
+Con queste informazioni, andare al servizio app del bot nella portale di Azure. In **Impostazioni-> configurazione > impostazioni applicazione**modificare tali valori.
+
+La chiave dell'endpoint della Knowledge base è etichettata `QnAAuthkey` nel servizio ABS.
+
+</details>
+
+<details>
+<summary><b>Due o più applicazioni client possono condividere una Knowledge base?</b></summary>
+
+**Risposta**: Sì, la Knowledge base può essere sottoposta a query da un numero qualsiasi di client. Se la risposta dalla Knowledge base sembra essere lenta o timeout, provare ad aggiornare il livello di servizio per il servizio app associato alla Knowledge base.
 
 </details>
 
 <details>
 <summary><b>Come si incorpora il servizio QnA Maker nel proprio sito Web?</b></summary>
 
-**Risposta**: Seguire questi passaggi per incorporare il servizio QnA Maker come controllo di chat Web nel sito Web:
+**Risposta**: attenersi alla procedura seguente per incorporare il servizio QnA Maker come controllo web-chat nel sito Web:
 
 1. Creare il bot di domande frequenti seguendo [queste istruzioni](./Quickstarts/create-publish-knowledge-base.md).
 2. Abilitare la chat Web seguendo [questi](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat) passaggi

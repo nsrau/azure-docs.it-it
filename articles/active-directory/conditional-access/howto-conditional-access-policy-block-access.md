@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755073"
 ---
 # <a name="conditional-access-block-access"></a>Accesso condizionale: bloccare l'accesso
@@ -49,7 +49,7 @@ Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazio
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi**selezionare **tutti gli utenti**.
    1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni**selezionare le opzioni seguenti:
    1. In **Includi**selezionare **tutte le app Cloud**.
    1. In **Escludi**selezionare **Office 365 (anteprima)**, selezionare **Seleziona**e quindi fare clic su **fine**.
@@ -58,7 +58,7 @@ Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazio
       1. Imposta **Configura** su **Sì**
       1. In **Includi**selezionare **qualsiasi percorso**.
       1. In **Escludi**selezionare **tutti i percorsi attendibili**.
-      1. Selezionare **Operazione completata**.
+      1. Seleziona **Chiudi**.
    1. In **app client (anteprima)** impostare **Configura** su **Sì**, quindi fare clic su **fine**, quindi su **fine**.
 1. In **controllo** > di accesso**concedere**selezionare **Blocca accesso**, quindi selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **solo report**.
@@ -71,7 +71,7 @@ Per richiedere l'autenticazione a più fattori o un dispositivo conforme per gli
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi**selezionare **tutti gli utenti**.
    1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
-   1. Selezionare **Operazione completata**.
+   1. Seleziona **Chiudi**.
 1. In **app Cloud o azioni** > **includere**selezionare **Seleziona app**, scegliere **Office 365 (anteprima)**, quindi selezionare **selezionare**, quindi **fine**.
 1. In **controllo** > di accesso**concedere**selezionare **Concedi accesso**.
    1. Selezionare **Richiedi autenticazione** a più fattori e **Richiedi che il dispositivo sia contrassegnato come conforme** Selezionare **Seleziona**.

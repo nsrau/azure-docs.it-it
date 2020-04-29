@@ -1,6 +1,6 @@
 ---
 title: Classi di risorse per la gestione del carico di lavoro
-description: Indicazioni per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Analisi synapse di Azure.Guidance for using resource classes to manage concurrency and compute resources for queries in Azure Synapse Analytics.
+description: Linee guida per l'uso delle classi di risorse per gestire la concorrenza e le risorse di calcolo per le query in Azure sinapsi Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,27 +12,27 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743258"
 ---
-# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestione del carico di lavoro con le classi di risorse in Azure Synapse AnalyticsWorkload management with resource classes in Azure Synapse Analytics
+# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestione del carico di lavoro con le classi di risorse in Azure sinapsi Analytics
 
-Indicazioni per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query del pool SQL Synapse in Azure Synapse.Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse.  
+Linee guida per l'uso delle classi di risorse per gestire la memoria e la concorrenza per le query del pool SQL sinapsi in sinapsi di Azure.  
 
-## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorseWhat are resource classes
+## <a name="what-are-resource-classes"></a>Che cosa sono le classi di risorse
 
-La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti di risorse predeterminati nel pool SQL Synapse che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
+La capacità di prestazioni di una query è determinata dalla classe di risorse dell'utente.  Le classi di risorse sono limiti predefiniti delle risorse nel pool SQL sinapsi che regolano le risorse di calcolo e la concorrenza per l'esecuzione delle query. Le classi di risorse consentono di configurare le risorse per le query impostando limiti sul numero di query eseguite contemporaneamente e sulle risorse di calcolo assegnate a ogni query.  C'è un compromesso tra memoria e concorrenza.
 
 - Le classi di risorse di piccole dimensioni riducono la memoria massima per ogni query, ma aumentano la concorrenza.
-- Le classi di risorse più grandi aumentano la memoria massima per query, ma riducono la concorrenza.
+- Le classi di risorse più grandi aumentano la quantità massima di memoria per query, ma riducono la concorrenza.
 
 Esistono due tipi di classi di risorse:
 
 - Le classi di risorse statiche che sono più adatte per assicurare maggiore concorrenza in un set di dati di dimensioni fisse.
-- Classi di risorse dinamiche, adatte per set di dati che aumentano di dimensioni e richiedono un aumento delle prestazioni man mano che il livello di servizio viene aumentato.
+- Classi di risorse dinamiche, ideali per i set di dati che aumentano di dimensione e che necessitano di un miglioramento delle prestazioni in quanto il livello di servizio viene ridotto.
 
 Le classi di risorse usano gli slot di concorrenza per misurare il consumo di risorse.  Gli [slot di concorrenza](#concurrency-slots) verranno illustrati più avanti nell'articolo.
 
@@ -74,13 +74,13 @@ L'allocazione di memoria per ogni classe di risorse è la seguente.
 | DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
 | DW400c         | 6,25%             | 10%                    | 22%                    | 70%                    |
 | DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
-| Da DW1000c a<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
+| Compreso dw1000c<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
 
 ### <a name="default-resource-class"></a>Classe di risorse predefinita
 
 Per impostazione predefinita, ogni utente è membro della classe di risorse dinamica **smallrc**.
 
-La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per l'account di accesso "Server admin" durante la creazione di un nuovo pool SQL Synapse con un nuovo server.
+La classe di risorse dell'amministratore del servizio è fissa su smallrc e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.  L'amministratore del servizio in questo contesto è l'account di accesso specificato per l'account di accesso amministratore del server durante la creazione di un nuovo pool SQL sinapsi con un nuovo server.
 
 > [!NOTE]
 > Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.
@@ -117,7 +117,7 @@ Alcune query vengono sempre eseguite nella classe di risorse smallrc anche se l'
 Le istruzioni seguenti sono esenti dalle classi di risorse e vengono sempre eseguite in smallrc:
 
 - CREATE o DROP TABLE
-- ALTER a tabella ... SWITCH, SPLIT o MERGE PARTITION
+- ALTER TABLE... SWITCH, SPLIT o MERGE PARTITION
 - ALTER INDEX DISABLE
 - DROP INDEX
 - CREATE, UPDATE o DROP STATISTICS
@@ -141,12 +141,12 @@ Removed as these two are not confirmed / supported under SQL DW
 
 ## <a name="concurrency-slots"></a>Slot di concorrenza
 
-Gli slot di concorrenza sono un modo pratico per verificare le risorse disponibili per l'esecuzione di query. Hanno la stessa utilità dei biglietti per i concerti, che riservano i posti a sedere perché limitati. Il numero totale di slot concorrenza per ogni data warehouse è determinato dal livello di servizio. Per poter procedere con l'avvio dell'esecuzione, una query deve essere in grado di riservare slot di concorrenza sufficienti. Quando una query viene completata, rilascia i relativi slot di concorrenza.  
+Gli slot di concorrenza sono un modo pratico per verificare le risorse disponibili per l'esecuzione di query. Hanno la stessa utilità dei biglietti per i concerti, che riservano i posti a sedere perché limitati. Il numero totale di slot concorrenza per ogni data warehouse è determinato dal livello di servizio. Per poter procedere con l'avvio dell'esecuzione, una query deve essere in grado di riservare slot di concorrenza sufficienti. Quando una query viene completata, rilascia gli slot di concorrenza.  
 
 - Una query in esecuzione con 10 slot di concorrenza può accedere a un numero di risorse di calcolo 5 volte maggiore di una query in esecuzione con 2 slot di concorrenza.
 - Se ogni query richiede 10 slot di concorrenza e sono disponibili 40 slot di concorrenza, solo 4 query possono essere eseguite contemporaneamente.
 
-Solo le query che dipendono da una risorsa usano tutti gli slot di concorrenza. Le query di sistema e alcune query semplici non utilizzano slot. Il numero esatto di slot di concorrenza usato è determinato dalla classe di risorse della query.
+Solo le query che dipendono da una risorsa usano tutti gli slot di concorrenza. Le query di sistema e alcune semplici query non utilizzano slot. Il numero esatto di slot di concorrenza usato è determinato dalla classe di risorse della query.
 
 ## <a name="view-the-resource-classes"></a>Visualizzare le classi di risorse
 
@@ -160,15 +160,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## <a name="change-a-users-resource-class"></a>Modificare la classe di risorse di un utente
 
-Le classi di risorse vengono implementate assegnando gli utenti ai ruoli del database. Quando un utente esegue una query, la query viene eseguita con la classe di risorse dell'utente. Ad esempio, se un utente è membro del ruolo del database staticrc10, le query vengono eseguite con piccole quantità di memoria. Se un utente del database è membro dei ruoli del database xlargerc o staticrc80, le query vengono eseguite con grandi quantità di memoria.
+Le classi di risorse vengono implementate assegnando gli utenti ai ruoli del database. Quando un utente esegue una query, la query viene eseguita con la classe di risorse dell'utente. Se, ad esempio, un utente è un membro del ruolo del database staticrc10, le query vengono eseguite con piccole quantità di memoria. Se un utente del database è membro dei ruoli del database xlargerc o staticrc80, le query vengono eseguite con grandi quantità di memoria.
 
-Per aumentare la classe di risorse di un utente, utilizzare [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per aggiungere l'utente a un ruolo del database di una classe di risorse di grandi dimensioni.  Il codice seguente aggiunge un utente al ruolo del database largerc.  Ogni richiesta ottiene il 22% della memoria di sistema.
+Per aumentare la classe di risorse di un utente, usare [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per aggiungere l'utente a un ruolo del database di una classe di risorse di grandi dimensioni.  Il codice seguente aggiunge un utente al ruolo del database largerc.  Ogni richiesta ottiene il 22% della memoria di sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Per diminuire la classe di risorse, usare [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se 'loaduser' non è un membro o qualsiasi altra classe di risorse, passano alla classe di risorse smallrc predefinita con una concessione di memoria del 3%.  
+Per diminuire la classe di risorse, usare [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se ' LoadUser ' non è un membro o altre classi di risorse, entrano nella classe di risorse smallrc predefinita con una concessione di memoria pari al 3%.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -181,54 +181,54 @@ Gli utenti possono essere membri di più classi di risorse. Quando un utente app
 - Le classi di risorse dinamiche hanno la precedenza sulle classi di risorse statiche. Ad esempio, se un utente è membro sia di mediumrc (dinamica) sia di staticrc80 (statica), le query vengono eseguite con mediumrc.
 - Le classi di risorse più grandi hanno la precedenza sulle classi di risorse più piccole. Ad esempio, se un utente è membro di mediumrc e largerc, le query vengono eseguite con largerc. Analogamente, se un utente è membro sia di staticrc20, sia di statirc80, le query vengono eseguite con allocazioni di risorse staticrc80.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 
 >[!NOTE]
->Valutare la possibilità di sfruttare le funzionalità di gestione del carico di lavoro ( isolamento del carico di[lavoro,](sql-data-warehouse-workload-isolation.md) [classificazione](sql-data-warehouse-workload-classification.md) e [importanza)](sql-data-warehouse-workload-importance.md)per un maggiore controllo sul carico di lavoro e prestazioni prevedibili.  
+>Si consiglia di sfruttare le funzionalità di gestione del carico di lavoro (isolamento, [classificazione](sql-data-warehouse-workload-classification.md) e [importanza](sql-data-warehouse-workload-importance.md)del[carico di lavoro](sql-data-warehouse-workload-isolation.md)) per un maggiore controllo sul carico di lavoro e prestazioni prevedibili  
 >
 >
 
-È consigliabile creare un utente dedicato all'esecuzione di un tipo specifico di query o operazione di caricamento. Assegnare all'utente una classe di risorse permanente anziché modificare la classe di risorse in base frequente. Le classi di risorse statiche consentono un maggiore controllo complessivo sul carico di lavoro, pertanto è consigliabile usare classi di risorse statiche prima di considerare le classi di risorse dinamiche.
+Si consiglia di creare un utente dedicato all'esecuzione di un tipo specifico di query o di un'operazione di caricamento. Assegnare a tale utente una classe di risorse permanente anziché modificare la classe di risorse su base frequente. Le classi di risorse statiche consentono un maggiore controllo generale sul carico di lavoro, quindi è consigliabile usare classi di risorse statiche prima di prendere in considerazione le classi di risorse dinamiche.
 
 ### <a name="resource-classes-for-load-users"></a>Classi di risorse per gli utenti del caricamento
 
-`CREATE TABLE` usa indici columnstore cluster per impostazione predefinita. La compressione dei dati in un indice columnstore è un'operazione a uso intensivo di memoria e questo può ridurre la qualità dell'indice. La pressione della memoria può comportare la necessità di una classe di risorse superiore durante il caricamento dei dati. Per garantire che sia disponibile una quantità di memoria sufficiente per il caricamento, è possibile creare un utente designato per l'esecuzione del caricamento e assegnare tale utente a una classe di risorse superiore.
+`CREATE TABLE` usa indici columnstore cluster per impostazione predefinita. La compressione dei dati in un indice columnstore è un'operazione a uso intensivo di memoria e questo può ridurre la qualità dell'indice. L'utilizzo elevato della memoria può causare la necessità di una classe di risorse superiore durante il caricamento dei dati. Per garantire che sia disponibile una quantità di memoria sufficiente per il caricamento, è possibile creare un utente designato per l'esecuzione del caricamento e assegnare tale utente a una classe di risorse superiore.
 
 La memoria necessaria per elaborare in modo efficiente i caricamenti dipende dalla natura della tabella caricata e dalle dimensioni dei dati. Per altre informazioni sui requisiti di memoria, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 Dopo aver determinato i requisiti di memoria, scegliere se assegnare l'utente del caricamento a una classe di risorse statica o dinamica.
 
 - Usare una classe di risorse statica quando i requisiti di memoria della tabella rientrano in un intervallo specifico. I caricamenti vengono eseguiti con la memoria appropriata. Quando si ridimensiona il data warehouse, i caricamenti non richiedono altra memoria. Se si usa una classe di risorse statica, le allocazioni di memoria rimangono costanti. Questa coerenza consente di conservare la memoria e di eseguire contemporaneamente più query. Si consiglia di fare in modo che le nuove soluzioni usino prima le classi di risorse statiche poiché offrono un maggiore controllo.
-- Usare una classe di risorse dinamica quando i requisiti di memoria della tabella variano notevolmente. I caricamenti potrebbero richiedere più memoria rispetto alla quantità messa a disposizione dal livello attuale di DWU o DWU a elevato utilizzo di calcolo. La scalabilità del data warehouse aggiunge più memoria alle operazioni di caricamento, che consente ai caricamenti di essere eseguiti più velocemente.
+- Usare una classe di risorse dinamica quando i requisiti di memoria della tabella variano notevolmente. I caricamenti potrebbero richiedere più memoria rispetto alla quantità messa a disposizione dal livello attuale di DWU o DWU a elevato utilizzo di calcolo. Il ridimensionamento del data warehouse aggiunge una maggiore quantità di memoria per le operazioni di caricamento, che consente di eseguire più velocemente i carichi.
 
 ### <a name="resource-classes-for-queries"></a>Classi di risorse per le query
 
-Alcune query richiedono un utilizzo intensivo del calcolo e altre no.  
+Alcune query sono a elevato utilizzo di calcolo e altre no.  
 
-- Scegliere una classe di risorse dinamiche quando le query sono complesse, ma non è necessaria una concorrenza elevata.  Ad esempio, la generazione di report giornalieri o settimanali richiede risorse in modo occasionale. Se i report elaborano grandi quantità di dati, il ridimensionamento del data warehouse rende disponibile una maggiore quantità di memoria per la classe di risorse esistente dell'utente.
+- Scegliere una classe di risorse dinamica quando le query sono complesse, ma non necessitano di concorrenza elevata.  Ad esempio, la generazione di report giornalieri o settimanali richiede risorse in modo occasionale. Se i report elaborano grandi quantità di dati, il ridimensionamento del data warehouse rende disponibile una maggiore quantità di memoria per la classe di risorse esistente dell'utente.
 - Scegliere una classe di risorse statica quando le aspettative di risorse variano nel corso della giornata. Ad esempio, una classe di risorse statica funziona bene quando molti utenti eseguono query nel data warehouse. Quando si ridimensiona il data warehouse, la quantità di memoria allocata all'utente non cambia. Di conseguenza, è possibile eseguire più query in parallelo nel sistema.
 
-Concessioni di memoria appropriate dipendono da molti fattori, ad esempio la quantità di dati sottoposti a query, la natura degli schemi di tabella e vari join, selezione e raggruppare predicati. In generale, l'allocazione di più memoria consente di completare più rapidamente le query, ma riduce la concorrenza complessiva. Se la concorrenza non è un problema, un'allocazione eccessiva di memoria non influisce sulla velocità effettiva.
+Le concessioni di memoria appropriate dipendono da molti fattori, ad esempio la quantità di dati sottoposti a query, la natura degli schemi di tabella e i vari predicati di join, Select e Group. In generale, l'allocazione di più memoria consente di completare più rapidamente le query, ma riduce la concorrenza complessiva. Se la concorrenza non è un problema, un'allocazione eccessiva di memoria non influisce sulla velocità effettiva.
 
 Per ottimizzare le prestazioni, utilizzare diverse classi di risorse. La sezione successiva presenta una stored procedure che consente di individuare la classe di risorse migliore.
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Esempio di codice per la ricerca della classe di risorse migliore
 
-È possibile utilizzare la stored procedure specificata seguente per calcolare la concorrenza e la concessione di memoria per ogni classe di risorse in un determinato SLO e la migliore classe di risorse per le operazioni CCI con utilizzo intensivo della memoria su una tabella CCI non partizionata in una determinata classe di risorse:You can use the following specified stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the best resource class for memory intensive CCI operations on memory intensive CCI table at a given resource class:
+È possibile usare i seguenti stored procedure specificati per determinare la concorrenza e la concessione di memoria per ogni classe di risorse in un SLO specificato e la classe di risorse migliore per le operazioni CCI con utilizzo intensivo di memoria su una tabella CCI non partizionata in una determinata classe di risorse:
 
 Ecco lo scopo della stored procedure:
 
 1. Visualizzare informazioni sulla concorrenza e sulla concessione di memoria per ogni classe di risorse in un determinato SLO. L'utente deve specificare NULL sia per lo schema che per il nome di tabella, come indicato nell'esempio.  
-2. Per visualizzare la classe di risorse migliore per le operazioni CCI che richiedono un uso intensivo della memoria (caricamento, tabella di copia, ricostruisci indice e così via) nella tabella CCI non partizionata in una determinata classe di risorse. La stored procedure usa lo schema di tabella per individuare la concessione di memoria necessaria.
+2. Per visualizzare la classe di risorse migliore per le operazioni CCI a elevato utilizzo di memoria (caricamento, copia di tabelle, ricompilazione dell'indice e così via) su una tabella CCI non partizionata in una determinata classe di risorse. La stored procedure usa lo schema di tabella per individuare la concessione di memoria necessaria.
 
-### <a name="dependencies--restrictions"></a>Dipendenze & Restrizioni
+### <a name="dependencies--restrictions"></a>Dipendenze & restrizioni
 
-- Questa stored procedure non è progettata per calcolare il requisito di memoria per una tabella cci partizionata.
-- Questa stored procedure non prende in considerazione i requisiti di memoria per la parte SELECT di CTAS/INSERT-SELECT e presuppone che si tratti di un'istruzione SELECT.
+- Questa stored procedure non è progettata per calcolare i requisiti di memoria per una tabella CCI partizionata.
+- Questo stored procedure non prende in considerazione i requisiti di memoria per la parte di selezione di CTAS/INSERT-SELECT e presuppone che si tratta di una selezione.
 - Questa stored procedure usa una tabella temporanea che è disponibile nella sessione in cui è stata creata la stored procedure.
-- Questa stored procedure dipende dalle offerte correnti (ad esempio, la configurazione hardware, la configurazione DMS) e se una qualsiasi di queste modifiche non funzionerà correttamente.  
-- Questa stored procedure dipende dalle offerte di limiti di concorrenza esistenti e se queste modifiche non funzioneranno correttamente.  
-- Questa stored procedure dipende dalle offerte di classi di risorse esistenti e se queste modifiche non funzioneranno correttamente.  
+- Questa stored procedure dipende dalle offerte correnti (ad esempio, configurazione hardware, configurazione DMS) e in caso di modifica, questa stored procedure non funzionerà correttamente.  
+- Questo stored procedure dipende dalle offerte di limiti di concorrenza esistenti e, in caso di modifica, questo stored procedure non funzionerà correttamente.  
+- Questo stored procedure dipende dalle offerte della classe di risorse esistenti e in caso di modifica, il stored procedure non funzionerà correttamente.  
 
 >[!NOTE]  
 >Se non si ottiene alcun output dopo l'esecuzione della stored procedure con i parametri specificati, i motivi potrebbero essere due.
@@ -236,14 +236,14 @@ Ecco lo scopo della stored procedure:
 >1. Uno dei parametri di Data Warehouse contiene un valore SLO non valido
 >2. Oppure, non esiste alcuna classe di risorse corrispondente per l'operazione CCI nella tabella.
 >
->Ad esempio, in DW100c, la concessione di memoria più elevata disponibile è 1 GB e se lo schema della tabella è sufficientemente ampio da soddisfare il requisito di 1 GB.
+>Ad esempio, in DW100c, la concessione di memoria massima disponibile è 1 GB e se lo schema della tabella è sufficientemente ampio per superare il requisito di 1 GB.
 
 ### <a name="usage-example"></a>Esempio di uso
 
 Sintassi:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Specificare un parametro NULL per estrarre il DWU corrente dal dW DB o fornire qualsiasi DWU supportato sotto forma di 'DW100c'
+1. @DWU:Fornire un parametro NULL per estrarre il DWU corrente dal database DW o fornire qualsiasi DWU supportato nel formato ' DW100c '
 2. @SCHEMA_NAME: Fornire un nome di schema della tabella
 3. @TABLE_NAME: Fornire un nome di tabella
 
@@ -592,4 +592,4 @@ GO
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Analytics.](sql-data-warehouse-overview-manage-security.md) Per altre informazioni su come le classi di risorse più grandi possono migliorare la qualità degli indici columnstore cluster, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [proteggere un database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). Per altre informazioni su come le classi di risorse più grandi possono migliorare la qualità degli indici columnstore cluster, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

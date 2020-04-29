@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810198"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
@@ -63,7 +63,7 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Immettere questa stringa di connessione nel file *con estensione cscfg* in entrambe le sezioni dei ruoli **SplitMergeWeb** e **SplitMergeWorker** nell'impostazione ElasticScaleMetadata.
+1. Immettere questa stringa di connessione nel file con *estensione cscfg* nelle sezioni del ruolo **SplitMergeWeb** e **SplitMergeWorker** nell'impostazione ElasticScaleMetadata.
 
 1. Per il ruolo **SplitMergeWorker**, immettere una stringa di connessione valida nell'archiviazione di Azure per l'impostazione **WorkerRoleSynchronizationStorageAccountConnectionString**.
 
@@ -140,9 +140,9 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 
 ## <a name="deploy-your-service"></a>Distribuire il servizio
 
-1. Passare al portale di [AzureGo](https://portal.azure.com) to the Azure portal
+1. Accedere al [portale di Azure](https://portal.azure.com)
 2. Selezionare il servizio cloud creato in precedenza.
-3. Fare clic su **Overview**.
+3. Fare clic su **Panoramica**.
 4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica**.
 5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per "Pacchetto" e "Configurazione" fare clic su "From Local" (Da locale), scegliere il file *SplitMergeService.cspkg* e il file con estensione CSCFG configurato in precedenza.
 6. Assicurarsi che la casella di controllo **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
@@ -178,7 +178,7 @@ I file di script inclusi sono i seguenti:
 1. *SetupSampleSplitMergeEnvironment.ps1* : consente di impostare un livello di dati di test per divisione e unione (per una descrizione dettagliata, vedere la tabella sottostante).
 2. *ExecuteSampleSplitMerge.ps1* : consente di eseguire le operazioni di test sul livello di dati di test (per una descrizione dettagliata, vedere la tabella sottostante).
 3. *GetMappings.ps1*: script di esempio di primo livello che visualizza lo stato corrente dei mapping di partizione.
-4. *ShardManagement.psm1* - script helper che esegue il wrapping dell'API ShardManagementShardManagement.psm1 - helper script that wraps the ShardManagement API
+4. *ShardManagement. psm1* -script helper che include l'API ShardManagement
 5. *SqlDatabaseHelpers.psm1*: script helper per creare e gestire database SQL
    
    <table style="width:100%">
@@ -230,13 +230,13 @@ I file di script inclusi sono i seguenti:
 2. Creare un server di database SQL di Azure (o sceglierne uno esistente) che conterrà il gestore delle mappe partizioni e le partizioni stesse.
 
    > [!NOTE]
-   > Lo script *SetupSampleSplitMergeEnvironment.ps1* crea tutti questi database nello stesso server per impostazione predefinita per mantenere lo script semplice. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.
+   > Per impostazione predefinita, lo script *SetupSampleSplitMergeEnvironment. ps1* crea tutti questi database nello stesso server per rendere semplice lo script. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.
 
    Per spostare dati e aggiornare il mapping della partizione, sarà necessario un account di accesso di autenticazione SQL con accesso in lettura/scrittura ai database per il servizio di divisione e unione. Poiché il servizio di divisione e unione viene eseguito nel cloud, non supporta attualmente l'autenticazione integrata.
 
    Assicurarsi che il server SQL di Azure sia configurato per consentire l'accesso dall'indirizzo IP del computer che esegue questi script. È possibile trovare questa impostazione nel server SQL di Azure, in / configurazione / indirizzi IP consentiti.
 
-3. Eseguire lo script *SetupSampleSplitMergeEnvironment.ps1* per creare l'ambiente di esempio.
+3. Eseguire lo script *SetupSampleSplitMergeEnvironment. ps1* per creare l'ambiente di esempio.
 
    L'esecuzione di questo script comporterà la cancellazione di tutte le strutture di dati di gestione dei mapping della partizione nel relativo database, nonché di tutte le partizioni. Potrebbe risultare utile eseguire nuovamente lo script se si vuole inizializzare nuovamente il mapping della partizione o le partizioni stesse.
 
@@ -254,7 +254,7 @@ I file di script inclusi sono i seguenti:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Eseguire lo script *ExecuteSampleSplitMerge.ps1* per eseguire un'operazione di divisione (spostando metà dei dati nella prima partizione alla seconda partizione) e quindi un'operazione di unione (spostando i dati nella prima partizione). Se TLS è stato configurato e l'endpoint http è stato lasciato disabilitato, assicurarsi di usare invece l'endpoint https://.
+5. Eseguire lo script *ExecuteSampleSplitMerge. ps1* per eseguire un'operazione Split (spostando la metà dei dati sulla prima partizione nella seconda partizione) e quindi un'operazione di Unione (spostando i dati di nuovo nella prima partizione). Se TLS è stato configurato e l'endpoint HTTP è stato disabilitato, assicurarsi di usare invece l'endpoint https://.
 
    Riga di comando di esempio:
 

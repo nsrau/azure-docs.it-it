@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745550"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduzione alle funzioni delle finestre di Analisi di flusso
 
 Negli scenari di flusso tempo eseguire operazioni solo sui dati contenuti in finestre temporali è un modello comune. Analisi di flusso offre supporto nativo per le funzioni delle finestre, consentendo agli sviluppatori di creare processi di elaborazione dei flussi complessi con il minimo sforzo.
 
-Esistono quattro finestre temporali tra cui scegliere: [**a cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**temporale scorrevole**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) e [**sessione**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics).  Usare le funzioni delle finestre nella clausola [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica. È inoltre possibile aggregare gli eventi su più finestre utilizzando la funzione [ **Windows().** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)
+Esistono quattro finestre temporali tra cui scegliere: [**a cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**temporale scorrevole**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) e [**sessione**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics).  Usare le funzioni delle finestre nella clausola [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica. È anche possibile aggregare eventi su più finestre usando la [funzione **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Tutte le operazioni delle [finestre](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) restituiscono i risultati alla **fine** della finestra. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento di output sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. 
 
@@ -35,7 +35,7 @@ Le funzioni finestra di salto consentono di avanzare nel tempo di un periodo fis
 ![Finestra di salto di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Finestra temporale scorrevole
-Le funzioni finestra temporale scorrevole, diversamente dalle finestre a cascata o di salto, generano un output **solo** quando si verifica un evento. Ogni finestra avrà almeno un evento e la finestra si sposta continuamente in avanti di un s (epsilon). Come le finestre di salto, gli eventi possono appartenere a più di una finestra temporale scorrevole.
+Le funzioni finestra temporale scorrevole, diversamente dalle finestre a cascata o di salto, generano un output **solo** quando si verifica un evento. Ogni finestra avrà almeno un evento e la finestra avanza continuamente da un ε (epsilon). Come le finestre di salto, gli eventi possono appartenere a più di una finestra temporale scorrevole.
 
 ![Finestra temporale di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -53,8 +53,8 @@ Quando viene fornita una chiave di partizione, gli eventi vengono raggruppati tr
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di analisi di flusso di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Riferimento al linguaggio di query di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

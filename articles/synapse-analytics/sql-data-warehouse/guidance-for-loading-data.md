@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per il caricamento dei dati per il pool SQL SynapseData loading best practices for Synapse SQL pool
-description: Suggerimenti e ottimizzazioni delle prestazioni per il caricamento dei dati tramite il pool SQL Synapse.Recommendations and performance optimizations for loading data using Synapse SQL pool.
+title: Procedure consigliate per il caricamento dei dati per il pool SQL sinapsi
+description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati tramite il pool di SQL sinapsi.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745503"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedure consigliate per il caricamento dei dati tramite il pool SQL SynapseBest practices for loading data using Synapse SQL pool
+# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedure consigliate per il caricamento di dati tramite il pool di sinapsi SQL
 
-In questo articolo verranno appesi suggerimenti e ottimizzazioni delle prestazioni per il caricamento dei dati tramite il pool SQL.
+In questo articolo verranno illustrate le raccomandazioni e le ottimizzazioni delle prestazioni per il caricamento dei dati tramite il pool SQL.
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparazione dei dati in Archiviazione di Azure
 
-Per ridurre al minimo la latenza, spostare il livello di archiviazione e il pool SQL.
+Per ridurre al minimo la latenza, colocare il livello di archiviazione e il pool SQL.
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
 
-PolyBase non può caricare righe con più di 1.000.000 byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
+La polibase non può caricare righe contenenti più di 1 milione byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
 
 Tutti i formati di file hanno caratteristiche di prestazioni diverse. Per ottenere la velocità di caricamento massima, usare file di testo delimitati compressi. La differenza di prestazioni tra UTF-8 e UTF-16 è minima.
 
@@ -36,9 +36,9 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 ## <a name="running-loads-with-enough-compute"></a>Esecuzione di carichi con risorse di calcolo sufficienti
 
-Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se ciò non è fattibile, eseguire contemporaneamente un numero minimo di carichi. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
+Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se ciò non è possibile, eseguire un numero minimo di caricamenti simultaneamente. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
 
-Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, accedere come uno degli utenti di caricamento e quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  
+Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  
 
 > [!NOTE]
 > Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
@@ -52,7 +52,7 @@ Questo esempio crea un utente addetto al caricamento per la classe di risorse st
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connettersi al pool SQL e creare un utente. Nel codice seguente si presuppone che si sia connessi al database denominato mySampleDataWarehouse. Viene illustrato come creare un utente denominato LoaderRC20 e viene concessa all'utente l'autorizzazione di controllo su un database. Quindi, aggiunge l'utente come membro del ruolo del database staticrc20.  
+Connettersi al pool SQL e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Viene illustrato come creare un utente denominato LoaderRC20 e viene assegnata l'autorizzazione di controllo utente per un database. Quindi aggiunge l'utente come membro del ruolo del database staticrc20.  
 
 ```sql
    -- Connect to the database
@@ -61,7 +61,7 @@ Connettersi al pool SQL e creare un utente. Nel codice seguente si presuppone ch
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Per eseguire un carico con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguiil carico.
+Per eseguire un caricamento con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguire il caricamento.
 
 Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso di classi di risorse statiche garantisce le stesse risorse indipendentemente dalle [unità data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se si usa una classe di risorse dinamica, le risorse variano in base al livello di servizio.
 
@@ -84,9 +84,9 @@ User_A e user_B sono ora bloccati dallo schema dell'altro reparto.
 
 ## <a name="loading-to-a-staging-table"></a>Caricamento in una tabella di staging
 
-Per ottenere la velocità di caricamento più veloce per lo spostamento dei dati in una tabella del pool SQL, caricare i dati in una tabella di staging.  Definire la tabella di staging come heap e usare round robin per l'opzione di distribuzione.
+Per ottenere la velocità di caricamento più veloce per lo stato di avanzamento dei dati in una tabella del pool SQL, caricare i dati in una tabella di staging.  Definire la tabella di staging come heap e usare round robin per l'opzione di distribuzione.
 
-Si consideri che il caricamento è in genere un processo in due passaggi in cui si carica prima in una tabella di staging e quindi inserire i dati in una tabella del pool SQL di produzione. Se la tabella di produzione usa una distribuzione hash, il tempo totale necessario per il caricamento e l'inserimento può essere ridotto se si definisce una tabella di staging con la distribuzione hash.
+Si tenga presente che il caricamento è in genere un processo in due passaggi in cui viene innanzitutto caricato in una tabella di staging e quindi i dati vengono inseriti in una tabella del pool SQL di produzione. Se la tabella di produzione usa una distribuzione hash, il tempo totale necessario per il caricamento e l'inserimento può essere ridotto se si definisce una tabella di staging con la distribuzione hash.
 
 Il caricamento nella tabella di staging richiede più tempo, ma il secondo passaggio di inserimento delle righe nella tabella di produzione non comporta lo spostamento dei dati tra le distribuzioni.
 
@@ -94,33 +94,33 @@ Il caricamento nella tabella di staging richiede più tempo, ma il secondo passa
 
 Gli indici columnstore richiedono una grande quantità di memoria per la compressione dei dati in rowgroup di qualità elevata. Per una compressione e un'efficienza dell'indice ottimali, l'indice columnstore deve comprimere il valore massimo di 1.048.576 righe in ogni rowgroup.
 
-In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Questo scenario, a sua volta, influisce sulle prestazioni delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Questo scenario, a sua volta, produce effetti sulle prestazioni di esecuzione delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - Per garantire all'utente addetto al caricamento una quantità di memoria sufficiente per raggiungere i massimi tassi di compressione, usare utenti addetti al caricamento che siano membri di una classe di risorse di medie o grandi dimensioni.
 - Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk, ogni gruppo di 1.048.576 righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B.
 
 > [!NOTE]
-> Se si caricano troppe righe, è possibile che tutte si instradano al deltastore e non vengano compresse immediatamente nel formato columnstore.
+> Se si caricano troppe righe, è possibile che vengano indirizzate a deltastore e non vengano immediatamente compresse nel formato columnstore.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si utilizza l'API SqLBulkCopy o bcp
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SqLBulkCopy o BCP
 
-Il caricamento con PolyBase fornirà la velocità effettiva massima con il pool SQL. Se non è possibile utilizzare PolyBase per caricare ed è necessario utilizzare [l'API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva.
+Il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL. Se non è possibile usare la polibase per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
 
 > [!TIP]
-> Una dimensione batch compresa tra 100 K e 1M righe è la linea di base consigliata per determinare la capacità ottimale delle dimensioni del batch.
+> Una dimensione di batch compresa tra 100 e 1 milione di righe è la linea di base consigliata per determinare la capacità ottimale per le dimensioni del batch.
 
 ## <a name="handling-loading-failures"></a>Gestione degli errori di caricamento
 
 Un caricamento con una tabella esterna può avere esito negativo con l'errore *"Query interrotta. È stata raggiunta la soglia massima di rifiuti durante la lettura da un'origine esterna"*. Questo messaggio indica che i dati esterni contengono record dirty.
 
-Un record di dati viene considerato dirty se soddisfa una delle condizioni seguenti:A data record is considered to be dirty if it meets one of the following conditions:
+Un record di dati viene considerato Dirty se soddisfa una delle condizioni seguenti:
 
 - I tipi di dati e il numero di colonne non corrispondono alle definizioni di colonna della tabella esterna.
 - I dati non sono conformi al formato di file esterno specificato.
 
 Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato di file esterno siano corrette e che i dati esterni siano conformi a queste definizioni.
 
-Se un sottoinsieme di record di dati esterni è dirty, è possibile scegliere di rifiutare questi record per le query utilizzando le opzioni di rifiuto in [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Se un subset di record di dati esterni è modificato, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in [Create external Table (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserimento di dati in una tabella di produzione
 
@@ -132,7 +132,7 @@ Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più,
 
 Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o modifiche sostanziali ai dati. La creazione di statistiche può essere eseguita manualmente oppure è possibile abilitare [AUTO_CREATE_STATISTICS](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
 
-Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](sql-data-warehouse-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente le statistiche su cinque colonne della tabella Customer_Speed.
+Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](sql-data-warehouse-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente statistiche per cinque colonne della tabella Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

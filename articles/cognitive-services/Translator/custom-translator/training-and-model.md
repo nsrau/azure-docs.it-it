@@ -10,47 +10,47 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.openlocfilehash: 71f1e3f460fa58b999af0a60c8cffa90c8ac8cd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219456"
 ---
 # <a name="what-are-trainings-and-models"></a>Cosa sono i training e i modelli?
 
 Un modello è il sistema, che fornisce una traduzione per una coppia di lingue specifiche.
-Il risultato di un training riuscito è un modello. Quando si esegue il training di un modello, sono necessari tre tipi di documenti che si escludono a vicenda: training, ottimizzazione e test. È inoltre possibile specificare il tipo di documento Dizionario. Si prega di fare riferimento [all'allineamento della frase](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+Il risultato di un training riuscito è un modello. Quando si esegue il training di un modello, sono necessari tre tipi di documento che si escludono a vicenda: training, ottimizzazione e test. È anche possibile specificare il tipo di documento del dizionario. Vedere [allineamento delle frasi](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
-Se durante l'accodamento di un training vengono forniti solo i dati di training, Custom Translator assembla automaticamente i dati di ottimizzazione e test. Userà un sottoinsieme casuale di frasi dai tuoi documenti di formazione ed escluderà queste frasi dai dati di training stessi.
+Se vengono forniti solo i dati di training durante l'accodamento di un training, il convertitore personalizzato assembla automaticamente i dati di ottimizzazione e test. Utilizzerà un subset casuale di frasi dei documenti di training ed escluderà tali frasi dai dati di training.
 
-## <a name="training-document-type-for-custom-translator"></a>Tipo di documento di formazione per il traduttore personalizzato
+## <a name="training-document-type-for-custom-translator"></a>Tipo di documento di training per il convertitore personalizzato
 
 I documenti inclusi nel set di training vengono utilizzati da Custom Translator come base per la compilazione del modello. Durante l'esecuzione del training, le frasi presenti in questi documenti vengono allineate (o abbinate). È possibile comporre liberamente i set di documenti di training. È possibile includere in un unico modello i documenti che si ritiene siano di rilevanza tangenziale. Anche in questo caso escluderli in un altro per visualizzare l'impatto in [punteggio BLEU (Bilingual Evaluation Understudy)](what-is-bleu-score.md). Purché si mantengono costanti il set di ottimizzazione e di test, è possibile sperimentare la composizione del set di training. Questo approccio è un modo efficace per modificare la qualità del sistema di traduzione.
 
 È possibile eseguire più training all'interno di un progetto e confrontare i [punteggi BLEU](what-is-bleu-score.md) in tutte le esecuzioni di training. Quando si eseguono più training per il confronto, assicurarsi che siano specificati gli stessi set di dati di ottimizzazione / test ogni volta. Assicurarsi anche di ispezionare manualmente anche i risultati nella scheda ["Test"](how-to-view-system-test-results.md).
 
-## <a name="tuning-document-type-for-custom-translator"></a>Tipo di documento di ottimizzazione per il traduttore personalizzato
+## <a name="tuning-document-type-for-custom-translator"></a>Tipo di documento di ottimizzazione per il convertitore personalizzato
 
 I documenti paralleli inclusi in questo set sono utilizzati da Custom Traslator per regolare il sistema di traduzione per ottenere risultati ottimali.
 
-I dati di ottimizzazione vengono utilizzati durante il training per regolare tutti i parametri e i pesi del sistema di traduzione in base ai valori ottimali. Scegli attentamente i tuoi dati di ottimizzazione: i dati di ottimizzazione devono essere rappresentativi del contenuto dei documenti che intendi tradurre in futuro. I dati di accordatura hanno una grande influenza sulla qualità delle traduzioni prodotte. L'ottimizzazione consente al sistema di traduzione di fornire le traduzioni più vicine ai campioni forniti nei dati di ottimizzazione. Non sono necessarie più di 2500 frasi nei dati di ottimizzazione. Per una qualità di traduzione ottimale, si consiglia di selezionare manualmente il set di ottimizzazione scegliendo la selezione di frasi più rappresentativa.
+I dati di ottimizzazione vengono usati durante il training per regolare tutti i parametri e i pesi del sistema di conversione ai valori ottimali. Scegliere con attenzione i dati di ottimizzazione: i dati di ottimizzazione devono essere rappresentativi del contenuto dei documenti che si intende tradurre in futuro. I dati di ottimizzazione hanno un impatto significativo sulla qualità delle traduzioni prodotte. L'ottimizzazione consente al sistema di conversione di fornire le traduzioni più vicine agli esempi forniti nei dati di ottimizzazione. Non sono necessarie più di 2500 frasi nei dati di ottimizzazione. Per una qualità di traduzione ottimale, si consiglia di selezionare manualmente il set di ottimizzazione scegliendo la selezione di frasi più rappresentativa.
 
-Durante la creazione del set di ottimizzazione, scegliere frasi che hanno una lunghezza significativa e rappresentativa delle frasi che si prevede di tradurre in futuro. Si dovrebbero anche scegliere frasi che hanno parole ed espressioni che si intende tradurre nella distribuzione approssimativa delle traduzioni future. In pratica, una lunghezza della frase da 7 a 10 parole produrrà i migliori risultati, perché queste frasi contengono un contesto sufficiente per mostrare l'inflessione e fornire una lunghezza della frase significativa, senza essere eccessivamente complessa.
+Durante la creazione del set di ottimizzazione, scegliere frasi che hanno una lunghezza significativa e rappresentativa delle frasi che si prevede di tradurre in futuro. Si dovrebbero anche scegliere frasi che hanno parole ed espressioni che si intende tradurre nella distribuzione approssimativa delle traduzioni future. In pratica, la lunghezza di una frase da 7 a 10 parole produrrà i risultati migliori, perché queste frasi contengono un contesto sufficiente per mostrare la flessione e fornire una lunghezza di frase significativa, senza essere eccessivamente complesse.
 
 Una buona descrizione del tipo di frasi da utilizzare nel set di ottimizzazione è la prosa: vere e proprie frasi scorrevoli. Non celle di tabella, poesie, liste di cose, non solo punteggiatura o numeri in una frase, ma linguaggio abituale.
 
-Se si selezionano manualmente i dati di ottimizzazione, questi non dovrebbero avere le stesse frasi dei dati di training e test. I dati di accordatura hanno un impatto significativo sulla qualità delle traduzioni - scegliere le frasi con attenzione.
+Se si selezionano manualmente i dati di ottimizzazione, non dovrebbe avere le stesse frasi dei dati di training e di testing. I dati di ottimizzazione hanno un impatto significativo sulla qualità delle traduzioni. scegliere le frasi con cautela.
 
-Se non si è sicuri di cosa scegliere per i dati di ottimizzazione, è sufficiente selezionare i dati di training e lasciare che Custom Translator selezioni i dati di ottimizzazione per l'utente. Quando si lascia che il traduttore personalizzato scelga automaticamente i dati di ottimizzazione, utilizzerà un sottoinsieme casuale di frasi dai documenti di formazione bilingue ed escluderà tali frasi dal materiale di formazione stesso.
+Se non si è certi di cosa scegliere per i dati di ottimizzazione, è sufficiente selezionare i dati di training e fare in modo che il traduttore personalizzato selezioni i dati di ottimizzazione. Quando si lascia che il convertitore personalizzato scelga automaticamente i dati di ottimizzazione, utilizzerà un subset casuale di frasi dei documenti di formazione bilingue ed escluderà tali frasi dal materiale di training.
 
 ## <a name="testing-dataset-for-custom-translator"></a>Set di dati di test per Custom Translator
 
 I documenti paralleli inclusi nel set di test sono utilizzati per calcolare il punteggio BLEU (Bilingual Evaluation Understudy). Questo punteggio indica la qualità del sistema di traduzione. Questo punteggio indica in realtà quanto le traduzioni effettuate dal sistema di traduzione risultante da questo training corrispondono alle frasi di riferimento del set di dati del test.
 
-Il punteggio BLEU è una misura del delta tra la traduzione automatica e la traduzione di riferimento. Il suo valore va da 0 a 100. Un punteggio pari a 0 indica che nemmeno una singola parola di riferimento viene visualizzata nella traduzione. Un punteggio pari a 100 indica che la traduzione automatica corrisponde esattamente al riferimento: la stessa parola si trova nella stessa esatta posizione. Il punteggio che ricevi è la media del punteggio BLEU per tutte le frasi dei dati di test.
+Il punteggio BLEU è una misura del delta tra la traduzione automatica e la traduzione di riferimento. Il suo valore va da 0 a 100. Un punteggio pari a 0 indica che nemmeno una singola parola di riferimento viene visualizzata nella traduzione. Un punteggio pari a 100 indica che la traduzione automatica corrisponde esattamente al riferimento: la stessa parola si trova nella stessa esatta posizione. Il punteggio ricevuto è la media del Punteggio BLEU per tutte le frasi dei dati di test.
 
-I dati di test devono includere documenti paralleli in cui le frasi in lingua di destinazione sono le traduzioni più desiderabili delle frasi della lingua di origine corrispondenti nella coppia origine-destinazione. È possibile utilizzare gli stessi criteri utilizzati per comporre i dati di ottimizzazione. Tuttavia, i dati di test non hanno alcuna influenza sulla qualità del sistema di traduzione. Viene utilizzato esclusivamente per generare il punteggio BLEU per voi.
+I dati di test devono includere documenti paralleli in cui le frasi della lingua di destinazione sono le traduzioni più desiderate delle frasi della lingua di origine corrispondenti nella coppia di destinazione di origine. Si consiglia di utilizzare gli stessi criteri utilizzati per comporre i dati di ottimizzazione. Tuttavia, i dati di test non hanno alcun effetto sulla qualità del sistema di traduzione. Viene usato esclusivamente per generare il Punteggio BLEU.
 
-Non hai bisogno di più di 2.500 frasi come dati di test. Se si consente al sistema di scegliere automaticamente il set di test, verrà utilizzato un subset casuale di frasi dai tuoi documenti di training bilingue escludendo quelle stesse frasi dal materiale di training.
+Non sono necessarie più di 2.500 frasi come dati di test. Se si consente al sistema di scegliere automaticamente il set di test, verrà utilizzato un subset casuale di frasi dai tuoi documenti di training bilingue escludendo quelle stesse frasi dal materiale di training.
 
 È possibile visualizzare le traduzioni personalizzate del set di test e confrontarle con le traduzioni fornite nel set di test, passando alla scheda di test all'interno di un modello.

@@ -1,18 +1,18 @@
 ---
-title: Tipi di URL supportati per l'importazione - QnA Maker
-description: Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare coppie QnA.
+title: Tipi di URL supportati per Import-QnA Maker
+description: Informazioni sul modo in cui vengono usati i tipi di URL per importare e creare coppie QnA.
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804317"
 ---
 # <a name="urls-supported-for-importing-documents"></a>URL supportati per l'importazione di documenti
 
-Comprendere in che modo i tipi di URL vengono utilizzati per importare e creare coppie QnA.
+Informazioni sul modo in cui vengono usati i tipi di URL per importare e creare coppie QnA.
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 
@@ -20,7 +20,7 @@ QnA Maker può supportare tre diversi formati di pagine Web di domande frequenti
 
 * Pagine semplici di domande frequenti
 * Pagina di domande frequenti con collegamenti
-* Pagine FAQ con una home page degli argomenti
+* Pagine di domande frequenti con una Home page degli argomenti
 
 ### <a name="plain-faq-pages"></a>Pagine semplici di domande frequenti
 
@@ -40,11 +40,11 @@ Di seguito è riportato un esempio di pagina di domande frequenti con collegamen
  ![Esempio di pagina di domande frequenti con collegamenti a sezioni per una knowledge base](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
-### <a name="parent-topics-page-links-to-child-answers-pages"></a>Collegamenti alla pagina Argomenti padre alle pagine delle risposte figlio
+### <a name="parent-topics-page-links-to-child-answers-pages"></a>Pagina argomenti padre collegamenti a pagine di risposte figlio
 
-Questo tipo di domande frequenti ha una pagina Argomenti in cui ogni argomento è collegato a un insieme corrispondente di domande e risposte in una pagina diversa. QnA Maker esegue la ricerca per indicizzazione di tutte le pagine collegate per estrarre le domande & risposte corrispondenti.
+Questo tipo di domande frequenti include una pagina di argomenti in cui ogni argomento è collegato a un set di domande e risposte corrispondente in una pagina diversa. QnA Maker esegue la ricerca per indicizzazione di tutte le pagine collegate per estrarre le domande corrispondenti & risposte.
 
-Di seguito è riportato un esempio di una pagina Argomenti con collegamenti a sezioni domande frequenti in pagine diverse.
+Di seguito è riportato un esempio di una pagina di argomenti con collegamenti a sezioni di domande frequenti in pagine diverse.
 
  ![Esempio di pagina di domande frequenti con collegamenti diretti per una knowledge base](./media/qnamaker-concepts-datasources/topics-faq.png)
 

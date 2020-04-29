@@ -1,6 +1,6 @@
 ---
-title: Controllare il traffico in ingresso v1
-description: Informazioni su come controllare il traffico in ingresso verso un ambiente del servizio app. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
+title: Controllare il traffico in ingresso V1
+description: Informazioni su come controllare il traffico in ingresso per un ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
@@ -8,15 +8,15 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804402"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Come controllare il traffico in ingresso a un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
-Un ambiente del servizio app può essere creato **in** una rete virtuale di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del modello di distribuzione classica.  È possibile definire una nuova rete virtuale e una nuova subnet al momento della creazione di un ambiente del servizio app.  In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale e in una subnet preesistenti.  Con una modifica apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918 (ovvero indirizzi privati).  Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
+Un ambiente del servizio app può essere creato in una rete virtuale Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del **modello di distribuzione** classica.  È possibile definire una nuova rete virtuale e una nuova subnet al momento della creazione di un ambiente del servizio app.  In alternativa, è possibile creare un ambiente del servizio app in una rete virtuale e in una subnet preesistenti.  Con una modifica apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918 (ovvero indirizzi privati).  Per altre informazioni su come creare un ambiente del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
 
 È sempre necessario creare un ambiente del servizio app all'interno di una subnet perché la subnet fornisce un limite di rete che può essere usato per bloccare il traffico in ingresso proveniente da dispositivi e servizi upstream, in modo che il traffico HTTP e HTTPS sia accettato solo da indirizzi IP upstream specifici.
 
@@ -31,8 +31,8 @@ Prima di bloccare il traffico di rete in ingresso tramite un gruppo di sicurezza
 
 Di seguito è riportato un elenco delle porte usate da un ambiente del servizio app. Tutte le porte sono di tipo **TCP**, se non indicato diversamente in modo chiaro:
 
-* 454: **Porta necessaria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
-* 455: **porta necessaria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 454: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 455: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico indirizzato a questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
 * 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 443: porta predefinita per il traffico TLS in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 21: canale di controllo per il servizio FTP.  Questa porta può essere bloccata, se non si usa un servizio FTP.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
@@ -62,7 +62,7 @@ Di seguito è illustrata la procedura di creazione di un gruppo di sicurezza di 
 
 Dopo aver creato il gruppo di sicurezza di rete, vengono aggiunte una o più regole di sicurezza di rete.  Poiché il set di regole può variare nel tempo, è consigliabile lasciare spazi vuoti nello schema di numerazione usato per le priorità delle regole al fine di agevolare l'inserimento di regole aggiuntive in futuro.
 
-L'esempio seguente illustra una regola che concede l'accesso in modo esplicito alle porte necessarie per la gestione e la manutenzione dell'ambiente del servizio app da parte dell'infrastruttura di Azure.  Si noti che tutto il traffico di gestione scorre su TLS ed è protetto da certificati client, pertanto, anche se le porte vengono aperte, sono inaccessibili da qualsiasi entità diversa dall'infrastruttura di gestione di Azure.Note that all management traffic flows over TLS and is secured by client certificates, so even though the ports are opened they are inaccessible by any entity other than Azure management infrastructure.
+L'esempio seguente illustra una regola che concede l'accesso in modo esplicito alle porte necessarie per la gestione e la manutenzione dell'ambiente del servizio app da parte dell'infrastruttura di Azure.  Si noti che tutto il traffico di gestione passa attraverso TLS ed è protetto da certificati client, quindi anche se le porte vengono aperte, non sono accessibili da entità diverse dall'infrastruttura di gestione di Azure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
@@ -79,7 +79,7 @@ Se si desidera usufruire del supporto per FTP, è possibile usare le regole segu
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-**(Nota:** l'intervallo di porte del canale dati può cambiare durante il periodo di anteprima.)
+**Nota:** l'intervallo di porte del canale dati può variare durante il periodo di anteprima.
 
 Se si usa la funzionalità di debug remoto con Visual Studio, usare le regole seguenti per concedere l'accesso.  Esiste una regola separata per ogni versione supportata di Visual Studio, dal momento che ogni versione usa una porta diversa per il debug remoto.  Come per l'accesso FTP, il traffico di debug remoto potrebbe non transitare correttamente attraverso un dispositivo proxy o un firewall per applicazioni Web tradizionale.  È quindi possibile impostare *SourceAddressPrefix* sull'intervallo di indirizzi IP dei computer di sviluppo che eseguono Visual Studio.
 
@@ -109,7 +109,7 @@ La singola coppia di porte usata da ogni indirizzo IP SSL è disponibile nell'in
 
 Quando un'app in un ambiente del servizio app è configurata in modo da usare l'indirizzo IP SSL, ai clienti esterni non verrà visualizzato il mapping della coppia di porte e non dovranno preoccuparsi di questo aspetto.  Il traffico verso le app transiterà normalmente all'indirizzo IP SSL configurato.  La conversione a una coppia di porte specifica avviene internamente in modo automatico durante l'ultima parte del routing del traffico nella subnet contenente l'ambiente del servizio app. 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
 Per informazioni dettagliate sulle app che si connettono in modo sicuro alla risorsa back-end da un ambiente del servizio app, vedere [Connessione sicura alle risorse back-end da un ambiente del servizio app][SecurelyConnecttoBackend]

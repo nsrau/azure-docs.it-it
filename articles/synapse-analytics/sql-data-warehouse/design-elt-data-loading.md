@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744965"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie di caricamento dei dati per il pool SQL sinapsi
@@ -99,10 +99,10 @@ Quando si carica parquet, il mapping dei tipi di dati SQL è:
 |         float         |       real        |
 |        double         |       money       |
 |        double         |    SMALLMONEY     |
-|        string         |       NCHAR       |
-|        string         |     NVARCHAR      |
-|        string         |       char        |
-|        string         |      varchar      |
+|        stringa         |       NCHAR       |
+|        stringa         |     NVARCHAR      |
+|        stringa         |       char        |
+|        stringa         |      varchar      |
 |        BINARY         |      BINARY       |
 |        BINARY         |     varbinary     |
 |       timestamp       |       Data        |

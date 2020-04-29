@@ -1,7 +1,7 @@
 ---
-title: Offset di testo nell'API Analisi del testo
+title: Offset di testo nel API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Scopri gli offset causati dalle codifiche multilingue ed emoji.
+description: Informazioni sugli offset causati da codifiche multilingue e emoji.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,38 +12,38 @@ ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219236"
 ---
-# <a name="text-offsets-in-the-text-analytics-api-output"></a>Offset di testo nell'output dell'API Di analisi del testo
+# <a name="text-offsets-in-the-text-analytics-api-output"></a>Offset di testo nell'output API Analisi del testo
 
-Il supporto multilingue ed emoji ha portato a codifiche Unicode che utilizzano più di un punto di [codice](https://wikipedia.org/wiki/Code_point) per rappresentare un singolo carattere visualizzato, chiamato un grafema. Ad esempio, emoji come 👍 🌷 e possono utilizzare diversi caratteri per comporre la forma con caratteri aggiuntivi per gli attributi visivi, ad esempio il tono dello skin. Allo stesso modo, la `अनुच्छेद` parola hindi è codificata come cinque lettere e tre segni di combinazione.
+Il supporto multilingue e emoji ha portato a codifiche Unicode che usano più di un [punto di codice](https://wikipedia.org/wiki/Code_point) per rappresentare un singolo carattere visualizzato, denominato grafema. Ad esempio, emoji come 🌷 e 👍 possono usare diversi caratteri per comporre la forma con caratteri aggiuntivi per gli attributi visivi, ad esempio il tono della pelle. Analogamente, la parola `अनुच्छेद` Hindi è codificata come cinque lettere e tre segni di combinazione.
 
-A causa delle diverse lunghezze delle possibili codifiche multilingue ed emoji, l'API Analisi del testo può restituire offset nella risposta.
+A causa delle diverse lunghezze delle codifiche multilingue e emoji possibili, il API Analisi del testo può restituire offset nella risposta.
 
-## <a name="offsets-in-the-api-response"></a>Offset nella risposta API. 
+## <a name="offsets-in-the-api-response"></a>Offset nella risposta dell'API. 
 
-Ogni volta che viene restituita una risposta API, ad esempio [Riconoscimento entità denominato](../how-tos/text-analytics-how-to-entity-linking.md) o [Analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md), tenere presente quanto segue:
+Ogni volta che viene restituita la risposta dell'API, ad esempio il [riconoscimento di entità denominate](../how-tos/text-analytics-how-to-entity-linking.md) o [analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md), tenere presente quanto segue:
 
 * Gli elementi nella risposta possono essere specifici dell'endpoint chiamato. 
-* I payload HTTP POST/GET sono codificati in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), che possono essere o meno la codifica dei caratteri predefinita nel compilatore o nel sistema operativo sul lato client.
-* Gli offset si riferiscono ai conteggi dei grafemi in base allo standard [Unicode 8.0.0,](https://unicode.org/versions/Unicode8.0.0) non ai conteggi dei caratteri.
+* I payload HTTP POST/GET sono codificati in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), che può essere o meno la codifica dei caratteri predefinita nel compilatore o nel sistema operativo sul lato client.
+* Gli offset fanno riferimento ai conteggi di grafema in base allo standard [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) , non ai conteggi dei caratteri.
 
-## <a name="extracting-substrings-from-text-with-offsets"></a>Estrazione di sottostringhe dal testo con offset
+## <a name="extracting-substrings-from-text-with-offsets"></a>Estrazione di sottostringhe da testo con offset
 
-Gli offset possono causare problemi quando si utilizzano metodi di sottostringa basati su caratteri, ad esempio il metodo [.NET substring().](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) Un problema è che un offset può causare un metodo sottostringa terminare nel mezzo di una codifica del grafema multicarattere anziché alla fine.
+Gli offset possono causare problemi quando si usano metodi di sottostringa basate su caratteri, ad esempio il metodo [substring ()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) .NET. Un problema è che un offset può causare la fine di un metodo di sottostringa al centro di una codifica grafema multicarattere anziché alla fine.
 
-In .NET è consigliabile usare la classe [StringInfo,](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) che consente di utilizzare una stringa come una serie di elementi testuali anziché singoli oggetti carattere. È inoltre possibile cercare le librerie con separatore di grafemi nell'ambiente software preferito. 
+In .NET è consigliabile utilizzare la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , che consente di utilizzare una stringa come una serie di elementi testuali, anziché singoli oggetti character. È anche possibile cercare librerie Splitter grafema nell'ambiente software preferito. 
 
-L'API Analisi del testo restituisce anche questi elementi testuali, per comodità.
+Il API Analisi del testo restituisce anche questi elementi testuali per praticità.
 
 ## <a name="see-also"></a>Vedere anche
 
 * [Panoramica di Analisi del testo](../overview.md)
 * [Analisi del sentiment](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Riconoscimento delle entità](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Riconoscimento entità](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Rileva lingua](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Riconoscimento della lingua](../how-tos/text-analytics-how-to-language-detection.md)

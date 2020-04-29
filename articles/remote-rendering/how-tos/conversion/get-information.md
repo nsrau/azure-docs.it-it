@@ -1,24 +1,24 @@
 ---
-title: Ottenere informazioni su un modello convertitoGet information about a converted model
+title: Ottenere informazioni su un modello convertito
 description: Descrizione di tutti i parametri di conversione del modello
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681519"
 ---
-# <a name="get-information-about-a-converted-model"></a>Ottenere informazioni su un modello convertitoGet information about a converted model
+# <a name="get-information-about-a-converted-model"></a>Ottenere informazioni su un modello convertito
 
-Il file arrAsset prodotto dal servizio di conversione è destinato esclusivamente all'utilizzo da parte del servizio di rendering. In alcuni casi, tuttavia, può essere necessario accedere alle informazioni su un modello senza avviare una sessione di rendering. Pertanto, il servizio di conversione inserisce un file JSON accanto al file arrAsset nel contenitore di output. Ad esempio, se `buggy.gltf` un file viene convertito, il `buggy.info.json` contenitore `buggy.arrAsset`di output conterrà un file denominato accanto all'asset convertito. Contiene informazioni sul modello di origine, sul modello convertito e sulla conversione stessa.
+Il file arrAsset prodotto dal servizio di conversione è destinato esclusivamente all'utilizzo da parte del servizio di rendering. In alcuni casi, tuttavia, è possibile che si desideri accedere alle informazioni su un modello senza avviare una sessione di rendering. Pertanto, il servizio di conversione inserisce un file JSON accanto al file arrAsset nel contenitore di output. Se, ad esempio, un `buggy.gltf` file viene convertito, il contenitore di output conterrà un `buggy.info.json` file denominato accanto all' `buggy.arrAsset`asset convertito. Contiene informazioni sul modello di origine, sul modello convertito e sulla conversione stessa.
 
-## <a name="example-info-file"></a>Esempio di file *di informazioni*
+## <a name="example-info-file"></a>File di *informazioni* di esempio
 
-Di seguito è riportato un file di `buggy.gltf` *informazioni* di esempio prodotto dalla conversione di un file denominato :
+Di seguito è riportato un esempio di file di *informazioni* prodotto dalla `buggy.gltf`conversione di un file denominato:
 
 ```JSON
 {
@@ -75,57 +75,57 @@ Di seguito è riportato un file di `buggy.gltf` *informazioni* di esempio prodot
 
 ## <a name="information-in-the-info-file"></a>Informazioni nel file di informazioni
 
-### <a name="the-files-section"></a>La sezione *file*
+### <a name="the-files-section"></a>Sezione *file*
 
-Questa sezione contiene i nomi dei file forniti.
+Questa sezione contiene i nomi file specificati.
 
-* `input`: il nome del file di origine.
-* `output`: il nome del file di output, quando l'utente ha specificato un nome non predefinito.
+* `input`: Nome del file di origine.
+* `output`: Nome del file di output, quando l'utente ha specificato un nome non predefinito.
 
-### <a name="the-conversionsettings-section"></a>La sezione *conversionSettings*
+### <a name="the-conversionsettings-section"></a>Sezione *conversionSettings*
 
-Questa sezione contiene una copia di [ConversionSettings](configure-model-conversion.md#settings-file) specificata quando il modello è stato convertito.
+Questa sezione include una copia di [ConversionSettings](configure-model-conversion.md#settings-file) specificata al momento della conversione del modello.
 
-### <a name="the-inputinfo-section"></a>La sezione *inputInfo*
+### <a name="the-inputinfo-section"></a>Sezione *inputInfo*
 
-In questa sezione vengono riportate le informazioni sul formato del file di origine.
+In questa sezione vengono registrate le informazioni sul formato del file di origine.
 
-* `sourceAssetExtension`: l'estensione del file di origine.
-* `sourceAssetFormat`: descrizione del formato del file di origine.
-* `sourceAssetFormatVersion`: versione del formato del file di origine.
-* `sourceAssetGenerator`: il nome dello strumento che ha generato il file di origine, se disponibile.
+* `sourceAssetExtension`: Estensione del file di origine.
+* `sourceAssetFormat`: Descrizione del formato del file di origine.
+* `sourceAssetFormatVersion`: Versione del formato del file di origine.
+* `sourceAssetGenerator`: Nome dello strumento che ha generato il file di origine, se disponibile.
 
-### <a name="the-inputstatistics-section"></a>La sezione *inputStatistics*
+### <a name="the-inputstatistics-section"></a>Sezione *inputStatistics*
 
-In questa sezione vengono fornite informazioni sulla scena di origine. Spesso si dissibroni tra i valori in questa sezione e i valori equivalenti nello strumento che ha creato il modello di origine. Tali differenze sono previste, perché il modello viene modificato durante i passaggi di esportazione e conversione.
+In questa sezione vengono fornite informazioni sulla scena di origine. Spesso si verificano discrepanze tra i valori di questa sezione e i valori equivalenti nello strumento che ha creato il modello di origine. Queste differenze sono previste perché il modello viene modificato durante i passaggi di esportazione e conversione.
 
-* `numMeshes`: il numero di parti mesh, in cui ogni parte può fare riferimento a un singolo materiale.
-* `numFaces`: il numero totale di _triangoli_ nell'intero modello. Si noti che la mesh viene triangolata durante la conversione.
-* `numVertices`: il numero totale di vertici nell'intero modello.
-* `numMaterial`: il numero totale di materiali nell'intero modello.
-* `numFacesSmallestMesh`: il numero di triangoli nella mesh più piccola del modello.
-* `numFacesBiggestMesh`: il numero di triangoli nella mesh più grande del modello.
-* `numNodes`: il numero di nodi nel grafico della scena del modello.
-* `numMeshUsagesInScene`: il numero di volte in cui i nodi fanno riferimento alle maglie. Più di un nodo può fare riferimento alla stessa mesh.
-* `maxNodeDepth`: profondità massima dei nodi all'interno del grafico della scena.
+* `numMeshes`: Numero di parti mesh, in cui ogni parte può fare riferimento a un singolo materiale.
+* `numFaces`: Numero totale di _triangoli_ nell'intero modello. Si noti che la mesh viene triangolata durante la conversione.
+* `numVertices`: Numero totale di vertici nell'intero modello.
+* `numMaterial`: Numero totale di materiali nell'intero modello.
+* `numFacesSmallestMesh`: Numero di triangoli nella mesh più piccola del modello.
+* `numFacesBiggestMesh`: Numero di triangoli nella mesh più grande del modello.
+* `numNodes`: Numero di nodi nel grafico della scena del modello.
+* `numMeshUsagesInScene`: Numero di volte in cui i nodi fanno riferimento a mesh. Più di un nodo può fare riferimento alla stessa rete.
+* `maxNodeDepth`: La profondità massima dei nodi all'interno del grafico della scena.
 
-### <a name="the-outputinfo-section"></a>La sezione *outputInfo*
+### <a name="the-outputinfo-section"></a>Sezione *outputInfo*
 
-In questa sezione vengono riportate informazioni generali sull'output generato.
+In questa sezione vengono registrate le informazioni generali sull'output generato.
 
-* `conversionToolVersion`: versione del convertitore di modelli.
-* `conversionHash`: hash dei dati all'interno dell'assetAsset che possono contribuire al rendering. Può essere utilizzato per capire se il servizio di conversione ha prodotto un risultato diverso quando viene rieseguito sullo stesso file.
+* `conversionToolVersion`: Versione del convertitore di modelli.
+* `conversionHash`: Hash dei dati all'interno di arrAsset che possono contribuire al rendering. Può essere usato per capire se il servizio di conversione ha prodotto un risultato diverso quando viene rieseguito nello stesso file.
 
-### <a name="the-outputstatistics-section"></a>La sezione *outputStatistics*
+### <a name="the-outputstatistics-section"></a>Sezione *outputStatistics*
 
-In questa sezione vengono riportate le informazioni calcolate dal cespite convertito.
+Questa sezione registra le informazioni calcolate dall'asset convertito.
 
-* `numMeshPartsCreated`: il numero di maglie nell'arrAsset. Può differire `numMeshes` `inputStatistics` dalla sezione, perché l'istanza è influenzata dal processo di conversione.
-* `numMeshPartsInstanced`: il numero di maglie che vengono riutilizzate nell'asset.
-* `recenteringOffset`: quando `recenterToOrigin` l'opzione in [ConversionSettings](configure-model-conversion.md) è abilitata, questo valore è la traslazione che risposterebbe il modello convertito nella posizione originale.
-* `boundingBox`: i limiti del modello.
+* `numMeshPartsCreated`: Numero di mesh in arrAsset. Può essere diverso da `numMeshes` nella `inputStatistics` sezione, perché il processo di conversione influisce sulle istanze.
+* `numMeshPartsInstanced`: Numero di mesh riutilizzate in arrAsset.
+* `recenteringOffset`: Quando l' `recenterToOrigin` opzione in [ConversionSettings](configure-model-conversion.md) è abilitata, questo valore è la traduzione che sposta il modello convertito nella posizione originale.
+* `boundingBox`: Limiti del modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Conversione del modello](model-conversion.md)
-* [Configurare la conversione del modello](configure-model-conversion.md)
+* [Conversione di modelli](model-conversion.md)
+* [Configurare la conversione di modelli](configure-model-conversion.md)

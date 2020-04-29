@@ -1,5 +1,5 @@
 ---
-title: Inviare richieste di ricerca all'API Ricerca video Bing
+title: Inviare richieste di ricerca alla API Ricerca video Bing
 titleSuffix: Azure Cognitive Services
 description: Questo articolo descrive i parametri e gli attributi delle richieste inviate all'API Ricerca video Bing, nonché l'oggetto risposta JSON restituito.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
 ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220292"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Invio di richieste di ricerca all'API Ricerca video Bing
@@ -49,7 +49,7 @@ La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](https:/
 -   [Agente utente](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientip)  
--   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#location)  
+-   [X-ricerca-percorso](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#location)  
 
 Le intestazioni relative a IP client e posizione sono importanti per la restituzione di contenuto con riconoscimento della posizione.  
 
