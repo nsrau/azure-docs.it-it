@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190006"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
@@ -102,9 +102,9 @@ L'attributo `response-variable-name` viene usato per concedere l'accesso alla ri
 
 Dall'oggetto della risposta è possibile recuperare il corpo e lo standard RFC 7622 indica a Gestione API che la risposta deve essere un oggetto JSON e deve contenere almeno una proprietà denominata `active` che rappresenta un valore booleano. Se `active` è true, il token è considerato valido.
 
-In alternativa, se il server di autorizzazione non include il campo "attivo" per indicare se il token è valido, utilizzare uno strumento come Postman per determinare quali proprietà sono impostate in un token valido. Ad esempio, se una risposta di token valida contiene una proprietà denominata "expires_in", verificare se il nome di questa proprietà esiste nella risposta del server di autorizzazione in questo modo:For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
+In alternativa, se il server di autorizzazione non include il campo "attivo" per indicare se il token è valido, usare uno strumento come il poster per determinare quali proprietà sono impostate in un token valido. Se, ad esempio, una risposta del token valida contiene una proprietà denominata "expires_in", verificare che il nome della proprietà esista nella risposta del server di autorizzazione in questo modo:
 
-<in base alla condizione", ovvero al contesto di Condition. Variabili["tokenstate"]). Body.As<JObject>(). Proprietà("expires_in") : null)">
+<quando il contesto condition = "@ ((IResponse). Variabili ["tokenstate"]). Body.As<JObject>(). Property ("expires_in") = = null) ">
 
 ### <a name="reporting-failure"></a>Creazione di report sull'errore
 Per individuare un token non valido e, in tal caso restituire una risposta 401, è possibile usare i criteri `<choose>`.

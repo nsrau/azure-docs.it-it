@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
 ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845573"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
@@ -36,7 +36,7 @@ Le metriche a livello di host seguenti vengono generate per impostazione predefi
 - [Metriche host per le VM Windows e Linux basate su Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Metriche host per i set di scalabilità di macchine virtuali Windows e Linux basati su Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Guest OS metrics for Resource Manager-based Windows VMs
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Metriche del sistema operativo guest per macchine virtuali Windows basate su Gestione risorse
 Quando si crea una nuova VM in Azure, la diagnostica viene abilitata con l'uso dell'estensione Diagnostica. L'estensione Diagnostica genera un set di metriche recuperate dall'interno della VM. Questo significa che è possibile gestire la scalabilità automatica con metriche non generate per impostazione predefinita.
 
 Per generare un elenco delle metriche è possibile usare il comando seguente in PowerShell.
@@ -71,9 +71,9 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\Disk Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |Byte al secondo |
-| Lunghezza media coda del disco _Total |Conteggio |
-| Lunghezza media coda lettura disco lunghezza media (_Total) |Conteggio |
-| Lunghezza _Total media coda scritture disco lunghezza media della coda di scrittura del disco |Conteggio |
+| Lunghezza coda del disco \PhysicalDisk (_Total) \Media |Conteggio |
+| Lunghezza coda lettura disco \Media \PhysicalDisk (_Total) |Conteggio |
+| Lunghezza coda di scrittura su disco \PhysicalDisk (_Total) \Media |Conteggio |
 | \LogicalDisk(_Total)\% Free Space |Percentuale |
 | \LogicalDisk(_Total)\Free Megabytes |Conteggio |
 
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Conteggio |
 | \NetworkInterface\TotalCollisions |Conteggio |
 
-## <a name="commonly-used-app-service-server-farm-metrics"></a>Metriche del servizio app (Server Farm) di uso comune
-È possibile eseguire la scalabilità automatica anche in base a metriche di server Web comuni, come la lunghezza della coda HTTP. Il nome della metrica è **HttpQueueLength**.  Nella sezione seguente sono elencate le metriche della server farm (servizio app) disponibili.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Metriche del servizio app comunemente usate (server farm)
+È possibile eseguire la scalabilità automatica anche in base a metriche di server Web comuni, come la lunghezza della coda HTTP. Il nome della metrica è **HttpQueueLength**.  La sezione seguente elenca le metriche di server farm (servizio app) disponibili.
 
 ### <a name="web-apps-metrics"></a>Metriche di app Web
 Per generare un elenco delle metriche di app Web è possibile usare il comando seguente in PowerShell.

@@ -1,15 +1,15 @@
 ---
-title: Interfaccia della riga di comando di Azure Service Fabric - replica sfctlAzure Service Fabric CLI- sfctl replica
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la gestione delle repliche.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-replica sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione delle repliche.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f6ad0b4c08ac8d710340fe654a068d0a3804e58f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905818"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
@@ -40,7 +40,7 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 | --node-name [Obbligatorio] | Il nome del nodo. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -65,7 +65,7 @@ Recupera l'elenco contenente le informazioni relative alle repliche distribuite 
 | --node-name [obbligatorio] | Il nome del nodo. |
 | --partition-id | L'identità della partizione. |
 | --service-manifest-name | Nome di un manifesto del servizio registrato come parte di un tipo di applicazione in un cluster di Service Fabric. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -89,7 +89,7 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -112,7 +112,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -135,7 +135,7 @@ L'endpoint GetReplicas restituisce le informazioni sulle repliche della partizio
 | --- | --- |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -160,7 +160,7 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
 | --force-remove | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio per il quale l'operazione di eliminazione è prossima al timeout a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -216,7 +216,7 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 | --node-name [Obbligatorio] | Il nome del nodo. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |
 | --replica-id [Obbligatorio] | Identificatore della replica. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

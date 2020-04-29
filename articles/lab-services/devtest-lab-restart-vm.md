@@ -1,6 +1,6 @@
 ---
 title: Riavviare una macchina virtuale in un lab in Azure DevTest Labs | Microsoft Docs
-description: Questo articolo illustra i passaggi per riavviare rapidamente e facilmente le macchine virtuali (VM) in Azure DevTest Labs.This article provides steps to quickly and easily restart virtual machines (VM) in Azure DevTest Labs.
+description: Questo articolo illustra i passaggi per riavviare in modo rapido e semplice le macchine virtuali (VM) in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 52d3b92909483a99eb82c86b727261bbeb5f8d46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759995"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Riavviare una macchina virtuale in un lab in Azure DevTest Labs
@@ -37,7 +37,7 @@ ms.locfileid: "76759995"
    >
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Passaggi per riavviare una macchina virtuale in un lab in Azure DevTest Labs
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco di lab selezionare il lab che include la macchina virtuale da riavviare.
 1. Nel pannello a sinistra, selezionare **Macchine virtuali personali**.
@@ -56,4 +56,4 @@ ms.locfileid: "76759995"
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo il riavvio, è possibile riconnettersi alla macchina virtuale selezionando **Connetti** sul riquadro di gestione.
-* Esplorare la raccolta di modelli di Guida [rapida di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)
+* Esplorare la [raccolta di modelli di avvio rapido di DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)

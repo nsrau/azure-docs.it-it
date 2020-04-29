@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
 ms.openlocfilehash: 318576e9b5c5b32bbc993ea16494c938b74bd2f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77200062"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
@@ -246,7 +246,7 @@ Name              ResourceGroup    Status    Image                              
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 ### <a name="delete-container-instances"></a>Eliminare le istanze di contenitore
 

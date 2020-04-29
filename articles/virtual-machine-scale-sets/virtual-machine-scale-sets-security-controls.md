@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190598"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controlli di sicurezza per i set di scalabilità di macchine virtuali di Azure
@@ -19,7 +19,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nei set di scalabi
 
 [!INCLUDE [Security controls header](../../includes/security-controls-header.md)]
 
-## <a name="network"></a>Network
+## <a name="network"></a>Rete
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
@@ -40,10 +40,10 @@ Questo articolo descrive i controlli di sicurezza incorporati nei set di scalabi
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Sì |  |
+| Autenticazione| Sì |  |
 | Autorizzazione| Sì |  |
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|

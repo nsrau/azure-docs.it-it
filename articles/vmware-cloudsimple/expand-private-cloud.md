@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025300"
 ---
 # <a name="expand-a-cloudsimple-private-cloud"></a>Espandi un cloud privato CloudSimple

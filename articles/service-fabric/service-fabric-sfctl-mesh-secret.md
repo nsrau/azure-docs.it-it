@@ -1,15 +1,15 @@
 ---
-title: Interfaccia di comando di Azure Service Fabric- segreto mesh sfctlAzure Service Fabric CLI- sfctl mesh secret
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per ottenere ed eliminare le risorse segrete di Service Fabric Mesh.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl mesh Secret
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere ed eliminare Service Fabric risorse segrete della rete.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fab388ff223eb95020e2ba0945c76532bc54f224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905975"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
@@ -19,7 +19,7 @@ Consente di ottenere ed eliminare le risorse di tipo segreto mesh.
 
 |Comando|Descrizione|
 | --- | --- |
-| delete | Elimina la risorsa di tipo segreto. |
+| Elimina | Elimina la risorsa di tipo segreto. |
 | list | Elenca tutte le risorse di tipo segreto. |
 | show | Ottiene la risorsa di tipo segreto con il nome specificato. |
 
@@ -82,5 +82,5 @@ Ottiene le informazioni sulla risorsa di tipo segreto con il nome specificato. L
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando di Service Fabric.
+- [Configurare](service-fabric-cli.md) l'interfaccia della riga di comando Service Fabric.
 - Informazioni su come usare l'interfaccia della riga di comando Service Fabric usando gli [script di esempio](/azure/service-fabric/scripts/sfctl-upgrade-application).

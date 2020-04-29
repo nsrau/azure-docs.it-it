@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
 ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76511145"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connettere dispositivi Modbus TCP tramite un dispositivo gateway IoT Edge

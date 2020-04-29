@@ -4,10 +4,10 @@ description: I provider di servizi che usano la gestione risorse delegate di Azu
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76543427"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
@@ -57,7 +57,7 @@ Se sono stati inclusi utenti con il [ruolo di eliminazione della registrazione d
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Lavorare nel contesto di una sottoscrizione delegata
 
-È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo:
+È possibile lavorare direttamente nel contesto di una sottoscrizione delegata all'interno del portale di Azure, senza cambiare la directory che si sta usando. A tale scopo, procedere nel seguente modo:
 
 1. Selezionare l'icona **Directory e sottoscrizione** nella parte superiore del portale di Azure.
 2. Nel filtro **sottoscrizioni globali** verificare che sia selezionata solo la casella di tale sottoscrizione delegata. È possibile usare la casella a discesa **Directory corrente e delegate** per mostrare solo le sottoscrizioni in una directory specifica. Non usare l'opzione **Cambia directory** perché cambierebbe la directory a cui è stato eseguito l'accesso.

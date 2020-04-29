@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77191527"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurare un singolo indirizzo IP per uno o più ambienti del servizio di integrazione in app per la logica di Azure
@@ -49,7 +49,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    ![Configurare la regola per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Proprietà | Valore | Descrizione |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome route** | <*Unique-route-name*> | Nome univoco per la route nella tabella di route |
    | **Prefisso indirizzo** | <*Indirizzo di destinazione*> | Indirizzo del sistema di destinazione in cui si desidera che il traffico passi. Assicurarsi di usare la [notazione CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per questo indirizzo. |
@@ -71,16 +71,16 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    **Proprietà della raccolta regole di rete**
 
-   | Proprietà | Valore | Descrizione |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Collection-Name*> | Nome della raccolta di regole di rete |
    | **Priority** | <*livello di priorità*> | Ordine di priorità da utilizzare per l'esecuzione della raccolta regole. Per altre informazioni, vedere [quali sono alcuni concetti di Azure firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
-   | **Azione** | **Allow** | Tipo di azione da eseguire per questa regola |
+   | **Azione** | **Consentito** | Tipo di azione da eseguire per questa regola |
    |||
 
    **Proprietà della regola di rete**
 
-   | Proprietà | Valore | Descrizione |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Name*> | Nome della regola di rete |
    | **Protocollo** | <*protocolli di connessione*> | Protocolli di connessione da utilizzare. Ad esempio, se si usano le regole di NSG, selezionare sia **TCP** che **UDP**, non solo **TCP**. |

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: 82710a66cdf7874c745070e49b2c7aff7bc8816d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77117531"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticare l'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure
@@ -74,7 +74,7 @@ Diversamente dalle identità assegnate dall'utente, non è necessario creare man
 
    ![ID oggetto per l'identità assegnata dal sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Proprietà | Valore | Descrizione |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **ID oggetto** | <*Identity-Resource-ID*> | Identificatore univoco globale (GUID) che rappresenta l'identità assegnata dal sistema per l'app per la logica in un tenant di Azure AD |
    ||||
@@ -120,7 +120,7 @@ Quando Azure crea la definizione di risorsa dell'app per `identity` la logica, l
 }
 ```
 
-| Property (JSON) | Valore | Descrizione |
+| Property (JSON) | valore | Descrizione |
 |-----------------|-------|-------------|
 | `principalId` | <*ID entità*> | Identificatore univoco globale (GUID) dell'oggetto entità servizio per l'identità gestita che rappresenta l'app per la logica nel tenant del Azure AD. Questo GUID viene talvolta visualizzato come "ID oggetto" o `objectID`. |
 | `tenantId` | <*Azure-AD-Tenant-ID*> | Identificatore univoco globale (GUID) che rappresenta il tenant del Azure AD in cui l'app per la logica è ora un membro. All'interno del tenant di Azure AD, l'entità servizio ha lo stesso nome dell'istanza dell’app per la logica. |
@@ -160,7 +160,7 @@ Per configurare un'identità gestita assegnata dall'utente per l'app per la logi
 
    ![Crea identità gestita assegnata dall'utente](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
-   | Proprietà | Obbligatoria | Valore | Descrizione |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome risorsa** | Sì | <*nome-identità assegnato dall'utente*> | Nome da assegnare all'identità assegnata dall'utente. Questo esempio USA "Fabrikam-user-assigned-Identity". |
    | **Sottoscrizione** | Sì | <*Azure-Subscription-Name*> | Nome della sottoscrizione di Azure da usare. |
@@ -232,7 +232,7 @@ Questo esempio illustra una definizione di risorsa dell'app per la logica per un
 }
 ```
 
-| Property (JSON) | Valore | Descrizione |
+| Property (JSON) | valore | Descrizione |
 |-----------------|-------|-------------|
 | `principalId` | <*ID entità*> | Identificatore univoco globale (GUID) per l'identità gestita assegnata dall'utente nel tenant di Azure AD |
 | `clientId` | <*ID client*> | Identificatore univoco globale (GUID) per la nuova identità dell'app per la logica usata per le chiamate durante il runtime |
@@ -291,7 +291,7 @@ Se il modello include anche la definizione di risorsa dell'identità gestita, è
 }
 ```
 
-| Property (JSON) | Valore | Descrizione |
+| Property (JSON) | valore | Descrizione |
 |-----------------|-------|-------------|
 | `tenantId` | <*Azure-AD-Tenant-ID*> | Identificatore univoco globale (GUID) che rappresenta il tenant del Azure AD in cui l'identità assegnata dall'utente è ora un membro. All'interno del tenant di Azure AD, l'entità servizio ha lo stesso nome del nome di identità assegnato dall'utente. |
 | `principalId` | <*ID entità*> | Identificatore univoco globale (GUID) per l'identità gestita assegnata dall'utente nel tenant di Azure AD |

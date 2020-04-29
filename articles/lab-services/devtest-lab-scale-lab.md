@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare i limiti e le quote nel lab in Azure DevTest Labs | Microsoft Docs
-description: Questo articolo descrive come scalare il lab in Azure DevTest Labs.This article describes how you can scale your lab in Azure DevTest Labs. Visualizzare le quote e i limiti di utilizzo e richiedere un aumento.
+description: Questo articolo descrive come è possibile ridimensionare il Lab in Azure DevTest Labs. Visualizzare le quote e i limiti di utilizzo e richiedere un aumento.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: f3299c24bc751263ccd284a4fddb492fba5dd1e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76761186"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Ridimensionare i limiti e le quote in DevTest Labs
@@ -35,10 +35,10 @@ Ad esempio, ogni sottoscrizione ha una quota predefinita di 20 core. Pertanto, s
 ## <a name="view-your-usage-and-quotas"></a>Visualizzare le quote e l'uso
 Questa procedura illustra come visualizzare le quote correnti nella sottoscrizione per risorse specifiche di Azure e per visualizzare la percentuale di ogni quota usata.
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Altri servizi** e quindi **Fatturazione** dall'elenco.
 1. Selezionare una sottoscrizione nel pannello Fatturazione.
-4. Selezionare **Utilizzo e quote**.
+4. Selezionare **utilizzo e quote**.
 
    ![Pulsante Utilizzo e quote](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
 
@@ -67,4 +67,4 @@ Questa procedura mostra come richiedere un aumento di quota usando il [portale d
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Passaggi successivi
-* Esplorare la raccolta di modelli di Guida introduttiva di [DevTest Labs di Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Esplorare la [raccolta di modelli di avvio rapido di DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

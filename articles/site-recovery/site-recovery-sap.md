@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77190790"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello

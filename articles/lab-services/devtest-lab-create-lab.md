@@ -1,6 +1,6 @@
 ---
 title: Creare un lab in Azure DevTest Labs | Documentazione Microsoft
-description: Questo articolo illustra il processo di creazione di un lab usando il portale di Azure e Azure DevTest Labs.This article walks you through the process of creating a lab using the Azure portal and Azure DevTest Labs.
+description: Questo articolo illustra il processo di creazione di un Lab usando il portale di Azure e la Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 5cd675823b85e975dcb8dfe152c27b2d30463c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759738"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab di sviluppo/test di Azure
@@ -32,7 +32,7 @@ Per creare un lab sono necessari gli elementi seguenti:
 ## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Procedura per creare un lab in Azure DevTest Labs
 La procedura seguente illustra come usare il portale di Azure per creare un lab in Azure DevTest Labs. 
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Nel menu principale a sinistra selezionare **Tutti i servizi** all'inizio dell'elenco. Selezionare * (stella) accanto a **DevTest Labs** nella sezione **DEVOPS**. Questa azione aggiunge **DevTest Labs** al menu di spostamento a sinistra in modo che sia facilmente accessibile la volta successiva. 
 
     ![Tutti i servizi - Selezionare DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -43,7 +43,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
     1. Immettere un **nome** per il lab.
     2. Selezionare la **Sottoscrizione** da associare al lab.
     3. Immettere un **nome per il gruppo di risorse** del lab. 
-    4. Selezionare un **percorso** in cui archiviare il lab.
+    4. Selezionare una **posizione** in cui archiviare il Lab.
     4. Selezionare **Arresto automatico** per indicare se si vogliono abilitare e definire i parametri per l'arresto automatico di tutte le macchine virtuali del lab. La funzionalità di arresto automatico è essenzialmente una funzionalità di riduzione dei costi che consente di specificare quando arrestare automaticamente la macchina virtuale. È possibile modificare le impostazioni di arresto automatico dopo la creazione del lab seguendo la procedura descritta nell'articolo [Gestire tutti i criteri per un lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
     1. Immettere le informazioni **NOME** e **VALORE** per **Tag** se si vuole creare un contrassegno personalizzato da aggiungere a ogni risorsa che si creerà nel lab. I tag sono utili per gestire e organizzare le risorse del lab per categoria. Per altre informazioni sui tag, ad esempio come aggiungere tag dopo avere creato il lab, vedere [Aggiungere tag a un lab](devtest-lab-add-tag.md).
     6. Selezionare **Opzioni di Automazione** per ottenere i modelli di Azure Resource Manager per l'automazione della configurazione. 
@@ -59,9 +59,9 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
-* [Accesso sicuro a un lab](devtest-lab-add-devtest-user.md)
-* [Impostare i criteri lab](devtest-lab-set-lab-policy.md)
-* [Creare un modello lab](devtest-lab-create-template.md)
-* [Creare elementi personalizzati per le macchine virtualiCreate custom artifacts for your VMs](devtest-lab-artifact-author.md)
+* [Proteggere l'accesso a un Lab](devtest-lab-add-devtest-user.md)
+* [Imposta criteri Lab](devtest-lab-set-lab-policy.md)
+* [Creare un modello Lab](devtest-lab-create-template.md)
+* [Creare elementi personalizzati per le macchine virtuali](devtest-lab-artifact-author.md)
 * [Aggiungere una VM a un lab](devtest-lab-add-vm.md)
 

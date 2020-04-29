@@ -1,6 +1,6 @@
 ---
-title: Uscita ed endpoint - Azure Digital Twins Documenti Microsoft
-description: Informazioni su come creare e uscire da endpoint di eventi in Azure Digital Twins.Learn how to create and egress event endpoints in Azure Digital Twins.
+title: Uscita ed endpoint-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come creare ed estrarre gli endpoint evento nei dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,13 +9,13 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76511570"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint in Azure Digital Twins
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint nei dispositivi gemelli digitali di Azure
 
 Gli *endpoint* di Gemelli digitali di Azure rappresentano un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
 
@@ -49,14 +49,14 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 
 | Attributo | Type | Descrizione |
 | --- | --- | --- |
-| id | string | Identificatore univoco dell'evento. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| data | object | Dati dell'evento specifici del provider di risorse. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| id | stringa | Identificatore univoco dell'evento. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| data | oggetto | Dati dell'evento specifici del provider di risorse. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
@@ -95,7 +95,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- System
+- Sistema
 - Utente
 - UserBlobMetadata
 - UserExtendedProperty
@@ -246,7 +246,7 @@ Gli esempi seguenti illustrano come configurare gli endpoint supportati.
 >[!IMPORTANT]
 > Prestare particolare attenzione all'attributo **eventTypes**. Definisce infatti i tipi di eventi gestiti dall'endpoint e ne determina quindi il routing.
 
-Una richiesta HTTP POST autenticata su:
+Richiesta HTTP POST autenticata rispetto a:
 
 ```URL
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -320,7 +320,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
     | YOUR_EVENT_HUB_NAME | Nome dell'hub eventi |
 
-- Instrada a Hub eventi il tipo di evento **DeviceMessage**. L'inclusione di `EntityPath` nel **connectionString** è obbligatoria:
+- Instrada a Hub eventi il tipo di evento **DeviceMessage**. L'inclusione `EntityPath` di in **ConnectionString** è obbligatoria:
 
   ```JSON
   {

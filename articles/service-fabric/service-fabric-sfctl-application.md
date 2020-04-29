@@ -1,15 +1,15 @@
 ---
-title: Applicazione CLI di Azure Service Fabric - sfctlAzure Service Fabric CLI- sfctl application
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la gestione delle applicazioni.
+title: INTERFACCIA della riga di comando di Azure Service Fabric-applicazione sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione delle applicazioni.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906205"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,7 +20,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 |Comando|Descrizione|
 | --- | --- |
 | create | Crea un'applicazione di Service Fabric usando la descrizione specificata. |
-| delete | Elimina un'applicazione di Service Fabric esistente. |
+| Elimina | Elimina un'applicazione di Service Fabric esistente. |
 | deployed | Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric. |
 | deployed-health | Recupera le informazioni sull'integrità di un'applicazione distribuita in un nodo Service Fabric. |
 | deployed-list | Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. |
@@ -29,7 +29,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 | list | Mostra l'elenco di applicazioni create nel cluster di Service Fabric che corrisponde ai filtri specificati. |
 | load | Mostra informazioni di caricamento su un'applicazione di Service Fabric. |
 | manifest | Mostra il manifesto che descrive un tipo di applicazione. |
-| provision | Esegue il provisioning o la registrazione di un tipo di applicazione Service Fabric con il cluster utilizzando il pacchetto '.sfpkg' nell'archivio esterno o il pacchetto dell'applicazione nell'archivio immagini. |
+| provision | Esegue il provisioning o registra un tipo di applicazione Service Fabric con il cluster usando il pacchetto ". sfpkg" nell'archivio esterno o usando il pacchetto dell'applicazione nell'archivio immagini. |
 | report-health | Invia un report di integrità sull'applicazione di Service Fabric. |
 | type | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
 | type-list | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric. |
@@ -77,7 +77,7 @@ Prima di poter essere eliminata, un'applicazione deve essere creata. Se si elimi
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --force-remove | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio per il quale l'operazione di eliminazione è prossima al timeout a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -101,7 +101,7 @@ Questa query restituisce informazioni sull'applicazione di sistema se l'ID appli
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --node-name [obbligatorio] | Il nome del nodo. |
 | --include-health-state | Include lo stato di integrità di un'entità. Se questo parametro è false o non viene specificato, lo stato di integrità restituito è "Unknown". Quando è impostato su true, la query passa in parallelo al nodo e al servizio di sistema di integrità prima che i risultati vengano uniti. Di conseguenza, la query è più costosa e può richiedere più tempo. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -127,7 +127,7 @@ Recupera le informazioni sull'integrità di un'applicazione distribuita in un no
 | --deployed-service-packages-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità dei pacchetti servizio distribuiti restituiti nel risultato della query di integrità dell'applicazione in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i pacchetti servizio distribuiti che corrispondono al filtro. Tutte i pacchetti servizio distribuiti vengono usati per valutare lo stato di integrità aggregato dell'applicazione distribuita. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, quindi il valore può essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, viene restituito lo stato di integrità dei pacchetti servizio con valore di HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -152,7 +152,7 @@ Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. I r
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --include-health-state | Include lo stato di integrità di un'entità. Se questo parametro è false o non viene specificato, lo stato di integrità restituito è "Unknown". Quando è impostato su true, la query passa in parallelo al nodo e al servizio di sistema di integrità prima che i risultati vengano uniti. Di conseguenza, la query è più costosa e può richiedere più tempo. |
 | --max-results | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -178,7 +178,7 @@ Restituisce lo stato di integrità dell'applicazione di Service Fabric. La rispo
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --services-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità del servizio restituiti nel risultato della query sull'integrità del servizio in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i servizi che corrispondono al filtro. Tutti i servizi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità dei servizi con valore HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -201,7 +201,7 @@ Restituisce le informazioni sull'applicazione creata o in corso di creazione nel
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --exclude-application-parameters | Flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -227,7 +227,7 @@ Recupera le informazioni sulle applicazioni create o in corso di creazione nel c
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --exclude-application-parameters | Flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato. |
 | --max-results | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -249,7 +249,7 @@ Restituisce le informazioni di carico sull'applicazione creata o in corso di cre
 |Argomento|Descrizione|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -272,7 +272,7 @@ La risposta contiene il manifesto dell'applicazione XML sotto forma di stringa.
 | --- | --- |
 | --application-type-name    [obbligatorio] | Nome del tipo di applicazione. |
 | --application-type-version [obbligatorio] | Versione del tipo di applicazione. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -285,9 +285,9 @@ La risposta contiene il manifesto dell'applicazione XML sotto forma di stringa.
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-Esegue il provisioning o la registrazione di un tipo di applicazione Service Fabric con il cluster utilizzando il pacchetto '.sfpkg' nell'archivio esterno o il pacchetto dell'applicazione nell'archivio immagini.
+Esegue il provisioning o registra un tipo di applicazione Service Fabric con il cluster usando il pacchetto ". sfpkg" nell'archivio esterno o usando il pacchetto dell'applicazione nell'archivio immagini.
 
-Esegue il provisioning di un tipo di applicazione di Service Fabric con il cluster. Il provisioning è necessario prima di poter creare un'istanza di nuove applicazioni. L'operazione di provisioning può essere eseguita nel pacchetto dell'applicazione specificato da relativePathInImageStore o utilizzando l'URI del '.sfpkg' esterno. A meno che non sia impostato --external-provision, questo comando prevede il provisioning dell'archivio immagini.
+Esegue il provisioning di un tipo di applicazione di Service Fabric con il cluster. Il provisioning è necessario prima di poter creare un'istanza di nuove applicazioni. L'operazione di provisioning può essere eseguita nel pacchetto dell'applicazione specificato da relativePathInImageStore o usando l'URI dell'oggetto '. sfpkg ' esterno. A meno che non sia impostato --external-provision, questo comando prevede il provisioning dell'archivio immagini.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -355,7 +355,7 @@ Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --exclude-application-parameters | Flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato. |
 | --max-results | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -380,7 +380,7 @@ Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --exclude-application-parameters | Flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato. |
 | --max-results | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -404,7 +404,7 @@ Questa operazione può essere eseguita solo se tutte le istanze dell'applicazion
 | --application-type-name    [obbligatorio] | Nome del tipo di applicazione. |
 | --application-type-version [obbligatorio] | La versione del tipo di applicazione, come definita nel manifesto dell'applicazione. |
 | --async-parameter | Flag che indica se l'annullamento del provisioning deve essere eseguito o meno in modo asincrono. Se impostato su true, l'operazione di annullamento del provisioning restituisce una valore quando la richiesta viene accettata dal sistema e l'operazione di annullamento del provisioning continua senza alcun limite di timeout. Il valore predefinito è false. È tuttavia consigliabile impostare il valore true per i pacchetti dell'applicazione di grandi dimensioni di cui è stato effettuato il provisioning. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -464,7 +464,7 @@ Riprende l'aggiornamento manuale non monitorato di un'applicazione di Service Fa
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --upgrade-domain-name [Obbligatorio] | Nome del dominio di aggiornamento in cui si vuole riprendere l'aggiornamento. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -486,7 +486,7 @@ Avvia il rollback dell'aggiornamento dell'applicazione corrente alla versione pr
 |Argomento|Descrizione|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -508,7 +508,7 @@ Restituisce informazioni sullo stato dell'aggiornamento più recente dell'applic
 |Argomento|Descrizione|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -529,13 +529,13 @@ Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni fil
 
 |Argomento|Descrizione|
 | --- | --- |
-| --path [Obbligatorio] | Percorso del pacchetto di applicazione locale. |
-| --comprimere | Applicabile solo ai pacchetti di applicazioni di Service Fabric. Creare una nuova cartella contenente il pacchetto dell'applicazione compresso nel percorso predefinito o nel percorso specificato dal parametro percorso compresso, quindi caricare la cartella appena creata. <br><br> Se è già presente un file compresso generato da sfctl, verrà sovrascritto se questo flag è impostato. Se la directory non è un pacchetto dell'applicazione, verrà restituito un errore. Se è già un pacchetto dell'applicazione compresso, la cartella verrà copiata così com'è. Per impostazione predefinita, il pacchetto dell'applicazione compresso appena creato verrà eliminato dopo un caricamento riuscito. Se il caricamento non riesce, pulire manualmente il pacchetto compresso in base alle esigenze. L'eliminazione non rimuove i dir vuoti che potrebbero essere stati creati se il parametro location compresso fa riferimento a directory inesistenti. |
-| --compressed-location (posizione compressa) | Percorso in cui inserire il pacchetto dell'applicazione compresso. <br><br> Se non viene specificato alcun percorso, il pacchetto compresso verrà inserito in una cartella appena creata denominata sfctl_compressed_temp nella directory padre specificata nell'argomento path. Ad esempio, se l'argomento\:path ha valore C /FolderA/AppPkg,\:il pacchetto compresso verrà aggiunto a C /FolderA/sfctl_compressed_temp/AppPkg. |
-| --imagestore-string | Archivio di immagini di destinazione in cui caricare il pacchetto dell'applicazione.  Impostazione predefinita\: fabric\:ImageStore. <br><br> Per caricare in un percorso di file, avviare questo parametro con 'file\:'. In caso contrario, il valore deve essere la stringa di connessione dell'archivio immagini, ad esempio il valore predefinito. |
-| --keep-compressed | Se mantenere o meno il pacchetto compresso generato al completamento del caricamento. <br><br> Se non è impostato, al completamento, i pacchetti dell'app compressi verranno eliminati. Se il caricamento non ha avuto esito positivo, il pacchetto dell'applicazione verrà sempre mantenuto nella directory di output per il nuovo caricamento. |
+| --path [obbligatorio] | Percorso del pacchetto di applicazione locale. |
+| --Comprimi | Applicabile solo ai pacchetti dell'applicazione Service Fabric. Creare una nuova cartella contenente il pacchetto dell'applicazione compressa nel percorso predefinito o nel percorso specificato dal parametro compresso-location, quindi caricare la cartella appena creata. <br><br> Se è già presente un file compresso generato da sfctl, questo verrà sovrascritto se questo flag è impostato. Se la directory non è un pacchetto dell'applicazione, verrà restituito un errore. Se è già un pacchetto di applicazione compresso, la cartella verrà copiata così come è. Per impostazione predefinita, il pacchetto di applicazione compresso appena creato verrà eliminato dopo il completamento del caricamento. Se il caricamento ha esito negativo, eseguire manualmente la pulizia del pacchetto compresso in base alle esigenze. L'eliminazione non rimuove i directory vuoti che potrebbero essere stati creati se il parametro del percorso compresso fa riferimento a directory inesistenti. |
+| --compresso-posizione | Percorso in cui inserire il pacchetto di applicazione compresso. <br><br> Se non viene specificato alcun percorso, il pacchetto compresso verrà inserito in una cartella appena creata denominata sfctl_compressed_temp sotto la directory padre specificata nell'argomento path. Ad esempio, se l'argomento path ha il valore\:c/FolderA/AppPkg, il pacchetto compresso verrà aggiunto a c\:/FolderA/sfctl_compressed_temp/apppkg. |
+| --imagestore-string | Archivio di immagini di destinazione in cui caricare il pacchetto dell'applicazione.  Impostazione predefinita\: fabric\:ImageStore. <br><br> Per caricare in un percorso di file, avviare questo parametro con "\:file". In caso contrario, il valore deve essere la stringa di connessione dell'archivio immagini, ad esempio il valore predefinito. |
+| --Keep-compresso | Indica se lasciare o meno il pacchetto compresso generato al completamento del caricamento. <br><br> Se non è impostato, al termine, i pacchetti dell'applicazione compressi verranno eliminati. Se il caricamento non è riuscito, il pacchetto dell'applicazione verrà sempre mantenuto nella directory di output per il nuovo caricamento. |
 | --show-progress | Mostra lo stato di caricamento del file per i pacchetti di grandi dimensioni. |
-| --timeout -t | Timeout totale in secondi. Il caricamento avrà esito negativo e restituirà l'errore dopo che la durata del timeout di caricamento è trascorsa. Questo timeout si applica all'intero pacchetto dell'applicazione e i timeout dei singoli file corrisponderanno alla durata di timeout rimanente. Timeout non include il tempo necessario per comprimere il pacchetto dell'applicazione.  Valore\: predefinito 300. |
+| --timeout -t | Timeout totale in secondi. Il caricamento avrà esito negativo e restituirà un errore dopo il superamento della durata del timeout di caricamento. Questo timeout si applica all'intero pacchetto dell'applicazione e i timeout dei singoli file corrisponderanno alla durata del timeout rimanente. Il timeout non include il tempo necessario per comprimere il pacchetto dell'applicazione.  Valore\: predefinito 300. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

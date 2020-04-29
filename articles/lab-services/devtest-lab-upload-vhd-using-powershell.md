@@ -1,6 +1,6 @@
 ---
 title: Caricare un file VHD in Azure DevTest Labs usando PowerShell | Microsoft Docs
-description: Questo articolo offre una procedura dettagliata che illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell.This article provides a walkthrough that shows you how to upload a VHD file to Azure DevTest Labs using PowerShell.
+description: Questo articolo fornisce una procedura dettagliata che illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759756"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Caricare un file VHD nell'account di archiviazione del lab usando PowerShell
@@ -31,9 +31,9 @@ In Azure DevTest Labs è possibile usare i file VHD per creare immagini personal
 
 La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell. 
 
-1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **tutti i servizi**, quindi selezionare **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 

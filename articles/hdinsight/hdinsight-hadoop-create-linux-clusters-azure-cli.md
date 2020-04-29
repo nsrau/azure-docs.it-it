@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
 ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77199042"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
@@ -33,7 +33,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
 
 ## <a name="create-a-cluster"></a>Creare un cluster
 
-1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, selezionare **prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
+1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
 
     ```azurecli-interactive
     az login
@@ -134,7 +134,7 @@ Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di coman
 
     Potrebbero essere necessari alcuni minuti per il completamento del processo di creazione del cluster. in genere circa 15.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Al termine dell'articolo, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non è in uso. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, eliminare i cluster quando non vengono usati è una scelta economicamente conveniente.
 
@@ -161,7 +161,7 @@ az group delete \
     --name $resourceGroupName
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

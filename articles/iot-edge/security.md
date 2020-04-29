@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760114"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Standard di sicurezza per Azure IoT Edge
@@ -34,7 +34,7 @@ Questo articolo offre una panoramica sul framework di sicurezza di IoT Edge. Per
 
 Gli standard promuovono un controllo e un'implementazione semplice, che sono alla base della sicurezza. Una soluzione di sicurezza si presta a controlli durante il processo di valutazione per creare affidabilità e non deve essere un ostacolo alla distribuzione. La progettazione di framework per la protezione di Azure IoT Edge è basata su protocolli di sicurezza collaudati e testati nel settore per sfruttare la familiarità e il riutilizzo.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si distribuisce una soluzione Internet delle cose, è necessario tenere presente che solo gli attori, i dispositivi e i moduli attendibili hanno accesso alla soluzione. L'autenticazione basata su certificati è il meccanismo principale per l'autenticazione per la piattaforma Azure IoT Edge. Questo meccanismo deriva da un set di standard che governano l'infrastruttura a chiave pubblica (PKiX) da Internet Engineering Task Force (IETF).
 
