@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: cognitive-services
 author: diberry
@@ -11,13 +11,13 @@ ms.custom: include file
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: edfbd8a803404b32be0624fd14165d25061d14b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67180457"
 ---
-## <a name="roles-in-batch-testing"></a>Ruoli nel test batch
+## <a name="roles-in-batch-testing"></a>Ruoli nei test batch
 
 > [!CAUTION]
-> I ruoli di entità non sono supportati nel test batch.
+> I ruoli entità non sono supportati nei test batch.

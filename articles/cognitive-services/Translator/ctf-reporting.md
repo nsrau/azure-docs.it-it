@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595929"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
@@ -105,7 +105,7 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 
 **Eccezioni**
 
-| Eccezione | Message | Condizioni |
+| Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
@@ -115,8 +115,8 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
 **Visualizzare esempi di codice in GitHub**
-* [C #](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
-* [Php](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
+* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
 ## <a name="getusertranslations-method"></a>Metodo GetUserTranslations
 
@@ -151,7 +151,7 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 | to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
-| utente| **Opzionale. Stringa utilizzata per filtrare il risultato in base all'iniziatore dell'invio**|
+| utente| **Opzionale. Stringa utilizzata per filtrare il risultato in base al creatore dell'invio**|
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
@@ -178,7 +178,7 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 
 **Eccezioni**
 
-| Eccezione | Message | Condizioni |
+| Eccezione | Messaggio | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
@@ -188,5 +188,5 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
 **Visualizzare esempi di codice in GitHub**
-* [C #](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
-* [Php](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
+* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

@@ -1,7 +1,7 @@
 ---
-title: Supporto di lingue e aree geografiche per l'API di riconoscimento dell'input penna
+title: Supporto della lingua e dell'area per l'API riconoscimento input penna
 titleSuffix: Azure Cognitive Services
-description: Un elenco di lingue naturali supportate dall'API Ink Recognizer.
+description: Elenco di linguaggi naturali supportati dall'API di riconoscimento input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67721748"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto di lingue e aree geografiche per l'API di riconoscimento dell'input penna
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto della lingua e dell'area per l'API riconoscimento input penna
 
-Questo articolo spiega quali lingue sono supportate per l'API Ink Recognizer. Il contenuto dell'input penna digitale scritto nelle lingue seguenti può essere interpretato ed elaborato dall'API.
+Questo articolo illustra le lingue supportate per l'API di riconoscimento input penna. Il contenuto di input penna digitale scritto nei linguaggi seguenti può essere interpretato ed elaborato dall'API.
 
 ## <a name="supported-languages"></a>Lingue supportate
 
@@ -92,4 +92,4 @@ Questo articolo spiega quali lingue sono supportate per l'API Ink Recognizer. Il
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni sull'API di Riconoscimento input penna](overview.md)
-* [Invio di tratti di inchiostro digitale all'API Ink Recognizer](concepts/send-ink-data.md)
+* [Invio di tratti di input penna digitali all'API riconoscimento input penna](concepts/send-ink-data.md)

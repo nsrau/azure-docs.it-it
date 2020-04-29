@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68854075"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
@@ -104,7 +104,7 @@ Per altre informazioni, tra cui l'ID di configurazione personalizzato, vedere **
 |Image caption (Didascalia immagine)   | Determina se visualizzare le immagini con i risultati della ricerca.|
 
 
-Se si fa clic su **Mostra configurazioni avanzate,** vengono visualizzate le seguenti configurazioni:
+Se si fa clic su **Mostra configurazioni avanzate**, vengono visualizzate le configurazioni seguenti:
 
 
 |  | |

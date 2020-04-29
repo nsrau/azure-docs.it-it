@@ -1,5 +1,5 @@
 ---
-title: Personalizzare e suggerire query di ricerca immagini - API Ricerca immagini BingCustomize and suggest image search queries - Bing Image Search API
+title: Personalizzare e suggerire query di ricerca immagini-API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla personalizzazione delle query di ricerca inviate all'API Ricerca immagini Bing.
 services: cognitive-services
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67542753"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Personalizzare e suggerire query di ricerca immagini
 
-Usare questo articolo per informazioni su come personalizzare le query e suggerire termini di ricerca da inviare all'API Ricerca immagini Bing.
+Usare questo articolo per informazioni su come personalizzare le query e suggerire i termini di ricerca da inviare al API Ricerca immagini Bing.
 
 ## <a name="suggest-search-terms"></a>Suggerisci termini di ricerca
 

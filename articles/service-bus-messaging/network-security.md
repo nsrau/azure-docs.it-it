@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: aschhab
 ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479280"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Sicurezza di rete per il bus di servizio di Azure 

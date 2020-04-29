@@ -1,7 +1,7 @@
 ---
 title: Metodo Transliterate dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Convertire il testo in una lingua da uno script a un altro script con il metodo Traslitterazione dell'API Translator Text.
+description: Converte il testo in un linguaggio da uno script a un altro con il metodo API Traduzione testuale transliterate.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837287"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API Traduzione testuale 3.0: Transliterate
@@ -60,16 +60,16 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
-    <td>Intestazione autenticazione</td>
-    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
+    <td>Intestazione/e di autenticazione</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Intestazione richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Intestazione richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -77,7 +77,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un oggetto JSON con una proprietà di stringa denominata `Text`, che rappresenta la stringa da convertire.
 

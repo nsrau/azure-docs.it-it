@@ -1,7 +1,7 @@
 ---
 title: Endpoint per l'API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
-description: L'API Ricerca immagini include tre endpoint. L'endpoint 1 restituisce immagini dal Web. L'endpoint 2 restituisce ImageInsights. L'endpoint 3 restituisce immagini di tendenza.
+description: L'API Ricerca immagini include tre endpoint. L'endpoint 1 restituisce le immagini dal Web. L'endpoint 2 restituisce ImageInsights. L'endpoint 3 restituisce immagini di tendenza.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072637"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Endpoint per l'API Ricerca immagini Bing

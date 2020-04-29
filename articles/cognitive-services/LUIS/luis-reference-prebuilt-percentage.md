@@ -1,5 +1,5 @@
 ---
-title: Percentuale entità precostruita - LUIS
+title: Percentuale di entità predefinita-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita percentuale in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270503"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entità predefinita percentuale per un'app LUIS
 I numeri in percentuale possono essere visualizzati come frazioni `3 1/2`, o come percentuale, `2%`. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la percentuale per le finalità dell'applicazione. L'entità percentuale è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-percentage"></a>Tipi di percentuale
-La percentuale viene gestita dal repository GitHub di [tipo Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
+La percentuale viene gestita dal repository GitHub del [testo dei riconoscitori](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Risoluzione per l'entità percentuale predefinita
 
-Per la query vengono restituiti i seguenti oggetti entità:
+Per la query vengono restituiti gli oggetti entità seguenti:
 
 `set a trigger when my stock goes up 2%`
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON `verbose` seguente è `false`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 "entities": {
@@ -42,7 +42,7 @@ Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON `verbose` seguente è `true`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 "entities": {

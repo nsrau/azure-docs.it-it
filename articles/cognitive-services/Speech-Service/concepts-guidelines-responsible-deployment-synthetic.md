@@ -1,7 +1,7 @@
 ---
-title: Linee guida per la distribuzione responsabile della tecnologia vocale sintetica
+title: Linee guida per la distribuzione responsabile della tecnologia Voice sintetica
 titleSuffix: Azure Cognitive Services
-description: Linee guida generali di progettazione di Microsoft per l'utilizzo della tecnologia voce sintetica. Questi sono stati sviluppati in studi che Microsoft ha condotto con il talento vocale, consumatori, così come gli individui con disturbi del linguaggio per guidare lo sviluppo responsabile della voce sintetica.
+description: Linee guida generali per la progettazione di Microsoft per l'utilizzo della tecnologia Voice sintetica. Queste sono state sviluppate in studi che Microsoft ha condotto con il talento vocale, i consumatori, nonché singoli utenti con problemi di sintesi vocale per guidare lo sviluppo responsabile della voce sintetica.
 services: cognitive-services
 author: benoah
 manager: nitinme
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
 ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836771"
 ---
-# <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Linee guida per la distribuzione responsabile della tecnologia vocale sintetica
-Ecco le linee guida generali di progettazione di Microsoft per l'utilizzo della tecnologia vocale sintetica. Questi sono stati sviluppati in studi che Microsoft ha condotto con il talento vocale, consumatori, così come gli individui con disturbi del linguaggio per guidare lo sviluppo responsabile della voce sintetica.
+# <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Linee guida per la distribuzione responsabile della tecnologia Voice sintetica
+Ecco le linee guida di progettazione generali di Microsoft per l'uso della tecnologia Voice sintetica. Queste sono state sviluppate in studi che Microsoft ha condotto con il talento vocale, i consumatori, nonché singoli utenti con problemi di sintesi vocale per guidare lo sviluppo responsabile della voce sintetica.
 
 ## <a name="general-considerations"></a>Considerazioni generali
-Per la distribuzione della tecnologia di riconoscimento vocale sintetico, le linee guida seguenti si applicano alla maggior parte degli scenari.
+Per la distribuzione della tecnologia sintesi vocale sintetica, le linee guida seguenti si applicano alla maggior parte degli scenari.
 
-### <a name="disclose-when-the-voice-is-synthetic"></a>Rivelare quando la voce è sintetica
-La divulgazione che una voce è generata dal computer non solo riduce al minimo il rischio di esiti dannosi da inganno, ma aumenta anche la fiducia nell'organizzazione che fornisce la voce. Ulteriori informazioni su [come divulgare](concepts-disclosure-guidelines.md).
+### <a name="disclose-when-the-voice-is-synthetic"></a>Divulga quando la voce è sintetica
+La divulgazione di una voce in un computer generato non solo riduce al minimo il rischio di risultati dannosi da un inganno, ma aumenta anche il trust nell'organizzazione che fornisce la voce. Altre informazioni su [come divulgare](concepts-disclosure-guidelines.md).
 
-### <a name="select-appropriate-voice-types-for-your-scenario"></a>Selezionare i tipi di voce appropriati per lo scenario
-Considerare attentamente il contesto di utilizzo e i potenziali danni associati all'uso di voce sintetica. Ad esempio, le voci sintetiche ad alta fedeltà potrebbero non essere appropriate in scenari ad alto rischio, ad esempio per la messaggistica personale, le transazioni finanziarie o situazioni complesse che richiedono adattabilità umana o empatia. Gli utenti possono anche avere aspettative diverse per i tipi di voce. Ad esempio, quando si ascoltano notizie sensibili lette da una voce sintetica, alcuni utenti preferiscono una lettura più empatica e umana delle notizie, mentre altri preferivano una voce più monotona e imparziale. Valutare la possibilità di testare l'applicazione per comprendere meglio le preferenze dell'utente.
+### <a name="select-appropriate-voice-types-for-your-scenario"></a>Selezionare i tipi vocali appropriati per lo scenario
+Valutare con attenzione il contesto di utilizzo e i potenziali danni associati all'uso della voce sintetica. Ad esempio, le voci sintetiche ad alta fedeltà potrebbero non essere appropriate negli scenari ad alto rischio, ad esempio per la messaggistica personale, le transazioni finanziarie o situazioni complesse che richiedono adattabilità umana o empatia. Gli utenti possono anche avere aspettative diverse per i tipi di voce. Ad esempio, quando si è in ascolto di notizie riservate lette da una voce sintetica, alcuni utenti preferiscono una lettura più empatica e simile a quella umana, mentre altri preferiscono una voce più monotona, non distorta. Provare a testare l'applicazione per comprendere meglio le preferenze dell'utente.
 
-### <a name="be-transparent-about-capabilities-and-limitations"></a>Essere trasparenti su funzionalità e limitazioni
-Gli utenti hanno maggiori probabilità di avere aspettative più elevate quando interagiscono con agenti vocali sintetici ad alta fedeltà. Di conseguenza, quando le funzionalità del sistema non soddisfano tali aspettative, la fiducia può soffrire e può causare esperienze spiacevoli o addirittura dannose.
+### <a name="be-transparent-about-capabilities-and-limitations"></a>Essere trasparente sulle funzionalità e le limitazioni
+È più probabile che gli utenti abbiano aspettative più elevate durante l'interazione con agenti vocali sintetici ad alta fedeltà. Di conseguenza, quando le funzionalità di sistema non soddisfano tali aspettative, l'attendibilità può soffrire e può comportare esperienze spiacevoli o persino dannose.
 
-### <a name="provide-optional-human-support"></a>Fornire supporto umano opzionale
-In scenari transazionali ambigui (ad esempio, un centro di supporto per le chiamate), gli utenti non sempre considerano attendibile un agente del computer per rispondere in modo appropriato alle richieste. Il sostegno umano può essere necessario in queste situazioni, indipendentemente dalla qualità realistica della voce o della capacità del sistema.
+### <a name="provide-optional-human-support"></a>Fornire supporto umano facoltativo
+In scenari ambigui e transazionali, ad esempio un Call Support Center, gli utenti non considerano sempre attendibile un agente computer per rispondere in modo appropriato alle richieste. In queste situazioni può essere necessario il supporto umano, indipendentemente dalla qualità realistica della voce o della capacità del sistema.
 
-## <a name="considerations-for-voice-talent"></a>Considerazioni per i talenti vocali
-Quando si lavora con il talento vocale, come gli attori vocali, per creare voci sintetiche, si applica la linea guida riportata di seguito.
+## <a name="considerations-for-voice-talent"></a>Considerazioni per il talento vocale
+Quando si lavora con il talento vocale, ad esempio gli attori vocali, per creare voci sintetiche, si applicano le linee guida riportate di seguito.
 
-### <a name="obtain-meaningful-consent-from-voice-talent"></a>Ottenere il consenso significativo dal talento vocale
-I talenti vocali si aspettano di avere il controllo sul loro carattere vocale (come e dove verrà utilizzato) e di essere compensati ogni volta che viene utilizzato. I proprietari di sistemi dovrebbero quindi ottenere l'esplicita autorizzazione scritta dai talenti vocali e disporre di specifiche contrattuali chiare sui casi d'uso, sulla durata dell'uso, sulla compensazione e così via. Alcuni talenti vocali non sono a conoscenza dei potenziali usi dannosi della tecnologia e dovrebbero essere istruiti dai proprietari del sistema sulle capacità della tecnologia. Per ulteriori informazioni su talenti vocali e consenso, leggi la nostra [Informativa per i talenti vocali](https://aka.ms/disclosure-voice-talent).
+### <a name="obtain-meaningful-consent-from-voice-talent"></a>Ottenere un consenso significativo dal talento vocale
+Il talento vocale si aspetta di avere il controllo del tipo di carattere vocale (come e dove verrà usato) e verrà compensato ogni volta che viene usato. I proprietari del sistema devono quindi ottenere le autorizzazioni esplicite scritte dal talento vocale e hanno chiare specifiche contrattuali sui casi d'uso, la durata dell'utilizzo, la compensazione e così via. Un talento vocale non è a conoscenza dei potenziali usi dannosi della tecnologia e deve essere istruito dai proprietari del sistema sulle funzionalità della tecnologia. Per altre informazioni sul talento vocale e sul consenso, leggi la [divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent).
 
 
-## <a name="considerations-for-those-with-speech-disorders"></a>Considerazioni per le persone con disturbi del linguaggio
-Quando si lavora con persone con disturbi del linguaggio, per creare o distribuire la tecnologia vocale sintetica, si applicano le linee guida seguenti.
+## <a name="considerations-for-those-with-speech-disorders"></a>Considerazioni per gli utenti con problemi di sintesi vocale
+Quando si lavora con utenti con problemi di sintesi vocale, per creare o distribuire la tecnologia vocale sintetica, si applicano le linee guida seguenti.
 
-### <a name="provide-guidelines-to-establish-contracts"></a>Fornire linee guida per stabilire contratti
-Fornire linee guida per stabilire contratti con persone che usano la voce sintetica per assistenza nel parlare. Il contratto dovrebbe prendere in considerazione la possibilità di specificare le parti proprietarie della voce, la durata dell'uso, i criteri di trasferimento della proprietà, le procedure per l'eliminazione del carattere vocale e come impedire l'accesso non autorizzato. Inoltre, consentire il trasferimento contrattuale della proprietà del carattere vocale dopo la morte ai membri della famiglia se tale persona ha dato il permesso.
+### <a name="provide-guidelines-to-establish-contracts"></a>Fornire linee guida per stabilire i contratti
+Fornire linee guida per la definizione di contratti con singoli utenti che utilizzano la voce sintetica per assistenza nella comunicazione. Il contratto deve considerare la possibilità di specificare le entità che possiedono la voce, la durata dell'utilizzo, i criteri di trasferimento della proprietà, le procedure per eliminare il carattere vocale e come impedire l'accesso non autorizzato. Inoltre, è possibile abilitare il trasferimento contrattuale della proprietà del tipo di carattere vocale dopo la morte ai membri della famiglia se tale persona ha concesso l'autorizzazione.
 
-### <a name="account-for-inconsistencies-in-speech-patterns"></a>Tenere conto delle incoerenze nei modelli di riconoscimento vocale
-Per gli individui con disturbi del linguaggio che registrano i propri caratteri vocali, le incoerenze nel loro modello vocale (slurring o incapacità di pronunciare determinate parole) possono complicare il processo di registrazione. In questi casi, la tecnologia vocale sintetica e le sessioni di registrazione dovrebbero ospitarle (vale a dire, fornire pause e un numero aggiuntivo di sessioni di registrazione).
+### <a name="account-for-inconsistencies-in-speech-patterns"></a>Account per le incoerenze nei modelli di riconoscimento vocale
+Per i singoli utenti con problemi di sintesi vocale che registrano i propri tipi di carattere vocali, le incoerenze nel modello di riconoscimento vocale (i residui o l'impossibilità di pronunciare determinate parole) potrebbero complicare il processo di registrazione. In questi casi, le sessioni di registrazione e tecnologia della voce sintetica dovrebbero adattarsi (ovvero fornire interruzioni e un numero aggiuntivo di sessioni di registrazione).
 
-### <a name="allow-modification-over-time"></a>Consenti modifica nel tempo
-Gli individui con disturbi del linguaggio desiderano aggiornare la loro voce sintetica per riflettere l'invecchiamento (ad esempio, un bambino che raggiunge la pubertà). Gli individui possono anche avere preferenze stilistiche che cambiano nel tempo, e possono decidere di apportare modifiche al tono, accento, o altre caratteristiche vocali.
+### <a name="allow-modification-over-time"></a>Consenti modifiche nel tempo
+Gli utenti con problemi di riconoscimento vocale desiderano apportare aggiornamenti alla voce sintetica per riflettere la durata (ad esempio, un bambino che raggiunge la pubertà). Le persone possono anche avere preferenze stilistiche che cambiano nel tempo e possono apportare modifiche a pitch, Accent o altre caratteristiche vocali.
 
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
 * [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
-* [Panoramica di Gating](concepts-gating-overview.md)
+* [Cenni preliminari sul controllo](concepts-gating-overview.md)
 * [Come divulgare](concepts-disclosure-guidelines.md)
-* [Disclosure Design Patterns](concepts-disclosure-patterns.md)
+* [Schemi di progettazione della divulgazione](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
 * [Come divulgare](concepts-disclosure-guidelines.md)
-* [Disclosure Design Patterns](concepts-disclosure-patterns.md)
+* [Schemi di progettazione della divulgazione](concepts-disclosure-patterns.md)

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68500810"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Controllo ortografico
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Controllo ortografico Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+## <a name="breaking-changes"></a>Modifiche di rilievo
 
 ### <a name="endpoints"></a>Endpoint
 

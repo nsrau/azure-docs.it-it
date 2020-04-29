@@ -1,7 +1,7 @@
 ---
-title: Contenuti per adulti, crudi e cruissimi - Computer Vision
+title: Contenuti per adulti, audace e cruenti Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Concetti relativi al rilevamento di contenuti per adulti nelle immagini utilizzando l'APi di Visione artificiale.
+description: Concetti relativi al rilevamento di contenuto per adulti nelle immagini tramite l'APi Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,30 +12,30 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71718523"
 ---
-# <a name="detect-adult-content"></a>Rilevare contenuti per adulti
+# <a name="detect-adult-content"></a>Rileva contenuto per adulti
 
-Computer Vision è in grado di rilevare materiale per adulti nelle immagini in modo che gli sviluppatori possano limitare la visualizzazione di queste immagini nel software. Vengono applicati flag di contenuto con un punteggio compreso tra 0 e 1, in modo che gli sviluppatori possano interpretare i risultati in base alle proprie preferenze.
+Visione artificiale possibile rilevare il materiale per adulti nelle immagini in modo che gli sviluppatori possano limitare la visualizzazione di queste immagini nel software. Vengono applicati flag di contenuto con un punteggio compreso tra 0 e 1, in modo che gli sviluppatori possano interpretare i risultati in base alle proprie preferenze.
 
 > [!NOTE]
-> Gran parte di questa funzionalità è offerta dal servizio [Azure Content Moderator.Much](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) of this functionality is offered by the Azure Content Moderator service. Vedere questa alternativa per soluzioni per scenari più rigorosi di moderazione del contenuto, ad esempio per flussi di lavoro di moderazione del testo e di revisione umana.
+> Gran parte di questa funzionalità è offerta dal servizio [content moderator di Azure](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) . Vedere questa alternativa per soluzioni per scenari più rigorosi di moderazione del contenuto, ad esempio per flussi di lavoro di moderazione del testo e di revisione umana.
 
 ## <a name="content-flag-definitions"></a>Definizioni dei flag di contenuto
 
-All'interno della classificazione "adulto" ci sono diverse categorie:
+All'interno della classificazione "Adult" sono disponibili diverse categorie:
 
-- **Le** immagini per adulti sono definite come quelle che sono esplicitamente di natura sessuale e spesso raffigurano nudità e atti sessuali.
-- Le immagini **filanti** sono definite come immagini sessualmente allusivi in natura e spesso contengono contenuti meno sessualmente espliciti rispetto alle immagini contrassegnate come **Adult**.
-- Le immagini **crueresono** sono definite come quelle che raffigurano il gore.
+- Le immagini **adulte** sono definite in modo esplicito per natura sessuale e spesso rappresentano la nudità e gli atti sessuali.
+- Le immagini per la **democrazia** sono definite come immagini che hanno una natura sessuale e spesso contengono contenuto esplicitamente meno sessuale rispetto alle immagini contrassegnate come **adulte**.
+- Le immagini **cruente** sono definite come quelle che descrivono Gore.
 
 ## <a name="use-the-api"></a>Usare l'API
 
-È possibile rilevare contenuti per adulti con l'API [Analizza immagine.](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Quando si aggiunge `Adult` il valore di al parametro di&mdash;`isAdultContent`query `isRacyContent` **visualFeatures,** l'API restituisce tre proprietà booleane , e `isGoryContent` &mdash;nella relativa risposta JSON. Il metodo restituisce&mdash;`adultScore` `racyScore`anche `goreScore` &mdash;le proprietà corrispondenti , , e che rappresentano punteggi di confidenza compresi tra zero e uno per ogni rispettiva categoria.
+È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce&mdash;`isAdultContent`tre proprietà booleane, `isRacyContent`e `isGoryContent` &mdash;nella relativa risposta JSON. Il metodo restituisce anche le proprietà&mdash;`adultScore`corrispondenti `racyScore`, e `goreScore` &mdash;che rappresentano i punteggi di confidenza tra zero e uno per ogni rispettiva categoria.
 
-- [Guida introduttiva: Analizzare un'immagine (.NET SDK)Quickstart: Analyze an image (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
-- [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+- [Guida introduttiva: analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

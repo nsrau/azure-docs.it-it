@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595693"
 ---
 # <a name="train-a-model"></a>Eseguire il training di un modello
@@ -34,9 +34,9 @@ Per eseguire il training di un modello:
 
     -  Language pair (Coppia di lingue): vengono visualizzate la lingua di origine e la lingua di destinazione per il progetto.
 
-    -  Frasi di origine: mostra il numero di frasi estratte dal file di origine.
+    -  Frasi di origine: Mostra il numero di frasi estratte dal file di origine.
 
-    -  Frasi di destinazione: mostra il numero di frasi estratte dal file di destinazione.
+    -  Frasi di destinazione: Mostra il numero di frasi estratte dal file di destinazione.
 
     ![Eseguire il training del modello](media/how-to/how-to-train-model.png)
 
@@ -53,7 +53,7 @@ Per eseguire il training di un modello:
     ![Pagina Train model (Esegui il training del modello)](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->Custom Translator supporta 10 corsi di formazione simultanei all'interno di un'area di lavoro in qualsiasi momento.
+>Il convertitore personalizzato supporta 10 Training simultanei in un'area di lavoro in qualsiasi momento.
 
 
 ## <a name="edit-a-model"></a>Modificare un modello

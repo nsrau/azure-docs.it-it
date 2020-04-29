@@ -1,7 +1,7 @@
 ---
 title: Metodo Detect dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Identificare la lingua di una parte di testo con il metodo Azure Cognitive Services Translator Text API Detect.
+description: Identificare la lingua di una parte di testo con i servizi cognitivi di Azure API Traduzione testuale metodo di rilevamento.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837290"
 ---
 # <a name="translator-text-api-30-detect"></a>API Traduzione testuale 3.0: Detect
@@ -48,16 +48,16 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
-    <td>Intestazione autenticazione</td>
-    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
+    <td>Intestazione/e di autenticazione</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Intestazione richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Intestazione richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -65,7 +65,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con una proprietà stringa denominata `Text`. Il rilevamento della lingua viene applicato al valore della proprietà `Text`. Un esempio di corpo della richiesta ha un aspetto simile al seguente:
 

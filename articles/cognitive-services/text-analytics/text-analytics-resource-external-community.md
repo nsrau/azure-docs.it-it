@@ -1,7 +1,7 @@
 ---
 title: Contenuto esterno e della community per l'API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Blog per partner, video di YouTube, formazione per l'API di analisi del testo di Servizi cognitivi di Azure.
+description: Blog dei partner, video di YouTube, formazione per servizi cognitivi di Azure API Analisi del testo.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
 ms.openlocfilehash: 4cdf58974cd8fa9d7813df7e970caea260409225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251300"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenuto esterno e della community per il servizio cognitivo Analisi del testo
@@ -33,9 +33,9 @@ ms.locfileid: "78251300"
 
 + [Sentiment analysis with Dynamics 365 CRM Online](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) (Analisi del sentiment con Dynamics 365 CRM Online) (blog di MSDN) 
 
-+ Blog di Power BI: Estrazione di frasi chiave dai messaggi di Facebook: [Parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [Parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Blog Power BI: estrazione di frasi chiave da messaggi di Facebook: [parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [Identificare il sentiment dei commenti in un gruppo di Yammer con MS Flow (comunità tecnica Microsoft)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [Identificare il sentimento dei commenti in un gruppo di Yammer con MS Flow (Microsoft Tech Community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 
@@ -53,5 +53,5 @@ Se si stanno cercando informazioni su una funzionalità o su un caso d'uso non t
 
 ## <a name="see-also"></a>Vedere anche
 
- [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Azure API Analisi del testo](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive) (StackOverflow: Servizi cognitivi di Azure)

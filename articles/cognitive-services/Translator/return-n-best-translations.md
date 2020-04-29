@@ -1,7 +1,7 @@
 ---
-title: Restituzione di N-Migliori Traduzioni - Traduttore Testo
+title: Restituisci N-Best Translations-Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Restituisci le traduzioni N-Best utilizzando l'API Translator Text.
+description: Restituisce N-Best translations utilizzando il API Traduzione testuale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837249"
 ---
 # <a name="how-to-return-n-best-translations"></a>Procedura per restituire le N migliori traduzioni

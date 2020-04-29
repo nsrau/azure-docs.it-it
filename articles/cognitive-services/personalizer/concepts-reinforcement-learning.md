@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68662828"
 ---
 # <a name="what-is-reinforcement-learning"></a>Cos'è l'apprendimento per rinforzo?
@@ -64,7 +64,7 @@ La base di Machine Learning per Personalizza esperienze è attualmente [Vowpal W
 * [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
 * [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)
 * [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799)
-* [Previsione della perdita residua: rinforzo: apprendimento senza feedback incrementale](https://openreview.net/pdf?id=HJNMYceCW)
+* [Stima della perdita residua: rinforzo: apprendimento senza commenti incrementali](https://openreview.net/pdf?id=HJNMYceCW)
 * [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)
 * [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206)
 

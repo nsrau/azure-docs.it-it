@@ -1,5 +1,5 @@
 ---
-title: Entità predefinite di dimensione - LUISDimension Prebuilt entities - LUIS
+title: Entità predefinite della dimensione-LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita dimensioni in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270640"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entità predefinita dimension per un'app LUIS
@@ -23,17 +23,17 @@ L'entità predefinita dimensioni rileva i diversi tipi di dimensioni, indipenden
 
 ## <a name="types-of-dimension"></a>Tipi di dimensioni
 
-La dimensione viene gestita dal repository GitHub di [tipo Recognizers-text.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
+La dimensione viene gestita dal repository GitHub del [testo dei riconoscitori](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) .
 
 ## <a name="resolution-for-dimension-entity"></a>Risoluzione per l'entità dimensioni
 
-Per la query vengono restituiti i seguenti oggetti entità:
+Per la query vengono restituiti gli oggetti entità seguenti:
 
 `10 1/2 miles of cable`
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON `verbose` seguente è `false`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `false`su:
 
 ```json
 "entities": {
@@ -46,7 +46,7 @@ Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON `verbose` seguente è `true`impostato con il parametro :
+Il codice JSON seguente è con `verbose` il parametro impostato `true`su:
 
 ```json
 "entities": {

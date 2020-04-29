@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68594899"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Come usare il metodo TransformText
@@ -32,7 +32,7 @@ Il metodo è un servizio RESTful che usa GET su HTTP. Supporta la serializzazion
 |:---|:---|
 | Authorization header (Intestazione dell'autorizzazione) | **Obbligatorio** intestazione HTTP usata per identificare l'applicazione. Usare la chiave: "Authorization" e il valore: token di accesso "Bearer" + " " +. Per informazioni dettagliate, vedere qui.|
 | Linguaggio | **Obbligatorio** Una stringa che rappresenta il codice della lingua. Questo parametro supporta solo la lingua inglese con **en** come nome della lingua.|
-| category | **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita **generale**.|
+| category | **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita **General**.|
 | frase | **Obbligatorio** una frase che si vuole correggere. |
 
 ## <a name="return-value"></a>Valore restituito

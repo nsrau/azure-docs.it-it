@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 9432ac390b7677b3dea5aebc84cf23ef6e45db92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595708"
 ---
 # <a name="search-edit-and-delete-projects"></a>Cercare, modificare ed eliminare progetti
@@ -39,7 +39,7 @@ Lo strumento di filtro consente di cercare progetti in base a condizioni di filt
 
 ## <a name="edit-a-project"></a>Modificare un progetto
 
-Custom Translator ti dà la possibilità di modificare il nome e la descrizione di un progetto. Altri metadati del progetto, ad esempio la categoria, la lingua di origine e la lingua di destinazione, non sono disponibili per la modifica. I passaggi seguenti descrivono come modificare un progetto.
+Il convertitore personalizzato offre la possibilità di modificare il nome e la descrizione di un progetto. Altri metadati del progetto, come la categoria, la lingua di origine e il linguaggio di destinazione, non sono disponibili per la modifica. Nei passaggi seguenti viene descritto come modificare un progetto.
 
 1.  Fare clic sull'icona a forma di matita visualizzata quando si passa il mouse su un progetto.
 

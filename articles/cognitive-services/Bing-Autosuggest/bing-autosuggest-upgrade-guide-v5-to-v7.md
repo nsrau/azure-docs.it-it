@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68405405"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Suggerimenti automatici
 
-Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Suggerimenti automatici Bing. Utilizzare questa guida per aggiornare l'applicazione per l'utilizzo della versione 7.Use this guide to help update your application to use version 7.
+Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Suggerimenti automatici Bing. Usare questa guida per aggiornare l'applicazione in modo da usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+## <a name="breaking-changes"></a>Modifiche di rilievo
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio,\/https:\*\*/api.cognitive.microsoft.com/bing/ v7.0/Suggestions.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 

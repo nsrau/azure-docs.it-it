@@ -1,7 +1,7 @@
 ---
-title: Dashboard - Informazioni sulla lingua - LUIS
+title: Dashboard-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
-description: Correggere finalità ed entità con il dashboard dell'app sottoposta a training. Il dashboard visualizza informazioni generali sull'app, con i punti salienti delle finalità che devono essere corrette.
+description: Correzione di Intent ed entità con il dashboard dell'app di cui è stato eseguito il training. Il dashboard Visualizza le informazioni generali sull'app, con i punti salienti che devono essere corretti.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,162 +12,162 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73888209"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il dashboard per migliorare l'app
 
-Trova e risolvi i problemi con le finalità dell'app addestrata quando usi espressioni di esempio. Il dashboard visualizza informazioni generali sull'app, con i punti salienti delle finalità che devono essere corrette. 
+Trova e correggi i problemi con gli Intent dell'app sottoposta a training quando usi espressioni di esempio. Il dashboard Visualizza le informazioni generali sull'app, con i punti salienti che devono essere corretti. 
 
-L'analisi del dashboard di revisione è un processo iterativo, si ripete quando si modifica e si migliora il modello.
+Esaminare l'analisi del dashboard è un processo iterativo, che si ripete quando si modifica e si migliora il modello.
 
-Questa pagina non dia analisi pertinente per le app che non concedano espressioni di esempio nelle finalità, note come app _solo modello._ 
+Questa pagina non avrà un'analisi pertinente per le app che non contengono espressioni di esempio negli Intent, note come app _solo modello_ . 
 
-## <a name="what-issues-can-be-fixed-from-dashboard"></a>Quali problemi possono essere risolti dal dashboard?
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Quali problemi possono essere corretti dal dashboard?
 
-I tre problemi risolti nel dashboard sono:
+I tre problemi trattati nel dashboard sono:
 
 |Problema|Colore grafico|Spiegazione|
 |--|--|--|
-|Squilibrio dei dati|-|Ciò si verifica quando la quantità di espressioni di esempio varia in modo significativo. Tutte le finalità devono avere _all'incirca_ lo stesso numero di espressioni di esempio, ad eccezione della finalità Nessuno.All intents need to have roughly the same number of example utterances - except the None intent. Deve avere solo il 10%-15% della quantità totale di espressioni nell'app.<br><br> Se i dati sono sbilanciati ma l'accuratezza dell'intento è superiore a una determinata soglia, questo squilibrio non viene segnalato come un problema.<br><br>**Iniziare con questo problema - può essere la causa principale degli altri problemi.**|
-|Previsioni poco chiare|Arancione|Ciò si verifica quando la finalità superiore e i punteggi della finalità successiva sono abbastanza vicini da poter eseguire il capovolgimento del training successivo, a causa del [campionamento negativo](luis-how-to-train.md#train-with-all-data) o di più espressioni di esempio aggiunte alla finalità. |
-|Previsioni errate|Rosso|Ciò si verifica quando un'espressione di esempio non è prevista per la finalità etichettata (la finalità in).|
+|Squilibrio dei dati|-|Questo errore si verifica quando la quantità di espressioni di esempio varia in modo significativo. Tutti gli Intent devono avere _approssimativamente_ lo stesso numero di espressioni di esempio, ad eccezione della finalità None. Deve avere solo il 10%-15% della quantità totale di espressioni nell'app.<br><br> Se i dati sono sbilanciati, ma l'accuratezza della finalità è superiore a una determinata soglia, questo squilibrio non viene segnalato come problema.<br><br>**Iniziare da questo problema. potrebbe essere la causa principale degli altri problemi.**|
+|Non deselezionare le stime|Arancione|Questo errore si verifica quando i punteggi della parte superiore e della finalità successiva sono sufficientemente vicini che possono capovolgere il training successivo, a causa del [campionamento negativo](luis-how-to-train.md#train-with-all-data) o di altri enunciati di esempio aggiunti allo scopo. |
+|Stime non corrette|Rosso|Questo errore si verifica quando un enunciato di esempio non viene stimato per l'intento con etichetta (l'intento è in).|
 
-Le stime corrette sono rappresentate con il colore blu.
+Le stime corrette sono rappresentate dal colore blu.
 
-Il dashboard mostra questi problemi e indica quali finalità sono interessate e suggerisce cosa è necessario fare per migliorare l'app. 
+Il dashboard Mostra questi problemi e indica quali Intent sono interessati e suggerisce le operazioni da eseguire per migliorare l'app. 
 
-## <a name="before-app-is-trained"></a>Prima che l'app venga addestrata 
+## <a name="before-app-is-trained"></a>Prima del training dell'app 
 
-Prima di eseguire il training dell'app, il dashboard non contiene suggerimenti per le correzioni. Addestrare l'app per visualizzare questi suggerimenti.  
+Prima di eseguire il training dell'app, il dashboard non contiene suggerimenti per le correzioni. Eseguire il training dell'app per visualizzare questi suggerimenti.  
 
-## <a name="check-your-publishing-status"></a>Controllare lo stato della pubblicazione
+## <a name="check-your-publishing-status"></a>Verificare lo stato di pubblicazione
 
-La scheda **Stato pubblicazione** contiene informazioni sull'ultima pubblicazione della versione attiva. 
+La scheda **stato pubblicazione** contiene informazioni sull'ultima pubblicazione della versione attiva. 
 
 Verificare che la versione attiva sia la versione che si desidera correggere. 
 
-![Il dashboard mostra i servizi esterni dell'app, le aree pubblicate e gli hit degli endpoint aggregati.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Il dashboard Mostra i servizi esterni, le aree pubblicate e i riscontri di endpoint aggregati dell'app.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-Vengono visualizzati anche tutti i servizi esterni, le aree pubblicate e gli hit degli endpoint aggregati. 
+Vengono inoltre visualizzati tutti i servizi esterni, le aree pubblicate e i riscontri di endpoint aggregati. 
 
-## <a name="review-training-evaluation"></a>Rivedere la valutazione della formazione
+## <a name="review-training-evaluation"></a>Esaminare la valutazione del training
 
-La scheda **di valutazione Training** contiene il riepilogo aggregato dell'accuratezza complessiva dell'app in base all'area. Il punteggio indica la qualità dell'intento. 
+La scheda di **valutazione del training** contiene il riepilogo aggregato della precisione complessiva dell'app per area. Il Punteggio indica la qualità della finalità. 
 
-![La scheda di valutazione Formazione contiene la prima area di informazioni sull'accuratezza complessiva dell'app.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+![La scheda di valutazione del training contiene la prima area di informazioni sull'accuratezza complessiva dell'app.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-Il grafico indica le finalità previste correttamente e le aree problematiche con colori diversi. Man mano che migliori l'app con i suggerimenti, questo punteggio aumenta. 
+Il grafico indica le finalità stimate correttamente e le aree problematiche con colori diversi. Quando si migliora l'app con i suggerimenti, questo punteggio aumenta. 
 
-Le correzioni suggerite sono separate dal tipo di problema e sono le più significative per l'app. Se si preferisce esaminare e risolvere i problemi per finalità, utilizzare la scheda **[Intenti con errori](#intents-with-errors)** nella parte inferiore della pagina. 
+Le correzioni suggerite sono separate per tipo di problema e sono le più significative per l'app. Se si preferisce rivedere e correggere i problemi per finalità, usare la scheda **[Intent with Errors](#intents-with-errors)** nella parte inferiore della pagina. 
 
-Ogni area problematica ha intenzioni che devono essere risolte. Quando si seleziona il nome della finalità, viene visualizzata la pagina **Intento** con un filtro applicato alle espressioni. Questo filtro consente di concentrarsi sulle espressioni che causano il problema.
+Per ogni area problematica è necessario correggere gli Intent. Quando si seleziona il nome della finalità, viene visualizzata la pagina **finalità** con un filtro applicato agli enunciati. Questo filtro consente di concentrarsi sulle espressioni che causano il problema.
 
 ### <a name="compare-changes-across-versions"></a>Confrontare le modifiche tra le versioni
 
-Crea una nuova versione prima di apportare modifiche all'app. Nella nuova versione apportare le modifiche suggerite alle espressioni di esempio della finalità, quindi eseguire nuovamente il training. Nella scheda di **valutazione Formazione** della pagina Dashboard usare la scheda di valutazione Mostra modifica rispetto alla **versione addestrata** per confrontare le modifiche. 
+Creare una nuova versione prima di apportare modifiche all'app. Nella nuova versione apportare le modifiche suggerite alle espressioni di esempio dello scopo, quindi eseguire di nuovo il training. Nella scheda di valutazione del **Training** della pagina dashboard usare la **versione Mostra modifica da** sottoposta a training per confrontare le modifiche. 
 
 ![Confrontare le modifiche tra le versioni](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
-### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Correggere la versione aggiungendo o modificando espressioni di esempio e riqualificando
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Correzione della versione mediante l'aggiunta o la modifica di espressioni di esempio e la ripetizione del training
 
-Il metodo principale per correggere l'app consiste nell'aggiungere o modificare espressioni di esempio e rieseguire il training. Le espressioni nuove o modificate devono seguire le linee guida per [le varie espressioni.](luis-concept-utterance.md)
+Il metodo principale per correggere l'app consiste nell'aggiungere o modificare le espressioni di esempio e ripetere il training. Le espressioni nuove o modificate devono seguire le linee guida per [varie espressioni](luis-concept-utterance.md).
 
-L'aggiunta di espressioni di esempio deve essere eseguita da un utente che:Adding example utterances should be done by someone who:
+L'aggiunta di espressioni di esempio deve essere eseguita da un utente che:
 
-* ha un alto grado di comprensione di ciò che le espressioni sono nelle diverse finalità.
-* sa come le espressioni in una finalità possono essere confuse con un'altra finalità.
-* è in grado di decidere se due finalità, che sono spesso confuse tra loro, devono essere compresse in un'unica finalità. In questo caso, i diversi dati devono essere estratti con le entità.
+* ha un livello elevato di comprensione degli enunciati nelle diverse finalità.
+* sa come le espressioni possono essere confuse con un altro scopo.
+* è in grado di decidere se due Intent, che sono spesso confusi tra loro, devono essere compressi in un unico scopo. In tal caso, è necessario estrarre i dati diversi con le entità.
 
-### <a name="patterns-and-phrase-lists"></a>Modelli ed elenchi di frasi
+### <a name="patterns-and-phrase-lists"></a>Elenchi di modelli ed frasi
 
-La pagina di analisi non indica quando utilizzare [modelli](luis-concept-patterns.md) o [elenchi di frasi.](luis-concept-feature.md) Se li aggiungi, può aiutare con previsioni errate o poco chiare, ma non aiuterà con lo squilibrio dei dati. 
+La pagina di analisi non indica quando usare i [modelli](luis-concept-patterns.md) o gli [elenchi di frasi](luis-concept-feature.md). Se si aggiungono questi elementi, può essere utile con stime non corrette o non chiare, ma non è utile per lo squilibrio dei dati. 
 
-### <a name="review-data-imbalance"></a>Esaminare lo squilibrio dei dati
+### <a name="review-data-imbalance"></a>Verifica squilibrio dei dati
 
-Iniziare con questo problema - può essere la causa principale degli altri problemi.
+Iniziare da questo problema. potrebbe essere la causa principale degli altri problemi.
 
-L'elenco di finalità **dello squilibrio dati** mostra le finalità che richiedono più espressioni per correggere lo squilibrio dati. 
+L'elenco finalità dello **squilibrio dei dati** Mostra gli Intent che richiedono più espressioni per correggere lo squilibrio dei dati. 
 
-**Per risolvere questo problema:**
+**Per risolvere il problema**:
 
-* Aggiungere altre espressioni alla finalità quindi eseguire nuovamente il training. 
+* Aggiungere più espressioni allo scopo, quindi eseguire di nuovo il training. 
 
-Non aggiungere espressioni alla finalità Nessuno a meno che non venga suggerito nel dashboard.
+Non aggiungere espressioni alla finalità None, a meno che non sia suggerito nel dashboard.
 
 > [!Tip]
-> Usare la terza sezione della pagina **Utterances per finalità** con l'impostazione **Utterances (numero),** come guida visiva rapida delle quali finalità richiedono più espressioni.  
-    ![Utilizzare 'Utterances (number)' per trovare finalità con squilibrio dei dati.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+> Usare la terza sezione della pagina, **espressione per finalità** con l'impostazione **enunciazioni (numero)** , come guida visiva rapida per cui sono necessari più espressioni.  
+    ![Usare ' enunciati (numero)' per individuare gli Intent con squilibrio dei dati.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
-### <a name="review-incorrect-predictions"></a>Esaminare le stime errateReview incorrect predictions
+### <a name="review-incorrect-predictions"></a>Verifica stime non corrette
 
-L'elenco delle finalità di **stima non corretto** mostra le finalità con espressioni, che vengono usate come esempi per una finalità specifica, ma sono stimate per finalità diverse. 
+L'elenco di finalità di **stima non corrette** Mostra gli Intent con espressioni, che vengono usate come esempi per uno scopo specifico, ma vengono stimate per scopi diversi. 
 
-**Per risolvere questo problema:**
+**Per risolvere il problema**:
 
-* Modificare le espressioni in modo che siano più specifiche per la finalità ed eseguire nuovamente il training.
-* Combinare le finalità se le espressioni sono troppo allineate ed eseguire nuovamente il training.
+* Modificare le espressioni in modo che siano più specifiche per finalità e training.
+* Combinare gli Intent se le espressioni sono troppo strettamente allineate e di nuovo il training.
 
-### <a name="review-unclear-predictions"></a>Esaminare le previsioni poco chiare
+### <a name="review-unclear-predictions"></a>Verifica le stime non chiare
 
-L'elenco delle finalità **di stima non chiaro** mostra le finalità con espressioni con punteggi di stima che non sono abbastanza lontano dal rivale più vicino, che la finalità superiore per l'espressione può cambiare nel training successivo, a causa del [campionamento negativo.](luis-how-to-train.md#train-with-all-data)
+L'elenco di finalità di **stima non chiare** Mostra gli Intent con i punteggi di stima che non sono sufficientemente lontani dalla rivalità più vicina, che lo scopo principale dell'espressione può variare al training successivo, a causa del [campionamento negativo](luis-how-to-train.md#train-with-all-data).
 
-**Per risolvere questo problema**;
+**Per risolvere il problema**:
 
-* Modificare le espressioni in modo che siano più specifiche per la finalità ed eseguire nuovamente il training.
-* Combinare le finalità se le espressioni sono troppo allineate ed eseguire nuovamente il training.
+* Modificare le espressioni in modo che siano più specifiche per finalità e training.
+* Combinare gli Intent se le espressioni sono troppo strettamente allineate e di nuovo il training.
 
 ## <a name="utterances-per-intent"></a>Espressioni per finalità
 
-Questa scheda mostra l'integrità complessiva dell'app tra le finalità. Quando si risolvono le finalità e si riaddestramenta, continuare a dare un'occhiata a questa scheda per i problemi.
+Questa scheda Mostra l'integrità complessiva delle app negli Intent. Quando si correggono gli Intent e si ripete il training, continuare a esaminare questa scheda per individuare eventuali problemi.
 
-Il grafico seguente mostra un'app ben bilanciata con quasi nessun problema da risolvere.
+Il grafico seguente mostra un'app ben bilanciata senza problemi da risolvere.
 
-![Il grafico seguente mostra un'app ben bilanciata con quasi nessun problema da risolvere.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+![Il grafico seguente mostra un'app ben bilanciata senza problemi da risolvere.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
 
-Il grafico seguente mostra un'app scarsamente bilanciata con molti problemi da risolvere.
+Il grafico seguente mostra un'app con un bilanciamento del con molti problemi da risolvere.
 
-![Il grafico seguente mostra un'app ben bilanciata con quasi nessun problema da risolvere.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![Il grafico seguente mostra un'app ben bilanciata senza problemi da risolvere.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
-Passare il mouse sulla barra di ogni finalità per ottenere informazioni sulla finalità. 
+Passare il mouse sulla barra di ogni finalità per ottenere informazioni sullo scopo. 
 
-![Il grafico seguente mostra un'app ben bilanciata con quasi nessun problema da risolvere.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Il grafico seguente mostra un'app ben bilanciata senza problemi da risolvere.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-Utilizzare la funzionalità **Ordina** per per disporre le finalità in base al tipo di problema in modo da potersi concentrare sulle finalità più problematiche con tale problema. 
+Utilizzare la funzionalità **Ordina** per per organizzare gli Intent in base al tipo di problema, in modo da potersi concentrare sul problema più problematico. 
 
-## <a name="intents-with-errors"></a>Intenti con errori
+## <a name="intents-with-errors"></a>Intent con errori
 
-Questa scheda consente di esaminare i problemi per un intento specifico. La visualizzazione predefinita di questa scheda è l'intento più problematico in modo da sapere dove concentrare i propri sforzi.
+Questa scheda consente di esaminare i problemi per uno scopo specifico. La visualizzazione predefinita di questa scheda è la più problematica, in modo da capire dove concentrarsi sulle attività.
 
-![La scheda Intenti con errori consente di esaminare i problemi relativi a un intento specifico. La scheda viene filtrata in base alle finalità più problematiche, per impostazione predefinita, in modo da sapere dove concentrare i propri sforzi.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+![La scheda Intent with Errors consente di esaminare i problemi per uno scopo specifico. Per impostazione predefinita, la scheda viene filtrata in base alle finalità più problematiche, quindi si conosce la posizione in cui concentrare il lavoro.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
-Il grafico ad anello superiore mostra i problemi con l'intento nei tre tipi di problema. Se sono presenti problemi nei tre tipi di problema, ogni tipo ha il proprio grafico di seguito, insieme a tutte le finalità rivali. 
+Il grafico ad anello superiore mostra i problemi con l'intento nei tre tipi di problema. Se si verificano problemi nei tre tipi di problema, ogni tipo ha un proprio grafico di seguito, insieme a eventuali intenti ririvati. 
 
-### <a name="filter-intents-by-issue-and-percentage"></a>Filtrare le finalità per problema e percentuale
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtrare gli Intent per numero e percentuale
 
-Questa sezione della scheda consente di trovare espressioni di esempio che non rientrano nella soglia di errore. Idealmente si desidera che le stime corrette siano significative. Tale percentuale è guidata dal business e dal cliente. 
+Questa sezione della scheda consente di trovare espressioni di esempio che esulano dalla soglia di errore. Idealmente si vuole che le stime corrette siano significative. Tale percentuale è basata sull'azienda e sui clienti. 
 
-Determina le percentuali di soglia con cui ti senti a tuo agio per la tua azienda. 
+Determinare le percentuali di soglia con cui si ha dimestichezza per l'azienda. 
 
-Il filtro consente di trovare finalità con problemi specifici:
+Il filtro consente di trovare gli Intent con un problema specifico:
 
 |Filtro|Percentuale suggerita|Scopo|
 |--|--|--|
-|Finalità più problematiche|-|**Inizia da qui:** la correzione delle espressioni in questa finalità migliorerà l'app più di altre correzioni.|
-|Correggere le previsioni di seguito|60%|Si tratta della percentuale di espressioni nella finalità selezionata corrette ma con un punteggio di confidenza inferiore alla soglia. |
-|Previsioni poco chiare di cui sopra|15%|Si tratta della percentuale di espressioni nella finalità selezionata che vengono confuse con l'intento rivale più vicino.|
-|Previsioni errate sopra|15%|Si tratta della percentuale di espressioni nella finalità selezionata stimate in modo non corretto. |
+|Intent più problematici|-|**Iniziare da qui** : correggere le espressioni in questo intento migliorerà l'app più di altre correzioni.|
+|Correggere le stime di seguito|60%|Questa è la percentuale di enunciati nell'intento selezionato che sono corretti, ma hanno un punteggio di confidenza al di sotto della soglia. |
+|Non deselezionare le stime precedenti|15%|Percentuale di enunciati nell'intento selezionato confusi con la finalità rivale più vicina.|
+|Stime precedenti non corrette|15%|Percentuale di enunciati nell'intento selezionato che vengono stimati in modo errato. |
 
-### <a name="correct-prediction-threshold"></a>Correggere la soglia di stima
+### <a name="correct-prediction-threshold"></a>Correzione della soglia di stima
 
-Qual è un punteggio di confidenza di stima sicuro per te? All'inizio dello sviluppo di app, il 60% potrebbe essere il tuo obiettivo. Usare le **stime corrette di seguito** con la percentuale del 60% per trovare eventuali espressioni nella finalità selezionata che devono essere corrette.
+Che cos'è un punteggio di confidenza per le stime sicure? All'inizio dello sviluppo di app, il 60% potrebbe essere la destinazione. Usare le **stime corrette seguenti** con la percentuale del 60% per trovare le espressioni nello scopo selezionato che deve essere corretto.
 
 ### <a name="unclear-or-incorrect-prediction-threshold"></a>Soglia di stima non chiara o non corretta
 
-Questi due filtri consentono di trovare espressioni nella finalità selezionata oltre la soglia. È possibile considerare queste due percentuali come percentuali di errore. Se si ha familiarità con una percentuale di errore del 10-15% per le stime, impostare la soglia del filtro su 15% per trovare tutte le espressioni al di sopra di questo valore. 
+Questi due filtri consentono di trovare le espressioni nello scopo selezionato oltre la soglia. È possibile considerare queste due percentuali come percentuali di errore. Se si ha familiarità con una percentuale di errori del 10-15% per le stime, impostare la soglia di filtro su 15% per trovare tutti gli enunciati al di sopra di questo valore. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

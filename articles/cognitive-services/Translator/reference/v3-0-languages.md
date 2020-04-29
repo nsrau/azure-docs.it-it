@@ -1,7 +1,7 @@
 ---
 title: Metodo Languages dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Il Metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni dell'API Translator Text.
+description: Il metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni del API Traduzione testuale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73835840"
 ---
 # <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
@@ -40,7 +40,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>ambito</td>
     <td>*Parametro facoltativo*.<br/>Elenco di nomi delimitato da virgole che definisce il gruppo di lingue da restituire. I nomi di gruppi consentiti sono: `translation`, `transliteration` e `dictionary`. Se non viene specificato un ambito, vengono restituiti tutti i gruppi come se venisse passato `scope=translation,transliteration,dictionary`. Per determinare il set di lingue supportate appropriato per uno scenario specifico, vedere la descrizione dell'[oggetto risposta](#response-body).</td>
   </tr>
 </table> 

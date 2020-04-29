@@ -1,7 +1,7 @@
 ---
 title: Filtro per le espressioni volgari - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Usare il filtro volgarità per determinare il livello di volgarità tradotto nel testo nell'API Testo traduttore Servizi cognitivi di Azure.Use profanity filtering to determine the level of profanity translated in your text in the Azure Cognitive Services Translator Text API.
+description: Usare il filtro volgare per determinare il livello di volgarità tradotto nel testo nei servizi cognitivi di Azure API Traduzione testuale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73836235"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Aggiungere il filtro per le espressioni volgari nell'API Traduzione testuale
@@ -26,7 +26,7 @@ Se si vuole evitare la presenza di espressioni volgari nella traduzione, indipen
 Il metodo Translate() accetta il parametro "options", che contiene il nuovo elemento "ProfanityAction". I valori accettati di ProfanityAction sono "NoAction", "Marked" e "Deleted".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valori accettati di ProfanityAction ed esempi
-|Valore ProfanityAction | Azione | Esempio: origine - giapponese | Esempio: destinazione - inglese|
+|Valore ProfanityAction | Action | Esempio: origine - giapponese | Esempio: destinazione - inglese|
 | :---|:---|:---|:---|
 | NoAction | Valore predefinito. Equivale a non impostare l'opzione. Il contenuto volgare passa dall'origine alla destinazione. | 彼は変態です。 | È un cretino. |
 | Marked | Le parole volgari sono racchiuse tra i tag XML \<profanity> ... \</profanity>. | 彼は変態です。 | È un \<profanity>cretino\</profanity >. |

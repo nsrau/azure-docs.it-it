@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68564599"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Domande frequenti sull'API Visione artificiale
@@ -25,7 +25,7 @@ ms.locfileid: "68564599"
 
 ---
 
-**Domanda**: *Posso addestrare l'API Visione artificiale per utilizzare i tag personalizzati?  Ad esempio, vorrei nutrirmi in immagini di razze di gatti per "addestrare" l'IA, quindi ricevere il valore della razza su una richiesta di ia.*
+**Domanda**: è *possibile eseguire il training di API visione artificiale per usare tag personalizzati?  Si desidera, ad esempio, inserire le immagini delle razze cat per eseguire il training dell'intelligenza artificiale, quindi ricevere il valore di generazione su una richiesta di intelligenza artificiale.*
 
 **Risposta**: questa funzione non è attualmente disponibile. Tuttavia, i tecnici Microsoft stanno lavorando per introdurre questa funzionalità in Visione artificiale.
 

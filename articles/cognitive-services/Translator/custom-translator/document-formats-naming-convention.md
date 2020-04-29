@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595862"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guida ai formati dei documenti e alle convenzioni di denominazione
@@ -22,7 +22,7 @@ I file usati per la traduzione personalizzata devono includere **almeno** quattr
 
 Questa tabella include tutti i formati di file supportati che è possibile usare per creare il proprio sistema di traduzione:
 
-| Format            | Estensioni   | Descrizione                                                                                                                                                                                                                                                                    |
+| Format            | Extensions   | Descrizione                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | XLIFF             | XLF, XLIFF | Formato di documento parallelo, esportazione di sistemi di memoria di traduzione. Le lingue usate vengono definite all'interno del file.                                                                                                                                                              |
 | TMX               | TMX         | Formato di documento parallelo, esportazione di sistemi di memoria di traduzione. Le lingue usate vengono definite all'interno del file.                                                                                                                                                              |
@@ -31,13 +31,13 @@ Questa tabella include tutti i formati di file supportati che è possibile usare
 | Microsoft Word    | DOCX        | Documento di Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | PDF         | Documento portatile di Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | HTML, HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| File di testo         | TXT         | File di testo con codifica UTF-16 o UTF-8. Il nome del file non deve contenere caratteri giapponesi.                                                                                                                                                                                        |
+| File di testo         | TXT         | File di testo con codifica UTF-16 o UTF-8. Il nome file non deve contenere caratteri giapponesi.                                                                                                                                                                                        |
 | File di testo allineato | ALIGN       | `.ALIGN` è un'estensione speciale che è possibile usare se si è certi che le frasi nella coppia di documenti siano perfettamente allineate. Se si fornisce un file `.ALIGN`, Custom Translator non allinea le frasi automaticamente. |
 | File di Excel        | XLSX        | File di Excel (2013 o versione successiva). La prima riga del foglio di calcolo deve essere il codice della lingua.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formati di dizionario
 
-Per i dizionari, Custom Translator supporta tutti i formati di file supportati per i set di formazione. Se si utilizza un dizionario Excel, la prima riga/riga del foglio di calcolo deve essere costituita da codici lingua.
+Per i dizionari, il convertitore personalizzato supporta tutti i formati di file supportati per i set di training. Se si utilizza un dizionario di Excel, la prima riga/riga del foglio di calcolo deve essere costituita da codici di lingua.
 
 ## <a name="zip-file-formats"></a>Formati di file ZIP
 

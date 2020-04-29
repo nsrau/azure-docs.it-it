@@ -1,7 +1,7 @@
 ---
-title: Tipo di entità composito - LUISComposite entity type - LUIS
+title: Tipo di entità composita-LUIS
 titleSuffix: Azure Cognitive Services
-description: Un'entità composita è costituita da altre entità, ad esempio entità predefinite, espressioni semplici, espressioni regolari ed entità di elenco. Le entità separate formano un'entità intera.
+description: Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71695159"
 ---
 # <a name="composite-entity"></a>Entità composita 
 
-Un'entità composita è costituita da altre entità, ad esempio entità predefinite, espressioni semplici, espressioni regolari ed entità di elenco. Le entità separate formano un'entità intera. 
+Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera. 
 
 **Questa entità è idonea quando i dati:**
 
@@ -33,7 +33,7 @@ Un'entità composita è costituita da altre entità, ad esempio entità predefin
 
 ## <a name="example-json"></a>JSON di esempio
 
-Si consideri un'entità composita con un'espressione predefinita e con l'espressione seguente:Consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
+Si consideri un'entità composita di predefinita `number` e `Location::ToLocation` con l'espressione seguente:
 
 `book 2 tickets to cairo`
 
@@ -91,7 +91,7 @@ Le entità composite vengono restituite in una matrice `compositeEntities` e tut
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=false` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -108,7 +108,7 @@ Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:
 }
 ```
 
-Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
+Si tratta del codice JSON `verbose=true` se è impostato nella stringa di query:
 
 ```json
 "entities": {
@@ -172,11 +172,11 @@ Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:T
 * * * 
 
 
-|Oggetto dati|Nome dell'entità|valore|
+|Oggetto dati|Nome dell'entità|Valore|
 |--|--|--|
 |Entità predefinita - numero|"builtin.number"|"2"|
-|Entità predefinita - GeographyV2|"Location::ToLocation"|"Cairo"|
+|Entità predefinita-GeographyV2|"Location::ToLocation"|Cairo|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa [esercitazione](luis-tutorial-composite-entity.md)aggiungere **un'entità composita** per raggruppare i dati estratti di vari tipi in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
+In questa [esercitazione](luis-tutorial-composite-entity.md), aggiungere un' **entità composita** per raggruppare i dati estratti di vari tipi in un'unica entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.

@@ -5,20 +5,20 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 84cd8ed79281b005407b5a857398b5669635c072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68320523"
 ---
 Se è necessario configurare un proxy HTTP per eseguire le richieste in uscita, usare questi due argomenti:
 
-| Nome | Tipo di dati | Descrizione |
+| Name | Tipo di dati | Descrizione |
 |--|--|--|
-|HTTP_PROXY|string|Il proxy da usare, ad esempio, `http://proxy:8888`<br>`<proxy-url>`|
-|HTTP_PROXY_CREDS|string|Qualsiasi credenziale richiesta per autenticare il proxy, ad esempio, nome utente:password.|
-|`<proxy-user>`|string|L'utente per il proxy.|
-|`<proxy-password>`|string|La password associata a `<proxy-user>` per il proxy.|
+|HTTP_PROXY|stringa|Il proxy da usare, ad esempio, `http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|stringa|Qualsiasi credenziale richiesta per autenticare il proxy, ad esempio, nome utente:password.|
+|`<proxy-user>`|stringa|L'utente per il proxy.|
+|`<proxy-password>`|stringa|La password associata a `<proxy-user>` per il proxy.|
 ||||
 
 

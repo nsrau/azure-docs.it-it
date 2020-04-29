@@ -1,7 +1,7 @@
 ---
-title: Modelli predefiniti per la comprensione della lingua
+title: Modelli predefiniti per Language Understanding
 titleSuffix: Azure Cognitive Services
-description: LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari utente comuni e conversazionali.
+description: LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari utente comuni e di conversazione.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 0a733aff14b71c6378971c0b72a9ca1f3cd4cfc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74013540"
 ---
-# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Aggiungere modelli predefiniti per scenari di utilizzo comuniAdd prebuilt models for common usage scenarios 
+# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Aggiungere modelli predefiniti per scenari di utilizzo comuni 
 
-LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari utente comuni e conversazionali. Questo è un modo semplice e veloce per aggiungere capacità alla tua applicazione client conversazionale senza dover progettare i modelli per tali abilità. 
+LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari utente comuni e di conversazione. Si tratta di un modo rapido e semplice per aggiungere funzionalità all'applicazione client di conversazione senza dover progettare i modelli per tali capacità. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -27,9 +27,9 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
 
 1. Nella pagina **App personali** selezionare l'app. L'app viene aperta nella sezione **Build** (Compila) dell'app. 
 
-1. Selezionare **Domini predefiniti** dalla barra degli strumenti a sinistra. 
+1. Selezionare **domini predefiniti** dalla barra degli strumenti a sinistra. 
 
-1. Trova il dominio che vuoi aggiungere all'app, quindi seleziona il pulsante **Aggiungi dominio.**
+1. Trovare il dominio da aggiungere all'app e quindi fare clic sul pulsante **Aggiungi dominio** .
 
     > [!div class="mx-imgBorder"]
     > ![Aggiunta del dominio predefinito Calendar](./media/luis-prebuilt-domains/add-prebuilt-domain.png)
@@ -38,7 +38,7 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
 
 1. Nella pagina **App personali** selezionare l'app. L'app viene aperta nella sezione **Build** (Compila) dell'app. 
 
-1. Nella pagina **Finalità** selezionare **Aggiungi finalità** di dominio predefinita dalla barra degli strumenti sopra l'elenco delle finalità. 
+1. Nella pagina **Intent** , selezionare **Aggiungi finalità del dominio predefinito** dalla barra degli strumenti sopra l'elenco Intent. 
 
 1. Selezionare la finalità **Utilities.Cancel** nella finestra di dialogo popup. 
 
@@ -53,21 +53,21 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
 
 1. Nella pagina **Entità** fare clic su **Aggiungi entità predefinite**.
 
-1. Nella finestra di dialogo **Aggiungi entità predefinite** selezionare l'entità predefinita. 
+1. Nella finestra di dialogo **Aggiungi entità predefinite** selezionare l'entità precompilata. 
 
     > [!div class="mx-imgBorder"]
     > ![Finestra di dialogo Add prebuilt entities (Aggiungi entità predefinite)](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Selezionare **Fatto**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app. 
+1. Seleziona **Chiudi**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app. 
 
-## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Pubblicare per visualizzare il modello predefinito dall'endpoint di stima
+## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Pubblicazione per la visualizzazione del modello predefinito dall'endpoint di stima
 
 Il modo più semplice per visualizzare il valore di un modello predefinito consiste nell'eseguire una query dall'endpoint pubblicato. 
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Entità contenenti un token di entità predefinito
  
-Se si dispone di un'entità appresa dal computer vincolata da un'entità predefinita, aggiungere un sottocomponente all'entità appresa dal computer, quindi aggiungere un vincolo di un'entità predefinita.
+Se si ha un'entità appresa dal computer che è vincolata da un'entità precompilata, aggiungere un sottocomponente all'entità appresa dal computer, quindi aggiungere un vincolo di un'entità precompilata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Creare un modello da .csv con API REST](./luis-tutorial-node-import-utterances-csv.md)
+> [Compilare il modello da CSV con le API REST](./luis-tutorial-node-import-utterances-csv.md)

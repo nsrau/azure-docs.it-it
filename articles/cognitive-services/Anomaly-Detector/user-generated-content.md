@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
 ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74012017"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Contenuti in primo piano generati dagli utenti per l'API Rilevamento anomalie
 
-Leggere questo articolo per scoprire cosa pensano altri clienti dell'API Rilevamento anomalie e come la usano. Le risorse seguenti sono state create dalla community di utenti di Rilevamento anomalie. Includono progetti open source e altri contributi creati da utenti di Microsoft e di terze parti. Alcuni dei collegamenti seguenti sono ospitati in siti Web esterni a Microsoft. L'azienda non è responsabile del contenuto in tali siti. Prestare attenzione quando si fa riferimento a queste risorse.
+Leggere questo articolo per scoprire cosa pensano altri clienti dell'API Rilevamento anomalie e come la usano. Le risorse seguenti sono state create dalla community di utenti di Rilevamento anomalie. Includono progetti open source e altri contributi creati da utenti Microsoft e di terze parti. Alcuni dei collegamenti seguenti sono ospitati in siti Web esterni a Microsoft. L'azienda non è responsabile del contenuto in tali siti. Prestare attenzione quando si fa riferimento a queste risorse.
 
 ## <a name="technical-blogs"></a>Blog tecnici
 
-* [Provare il servizio cognitivo: API rilevatore di anomalie (in giapponese)Trying the Cognitive Service: Anomaly Detector API (in japanese)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* [Tentativo di servizio cognitivo: API del rilevatore di anomalie (in giapponese)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 
 ## <a name="open-source-projects"></a>Progetti open source
 
