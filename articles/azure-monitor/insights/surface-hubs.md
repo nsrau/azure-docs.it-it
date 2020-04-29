@@ -1,5 +1,5 @@
 ---
-title: Monitorare Surface Hubs con Monitoraggio di Azure Documenti Microsoft
+title: Monitorare Surface Hub con monitoraggio di Azure | Microsoft Docs
 description: Usare la soluzione Surface Hub per monitorarne l'integrità e comprenderne la modalità d'uso.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662502"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorare dispositivi Surface Hub con Monitoraggio di Azure per tracciarne l'integrità
@@ -61,7 +61,7 @@ Se non si usa Intune per gestire l'ambiente, è possibile registrare i dispositi
 4. Selezionare **Abilita monitoraggio**.
 5. Nella finestra di dialogo delle impostazioni di Log Analytics immettere i valori per **ID area di lavoro** e **Chiave dell'area di lavoro** di Log Analytics.  
    ![impostazioni](./media/surface-hubs/settings.png)
-6. Fare clic **su OK** per completare la configurazione.
+6. Fare clic su **OK** per completare la configurazione.
 
 Un messaggio di conferma viene visualizzato per indicare il buon esito dell'operazione o l'eventuale presenza di errori. Se la configurazione ha avuto esito positivo, viene visualizzato un messaggio per indicare che l'agente si è connesso a Monitoraggio di Azure. Il dispositivo inizia quindi a inviare dati a Monitoraggio di Azure dove è possibile visualizzarli e agire su di essi.
 

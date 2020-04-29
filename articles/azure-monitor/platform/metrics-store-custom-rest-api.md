@@ -1,5 +1,5 @@
 ---
-title: Inviare metriche al database delle metriche di Monitoraggio di Azure usando l'API RESTSend metrics to the Azure Monitor metric database using REST API
+title: Inviare metriche al database di metriche di monitoraggio di Azure usando l'API REST
 description: Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 author: anirudhcavale
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662265"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
@@ -78,7 +78,7 @@ Salvare il token di accesso ottenuto dalla risposta.
 
 1. Nella finestra del prompt dei comandi inserire i dati delle metriche: 
    - **azureRegion**. Deve corrispondere all'area di distribuzione della risorsa di cui si stanno generando le metriche. 
-   - **resourceID**.  ID della risorsa di Azure di cui si stanno rilevando le metriche.  
+   - **resourceId**.  ID della risorsa di Azure di cui si stanno rilevando le metriche.  
    - **AccessToken**. Incollare il token acquisito in precedenza.
 
      ```Shell 
@@ -93,7 +93,7 @@ Se si riceve un messaggio di errore con una parte del processo, prendere in cons
 1. Non è possibile generare metriche rispetto a una sottoscrizione o a un gruppo di risorse come risorsa di Azure. 
 1. Non è possibile inserire nell'archivio una metrica più vecchia di 20 minuti. L'archivio delle metriche è ottimizzato per la creazione di avvisi e di grafici in tempo reale. 
 2. Il numero di nomi delle dimensioni deve corrispondere ai valori e viceversa. Controllare i valori. 
-2. È possibile che vengano generate metriche per un'area geografica che non supporta le metriche personalizzate. Vedere [Aree supportate](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
+2. È possibile che vengano generate metriche per un'area geografica che non supporta le metriche personalizzate. Vedere [aree supportate](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 

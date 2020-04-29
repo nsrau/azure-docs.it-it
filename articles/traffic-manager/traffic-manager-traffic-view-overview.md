@@ -1,6 +1,6 @@
 ---
 title: Visualizzazione traffico di Gestione traffico di Microsoft Azure
-description: In questa introduzione viene illustrato il funzionamento della visualizzazione Traffico di Gestione traffico.
+description: In questa introduzione viene illustrato il funzionamento di visualizzazione traffico di gestione traffico.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938349"
 ---
 # <a name="traffic-manager-traffic-view"></a>Visualizzazione traffico di Gestione traffico
@@ -36,7 +36,7 @@ Ad esempio, è possibile usare Visualizzazione traffico per comprendere quali ar
 Visualizzazione traffico fa in modo che Gestione traffico esamini le query in ingresso ricevute negli ultimi sette giorni da un profilo che ha questa funzionalità abilitata. Dalle informazioni delle query in ingresso, Visualizzazione traffico estrae l'IP di origine del resolver DNS che viene usato come rappresentazione della posizione degli utenti. Questi vengono quindi raggruppati in una granularità a livello del resolver DNS per creare aree di basi utente usando le informazioni geografiche degli indirizzi IP gestiti da Gestione traffico. Gestione traffico analizza quindi le aree di Azure a cui la query è stata indirizzata e costruisce una mappa del flusso di traffico per gli utenti da tali aree.  
 Nel passaggio successivo Gestione traffico mette in correlazione l'area della base utenti con il mapping delle aree di Azure con le tabelle di latenza della intelligence di rete che mantiene per reti di utenti finali diverse per comprendere la latenza media riscontrata dagli utenti di tali aree quando si connettono ad aree di Azure. Tutti questi calcoli vengono quindi combinati a un livello di IP del resolver DNS locale prima di essere presentati all'utente. È possibile usare le informazioni in vari modi.
 
-La frequenza di aggiornamento dei dati di visualizzazione del traffico dipende da più variabili di servizio interne. Tuttavia, i dati vengono in genere aggiornati una volta ogni 24 ore.
+La frequenza di aggiornamento dei dati di visualizzazione traffico dipende da più variabili di servizio interne. Tuttavia, i dati vengono in genere aggiornati ogni 24 ore.
 
 >[!NOTE]
 >La latenza descritta in Visualizzazione traffico è una latenza rappresentativa tra l'utente finale e le aree di Azure a cui è stato connesso e non è la latenza di ricerca DNS. Visualizzazione traffico fa una stima del massimo sforzo della latenza tra il resolver DNS locale e l'area di Azure a cui è stata indirizzata la query. Se i dati disponibili sono insufficienti, la latenza restituita sarà Null. 
@@ -45,7 +45,7 @@ La frequenza di aggiornamento dei dati di visualizzazione del traffico dipende d
 
 Quando si accede alla sezione **Visualizzazione traffico** della pagina di Gestione traffico, viene visualizzata una mappa geografica con una sovrimpressione delle informazioni dettagliate di Visualizzazione traffico. La mappa fornisce informazioni sulla base di utenti e gli endpoint per il profilo di Gestione traffico.
 
-![Visualizzazione geografica della visualizzazione geografica della visualizzazione del traffico di Gestione traffico][1]
+![Gestione traffico Visualizzazione traffico vista geografica][1]
 
 ### <a name="user-base-information"></a>Informazioni sulla base di utenti
 
@@ -92,7 +92,7 @@ Quando si usa Visualizzazione traffico, la fatturazione viene eseguita in base a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri [come funziona Gestione traffico](traffic-manager-overview.md)
+- Informazioni [sul funzionamento di gestione traffico](traffic-manager-overview.md)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
 

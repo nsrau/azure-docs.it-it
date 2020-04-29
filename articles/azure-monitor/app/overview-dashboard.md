@@ -4,10 +4,10 @@ description: Monitorare le applicazioni con la funzionalità Dashboard panoramic
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669897"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
@@ -20,7 +20,7 @@ Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
 ![Riquadro della Panoramica (anteprima)](./media/overview-dashboard/overview.png)
 
-## <a name="better-performance"></a>Migliori prestazioni
+## <a name="better-performance"></a>Prestazioni migliori
 
 La selezione dell'intervallo di tempo è stata semplificata in una semplice interfaccia con un solo clic.
 
@@ -53,10 +53,10 @@ Per tornare all'esperienza panoramica, selezionare:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si seleziona **Configura impostazioni riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre i 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non è disponibile alcuna soluzione per questo comportamento.
+Se si seleziona **Configura le impostazioni del riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non esiste alcuna soluzione alternativa per questo comportamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Grafici a imbuto](../../azure-monitor/app/usage-funnels.md)
-- [detenzione](../../azure-monitor/app/usage-retention.md)
+- [Conservazione](../../azure-monitor/app/usage-retention.md)
 - [Flussi degli utenti](../../azure-monitor/app/usage-flows.md)

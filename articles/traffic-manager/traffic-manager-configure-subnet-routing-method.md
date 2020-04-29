@@ -1,5 +1,5 @@
 ---
-title: Configurare il routing del traffico di subnet - Gestione traffico di AzureConfigure subnet traffic routing - Azure Traffic Manager
+title: Configurare il routing del traffico della subnet-gestione traffico di Azure
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico da subnet specifiche.
 services: traffic-manager
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 60cddce610d223433d0ffe1f6b9234625aca9881
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938746"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 Per visualizzare Gestione traffico in azione, è necessario implementare quanto segue:
 - due siti Web di base in esecuzione in diverse aree di Azure: **Stati Uniti orientali** (usato come sito Web interno) e **Europa occidentale** (usato come sito Web di produzione).
-- due macchine virtuali di test per il test di Gestione traffico: una macchina virtuale **negli Stati Uniti orientali** e la seconda macchina virtuale in Europa **occidentale.**
+- due macchine virtuali di test per il test di gestione traffico: una macchina virtuale negli **Stati Uniti orientali** e la seconda macchina virtuale nell' **Europa occidentale**.
 
 Le macchine virtuali per il test vengono usate per illustrare come Gestione traffico indirizza il traffico utente al sito Web interno o al sito Web di produzione, a seconda della subnet da cui ha origine la query dell'utente.
 
@@ -47,7 +47,7 @@ In questa sezione si creano due istanze di sito Web che forniscono due endpoint 
 #### <a name="create-vms-for-running-websites"></a>Creare VM per l'esecuzione di siti Web
 In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope* nelle aree di Azure **Stati Uniti orientali** e **Europa occidentale**.
 
-1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **VM Windows Server 2016**.
+1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale Windows Server 2016**.
 2. Immettere o selezionare le informazioni seguenti in **Basics** (Generale), accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
     |Impostazione|valore|
@@ -56,7 +56,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resource group| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
-    |Location| Selezionare **Stati Uniti orientali**.|
+    |Percorso| Selezionare **Stati Uniti orientali**.|
     |||
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
@@ -87,14 +87,14 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Installare IIS e personalizzare la pagina Web predefinita
 
-In questa sezione si installa il server IIS nelle due macchine virtuali, *myIISVMEastUS*  & *myIISVMWEurope*, quindi si aggiorna la pagina del sito Web predefinito. La pagina del sito Web personalizzata mostra il nome della VM a cui viene connesso l'utente quando visita il sito Web da un Web browser.
+In questa sezione si installa il server IIS nelle due VM- *myIISVMEastUS*  & *myIISVMWEurope*e quindi si aggiorna la pagina del sito Web predefinito. La pagina del sito Web personalizzata mostra il nome della VM a cui viene connesso l'utente quando visita il sito Web da un Web browser.
 
 1. Selezionare **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su *myIISVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
 2. Nella pagina **Panoramica** fare clic su **Connetti** e quindi selezionare **Scarica file RDP** in **Connetti a macchina virtuale**.
 3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM.
 4. Selezionare **OK**.
 5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
-6. Sul desktop del server passare a **Strumenti**>di amministrazione di Windows**Server Manager**.
+6. Sul desktop del server passare a **strumenti**>di amministrazione di Windows**Server Manager**.
 7. Avviare Windows PowerShell in *myIISVMEastUS* e usare i comandi seguenti per installare il server IIS e aggiornare il file HTM predefinito.
     ```powershell-interactive
     # Install IIS
@@ -133,7 +133,7 @@ Gestione traffico instrada il traffico degli utenti in base al nome DNS degli en
 
 In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area di Azure (**Stati Uniti orientali** ed **Europa occidentale**). Queste VM verranno usate per verificare come Gestione traffico instrada il traffico verso il server IIS più vicino quando si visita il sito Web.
 
-1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **VM Windows Server 2016**.
+1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale Windows Server 2016**.
 2. Immettere o selezionare le informazioni seguenti in **Basics** (Generale), accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
     |Impostazione|valore|
@@ -170,7 +170,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 Creare un profilo di Gestione traffico che consente di restituire specifici endpoint in base all'indirizzo IP di origine della richiesta.
 
-1. Nella parte superiore sinistra dello schermo selezionare **Crea un** > **profilo** > gestione traffico**di** > rete delle risorse**Crea**.
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa** > **rete** > **profilo** > di gestione traffico**Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
 
     | Impostazione                 | valore                                              |
@@ -186,16 +186,16 @@ Creare un profilo di Gestione traffico che consente di restituire specifici endp
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
-Aggiungere le due macchine virtuali che eseguono i server IIS, *myIISVMEastUS* & *myIISVMWEurope,* per instradare il traffico utente in base alla subnet della query dell'utente.
+Aggiungere le due macchine virtuali che eseguono i server IIS- *myIISVMEastUS* & *myIISVMWEurope* per instradare il traffico utente in base alla subnet della query dell'utente.
 
 1. Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico creato nella sezione precedente e selezionarlo nei risultati visualizzati.
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti, quindi selezionare **OK:**
+3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le restanti impostazioni e quindi fare clic su **OK**:
 
     | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
-    | Nome           | myTestWebSiteEndpoint                                        |
+    | Name           | myTestWebSiteEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con indirizzi IP pubblici nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |  Impostazioni del routing della subnet    |   Aggiungere l'indirizzo IP della VM di test *myVMEastUS*. Tutte le query dell'utente provenienti da questa VM vengono indirizzate a *myTestWebSiteEndpoint*.    |
@@ -217,8 +217,8 @@ In questa esercitazione, per semplicità, si usa il nome DNS del profilo di Gest
 
 È possibile determinare il nome DNS del profilo di Gestione traffico nel modo seguente:
 
-1. Nella barra di ricerca del portale cercare il nome del profilo di **Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
-1. Fare clic su **Overview**.
+1. Nella barra di ricerca del portale cercare il nome del **profilo di gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
+1. Fare clic su **Panoramica**.
 2. Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Nelle distribuzioni di produzione si configura un nome di dominio personalizzato in modo che punti al nome di dominio di Gestione traffico usando un record CNAME DNS.
 
    ![Nome DNS di Gestione traffico](./media/traffic-manager-subnet-routing-method/traffic-manager-dns-name.png)
@@ -231,7 +231,7 @@ In questa sezione è possibile visualizzare Gestione traffico in azione.
 3. Aprire il file con estensione rdp scaricato. Quando richiesto, selezionare **Connetti**. Immettere il nome utente e la password specificati al momento della creazione della VM. Potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un altro account** per specificare le credenziali immesse al momento della creazione della VM.
 4. Selezionare **OK**.
 5. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato l'avviso, selezionare **Sì** o **Continua** per procedere con la connessione.
-1. In un Web browser, nella VM *myVMEastUS*, digitare il nome DNS del profilo di Gestione traffico per visualizzare il sito Web. Poiché l'indirizzo IP *myVMEastUS* della macchina virtuale è associato all'endpoint *myIISVMEastUS*, il browser Web avvia il server del sito Web di prova - *myIISVMEastUS*.
+1. In un Web browser, nella VM *myVMEastUS*, digitare il nome DNS del profilo di Gestione traffico per visualizzare il sito Web. Poiché l'indirizzo IP della macchina virtuale *myVMEastUS* è associato all'endpoint *myIISVMEastUS*, il Web browser avvia il server del sito Web di test- *myIISVMEastUS*.
 
    ![Testare il profilo di Gestione traffico](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
 

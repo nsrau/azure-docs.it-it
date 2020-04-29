@@ -1,5 +1,5 @@
 ---
-title: Usare immagini di macchine virtuali condivise per creare un set di scalabilità in AzureUse shared VM images to create a scale set in Azure
+title: Usare le immagini di VM condivise per creare un set di scalabilità in Azure
 description: Informazioni su come usare Azure PowerShell per creare immagini di macchina virtuale condivise da usare per la distribuzione di set di scalabilità di macchine virtuali in Azure.
 author: axayjo
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 5f4eca88614a98f0caf87d04847029328042edd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368727"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Creare e usare un'immagine condivisa per i set di scalabilità di macchine virtuali con Azure PowerShell
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 La procedura riportata di seguito illustra come prendere una VM esistente e convertirla in un'immagine personalizzata riutilizzabile che è possibile usare per creare nuove istanze di VM.
 
-Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. È possibile seguire [Esercitazione: Creare e usare un'immagine personalizzata per](tutorial-use-custom-image-powershell.md) i set di scalabilità delle macchine virtuali con Azure PowerShell per crearne uno, se necessario. Se l'immagine gestita contiene un disco dati, la dimensione del disco dati non può essere superiore a 1 TB.
+Per completare l'esempio in questo articolo, è necessario disporre di un'immagine gestita esistente. È possibile seguire [l'esercitazione: creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con Azure PowerShell](tutorial-use-custom-image-powershell.md) per crearne uno, se necessario. Se l'immagine gestita contiene un disco dati, le dimensioni del disco dati non possono superare 1 TB.
 
 Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
 
@@ -49,7 +49,7 @@ Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e dell
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Creare un set di scalabilità dalla versione di immagine condivisa
 
-Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Nell'esempio seguente viene creato un set di scalabilità dalla nuova versione dell'immagine nel data center *degli Stati Uniti centro-meridionali.* Quando richiesto, impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
+Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). L'esempio seguente crea un set di scalabilità dalla nuova versione dell'immagine nel Data Center *degli Stati Uniti centro-meridionali* . Quando richiesto, impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
 
 
 ```azurepowershell-interactive

@@ -1,26 +1,26 @@
 ---
-title: Rilevamento delle dipendenze in Azure Application Insights con OpenCensus Python Documenti Microsoft
-description: Monitora le chiamate di dipendenza per le tue app Python tramite OpenCensus Python.
+title: Rilevamento delle dipendenze in applicazione Azure Insights con OpenCensus Python | Microsoft Docs
+description: Monitorare le chiamate alle dipendenze per le app Python tramite OpenCensus Python.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669931"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Tenere traccia delle dipendenze con OpenCensus Python
 
-Una dipendenza è un componente esterno chiamato dall'applicazione. I dati sulle dipendenze vengono raccolti utilizzando OpenCensus Python e le relative integrazioni. I dati vengono quindi inviati ad `dependencies` Application Insights in Monitoraggio di Azure come telemetria.
+Una dipendenza è un componente esterno chiamato dall'applicazione. I dati sulle dipendenze vengono raccolti usando OpenCensus Python e le varie integrazioni. I dati vengono quindi inviati a Application Insights sotto monitoraggio di Azure `dependencies` come dati di telemetria.
 
-In primo luogo, instrumentare l'applicazione Python con l'ultimo [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+Per prima cosa, instrumentare l'applicazione Python con la versione più recente di [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
 
 ## <a name="in-process-dependencies"></a>Dipendenze in-process
 
-OpenCensus Python SDK per Monitoraggio di Azure consente di inviare dati di telemetria delle dipendenze "in-process" (informazioni e logica che si verifica all'interno dell'applicazione). Le dipendenze in-process `type` avranno il campo come `INPROC` nell'analisi.
+OpenCensus Python SDK per monitoraggio di Azure consente di inviare i dati di telemetria delle dipendenze "in-process" (informazioni e logica che si verificano all'interno dell'applicazione). Le dipendenze in-process avranno `type` il campo `INPROC` come in Analytics.
 
 ```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -33,11 +33,11 @@ with tracer.span(name='foo'): # <-- A dependency telemetry item will be sent for
     print('Hello, World!')
 ```
 
-## <a name="dependencies-with-requests-integration"></a>Dipendenze con integrazione "richieste"
+## <a name="dependencies-with-requests-integration"></a>Dipendenze con l'integrazione "richieste"
 
-Tieni traccia delle richieste `requests` in uscita con l'integrazione OpenCensus.
+Tenere traccia delle richieste in uscita con l' `requests` integrazione OpenCensus.
 
-Scaricare e `opencensus-ext-requests` installare da [PyPI](https://pypi.org/project/opencensus-ext-requests/) e aggiungerlo alle integrazioni di traccia. Le richieste inviate utilizzando la libreria [di richieste](https://pypi.org/project/requests/) Python verranno registrate.
+Scaricare e installare `opencensus-ext-requests` da [PyPI](https://pypi.org/project/opencensus-ext-requests/) e aggiungerlo alle integrazioni della traccia. Verranno rilevate le richieste inviate tramite la libreria delle [richieste](https://pypi.org/project/requests/) di Python.
 
 ```python
 import requests
@@ -54,11 +54,11 @@ with tracer.span(name='parent'):
     response = requests.get(url='https://www.wikipedia.org/wiki/Rabbit') # <-- this request will be tracked
 ```
 
-## <a name="dependencies-with-httplib-integration"></a>Dipendenze con integrazione "httplib"
+## <a name="dependencies-with-httplib-integration"></a>Dipendenze con integrazione "HttpLib"
 
-Tieni traccia delle tue `httplib` richieste in uscita con l'integrazione OpenCensus.
+Tenere traccia delle richieste in uscita con `httplib` l'integrazione OpenCensus.
 
-Scaricare e `opencensus-ext-httplib` installare da [PyPI](https://pypi.org/project/opencensus-ext-httplib/) e aggiungerlo alle integrazioni di traccia. Le richieste inviate utilizzando [http.client](https://docs.python.org/3.7/library/http.client.html) per Python3 o [httplib](https://docs.python.org/2/library/httplib.html) per Python2 verranno registrate.
+Scaricare e installare `opencensus-ext-httplib` da [PyPI](https://pypi.org/project/opencensus-ext-httplib/) e aggiungerlo alle integrazioni della traccia. Verranno rilevate le richieste inviate tramite [http. client](https://docs.python.org/3.7/library/http.client.html) per Python3 o [HttpLib](https://docs.python.org/2/library/httplib.html) per python2.
 
 ```python
 import http.client as httplib
@@ -80,11 +80,11 @@ response = conn.getresponse()
 conn.close()
 ```
 
-## <a name="dependencies-with-django-integration"></a>Dipendenze con integrazione "django"
+## <a name="dependencies-with-django-integration"></a>Dipendenze con l'integrazione con "Django"
 
-Tieni traccia delle richieste Django `django` in uscita con l'integrazione OpenCensus.
+Tenere traccia delle richieste Django in uscita con l' `django` integrazione OpenCensus.
 
-Scaricare e `opencensus-ext-django` installare da [PyPI](https://pypi.org/project/opencensus-ext-django/) e `MIDDLEWARE` aggiungere la seguente `settings.py` riga alla sezione nel file Django.
+Scaricare e installare `opencensus-ext-django` da [PyPI](https://pypi.org/project/opencensus-ext-django/) e aggiungere la riga seguente alla `MIDDLEWARE` sezione del file Django. `settings.py`
 
 ```python
 MIDDLEWARE = [
@@ -93,7 +93,7 @@ MIDDLEWARE = [
 ]
 ```
 
-È possibile fornire una configurazione aggiuntiva, leggere [le personalizzazioni](https://github.com/census-instrumentation/opencensus-python#customization) per un riferimento completo.
+È possibile fornire una configurazione aggiuntiva e leggere le [personalizzazioni](https://github.com/census-instrumentation/opencensus-python#customization) per un riferimento completo.
 
 ```python
 OPENCENSUS = {
@@ -106,11 +106,11 @@ OPENCENSUS = {
 }
 ```
 
-## <a name="dependencies-with-mysql-integration"></a>Dipendenze con l'integrazione "mysql"
+## <a name="dependencies-with-mysql-integration"></a>Dipendenze con l'integrazione con "MySQL"
 
-Tieni traccia delle dipendenze MYSQL con l'integrazione OpenCensus. `mysql` Questa integrazione supporta la libreria [mysql-connector.](https://pypi.org/project/mysql-connector-python/)
+Tenere traccia delle dipendenze di MYSQL `mysql` con l'integrazione OpenCensus. Questa integrazione supporta la libreria del [connettore MySQL](https://pypi.org/project/mysql-connector-python/) .
 
-Scaricare e `opencensus-ext-mysql` installare da [PyPI](https://pypi.org/project/opencensus-ext-mysql/) e aggiungere le seguenti righe al codice.
+Scaricare e installare `opencensus-ext-mysql` da [PyPI](https://pypi.org/project/opencensus-ext-mysql/) e aggiungere le righe seguenti al codice.
 
 ```python
 from opencensus.trace import config_integration
@@ -120,9 +120,9 @@ config_integration.trace_integrations(['mysql'])
 
 ## <a name="dependencies-with-pymysql-integration"></a>Dipendenze con integrazione "pymysql"
 
-Tieni traccia delle dipendenze di `pymysql` PyMySQL con l'integrazione OpenCensus.
+Tenere traccia delle dipendenze di PyMySQL `pymysql` con l'integrazione di OpenCensus.
 
-Scaricare e `opencensus-ext-pymysql` installare da [PyPI](https://pypi.org/project/opencensus-ext-pymysql/) e aggiungere le seguenti righe al codice.
+Scaricare e installare `opencensus-ext-pymysql` da [PyPI](https://pypi.org/project/opencensus-ext-pymysql/) e aggiungere le righe seguenti al codice.
 
 ```python
 from opencensus.trace import config_integration
@@ -130,11 +130,11 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['pymysql'])
 ```
 
-## <a name="dependencies-with-postgresql-integration"></a>Dipendenze con integrazione "postgresql"
+## <a name="dependencies-with-postgresql-integration"></a>Dipendenze con l'integrazione con "PostgreSQL"
 
-Tieni traccia delle dipendenze PostgreSQL con l'integrazione OpenCensus. `postgresql` Questa integrazione supporta la libreria [psycopg2.](https://pypi.org/project/psycopg2/)
+Tenere traccia delle dipendenze di PostgreSQL `postgresql` con l'integrazione OpenCensus. Questa integrazione supporta la libreria [psycopg2](https://pypi.org/project/psycopg2/) .
 
-Scaricare e `opencensus-ext-postgresql` installare da [PyPI](https://pypi.org/project/opencensus-ext-postgresql/) e aggiungere le seguenti righe al codice.
+Scaricare e installare `opencensus-ext-postgresql` da [PyPI](https://pypi.org/project/opencensus-ext-postgresql/) e aggiungere le righe seguenti al codice.
 
 ```python
 from opencensus.trace import config_integration
@@ -144,9 +144,9 @@ config_integration.trace_integrations(['postgresql'])
 
 ## <a name="dependencies-with-pymongo-integration"></a>Dipendenze con integrazione "pymongo"
 
-Tenere traccia delle dipendenze di `pymongo` MongoDB con l'integrazione OpenCensus. Questa integrazione supporta la libreria [di piomone.](https://pypi.org/project/pymongo/)
+Tenere traccia delle dipendenze MongoDB con `pymongo` l'integrazione OpenCensus. Questa integrazione supporta la libreria [pymongo](https://pypi.org/project/pymongo/) .
 
-Scaricare e `opencensus-ext-pymongo` installare da [PyPI](https://pypi.org/project/opencensus-ext-pymongo/) e aggiungere le seguenti righe al codice.
+Scaricare e installare `opencensus-ext-pymongo` da [PyPI](https://pypi.org/project/opencensus-ext-pymongo/) e aggiungere le righe seguenti al codice.
 
 ```python
 from opencensus.trace import config_integration
@@ -154,9 +154,9 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['pymongo'])
 ```
 
-### <a name="dependencies-with-sqlalchemy-integration"></a>Dipendenze con integrazione "sqlalchemy"
+### <a name="dependencies-with-sqlalchemy-integration"></a>Dipendenze con l'integrazione "SQLAlchemy"
 
-Tenere traccia delle dipendenze utilizzando SQLAlchemy tramite l'integrazione OpenCensus.Track your dependencies using SQLAlchemy using OpenCensus `sqlalchemy` integration. Questa integrazione tiene traccia dell'utilizzo del pacchetto [sqlalchemy,](https://pypi.org/project/SQLAlchemy/) indipendentemente dal database sottostante.
+Tenere traccia delle dipendenze usando SQLAlchemy usando `sqlalchemy` l'integrazione OpenCensus. Questa integrazione tiene traccia dell'utilizzo del pacchetto [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) , indipendentemente dal database sottostante.
 
 ```python
 from opencensus.trace import config_integration
@@ -166,8 +166,8 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Mappa dell'applicazione](../../azure-monitor/app/app-map.md)
+* [Mappa delle applicazioni](../../azure-monitor/app/app-map.md)
 * [Disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Ricerca](../../azure-monitor/app/diagnostic-search.md)
-* [Query log (Analitica)](../../azure-monitor/log-query/log-query-overview.md)
+* [Query log (analisi)](../../azure-monitor/log-query/log-query-overview.md)
 * [Diagnostica delle transazioni](../../azure-monitor/app/transaction-diagnostics.md)

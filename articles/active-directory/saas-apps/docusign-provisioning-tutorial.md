@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88b65c8e8962ad8420ded47da1a343672123c589
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77058179"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Esercitazione: Configurare DocuSign per il provisioning utenti automatico
@@ -68,7 +68,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 1. Selezionare l'istanza di DocuSign e quindi la scheda **Provisioning**.
 
-1. Impostare la **modalità di provisioning** su **Automatico**. 
+1. Impostare la **modalità di provisioning** su **automatico**. 
 
     ![provisioning](./media/docusign-provisioning-tutorial/provisioning.png)
 
@@ -99,5 +99,5 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurare Single Sign-On](docusign-tutorial.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Configura accesso Single Sign-on](docusign-tutorial.md)

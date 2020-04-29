@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663063"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Aggiunta di risorse di Automazione di Azure a una soluzione di gestione (anteprima)
@@ -240,7 +240,7 @@ Le proprietà delle pianificazioni dei processi sono descritte nella tabella seg
 
 
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 Le [variabili di automazione di Azure](../../automation/automation-variables.md) sono di tipo **Microsoft.Automation/automationAccounts/variables** e presentano la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri.
 
     {
@@ -274,7 +274,7 @@ Se si imposta il valore iniziale per la variabile, è necessario configurarla co
 
 | Tipo di dati | Descrizione | Esempio | Risoluzione |
 |:--|:--|:--|:--|
-| string   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
+| stringa   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
 | NUMERIC  | Valore numerico con virgolette singole.| "64" | 64 |
 | boolean  | **true** o **false** tra virgolette.  Si noti che questo valore deve essere minuscolo. | "true" | true |
 | Datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

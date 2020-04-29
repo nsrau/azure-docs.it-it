@@ -1,6 +1,6 @@
 ---
-title: Regole personalizzate di Geomatch di Azure Web Application Firewall (WAF)
-description: Questo articolo è una panoramica delle regole personalizzate di corrispondenza geografica di Web Application Firewall (WAF) nel gateway applicazione di Azure.This article is an overview of Web Application Firewall (WAF) geomatch custom rules on Azure Application Gateway.
+title: Regole personalizzate di geocorrispondenza di Web Application Firewall (WAF) di Azure
+description: Questo articolo è una panoramica delle regole personalizzate di geocorrispondenza di Web Application Firewall (WAF) nel gateway applicazione Azure.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,24 +8,24 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76961088"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Regole personalizzate di geocorrispondenza (anteprima)Geomatch custom rules (preview)
+# <a name="geomatch-custom-rules-preview"></a>Geomatch-regole personalizzate (anteprima)
 
-Le regole personalizzate consentono di creare regole personalizzate in base alle esigenze esatte delle applicazioni e dei criteri di sicurezza. A questo punto, è possibile limitare l'accesso alle applicazioni Web in base al paese o all'area geografica. Come per tutte le regole personalizzate, questa logica può essere abbinata ad altre regole in base alle esigenze dell'applicazione.
+Le regole personalizzate consentono di creare regole personalizzate per soddisfare le esigenze specifiche delle applicazioni e dei criteri di sicurezza. A questo punto, è possibile limitare l'accesso alle applicazioni Web in base al paese o all'area geografica. Come per tutte le regole personalizzate, questa logica può essere composta con altre regole in base alle esigenze dell'applicazione.
 
-Per creare una regola personalizzata di filtro geografico, è sufficiente selezionare *Geo-location* come Tipo di corrispondenza, quindi selezionare il paese o i paesi che si desidera consentire/bloccare dall'applicazione. Per altre informazioni, vedere [come creare regole personalizzate in Powershell](configure-waf-custom-rules.md) e altri esempi di regole personalizzate(create-custom-waf-rules.md).
+Per creare una regola personalizzata di filtro geografico, è sufficiente selezionare la *posizione geografica* come tipo di corrispondenza, quindi selezionare il paese o i paesi che si desidera consentire o bloccare dall'applicazione. Per altre informazioni, vedere [come creare regole personalizzate in PowerShell](configure-waf-custom-rules.md) e altri esempi di regole personalizzate (Create-Custom-waf-Rules.MD).
 
 > [!IMPORTANT]
 > L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="country-codes"></a>Codici paese
 
-Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti codici paese a due cifre. 
+Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi dei seguenti codici paese a due cifre. 
 
 |Codice paese | Nome del paese |
 | ----- | ----- |
@@ -37,7 +37,7 @@ Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti
 | AM | Armenia|
 | AO | Angola|
 | AR | Argentina|
-| AS | Isole Samoa americane|
+| AS | Samoa Americane|
 | AT | Austria|
 | AU | Australia|
 | AZ | Azerbaigian|
@@ -61,7 +61,7 @@ Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti
 | BZ | Belize|
 | CA | Canada|
 | CD | Congo, Repubblica democratica|
-| CF | Repubblica centrafricana|
+| CF | Repubblica Centrafricana|
 | CH | Svizzera|
 | CI | Côte d'Ivoire (Costa d'Avorio)|
 | CL | Cile|
@@ -88,13 +88,13 @@ Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti
 | VF | Francia|
 | GB | Regno Unito|
 | GE | Georgia|
-| GF | Guayana francese|
+| GF | Guayana Francese|
 | GH | Ghana|
 | GN | Guinea|
 | GP | Guadalupa|
 | GR | Grecia|
 | GT | Guatemala|
-| GY | Guiana|
+| GY | Guyana|
 | HK | RAS di Hong Kong|
 | HN | Honduras|
 | HR | Croazia|
@@ -147,7 +147,7 @@ Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti
 | MX | Messico|
 | MY | Malaysia|
 | MZ | Mozambico|
-| ND | Namibia|
+| N/D | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|
@@ -185,7 +185,7 @@ Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti
 | SV | El Salvador|
 | SY | Repubblica araba siriana|
 | SZ | Swaziland|
-| TC | Isole Turks e Caicos|
+| TC | Turks e Caicos, Isole|
 | TG | Togo|
 | TH | Thailandia|
 | TN | Tunisia|
@@ -209,4 +209,4 @@ Se si utilizza l'operatore Geomatch, i selettori possono essere uno dei seguenti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso le regole personalizzate, [creare regole personalizzate.](create-custom-waf-rules.md)
+Dopo aver apprese le regole personalizzate, [creare regole personalizzate](create-custom-waf-rules.md).

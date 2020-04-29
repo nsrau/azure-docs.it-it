@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019673"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitora l'attività CloudSimple della soluzione VMware
@@ -86,7 +86,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Nome risorsa | Nome assegnato alla risorsa. |
 | Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
 | ID risorsa | Identificatore della risorsa. |
-| Inizio | Ora di inizio dell'attività. |
+| Inizia | Ora di inizio dell'attività. |
 | Fine | Ora di fine dell'attività. |
 | Stato | Stato corrente dell'attività. |
 | Tempo trascorso | Tempo richiesto per il completamento dell'attività (se completata) o in corso (se in corso). |

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0182d0158144a010274799cc41991ba87120e9d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76907604"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Esercitazione: configurare mixpanel per il provisioning utenti automatico
@@ -49,7 +49,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e mixpanel](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-mixpanel-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare mixpanel per supportare il provisioning con Azure AD
+## <a name="step-2-configure-mixpanel-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare mixpanel per supportare il provisioning con Azure AD
 1. Per la configurazione di SSO e la richiesta di un dominio, fare riferimento a [questo](https://help.mixpanel.com/hc/articles/360036428871-Single-Sign-On).
 2. Successivamente, sarà necessario generare un token SCIM nella scheda SCIM della sezione sicurezza dell'accesso delle impostazioni dell'organizzazione.
 ![Token mixpanel](./media/mixpanel-provisioning-tutorial/mixpanelscim.png)
@@ -106,8 +106,8 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |displayName|string|
+   |userName|Stringa|
+   |displayName|Stringa|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to mixpanel**.
 
@@ -115,8 +115,8 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
       |Attributo|Type|
       |---|---|
-      |displayName|string|
-      |Membri di|Informazioni di riferimento|
+      |displayName|Stringa|
+      |Membri di|Riferimento|
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

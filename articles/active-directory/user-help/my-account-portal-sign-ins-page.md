@@ -1,6 +1,6 @@
 ---
-title: Visualizzare ed eseguire ricerche per l'attività di accesso recente dalla pagina Accesso personale (anteprima) - Azure Active Directory . Documenti Microsoft
-description: Dettagli su come visualizzare ed eseguire ricerche nell'attività di accesso recente dalla pagina I miei account di accesso del portale Account personale.
+title: Visualizzare e cercare le attività di accesso recenti dalla pagina di accesso (anteprima) Azure Active Directory | Microsoft Docs
+description: Informazioni dettagliate su come visualizzare e cercare le attività di accesso recenti dalla pagina di accesso personale del portale account personale.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,64 +12,64 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064020"
 ---
-# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualizzare ed eseguire ricerche nell'attività di accesso recente dalla pagina I miei inquisigli (anteprima)
+# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualizza e cerca le attività di accesso recenti dalla pagina di accesso (anteprima)
 
-È possibile visualizzare tutte le attività di accesso all'account aziendale o dell'istituto di istruzione recenti, dalla pagina **I miei inquisienti** del portale **Account personale.** L'analisi della cronologia di accesso consente di verificare la presenza di attività insolite, aiutandoti a vedere:
+È possibile visualizzare tutte le attività di accesso all'account aziendale o dell'Istituto di istruzione recenti dalla pagina di **accesso personale** del portale **account** personale. Esaminando la cronologia di accesso è possibile verificare la presenza di attività insolite consentendo di vedere:
 
-- Se qualcuno sta cercando di indovinare la tua password.
+- Se qualcuno sta provando a indovinare la password.
 
-- Se un utente malintenzionato ha eseguito correttamente l'accesso al proprio account e da quale posizione.
+- Se un utente malintenzionato ha eseguito l'accesso al proprio account e da quale località.
 
-- Quali applicazioni l'utente malintenzionato ha tentato di accedere.
+- App a cui l'utente malintenzionato ha provato ad accedere.
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visualizzare le attività di accesso recenti
 
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
-2. Selezionare **I miei inquisienti (anteprima)** nel riquadro di spostamento sinistro o selezionare il collegamento **Controlla attività recenti** dal blocco I miei **invii (anteprima).**
+2. Selezionare **accessi personali (anteprima)** nel riquadro di spostamento a sinistra oppure selezionare il collegamento **Controlla attività recente** dal blocco **accessi (anteprima)** .
 
-    ![Pagina Il mio account, con i link delle attività recenti evidenziati](media/my-account-portal/my-account-portal-sign-ins.png)
+    ![Pagina account personale, che mostra i collegamenti delle attività recenti evidenziati](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Espandere ed esaminare ogni attività di accesso, assicurandosi di riconoscerle tutte. Se trovi un elemento di accesso che non ti sembra familiare, ti consigliamo vivamente di modificare la password per proteggere il tuo account se è stata compromessa.
+3. Espandere ed esaminare ogni attività di accesso, assicurandosi di riconoscerle tutte. Se si trova un elemento di accesso che non ha un aspetto familiare, è consigliabile modificare la password per proteggere l'account se è stato compromesso.
 
     ![Pagina Attività recenti con i dettagli di accesso espansi](media/my-account-portal/my-account-portal-sign-ins-page.png)
 
 ### <a name="if-you-see-a-successful-sign-in"></a>Se viene visualizzato un accesso riuscito
 
-Dovresti riconoscere la tua attività come normale. Tuttavia, se noti un accesso riuscito da una posizione, un browser o un sistema operativo strano, potrebbe significare che un utente malintenzionato ha ottenuto l'accesso al tuo account. In questo caso, si consiglia di modificare immediatamente la password e quindi passare alla pagina Informazioni di [sicurezza](https://mysignins.microsoft.com/security-info) per aggiornare le impostazioni di sicurezza.
+È necessario riconoscere una propria attività come normale. Tuttavia, se si nota un accesso riuscito da una posizione sconosciuta, un browser o un sistema operativo, è possibile che un utente malintenzionato abbia ottenuto l'accesso all'account. In questa situazione è consigliabile modificare immediatamente la password e quindi passare alla pagina delle informazioni di [sicurezza](https://mysignins.microsoft.com/security-info) per aggiornare le impostazioni di sicurezza.
 
-Prima di determinare che qualcosa non è corretto, assicurati di non vedere un falso positivo (dove l'elemento sembra discutibile, ma va bene). Ad esempio, determiniamo la tua posizione approssimativa e la tua mappa in base al tuo indirizzo IP. Le reti mobili sono particolarmente difficili da individuare in quanto a volte instradano il traffico attraverso luoghi lontani. Pertanto, se hai effettuato l'accesso utilizzando il tuo dispositivo mobile nello stato di Washington, la posizione potrebbe mostrare l'accesso proveniente dalla California. Per questo motivo, ti consigliamo vivamente di controllare più dettagli, oltre alla semplice posizione. Dovresti anche assicurarti che anche il sistema operativo, il browser e l'app abbiano un senso.
+Prima di determinare se un elemento non è corretto, assicurarsi che non venga visualizzato un falso positivo (in cui l'elemento sembra discutibile, ma è accettabile). Si consentirà, ad esempio, di determinare la posizione approssimativa e la mappa in base all'indirizzo IP. Le reti mobili sono particolarmente difficili da individuare perché talvolta instradano il traffico attraverso posizioni distanti. Quindi, se è stato effettuato l'accesso con il dispositivo mobile nello stato di Washington, il percorso potrebbe mostrare l'accesso proveniente dalla California. Per questo motivo, è consigliabile controllare altri dettagli, oltre al solo percorso. È anche necessario assicurarsi che anche il sistema operativo, il browser e l'app abbiano senso.
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se viene visualizzato un accesso non riuscito
 
-Un accesso non riuscito, senza attività della sessione, indica che il metodo di verifica principale (nome utente/password) non è riuscito. Questo potrebbe significare che hai digitato male il tuo nome utente o la password, ma potrebbe anche significare che un utente malintenzionato stava tentando di indovinare la tua password. Se si ritiene che sia stato un utente malintenzionato che ha tentato senza successo di indovinare la password, non è necessario modificare la password, ma è consigliabile eseguire la registrazione per Azure Multi-Factor Authentication (MFA). Con MFA, anche se l'hacker alla fine indovina la tua password, non sarà sufficiente per accedere al tuo account.
+Un accesso non riuscito, senza attività di sessione, significa che il metodo di verifica principale (nome utente/password) non è riuscito. Questo potrebbe significare che il nome utente o la password è stata digitata in modo errato, ma potrebbe anche significare che un utente malintenzionato sta provando a indovinare la password. Se si ritiene che l'utente malintenzionato provi senza riuscirvi a indovinare la password, non è necessario modificare la password, ma è consigliabile registrarsi per Azure Multi-Factor Authentication (multi-factor authentication). Con l'autenticazione a più fattori, anche se il pirata informatico Indovina la password, non sarà sufficiente per accedere all'account.
 
-Se viene visualizzato un accesso non riuscito, con una nota in Attività sessione che indica Verifica **aggiuntiva non riuscita, codice non valido**, significa che l'autenticazione principale (nome utente/password) ha avuto esito positivo, ma l'autenticazione a più fattori non è riuscita. Se si tratta di un utente malintenzionato, è stato eseguito correttamente la password, ma non è stato ancora possibile superare la richiesta di autenticazione a più fattori. In questo caso, è consigliabile modificare comunque la password, poiché l'utente malintenzionato ha ottenuto la parte corretta e quindi passare alla pagina Informazioni di [sicurezza](https://mysignins.microsoft.com/security-info) per aggiornare le impostazioni di sicurezza.
+Se viene visualizzato un accesso non riuscito, con una nota nell'attività della sessione che indica che la **verifica aggiuntiva non è riuscita, il codice non è valido**, significa che l'autenticazione principale (nome utente/password) ha avuto esito positivo, ma l'autenticazione a più fattori non è riuscita. Se si trattasse di un utente malintenzionato, la password è stata indovinata, ma non è ancora stato possibile superare la richiesta di autenticazione a più fattori. In questo caso, è comunque consigliabile modificare la password, poiché l'autore dell'attacco ha ottenuto tale diritto, quindi passare alla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info) per aggiornare le impostazioni di sicurezza.
 
-## <a name="search-for-specific-sign-in-activity"></a>Cercare un'attività di accesso specifica
+## <a name="search-for-specific-sign-in-activity"></a>Ricerca di attività di accesso specifiche
 
-È possibile cercare l'attività di accesso recente in base a una qualsiasi delle informazioni disponibili. Ad esempio, puoi cercare l'attività di accesso recente in base al sistema operativo, alla posizione, all'app e così via.
+È possibile cercare l'attività di accesso recente con le informazioni disponibili. Ad esempio, è possibile cercare le attività di accesso recenti per sistema operativo, località, app e così via.
 
-1. Nella pagina **Controlla attività recenti** digitare le informazioni che si desidera cercare nella barra di **ricerca.** Ad esempio, `My Account` digitare per cercare tutte le attività raccolte dall'app Account personale.
+1. Nella pagina **Verifica attività recente** Digitare le informazioni che si desidera cercare nella barra di **ricerca** . Digitare `My Account` , ad esempio, per cercare tutte le attività raccolte dall'app My account.
 
 2. Selezionare il pulsante **Cerca** per iniziare la ricerca.
 
-    ![Pagina Attività recenti, con la barra di ricerca evidenziata, il pulsante di ricerca e i risultati](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
+    ![Pagina attività recente, che mostra la barra di ricerca evidenziata, il pulsante Cerca e i risultati](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver visualizzato l'attività di accesso recente, è possibile:
 
-- Visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md).
+- Visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md).
 
 - Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md)connessi.
 
-- Visualizzare o gestire [le organizzazioni](my-account-portal-organizations-page.md).
+- Visualizzare o gestire le [organizzazioni](my-account-portal-organizations-page.md).
 
-- Visualizzare il [modo](my-account-portal-privacy-page.md)in cui l'organizzazione utilizza i dati relativi alla privacy .
+- Visualizzare il modo in cui l'organizzazione [Usa i dati relativi alla privacy](my-account-portal-privacy-page.md).

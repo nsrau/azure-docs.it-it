@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76717920"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
@@ -291,7 +291,7 @@ Dopo la lettura delle tabelle relative a corse e tariffe, è possibile eseguire 
 
 
 
-### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dati
+### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dei dati
 Per ottenere una migliore comprensione dei dati, è possibile esplorarli usando gli script seguenti.
 
 È possibile trovare la distribuzione di corse associate o non associate alla mancia:

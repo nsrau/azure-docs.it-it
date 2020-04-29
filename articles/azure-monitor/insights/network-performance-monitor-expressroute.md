@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660751"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
@@ -24,7 +24,7 @@ ms.locfileid: "77660751"
 ![Monitoraggio di ExpressRoute](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>Configurazione 
-Per aprire la configurazione di Monitoraggio prestazioni rete, aprire la [soluzione Monitoraggio prestazioni rete](network-performance-monitor.md) e selezionare **Configura**.
+Per aprire la configurazione per Monitoraggio prestazioni rete, aprire la [soluzione Monitoraggio prestazioni rete](network-performance-monitor.md) e selezionare **Configura**.
 
 ### <a name="configure-network-security-group-rules"></a>Configurare le regole del gruppo di sicurezza di rete 
 Per i server in Azure usati per il monitoraggio tramite Monitoraggio prestazioni rete, configurare regole del gruppo di sicurezza di rete per consentire il traffico TCP sulla porta usata da Monitoraggio prestazioni rete per le transazioni sintetiche. Per impostazione predefinita è la porta 8084. Questa configurazione consente all'agente di Log Analytics installato nelle macchine virtuali di Azure di comunicare con un agente di monitoraggio locale. 

@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897306"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso di Azure AD Connect Health con Servizi di dominio Active Directory
@@ -56,12 +56,12 @@ Questa funzionalità offre tendenze grafiche dei diversi contatori delle prestaz
 
 Per impostazione predefinita sono selezionati quattro contatori delle prestazioni. È tuttavia possibile includerne altri facendo clic sul comando del filtro e selezionando o deselezionando qualsiasi contatore delle prestazioni. È anche possibile fare doppio clic su un grafico relativo ai contatori delle prestazioni per aprire un nuovo pannello, che include punti dati corrispondenti a ogni controller di dominio monitorato.
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operazioni di Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)
-* [Uso di Azure AD Connect Health per la sincronizzazioneUsing Azure AD Connect Health for sync](how-to-connect-health-sync.md)
+* [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md)
 * [Domande frequenti su Azure AD Connect Health](reference-connect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](reference-connect-health-version-history.md)
 

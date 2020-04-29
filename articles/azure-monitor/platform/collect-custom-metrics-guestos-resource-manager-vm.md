@@ -1,5 +1,5 @@
 ---
-title: Raccogliere le metriche di macchine virtuali Windows in Monitoraggio di Azure con il modelloCollect Windows VM metrics in Azure Monitor with template
+title: Raccogliere le metriche delle macchine virtuali Windows in monitoraggio di Azure con il modello
 description: Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
 author: anirudhcavale
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: e747ca89912c36538bfb9d02986629fe57c5adcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657368"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
@@ -24,15 +24,15 @@ Questo articolo illustra il processo da eseguire per inviare le metriche delle p
 
 L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso da un'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.
 
-Se non si ha familiarità con i modelli di Resource Manager, vedere Le [distribuzioni](../../azure-resource-manager/management/overview.md) dei modelli e la relativa struttura e sintassi.
+Se non si ha familiarità con Gestione risorse modelli, vedere le informazioni sulle [distribuzioni](../../azure-resource-manager/management/overview.md) dei modelli e la relativa struttura e sintassi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- L'abbonamento deve essere registrato con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- La sottoscrizione deve essere registrata con [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- È necessario disporre di [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installato.
+- È necessario che sia installato [Azure PowerShell](/powershell/azure) o [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) .
 
-- La risorsa VM deve trovarsi in [un'area che supporta metriche personalizzate.](metrics-custom-overview.md#supported-regions) 
+- La risorsa VM deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati
@@ -69,7 +69,7 @@ Aggiungere un ID account di archiviazione alla sezione **variables** del modello
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 ```
 
-Aggiungere l'estensione dell'identità del servizio gestito (MSI) al modello nella parte superiore della sezione **delle risorse.** L'estensione assicura l'accettazione da parte di Monitoraggio di Azure delle metriche inviate.
+Aggiungere questa estensione identità del servizio gestita (MSI) al modello nella parte superiore della sezione **Resources (risorse** ). L'estensione assicura l'accettazione da parte di Monitoraggio di Azure delle metriche inviate.
 
 ```json
 //Find this code.
@@ -253,7 +253,7 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Ricordarsi di [usare un'area di Azure abilitata per le metriche personalizzate.](metrics-custom-overview.md)
+   > Ricordarsi di [usare un'area di Azure abilitata per le metriche personalizzate](metrics-custom-overview.md).
 
 1. Eseguire i comandi seguenti per distribuire la VM usando il modello di Resource Manager.
    > [!NOTE]

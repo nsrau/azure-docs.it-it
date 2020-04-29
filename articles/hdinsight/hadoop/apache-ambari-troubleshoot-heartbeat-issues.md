@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057074"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemi di heartbeat di Apache Ambari in Azure HDInsight
@@ -28,7 +28,7 @@ L'agente Ambari ha un utilizzo elevato della CPU, che genera avvisi dall'interfa
 
 A causa dei diversi bug di Ambari Agent, in rari casi, l'agente Ambari può avere una percentuale di utilizzo della CPU elevata (vicina a 100).
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Identificare l'ID processo (PID) di Ambari-Agent:
 
@@ -67,7 +67,7 @@ L'agente Ambari non è stato avviato e genera avvisi dall'interfaccia utente di 
 
 Gli avvisi sono causati dall'agente Ambari non in esecuzione.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Confermare lo stato di Ambari-Agent:
 
@@ -93,7 +93,7 @@ L'agente heartbeat Ambari è andato perso.
 
 I log di OMS causano un utilizzo elevato della CPU.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 * Disabilitare la registrazione di monitoraggio di Azure usando il cmdlet di PowerShell [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) .
 * Eliminare il `mdsd.warn` file di log

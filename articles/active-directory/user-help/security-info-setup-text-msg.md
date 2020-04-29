@@ -1,6 +1,6 @@
 ---
-title: Configurare la messaggistica di testo come metodo di verifica - Azure ADSet up text messaging as your verification method - Azure AD
-description: Come configurare la pagina Informazioni di sicurezza (anteprima) per verificare la tua identità utilizzando i messaggi di testo come metodo di verifica.
+title: Configurare la messaggistica di testo come metodo di verifica-Azure AD
+description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità usando i messaggi di testo come metodo di verifica.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 0525ee6d0ac5df61113e5a97c9812394323ffb3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062354"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurare la messaggistica di testo come metodo di verifica
@@ -27,7 +27,7 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se non vedi un'opzione del telefono, è possibile che la tua organizzazione non ti consenta di utilizzare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriore assistenza.
+>Se non viene visualizzata un'opzione per il telefono, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurare gli SMS dalla pagina Info di sicurezza
 
@@ -60,7 +60,7 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
     La pagina cambia per visualizzare l'esito positivo dell'operazione.
 
-    ![Notifica di esito positivo, la connessione del numero di telefono, la scelta di ricevere messaggi di testo e l'account](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Notifica di esito positivo, connessione del numero di telefono, scelta di ricevere SMS e account](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
     Le informazioni di sicurezza vengono aggiornate ed è possibile usare l'invio di SMS per verificare l'identità quando si usa la verifica in due passaggi o la reimpostazione della password. Per impostare l'invio di SMS come metodo predefinito, vedere la sezione [Cambiare il metodo di gestione delle informazioni di sicurezza predefinito](#change-your-default-security-info-method) di questo articolo.
 
@@ -81,7 +81,7 @@ Per non usare più gli SMS come metodo di gestione delle informazioni di sicurez
 
 ## <a name="change-your-default-security-info-method"></a>Modificare il metodo di gestione delle informazioni di sicurezza predefinito
 
-Se vuoi che la messaggistica di testo sia il metodo predefinito utilizzato quando accedi al tuo account aziendale o dell'istituto di istruzione utilizzando la verifica a due fattori o per le richieste di reimpostazione della password, puoi impostarlo dalla pagina **Informazioni di sicurezza.**
+Se si vuole che la messaggistica del testo sia il metodo predefinito usato quando si accede all'account aziendale o dell'Istituto di istruzione usando la verifica a due fattori o per le richieste di reimpostazione della password, è possibile impostarlo dalla pagina delle **informazioni di sicurezza** .
 
 ### <a name="to-change-your-default-security-info-method"></a>Per modificare il metodo di gestione delle informazioni di sicurezza predefinito
 
@@ -99,13 +99,13 @@ Se vuoi che la messaggistica di testo sia il metodo predefinito utilizzato quand
 
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
-- **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
+- **App Authenticator.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Chiave di sicurezza.** Registra la chiave di sicurezza compatibile con Microsoft e usala insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere Configurare le informazioni di [sicurezza per l'utilizzo](security-info-setup-security-key.md)di una chiave di sicurezza.
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
 
-- **indirizzo email.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
+- **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
 - **Domande di sicurezza.** Rispondere ad alcune domande di sicurezza create dall'amministratore per l'organizzazione. Questa opzione è disponibile solo per la reimpostazione della password e non per la verifica in due passaggi. Per istruzioni dettagliate su come configurare le domande di sicurezza, vedere l'articolo [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza](security-info-setup-questions.md).
 

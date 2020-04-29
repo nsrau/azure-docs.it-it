@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: df27a77c202951a6c789703f12712e75bd8b5906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77656980"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per gli ancoraggi spaziali di Azure
@@ -251,7 +251,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 Per controllare il livello di accesso concesso a applicazioni, servizi o Azure AD utenti del servizio, sono stati creati i seguenti ruoli per l'assegnazione in base alle esigenze per gli account di ancoraggio spaziali di Azure:
 

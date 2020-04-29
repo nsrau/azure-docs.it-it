@@ -1,6 +1,6 @@
 ---
-title: DNS inverso per i servizi di Azure - DNS di AzureReverse DNS for Azure services - Azure DNS
-description: Con questo percorso di apprendimento, iniziare a configurare ricerche DNS inverse per i servizi ospitati in Azure.With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
+title: DNS inverso per i servizi di Azure-DNS di Azure
+description: Con questo percorso di apprendimento, iniziare a configurare le ricerche DNS inverse per i servizi ospitati in Azure.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 073e84ece11f6817bfe2c5a94735ec6e16dac4fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76932362"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurare il DNS inverso per i servizi ospitati in Azure

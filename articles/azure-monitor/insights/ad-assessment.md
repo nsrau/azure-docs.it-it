@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667228"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Monitoraggio di Azure
@@ -35,7 +35,7 @@ Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* La soluzione controllo integrità di Active Directory richiede una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato l'agente log Analytics per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016 - Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
+* Per la soluzione di controllo integrità Active Directory è necessaria una versione supportata di .NET Framework 4.6.2 o versione successiva installata in ogni computer in cui è installato l'agente Log Analytics per Windows (noto anche come Microsoft Monitoring Agent (MMA)).  L'agente viene usato da System Center 2016-Operations Manager, Operations Manager 2012 R2 e monitoraggio di Azure.
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * area di lavoro Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure. Non è necessaria alcuna configurazione aggiuntiva.
 
@@ -44,9 +44,9 @@ Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Co
   >
   >
 
-Per eseguire il controllo di integrità sui controller di dominio che sono membri del dominio da valutare, ogni controller di dominio in tale dominio richiede un agente e la connettività ad Azure Monitor usando uno dei metodi supportati seguenti:
+Per eseguire il controllo dell'integrità sui controller di dominio membri del dominio da valutare, ogni controller di dominio in tale dominio richiede un agente e la connettività a monitoraggio di Azure utilizzando uno dei metodi supportati seguenti:
 
-1. Installare [l'agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) se il controller di dominio non è già monitorato da System Center 2016 - Operations Manager o Operations Manager 2012 R2.
+1. Installare l' [agente di log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) se il controller di dominio non è già monitorato da System Center 2016-Operations Manager o Operations Manager 2012 R2.
 2. Se si esegue il monitoraggio con System Center 2016 Operations Manager oppure Operations Manager 2012 R2 e il gruppo di gestione non è integrato con Monitoraggio di Azure, è possibile usare una configurazione multihomed del controller di dominio con Monitoraggio di Azure per raccogliere i dati e inoltrarli al servizio, mantenendo il monitoraggio tramite Operations Manager.  
 3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) dopo aver abilitato la soluzione nell'area di lavoro.  
 
@@ -134,7 +134,7 @@ Usare la query seguente per elencare le raccomandazioni non riuscite per i compu
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Ecco uno screenshot che mostra la query di log:<
+Ecco una schermata che mostra la query di log: <
 
 ![raccomandazioni non riuscite](media/ad-assessment/ad-failed-recommendations.png)
 
@@ -166,7 +166,7 @@ Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazi
 
 ## <a name="ad-health-check-solutions-faq"></a>Domande frequenti sulla soluzione Controllo integrità AD
 
-*Quali controlli vengono eseguiti dalla soluzione di valutazione di Active Directory?*
+*Quali controlli vengono eseguiti dalla soluzione Valutazione AD?*
 
 * La query seguente illustra una descrizione di tutti i controlli attualmente eseguiti:
 
@@ -193,15 +193,15 @@ I risultati possono quindi essere esportati in Excel per analizzarli più attent
 
 * Se un server non invia dati per 3 settimane, verrà rimosso.
 
-*Qual è il nome del processo che esegue la raccolta dei dati?*
+*Qual è il nome del processo che esegue la raccolta dati?*
 
 * AdvisorAssessment.exe
 
-*Quanto tempo ci vuole per la raccolta dei dati?*
+*Quanto tempo è necessario per la raccolta dei dati?*
 
 * La raccolta di dati effettiva sul server richiede circa 1 ora. Potrebbe essere necessario più tempo nei server in cui è presente un numero elevato di server di Active Directory.
 
-*Esiste un modo per configurare la raccolta dei dati?*
+*È possibile configurare il momento in cui vengono raccolti i dati?*
 
 * Attualmente non è possibile.
 

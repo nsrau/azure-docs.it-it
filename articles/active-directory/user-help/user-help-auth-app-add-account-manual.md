@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: b237f710866ad3960dd65902c0789228d8c391bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062320"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
@@ -93,7 +93,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 5. Nella pagina **Aggiungi un metodo di verifica di sicurezza** sul computer digitare il codice di verifica a sei cifre fornito dal metodo di verifica di sicurezza per l'account di Amazon e quindi selezionare **Verifica il codice e continua**.
 
-6. Nella pagina Quasi completato decidere se rendere il computer un dispositivo attendibile e quindi selezionare **Ricevuto. Attivare verifica in due passaggi**.
+6. Nella pagina quasi finito decidere se rendere il computer un dispositivo attendibile, quindi selezionare **ottenuto. Attivare la verifica in due passaggi**.
 
     Viene visualizzata la pagina **Impostazioni di sicurezza avanzate**, che mostra i dettagli aggiornati della verifica a due fattori.
 
@@ -104,6 +104,6 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Microsoft Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
 
-- In caso di problemi nell'ottenere il codice di verifica per il tuo account Microsoft personale, consulta la sezione **Risoluzione dei problemi** relativi ai codici di verifica nell'articolo Codici di [sicurezza dell'account Microsoft &.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
+- Se si verificano problemi durante il recupero del codice di verifica per la account Microsoft personale, vedere la sezione **risoluzione dei problemi del codice di verifica** per la risoluzione dei problemi dell'articolo [account Microsoft informazioni di sicurezza & codici di verifica](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

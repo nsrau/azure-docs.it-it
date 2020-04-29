@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
 ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663131"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Dettagli sull'inventario e sulla raccolta dei dati per le soluzioni di monitoraggio in Azure
@@ -35,7 +35,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 
 
 
-| **Soluzione di monitoraggio** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente Operations Manager inviati con il gruppo di gestione** | **Frequenza di raccolta** |
+| **Soluzione di monitoraggio** | **Platform** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente Operations Manager inviati con il gruppo di gestione** | **Frequenza di raccolta** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Analisi log attività](../platform/activity-log-collect.md) | Azure | | | | | | su notifica |
 | [AD Assessment](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |
@@ -48,7 +48,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Connettore di Application Insights (Deprecato)](../platform/app-insights-connector.md) | Azure | | | |  |  | su notifica |
 | [Ruolo di lavoro ibrido per runbook di Automazione](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
 | [Analisi dei gateway applicazione di Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | su notifica |
-| **Soluzione di monitoraggio** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente Operations Manager inviati con il gruppo di gestione** | **Frequenza di raccolta** |
+| **Soluzione di monitoraggio** | **Platform** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente Operations Manager inviati con il gruppo di gestione** | **Frequenza di raccolta** |
 | [Analisi gruppo di sicurezza di rete di Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | su notifica |
 | [Azure SQL Analytics (Anteprima)](azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | su notifica |
@@ -60,7 +60,7 @@ L'elenco seguente include le spiegazioni per le colonne:
 | [Malware Assessment](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |Ogni ora |
 | [Monitoraggio delle prestazioni di rete](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP esegue handshake ogni 5 secondi e i dati vengono inviati ogni 3 minuti |
 | [Office 365 Analytics (anteprima)](solution-office-365.md) |Windows | | | | | |su notifica |
-| **Soluzione di monitoraggio** | **Piattaforma** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente Operations Manager inviati con il gruppo di gestione** | **Frequenza di raccolta** |
+| **Soluzione di monitoraggio** | **Platform** | **Microsoft Monitoring Agent** | **Agente di Operations Manager** | **Archiviazione di Azure** | **È necessario Operations Manager?** | **Dati dell'agente Operations Manager inviati con il gruppo di gestione** | **Frequenza di raccolta** |
 | [Service Fabric Analytics](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuti |
 | [Mapping dei servizi](service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 5 secondi |
 | [SQL Assessment](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 giorni |

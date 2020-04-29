@@ -15,10 +15,10 @@ ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 969a2fb5444ae8ece2aa302c04a5bbb85dcca917
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057720"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
@@ -153,7 +153,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Autorizzare G Suite](media/google-apps-provisioning-tutorial/authorize.png)
 
-1. Confermare che si desidera concedere Azure AD autorizzazioni per apportare modifiche al tenant di G Suite. Selezionare **Accetto**.
+1. Confermare che si desidera concedere Azure AD autorizzazioni per apportare modifiche al tenant di G Suite. Selezionare **Accetta**.
 
     ![Verificare le autorizzazioni.][28]
 

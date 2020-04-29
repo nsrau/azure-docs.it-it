@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: rohink
 ms.openlocfilehash: 2aee4282fe6a66151ea39018f0d6c0db51f2c027
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76939126"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
@@ -29,7 +29,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Per aggiungere un endpoint di servizio cloud o servizio app a un profilo di Gestione traffico
 
-1. Da un browser accedere al portale di [Azure.](https://portal.azure.com)
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**.
 4. Nel pannello **Endpoint** visualizzato fare clic su **Aggiungi**.
@@ -49,7 +49,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 ## <a name="to-disable-an-endpoint"></a>Per disabilitare un endpoint
 
-1. Da un browser accedere al portale di [Azure.](https://portal.azure.com)
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
 4. Fare clic sull'endpoint che si desidera disabilitare.
@@ -58,7 +58,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 ## <a name="to-enable-an-endpoint"></a>Per abilitare un endpoint
 
-1. Da un browser accedere al portale di [Azure.](https://portal.azure.com)
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
 4. Fare clic sull'endpoint che si desidera abilitare.
@@ -67,11 +67,11 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 
 ## <a name="to-delete-an-endpoint"></a>Per eliminare un endpoint
 
-1. Da un browser accedere al portale di [Azure.](https://portal.azure.com)
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
 4. Fare clic sull'endpoint che si desidera eliminare.
-5. Nel pannello **Endpoint** fare clic su **Elimina**
+5. Nel pannello **endpoint** fare clic su **Elimina** .
 
 
 ## <a name="next-steps"></a>Passaggi successivi

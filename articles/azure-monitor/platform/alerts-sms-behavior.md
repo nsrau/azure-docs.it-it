@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665307"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento degli avvisi SMS nei gruppi di azione
@@ -44,5 +44,5 @@ Un ricevitore di SMS configurato come parte di un gruppo di azioni riceverà un 
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere una [panoramica degli avvisi del log attività](alerts-overview.md) e informazioni sulla ricezione degli avvisi  
 Altre informazioni sulla [limitazione della frequenza degli SMS](alerts-rate-limiting.md)  
-Ulteriori informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md)
+Altre informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md)
 

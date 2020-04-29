@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
 ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76935328"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Log di Monitoraggio di Azure per Load Balancer Basic pubblico
@@ -48,7 +48,7 @@ Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [c
 6. Nel riquadro di creazione **impostazioni di diagnostica** immettere **MyLBDiagnostics** nel campo **nome** .
 7. Sono disponibili tre opzioni per le **impostazioni di diagnostica**.  È possibile scegliere uno, due o tutti e tre e configurare ognuno per i requisiti:
    * **Archivia in un account di archiviazione**
-   * **Streaming in un hub eventi**
+   * **Trasmettere a un hub eventi**
    * **Invia a Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Archivia in un account di archiviazione

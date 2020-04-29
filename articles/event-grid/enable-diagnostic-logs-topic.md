@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: a32d26629bb9efed4a4f1f49eee2f0534e1873a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960503"
 ---
 #  <a name="diagnostic-logs-for-an-azure-event-grid-topic"></a>Log di diagnostica per un argomento di griglia di eventi di Azure
@@ -42,7 +42,7 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 
         ![Archivia in un account di archiviazione di Azure](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Se si seleziona **flusso in un hub eventi**, selezionare **Hub eventi-configura**, quindi selezionare lo spazio dei nomi di hub eventi, l'hub eventi e i criteri di accesso. 
-        ![Streaming in un hub eventi](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Trasmettere a un hub eventi](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Se si seleziona **Invia a log Analytics**, selezionare l'area di lavoro log Analytics.
         ![Invia a Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 7. Selezionare le opzioni **DeliveryFailures** e **PublishFailures** nella sezione **log** . 

@@ -1,5 +1,5 @@
 ---
-title: La scalabilità orizzontale HSR-Pacemaker di SAP HANA con SLES in macchine virtuali di Azure Documenti Microsoft
+title: SAP HANA con scalabilità orizzontale HSR-pacemaker con SLES in macchine virtuali di Azure risoluzione dei problemi | Microsoft Docs
 description: Informazioni per verificare e risolvere i problemi relativi a una complessa configurazione di tipo scale-out a disponibilità elevata per SAP HANA, basata su SAP HANA System Replication (HSR) e Pacemaker, su SLES 12 SP3 in esecuzione su macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617129"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
@@ -119,7 +119,7 @@ L'istruzione SQL seguente restituisce l'ID e il numero di istanza e altre inform
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-Per trovare i numeri di porta corretti, è possibile cercare, ad esempio, in HANA Studio in Configurazione o tramite un'istruzione SQL:To find the correct port numbers, you can look, for example, in HANA Studio under **Configuration** or via a SQL statement:
+Per trovare i numeri di porta corretti, è possibile cercare, ad esempio, in HANA studio in **configurazione** o tramite un'istruzione SQL:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
@@ -452,12 +452,12 @@ Durante i test e le verifiche, dopo il riavvio di una macchina virtuale, in alcu
 
 1. Avviare YaST2.
 2. Selezionare **Servizi di rete** nel riquadro sinistro.
-3. Scorrere verso il basso sul lato destro fino a **Initiator iSCSI** e selezionarlo.
+3. Scorrere verso il basso sul lato destro dell' **iniziatore iSCSI** e selezionarlo.
 4. Nella schermata successiva, nella scheda **Servizio**, dovrebbe essere visualizzato il nome univoco dell'iniziatore per il nodo.
 5. Sopra il nome dell'iniziatore verificare che **Avvio servizio** sia impostato su **Durante l'avvio**.
 6. In caso contrario, impostare **Durante l'avvio** anziché **Manualmente**.
-7. Successivamente, passare alla scheda superiore su **Destinazioni connesse**.
-8. Nella schermata **Destinazioni connesse** dovrebbe essere visualizzata una voce per il dispositivo SBD come questo esempio: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+7. Passare quindi alla scheda superiore per le **destinazioni connesse**.
+8. Nella schermata **destinazioni connesse** dovrebbe essere visualizzata una voce per il dispositivo SBD, ad esempio: **10.0.0.19:3260 IQN. 2006-04. dbhso. local: dbhso**.
 9. Verificare se **Avvio** è impostato su **on boot**.
 10. In caso contrario, scegliere **Modifica** e modificare l'impostazione.
 11. Salvare le modifiche e uscire da YaST2.
@@ -504,7 +504,7 @@ Per visualizzare tutte le risorse configurate in Pacemaker, eseguire il comando 
 crm status
 </code></pre>
 
-L'output dovrebbe avere un aspetto simile all'esempio seguente. È accettabile che le risorse **cln** e **msl** risultino arrestate sulla macchina virtuale di maggioranza, **hso-hana-dm**. Non è presente alcuna installazione di SAP HANA sul nodo di maggioranza e pertanto le risorse **cln** e **msl** risultano arrestate. È importante che mostri il numero totale corretto di macchine virtuali, **7**. Tutte le macchine virtuali che fanno parte del cluster devono essere elencate con stato **Online**. Il nodo master primario corrente deve essere riconosciuto correttamente. In questo esempio è **hso-hana-vm-s1-0**:
+L'output dovrebbe avere un aspetto simile all'esempio seguente. È accettabile che le risorse **cln** e **msl** risultino arrestate sulla macchina virtuale di maggioranza, **hso-hana-dm**. Non è presente alcuna installazione di SAP HANA sul nodo di maggioranza e pertanto le risorse **cln** e **msl** risultano arrestate. È importante che mostri il numero totale corretto di VM, **7**. Tutte le macchine virtuali che fanno parte del cluster devono essere elencate con stato **Online**. Il nodo master primario corrente deve essere riconosciuto correttamente. In questo esempio è **hso-hana-vm-s1-0**:
 
 <pre><code>
 Stack: corosync
@@ -682,7 +682,7 @@ watch SAPHanaSR-showAttr
 
 Esistono alcuni tentativi per evitare failover non necessari. Il cluster reagisce solo se lo stato passa da **Ok**, con valore restituito **4**, a **error**, con valore restituito **1**. È quindi corretto se l'output restituito da **SAPHanaSR-showAttr** mostra una macchina virtuale con stato **offline**. Non vi sono ancora tuttavia attività che determinano il passaggio da primaria a secondaria. Nessuna attività del cluster viene attivata, purché SAP HANA non restituisca un errore.
 
-È possibile monitorare lo stato di integrità del paesaggio SAP HANA come utente ** \<HANA\>SID adm** chiamando lo script SAP Python come indicato di seguito. Può essere necessario adattare il percorso:
+È possibile monitorare lo stato di integrità di SAP Hana Landscape come utente ** \<Hana SID\>ADM** chiamando lo script SAP Python come indicato di seguito. Può essere necessario adattare il percorso:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 La soluzione cluster offre un'interfaccia utente grafica su browser per gli utenti che preferiscono i menu e la grafica rispetto ai comandi a livello di shell.
-Per utilizzare l'interfaccia ** \<\> ** del browser, sostituire nodo con un nodo SAP HANA effettivo nell'URL seguente. Immettere quindi le credenziali del cluster (utente **cluster**):
+Per utilizzare l'interfaccia del browser, ** \<sostituire\> node** con un nodo SAP Hana effettivo nell'URL seguente. Immettere quindi le credenziali del cluster (utente **cluster**):
 
 <pre><code>
 https://&ltnode&gt:7630

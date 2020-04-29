@@ -1,5 +1,5 @@
 ---
-title: Query avanzate in Monitor di Azure Documenti Microsoft
+title: Query avanzate in monitoraggio di Azure | Microsoft Docs
 description: Questa esercitazione illustra l'uso del portale di analisi per la scrittura di query in Monitoraggio di Azure.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670288"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Scrittura di query avanzate in Monitoraggio di Azure
 
 > [!NOTE]
-> È necessario completare [Introduzione a Azure Monitor Log Analytics](get-started-portal.md) e Introduzione alle [query](get-started-queries.md) prima di completare questa lezione.
+> È necessario completare Introduzione [a monitoraggio di Azure log Analytics](get-started-portal.md) e [iniziare a usare le query](get-started-queries.md) prima di completare questa lezione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -69,7 +69,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questo è spesso usato nei casi in cui è necessario un semplice calcolo. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
+`print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questa operazione viene spesso usata nei casi in cui è necessario un calcolo semplice. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
 
 ```Kusto
 print nowPst = now()-8h

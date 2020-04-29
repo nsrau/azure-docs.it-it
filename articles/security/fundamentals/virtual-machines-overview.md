@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di sicurezza usate con le macchine virtuali di AzureSecurity features used with Azure VMs
+title: Funzionalità di sicurezza usate con le macchine virtuali di Azure
 titleSuffix: Azure security
 description: Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Macchine virtuali di Azure.
 services: security
@@ -17,14 +17,14 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657164"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
-Questo articolo offre una panoramica delle funzionalità di sicurezza di Azure di base che possono essere usate con le macchine virtuali.
+Questo articolo fornisce una panoramica delle funzionalità di sicurezza principali di Azure che possono essere usate con le macchine virtuali.
 
 Con le Macchine virtuali di Azure è possibile distribuire in modo flessibile un'ampia gamma di soluzioni di elaborazione. Il servizio supporta Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e servizi BizTalk di Azure. In questo modo è possibile distribuire qualsiasi carico di lavoro e implementare qualsiasi lingua su quasi tutti i sistemi operativi.
 
@@ -46,12 +46,12 @@ Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funz
 
 Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. È possibile distribuire la protezione in base alle esigenze dei carichi di lavoro dell'applicazione, con una configurazione sicura per impostazione predefinita o avanzata personalizzata, incluso il monitoraggio antimalware.
 
-Altre informazioni su [Microsoft Antimalware per Azure](antimalware.md) e sulle funzionalità di base disponibili.
+Scopri di più su [Microsoft antimalware per Azure](antimalware.md) e sulle funzionalità di base disponibili.
 
 Per altre informazioni sul software antimalware per la protezione delle macchine virtuali:
 
 * [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale WindowsHow to install and configure Trend Micro Deep Security as a service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
+* [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale Windows](/azure/virtual-machines/windows/classic/install-trend)
 * [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](/azure/virtual-machines/windows/classic/install-symantec)
 * [Soluzioni di sicurezza in Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -84,7 +84,7 @@ Altre informazioni:
 
 ## <a name="virtual-machine-disk-encryption"></a>Crittografia dischi delle macchine virtuali
 
-Crittografia dischi di Azure è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali Windows e Linux. Crittografia disco di Azure usa la funzionalità [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) standard del settore di Windows e la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati.
+Crittografia dischi di Azure è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali Windows e Linux. Crittografia dischi di Azure usa la funzionalità [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) standard di settore di Windows e la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati.
 
 La soluzione è integrata con Azure Key Vault per consentire di controllare e gestire le chiavi di crittografia dei dischi e i segreti nella sottoscrizione dell'insieme di credenziali delle chiavi. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
 
@@ -100,7 +100,7 @@ Backup di Azure è una soluzione scalabile che consente di proteggere i dati del
 Altre informazioni:
 
 * [Informazioni su Backup di Azure](/azure/backup/backup-introduction-to-azure-backup)
-* [Domande frequenti sul servizio Backup di AzureAzure Backup service FAQ](/azure/backup/backup-azure-backup-faq)
+* [Domande frequenti sul servizio backup di Azure](/azure/backup/backup-azure-backup-faq)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -117,7 +117,7 @@ Site Recovery:
 Altre informazioni:
 
 * [Che cos'è Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [Come funziona Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
+* [In che modo Azure Site Recovery funziona?](/azure/site-recovery/site-recovery-components)
 * [Quali carichi di lavoro sono protetti da Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
 ## <a name="virtual-networking"></a>Reti virtuali
@@ -129,7 +129,7 @@ Una rete virtuale di Azure è un costrutto logico basato sull'infrastruttura di 
 Altre informazioni:
 
 * [Panoramica della sicurezza di rete di Azure](network-overview.md)
-* [Panoramica della rete virtuale](/azure/virtual-network/virtual-networks-overview)
+* [Panoramica di rete virtuale](/azure/virtual-network/virtual-networks-overview)
 * [Funzionalità di rete e partnership per scenari aziendali](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gestione e reporting dei criteri di sicurezza
@@ -167,8 +167,8 @@ Gli ambienti di esecuzione attendibili impediscono qualsiasi tentativo di visual
 Altre informazioni:
 
 * [Introducing Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/) (Introduzione al confidential computing di Azure)  
-* [Azure confidential computing](https://azure.microsoft.com/blog/azure-confidential-computing/) (Confidential computing di Azure)  
+* [Confidential computing di Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle procedure consigliate per [la sicurezza](iaas.md) per le macchine virtuali e i sistemi operativi.
+Informazioni sulle [procedure di sicurezza consigliate](iaas.md) per le macchine virtuali e i sistemi operativi.

@@ -1,6 +1,6 @@
 ---
-title: Misurazioni utente reale con pagine Web - Gestione traffico di AzureReal User Measurements with web pages - Azure Traffic Manager
-description: In questo articolo viene illustrato come configurare le pagine Web per l'invio di misurazioni utente reale a Gestione traffico di Azure.In this article s app how to set up your web pages to send Real User Measurements to Azure Traffic Manager.
+title: Misurazioni utente reale con le pagine Web-gestione traffico di Azure
+description: Questo articolo illustra come configurare le pagine Web per inviare misurazioni utente reale a gestione traffico di Azure.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 927d774ee30a291607a8a47fc2fd6878c1bc6fee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938689"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Come inviare le Misurazioni utente reale a Gestione traffico di Azure usando le pagine Web
@@ -66,7 +66,7 @@ Dopo aver ottenuto la chiave RUM, il passaggio successivo consiste nell'incorpor
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [Misurazioni utente reale](traffic-manager-rum-overview.md)
-- Scopri [come funziona Gestione traffico](traffic-manager-overview.md)
+- Informazioni [sul funzionamento di gestione traffico](traffic-manager-overview.md)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
 

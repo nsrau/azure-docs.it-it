@@ -1,14 +1,14 @@
 ---
-title: Creare criteri di backup usando l'API RESTCreate backup policies using REST API
-description: In questo articolo verrà illustrato come creare e gestire i criteri di backup (pianificazione e conservazione) tramite l'API REST.
+title: Creare criteri di backup usando l'API REST
+description: In questo articolo si apprenderà come creare e gestire i criteri di backup (pianificazione e conservazione) usando l'API REST.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76963853"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
@@ -29,7 +29,7 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Nome  |Obbligatoria  |Type  |Descrizione  |
+|Name  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
 |tags     |         | Oggetto        |  Tag delle risorse       |
@@ -135,7 +135,7 @@ Il criterio indica:
 
 La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-Restituisce due risposte: 202 (Accettato) quando viene creata un'altra operazione e quindi 200 (OK) al completamento dell'operazione.
+Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione, quindi 200 (OK) al termine dell'operazione.
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|

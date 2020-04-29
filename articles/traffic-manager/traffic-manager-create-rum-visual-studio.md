@@ -1,5 +1,5 @@
 ---
-title: Misurazioni utente reali con Visual Studio Mobile Center - Gestione traffico di AzureReal User Measurements with Visual Studio Mobile Center - Azure Traffic Manager
+title: Misurazioni utente reale con Visual Studio Mobile Center-gestione traffico di Azure
 description: Configurare l'applicazione per dispositivi mobili sviluppata usando Visual Studio Mobile Center per inviare Misurazioni utente reale a Gestione traffico
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 3106334e1fb3e3000cbd09e00e413b34a1b55e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76939191"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Come inviare Misurazioni utente reale a Gestione traffico con Visual Studio Mobile Center
@@ -41,7 +41,7 @@ Per ottenere la chiave RUM usando il portale di Azure attenersi alla procedura s
         
    ![Generare una chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generazione della chiave Real User Measurements**
+   **Figura 1: generazione della chiave di misurazioni utente reale**
 
 5. La pagina visualizzata include la chiave RUM generata e un frammento di codice JavaScript che deve essere incorporato nella pagina HTML.
  
@@ -98,7 +98,7 @@ Per usare Misurazioni utente reale, completare la procedura seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [Misurazioni utente reale](traffic-manager-rum-overview.md)
-- Scopri [come funziona Gestione traffico](traffic-manager-overview.md)
+- Informazioni [sul funzionamento di gestione traffico](traffic-manager-overview.md)
 - Altre informazioni su [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - [Iscriversi](https://mobile.azure.com) a Mobile Center
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico

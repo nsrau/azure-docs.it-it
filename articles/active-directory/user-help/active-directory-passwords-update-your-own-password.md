@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062660"
 ---
-# <a name="reset-your-work-or-school-password-using-security-info"></a>Reimpostare la password aziendale o dell'istituto di istruzione usando le informazioni di sicurezza
+# <a name="reset-your-work-or-school-password-using-security-info"></a>Reimposta la password aziendale o dell'Istituto di istruzione usando le info di sicurezza
 
-Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione. L'amministratore deve attivare questa funzione per poter configurare le informazioni e reimpostare la propria password.
+Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione. L'amministratore deve attivare questa funzionalità per poter configurare le informazioni e reimpostare la propria password.
 
-Se si conosce la password, ma si desidera modificarla, vedere le sezioni [Modificare i passaggi](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) della password di questo articolo.
+Se si conosce la password, ma si vuole modificarla, vedere le sezioni [modificare i passaggi](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) per la password di questo articolo.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di reimpostare la password di un account aziendale o dell'istituto di istruzione dimenticata o sconosciuta. Per gli amministratori che cercano informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere Distribuzione della [password self-service](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)di Azure AD e altri articoli .
+>Questo articolo è destinato agli utenti che tentano di usare la reimpostazione di una password dell'account aziendale o dell'Istituto di istruzione dimenticata o sconosciuta. Se si è un amministratore che cerca informazioni su come attivare la reimpostazione della password self-service per i dipendenti o altri utenti, vedere la pagina relativa alla [distribuzione Azure ad la reimpostazione della password self-service e altri articoli](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Come reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione
 
@@ -117,7 +117,7 @@ Usare questo metodo se in genere si accede alle app tramite il portale di Office
 
 2. Selezionare il profilo in alto a destra e quindi selezionare **Visualizza account**.
 
-3. Selezionare **Protezione & privacy** > **Password**.
+3. Selezionare **sicurezza & privacy** > **password**.
 
 4. Digitare la password precedente, creare e confermare la nuova password, quindi selezionare **Invia**.
 
@@ -160,10 +160,10 @@ Di seguito sono riportati alcuni degli errori più comuni e le relative soluzion
 |Quando si tenta di modificare la password, viene visualizzato un errore. |La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare.| Riprovare con una password più complessa.|
 |Dopo avere immesso l'ID utente, viene visualizzata una pagina in cui è indicato "Contattare l'amministratore".|Microsoft ha stabilito che la password dell'account utente è gestita dall'amministratore in un ambiente locale. Di conseguenza, non è possibile reimpostare la password dal collegamento "Problemi di accesso all'account?". |Contattare l'amministratore per ulteriore assistenza.|
 |Dopo aver immesso l'ID utente, viene visualizzato il messaggio di errore "Account non abilitato per la reimpostazione della password".|L'amministratore non ha configurato l'account in modo da consentire la reimpostazione della password.|L'amministratore non ha attivato la reimpostazione della password per l'organizzazione dal collegamento "Problemi di accesso all'account?" o non consente all'utente di usare la funzionalità.<br><br> Per reimpostare la password, è necessario selezionare il collegamento "Contattare l'amministratore" e inviare un messaggio di posta elettronica all'amministratore dell'azienda per richiedere la reimpostazione della password.|
-|Dopo aver immesso l'ID utente, viene visualizzato l'errore "Impossibile verificare l'account".|Durante il processo di accesso non è stato possibile verificare le informazioni dell'account.|Questo messaggio potrebbe essere visualizzato per due motivi.<br><br>1. L'amministratore ha attivato la reimpostazione della password per l'organizzazione, ma non è stata registrata per utilizzare il servizio. Per eseguire la registrazione per la reimpostazione della password, vedere uno degli articoli seguenti, in base al metodo di verifica in uso: [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)](security-info-setup-auth-app.md), [Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica (anteprima)](security-info-setup-phone-number.md), [Configurare le informazioni di sicurezza per l'uso di SMS (anteprima)](security-info-setup-text-msg.md), [Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)](security-info-setup-email.md) o [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza (anteprima) ](security-info-setup-questions.md).<br><br>2. L'amministratore non ha attivato la reimpostazione della password per l'organizzazione. In questa situazione, è necessario selezionare il collegamento "Contattare l'amministratore" per inviare un messaggio di posta elettronica all'amministratore e richiedere la reimpostazione della password.|
+|Dopo aver immesso l'ID utente, viene visualizzato l'errore "Impossibile verificare l'account".|Durante il processo di accesso non è stato possibile verificare le informazioni dell'account.|Questo messaggio potrebbe essere visualizzato per due motivi.<br><br>1. l'amministratore ha attivato la reimpostazione della password per l'organizzazione, ma non è stata registrata per l'uso del servizio. Per eseguire la registrazione per la reimpostazione della password, vedere uno degli articoli seguenti, in base al metodo di verifica in uso: [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)](security-info-setup-auth-app.md), [Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica (anteprima)](security-info-setup-phone-number.md), [Configurare le informazioni di sicurezza per l'uso di SMS (anteprima)](security-info-setup-text-msg.md), [Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)](security-info-setup-email.md) o [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza (anteprima) ](security-info-setup-questions.md).<br><br>2. l'amministratore non ha attivato la reimpostazione della password per l'organizzazione. In questa situazione, è necessario selezionare il collegamento "Contattare l'amministratore" per inviare un messaggio di posta elettronica all'amministratore e richiedere la reimpostazione della password.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sulle informazioni di sicurezza sono disponibili nell'articolo [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).
 
-- Se si sta tentando di accedere nuovamente a un account personale come Xbox, hotmail.com o outlook.com, provare i suggerimenti [nell'articolo Quando non è possibile accedere all'account Microsoft.](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- Se si sta provando a tornare a un account personale, ad esempio Xbox, hotmail.com o outlook.com, provare i suggerimenti nel [quando non è possibile accedere al account Microsoft articolo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

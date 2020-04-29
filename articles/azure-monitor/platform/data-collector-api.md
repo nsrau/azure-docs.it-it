@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
 ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666753"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
@@ -34,7 +34,7 @@ Tutti i dati nell'area di lavoro Log Analytics vengono archiviati come record co
 ## <a name="create-a-request"></a>Creare una richiesta
 Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che include i dati da inviare in formato JSON (JavaScript Object Notation).  Le tre tabelle successive indicano gli attributi necessari per ogni richiesta. Ogni attributo viene descritto con maggiori dettagli più avanti nell'articolo.
 
-### <a name="request-uri"></a>URI della richiesta
+### <a name="request-uri"></a>URI richiesta
 | Attributo | Proprietà |
 |:--- |:--- |
 | Metodo |POST |
@@ -92,7 +92,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Gli esempi nelle sezioni successive indicano il codice di esempio per creare l'intestazione dell'autorizzazione.
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più record con le coppie nome e valore della proprietà nel formato seguente. Il nome della proprietà può contenere solo lettere, numeri e caratteri di sottolineatura (_).
 
 ```json
@@ -134,7 +134,7 @@ Per identificare il tipo di dati di una proprietà, Monitoraggio di Azure aggiun
 
 | Tipo di dati proprietà | Suffisso |
 |:--- |:--- |
-| string |_s |
+| Stringa |_s |
 | Boolean |_b |
 | Double |_d |
 | Data/ora |_t |

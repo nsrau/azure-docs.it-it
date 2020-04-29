@@ -1,6 +1,6 @@
 ---
-title: Impostare le domande di sicurezza come metodo di verifica - Azure ADSet up security questions as your verification method - Azure AD
-description: Come configurare la pagina Informazioni di sicurezza (anteprima) per verificare la tua identità utilizzando domande di sicurezza predefinite come metodo di verifica.
+title: 'Configurare domande di sicurezza come metodo di verifica: Azure AD'
+description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare la propria identità usando le domande di sicurezza predefinite come metodo di verifica.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 236f1e4e41488b926d9fc2e5e717e68090a0ed7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063969"
 ---
-# <a name="set-up-security-questions-as-your-verification-method"></a>Impostare le domande di sicurezza come metodo di verifica
+# <a name="set-up-security-questions-as-your-verification-method"></a>Configurare domande di sicurezza come metodo di verifica
 
 È possibile seguire questi passaggi per aggiungere il metodo di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se non vedi l'opzione domande di sicurezza, è possibile che l'organizzazione non consenta di utilizzare questa opzione per il metodo di reimpostazione della password. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriore assistenza.
+>Se non viene visualizzata l'opzione domande di sicurezza, è possibile che l'organizzazione non consenta di usare questa opzione per il metodo di reimpostazione della password. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriori informazioni.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
 
@@ -51,7 +51,7 @@ Se vengono usate le domande di sicurezza, è consigliabile combinare questo meto
 >
 > Se l'opzione relativa alle domande di sicurezza non viene visualizzata, è possibile che l'organizzazione non consenta di usare le domande di sicurezza per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
 >
-> Gli account amministratore non sono autorizzati a utilizzare Domande di sicurezza come metodo di reimpostazione della password. Se hai effettuato l'accesso come account di livello amministratore, queste opzioni non verranno visualizzate.
+> Gli account amministratore non sono autorizzati a utilizzare le domande di sicurezza come metodo di reimpostazione della password. Se si è connessi come account a livello di amministratore, queste opzioni non verranno visualizzate.
 
 ### <a name="to-set-up-your-security-questions"></a>Per configurare le domande di sicurezza
 
@@ -92,15 +92,15 @@ Per non usare più le domande di sicurezza come metodo di gestione delle informa
 
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, Queste opzioni includono:
 
-- **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
+- **App Authenticator.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
 - **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Chiave di sicurezza.** Registra la chiave di sicurezza compatibile con Microsoft e usala insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere Configurare le informazioni di [sicurezza per l'utilizzo](security-info-setup-security-key.md)di una chiave di sicurezza.
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
 
-- **indirizzo email.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
+- **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
     >[!Note]
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.

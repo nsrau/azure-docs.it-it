@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670220"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
@@ -19,7 +19,7 @@ Per usare una query di log con un'altra query è possibile salvarla come funzion
 
 ## <a name="create-a-function"></a>Creare una funzione
 
-Creare una funzione con Log Analytics nel portale di Azure facendo clic su **Salva** e quindi fornendo le informazioni nella tabella seguente.
+Per creare una funzione con Log Analytics nel portale di Azure, fare clic su **Salva** e quindi fornire le informazioni riportate nella tabella seguente.
 
 | Impostazione | Descrizione |
 |:---|:---|

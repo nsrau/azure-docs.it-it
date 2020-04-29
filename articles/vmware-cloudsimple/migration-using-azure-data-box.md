@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019758"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migrazione dei dati alla soluzione VMware di Azure tramite Azure Data Box
@@ -54,7 +54,7 @@ Connettersi all'interfaccia utente Web locale di Data Box seguendo la procedura 
 
     ![Configurare l'accesso dei client NFS 1](media/nfs-client-access.png)
 
-2. Immettere l'indirizzo IP del VMware ESXi host e selezionare **Aggiungi**. È possibile configurare l'accesso per tutti gli host nel cluster vSphere ripetendo questo passaggio. Fare clic su **OK**.
+2. Immettere l'indirizzo IP del VMware ESXi host e selezionare **Aggiungi**. È possibile configurare l'accesso per tutti gli host nel cluster vSphere ripetendo questo passaggio. Selezionare **OK**.
 
     ![Configurare l'accesso dei client NFS 2](media/nfs-client-access2.png)
 > [!IMPORTANT]

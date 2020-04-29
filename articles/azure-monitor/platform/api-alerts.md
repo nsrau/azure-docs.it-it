@@ -1,14 +1,14 @@
 ---
 title: Uso dell'API REST degli avvisi di Log Analytics
-description: L'API REST di avviso di Log Analytics consente di creare e gestire avvisi in Log Analytics, che fa parte di Log Analytics.The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics, which is part of Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
+description: L'API REST per gli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che fa parte di Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665001"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST 
@@ -16,7 +16,7 @@ ms.locfileid: "77665001"
 L'API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics.  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 
 > [!IMPORTANT]
-> Come [annunciato in precedenza,](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)le aree di lavoro di analisi dei log create dopo il *1 giugno 2019* - saranno in grado di gestire le regole di avviso **usando solo** l'API [REST di](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)Azure scheduledQueryRules , il modello Azure Resource [Mananger Template](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e il cmdlet [PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). I clienti possono facilmente cambiare il [loro mezzo preferito di gestione delle regole di avviso](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) per le aree di lavoro precedenti per sfruttare monitor scheduledQueryRules di Azure come impostazione predefinita e ottenere molti nuovi [vantaggi](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) come la possibilità di utilizzare cmdlet powerShell nativi, un maggiore periodo di tempo di ricerca nelle regole, la creazione di regole in gruppo di risorse separato o sottoscrizione e molto altro ancora.
+> Come [annunciato in precedenza](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le aree di lavoro di log Analytics create dopo *il 1 ° giugno 2019* . saranno in grado di gestire le regole di avviso usando **solo** l' [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)di Azure scheduledQueryRules, il [modello Manager di risorse di Azure](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e il cmdlet di [PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). I clienti possono [passare facilmente alla gestione delle regole di avviso](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) per le aree di lavoro precedenti per sfruttare le ScheduledQueryRules di monitoraggio di Azure come predefinite e ottenere molti [nuovi vantaggi](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , ad esempio la possibilità di usare i cmdlet nativi di PowerShell, il periodo di tempo lookback maggiore nelle regole, la creazione di regole in un gruppo di risorse separato o una sottoscrizione e molto altro ancora.
 
 L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento vengono forniti alcuni esempi in cui si accede all'API dalla riga di comando di PowerShell tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful di Azure Resource Manager per effettuare chiamate alle aree di lavoro di Log Analytics ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
@@ -70,7 +70,7 @@ Usare il metodo Put con un ID pianificazione univoco per creare una nuova pianif
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Modifica di una pianificazione
-Usare il metodo Put con un ID pianificazione esistente per la stessa ricerca salvata per modificare la pianificazione. nell'esempio seguente la pianificazione è stata disabilitata. Il corpo della richiesta deve includere *l'etag* della pianificazione.
+Usare il metodo Put con un ID pianificazione esistente per la stessa ricerca salvata per modificare la pianificazione. nell'esempio seguente la pianificazione è stata disabilitata. Il corpo della richiesta deve includere il valore *ETag* della pianificazione.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
@@ -122,7 +122,7 @@ Utilizzare il metodo Delete con l'ID azione per eliminare un’azione.
 ### <a name="alert-actions"></a>Azioni di avviso
 Una pianificazione deve avere una sola azione di avviso.  Le azioni di avviso includono una o più delle sezioni elencate nella tabella seguente.  Ciascuna è descritta in dettaglio di seguito.
 
-| Sezione | Descrizione | Uso |
+| Sezione | Descrizione | Utilizzo |
 |:--- |:--- |:--- |
 | Soglia |Criteri di esecuzione dell'azione.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
 | Gravità |Etichetta usata per classificare l'avviso quando viene attivato.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
@@ -337,6 +337,6 @@ Usare il metodo Put con un ID azione esistente per modificare un gruppo di azion
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Utilizzare l’ [API REST per eseguire ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
-* Informazioni sugli [avvisi di log in Monitoraggio di AzureLearn](../../azure-monitor/platform/alerts-unified-log.md) about log alerts in Azure Monitor
-* Come [creare, modificare o gestire le regole](../../azure-monitor/platform/alerts-log.md) di avviso del log in Monitoraggio di AzureHow to create, edit or manage log alert rules in Azure monitor
+* Informazioni sugli [avvisi del log in monitoraggio di Azure](../../azure-monitor/platform/alerts-unified-log.md)
+* Come [creare, modificare o gestire le regole di avviso del log in monitoraggio di Azure](../../azure-monitor/platform/alerts-log.md)
 

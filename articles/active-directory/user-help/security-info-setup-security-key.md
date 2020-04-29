@@ -1,6 +1,6 @@
 ---
-title: Configurare una chiave di sicurezza come metodo di verifica - Azure ADSet up a security key as your verification method - Azure AD
-description: Come configurare la pagina Informazioni di sicurezza (anteprima) per verificare la propria identità per l'utilizzo di una chiave di sicurezza FIDO2 (Fast Identity Online) come metodo di verifica.
+title: 'Configurare una chiave di sicurezza come metodo di verifica: Azure AD'
+description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità per l'uso di una chiave di sicurezza FIDO2 (Fast Identity online) come metodo di verifica.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062337"
 ---
-# <a name="set-up-a-security-key-as-your-verification-method"></a>Impostare una chiave di sicurezza come metodo di verifica
+# <a name="set-up-a-security-key-as-your-verification-method"></a>Configurare una chiave di sicurezza come metodo di verifica
 
-È possibile utilizzare le chiavi di sicurezza come metodo di accesso senza password all'interno dell'organizzazione. Una chiave di sicurezza è un dispositivo fisico utilizzato con un PIN univoco per accedere all'account aziendale o dell'istituto di istruzione. Poiché le chiavi di sicurezza richiedono di avere il dispositivo fisico e qualcosa che solo tu conosci, è considerato un metodo di verifica più forte di un nome utente e una password.
+È possibile usare le chiavi di sicurezza come metodo di accesso senza password all'interno dell'organizzazione. Una chiave di sicurezza è un dispositivo fisico usato con un PIN univoco per accedere all'account aziendale o dell'Istituto di istruzione. Poiché le chiavi di sicurezza richiedono che il dispositivo fisico e un elemento sia solo noto, viene considerato un metodo di verifica più sicuro rispetto a un nome utente e una password.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
 >[!Note]
-> Se non vedi l'opzione della chiave di sicurezza, è possibile che la tua organizzazione non ti consenta di utilizzare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriore assistenza.
+> Se l'opzione chiave di sicurezza non è visibile, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
 
@@ -42,105 +42,105 @@ I metodi di gestione delle informazioni di sicurezza vengono usati sia per la ve
 
 ## <a name="what-is-a-security-key"></a>Che cos'è una chiave di sicurezza?
 
-Attualmente supportiamo diversi progetti e fornitori di chiavi di sicurezza utilizzando i protocolli di autenticazione [FIDO2 (Fast Identity Online)](https://fidoalliance.org/fido2/) senza password. Queste chiavi consentono di accedere all'account aziendale o dell'istituto di istruzione per accedere alle risorse basate su cloud dell'organizzazione in un dispositivo e un Web browser supportati.
+Attualmente sono supportati diversi progetti e provider di chiavi di sicurezza usando i protocolli di autenticazione con password FIDO2 ( [Fast Identity online](https://fidoalliance.org/fido2/) ). Queste chiavi consentono di accedere all'account aziendale o dell'Istituto di istruzione per accedere alle risorse basate sul cloud dell'organizzazione quando si usa un dispositivo supportato e un Web browser.
 
-L'amministratore o l'organizzazione fornirà una chiave di sicurezza se è necessaria per l'account aziendale o dell'istituto di istruzione. Ci sono diversi tipi di chiavi di sicurezza che è possibile utilizzare, ad esempio una chiave USB che si collega al dispositivo o una chiave NFC che si tocca su un lettore NFC. È possibile trovare ulteriori informazioni sulla chiave di sicurezza, incluso il tipo, dalla documentazione del produttore.
+L'amministratore o l'organizzazione fornirà una chiave di sicurezza, se necessaria per l'account aziendale o dell'Istituto di istruzione. Esistono diversi tipi di chiavi di sicurezza che è possibile usare, ad esempio una chiave USB che si collega al dispositivo o una chiave NFC che si tocca su un lettore NFC. È possibile trovare altre informazioni sulla chiave di sicurezza, tra cui il tipo di dati, dalla documentazione del produttore.
 
 > [!Note]
-> Se non riesci a usare una chiave di sicurezza FIDO2, puoi usare altri metodi di verifica senza password, ad esempio l'app Microsoft Authenticator o Windows Hello. Per ulteriori informazioni sull'app Microsoft Authenticator, vedere [Che cos'è l'app Microsoft Authenticator?](user-help-auth-app-overview.md). Per ulteriori informazioni su Windows Hello, vedere [Panoramica](https://www.microsoft.com/windows/windows-hello)di Windows Hello .
+> Se non si è in grado di usare una chiave di sicurezza FIDO2, è possibile usare altri metodi di verifica con password, ad esempio l'app Microsoft Authenticator o Windows Hello. Per altre informazioni sull'app Microsoft Authenticator, vedere [che cos'è l'app Microsoft Authenticator?](user-help-auth-app-overview.md). Per ulteriori informazioni su Windows Hello, vedere [Panoramica di Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di poter registrare la chiave di sicurezza, è necessario che siano le seguenti condizioni:
+Prima di poter registrare la chiave di sicurezza, è necessario che siano soddisfatte le condizioni seguenti:
 
-- L'amministratore ha attivato questa funzionalità per l'utilizzo all'interno dell'organizzazione.
+- L'amministratore ha attivato questa funzionalità per l'uso nell'organizzazione.
 
-- Sei su un dispositivo che esegue l'aggiornamento di Windows 10 maggio 2019 e si utilizza un browser supportato.
+- Si trova in un dispositivo che esegue l'aggiornamento di Windows 10 2019 maggio e che usa un browser supportato.
 
-- Si dispone di una chiave di protezione fisica approvata dall'amministratore o dall'organizzazione. La chiave di protezione deve essere compatibile sia con FIDO2 che su Microsoft. In caso di domande sulla chiave di sicurezza e sulla compatibilità, contattare l'help desk dell'organizzazione.
+- Si dispone di una chiave di sicurezza fisica approvata dall'amministratore o dall'organizzazione. La chiave di sicurezza deve essere FIDO2 e conforme a Microsoft. In caso di domande sulla chiave di sicurezza e se è compatibile, contattare la help desk dell'organizzazione.
 
 ## <a name="register-your-security-key"></a>Registrare la chiave di sicurezza
 
-È necessario creare la chiave di sicurezza e assegnarle un PIN univoco prima di poter accedere all'account aziendale o dell'istituto di istruzione utilizzando la chiave. Potresti avere fino a 10 chiavi registrate con il tuo account. 
+È necessario creare la chiave di sicurezza e assegnarle un PIN univoco prima di poter accedere all'account aziendale o dell'Istituto di istruzione usando la chiave. È possibile che si disponga di un massimo di 10 chiavi registrate con l'account. 
 
-1. Vai alla pagina Il https://myprofile.microsoft.com mio **profilo** e accedi se non l'hai già fatto.
+1. Passare alla pagina **profilo personale** https://myprofile.microsoft.com e accedere se non è già stato fatto.
 
-2. Selezionare **Security Info (Informazioni di sicurezza),** **selezionare** Add **method (Aggiungi metodo)** e quindi dall'elenco a discesa **Add a method (Aggiungi metodo).**
+2. Selezionare **info di sicurezza**, selezionare **Aggiungi metodo**, quindi selezionare **chiave di sicurezza** dall'elenco a discesa **Aggiungi un metodo** .
 
-    ![Casella Aggiungi metodo con la chiave di sicurezza selezionata](media/security-info/security-info-security-key-add-method.png)
+    ![Casella Aggiungi metodo con chiave di sicurezza selezionata](media/security-info/security-info-security-key-add-method.png)
 
-3. Selezionare **Aggiungi**, quindi selezionare il tipo di chiave di sicurezza in disporre, **Dispositivo USB** o **Dispositivo NFC**.
+3. Selezionare **Aggiungi**e quindi selezionare il tipo di chiave di sicurezza, ovvero il **dispositivo USB** o il **dispositivo NFC**.
 
     ![Scegliere se si dispone di un tipo di chiave di sicurezza USB o NFC](media/security-info/security-info-security-key-choose-type.png)
 
     > [!Note]
-    > Se non si è certi del tipo di chiave di sicurezza in si dispone, fare riferimento alla documentazione del produttore. Se non si è sicuri del produttore, contattare l'help desk dell'organizzazione per assistenza.
+    > Se non si è certi del tipo di chiave di sicurezza, fare riferimento alla documentazione del produttore. Se non si è certi del produttore, contattare la help desk dell'organizzazione per richiedere assistenza.
 
-4. Disporre fisicamente della chiave di protezione, quindi nella casella Chiave di **protezione** selezionare **Avanti**.
+4. Disporre della chiave di sicurezza fisicamente disponibile e quindi nella casella **chiave di sicurezza** selezionare **Avanti**.
 
-    ![Casella di registrazione per l'avvio della chiave di sicurezza](media/security-info/security-info-security-key-start-setup.png)
+    ![Casella di registrazione iniziale della chiave di sicurezza](media/security-info/security-info-security-key-start-setup.png)
 
-    Viene visualizzata una nuova casella che consente di eseguire la configurazione del nuovo metodo di accesso.
+    Viene visualizzata una nuova finestra che aiuta a configurare il nuovo metodo di accesso.
 
-5. Nella casella **Impostazione del nuovo metodo di accesso** selezionare **Avanti**e quindi:
+5. Nella casella **impostazione del nuovo metodo di accesso** selezionare **Avanti**, quindi:
 
     - Se la chiave di sicurezza è un dispositivo USB, inserire la chiave di sicurezza nella porta USB del dispositivo.
 
     - Se la chiave di sicurezza è un dispositivo NFC, toccare la chiave di sicurezza per il lettore.
 
-6. Digitare il PIN univoco della chiave di sicurezza nella casella di sicurezza di **Windows** e quindi scegliere **OK**.
+6. Digitare il PIN della chiave di sicurezza univoca nella casella **sicurezza di Windows** e quindi fare clic su **OK**.
 
-    Si tornerà alla casella Impostazione del nuovo metodo di **accesso.**
+    Si tornerà alla casella **impostazione del nuovo metodo di accesso** .
 
-7. Fare clic su **Avanti**.
+7. Selezionare **Avanti**.
 
-8. Tornare alla pagina **Informazioni di sicurezza,** digitare un nome riconosciuto in un secondo momento per la nuova chiave di sicurezza e quindi selezionare **Avanti**.
+8. Tornare alla pagina **info sicurezza** , digitare un nome che verrà riconosciuto in seguito per la nuova chiave di sicurezza e quindi fare clic su **Avanti**.
 
     ![Pagina delle informazioni di sicurezza, denominazione della chiave di sicurezza](media/security-info/security-info-security-key-name.png)
 
-    La chiave di sicurezza è registrata e pronta per l'accesso all'account aziendale o dell'istituto di istruzione.
+    La chiave di sicurezza è registrata ed è pronta per essere usata per accedere all'account aziendale o dell'Istituto di istruzione.
 
-9. Selezionare **Fine** per chiudere la casella **Chiave di sicurezza.**
+9. Selezionare **fine** per chiudere la casella **chiave di sicurezza** .
 
-    La pagina Informazioni di **sicurezza** viene aggiornata con le informazioni sulla chiave di sicurezza.
+    La pagina **informazioni di sicurezza** viene aggiornata con le informazioni sulla chiave di sicurezza.
 
-    ![Pagina delle informazioni di sicurezza, con tutti i metodi registrati mostrati](media/security-info/security-info-security-key-configured.png)
+    ![Pagina delle informazioni di sicurezza con tutti i metodi registrati visualizzati](media/security-info/security-info-security-key-configured.png)
 
-## <a name="delete-a-security-key-from-your-security-info"></a>Eliminare una chiave di sicurezza dalle informazioni di sicurezzaDelete a security key from your security info
+## <a name="delete-a-security-key-from-your-security-info"></a>Eliminare una chiave di sicurezza dalle info di sicurezza
 
-Se si smarrisce o non si desidera più utilizzare una chiave di sicurezza, è possibile eliminare la chiave dalle informazioni di sicurezza. Mentre in questo modo la chiave di sicurezza viene utilizzata con l'account aziendale o dell'istituto di istruzione, la chiave di sicurezza continua a archiviare i dati e le informazioni sulle credenziali. Per eliminare i dati e le informazioni sulle credenziali dalla chiave di sicurezza stessa, è necessario seguire le istruzioni nella sezione Reimpostare una chiave di [sicurezza compatibile con Microsoft](#reset-your-security-key) di questo articolo.
+Se non si desidera più usare una chiave di sicurezza, è possibile eliminare la chiave dalle info di sicurezza. Anche se in questo modo viene arrestata l'uso della chiave di sicurezza con l'account aziendale o dell'Istituto di istruzione, la chiave di sicurezza continua a archiviare i dati e le informazioni sulle credenziali. Per eliminare i dati e le informazioni sulle credenziali dalla chiave di sicurezza stessa, è necessario seguire le istruzioni riportate nella sezione [reimpostare una chiave di sicurezza compatibile con Microsoft](#reset-your-security-key) di questo articolo.
 
 1. Selezionare il collegamento **Elimina** dalla chiave di sicurezza da rimuovere.
 
-2. Selezionare **OK** dalla casella **Elimina chiave di sicurezza.**
+2. Selezionare **OK** nella casella **Elimina chiave di sicurezza** .
 
-    La chiave di sicurezza viene eliminata e non sarà più possibile utilizzarla per accedere all'account aziendale o dell'istituto di istruzione.
+    La chiave di sicurezza è stata eliminata e non sarà più possibile usarla per accedere all'account aziendale o dell'Istituto di istruzione.
 
 >[!Important]
->Se si elimina una chiave di sicurezza per errore, è possibile registrarla nuovamente seguendo le istruzioni nella sezione [Come registrare la chiave](#register-your-security-key) di sicurezza di questo articolo.
+>Se si elimina una chiave di sicurezza per errore, è possibile registrarla di nuovo seguendo le istruzioni riportate nella sezione [come registrare la chiave di sicurezza](#register-your-security-key) di questo articolo.
 
-## <a name="manage-your-security-key-settings-from-windows-settings"></a>Gestire le impostazioni della chiave di sicurezza da Impostazioni di Windows
+## <a name="manage-your-security-key-settings-from-windows-settings"></a>Gestire le impostazioni della chiave di sicurezza da impostazioni di Windows
 
-Puoi gestire le impostazioni della chiave di sicurezza dall'app **Impostazioni di Windows,** inclusa la reimpostazione della chiave di sicurezza e la creazione di un nuovo PIN della chiave di sicurezza.
+È possibile gestire le impostazioni della chiave di sicurezza dall'app **impostazioni di Windows** , inclusa la reimpostazione della chiave di sicurezza e la creazione di un nuovo PIN della chiave di sicurezza.
 
-### <a name="reset-your-security-key"></a>Reimpostare la chiave di sicurezza
+### <a name="reset-your-security-key"></a>Reimposta la chiave di sicurezza
 
-Se si desidera eliminare tutte le informazioni sull'account archiviate nella chiave di sicurezza fisica, è necessario ripristinare le impostazioni predefinite di fabbrica. La reimpostazione della chiave di sicurezza elimina tutto dalla chiave, consentendo di ricominciare da capo.
+Per eliminare tutte le informazioni sull'account archiviate nella chiave di sicurezza fisica, è necessario ripristinare le impostazioni predefinite della chiave. La reimpostazione della chiave di sicurezza Elimina tutti gli elementi dalla chiave, consentendo di ricominciare.
 
 >[!IMPORTANT]
->La reimpostazione della chiave di sicurezza elimina tutto dalla chiave, reimpostandola sui valori predefiniti di fabbrica.
+>La reimpostazione della chiave di sicurezza Elimina tutti gli elementi dalla chiave, reimpostando le impostazioni predefinite.
 >
 > **Tutti i dati e le credenziali verranno cancellati.**
 
 #### <a name="to-reset-your-security-key"></a>Per reimpostare la chiave di sicurezza
 
-1. Aprire l'app Impostazioni di Windows, selezionare **Account**, Opzioni **di**accesso , quindi **Chiave di protezione**e quindi **Gestisci**.
+1. Aprire l'app impostazioni di Windows, selezionare **account**, **Opzioni di accesso**, selezionare **chiave di sicurezza**e quindi fare clic su **Gestisci**.
 
-2. Inserisci la chiave di sicurezza nella porta USB o tocca il tuo lettore NFC per verificare la tua identità.
+2. Inserire la chiave di sicurezza nella porta USB oppure toccare il lettore NFC per verificare la propria identità.
 
-3. Seguire le istruzioni visualizzate, in base al produttore specifico della chiave di sicurezza. Se il produttore della chiave non è elencato nelle istruzioni visualizzate, fare riferimento al sito del produttore per ulteriori informazioni.
+3. Seguire le istruzioni visualizzate in base al produttore della chiave di sicurezza specifico. Se il produttore della chiave non è elencato nelle istruzioni visualizzate, consultare il sito del produttore per ulteriori informazioni.
 
-4. Selezionare **Chiudi** per chiudere la schermata **Gestisci.**
+4. Selezionare **Chiudi** per chiudere la schermata **Gestisci** .
 
 ### <a name="create-a-new-security-key-pin"></a>Creare un nuovo PIN della chiave di sicurezza
 
@@ -148,23 +148,23 @@ Se si desidera eliminare tutte le informazioni sull'account archiviate nella chi
 
 #### <a name="to-create-a-new-security-key-pin"></a>Per creare un nuovo PIN della chiave di sicurezza
 
-1. Aprire l'app Impostazioni di Windows, selezionare **Account**, Opzioni **di**accesso , quindi **Chiave di protezione**e quindi **Gestisci**.
+1. Aprire l'app impostazioni di Windows, selezionare **account**, **Opzioni di accesso**, selezionare **chiave di sicurezza**e quindi fare clic su **Gestisci**.
 
-2. Inserisci la chiave di sicurezza nella porta USB o tocca il tuo lettore NFC per verificare la tua identità.
-3. Selezionare **Aggiungi** nell'area **PIN chiave** di sicurezza , digitare e confermare il nuovo PIN della chiave di sicurezza, quindi scegliere **OK**.
+2. Inserire la chiave di sicurezza nella porta USB oppure toccare il lettore NFC per verificare la propria identità.
+3. Selezionare **Aggiungi** nell'area del **pin della chiave di sicurezza** , digitare e confermare il nuovo PIN della chiave di sicurezza e quindi fare clic su **OK**.
 
-     La chiave di sicurezza viene aggiornata con il nuovo PIN della chiave di sicurezza da utilizzare con l'account aziendale o dell'istituto di istruzione. Se si decide di modificare nuovamente il PIN, è possibile selezionare il pulsante **Cambia.**
-4. Selezionare **Chiudi** per chiudere la schermata **Gestisci.**
+     La chiave di sicurezza viene aggiornata con il nuovo PIN della chiave di sicurezza da usare con l'account aziendale o dell'Istituto di istruzione. Se si decide di modificare di nuovo il PIN, è possibile selezionare il pulsante **Cambia** .
+4. Selezionare **Chiudi** per chiudere la schermata **Gestisci** .
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
-Per registrare una chiave di sicurezza, è necessario che sia registrato almeno un metodo di verifica della sicurezza aggiuntivo. Per altre informazioni, vedere la [sezione Panoramica.See](security-info-add-update-methods-overview.md) the Overview section for more information. 
+Per registrare una chiave di sicurezza, è necessario avere almeno un metodo di verifica di sicurezza aggiuntivo registrato. Per ulteriori informazioni, vedere la [sezione Panoramica](security-info-add-update-methods-overview.md) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui metodi di verifica senza password, leggere il blog di panoramica di Azure AD di [Microsoft inizia, abilita accessi senza password](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o gli articoli di panoramica di Microsoft [Authenticator?](user-help-auth-app-overview.md) e [Windows Hello.](https://www.microsoft.com/windows/windows-hello)
+- Per ulteriori informazioni sui metodi di verifica con password, leggere l' [Azure ad Microsoft avvia l'anteprima pubblica delle chiavi di sicurezza FIDO2, abilitando gli account di accesso con password](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o leggere gli articoli [che cosa sono l'app Microsoft Authenticator?](user-help-auth-app-overview.md) e [Panoramica di Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 
-- Per informazioni più dettagliate sulle chiavi di [protezione conformi a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- Per informazioni più dettagliate sulle [chiavi di sicurezza conformi a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 

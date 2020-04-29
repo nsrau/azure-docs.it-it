@@ -1,6 +1,6 @@
 ---
 title: Misurazioni utente effettive di Gestione traffico di Microsoft Azure
-description: In questa introduzione viene illustrato il funzionamento delle misurazioni utente reale di Gestione traffico di Azure.In this introduction, learn how Azure Traffic Manager Real User Measurements work.
+description: In questa introduzione, informazioni sul funzionamento di gestione traffico di Azure misurazioni utente reale.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938441"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Panoramica di Misurazioni utente reale in Gestione traffico
@@ -77,7 +77,7 @@ Quando si usa Misurazioni utente reale, la fatturazione viene eseguita in base a
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come usare [Misurazioni utente reale con le pagine Web](traffic-manager-create-rum-web-pages.md)
-- Scopri [come funziona Gestione traffico](traffic-manager-overview.md)
+- Informazioni [sul funzionamento di gestione traffico](traffic-manager-overview.md)
 - Altre informazioni su [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)

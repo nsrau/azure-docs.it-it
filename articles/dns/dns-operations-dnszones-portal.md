@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76936769"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Come gestire le zone DNS nel portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](dns-operations-dnszones-portal.md)
-> * [Powershell](dns-operations-dnszones.md)
-> * [Cli classica di AzureAzure classic CLI](dns-operations-dnszones-cli-nodejs.md)
-> * [Interfaccia della riga di comando di AzureAzure](dns-operations-dnszones-cli.md)
+> * [PowerShell](dns-operations-dnszones.md)
+> * [INTERFACCIA della riga di comando di Azure classico](dns-operations-dnszones-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
 Questo articolo spiega come gestire le zone DNS usando il portale di Azure. È anche possibile gestire le zone DNS usando l'[interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md) multipiattaforma o Azure [PowerShell](dns-operations-dnszones.md).
 
@@ -43,15 +43,15 @@ Questo articolo spiega come gestire le zone DNS usando il portale di Azure. È a
    |---|---|---|
    |**Nome**|contoso.com|Nome della zona DNS|
    |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare la zona DNS.|
-   |**Gruppo di risorse**|**Crea nuovo:** contosoDNSRG|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. Per altre informazioni sui gruppi di risorse, leggere l'articolo Panoramica di [Resource Manager.To](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) learn more about resource groups, read the Resource Manager overview article.|
-   |**Percorso**|Stati Uniti occidentali||
+   |**Gruppo di risorse**|**Crea nuovo:** contosoDNSRG|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. Per altre informazioni sui gruppi di risorse, vedere l'articolo Panoramica di [Gestione risorse](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) .|
+   |**Posizione**|Stati Uniti occidentali||
 
 > [!NOTE]
 > Il gruppo di risorse indica la località del gruppo di risorse e non ha alcun impatto sulla zona DNS. La posizione della zona DNS è sempre "globale" e non viene visualizzata.
 
 ## <a name="list-dns-zones"></a>Elencare le zone DNS
 
-Nel portale di Azure passare a **Altri servizi** > **Networking** > DNS**zones**. Ogni zona DNS è una risorsa a sé e in questa vista sono disponibili informazioni quali il numero di set di record e i server dei nomi. La colonna **SERVER DEI NOMI** non è inclusa nella vista predefinita. Per aggiungerla, fare clic su **Colonne**, selezionare **Server dei nomi** e fare clic su **Fine**.
+Nella portale di Azure passare ad **altri servizi** > **rete** > **DNS zone**. Ogni zona DNS è una risorsa a sé e in questa vista sono disponibili informazioni quali il numero di set di record e i server dei nomi. La colonna **SERVER DEI NOMI** non è inclusa nella vista predefinita. Per aggiungerla, fare clic su **Colonne**, selezionare **Server dei nomi** e fare clic su **Fine**.
 
 ![elenco delle zone DNS](./media/dns-operations-dnszones-portal/listzones.png)
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669047"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
@@ -19,7 +19,7 @@ Per altre informazioni sugli avvisi del log di attività, vedere come [creare gl
 Per informazioni su gruppi di azioni, vedere come [creare gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> È anche possibile usare lo schema di [avviso comune,](https://aka.ms/commonAlertSchemaDocs)che offre il vantaggio di disporre di un singolo payload di avviso estensibile e unificato in tutti i servizi di avviso in Monitoraggio di Azure, per le integrazioni webhook. [Informazioni sulle definizioni dello schema di avviso comuni.](https://aka.ms/commonAlertSchemaDefinitions)
+> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs), che offre il vantaggio di avere un singolo payload di avviso estendibile e unificato per tutti i servizi di avviso in monitoraggio di Azure, per le integrazioni del webhook. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticazione del webhook
@@ -85,7 +85,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
 }
 ```
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 ```json
 {
@@ -264,7 +264,7 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 | id |ID risorsa dell'avviso. |
 | description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
-|  timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
+| timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
 | resourceId |ID della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
@@ -287,8 +287,8 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Ulteriori informazioni sul registro attività](../../azure-monitor/platform/platform-logs-overview.md).
-* Eseguire gli script di automazione di [Azure (Runbooks) negli avvisi di Azure.Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
+* [Altre informazioni sul log attività](../../azure-monitor/platform/platform-logs-overview.md).
+* [Eseguire gli script di automazione di Azure (manuali operativi) negli avvisi di Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Usare un'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.
 * [Usare un'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del log attività.

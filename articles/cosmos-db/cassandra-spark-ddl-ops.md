@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c0df05eff5dc84ef24e1ed5afcaf705d99f447ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77622568"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operazioni DDL nell'API Cassandra di Azure Cosmos DB da Spark
@@ -82,7 +82,7 @@ DESCRIBE keyspaces;
 ```
 ## <a name="table-ddl-operations"></a>Operazioni DDL della tabella
 
-**Considerazioni:**  
+**Considerazioni**  
 
 - È possibile assegnare la velocità effettiva a livello di tabella usando l'istruzione CREATE TABLE.  
 - Una chiave di partizione può archiviare 20 GB di dati.  

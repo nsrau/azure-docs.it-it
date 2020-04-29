@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi dell'hub Di Azure IoT 412002 DeviceMessageLockLostTroubleshooting Azure IoT Hub error 412002 DeviceMessageLockLost
+title: Risoluzione dei problemi dell'hub Azure Internet Error 412002 DeviceMessageLockLost
 description: Informazioni su come correggere l'errore 412002 DeviceMessageLockLost
 author: jlian
 manager: briz
@@ -9,24 +9,24 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 66461b23432a3e8b7ae4ad1fdc078fba9ca05646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960763"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
 
-In questo articolo vengono descritte le cause e le soluzioni per gli errori **412002 DeviceMessageLockLost.**
+Questo articolo descrive le cause e le soluzioni per gli errori di **412002 DeviceMessageLockLost** .
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si tenta di inviare un messaggio cloud-to-device, la richiesta ha esito negativo con l'errore **412002 DeviceMessageLockLost**.
+Quando si tenta di inviare un messaggio da cloud a dispositivo, la richiesta ha esito negativo con l'errore **412002 DeviceMessageLockLost**.
 
 ## <a name="cause"></a>Causa
 
-Quando un dispositivo riceve un messaggio da cloud a dispositivo [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)dalla coda (ad esempio, utilizzando ) il messaggio viene bloccato dall'hub IoT per una durata di timeout di blocco di un minuto. Se il dispositivo tenta di completare il messaggio dopo la scadenza del timeout di blocco, l'hub IoT genera questa eccezione.
+Quando un dispositivo riceve un messaggio da cloud a dispositivo dalla coda (ad esempio, usando [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)), il messaggio viene bloccato dall'hub Internet per una durata di timeout del blocco di un minuto. Se il dispositivo tenta di completare il messaggio dopo la scadenza del timeout di blocco, l'hub Internet genera questa eccezione.
 
 ## <a name="solution"></a>Soluzione
 
-Se l'hub IoT non ottiene la notifica entro la durata del timeout di blocco di un minuto, imposta il messaggio sullo stato *Enqueued.* Il dispositivo può tentare di ricevere nuovamente il messaggio. Per evitare che l'errore si verifichi in futuro, implementare la logica lato dispositivo per completare il messaggio entro un minuto dalla ricezione del messaggio. Questo timeout di un minuto non può essere modificato.
+Se l'hub delle cose non riceve la notifica entro la durata del timeout di blocco di un minuto, il messaggio viene reimpostato sullo stato *accodato* . Il dispositivo può tentare nuovamente di ricevere il messaggio. Per evitare che l'errore si verifichi in futuro, implementare la logica lato dispositivo per completare il messaggio entro un minuto dalla ricezione del messaggio. Non è possibile modificare questo timeout di un minuto.

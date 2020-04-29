@@ -1,6 +1,6 @@
 ---
-title: Monitorare gli argomenti e le sottoscrizioni di eventi - Azure Event Grid IoT Edge Documenti Microsoft
-description: Monitorare argomenti e sottoscrizioni di eventiMonitor topics and event subscriptions
+title: Monitorare gli argomenti e le sottoscrizioni di eventi-IoT Edge di griglia di eventi di Azure | Microsoft Docs
+description: Monitorare gli argomenti e le sottoscrizioni di eventi
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,19 +9,19 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086668"
 ---
-# <a name="monitor-topics-and-event-subscriptions"></a>Monitorare argomenti e sottoscrizioni di eventiMonitor topics and event subscriptions
+# <a name="monitor-topics-and-event-subscriptions"></a>Monitorare gli argomenti e le sottoscrizioni di eventi
 
-Griglia di eventi sul bordo espone una serie di metriche per gli argomenti e le sottoscrizioni di eventi nel [formato di esposizione Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Questo articolo descrive le metriche disponibili e come abilitarle.
+Griglia di eventi su Edge espone una serie di metriche per gli argomenti e le sottoscrizioni di eventi nel [formato di esposizione Prometeo](https://prometheus.io/docs/instrumenting/exposition_formats/). Questo articolo descrive le metriche disponibili e le modalità di abilitazione.
 
 ## <a name="enable-metrics"></a>Abilitazione di metriche
 
-Configurare il modulo per `metrics__reporterType` generare `prometheus` metriche impostando la variabile di ambiente su nel contenitore per la creazione di opzioni:Configure the module to emit metrics by setting the environment variable to in the container create options:
+Configurare il modulo per emettere le metriche impostando la `metrics__reporterType` variabile di ambiente `prometheus` su nelle opzioni di creazione del contenitore:
 
  ```json
         {
@@ -40,21 +40,21 @@ Configurare il modulo per `metrics__reporterType` generare `prometheus` metriche
         }
  ```    
 
-Le metriche `5888/metrics` saranno disponibili all'indirizzo del modulo per http e `4438/metrics` https. Ad esempio, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` per http. A questo punto, un modulo di metriche può eseguire il polling dell'endpoint per raccogliere le metriche come in questa architettura di [esempio.](https://github.com/veyalla/ehm)
+Le metriche saranno disponibili nel `5888/metrics` modulo per http e `4438/metrics` per HTTPS. Ad esempio, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` per http. A questo punto, un modulo metrica può eseguire il polling dell'endpoint per raccogliere le metriche come in questa [architettura di esempio](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
-Sia gli argomenti che le sottoscrizioni di eventi generano metriche per fornire informazioni dettagliate sul recapito degli eventi e sulle prestazioni dei moduli.
+Gli argomenti e le sottoscrizioni di eventi emettono metriche per fornire informazioni dettagliate sulle prestazioni del modulo e del recapito degli eventi.
 
-### <a name="topic-metrics"></a>Metriche degli argomenti
+### <a name="topic-metrics"></a>Metriche dell'argomento
 
 | Metrica | Descrizione |
 | ------ | ----------- |
-| EventiEventiricevuti | Numero di eventi pubblicati sull'argomento
-| UnmatchedEvents | Numero di eventi pubblicati nell'argomento che non corrispondono a una sottoscrizione di eventi e vengono eliminati
-| Richieste di successoSuccessRequests | Numero di richieste di pubblicazione in ingresso ricevute dall'argomento
-| Richieste di sistema | Numero di richieste di pubblicazione in ingresso non riuscito a causa di un errore di sistema interno
-| UserErrorRequests (Richieste utente) | Numero nelle richieste di pubblicazione in ingresso non riuscito a causa di un errore dell'utente, ad esempio JSON in formato non validoNumber on inbound publish requests failed due to user error such as malformed JSON
+| EventsReceived | Numero di eventi pubblicati nell'argomento
+| UnmatchedEvents | Numero di eventi pubblicati nell'argomento che non corrispondono a una sottoscrizione di eventi e che vengono eliminati
+| SuccessRequests | Numero di richieste di pubblicazione in ingresso ricevute dall'argomento
+| SystemErrorRequests | Numero di richieste di pubblicazione in ingresso non riuscite a causa di un errore interno del sistema
+| UserErrorRequests | Il numero di richieste di pubblicazione in ingresso non è riuscito a causa di un errore dell'utente, ad esempio JSON non valido
 | SuccessRequestLatencyMs | Latenza di risposta richiesta di pubblicazione in millisecondi
 
 
@@ -63,9 +63,9 @@ Sia gli argomenti che le sottoscrizioni di eventi generano metriche per fornire 
 | Metrica | Descrizione |
 | ------ | ----------- |
 | DeliverySuccessCounts | Numero di eventi recapitati correttamente all'endpoint configurato
-| DeliveryFailureCounts | Numero di eventi che non è stato recapitato all'endpoint configurato
-| DeliverySuccessLatencyMs | Latenza degli eventi recapitati correttamente in millisecondi
+| DeliveryFailureCounts | Numero di eventi che non sono stati recapitati all'endpoint configurato
+| DeliverySuccessLatencyMs | Latenza degli eventi recapitati in millisecondi
 | DeliveryFailureLatencyMs | Latenza degli errori di recapito degli eventi in millisecondi
-| SystemDelayForFirstAttemptMs (SystemDelayForFirstAttemptMs) | Ritardo del sistema degli eventi prima del primo tentativo di recapito in millisecondi
-| DeliveryAttemptsCount (Conteggio dei tentativi di recapito | Numero di tentativi di recapito degli eventi - esito positivo e negativo
-| ScadutiConteggi | Numero di eventi scaduti e non recapitati all'endpoint configurato
+| SystemDelayForFirstAttemptMs | Ritardo di sistema degli eventi prima del primo tentativo di recapito in millisecondi
+| DeliveryAttemptsCount | Numero di tentativi di recapito eventi-esito positivo e negativo
+| ExpiredCounts | Numero di eventi scaduti e non recapitati all'endpoint configurato

@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76932540"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
-> * [Cli classica di AzureAzure classic CLI](dns-operations-recordsets-cli-nodejs.md)
-> * [Interfaccia della riga di comando di AzureAzure](dns-operations-recordsets-cli.md)
-> * [Powershell](dns-operations-recordsets.md)
+> * [INTERFACCIA della riga di comando di Azure classico](dns-operations-recordsets-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
+> * [PowerShell](dns-operations-recordsets.md)
 
 Questo articolo descrive come gestire i record DNS per la zona DNS usando Azure PowerShell. Per gestire i record DNS è anche possibile usare l'[interfaccia della riga di comando multipiattaforma di Azure](dns-operations-recordsets-cli.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
 
@@ -46,7 +46,7 @@ Per altre informazioni sui record DNS nel servizio DNS di Azure, vedere [Zone e 
 
 ## <a name="create-a-new-dns-record"></a>Creare un nuovo record DNS
 
-Se il nuovo record ha lo stesso nome e tipo di un record esistente, è necessario [aggiungerlo al set](#add-a-record-to-an-existing-record-set)di record esistente. Se il nuovo record ha un nome e un tipo diversi rispetto a tutti i record esistenti, è necessario creare un nuovo set di record. 
+Se il nuovo record ha lo stesso nome e lo stesso tipo di un record esistente, è necessario [aggiungerlo al set di record esistente](#add-a-record-to-an-existing-record-set). Se il nuovo record ha un nome e un tipo diversi rispetto a tutti i record esistenti, è necessario creare un nuovo set di record. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Creare record di tipo "A" in un nuovo set di record
 

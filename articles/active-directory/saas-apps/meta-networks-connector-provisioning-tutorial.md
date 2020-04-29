@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: 03c2dc6253fba5c2c7d59f3aefc5c1c663ed8248
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77061360"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Esercitazione: configurare il connettore meta Networks per il provisioning utenti automatico
@@ -84,7 +84,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
     ![Icona IdP connettore meta reti](media/meta-networks-connector-provisioning-tutorial/icon.png)
 
-8.  In **Configure scim** selezionare il nome della chiave API creata nei passaggi precedenti. Fare clic su **Save**.
+8.  In **Configure scim** selezionare il nome della chiave API creata nei passaggi precedenti. Fare clic su **Salva**.
 
     ![Connettore meta Networks Configure SCIM](media/meta-networks-connector-provisioning-tutorial/configure.png)
 

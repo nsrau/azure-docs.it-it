@@ -1,6 +1,6 @@
 ---
 title: Backup e ripristino del sistema operativo per SKU di tipo II di istanze Large di SAP HANA in Azure | Microsoft Docs
-description: Eseguire il backup e il ripristino del sistema operativo per gli SKU di tipo II di Azure HANA in Azure (istanze di grandi dimensioni)
+description: Eseguire il backup e il ripristino del sistema operativo per SAP HANA in SKU di tipo II di Azure (istanze large)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,34 +14,34 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616873"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e ripristino del sistema operativo per SKU di tipo II di revisione 3 francobolli
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e ripristino del sistema operativo per SKU di tipo II di indicatori di revisione 3
 
-In questo documento vengono descritti i passaggi per eseguire un backup e un ripristino a livello di file del sistema operativo per gli SKU di **tipo II** delle istanze di revisione 3 di grandi dimensioni HANA. 
+Questo documento descrive i passaggi per eseguire un backup e un ripristino a livello di file del sistema operativo per gli **SKU di tipo II** delle istanze large di Hana di revisione 3. 
 
 >[!Important]
-> **Questo articolo non si applica alle distribuzioni di SKU di tipo II nella revisione 4 timbri di istanza di grandi dimensioni.** I LUN di avvio delle unità di istanza di tipo II HANA distribuite nella revisione 4 timbri di istanza di grandi dimensioni possono essere sottoposti a backup con snapshot di archiviazione, in quanto questo è il caso con gli SKU di tipo I già presenti nei timbri di revisione 3
+> **Questo articolo non si applica alle distribuzioni SKU di tipo II nei timbri delle istanze large di revisione 4 HANA.** I LUN di avvio di tipo II unità di istanze large di HANA distribuite nella revisione 4 gli indicatori di istanze large di HANA possono essere sottoposti a backup con snapshot di archiviazione, come nel caso degli SKU di tipo I già presenti negli indicatori di revisione 3
 
 
 >[!NOTE]
 >Gli script di backup del sistema operativo usano il software ReaR preinstallato nel server.  
 
-Una volta completato il `Service Management` provisioning da parte del team Microsoft, per impostazione predefinita, il server è configurato con due pianificazioni di backup per eseguire il backup del livello del file system del sistema operativo. È possibile controllare le pianificazioni dei processi di backup utilizzando il comando seguente:
+Al termine del provisioning da parte del team `Service Management` Microsoft, per impostazione predefinita, il server viene configurato con due pianificazioni di backup per eseguire il backup del file System livello di backup del sistema operativo. È possibile controllare le pianificazioni dei processi di backup usando il comando seguente:
 ```
 #crontab –l
 ```
-È possibile modificare la pianificazione del backup in qualsiasi momento utilizzando il seguente comando:
+È possibile modificare la pianificazione del backup in qualsiasi momento usando il comando seguente:
 ```
 #crontab -e
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Esecuzione di un backup manuale
 
-Il backup del file system del sistema operativo è già pianificato utilizzando un **processo cron.** Tuttavia, è possibile eseguire il backup del sistema operativo a livello di file system anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
+Il backup del sistema operativo file system è già pianificato usando un **processo cron** . Tuttavia, è possibile eseguire il backup del sistema operativo a livello di file system anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
 
 ```
 #rear -v mkbackup
@@ -67,7 +67,7 @@ Il comando seguente consente di eseguire il ripristino di un file */etc/fstab* d
 >[!NOTE] 
 >È necessario copiare il file nella posizione desiderata dopo il ripristino dal backup.
 
-La schermata seguente mostra il ripristino di un backup completo:
+Lo screenshot seguente mostra il ripristino di un backup completo:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-La schermata seguente mostra il ![ripristino di un backup completo: RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Lo screenshot seguente illustra il ripristino di un backup completo: ![REARTOOLCONFIGURATION. png](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

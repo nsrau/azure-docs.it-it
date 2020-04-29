@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Provisioning degli utenti per Pingboard - Azure ADTutorial: User provisioning for Pingboard - Azure AD'
+title: 'Esercitazione: provisioning utenti per Pingboard-Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77061276"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurare Pingboard per il provisioning utenti automatico
@@ -74,7 +74,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
     b. Accedere a [Pingboard](https://pingboard.com/) usando l'account amministratore.
 
-    c. Selezionare > **Integrazioni** >  **di componenti aggiuntivi**di Azure Active**Directory**.
+    c. Selezionare **Add-Ons** > **integrazioni** > componenti aggiuntivi**Azure Active Directory**.
 
     d. Passare alla scheda **Configure** (Configura) e selezionare **Enable user provisioning from Azure** (Abilita provisioning utenti da Azure).
 
@@ -82,11 +82,11 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app Pingboard. Se la connessione non riesce, verificare che l'account Pingboard abbia le autorizzazioni di amministrazione e ripetere il passaggio **Test connessione**.
 
-1. Immettere l'indirizzo di posta elettronica di una persona o di un gruppo a cui si desidera ricevere le notifiche di errore di provisioning in **E-mail**di notifica . Selezionare la casella di controllo sottostante.
+1. Immettere l'indirizzo di posta elettronica di una persona o di un gruppo per cui si desidera ricevere notifiche di errore di provisioning nel **messaggio di posta elettronica di notifica**. Selezionare la casella di controllo sottostante.
 
 1. Selezionare **Salva**.
 
-1. Nella sezione **Mapping** selezionare **Sincronizza utenti di Azure Active Directory con Pingboard**.
+1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Pingboard**.
 
 1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD a Pingboard. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Pingboard per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../app-provisioning/customize-application-attributes.md).
 
@@ -100,6 +100,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestire il provisioning degli account utente per le app aziendaliManage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurare l'accesso Single Sign-On](pingboard-tutorial.md)
+* [Gestire il provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Configura accesso Single Sign-On](pingboard-tutorial.md)

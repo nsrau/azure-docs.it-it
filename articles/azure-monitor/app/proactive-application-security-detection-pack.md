@@ -1,13 +1,13 @@
 ---
-title: Pacchetto di rilevamento della sicurezza con Azure Application InsightsSecurity Detection Pack with Azure Application Insights
-description: Monitorare l'applicazione con Azure Application Insights e Smart Detection per potenziali problemi di sicurezza.
+title: Pacchetto di rilevamento della sicurezza con applicazione Azure Insights
+description: Monitora l'applicazione con applicazione Azure Insights e il rilevamento intelligente per i potenziali problemi di sicurezza.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669727"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacchetto per il rilevamento della sicurezza delle applicazioni (anteprima)
@@ -20,22 +20,22 @@ Questa funzionalità non richiede una configurazione specifica a parte la [confi
 Vengono rilevati tre tipi di problemi di sicurezza:
 1. Accesso a un URL non sicuro: a un URL nell'applicazione è possibile accedere tramite HTTP e HTTPS. In genere, un URL che accetta le richieste HTTPS non deve accettare le richieste HTTP. Ciò può indicare un bug o un problema di sicurezza nell'applicazione.
 2. Modulo non sicuro: un modulo (o un'altra richiesta "POST") nell'applicazione usa HTTP al posto di HTTPS. L'uso di HTTP può compromettere i dati utente inviati dal modulo.
-3. Attività utente sospette: l'applicazione è accessibile da più paesi/aree geografiche dallo stesso utente all'incirca nello stesso momento. Ad esempio, lo stesso utente ha eseguito l'accesso all'applicazione dalla Spagna e degli Stati Uniti nel corso di un'ora. Questo rilevamento indica un tentativo di accesso all'applicazione potenzialmente dannoso.
+3. Attività utente sospetta: è possibile accedere all'applicazione da più paesi o aree geografiche dello stesso utente all'incirca nello stesso momento. Ad esempio, lo stesso utente ha eseguito l'accesso all'applicazione dalla Spagna e degli Stati Uniti nel corso di un'ora. Questo rilevamento indica un tentativo di accesso all'applicazione potenzialmente dannoso.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>L'app ha sicuramente un problema di sicurezza?
 No, una notifica non significa che l'app ha sicuramente un problema di sicurezza. In molti casi se viene rilevato uno degli scenari precedenti può significare che è presente un problema di sicurezza. Il rilevamento, tuttavia, potrebbe avere una giustificazione naturale e in questo caso può essere ignorato.
 
 ## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>Come è possibile risolvere il problema se viene rilevato l'accesso a un URL non sicuro?
-1. **Triage.** La notifica indica il numero di utenti che hanno eseguito l'accesso a URL non sicuri e l'URL maggiormente interessato dal problema di accesso non sicuro. Ciò consente di assegnare una priorità al problema.
+1. **Valutazione.** La notifica indica il numero di utenti che hanno eseguito l'accesso a URL non sicuri e l'URL maggiormente interessato dal problema di accesso non sicuro. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Che percentuale di utenti ha eseguito l'accesso a URL non sicuri? Quanti sono gli URL interessati? Queste informazioni si possono ricavare dalla notifica.
 3. **Diagnosticare.** Il rilevamento fornisce l'elenco di richieste non sicure e gli elenchi di URL e utenti interessati, per aiutare a diagnosticare meglio il problema.
 
 ## <a name="how-do-i-fix-the-insecure-form-detection"></a>Come è possibile risolvere il problema se viene rilevato un modulo non sicuro?
-1. **Triage.** La notifica indica il numero di moduli non sicuri e il numero di utenti i cui dati sono stati potenzialmente compromessi. Ciò consente di assegnare una priorità al problema.
+1. **Valutazione.** La notifica indica il numero di moduli non sicuri e il numero di utenti i cui dati sono stati potenzialmente compromessi. Ciò consente di assegnare una priorità al problema.
 2. **Ambito.** Quale modulo è implicato nel maggior numero di trasmissioni non sicure e qual è la distribuzione delle trasmissioni non sicure nel tempo? Queste informazioni si possono ricavare dalla notifica.
 3. **Diagnosticare.** Il rilevamento fornisce l'elenco di moduli non sicuri, con il numero di trasmissioni non sicure per ogni modulo, per aiutare a diagnosticare meglio il problema.
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Come è possibile risolvere il problema se viene rilevata attività utente sospetta?
-1. **Triage.** La notifica indica il numero di utenti diversi che hanno avuto un comportamento sospetto. Ciò consente di assegnare una priorità al problema.
-2. **Ambito.** Da quali paesi/aree geografiche hanno avuto origine le richieste sospette? Quale utente è stato il più sospetto? Queste informazioni si possono ricavare dalla notifica.
-3. **Diagnosticare.** Il rilevamento fornisce l'elenco degli utenti sospetti e l'elenco dei paesi/aree geografiche per ogni utente, per facilitare la diagnosi del problema.
+1. **Valutazione.** La notifica indica il numero di utenti diversi che hanno avuto un comportamento sospetto. Ciò consente di assegnare una priorità al problema.
+2. **Ambito.** Da quali paesi/aree geografiche sono state originate le richieste sospette? Quale utente è stato il più sospetto? Queste informazioni si possono ricavare dalla notifica.
+3. **Diagnosticare.** Il rilevamento fornisce l'elenco di utenti sospetti e l'elenco di paesi/aree geografiche per ogni utente, per facilitare la diagnosi del problema.

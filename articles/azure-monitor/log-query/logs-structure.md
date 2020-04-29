@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
 ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662077"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struttura dei log di monitoraggio di Azure
@@ -75,7 +75,7 @@ Mentre ogni tabella nei log di monitoraggio di Azure ha un proprio schema, sono 
 | Area di lavoro Log Analytics | Applicazione Application Insights | Descrizione |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | Data e ora di creazione del record. |
-| Type          | itemType   | Nome della tabella da cui è stato recuperato il record. |
+| Tipo          | itemType   | Nome della tabella da cui è stato recuperato il record. |
 | _ResourceId   |            | Identificatore univoco per la risorsa a cui è associato il record. |
 | _IsBillable   |            | Specifica se i dati inseriti sono fatturabili. |
 | _BilledSize   |            | Specifica le dimensioni in byte dei dati che verranno fatturati. |

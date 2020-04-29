@@ -1,6 +1,6 @@
 ---
 title: Metriche e avvisi in Gestione traffico di Azure
-description: In questo articolo vengono learn le metriche e gli avvisi disponibili per Gestione traffico in Azure.In this article s app sa the metrics and alerts available for Traffic Manager in Azure.
+description: In questo articolo vengono fornite informazioni sulle metriche e sugli avvisi disponibili per Traffic Manager in Azure.
 services: traffic-manager
 author: rohinkoul
 ms.service: traffic-manager
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: rohink
 ms.openlocfilehash: 521e6ac605d187c0f95545611a17a86cfda6e1dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938593"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico

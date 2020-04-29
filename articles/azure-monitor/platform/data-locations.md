@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/21/2019
 ms.openlocfilehash: 7d4459867081d920fefb9471b1a682d21040da9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666616"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Monitoraggio delle posizioni dei dati in monitoraggio di Azure
@@ -21,7 +21,7 @@ Monitoraggio di Azure è basato su una [piattaforma di dati](data-platform.md) d
 
 La tabella seguente identifica le diverse posizioni in cui vengono inviati i dati di monitoraggio in Azure e i diversi metodi di accesso.
 
-| Location | Descrizione | Metodi di accesso |
+| Percorso | Descrizione | Metodi di accesso |
 |:---|:---|:---|:--|
 | Metriche di monitoraggio di Azure | Database di serie temporali ottimizzato per l'analisi di dati timestamp. | [Esplora metriche](metrics-getting-started.md)<br>[API metriche di monitoraggio di Azure](/rest/api/monitor/metrics) |
 | Log di Monitoraggio di Azure    | Log Analytics area di lavoro basata su Azure Esplora dati, che fornisce un potente motore di analisi e un linguaggio di query avanzato. | [Log Analytics](../log-query/portals.md)<br>[API Log Analytics](https://dev.loganalytics.io/)<br>[API Application Insights](https://dev.applicationinsights.io/reference/get-query) |
