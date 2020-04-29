@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso SSH per gli account di dominio in Azure HDInsightManage SSH access for domain accounts in Azure HDInsight
-description: Passaggi per gestire l'accesso SSH per gli account Azure AD in HDInsight.Steps to manage SSH access for Azure AD accounts in HDInsight.
+title: Gestire l'accesso SSH per gli account di dominio in Azure HDInsight
+description: Procedura per gestire l'accesso SSH per gli account Azure AD in HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,33 +8,33 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 5529989384df75b592afa8f5e4960eb9817fb2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77472518"
 ---
-# <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Gestire l'accesso SSH per gli account di dominio in Azure HDInsightManage SSH access for domain accounts in Azure HDInsight
+# <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Gestire l'accesso SSH per gli account di dominio in Azure HDInsight
 
-Nei cluster protetti, per impostazione predefinita, a tutti gli utenti del dominio in Servizi di [dominio Active Directory](../../active-directory-domain-services/overview.md) di Azure è consentito [sSH](../hdinsight-hadoop-linux-use-ssh-unix.md) nei nodi head e edge. Questi utenti non fanno parte del gruppo sudoers e non ottengono l'accesso root. L'utente SSH creato durante la creazione del cluster diverrà l'accesso root.
+Nei cluster protetti, per impostazione predefinita, tutti gli utenti del dominio in [Azure AD DS](../../active-directory-domain-services/overview.md) sono autorizzati a eseguire [SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) nei nodi head e Edge. Questi utenti non fanno parte del gruppo sudoers e non ottengono l'accesso alla radice. L'utente SSH creato durante la creazione del cluster avrà accesso alla radice.
 
 ## <a name="manage-access"></a>Gestire l'accesso
 
-Per modificare l'accesso SSH a `/etc/ssh/sshd_config` utenti o gruppi specifici, eseguire l'aggiornamento in ognuno dei nodi.
+Per modificare l'accesso SSH a utenti o gruppi specifici, `/etc/ssh/sshd_config` eseguire l'aggiornamento in ogni nodo.
 
-1. Usare [il comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aprire `ssh_confi`il file g.
+1. Aprire il `ssh_confi`file g.
 
     ```bash
     sudo nano /etc/ssh/sshd_config
     ```
 
-1. Modificare `sshd_config` il file come desiderato. Se si limitano gli utenti a determinati gruppi, gli account locali non possono sSH in tale nodo. Di seguito è riportato solo un esempio di sintassi:
+1. Modificare il `sshd_config` file nel modo desiderato. Se si limitano gli utenti a determinati gruppi, gli account locali non possono eseguire SSH in tale nodo. Di seguito è riportato solo un esempio di sintassi:
 
     ```bash
     AllowUsers useralias1 useralias2
@@ -42,7 +42,7 @@ Per modificare l'accesso SSH a `/etc/ssh/sshd_config` utenti o gruppi specifici,
     AllowGroups groupname1 groupname2
     ```
 
-    Quindi salvare le modifiche: **Ctrl ì X**, **Y**, **Invio**.
+    Salvare quindi le modifiche: **CTRL + X**, **Y**, **invio**.
 
 1. Riavviare sshd.
 
@@ -52,13 +52,13 @@ Per modificare l'accesso SSH a `/etc/ssh/sshd_config` utenti o gruppi specifici,
 
 1. Ripetere i passaggi precedenti per ogni nodo.
 
-## <a name="ssh-authentication-log"></a>Registro di autenticazione SSH
+## <a name="ssh-authentication-log"></a>Log di autenticazione SSH
 
-Il registro di `/var/log/auth.log`autenticazione SSH viene scritto in . Se vengono visualizzati errori di accesso tramite SSH per gli account locali o di dominio, sarà necessario esaminare il registro per eseguire il debug degli errori. Spesso il problema potrebbe essere correlato ad account utente specifici e di solito è consigliabile provare altri account utente o SSH utilizzando l'utente SSH predefinito (account locale) e quindi tentare un kinit.
+Il log di autenticazione SSH è `/var/log/auth.log`scritto in. Se vengono visualizzati errori di accesso tramite SSH per gli account locali o di dominio, sarà necessario esaminare il log per eseguire il debug degli errori. Spesso il problema potrebbe essere correlato a account utente specifici ed è in genere consigliabile provare altri account utente o SSH usando l'utente SSH predefinito (account locale) e quindi provare a kinit.
 
-## <a name="ssh-debug-log"></a>Registro di debug SSH
+## <a name="ssh-debug-log"></a>Log di debug SSH
 
-Per abilitare la registrazione dettagliata, `sshd` è `-d` necessario riavviare con l'opzione. Come `/usr/sbin/sshd -d` è anche `sshd` possibile eseguire in una porta personalizzata (ad esempio 2222) in modo che non è necessario arrestare il daemon SSH principale. È inoltre `-v` possibile utilizzare l'opzione con il client SSH per ottenere più registri (visualizzazione lato client degli errori).
+Per abilitare la registrazione dettagliata, sarà necessario riavviare `sshd` con l' `-d` opzione. Come `/usr/sbin/sshd -d` è possibile eseguire `sshd` anche su una porta personalizzata, ad esempio 2222, in modo da non dover arrestare il daemon ssh principale. È anche possibile usare `-v` l'opzione con il client SSH per ottenere più log (visualizzazione lato client degli errori).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

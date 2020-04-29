@@ -1,6 +1,6 @@
 ---
-title: Creare un processo di Servizi multimediali di Azure con più output di trasformazioneCreate an Azure Media Services job with multiple transform outputs
-description: Questo argomento illustra come creare un processo di Servizi multimediali di Azure con più output di trasformazione.
+title: Creare un processo di servizi multimediali di Azure con più output di trasformazione
+description: Questo argomento illustra come creare un processo di servizi multimediali di Azure con più output di trasformazione.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,23 +12,23 @@ ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
 ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77563141"
 ---
-# <a name="create-a-job-with-multiple-transform-outputs"></a>Creare un processo con più output di trasformazioneCreate a job with multiple transform outputs
+# <a name="create-a-job-with-multiple-transform-outputs"></a>Creare un processo con più output di trasformazione
 
-In questo argomento viene illustrato come creare una trasformazione con due output di trasformazione. Il primo richiede la codifica dell'input per lo streaming a bitrate adattivo con un predefinito [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) incorporato. Il secondo richiede che il segnale audio nel video di input venga elaborato con [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Dopo aver creato la trasformazione, puoi inviare un lavoro che elaborerà il tuo video di conseguenza. Poiché in questo esempio si specificano due output di trasformazione, è necessario specificare due output di processo. È possibile scegliere di indirizzare entrambi gli output dei lavori allo stesso Asset (come illustrato di seguito) oppure è possibile scrivere i risultati per separare le risorse.
+In questo argomento viene illustrato come creare una trasformazione con due output di trasformazione. Il primo richiede la codifica dell'input per lo streaming a bitrate adattivo con un set di impostazioni [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) incorporato. Il secondo richiede l'elaborazione del segnale audio nel video di input con [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Dopo la creazione della trasformazione, è possibile inviare un processo che elaborerà il video in modo appropriato. Poiché in questo esempio si specificano due output di trasformazione, è necessario specificare due output del processo. È possibile scegliere di indirizzare entrambi gli output del processo allo stesso asset (come illustrato di seguito) oppure è possibile fare in modo che i risultati vengano scritti in risorse separate.
  
 
 > [!TIP]
-> Prima di iniziare lo sviluppo, vedere Sviluppo con API di [Servizi multimediali v3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, convenzioni di denominazione e così via).
+> Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md) (include informazioni sull'accesso alle API, alle convenzioni di denominazione e così via).
 
 ## <a name="create-a-transform"></a>Creare una trasformazione
 
-Il codice seguente viene illustrato come creare una trasformazione che produce due output.
+Nel codice seguente viene illustrato come creare una trasformazione che produce due output.
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -67,7 +67,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 ```
 ## <a name="submit-a-job"></a>Inviare un processo
 
-Creare un processo con un input URL HTTPS e due output del processo.
+Creare un processo con un input URL HTTPS e con due output del processo.
 
 ```csharp
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
@@ -135,4 +135,4 @@ Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#j
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esempi di Servizi multimediali di Azure con .NETAzure Media Services v3 samples using .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 
+[Esempi di servizi multimediali di Azure V3 con .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

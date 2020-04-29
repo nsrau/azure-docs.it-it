@@ -1,6 +1,6 @@
 ---
 title: Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure
-description: Informazioni su come raccogliere dati di diagnostica di Azure in un account di Archiviazione di Azure per poterli visualizzare con uno dei numerosi strumenti disponibili.
+description: Informazioni su come raccogliere i dati di diagnostica di Azure in un account di archiviazione di Azure in modo che sia possibile visualizzarli con uno dei diversi strumenti disponibili.
 services: azure-monitor
 author: bwren
 ms.service: azure-monitor
@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77472674"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
@@ -63,7 +63,7 @@ I dati dei log vengono archiviati nell'archivio BLOB o tabelle con i nomi seguen
 * **WADPerformanceCountersTable** : contatori delle prestazioni.
 * **WADWindowsEventLogsTable**: log eventi di Windows.
 
-**Blob**
+**BLOB**
 
 * **wad-control-container** : (solo per SDK 2.4 e versioni precedenti) contiene i file di configurazione XML che controllano Diagnostica di Azure.
 * **wad-iis-failedreqlogfiles**: contiene le informazioni dei log delle richieste non riuscite di IIS.

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77586131"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Binding dell'hub Azure per funzioni di Azure
@@ -19,7 +19,7 @@ Questo set di articoli spiega come usare le associazioni di funzioni di Azure pe
 > [!IMPORTANT]
 > Sebbene gli esempi di codice seguenti usino l'API dell'hub eventi, la sintassi specificata è applicabile alle funzioni dell'hub Internet.
 
-| Azione | Type |
+| Action | Tipo |
 |--------|------|
 | Rispondere agli eventi inviati a un flusso di eventi dell'hub Internet. | [Trigger](./functions-bindings-event-iot-trigger.md) |
 | Scrivere eventi in un flusso di eventi di un sacco | [Binding di output](./functions-bindings-event-iot-output.md) |

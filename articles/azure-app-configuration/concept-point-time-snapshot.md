@@ -1,7 +1,7 @@
 ---
-title: Recuperare coppie chiave-valore da un punto nel tempoRetrieve key-value pairs from a point-in-time
+title: Recuperare coppie chiave-valore da un punto nel tempo
 titleSuffix: Azure App Configuration
-description: Recuperare le vecchie coppie chiave-valore usando snapshot point-in-time nella configurazione delle app di AzureRetrieve old key-value pairs using point-in-time snapshots in Azure App Configuration
+description: Recuperare coppie chiave-valore obsolete usando snapshot temporizzati nella configurazione app Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
@@ -9,47 +9,47 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 1e2a4f7a7bc5db1b6a49f085821f7fa2bde54229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77523659"
 ---
 # <a name="point-in-time-snapshot"></a>Snapshot temporizzato
 
-Configurazione app di Azure mantiene un record delle modifiche apportate alle coppie chiave-valore. Questo record fornisce una sequenza temporale delle modifiche chiave-valore. È possibile ricostruire la cronologia di qualsiasi chiave-valore e fornire il suo valore passato in qualsiasi momento nei sette giorni precedenti. Utilizzando questa funzione, è possibile "viaggiare nel tempo" all'indietro e recuperare un vecchio valore-chiave. Ad esempio, è possibile ripristinare le impostazioni di configurazione utilizzate prima della distribuzione più recente per eseguire il rollback dell'applicazione alla configurazione precedente.
+App Azure configurazione mantiene un record delle modifiche apportate alle coppie chiave-valore. Questo record fornisce una sequenza temporale di modifiche chiave-valore. È possibile ricostruire la cronologia di qualsiasi valore chiave e fornire il relativo valore passato in qualsiasi momento nei sette giorni precedenti. Utilizzando questa funzionalità, è possibile "Time-Travel" indietro e recuperare un valore chiave precedente. È ad esempio possibile ripristinare le impostazioni di configurazione usate prima della distribuzione più recente per eseguire il rollback dell'applicazione alla configurazione precedente.
 
 ## <a name="key-value-retrieval"></a>Recupero di coppie chiave-valore
 
-È possibile usare Azure PowerShell per recuperare i valori delle chiavi passati.  Utilizzare `az appconfig revision list`, aggiungendo i parametri appropriati per recuperare i valori necessari.  Specificare l'istanza di Configurazione app`--name {app-config-store-name}`di Azure specificando il`--connection-string {your-connection-string}`nome dell'archivio ( ) o usando una stringa di connessione ( ). Limitare l'output specificando un momento`--datetime`specifico ( ) e specificando il`--top`numero massimo di elementi da restituire ( ).
+È possibile utilizzare Azure PowerShell per recuperare i valori di chiave passati.  Usare `az appconfig revision list`, aggiungendo i parametri appropriati per recuperare i valori richiesti.  Specificare l'istanza di configurazione app Azure fornendo il nome dell'archivio (`--name {app-config-store-name}`) o utilizzando una stringa di connessione (`--connection-string {your-connection-string}`). Limitare l'output specificando un punto nel tempo specifico (`--datetime`) e specificando il numero massimo di elementi da restituire (`--top`).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Recuperare tutte le modifiche registrate alle chiave-valore.
+Recuperare tutte le modifiche registrate apportate ai valori di chiave.
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name}.
 ```
 
-Recuperare tutte le modifiche `environment` registrate `test` per `prod`la chiave, le etichette e .
+Recuperare tutte le modifiche registrate per la `environment` chiave e le `test` etichette `prod`e.
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --key environment --label test,prod
 ```
 
-Recuperare tutte le modifiche registrate `environment:prod`nello spazio chiave gerarchico .
+Recuperare tutte le modifiche registrate nello spazio `environment:prod`delle chiavi gerarchico.
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --key environment:prod:* 
 ```
 
-Recuperare tutte le modifiche `color` registrate per la chiave in un momento specifico.
+Recuperare tutte le modifiche registrate per la `color` chiave in un momento specifico.
 
 ```azurepowershell
 az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
-Recuperare le ultime 10 modifiche registrate alle proprie coppie `key` `label`chiave-valore e restituire solo i valori per , e `last-modified` data e ora.
+Recuperare le ultime 10 modifiche registrate apportate ai valori di chiave e restituire solo i `key`valori `label`per, `last-modified` e timestamp.
 
 ```azurepowershell
 az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified

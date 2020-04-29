@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: 363e5705e9ccf4aa207ff7e5cafb615bc01bc7d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77538941"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Dashboard per laboratori in aula
@@ -28,7 +28,7 @@ Questo articolo descrive la visualizzazione dashboard di un Lab della classe in 
 ## <a name="costs-and-billing-tile"></a>Riquadro costi e fatturazione
 Questo riquadro fornisce i dettagli di stima dei costi seguenti:
 
-| Impostazione | Valore | 
+| Impostazione | valore | 
 | ------- | ----- | 
 | Ore quota | Numero massimo di ore in cui un utente può usare la VM al di fuori delle ore pianificate. |
 | Ore pianificate | Ore che verranno ricorrete in base alla pianificazione impostata nel Lab. Questo valore è disponibile solo se è presente una data da/a impostata su tutti gli eventi di pianificazione. |

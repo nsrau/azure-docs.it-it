@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162804"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Eseguire Apache Spark dalla shell Spark
@@ -21,13 +21,13 @@ Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambi
 
 ## <a name="run-an-apache-spark-shell"></a>Eseguire una Shell Apache Spark
 
-1. Usare [il comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
+1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Spark fornisce shell per Scala (spark-shell) e Python (pyspark). Nella sessione SSH, immettere *uno* dei seguenti comandi:
+1. Spark fornisce le shell per scala (Spark-Shell) e Python (pyspark). Nella sessione SSH, immettere *uno* dei comandi seguenti:
 
     ```bash
     spark-shell
@@ -43,9 +43,9 @@ Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambi
     # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    Se si intende utilizzare una configurazione facoltativa, verificare innanzitutto [l'eccezione OutOfMemoryError per Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
+    Se si intende usare una configurazione facoltativa, assicurarsi di esaminare prima [di tutto l'eccezione OutOfMemoryError per Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
 
-1. Alcuni comandi di esempio di base. Scegliere la lingua desiderata:
+1. Alcuni comandi di esempio di base. Scegliere la lingua pertinente:
 
     ```spark-shell
     val textFile = spark.read.textFile("/example/data/fruits.txt")
@@ -59,7 +59,7 @@ Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambi
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Eseguire una query su un file CSV. Si noti che `spark-shell` `pyspark`la lingua seguente funziona per e .
+1. Eseguire una query su un file CSV. Si noti che la lingua seguente `spark-shell` funziona `pyspark`per e.
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -75,7 +75,7 @@ Una shell [Apache Spark](https://spark.apache.org/) interattiva fornisce un ambi
     data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
     ```
 
-1. Risultati visualizzati:
+1. Visualizza risultati:
 
     ```spark-shell
     data.show()
@@ -105,7 +105,7 @@ Per accedere all'istanza di SparkSession, immettere `spark`. Per accedere all'is
 
 ## <a name="important-shell-parameters"></a>Parametri importanti della shell
 
-Il comando Spark`spark-shell`Shell `pyspark`( , o ) supporta molti parametri della riga di comando. Per visualizzare un elenco completo dei parametri, avviare la shell Spark con l'opzione `--help`. Alcuni di questi parametri `spark-submit`possono essere applicati solo a , che Spark Shell esegue il wrapping.
+Il comando della shell Spark`spark-shell`(, `pyspark`o) supporta molti parametri della riga di comando. Per visualizzare un elenco completo dei parametri, avviare la shell Spark con l'opzione `--help`. Alcuni di questi parametri possono essere applicati solo `spark-submit`a, che esegue il wrapping della shell di Spark.
 
 | switch | description | esempio |
 | --- | --- | --- |

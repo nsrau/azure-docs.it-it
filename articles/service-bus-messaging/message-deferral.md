@@ -1,6 +1,6 @@
 ---
-title: Bus di servizio di Azure - rinvio dei messaggiAzure Service Bus - message deferral
-description: Questo articolo illustra come rinviare il recapito dei messaggi del bus di servizio di Azure.This article explains how to defer delivery of Azure Service Bus messages. Il messaggio rimane nella coda o nella sottoscrizione, ma viene messo da parte.
+title: Bus di servizio di Azure-rinvio messaggio
+description: Questo articolo illustra come rinviare il recapito dei messaggi del bus di servizio di Azure. Il messaggio rimane nella coda o nella sottoscrizione, ma viene messo da parte.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77538397"
 ---
 # <a name="message-deferral"></a>Differimento di messaggi
@@ -32,7 +32,7 @@ Il differimento consente di riordinare i messaggi, sostituendo l'ordine di arriv
 
 ## <a name="message-deferral-apis"></a>API di differimento di messaggi
 
-L'API è [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) o [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) nel client .NET Framework, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) nel client .NET Standard e [IMessageReceiver.defer](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) o [IMessageReceiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) nel client Java. 
+L'API è [BrokeredMessage. posticipate](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) o [BrokeredMessage. DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) nel client di .NET Framework, [MessageReceiver. DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) nel client di .NET standard e [IMessageReceiver. posticipa](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) o [IMessageReceiver. DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) nel client Java. 
 
 I messaggi rinviati rimangono nella coda principale insieme a tutti gli altri messaggi attivi (a differenza dei messaggi non recapitabili che rimangono in una coda secondaria), ma non possono essere più ricevuti usando le normali funzioni Receive/ReceiveAsync. I messaggi rinviati possono essere individuati tramite l'[esplorazione dei messaggi](message-browsing.md) se un'applicazione ne perde traccia.
 

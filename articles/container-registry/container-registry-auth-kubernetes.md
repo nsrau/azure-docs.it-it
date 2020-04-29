@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 02/10/2020
 ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77154894"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Eseguire il pull delle immagini da un registro contenitori di Azure a un cluster Kubernetes
@@ -47,7 +47,7 @@ kubectl create secret docker-registry <secret-name> \
 ```
 dove:
 
-| Valore | Descrizione |
+| valore | Descrizione |
 | :--- | :--- |
 | `secret-name` | Nome del segreto di pull dell'immagine, ad esempio *ACR-Secret* |
 | `namespace` | Spazio dei nomi Kubernetes in cui inserire il segreto <br/> Necessaria solo se si desidera inserire il segreto in uno spazio dei nomi diverso dallo spazio dei nomi predefinito |

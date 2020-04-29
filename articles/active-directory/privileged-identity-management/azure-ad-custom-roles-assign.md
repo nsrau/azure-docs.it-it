@@ -1,5 +1,5 @@
 ---
-title: Assegnare il ruolo personalizzato di Azure AD - Alias Name (PIM)
+title: Assegnare Azure AD Privileged Identity Management di ruolo personalizzato (PIM)
 description: Come assegnare un ruolo personalizzato di Azure AD per l'assegnazione di Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499241"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Assegnare un ruolo personalizzato di Azure AD in Privileged Identity Management
@@ -29,10 +29,10 @@ Questo articolo illustra come usare Privileged Identity Management (PIM) per cre
 
 - Per altre informazioni su come creare ruoli personalizzati per delegare la gestione delle applicazioni in Azure AD, vedere [Ruoli di amministratore personalizzati in Azure Active Directory (anteprima)](../users-groups-roles/roles-custom-overview.md).
 - Se si usa Privileged Identity Management per la prima volta, vedere [Iniziare a usare Privileged Identity Management](pim-getting-started.md) per altre informazioni.
-- Per informazioni su come concedere a un altro amministratore l'accesso per gestire la gestione delle identità con privilegi, vedere [Concedere l'accesso ad altri amministratori per gestire La gestione delle identità con privilegi](pim-how-to-give-access-to-pim.md).
+- Per informazioni su come concedere a un altro amministratore l'accesso per gestire Privileged Identity Management, vedere [concedere l'accesso ad altri amministratori per gestire Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza di ruoli predefiniti](pim-how-to-activate-role.md) e questo articolo non è applicabile:
+> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza dei ruoli incorporati](pim-how-to-activate-role.md) e questo articolo non si applica:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -74,7 +74,7 @@ Privileged Identity Management può gestire i ruoli personalizzati creati in Ges
 1. Se la casella di controllo **Permanente** è presente e disponibile, a seconda delle impostazioni del ruolo, è possibile specificare se l'assegnazione è permanente. Selezionare la casella di controllo per rendere l'assegnazione con idoneità permanente o con assegnazione permanente. Deselezionare la casella di controllo per specificare una durata per l'assegnazione.
 1. Per creare la nuova assegnazione di ruolo, fare clic su **Salva** e quindi su **Aggiungi**. Verrà visualizzata una notifica di stato per il processo di assegnazione.
 
-Per verificare l'assegnazione di ruolo, in un ruolo aperto**selezionare Assegnazione** **assegnazione** > e verificare che l'assegnazione di ruolo sia correttamente identificata come idonea o attiva.
+Per verificare l'assegnazione di ruolo, in un ruolo aperto selezionare **assegnazioni** > **assegna** e verificare che l'assegnazione di ruolo sia identificata correttamente come idonea o attiva.
 
  ![Controllare se l'assegnazione di ruolo è visibile come idonea o attiva](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

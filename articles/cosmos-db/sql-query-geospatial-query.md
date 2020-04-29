@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77566322"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Esecuzione di query su dati geospaziali con Azure Cosmos DB
@@ -21,7 +21,7 @@ In questo articolo viene illustrato come eseguire query su dati geospaziali in A
 
 Di seguito è riportato un elenco di funzioni di sistema geospaziale utili per l'esecuzione di query in Azure Cosmos DB:
 
-|**Uso**|**Descrizione**|
+|**Utilizzo**|**Descrizione**|
 |---|---|
 | ST_DISTANCE (spatial_expr, spatial_expr) | Restituisce la distanza tra le due espressioni GeoJSON punto, poligono o LineString.|
 |ST_WITHIN (spatial_expr, spatial_expr) | Restituisce un'espressione booleana che indica se il primo oggetto GeoJSON (punto, poligono o LineString) è all'interno del secondo oggetto GeoJSON (punto, poligono o LineString).|

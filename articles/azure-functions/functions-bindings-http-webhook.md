@@ -1,51 +1,51 @@
 ---
 title: Trigger e associazioni HTTP di Funzioni di Azure
-description: Informazioni su come usare trigger e associazioni HTTP in Funzioni di Azure.Learn to use HTTP triggers and bindings in Azure Functions.
+description: Informazioni su come usare trigger e associazioni HTTP in funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77462106"
 ---
-# <a name="azure-functions-http-triggers-and-bindings-overview"></a>Panoramica dei trigger e delle associazioni HTTP di Funzioni di AzureAzure Functions HTTP triggers and bindings overview
+# <a name="azure-functions-http-triggers-and-bindings-overview"></a>Cenni preliminari sulle associazioni e sui trigger HTTP di funzioni di Azure
 
-Funzioni di Azure possono essere richiamate tramite richieste HTTP per compilare API senza server e rispondere [ai webhook](https://en.wikipedia.org/wiki/Webhook).
+Funzioni di Azure può essere richiamato tramite richieste HTTP per compilare API senza server e rispondere ai [webhook](https://en.wikipedia.org/wiki/Webhook).
 
-| Azione | Type |
+| Action | Tipo |
 |---------|---------|
-| Eseguire una funzione da una richiesta HTTPRun a function from an HTTP request | [Grilletto](./functions-bindings-http-webhook-trigger.md) |
-| Restituire una risposta HTTP da una funzioneReturn an HTTP response from a function |[Associazione di output](./functions-bindings-http-webhook-output.md) |
+| Eseguire una funzione da una richiesta HTTP | [Trigger](./functions-bindings-http-webhook-trigger.md) |
+| Restituisce una risposta HTTP da una funzione |[Binding di output](./functions-bindings-http-webhook-output.md) |
 
-Il codice in questo articolo è la sintassi di .NET Core per impostazione predefinita, usata in Funzioni versione 2.x e successive. Per informazioni sulla sintassi 1.x, consultare i [modelli delle funzioni 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+Per impostazione predefinita, il codice in questo articolo è la sintassi di .NET Core, usata nelle funzioni versione 2. x e successive. Per informazioni sulla sintassi 1.x, consultare i [modelli delle funzioni 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-## <a name="add-to-your-functions-app"></a>Aggiungi all'app Funzioni
+## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
 
-### <a name="functions-2x-and-higher"></a>Funzioni 2.x e successive
+### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
 
-Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene utilizzato per le librerie di classi .NET mentre il pacchetto di estensione viene utilizzato per tutti gli altri tipi di applicazione.
+Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi per...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installazione del [pacchetto NuGet], versione 3.x | |
-| Script di C, Java, JavaScript, Python, PowerShell | Registrazione del pacchetto di [estensione]          | L'estensione Strumenti di Azure è consigliata per l'uso con il codice di Visual Studio.The [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) is recommended to use with Visual Studio Code. |
-| Script di C '(solo online nel portale di Azure)C's Script (online-only in Azure portal)         | Aggiunta di un'associazione                            | Per aggiornare le estensioni di associazione esistenti senza dover ripubblicare l'app per le funzioni, vedere [Aggiornare le estensioni.] |
+| C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
+| Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) è consigliata per l'uso con Visual Studio Code. |
+| Script C# (solo online in portale di Azure)         | Aggiunta di un'associazione                            | Per aggiornare le estensioni di binding esistenti senza dover ripubblicare l'app per le funzioni, vedere [aggiornare le estensioni]. |
 
 [core tools]: ./functions-run-local.md
-[pacchetto di estensione]: ./functions-bindings-register.md#extension-bundles
+[Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http
 [Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funzioni 1.x
 
-Funzioni 1.x applicazioni hanno automaticamente un riferimento il [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet pacchetto, versione 2.x.
+Le app di funzioni 1. x hanno automaticamente un riferimento al pacchetto NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) versione 2. x.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire una funzione da una richiesta HTTPRun a function from an HTTP request](./functions-bindings-http-webhook-trigger.md)
-- [Restituire una risposta HTTP da una funzioneReturn an HTTP response from a function](./functions-bindings-http-webhook-output.md)
+- [Eseguire una funzione da una richiesta HTTP](./functions-bindings-http-webhook-trigger.md)
+- [Restituisce una risposta HTTP da una funzione](./functions-bindings-http-webhook-output.md)

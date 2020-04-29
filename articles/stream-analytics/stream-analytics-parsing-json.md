@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77484588"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizzare dati JSON e Avro in Analisi di flusso di Azure
@@ -63,7 +63,7 @@ FROM input
 
 Il risultato è:
 
-|DeviceID|Lat|long|Temperatura|Version|
+|DeviceID|Lat|long|Temperatura|Versione|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
@@ -277,7 +277,7 @@ CROSS APPLY GetArrayElements(SensorReadings.CustomSensor03) AS CustomSensor03Rec
 
 Il risultato è:
 
-|deviceId|ArrayIndex|ArrayValue|
+|DeviceId|ArrayIndex|ArrayValue|
 |-|-|-|
 |12345|0|12|
 |12345|1|-5|
@@ -294,10 +294,10 @@ CROSS APPLY GetArrayElements(SensorMetadata) AS SensorMetadataRecords
  
 Il risultato è:
 
-|deviceId|smKey|smValue|
+|DeviceId|smKey|smValue|
 |-|-|-|
 |12345|Produttore|ABC|
-|12345|Version|1.2.45|
+|12345|Versione|1.2.45|
 
 Se i campi estratti devono essere visualizzati in colonne, è possibile eseguire il pivot del set di dati usando la sintassi [with](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) oltre all'operazione di [join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) . Il join richiede una condizione di [limite temporale](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) che impedisce la duplicazione:
 
@@ -323,9 +323,9 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 Il risultato è:
 
-|deviceId|Lat|long|smVersion|smManufacturer|
+|DeviceId|Lat|long|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Data Types in Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) (Tipi di dati in Analisi di flusso di Azure)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425885"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight
@@ -63,7 +63,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 
 1. Creare due nuovi gruppi di risorse:
 
-    |Gruppo di risorse | Location |
+    |Gruppo di risorse | Percorso |
     |---|---|
     | Kafka-primario-RG | Stati Uniti centrali |
     | Kafka-secondario-RG | Stati Uniti centro-settentrionali |

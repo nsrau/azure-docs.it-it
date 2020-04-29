@@ -1,6 +1,6 @@
 ---
-title: Aggiunta di un layer Immagine a una mappa Mappe di Microsoft Azure
-description: In questo articolo verrà illustrato come sovrapporre un'immagine su una mappa usando Microsoft Azure Maps Web SDK.
+title: Aggiungere un livello immagine a una mappa | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come sovrapporre un'immagine in una mappa usando il Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,26 +10,26 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77209716"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Aggiungere un livello per le immagini a una mappa
 
-Questo articolo illustra come sovrapporre un'immagine a un insieme fisso di coordinate. Ecco alcuni esempi di diversi tipi di immagini che possono essere sovrapposti sulle mappe:
+Questo articolo illustra come sovrapporre un'immagine a un set fisso di coordinate. Di seguito sono riportati alcuni esempi di tipi di immagini diversi che possono sovrapporsi alle mappe:
 
-* Immagini catturate dai droni
-* Piani di costruzione
-* Immagini cartole storiche o di altro gruppo specializzate
-* Progetti di siti di lavoro
+* Immagini acquisite dai droni
+* Compilazione di planimetrie
+* Immagini della mappa cronologica o altre specializzate
+* Progetti per i siti dei processi
 * Immagini radar meteo
 
 > [!TIP]
-> Un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) è un modo semplice per sovrapporre un'immagine su una mappa. Tieni presente che i browser potrebbero avere difficoltà a caricare un'immagine di grandi dimensioni. In questo caso, è consigliabile suddividere l'immagine in riquadri e caricarli nella mappa come [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+> Un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) è un modo semplice per sovrapporre un'immagine a una mappa. Si noti che i browser potrebbero avere difficoltà a caricare un'immagine di grandi dimensioni. In questo caso, provare a suddividere l'immagine in riquadri e a caricarli nella mappa come [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
-Il livello immagine supporta i seguenti formati di immagine:
+Il livello immagine supporta i formati di immagine seguenti:
 
 - JPEG
 - PNG
@@ -38,7 +38,7 @@ Il livello immagine supporta i seguenti formati di immagine:
 
 ## <a name="add-an-image-layer"></a>Aggiungere un livello per le immagini
 
-Il codice seguente sovrappone un'immagine di una [mappa di Newark, New Jersey, del 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) sulla mappa. Un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) viene creato passando un URL a un'immagine e `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`le coordinate per i quattro angoli nel formato .
+Il codice seguente sovrappone un'immagine di una [mappa di Newark, New Jersey, da 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) sulla mappa. Un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) viene creato passando un URL a un'immagine e le coordinate per i quattro angoli nel formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -53,18 +53,18 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-Ecco l'esempio di codice in esecuzione completo del codice precedente.
+Ecco l'esempio di codice completo per l'esecuzione del codice precedente.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Livello semplice per le immagini' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Penna <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Livello semplice per le immagini</a> da Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="import-a-kml-file-as-ground-overlay"></a>Importare un file KML come sovrapposizione a terra
+## <a name="import-a-kml-file-as-ground-overlay"></a>Importa un file KML come sovrapposizione di base
 
-In questo esempio viene illustrato come aggiungere informazioni di sovrapposizione a terra KML come livello immagine sulla mappa. Le sovrapposizioni di terreno KML forniscono le coordinate nord, sud, est e ovest e una rotazione in senso antiorario. Ma, il livello dell'immagine si aspetta le coordinate per ogni angolo dell'immagine. La sovrapposizione del terreno KML in questo esempio è per la cattedrale di Chartres, ed è proviene da [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+In questo esempio viene illustrato come aggiungere informazioni sulla sovrapposizione di base KML come livello immagine sulla mappa. Le sovrapposizioni di base KML forniscono coordinate Nord, Sud, est e ovest e una rotazione in senso antiorario. Tuttavia, il livello immagine prevede le coordinate per ogni angolo dell'immagine. La sovrimpressione del terreno KML in questo esempio è per la Cattedrale di Chartres ed è originata da [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-Il codice usa `getCoordinatesFromEdges` la funzione statica dalla classe [ImageLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) Calcola i quattro angoli dell'immagine utilizzando le informazioni nord, sud, est, ovest e di rotazione della sovrapposizione del terreno KML.
+Il codice usa la funzione `getCoordinatesFromEdges` statica della classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Calcola i quattro angoli dell'immagine usando le informazioni relative a nord, Sud, est, ovest e rotazione della sovrimpressione del terreno KML.
 
 <br/>
 
@@ -73,7 +73,7 @@ Il codice usa `getCoordinatesFromEdges` la funzione statica dalla classe [ImageL
 
 ## <a name="customize-an-image-layer"></a>Personalizzare un livello per le immagini
 
-Il livello immagine ha molte opzioni di stile. Ecco uno strumento per provarli.
+Il livello immagine include molte opzioni di stile. Ecco uno strumento per provarlo.
 
 <br/>
 

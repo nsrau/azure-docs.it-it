@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77484401"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
@@ -25,7 +25,7 @@ Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate
 
 **Codice di errore**: AllocationFailed o ZonalAllocationFailed
 
-**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Per saperne di più su\/come migliorare la probabilità di successo dell'allocazione a https: /aka.ms/allocation-guidance"
+**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni sul miglioramento della probabilità di esito positivo dell'\/allocazione in https:/aka.ms/allocation-guidance "
 
 Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce possibili soluzioni alternative.
 
@@ -79,13 +79,13 @@ Se si usano le zone di disponibilità, provare un'altra zona all'interno dell'ar
 
 Se la richiesta di allocazione è di grandi dimensioni (oltre 500 core), consultare le informazioni disponibili nelle sezioni seguenti per suddividere la richiesta in distribuzioni di dimensioni minori.
 
-Provare a [ridistribuire la macchina virtuale.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows) La ridistribuzione della macchina virtuale alloca la macchina virtuale a un nuovo cluster all'interno dell'area.
+Provare a [ridistribuire la macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). La ridistribuzione della VM consente di allocare la macchina virtuale in un nuovo cluster all'interno dell'area.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errori di allocazione per dimensioni di VM precedenti (Av1, Dv1, DSv1, D15v2, DS15v2 e così via)
 
 Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, si consiglia ai clienti che usano le macchine virtuali serie legacy di provare a passare alle VM più recenti equivalenti in base alle indicazioni seguenti: queste VM sono ottimizzate per l'hardware più recente e consentiranno di sfruttare i vantaggi offerti da prezzi e prestazioni migliori. 
 
-|Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Ulteriori informazioni|
+|Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Altre informazioni|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o DSv3](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/

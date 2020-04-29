@@ -1,6 +1,6 @@
 ---
 title: Funzionalità di sicurezza di Azure per la gestione delle identità | Documentazione Microsoft
-description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. Le soluzioni Microsoft per la gestione di identità e accessi consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud, consentendo livelli di convalida aggiuntivi, ad esempio Multi-Factor Authentication e Conditional Access Politiche. "
+description: " Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure per la gestione delle identità. Le soluzioni Microsoft per la gestione delle identità e degli accessi consentono di proteggere l'accesso alle applicazioni e alle risorse nel data center aziendale e nel cloud, abilitando livelli aggiuntivi di convalida, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -17,15 +17,15 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77565894"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
- La gestione delle identità è il processo di autenticazione e autorizzazione delle [entità di sicurezza](/windows/security/identity-protection/access-control/security-principals). Comporta anche il controllo delle informazioni su tali entità (identità). Le entità di sicurezza (identità) possono includere servizi, applicazioni, utenti, gruppi e così via. Le soluzioni Microsoft per la gestione di identità e accessi consentono all'IT di proteggere l'accesso ad applicazioni e risorse nel data center aziendale e nel cloud. Tale protezione consente livelli aggiuntivi di convalida, ad esempio l'autenticazione a più fattori e i criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) offre un punto di accesso singolo (SSO) a migliaia di app software come un servizio (SaaS) cloud e alle app Web eseguite in locale.
+ La gestione delle identità è il processo di autenticazione e autorizzazione delle [entità di sicurezza](/windows/security/identity-protection/access-control/security-principals). Comporta anche il controllo delle informazioni su tali entità (identità). Le entità di sicurezza (identità) possono includere servizi, applicazioni, utenti, gruppi e così via. Le soluzioni Microsoft per la gestione delle identità e degli accessi consentono di proteggere l'accesso alle applicazioni e alle risorse nel data center aziendale e nel cloud. Tale protezione consente livelli di convalida aggiuntivi, ad esempio Multi-Factor Authentication e criteri di accesso condizionale. Il monitoraggio delle attività sospette tramite funzioni avanzate di report di sicurezza, controllo e avvisi consente di attenuare i potenziali problemi di sicurezza. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) offre un punto di accesso singolo (SSO) a migliaia di app software come un servizio (SaaS) cloud e alle app Web eseguite in locale.
  
 Sfruttando i vantaggi della sicurezza di Azure Active Directory (AD) è possibile:
 
@@ -62,8 +62,8 @@ Non solo gli utenti non devono più gestire diversi set di nomi utente e passwor
 
 Altre informazioni:
 
-* [Panoramica dell'accesso Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Panoramica di Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
@@ -72,7 +72,7 @@ Il proxy di applicazione di Azure AD consente di pubblicare applicazioni locali,
 
 Altre informazioni:
 
-* [Abilitazione del proxy di applicazione di Azure AD](/azure/active-directory/manage-apps/application-proxy-enable)
+* [Abilitazione di Azure Active Directory Application Proxy](/azure/active-directory/manage-apps/application-proxy-enable)
 * [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](/azure/active-directory/active-directory-application-proxy-publish)
 * [Single Sign-On con il proxy di applicazione](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Utilizzo dell'accesso condizionale](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
@@ -112,7 +112,7 @@ Altre informazioni:
 
 * [Visualizzare i report di accesso e utilizzo](/azure/active-directory/active-directory-view-access-usage-reports)
 * [Introduzione ad Azure Active Directory Reporting](/azure/active-directory/active-directory-reporting-getting-started)
-* [Guida alla creazione di report di Azure Active DirectoryAzure Active Directory reporting guide](/azure/active-directory/active-directory-reporting-guide)
+* [Guida alla creazione di report Azure Active Directory](/azure/active-directory/active-directory-reporting-guide)
 
 ## <a name="consumer-identity-and-access-management"></a>Gestione delle identità e dell'accesso degli utenti
 
@@ -126,13 +126,13 @@ Altre informazioni:
 
 * [Informazioni su Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 * [Anteprima di Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni](../../active-directory-b2c/overview.md)
-* [Anteprima B2C di Azure Active Directory: tipi di applicazioniAzure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/application-types.md)
+* [Azure Active Directory B2C Preview: tipi di applicazioni](../../active-directory-b2c/application-types.md)
 
 ## <a name="device-registration"></a>Registrazione del dispositivo
 
-La registrazione dei dispositivi di Azure AD è la base per scenari di [accesso condizionale](/azure/active-directory/active-directory-conditional-access-device-registration-overview) basati su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure AD fornisce al dispositivo un'identità che viene usata per autenticare il dispositivo quando un utente esegue l'accesso. Il dispositivo autenticato e gli attributi del dispositivo possono quindi essere usati per applicare criteri di accesso condizionale per le applicazioni ospitate nel cloud e in locale.
+Azure AD registrazione del dispositivo è la base per gli scenari di [accesso condizionale](/azure/active-directory/active-directory-conditional-access-device-registration-overview) basato su dispositivo. Quando un dispositivo viene registrato, Registrazione dispositivo Azure AD fornisce al dispositivo un'identità che viene usata per autenticare il dispositivo quando un utente esegue l'accesso. Il dispositivo autenticato e gli attributi del dispositivo possono quindi essere usati per applicare i criteri di accesso condizionale per le applicazioni ospitate nel cloud e in locale.
 
-Con una soluzione di gestione di dispositivi mobili ad esempio Intune, gli attributi del dispositivo in Azure AD vengono aggiornati con informazioni aggiuntive sul dispositivo. È quindi possibile creare regole di accesso condizionale che imponiscano l'accesso dai dispositivi per soddisfare gli standard di sicurezza e conformità.
+Con una soluzione di gestione di dispositivi mobili ad esempio Intune, gli attributi del dispositivo in Azure AD vengono aggiornati con informazioni aggiuntive sul dispositivo. È quindi possibile creare regole di accesso condizionale che impongono l'accesso da dispositivi per soddisfare gli standard di sicurezza e conformità.
 
 Altre informazioni:
 
@@ -160,7 +160,7 @@ Altre informazioni:
 
 ## <a name="identity-protection"></a>Identity Protection
 
-Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e delle potenziali vulnerabilità che influiscono sulle identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Identity Protection introduce anche nuovi tipi di rilevamento dei rischi in grado di rilevare anomalie in tempo reale.
+Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Identity Protection introduce anche nuovi tipi di rilevamento del rischio in grado di rilevare le anomalie in tempo reale.
 
 Altre informazioni:
 

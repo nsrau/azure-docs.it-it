@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/22/2020
 ms.author: spelluru
 ms.openlocfilehash: d263381667319b98a28ee6168e2de75c4041b58a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77589909"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Deprecazione del supporto di Azure Service Manager per il bus di servizio, l'inoltro e hub eventi di Azure

@@ -15,10 +15,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162991"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
@@ -155,7 +155,7 @@ La tabella seguente illustra il mapping:
 | **Distribuzione di licenze DRM** |* Distribuzione delle licenze di Servizi multimediali (PlayReady, Widevine, FairPlay) <br/>* Server licenze Axinom <br/>* Server licenze PlayReady personalizzato |
 | **Origine** |Endpoint di streaming di Servizi multimediali |
 | **Gestione delle chiavi** |Non necessaria per l'implementazione di riferimento |
-| **Gestione del contenuto** |Applicazione console in C# |
+| **Gestione dei contenuti** |Applicazione console in C# |
 
 In altri termini, con Azure AD vengono usati sia IdP che STS. L'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) viene usata per il lettore. Sia Servizi multimediali che Media Player supportano DASH e CENC con DRM multiplo.
 
@@ -189,7 +189,7 @@ Di seguito è illustrato il flusso in fase di runtime:
 ### <a name="implementation-procedures"></a>Procedure di implementazione
 L'implementazione è costituita dai passaggi seguenti:
 
-1. Preparare l'asset di test. Codificare/creare un pacchetto per un video di test in formato MP4 frammentato a più velocità in bit in Servizi multimediali. Questa risorsa *non* è protetta da DRM. La protezione DRM viene applicata più avanti con la protezione dinamica.
+1. Preparare l'asset di test. Codificare/creare un pacchetto per un video di test in formato MP4 frammentato a più velocità in bit in Servizi multimediali. Questo asset *non* è protetto da DRM. La protezione DRM viene applicata più avanti con la protezione dinamica.
 
 2. Creare un ID chiave e una chiave simmetrica (facoltativamente da un seme chiave). In questa caso, non è necessario il sistema di gestione delle chiavi perché per poche attività di test sono sufficienti un solo ID chiave e la chiave simmetrica.
 
@@ -217,12 +217,12 @@ L'implementazione è costituita dai passaggi seguenti:
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Esito negativo |
     | **Widevine** |Chrome, Firefox, Opera |Succeed |Esito negativo |
-    | **Fairplay** |Safari su macOS      |Succeed |Esito negativo |
+    | **FairPlay** |Safari su macOS      |Succeed |Esito negativo |
     | **AES-128** |Browser più moderni  |Succeed |Esito negativo |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
-Per altre informazioni, vedere [Autenticazione token JWT in Servizi multimediali](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)di Azure e crittografia dinamica.  
+Per altre informazioni, vedere [autenticazione del token JWT in servizi multimediali di Azure e crittografia dinamica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Per informazioni su Azure AD:
 
@@ -477,6 +477,6 @@ Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

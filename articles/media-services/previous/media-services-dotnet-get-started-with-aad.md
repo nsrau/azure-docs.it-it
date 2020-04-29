@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162880"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 A partire da windowsazure.mediaservices 4.0.0.4, Servizi multimediali di Azure supporta l'autenticazione basata su Azure Active Directory (Azure AD). In questo argomento viene illustrato come usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con .NET.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure free trial . 
+- Un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 - Il pacchetto [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) più recente.
 - Familiarità con l'argomento [Panoramica dell'accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
@@ -90,7 +90,7 @@ L'esempio di codice seguente mostra come creare un token:
     var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
   
-Per avviare la programmazione in Servizi multimediali, è necessario creare un'istanza **CloudMediaContext** che rappresenta il contesto del server. **CloudMediaContext** contiene riferimenti a raccolte importanti composte da processi, asset, file, criteri di accesso e localizzatori. 
+Per avviare la programmazione in servizi multimediali, è necessario creare un'istanza di **CloudMediaContext** che rappresenta il contesto del server. **CloudMediaContext** contiene riferimenti a raccolte importanti composte da processi, asset, file, criteri di accesso e localizzatori. 
 
 È anche necessario passare l'**URI di risorsa per i servizi REST multimediali** al costruttore **CloudMediaContext**. Per ottenere l'URI di risorsa per i servizi REST multimediali, accedere al portale di Azure, selezionare l'account Servizi multimediali di Azure, fare clic su **Accesso API**, quindi selezionare **Connettersi all'API Servizi multimediali di Azure con l'autorizzazione utente (interattiva)**. 
 
@@ -133,7 +133,7 @@ Per connettersi all'API Servizi multimediali di Azure con l'opzione dell'entità
 
 - Endpoint tenant di Azure AD. Le informazioni sul tenant possono essere recuperate dal portale di Azure. Passare il mouse sull'utente connesso nell'angolo superiore destro.
 - URI di risorsa per Servizi multimediali.
-- Valori dell'applicazione Azure AD: **ID client** e **Segreto client**.
+- Azure AD valori dell'applicazione: l' **ID client** e il **segreto client**.
 
 I valori per i parametri **ID client** e **Segreto client** sono reperibili nel portale di Azure. Per altre informazioni, vedere [Introduzione all'autenticazione di Azure AD tramite il portale di Azure](media-services-portal-get-started-with-aad.md).
 
@@ -153,7 +153,7 @@ Per istruzioni su come creare e configurare un certificato in un modulo utilizza
                                 new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
                                 AzureEnvironments.AzureCloudEnvironment);
 
-Per avviare la programmazione in Servizi multimediali, è necessario creare un'istanza **CloudMediaContext** che rappresenta il contesto del server. È anche necessario passare l'**URI di risorsa per i servizi REST multimediali** al costruttore **CloudMediaContext**. È possibile ottenere dal portale di Azure anche il valore dell'**URI di risorsa per i servizi REST multimediali**.
+Per avviare la programmazione in servizi multimediali, è necessario creare un'istanza di **CloudMediaContext** che rappresenta il contesto del server. È anche necessario passare l'**URI di risorsa per i servizi REST multimediali** al costruttore **CloudMediaContext**. È possibile ottenere dal portale di Azure anche il valore dell'**URI di risorsa per i servizi REST multimediali**.
 
 L'esempio di codice seguente mostra come creare un'istanza **CloudMediaContext**:
 

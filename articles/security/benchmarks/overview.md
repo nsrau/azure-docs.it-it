@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
 ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587533"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Panoramica del benchmark di sicurezza di Azure
@@ -26,7 +26,7 @@ Nel benchmark di sicurezza di Azure vengono usati i controlli seguenti:
 - [Sicurezza di rete](security-control-network-security.md)
 - [Registrazione e monitoraggio](security-control-logging-monitoring.md)
 - [Gestione delle identità e controllo di accesso](security-control-identity-access-control.md)
-- [Protezione dei dati](security-control-data-protection.md)
+- [Protezione dati](security-control-data-protection.md)
 - [Gestione delle vulnerabilità](security-control-vulnerability-management.md)
 - [Gestione asset e inventario](security-control-inventory-asset-management.md)
 - [Configurazione sicura](security-control-secure-configuration.md)

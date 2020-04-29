@@ -4,10 +4,10 @@ description: Questo articolo offre una matrice di supporto che elenca tutti i ca
 ms.date: 11/13/2018
 ms.topic: conceptual
 ms.openlocfilehash: c7aa8823ca2bf638c6b726c504cddf8c5217fa19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77444044"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice di protezione del server di Backup di Azure
@@ -16,7 +16,7 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 
 ## <a name="protection-support-matrix"></a>Matrice di supporto della protezione
 
-|Carico di lavoro|Version|Server di backup di Azure</br> installation|server di Backup di Azure supportati|Protezione e ripristino|
+|Carico di lavoro|Versione|Server di backup di Azure</br> installation|server di Backup di Azure supportati|Protezione e ripristino|
 |------------|-----------|---------------|--------------|--------------|
 |Computer client (a 64 e 32 bit)|Windows 10|Server fisico<br /><br />Macchina virtuale Hyper-V<br /><br />Macchina virtuale VMware|V3, V2|Volume, condivisione, cartella, file, volumi deduplicati<br /><br />I volumi protetti devono essere NTFS. FAT e FAT32 non sono supportati.<br /><br />Le dimensioni dei volumi devono essere di almeno 1 GB. Server di Backup di Azure utilizza Servizio Copia Shadow del volume (VSS) per eseguire lo snapshot dei dati e lo snapshot funziona solo se il volume è di almeno 1 GB.|
 |Computer client (a 64 e 32 bit)|Windows 8.1|Server fisico<br /><br />Macchina virtuale Hyper-V|V3, V2|File<br /><br />I volumi protetti devono essere NTFS. FAT e FAT32 non sono supportati.<br /><br />Le dimensioni dei volumi devono essere di almeno 1 GB. Server di Backup di Azure utilizza Servizio Copia Shadow del volume (VSS) per eseguire lo snapshot dei dati e lo snapshot funziona solo se il volume è di almeno 1 GB.|

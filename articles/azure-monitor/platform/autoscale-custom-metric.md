@@ -5,22 +5,22 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425120"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introduzione alla scalabilità automatica in base a una metrica personalizzata in Azure
 Questo articolo descrive come ridimensionare la risorsa in base a una metrica personalizzata nel portale di Azure.
 
-La scalabilità automatica di Monitoraggio di Azure si applica solo [ai](https://azure.microsoft.com/services/virtual-machine-scale-sets/)set di scalabilità delle macchine virtuali , [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), Servizio app - App [Web](https://azure.microsoft.com/services/app-service/web/), Cluster di Azure [Data Explorer](https://azure.microsoft.com/services/data-explorer/) ,   
-Ambiente del servizio di integrazione e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La scalabilità automatica di monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [servizi cloud](https://azure.microsoft.com/services/cloud-services/), [servizio app-app Web](https://azure.microsoft.com/services/app-service/web/), [Azure Esplora dati cluster](https://azure.microsoft.com/services/data-explorer/) ,   
+Servizi di [gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)e ambiente del servizio di integrazione.
 
 ## <a name="lets-get-started"></a>Introduzione
 In questo articolo si presuppone che l'utente abbia un'app Web con Application Insights configurato. Se non è già stato fatto, è possibile [configurare Application Insights per il sito Web ASP.NET][1].
 
-- Aprire il [portale di AzureOpen Azure portal][2]
+- Apri [portale di Azure][2]
 - Fare clic sull'icona di Monitoraggio di Azure nel riquadro di spostamento a sinistra.
   ![Avviare Monitoraggio di Azure][3]
 - Fare clic sull'impostazione Scalabilità automatica per visualizzare tutte le risorse per le quali è applicabile la scalabilità automatica, insieme allo stato corrente ![Individuare l'impostazione Scalabilità automatica in Monitoraggio di Azure][4]

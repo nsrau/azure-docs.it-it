@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77252228"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizzare l'installazione del servizio Mobility
@@ -356,7 +356,7 @@ cd /tmp
     --- | --- | ---
     **Nome** | Installare il servizio Mobility di Microsoft Azure (Windows) | Installare Microsoft Azure servizio Mobility (Linux).
     **Riga di comando** | install.bat | ./install_linux.sh
-    **Il programma può essere eseguito** | anche se non ci sono utenti connessi | anche se non ci sono utenti connessi
+    **È possibile eseguire il programma** | anche se non ci sono utenti connessi | anche se non ci sono utenti connessi
     **Altri parametri** | Usa impostazione predefinita | Usa impostazione predefinita
 
    ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -364,7 +364,7 @@ cd /tmp
 1. In **specificare i requisiti per il programma standard**eseguire le attività seguenti:
 
    - Per i computer Windows, selezionare **questo programma può essere eseguito solo su piattaforme specifiche**. Selezionare quindi i [sistemi operativi Windows supportati](vmware-physical-azure-support-matrix.md#replicated-machines) e selezionare **Avanti**.
-   - Per i computer Linux, selezionare **questo programma può essere eseguito su qualsiasi piattaforma**. Fare quindi clic su **Avanti**.
+   - Per i computer Linux, selezionare **questo programma può essere eseguito su qualsiasi piattaforma**. Selezionare quindi **Avanti**.
 
 1. Completare la procedura guidata.
 

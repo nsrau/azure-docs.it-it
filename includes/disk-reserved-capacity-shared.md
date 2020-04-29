@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 description: File di inclusione
 services: virtual-machines
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77590715"
 ---
 Risparmia sull'utilizzo del archiviazione su disco di Azure con capacità riservata. Archiviazione su disco di Azure prenotazioni combinate con le istanze di macchina virtuale riservate di Azure consentono di ridurre i costi totali della macchina virtuale (VM). Lo sconto relativo alla prenotazione viene applicato automaticamente ai dischi corrispondenti nell'ambito della prenotazione selezionato. A causa di questa applicazione automatica, non è necessario assegnare una prenotazione a un disco gestito per ottenere gli sconti.
@@ -102,5 +102,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sulle prenotazioni di Azure](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Che cosa sono le prenotazioni di Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Informazioni su come viene applicato lo sconto per la prenotazione all'archiviazione su disco di Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md)

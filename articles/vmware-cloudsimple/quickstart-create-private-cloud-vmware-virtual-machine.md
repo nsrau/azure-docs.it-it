@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77566149"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creazione di macchine virtuali VMware nel cloud privato
@@ -139,7 +139,7 @@ Le pagine di rete nel portale di CloudSimple consentono di specificare la config
 5. Se lo si desidera, utilizzare il dispositivo di scorrimento per modificare il timeout di inattività.
 6. Immettere l'indirizzo IP locale per cui si vuole assegnare un indirizzo IP pubblico.
 7. Se lo si desidera, immettere un nome DNS associato.
-8. Fare clic su **Done**.
+8. Fare clic su **Fine**.
 
     ![IP pubblico](media/quick-create-pc-public-ip.png)
 
@@ -200,7 +200,7 @@ Avviare un server http che è in ascolto sulla porta 80.
 python2.7 -m SimpleHTTPServer 80
 ```
 
-oppure
+o
 
 ```
 python3 -m http.server 80

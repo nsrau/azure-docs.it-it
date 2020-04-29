@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
 ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77473012"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Gestire lo spazio su disco in Azure HDInsight
@@ -20,7 +20,7 @@ Questo articolo descrive le procedure di risoluzione dei problemi e le possibili
 
 ## <a name="hive-log-configurations"></a>Configurazioni del log hive
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
 1. Passare a **hive** > **configs** > **Advanced** > Advanced**Advanced hive-log4j**. Esaminare le impostazioni seguenti:
 
@@ -36,7 +36,7 @@ Esaminare le configurazioni seguenti:
 
 * Apache Ambari
 
-    1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+    1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
     1. Passare a **hive** > **configs** > **Advanced** > **Gestione risorse**. Assicurarsi che l'opzione **Abilita aggregazione log** sia selezionata. Se disabilitato, i nodi dei nomi manterranno i log localmente e non li aggregano nell'archivio remoto al completamento o alla chiusura dell'applicazione.
 

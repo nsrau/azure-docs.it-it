@@ -1,6 +1,6 @@
 ---
-title: L'arresto delle macchine virtuali di Azure è bloccato in Riavvio, arresto o arresto dei servizi. Documenti Microsoft
-description: Questo articolo consente di risolvere gli errori del servizio in Macchine virtuali Windows di Azure.This article helps you troubleshoot service errors in Azure Windows Virtual Machines.
+title: L'arresto di macchine virtuali di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi | Microsoft Docs
+description: Questo articolo consente di risolvere gli errori del servizio in Azure macchine virtuali Windows.
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,87 +13,87 @@ ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
 ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77371365"
 ---
-# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Arresto della macchina virtuale Windows di Azure è bloccato su "Riavvio", "Arresto" o "Arresto dei servizi"
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L'arresto della macchina virtuale Windows di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi
 
-In questo articolo viene illustrata la procedura per risolvere i problemi di messaggi "Riavvio", "Arresto" o "Arresto dei servizi" che possono verificarsi quando si riavvia una macchina virtuale Windows (VM) in Microsoft Azure.
+Questo articolo illustra i passaggi per risolvere i problemi relativi ai messaggi di "riavvio", "arresto" o "arresto dei servizi" che possono verificarsi quando si riavvia una macchina virtuale (VM) Windows in Microsoft Azure.
 
 ## <a name="symptoms"></a>Sintomi
 
-Quando si utilizza la diagnostica di [avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare la schermata della macchina virtuale, è possibile che nella schermata venga visualizzato il messaggio "Riavvio", "Arresto" o "Arresto dei servizi".
+Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, è possibile che nella schermata venga visualizzato il messaggio "riavvio", "arresto in corso" o "arresto dei servizi".
 
 ![Riavvio, arresto e arresto delle schermate dei servizi](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
 ## <a name="cause"></a>Causa
 
-Windows utilizza il processo di arresto per eseguire operazioni di manutenzione del sistema e le modifiche del processo, ad esempio aggiornamenti, ruoli e funzionalità. Non è consigliabile interrompere questo processo critico fino al completamento. A seconda del numero di aggiornamenti/modifiche e delle dimensioni della macchina virtuale, il processo potrebbe richiedere molto tempo. Se il processo viene arrestato, è possibile che il sistema operativo venga danneggiato. Interrompi il processo solo se richiede troppo tempo.
+Windows utilizza il processo di arresto per eseguire operazioni di manutenzione del sistema ed elaborare modifiche come aggiornamenti, ruoli e funzionalità. Non è consigliabile interrompere questo processo critico finché non viene completato. A seconda del numero di aggiornamenti/modifiche e delle dimensioni della macchina virtuale, il processo può richiedere molto tempo. Se il processo viene arrestato, è possibile che il sistema operativo venga danneggiato. Interrompi solo il processo se sta richiedendo troppo tempo.
 
 ## <a name="solution"></a>Soluzione
 
-### <a name="collect-a-process-memory-dump"></a>Raccogliere un'immagine della memoria del processoCollect a Process memory dump
+### <a name="collect-a-process-memory-dump"></a>Raccogli dump memoria processo
 
-1. Scaricare [lo strumento Procdump](http://download.sysinternals.com/files/Procdump.zip) in un disco dati nuovo o esistente, collegato a una macchina virtuale funzionante dalla stessa area.
+1. Scaricare [lo strumento ProcDump](http://download.sysinternals.com/files/Procdump.zip) in un disco dati nuovo o esistente, collegato a una macchina virtuale funzionante dalla stessa area.
 
-2. Scollegare il disco contenente i file necessari dalla macchina virtuale funzionante e collegare il disco alla macchina virtuale interrotta. Stiamo chiamando questo disco il **disco di utilità**.
+2. Scollegare il disco contenente i file necessari dalla macchina virtuale funzionante e connettere il disco alla macchina virtuale interruppe. Viene chiamato il disco dell' **utilità**.
 
-Utilizzare [la console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) per completare i seguenti passaggi:
+Usare la [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) per completare i passaggi seguenti:
 
-1. Aprire un Powershell amministrativo e controllare il servizio bloccato al momento dell'arresto.
+1. Aprire una finestra di PowerShell amministrativa e controllare il servizio bloccato al momento dell'arresto.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. Su un CMD amministrativo, ottenere il PID del servizio hung.
+2. In un CMD amministrativo, ottenere il PID del servizio bloccato.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Ottenere un campione di immagine <STOPPING SERVICE>della memoria dal processo bloccato .
+3. Ottenere un esempio di dump della memoria dal processo <STOPPING SERVICE>bloccato.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Ora uccidere il processo appeso per sbloccare il processo di arresto.
+4. A questo punto, terminare il processo bloccato per sbloccare il processo di arresto.
 
    ``
    taskkill /PID <PID> /t /f
    ``
 
-Una volta che il sistema operativo ricomincia, se si avvia normalmente, assicurarsi che la coerenza del sistema operativo sia ok. Se viene segnalato un danneggiamento, eseguire il comando seguente fino a quando il disco non è danneggiato:
+Quando il sistema operativo viene riavviato, se viene avviato normalmente, assicurarsi che la coerenza del sistema operativo sia accettabile. Se viene segnalato un danneggiamento, eseguire il comando seguente finché il disco non è danneggiato:
 
 ``
 dism /online /cleanup-image /restorehealth
 ``
 
-Se non è possibile raccogliere un dump della memoria del processo o questo problema è ricorsivo e si richiede un'analisi della causa principale, procedere con la raccolta di un dump della memoria del sistema operativo riportato di seguito, procedere all'apertura di una richiesta di supporto.
+Se non si riesce a raccogliere un dump della memoria del processo o se questo problema è ricorsivo ed è necessaria un'analisi della causa radice, procedere con la raccolta di un dump di memoria del sistema operativo riportato di seguito, il continuare ad aprire una richiesta di supporto.
 
 ### <a name="collect-an-os-memory-dump"></a>Raccogliere un dump di memoria del sistema operativo
 
-Se il problema non si risolve dopo aver atteso il processo delle modifiche, è necessario raccogliere un file di immagine della memoria e contattare il supporto tecnico. Per raccogliere il file dump, seguire questa procedura:
+Se il problema non si risolve dopo l'attesa dell'elaborazione delle modifiche, è necessario raccogliere un file di dump della memoria e contattare il supporto tecnico. Per raccogliere il file dump, seguire questa procedura:
 
 **Collegare il disco del sistema operativo alla macchina virtuale di ripristino**
 
 1. Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
 
-2. [Collegare il disco del sistema operativo a una macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal)di ripristino.
+2. [Alleghi il disco del sistema operativo a una macchina virtuale di ripristino](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
 3. Connettersi tramite Desktop remoto alla macchina virtuale di ripristino.
 
-4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di passare al passaggio successivo. Per altre informazioni, vedere [Decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non è in grado di avviare.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution)
+4. Se il disco del sistema operativo è crittografato, è necessario disattivare la crittografia prima di procedere al passaggio successivo. Per altre informazioni, vedere [decrittografare il disco del sistema operativo crittografato nella macchina virtuale che non può essere avviato](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
 
 **Individuare il file dump e inviare un ticket di supporto**
 
 1. Nella macchina virtuale di ripristino passare alla cartella Windows nel disco del sistema operativo collegato. Se la lettera di unità assegnata al disco del sistema operativo collegato è F, è necessario passare a F:\Windows.
 
-2. Individuare il file memory.dmp e quindi [inviare un ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) di supporto con il file dump.
+2. Individuare il file Memory. dmp, quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) al file dump.
 
 Se non è possibile individuare il file dump, procedere al passaggio successivo per abilitare il log Dump e la console seriale.
 
@@ -105,7 +105,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 2. Eseguire lo script riportato di seguito:
 
-   In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato nella macchina virtuale.
+   In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. sostituirla con il valore appropriato nella macchina virtuale.
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -131,7 +131,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 3. Verificare che lo spazio sul disco sia sufficiente per allocare la quantità di memoria della RAM, che dipende dalle dimensioni selezionate per questa macchina virtuale.
 
-4. Se lo spazio disponibile non è sufficiente o la macchina virtuale è di grandi dimensioni (serie G, GS o E), è possibile modificare il percorso in cui verrà creato il file e fare riferimento a qualsiasi altro disco dati collegato alla macchina virtuale. Per modificare la posizione, è necessario modificare la seguente chiave:
+4. Se lo spazio disponibile non è sufficiente o se la macchina virtuale è di grandi dimensioni (serie G, GS o E), è possibile modificare il percorso in cui verrà creato il file e fare riferimento a qualsiasi altro disco dati collegato alla macchina virtuale. Per modificare il percorso, è necessario modificare la chiave seguente:
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -142,15 +142,15 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Scollegare il disco del sistema operativo e quindi ricollegare il disco del sistema operativo alla macchina virtuale interessata.](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal)
+5. [Scollegare il disco del sistema operativo e quindi riconnettere il disco del sistema operativo alla macchina virtuale interessata](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
-6. Avviare la macchina virtuale e accedere alla Console seriale.
+6. Avviare la macchina virtuale e accedere alla console seriale.
 
-7. Selezionare Invia interrupt non mascherabile (NMI) per attivare l'immagine della memoria.
+7. Selezionare Invia interrupt non mascherabile (NMI) per attivare il dump della memoria.
 
    ![Invia interrupt non mascherabile](./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png)
 
-8. Collegare nuovamente il disco del sistema operativo a una macchina virtuale di ripristino, raccogliere il file di dump.
+8. Alleghi nuovamente il disco del sistema operativo a una macchina virtuale di ripristino, Raccogli file dump.
 
 ## <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77167036"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandi di Windows - CMD e PowerShell
@@ -117,7 +117,7 @@ Se limitato ai metodi disponibili in Windows per impostazione predefinita, Power
 ### <a name="disable-windows-firewall"></a>Disabilitare Windows Firewall
 `netsh advfirewall set allprofiles state off`
 
-Per escludere temporaneamente Windows Firewall, è possibile usare questo comando durante la risoluzione dei problemi. Sarà abilitato al successivo riavvio o quando lo si abilita utilizzando il comando qui sotto. Non arrestare il servizio Windows Firewall (MPSSVC) o il servizio Base Filtering Engine (BFE) per escludere Windows Firewall. L'arresto di MPSSVC o BFE determinerà il blocco di tutta la connettività.
+Per escludere temporaneamente Windows Firewall, è possibile usare questo comando durante la risoluzione dei problemi. Sarà abilitata al riavvio successivo o quando verrà abilitata usando il comando seguente. Non arrestare il servizio Windows Firewall (MPSSVC) o il servizio Base Filtering Engine (BFE) per escludere Windows Firewall. L'arresto di MPSSVC o BFE determinerà il blocco di tutta la connettività.
 ### <a name="enable-windows-firewall"></a>Abilitare Windows Firewall
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gestire utenti e gruppi
@@ -320,7 +320,7 @@ o
 `test-netconnection`
 
 > [!NOTE]
-> Il cmdlet Write-Progress potrebbe non funzionare con questo comando. Come attenuazione, è possibile `$ProgressPreference = "SilentlyContinue"` eseguire in PowerShell per disabilitare l'indicatore di stato.
+> Il cmdlet Write-Progress potrebbe non funzionare con questo comando. Come mitigazione, è possibile eseguire `$ProgressPreference = "SilentlyContinue"` in PowerShell per disabilitare l'indicatore di stato.
 
 o
 
@@ -479,5 +479,5 @@ Per altre informazioni, vedere [Servizio metadati dell'istanza di Azure](https:/
 
 ## <a name="next-steps"></a>Passaggi successivi
 * La pagina principale della documentazione di Windows relativa alla console seriale è disponibile [qui](serial-console-windows.md).
-* La console seriale è disponibile anche per le macchine virtuali [Linux.The](serial-console-linux.md) serial console is also available for Linux VMs.
-* Ulteriori informazioni sulla diagnostica di [avvio](boot-diagnostics.md).
+* La console seriale è disponibile anche per le macchine virtuali [Linux](serial-console-linux.md) .
+* Altre informazioni sulla [diagnostica di avvio](boot-diagnostics.md).

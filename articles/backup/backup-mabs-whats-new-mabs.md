@@ -4,27 +4,27 @@ description: Il server di Backup di Microsoft Azure offre funzionalità avanzate
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77582807"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Novità del server di Backup di Microsoft Azure
 
-Microsoft Azure Backup Server versione 3 (MABS V3) è l'aggiornamento più recente e include correzioni di bug critici, supporto di Windows Server 2019, supporto di SQL 2017 e altre funzionalità e miglioramenti. Per visualizzare l'elenco dei bug corretti e le istruzioni di installazione di MABS V3, vedere l'articolo della knowledge base [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
+Backup di Microsoft Azure Server versione 3 (MAB V3) è l'aggiornamento più recente e include correzioni di bug critiche, supporto di Windows Server 2019, supporto di SQL 2017 e altre funzionalità e miglioramenti. Per visualizzare l'elenco dei bug corretti e le istruzioni di installazione di MABS V3, vedere l'articolo della knowledge base [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
 
 In MABS V3 sono incluse le funzionalità seguenti:
 
 ## <a name="volume-to-volume-migration"></a>Migrazione da volume a volume
 
-Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione con riconoscimento del carico di lavoro, in cui è possibile configurare alcuni carichi di lavoro per il backup in specifiche risorse di archiviazione, in base alle proprietà di archiviazione. Dopo la configurazione, tuttavia, può risultare necessario spostare i backup di alcune origini dati in altre risorse di archiviazione per un utilizzo ottimizzato delle risorse. MABS V3 consente di eseguire la migrazione dei backup e di configurarli per l'archiviazione in un volume diverso in [tre passaggi.](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842)
+Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione con riconoscimento del carico di lavoro, in cui è possibile configurare alcuni carichi di lavoro per il backup in specifiche risorse di archiviazione, in base alle proprietà di archiviazione. Dopo la configurazione, tuttavia, può risultare necessario spostare i backup di alcune origini dati in altre risorse di archiviazione per un utilizzo ottimizzato delle risorse. MAB V3 offre la possibilità di eseguire la migrazione dei backup e configurarli in modo che vengano archiviati in un volume diverso in [tre passaggi](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842).
 
 ## <a name="prevent-unexpected-data-loss"></a>Evitare perdite di dati impreviste
 
 Nelle aziende, MABS viene gestito da un team di amministratori. Sebbene esistano linee guida sull'archiviazione che devono essere seguite per l'esecuzione dei backup, specificare un volume non corretto come archivio di backup di MABS può causare la perdita di dati di importanza critica. Con MABS V3, è possibile evitare tali scenari configurando questi volumi come non disponibili per l'archiviazione usando [questi cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
-## <a name="custom-size-allocation"></a>Allocazione di dimensioni personalizzate
+## <a name="custom-size-allocation"></a>Allocazione dimensioni personalizzate
 
 Modern Backup Storage (MBS) utilizza l'archiviazione in modo mirato, in base a specifiche esigenze. A tale scopo, MABS calcola le dimensioni dei dati sottoposti a backup quando viene configurato per la protezione. Se, tuttavia, molti file e cartelle vengono sottoposti a backup contemporaneamente, come nel caso di un file server, il calcolo delle dimensioni può richiedere molto tempo. Con MABS V3, è possibile configurare MABS in modo che accetti le dimensioni del volume predefinite, anziché calcolare le dimensioni di ogni file, con un conseguente risparmio di tempo.
 

@@ -1,6 +1,6 @@
 ---
-title: Creare e modificare i criteri di sicurezza dei criteri di Azure usando l'API RESTCreate and edit Azure Policy security policies using the REST API
-description: Informazioni sulla gestione dei criteri di Azure tramite un'API REST.
+title: Creare e modificare i criteri di sicurezza dei criteri di Azure usando l'API REST
+description: Informazioni sulla gestione dei criteri di criteri di Azure tramite un'API REST.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,33 +9,33 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77430942"
 ---
-# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare criteri di sicurezza in Criteri di Azure usando l'API RESTConfigure a security policy in Azure Policy using the REST API
+# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare i criteri di sicurezza in criteri di Azure usando l'API REST
 
 Nell'ambito dell'integrazione nativa con Criteri di Azure, Centro sicurezza di Azure consente di sfruttare l'API REST di Criteri di Azure per creare le assegnazioni dei criteri. Le istruzioni seguenti descrivono la creazione delle assegnazioni dei criteri, nonché la personalizzazione delle assegnazioni esistenti. 
 
 Concetti importanti in Criteri di Azure 
 
-- Una **definizione di criteri** è una regola 
+- Una **definizione dei criteri** è una regola 
 
-- **Un'iniziativa** è una raccolta di definizioni di politiche (regole) 
+- Un' **iniziativa** è una raccolta di definizioni di criteri (regole) 
 
-- **Un'assegnazione** è un'applicazione di un'iniziativa o di un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
+- Un' **assegnazione** è un'applicazione di un'iniziativa o un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
 
-In Centro sicurezza è presente un'iniziativa integrata che include tutti i criteri di sicurezza relativi. Per valutare i criteri del Centro sicurezza nelle risorse di Azure, è necessario creare un'assegnazione nel gruppo di gestione o nella sottoscrizione che si vuole valutare.
+In Centro sicurezza è presente un'iniziativa integrata che include tutti i criteri di sicurezza relativi. Per valutare i criteri del Centro sicurezza per le risorse di Azure, è necessario creare un'assegnazione per il gruppo di gestione o la sottoscrizione che si vuole valutare.
 
-Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abilitati per impostazione predefinita. È possibile scegliere di disabilitare alcuni criteri dall'iniziativa incorporata. Ad esempio, per applicare tutti i criteri del Centro sicurezza ad eccezione del **firewall dell'applicazione Web,** modificare il valore del parametro effect del criterio in **Disabled**. 
+Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abilitati per impostazione predefinita. È possibile scegliere di disabilitare determinati criteri dall'iniziativa incorporata. Ad esempio, per applicare tutti i criteri del Centro sicurezza ad eccezione di **Web Application Firewall**, modificare il valore del parametro Effect del criterio in **disabled**. 
 
 ## <a name="api-examples"></a>Esempi di API
 
 Negli esempi seguenti sostituire queste variabili:
 
-- **Immettere** il nome del gruppo di gestione o della sottoscrizione a cui si applica il criterio.
+- **{scope}** immettere il nome del gruppo di gestione o della sottoscrizione a cui si sta applicando il criterio.
 - **{policyAssignmentName}**: immettere il [nome dell'assegnazione di criteri pertinente](#policy-names).
 - **{name}**: immettere il proprio nome o il nome dell'amministratore che ha approvato la modifica dei criteri.
 
@@ -123,11 +123,11 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Controllo SQL |Monitorare i database SQL non controllati nel Centro sicurezza di Azure |sqlAuditingMonitoringEffect|
 |Aggiornamenti del sistema |Monitorare gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
 |Crittografia di archiviazione |Controllare crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
-|Accesso alla rete JIT |Monitorare l'eventuale accesso JIT (Just-In-Time) di rete nel Centro sicurezza di AzureMonitor possible network just-in-time access (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Accesso alla rete JIT |Monitorare il possibile accesso JIT (just-in-Time) di rete nel centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
 |Controlli delle applicazioni adattivi |Monitorare il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitorare gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurazioni di sicurezza |Monitorare le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
+|Protezione degli endpoint |Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
 |Crittografia del disco |Monitorare i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
 |Valutazione della vulnerabilità |Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|
 |Web application firewall |Monitorare le applicazioni Web non protette nel Centro sicurezza di Azure |webApplicationFirewallMonitoringEffect |
@@ -136,7 +136,7 @@ Questo esempio illustra come rimuovere un'assegnazione:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri materiali correlati, vedere i seguenti articoli: 
+Per altri materiali correlati, vedere gli articoli seguenti: 
 
 - [Criteri di sicurezza personalizzati](custom-security-policies.md)
 - [Panoramica dei criteri di sicurezza](tutorial-security-policy.md)

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77562140"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Vincoli del codice della funzione di orchestrazione
@@ -34,7 +34,7 @@ La tabella seguente illustra esempi di API da evitare perché *non* sono determi
 | GUID e UUID  | Le API che restituiscono un GUID o un UUID casuale sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Usare `NewGuid` in .NET o `newGuid` in JavaScript per generare in modo sicuro GUID casuali. |
 | Numeri casuali | Le API che restituiscono numeri casuali sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Utilizzare una funzione di attività per restituire numeri casuali a un'orchestrazione. I valori restituiti delle funzioni di attività sono sempre sicuri per la riproduzione. |
 | Associazioni | Le associazioni di input e output eseguono in genere operazioni di I/O e non deterministiche. Una funzione dell'agente di orchestrazione non deve usare direttamente anche le associazioni client di [orchestrazione](durable-functions-bindings.md#orchestration-client) e [client di entità](durable-functions-bindings.md#entity-client) . | Usare le associazioni di input e output all'interno di funzioni client o di attività. |
-| Network | Le chiamate di rete coinvolgono sistemi esterni e sono non deterministiche. | Usare le funzioni di attività per effettuare chiamate di rete. Se è necessario effettuare una chiamata HTTP dalla funzione dell'agente di orchestrazione, è anche possibile usare le [API HTTP durevoli](durable-functions-http-features.md#consuming-http-apis). |
+| Rete | Le chiamate di rete coinvolgono sistemi esterni e sono non deterministiche. | Usare le funzioni di attività per effettuare chiamate di rete. Se è necessario effettuare una chiamata HTTP dalla funzione dell'agente di orchestrazione, è anche possibile usare le [API HTTP durevoli](durable-functions-http-features.md#consuming-http-apis). |
 | API di blocco | Il blocco di `Thread.Sleep` API come in .NET e API simili può causare problemi di prestazioni e scalabilità per le funzioni dell'agente di orchestrazione e deve essere evitato. Nel piano a consumo di funzioni di Azure possono anche verificarsi addebiti di runtime superflui. | Usare le alternative alle API di blocco quando sono disponibili. Utilizzare `CreateTimer` , ad esempio, per introdurre ritardi nell'esecuzione dell'orchestrazione. I ritardi di [timer durevoli](durable-functions-timers.md) non vengono conteggiati per il tempo di esecuzione di una funzione di orchestrazione. |
 | API asincrone | Il codice dell'agente di orchestrazione non deve mai avviare alcuna `IDurableOrchestrationContext` operazione asincrona tranne `context.df` tramite l'API o l'API dell'oggetto. Ad esempio, non è possibile `Task.Run`usare `Task.Delay`,, `HttpClient.SendAsync` e in .NET `setTimeout` o `setInterval` e in JavaScript. Il Framework di attività permanenti esegue il codice dell'agente di orchestrazione su un singolo thread. Non può interagire con altri thread che potrebbero essere chiamati da altre API asincrone. | Una funzione dell'agente di orchestrazione deve effettuare solo chiamate asincrone durevoli. Le funzioni di attività devono effettuare qualsiasi altra chiamata API asincrona. |
 | Funzioni JavaScript asincrone | Non è possibile dichiarare funzioni dell'agente `async` di orchestrazione JavaScript come perché il runtime di node. js non garantisce che le funzioni asincrone siano deterministiche. | Dichiarare funzioni dell'agente di orchestrazione JavaScript come funzioni generatore sincrone. |

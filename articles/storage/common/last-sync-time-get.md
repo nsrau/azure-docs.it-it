@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 3a406ce6db060b9ff5be7bcadecb6c7ff7e65a1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77165488"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Controllare la proprietà ora ultima sincronizzazione per un account di archiviazione
@@ -66,7 +66,7 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Ridondanza di archiviazione di Azure](storage-redundancy.md)
 - [Modificare l'opzione di ridondanza per un account di archiviazione](redundancy-migration.md)

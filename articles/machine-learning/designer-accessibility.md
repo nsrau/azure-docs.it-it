@@ -10,10 +10,10 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77366190"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer (anteprima)
@@ -64,7 +64,7 @@ Per modificare le proprietà del modulo:
 
 Usare i collegamenti seguenti con la chiave di accesso. Per ulteriori informazioni sulle chiavi di accesso, https://en.wikipedia.org/wiki/Access_keyvedere.
 
-| Tasto o combinazione di tasti | Azione |
+| Tasto o combinazione di tasti | Action |
 |-|-|
 | Chiave di accesso + R | Esegui |
 | Chiave di accesso + P | Pubblica |

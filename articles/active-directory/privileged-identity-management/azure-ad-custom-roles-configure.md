@@ -1,5 +1,5 @@
 ---
-title: Configurare il ruolo personalizzato di Azure AD - Gestione identità con privilegi (PIM)Configure Azure AD custom role - Privileged Identity Management (PIM)
+title: Configurare Azure AD Privileged Identity Management ruolo personalizzato (PIM)
 description: Come configurare ruoli personalizzati di Azure AD in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77498688"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
@@ -28,7 +28,7 @@ ms.locfileid: "77498688"
 Un amministratore del ruolo con privilegi può modificare le impostazioni del ruolo che si applicano a un utente quando viene attivata l'assegnazione a un ruolo personalizzato e per altri amministratori di applicazioni che assegnano ruoli personalizzati.
 
 > [!NOTE]
-> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza di ruoli predefiniti](pim-how-to-activate-role.md) e questo articolo non è applicabile:
+> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza dei ruoli incorporati](pim-how-to-activate-role.md) e questo articolo non si applica:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -56,13 +56,13 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 È possibile scegliere una delle opzioni seguenti per la durata dell'assegnazione *idonea*.
 
-- **Consenti assegnazione idonea permanente:** gli amministratori possono assegnare un'appartenenza idonea permanente.
-- **Scadenza assegnazione idonea dopo:** gli amministratori possono richiedere che tutte le assegnazioni idonee abbiano una data di inizio e una data di fine specificate.
+- **Consenti assegnazione permanente idonea**: gli amministratori possono assegnare l'appartenenza permanente idonea.
+- **Scadenza assegnazione idonea dopo**: gli amministratori possono richiedere che tutte le assegnazioni idonee abbiano una data di inizio e di fine specificata.
 
 Ed è anche possibile scegliere una delle opzioni di durata dell'assegnazione *attiva*:
 
-- **Consenti assegnazione attiva permanente**: Gli amministratori possono assegnare un'appartenenza attiva permanente.
-- **Scadenza dell'assegnazione attiva dopo:** gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificate.
+- **Consenti assegnazione attiva permanente**: gli amministratori possono assegnare l'appartenenza permanente attiva.
+- **Scadenza assegnazione attiva dopo**: gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata.
 
 ### <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
 
