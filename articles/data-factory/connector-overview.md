@@ -1,6 +1,6 @@
 ---
-title: Panoramica del connettore di Azure Data FactoryAzure Data Factory connector overview
-description: Informazioni sui connettori supportati in Data Factory.Learn the supported connectors in Data Factory.
+title: Panoramica di Azure Data Factory Connector
+description: Informazioni sui connettori supportati in Data Factory.
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -10,16 +10,16 @@ ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
 ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410420"
 ---
-# <a name="azure-data-factory-connector-overview"></a>Panoramica del connettore di Azure Data FactoryAzure Data Factory connector overview
+# <a name="azure-data-factory-connector-overview"></a>Panoramica di Azure Data Factory Connector
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory supporta gli archivi dati e i formati seguenti tramite le attività Copia, Flusso di dati, Cerca, Ottieni metadati ed Elimina.Azure Data Factory support the following data stores and formats via Copy, Data Flow, Look-up, Get Metadata, and Delete activities. Fare clic su ogni archivio dati per apprendere in dettaglio le funzionalità supportate e le configurazioni corrispondenti.
+Azure Data Factory supportano gli archivi dati e i formati seguenti tramite copia, flusso di dati, ricerca, Ottieni metadati ed Elimina attività. Fare clic su ogni archivio dati per ottenere informazioni sulle funzionalità supportate e sulle configurazioni corrispondenti.
 
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
@@ -32,7 +32,7 @@ Azure Data Factory supporta gli archivi dati e i formati seguenti tramite le att
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Attività di copia](copy-activity-overview.md)
-- [Mapping Data Flow](concepts-data-flow-overview.md)
+- [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività di ricerca](control-flow-lookup-activity.md)
 - [Ottenere attività di metadati](control-flow-get-metadata-activity.md)
 - [Eliminare attività](delete-activity.md)

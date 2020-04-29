@@ -1,5 +1,5 @@
 ---
-title: Copiare i dati dall'API di Azure Cosmos DB per MongoDBCopy data from Azure Cosmos DB's API for MongoDB
+title: Copiare i dati dall'API di Azure Cosmos DB per MongoDB
 description: Informazioni su come copiare dati da archivi dati di origine supportati nell'API di Azure Cosmos DB per MongoDB o da quest'ultima in archivi sink supportati usando Data Factory.
 services: data-factory, cosmosdb
 ms.author: jingwang
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415453"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiare dati da o verso l'API di Azure Cosmos DB per MongoDB usando Azure Data Factory
@@ -50,7 +50,7 @@ Per il servizio collegato dell'API di Azure Cosmos DB per MongoDB sono supportat
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **CosmosDbMongoDbApi**. | Sì |
-| connectionString |Specificare la stringa di connessione per l'API di Azure Cosmos DB per MongoDB. È possibile trovarla nel portale di Azure -> pannello Cosmos DB -> stringa di connessione primaria o secondaria, con il modello `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />È anche possibile inserire una password nell'insieme di credenziali delle chiavi di Azure ed estrarre la `password` configurazione dalla stringa di connessione.Fare riferimento a [Archiviare le credenziali nell'insieme di credenziali delle chiavi](store-credentials-in-key-vault.md) di Azure con altri dettagli.|Sì |
+| connectionString |Specificare la stringa di connessione per l'API di Azure Cosmos DB per MongoDB. È possibile trovarla nel portale di Azure -> pannello Cosmos DB -> stringa di connessione primaria o secondaria, con il modello `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />È anche possibile inserire una password in Azure Key Vault ed estrarre la `password` configurazione dalla stringa di connessione.Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) .|Sì |
 | database | Nome del database a cui si vuole accedere. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, come valore predefinito viene usato Azure Integration Runtime. |No |
 
@@ -109,7 +109,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>API di Azure Cosmos DB per MongoDB come origine
 
-Nella sezione Copia origine attività sono supportate le proprietà seguenti:The following properties are supported in the Copy Activity **source** section:
+Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -119,7 +119,7 @@ Nella sezione Copia origine attività sono supportate le proprietà seguenti:The
 | cursorMethods.sort | Specifica l'ordine in cui la query restituisce i documenti corrispondenti. Fare riferimento a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | No |
 | cursorMethods.limit | Specifica il numero massimo di documenti restituiti dal server. Fare riferimento a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | No | 
 | cursorMethods.skip | Specifica il numero di documenti da ignorare e la posizione da cui MongoDB inizia a restituire i risultati. Fare riferimento a [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | No |
-| batchSize | Specifica il numero di documenti da restituire in ogni batch di risposta dall'istanza di MongoDB. Nella maggior parte dei casi, la modifica della dimensione del batch non influisce sull'utente o sull'applicazione. Il limite massimo di Cosmos DB per ogni batch è di 40 MB, che corrisponde alla somma delle dimensioni del numero di documenti definiti in batchSize. Diminuire questo valore se si hanno documenti di grandi dimensioni. | No<br/>(il valore predefinito è **100)** |
+| batchSize | Specifica il numero di documenti da restituire in ogni batch di risposta dall'istanza di MongoDB. Nella maggior parte dei casi, la modifica della dimensione del batch non influisce sull'utente o sull'applicazione. Il limite massimo di Cosmos DB per ogni batch è di 40 MB, che corrisponde alla somma delle dimensioni del numero di documenti definiti in batchSize. Diminuire questo valore se si hanno documenti di grandi dimensioni. | No<br/>(il valore predefinito è **100**) |
 
 >[!TIP]
 >Azure Data Factory supporta l'utilizzo di documenti BSON in **modalità strict**. Assicurarsi che la query di filtro sia in modalità strict anziché in modalità shell. Per altre informazioni consultare il [manuale di MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
@@ -164,14 +164,14 @@ Nella sezione Copia origine attività sono supportate le proprietà seguenti:The
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>API di Azure Cosmos DB per MongoDB come sink
 
-Nella sezione Sink attività di copia sono supportate le proprietà seguenti:The following properties are supported in the Copy Activity **sink** section:
+Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **CosmosDbMongoDbApiSink**. |Sì |
-| writeBehavior |Descrive come scrivere i dati in Azure Cosmos DB. Valori consentiti: **insert** e **upsert**.<br/><br/>Il comportamento di **upsert** consiste nel sostituire il `_id` documento se esiste già un documento con lo stesso; in caso contrario, inserire il documento.<br /><br />**Nota:** Data Factory `_id` genera automaticamente `_id` un oggetto per un documento se non viene specificato nel documento originale o dal mapping delle colonne. È quindi necessario assicurarsi che il documento contenga un ID in modo che **upsert** funzioni come previsto. |No<br />(il valore predefinito è **insert**) |
+| writeBehavior |Descrive come scrivere i dati in Azure Cosmos DB. Valori consentiti: **insert** e **upsert**.<br/><br/>Il comportamento di **Upsert** consiste nel sostituire il documento se esiste già un documento con `_id` lo stesso. in caso contrario, inserire il documento.<br /><br />**Nota**: data factory genera automaticamente un `_id` oggetto per un documento se `_id` non è specificato nel documento originale o in base al mapping delle colonne. È quindi necessario assicurarsi che il documento contenga un ID in modo che **upsert** funzioni come previsto. |No<br />(il valore predefinito è **insert**) |
 | writeBatchSize | La proprietà **writeBatchSize** controlla le dimensioni dei documenti da scrivere in ogni batch. È possibile provare ad aumentare il valore di **writeBatchSize** per migliorare le prestazioni e a ridurre il valore se le dimensioni dei documenti sono troppo grandi. |No<br />(il valore predefinito è **10.000**) |
-| writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout. Il valore consentito è timespan. | No<br/>(il valore predefinito è **00:30:00** - 30 minuti) |
+| writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout. Il valore consentito è TimeSpan. | No<br/>(il valore predefinito è **00:30:00** - 30 minuti) |
 
 >[!TIP]
 >Per importare documenti JSON come sono, fare riferimento alla sezione [Importare o esportare documenti JSON](#import-and-export-json-documents). Per copiare da dati in forma tabulare, fare riferimento a [Mapping dello schema](#schema-mapping).
@@ -213,13 +213,13 @@ Nella sezione Sink attività di copia sono supportate le proprietà seguenti:The
 È possibile usare questo connettore di Azure Cosmos DB per eseguire facilmente le operazioni seguenti:
 
 * Copiare documenti come sono da una raccolta di Azure Cosmos DB a un'altra.
-* Importare documenti JSON da varie origini in Database cosmo di Azure, inclusi MongoDB, Archiviazione BLOB di Azure, Archivio dati di Azure e altri archivi basati su file supportati da Azure Data Factory.Import JSON documents from various sources to Azure Cosmos DB, including from MongoDB, Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
+* Importare documenti JSON da diverse origini Azure Cosmos DB, tra cui MongoDB, archiviazione BLOB di Azure, Azure Data Lake Store e altri archivi basati su file supportati da Azure Data Factory.
 * Esportare documenti JSON da una raccolta di Azure Cosmos DB in diversi archivi basati su file.
 
 Per ottenere la copia senza schema:
 
 * Quando si usa lo strumento Copia dati, selezionare l'opzione **Export as-is to JSON files or Cosmos DB collection** (Esportare così come sono nel file JSON o in una raccolta di Cosmos DB).
-* Quando si usa la creazione di attività, scegliere formato JSON con l'archivio file corrispondente per l'origine o il sink.
+* Quando si usa la creazione di attività, scegliere il formato JSON con l'archivio file corrispondente per origine o sink.
 
 ## <a name="schema-mapping"></a>Mapping dello schema
 

@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da una tabella Web con Azure Data FactoryCopy data from Web Table using Azure Data Factory
+title: Copiare dati da una tabella Web usando Azure Data Factory
 description: Informazioni sul connettore Tabella Web del servizio Azure Data Factory, che consente di copiare dati da una tabella Web in archivi dati supportati da Data Factory come sink.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410208"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
@@ -29,15 +29,15 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 La differenza tra questo connettore Tabella Web, il [connettore REST](connector-rest.md) e il [connettore HTTP](connector-http.md) è la seguente:
 
 - Il **connettore Tabella Web** estrae il contenuto della tabella da una pagina Web HTML.
-- **Il connettore REST** supporta in modo specifico la copia dei dati dalle API RESTful.REST connector specifically support copying data from RESTful APIs.
+- Il **connettore Rest** supporta specificamente la copia di dati da API RESTful.
 - Il **connettore HTTP** è un connettore generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare file. 
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore tabella Web è supportato per le attività seguenti:
+Questo connettore della tabella Web è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da un database Tabella Web in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -45,9 +45,9 @@ In particolare, il connettore Tabella Web supporta **l'estrazione del contenuto 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare questo connettore di tabelle Web, è necessario impostare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo [Self-hosted Integration Runtime.See Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+Per usare questo connettore di tabelle Web, è necessario impostare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo relativo alla [Integration Runtime self-hosted](create-self-hosted-integration-runtime.md) .
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -93,7 +93,7 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| indice |Indice della tabella nella risorsa. Per istruzioni su come ottenere l'indice di una tabella in una pagina HTML, consultate [Ottenere l'indice di una tabella in una pagina](#get-index-of-a-table-in-an-html-page) HTML. |Sì |
+| indice |Indice della tabella nella risorsa. Per la procedura per ottenere l'indice di una tabella in una pagina HTML, vedere [ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**
 
@@ -183,9 +183,9 @@ Per ottenere l'indice di una tabella che è necessario configurare nelle [propri
 Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379) . Per informazioni dettagliate, vedere l'articolo [Connettersi a una pagina Web (Power Query)](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

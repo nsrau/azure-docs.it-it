@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da e verso il database di Azure per MySQLCopy data to and from Azure Database for MySQL
-description: Informazioni su come copiare dati da e verso il database di Azure per MySQL usando un'attività di copia in una pipeline di Azure Data Factory.Learn how to and from Azure Database for MySQL by using a copy activity in an Azure Data Factory pipeline.
+title: Copiare dati da e verso il database di Azure per MySQL
+description: Informazioni su come copiare dati da e verso il database di Azure per MySQL usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/25/2019
 ms.openlocfilehash: bbb4aed8ca10fcf7c15e7442ee7067b2e3f8087d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410701"
 ---
-# <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiare dati da e verso il database di Azure per MySQL usando Azure Data FactoryCopy data to and from Azure Database for MySQL using Azure Data Factory
+# <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiare dati da e verso il database di Azure per MySQL usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati dal database di Azure per MySQL. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
-Questo connettore è specializzato per il database di [Azure per il servizio MySQL.](../mysql/overview.md) Per copiare dati da un database MySQL generico che si trova in locale o nel cloud, utilizzare [il connettore MySQL](connector-mysql.md).
+Questo connettore è specializzato per il [servizio database di Azure per MySQL](../mysql/overview.md). Per copiare dati da un database MySQL generico situato in locale o nel cloud, usare il [connettore MySQL](connector-mysql.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Database di Azure per MySQL è supportato per le attività seguenti:This Azure Database for MySQL connector is supported for the following activities:
+Questo connettore di database di Azure per MySQL è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
-È possibile copiare i dati dal database di Azure per MySQL a un qualsiasi archivio dati sink supportato. In alternativa, è possibile copiare i dati da qualsiasi archivio dati di origine supportato nel database di Azure per MySQL.Or, you can copy data from any supported source data store to Azure Database for MySQL. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare i dati dal database di Azure per MySQL a un qualsiasi archivio dati sink supportato. In alternativa, è possibile copiare dati da qualsiasi archivio dati di origine supportato a database di Azure per MySQL. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,9 +55,9 @@ Per il servizio collegato del database di Azure per MySQL sono supportate le pro
 
 Una stringa di connessione tipica è `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Altre proprietà che è possibile impostare per il case:
 
-| Proprietà | Descrizione | Opzioni | Obbligatoria |
+| Proprietà | Descrizione | Options | Obbligatoria |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Questa opzione specifica se il driver utilizza la crittografia e la verifica TLS per la connessione a MySQL. ad esempio `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | Questa opzione specifica se il driver usa la crittografia e la verifica TLS durante la connessione a MySQL. ad esempio `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
 | UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. ad esempio `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No |
 
 **Esempio:**
@@ -135,11 +135,11 @@ Per copiare dati dal database di Azure per MySQL, impostare la proprietà type d
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione fornisce un elenco delle proprietà supportate dal database di Azure per l'origine e il sink MySQL.This section provides a list of properties supported by Azure Database for MySQL source and sink.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal sink del database di Azure per MySQL.
 
 ### <a name="azure-database-for-mysql-as-source"></a>Database di Azure per MySQL come origine
 
-Per copiare i dati dal database di Azure per MySQL, nella sezione **dell'origine** dell'attività di copia sono supportate le proprietà seguenti:To copy data from Azure Database for MySQL, the following properties are supported in the copy activity source section:
+Per copiare dati da database di Azure per MySQL, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -179,15 +179,15 @@ Per copiare i dati dal database di Azure per MySQL, nella sezione **dell'origine
 ]
 ```
 
-### <a name="azure-database-for-mysql-as-sink"></a>Database di Azure per MySQL come sinkAzure Database for MySQL as sink
+### <a name="azure-database-for-mysql-as-sink"></a>Database di Azure per MySQL come sink
 
-Per copiare i dati nel database di Azure per MySQL, nella sezione relativa al sink dell'attività di copia sono supportate le proprietà seguenti:To copy data to Azure Database for MySQL, the following properties are supported in the copy activity **sink** section:
+Per copiare dati in database di Azure per MySQL, nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **AzureMySqlSinkThe** property of the copy activity sink must be set to: AzureMySqlSink | Sì |
+| type | La proprietà Type del sink dell'attività di copia deve essere impostata su: **AzureMySqlSink** | Sì |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database di Azure per MySQL in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
-| writeBatchSize | Inserisce dati nella tabella Database di Azure per MySQL quando la dimensione del buffer raggiunge writeBatchSize.<br>Il valore consentito è numero intero che rappresenta il numero di righe. | No (il valore predefinito è 10.000) |
+| writeBatchSize | Inserisce i dati nella tabella di database di Azure per MySQL quando la dimensione del buffer raggiunge writeBatchSize.<br>Il valore consentito è Integer che rappresenta il numero di righe. | No (il valore predefinito è 10.000) |
 | writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br>I valori consentiti sono un intervallo di tempo. Ad esempio "00:30:00" (30 minuti). | No (il valore predefinito è 00:00:30) |
 
 **Esempio:**
@@ -223,9 +223,9 @@ Per copiare i dati nel database di Azure per MySQL, nella sezione relativa al si
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="data-type-mapping-for-azure-database-for-mysql"></a>Mapping dei tipi di dati per il database di Azure per MySQL
 

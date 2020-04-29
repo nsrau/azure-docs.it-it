@@ -1,6 +1,6 @@
 ---
-title: Limiti di capacità - Azure Synapse Analytics (in precedenza SQL DW)Capacity limits - Azure Synapse Analytics (formerly SQL DW)
-description: Valori massimi consentiti per vari componenti del pool Synapse SQL in Azure Synapse.
+title: Limiti di capacità-Azure sinapsi Analytics (in precedenza SQL DW)
+description: Valori massimi consentiti per vari componenti del pool SQL sinapsi in Azure sinapsi.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,38 +12,38 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414011"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure Synapse Analytics (in precedenza SQL DW)
+# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure sinapsi Analytics (precedentemente SQL DW)
 
-Valori massimi consentiti per vari componenti di Azure Synapse.
+Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="workload-management"></a>Gestione dei carichi di lavoro
 
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
-| [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU per una singola unità di pool SQL (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
-| [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota DTU di 54.000, che consente fino a DW5000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket](sql-data-warehouse-get-started-create-support-ticket.md) di supporto e selezionando *Quota* come tipo di richiesta.  Per calcolare le vostre esigenze di DTU, moltiplicare il 7.5 per il totale DWU necessario, o moltiplicare 9.5 per il totale cDWU necessario. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW5000c x 9,5 : 47.500 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
-| Connessione del database |Numero massimo di sessioni aperte simultanee |1024<br/><br/>Il numero di sessioni aperte simultanee varia in base alla DWU selezionata. DWU600c e superiore supportano un massimo di 1024 sessioni aperte. DWU500c e inferiore, supportano un limite massimo simultaneo di sessioni aperte di 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
+| [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Numero massimo di DWU per una singola unità del pool SQL (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
+| [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota DTU di 54.000, che consente fino a DW5000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *quota* come tipo di richiesta.  Per calcolare le esigenze di DTU, moltiplicare il 7,5 per il totale DWU necessario oppure moltiplicare 9,5 per il totale DWU necessario. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW5000c x 9,5 = 47.500 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
+| Connessione del database |Numero massimo di sessioni aperte simultanee |1024<br/><br/>Il numero di sessioni aperte simultanee può variare in base al DWU selezionato. DWU600c e versioni successive supportano un massimo di 1024 sessioni aperte. DWU500c e versioni precedenti supportano un limite massimo di sessioni aperte simultanee pari a 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
 | Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
-| [Gestione dei carichi di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/>  Verrà eseguito un massimo di 128 query simultanee e verranno accodate le query rimanenti.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti vengono assegnati a classi di risorse più elevate o quando l'impostazione [dell'unità](memory-concurrency-limits.md) di data warehouse viene ridotta. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-concurrency-limits.md). |
-| [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100c. Pertanto, in DWU1000c, tempdb viene dimensionato a 3,99 TB. |
+| [Gestione dei carichi di lavoro](resource-classes-for-workload-management.md) |Numero massimo di query simultanee |128<br/><br/>  Verrà eseguito un massimo di 128 query simultanee e le query rimanenti verranno accodate.<br/><br/>Il numero di query simultanee può diminuire quando gli utenti vengono assegnati a classi di risorse superiori o quando l'impostazione dell' [unità data warehouse](memory-concurrency-limits.md) è ridotta. Per alcune query, come le query DMV, l'esecuzione è sempre consentita e non influisce sul limite di query simultanee. Per altre informazioni sull'esecuzione di query simultanee, vedere l'articolo sui [valori massimi di concorrenza](memory-concurrency-limits.md). |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |GB massimi |399 GB per DW100c. In DWU1000c, tempdb viene quindi ridimensionato a 3,99 TB. |
 ||||
 
 ## <a name="database-objects"></a>Oggetti di database
 
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
-| Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Gen2: archiviazione illimitata per le tabelle columnstore.Gen2: Unlimited storage for columnstore tables.  La parte del database nell'archivio righe è ancora limitata a 240 TB compressi su disco. |
+| Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Gen2: archiviazione illimitata per le tabelle columnstore.  La parte rowstore del database è ancora limitata a 240 TB compressi sul disco. |
 | Tabella |Dimensioni massime |Dimensioni illimitate per le tabelle columnstore. <br>60 TB per le tabelle rowstore compresse su disco. |
 | Tabella |Tabelle per ogni database | 100,000 |
 | Tabella |Colonne per ogni tabella |1024 colonne |
 | Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Il limite è 8000 per i tipi di dati char, 4000 per nvarchar o 2 GB per i tipi di dati MAX. |
-| Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Analogamente a SQL ServerSQL Server, è supportato l'archiviazione di overflow delle righe, che consente di eseguire il push delle colonne di **lunghezza variabile** all'esta dalla riga. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per altre informazioni, vedere [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Come SQL Server, è supportata l'archiviazione di overflow della riga, che consente di eseguire il push delle **colonne a lunghezza variabile** all'esterno di righe. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per altre informazioni, vedere [Dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabella |Partizioni per tabella |15.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie garantendo al tempo stesso il supporto dei requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano. |
 | Tabella |Caratteri per valore limite della partizione. |4000 |
 | Indice |Indici non in cluster per tabella. |50<br/><br/>Si applica solo alle tabelle rowstore. |
@@ -54,14 +54,14 @@ Valori massimi consentiti per vari componenti di Azure Synapse.
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizzazione |Colonne per ogni vista |1.024 |
+| Visualizza |Colonne per ogni vista |1.024 |
 ||||
 
-## <a name="loads"></a>Operazioni di caricamento
+## <a name="loads"></a>Carichi
 
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
-| Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>Polybase carica le righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice CCI (Clustered Columnstore Index) non è supportato.<br/><br/> |
+| Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>La polibase carica righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice columnstore cluster (CCI) non è supportato.<br/><br/> |
 ||||
 
 ## <a name="queries"></a>Query
@@ -99,4 +99,4 @@ Valori massimi consentiti per vari componenti di Azure Synapse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per suggerimenti sull'uso di Azure Synapse, vedere [Cheat Sheet](cheat-sheet.md).
+Per consigli sull'uso di sinapsi di Azure, vedere il [foglio](cheat-sheet.md)informativo.

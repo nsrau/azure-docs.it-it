@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 49e406f0730189439bb1c2529b23d8ad6d760a2f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411522"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
@@ -52,13 +52,13 @@ Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Dat
 
 ![Elenco di esempi di esecuzioni di debug attive](media/iterative-development-debugging/view-debug-runs-image2.png)
 
-Se sono presenti sessioni di debug flusso di dati attive, tali sessioni verranno visualizzate nella parte inferiore della finestra di debug attiva. È possibile selezionare una sessione del flusso di dati attiva e arrestare il rispettivo cluster.
+Se si dispone di sessioni di debug del flusso di dati attive, tali sessioni verranno visualizzate nella parte inferiore della finestra di debug attiva. È possibile selezionare una sessione del flusso di dati attiva e arrestare il rispettivo cluster.
 
-![Esempio di elenco di esecuzioni di debug del flusso di dati attivoSample list of active data flow debug runs](media/data-flow/dfsessions.png)
+![Elenco di esempio delle esecuzioni di debug del flusso di dati attivo](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>Esegue il monitoraggio delle esecuzioni di debug
 
-Le esecuzioni dei test avviate con la funzionalità **Debug** non sono disponibili nell'elenco della scheda **Monitoraggio.** È possibile visualizzare solo le esecuzioni attivate con **trigger Now**, **Pianificazione**o Trigger di finestra **a cascata** nella scheda **Monitoraggio.** È possibile visualizzare l'ultima esecuzione dei test avviata con la funzionalità **Debug** nella finestra **Output** dell'area di disegno della pipeline.
+Le esecuzioni dei test avviate con la funzionalità di **debug** non sono disponibili nell'elenco della scheda **monitoraggio** . Nella scheda **monitoraggio** è possibile visualizzare solo le esecuzioni attivate con trigger **Now**, **Schedule**o **finestra a cascata** . È possibile visualizzare l'ultima esecuzione dei test avviata con la funzionalità di **debug** nella finestra **output** dell'area di disegno della pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Impostazione di punti di interruzione per il debug
 

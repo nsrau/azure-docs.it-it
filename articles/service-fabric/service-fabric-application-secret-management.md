@@ -1,15 +1,15 @@
 ---
-title: Gestire i segreti dell'applicazione di Azure Service FabricManage Azure Service Fabric application secrets
+title: Gestire i segreti dell'applicazione Service Fabric di Azure
 description: Informazioni su come proteggere i valori dei segreti in un'applicazione di Service Fabric (indipendente dalla piattaforma).
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414520"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gestire i segreti crittografati nelle applicazioni di Service Fabric
@@ -47,7 +47,7 @@ Specificare una [variabile di ambiente][environment-variables-link] crittografat
 </CodePackage>
 ```
 
-I segreti devono essere inclusi anche nell'applicazione Service Fabric specificando un certificato nel manifesto dell'applicazione. Aggiungere un elemento **SecretsCertificate** a **ApplicationManifest.xml** e includere l'identificazione personale del certificato desiderato.
+I segreti devono anche essere inclusi nell'applicazione Service Fabric specificando un certificato nel manifesto dell'applicazione. Aggiungere un elemento **SecretsCertificate** a **ApplicationManifest. XML** e includere l'identificazione personale del certificato desiderato.
 
 ```xml
 <ApplicationManifest … >
@@ -58,9 +58,9 @@ I segreti devono essere inclusi anche nell'applicazione Service Fabric specifica
 </ApplicationManifest>
 ```
 > [!NOTE]
-> All'attivazione di un'applicazione che specifica un oggetto SecretsCertificate, Service Fabric troverà il certificato corrispondente e concederà l'identità in esecuzione dell'applicazione con autorizzazioni complete per la chiave privata del certificato. Service Fabric monitorerà inoltre il certificato per le modifiche e riapplica le autorizzazioni di conseguenza. Per rilevare le modifiche per i certificati dichiarati dal nome comune, Service Fabric esegue un'attività periodica che trova tutti i certificati corrispondenti e lo confronta con un elenco di identificazioni personale memorizzate nella cache. Quando viene rilevata una nuova identificazione personale, significa che un certificato da tale soggetto è stato rinnovato. L'attività viene eseguita una volta al minuto in ogni nodo del cluster.
+> Quando si attiva un'applicazione che specifica un SecretsCertificate, Service Fabric troverà il certificato corrispondente e si concede all'identità che l'applicazione viene eseguita con le autorizzazioni complete per la chiave privata del certificato. Service Fabric monitorerà inoltre il certificato per le modifiche e riapplicare le autorizzazioni di conseguenza. Per rilevare le modifiche per i certificati dichiarati dal nome comune, Service Fabric esegue un'attività periodica che trova tutti i certificati corrispondenti e li confronta con un elenco di identificazioni personali memorizzato nella cache. Quando viene rilevata una nuova identificazione digitale, significa che un certificato da tale soggetto è stato rinnovato. L'attività viene eseguita una volta al minuto in ogni nodo del cluster.
 >
-> Mentre il SecretsCertificate consente dichiarazioni basate su oggetto, si noti che le impostazioni crittografate sono associate alla coppia di chiavi che è stato utilizzato per crittografare l'impostazione sul client. È necessario assicurarsi che il certificato di crittografia originale (o un equivalente) corrisponda alla dichiarazione basata sul soggetto e che sia installato, inclusa la chiave privata corrispondente, in ogni nodo del cluster che potrebbe ospitare l'applicazione. Tutti i certificati validi per l'ora che corrispondono alla dichiarazione basata sul soggetto e compilati dalla stessa coppia di chiavi del certificato di crittografia originale sono considerati equivalenti.
+> Mentre SecretsCertificate consente dichiarazioni basate sul soggetto, tenere presente che le impostazioni crittografate sono associate alla coppia di chiavi usata per crittografare l'impostazione nel client. È necessario assicurarsi che il certificato di crittografia originale (o equivalente) corrisponda alla dichiarazione basata sul soggetto e che sia installato, inclusa la corrispondente chiave privata, in ogni nodo del cluster che potrebbe ospitare l'applicazione. Tutti i certificati temporali che corrispondono alla dichiarazione basata sul soggetto e compilati dalla stessa coppia di chiavi del certificato di crittografia originale sono considerati equivalenti.
 >
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserire i segreti dell'applicazione nelle istanze dell'applicazione
@@ -143,7 +143,7 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Archivio dei segreti](service-fabric-application-secret-store.md) dell'infrastruttura del servizioService Fabric Secrets Store 
+* [Archivio dei segreti](service-fabric-application-secret-store.md) Service Fabric 
 * Altre informazioni sulla [sicurezza dell'applicazione e del servizio](service-fabric-application-and-service-security.md)
 
 <!-- Links -->

@@ -1,14 +1,14 @@
 ---
-title: Creare un cluster Linux Service Fabric in AzureCreate a Linux Service Fabric cluster in Azure
+title: Creare un cluster Linux Service Fabric in Azure
 description: Informazioni su come distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure esistente tramite l'interfaccia della riga di comando di Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411015"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
@@ -19,9 +19,9 @@ In questo articolo si apprenderà come distribuire un cluster Linux di Service F
 
 Prima di iniziare:
 
-* Se non si dispone di una sottoscrizione di Azure, creare un [account gratuitoIf](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) you don't have an Azure subscription, create a free account
-* Installare l'interfaccia della riga di comando di [Service FabricInstall the Service Fabric CLI](service-fabric-cli.md)
-* Installare [l'interfaccia della riga di comando](/cli/azure/install-azure-cli) di AzureInstall the Azure CLI
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installare l' [interfaccia](service-fabric-cli.md) della riga di comando di Service Fabric
+* Installare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure
 * Per informazioni sui concetti chiave dei cluster, vedere [Panoramica dei cluster di Azure](service-fabric-azure-clusters-overview.md)
 * [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) la distribuzione di un cluster di produzione.
 
@@ -31,19 +31,19 @@ Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Per calc
 
 Scaricare i file del modello di Resource Manager seguenti:
 
-Per Ubuntu 16.04 LTS:
+Per Ubuntu 16,04 LTS:
 
-* [AzureDeploy.json][template]
-* [AzureDeploy.Parameters.json][parameters]
+* [File azuredeploy. JSON][template]
+* [File azuredeploy. Parameters. JSON][parameters]
 
-Per Ubuntu 18.04 LTS:
+Per Ubuntu 18,04 LTS:
 
-* [AzureDeploy.json][template2]
-* [AzureDeploy.Parameters.json][parameters2]
+* [File azuredeploy. JSON][template2]
+* [File azuredeploy. Parameters. JSON][parameters2]
 
-La differenza tra i due modelli è l'attributo **vmImageSku** impostato su "18.04-LTS" e **typeHandlerVersion** di ogni nodo impostato su 1.1.
+La differenza tra i due modelli è l'attributo **vmImageSku** impostato su "18,04-LTS" e il **typeHandlerVersion** di ogni nodo viene impostato su 1,1.
 
-Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Il file [AzureDeploy.json][template] distribuisce un numero di risorse, incluse le risorse seguenti.
+Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [File azuredeploy. JSON][template] distribuisce un numero di risorse, incluse le seguenti.
 
 ### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
 
@@ -51,11 +51,11 @@ Nella risorsa **Microsoft.ServiceFabric/clusters** viene distribuito un cluster 
 
 * tre tipi di nodi
 * Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello), un nodo di ognuno degli altri tipi di nodi
-* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurabile nei parametri del modello)
+* Sistema operativo: (Ubuntu 16,04 LTS/Ubuntu 18,04 LTS) (configurabile nei parametri del modello)
 * Protezione con certificato (configurabile nei parametri del modello)
-* [Servizio DNS](service-fabric-dnsservice.md) abilitato
-* [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello)
-* [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Argento (configurabile nei parametri del modello)
+* Il [servizio DNS](service-fabric-dnsservice.md) è abilitato
+* [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurabile nei parametri del modello)
+* [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) dell'argento (configurabile nei parametri del modello)
 * Endpoint di connessione client: 19000 (configurabile nei parametri del modello)
 * Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello)
 
@@ -79,7 +79,7 @@ Se sono necessarie altre porte dell'applicazione, si dovrà modificare la risors
 
 ## <a name="set-template-parameters"></a>Impostare i parametri del modello
 
-Il file **AzureDeploy.Parameters** dichiara molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
+Il file **file azuredeploy. Parameters** dichiara molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
 
 |Parametro|Valore di esempio|Note|
 |---|---||
@@ -97,7 +97,7 @@ Il file **AzureDeploy.Parameters** dichiara molti valori usati per distribuire i
 
 Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager **AzureDeploy.json** crea una rete virtuale e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
 
-Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per usare i nomi comuni dei certificati per la gestione dei certificati, vedere [Change cluster to certificate Common Name Management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creare un cluster usando un certificato esistente
 
@@ -160,7 +160,7 @@ Verificare di essere connessi e che il cluster sia integro usando il comando `sf
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se non si intende passare subito all'articolo successivo, è opportuno [eliminare il cluster](service-fabric-cluster-delete.md) per evitare di sostenere costi.
 
@@ -168,7 +168,7 @@ Se non si intende passare subito all'articolo successivo, è opportuno [eliminar
 
 Informazioni su come [ridimensionare un cluster](service-fabric-tutorial-scale-cluster.md).
 
-Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per usare i nomi comuni dei certificati per la gestione dei certificati, vedere [Change cluster to certificate Common Name Management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

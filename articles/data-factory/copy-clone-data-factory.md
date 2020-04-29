@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: 5e44bda8648fbf26487b04cf36a8fd0ec085c411
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414099"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiare o clonare una data factory in Azure Data Factory
@@ -38,7 +38,7 @@ Ecco alcune delle circostanze in cui potrebbe essere utile copiare o clonare una
 
 1. Il prerequisito consiste nel creare la data factory di destinazione dal portale di Azure.
 
-1. Se si dispone di un WebHosted IntegrationRuntime nella factory di origine, è necessario precrearlo con lo stesso nome nella factory di destinazione. Se si desidera condividere gli IR SelfHosted tra diverse factory, è possibile utilizzare il modello pubblicato [qui.](source-control.md#best-practices-for-git-integration)
+1. Se si dispone di un IntegrationRuntime SelfHosted nella Factory di origine, è necessario precrearlo con lo stesso nome nella Factory di destinazione. Se si vuole condividere il SelfHosted IRs tra diversi Factory, è possibile usare il modello pubblicato [qui](source-control.md#best-practices-for-git-integration).
 
 1. Ogni volta che si pubblica dal portale in modalità GIT, il modello di Resource Manager della factory viene salvato in GIT nel ramo adf_publish del repository.
 

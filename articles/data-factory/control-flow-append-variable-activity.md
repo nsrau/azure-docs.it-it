@@ -12,10 +12,10 @@ manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
 ms.openlocfilehash: 5d74cd0fcd524f00d79eb3fbab386c602a413766
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414203"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Attività di accodamento a variabile in Azure Data Factory
@@ -29,7 +29,7 @@ Proprietà | Descrizione | Obbligatoria
 name | Nome dell'attività nella pipeline | Sì
 description | Testo che descrive l'attività | no
 type | Il tipo di attività è AppendVariable | sì
-Valore | Valore letterale stringa o valore di oggetto espressione da accodare a una variabile specificata | sì
+value | Valore letterale stringa o valore di oggetto espressione da accodare a una variabile specificata | sì
 variableName | Nome della variabile che verrà modificata dall'attività, la variabile deve essere di tipo "Array" | sì
 
 ## <a name="next-steps"></a>Passaggi successivi

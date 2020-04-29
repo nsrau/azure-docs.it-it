@@ -1,7 +1,7 @@
 ---
-title: Configurare il collegamento privato di AzureConfigure Azure Private Link
+title: Configurare il collegamento privato di Azure
 titleSuffix: Azure Machine Learning
-description: Usare Azure Private Link per accedere in modo sicuro all'area di lavoro di Azure Machine Learning da una rete virtuale.
+description: Usare il collegamento privato di Azure per accedere in modo sicuro all'area di lavoro di Azure Machine Learning da una rete virtuale.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,67 +11,67 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
 ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411191"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare Il collegamento privato di Azure per un'area di lavoro di Azure Machine Learning (anteprima)Configure Azure Private Link for an Azure Machine Learning workspace (Preview)
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning (anteprima)
 
-In questo documento viene illustrato come usare Azure Private Link con l'area di lavoro di Azure Machine Learning.In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Questa funzionalità è attualmente in anteprima ed è disponibile negli Stati Uniti orientali, negli Stati Uniti Occidentali 2, nelle regioni centro-meridionale degli Stati Uniti. 
+In questo documento si apprenderà come usare il collegamento privato di Azure con l'area di lavoro Azure Machine Learning. Questa funzionalità è attualmente in anteprima ed è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali. 
 
-Azure Private Link consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro in modo che si verifichi solo sugli indirizzi IP privati. Private Link aiuta a ridurre il rischio di esfiltrazione dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo Collegamento privato di Azure.To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+Il collegamento privato di Azure consente di connettersi all'area di lavoro usando un endpoint privato. L'endpoint privato è un set di indirizzi IP privati all'interno della rete virtuale. È quindi possibile limitare l'accesso all'area di lavoro solo per gli indirizzi IP privati. Il collegamento privato consente di ridurre il rischio di exfiltration dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo relativo al [collegamento privato di Azure](/azure/private-link/private-link-overview) .
 
 > [!IMPORTANT]
-> Azure Private Link non influisce sul piano di controllo di Azure (operazioni di gestione), ad esempio l'eliminazione dell'area di lavoro o la gestione delle risorse di calcolo. Ad esempio, la creazione, l'aggiornamento o l'eliminazione di una destinazione di calcolo. Queste operazioni vengono eseguite su Internet pubblico come di consueto.
+> Il collegamento privato di Azure non produce il piano di controllo di Azure (operazioni di gestione), ad esempio l'eliminazione dell'area di lavoro o la gestione delle risorse di calcolo. Ad esempio la creazione, l'aggiornamento o l'eliminazione di una destinazione di calcolo. Queste operazioni vengono eseguite sulla rete Internet pubblica come di consueto.
 >
-> L'anteprima delle istanze di calcolo di Azure Machine Learning non è supportata in un'area di lavoro in cui è abilitato Private Link.Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+> Azure Machine Learning l'anteprima delle istanze di calcolo non è supportata in un'area di lavoro in cui è abilitato il collegamento privato.
 
-## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creare un'area di lavoro che utilizza un endpoint privatoCreate a workspace that uses a private endpoint
+## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creare un'area di lavoro che usa un endpoint privato
 
-Attualmente, è supportata solo l'abilitazione di un endpoint privato durante la creazione di una nuova area di lavoro di Azure Machine Learning.Currently, we only support enabling a private endpoint when creating a new Azure Machine Learning workspace. I seguenti modelli sono forniti per diverse configurazioni popolari:
+Attualmente è supportata solo l'abilitazione di un endpoint privato quando si crea una nuova area di lavoro Azure Machine Learning. Per diverse configurazioni comuni sono disponibili i modelli seguenti:
 
 > [!TIP]
-> L'approvazione automatica controlla l'accesso automatico alla risorsa abilitata per il collegamento privato. Per altre informazioni, vedere [Che cos'è](../private-link/private-link-service-overview.md)il servizio Azure Private Link .
+> L'approvazione automatica controlla l'accesso automatico alla risorsa abilitata per il collegamento privato. Per altre informazioni, vedere [che cos'è il servizio di collegamento privato di Azure](../private-link/private-link-service-overview.md).
 
-* [Area di lavoro con chiavi gestite dal cliente e approvazione automatica per Private Link](#cmkaapl)
-* [Area di lavoro con chiavi gestite dal cliente e approvazione manuale per Private Link](#cmkmapl)
-* [Area di lavoro con chiavi gestite da Microsoft e approvazione automatica per Private Link](#mmkaapl)
-* [Area di lavoro con chiavi gestite da Microsoft e approvazione manuale per Private Link](#mmkmapl)
+* [Area di lavoro con chiavi gestite dal cliente e approvazione automatica per il collegamento privato](#cmkaapl)
+* [Area di lavoro con chiavi gestite dal cliente e approvazione manuale per il collegamento privato](#cmkmapl)
+* [Area di lavoro con chiavi gestite da Microsoft e approvazione automatica per il collegamento privato](#mmkaapl)
+* [Area di lavoro con chiavi gestite da Microsoft e approvazione manuale per il collegamento privato](#mmkmapl)
 
-Quando si distribuisce un modello, è necessario fornire le informazioni seguenti:When deploying a template, you must provide the following information:
+Quando si distribuisce un modello, è necessario fornire le seguenti informazioni:
 
 * Nome dell'area di lavoro
-* Area di Azure in cui creare le risorseAzure region to create the resources in
-* Edizione area di lavoro (Basic o Enterprise)
-* Se le impostazioni di riservatezza elevata per l'area di lavoro devono essere abilitate
-* Se la crittografia per l'area di lavoro con una chiave gestita dal cliente deve essere abilitata e i valori associati per la chiave
-* Nome rete virtuale e subnet, modello creerà nuova rete virtuale e subnet
+* Area di Azure in cui creare le risorse
+* Workspace Edition (Basic o Enterprise)
+* Se è necessario abilitare le impostazioni di riservatezza elevata per l'area di lavoro
+* Se è necessario abilitare la crittografia per l'area di lavoro con una chiave gestita dal cliente e i valori associati per la chiave
+* Nome della rete virtuale e della subnet. il modello creerà una nuova rete virtuale e una nuova subnet
 
-Dopo l'invio di un modello e il completamento del provisioning, il gruppo di risorse che contiene l'area di lavoro conterrà tre nuovi tipi di elemento correlati a Private Link:Once a template has been been submitted and provisioning completes, the resource group that contains your workspace will contain three new artifact types related to Private Link:
+Una volta che un modello è stato inviato e il provisioning è stato completato, il gruppo di risorse che contiene l'area di lavoro conterrà tre nuovi tipi di artefatto correlati al collegamento privato:
 
 * Endpoint privato
 * interfaccia di rete
 * Zona DNS privato
 
-L'area di lavoro contiene anche una rete virtuale di Azure in grado di comunicare con l'area di lavoro tramite l'endpoint privato.
+L'area di lavoro contiene anche una rete virtuale di Azure in grado di comunicare con l'area di lavoro sull'endpoint privato.
 
-### <a name="deploy-the-template-using-the-azure-portal"></a>Distribuire il modello tramite il portale di AzureDeploy the template using the Azure portal
+### <a name="deploy-the-template-using-the-azure-portal"></a>Distribuire il modello usando il portale di Azure
 
-1. Seguire i passaggi in [Distribuire risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando si arriva alla schermata __Modifica modello,__ incollare uno dei modelli dalla fine di questo documento.
+1. Seguire i passaggi in [Distribuire risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando si arriva alla schermata __modifica modello__ , incollare uno dei modelli dalla fine di questo documento.
 1. Selezionare __Salva__ per usare il modello. Fornire le informazioni seguenti e accettare le condizioni elencate:
 
    * Sottoscrizione: selezionare la sottoscrizione di Azure da usare per queste risorse.
-   * Gruppo di risorse: selezionare o creare un gruppo di risorse per contenere i servizi.
-   * Nome dell'area di lavoro: nome da usare per l'area di lavoro di Azure Machine Learning che verrà creata. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
-   * Posizione: selezionare la posizione in cui verranno create le risorse.
+   * Gruppo di risorse: selezionare o creare un gruppo di risorse che contenga i servizi.
+   * Nome area di lavoro: nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creata. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
+   * Località: selezionare la località in cui verranno create le risorse.
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### <a name="deploy-the-template-using-azure-powershell"></a>Distribuire il modello con Azure PowerShellDeploy the template using Azure PowerShell
+### <a name="deploy-the-template-using-azure-powershell"></a>Distribuire il modello usando Azure PowerShell
 
-Questo esempio presuppone che uno dei modelli sia stato salvato dalla `azuredeploy.json` fine di questo documento in un file denominato nella directory corrente:
+In questo esempio si presuppone che sia stato salvato uno dei modelli dalla fine di questo documento a un file denominato `azuredeploy.json` nella directory corrente:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -82,9 +82,9 @@ new-azresourcegroupdeployment -name exampledeployment `
 
 Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-### <a name="deploy-the-template-using-the-azure-cli"></a>Distribuire il modello usando l'interfaccia della riga di comando di AzureDeploy the template using the Azure CLI
+### <a name="deploy-the-template-using-the-azure-cli"></a>Distribuire il modello tramite l'interfaccia della riga di comando di Azure
 
-Questo esempio presuppone che uno dei modelli sia stato salvato dalla `azuredeploy.json` fine di questo documento in un file denominato nella directory corrente:
+In questo esempio si presuppone che sia stato salvato uno dei modelli dalla fine di questo documento a un file denominato `azuredeploy.json` nella directory corrente:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -97,44 +97,44 @@ az group deployment create \
 
 Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="using-a-workspace-over-a-private-endpoint"></a>Utilizzo di un'area di lavoro su un endpoint privatoUsing a workspace over a private endpoint
+## <a name="using-a-workspace-over-a-private-endpoint"></a>Uso di un'area di lavoro su un endpoint privato
 
-Poiché la comunicazione con l'area di lavoro è consentita solo dalla rete virtuale, tutti gli ambienti di sviluppo che utilizzano l'area di lavoro devono essere membri della rete virtuale. Ad esempio, una macchina virtuale nella rete virtuale o una macchina connessa alla rete virtuale tramite un gateway VPN.
+Poiché la comunicazione con l'area di lavoro è consentita solo dalla rete virtuale, tutti gli ambienti di sviluppo che usano l'area di lavoro devono essere membri della rete virtuale. Ad esempio, una macchina virtuale nella rete virtuale o un computer connesso alla rete virtuale tramite un gateway VPN.
 
 > [!IMPORTANT]
-> Per evitare interruzioni temporanee della connettività, Microsoft consiglia di scaricare la cache DNS nei computer che si connettono all'area di lavoro dopo l'abilitazione di Private Link. 
+> Per evitare l'interferenza temporanea della connettività, Microsoft consiglia di scaricare la cache DNS nei computer che si connettono all'area di lavoro dopo aver abilitato il collegamento privato. 
 
-Per informazioni sulle macchine virtuali di Azure, vedere la documentazione relativa alle [macchine virtuali.](/azure/virtual-machines/)
+Per informazioni sulle macchine virtuali di Azure, vedere la [documentazione relativa alle macchine virtuali](/azure/virtual-machines/).
 
-Per informazioni sui gateway VPN, vedere [Che cos'è il gateway VPN.](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+Per informazioni sui gateway VPN, vedere [che cos'è il gateway VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="using-azure-storage"></a>Uso di Archiviazione di Azure
 
-Per proteggere l'account di Archiviazione di Azure usato dall'area di lavoro, inserirlo nella rete virtuale.
+Per proteggere l'account di archiviazione di Azure usato dall'area di lavoro, inserirlo all'interno della rete virtuale.
 
-Per informazioni sull'inserimento dell'account di archiviazione nella rete virtuale, vedere [Usare un account di archiviazione per l'area di lavoro.](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace)
+Per informazioni sull'inserimento dell'account di archiviazione nella rete virtuale, vedere [usare un account di archiviazione per l'area di lavoro](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
 
 ## <a name="using-azure-key-vault"></a>Uso di Azure Key Vault
 
-Per proteggere l'insieme di credenziali delle chiavi di Azure usato dall'area di lavoro, è possibile inserirlo nella rete virtuale o abilitare Private Link.To secure the Azure Key Vault used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
+Per proteggere il Azure Key Vault usato dall'area di lavoro, è possibile inserirlo all'interno della rete virtuale o abilitarvi un collegamento privato.
 
-Per informazioni sull'inserimento dell'insieme di credenziali delle chiavi nella rete virtuale, vedere [Usare un'istanza dell'insieme di credenziali delle chiavi con l'area di lavoro.](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace)
+Per informazioni sull'inserimento dell'insieme di credenziali delle chiavi nella rete virtuale, vedere [usare un'istanza di Key Vault con l'area di lavoro](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
 
-Per informazioni sull'abilitazione di Private Link per l'insieme di credenziali delle chiavi, vedere [Integrare l'insieme](/azure/key-vault/private-link-service)di credenziali delle chiavi con Azure Private Link.
+Per informazioni sull'abilitazione del collegamento privato per l'insieme di credenziali delle chiavi, vedere [integrare Key Vault con il collegamento privato di Azure](/azure/key-vault/private-link-service).
 
-## <a name="using-azure-kubernetes-services"></a>Uso dei servizi di Azure KubernetesUsing Azure Kubernetes Services
+## <a name="using-azure-kubernetes-services"></a>Uso dei servizi Kubernetes di Azure
 
-Per proteggere i servizi di Azure Kubernetes usati dall'area di lavoro, inserirlo in una rete virtuale. Per altre informazioni, vedere [Usare i servizi di Azure Kubernetes con l'area di lavoro.](how-to-enable-virtual-network.md#aksvnet)
+Per proteggere i servizi Kubernetes di Azure usati dall'area di lavoro, inserirli all'interno di una rete virtuale. Per altre informazioni, vedere [usare i servizi Kubernetes di Azure con l'area di lavoro](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
 > Azure Machine Learning non supporta l'uso di un servizio Azure Kubernetes con collegamento privato abilitato.
 
 ## <a name="azure-container-registry"></a>Registro Azure Container
 
-Per informazioni sulla protezione del Registro di sistema del contenitore di Azure all'interno della rete virtuale, vedere Usare il Registro di sistema [del contenitore](how-to-enable-virtual-network.md#use-azure-container-registry)di Azure.For information on securing Azure Container Registry inside the virtual network, see Use Azure Container Registry .
+Per informazioni sulla protezione di Container Registry di Azure all'interno della rete virtuale, vedere [usare azure container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
 
 > [!IMPORTANT]
-> Se si usa Private Link per l'area di lavoro di Azure Machine Learning e si inserisce il Registro di sistema del contenitore di Azure per l'area di lavoro in una rete virtuale, è necessario applicare anche il modello di Azure Resource Manager seguente. Questo modello consente all'area di lavoro di comunicare con ACR tramite il collegamento privato.
+> Se si usa un collegamento privato per l'area di lavoro di Azure Machine Learning e si inserisce il Container Registry di Azure per l'area di lavoro in una rete virtuale, è necessario applicare anche il modello di Azure Resource Manager seguente. Questo modello consente all'area di lavoro di comunicare con ACR tramite il collegamento privato.
 
 ```json
 {
@@ -189,7 +189,7 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 <a id="cmkaapl"></a>
-### <a name="workspace-with-customer-managed-keys-and-auto-approval-for-private-link"></a>Area di lavoro con chiavi gestite dal cliente e approvazione automatica per Private Link
+### <a name="workspace-with-customer-managed-keys-and-auto-approval-for-private-link"></a>Area di lavoro con chiavi gestite dal cliente e approvazione automatica per il collegamento privato
 
 ```json
 {
@@ -492,7 +492,7 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
 ```
 
 <a id="cmkmapl"></a>
-### <a name="workspace-with-customer-managed-keys-and-manual-approval-for-private-link"></a>Area di lavoro con chiavi gestite dal cliente e approvazione manuale per Private Link
+### <a name="workspace-with-customer-managed-keys-and-manual-approval-for-private-link"></a>Area di lavoro con chiavi gestite dal cliente e approvazione manuale per il collegamento privato
 
 ```json
 {
@@ -718,7 +718,7 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
 ```
 
 <a id="mmkaapl"></a>
-### <a name="workspace-with-microsoft-managed-keys-and-auto-approval-for-private-link"></a>Area di lavoro con chiavi gestite da Microsoft e approvazione automatica per Private Link
+### <a name="workspace-with-microsoft-managed-keys-and-auto-approval-for-private-link"></a>Area di lavoro con chiavi gestite da Microsoft e approvazione automatica per il collegamento privato
 
 ```json
 {
@@ -979,7 +979,7 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
 ```
 
 <a id="mmkmapl"></a>
-### <a name="workspace-with-microsoft-managed-keys-and-manual-approval-for-private-link"></a>Area di lavoro con chiavi gestite da Microsoft e approvazione manuale per Private Link
+### <a name="workspace-with-microsoft-managed-keys-and-manual-approval-for-private-link"></a>Area di lavoro con chiavi gestite da Microsoft e approvazione manuale per il collegamento privato
 
 ```json
 {
@@ -1164,4 +1164,4 @@ Per informazioni sulla protezione del Registro di sistema del contenitore di Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla protezione dell'area di lavoro di Azure Machine Learning, vedere l'articolo [Sulla sicurezza aziendale.](concept-enterprise-security.md)
+Per ulteriori informazioni sulla protezione dell'area di lavoro Azure Machine Learning, vedere l'articolo relativo alla [sicurezza aziendale](concept-enterprise-security.md) .

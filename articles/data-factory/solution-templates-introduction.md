@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: 14f1d3b58996d438279bfa2a234c754a6d840c79
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414742"
 ---
 # <a name="templates"></a>Modelli
@@ -31,7 +31,7 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
     ![Aprire la raccolta modelli dalla pagina di panoramica](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Nella scheda Autore in Esplora **+** risorse selezionare , **quindi Pipeline da modello** per aprire la raccolta modelli.
+1.  Nella scheda Author in Esplora inventario risorse selezionare **+**, quindi **pipeline from template** per aprire la raccolta di modelli.
 
     ![Aprire la raccolta modelli dalla scheda Autore](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -41,11 +41,11 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modelli predefiniti di Data Factory
 
-Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Resource Manager, insieme al file manifesto usato per i modelli Data Factory predefiniti, nel [repository ufficiale di Azure Data Factory GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
+Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Gestione risorse, insieme al file manifesto usato per i modelli Data Factory predefiniti, nel [repository ufficiale Azure Data Factory GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
 
 -   Copiare modelli:
 
-    -   [Copia di massa dal database](solution-template-bulk-copy-with-control-table.md)
+    -   [Copia bulk dal database](solution-template-bulk-copy-with-control-table.md)
     
     -   [Copiare i nuovi file in base a LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
@@ -53,7 +53,7 @@ Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipe
 
     -   [Spostare file](solution-template-move-files.md)
 
-    -   [Copia delta dal database](solution-template-delta-copy-with-control-table.md)
+    -   [Copia Delta dal database](solution-template-delta-copy-with-control-table.md)
 
     -   Copia da \<origine\> a \<destinazione\>
 

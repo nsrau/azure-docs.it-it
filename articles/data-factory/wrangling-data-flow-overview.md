@@ -1,6 +1,6 @@
 ---
-title: Wrangling data flows in Azure Data Factory
-description: Panoramica dei flussi di dati wrangling in Azure Data Factory
+title: Dispute dei flussi di dati in Azure Data Factory
+description: Cenni preliminari sulla disputa dei flussi di dati in Azure Data Factory
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
@@ -8,62 +8,62 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408996"
 ---
-# <a name="what-are-wrangling-data-flows"></a>Che cosa sono i flussi di dati wrangling?
+# <a name="what-are-wrangling-data-flows"></a>Che cosa sono i flussi di dati?
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Le organizzazioni devono eseguire la preparazione e il wrangling dei dati per un'analisi accurata di dati complessi che continuano a crescere ogni giorno. La preparazione dei dati è necessaria in modo che le organizzazioni possano utilizzare i dati in vari processi aziendali e ridurre il time-to-value.
+Le organizzazioni devono eseguire la preparazione dei dati e la disputa per un'analisi accurata dei dati complessi che continuano a crescere ogni giorno. La preparazione dei dati è necessaria in modo che le organizzazioni possano usare i dati in vari processi aziendali e ridurre il tempo di valore.
 
-I flussi di dati wrangling in Azure Data Factory consentono di eseguire una preparazione dei dati senza codice su scala cloud in modo iterativo. I flussi di dati wrangling si integrano con [Power Query Online](https://docs.microsoft.com/power-query/) e rendono disponibili le funzioni di Power Query M per gli utenti di data factory.
+La disputa dei flussi di dati in Azure Data Factory consente di eseguire in modo iterativo la preparazione dei dati senza codice a livello di cloud. L'integrazione di flussi di dati con [Power query online](https://docs.microsoft.com/power-query/) e rende disponibili funzioni Power query M per gli utenti di data factory.
 
-Il flusso di dati di wrangling converte M generato da Power Query Online Mashup Editor in codice spark per l'esecuzione della scalabilità cloud.
+La verifica del flusso di dati converte i M generati dall'editor di mashup di Power Query online in codice Spark per l'esecuzione su scala cloud.
 
-I flussi di dati wrangling sono particolarmente utili per i data engineer o per gli "integratori di dati dei cittadini".
+La disputa dei flussi di dati è particolarmente utile per gli ingegneri di dati o per gli integratori di dati Citizen.
 
 ## <a name="use-cases"></a>Casi d'uso
 
-### <a name="fast-interactive-data-exploration-and-preparation"></a>Esplorazione e preparazione interattiva rapida dei dati
+### <a name="fast-interactive-data-exploration-and-preparation"></a>Esplorazione e preparazione rapida di dati interattivi
 
-Più data engineer e integratori di dati per i cittadini possono esplorare e preparare in modo interattivo i set di dati su scala cloud. Con l'aumento del volume, la varietà e la velocità dei dati nei data lake, gli utenti hanno bisogno di un modo efficace per esplorare e preparare i set di dati. Ad esempio, potrebbe essere necessario creare un set di dati che "ha tutte le informazioni demografiche dei clienti per i nuovi clienti dal 2017". Non si esegue il mapping a una destinazione nota. Si stanno esplorando, disputando e preparando i set di dati per soddisfare un requisito prima di pubblicarlo nel lago. I flussi di dati wrangling vengono spesso utilizzati per scenari di analisi meno formali. I set di dati preparati possono essere usati per eseguire trasformazioni e operazioni di apprendimento automatico a valle.
+Più data Engineers e gli integratori di dati Citizen possono esplorare e preparare in modo interattivo i set di dati a livello di cloud. Con l'aumentare del volume, della varietà e della velocità dei dati nei data Lake, gli utenti devono disporre di un modo efficace per esplorare e preparare i set di dati. Potrebbe essere necessario, ad esempio, creare un set di dati che "disponga di tutte le informazioni demografiche sui clienti per i nuovi clienti dal 2017". Non è possibile eseguire il mapping a una destinazione nota. Si stanno esplorando, litigando e preparando i set di impostazioni per soddisfare un requisito prima di pubblicarlo nel Lake. La disputa dei flussi di dati viene spesso usata per scenari di analisi meno formali. I set di impostazioni possono essere usati per eseguire trasformazioni e operazioni di machine learning a valle.
 
 ### <a name="code-free-agile-data-preparation"></a>Preparazione dei dati agile senza codice
 
-Gli integratori di dati dei cittadini dedicano più del 60% del loro tempo alla ricerca e alla preparazione dei dati. Stanno cercando di farlo in modo senza codice per migliorare la produttività operativa. Consentire agli integratori di dati dei cittadini di arricchire, modellare e pubblicare dati utilizzando strumenti noti come Power Query Online in modo scalabile migliora drasticamente la produttività. Il flusso di dati in Azure Data Factory consente al familiare editor di mashup di Power Query Online di consentire agli integratori di dati dei cittadini di correggere rapidamente gli errori, standardizzare i dati e produrre dati di alta qualità per supportare le decisioni aziendali.
+Gli integratori di dati Citizen dedicano più del 60% del tempo alla ricerca e alla preparazione dei dati. Si sta cercando di eseguire questa operazione in un codice libero per migliorare la produttività operativa. Consentire agli integratori di dati dei cittadini di arricchire, modellare e pubblicare i dati usando strumenti noti come Power Query online in modo scalabile, migliora notevolmente la produttività. Il flusso di dati in Azure Data Factory consente all'editor di mashup familiare Power Query online di consentire agli integratori di dati Citizen di correggere rapidamente gli errori, standardizzare i dati e produrre dati di alta qualità per supportare le decisioni aziendali.
 
 ### <a name="data-validation"></a>Convalida dei dati
 
-Analizza visivamente i tuoi dati in modo privo di codice per rimuovere eventuali outlier, anomalie e conformarlo a una forma per un'analisi rapida.
+Analizza visivamente i dati in modo senza codice per rimuovere eventuali outlier, anomalie e conformi a una forma per l'analisi veloce.
 
-## <a name="supported-sources"></a>Fonti supportate
+## <a name="supported-sources"></a>Origini supportate
 
 | Connettore | Formato dati | Tipo di autenticazione |
 | -- | -- | --|
-| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md) | CSV, Parquet | Chiave account |
+| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md) | CSV, parquet | Chiave account |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entità servizio |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Chiave account, entità servizio |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, parquet | Chiave dell'account, entità servizio |
 | [Database SQL di Azure](connector-azure-sql-database.md) | - | Autenticazione SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticazione SQL |
 
-## <a name="the-mashup-editor"></a>L'editor mashup
+## <a name="the-mashup-editor"></a>Editor mashup
 
-Quando si crea un flusso di dati di wrangling, tutti i set di dati di origine diventano query del set di dati e vengono inseriti nella cartella **ADFResource.** Per impostazione predefinita, UserQuery punterà alla prima query del set di dati. Tutte le trasformazioni devono essere eseguite in UserQuery poiché le modifiche alle query del set di dati non sono supportate né verranno rese persistenti. La ridenominazione, l'aggiunta e l'eliminazione di query non è attualmente supportata.
+Quando si crea un flusso di dati disputato, tutti i set di dati di origine diventano query del set di dati e vengono inseriti nella cartella **ADFResource** . Per impostazione predefinita, UserQuery punterà alla prima query del set di dati. Tutte le trasformazioni devono essere eseguite in UserQuery in quanto le modifiche alle query del set di dati non sono supportate né verranno rese permanente. La ridenominazione, l'aggiunta e l'eliminazione di query non è attualmente supportata.
 
 ![Dispute](media/wrangling-data-flow/editor.png)
 
-Attualmente non tutte le funzioni di Power Query M sono supportate per il wrangling dei dati nonostante siano disponibili durante la creazione. Durante la compilazione dei flussi di dati wrangling, verrà visualizzato il seguente messaggio di errore se una funzione non è supportata:
+Attualmente non tutte le funzioni Power Query M sono supportate per data wrangling nonostante siano disponibili durante la creazione. Quando si compilano i flussi di dati in corso, verrà visualizzato il messaggio di errore seguente se una funzione non è supportata:
 
 `The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
 
-Per ulteriori informazioni sulle trasformazioni supportate, consultate [Wrangling delle funzioni del flusso](wrangling-data-flow-functions.md)di dati.
+Per ulteriori informazioni sulle trasformazioni supportate, vedere la pagina relativa alle [funzioni flusso di dati](wrangling-data-flow-functions.md).
 
-Attualmente il flusso di dati di wrangling supporta solo la scrittura in un sink.
+Il flusso di dati attualmente in corso supporta solo la scrittura in un sink.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come creare un flusso di [dati di wrangling.](wrangling-data-flow-tutorial.md)
+Informazioni su come [creare un flusso di dati](wrangling-data-flow-tutorial.md)in confronto.

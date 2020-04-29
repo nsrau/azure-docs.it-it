@@ -1,5 +1,5 @@
 ---
-title: Strumento Copia dati di Azure Data FactoryCopy Data tool Azure Data Factory
+title: Strumento Copia dati Azure Data Factory
 description: Contiene informazioni sullo strumento Copia dati nell'interfaccia utente di Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414094"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory

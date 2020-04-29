@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415018"
 ---
-# <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiare dati da Google AdWords usando Azure Data FactoryCopy data from Google AdWords using Azure Data Factory
+# <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiare dati da Google AdWords usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,17 +27,17 @@ Questo articolo illustra come usare l'attività di copia di Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Google AdWords è supportato per le seguenti attività:
+Questo connettore Google AdWords è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 
 
 È possibile copiare dati da Google AdWords a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,11 +54,11 @@ Per il servizio collegato a Google AdWords sono supportate le proprietà seguent
 | developerToken | Il token degli sviluppatori associato all'account di gestione che si usa per concedere l'accesso all'API AdWords.  È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | authenticationType | Meccanismo di autenticazione OAuth 2.0 usato per l'autenticazione. È possibile usare ServiceAuthentication solo su runtime di integrazione self-hosted. <br/>I valori consentiti sono **ServiceAuthentication**, **UserAuthentication** | Sì |
 | refreshToken | Il token di aggiornamento ottenuto da Google per autorizzare l'accesso a AdWords per UserAuthentication. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| clientId | ID client dell'applicazione Google utilizzato per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| clientId | ID client dell'applicazione Google utilizzata per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | Il segreto client dell'applicazione google usata per acquisire il token di aggiornamento. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di ADF di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, consultare [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | email | ID di posta elettronica dell'account del servizio usato per ServiceAuthentication. Può essere usato solo su runtime di integrazione self-hosted.  | No |
 | keyFilePath | Percorso completo per il file con estensione p12 usato per autenticare l'indirizzo di posta elettronica dell'account del servizio. Può essere usato solo su runtime di integrazione self-hosted.  | No |
-| trustedCertPath | Percorso completo del file con estensione pem contenente certificati CA attendibili per la verifica del server durante la connessione tramite TLS. Questa proprietà può essere impostata solo quando si utilizza TLS su un iR self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| trustedCertPath | Percorso completo del file con estensione PEM contenente i certificati CA attendibili per la verifica del server durante la connessione tramite TLS. Questa proprietà può essere impostata solo quando si usa TLS sul runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
 | useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è false.  | No |
 
 **Esempio:**
@@ -105,7 +105,7 @@ Per copiare dati da Google AdWords, impostare la proprietà tipo del set di dati
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del dataset deve essere impostata su: **GoogleAdWordsObject** | Sì |
+| type | La proprietà Type del set di dati deve essere impostata su: **GoogleAdWordsObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -171,9 +171,9 @@ Per copiare dati da Google AdWords, impostare il tipo di origine nell'attività 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

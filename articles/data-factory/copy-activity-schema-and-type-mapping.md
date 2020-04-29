@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 9f04955fb910a6159dc09ac40a87a398e67d59d6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414123"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo descrive come l'attività di copia di Azure Data Factory esegue il mapping dello schema e del tipo di dati dai dati di origine ai dati sink durante l'esecuzione della copia dei dati.
+Questo articolo descrive il modo in cui l'attività di copia Azure Data Factory esegue il mapping dello schema e il mapping dei tipi di dati dai dati di origine ai dati sink quando si esegue la copia dei dati.
 
 ## <a name="schema-mapping"></a>Mapping dello schema
 
-Il mapping delle colonne viene applicato quando si copiano dati dall'origine al sink. Per impostazione predefinita, copiare i dati di origine del mapping attività **in sink in base ai nomi**di colonna . È possibile specificare il [mapping esplicito](#explicit-mapping) per personalizzare il mapping delle colonne in base alle proprie esigenze. Più in particolare, l'attività di copia:
+Il mapping delle colonne viene applicato per la copia dei dati dall'origine al sink. Per impostazione predefinita, l'attività di copia **mappa i dati di origine a sink in base ai nomi di colonna**. È possibile specificare il [mapping esplicito](#explicit-mapping) per personalizzare il mapping delle colonne in base alle esigenze. Più in particolare, l'attività di copia:
 
 1. Legge i dati dall'origine e determina lo schema di origine
-2. Utilizzare il mapping di colonne predefinito per eseguire il mapping delle colonne in base al nome o applicare il mapping esplicito delle colonne, se specificato.
+2. Utilizzare il mapping di colonna predefinito per eseguire il mapping delle colonne in base al nome oppure applicare il mapping esplicito della colonna se specificato.
 3. Scrivere dati nel sink
 
 ### <a name="explicit-mapping"></a>Mapping esplicito
 
-È possibile specificare le colonne di `translator`  ->  `mappings` cui eseguire il mapping nella proprietà -> attività di copia. L'esempio seguente definisce un'attività di copia in una pipeline per copiare i dati dal testo delimitato al database SQL di Azure.The following example defines a copy activity in a pipeline to copy data from delimited text to Azure SQL Database.
+È possibile specificare le colonne di cui eseguire il mapping nell'attività `translator`  ->  `mappings` di copia-> proprietà. L'esempio seguente definisce un'attività di copia in una pipeline per copiare dati da testo delimitato al database SQL di Azure.
 
 ```json
 {
@@ -86,26 +86,26 @@ Il mapping delle colonne viene applicato quando si copiano dati dall'origine al 
 }
 ```
 
-Le seguenti proprietà `translator`  ->  `mappings` sono supportate `source` `sink`in -> oggetto con e :
+Le proprietà seguenti sono supportate sotto `translator`  ->  `mappings` -> oggetto con `source` e `sink`:
 
 | Proprietà | Descrizione                                                  | Obbligatoria |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | Nome della colonna di origine o di sink.                           | Sì      |
-| ordinal  | Indice di colonna. Iniziare con 1. <br>Applica e obbligatorio quando si utilizza testo delimitato senza riga di intestazione. | No       |
-| path     | Espressione di percorso JSON per ogni campo da estrarre o mappare. Richiedere dati gerarchici, ad esempio MongoDB/REST.<br>Per i campi nell'oggetto radice, il percorso JSON inizia con root ; per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice. | No       |
-| type     | Tipo di dati provvisori di Data Factory della colonna di origine o sink. | No       |
-| culture  | Impostazioni cultura della colonna di origine o del sink. <br>Applicare quando `Datetime` il `Datetimeoffset`tipo è o . Il valore predefinito è `en-us`. | No       |
-| format   | Stringa di formato da `Datetime` utilizzare `Datetimeoffset`quando type è o . Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | No       |
+| name     | Nome della colonna di origine o sink.                           | Sì      |
+| ordinal  | Indice di colonna. Iniziare con 1. <br>Apply e Required quando si usa un testo delimitato senza riga di intestazione. | No       |
+| path     | Espressione del percorso JSON per ogni campo da estrarre o mappare. Applicare per i dati gerarchici, ad esempio MongoDB/REST.<br>Per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice `collectionReference` scelta dalla proprietà, il percorso JSON inizia dall'elemento della matrice. | No       |
+| type     | Data Factory tipo di dati provvisori della colonna di origine o sink. | No       |
+| culture  | Impostazioni cultura della colonna di origine o sink. <br>Applicare quando il tipo `Datetime` è `Datetimeoffset`o. Il valore predefinito è `en-us`. | No       |
+| format   | Stringa di formato da utilizzare quando il tipo `Datetime` è `Datetimeoffset`o. Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | No       |
 
-Le seguenti proprietà `translator`  ->  `mappings` sono supportate `source` in `sink`oltre all'oggetto con e :
+`translator`  ->  `mappings` Le proprietà seguenti sono supportate in oltre all'oggetto con `source` e: `sink`
 
 | Proprietà            | Descrizione                                                  | Obbligatoria |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Supportato solo quando i dati gerarchici, ad esempio MongoDB/REST sono di origine.<br>Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. | No       |
+| collectionReference | Supportato solo quando i dati gerarchici, ad esempio MongoDB/REST, sono di origine.<br>Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. | No       |
 
-### <a name="alternative-column-mapping"></a>Mapping di colonne alternativo
+### <a name="alternative-column-mapping"></a>Mapping di colonne alternative
 
-È possibile specificare `translator`  ->  `columnMappings` l'attività di copia -> eseguire il mapping tra dati di forma tabulare. In questo caso, la sezione "struttura" è necessaria sia per i set di dati di input che per quelli di output. Il mapping di colonne supporta il **mapping di tutte le colonne o di un sottoinsieme delle colonne nella "struttura" del set di dati di origine a tutte le colonne della "struttura" del set di dati del sink**. Le seguenti sono condizioni di errore che generano un'eccezione:
+È possibile specificare l'attività di copia `translator`  ->  `columnMappings` -> per eseguire il mapping tra dati a forma di tabulazione. In questo caso, la sezione "Structure" è obbligatoria per i set di dati di input e di output. Il mapping di colonne supporta il **mapping di tutte le colonne o di un sottoinsieme delle colonne nella "struttura" del set di dati di origine a tutte le colonne della "struttura" del set di dati del sink**. Le seguenti sono condizioni di errore che generano un'eccezione:
 
 * Il risultato della query dell'archivio dati di origine non ha un nome colonna specificato nella sezione "struttura" del set di dati di input.
 * L'archivio dati sink (con schema predefinito) non ha un nome colonna specificato nella sezione "struttura" del set di dati di output.
@@ -136,7 +136,7 @@ Nell'esempio seguente, il set di dati di input ha una struttura e punta a una ta
 }
 ```
 
-In this sample, the output dataset has a structure and it points to a table in Salesfoce.
+In questo esempio, il set di dati di output ha una struttura che punta a una tabella in Salesfoce.
 
 ```json
 {
@@ -160,7 +160,7 @@ In this sample, the output dataset has a structure and it points to a table in S
 }
 ```
 
-Il codice JSON seguente definisce un'attività di copia in una pipeline. Le colonne dall'origine mappate alle colonne nel sink utilizzando la proprietà**columnMappings** del **traduttore.** -> 
+Il codice JSON seguente definisce un'attività di copia in una pipeline. Le colonne dell'origine vengono mappate alle colonne nel sink utilizzando la proprietà **Translator** -> **ColumnMappings** .
 
 ```json
 {
@@ -199,12 +199,12 @@ La sintassi di `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyNam
 
 ### <a name="alternative-schema-mapping"></a>Mapping dello schema alternativo
 
-È possibile specificare `translator`  ->  `schemaMapping` l'attività di copia -> per eseguire il mapping tra dati di forma gerarchica e dati a forma tabulare, ad esempio copiare da MongoDB/REST al file di testo e copiare da Oracle all'API di Azure Cosmos DB per MongoDB. Nella sezione `translator` dell'attività di copia sono supportate le proprietà seguenti:
+È possibile specificare l'attività di copia `translator`  ->  `schemaMapping` -> per eseguire il mapping tra i dati a forma di gerarchia e i dati a forma di tabulazione, ad esempio copia da MongoDB/Rest a file di testo e copia da Oracle all'API Azure Cosmos DB per MongoDB. Nella sezione `translator` dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del traduttore dell'attività di copia deve essere impostata su: **TabularTranslator** | Sì |
-| schemaMapping | Raccolta di coppie chiave-valore, che rappresenta la relazione di mapping **dal lato di origine al lato del sink.**<br/>- **Chiave:** rappresenta l'origine. Per **l'origine tabulare**, specificare il nome della colonna come definito nella struttura del set di dati; per **l'origine gerarchica**, specificare l'espressione di percorso JSON per ogni campo da estrarre e mappare.<br>- **Valore:** rappresenta il sink. Per **sink tabulare**, specificare il nome della colonna come definito nella struttura del set di dati; per **il sink gerarchico**, specificare l'espressione di percorso JSON per ogni campo da estrarre e mappare. <br>Nel caso dei dati gerarchici, per i campi nell'oggetto radice, il percorso JSON inizia con root; per i campi all'interno della matrice scelta dalla `collectionReference` proprietà, il percorso JSON inizia dall'elemento della matrice.  | Sì |
+| type | La proprietà Type del convertitore dell'attività di copia deve essere impostata su: **TabularTranslator** | Sì |
+| schemaMapping | Raccolta di coppie chiave-valore che rappresenta la relazione di mapping **dal lato di origine al lato del sink**.<br/>- **Key:** rappresenta l'origine. Per l' **origine tabulare**, specificare il nome della colonna come definito nella struttura del set di dati. per l' **origine gerarchica**, specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare.<br>- **Valore:** rappresenta il sink. Per il **sink tabulare**, specificare il nome della colonna come definito nella struttura del set di dati. per il **sink gerarchico**, specificare l'espressione del percorso JSON per ogni campo da estrarre e mappare. <br>Nel caso di dati gerarchici, per i campi sotto l'oggetto radice, il percorso JSON inizia con la radice $; per i campi all'interno della matrice `collectionReference` scelta dalla proprietà, il percorso JSON inizia dall'elemento della matrice.  | Sì |
 | collectionReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti **presenti nel campo di una matrice** con lo stesso modello e convertirli in una struttura per riga e per oggetto, specificare il percorso JSON di tale matrice per eseguire il cross apply. Questa proprietà è supportata solo quando l'origine è costituita da dati gerarchici. | No |
 
 **Esempio: copia da MongoDB a Oracle:**
@@ -279,7 +279,7 @@ L'attività di copia esegue il mapping dei tipi di origine ai tipi sink con il m
 1. Conversione dai tipi di origine nativi ai tipi di dati provvisori di Azure Data Factory
 2. Conversione dai tipi di dati provvisori di Azure Data Factory al tipo di sink nativo
 
-L'attività di copia supporta i seguenti tipi di dati provvisori: 
+L'attività di copia supporta i tipi di dati provvisori seguenti: 
 
 * Byte[]
 * Boolean
@@ -292,7 +292,7 @@ L'attività di copia supporta i seguenti tipi di dati provvisori:
 * Int32
 * Int64
 * Single
-* string
+* Stringa
 * TimeSpan
 
 ## <a name="next-steps"></a>Passaggi successivi

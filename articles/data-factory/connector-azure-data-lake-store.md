@@ -1,5 +1,5 @@
 ---
-title: Copiare dati in o da Azure Data Lake Storage Gen1
+title: Copia i dati da e verso Azure Data Lake Storage Gen1
 description: Informazioni su come copiare dati da archivi dati di origine supportati ad Azure Data Lake Store, o da Data Lake Store ad archivi di sink supportati, usando Data Factory.
 services: data-factory
 ms.author: jingwang
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
 ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415422"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiare dati in o da Azure Data Lake Storage Gen1 usando Azure Data FactoryCopy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiare dati da o verso Azure Data Lake Storage Gen1 usando Azure Data Factory
 
-> [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in uso:Select the version of Azure Data Factory that you're using:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
 > * [Versione 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versione corrente](connector-azure-data-lake-store.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra come copiare i dati da e verso Azure Data Lake Storage Gen1. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+Questo articolo illustra come copiare dati da e verso Azure Data Lake Storage Gen1. Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Azure Data Lake Storage Gen1 è supportato per le attività seguenti:This Azure Data Lake Storage Gen1 connector is supported for the following activities:
+Questo connettore Azure Data Lake Storage Gen1 è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md) 
 - [Mapping del flusso di dati](concepts-data-flow-overview.md)
-- [Attività di ricerca](control-flow-lookup-activity.md)
+- [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività GetMetadata](control-flow-get-metadata-activity.md)
 - [Elimina attività](delete-activity.md)
 
-In particolare, con questo connettore è possibile:Specifically, with this connector you can:
+In particolare, con questo connettore è possibile:
 
-- Copiare i file usando uno dei metodi di autenticazione seguenti: identità servizio o identità gestite per le risorse di Azure.Copy files by using one of the following methods of authentication: service principal or managed identities for Azure resources.
-- Copiare i file così come sono oppure analizzare o generare file con i formati di file e i [codec di compressione supportati.](supported-file-formats-and-compression-codecs.md)
-- Conservare gli ACL durante la copia in Azure Data Lake Storage Gen2.Preserve [ACLs](#preserve-acls-to-data-lake-storage-gen2) when copying into Azure Data Lake Storage Gen2.
+- Copiare i file usando uno dei metodi di autenticazione seguenti: entità servizio o identità gestite per le risorse di Azure.
+- Copiare i file così come sono o analizzare o generare file con i [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md).
+- [Mantenere gli ACL](#preserve-acls-to-data-lake-storage-gen2) durante la copia in Azure Data Lake storage Gen2.
 
 > [!IMPORTANT]
-> Se si copiano dati utilizzando il runtime di integrazione self-hosted, configurare il firewall aziendale per consentire il traffico `<ADLS account name>.azuredatalakestore.net` in uscita `login.microsoftonline.com/<tenant>/oauth2/token` sulla porta 443. Quest'ultimo è il servizio token di sicurezza di Azure con cui deve comunicare il runtime di integrazione per ottenere il token di accesso.
+> Se si copiano i dati tramite il runtime di integrazione self-hosted, configurare il firewall aziendale in modo da `<ADLS account name>.azuredatalakestore.net` consentire `login.microsoftonline.com/<tenant>/oauth2/token` il traffico in uscita verso e sulla porta 443. Quest'ultimo è il servizio token di sicurezza di Azure con cui deve comunicare il runtime di integrazione per ottenere il token di accesso.
 
 ## <a name="get-started"></a>Introduzione
 
 > [!TIP]
-> Per una procedura guidata su come usare il connettore di Azure Data Lake Store, vedere [Caricare dati in Azure Data Lake Store.](load-azure-data-lake-store.md)
+> Per una procedura dettagliata sull'uso del connettore Azure Data Lake Store, vedere [caricare dati in Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Nelle sezioni seguenti vengono fornite informazioni sulle proprietà usate per definire le entità di Data Factory specifiche di Azure Data Lake Store.The following sections provide information about properties that are used to define Data Factory entities specific to Azure Data Lake Store.
+Le sezioni seguenti forniscono informazioni sulle proprietà che vengono usate per definire Data Factory entità specifiche per Azure Data Lake Store.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
@@ -66,22 +66,22 @@ Per il servizio collegato ad Azure Data Lake Store sono supportate le proprietà
 | dataLakeStoreUri | Informazioni sull'account Azure Data Lake Store. Queste informazioni accettano uno dei seguenti formati: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
 | subscriptionId | ID sottoscrizione di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
 | resourceGroupName | Nome del gruppo di risorse di Azure a cui l'account Data Lake Store appartiene. | Richiesto per il sink |
-| connectVia | Runtime [di integrazione](concepts-integration-runtime.md) da utilizzare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted se l'archivio dati si trova in una rete privata. Se questa proprietà non è specificata, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se l'archivio dati si trova in una rete privata, è possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted. Se questa proprietà non è specificata, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 ### <a name="use-service-principal-authentication"></a>Usare l'autenticazione basata su entità servizio
 
-Per usare l'autenticazione dell'entità servizio, attenersi alla seguente procedura.
+Per utilizzare l'autenticazione basata su entità servizio, attenersi alla seguente procedura.
 
-1. Registrare un'entità dell'applicazione in Azure Active Directory e concederle l'accesso a Data Lake Store.Register an application entity in Azure Active Directory and grant it access to Data Lake Store. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
+1. Registrare un'entità applicazione in Azure Active Directory e concedergli l'accesso ai Data Lake Store. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
 
     - ID applicazione
     - Chiave applicazione
     - ID tenant
 
-2. Concedere all'entità servizio l'autorizzazione appropriata. Vedere esempi sul funzionamento delle autorizzazioni in Data Lake Storage Gen1 dal [controllo di accesso in Azure Data Lake Storage Gen1.](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions)
+2. Concedere all'entità servizio l'autorizzazione appropriata. Vedere esempi su come funziona l'autorizzazione in Data Lake Storage Gen1 dal [controllo di accesso nel Azure Data Lake storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
-    - **Come origine**: In**Accesso** **a** > Esplora dati concedere almeno l'autorizzazione di **esecuzione** per TUTTE le cartelle upstream, inclusa la radice, insieme all'autorizzazione **di lettura** per i file da copiare. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Non è necessario il controllo degli accessi a livello di account (IAM).
-    - **Come sink**: In **Accesso a** > Esplora dati**concedere**almeno l'autorizzazione **di esecuzione** per TUTTE le cartelle upstream, inclusa la radice, insieme all'autorizzazione **di scrittura** per la cartella del sink. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si usa un runtime di integrazione di Azure per copiare (origine e sink nel cloud), in IAM concedere almeno il ruolo **Lettore** per consentire a Data Factory di rilevare l'area per Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store. Ad esempio, se l'archivio dati è nell'Europa occidentale, creare un runtime di integrazione di Azure con la posizione impostata su "Europa occidentale". Associarli al servizio collegato Data Lake Store come illustrato nell'esempio seguente.
+    - **Come origine**: nell' > **accesso**a **Esplora dati**, concedere almeno l'autorizzazione **Execute** per tutte le cartelle upstream, inclusa la radice, insieme all'autorizzazione di **lettura** per i file da copiare. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Non sono previsti requisiti per il controllo di accesso a livello di account (IAM).
+    - **Come sink**: nell' > **accesso**a **Esplora dati**, concedere almeno l'autorizzazione **Execute** per tutte le cartelle upstream, inclusa la radice, oltre all'autorizzazione di **scrittura** per la cartella sink. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si usa un runtime di integrazione di Azure per copiare (sia l'origine che il sink si trovano nel cloud), in IAM concedere almeno il ruolo **lettore** per consentire Data Factory rilevare l'area per data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store. Ad esempio, se il Data Lake Store si trova in Europa occidentale, creare un runtime di integrazione di Azure con la località impostata su "Europa occidentale". Associarli nel servizio collegato Data Lake Store come illustrato nell'esempio seguente.
 
 Sono supportate le proprietà seguenti:
 
@@ -119,16 +119,16 @@ Sono supportate le proprietà seguenti:
 
 ### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Usare le entità gestite per l'autenticazione delle risorse di Azure
 
-Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione dell'archivio dati, in modo simile all'uso dell'entità servizio personale. Consente alla factory designata di accedere e copiare i dati da e verso Data Lake Store.
+Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione Data Lake Store, in modo analogo all'uso della propria entità servizio. Consente alla factory designata di accedere e copiare i dati da e verso Data Lake Store.
 
-Per usare le identità gestite per l'autenticazione delle risorse di Azure, eseguire la procedura seguente.
+Per usare le identità gestite per l'autenticazione delle risorse di Azure, seguire questa procedura.
 
-1. [Recuperare le informazioni sull'identità gestita della data factory](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore dell'"ID applicazione identità del servizio" generato insieme alla factory.
+1. [Recuperare le informazioni sull'identità gestita di data factory](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore dell'ID dell'applicazione di identità del servizio generato insieme alla Factory.
 
-2. Concedere all'identità gestita l'accesso a Data Lake Store. Vedere esempi sul funzionamento delle autorizzazioni in Data Lake Storage Gen1 dal [controllo di accesso in Azure Data Lake Storage Gen1.](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions)
+2. Concedere all'identità gestita l'accesso Data Lake Store. Vedere esempi su come funziona l'autorizzazione in Data Lake Storage Gen1 dal [controllo di accesso nel Azure Data Lake storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
-    - **Come origine**: In**Accesso** **a** > Esplora dati concedere almeno l'autorizzazione di **esecuzione** per TUTTE le cartelle upstream, inclusa la radice, insieme all'autorizzazione **di lettura** per i file da copiare. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Non è necessario il controllo degli accessi a livello di account (IAM).
-    - **Come sink**: In **Accesso a** > Esplora dati**concedere**almeno l'autorizzazione **di esecuzione** per TUTTE le cartelle upstream, inclusa la radice, insieme all'autorizzazione **di scrittura** per la cartella del sink. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si usa un runtime di integrazione di Azure per copiare (origine e sink nel cloud), in IAM concedere almeno il ruolo **Lettore** per consentire a Data Factory di rilevare l'area per Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store. Associarli al servizio collegato Data Lake Store come illustrato nell'esempio seguente.
+    - **Come origine**: nell' > **accesso**a **Esplora dati**, concedere almeno l'autorizzazione **Execute** per tutte le cartelle upstream, inclusa la radice, insieme all'autorizzazione di **lettura** per i file da copiare. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Non sono previsti requisiti per il controllo di accesso a livello di account (IAM).
+    - **Come sink**: nell' > **accesso**a **Esplora dati**, concedere almeno l'autorizzazione **Execute** per tutte le cartelle upstream, inclusa la radice, oltre all'autorizzazione di **scrittura** per la cartella sink. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si usa un runtime di integrazione di Azure per copiare (sia l'origine che il sink si trovano nel cloud), in IAM concedere almeno il ruolo **lettore** per consentire Data Factory rilevare l'area per data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store. Associarli nel servizio collegato Data Lake Store come illustrato nell'esempio seguente.
 
 In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle informazioni generali di Data Lake Store nel servizio collegato.
 
@@ -154,17 +154,17 @@ In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di](concepts-datasets-linked-services.md) dati. 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere l'articolo [set di impostazioni](concepts-datasets-linked-services.md) . 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Le proprietà seguenti sono supportate per `location` Azure Data Lake Store Gen1 nelle impostazioni del set di dati basato sul formato:The following properties are supported for Azure Data Lake Store Gen1 under settings in the format-based dataset:
+Per Azure Data Lake Store Gen1 in `location` impostazioni nel set di dati basato su formato, sono supportate le proprietà seguenti:
 
 | Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La proprietà `location` type in nel set di dati deve essere impostata su **AzureDataLakeStoreLocation**. | Sì      |
-| folderPath | Percorso di una cartella. Se si desidera utilizzare un carattere jolly per filtrare le cartelle, ignorare questa impostazione e specificarla nelle impostazioni dell'origine attività. | No       |
-| fileName   | Il nome del file sotto il folderPath specificato. Se si desidera utilizzare un carattere jolly per filtrare i file, ignorare questa impostazione e specificarla nelle impostazioni dell'origine attività. | No       |
+| type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AzureDataLakeStoreLocation**. | Sì      |
+| folderPath | Percorso di una cartella. Se si vuole usare un carattere jolly per filtrare le cartelle, ignorare questa impostazione e specificarla nelle impostazioni dell'origine dell'attività. | No       |
+| fileName   | Nome del file sotto il folderPath specificato. Se si vuole usare un carattere jolly per filtrare i file, ignorare questa impostazione e specificarla nelle impostazioni dell'origine dell'attività. | No       |
 
 **Esempio:**
 
@@ -200,17 +200,17 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Le proprietà seguenti sono supportate per `storeSettings` Azure Data Lake Store Gen1 nelle impostazioni nell'origine della copia basata sul formato:The following properties are supported for Azure Data Lake Store Gen1 under settings in the format-based copy source:
+Per Azure Data Lake Store Gen1 in `storeSettings` impostazioni nell'origine copia basata sul formato sono supportate le proprietà seguenti:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La proprietà `storeSettings` type in deve essere impostata su **AzureDataLakeStoreReadSettings**. | Sì                                           |
-| ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando recursive è impostato su true e il sink è un archivio basato su file, una cartella vuota o una sottocartella non viene copiata o creata nel sink. I valori consentiti sono **true** (impostazione predefinita) e **false**. | No                                            |
-| carattere jollyPercorsoCartella       | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri `*` jolly consentiti sono (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un singolo carattere). Utilizzare `^` per eseguire l'escape se il nome effettivo della cartella ha un carattere jolly o questo carattere di escape all'interno. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
-| carattere jollyNomefile         | Il nome del file con caratteri jolly sotto la cartella specificataPercorso/carattere jollyFolderPath per filtrare i file di origine. <br>I caratteri `*` jolly consentiti sono (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un singolo carattere). Utilizzare `^` per eseguire l'escape se il nome effettivo della cartella ha un carattere jolly o questo carattere di escape all'interno. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì `fileName` se non è specificato nel set di dati |
-| modifiedDatetimeStart    | I file filtrano in base all'attributo Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica rientra nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00". <br> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore `modifiedDatetimeEnd` datetime ma è NULL, significa che vengono selezionati i file il cui attributo dell'ultima modifica è maggiore o uguale al valore datetime. Quando `modifiedDatetimeEnd` ha un valore `modifiedDatetimeStart` datetime ma è NULL, significa che vengono selezionati i file il cui attributo last modified è minore del valore datetime. | No                                            |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureDataLakeStoreReadSettings**. | Sì                                           |
+| ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (impostazione predefinita) e **false**. | No                                            |
+| wildcardFolderPath       | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o `?` più caratteri) e (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo ha un carattere jolly o questo carattere di escape all'interno di. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
+| wildcardFileName         | Nome file con caratteri jolly sotto il folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o `?` più caratteri) e (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo ha un carattere jolly o questo carattere di escape all'interno di. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
+| modifiedDatetimeStart    | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo `modifiedDatetimeStart` compreso `modifiedDatetimeEnd`tra e. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati. | No                                            |
 | modifiedDatetimeEnd      | Come sopra.                                               | No                                            |
-| maxConcurrentConnections | Numero di connessioni per la connessione simultanea all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
+| maxConcurrentConnections | Numero di connessioni simultanee per la connessione all'archivio di archiviazione. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
 
 **Esempio:**
 
@@ -257,14 +257,14 @@ Le proprietà seguenti sono supportate per `storeSettings` Azure Data Lake Store
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Le proprietà seguenti sono supportate per `storeSettings` Azure Data Lake Store Gen1 nelle impostazioni del sink di copia basato sul formato:The following properties are supported for Azure Data Lake Store Gen1 under settings in the format-based copy sink:
+Per Azure Data Lake Store Gen1 in `storeSettings` impostazioni nel sink di copia basato sul formato sono supportate le proprietà seguenti:
 
 | Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La proprietà `storeSettings` del tipo in deve essere impostata su **AzureDataLakeStoreWriteSettings**. | Sì      |
-| copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita):</b>mantiene la gerarchia di file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: Unisce tutti i file dalla cartella di origine in un unico file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
-| expiryDateTime | Specifica l'ora di scadenza dei file scritti. L'ora viene applicata all'ora UTC nel formato "2020-03-01T08:00:00". Per impostazione predefinita è NULL, il che significa che i file scritti non sono mai scaduti. | No |
-| maxConcurrentConnections | Numero di connessioni per la connessione simultanea all'archivio dati. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
+| type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureDataLakeStoreWriteSettings**. | Sì      |
+| copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>-PreserveHierarchy (impostazione predefinita)</b>: conserva la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>-MergeFiles</b>: unisce tutti i file della cartella di origine in un unico file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
+| expiryDateTime | Specifica l'ora di scadenza dei file scritti. L'ora viene applicata all'ora UTC nel formato "2020-03-01T08:00:00Z". Per impostazione predefinita è NULL, il che significa che i file scritti non sono mai scaduti. | No |
+| maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
 **Esempio:**
 
@@ -305,12 +305,12 @@ Le proprietà seguenti sono supportate per `storeSettings` Azure Data Lake Store
 
 Questa sezione descrive il comportamento risultante del percorso cartella e del nome del file con i filtri con caratteri jolly.
 
-| folderPath | fileName | ricorsiva | Struttura delle cartelle di origine e risultato del filtro (i file in **grassetto** vengono recuperati)|
+| folderPath | fileName | ricorsiva | Struttura della cartella di origine e risultato del filtro (vengono recuperati i file in **grassetto** )|
 |:--- |:--- |:--- |:--- |
-| `Folder*` | (Vuoto, usa default) | false | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | (Vuoto, usa default) | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (Vuoto, USA predefinito) | false | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (Vuoto, USA predefinito) | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | `*.csv` | false | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
 ### <a name="examples-of-behavior-of-the-copy-operation"></a>Esempi di comportamento dell'operazione di copia
 
@@ -320,67 +320,67 @@ Questa sezione descrive il comportamento risultante dell'operazione di copia per
 |:--- |:--- |:--- |:--- |
 | true |preserveHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la stessa struttura dell'origine:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
 | true |flattenHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File5 |
-| true |mergeFiles | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di File1 , File2 , File2 , File3 , File5 viene unito in un unico file, con un nome di file generato automaticamente. |
-| false |preserveHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene selezionata. |
-| false |flattenHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/><br/>La sottocartella1 con File3, File4 e File5 non viene selezionata. |
-| false |mergeFiles | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 - Il contenuto di File2 viene unito in un unico file con il nome del file generato automaticamente. Nome generato automaticamente per File1<br/><br/>La sottocartella1 con File3, File4 e File5 non viene selezionata. |
+| true |mergeFiles | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di file1 + file2 + file3 + file4 + File5 viene unito in un file, con un nome file generato automaticamente. |
+| false |preserveHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Sottocartella1 con file3, file4 e File5 non vengono prelevati. |
+| false |flattenHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/><br/>Sottocartella1 con file3, file4 e File5 non vengono prelevati. |
+| false |mergeFiles | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Il contenuto di file1 + file2 viene unito in un file con il nome file generato automaticamente. Nome generato automaticamente per File1<br/><br/>Sottocartella1 con file3, file4 e File5 non vengono prelevati. |
 
-## <a name="preserve-acls-to-data-lake-storage-gen2"></a>Conservazione degli ACL per Data Lake Storage Gen2
+## <a name="preserve-acls-to-data-lake-storage-gen2"></a>Mantieni ACL per Data Lake Storage Gen2
 
 >[!TIP]
->Per copiare i dati da Azure Data Lake Storage Gen1 in Gen2 in generale, vedere [Copiare i dati da Azure Data Lake Storage Gen1 a Gen2 con Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) per procedure procedure consigliate e di archiviazione.
+>Per copiare dati da Azure Data Lake Storage Gen1 in Gen2 in generale, vedere [copiare dati da Azure Data Lake storage Gen1 a Gen2 con Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) per una procedura dettagliata e procedure consigliate.
 
-Se si desidera replicare gli elenchi di controllo di accesso (ACL) insieme ai file di dati quando si esegue l'aggiornamento da Data Lake Storage Gen1 a Data Lake Storage Gen2, vedere [Conservare gli ACL da Data Lake Storage Gen1](copy-activity-preserve-metadata.md#preserve-acls).
+Se si desidera replicare gli elenchi di controllo di accesso (ACL) insieme ai file di dati quando si esegue l'aggiornamento da Data Lake Storage Gen1 a Data Lake Storage Gen2, vedere [mantenere gli ACL da data Lake storage Gen1](copy-activity-preserve-metadata.md#preserve-acls).
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 
-Quando si trasformano i dati nel mapping del flusso di dati, è possibile leggere e scrivere file da Azure Data Lake Storage Gen1 in formato JSON, Avro, Testo delimitato o Parquet. Per altre informazioni, vedere [Trasformazione dell'origine](data-flow-source.md) e [trasformazione sink](data-flow-sink.md) nella funzionalità di mapping del flusso di dati.
+Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere e scrivere file da Azure Data Lake Storage Gen1 in formato JSON, avro, testo delimitato o parquet. Per ulteriori informazioni, vedere trasformazione [origine](data-flow-source.md) e [trasformazione sink](data-flow-sink.md) nella funzionalità flusso di dati mapping.
 
-### <a name="source-transformation"></a>Trasformazione della fonte
+### <a name="source-transformation"></a>Trasformazione origine
 
-In the source transformation, you can read from a container, folder or individual file in Azure Data Lake Storage Gen1. La scheda **Opzioni di origine** consente di gestire la modalità di lettura dei file. 
+Nella trasformazione origine è possibile leggere da un contenitore, una cartella o un singolo file in Azure Data Lake Storage Gen1. La scheda **Opzioni di origine** consente di gestire il modo in cui i file vengono letti. 
 
 ![Opzioni di origine](media/data-flow/sourceOptions1.png "Opzioni di origine")
 
-**Percorso con caratteri jolly:** L'utilizzo di un modello con caratteri jolly indicherà ad ADF di scorrere ogni cartella e file corrispondenti in una singola trasformazione Origine. Questo è un modo efficace per elaborare più file all'interno di un singolo flusso. Aggiungere più modelli di corrispondenza con caratteri jolly con il segno di cancelazione che viene visualizzato al passaggio del mouse sul modello con caratteri jolly esistente.
+**Percorso con caratteri jolly:** L'utilizzo di un modello con caratteri jolly indicherà ad ADF di scorrere ogni cartella e file corrispondente in un'unica trasformazione origine. Si tratta di un modo efficace per elaborare più file all'interno di un singolo flusso. Aggiungere più modelli di corrispondenza con caratteri jolly con il segno + visualizzato quando si passa il mouse sul modello con caratteri jolly esistente.
 
-Dal contenitore di origine scegliere una serie di file che corrispondano a un modello. Solo il contenitore può essere specificato nel set di dati. Il percorso con caratteri jolly deve pertanto includere anche il percorso della cartella dalla cartella radice.
+Dal contenitore di origine, scegliere una serie di file che corrispondono a un modello. Nel set di dati è possibile specificare solo il contenitore. Il percorso del carattere jolly deve quindi includere anche il percorso della cartella nella cartella radice.
 
 Esempi di caratteri jolly:
 
 * ```*```Rappresenta qualsiasi set di caratteri
-* ```**```Rappresenta la nidificazione di directory ricorsive
+* ```**```Rappresenta l'annidamento delle directory ricorsive
 * ```?```Sostituisce un carattere
-* ```[]```Corrisponde a uno o più caratteri tra parentesi quadre
+* ```[]```Trova la corrispondenza di uno o più caratteri tra parentesi quadre
 
-* ```/data/sales/**/*.csv```Ottiene tutti i file csv in /data/sales
-* ```/data/sales/20??/**/```Ottiene tutti i file del XX secolo
-* ```/data/sales/*/*/*.csv```Ottiene i file csv due livelli in /data/sales
-* ```/data/sales/2004/*/12/[XY]1?.csv```Ottiene tutti i file csv nel 2004 nel mese di dicembre a partire da X o Y preceduti da un numero a due cifre
+* ```/data/sales/**/*.csv```Ottiene tutti i file CSV in/data/Sales
+* ```/data/sales/20??/**/```Ottiene tutti i file nel ventesimo secolo
+* ```/data/sales/*/*/*.csv```Ottiene i file CSV a due livelli sotto/data/Sales
+* ```/data/sales/2004/*/12/[XY]1?.csv```Ottiene tutti i file CSV in 2004 nel dicembre a partire da X o Y preceduto da un numero a due cifre
 
-**Percorso radice partizione:** Se nell'origine file sono state ```key=value``` partizionate cartelle con un formato (ad esempio, anno 2019), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
+**Percorso radice partizione:** Se nell'origine file sono presenti cartelle partizionate con un ```key=value``` formato (ad esempio, Year = 2019), è possibile assegnare il livello principale dell'albero delle cartelle della partizione a un nome di colonna nel flusso di dati del flusso di dati.
 
-In primo luogo, impostare un carattere jolly per includere tutti i percorsi che sono le cartelle partizionate più i file foglia che si desidera leggere.
+Per prima cosa, impostare un carattere jolly per includere tutti i percorsi che rappresentano le cartelle partizionate e i file foglia che si desidera leggere.
 
-![Impostazioni del file di origine della partizionePartition source file settings](media/data-flow/partfile2.png "Impostazione del file di partizione")
+![Impostazioni del file di origine della partizione](media/data-flow/partfile2.png "Impostazione del file di partizione")
 
-Utilizzare l'impostazione Percorso radice partizione per definire il livello superiore della struttura di cartelle. Quando visualizzi il contenuto dei tuoi dati tramite un'anteprima dei dati, vedrai che ADF aggiungerà le partizioni risolte trovate in ciascuno dei livelli di cartella.
+Utilizzare l'impostazione percorso radice partizione per definire il livello superiore della struttura di cartelle. Quando si Visualizza il contenuto dei dati tramite un'anteprima dei dati, si noterà che ADF aggiungerà le partizioni risolte presenti in ogni livello di cartella.
 
-![Percorso radice partizione](media/data-flow/partfile1.png "Anteprima del percorso radice della partizionePartition root path preview")
+![Percorso radice partizione](media/data-flow/partfile1.png "Anteprima percorso radice partizione")
 
-**Elenco dei file:** Questo è un set di file. Creare un file di testo che includa un elenco di file di percorso relativo da elaborare. Posizionare il puntatore del tutto su questo file di testo.
+**Elenco di file:** Si tratta di un set di file. Creare un file di testo che includa un elenco di file di percorso relativi da elaborare. Puntare a questo file di testo.
 
-**Colonna in cui memorizzare il nome del file:** Archiviare il nome del file di origine in una colonna dei dati. Immettere un nuovo nome di colonna qui per memorizzare la stringa del nome del file.
+**Colonna in cui archiviare il nome del file:** Archiviare il nome del file di origine in una colonna nei dati. Immettere qui il nome di una nuova colonna per archiviare la stringa del nome file.
 
-**Dopo il completamento:** Scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione del flusso di dati, eliminare il file di origine o spostare il file di origine. I percorsi per lo spostamento sono relativi.
+**Dopo il completamento:** Scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione del flusso di dati, eliminare il file di origine oppure spostare il file di origine. I percorsi per lo spostamento sono relativi.
 
-Per spostare i file di origine in un'altra posizione dopo l'elaborazione, selezionare prima "Sposta" per l'operazione sui file. Quindi, impostare la directory "da". Se non si utilizza alcun carattere jolly per il percorso, l'impostazione "da" sarà la stessa cartella della cartella di origine.
+Per spostare i file di origine in un altro percorso dopo l'elaborazione, selezionare prima di tutto "Sposta" per operazione su file. Quindi, impostare la directory "from". Se non si usano caratteri jolly per il percorso, l'impostazione "da" sarà la stessa cartella della cartella di origine.
 
-Se si dispone di un percorso di origine con caratteri jolly, la sintassi sarà simile al seguente:If you have a source path with wildcard, your syntax will look like this below:
+Se si dispone di un percorso di origine con carattere jolly, la sintassi avrà un aspetto simile al seguente:
 
 ```/data/sales/20??/**/*.csv```
 
-È possibile specificare "da" come
+È possibile specificare "from" come
 
 ```/data/sales```
 
@@ -388,61 +388,61 @@ E "a" come
 
 ```/backup/priorSales```
 
-In questo caso, tutti i file che sono stati originati in /data/sales vengono spostati in /backup/priorSales.
+In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/priorSales.
 
 > [!NOTE]
-> Le operazioni sui file vengono eseguite solo quando si avvia il flusso di dati da un'esecuzione della pipeline (debug di una pipeline o esecuzione) che utilizza l'attività Esegui flusso di dati in una pipeline. Le operazioni sui file *non vengono* eseguite in modalità di debug Flusso di dati.
+> Le operazioni sui file vengono eseguite solo quando si avvia il flusso di dati da un'esecuzione di pipeline (esecuzione del debug o esecuzione di una pipeline) che utilizza l'attività Esegui flusso di dati in una pipeline. Le operazioni sui file *non* vengono eseguite nella modalità di debug del flusso di dati.
 
-**Filtra per ultima modifica:** È possibile filtrare i file che si elaborano specificando un intervallo di date di quando sono stati modificati l'ultima volta. Tutte le date sono in UTC. 
+**Filtra per Ultima modifica:** È possibile filtrare i file elaborati specificando un intervallo di date di data e ora dell'Ultima modifica. Tutte le ore di data sono in formato UTC. 
 
 ### <a name="sink-properties"></a>Proprietà sink
 
-In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen1. la scheda **Impostazioni** consente di gestire la modalità di scrittura dei file.
+Nella trasformazione sink è possibile scrivere in un contenitore o in una cartella in Azure Data Lake Storage Gen1. la scheda **Impostazioni** consente di gestire il modo in cui i file vengono scritti.
 
-![opzioni lavandino](media/data-flow/file-sink-settings.png "opzioni lavandino")
+![opzioni sink](media/data-flow/file-sink-settings.png "opzioni sink")
 
 **Cancellare la cartella:** Determina se la cartella di destinazione viene cancellata prima della scrittura dei dati.
 
-**Opzione nome file:** Determina la modalità di nome dei file di destinazione nella cartella di destinazione. Le opzioni per il nome del file sono:
-   * **Default**: Consenti a Spark di denominare i file in base ai valori di default parte.
-   * **Modello**: Immettere un modello che enumera i file di output per partizione. Ad esempio, **loans[n].csv** creerà loans1.csv, loans2.csv e così via.
-   * **Per partizione**: Immettere un nome file per partizione.
-   * **Come dati nella colonna**: Impostare il file di output sul valore di una colonna. Il percorso è relativo al contenitore del set di dati, non alla cartella di destinazione. Se si dispone di un percorso di cartella nel set di dati, verrà sostituito.
-   * **Output in un singolo file**: Combinare i file di output partizionati in un unico file denominato. Il percorso è relativo alla cartella del set di dati. Tenere presente che l'operazione di unione può avere esito negativo in base alle dimensioni del nodo. Questa opzione non è consigliata per set di dati di grandi dimensioni.
+**Opzione nome file:** Determina la modalità di denominazione dei file di destinazione nella cartella di destinazione. Le opzioni del nome file sono:
+   * **Impostazione predefinita**: consente a Spark di assegnare un nome ai file in base alle impostazioni predefinite della parte.
+   * **Modello**: immettere un modello che enumera i file di output per partizione. Ad esempio, **Loans [n]. csv** creerà loans1. csv, loans2. csv e così via.
+   * **Per partizione**: immettere un nome di file per partizione.
+   * **Come dati in column**: impostare il file di output sul valore di una colonna. Il percorso è relativo al contenitore del set di dati e non alla cartella di destinazione. Se nel set di dati è presente un percorso di cartella, ne verrà eseguito l'override.
+   * **Output in un singolo file**: combina i file di output partizionati in un singolo file denominato. Il percorso è relativo alla cartella del set di dati. Tenere presente che l'operazione di merge di te potrebbe avere esito negativo in base alla dimensione del nodo. Questa opzione non è consigliata per i set di impostazioni di grandi dimensioni.
 
-**Citazione a tutti:** Determina se racchiudere tutti i valori tra virgolette
+**Tutte le virgolette:** Determina se racchiudere tutti i valori tra virgolette
 
-## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
 
 ## <a name="getmetadata-activity-properties"></a>Proprietà dell'attività GetMetadata
 
-Per informazioni dettagliate sulle proprietà, controllare [Attività GetMetadataTo](control-flow-get-metadata-activity.md) learn details about the properties, check GetMetadata activity 
+Per informazioni dettagliate sulle proprietà, controllare l' [attività GetMetadata](control-flow-get-metadata-activity.md) 
 
-## <a name="delete-activity-properties"></a>Eliminare le proprietà dell'attività
+## <a name="delete-activity-properties"></a>Elimina proprietà attività
 
-Per informazioni dettagliate sulle proprietà, [selezionare Elimina attività](delete-activity.md)
+Per informazioni dettagliate sulle proprietà, controllare l' [attività di eliminazione](delete-activity.md)
 
 ## <a name="legacy-models"></a>Modelli legacy
 
 >[!NOTE]
->I modelli seguenti sono ancora supportati così come sono per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello indicato nelle sezioni precedenti in futuro e l'interfaccia utente di creazione di ADF è passata alla generazione del nuovo modello.
+>I modelli seguenti sono ancora supportati così come sono per la compatibilità con le versioni precedenti. Si consiglia di usare il nuovo modello menzionato nelle sezioni precedenti in futuro e l'interfaccia utente di creazione di ADF ha cambiato la generazione del nuovo modello.
 
-### <a name="legacy-dataset-model"></a>Modello di set di dati legacy
+### <a name="legacy-dataset-model"></a>Modello DataSet legacy
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del dataset deve essere impostata su **AzureDataLakeStoreFile**. |Sì |
-| folderPath | Percorso della cartella in Data Lake Store. Se il valore non è specificato, punta alla radice. <br/><br/>Il filtro con caratteri jolly è supportato. I caratteri `*` jolly consentiti sono (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un singolo carattere). Utilizzare `^` per eseguire l'escape se il nome effettivo della cartella ha un carattere jolly o questo carattere di escape all'interno. <br/><br/>Ad esempio: rootfolder/sottocartell/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
-| fileName | Nome o filtro con caratteri jolly per i file nell'oggetto "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per il filtro, i `*` caratteri jolly consentiti `?` sono (corrisponde a zero o più caratteri) e (corrisponde a zero o a un singolo carattere).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Utilizzare `^` per eseguire l'escape se il nome del file effettivo ha un carattere jolly o questo carattere di escape all'interno.<br/><br/>Quando fileName non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink di attività, l'attività di copia genera automaticamente il nome del file con il modello seguente: "*Data.[ ID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurato]*", ad esempio, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se si copia da un'origine tabulare utilizzando un nome di tabella anziché una query, il modello di nome è "*[nome tabella].[ formato]. [compressione se configurata]*", ad esempio, "MyTable.csv". |No |
-| modifiedDatetimeStart | I file filtrano in base all'attributo Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica rientra nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro dei file con enormi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore `modifiedDatetimeEnd` datetime ma è NULL, significa che vengono selezionati i file il cui attributo dell'ultima modifica è maggiore o uguale al valore datetime. Quando `modifiedDatetimeEnd` ha un valore `modifiedDatetimeStart` datetime ma è NULL, significa che vengono selezionati i file il cui attributo last modified è minore del valore datetime.| No |
-| modifiedDatetimeEnd | I file filtrano in base all'attributo Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica rientra nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono influenzate dall'abilitazione di questa impostazione quando si desidera eseguire il filtro dei file con enormi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore `modifiedDatetimeEnd` datetime ma è NULL, significa che vengono selezionati i file il cui attributo dell'ultima modifica è maggiore o uguale al valore datetime. Quando `modifiedDatetimeEnd` ha un valore `modifiedDatetimeStart` datetime ma è NULL, significa che vengono selezionati i file il cui attributo last modified è minore del valore datetime.| No |
-| format | Se si desidera copiare i file così come è tra archivi basati su file (copia binaria), ignorare la sezione relativa al formato nelle definizioni del set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per ulteriori informazioni, vedere le sezioni [Formato testo](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), Formato [Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orco](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e [Formato parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |No (solo per uno scenario di copia binaria) |
+| type | La proprietà Type del set di dati deve essere impostata su **AzureDataLakeStoreFile**. |Sì |
+| folderPath | Percorso della cartella in Data Lake Store. Se il valore non è specificato, punta alla radice. <br/><br/>Il filtro con caratteri jolly è supportato. I caratteri jolly consentiti sono `*` (corrisponde a zero o `?` più caratteri) e (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo ha un carattere jolly o questo carattere di escape all'interno di. <br/><br/>Ad esempio: RootFolder/sottocartella/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
+| fileName | Nome o filtro con caratteri jolly per i file sotto il "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per il filtro, i caratteri jolly consentiti sono `*` (corrisponde a zero o `?` più caratteri) e (corrisponde a zero o a un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per eseguire l'escape se il nome del file effettivo ha un carattere jolly o questo carattere di escape all'interno di.<br/><br/>Quando fileName non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il modello seguente: "*Data. [ GUID ID esecuzione attività]. [GUID se FlattenHierarchy]. [format se configurato]. [compressione se configurata]*", ad esempio" Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt. gz ". Se si copia da un'origine tabulare usando un nome di tabella anziché una query, il modello del nome è "*[nome tabella]. [ formato]. [compressione se configurata]*", ad esempio" MyTable. csv ". |No |
+| modifiedDatetimeStart | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo `modifiedDatetimeStart` compreso `modifiedDatetimeEnd`tra e. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono interessate dall'abilitazione di questa impostazione quando si desidera eseguire un filtro di file con grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati.| No |
+| modifiedDatetimeEnd | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo `modifiedDatetimeStart` compreso `modifiedDatetimeEnd`tra e. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br/><br/> Le prestazioni complessive dello spostamento dei dati sono interessate dall'abilitazione di questa impostazione quando si desidera eseguire un filtro di file con grandi quantità di file. <br/><br/> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati.| No |
+| format | Se si desidera copiare i file così come sono tra archivi basati su file (copia binaria), ignorare la sezione del formato nelle definizioni del set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** in **format** su uno di questi valori. Per altre informazioni, vedere le sezioni formato [testo](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e [formato parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |No (solo per uno scenario di copia binaria) |
 | compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No |
 
 >[!TIP]
->Per copiare tutti i file in una cartella, specificare solo **folderPath**.<br>Per copiare un singolo file con un nome particolare, specificare **folderPath** con una parte di cartella e **fileName** con un nome file.<br>Per copiare un sottoinsieme di file in una cartella, specificare **folderPath** con una parte di cartella e **fileName** con un filtro con caratteri jolly. 
+>Per copiare tutti i file in una cartella, specificare solo **folderPath**.<br>Per copiare un singolo file con un nome specifico, specificare **folderPath** con una parte di cartella e **filename** con un nome file.<br>Per copiare un subset di file in una cartella, specificare **folderPath** con una parte di cartella e **filename** con un filtro con caratteri jolly. 
 
 **Esempio:**
 
@@ -480,7 +480,7 @@ Per informazioni dettagliate sulle proprietà, [selezionare Elimina attività](d
 |:--- |:--- |:--- |
 | type | La `type` proprietà dell'origine dell'attività di copia deve essere impostata su **AzureDataLakeStoreSource**. |Sì |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando `recursive` è impostato su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (impostazione predefinita) e **false**. | No |
-| maxConcurrentConnections | Numero di connessioni per la connessione simultanea all'archivio dati. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
+| maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
 
@@ -514,13 +514,13 @@ Per informazioni dettagliate sulle proprietà, [selezionare Elimina attività](d
 ]
 ```
 
-### <a name="legacy-copy-activity-sink-model"></a>Modello sink di attività di copia legacy
+### <a name="legacy-copy-activity-sink-model"></a>Modello di sink dell'attività di copia legacy
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La `type` proprietà del sink dell'attività di copia deve essere impostata su **AzureDataLakeStoreSink**. |Sì |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (impostazione predefinita):</b>mantiene la gerarchia di file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: Unisce tutti i file dalla cartella di origine in un unico file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, il nome del file viene generato automaticamente. | No |
-| maxConcurrentConnections | Numero di connessioni per la connessione simultanea all'archivio dati. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>-PreserveHierarchy (impostazione predefinita)</b>: conserva la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>-MergeFiles</b>: unisce tutti i file della cartella di origine in un unico file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, il nome del file viene generato automaticamente. | No |
+| maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
 

@@ -1,26 +1,26 @@
 ---
-title: Configurare il supporto delle identità gestite per un nuovo cluster di Service FabricConfigure managed identity support for a new Service Fabric cluster
-description: Ecco come abilitare il supporto delle identità gestite in un nuovo cluster di Azure Service FabricHere's how to enable managed identities support in a new Azure Service Fabric cluster
+title: Configurare il supporto di identità gestite per un nuovo cluster di Service Fabric
+description: Ecco come abilitare il supporto per le identità gestite in un nuovo cluster di Service Fabric di Azure
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415661"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configurare il supporto delle identità gestite per un nuovo cluster di Service FabricConfigure managed identity support for a new Service Fabric cluster
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configurare il supporto di identità gestite per un nuovo cluster di Service Fabric
 
-Per usare [le identità gestite per le risorse](../active-directory/managed-identities-azure-resources/overview.md) di Azure nelle applicazioni di Service Fabric, abilitare innanzitutto il servizio token di *identità gestita* nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni di Service Fabric che usano le identità gestite e dell'ottenimento dei token di accesso per loro conto. Una volta abilitato il servizio, è possibile visualizzarlo in Service Fabric Explorer nella sezione **Sistema** nel riquadro sinistro, in esecuzione sotto il nome **fabric:/System/ManagedIdentityTokenService** accanto ad altri servizi di sistema.
+Per usare le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) nelle applicazioni Service Fabric, abilitare prima il *servizio token di identità gestito* nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni Service Fabric usando le identità gestite e per ottenere i token di accesso per loro conto. Quando il servizio è abilitato, è possibile visualizzarlo in Service Fabric Explorer nella sezione **sistema** nel riquadro sinistro, in esecuzione con il nome **Fabric:/System/ManagedIdentityTokenService** accanto ad altri servizi di sistema.
 
 > [!NOTE]
-> Per abilitare il servizio token di **identità gestita,** è necessaria la versione 6.5.658.9590 o successiva di Service Fabric.  
+> Per abilitare il **servizio token di identità gestito**, è necessario Service Fabric versione di runtime 6.5.658.9590 o successiva.  
 
-## <a name="enable-the-managed-identity-token-service"></a>Abilitare il servizio token di identità gestitaEnable the Managed Identity Token Service
+## <a name="enable-the-managed-identity-token-service"></a>Abilitare il servizio token di identità gestito
 
-Per abilitare il servizio token di identità gestita al momento della creazione del cluster, aggiungere il frammento di codice seguente al modello di Azure Resource Manager del cluster:To enable the Managed Identity Token Service at cluster creation time, add the following snippet to your cluster Azure Resource Manager template:
+Per abilitare il servizio token di identità gestito al momento della creazione del cluster, aggiungere il frammento di codice seguente al modello di Azure Resource Manager del cluster:
 
 ```json
 "fabricSettings": [
@@ -38,7 +38,7 @@ Per abilitare il servizio token di identità gestita al momento della creazione 
 
 ## <a name="errors"></a>Errors
 
-Se la distribuzione non riesce con questo messaggio, significa che il cluster non è nella versione di Service Fabric richiesta (il runtime minimo supportato è 6.5 CU2):
+Se la distribuzione ha esito negativo con questo messaggio, significa che il cluster non si trova nella versione Service Fabric richiesta (il runtime minimo supportato è 6,5 CU2):
 
 
 ```json
@@ -50,13 +50,13 @@ Se la distribuzione non riesce con questo messaggio, significa che il cluster no
 
 ## <a name="related-articles"></a>Articoli correlati
 
-* Esaminare il supporto delle [identità gestite](./concepts-managed-identity.md) in Azure Service FabricReview managed identity support in Azure Service Fabric
+* Esaminare il [supporto di identità gestite](./concepts-managed-identity.md) in Azure Service Fabric
 
-* [Abilitare il supporto delle identità gestite in un cluster di Azure Service Fabric esistenteEnable managed identity support in an existing Azure Service Fabric cluster](./configure-existing-cluster-enable-managed-identity-token-service.md)
+* [Abilitare il supporto di identità gestite in un cluster di Azure Service Fabric esistente](./configure-existing-cluster-enable-managed-identity-token-service.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire un'applicazione Azure Service Fabric con un'identità gestita assegnata dal sistemaDeploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuire un'applicazione Azure Service Fabric con un'identità gestita assegnata dall'utenteDeploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dal sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dall'utente](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Sfruttare l'identità gestita di un'applicazione Service Fabric dal codice del servizio](./how-to-managed-identity-service-fabric-app-code.md)
-* [Concedere a un'applicazione di Azure Service Fabric l'accesso ad altre risorse di AzureGrant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+* [Concedere a un'applicazione Service Fabric di Azure l'accesso ad altre risorse di Azure](./how-to-grant-access-other-resources.md)

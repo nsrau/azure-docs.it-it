@@ -1,6 +1,6 @@
 ---
-title: Appiattire la trasformazione nel mapping del flusso di datiAppiattite transformation in mapping data flow
-description: Denormalizzare i dati gerarchici utilizzando la trasformazione appiattitaDenormalize hierarchical data using the flatten transformation
+title: Trasformazione flat nel flusso di dati del mapping
+description: Denormalizzare i dati gerarchici utilizzando la trasformazione Flat
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
@@ -8,41 +8,41 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81413687"
 ---
-# <a name="flatten-transformation-in-mapping-data-flow"></a>Appiattire la trasformazione nel mapping del flusso di datiAppiattite transformation in mapping data flow
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Trasformazione flat nel flusso di dati del mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Usare la trasformazione appiattisci per inserire valori di matrice all'interno di strutture gerarchiche come JSON e srotolarli in singole righe. Questo processo è noto come denormalizzazione.
+Utilizzare la trasformazione flat per prendere i valori di matrice all'interno di strutture gerarchiche, ad esempio JSON, e per eseguirne il rollback in singole righe. Questo processo è noto come denormalizzazione.
 
 ## <a name="configuration"></a>Configurazione
 
-La trasformazione appiattisci contiene le seguenti impostazioni di configurazione
+La trasformazione Flat contiene le impostazioni di configurazione seguenti
 
-![Impostazioni di appiattire](media/data-flow/flatten1.png "Impostazioni di appiattire")
+![Impostazioni Flat](media/data-flow/flatten1.png "Impostazioni Flat")
 
-### <a name="unroll-by"></a>Srotola da
+### <a name="unroll-by"></a>Esegui unroll by
 
-Selezionare una matrice da srotolare. I dati di output avranno una riga per elemento in ogni matrice. Se l'annullamento del roll per matrice nella riga di input è null o vuoto, sarà presente una riga di output con valori srotolati come null.
+Selezionare una matrice da annullare. I dati di output avranno una riga per ogni elemento in ogni matrice. Se l'operazione di annullamento della matrice nella riga di input è null o vuota, sarà presente una riga di output con valori non registrati come null.
 
-### <a name="unroll-root"></a>Annulla radice roll
+### <a name="unroll-root"></a>Unroll radice
 
-Per impostazione predefinita, la trasformazione appiattisci annulla l'implementazione di una matrice all'inizio della gerarchia in cui è presente. Facoltativamente, è possibile selezionare una matrice come radice di annullamento del roll. La radice di annullamento del roll deve essere una matrice di oggetti complessi che è o contiene l'annullamento del roll per matrice. Se è selezionata una radice di annullamento del roll, i dati di output conterranno almeno una riga per elemento nella radice di annullamento del roll. Se la riga di input non ha elementi nella radice di annullamento del roll, verrà eliminata dai dati di output. La scelta di una radice di annullamento del roll restituisce sempre un numero di righe inferiore o uguale rispetto al comportamento predefinito.
+Per impostazione predefinita, la trasformazione flat consente di eseguire il rollback di una matrice nella parte superiore della gerarchia in cui è presente. Facoltativamente, è possibile selezionare una matrice come radice di unroll. La radice di unroll deve essere una matrice di oggetti complessi che è o contiene l'oggetto unroll by Array. Se si seleziona una radice di unroll, i dati di output conterranno almeno una riga per ogni elemento nella radice di unroll. Se la riga di input non contiene elementi nella radice di unroll, verrà rilasciata dai dati di output. Se si sceglie una radice di unroll, viene sempre restituito un numero minore o uguale a quello di righe rispetto al comportamento predefinito.
 
-### <a name="flatten-mapping"></a>Mappatura appiattita
+### <a name="flatten-mapping"></a>Mapping Flat
 
-Simile alla trasformazione di selezione, scegliere la proiezione della nuova struttura dai campi in entrata e dalla matrice denormalizzata. Se viene eseguito il mapping di una matrice denormalizzata, la colonna di output sarà dello stesso tipo di dati della matrice. Se l'annullamento del rollperazione per matrice è una matrice di oggetti complessi che contiene sottomatrici, il mapping di un elemento di tale subarry genererà una matrice.
+Analogamente alla trasformazione Select, scegliere la proiezione della nuova struttura dai campi in ingresso e dalla matrice denormalizzata. Se viene eseguito il mapping di una matrice denormalizzata, la colonna di output sarà lo stesso tipo di dati della matrice. Se la matrice unroll by è una matrice di oggetti complessi che contiene sottomatrici, il mapping di un elemento di subarry restituirà una matrice.
 
-Fare riferimento alla scheda di ispezione e all'anteprima dei dati per verificare l'output del mapping.
+Vedere la scheda controlla e l'anteprima dati per verificare l'output del mapping.
 
 ## <a name="examples"></a>Esempi
 
-Fare riferimento all'oggetto JSON seguente per gli esempi seguenti della trasformazione appiattisci
+Vedere l'oggetto JSON seguente per gli esempi seguenti della trasformazione Flat
 
 ``` json
 {
@@ -64,11 +64,11 @@ Fare riferimento all'oggetto JSON seguente per gli esempi seguenti della trasfor
 {"name": "Company3", "location": "Kirkland"}
 ```
 
-### <a name="no-unroll-root-with-string-array"></a>Nessuna radice di annullamento del rollo con matrice di stringheNo unroll root with string array
+### <a name="no-unroll-root-with-string-array"></a>Nessuna radice di unroll con matrice di stringhe
 
-| Srotola da | Annulla radice roll | Proiezione |
+| Esegui unroll by | Unroll radice | Proiezione |
 | --------- | ----------- | ---------- |
-| beni.clienti | nessuno | name <br> cliente - beni.cliente |
+| Goods. Customers | Nessuno | name <br> Customer = Goods. Customer |
 
 #### <a name="output"></a>Output
 
@@ -82,11 +82,11 @@ Fare riferimento all'oggetto JSON seguente per gli esempi seguenti della trasfor
 { 'Company3', null}
 ```
 
-### <a name="no-unroll-root-with-complex-array"></a>Nessuna radice di annullamento del rollcone
+### <a name="no-unroll-root-with-complex-array"></a>Nessuna radice di unroll con matrice complessa
 
-| Srotola da | Annulla radice roll | Proiezione |
+| Esegui unroll by | Unroll radice | Proiezione |
 | --------- | ----------- | ---------- |
-| goods.orders.shipped.orderItems | nessuno | name <br> orderId - beni.ordini.orderId <br> itemName : goods.orders.shipped.orderItems.itemName <br> itemQty - goods.orders.shipped.orderItems.itemQty <br> posizione e posizione |
+| Goods. Orders. Spedit. orderItems | Nessuno | name <br> orderId = Goods. Orders. orderId <br> ItemName = Goods. Orders. Spedit. orderItems. ItemName <br> itemQty = Goods. Orders. Spedit. orderItems. itemQty <br> Località = Località |
 
 #### <a name="output"></a>Output
 
@@ -103,11 +103,11 @@ Fare riferimento all'oggetto JSON seguente per gli esempi seguenti della trasfor
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
-### <a name="same-root-as-unroll-array"></a>Stessa radice della matrice di srotolato
+### <a name="same-root-as-unroll-array"></a>Stessa radice di unroll Array
 
-| Srotola da | Annulla radice roll | Proiezione |
+| Esegui unroll by | Unroll radice | Proiezione |
 | --------- | ----------- | ---------- |
-| beni.ordini | beni.ordini | name <br> goods.orders.shipped.orderItems.itemName <br> beni.clienti <br> posizione |
+| Goods. Orders | Goods. Orders | name <br> Goods. Orders. Spedit. orderItems. ItemName <br> Goods. Customers <br> posizione |
 
 #### <a name="output"></a>Output
 
@@ -119,11 +119,11 @@ Fare riferimento all'oggetto JSON seguente per gli esempi seguenti della trasfor
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
-### <a name="unroll-root-with-complex-array"></a>Annulla radice di rollio con array complesso
+### <a name="unroll-root-with-complex-array"></a>Radice di unroll con matrice complessa
 
-| Srotola da | Annulla radice roll | Proiezione |
+| Esegui unroll by | Unroll radice | Proiezione |
 | --------- | ----------- | ---------- |
-| goods.orders.shipped.orderItem | beni.ordini |name <br> orderId - beni.ordini.orderId <br> itemName : goods.orders.shipped.orderItems.itemName <br> itemQty - goods.orders.shipped.orderItems.itemQty <br> posizione e posizione |
+| Goods. Orders. Spedit. orderItem | Goods. Orders |name <br> orderId = Goods. Orders. orderId <br> ItemName = Goods. Orders. Spedit. orderItems. ItemName <br> itemQty = Goods. Orders. Spedit. orderItems. itemQty <br> Località = Località |
 
 #### <a name="output"></a>Output
 
@@ -171,5 +171,5 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Utilizzare la [trasformazione Pivot](data-flow-pivot.md) per eseguire il pivot delle righe in colonne.
-* Utilizzare la [trasformazione Unpivot](data-flow-unpivot.md) per eseguire il pivot delle colonne in righe.
+* Utilizzare la [trasformazione pivot](data-flow-pivot.md) per trasformare le righe in colonne.
+* Utilizzare la [trasformazione UnPivot](data-flow-unpivot.md) per trasformare colonne tramite pivot in righe.

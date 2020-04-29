@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi alle prestazioni dell'attività di copiaTroubleshoot copy activity
-description: Informazioni su come risolvere i problemi relativi alle prestazioni dell'attività di copia in Azure Data Factory.Learn about how to troubleshoot copy activity performance in Azure Data Factory.
+title: Risolvere i problemi delle prestazioni dell'attività di copia
+description: Informazioni su come risolvere i problemi relativi alle prestazioni dell'attività di copia in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,182 +13,182 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414134"
 ---
-# <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi relativi alle prestazioni dell'attività di copiaTroubleshoot copy activity
+# <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra come risolvere i problemi di prestazioni dell'attività di copia in Azure Data Factory.This article outlines how to troubleshoot copy activity performance issue in Azure Data Factory. 
+Questo articolo illustra come risolvere i problemi relativi alle prestazioni dell'attività di copia in Azure Data Factory. 
 
-Dopo aver eseguito un'attività di copia, è possibile raccogliere i risultati di esecuzione e le statistiche sulle prestazioni nella visualizzazione [monitoraggio attività di copia.](copy-activity-monitoring.md) Di seguito è riportato un esempio.
+Dopo aver eseguito un'attività di copia, è possibile raccogliere il risultato dell'esecuzione e le statistiche sulle prestazioni nella visualizzazione [monitoraggio attività di copia](copy-activity-monitoring.md) . Di seguito è riportato un esempio.
 
-![Monitorare i dettagli dell'esecuzione dell'attività di copiaMonitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+![Monitorare i dettagli dell'esecuzione dell'attività di copia](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
 ## <a name="performance-tuning-tips"></a>Suggerimenti per l'ottimizzazione delle prestazioni
 
-In alcuni scenari, quando si esegue un'attività di copia in Data Factory, nella parte superiore verranno visualizzati "Suggerimenti per **l'ottimizzazione delle prestazioni"** nella parte superiore, come illustrato nell'esempio precedente. I suggerimenti indicano il collo di bottiglia identificato da ADF per questa particolare esecuzione della copia, insieme a suggerimenti su come aumentare la velocità effettiva della copia. Provare a apportare la modifica richiesta, quindi eseguire nuovamente la copia.
+In alcuni scenari, quando si esegue un'attività di copia in Data Factory, verranno visualizzati **"suggerimenti per l'ottimizzazione delle prestazioni"** nella parte superiore, come illustrato nell'esempio precedente. I suggerimenti indicano il collo di bottiglia identificato da ADF per questa particolare esecuzione della copia, oltre a suggerimenti su come aumentare la velocità effettiva di copia. Provare a eseguire la modifica riordinata, quindi eseguire di nuovo la copia.
 
-Come riferimento, attualmente i suggerimenti per l'ottimizzazione delle prestazioni forniscono suggerimenti per i casi seguenti:As a reference, currently the performance tuning tips provide suggestions for the following cases:
+Come riferimento, attualmente i suggerimenti per l'ottimizzazione delle prestazioni forniscono suggerimenti per i casi seguenti:
 
 | Category              | Suggerimenti per l'ottimizzazione delle prestazioni                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Specifico dell'archivio dati   | Caricamento dei dati in **Azure Synpase Analytics (in precedenza SQL DW):** suggerire l'utilizzo dell'istruzione PolyBase o COPY se non viene usata. |
-| &nbsp;                | Copia dei dati dal/nel database SQL di **Azure:** quando DTU è in condizioni di utilizzo elevato, suggerisci l'aggiornamento a un livello superiore. |
-| &nbsp;                | Copia dei dati da/a **Azure Cosmos DB:** quando RU è sottoposto a un utilizzo elevato, suggerire l'aggiornamento a RU di dimensioni maggiori. |
-| &nbsp;                | Inserimento di dati da **Amazon Redshift**: suggerire l'utilizzo di UNLOAD se non viene utilizzato. |
-| Limitazione dell'archivio datiData store throttling | Se un numero di operazioni di lettura/scrittura viene limitato dall'archivio dati durante la copia, suggerire di controllare e aumentare la frequenza di richieste consentite per l'archivio dati oppure di ridurre il carico di lavoro simultaneo. |
-| Tempo di integrazione  | Se si usa un runtime di **integrazione (IR) self-hosted** e l'attività di copia attende a lungo nella coda fino a quando il runtime di integrazione dispone di risorse disponibili per l'esecuzione, suggerire la scalabilità orizzontale o l'aggiornamento del runtime di integrazione. |
-| &nbsp;                | Se si usa un runtime di **integrazione** di Azure che si trova in un'area non ottimale con conseguente lettura/scrittura lenta, suggerire di configurare un runtime di integrazione in un'altra area. |
-| Tolleranza di errore       | Se si configura la tolleranza di errore e la saltazione di righe incompatibili comporta un rallentamento delle prestazioni, suggerire di garantire che i dati di origine e sink siano compatibili. |
-| copia di staging           | Se la copia in fasi è configurata ma non è utile per la coppia di sink di origine, suggerire di rimuoverla. |
-| Riprendi                | Quando l'attività di copia viene ripresa dall'ultimo punto di errore, ma si verifica la modifica dell'impostazione DIU dopo l'esecuzione originale, si noti che la nuova impostazione DIU non ha effetto. |
+| Specifico dell'archivio dati   | Caricamento dei dati in **Azure Synpase Analytics (noto in precedenza come SQL DW)**: è consigliabile usare l'istruzione di base o di copia se non viene usata. |
+| &nbsp;                | Copia dei dati da/in un **database SQL di Azure**: quando DTU è in un utilizzo elevato, Suggerisci l'aggiornamento a un livello superiore. |
+| &nbsp;                | Copia dei dati da/in **Azure Cosmos DB**: quando ur è sottoposto a un utilizzo elevato, suggerire l'aggiornamento a ur più grandi. |
+| &nbsp;                | Inserimento di dati da **Amazon spostamento**: suggerire l'uso di Unload se non viene usato. |
+| Limitazione dell'archivio dati | Se durante la copia un numero di operazioni di lettura/scrittura viene limitato dall'archivio dati, è consigliabile controllare e aumentare la frequenza di richieste consentite per l'archivio dati o ridurre il carico di lavoro simultaneo. |
+| Runtime di integrazione  | Se si usa un **Integration Runtime self-hosted (IR)** e l'attività di copia resta in attesa lungo nella coda fino a quando il runtime di integrazione non dispone di risorse per l'esecuzione, suggerire la scalabilità orizzontale o verticale del runtime di integrazione. |
+| &nbsp;                | Se si usa un **Azure Integration Runtime** che si trova in un'area non ottimale che produce una lettura/scrittura lenta, suggerire la configurazione per usare un runtime di integrazione in un'altra area. |
+| Tolleranza di errore       | Se si configura la tolleranza di errore e le righe incompatibili vengono ignorate, è consigliabile verificare che i dati di origine e sink siano compatibili. |
+| copia di staging           | Se la copia di gestione temporanea è configurata ma non è utile per la coppia di sink di origine, è consigliabile rimuoverla. |
+| Riprendi                | Quando l'attività di copia viene riavviata dall'ultimo punto di errore ma si modifica l'impostazione DIU dopo l'esecuzione originale, tenere presente che la nuova impostazione DIU non ha effetto. |
 
-## <a name="understand-copy-activity-execution-details"></a>Comprendere i dettagli di esecuzione dell'attività di copiaUnderstand copy activity execution details
+## <a name="understand-copy-activity-execution-details"></a>Informazioni sui dettagli dell'esecuzione dell'attività di copia
 
-I dettagli di esecuzione e le durate nella parte inferiore della visualizzazione di monitoraggio dell'attività di copia descrivono le fasi chiave dell'attività di copia (vedere l'esempio all'inizio di questo articolo), che è particolarmente utile per la risoluzione delle prestazioni di copia. Il collo di bottiglia dell'esecuzione della copia è quello con la durata più lunga. Fare riferimento alla tabella seguente nella definizione di ogni fase e informazioni su come risolvere i problemi relativi all'attività di [copia in Azure,](#troubleshoot-copy-activity-on-azure-ir) i prodotti di catalogo e risolvere i problemi relativi all'attività di copia nel componente di messaggistica di controllo di messaggistica [automatico self-hosted](#troubleshoot-copy-activity-on-self-hosted-ir) con tali informazioni.
+I dettagli e le durate di esecuzione nella parte inferiore della visualizzazione monitoraggio dell'attività di copia descrivono le fasi principali dell'attività di copia (vedere l'esempio all'inizio di questo articolo), che è particolarmente utile per la risoluzione dei problemi relativi alle prestazioni di copia. Il collo di bottiglia dell'esecuzione della copia è quello con la durata più lunga. Vedere la tabella seguente per la definizione di ogni fase e informazioni su come [risolvere i problemi relativi all'attività di copia in Azure IR](#troubleshoot-copy-activity-on-azure-ir) e [risolvere i problemi relativi all'attività di copia nel runtime di integrazione self-hosted](#troubleshoot-copy-activity-on-self-hosted-ir) con tali informazioni.
 
 | Fase           | Descrizione                                                  |
 | --------------- | ------------------------------------------------------------ |
-| Coda           | Tempo trascorso fino all'avvio effettiva dell'attività di copia nel runtime di integrazione. |
-| Script di pre-copia | Tempo trascorso tra l'attività di copia a partire dal runtime di accesso e l'attività di copia che termina l'esecuzione dello script di pre-copia nell'archivio dati sink. Applicare quando si configura lo script di pre-copia per i sink di database, ad esempio quando si scrivono dati nel database SQL di Azure eseguire la pulizia prima di copiare nuovi dati. |
-| Trasferimento        | Tempo trascorso tra la fine del passaggio precedente e il runtime di accesso guidato che trasferisce tutti i dati dall'origine al sink. I sottopassaggi in "Trasferimento" vengono eseguiti in parallelo.<br><br>- **Tempo per il primo byte:** Il tempo trascorso tra la fine del passaggio precedente e il momento in cui il runtime di proprietà riceve il primo byte dall'archivio dati di origine. Si applica alle origini non basate su file.<br>- **Fonte elenco:** Quantità di tempo dedicato all'enumerazione dei file di origine o delle partizioni di dati. Quest'ultimo si applica quando si configurano le opzioni di partizione per le origini di database, ad esempio quando si copiano dati da database come Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Lettura dalla fonte:** Quantità di tempo dedicato al recupero dei dati dall'archivio dati di origine.<br/>- **Scrittura sul lavandino:** Quantità di tempo dedicato alla scrittura dei dati nell'archivio dati sink. |
+| Coda           | Tempo trascorso fino a quando l'attività di copia non inizia effettivamente sul runtime di integrazione. |
+| Script di pre-copia | Tempo trascorso tra l'attività di copia a partire da IR e l'attività di copia che termina l'esecuzione dello script di pre-copia nell'archivio dati sink. Applicare quando si configura lo script di pre-copia per i sink di database, ad esempio durante la scrittura di dati nel database SQL di Azure, eseguire la pulizia prima di copiare nuovi dati. |
+| Trasferimento        | Il tempo trascorso tra la fine del passaggio precedente e l'IR che trasferisce tutti i dati dall'origine al sink. I passaggi SubStep in "Transfer" vengono eseguiti in parallelo.<br><br>- **Tempo per il primo byte:** Tempo trascorso tra la fine del passaggio precedente e l'ora in cui il runtime di integrazione riceve il primo byte dall'archivio dati di origine. Si applica alle origini non basate su file.<br>- **Origine elenco:** Quantità di tempo impiegato per l'enumerazione di file di origine o partizioni di dati. Quest'ultimo si applica quando si configurano le opzioni di partizione per le origini del database, ad esempio quando si copiano dati da database come Oracle/SAP HANA/Teradata/Netezza e così via.<br/>-**Lettura dall'origine:** Quantità di tempo impiegato per il recupero dei dati dall'archivio dati di origine.<br/>- **Scrittura nel sink:** Quantità di tempo impiegato per la scrittura dei dati nell'archivio dati sink. |
 
-## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Risolvere i problemi relativi all'attività di copia nel sistema di archiviazione di AzureTroubleshoot copy activity on Azure IR
+## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Risolvere i problemi relativi all'attività di copia in Azure IR
 
-Seguire i passaggi di [ottimizzazione delle prestazioni](copy-activity-performance.md#performance-tuning-steps) per pianificare ed eseguire test delle prestazioni per lo scenario. 
+Seguire i [passaggi di ottimizzazione delle prestazioni](copy-activity-performance.md#performance-tuning-steps) per pianificare ed eseguire il test delle prestazioni per lo scenario. 
 
-Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per risolvere i problemi relativi all'attività di copia singola in esecuzione in Azure Integration Runtime, se nella visualizzazione di monitoraggio della copia vengono visualizzati suggerimenti per [l'ottimizzazione](#performance-tuning-tips) delle prestazioni, applicare il suggerimento e riprovare. In caso contrario, comprendere i dettagli di [esecuzione dell'attività](#understand-copy-activity-execution-details)di copia, verificare quale fase ha la durata **più lunga** e applicare le indicazioni riportate di seguito per migliorare le prestazioni di copia:Otherwise, understand copy activity execution details , check which stage has the longest duration, and apply the guidance below to boost copy performance:
+Quando le prestazioni dell'attività di copia non soddisfano le aspettative, per risolvere i problemi relativi all'attività di copia singola in esecuzione in Azure Integration Runtime, se vengono visualizzati suggerimenti per l' [ottimizzazione delle prestazioni](#performance-tuning-tips) nella visualizzazione copia monitoraggio, applicare il suggerimento e riprovare. In caso contrario, [comprendere i dettagli dell'esecuzione dell'attività di copia](#understand-copy-activity-execution-details), verificare quale fase ha la durata più **lunga** e applicare le indicazioni seguenti per migliorare le prestazioni di copia:
 
-- **"Script di pre-copia" ha sperimentato lunga durata:** significa che lo script di pre-copia in esecuzione sul database sink richiede molto tempo per completare. Ottimizzare la logica di script di pre-copia specificata per migliorare le prestazioni. Per ulteriori informazioni sul miglioramento dello script, contattare il team del database.
+- **"Script di pre-copia" ha avuto una durata prolungata:** significa che lo script di pre-copia in esecuzione nel database sink richiede molto tempo. Ottimizzare la logica dello script di pre-copia specificata per migliorare le prestazioni. Per ulteriori informazioni sul miglioramento dello script, contattare il team del database.
 
-- **"Trasferimento - Tempo al primo byte" ha sperimentato una lunga durata di lavoro**: significa che la query di origine richiede molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se hai bisogno di ulteriore assistenza, contatta il tuo team di data store.
+- **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata**: significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
 
-- **"Trasferimento - Origine elenco" ha sperimentato una lunga durata di lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
+- **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
 
-  - Quando si copiano dati da un'origine basata su file, se si utilizza il`modifiedDatetimeStart` filtro`modifiedDatetimeEnd`con **caratteri jolly** per il percorso della cartella o il nome del file`wildcardFolderPath` (o `wildcardFileName`), oppure si utilizza il **filtro dell'ora dell'ultima modifica** (o ), si noti che tale filtro comporterebbe l'attività di copia che elenca tutti i file nella cartella specificata sul lato client, quindi si applicherebbe il filtro. Tale enumerazione di file potrebbe diventare il collo di bottiglia, soprattutto quando solo un piccolo set di file ha soddisfatto la regola di filtro.
+  - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per`wildcardFolderPath` il `wildcardFileName`percorso o il nome di file (o) oppure`modifiedDatetimeStart` si`modifiedDatetimeEnd`usa il filtro dell'ora dell' **Ultima modifica del file** (o), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
 
-    - Verificare se è possibile copiare i file in base al percorso o al nome del [file partizionato datetime.](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) Tale modo non porta onere sulla lista di origine.
+    - Controllare se è possibile [copiare i file in base al percorso o al nome del file partizionato DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). In questo modo non viene imposto alcun onere sul lato di origine dell'elenco.
 
-    - Verificare se è possibile utilizzare il filtro nativo dell'archivio dati, in particolare "**prefisso**" per Amazon S3 e BLOB di Azure. Il filtro prefisso è un filtro lato server dell'archivio dati e avrebbe prestazioni molto migliori.
+    - Controllare se è invece possibile usare il filtro nativo dell'archivio dati, in particolare "**prefisso**" per Amazon S3 e BLOB di Azure. Il filtro per i prefissi è un filtro sul lato server dell'archivio dati e offre prestazioni molto migliori.
 
-    - Prendere in considerazione la possibilità di dividere singoli set di dati di grandi dimensioni in diversi set di dati più piccoli e lasciare che tali processi di copia eseguiti contemporaneamente ognuno gestisca una parte di dati. È possibile eseguire questa operazione con Lookup/GetMetadata , ForEach e Copy. Fare riferimento a [Copiare file da più contenitori](solution-template-copy-files-multiple-containers.md) o Eseguire la migrazione dei dati da Amazon S3 ai modelli di soluzione [ADLS Gen2](solution-template-migration-s3-azure.md) come esempio generale.
+    - Si consiglia di suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e di consentire l'esecuzione simultanea di ogni processo di copia per ogni parte dei dati. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md) o [migrare i dati da Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) modelli di soluzione come esempio generale.
 
-  - Verificare se ADF segnala un errore di limitazione nell'origine o se l'archivio dati è in condizioni di utilizzo elevato. In tal caso, ridurre i carichi di lavoro nell'archivio dati o provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
+  - Controllare se ADF segnala eventuali errori di limitazione nell'origine o se l'archivio dati è in stato di utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-  - Usare il flusso di accesso a ir di Azure nello stesso archivio dati di origine o vicino.
+  - Usare Azure IR nello stesso o vicino all'area dell'archivio dati di origine.
 
-- **"Trasferimento - lettura dalla fonte" ha sperimentato una lunga durata di lavoro**: 
+- **"Trasferimento-lettura dall'origine" durata di lavoro prolungata**: 
 
-  - Se applicabile, adottare la procedura consigliata per il caricamento dei dati specifico del connettore. Ad esempio, quando si copiano dati da [Amazon Redshift](connector-amazon-redshift.md), configurare l'utilizzo di Redshift UNLOAD.
+  - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio, quando si copiano dati da [Amazon](connector-amazon-redshift.md), configurare per l'uso dello scaricamento di spostamento verso il posto.
 
-  - Verificare se ADF segnala un errore di limitazione nell'origine o se l'archivio dati è con un utilizzo elevato. In tal caso, ridurre i carichi di lavoro nell'archivio dati o provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
+  - Controllare se ADF segnala eventuali errori di limitazione nell'origine o se l'archivio dati è sottoposto a un utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-  - Controllare l'origine della copia e il modello di sink:Check your copy source and sink pattern: 
+  - Verificare il modello di origine e sink di copia: 
 
-    - Se il modello di copia supporta più grandi di 4 unità di integrazione dei dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance-features.md#data-integration-units) sui dettagli, in genere è possibile provare ad aumentare le diM per ottenere prestazioni migliori. 
+    - Se il modello di copia supporta più di 4 unità di integrazione dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance-features.md#data-integration-units) per informazioni dettagliate, in genere è possibile provare ad aumentare DIUs per ottenere prestazioni migliori. 
 
-    - In caso contrario, è consigliabile suddividere singoli set di dati di grandi dimensioni in diversi set di dati più piccoli e consentire a tali processi di copia eseguiti contemporaneamente ognuno dei quali gestisce parti di dati. È possibile eseguire questa operazione con Lookup/GetMetadata , ForEach e Copy. Fare riferimento a [Copia file da più contenitori](solution-template-copy-files-multiple-containers.md), Eseguire la migrazione dei dati da Amazon [S3 ad ADLS Gen2](solution-template-migration-s3-azure.md)o [Copia in blocco con modelli](solution-template-bulk-copy-with-control-table.md) di soluzione tabella di controllo come esempio generale.
+    - In caso contrario, è consigliabile suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e consentire l'esecuzione simultanea di ogni processo di copia. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md), [migrare i dati da Amazon S3 a ADLS Gen2 o eseguire](solution-template-migration-s3-azure.md) [una copia bulk con](solution-template-bulk-copy-with-control-table.md) i modelli di soluzione della tabella di controllo come esempio generale.
 
-  - Usare il flusso di accesso a ir di Azure nello stesso archivio dati di origine o vicino.
+  - Usare Azure IR nello stesso o vicino all'area dell'archivio dati di origine.
 
-- **"Trasferimento - scrittura al lavandino" ha sperimentato una lunga durata di lavoro**:
+- **"Trasferimento in scrittura nel sink" con una durata di lavoro prolungata**:
 
-  - Se applicabile, adottare la procedura consigliata per il caricamento dei dati specifico del connettore. Ad esempio, quando si copiano dati in [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (in precedenza SQL DW), usare PolyBase o l'istruzione COPY. 
+  - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio, quando si copiano dati in [Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md) (in precedenza SQL DW), usare l'istruzione di base o di copia. 
 
-  - Verificare se ADF segnala un errore di limitazione nel sink o se l'archivio dati è con un utilizzo elevato. In tal caso, ridurre i carichi di lavoro nell'archivio dati o provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
+  - Controllare se ADF segnala eventuali errori di limitazione del sink o se l'archivio dati è sottoposto a un utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-  - Controllare l'origine della copia e il modello di sink:Check your copy source and sink pattern: 
+  - Verificare il modello di origine e sink di copia: 
 
-    - Se il modello di copia supporta più grandi di 4 unità di integrazione dei dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance-features.md#data-integration-units) sui dettagli, in genere è possibile provare ad aumentare le diM per ottenere prestazioni migliori. 
+    - Se il modello di copia supporta più di 4 unità di integrazione dati (DIUs), fare riferimento a [questa sezione](copy-activity-performance-features.md#data-integration-units) per informazioni dettagliate, in genere è possibile provare ad aumentare DIUs per ottenere prestazioni migliori. 
 
-    - In caso contrario, sintonizzare gradualmente [le copie parallele,](copy-activity-performance-features.md)si noti che troppe copie parallele possono persino danneggiare le prestazioni.
+    - In caso contrario, ottimizzare gradualmente le [copie parallele](copy-activity-performance-features.md). si noti che troppe copie parallele potrebbero anche danneggiare le prestazioni.
 
-  - Usare il controllo di irrifatto di Azure nello stesso archivio dati di Azure o vicino all'area dell'archivio dati sink.
+  - Usare Azure IR nello stesso o vicino all'area dell'archivio dati sink.
 
-## <a name="troubleshoot-copy-activity-on-self-hosted-ir"></a>Risolvere i problemi relativi all'attività di copia nel sistema di gestione delle applicazioni self-hostedTroubleshoot copy activity on Self-hosted IR
+## <a name="troubleshoot-copy-activity-on-self-hosted-ir"></a>Risolvere i problemi relativi all'attività di copia nel runtime di integrazione
 
-Seguire i passaggi di [ottimizzazione delle prestazioni](copy-activity-performance.md#performance-tuning-steps) per pianificare ed eseguire test delle prestazioni per lo scenario. 
+Seguire i [passaggi di ottimizzazione delle prestazioni](copy-activity-performance.md#performance-tuning-steps) per pianificare ed eseguire il test delle prestazioni per lo scenario. 
 
-Se le prestazioni di copia non soddisfano le aspettative, per risolvere i problemi relativi all'attività di copia singola in esecuzione in Azure Integration Runtime, se nella visualizzazione di monitoraggio della copia vengono visualizzati suggerimenti per [l'ottimizzazione](#performance-tuning-tips) delle prestazioni, applicare il suggerimento e riprovare. In caso contrario, comprendere i dettagli di [esecuzione dell'attività](#understand-copy-activity-execution-details)di copia, verificare quale fase ha la durata **più lunga** e applicare le indicazioni riportate di seguito per migliorare le prestazioni di copia:Otherwise, understand copy activity execution details , check which stage has the longest duration, and apply the guidance below to boost copy performance:
+Quando le prestazioni di copia non soddisfano le aspettative, per risolvere i problemi di singola attività di copia in esecuzione in Azure Integration Runtime, se vengono visualizzati suggerimenti per l' [ottimizzazione delle prestazioni](#performance-tuning-tips) nella visualizzazione copia monitoraggio, applicare il suggerimento e riprovare. In caso contrario, [comprendere i dettagli dell'esecuzione dell'attività di copia](#understand-copy-activity-execution-details), verificare quale fase ha la durata più **lunga** e applicare le indicazioni seguenti per migliorare le prestazioni di copia:
 
-- **"Coda" durata:** significa che l'attività di copia attende a lungo nella coda fino a quando il codeR self-hosted non dispone di risorse da eseguire. Controllare la capacità e l'utilizzo dei file IR e [aumentare o ridurre](create-self-hosted-integration-runtime.md#high-availability-and-scalability) la scalabilità in base al carico di lavoro.
+- **"Coda" lunga durata:** indica che l'attività di copia resta in attesa lungo nella coda fino a quando il runtime di integrazione self-hosted non dispone di risorse da eseguire. Controllare la capacità e l'utilizzo di IR e [aumentare o](create-self-hosted-integration-runtime.md#high-availability-and-scalability) ridurre le prestazioni in base al carico di lavoro.
 
-- **"Trasferimento - Tempo al primo byte" ha sperimentato una lunga durata di lavoro**: significa che la query di origine richiede molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se hai bisogno di ulteriore assistenza, contatta il tuo team di data store.
+- **"Trasferimento-tempi per il primo byte" ha avuto una durata di lavoro prolungata**: significa che la query di origine impiega molto tempo per restituire i dati. Controllare e ottimizzare la query o il server. Se è necessaria ulteriore assistenza, contattare il team dell'archivio dati.
 
-- **"Trasferimento - Origine elenco" ha sperimentato una lunga durata di lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
+- **"Trasferimento-listato di origine" ha sperimentato una lunga durata del lavoro**: significa che l'enumerazione dei file di origine o delle partizioni di dati del database di origine è lenta.
 
-  - Verificare se il computer a raggi Load A-Accesso client ha una bassa latenza di connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per verificare la latenza dal computer a raggi load-appolè all'area di Azure, meno è possibile.
+  - Controllare se il computer del runtime di integrazione self-hosted presenta una bassa latenza per la connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per controllare la latenza dal computer IR self-hosted all'area di Azure, minore sarà il livello di prestazioni migliore.
 
-  - Quando si copiano dati da un'origine basata su file, se si utilizza il`modifiedDatetimeStart` filtro`modifiedDatetimeEnd`con **caratteri jolly** per il percorso della cartella o il nome del file`wildcardFolderPath` (o `wildcardFileName`), oppure si utilizza il **filtro dell'ora dell'ultima modifica** (o ), si noti che tale filtro comporterebbe l'attività di copia che elenca tutti i file nella cartella specificata sul lato client, quindi si applicherebbe il filtro. Tale enumerazione di file potrebbe diventare il collo di bottiglia, soprattutto quando solo un piccolo set di file ha soddisfatto la regola di filtro.
+  - Quando si copiano dati da un'origine basata su file, se si usa il **filtro con caratteri jolly** per`wildcardFolderPath` il `wildcardFileName`percorso o il nome di file (o) oppure`modifiedDatetimeStart` si`modifiedDatetimeEnd`usa il filtro dell'ora dell' **Ultima modifica del file** (o), si noti che tale filtro comporterebbe l'inserimento dell'attività di copia nell'elenco di tutti i file nella cartella specificata sul lato client, quindi applica Questa enumerazione di file potrebbe diventare il collo di bottiglia soprattutto quando solo un piccolo set di file soddisfa la regola di filtro.
 
-    - Verificare se è possibile copiare i file in base al percorso o al nome del [file partizionato datetime.](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) Tale modo non porta onere sulla lista di origine.
+    - Controllare se è possibile [copiare i file in base al percorso o al nome del file partizionato DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). In questo modo non viene imposto alcun onere sul lato di origine dell'elenco.
 
-    - Verificare se è possibile utilizzare il filtro nativo dell'archivio dati, in particolare "**prefisso**" per Amazon S3 e BLOB di Azure. Il filtro prefisso è un filtro lato server dell'archivio dati e avrebbe prestazioni molto migliori.
+    - Controllare se è invece possibile usare il filtro nativo dell'archivio dati, in particolare "**prefisso**" per Amazon S3 e BLOB di Azure. Il filtro per i prefissi è un filtro sul lato server dell'archivio dati e offre prestazioni molto migliori.
 
-    - Prendere in considerazione la possibilità di dividere singoli set di dati di grandi dimensioni in diversi set di dati più piccoli e lasciare che tali processi di copia eseguiti contemporaneamente ognuno gestisca una parte di dati. È possibile eseguire questa operazione con Lookup/GetMetadata , ForEach e Copy. Fare riferimento a [Copiare file da più contenitori](solution-template-copy-files-multiple-containers.md) o Eseguire la migrazione dei dati da Amazon S3 ai modelli di soluzione [ADLS Gen2](solution-template-migration-s3-azure.md) come esempio generale.
+    - Si consiglia di suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e di consentire l'esecuzione simultanea di ogni processo di copia per ogni parte dei dati. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md) o [migrare i dati da Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) modelli di soluzione come esempio generale.
 
-  - Verificare se ADF segnala un errore di limitazione nell'origine o se l'archivio dati è in condizioni di utilizzo elevato. In tal caso, ridurre i carichi di lavoro nell'archivio dati o provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
+  - Controllare se ADF segnala eventuali errori di limitazione nell'origine o se l'archivio dati è in stato di utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-- **"Trasferimento - lettura dalla fonte" ha sperimentato una lunga durata di lavoro**: 
+- **"Trasferimento-lettura dall'origine" durata di lavoro prolungata**: 
 
-  - Verificare se il computer a raggi Load A-Accesso client ha una bassa latenza di connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per verificare la latenza dal computer a messaggi di disponibilità automatica alle aree di Azure, meno è possibile.
+  - Controllare se il computer del runtime di integrazione self-hosted presenta una bassa latenza per la connessione all'archivio dati di origine. Se l'origine è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per controllare la latenza dal computer IR self-hosted alle aree di Azure, minore sarà il migliore.
 
-  - Verificare se il computer a raggi- automatico dispone di larghezza di banda in ingresso sufficiente per leggere e trasferire i dati in modo efficiente. Se l'archivio dati di origine è in Azure, è possibile usare [questo strumento](https://www.azurespeed.com/Azure/Download) per verificare la velocità di download.
+  - Verificare che il computer IR self-hosted disponga di una larghezza di banda in ingresso sufficiente per leggere e trasferire i dati in modo efficiente. Se l'archivio dati di origine si trova in Azure, è possibile usare [questo strumento](https://www.azurespeed.com/Azure/Download) per controllare la velocità di download.
 
-  - Controllare la tendenza all'utilizzo della CPU e della memoria del componente di controllo di cpu e del flusso di controllo di accesso self-hosted nel portale di Azure > la pagina di panoramica > data factory. Considerare la possibilità di [aumentare/ridurre il irvalore](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se l'utilizzo della CPU è elevato o se la memoria disponibile è insufficiente.
+  - Controllare la tendenza di utilizzo della memoria e della CPU del runtime di integrazione self-hosted in portale di Azure > pagina di Panoramica di data factory >. Prendere in considerazione la possibilità di [aumentare](create-self-hosted-integration-runtime.md#high-availability-and-scalability) o ridurre le prestazioni se l'utilizzo della CPU è elevato o la memoria disponibile è insufficiente.
 
-  - Se applicabile, adottare la procedura consigliata per il caricamento dei dati specifico del connettore. Ad esempio:
+  - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio:
 
-    - Durante la copia dei dati da [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)e SAP [Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), abilitare le opzioni di partizione dei dati per copiare i dati in parallelo.
+    - Quando si [copiano](connector-sap-table.md#sap-table-as-source)dati da [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Hana](connector-sap-hana.md#sap-hana-as-source), SAP TABLE e [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), abilitare le opzioni della partizione di dati per copiare i dati in parallelo.
 
-    - Quando si copiano dati da [HDFS,](connector-hdfs.md)configurare l'utilizzo di DistCp.
+    - Per la copia di dati da [HDFS](connector-hdfs.md), configurare per l'uso di DistCp.
 
-    - Quando si copiano dati da [Amazon Redshift](connector-amazon-redshift.md), configurare l'utilizzo di Redshift UNLOAD.
+    - Quando si copiano dati da [Amazon](connector-amazon-redshift.md), configurare per l'uso dello scaricamento di spostamento verso il suo.
 
-  - Verificare se ADF segnala un errore di limitazione nell'origine o se l'archivio dati è con un utilizzo elevato. In tal caso, ridurre i carichi di lavoro nell'archivio dati o provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
+  - Controllare se ADF segnala eventuali errori di limitazione nell'origine o se l'archivio dati è sottoposto a un utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-  - Controllare l'origine della copia e il modello di sink:Check your copy source and sink pattern: 
+  - Verificare il modello di origine e sink di copia: 
 
-    - Se si copiano dati da archivi dati abilitati per le opzioni di partizione, è consigliabile ottimizzare gradualmente [le copie parallele](copy-activity-performance-features.md), si noti che un numero inesime di copie parallele potrebbe persino compromettere le prestazioni.
+    - Se si copiano dati da archivi dati abilitati per le opzioni di partizione, si consiglia di ottimizzare gradualmente le [copie parallele](copy-activity-performance-features.md). tenere presente che troppe copie parallele potrebbero addirittura danneggiare le prestazioni.
 
-    - In caso contrario, è consigliabile suddividere singoli set di dati di grandi dimensioni in diversi set di dati più piccoli e consentire a tali processi di copia eseguiti contemporaneamente ognuno dei quali gestisce parti di dati. È possibile eseguire questa operazione con Lookup/GetMetadata , ForEach e Copy. Fare riferimento a [Copia file da più contenitori](solution-template-copy-files-multiple-containers.md), Eseguire la migrazione dei dati da Amazon [S3 ad ADLS Gen2](solution-template-migration-s3-azure.md)o [Copia in blocco con modelli](solution-template-bulk-copy-with-control-table.md) di soluzione tabella di controllo come esempio generale.
+    - In caso contrario, è consigliabile suddividere un singolo set di dati di grandi dimensioni in diversi set di dati più piccoli e consentire l'esecuzione simultanea di ogni processo di copia. Questa operazione può essere eseguita con Lookup/GetMetadata + ForEach + Copy. Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md), [migrare i dati da Amazon S3 a ADLS Gen2 o eseguire](solution-template-migration-s3-azure.md) [una copia bulk con](solution-template-bulk-copy-with-control-table.md) i modelli di soluzione della tabella di controllo come esempio generale.
 
-- **"Trasferimento - scrittura al lavandino" ha sperimentato una lunga durata di lavoro**:
+- **"Trasferimento in scrittura nel sink" con una durata di lavoro prolungata**:
 
-  - Se applicabile, adottare la procedura consigliata per il caricamento dei dati specifico del connettore. Ad esempio, quando si copiano dati in [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (in precedenza SQL DW), usare PolyBase o l'istruzione COPY. 
+  - Adottare le procedure consigliate per il caricamento dei dati specifico del connettore, se applicabile. Ad esempio, quando si copiano dati in [Azure sinapsi Analytics](connector-azure-sql-data-warehouse.md) (in precedenza SQL DW), usare l'istruzione di base o di copia. 
 
-  - Verificare se il computer a raggi Load A-Accesso remoto dispone di bassa latenza di connessione all'archivio dati sink. Se il sink è in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per verificare la latenza dal computer a raggi Load Arido self-hosted all'area di Azure, meno è.
+  - Controllare se il computer del runtime di integrazione self-hosted presenta una bassa latenza per la connessione all'archivio dati sink. Se il sink si trova in Azure, è possibile usare [questo strumento](http://www.azurespeed.com/Azure/Latency) per controllare la latenza dal computer IR self-hosted all'area di Azure, minore sarà la qualità.
 
-  - Verificare se il computer a mano self-hosted dispone di larghezza di banda in uscita sufficiente per trasferire e scrivere i dati in modo efficiente. Se l'archivio dati sink è in Azure, è possibile usare [questo strumento](https://www.azurespeed.com/Azure/UploadLargeFile) per controllare la velocità di caricamento.
+  - Verificare che il computer IR self-hosted disponga di una larghezza di banda in uscita sufficiente per trasferire e scrivere i dati in modo efficiente. Se l'archivio dati sink è in Azure, è possibile usare [questo strumento](https://www.azurespeed.com/Azure/UploadLargeFile) per controllare la velocità di caricamento.
 
-  - Verificare se la tendenza all'utilizzo della CPU e della memoria del componente di controllo automatico nel portale di Azure > pagina di panoramica > data factory. Considerare la possibilità di [aumentare/ridurre il irvalore](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se l'utilizzo della CPU è elevato o se la memoria disponibile è insufficiente.
+  - Controllare se la tendenza di utilizzo della memoria e della CPU del runtime di integrazione self-hosted in portale di Azure > pagina di Panoramica di data factory >. Prendere in considerazione la possibilità di [aumentare](create-self-hosted-integration-runtime.md#high-availability-and-scalability) o ridurre le prestazioni se l'utilizzo della CPU è elevato o la memoria disponibile è insufficiente.
 
-  - Verificare se ADF segnala un errore di limitazione nel sink o se l'archivio dati è con un utilizzo elevato. In tal caso, ridurre i carichi di lavoro nell'archivio dati o provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
+  - Controllare se ADF segnala eventuali errori di limitazione del sink o se l'archivio dati è sottoposto a un utilizzo elevato. In tal caso, è possibile ridurre i carichi di lavoro nell'archivio dati oppure provare a contattare l'amministratore dell'archivio dati per aumentare il limite di limitazione o la risorsa disponibile.
 
-  - Si consideri di ottimizzare gradualmente [le copie parallele,](copy-activity-performance-features.md)si noti che troppe copie parallele possono persino danneggiare la performance.
+  - Si consideri di ottimizzare gradualmente le [copie parallele](copy-activity-performance-features.md). si noti che troppe copie parallele potrebbero anche danneggiare le prestazioni.
 
 ## <a name="other-references"></a>Altri riferimenti
 
 Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione delle prestazioni per alcuni degli archivi dati supportati:
 
-* Archiviazione BLOB di Azure: obiettivi di [scalabilità e prestazioni per l'archiviazione BLOB](../storage/blobs/scalability-targets.md) e l'elenco di controllo prestazioni e [scalabilità per l'archiviazione BLOB.](../storage/blobs/storage-performance-checklist.md)
-* Archiviazione tabelle di Azure: obiettivi di [scalabilità e prestazioni per l'archiviazione tabelle](../storage/tables/scalability-targets.md) e l'elenco di controllo [prestazioni e scalabilità per l'archiviazione tabelle.](../storage/tables/storage-performance-checklist.md)
-* Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione del database (DTU).
-* Azure SQL Data Warehouse: la sua capacità è misurata in unità di data warehouse (DKU). Vedere [Gestire la potenza di calcolo in Azure SQL Data Warehouse (panoramica).](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../storage/blobs/storage-performance-checklist.md).
+* Archiviazione tabelle di Azure: [obiettivi di scalabilità e prestazioni per](../storage/tables/scalability-targets.md) l'archiviazione tabelle e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione tabelle](../storage/tables/storage-performance-checklist.md).
+* Database SQL di Azure: è possibile [monitorare le prestazioni](../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di unità di transazione di database (DTU).
+* Azure SQL Data Warehouse: la relativa funzionalità viene misurata in unità di data warehouse (DWU). Vedere [gestire la potenza di calcolo in Azure SQL data warehouse (panoramica)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server locale: [monitorare e ottimizzare le prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
-* File server locale: [Ottimizzazione delle prestazioni per](https://msdn.microsoft.com/library/dn567661.aspx)i file server .
+* SQL Server locale: [monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx).
+* File server locale: [ottimizzazione delle prestazioni per i file server](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli altri articoli sull'attività di copia:See the other copy activity articles:
+Vedere gli altri articoli sull'attività di copia:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Guida alle prestazioni e alla scalabilità dell'attività di copia](copy-activity-performance.md)
+- [Guida alla scalabilità e alle prestazioni dell'attività di copia](copy-activity-performance.md)
 - [Funzionalità di ottimizzazione delle prestazioni dell'attività di copia](copy-activity-performance-features.md)
-- [Usare Azure Data Factory per eseguire la migrazione dei dati dal data lake o dal data warehouse ad AzureUse Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
+- [Usare Azure Data Factory per migrare i dati dal data Lake o da data warehouse ad Azure](data-migration-guidance-overview.md)
 - [Eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure](data-migration-guidance-s3-azure-storage.md)

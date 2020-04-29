@@ -1,30 +1,30 @@
 ---
-title: Configurare il supporto delle identità gestite in un cluster di Service Fabric esistenteConfigure managed identity support in an existing Service Fabric cluster
-description: Ecco come abilitare il supporto delle identità gestite in un cluster di Azure Service Fabric esistenteHere's how to enable managed identities support in an existing Azure Service Fabric cluster
+title: Configurare il supporto di identità gestite in un cluster di Service Fabric esistente
+description: Ecco come abilitare il supporto per le identità gestite in un cluster di Azure Service Fabric esistente
 ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415681"
 ---
-# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurare il supporto delle identità gestite in un cluster di Service Fabric esistenteConfigure managed identity support in an existing Service Fabric cluster
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurare il supporto di identità gestite in un cluster di Service Fabric esistente
 
-Per usare [le identità gestite per le risorse](../active-directory/managed-identities-azure-resources/overview.md) di Azure nelle applicazioni di Service Fabric, abilitare innanzitutto il servizio token di *identità gestita* nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni di Service Fabric che usano le identità gestite e dell'ottenimento dei token di accesso per loro conto. Una volta abilitato il servizio, è possibile visualizzarlo in Service Fabric Explorer nella sezione **System** nel riquadro sinistro, in esecuzione sotto il nome **fabric:/System/ManagedIdentityTokenService**.
+Per usare le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) nelle applicazioni Service Fabric, abilitare prima il *servizio token di identità gestito* nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni Service Fabric usando le identità gestite e per ottenere i token di accesso per loro conto. Quando il servizio è abilitato, è possibile visualizzarlo in Service Fabric Explorer nella sezione **sistema** nel riquadro sinistro, in esecuzione con il nome **Fabric:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
-> Per abilitare il servizio token di **identità gestita,** è necessaria la versione 6.5.658.9590 o successiva di Service Fabric.  
+> Per abilitare il **servizio token di identità gestito**, è necessario Service Fabric versione di runtime 6.5.658.9590 o successiva.  
 >
-> È possibile trovare la versione di Service Fabric di un cluster dal portale di Azure aprendo la risorsa cluster e controllando la proprietà **Versione di Service Fabric** nella sezione **Essentials.**
+> È possibile trovare la versione Service Fabric di un cluster dalla portale di Azure aprendo la risorsa cluster e controllando la proprietà **versione Service Fabric** **nella sezione informazioni** di base.
 >
-> Se il cluster è in modalità di aggiornamento **manuale,** sarà necessario aggiornarlo prima a 6.5.658.9590 o versione successiva.
+> Se il cluster è in modalità di aggiornamento **manuale** , è necessario prima aggiornarlo a 6.5.658.9590 o versione successiva.
 
-## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Abilitare il *servizio token di identità gestita* in un cluster esistenteEnable Managed Identity Token Service in an existing cluster
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Abilitare il *servizio token di identità gestito* in un cluster esistente
 
-Per abilitare il servizio token di identità gestita in un cluster esistente, è necessario avviare un aggiornamento del cluster specificando due modifiche: (1) Abilitazione del servizio token di identità gestita e (2) la richiesta di un riavvio di ogni nodo. Aggiungere innanzitutto il frammento di codice seguente per il modello di Azure Resource Manager del cluster:First, add the following snippet your cluster Azure Resource Manager template:
+Per abilitare il servizio token di identità gestito in un cluster esistente, è necessario avviare un aggiornamento del cluster specificando due modifiche: (1) abilitando il servizio token di identità gestito e (2) richiedendo un riavvio di ogni nodo. Per prima cosa, aggiungere il frammento di codice seguente Azure Resource Manager modello di cluster:
 
 ```json
 "fabricSettings": [
@@ -40,7 +40,7 @@ Per abilitare il servizio token di identità gestita in un cluster esistente, è
 ]
 ```
 
-Affinché le modifiche abbiano effetto, sarà inoltre necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo man mano che l'aggiornamento procede nel cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione su ogni nodo. Nel frammento `forceRestart` di codice seguente, è l'impostazione essenziale per abilitare il riavvio. Per i parametri rimanenti, utilizzare i valori descritti di seguito o utilizzare i valori personalizzati esistenti già specificati per la risorsa cluster. Le impostazioni personalizzate per i criteri di aggiornamento dell'infrastruttura ('upgradeDescription') possono essere visualizzate dal portale di Azure selezionando l'opzione 'Fabric Upgrades' nella risorsa Service Fabric o resources.azure.com. Le opzioni predefinite per i criteri di aggiornamento ('upgradeDescription') non sono visualizzabili da PowerShell o resources.azure.com. Per ulteriori informazioni, vedere [ClusterUpgradePolicy.See ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) for additional information.  
+Per rendere effettive le modifiche, sarà anche necessario modificare i criteri di aggiornamento per specificare un riavvio forzato del runtime di Service Fabric in ogni nodo durante l'avanzamento dell'aggiornamento attraverso il cluster. Questo riavvio garantisce che il servizio di sistema appena abilitato venga avviato e in esecuzione in ogni nodo. Nel frammento di codice `forceRestart` seguente è l'impostazione essenziale per abilitare il riavvio. Per i parametri rimanenti, usare i valori descritti di seguito o usare i valori personalizzati esistenti già specificati per la risorsa cluster. Le impostazioni personalizzate per i criteri di aggiornamento dell'infrastruttura (' upgradeDescription ') possono essere visualizzate nel portale di Azure selezionando l'opzione ' aggiornamenti dell'infrastruttura ' nella risorsa Service Fabric o in resources.azure.com. Le opzioni predefinite per i criteri di aggiornamento (' upgradeDescription ') non sono visualizzabili da PowerShell o da resources.azure.com. Per ulteriori informazioni, vedere [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
 
 ```json
 "upgradeDescription": {
@@ -55,11 +55,11 @@ Affinché le modifiche abbiano effetto, sarà inoltre necessario modificare i cr
 ```
 
 > [!NOTE]
-> Al termine dell'aggiornamento, non dimenticare di `forceRestart` eseguire il rollback dell'impostazione, per ridurre al minimo l'impatto degli aggiornamenti successivi. 
+> Al termine dell'aggiornamento, non dimenticare di eseguire il rollback dell' `forceRestart` impostazione per ridurre al minimo l'effetto degli aggiornamenti successivi. 
 
 ## <a name="errors-and-troubleshooting"></a>Errori e risoluzione dei problemi
 
-Se la distribuzione non riesce con il messaggio seguente, significa che il cluster non è in esecuzione su una versione di Service Fabric sufficiente:
+Se la distribuzione ha esito negativo con il messaggio seguente, significa che il cluster non è in esecuzione in una versione di Service Fabric sufficientemente elevata:
 
 ```json
 {
@@ -69,7 +69,7 @@ Se la distribuzione non riesce con il messaggio seguente, significa che il clust
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire un'applicazione Azure Service Fabric con un'identità gestita assegnata dal sistemaDeploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuire un'applicazione Azure Service Fabric con un'identità gestita assegnata dall'utenteDeploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dal sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dall'utente](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Sfruttare l'identità gestita di un'applicazione Service Fabric dal codice del servizio](./how-to-managed-identity-service-fabric-app-code.md)
-* [Concedere a un'applicazione di Azure Service Fabric l'accesso ad altre risorse di AzureGrant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+* [Concedere a un'applicazione Service Fabric di Azure l'accesso ad altre risorse di Azure](./how-to-grant-access-other-resources.md)

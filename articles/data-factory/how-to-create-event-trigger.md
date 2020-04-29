@@ -1,5 +1,5 @@
 ---
-title: Creare trigger basati su eventi in Azure Data FactoryCreate event-based triggers in Azure Data Factory
+title: Creare trigger basati su eventi in Azure Data Factory
 description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in risposta a un evento.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.openlocfilehash: d697fb8afe3e92dfe54eb5d89a2ef59425cb0cde
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414919"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creare un trigger che esegue una pipeline in risposta a un evento
@@ -23,7 +23,7 @@ ms.locfileid: "81414919"
 
 Questo articolo descrive i trigger basati su eventi che è possibile creare nelle pipeline di Data Factory.
 
-Un'architettura guidata dagli eventi è un comune modello di integrazione dei dati che implica produzione, rilevamento, utilizzo e risposta agli eventi. Gli scenari di integrazione dei dati spesso richiedono ai clienti di Data Factory di attivare le pipeline in base a eventi quali l'arrivo o l'eliminazione di un file nell'account di archiviazione di Azure.Data integration scenarios often require Data Factory customers to trigger pipelines based on events such as the arrival or deletion of a file in your Azure Storage account. Data Factory è ora integrato con [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/), che consente di attivare pipeline su un evento.
+Un'architettura guidata dagli eventi è un comune modello di integrazione dei dati che implica produzione, rilevamento, utilizzo e risposta agli eventi. Gli scenari di integrazione dei dati richiedono spesso Data Factory ai clienti di attivare pipeline in base a eventi quali l'arrivo o l'eliminazione di un file nell'account di archiviazione di Azure. Data Factory è ora integrato con [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/), che consente di attivare pipeline su un evento.
 
 Per un'introduzione di dieci minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
 
@@ -35,64 +35,64 @@ Per un'introduzione di dieci minuti e una dimostrazione di questa funzionalità,
 
 ## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory
 
-Questa sezione illustra come creare un trigger di evento all'interno dell'interfaccia utente di Azure Data Factory.This section shows you how to create an event trigger within the Azure Data Factory User Interface.
+Questa sezione illustra come creare un trigger di evento all'interno dell'interfaccia utente di Azure Data Factory.
 
-1. Passare all'area di **disegno Creazione e modifica**
+1. Passa all' **area di disegno di creazione**
 
-1. Nell'angolo in basso a sinistra, fai clic sul pulsante **Trigger**
+1. Nell'angolo inferiore sinistro fare clic sul pulsante **trigger** .
 
-1. Fare clic su **Nuovo** per aprire il riquadro di spostamento lato trigger di creazione
+1. Fare clic su **+ nuovo** per aprire la finestra di esplorazione del lato creazione trigger
 
-1. Selezionare il tipo di trigger **Evento**
+1. Seleziona **evento** del tipo di trigger
 
     ![Creare un nuovo trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-1. Selezionare l'account di archiviazione dall'elenco a discesa della sottoscrizione di Azure o usare manualmente il relativo ID risorsa account di archiviazione. Scegliere il contenitore su cui si desidera che si verifichino gli eventi. La selezione dei contenitori è facoltativa, ma tenere presente che la selezione di tutti i contenitori può causare eventi.
+1. Selezionare l'account di archiviazione dall'elenco a discesa sottoscrizione di Azure o manualmente usando l'ID risorsa dell'account di archiviazione. Scegliere il contenitore in cui si desidera che si verifichino gli eventi. La selezione del contenitore è facoltativa, ma tenere presente che la selezione di tutti i contenitori può causare un numero elevato di eventi.
 
    > [!NOTE]
-   > Il trigger di evento supporta attualmente solo Azure Data Lake Storage Gen2 e gli account di archiviazione generici versione 2.The Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. A causa di una limitazione di Griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di evento per account di archiviazione.
+   > Il trigger di evento supporta attualmente solo gli account di archiviazione Azure Data Lake Storage Gen2 e per utilizzo generico versione 2. A causa di una limitazione di griglia di eventi di Azure, Azure Data Factory supporta solo un massimo di 500 trigger di evento per account di archiviazione.
 
-1. Il **percorso BLOB inizia con** e il percorso BLOB termina **con** le proprietà consentono di specificare i contenitori, le cartelle e i nomi dei BLOB per i quali si desidera ricevere gli eventi. Il trigger di evento richiede almeno una di queste proprietà da definire. È possibile usare svariati modelli per le due proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con**, come mostrato negli esempi più avanti in questo articolo.
+1. Il **percorso del BLOB inizia con** e il **percorso BLOB termina con** le proprietà consente di specificare i contenitori, le cartelle e i nomi di BLOB per cui si desidera ricevere gli eventi. Per il trigger di evento è necessario definire almeno una di queste proprietà. È possibile usare svariati modelli per le due proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con**, come mostrato negli esempi più avanti in questo articolo.
 
-    * **Il percorso del BLOB inizia con:Blob path begins with:** Il percorso del BLOB deve iniziare con un percorso di cartella. I valori validi includono `2018/` e `2018/april/shoes.csv`. Questo campo non può essere selezionato se non è selezionato un contenitore.
-    * **Il percorso del BLOB termina con:Blob path ends with:** Il percorso del BLOB deve terminare con un nome di file o un'estensione. I valori validi includono `shoes.csv` e `.csv`. Contenitore e nome della cartella sono facoltativi ma, `/blobs/` se specificato, devono essere separati da un segmento. Ad esempio, un contenitore denominato 'orders' può avere un valore di `/orders/blobs/2018/april/shoes.csv`. Per specificare una cartella in qualsiasi contenitore, omettere il carattere iniziale '/'. Ad esempio, `april/shoes.csv` attiverà un evento `shoes.csv` su qualsiasi file denominato nella cartella denominata 'aprile' in qualsiasi contenitore. 
+    * Il **percorso del BLOB inizia con:** Il percorso del BLOB deve iniziare con un percorso di cartella. I valori validi includono `2018/` e `2018/april/shoes.csv`. Non è possibile selezionare questo campo se non è selezionato alcun contenitore.
+    * Il **percorso BLOB termina con:** Il percorso del BLOB deve terminare con un nome file o un'estensione. I valori validi includono `shoes.csv` e `.csv`. Il nome del contenitore e della cartella sono facoltativi, ma, quando specificati, devono `/blobs/` essere separati da un segmento. Un contenitore denominato "Orders", ad esempio, può avere un `/orders/blobs/2018/april/shoes.csv`valore. Per specificare una cartella in qualsiasi contenitore, omettere il carattere "/". Ad esempio, `april/shoes.csv` attiverà un evento in tutti i file denominati `shoes.csv` nella cartella a denominata ' April ' in qualsiasi contenitore. 
 
-1. Selezionare se il trigger risponderà a un evento **creato BLOB,** a un evento **di eliminazione BLOB** o a entrambi. Nel percorso di archiviazione specificato, ogni evento attiverà le pipeline di Data Factory associate al trigger.
+1. Consente di indicare se il trigger risponderà a un evento **BLOB creato** , a un evento **BLOB eliminato** o a entrambi. Nel percorso di archiviazione specificato ogni evento attiverà le pipeline Data Factory associate al trigger.
 
     ![Configurare il trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-1. Selezionare se il trigger ignora o meno i BLOB con zero byte.
+1. Consente di indicare se il trigger ignora i BLOB con zero byte.
 
-1. Dopo aver configurato il trigger, fare clic su **Avanti: Anteprima dati**. Questa schermata mostra i BLOB esistenti corrispondenti alla configurazione del trigger di evento. Assicurati di avere filtri specifici. La configurazione di filtri troppo ampi può corrispondere a un numero elevato di file creati/eliminati e può influire in modo significativo sui costi. Una volta verificate le condizioni del filtro, fare clic su **Fine**.
+1. Dopo aver configurato il trigger, fare clic su Avanti **: Anteprima dati**. Questa schermata mostra i BLOB esistenti corrispondenti alla configurazione del trigger di evento. Assicurarsi di avere filtri specifici. La configurazione di filtri troppo ampi può corrispondere a un numero elevato di file creati/eliminati e può influire significativamente sui costi. Una volta verificate le condizioni di filtro, fare clic su **fine**.
 
-    ![Anteprima dei dati del trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+    ![Anteprima dati trigger evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-1. Per associare una pipeline a questo trigger, passare all'area di disegno della pipeline e fare clic su **Aggiungi trigger** e selezionare **Nuovo/Modifica**. Quando viene visualizzato il navigatore laterale, fare clic sul menu a discesa **Scegli trigger...** e selezionare il trigger creato. Fare clic su **Avanti: Anteprima dati** per verificare che la configurazione sia corretta e quindi **su Avanti** per convalidare la versione dati sia corretta.
+1. Per alleghi una pipeline a questo trigger, passare all'area di disegno della pipeline e fare clic su **Aggiungi trigger** e selezionare **nuovo/modifica**. Quando viene visualizzato il NAV laterale, fare clic sull'elenco a discesa **Scegli trigger...** e selezionare il trigger creato. Fare clic su **Avanti: Anteprima dati** per verificare che la configurazione sia corretta, quindi **accanto** a convalida l'anteprima dei dati è corretta.
 
-1. Se la pipeline dispone di parametri, è possibile specificarli nel trigger esegue il navigatore laterale del parametro. Il trigger dell'evento acquisisce il percorso della `@triggerBody().folderPath` cartella `@triggerBody().fileName`e il nome file del BLOB nelle proprietà e . Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline().parameters.parameterName` attraverso la pipeline. Al termine, fare clic su **Fine.**
+1. Se la pipeline dispone di parametri, è possibile specificarli nel trigger che esegue il NAV sul lato parametro. Il trigger di evento acquisisce il percorso della cartella e il nome file del BLOB nelle `@triggerBody().folderPath` proprietà `@triggerBody().fileName`e. Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline().parameters.parameterName` attraverso la pipeline. Al termine, fare clic su **fine** .
 
     ![Mapping di proprietà di un trigger ai parametri della pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-Nell'esempio precedente, il trigger è configurato per essere generato quando viene creato un percorso BLOB che termina con .csv nella cartella event-testing nei dati di esempio del contenitore. Le proprietà **folderPath** e **fileName** acquisiscono il percorso del nuovo BLOB. Ad esempio, quando MoviesDB.csv viene aggiunto al `@triggerBody().folderPath` percorso sample-data/event-testing, ha un valore di `sample-data/event-testing` e `@triggerBody().fileName` ha un valore di `moviesDB.csv`. Questi valori vengono mappati nell'esempio `sourceFolder` `sourceFile` ai parametri della pipeline `@pipeline().parameters.sourceFolder` `@pipeline().parameters.sourceFile` e che possono essere utilizzati rispettivamente in tutta la pipeline.
+Nell'esempio precedente, il trigger viene configurato in modo da essere attivato quando viene creato un percorso BLOB che termina con. csv nella cartella Sample-testing nel contenitore Sample-Data. Le proprietà **folderPath** e **filename** acquisiscono il percorso del nuovo BLOB. Ad esempio, quando MoviesDB. csv viene aggiunto al percorso Sample-Data/Event-testing, `@triggerBody().folderPath` ha un valore di `sample-data/event-testing` e `@triggerBody().fileName` il valore di `moviesDB.csv`. Questi valori vengono mappati nell' `sourceFolder` esempio ai parametri della pipeline e `sourceFile` che possono essere usati in tutta la pipeline `@pipeline().parameters.sourceFolder` come `@pipeline().parameters.sourceFile` e rispettivamente.
 
 ## <a name="json-schema"></a>Schema JSON
 
 La tabella seguente offre una panoramica degli elementi dello schema correlati ai trigger basati su elenchi:
 
-| **Elemento JSON** | **Descrizione** | **Tipo** | **Valori consentiti** | **Obbligatorio** |
+| **Elemento JSON** | **Descrizione** | **Type** | **Valori consentiti** | **Richiesto** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | ID risorsa di Azure Resource Manager dell'account di archiviazione. | string | ID Azure Resource Manager | Sì |
-| **Eventi** | Tipo di eventi che provocano l'attivazione del trigger. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sì, qualsiasi combinazione di questi valori. |
-| **blobPathBeginsWith** | Il percorso del BLOB deve iniziare con il modello fornito per l'attivazione del trigger. Ad esempio, `/records/blobs/december/` attiva il trigger solo per i BLOB nella cartella `december` nel contenitore `records`. | string   | | È necessario specificare un valore per almeno una di queste proprietà: `blobPathBeginsWith` o `blobPathEndsWith`. |
-| **blobPathEndsWith** | Il percorso del BLOB deve terminare con il modello fornito per l'attivazione del trigger. Ad esempio, `december/boxes.csv` attiva il trigger solo per i BLOB denominati `boxes` in una cartella `december`. | string   | | È necessario specificare un valore per almeno una di queste proprietà: `blobPathBeginsWith` o `blobPathEndsWith`. |
-| **ignoreEmptyBlobs** | Se i BLOB a zero byte attiveranno o meno un'esecuzione della pipeline. Per impostazione predefinita, questa opzione è impostata su true. | Boolean | true o false | No |
+| **scope** | ID risorsa di Azure Resource Manager dell'account di archiviazione. | Stringa | ID Azure Resource Manager | Sì |
+| **eventi** | Tipo di eventi che provocano l'attivazione del trigger. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sì, qualsiasi combinazione di questi valori. |
+| **blobPathBeginsWith** | Il percorso del BLOB deve iniziare con il modello fornito per l'attivazione del trigger. Ad esempio, `/records/blobs/december/` attiva il trigger solo per i BLOB nella cartella `december` nel contenitore `records`. | Stringa   | | È necessario specificare un valore per almeno una di queste proprietà: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **blobPathEndsWith** | Il percorso del BLOB deve terminare con il modello fornito per l'attivazione del trigger. Ad esempio, `december/boxes.csv` attiva il trigger solo per i BLOB denominati `boxes` in una cartella `december`. | Stringa   | | È necessario specificare un valore per almeno una di queste proprietà: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Indica se i BLOB a zero byte attiverà un'esecuzione della pipeline. Per impostazione predefinita, questo valore è impostato su true. | Boolean | true o false | No |
 
 ## <a name="examples-of-event-based-triggers"></a>Esempi di trigger basati su eventi
 
 Questa sezione contiene alcuni esempi di impostazioni di trigger basati su eventi.
 
 > [!IMPORTANT]
-> È necessario includere il segmento `/blobs/` del percorso, come illustrato negli esempi seguenti, ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file. Per **blobPathBeginsWith**, l'interfaccia `/blobs/` utente di Data Factory verrà aggiunta automaticamente tra il nome della cartella e del contenitore nel trigger JSON.
+> È necessario includere il segmento `/blobs/` del percorso, come illustrato negli esempi seguenti, ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file. Per **blobPathBeginsWith**, l'interfaccia utente di data factory verrà `/blobs/` aggiunta automaticamente tra la cartella e il nome del contenitore nel codice JSON del trigger.
 
 | Proprietà | Esempio | Descrizione |
 |---|---|---|

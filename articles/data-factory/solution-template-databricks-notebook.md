@@ -12,52 +12,52 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
 ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414857"
 ---
 # <a name="transformation-with-azure-databricks"></a>Trasformazione con Azure Databricks
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In questa esercitazione viene creata una pipeline end-to-end contenente le attività **Convalida**, **Copia dati**e **Blocco appunti** in Azure Data Factory.
+In questa esercitazione si creerà una pipeline end-to-end che contiene le attività di **convalida**, **copia dei dati**e **notebook** in Azure Data Factory.
 
-- **La convalida** garantisce che il set di dati di origine sia pronto per l'utilizzo downstream prima di attivare il processo di copia e analisi.
+- La **convalida** garantisce che il set di dati di origine sia pronto per l'utilizzo downstream prima di attivare il processo di copia e analisi.
 
-- **Copia dati** duplica il set di dati di origine nell'archivio sink, che viene montato come DBFS nel blocco appunti di Azure Databricks.Copy data duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks notebook. In this way, the dataset can be directly consumed by Spark.
+- **Copy Data** Duplica il set di dati di origine nell'archivio sink, montato come DBFS nel notebook di Azure Databricks. In questo modo, il set di dati può essere utilizzato direttamente da Spark.
 
-- **Blocco appunti** attiva il blocco appunti Databricks che trasforma il set di dati. Aggiunge inoltre il set di dati a una cartella elaborata o a Azure SQL Data Warehouse.
+- **Notebook** avvia il notebook di databricks che trasforma il set di dati. Il set di dati viene inoltre aggiunto a una cartella elaborata o Azure SQL Data Warehouse.
 
-Per semplicità, il modello in questa esercitazione non crea un trigger pianificato. Se necessario, è possibile aggiungerne uno.
+Per semplicità, nel modello di questa esercitazione non viene creato un trigger pianificato. È possibile aggiungerne uno, se necessario.
 
 ![Diagramma della pipeline](media/solution-template-Databricks-notebook/pipeline-example.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account di archiviazione BLOB `sinkdata` di Azure con un contenitore chiamato per l'uso come sink.
+- Un account di archiviazione BLOB di Azure con un `sinkdata` contenitore denominato da usare come sink.
 
-  Prendere nota del nome dell'account di archiviazione, del nome del contenitore e della chiave di accesso. Questi valori saranno necessari più avanti nel modello.
+  Prendere nota del nome dell'account di archiviazione, del nome del contenitore e della chiave di accesso. Questi valori saranno necessari in un secondo momento nel modello.
 
-- Area di lavoro di Azure Databricks.An Azure Databricks workspace.
+- Area di lavoro Azure Databricks.
 
-## <a name="import-a-notebook-for-transformation"></a>Importare un blocco appunti per la trasformazione
+## <a name="import-a-notebook-for-transformation"></a>Importare un notebook per la trasformazione
 
-Per importare un blocco appunti **di Trasformazione** nell'area di lavoro Databricks:
+Per importare un notebook di **trasformazione** nell'area di lavoro di databricks:
 
-1. Accedere all'area di lavoro di Azure Databricks e quindi selezionare **Importa**.
-       ![Comando di menu](media/solution-template-Databricks-notebook/import-notebook.png) per l'importazione di un'area di lavoro Il percorso dell'area di lavoro può essere diverso da quello visualizzato, ma ricordarlo in un secondo momento.
-1. Selezionare **Importa da: URL**. Nella casella di `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`testo immettere .
+1. Accedere all'area di lavoro di Azure Databricks, quindi selezionare **Importa**.
+       ![Comando di menu per l'importazione](media/solution-template-Databricks-notebook/import-notebook.png) di un'area di lavoro il percorso dell'area di lavoro può essere diverso da quello visualizzato, ma ricordarlo per un momento successivo.
+1. Selezionare **Importa da: URL**. Nella casella di testo immettere `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`.
 
-   ![Selezioni per l'importazione di un blocco appunti](media/solution-template-Databricks-notebook/import-from-url.png)
+   ![Selezioni per l'importazione di un notebook](media/solution-template-Databricks-notebook/import-from-url.png)
 
-1. A questo punto è possibile aggiornare il blocco appunti **di trasformazione** con le informazioni di connessione di archiviazione.
+1. A questo punto è possibile aggiornare il notebook di **trasformazione** con le informazioni sulla connessione di archiviazione.
 
-   Nel blocco appunti importato passare al **comando 5** come illustrato nel frammento di codice seguente.
+   Nel notebook importato passare al **comando 5** , come illustrato nel frammento di codice seguente.
 
-   - Sostituire `<storage name>` `<access key>` e con le proprie informazioni di connessione di archiviazione.
-   - Usare l'account `sinkdata` di archiviazione con il contenitore.
+   - Sostituire `<storage name>`e `<access key>` con le informazioni di connessione di archiviazione.
+   - Usare l'account di archiviazione con `sinkdata` il contenitore.
 
     ```python
     # Supply storageName and accessKey values  
@@ -82,103 +82,103 @@ Per importare un blocco appunti **di Trasformazione** nell'area di lavoro Databr
     ```
 
 1. Generare un **token di accesso di Databricks** per consentire a Data Factory di accedere a Databricks.
-   1. Nell'area di lavoro Databricks, seleziona l'icona del tuo profilo utente in alto a destra.
-   1. Selezionare **Impostazioni utente**.
+   1. Nell'area di lavoro di databricks selezionare l'icona del profilo utente nell'angolo in alto a destra.
+   1. Selezionare **impostazioni utente**.
     ![Comando di menu per le impostazioni utente](media/solution-template-Databricks-notebook/user-setting.png)
-   1. Selezionare **Genera nuovo token** nella scheda Token di **accesso.**
+   1. Selezionare **genera nuovo token** nella scheda **token di accesso** .
    1. Selezionare **Genera**.
 
-    ![Pulsante "Genera"](media/solution-template-Databricks-notebook/generate-new-token.png)
+    ![Pulsante "genera"](media/solution-template-Databricks-notebook/generate-new-token.png)
 
-   *Salvare il token* di accesso per un utilizzo successivo nella creazione di un servizio collegato Databricks.Save the access token for later use in creating a Databricks linked service. Il token di `dapi32db32cbb4w6eee18b7d87e45exxxxxx`accesso è simile a .
+   *Salvare il token di accesso* per usarlo in seguito per la creazione di un servizio collegato databricks. Il token di accesso ha un `dapi32db32cbb4w6eee18b7d87e45exxxxxx`aspetto simile a.
 
-## <a name="how-to-use-this-template"></a>Come utilizzare questo modello
+## <a name="how-to-use-this-template"></a>Come usare questo modello
 
-1. Passare al modello **Trasformazione con Azure Databricks** e creare nuovi servizi collegati per le connessioni seguenti.
+1. Passare alla **trasformazione con Azure Databricks** modello e creare nuovi servizi collegati per le connessioni seguenti.
 
-   ![Impostazione delle connessioni](media/solution-template-Databricks-notebook/connections-preview.png)
+   ![Impostazione connessioni](media/solution-template-Databricks-notebook/connections-preview.png)
 
-    - **Connessione BLOB di origine:** per accedere ai dati di origine.
+    - **Connessione BLOB di origine** : per accedere ai dati di origine.
 
-       Per questo esercizio, è possibile usare l'archiviazione BLOB pubblica che contiene i file di origine. Fare riferimento alla schermata seguente per la configurazione. Usare l'URL di accesso condiviso seguente per connettersi all'archiviazione di origine (accesso di sola lettura):Use the following **SAS URL** to connect to source storage (read-only access):
+       Per questo esercizio, è possibile usare l'archivio BLOB pubblico che contiene i file di origine. Per la configurazione, fare riferimento alla schermata seguente. Usare l' **URL SAS** seguente per connettersi all'archiviazione di origine (accesso in sola lettura):
 
        `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
 
-        ![Selezioni per il metodo di autenticazione e l'URL della chiamata in base alla chiamata in stato di condiviso](media/solution-template-Databricks-notebook/source-blob-connection.png)
+        ![Selezioni per il metodo di autenticazione e l'URL SAS](media/solution-template-Databricks-notebook/source-blob-connection.png)
 
-    - Connessione BLOB di **destinazione:** per archiviare i dati copiati.
+    - **Connessione BLOB di destinazione** : consente di archiviare i dati copiati.
 
-       Nella finestra **Nuovo servizio collegato** selezionare il BLOB di archiviazione sink.
+       Nella finestra **nuovo servizio collegato** selezionare il BLOB di archiviazione del sink.
 
-       ![BLOB di archiviazione sink come nuovo servizio collegatoSink storage blob as a new linked service](media/solution-template-Databricks-notebook/destination-blob-connection.png)
+       ![Sink archiviazione BLOB come nuovo servizio collegato](media/solution-template-Databricks-notebook/destination-blob-connection.png)
 
-    - **Azure Databricks:** per connettersi al cluster Databricks.Azure Databricks - to connect to the Databricks cluster.
+    - **Azure Databricks** : per connettersi al cluster databricks.
 
-        Creare un servizio collegato a Databricks utilizzando la chiave di accesso generata in precedenza. È possibile scegliere di selezionare un *cluster interattivo,* se necessario. In questo esempio viene utilizzata l'opzione **Nuovo cluster di processi.**
+        Creare un servizio collegato databricks usando la chiave di accesso generata in precedenza. È possibile scegliere se si dispone di un *cluster interattivo* . Questo esempio usa l'opzione **nuovo cluster di processi** .
 
         ![Selezioni per la connessione al cluster](media/solution-template-Databricks-notebook/databricks-connection.png)
 
-1. Selezionare **Usa questo modello**. Verrà creata una pipeline.
+1. Selezionare **Usa questo modello**. Verrà visualizzata una pipeline creata.
 
     ![Creare una pipeline](media/solution-template-Databricks-notebook/new-pipeline.png)
 
 ## <a name="pipeline-introduction-and-configuration"></a>Introduzione e configurazione della pipeline
 
-Nella nuova pipeline, la maggior parte delle impostazioni viene configurata automaticamente con i valori predefiniti. Esaminare le configurazioni della pipeline e apportare le modifiche necessarie.
+Nella nuova pipeline la maggior parte delle impostazioni viene configurata automaticamente con i valori predefiniti. Esaminare le configurazioni della pipeline e apportare le modifiche necessarie.
 
-1. Nel flag **Disponibilità**attività di **convalida** verificare che `SourceAvailabilityDataset` il valore del set di **dati** di origine sia impostato su quello creato in precedenza.
+1. Nel **flag di disponibilità**dell'attività di **convalida** , verificare che il valore del set di `SourceAvailabilityDataset` **dati** di origine sia impostato su creato in precedenza.
 
-   ![Valore del set di dati di origineSource dataset value](media/solution-template-Databricks-notebook/validation-settings.png)
+   ![Valore del set di dati di origine](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. In **Copia** attività dati **da file a BLOB**selezionare le schede **Origine** e **Sink** . Se necessario, modificare le impostazioni.
+1. Nel **file di attività di** **copia dei dati** , selezionare le schede **origine** e **sink** . Se necessario, modificare le impostazioni.
 
-   - **Scheda** ![Origine Scheda Origine](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   - **Scheda origine scheda origine** ![](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
-   - Scheda ![ **Lavello** della scheda Lavello](media/solution-template-Databricks-notebook/copy-sink-settings.png)
+   - **Scheda sink scheda sink** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. In **Trasformazione dell'attività** **Blocco appunti** esaminare e aggiornare i percorsi e le impostazioni in base alle esigenze.
+1. Nella **trasformazione**attività **notebook** esaminare e aggiornare i percorsi e le impostazioni in base alle esigenze.
 
-   **Databricks servizio collegato** deve essere pre-popolato con il ![valore di un passaggio precedente, come mostrato: Populated value for the Databricks linked service](media/solution-template-Databricks-notebook/notebook-activity.png)
+   Il **servizio collegato databricks** deve essere pre-popolato con il valore di un passaggio precedente, come ![illustrato: valore popolato per il servizio collegato databricks](media/solution-template-Databricks-notebook/notebook-activity.png)
 
-   Per verificare le impostazioni **del blocco appunti:**
+   Per verificare le impostazioni del **notebook** :
   
-    1. Selezionare la scheda **Impostazioni.** Per **Percorso blocco appunti**, verificare che il percorso predefinito sia corretto. Potrebbe essere necessario sfogliare e scegliere il percorso corretto del blocco appunti.
+    1. Selezionare la scheda **Impostazioni** . Per **percorso notebook**, verificare che il percorso predefinito sia corretto. Potrebbe essere necessario esplorare e scegliere il percorso corretto del notebook.
 
-       ![Percorso blocco appunti](media/solution-template-Databricks-notebook/notebook-settings.png)
+       ![Percorso notebook](media/solution-template-Databricks-notebook/notebook-settings.png)
 
-    1. Espandere il selettore **Parametri di base** e verificare che i parametri corrispondano a quelli visualizzati nella schermata seguente. Questi parametri vengono passati al blocco appunti Databricks da Data Factory.
+    1. Espandere il selettore **parametri di base** e verificare che i parametri corrispondano a quanto illustrato nello screenshot seguente. Questi parametri vengono passati al notebook di databricks da Data Factory.
 
        ![Parametri di base](media/solution-template-Databricks-notebook/base-parameters.png)
 
-1. Verificare che i **parametri della pipeline** corrispondano a quelli illustrati nella schermata seguente: Parametri della pipelineVerify that the Pipeline Parameters match what is shown in the following screenshot: ![Pipeline parameters](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+1. Verificare che i **parametri della pipeline** corrispondano a quanto illustrato nello screenshot seguente ![: parametri della pipeline](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
-1. Connettersi ai set di dati.
+1. Connettersi ai set di impostazioni.
 
-   - **SourceAvailabilityDataset** - per verificare che i dati di origine sono disponibili.
+   - **SourceAvailabilityDataset** : per verificare che i dati di origine siano disponibili.
 
      ![Selezioni per il servizio collegato e il percorso del file per SourceAvailabilityDataset](media/solution-template-Databricks-notebook/source-availability-dataset.png)
 
-   - **SourceFilesDataset** - per accedere ai dati di origine.
+   - **SourceFilesDataset** : per accedere ai dati di origine.
 
        ![Selezioni per il servizio collegato e il percorso del file per SourceFilesDataset](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-   - **DestinationFilesDataset** - per copiare i dati nel percorso di destinazione del sink. Usare i valori seguenti:
+   - **DestinationFilesDataset** : per copiare i dati nel percorso di destinazione del sink. Usare i valori seguenti:
 
-     - **Servizio collegato**`sinkBlob_LS`, creato in un passaggio precedente. - 
+     - **Servizio collegato,** - creato in un passaggio`sinkBlob_LS`precedente.
 
-     - **Percorso file** - `sinkdata/staged_sink`.
+     - **File path** - Percorso`sinkdata/staged_sink`del file.
 
        ![Selezioni per il servizio collegato e il percorso del file per DestinationFilesDataset](media/solution-template-Databricks-notebook/destination-dataset.png)
 
-1. Selezionare **Debug** per eseguire la pipeline. È possibile trovare il collegamento ai registri di Databricks per i registri Spark più dettagliati.
+1. Selezionare **debug** per eseguire la pipeline. Per informazioni dettagliate sui log Spark, vedere il collegamento ai log di databricks.
 
-    ![Collegamento ai registri di Databricks dall'output](media/solution-template-Databricks-notebook/pipeline-run-output.png)
+    ![Collegamento ai log di databricks dall'output](media/solution-template-Databricks-notebook/pipeline-run-output.png)
 
-    È anche possibile verificare il file di dati usando Esplora archivi di Azure.You can also verify the data file by using Azure Storage Explorer.
+    È anche possibile verificare il file di dati usando Azure Storage Explorer.
 
     > [!NOTE]
-    > Per la correlazione con le esecuzioni della pipeline di Data Factory, in questo esempio viene aggiunto l'ID di esecuzione della pipeline dalla data factory alla cartella di output. In questo modo è possibile tenere traccia dei file generati da ogni esecuzione.
-    > ![ID esecuzione pipeline aggiunto](media/solution-template-Databricks-notebook/verify-data-files.png)
+    > Per la correlazione con Data Factory esecuzioni di pipeline, in questo esempio l'ID di esecuzione della pipeline viene aggiunto dalla data factory alla cartella di output. Questo consente di tenere traccia dei file generati da ogni esecuzione.
+    > ![ID esecuzione pipeline accodata](media/solution-template-Databricks-notebook/verify-data-files.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

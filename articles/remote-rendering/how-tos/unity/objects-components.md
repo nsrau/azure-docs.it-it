@@ -1,28 +1,28 @@
 ---
-title: Unity oggetti di gioco e componenti
-description: Vengono descritti i metodi specifici di Unity per l'utilizzo di entità e componenti di rendering remoto.
+title: Oggetti e componenti di gioco Unity
+description: Vengono descritti i metodi specifici di Unity per l'utilizzo di entità e componenti per il rendering remoto.
 author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81409862"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagire con gli oggetti e i componenti di gioco Unity
 
-Il rendering remoto di Azure (ARR) è ottimizzato per un numero elevato di oggetti (vedere [Limitazioni).](../../reference/limits.md) Sebbene sia possibile gestire gerarchie grandi e complesse nell'host, replicarle tutte in Unity su dispositivi a basso consumo non è fattibile.
+Azure Remote rendering (ARR) è ottimizzato per un numero elevato di oggetti (vedere [limitazioni](../../reference/limits.md)). Sebbene sia possibile gestire gerarchie di grandi dimensioni e complesse nell'host, la replica di tutte le unità in Unity su dispositivi a basso consumo non è fattibile.
 
-Pertanto, quando un modello viene caricato nell'host, il rendering remoto di Azure rispecchia le informazioni sulla struttura del modello nel dispositivo client (che incorrerà nel traffico di rete), ma non replica gli oggetti e i componenti in Unity.Therefore, when a model is loaded on the host, Azure Remote Rendering mirrors the information about the model structure on the client device (which will incur network traffic), but does not replicate the objects and components in Unity. Al contrario, si aspetta di richiedere manualmente gli oggetti e i componenti del gioco Unity necessari, in modo da limitare l'overhead a ciò che è effettivamente necessario. In questo modo si ha un maggiore controllo sulle prestazioni lato client.
+Pertanto, quando un modello viene caricato nell'host, il rendering remoto di Azure rispecchia le informazioni sulla struttura del modello nel dispositivo client, che comporterà il traffico di rete, ma non replica gli oggetti e i componenti in Unity. Si prevede invece di richiedere manualmente gli oggetti e i componenti del gioco Unity necessari, in modo che sia possibile limitare l'overhead a ciò che è effettivamente necessario. In questo modo si ha maggiore controllo sulle prestazioni lato client.
 
-Di conseguenza, l'integrazione Unity del rendering remoto di Azure include funzionalità aggiuntive per replicare la struttura di rendering remoto su richiesta.
+Di conseguenza, l'integrazione di Unity del rendering remoto di Azure viene fornita con funzionalità aggiuntive per replicare la struttura di rendering remota su richiesta.
 
 ## <a name="load-a-model-in-unity"></a>Caricare un modello in Unity
 
-Quando si carica un modello, si ottiene un riferimento all'oggetto radice del modello caricato. Questo riferimento non è un oggetto di gioco Unity, ma `Entity.GetOrCreateGameObject()`è possibile trasformarlo in uno utilizzando il metodo di estensione . Tale funzione prevede un `UnityCreationMode`argomento di tipo . Se si `CreateUnityComponents`passa , l'oggetto di gioco Unity appena creato verrà inoltre popolato con componenti proxy per tutti i componenti di rendering remoto presenti nell'host. Si consiglia, tuttavia, `DoNotCreateUnityComponents`di preferire , per mantenere l'overhead minimo.
+Quando si carica un modello, si ottiene un riferimento all'oggetto radice del modello caricato. Questo riferimento non è un oggetto gioco Unity, ma è possibile convertirlo in uno usando il metodo `Entity.GetOrCreateGameObject()`di estensione. Questa funzione prevede un argomento di tipo `UnityCreationMode`. Se si passa `CreateUnityComponents`, l'oggetto gioco Unity appena creato verrà popolato con i componenti proxy per tutti i componenti di rendering remoti presenti nell'host. Si consiglia, tuttavia, di preferire `DoNotCreateUnityComponents`, per ridurre il sovraccarico minimo.
 
 ### <a name="load-model-with-task"></a>Carica modello con attività
 
@@ -50,7 +50,7 @@ void LoadModelWithTask()
 }
 ```
 
-### <a name="load-model-with-unity-coroutines"></a>Modello di carico con coroutine Unity
+### <a name="load-model-with-unity-coroutines"></a>Caricare il modello con coroutine di Unity
 
 ```cs
 IEnumerator LoadModelWithCoroutine()
@@ -72,7 +72,7 @@ IEnumerator LoadModelWithCoroutine()
 }
 ```
 
-### <a name="load-model-with-await-pattern"></a>Modello di carico con modello await
+### <a name="load-model-with-await-pattern"></a>Modello di caricamento con modello await
 
 ```cs
 async void LoadModelWithAwait()
@@ -82,33 +82,33 @@ async void LoadModelWithAwait()
 }
 ```
 
-Gli esempi di codice precedenti hanno usato il percorso di caricamento del modello tramite firma di accesso utenti perché viene caricato il modello predefinito. L'indirizzamento del modello `LoadModelAsync` `LoadModelParams`tramite contenitori BLOB (using e ) funziona in modo completamente analogo.
+Negli esempi di codice precedenti è stato usato il percorso di caricamento del modello tramite SAS perché il modello incorporato è caricato. L'indirizzamento del modello tramite contenitori BLOB `LoadModelAsync` ( `LoadModelParams`tramite e) funziona in modo completo in modo analogo.
 
-## <a name="remoteentitysyncobject"></a>Oggetto RemoteEntitySyncObject
+## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 
-La creazione di un oggetto `RemoteEntitySyncObject` di gioco Unity aggiunge implicitamente un componente all'oggetto gioco. Questo componente viene utilizzato per sincronizzare la trasformazione dell'entità nel server. Per `RemoteEntitySyncObject` impostazione predefinita, `SyncToRemote()` l'utente deve chiamare in modo esplicito per sincronizzare lo stato Unity locale con il server. L'abilitazione `SyncEveryFrame` consente di sincronizzare automaticamente l'oggetto.
+La creazione di un oggetto gioco Unity aggiunge `RemoteEntitySyncObject` implicitamente un componente all'oggetto Game. Questo componente viene usato per sincronizzare la trasformazione dell'entità con il server. Per impostazione `RemoteEntitySyncObject` predefinita, è necessario che l'utente `SyncToRemote()` chiami in modo esplicito per sincronizzare lo stato di Unity locale con il server. Con `SyncEveryFrame` l'abilitazione, l'oggetto verrà sincronizzato automaticamente.
 
-Gli oggetti `RemoteEntitySyncObject` con un oggetto possono fare in modo che i relativi elementi figlio remoti vengano istanziati e visualizzati nell'editor di Unity tramite il pulsante **Mostra elementi figlio.**
+Per gli oggetti `RemoteEntitySyncObject` con un è possibile creare un'istanza degli elementi figlio remoti e visualizzarli nell'editor di Unity tramite il pulsante **Mostra elementi figlio** .
 
-![Oggetto RemoteEntitySyncObject](media/remote-entity-sync-object.png)
+![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
 ## <a name="wrapper-components"></a>Componenti wrapper
 
-[I componenti](../../concepts/components.md) collegati alle entità di rendering `MonoBehavior`remoto sono esposti a Unity tramite proxy s. Questi proxy rappresentano il componente remoto in Unity e inoltrano tutte le modifiche all'host.
+I [componenti](../../concepts/components.md) collegati alle entità di rendering remoto sono esposti a Unity tramite proxy `MonoBehavior`. Questi proxy rappresentano il componente remoto in Unity e inoltrano tutte le modifiche all'host.
 
-Per creare componenti di rendering remoto `GetOrCreateArrComponent`proxy, utilizzare il metodo di estensione :
+Per creare componenti per il rendering remoto del proxy, usare `GetOrCreateArrComponent`il metodo di estensione:
 
 ```cs
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
 ```
 
-## <a name="coupled-lifetimes"></a>Vite accoppiate
+## <a name="coupled-lifetimes"></a>Durate associate
 
-La durata di [un'entità](../../concepts/entities.md) remota e di un oggetto `RemoteEntitySyncObject`di gioco Unity viene accoppiata mentre sono associati tramite un oggetto . Se chiami `UnityEngine.Object.Destroy(...)` con un oggetto di gioco di questo tipo, verrà rimossa anche l'entità remota.
+Il ciclo di vita di un' [entità](../../concepts/entities.md) remota e di un oggetto gioco Unity è associato mentre sono associati `RemoteEntitySyncObject`tramite. Se si chiama `UnityEngine.Object.Destroy(...)` con un oggetto gioco di questo tipo, verrà rimossa anche l'entità remota.
 
-Per distruggere l'oggetto gioco Unity, senza influire sull'entità remota, è necessario chiamare `Unbind()` il `RemoteEntitySyncObject`file .
+Per eliminare definitivamente l'oggetto gioco Unity, senza influire sull'entità remota, è innanzitutto necessario `Unbind()` chiamare su `RemoteEntitySyncObject`.
 
-Lo stesso vale per tutti i componenti proxy. Per eliminare solo la rappresentazione sul `Unbind()` lato client, è necessario chiamare prima il componente proxy:
+Lo stesso vale per tutti i componenti proxy. Per eliminare solo la rappresentazione sul lato client, è prima necessario chiamare `Unbind()` sul componente proxy:
 
 ```cs
 var cutplane = gameObject.GetComponent<ARRCutPlaneComponent>();
@@ -122,4 +122,4 @@ if (cutplane != null)
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Configurare Rendering remoto per Unity](unity-setup.md)
-* [Esercitazione: Utilizzo di entità remote in UnityTutorial: Working with remote entities in Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Esercitazione: Uso di entità remote in Unity](../../tutorials/unity/working-with-remote-entities.md)

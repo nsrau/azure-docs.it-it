@@ -1,6 +1,6 @@
 ---
-title: Caricare i dati di vendita al dettaglio di Contoso in un data warehouse SQL SynapseLoad Contoso retail data to a Synapse SQL data warehouse
-description: Utilizzare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di vendita al dettaglio di Contoso in Synapse SQL.
+title: Caricare i dati di Contoso retail in una sinapsi SQL data warehouse
+description: Usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in sinapsi SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416136"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>Caricare i dati di vendita al dettaglio di Contoso in Synapse SQL 
+# <a name="load-contoso-retail-data-to-synapse-sql"></a>Caricare i dati di Contoso retail in sinapsi SQL 
 
-In questa esercitazione si apprenderà a usare i comandi PolyBase e T-SQL per caricare due tabelle dai dati di vendita al dettaglio di Contoso in un data warehouse Synapse SQL.
+In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in un data warehouse SQL sinapsi.
 
 In questa esercitazione si apprenderà come:
 
@@ -30,17 +30,17 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per eseguire questa esercitazione, è necessario un account di Azure che dispone già di un data warehouse SQL Synapse.To run this tutorial, you need an Azure account that already has a Synapse SQL data warehouse. Se non è stato eseguito il provisioning di un data warehouse, vedere [Creare un data warehouse e impostare](create-data-warehouse-portal.md)la regola del firewall a livello di server .
+Per eseguire questa esercitazione, è necessario un account Azure che dispone già di un data warehouse SQL sinapsi. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse e impostare la regola del firewall a livello di server](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurare l'origine dati
 
-PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse Synapse SQL. I dati vengono archiviati esternamente.
+PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse SQL sinapsi. I dati vengono archiviati esternamente.
 
 ## <a name="create-a-credential"></a>Creare una credenziale
 
-**Ignorare questo passaggio** se si caricano i dati pubblici di Contoso.Skip this step if you're loading the Contoso public data. Non è necessario un accesso sicuro ai dati pubblici poiché è già accessibile a chiunque.
+**Ignorare questo passaggio** se si stanno caricando i dati pubblici di contoso. Non è necessario l'accesso sicuro ai dati pubblici perché è già accessibile a chiunque.
 
-**Non ignorare questo passaggio** se si usa questa esercitazione come modello per il caricamento dei propri dati. Per accedere ai dati tramite una credenziale, utilizzare lo script seguente per creare una credenziale con ambito database. Utilizzarlo quindi quando si definisce il percorso dell'origine dati.
+**Non ignorare questo passaggio** se si usa questa esercitazione come modello per caricare i propri dati. Per accedere ai dati tramite una credenziale, usare lo script seguente per creare una credenziale con ambito database. Utilizzarlo quindi quando si definisce il percorso dell'origine dati.
 
 ```sql
 -- A: Create a master key.
@@ -77,7 +77,7 @@ WITH (
 
 ## <a name="create-the-external-data-source"></a>Creare un'origine dati esterna.
 
-Utilizzare questo comando [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per archiviare la posizione dei dati e il tipo di dati.
+Usare questo comando [Create External Data Source](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per archiviare il percorso dei dati e il tipo di dati.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -91,9 +91,9 @@ WITH
 > [!IMPORTANT]
 > Se si sceglie di rendere pubblici i contenitori di archiviazione BLOB di Azure, tenere presente che i costi per l’uscita dei dati dal data center verranno addebitati al proprietario dei dati.
 
-## <a name="configure-the-data-format"></a>Configurare il formato dati
+## <a name="configure-the-data-format"></a>Configurare il formato dei dati
 
-I dati vengono archiviati in file di testo nell'archiviazione BLOB di Azure e ogni campo è separato con un delimitatore. In SSMS eseguire il comando CREATE EXTERNAL FILE FORMAT per specificare il formato dei dati nei file di testo. I dati di Contoso sono delimitati da barre verticali e non sono compressi.
+I dati vengono archiviati in file di testo nell'archiviazione BLOB di Azure e ogni campo è separato con un delimitatore. In SSMS eseguire il comando CREATE EXTERNAL FILE FORMAT seguente per specificare il formato dei dati nei file di testo. I dati di Contoso sono delimitati da barre verticali e non sono compressi.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat
@@ -107,9 +107,9 @@ WITH
 );
 ```
 
-## <a name="create-the-schema-for-the-external-tables"></a>Creare lo schema per le tabelle esterneCreate the schema for the external tables
+## <a name="create-the-schema-for-the-external-tables"></a>Creare lo schema per le tabelle esterne
 
-Dopo aver specificato l'origine dati e il formato di file, è possibile creare lo schema per le tabelle esterne.
+Ora che è stata specificata l'origine dati e il formato di file, si è pronti per creare lo schema per le tabelle esterne.
 
 Per creare un percorso in cui archiviare i dati di Contoso nel database, creare uno schema.
 
@@ -120,9 +120,9 @@ GO
 
 ## <a name="create-the-external-tables"></a>Creare le tabelle esterne.
 
-Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. È sufficiente definire i nomi di colonna e i tipi di dati e associarli al percorso e al formato dei file di archiviazione BLOB di Azure.All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in the data warehouse and the data is still in the Azure Storage Blob.
+Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. In questo esempio vengono definiti i nomi delle colonne e i tipi di dati e il relativo binding al percorso e al formato dei file di archiviazione BLOB di Azure. La definizione viene archiviata nella data warehouse e i dati rimangono nella BLOB del servizio di archiviazione di Azure.
 
-Il parametro LOCATION è la cartella nella cartella radice nel BLOB di Archiviazione di Azure.The **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Ogni tabella è in una cartella diversa.
+Il parametro **location** è la cartella nella cartella radice nella BLOB del servizio di archiviazione di Azure. Ogni tabella è in una cartella diversa.
 
 ```sql
 --DimProduct
@@ -208,7 +208,7 @@ WITH
 
 ## <a name="load-the-data"></a>Caricare i dati
 
-Esistono diversi modi per accedere ai dati esterni.  È possibile eseguire query sui dati direttamente dalle tabelle esterne, caricarli in nuove tabelle nel data warehouse o aggiungere dati esterni alle tabelle del data warehouse esistenti.  
+Esistono diversi modi per accedere ai dati esterni.  È possibile eseguire query sui dati direttamente dalle tabelle esterne, caricare i dati nelle nuove tabelle del data warehouse o aggiungere dati esterni alle tabelle data warehouse esistenti.  
 
 ### <a name="create-a-new-schema"></a>Crea un nuovo schema
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Caricare i dati in nuove tabelle
 
-Per caricare i dati dall'archiviazione BLOB di Azure nella tabella del data warehouse, usare l'istruzione [CREATE TABLE AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Il caricamento con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) sfrutta le tabelle esterne fortemente tipizzate create. Per caricare i dati in nuove tabelle, utilizzare un'istruzione CTAS per tabella.
+Per caricare i dati dall'archiviazione BLOB di Azure nella tabella data warehouse, usare l'istruzione [create table As Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) . Il caricamento con [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) sfrutta le tabelle esterne fortemente tipizzate create. Per caricare i dati in nuove tabelle, usare un'istruzione CTAS per tabella.
 
 CTAS crea una nuova tabella e la popola con i risultati di un'istruzione SELECT. CTAS definisce la nuova tabella in modo che abbia le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Se si selezionano tutte le colonne da una tabella esterna, la nuova tabella sarà una replica delle colonne e dei tipi di dati della tabella esterna.
 
@@ -235,7 +235,7 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="track-the-load-progress"></a>Tenere traccia dello stato di avanzamento del carico
+### <a name="track-the-load-progress"></a>Tenere traccia dello stato di avanzamento del caricamento
 
 È possibile monitorare l'avanzamento del caricamento con le viste a gestione dinamica (DMV).
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Ottimizzare la compressione columnstore
 
-Per impostazione predefinita, il data warehouse Synapse SQL archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Ci sono diversi motivi per cui questo può accadere. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
+Per impostazione predefinita, la data warehouse sinapsi SQL archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
 
 Per ottimizzare le prestazioni delle query e la compressione columnstore dopo un'operazione di caricamento, ricompilare la tabella per forzare l'indice columnstore per comprimere tutte le righe.
 
@@ -290,7 +290,7 @@ Per altre informazioni sulla gestione degli indici columnstore, vedere [Indicizz
 
 ## <a name="optimize-statistics"></a>Ottimizzare le statistiche
 
-È consigliabile creare statistiche a colonna singola immediatamente dopo un caricamento. Se si sa che alcune colonne non si trovano nei predicati di query, è possibile ignorare la creazione di statistiche su tali colonne. Se si creano statistiche a colonna singola in ogni colonna, la ricostruzione di tutte le statistiche potrebbe richiedere molto tempo.
+È preferibile creare statistiche a colonna singola immediatamente dopo un caricamento. Se si è certi che alcune colonne non saranno presenti nei predicati di query, è possibile ignorare la creazione di statistiche per tali colonne. Se si creano statistiche a colonna singola su ogni colonna, la ricompilazione di tutte le statistiche potrebbe richiedere molto tempo.
 
 Per creare statistiche a colonna singola su ogni colonna di ogni tabella, è possibile usare l'esempio di codice di stored procedure `prc_sqldw_create_stats` riportato nell'articolo relativo alle [statistiche](sql-data-warehouse-tables-statistics.md).
 
@@ -340,9 +340,9 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
 
-I dati pubblici sono stati caricati correttamente nel data warehouse. Ottimo lavoro.
+I dati pubblici sono stati caricati nel data warehouse. Ottimo lavoro.
 
-È ora possibile iniziare a eseguire query sulle tabelle per esplorare i dati. Esegui la query seguente per scoprire le vendite totali per marchio:
+È ora possibile iniziare a eseguire query sulle tabelle per esplorare i dati. Eseguire la query seguente per trovare le vendite totali per marchio:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -354,5 +354,5 @@ GROUP BY p.[BrandName]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per caricare il set di dati completo, eseguire l'esempio caricare il data warehouse di contoso completo dal repository di esempi di Microsoft SQL Server.To load the full [data set,](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) run the example load the full Contoso retail data warehouse from the Microsoft SQL Server samples repository.
-Per ulteriori suggerimenti sullo sviluppo, vedere Decisioni di progettazione e tecniche di [codifica per i data warehouse.](sql-data-warehouse-overview-develop.md)
+Per caricare il set di dati completo, eseguire l'esempio [caricare il data warehouse completo di Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) dal repository degli esempi di Microsoft SQL Server.
+Per altri suggerimenti sullo sviluppo, vedere [decisioni di progettazione e tecniche di codifica per i data warehouse](sql-data-warehouse-overview-develop.md).

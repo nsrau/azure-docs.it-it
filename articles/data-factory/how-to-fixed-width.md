@@ -1,6 +1,6 @@
 ---
-title: Elaborare file di testo a lunghezza fissa con mapping dei flussi di dati in Azure Data FactoryProcess fixed-length text files with mapping data flows in Azure Data Factory
-description: Informazioni su come elaborare file di testo a lunghezza fissa in Azure Data Factory usando i flussi di dati di mapping.
+title: Elaborare i file di testo a lunghezza fissa con i flussi di dati di mapping in Azure Data Factory
+description: Informazioni su come elaborare i file di testo a lunghezza fissa in Azure Data Factory usando i flussi di dati di mapping.
 services: data-factory
 author: balakreshnan
 ms.service: data-factory
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
 ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414384"
 ---
-# <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Elaborare file di testo a lunghezza fissa utilizzando i flussi di dati di mapping di Data FactoryProcess fixed-length text files by using Data Factory mapping data flows
+# <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Elaborare file di testo a lunghezza fissa usando Data Factory i flussi di dati di mapping
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Usando i flussi di dati di mapping in Microsoft Azure Data Factory, è possibile trasformare i dati da file di testo a larghezza fissa. Nell'attività seguente verrà definito un set di dati per un file di testo senza delimitatore e quindi verranno impostate le suddivisioni di sottostringhe in base alla posizione ordinale.
+Utilizzando i flussi di dati di mapping in Microsoft Azure Data Factory, è possibile trasformare i dati da file di testo a larghezza fissa. Nell'attività seguente verrà definito un set di dati per un file di testo senza un delimitatore e quindi verranno configurate le divisioni della sottostringa in base alla posizione ordinale.
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 
-1. Per creare una nuova pipeline, selezionare **Nuova pipeline.**
+1. Selezionare **+ nuova pipeline** per creare una nuova pipeline.
 
-2. Aggiungere un'attività del flusso di dati, che verrà utilizzata per l'elaborazione di file a larghezza fissa:Add a data flow activity, which will be used for processing fixed-width files:
+2. Aggiungere un'attività flusso di dati che verrà utilizzata per l'elaborazione di file a larghezza fissa:
 
     ![Pipeline a larghezza fissa](media/data-flow/fwpipe.png)
 
-3. Nell'attività del flusso di dati selezionare **Nuovo flusso di dati di mapping.**
+3. Nell'attività flusso di dati selezionare **nuovo flusso di dati di mapping**.
 
-4. Aggiungere una trasformazione Origine, Colonna derivata, Seleziona e Sink:Add a Source, Derived Column, Select, and Sink transformation:
+4. Aggiungere una trasformazione origine, colonna derivata, selezione e sink:
 
-    ![Flusso di dati a larghezza fissaFixed Width Data Flow](media/data-flow/fw2.png)
+    ![Flusso di dati a larghezza fissa](media/data-flow/fw2.png)
 
-5. Configurare la trasformazione Origine per utilizzare un nuovo set di dati, che sarà di tipo Testo delimitato.
+5. Configurare la trasformazione di origine in modo da utilizzare un nuovo set di dati, che sarà del tipo di testo delimitato.
 
-6. Non impostare alcun delimitatore di colonna o intestazioni.
+6. Non impostare delimitatori o intestazioni di colonna.
 
-   Ora imposteremo i punti di partenza del campo e le lunghezze per il contenuto di questo file:
+   A questo punto, impostare i punti di inizio e le lunghezze del campo per il contenuto del file:
 
     ```
     1234567813572468
@@ -57,11 +57,11 @@ Usando i flussi di dati di mapping in Microsoft Azure Data Factory, è possibile
     1234567813572468
     ```
 
-7. Nella scheda **Proiezione** della trasformazione Origine dovrebbe essere visualizzata una colonna stringa denominata *Column_1*.
+7. Nella scheda **proiezione** della trasformazione origine dovrebbe essere visualizzata una colonna stringa denominata *column_1*.
 
-8. Nella colonna Derivato creare una nuova colonna.
+8. Nella colonna derivata creare una nuova colonna.
 
-9. Daremo alle colonne nomi semplici come *col1*.
+9. Verranno fornite le colonne nomi semplici come *col1*.
 
 10. Nel generatore di espressioni digitare quanto segue:
 
@@ -69,26 +69,26 @@ Usando i flussi di dati di mapping in Microsoft Azure Data Factory, è possibile
 
     ![colonna derivata](media/data-flow/fwderivedcol1.png)
 
-11. Ripetere il passaggio 10 per tutte le colonne da analizzare.
+11. Ripetere il passaggio 10 per tutte le colonne che devono essere analizzate.
 
 12. Selezionare la scheda **Controlla** per visualizzare le nuove colonne che verranno generate:
 
-    ![Ispezionare](media/data-flow/fwinspect.png)
+    ![ispezionare](media/data-flow/fwinspect.png)
 
-13. Utilizzare la trasformazione Seleziona per rimuovere le colonne non necessarie per la trasformazione:
+13. Usare la trasformazione seleziona per rimuovere le colonne non necessarie per la trasformazione:
 
-    ![selezionare la trasformazione](media/data-flow/fwselect.png)
+    ![selezione trasformazione](media/data-flow/fwselect.png)
 
-14. Utilizzare Sink per restituire i dati in una cartella:Use Sink to output the data to a folder:
+14. Usare sink per restituire i dati in una cartella:
 
-    ![lavello a larghezza fissa](media/data-flow/fwsink.png)
+    ![sink a larghezza fissa](media/data-flow/fwsink.png)
 
-    Ecco l'aspetto dell'output:Here's what the output looks like:
+    Ecco come appare l'output:
 
-    ![uscita a larghezza fissa](media/data-flow/fxdoutput.png)
+    ![output a larghezza fissa](media/data-flow/fxdoutput.png)
 
-  I dati a larghezza fissa sono ora divisi, con quattro caratteri ciascuno e assegnati a Col1, Col2, Col3, Col4 e così via. In base all'esempio precedente, i dati vengono suddivisi in quattro colonne.
+  I dati a larghezza fissa sono ora divisi, con quattro caratteri ciascuno e assegnati a col1, Col2, col3, col4 e così via. In base all'esempio precedente, i dati vengono suddivisi in quattro colonne.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Compilare il resto della logica del flusso di dati utilizzando il mapping delle trasformazioni dei [flussi](concepts-data-flow-overview.md)di dati .
+* Compilare il resto della logica del flusso di dati tramite il mapping delle [trasformazioni](concepts-data-flow-overview.md)dei flussi di dati.
