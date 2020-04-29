@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655257"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connetti Configuration Manager a monitoraggio di Azure
@@ -21,7 +21,7 @@ ms.locfileid: "77655257"
 Monitoraggio di Azure supporta Configuration Manager Current Branch, versione 1606 e successive.
 
 >[!NOTE]
->La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. Pertanto sarà necessario abilitarla prima di poterla usare. Per altre informazioni, vedere [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options).
+>La funzionalità per la connessione Configuration Manager con un'area di lavoro Log Analytics è facoltativa e non è abilitata per impostazione predefinita. Pertanto sarà necessario abilitarla prima di poterla usare. Per altre informazioni, vedere [Enable optional features from updates](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options) (Abilitare le funzioni facoltative dagli aggiornamenti).
 
 ## <a name="configuration-overview"></a>Panoramica della configurazione
 
@@ -80,7 +80,7 @@ Vedere l'articolo [connettere computer Windows a monitoraggio di Azure in Azure]
 4. Nella pagina Servizi di Azure della procedura guidata per i servizi di Azure:
 
     1. Specificare un **Nome** per l'oggetto in Configuration Manager.
-    2. Specificare una **Descrizione** facoltativa che consenta di identificare il servizio.
+    2. Specificare un parametro facoltativo **Descrizione** per identificare il servizio.
     3. Selezionare il **connettore OMS**per i servizi di Azure.
 
     >[!NOTE]

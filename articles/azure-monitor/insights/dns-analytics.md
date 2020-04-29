@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657334"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
@@ -33,12 +33,12 @@ La soluzione raccoglie, analizza e mette in relazione i log di controllo e anali
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
 
-| **Sorgente connessa** | **Supporto** | **Descrizione** |
+| **Origine connessa** | **Supporto tecnico** | **Descrizione** |
 | --- | --- | --- |
 | [Agenti di Windows](../platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
 | [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
-| [Account di archiviazione di AzureAzure storage account](../platform/collect-azure-metrics-logs.md) | No | La soluzione non usa le risorse di archiviazione di Azure. |
+| [Account di archiviazione di Azure](../platform/collect-azure-metrics-logs.md) | No | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
 
@@ -57,7 +57,7 @@ La soluzione avvia la raccolta dati senza che siano necessarie operazioni di con
 
 Nel dashboard della soluzione fare clic su **Configurazione** per aprire la pagina Configurazione di DNS Analytics. È possibile apportare due tipi di modifiche di configurazione.
 
-- **Nomi di dominio autorizzati**. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti permette di ottimizzare i dati inviati a Monitoraggio di Azure. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
+- **Nomi di dominio**consentiti. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti permette di ottimizzare i dati inviati a Monitoraggio di Azure. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
 
   È possibile modificare l'elenco per aggiungere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca. È anche possibile rimuovere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca.
 
@@ -99,7 +99,7 @@ Il dashboard visualizza i pannelli descritti di seguito.
 
 ![Pannello Sicurezza DNS](./media/dns-analytics/dns-security-blade.png)
 
-Facendo clic su un indirizzo IP client nell'elenco si apre Ricerca log con i dettagli della ricerca della rispettiva query. Nell'esempio seguente, DNS Analytics ha rilevato che la comunicazione è stata eseguita con un [IRCbot:](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621)
+Facendo clic su un indirizzo IP client nell'elenco si apre Ricerca log con i dettagli della ricerca della rispettiva query. Nell'esempio seguente Analisi DNS rilevato che la comunicazione è stata eseguita con un [IRCBot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Ricerca log: risultati con IRCbot](./media/dns-analytics/ircbot.png)
 
@@ -175,13 +175,13 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
     
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Passaggi comuni per la risoluzione dei problemi:Common troubleshooting steps:
+Passaggi comuni per la risoluzione dei problemi:
 
-1. Dati di ricerca DNS mancanti: per risolvere questo problema, provare a reimpostare la configurazione o semplicemente caricare la pagina di configurazione una volta nel portale. Per reimpostare, è sufficiente modificare un'impostazione su un altro valore, quindi tornare al valore originale e salvare la configurazione.
+1. Dati delle ricerche DNS mancanti: per risolvere il problema, provare a reimpostare la configurazione o a caricare la pagina di configurazione una sola volta nel portale. Per la reimpostazione, è sufficiente modificare un'impostazione in un altro valore, quindi riportarla nel valore originale e salvare la configurazione.
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 
-Per fornire commenti e suggerimenti, visitare la [pagina UserVoice](https://aka.ms/dnsanalyticsuservoice) di Log Analytics per pubblicare idee per le funzionalità di Analisi DNS da utilizzare. 
+Per fornire commenti e suggerimenti, visitare la [pagina log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) per pubblicare idee per il funzionamento di analisi DNS funzionalità. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

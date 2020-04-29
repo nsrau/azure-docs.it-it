@@ -1,40 +1,40 @@
 ---
-title: Monitoraggio di Azure per reti (anteprima)Azure Monitor for Networks (Preview)
-description: Una rapida panoramica di Monitoraggio di Azure per rete che offre una visualizzazione completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione.
+title: Monitoraggio di Azure per le reti (anteprima)
+description: Una rapida panoramica di monitoraggio di Azure per la rete che fornisce una visualizzazione completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
 ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654869"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per reti (anteprima)Azure Monitor for Networks (Preview)
-Monitoraggio di Azure per rete offre una visualizzazione completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, consentendo scenari quali l'identificazione delle risorse che ospitano il sito Web semplicemente cercando il nome del sito Web ospitato.
+# <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
+Monitoraggio di Azure per la rete offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse, abilitando scenari come l'identificazione delle risorse che ospitano il sito Web semplicemente cercando il nome del sito Web ospitato.
 
-La pagina **Panoramica** di Monitoraggio di Azure per reti offre un modo semplice per visualizzare l'inventario delle risorse di rete insieme all'integrità delle risorse e agli avvisi. È diviso in quattro aree funzionali chiave:
+La pagina **Panoramica** di monitoraggio di Azure per le reti fornisce un modo semplice per visualizzare l'inventario delle risorse di rete insieme all'integrità delle risorse e agli avvisi. È divisa in quattro aree funzionali principali:
 
-- Ricerca e filtraggio
-- Integrità delle risorse e metriche
+- Ricerca e filtro
+- Integrità risorse e metriche
 - Avvisi 
-- Visualizzazione delle dipendenze
+- Visualizzazione dipendenze
 
 ![Pagina di panoramica](media/network-insights-overview/overview.png)
 
-## <a name="search-and-filtering"></a>Ricerca e filtraggio
-La visualizzazione dell'integrità delle risorse e degli avvisi può essere personalizzata utilizzando filtri come **Sottoscrizione,** **Gruppo di risorse** e Tipo di **risorsa**. La casella di ricerca consente di eseguire ricerche nelle proprietà delle risorse.
+## <a name="search-and-filtering"></a>Ricerca e filtro
+La vista integrità risorse e avvisi può essere personalizzata usando filtri come la **sottoscrizione**, il **gruppo di risorse** e il tipo di **risorsa**. Nella casella di ricerca è disponibile la funzionalità per la ricerca nelle proprietà delle risorse.
 
-La casella di ricerca può essere utilizzata per cercare le risorse e le risorse associate. Ad esempio, un indirizzo IP pubblico è associato a un gateway applicazione. La ricerca del nome DNS IP pubblico identificherà sia l'indirizzo IP pubblico che il gateway applicazione associato.
+La casella di ricerca può essere usata per cercare le risorse e le risorse associate. Un indirizzo IP pubblico, ad esempio, è associato a un gateway applicazione. La ricerca del nome DNS degli indirizzi IP pubblici identificherà sia l'IP pubblico che il gateway applicazione associato.
 
-![Ricerca](media/network-insights-overview/search.png)
+![Cerca](media/network-insights-overview/search.png)
 
 
-## <a name="resource-health-and-metric"></a>Integrità delle risorse e metrica
-Ogni riquadro rappresenta un tipo di risorsa, con il numero di istanze distribuite in tutte le sottoscrizioni selezionate insieme allo stato di integrità delle risorse. Nell'esempio seguente sono distribuiti 105 connessioni ER e VPN, 103 sono integre e 2 non disponibili.
+## <a name="resource-health-and-metric"></a>Integrità risorse e metrica
+Ogni riquadro rappresenta un tipo di risorsa con il numero di istanze distribuite in tutte le sottoscrizioni selezionate insieme allo stato di integrità delle risorse. Nell'esempio seguente sono state distribuite 105 ER e connessioni VPN, 103 sono integre e 2 non disponibili.
 
 ![Resource Health](media/network-insights-overview/resource-health.png)
 
@@ -42,32 +42,32 @@ Facendo clic sulle due connessioni ER e VPN non disponibili, viene avviata una v
 
 ![Visualizzazione delle metriche](media/network-insights-overview/metric-view.png)
 
-È possibile fare clic su ogni elemento nella vista griglia. Fare clic sull'icona Integrità per reindirizzare all'integrità delle risorse per la connessione. Fare clic su Avvisi per reindirizzare alla pagina Avvisi e metriche rispettivamente per tale connessione. 
+È possibile fare clic su ogni elemento nella visualizzazione griglia. Fare clic sull'icona integrità per reindirizzare a integrità risorse per tale connessione. Fare clic su avvisi per reindirizzare alla pagina avvisi e metriche rispettivamente per tale connessione. 
 
 ## <a name="alerts"></a>Avvisi
-La griglia **Avvisi** a destra fornisce una visualizzazione di tutti gli avvisi generati per le risorse selezionate in tutte le sottoscrizioni. Fare clic sui conteggi degli avvisi per passare alla pagina degli avvisi dettagliati.
+La griglia degli **avvisi** a destra fornisce una visualizzazione di tutti gli avvisi generati per le risorse selezionate tra tutte le sottoscrizioni. Fare clic sui conteggi degli avvisi per passare alla pagina avvisi dettagliati.
 
-## <a name="dependency-view"></a>Visualizzazione delle dipendenze
-La visualizzazione **Dipendenza** consente di visualizzare la modalità di configurazione della risorsa. Attualmente la visualizzazione delle dipendenze è supportata solo per il gateway applicazione. È possibile accedere alla visualizzazione Delle dipendenze facendo clic sul nome della risorsa del gateway applicazione dalla visualizzazione griglia delle metriche.
+## <a name="dependency-view"></a>Visualizzazione dipendenze
+La visualizzazione delle **dipendenze** consente di visualizzare il modo in cui la risorsa è configurata. Attualmente la visualizzazione dipendenze è supportata solo per il gateway applicazione. È possibile accedere alla vista dipendenze facendo clic sul nome della risorsa del gateway applicazione nella visualizzazione griglia metriche.
 
-![Visualizzazione Gateway applicazione](media/network-insights-overview/application-gateway.png)
+![Visualizzazione del gateway applicazione](media/network-insights-overview/application-gateway.png)
 
-La visualizzazione **Dipendenza** per il gateway applicazione offre una visualizzazione semplificata della modalità di connessione degli indirizzi IP front-end ai listener, alle regole e al pool back-end. I bordi di connessione sono codificati a colori e forniscono dettagli aggiuntivi in base all'integrità del pool back-end. La visualizzazione fornisce inoltre una visualizzazione dettagliata delle metriche e metriche del gateway applicazione per tutti i pool back-end correlati, ad esempio le istanze di VMSS e VM.
+La visualizzazione delle **dipendenze** per il gateway applicazione offre una visualizzazione semplificata del modo in cui gli indirizzi IP front-end sono connessi ai listener, alle regole e al pool back-end. I bordi di connessione sono codificati a colori e forniscono dettagli aggiuntivi in base all'integrità del pool back-end. La vista fornisce anche una visualizzazione dettagliata delle metriche e delle metriche del gateway applicazione per tutti i pool back-end correlati, ad esempio VMSS e le istanze di VM.
 
-![Visualizzazione delle dipendenze](media/network-insights-overview/dependency-view.png)
+![Visualizzazione dipendenze](media/network-insights-overview/dependency-view.png)
 
-Il grafico delle dipendenze consente di accedere facilmente alle impostazioni di configurazione. Fare clic con il pulsante destro del mouse su un pool back-end per accedere ad altre funzionalità. Ad esempio, se il pool back-end è una macchina virtuale, è possibile accedere direttamente alla risoluzione dei problemi relativi a VM Insights e Network Watcher per identificare i problemi di connettività.
+Il grafico dipendenze consente di spostarsi agevolmente sulle impostazioni di configurazione. Fare clic con il pulsante destro del mouse sul pool back-end per accedere ad altre funzionalità. Ad esempio, se il pool back-end è una macchina virtuale, è possibile accedere direttamente a VM Insights e Network Watcher risoluzione dei problemi di connessione per identificare i problemi di connettività.
 
-![Menu della visualizzazione Delle dipendenze](media/network-insights-overview/dependency-view-menu.png)
+![Menu visualizzazione dipendenze](media/network-insights-overview/dependency-view-menu.png)
 
-La barra di ricerca e filtro nella visualizzazione delle dipendenze fornisce un modo semplice per eseguire la ricerca nel grafico. Ad esempio, la ricerca di *AppGWTestRule* nell'esempio seguente restringerà la visualizzazione grafica a tutti i nodi connessi tramite *AppGWTestRule*. 
+La barra di ricerca e di filtro nella visualizzazione dipendenze offre un modo semplice per eseguire ricerche nel grafico. Ad esempio, la ricerca di *AppGWTestRule* nell'esempio seguente consente di limitare la visualizzazione grafica a tutti i nodi connessi tramite *AppGWTestRule*. 
 
 ![Esempio di ricerca](media/network-insights-overview/search-example.png)
 
-Filtri diversi consentono di restringere il campo a un percorso e a uno stato specifici. Ad esempio, selezionare Solo *Non integro* nell'elenco a discesa **Stato integrità** per visualizzare tutti i bordi in cui lo stato è *Non integro*.
+Filtri diversi consentono di restringere a un percorso e a uno stato specifici. Ad esempio, selezionare solo non *integro* dall'elenco a discesa **stato integrità** per visualizzare tutti i bordi in cui lo stato è non *integro*.
 
-Fare clic su **Visualizzazione metrica dettagliata** per avviare una cartella di lavoro preconfigurata con metriche dettagliate per il gateway applicazione, tutte le risorse del pool back-end e gli indirizzi IP front-end. 
+Fare clic su **visualizzazione metrica dettagliata** per avviare una cartella di lavoro preconfigurata con metriche dettagliate per il gateway applicazione, tutte le risorse del pool back-end e gli indirizzi IP front-end. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- Per altre informazioni sul monitoraggio della rete, vedere Che cos'è [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Per altre informazioni sul monitoraggio della rete, vedere informazioni su [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).

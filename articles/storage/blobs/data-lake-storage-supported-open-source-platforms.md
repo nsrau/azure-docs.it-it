@@ -1,6 +1,6 @@
 ---
-title: Piattaforme open source che supportano Azure Data Lake Storage Gen2 Documenti Microsoft
-description: Informazioni sulle piattaforme open source che supportano Azure Data Lake Storage Gen2Learn about which open source platforms that support Azure Data Lake Storage Gen2
+title: Piattaforme open source che supportano Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Informazioni sulle piattaforme open source che supportano Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 422b814f1d9738ca4f03d08dfecc6761b764f997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78196026"
 ---
-# <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Open source platforms that support Azure Data Lake Storage Gen2
+# <a name="open-source-platforms-that-support-azure-data-lake-storage-gen2"></a>Piattaforme open source che supportano Azure Data Lake Storage Gen2
 
-In questo articolo sono elencate le piattaforme open source che supportano Data Lake Storage Gen2.  
+Questo articolo elenca le piattaforme open source che supportano Data Lake Storage Gen2.  
 
 ## <a name="supported-open-source-platforms"></a>Piattaforme open source supportate
 
@@ -37,6 +37,6 @@ Questa tabella elenca le piattaforme open source che supportano Data Lake Storag
 ## <a name="see-also"></a>Vedere anche
 
 - [Problemi noti con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
-- [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
-- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Servizi di Azure che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Accesso multi-protocollo in Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

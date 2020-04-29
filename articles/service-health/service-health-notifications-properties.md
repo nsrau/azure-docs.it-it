@@ -4,10 +4,10 @@ description: Le notifiche sull'integrità del servizio consentono di visualizzar
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77653969"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
@@ -48,24 +48,24 @@ Properties.trackingId | L'evento imprevisto a cui è associato l'evento. Usare q
 Properties.impactedServices | BLOB JSON preceduto da un carattere di escape che descrive i servizi e le aree su cui ha effetto l'evento imprevisto. La proprietà include un elenco di servizi, ognuno dei quali ha un **ServiceName** e un elenco delle aree interessate, ognuna con un nome di area **RegionName**.
 Properties.defaultLanguageTitle | La comunicazione in inglese.
 Properties.defaultLanguageContent | La comunicazione in inglese con markup HTML o come testo normale.
-Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **la Manutenzione** sono: **Attivo**, **Pianificato**, **InProgress**, **Annullato**, **Riprogrammato**, **Risolto**o **Completato**.
+Properties.stage | I valori possibili di **Incident** e **Security** sono **Active,** **Resolved** o **RCA**. Per **ActionRequired** o **Informational** l'unico valore è **Active.** Per **la manutenzione** sono: **attivo**, **pianificato**, in **corso**, **annullato**, **ripianificato**, **risolto**o **completo**.
 Properties.communicationId | La comunicazione a cui è associato l'evento.
 
 ### <a name="details-on-service-health-level-information"></a>Informazioni sui livelli di integrità dei servizi
 
 **Azione necessaria** (properties.incidentType == ActionRequired)
-- Informativo: è necessaria un'azione di amministratore per evitare l'impatto sui servizi esistenti.
+- Informational: l'azione dell'amministratore è necessaria per impedire l'effetto sui servizi esistenti.
     
 **Manutenzione** (properties.incidentType == Maintenance)
-- Avvertenza - Manutenzione di emergenza
-- Informativo - Manutenzione pianificata standard
+- Avviso-manutenzione di emergenza
+- Informazioni-manutenzione pianificata standard
 
 **Informazioni** (properties.incidentType == Information)
-- Informativo - All'amministratore potrebbe essere richiesto di evitare l'impatto sui servizi esistenti.
+- Informational: l'amministratore potrebbe essere necessario per impedire l'effetto sui servizi esistenti.
 
 **Sicurezza** (properties.incidentType == Security)
-- Avviso: advisory sulla sicurezza che influisce sui servizi esistenti e può richiedere l'intervento dell'amministratore.
-- Informativo - Consulenza sulla sicurezza che influisce sui servizi esistenti.
+- Avviso: avvisi di sicurezza che influiscono sui servizi esistenti e che potrebbero richiedere l'intervento dell'amministratore.
+- Avvisi informativi sulla sicurezza che influiscono sui servizi esistenti.
 
 **Problemi relativi al servizio** (properties.incidentType == Incident)
 - Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.

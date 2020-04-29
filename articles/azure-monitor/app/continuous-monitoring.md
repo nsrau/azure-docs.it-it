@@ -4,10 +4,10 @@ description: Vengono fornite istruzioni per configurare rapidamente il monitorag
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655396"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
@@ -34,7 +34,7 @@ Con il monitoraggio continuo, le pipeline di versione possono incorporare i dati
 
 1. Nel riquadro configurazione **fase 1** completare i campi seguenti: 
 
-    | Parametro        | Valore |
+    | Parametro        | valore |
    | ------------- |:-----|
    | **Nome della fase**      | Specificare un nome per la fase o lasciarlo nella **fase 1**. |
    | **Sottoscrizione di Azure** | Elenco a discesa e selezionare la sottoscrizione di Azure collegata che si vuole usare.|

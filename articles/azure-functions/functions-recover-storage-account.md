@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063782"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Errore di risoluzione dei problemi: "runtime di Funzioni di Azure non è raggiungibile"
@@ -44,7 +44,7 @@ Nel passaggio precedente, se non è possibile trovare una stringa di connessione
 
 Per altre informazioni, vedere [riferimento alle impostazioni dell'app per funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
-### <a name="guidance"></a>Materiale sussidiario
+### <a name="guidance"></a>Indicazioni
 
 * Non selezionare "impostazione slot" per una di queste impostazioni. Se si scambiano gli slot di distribuzione, l'app per le funzioni si interrompe.
 * Non modificare queste impostazioni come parte delle distribuzioni automatiche.

@@ -1,16 +1,16 @@
 ---
-title: Inviare avvisi di integrità del servizio di Azure con ServiceNowSend Azure service health alerts with ServiceNow
+title: Inviare avvisi di integrità dei servizi di Azure con ServiceNow
 description: Ricevere notifiche personalizzate sugli eventi di integrità dei servizi nell'istanza di ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654104"
 ---
-# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità del servizio di Azure con ServiceNow usando webhookSend Azure service health alerts with ServiceNow using webhooks
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con ServiceNow usando i webhook
 
 Questo articolo illustra come integrare gli avvisi di integrità dei servizi di Azure con ServiceNow usando un webhook. Dopo avere configurato l'integrazione webhook con l'istanza di ServiceNow, si ottengono avvisi tramite l'infrastruttura di notifica esistente in caso di problemi relativi al servizio Azure. Ogni volta che viene attivato un avviso di integrità dei servizi di Azure, viene chiamato un webhook tramite l'API REST con script di ServiceNow.
 
@@ -28,7 +28,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 
 1.  Aggiungere un **nome** all'API REST e impostare l'**ID API** su `azureservicehealth`.
 
-1.  Selezionare **Submit**.
+1.  Selezionare **Submit** (Invia).
 
     ![Impostazioni API REST in ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
@@ -176,7 +176,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 1. Al termine fare clic su **Salva** per aggiornare il gruppo di azioni.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Test dell'integrazione del webhook tramite una richiesta HTTP POST
-1. Creare il payload di integrità del servizio che si vuole inviare. È possibile trovare un esempio di payload di webhook di integrità del servizio in Webhook per avvisi del log attività di Azure.You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Creare il payload di integrità del servizio che si vuole inviare. [Per gli avvisi del log attività di Azure](../azure-monitor/platform/activity-log-alerts-webhook.md)è possibile trovare un payload di esempio del webhook di integrità del servizio.
 
 1. Creare una richiesta HTTP POST nel modo seguente:
 
@@ -192,7 +192,7 @@ Questo articolo illustra come integrare gli avvisi di integrità dei servizi di 
 1. Passare a [ServiceNow](https://www.servicenow.com/) per confermare che l'integrazione è stata configurata correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [configurare le notifiche webhook per](service-health-alert-webhook-guide.md)i sistemi di gestione dei problemi esistenti.
-- Esaminare lo schema webhook degli avvisi del [log attività.](../azure-monitor/platform/activity-log-alerts-webhook.md) 
-- Informazioni sulle notifiche di integrità del [servizio](../azure-monitor/platform/service-notifications.md).
-- Ulteriori informazioni sui [gruppi di azioni](../azure-monitor/platform/action-groups.md).
+- Informazioni su come [configurare le notifiche webhook per i sistemi di gestione dei problemi esistenti](service-health-alert-webhook-guide.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Informazioni sulle [notifiche sull'integrità del servizio](../azure-monitor/platform/service-notifications.md).
+- Altre informazioni sui [gruppi di azioni](../azure-monitor/platform/action-groups.md).

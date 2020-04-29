@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455563"
 ---
 # <a name="check-resource-usage-against-limits"></a>Controllare l'utilizzo delle risorse rispetto ai limiti
@@ -25,7 +25,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. Accedere al [portale](https://portal.azure.com)di Azure.
 2. Nell'angolo in alto a sinistra del portale di Azure selezionare **Tutti i servizi**.
 3. Nella casella *Filtro* immettere **Sottoscrizioni**. Selezionare la voce **Sottoscrizioni** quando viene visualizzata nei risultati della ricerca.
 4. Selezionare il nome della sottoscrizione per cui visualizzare le informazioni sull'utilizzo.
@@ -38,7 +38,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 
      L'esempio nell'immagine seguente mostra tutte le risorse di rete con almeno una risorsa distribuita nell'area Stati Uniti orientali:
 
-       ![Visualizzare i dati di utilizzo](./media/check-usage-against-limits/view-usage.png)
+       ![Visualizza dati di utilizzo](./media/check-usage-against-limits/view-usage.png)
 
      È possibile ordinare le colonne selezionando le relative intestazioni. I limiti indicati sono quelli definiti per la sottoscrizione. Se è necessario aumentare un limite predefinito, selezionare **Richiedi aumento** e quindi completare e inviare la richiesta di supporto. Tutte le risorse hanno un limite massimo elencato nell'articolo relativo ai [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) di Azure. Se il limite corrente è già quello massimo, non è possibile aumentarlo.
 
@@ -46,7 +46,7 @@ In questo articolo si apprenderà come visualizzare il numero per ogni tipo di r
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo di Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzAccount` per accedere ad Azure.
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure in PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo Azure PowerShell, versione 1.0.0 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzAccount` per accedere ad Azure.
 
 Visualizzare l'utilizzo rispetto ai limiti con [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). L'esempio seguente ottiene le informazioni sull'utilizzo delle risorse dove almeno una risorsa è distribuita nell'area Stati Uniti orientali:
 

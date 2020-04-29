@@ -4,10 +4,10 @@ description: Informazioni sulle immagini di base per le immagini del contenitore
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617931"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informazioni sugli aggiornamenti delle immagini di base per le attività ACR
@@ -39,7 +39,7 @@ Per la creazione di immagini da un documento Dockerfile, un'attività di Registr
 
 Se l'immagine di base specificata nell' `FROM` istruzione risiede in uno di questi percorsi, l'attività ACR aggiunge un hook per assicurarsi che l'immagine venga ricompilata ogni volta che viene aggiornata la base.
 
-## <a name="additional-considerations"></a>Considerazioni aggiuntive
+## <a name="additional-considerations"></a>Altre considerazioni
 
 * **Immagini di base per le immagini dell'applicazione** : attualmente, un'attività ACR tiene traccia solo degli aggiornamenti delle immagini di base per le immagini dell'applicazione (*Runtime*). Non tiene traccia degli aggiornamenti delle immagini di base per le immagini intermedie (*buildtime*) usate in Dockerfile in più fasi.  
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: cshoe
 ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77649875"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitoraggio di funzioni di Azure con i log di monitoraggio di Azure
@@ -23,7 +23,7 @@ Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/ku
 > [!NOTE]
 > L'integrazione con i log di monitoraggio di Azure è attualmente disponibile in anteprima pubblica per le app per le funzioni in esecuzione in Windows, Premium e piani di hosting dedicati.
 
-## <a name="setting-up"></a>Impostazione di
+## <a name="setting-up"></a>Configurazione
 
 Nella sezione **monitoraggio** selezionare impostazioni di **diagnostica** e quindi fare clic su **Aggiungi impostazione di diagnostica**.
 

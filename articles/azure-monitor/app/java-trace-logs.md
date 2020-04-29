@@ -1,26 +1,26 @@
 ---
-title: Esplorare i log di traccia Java in Azure Application InsightsExplore Java trace logs in Azure Application Insights
+title: Esplorare i log di traccia Java in applicazione Azure Insights
 description: Eseguire la ricerca di tracce Log4J o Logback in Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657215"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
 
 > [!TIP]
-> È sufficiente impostare la chiave di strumentazione di Application Insights una sola volta per l'applicazione. Se si utilizza un framework come Java Spring, è possibile che la chiave sia già stata registrata in un altro punto della configurazione dell'app.
+> È necessario impostare la chiave di strumentazione Application Insights una sola volta per l'applicazione. Se si usa un Framework come Java Spring, è possibile che la chiave sia già stata registrata in un'altra posizione nella configurazione dell'app.
 
-## <a name="using-the-application-insights-java-agent"></a>Utilizzo dell'agente Java di Application InsightsUsing the Application Insights Java agent
+## <a name="using-the-application-insights-java-agent"></a>Uso dell'agente Java Application Insights
 
-Per impostazione predefinita, l'agente Java `WARN` di Application Insights acquisisce automaticamente la registrazione eseguita al livello e al livello superiore.
+Per impostazione predefinita, l'agente Java Application Insights acquisisce automaticamente la registrazione `WARN` eseguita a livello e superiore.
 
-È possibile modificare la soglia di `AI-Agent.xml` registrazione acquisita utilizzando il file:
+È possibile modificare la soglia di registrazione acquisita usando il `AI-Agent.xml` file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +33,7 @@ Per impostazione predefinita, l'agente Java `WARN` di Application Insights acqui
 </ApplicationInsightsAgent>
 ```
 
-È possibile disattivare l'acquisizione `AI-Agent.xml` della registrazione dell'agente Java utilizzando il file:
+È possibile disabilitare l'acquisizione della registrazione dell'agente Java usando `AI-Agent.xml` il file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,7 +46,7 @@ Per impostazione predefinita, l'agente Java `WARN` di Application Insights acqui
 </ApplicationInsightsAgent>
 ```
 
-## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>In alternativa (anziché utilizzare l'agente Java), è possibile seguire le istruzioni riportate di seguito
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>In alternativa, invece di usare l'agente Java, è possibile seguire le istruzioni riportate di seguito.
 
 ### <a name="install-the-java-sdk"></a>Installare Java SDK
 
@@ -60,7 +60,7 @@ Se il progetto è già stato configurato per usare Maven per la compilazione, ag
 
 Aggiornare quindi le dipendenze progetto per fare in modo che i file binari vengano scaricati.
 
-*Logback (Logback)*
+*Logback*
 
 ```XML
 
@@ -104,7 +104,7 @@ Se il progetto è già configurato per usare Gradle per la compilazione, aggiung
 
 Aggiornare quindi le dipendenze progetto per fare in modo che i file binari vengano scaricati.
 
-**Logback (Logback)**
+**Logback**
 
 ```
 
@@ -136,7 +136,7 @@ Seguire le linee guida per installare manualmente Application Insights SDK per J
 ### <a name="add-the-appender-to-your-logging-framework"></a>Aggiungere l'appender per il framework di registrazione
 Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al file di configurazione Log4J o Logback: 
 
-*Logback (Logback)*
+*Logback*
 
 ```XML
 

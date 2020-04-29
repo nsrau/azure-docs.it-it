@@ -4,10 +4,10 @@ description: Usare le API REST di Azure per ottenere gli eventi di integrità pe
 ms.topic: conceptual
 ms.date: 06/06/2017
 ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654002"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ottenere Integrità risorse tramite l'API REST 
@@ -30,19 +30,19 @@ Gli argomenti seguenti sono obbligatori:
 
 |Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
-|*Tipo di contenuto:*|Obbligatorio. Impostare su `application/json`.|  
-|*Autorizzazione:*|Obbligatorio. Impostare un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |  
+|*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| Nome | Descrizione |
+| Name | Descrizione |
 | :--- | :---------- |
-| subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se si dispone di più sottoscrizioni, vedere [Utilizzo di più sottoscrizioni.](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest) |
+| subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se si dispone di più sottoscrizioni, vedere [utilizzo di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Versione dell'API da usare per la richiesta.<br /><br /> Questo documento illustra la versione api-version `2015-04-01`, inclusa nell'URL precedente.  |
 | $filter | L'opzione filtro per ridurre il set di risultati restituiti. I modelli consentiti per questo parametro sono disponibili [nel riferimento per l'operazione Log attività](/rest/api/monitor/activitylogs/list#uri-parameters). Nell'esempio illustrato vengono acquisiti tutti gli eventi nell'intervallo di tempo compreso tra 2018-05-16 e 20-06-2018 |
 | &nbsp; | &nbsp; |
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 Per questa operazione non è necessario alcun corpo della richiesta.
 
