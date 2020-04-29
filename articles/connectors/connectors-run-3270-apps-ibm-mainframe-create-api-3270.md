@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371110"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app basate su schermo 3270 in mainframe IBM con Azure usando app per la logica di Azure e il connettore IBM 3270
@@ -220,7 +220,7 @@ Si supponga inoltre di ripetere questi passaggi, ma si immettono dati non corret
 
 * MESSAGGIO-10
 * Pagina iniziale di CICS
-* Empty
+* Vuoto
 * WBGB_1 (input)
 * WBGB_2 (errore)
 * Empty_1
@@ -358,7 +358,7 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 1. Se non esiste ancora alcuna connessione, fornire le informazioni necessarie per la connessione e scegliere **Crea**.
 
-   | Proprietà | Obbligatoria | Valore | Descrizione |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome connessione** | Sì | <*Nome connessione*> | Nome per la connessione |
    | **ID account di integrazione** | Sì | <*nome-account-integrazione*> | Nome dell'account di integrazione |
@@ -378,7 +378,7 @@ Al termine di tutti questi passaggi, è possibile usare l'azione creata nell'app
 
 1. Fornire le informazioni necessarie per l'azione:
 
-   | Proprietà | Obbligatoria | Valore | Descrizione |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
    | **Nome hidx** | Sì | <*HIDX-nome file*> | Selezionare il file HIDX 3270 che si vuole usare. |
    | **Nome metodo** | Sì | <*Nome metodo*> | Selezionare il metodo nel file HIDX che si desidera utilizzare. Dopo aver selezionato un metodo, viene visualizzato l'elenco **Aggiungi nuovo parametro** in modo che sia possibile selezionare i parametri da usare con il metodo. |

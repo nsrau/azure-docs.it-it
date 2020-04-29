@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80365509"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gestire utenti e ruoli nell'applicazione IoT Central
@@ -93,110 +93,110 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 **Autorizzazioni per i modelli di dispositivo**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Gestisci | Visualizzazione <br/> Altre dipendenze: visualizzare le istanze del dispositivo  |
+| Visualizza | Nessuno     |
+| Gestire | Visualizza <br/> Altre dipendenze: visualizzare le istanze del dispositivo  |
 | Controllo completo | Visualizza, Gestisci <br/> Altre dipendenze: visualizzare le istanze del dispositivo |
 
 **Autorizzazioni per l'istanza del dispositivo**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi |
-| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Visualizza | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi |
+| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Create | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
-| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Elimina | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Comandi Execute | Aggiorna, Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare ed eseguire comandi <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 
 **Autorizzazioni per gruppi di dispositivi**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
-| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
-| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
-| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Visualizza | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
+| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Creazione | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Elimina | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
 
 **Autorizzazioni di gestione della connettività del dispositivo**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Lettura istanza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
-| Gestisci istanza | nessuno |
-| Lettura globale | nessuno   |
+| Lettura istanza | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
+| Gestisci istanza | Nessuno |
+| Lettura globale | Nessuno   |
 | Gestione globale | Lettura globale |
 | Controllo completo | Lettura istanza, Gestisci istanza, lettura globale, Gestisci globale. <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
 
 **Autorizzazioni processi**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
-| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
-| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
-| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
-| Execute | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
+| Visualizza | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Creazione | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Elimina | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Execute | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare ed eseguire <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
 
 **Autorizzazioni per le regole**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
-| Aggiorna | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
-| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
-| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Visualizza | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Aggiornamento | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Creazione | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Elimina | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 
 #### <a name="managing-the-app"></a>Gestione dell'app
 
 **Autorizzazioni per le impostazioni dell'applicazione**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Aggiorna | Visualizzazione   |
-| Copiare | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
-| Delete | Visualizzazione   |
+| Visualizza | Nessuno     |
+| Aggiornamento | Visualizza   |
+| Copia | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
+| Elimina | Visualizza   |
 | Controllo completo | Visualizzazione, aggiornamento, copia, eliminazione <br/> Altre dipendenze: visualizzare modelli di dispositivi, gruppi di dispositivi, dashboard dell'applicazione, esportazione dei dati, personalizzazione, collegamenti alla guida, ruoli personalizzati, regole |
 
 **Autorizzazioni esportazione modello applicazione**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Esportazione | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
+| Visualizza | Nessuno     |
+| Export | Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
 | Controllo completo | Visualizza, Esporta <br/> Altre dipendenze: visualizzare modelli di dispositivi, gruppi di dispositivi, dashboard dell'applicazione, esportazione dei dati, personalizzazione, collegamenti alla guida, ruoli personalizzati, regole |
 
 **Autorizzazioni di fatturazione**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Gestisci | nessuno     |
-| Controllo completo | Gestisci |
+| Gestire | Nessuno     |
+| Controllo completo | Gestire |
 
 #### <a name="managing-users-and-roles"></a>Gestione di utenti e ruoli
 
 **Autorizzazioni per ruoli personalizzati**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno |
-| Aggiorna | Visualizzazione |
-| Create | Visualizza, aggiorna |
-| Delete | Visualizzazione |
+| Visualizza | Nessuno |
+| Aggiornamento | Visualizza |
+| Creazione | Visualizza, aggiorna |
+| Elimina | Visualizza |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni Gestione utenti**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
-| Add | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
-| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Visualizza | Nessuno <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Aggiunta | Visualizza <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Elimina | Visualizza <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 | Controllo completo | Visualizza, Aggiungi, Elimina <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 
 > [!NOTE]
@@ -206,59 +206,59 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 **Autorizzazioni del dashboard dell'applicazione**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Aggiorna | Visualizzazione   |
-| Create | Visualizza, aggiorna |
-| Delete | Visualizzazione   |
+| Visualizza | Nessuno     |
+| Aggiornamento | Visualizza   |
+| Creazione | Visualizza, aggiorna |
+| Elimina | Visualizza   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni per Dashboard personali**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Aggiorna | Visualizzazione   |
-| Create | Visualizza, aggiorna   |
-| Delete | Visualizzazione   |
+| Visualizza | Nessuno     |
+| Aggiornamento | Visualizza   |
+| Creazione | Visualizza, aggiorna   |
+| Elimina | Visualizza   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni per personalizzazione, favicon e colori**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Aggiorna | Visualizzazione   |
+| Visualizza | Nessuno     |
+| Aggiornamento | Visualizza   |
 | Controllo completo | Visualizza, aggiorna |
 
 **Autorizzazioni collegamenti Guida**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Aggiorna | Visualizzazione   |
+| Visualizza | Nessuno     |
+| Aggiornamento | Visualizza   |
 | Controllo completo | Visualizza, aggiorna |
 
 #### <a name="extending-the-app"></a>Estensione dell'app
 
 **Autorizzazioni esportazione dati**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
-| Aggiorna | Visualizzazione   |
-| Create | Visualizza, aggiorna  |
-| Delete | Visualizzazione   |
+| Visualizza | Nessuno     |
+| Aggiornamento | Visualizza   |
+| Creazione | Visualizza, aggiorna  |
+| Elimina | Visualizza   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni token API**
 
-| Nome | Dependencies |
+| Name | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizza | Nessuno     |
 | Create | Visualizzazione   |
-| Delete | Visualizzazione   |
+| Elimina | Visualizza   |
 | Controllo completo | Visualizza, crea, Elimina |
 
 ## <a name="next-steps"></a>Passaggi successivi

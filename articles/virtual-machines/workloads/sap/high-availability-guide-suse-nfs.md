@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata per NFS in macchine virtuali di Azure in SLES . Documenti Microsoft
+title: Disponibilità elevata per NFS in macchine virtuali di Azure in SLES | Microsoft Docs
 description: Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348863"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
@@ -71,7 +71,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
 * [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di Macchine virtuali di Azure per SAP in Linux (questo articolo)Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Distribuzione di macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
 * [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [Guide alle procedure consigliate per SUSE Linux Enterprise High Availability Extension 12 SP3][sles-hae-guides]
   * Archiviazione NFS a disponibilità elevata con DRBD e Pacemaker
@@ -94,7 +94,7 @@ Il server NFS usa un nome host virtuale dedicato e indirizzi IP virtuali per ogn
 * Porta probe
   * Porta 61000 per NW1
   * Porta 61001 per NW2
-* Regole di bilanciamento del carico (se si usa il servizio di bilanciamento del carico di base)Load balancing rules (if using basic load balancer)
+* Regole di bilanciamento del carico (se si usa il servizio di bilanciamento del carico Basic)
   * TCP 2049 per NW1
   * UDP 2049 per NW1
   * TCP 2049 per NW2
@@ -107,20 +107,20 @@ Il server NFS usa un nome host virtuale dedicato e indirizzi IP virtuali per ogn
 ### <a name="deploy-linux-via-azure-template"></a>Distribuire Linux tramite un modello di Azure
 
 Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP Applications 12 che è possibile usare per distribuire nuove macchine virtuali.
-È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello distribuisce le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Seguire questi passaggi per distribuire il modello:
+È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello distribuisce le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, attenersi alla procedura seguente:
 
 1. Aprire il [modello di file server di SAP][template-file-server] nel portale di Azure   
 1. Immettere i parametri seguenti
    1. Prefisso della risorsa  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
    2. Numero sistema SAP  
-      Immettere il numero di sistemi SAP che useranno il file server. In questo modo verranno distribuite la quantità necessaria di configurazioni front-end, regole di bilanciamento del carico, porte probe, dischi e così via.
+      Immettere il numero di sistemi SAP che useranno il file server. Verrà distribuita la quantità richiesta di configurazioni front-end, le regole di bilanciamento del carico, le porte Probe, i dischi e così via.
    3. Tipo di sistema operativo  
       Selezionare una delle distribuzioni Linux. Per questo esempio, selezionare SLES 12
    4. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile a /subscriptions/**&lt;&gt;ID sottoscrizione**/resourceGroups/**&lt;nome&gt;del gruppo**di risorse /providers/Microsoft.Network/virtualNetworks/nome**&lt;&gt;di rete virtuale**/subnets/**&lt;nome&gt; subnet**
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come**&lt;ID&gt;sottoscrizione**/subscriptions//resourceGroups/**&lt;nome&gt;gruppo di risorse**/Providers/Microsoft.Network/virtualNetworks/**&lt;nome&gt;rete virtuale**/Subnets/**&lt;nome subnet&gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
@@ -136,8 +136,8 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
    SLES For SAP Applications 12 SP3 (BYOS)  
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere un disco dati per ogni sistema SAP a entrambe le macchine virtuali.
-1. Creare un servizio di bilanciamento del carico (interno). È consigliabile il servizio di [bilanciamento del carico standard.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)  
-   1. Seguire queste istruzioni per creare un servizio di bilanciamento del carico standard:Follow these instructions to create standard Load balancer:
+1. Creare una Load Balancer (interna). Si consiglia [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+   1. Seguire queste istruzioni per creare un servizio di bilanciamento del carico standard:
       1. Creare gli indirizzi IP front-end
          1. Indirizzo IP 10.0.0.4 per NW1
             1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -149,7 +149,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
       1. Creare i pool back-end
          1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster NFS
             1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-            1. Immettere il nome del nuovo pool back-end (ad esempio **nw-backend**)
+            1. Immettere il nome del nuovo pool back-end (ad esempio **, NW-back-end**)
             1. Seleziona rete virtuale
             1. Fare clic su Aggiungi una macchina virtuale
             1. Selezionare le macchine virtuali del cluster NFS e i relativi indirizzi IP.
@@ -163,15 +163,15 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Porta 61001 per NW2
             * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
       1. Regole di bilanciamento del carico
-         1. Aprire il servizio di bilanciamento del carico, selezionare le regole di bilanciamento del carico e fare clic su Aggiungi
-         1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio **nw1-lb**)
-         1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-frontend**. **nw-backend** e **nw1-hp**)
-         1. Selezionare **Porte HA**.
+         1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
+         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb**
+         1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **NW1-frontend**. **NW-backend** e **NW1-HP**)
+         1. Selezionare **porte a disponibilità elevata**.
          1. Aumentare il timeout di inattività a 30 minuti
-         1. **Assicurarsi di abilitare l'IP mobile**
+         1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare una regola di bilanciamento del carico per NW2
-   1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base, seguire queste istruzioni:Alternatively, if your scenario requires basic load balancer, follow these instructions:
+   1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base, seguire queste istruzioni:
       1. Creare gli indirizzi IP front-end
          1. Indirizzo IP 10.0.0.4 per NW1
             1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -183,7 +183,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
       1. Creare i pool back-end
          1. Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster NFS
             1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-            1. Immettere il nome del nuovo pool back-end (ad esempio **nw-backend**)
+            1. Immettere il nome del nuovo pool back-end (ad esempio **, NW-back-end**)
             1. Fare clic su Aggiungi una macchina virtuale
             1. Selezionare il set di disponibilità creato in precedenza
             1. Selezionare le macchine virtuali del cluster NFS
@@ -203,7 +203,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-frontend**
             1. Mantenere il protocollo **TCP** e immettere la porta **2049**
             1. Aumentare il timeout di inattività a 30 minuti
-            1. **Assicurarsi di abilitare l'IP mobile**
+            1. **Assicurarsi di abilitare l'indirizzo IP mobile**
             1. Fare clic su OK.
          1. UDP 2049 per NW1
             * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW1
@@ -213,10 +213,10 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
             * Ripetere i passaggi precedenti per la porta 2049 e UDP per NW2
 
 > [!Note]
-> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico standard di Azure interno (nessun indirizzo IP pubblico), non sarà disponibile alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing agli endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere Connettività degli endpoint pubblici per macchine virtuali che [usano Azure Standard Load Balancer in scenari di disponibilità elevata SAP.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
+> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Non abilitare timestamp TCP nelle macchine virtuali di Azure posizionati dietro Azure Load Balancer.Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. L'abilitazione dei timestamp TCP causerà l'esito negativo dei probe di integrità. Impostare il parametro **net.ipv4.tcp_timestamps su** **0**. Per informazioni dettagliate, vedere [Sondati di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -462,7 +462,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[A]** Configurare il rilevamento di scenari split brain per drbd
 
-   Quando si usa drbd per sincronizzare i dati da un host a un altro, può verificarsi un fenomeno denominato split brain. Un cervello diviso è uno scenario in cui entrambi i nodi del cluster hanno promosso il dispositivo drbd come principale ed è andato fuori sincrono. Potrebbe essere una situazione rara, ma si vuole ancora gestire e risolvere un cervello diviso il più velocemente possibile. Di conseguenza, è importante ricevere una notifica quando si verifica uno scenario di split brain.
+   Quando si usa drbd per sincronizzare i dati da un host a un altro, può verificarsi un fenomeno denominato split brain. Uno Split Brain è uno scenario in cui entrambi i nodi del cluster hanno innalzato di livello il dispositivo DRBD come primario e non sono più sincronizzati. Potrebbe trattarsi di una situazione rara, ma si vuole comunque gestire e risolvere un cervello diviso il più velocemente possibile. Di conseguenza, è importante ricevere una notifica quando si verifica uno scenario di split brain.
 
    Leggere la [documentazione ufficiale di drbd](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) su come configurare una notifica di split brain.
 
@@ -473,13 +473,13 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 1. **[1]** Aggiungere i dispositivi drbd NFS per il sistema SAP NW1 alla configurazione del cluster
 
    > [!IMPORTANT]
-   > I test recenti hanno rivelato situazioni in cui netcat smette di rispondere alle richieste a causa del backlog e della sua limitazione della gestione di una sola connessione. La risorsa netcat interrompe l'ascolto delle richieste di bilanciamento di Azure Load e l'IP mobile non è più disponibile.  
-   > Per i cluster Pacemaker esistenti, è stato consigliato in passato la sostituzione di netcat con socat. È attualmente consigliabile usare l'agente di risorse azure-lb, che fa parte degli agenti delle risorse del pacchetto, con i requisiti di versione del pacchetto seguenti:Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
-   > - Per SLES 12 SP4/SP5, la versione deve essere almeno resource-agents-4.3.018.a7fb5035-3.30.1.  
-   > - Per SLES 15/15 SP1, la versione deve essere almeno resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   > Sono state rilevate situazioni di test recenti, in cui netcat smette di rispondere alle richieste dovute al backlog e alla limitazione della gestione di una sola connessione. La risorsa netcat smette di restare in ascolto delle richieste del servizio di bilanciamento del carico di Azure e l'IP mobile diventa non disponibile.  
+   > Per i cluster Pacemaker esistenti, è consigliabile sostituire Netcat con socat in passato. Attualmente è consigliabile usare l'agente di risorse di Azure-lb, che fa parte degli agenti di risorse del pacchetto, con i seguenti requisiti di versione del pacchetto:
+   > - Per SLES 12 SP4/SP5, la versione deve essere almeno Resource-Agents-4.3.018. a7fb5035-3.30.1.  
+   > - Per SLES 15/15 SP1, la versione deve essere almeno Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
    >
-   > Si noti che la modifica richiederà tempi di inattività brevi.  
-   > Per i cluster Pacemaker esistenti, se la configurazione è già stata modificata per usare socat come descritto in Protezione avanzata del rilevamento del bilanciamento del [carico di Azure,](https://www.suse.com/support/kb/doc/?id=7024128)non è necessario passare immediatamente all'agente di risorse azure-lb.
+   > Si noti che la modifica richiederà un breve tempo di inattività.  
+   > Per i cluster Pacemaker esistenti, se la configurazione è stata già modificata per usare socat come descritto in [protezione avanzata del rilevamento](https://www.suse.com/support/kb/doc/?id=7024128)del servizio di bilanciamento del carico di Azure, non è necessario passare immediatamente all'agente di risorse Azure-lb.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -571,7 +571,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-   L'opzione `crossmnt` `exportfs` nelle risorse del cluster è presente nella documentazione per la compatibilità con le versioni precedenti di SLES.  
+   L' `crossmnt` opzione nelle risorse `exportfs` cluster è presente nella documentazione per la compatibilità con le versioni precedenti di SLES.  
 
 1. **[1]** Disabilitare la modalità manutenzione
    

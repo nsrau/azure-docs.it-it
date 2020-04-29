@@ -1,97 +1,97 @@
 ---
-title: Configurare il set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente - Portale di AzureConfigure virtual machine scale set with an existing Azure Load Balancer - Azure portal
-description: Informazioni su come configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente.
+title: Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente-portale di Azure
+description: Informazioni su come configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: article
 ms.date: 03/25/2020
 ms.openlocfilehash: b2a83b226a4b2ddbbd554783de6a2b5c85c92f0a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349717"
 ---
-# <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente usando il portale di AzureConfigure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal
+# <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando il portale di Azure
 
-In questo articolo verrà illustrato come configurare un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente. 
+Questo articolo illustra come configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure.
-- Un servizio di bilanciamento del carico sku standard esistente nella sottoscrizione in cui verrà distribuito il set di scalabilità della macchina virtuale.
-- Una rete virtuale di Azure per il set di scalabilità della macchina virtuale.
+- Un servizio di bilanciamento del carico SKU standard esistente nella sottoscrizione in cui verrà distribuito il set di scalabilità di macchine virtuali.
+- Una rete virtuale di Azure per il set di scalabilità di macchine virtuali.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Accedere al portale di [https://portal.azure.com](https://portal.azure.com)Azure all'indirizzo .
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 
 
-## <a name="deploy-virtual-machine-scale-set-with-existing-load-balancer"></a>Distribuire il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico esistenteDeploy virtual machine scale set with existing load balancer
+## <a name="deploy-virtual-machine-scale-set-with-existing-load-balancer"></a>Distribuire un set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico esistente
 
 In questa sezione verrà creato un set di scalabilità di macchine virtuali nel portale di Azure con un servizio di bilanciamento del carico di Azure esistente.
 
 > [!NOTE]
-> I passaggi seguenti presuppongono che una rete virtuale denominata **myVNet** e un servizio di bilanciamento del carico di Azure denominato **myLoadBalancer** sia stato distribuito in precedenza.
+> I passaggi seguenti presuppongono che una rete virtuale denominata **myVNet** e un servizio di bilanciamento del carico di Azure denominato **myLoadBalancer** siano stati distribuiti in precedenza.
 
-1. Nella parte superiore sinistra dello schermo fare clic su **Crea un** > set di scalabilità**macchina di** **calcolo** > risorse o cercare Set di **scalabilità macchina virtuale** nella ricerca del marketplace.
+1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **calcolo** > **set di scalabilità di macchine virtuali** o cercare set di **scalabilità di macchine virtuali** nella ricerca nel Marketplace.
 
 2. Selezionare **Crea**.
 
-3. In Crea un set di **scalabilità di macchine virtuali**immettere o selezionare queste informazioni nella scheda **Nozioni di base:In** Create a virtual machine scale set , enter or select this information in the Basics tab:
+3. In **creare un set di scalabilità di macchine virtuali**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
 
     | Impostazione                        | valore                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
     | **Dettagli del progetto**            |                                                                                                       |
     | Subscription                   | Selezionare la sottoscrizione ad Azure                                                                        |
-    | Gruppo di risorse                 | Selezionare Crea nuovo, immettere **myResourceGroup**, quindi scegliere OK o selezionare un gruppo di risorse esistente. |
-    | **Dettagli del set di scalabilitàScale set details**          |                                                                                                       |
-    | Nome del set di scalabilità di macchine virtuali | Inserisci **myVMSS**                                                                                      |
-    | Region                         | Selezionare **Stati Uniti orientali 2**                                                                                    |
-    | Zona di disponibilità              | Selezionare **Nessuno**                                                                                       |
+    | Gruppo di risorse                 | Selezionare Crea nuovo, immettere **myResourceGroup**, quindi selezionare OK oppure selezionare un gruppo di risorse esistente. |
+    | **Dettagli del set di scalabilità**          |                                                                                                       |
+    | Nome del set di scalabilità di macchine virtuali | Immettere **myVMSS**                                                                                      |
+    | Region                         | Seleziona **Stati Uniti orientali 2**                                                                                    |
+    | Zona di disponibilità              | Selezionare **nessuno**                                                                                       |
     | **Dettagli istanza**           |                                                                                                       |
-    | Immagine                          | Selezionare **Ubuntu Server 18.04 LTS**                                                                    |
-    | Istanza di Azure Spot            | Selezionare **No**.                                                                                         |
-    | Dimensione                           | Lascia l'impostazione predefinita                                                                                      |
+    | Immagine                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
+    | Istanza di Azure spot            | Selezionare **No**.                                                                                         |
+    | Dimensioni                           | Lascia il valore predefinito                                                                                      |
     | **Account amministratore**      |                                                                                                       |
     | Tipo di autenticazione            | Seleziona **password**                                                                                   |
-    | Username                       | Inserisci il tuo nome utente amministratore        |
-    | Password                       | Immettere la password di amministratore    |
-    | Conferma password               | Immettere nuovamente la password di amministratore |
+    | Username                       | Immettere il nome utente dell'amministratore        |
+    | Password                       | Immettere la password amministratore    |
+    | Conferma password               | Immettere nuovamente la password amministratore |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Creare il set di scalabilità delle macchine virtuali." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Creare un set di scalabilità di macchine virtuali." border="true":::
 
-4. Selezionare la scheda **Rete.Select** the Networking tab.
+4. Selezionare la scheda **rete** .
 
-5. Immettere o selezionare queste informazioni nella scheda **Rete:**
+5. Immettere o selezionare queste informazioni nella scheda **rete** :
 
      Impostazione                           | valore                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Configurazione della rete virtuale** |                                                          |
     | Rete virtuale                   | Selezionare **myVNet** o la rete virtuale esistente.      |
     | **Bilanciamento del carico**                |                                                          |
-    | Usare un servizio di bilanciamento del caricoUse a load balancer               | Selezionare **Sì**                                           |
+    | Usare un servizio di bilanciamento del carico               | Selezionare **Sì**                                           |
     | **Impostazioni di bilanciamento del carico**       |                                                          |
-    | Opzioni di bilanciamento del carico            | Selezionare il servizio di bilanciamento del carico di **AzureSelect Azure load**                           |
-    | Selezionare un servizio di bilanciamento del caricoSelect a load balancer            | Selezionare myLoadBalancer o il servizio di bilanciamento del carico esistenteSelect **myLoadBalancer** or your existing load balancer |
+    | Opzioni di bilanciamento del carico            | Selezionare il servizio di **bilanciamento del carico di Azure**                           |
+    | Selezionare un servizio di bilanciamento del carico            | Selezionare **myLoadBalancer** o il servizio di bilanciamento del carico esistente |
     | Selezionare un pool back-end             | Selezionare **myBackendPool** o il pool back-end esistente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Creare il set di scalabilità delle macchine virtuali." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Creare un set di scalabilità di macchine virtuali." border="true":::
 
-6. Selezionare la scheda **Gestione.**
+6. Selezionare la scheda **gestione** .
 
-7. Nella scheda **Gestione** impostare **Diagnostica di avvio** su **Disattivato**.
+7. Nella scheda **gestione** impostare diagnostica di **avvio** su **disattivato**.
 
-8. Selezionare il pulsante blu **Revisione e creazione.**
+8. Selezionare il pulsante **Verifica blu + crea** .
 
-9. Rivedere le impostazioni e selezionare il pulsante **Crea.**
+9. Verificare le impostazioni e selezionare il pulsante **Crea** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato distribuito un set di scalabilità di macchine virtuali con un servizio di bilanciamento del carico di Azure esistente.  Per altre informazioni sui set di scalabilità delle macchine virtuali e sul servizio di bilanciamento del carico, vedere:To learn more about virtual machine scale sets and load balancer, see:
+In questo articolo è stato distribuito un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente.  Per altre informazioni sui set di scalabilità di macchine virtuali e sul servizio di bilanciamento del carico, vedere:
 
 - [Informazioni su Azure Load Balancer](load-balancer-overview.md)
-- [Informazioni sui set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md)
+- [Che cosa sono i set di scalabilità delle macchine virtuali?](../virtual-machine-scale-sets/overview.md)

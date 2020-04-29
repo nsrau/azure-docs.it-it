@@ -1,6 +1,6 @@
 ---
-title: Operazioni di I/O di base Mappe di Microsoft Azure
-description: Informazioni su come leggere e scrivere in modo efficiente XML e dati delimitati utilizzando le librerie di base dal modulo i/O spaziale.
+title: Operazioni di i/o Core | Mappe Microsoft Azure
+description: Informazioni su come leggere e scrivere in modo efficiente i dati XML e delimitati usando le librerie di base del modulo IO spaziale.
 author: philmea
 ms.author: philmea
 ms.date: 03/03/2020
@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371448"
 ---
-# <a name="core-io-operations"></a>Operazioni di I/O di base
+# <a name="core-io-operations"></a>Operazioni di i/o Core
 
-Oltre a fornire strumenti per leggere i file di dati spaziali, il modulo I/O spaziale espone le librerie sottostanti di base per leggere e scrivere XML e dati delimitati in modo rapido ed efficiente.
+Oltre a fornire gli strumenti per leggere i file di dati spaziali, il modulo i/o spaziale espone le librerie principali sottostanti per leggere e scrivere dati XML e delimitati in modo rapido ed efficiente.
 
-Lo `atlas.io.core` spazio dei nomi contiene due classi di basso livello in grado di leggere e scrivere rapidamente dati CSV e XML. Queste classi di base alimentano i lettori e i writer di dati spaziali nel modulo I/O spaziale. Sentiti libero di usarli per aggiungere ulteriore supporto di lettura e scrittura per i file CSV o XML.
+Lo `atlas.io.core` spazio dei nomi contiene due classi di basso livello che possono leggere e scrivere rapidamente dati CSV e XML. Queste classi di base potenziano i lettori e i writer dei dati spaziali nel modulo di i/o spaziale. È possibile usarli per aggiungere ulteriore supporto per la lettura e la scrittura di file CSV o XML.
  
 ## <a name="read-delimited-files"></a>Lettura di file delimitati
 
-La `atlas.io.core.CsvReader` classe legge le stringhe che contengono set di dati delimitati. Questa classe fornisce due metodi per la lettura dei dati:This class provides two methods for reading data:
+La `atlas.io.core.CsvReader` classe legge le stringhe che contengono set di dati delimitati. Questa classe fornisce due metodi per la lettura dei dati:
 
-- La `read` funzione leggerà il set di dati completo e restituirà una matrice bidimensionale di stringhe che rappresentano tutte le celle del set di dati delimitato.
-- La `getNextRow` funzione legge ogni riga di testo in un set di dati delimitato e restituisce una matrice di stringhe che rappresenta tutte le celle in tale riga del set di dati. L'utente può elaborare la riga ed eliminare la memoria non necessaria da tale riga prima di elaborare la riga successiva. Quindi, la funzione è più efficiente in termini di memoria.
+- Tramite `read` la funzione viene letto il set di dati completo e viene restituita una matrice bidimensionale di stringhe che rappresenta tutte le celle del set di dati delimitato.
+- La `getNextRow` funzione legge ogni riga di testo in un set di dati delimitato e restituisce una matrice di stringa che rappresenta tutte le celle della riga del set di dati. L'utente può elaborare la riga ed eliminare la memoria non necessaria da tale riga prima di elaborare la riga successiva. Quindi, la funzione è più efficiente della memoria.
 
-Per impostazione predefinita, il lettore utilizzerà il carattere virgola come delimitatore. Tuttavia, il delimitatore può essere modificato `'auto'`in qualsiasi singolo carattere o impostato su . Se impostato `'auto'`su , il lettore analizzerà la prima riga di testo nella stringa. Quindi, selezionerà il carattere più comune dalla tabella seguente da utilizzare come delimitatore.
+Per impostazione predefinita, il lettore utilizzerà il carattere virgola come delimitatore. Tuttavia, il delimitatore può essere modificato in qualsiasi carattere singolo o impostato su `'auto'`. Se impostato su `'auto'`, il lettore analizzerà la prima riga di testo nella stringa. Quindi seleziona il carattere più comune della tabella seguente da usare come delimitatore.
 
 | | |
 | :-- | :-- |
@@ -36,27 +36,27 @@ Per impostazione predefinita, il lettore utilizzerà il carattere virgola come d
 | Scheda | `\t` |
 | Pipe | `|` |
 
-Questo lettore supporta anche i qualificatori di testo utilizzati per gestire le celle che contengono il carattere delimitatore. Il carattere virgolette (`'"'`) è il qualificatore di testo predefinito, ma può essere modificato in qualsiasi carattere singolo.
+Questo Reader supporta inoltre i qualificatori di testo usati per gestire le celle che contengono il carattere delimitatore. Il carattere virgolette (`'"'`) è il qualificatore di testo predefinito, ma può essere modificato in qualsiasi carattere singolo.
 
-## <a name="write-delimited-files"></a>Scrivere file delimitati
+## <a name="write-delimited-files"></a>Scrivi file delimitati
 
-Il `atlas.io.core.CsvWriter` scrive una matrice di oggetti come stringa delimitata. Qualsiasi carattere singolo può essere utilizzato come delimitatore o qualificatore di testo. Il delimitatore predefinito`','`è la virgola ( )`'"'`e il qualificatore di testo predefinito è il carattere virgolette ( ).
+`atlas.io.core.CsvWriter` Scrive una matrice di oggetti sotto forma di stringa delimitata. Qualsiasi carattere singolo può essere utilizzato come delimitatore o come qualificatore di testo. Il delimitatore predefinito è virgola`','`() e il qualificatore di testo predefinito è`'"'`il carattere virgolette ().
 
-Per utilizzare questa classe, attenersi alla seguente procedura:
+Per usare questa classe, attenersi alla procedura seguente:
 
 - Creare un'istanza della classe e, facoltativamente, impostare un delimitatore personalizzato o un qualificatore di testo.
-- Scrivere dati nella classe `write` utilizzando `writeRow` la funzione o la funzione . Per `write` la funzione, passare una matrice bidimensionale di oggetti che rappresentano più righe e celle. Per utilizzare `writeRow` la funzione, passare una matrice di oggetti che rappresentano una riga di dati con più colonne.
-- Chiamare `toString` la funzione per recuperare la stringa delimitata. 
-- Facoltativamente, chiamare `clear` il metodo per rendere riutilizzabile il writer `delete` e ridurne l'allocazione delle risorse oppure chiamare il metodo per eliminare l'istanza del writer.
+- Scrivere i dati nella classe usando la `write` funzione o `writeRow` . Per la `write` funzione, passare una matrice bidimensionale di oggetti che rappresentano più righe e celle. Per utilizzare la `writeRow` funzione, passare una matrice di oggetti che rappresenta una riga di dati con più colonne.
+- Chiamare la `toString` funzione per recuperare la stringa delimitata. 
+- È possibile chiamare il `clear` metodo per rendere il writer riutilizzabile e ridurne l'allocazione delle risorse oppure `delete` chiamare il metodo per eliminare l'istanza del writer.
 
 > [!Note]
 > Il numero di colonne scritte sarà vincolato al numero di celle nella prima riga dei dati passati al writer.
 
-## <a name="read-xml-files"></a>Leggere i file XML
+## <a name="read-xml-files"></a>Lettura di file XML
 
-La `atlas.io.core.SimpleXmlReader` classe è più veloce nell'analisi di file XML rispetto `DOMParser`a . Tuttavia, `atlas.io.core.SimpleXmlReader` la classe richiede che i file XML siano ben formattati. I file XML che non sono ben formattati, ad esempio i tag di chiusura mancanti, genereranno probabilmente un errore.
+La `atlas.io.core.SimpleXmlReader` classe è più veloce durante l'analisi dei file `DOMParser`XML rispetto a. Tuttavia, la `atlas.io.core.SimpleXmlReader` classe richiede che i file XML siano formattati correttamente. I file XML che non sono formattati correttamente, ad esempio i tag di chiusura mancanti, probabilmente genereranno un errore.
 
-Il codice seguente illustra `SimpleXmlReader` come usare la classe per analizzare una stringa XML in un oggetto JSON e serializzarla nel formato desiderato.
+Il codice seguente illustra come usare la `SimpleXmlReader` classe per analizzare una stringa XML in un oggetto JSON e serializzarla nel formato desiderato.
 
 ```javascript
 //Create an instance of the SimpleXmlReader and parse an XML string into a JSON object.
@@ -80,9 +80,9 @@ if (xmlDoc && xmlDoc.root && xmlDoc.root.tagName && xmlDoc.root.tagName === '<Yo
 
 ## <a name="write-xml-files"></a>Scrivere file XML
 
-La `atlas.io.core.SimpleXmlWriter` classe scrive XML in formato ben formattato in modo efficiente dalla memoria.
+La `atlas.io.core.SimpleXmlWriter` classe scrive codice XML ben formattato in modo efficiente per la memoria.
 
-Nel codice seguente viene `SimpleXmlWriter` illustrato come utilizzare la classe per generare una stringa XML ben formattata.
+Nel codice seguente viene illustrato come utilizzare la `SimpleXmlWriter` classe per generare una stringa XML ben formattata.
 
 ```javascript
 //Create an instance of the SimpleXmlWriter class.
@@ -115,7 +115,7 @@ writer.writeEndElement().writeEndDocument();
 var xmlString = writer.toString();
 ```
 
-Il codice XML generato dal codice precedente sarà simile al seguente.
+Il codice XML generato dal codice precedente avrà un aspetto simile al seguente.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -131,18 +131,18 @@ Il codice XML generato dal codice precedente sarà simile al seguente.
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [CsvReader (informazioni in uso)](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
+> [CsvReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
 
 > [!div class="nextstepaction"]
 > [CsvWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
 
 > [!div class="nextstepaction"]
-> [SimpleXmlReader (informazioni in base al tazz](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
+> [SimpleXmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
 
 > [!div class="nextstepaction"]
-> [SimpleXmlWriter (scrittura di SimpleXmlWriter)](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
+> [SimpleXmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Dettagli sul formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)

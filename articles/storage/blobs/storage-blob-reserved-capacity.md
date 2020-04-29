@@ -9,10 +9,10 @@ ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e73686629de8481f6a37e5bfafc9b723206b4853
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80351036"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Ottimizzare i costi per l'archiviazione BLOB con capacità riservata
@@ -129,5 +129,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sulle prenotazioni di Azure](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Che cosa sono le prenotazioni di Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Informazioni su come viene applicato lo sconto per la prenotazione ad Archiviazione di Azure](../../cost-management-billing/reservations/understand-storage-charges.md)

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/23/2020
 ms.author: sohamnc
 ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371641"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Log RAW HTTP della rete CDN di Azure
@@ -53,7 +53,7 @@ Per configurare i log non elaborati per la rete CDN di Azure dal profilo Microso
         * Selezionare la **sottoscrizione** e l' **area di lavoro log Analytics**.
     * **Archivia in un account di archiviazione**
         * Selezionare la **sottoscrizione** e l' **account di archiviazione**.
-    * **Streaming in un hub eventi**
+    * **Trasmettere a un hub eventi**
         * Selezionare la **sottoscrizione**, **lo spazio dei nomi dell'hub eventi**, il **nome dell'hub eventi (facoltativo)** e il **nome del criterio dell'hub eventi**.
 
     ![Impostazioni di diagnostica della rete CDN](./media/cdn-raw-logs/raw-logs-02.png)

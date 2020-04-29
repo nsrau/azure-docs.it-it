@@ -9,10 +9,10 @@ ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3a853dc32f8716f3f2ba32896a7a4a239efcc5bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349872"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione usando automazione di Azure

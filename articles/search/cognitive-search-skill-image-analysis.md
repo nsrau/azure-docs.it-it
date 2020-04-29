@@ -1,7 +1,7 @@
 ---
 title: Competenza cognitiva di Analisi delle immagini
 titleSuffix: Azure Cognitive Search
-description: Estrarre testo semantico tramite l'analisi delle immagini usando l'abilità cognitiva Analisi immagine in una pipeline di arricchimento dell'iaformazione in Ricerca cognitiva di Azure.Extract semantic text through image analysis using the Image Analysis cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
+description: Estrai il testo semantico tramite l'analisi delle immagini usando la competenza cognitiva per l'analisi delle immagini in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4ff6972e2f7ea219a1c8c8dbabbf9fe12a8fa59e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80369482"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
@@ -20,7 +20,7 @@ ms.locfileid: "80369482"
 La competenza di **Analisi delle immagini** estrae una vasta gamma di caratteristiche visive in base al contenuto delle immagini. Ad esempio, si può generare una didascalia da un'immagine, generare tag o identificare personaggi famosi e luoghi di interesse. Questa competenza usa i modelli di Machine Learning forniti da [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Servizi cognitivi. 
 
 > [!NOTE]
-> Piccoli volumi (in meno di 20 transazioni) possono essere eseguiti gratuitamente in Ricerca cognitiva di Azure, ma carichi di lavoro più grandi richiedono il collegamento di [una risorsa servizi cognitivi fatturabile.](cognitive-search-attach-cognitive-services.md) Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> I volumi piccoli (inferiori a 20 transazioni) possono essere eseguiti gratuitamente in Azure ricerca cognitiva, ma i carichi di lavoro di dimensioni maggiori richiedono [il fissaggio di una risorsa di servizi cognitivi fatturabili](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
 > L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione di immagini sono descritti nella [pagina dei prezzi di Ricerca cognitiva di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -34,9 +34,9 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
-| defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *es* - Spagnolo <br/> *ja* - Giapponese <br/> *pt* - Portoghese <br/> *zh* - Cinese semplificato|
-| visualFeatures |  Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li>*adulto* - rileva se l'immagine è di natura pornografica (rappresenta nudità o un atto sessuale), o è cruento (rappresenta la violenza estrema o il sangue). Viene rilevato anche contenuto sessualmente allusivo (noto anche come contenuto.</li><li>*marchi* - rileva varie marche all'interno di un'immagine, inclusa la posizione approssimativa. La funzione visiva del *marchio* è disponibile solo in inglese.</li><li> *categories* - classifica il contenuto dell'immagine in base a una tassonomia definita nella [documentazione](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)di Cognitive Services Computer Vision . </li><li>*description* - descrive il contenuto dell'immagine con una frase completa nelle lingue supportate.</li><li>*facce* - rileva se sono presenti facce. Se presente, genera coordinate, sesso ed età.</li><li> *objects* - rileva vari oggetti all'interno di un'immagine, inclusa la posizione approssimativa. La funzione visiva *degli oggetti* è disponibile solo in inglese.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole. Si noti che le funzionalità visive *color* e *imageType* sono state deprecate, ma è comunque possibile accedere a questa funzionalità tramite una [competenza personalizzata.](https://go.microsoft.com/fwlink/?linkid=2121117)|
-| dettagli   | Matrice di stringhe che indica quali dettagli specifici del dominio restituire. I tipi di caratteristiche visive valide comprendono: <ul><li>*celebrità* - identifica le celebrità se rilevate nell'immagine.</li><li>*punti di riferimento* - identifica i punti di riferimento se rilevati nell'immagine. </li></ul> |
+| defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *es* -spagnolo <br/> *ja* -giapponese <br/> *PT* -portoghese <br/> *zh* - Cinese semplificato|
+| visualFeatures |  Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li>*Adult* : rileva se l'immagine è pornografica (Mostra la nudità o un sex Act) o è cruenta (illustra violenza o sangue). Vengono rilevati anche contenuti sessuali (noti anche come contenuto).</li><li>*marchi* : rileva diversi marchi all'interno di un'immagine, inclusa la posizione approssimativa. La funzionalità visiva dei *marchi* è disponibile solo in inglese.</li><li> *categorie* : Categorizza il contenuto dell'immagine in base a una tassonomia definita nella documentazione dei servizi cognitivi [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li>*Descrizione* : descrive il contenuto dell'immagine con una frase completa nelle lingue supportate.</li><li>*visi* : rileva se sono presenti visi. Se presente, genera coordinate, sesso ed età.</li><li> *oggetti* : rileva vari oggetti all'interno di un'immagine, inclusa la posizione approssimativa. La funzionalità visiva *oggetti* è disponibile solo in inglese.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole. Si noti che le funzionalità visive del *colore* e del *ImageType* sono state deprecate, ma questa funzionalità è ancora accessibile tramite un' [abilità personalizzata](https://go.microsoft.com/fwlink/?linkid=2121117).|
+| dettagli   | Matrice di stringhe che indica quali dettagli specifici del dominio restituire. I tipi di caratteristiche visive valide comprendono: <ul><li>*celebrità* : identifica le celebrità se rilevate nell'immagine.</li><li>*punti di riferimento* : identifica i punti di riferimento se vengono rilevati nell'immagine. </li></ul> |
 
 ## <a name="skill-inputs"></a>Input competenze
 
@@ -46,7 +46,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 
 
-##  <a name="sample-skill-definition"></a>Definizione di competenza di esempio
+##  <a name="sample-skill-definition"></a>Definizione di competenze di esempio
 
 ```json
         {
@@ -86,7 +86,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
             ]
         }
 ```
-### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Indice di esempio (solo per i campi categorie, descrizione, volti e tag)
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Indice di esempio (solo per le categorie, i campi Descrizione, visi e tag)
 ```json
 {
     "fields": [
@@ -322,9 +322,9 @@ I parametri fanno distinzione tra maiuscole e minuscole.
             "targetFieldName": "brands"
         }
 ```
-### <a name="variation-on-output-field-mappings-nested-properties"></a>Variazione nei mapping dei campi di output (proprietà annidate)
+### <a name="variation-on-output-field-mappings-nested-properties"></a>Variazione nei mapping dei campi di output (proprietà nidificate)
 
-È possibile definire i mapping dei campi di output a proprietà di livello inferiore, ad esempio solo punti di riferimento o celebrità. In questo caso, assicurarsi che lo schema di indice disponga di un campo per contenere in modo specifico i punti di riferimento.
+È possibile definire i mapping dei campi di output a proprietà di basso livello, ad esempio solo punti di riferimento o celebrità. In questo caso, assicurarsi che lo schema dell'indice includa un campo che contenga i punti di riferimento in modo specifico.
 
 ```json
     "outputFieldMappings": [
@@ -522,7 +522,7 @@ Nei seguenti casi di errore, non viene estratto nessun elemento.
 | NotSupportedImage | Immagine non supportata, ad esempio, contenuti pedopornografici. |
 | InvalidDetails | Modello specifico del dominio non supportato. |
 
-Se viene visualizzato un `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`errore simile a , controllare il percorso. Sia celebrità e punti `detail`di riferimento sono proprietà sotto .
+Se si ottiene l'errore simile a `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, controllare il percorso. Sia le celebrità che i punti di riferimento `detail`sono proprietà in.
 
 ```json
 "categories":[  

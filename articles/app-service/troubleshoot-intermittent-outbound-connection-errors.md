@@ -8,10 +8,10 @@ ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
 ms.openlocfilehash: 028ddccdb989d35710e387081b08a3b973d75bdc
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80367551"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
@@ -170,7 +170,7 @@ Non è possibile modificare le impostazioni di Azure per rilasciare prima le por
 * Se viene individuata una RST, la porta SNAT viene rilasciata dopo 15 secondi.
 * Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.
  
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 * [SNAT con il servizio app](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)
 * [Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure](https://docs.microsoft.com/azure/app-service/troubleshoot-performance-degradation)

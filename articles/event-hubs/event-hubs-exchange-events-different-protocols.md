@@ -1,5 +1,5 @@
 ---
-title: Hub eventi di Azure - Eventi di Exchange che usano protocolli diversiAzure Event Hubs - Exchange events using different protocols
+title: 'Hub eventi di Azure: eventi di scambio usando protocolli diversi'
 description: Questo articolo illustra in che modo i consumer e i producer che usano protocolli diversi (AMQP, Apache Kafka e HTTPS) possono scambiare eventi quando usano Hub eventi di Azure.
 services: event-hubs
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: femila
 ms.openlocfilehash: 368cc568c40e878338e6b45205e74cba1d0b6378
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80372208"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Scambiare eventi tra consumer e producer che usano protocolli diversi: AMQP, Kafka e HTTPS
@@ -339,10 +339,10 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato illustrato come eseguire lo streaming in Hub eventi senza modificare i client di protocollo o eseguire i propri cluster. Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere gli articoli seguenti:  
+In questo articolo è stato illustrato come eseguire lo streaming in Hub eventi senza modificare i client di protocollo o eseguire cluster personalizzati. Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere gli articoli seguenti:  
 
 * [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Leggere le informazioni su Hub eventi per Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Esplorare altri esempi di Hub eventi per Kafka in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Usa [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per [trasmettere eventi da Kafka in locale agli hub eventi sul cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Scopri come eseguire lo streaming negli hub eventi utilizzando [applicazioni Kafka native,](event-hubs-quickstart-kafka-enabled-event-hubs.md) [Apache Flink](event-hubs-kafka-flink-tutorial.md)o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+* Usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per [trasmettere gli eventi da Kafka in locale a hub eventi nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Informazioni su come eseguire lo streaming in hub eventi usando [le applicazioni Kafka native](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md)o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
