@@ -4,10 +4,10 @@ description: Creare un pool di batch da una risorsa immagine gestita per eseguir
 ms.topic: article
 ms.date: 09/16/2019
 ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117319"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine gestita per creare un pool di macchine virtuali

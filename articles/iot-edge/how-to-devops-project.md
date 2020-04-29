@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130985"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Creare una pipeline CI/CD per IoT Edge con Azure DevOps Projects
@@ -28,7 +28,7 @@ DevOps Projects crea una pipeline CI/CD in Azure DevOps. È possibile creare una
 
 1. Nel riquadro a sinistra selezionare **Crea una risorsa** e quindi cercare **DevOps Projects**.  
 
-1. Seleziona **Crea**.
+1. Selezionare **Crea**.
 
 ## <a name="create-a-new-application-pipeline"></a>Creare una nuova pipeline applicazione
 
@@ -124,7 +124,7 @@ Nelle sezioni precedenti, Azure DevOps Projects ha configurato automaticamente u
 
 14. Selezionare il nome di una versione per visualizzare altre informazioni su di essa.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Quando non servono più, è possibile eliminare il Servizio app di Azure e altre risorse correlate creati in precedenza. Usare la funzionalità di **eliminazione** nel dashboard DevOps Projects.
 

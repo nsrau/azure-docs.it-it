@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 15bbd7776f2ac8fef78cde43a22e59b0e60a6f50
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142994"
 ---
 # <a name="virtual-machine-support-tab"></a>Scheda Support (Supporto) di macchina virtuale
@@ -30,11 +30,11 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 |         Campo                 |       Descrizione                                                        |
 |        -------                |       ------------                                                       |
 | *Engineering Contact (Contatto tecnico)*     | Funge da contatto tecnico tra Microsoft e l'organizzazione | 
-| **Name\***                | Nome della persona o del gruppo che funge da supporto tecnico/progettazione     |
+| **Nome\***                | Nome della persona o del gruppo che funge da supporto tecnico/progettazione     |
 | **Posta elettronica\***               | Indirizzo di posta elettronica del contatto tecnico                                      |
 | **Phone\***               | Numero di telefono per il supporto tecnico                                           |
 | *Customer Support* (Assistenza clienti)        | Riceve i ticket di supporto aperti dai clienti all'interno di Azure |
-| **Name\***                | Nome della persona o del gruppo che assiste il cliente                  |
+| **Nome\***                | Nome della persona o del gruppo che assiste il cliente                  |
 | **Posta elettronica\***               | Indirizzo di posta elettronica dell'assistenza clienti                                            |
 | **Phone\***               | Numero di telefono dell'assistenza clienti                                            |
 | *Support Urls* (URL del supporto)            | Siti di supporto che Microsoft usa quando i clienti aprono ticket di supporto |

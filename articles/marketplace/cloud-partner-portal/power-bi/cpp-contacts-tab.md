@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: f3c6f3b07f878bac6e67be90947fb7109b840a3c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146755"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Scheda Contacts (Contatti) per l'app Power BI
@@ -31,11 +31,11 @@ La tabella seguente descrive lo scopo di ogni campo.  I campi obbligatori sono i
 |   Campo               |   Descrizione                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Engineering Contact (Contatto tecnico)* | Svolge la funzione di contatto tecnico tra AppSource e l'organizzazione dell'editore.    |
-| **Name\***              | Nome della persona o del gruppo che funge da supporto tecnico o di progettazione. |
+| **Nome\***              | Nome della persona o del gruppo che funge da supporto tecnico o di progettazione. |
 | **Posta elettronica\***             | Indirizzo di posta elettronica del contatto tecnico.                                  |
 | **Phone\***             | Numero di telefono per il supporto tecnico.                                       |
 | *Support Contact* (Contatto clienti)     | Riceve i ticket di supporto aperti dai clienti all'interno di AppSource.            |
-| **Name\***              | Nome della persona o del gruppo che assiste il cliente.              |
+| **Nome\***              | Nome della persona o del gruppo che assiste il cliente.              |
 | **Posta elettronica\***             | Indirizzo di posta elettronica dell'assistenza clienti.                                        |
 |   |   |
 

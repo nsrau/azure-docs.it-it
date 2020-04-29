@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6fc5b4c901254decdb2d34281a10ababd4d79d45
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127863"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Controlli di sicurezza per il gateway VPN di Azure
@@ -42,10 +42,10 @@ Questo articolo descrive i controlli di sicurezza incorporati nel gateway VPN di
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Sì | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) per la gestione del servizio e la configurazione del gateway VPN di Azure. |
+| Autenticazione| Sì | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) per la gestione del servizio e la configurazione del gateway VPN di Azure. |
 | Autorizzazione| Sì | Supportare l'autorizzazione tramite [RBAC](../role-based-access-control/overview.md). |
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|

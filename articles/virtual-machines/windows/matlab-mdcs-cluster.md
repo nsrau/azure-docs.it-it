@@ -1,5 +1,5 @@
 ---
-title: Cluster MATLAB in macchine virtualiMATLAB clusters on virtual machines
+title: Cluster MATLAB in macchine virtuali
 description: Usare macchine virtuali di Microsoft Azure per creare cluster MATLAB Distributed Computing Server per eseguire carichi di lavoro MATLAB paralleli a elevato utilizzo di calcolo
 author: mscurrell
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 ms.openlocfilehash: d34481587fd48e2eddfd268c39f6bc4f7c4e0c76
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869412"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Creare cluster MATLAB Distributed Computing Server in VM di Azure
@@ -27,7 +27,7 @@ Con le macchine virtuali di Azure, è possibile creare cluster MATLAB Distribute
 * **Computer client** : è necessario un computer client basato su Windows per comunicare con Azure e il cluster MATLAB Distributed Computing Server dopo la distribuzione.
 * **Azure PowerShell** : per l'installazione nel computer client, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti. Per cluster di maggiori dimensioni, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto.
-* **Quota di CPU virtuali**: potrebbe essere necessario aumentare la quota di CPU virtuali per distribuire un cluster di grandi dimensioni o più cluster MATLAB Distributed Computing Server. Per aumentare una quota, apri una [richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
+* **Quota di CPU virtuali**: potrebbe essere necessario aumentare la quota di CPU virtuali per distribuire un cluster di grandi dimensioni o più cluster MATLAB Distributed Computing Server. Per aumentare una quota, [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.
 * **Licenze per MATLAB, Parallel Computing Toolbox e MATLAB Distributed Computing Server** : negli script si presuppone che [MathWorks Hosted License Manager](https://www.mathworks.com/help/install/license-management.html) venga usato per tutte le licenze.  
 * **Software MATLAB Distributed Computing Server** : verrà installato in una VM che sarà usata come immagine di VM di base per le VM del cluster.
 

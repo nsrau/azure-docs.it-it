@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: ddedc15b41b2b163f85f5443275daf9fbb56bac8
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143040"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Scheda Offer Settings (Impostazioni dell'offerta) per app Power BI
@@ -31,8 +31,8 @@ Nella scheda **impostazioni offerta** è necessario immettere le informazioni ne
 |  Campo        |  Descrizione                                                               |
 |---------------|----------------------------------------------------------------------------|
 | **Offer ID (ID offerta)\***  | Identificatore univoco dell'offerta (in un profilo di pubblicazione). Questo ID è visibile negli URL dei prodotti, nei modelli di Azure Resource Manager e nei report di fatturazione. La lunghezza massima consentita è di 50 caratteri. Può contenere solo caratteri alfanumerici minuscoli e trattini (-). Non può terminare con un trattino. Questo identificatore non può essere modificato dopo il completamento di un'offerta. Se contoso pubblica un'offerta con ID `sample-SvcApp`offerta, all'offerta viene assegnato l'URL `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`AppSource.      |
-| **Editore\*** | Identificatore univoco dell'organizzazione in [AppSource](https://appsource.microsoft.com). È consigliabile associare a tutte le proprie offerte il proprio ID editore. Questo valore non può essere modificato dopo che l'offerta è stata salvata.                         |
-| **Name\***      | Nome visualizzato per l'offerta. Questo nome verrà visualizzato in AppSource e nella portale Cloud Partner. La lunghezza massima consentita è di 50 caratteri. Usare un nome di marchio riconoscibile per il prodotto. Non includere il nome dell'organizzazione, a meno che l'app non venga commercializzata con tale nome. Se si fornisce questa offerta ad altri siti Web e pubblicazioni, utilizzare lo stesso nome in tutte le pubblicazioni.    <br/>Se si rilascia un'offerta durante il periodo di anteprima per Power BI app, aggiungere la `(Preview)` stringa alla fine del nome dell'applicazione, come segue: `Sample Scv App (Preview)`. |
+| **Pubblicazione\*** | Identificatore univoco dell'organizzazione in [AppSource](https://appsource.microsoft.com). È consigliabile associare a tutte le proprie offerte il proprio ID editore. Questo valore non può essere modificato dopo che l'offerta è stata salvata.                         |
+| **Nome\***      | Nome visualizzato per l'offerta. Questo nome verrà visualizzato in AppSource e nella portale Cloud Partner. La lunghezza massima consentita è di 50 caratteri. Usare un nome di marchio riconoscibile per il prodotto. Non includere il nome dell'organizzazione, a meno che l'app non venga commercializzata con tale nome. Se si fornisce questa offerta ad altri siti Web e pubblicazioni, utilizzare lo stesso nome in tutte le pubblicazioni.    <br/>Se si rilascia un'offerta durante il periodo di anteprima per Power BI app, aggiungere la `(Preview)` stringa alla fine del nome dell'applicazione, come segue: `Sample Scv App (Preview)`. |
 |     |     |
 
 

@@ -5,10 +5,10 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137706"
 ---
 # <a name="alerts-on-activity-log"></a>Avvisi sul log attività
@@ -48,7 +48,7 @@ Gli avvisi del log attività hanno alcune opzioni comuni:
 > [!NOTE]
 > In una sottoscrizione possono essere create fino a 100 regole di avviso per l'attività dell'ambito per: una sola risorsa, tutte le risorse nel gruppo di risorse oppure a livello dell'intera sottoscrizione.
 
-Quando un avviso del log di attività viene attivato, usa un gruppo di azione per generare azioni o notifiche. Un gruppo di azione è un set riutilizzabile di ricevitori di notifica, ad esempio gli indirizzi di posta elettronica, gli URL webhook o i numeri di telefono di SMS. Più avvisi possono fare riferimento ai ricevitori per centralizzare e raggruppare i canali di notifica. Quando si definisce l'avviso del log di attività, sono disponibili due opzioni. È possibile:
+Quando un avviso del log di attività viene attivato, usa un gruppo di azione per generare azioni o notifiche. Un gruppo di azione è un set riutilizzabile di ricevitori di notifica, ad esempio gli indirizzi di posta elettronica, gli URL webhook o i numeri di telefono di SMS. Più avvisi possono fare riferimento ai ricevitori per centralizzare e raggruppare i canali di notifica. Quando si definisce l'avviso del log di attività, sono disponibili due opzioni. È possibile scegliere:
 
 * Usare un gruppo di azione esistente nell'avviso del log attività.
 * Creare un nuovo gruppo di azione.

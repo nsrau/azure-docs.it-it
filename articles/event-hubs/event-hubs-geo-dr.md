@@ -14,19 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281470"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209146"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
-In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Di conseguenza, il ripristino di *emergenza geografico* e la *replica geografica* sono funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
+In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il ripristino di *emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
 > [!NOTE]
-> La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati.](https://azure.microsoft.com/pricing/details/event-hubs/)  
+> La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
@@ -40,7 +40,7 @@ La funzionalità di ripristino di emergenza geografico di Hub eventi di Azure è
 
 La funzionalità di ripristino di emergenza implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari di ripristino di emergenza. 
 
-La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati.](https://azure.microsoft.com/pricing/details/event-hubs/) Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
+La funzionalità di ripristino di emergenza geografico è disponibile solo per gli [SKU standard e dedicati](https://azure.microsoft.com/pricing/details/event-hubs/) . Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
 
 In questo articolo viene usata la terminologia seguente:
 
@@ -52,8 +52,8 @@ In questo articolo viene usata la terminologia seguente:
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
-## <a name="supported-namespace-pairs"></a>Coppie di spazi dei nomi supportateSupported namespace pairs
-Sono supportate le seguenti combinazioni di spazi dei nomi primari o secondari:  
+## <a name="supported-namespace-pairs"></a>Coppie di spazi dei nomi supportate
+Sono supportate le seguenti combinazioni di spazi dei nomi primari e secondari:  
 
 | Spazio dei nomi primario | Spazio dei nomi secondario | Supportato | 
 | ----------------- | -------------------- | ---------- |
@@ -63,7 +63,7 @@ Sono supportate le seguenti combinazioni di spazi dei nomi primari o secondari:
 | Dedicated | Standard | No | 
 
 > [!NOTE]
-> Non è possibile associare gli spazi dei nomi che si trovano nello stesso cluster dedicato. È possibile associare gli spazi dei nomi che si trovano in cluster separati. 
+> Non è possibile associare gli spazi dei nomi presenti nello stesso cluster dedicato. È possibile associare spazi dei nomi che si trovano in cluster distinti. 
 
 ## <a name="setup-and-failover-flow"></a>Configurazione e flusso del failover
 
@@ -110,11 +110,11 @@ L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 Tenere presente le considerazioni seguenti per questa versione:
 
-1. Per impostazione legale, il ripristino di emergenza geografico degli hub eventi non replica i dati e pertanto non è possibile riutilizzare il valore di offset precedente dell'hub eventi primario nell'hub eventi secondario. Ti consigliamo di riavviare il ricevitore di eventi con uno dei seguenti:
+1. Per impostazione predefinita, il ripristino di emergenza geografico di hub eventi non replica i dati e pertanto non è possibile riusare il valore di offset precedente dell'hub eventi primario nell'hub eventi secondario. Si consiglia di riavviare il ricevitore di eventi con uno dei seguenti elementi:
 
-- *EventPosition.FromStart()* - Se si desidera leggere tutti i dati nell'hub eventi secondario.
-- *EventPosition.FromEnd() -* Se si desidera leggere tutti i nuovi dati dal momento della connessione all'hub eventi secondario.
-- *EventPosition.FromEnqueuedTime(dateTime)* - Se si desidera leggere tutti i dati ricevuti nell'hub eventi secondario a partire da una data e un'ora date.
+- *EventPosition. FromStart ()* : se si desidera leggere tutti i dati nell'hub eventi secondario.
+- *EventPosition. FromEnd ()* : se si vogliono leggere tutti i nuovi dati dal momento della connessione all'hub eventi secondario.
+- *EventPosition. FromEnqueuedTime (DateTime)* : se si vuole leggere tutti i dati ricevuti nell'hub eventi secondario a partire da una data e un'ora specificate.
 
 2. Quando si pianifica il failover, è consigliabile considerare anche il fattore tempo. Ad esempio, se si perde la connettività per più di 15-20 minuti, è possibile decidere di avviare il failover. 
  
@@ -129,7 +129,7 @@ Tenere presente le considerazioni seguenti per questa versione:
 Lo SKU Standard di Hub eventi supporta le [zone di disponibilità di Azure](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno di un'area di Azure. 
 
 > [!NOTE]
-> Il supporto per le zone di disponibilità per lo SKU standard di Hub eventi di Azure è disponibile solo nelle [aree di Azure](../availability-zones/az-overview.md#services-support-by-region) in cui sono presenti le zone di disponibilità.
+> Il supporto per le zone di disponibilità per lo SKU standard di Hub eventi di Azure è disponibile solo nelle [aree di Azure](../availability-zones/az-region.md) in cui sono presenti le zone di disponibilità.
 
 Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Hub eventi non supporta la migrazione degli spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
 
@@ -146,7 +146,7 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 * [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

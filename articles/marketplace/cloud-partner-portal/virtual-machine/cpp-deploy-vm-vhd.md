@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
 ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147957"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
@@ -67,7 +67,7 @@ Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine
    | Password amministratore              | Password dell'account di amministratore per la nuova macchina virtuale                                  |
    | Tipo di sistema operativo                     | Sistema operativo VM: `Windows` \|`Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
-   | Location                    | Località geografica della distribuzione                                        |
+   | Percorso                    | Località geografica della distribuzione                                        |
    | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
    | Nome indirizzo IP pubblico      | Nome dell'indirizzo IP pubblico dell'utente                                               |
    | Nome macchina virtuale                     | Nome della nuova macchina virtuale                                                           |

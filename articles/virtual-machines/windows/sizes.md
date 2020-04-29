@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: e37fea471bea91f2ac5219b5c423db38b369b692
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100669"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Dimensioni per le macchine virtuali Windows in Azure
 
 Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo si applica alle macchine virtuali Windows e Linux.
 
-| Type | Dimensioni | Descrizione |
+| Tipo | Dimensioni | Descrizione |
 |------|-------|-------------|
 | [Utilizzo generico](../sizes-general.md) | B, Dsv3, dv3, Dasv4, Dav4, DSv2, dv2, AV2, DC, DCv2 | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
 | [Ottimizzate per il calcolo](../sizes-compute.md) | Fsv2 | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. |

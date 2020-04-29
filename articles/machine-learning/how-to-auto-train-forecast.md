@@ -11,10 +11,10 @@ ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137365"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione delle serie temporali
@@ -53,7 +53,7 @@ Dato che i dati più grandi, i modelli di apprendimento avanzato, ad esempio For
 Automatizzato ML fornisce agli utenti sia i modelli nativi che i modelli di apprendimento avanzato come parte del sistema di raccomandazione. 
 
 
-Modelli| Description | Vantaggi
+Modelli| Descrizione | Vantaggi
 ----|----|---
 Profeta (anteprima)|Il profeta funziona meglio con le serie temporali con effetti stagionali forti e diverse stagioni di dati cronologici. | Accurato & rapido, affidabile per outlier, dati mancanti e modifiche radicali nelle serie temporali.
 ARIMA automatica (anteprima)|La media mobili integrata (ARIMA, regressione) garantisce prestazioni ottimali quando i dati sono stazionari. Ciò significa che le proprietà statistiche come la media e la varianza sono costanti sull'intero set. Se, ad esempio, si capovolge una moneta, la probabilità di ottenere le testine è pari al 50%, indipendentemente dal fatto che venga invertita oggi, domani o il prossimo anno.| Ideale per le serie univariate, perché i valori precedenti vengono usati per stimare i valori futuri.
@@ -134,7 +134,7 @@ Per le attività di previsione, Machine Learning automatizzato USA operazioni di
 
 L' [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) oggetto definisce le impostazioni e i dati necessari per un'attività automatica di machine learning. Analogamente a un problema di regressione, si definiscono parametri di training standard come il tipo di attività, il numero di iterazioni, i dati di training e il numero di convalide incrociate. Per le attività di previsione, è necessario impostare parametri aggiuntivi che interessano l'esperimento. La tabella seguente illustra ogni parametro e il relativo utilizzo.
 
-| Nome&nbsp;parametro | Description | Obbligatoria |
+| Nome&nbsp;parametro | Descrizione | Obbligatoria |
 |-------|-------|-------|
 |`time_column_name`|Utilizzato per specificare la colonna DateTime nei dati di input utilizzati per compilare la serie temporale e dedurre la relativa frequenza.|✓|
 |`grain_column_names`|Nome/i che definisce i singoli gruppi di serie nei dati di input. Se la granularità non è definita, si presuppone che il set di dati sia una serie temporale.||

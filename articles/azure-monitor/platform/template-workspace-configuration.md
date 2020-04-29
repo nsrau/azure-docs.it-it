@@ -1,5 +1,5 @@
 ---
-title: Modello di Azure Resource Manager per l'area di lavoro di Log AnalyticsAzure Resource Manager template for Log Analytics workspace
+title: Modello di Azure Resource Manager per area di lavoro Log Analytics
 description: È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,19 +7,19 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81768124"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire l'area di lavoro di Log Analytics usando i modelli di Azure Resource ManagerManage Log Analytics workspace using Azure Resource Manager templates
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-È possibile usare i modelli di Azure Resource Manager per creare e configurare le aree di lavoro di Log Analytics in Monitoraggio di Azure.You can use [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Ecco alcuni esempi di attività eseguibili con i modelli:
+È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare aree di lavoro log Analytics in monitoraggio di Azure. Ecco alcuni esempi di attività eseguibili con i modelli:
 
-* Creare un'area di lavoro, inclusa l'impostazione del piano tariffario e della prenotazione della capacitàCreate a workspace including setting pricing tier and capacity
+* Creare un'area di lavoro, inclusa l'impostazione del piano tariffario e della riservatezza
 * Aggiungere una soluzione
 * Creare le ricerche salvate
 * Creare un gruppo di computer
@@ -27,7 +27,7 @@ ms.locfileid: "81768124"
 * Raccogliere i contatori delle prestazioni dai computer Linux e Windows
 * Raccogliere gli eventi dal syslog sui computer Linux 
 * Raccogliere gli eventi dai log eventi di Windows
-* Raccogliere log personalizzati dal computer WindowsCollect custom logs from Windows computer
+* Raccogli log personalizzati dal computer Windows
 * Aggiungere l'agente Log Analytics a una macchina virtuale di Azure
 * Configurare Log Analytics per indicizzare i dati raccolti tramite Diagnostica di Azure
 
@@ -40,28 +40,28 @@ La tabella seguente elenca la versione dell'API per le risorse usate in questo e
 | Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-03-20 |
+| Cerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-Nell'esempio seguente viene creata un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato per richiedere solo il nome e il percorso della nuova area di lavoro. Utilizza i valori specificati per altri parametri dell'area di lavoro, ad esempio [la modalità](design-logs-deployment.md#access-control-mode)di controllo di accesso, il piano tariffario, la conservazione e il livello di prenotazione della capacità.
+Nell'esempio seguente viene creata un'area di lavoro usando un modello dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome e il percorso della nuova area di lavoro. Usa valori specificati per altri parametri dell'area di lavoro, ad esempio la [modalità di controllo di accesso](design-logs-deployment.md#access-control-mode), il piano tariffario, la conservazione e il livello di prenotazione della capacità.
 
 > [!WARNING]
-> Il modello seguente crea un'area di lavoro di Log Analytics e configura la raccolta dati. Ciò potrebbe modificare le impostazioni di fatturazione. Vedere [Gestire l'utilizzo e i costi con i](manage-cost-storage.md) log di monitoraggio di Azure per comprendere la fatturazione per i dati raccolti in un'area di lavoro di Log Analytics prima di applicarla nell'ambiente Azure.Review Manage usage and costs with Azure Monitor Logs to understand billing for data collected in a Log Analytics workspace before applying it in your Azure environment.
+> Il modello seguente consente di creare un'area di lavoro di Log Analytics e di configurare la raccolta dei dati. Questo può modificare le impostazioni di fatturazione. Vedere [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](manage-cost-storage.md) per comprendere la fatturazione per i dati raccolti in un'area di lavoro di log Analytics prima di applicarli nell'ambiente Azure.
 
-Per la prenotazione della capacità, definire una prenotazione di `CapacityReservation` capacità selezionata per l'inserimento dei dati specificando lo SKU e un valore in GB per la proprietà `capacityReservationLevel`. Nell'elenco seguente vengono descritti in dettaglio i valori e il comportamento supportati durante la configurazione.
+Per la prenotazione della capacità, si definisce una prenotazione di capacità selezionata per l'inserimento dei dati `CapacityReservation` specificando lo SKU e un valore in `capacityReservationLevel`GB per la proprietà. Nell'elenco seguente vengono illustrati i valori e il comportamento supportati per la configurazione.
 
 - Dopo aver impostato il limite di prenotazione, non è possibile passare a uno SKU diverso entro 31 giorni.
 
 - Una volta impostato il valore di prenotazione, è possibile aumentarlo solo entro 31 giorni.
 
-- È possibile impostare `capacityReservationLevel` solo il valore di in multipli di 100, con un valore massimo di 50000.
+- È possibile impostare il valore di `capacityReservationLevel` in multipli di 100, con un valore massimo pari a 50000.
 
 - Se si aumenta il livello di prenotazione, il timer viene reimpostato e non è possibile modificarlo per altri 31 giorni da questo aggiornamento.  
 
-- Se si modifica qualsiasi altra proprietà per l'area di lavoro mantenendo il limite di prenotazione allo stesso livello, il timer non viene reimpostato. 
+- Se si modifica qualsiasi altra proprietà per l'area di lavoro, ma si mantiene il limite di prenotazione allo stesso livello, il timer non viene reimpostato. 
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
 
@@ -149,15 +149,15 @@ Per la prenotazione della capacità, definire una prenotazione di `CapacityReser
     ```
 
    >[!NOTE]
-   >Per le impostazioni di prenotazione della capacità, usare queste proprietà in "sku":For capacity reservation settings, use these properties under "sku":
-   >* "name": "CapacityReservation",
+   >Per le impostazioni di prenotazione della capacità, usare queste proprietà in "SKU":
+   >* "Name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Modificare il modello in base alle esigenze. Valutare la possibilità di creare un file di parametri di [Resource Manager](../../azure-resource-manager/templates/parameter-files.md) anziché passare parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) per informazioni sulle proprietà e sui valori supportati. 
+2. Modificare il modello in base alle esigenze. Provare a creare un [file di parametri di gestione risorse](../../azure-resource-manager/templates/parameter-files.md) anziché passare i parametri come valori inline. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.
 
-4. A questo punto è possibile distribuire il modello. Utilizzare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e il percorso dell'area di lavoro come parte del comando. Il nome dell'area di lavoro deve essere univoco a livello globale in tutte le sottoscrizioni di Azure.The workspace name must be globally unique across all Azure subscriptions.
+4. A questo punto è possibile distribuire il modello. Usare PowerShell o la riga di comando per creare l'area di lavoro, specificando il nome e la posizione dell'area di lavoro come parte del comando. Il nome dell'area di lavoro deve essere univoco a livello globale in tutte le sottoscrizioni di Azure.
 
    * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
    
@@ -179,8 +179,8 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 Il modello di esempio seguente illustra come:
 
 1. Aggiungere soluzioni all'area di lavoro
-2. Creare ricerche salvate. Per garantire che le distribuzioni non sostituiscano accidentalmente le ricerche salvate, è necessario aggiungere una proprietà eTag nella risorsa "savedSearches" per eseguire l'override e mantenere l'idempotency delle ricerche salvate.
-3. Creare la funzione salvata. L'eTag deve essere aggiunto per eseguire l'override della funzione e mantenere l'idempotency.
+2. Creare le ricerche salvate. Per assicurarsi che le distribuzioni non sostituiscano accidentalmente le ricerche salvate, è necessario aggiungere una proprietà eTag nella risorsa "savedSearches" per eseguire l'override e mantenere il idempotenza delle ricerche salvate.
+3. Creazione della funzione salvata. Per eseguire l'override della funzione e mantenere idempotenza, è necessario aggiungere il valore eTag.
 4. Creare un gruppo di computer
 5. Abilitare la raccolta dei log IIS dai computer su cui è stato installato l'agente di Windows
 6. Raccogliere i dati dei contatori delle prestazioni del disco logico dai computer Linux (% inodi usati; megabyte liberi; % di spazio usato; trasferimenti/sec del disco; letture/sec del disco; scritture/sec del disco)
@@ -188,7 +188,7 @@ Il modello di esempio seguente illustra come:
 8. Raccogliere gli eventi di errore e di avviso dal log eventi dell'applicazione dai computer Windows
 9. Raccogliere i dati del contatore delle prestazioni dei Mbyte di memoria disponibili dai computer Windows
 10. Raccogliere i log IIS e i log eventi di Windows scritti dalla diagnostica Azure in un account di archiviazione
-11. Raccogliere log personalizzati dal computer WindowsCollect custom logs from Windows computer
+11. Raccogli log personalizzati dal computer Windows
 
 ```json
 {

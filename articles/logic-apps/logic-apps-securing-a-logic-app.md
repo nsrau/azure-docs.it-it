@@ -1,58 +1,58 @@
 ---
 title: Proteggere l'accesso ai dati
-description: Accesso sicuro a input, output, trigger basati su richiesta, cronologia di esecuzione, attività di gestione e accesso ad altre risorse in App per la logica di AzureSecure access to inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps
+description: Proteggere l'accesso a input, output, trigger basati su richiesta, cronologia di esecuzione, attività di gestione e accesso ad altre risorse in app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870549"
 ---
-# <a name="secure-access-and-data-in-azure-logic-apps"></a>Accesso sicuro e dati nelle app per la logica di AzureSecure access and data in Azure Logic Apps
+# <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
-Per controllare l'accesso e proteggere i dati in App per la logica di Azure, è possibile configurare la sicurezza nelle aree seguenti:To control access and protect data in Azure Logic Apps, you can set up security in these areas:
+Per controllare l'accesso e proteggere i dati in app per la logica di Azure, è possibile configurare la sicurezza in queste aree:
 
 * [Accesso ai trigger basati su richiesta](#secure-triggers)
-* [Accesso alle operazioni dell'app per la logicaAccess to logic app operations](#secure-operations)
+* [Accesso alle operazioni dell'app per la logica](#secure-operations)
 * [Accesso agli input e agli output della cronologia di esecuzione](#secure-run-history)
-* [Accesso agli input dei parametri](#secure-action-parameters)
-* [Accesso a servizi e sistemi chiamati da app per la logica](#secure-requests)
+* [Accesso agli input di parametri](#secure-action-parameters)
+* [Accesso ai servizi e ai sistemi chiamati dalle app per la logica](#secure-requests)
 
 <a name="secure-triggers"></a>
 
 ## <a name="access-to-request-based-triggers"></a>Accesso ai trigger basati su richiesta
 
-Se l'app per la logica usa un trigger basato su richiesta, che riceve chiamate o richieste in arrivo, ad esempio il trigger [Richiesta](../connectors/connectors-native-reqres.md) o [Webhook,](../connectors/connectors-native-webhook.md) è possibile limitare l'accesso in modo che solo i client autorizzati possano chiamare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con Transport Layer Security (TLS), precedentemente noto come protocollo SSL (Secure Sockets Layer).
+Se l'app per la logica usa un trigger basato su richiesta, che riceve le chiamate o le richieste in ingresso, ad esempio il trigger di [richiesta](../connectors/connectors-native-reqres.md) o [webhook](../connectors/connectors-native-webhook.md) , è possibile limitare l'accesso in modo che solo i client autorizzati possano chiamare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL), protocollo.
 
-Di seguito sono riportate le opzioni che consentono di proteggere l'accesso a questo tipo di trigger:Here are options that can help you secure access to this trigger type:
+Di seguito sono riportate alcune opzioni che consentono di proteggere l'accesso a questo tipo di trigger:
 
-* [Generare firme di accesso condivise](#sas)
+* [Genera firme di accesso condiviso](#sas)
 * [Limitare gli indirizzi IP in ingresso](#restrict-inbound-ip-addresses)
-* [Aggiungere OAuth di Azure Active Directory o un'altra sicurezzaAdd Azure Active Directory OAuth or other security](#add-authentication)
+* [Aggiungere Azure Active Directory OAuth o un'altra sicurezza](#add-authentication)
 
 <a name="sas"></a>
 
-### <a name="generate-shared-access-signatures-sas"></a>Generare firme di accesso condiviso
+### <a name="generate-shared-access-signatures-sas"></a>Genera firme di accesso condiviso (SAS)
 
-Ogni endpoint di richiesta in un'app per la logica ha una firma di accesso condiviso (SAS) nell'URL dell'endpoint, che segue questo formato:Every request endpoint on a logic app has a [Shared Access Signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) in the endpoint's URL, which follows this format:
+Ogni endpoint di richiesta in un'app per la logica ha una [firma di accesso condiviso (SAS)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) nell'URL dell'endpoint, che segue questo formato:
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
-Ogni URL `sp`contiene `sv`il `sig` parametro di query , e come descritto nella tabella seguente:
+Ogni URL contiene i `sp`parametri `sv`di query `sig` , e, come descritto in questa tabella:
 
 | Query parameter (Parametro di query) | Descrizione |
 |-----------------|-------------|
 | `sp` | Specifica le autorizzazioni per i metodi HTTP consentiti da utilizzare. |
-| `sv` | Specifica la versione SAS da utilizzare per generare la firma. |
-| `sig` | Specifica la firma da utilizzare per l'autenticazione dell'accesso al trigger. Questa firma viene generata utilizzando l'algoritmo SHA256 con una chiave di accesso segreta in tutti i percorsi URL e le proprietà. Mai esposta o pubblicata, questa chiave viene mantenuta crittografata e archiviata con l'app per la logica. L'app per la logica autorizza solo i trigger che contengono una firma valida creata con la chiave privata. |
+| `sv` | Specifica la versione SAS da usare per la generazione della firma. |
+| `sig` | Specifica la firma da utilizzare per l'autenticazione dell'accesso al trigger. Questa firma viene generata usando l'algoritmo SHA256 con una chiave di accesso segreta su tutti i percorsi e le proprietà dell'URL. Mai esposta o pubblicata, questa chiave viene mantenuta crittografata e archiviata con l'app per la logica. L'app per la logica autorizza solo i trigger che contengono una firma valida creata con la chiave privata. |
 |||
 
-Per altre informazioni sulla protezione dell'accesso con la sAS, vedere queste sezioni in questo argomento:For more information about securing access with SAS, see these sections in this topic:
+Per ulteriori informazioni sulla protezione dell'accesso con SAS, vedere le sezioni seguenti in questo argomento:
 
 * [Per rigenerare le chiavi di accesso](#access-keys)
 * [Creare URL di callback in scadenza](#expiring-urls)
@@ -62,9 +62,9 @@ Per altre informazioni sulla protezione dell'accesso con la sAS, vedere queste s
 
 #### <a name="regenerate-access-keys"></a>Per rigenerare le chiavi di accesso
 
-Per generare una nuova chiave di accesso di sicurezza in qualsiasi momento, usare l'API REST di Azure o il portale di Azure.To generate a new security access key at any time, use the Azure REST API or Azure portal. Tutti gli URL generati in precedenza che usano la chiave precedente vengono invalidati e non dispongono più dell'autorizzazione per attivare l'app per la logica. Gli URL recuperati dopo la rigenerazione vengono firmati con la nuova chiave di accesso.
+Per generare una nuova chiave di accesso di sicurezza in qualsiasi momento, usare l'API REST di Azure o portale di Azure. Tutti gli URL generati in precedenza che usano la chiave precedente vengono invalidati e non sono più autorizzati ad attivare l'app per la logica. Gli URL recuperati dopo la rigenerazione vengono firmati con la nuova chiave di accesso.
 
-1. Nel [portale di Azure](https://portal.azure.com)aprire l'app per la logica con la chiave che si vuole rigenerare.
+1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica che contiene la chiave che si vuole rigenerare.
 
 1. Nel menu di app per la logica in **Impostazioni**, selezionare **Chiave di accesso**.
 
@@ -74,19 +74,19 @@ Per generare una nuova chiave di accesso di sicurezza in qualsiasi momento, usar
 
 #### <a name="create-expiring-callback-urls"></a>Creare URL di callback in scadenza
 
-Se si condivide l'URL dell'endpoint per un trigger basato su richiesta con altre parti, è possibile generare URL di callback che utilizzano chiavi specifiche e hanno date di scadenza. In questo modo, puoi eseguire senza problemi le chiavi o limitare l'accesso all'attivazione dell'app per la logica in base a un intervallo di tempo specifico. Per specificare una data di scadenza per un URL, usare l'API REST App per la [logica,](https://docs.microsoft.com/rest/api/logic/workflowtriggers)ad esempio:To specify an expiration date for a URL, use the Logic Apps REST API , for example:
+Se si condivide l'URL dell'endpoint per un trigger basato su richiesta con altre entità, è possibile generare URL di callback che usano chiavi specifiche e hanno date di scadenza. In questo modo, è possibile eseguire facilmente il rollup delle chiavi o limitare l'accesso per attivare l'app per la logica in base a un intervallo di tempo specifico. Per specificare una data di scadenza per un URL, usare l' [API REST di app](https://docs.microsoft.com/rest/api/logic/workflowtriggers)per la logica, ad esempio:
 
 ``` http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-Nel corpo includere `NotAfter`la proprietà usando una stringa di data JSON. Questa proprietà restituisce un URL di callback valido solo fino a data e ora `NotAfter`.
+Nel corpo includere la `NotAfter`proprietà usando una stringa di data JSON. Questa proprietà restituisce un URL di callback valido solo fino a data e ora `NotAfter`.
 
 <a name="primary-secondary-key"></a>
 
 #### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Creare URL con una chiave privata primaria o secondaria
 
-Quando si generano o elencano URL di callback per un trigger basato su richiesta, è possibile specificare la chiave da utilizzare per firmare l'URL. Per generare un URL firmato da una chiave specifica, usare l'API REST App per la [logica,](https://docs.microsoft.com/rest/api/logic/workflowtriggers)ad esempio:
+Quando si generano o elencano URL di callback per un trigger basato su richiesta, è possibile specificare la chiave da usare per firmare l'URL. Per generare un URL firmato da una chiave specifica, usare l' [API REST di app](https://docs.microsoft.com/rest/api/logic/workflowtriggers)per la logica, ad esempio:
 
 ``` http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -98,28 +98,28 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 ### <a name="restrict-inbound-ip-addresses"></a>Limitare gli indirizzi IP in ingresso
 
-Insieme alla firma di accesso condiviso, è possibile limitare in modo specifico i client che possono chiamare l'app per la logica. Ad esempio, se si gestisce l'endpoint di richiesta tramite Gestione API di Azure, è possibile limitare l'app per la logica per accettare le richieste solo dall'indirizzo IP per l'istanza di Gestione API.
+Insieme alla firma di accesso condiviso, potrebbe essere necessario limitare in modo specifico i client che possono chiamare l'app per la logica. Ad esempio, se si gestisce l'endpoint di richiesta usando gestione API di Azure, è possibile limitare l'app per la logica ad accettare le richieste solo dall'indirizzo IP per l'istanza di gestione API.
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Limitare gli intervalli IP in ingresso nel portale di AzureRestrict inbound IP ranges in Azure portal
+#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Limitare gli intervalli di indirizzi IP in ingresso in portale di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com)aprire l'app per la logica in Progettazione app per la logica.
+1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
 1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
 
-1. In **Configurazione** > controllo di accesso**Indirizzi IP in ingresso**, selezionare **Intervalli IP specifici**.
+1. In **configurazione** > del controllo di accesso sono**consentiti gli indirizzi IP in ingresso**, selezionare **intervalli IP specifici**.
 
 1. In **IP ranges for triggers (Intervalli di IP per i trigger)**, specificare gli intervalli di indirizzi IP accettati dal trigger.
 
    Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
-Se si vuole che l'app per la logica venga attivata solo come app per la logica annidata, nell'elenco **Indirizzi IP in ingresso consentiti** selezionare Solo altre app per la **logica**. Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica. In questo modo, solo le chiamate dal servizio App per la logica (app per la logica padre) possono attivare l'app per la logica annidata.
+Se si vuole che l'app per la logica venga attivata solo come app per la logica annidata, selezionare **solo altre app**per la logica dall'elenco **indirizzi IP in ingresso consentiti** . Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica. In questo modo, solo le chiamate dal servizio app per la logica (app per la logica padre) possono attivare l'app per la logica nidificata.
 
 > [!NOTE]
-> Indipendentemente dall'indirizzo IP, è comunque possibile eseguire un'app per la logica che includa un trigger basato su richiesta usando `/triggers/<trigger-name>/run` tramite l'API REST di Azure o tramite Gestione API. Tuttavia, questo scenario richiede ancora l'autenticazione con l'API REST di Azure.However, this scenario still requires authentication against the Azure REST API. Tutti gli eventi vengono visualizzati nel log di controllo di Azure.All events appear in the Azure Audit Log. Assicurarsi di impostare di conseguenza i criteri di controllo di accesso.
+> Indipendentemente dall'indirizzo IP, è comunque possibile eseguire un'app per la logica che includa un trigger basato su richiesta usando `/triggers/<trigger-name>/run` tramite l'API REST di Azure o tramite Gestione API. Tuttavia, questo scenario richiede ancora l'autenticazione per l'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli IP in ingresso nel modello di Azure Resource ManagerRestrict inbound IP ranges in Azure Resource Manager template
+#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager
 
-Se si automatizza la distribuzione per le app per la logica `accessControl` usando i `triggers` modelli di [Resource Manager,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile specificare gli intervalli IP usando la sezione con la sezione nella definizione di risorsa dell'app per la logica, ad esempio:
+Se si [automatizza la distribuzione per le app per la logica usando modelli di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli IP `accessControl` usando la sezione `triggers` con la sezione nella definizione di risorsa dell'app per la logica, ad esempio:
 
 ``` json
 {
@@ -160,19 +160,19 @@ Se si automatizza la distribuzione per le app per la logica `accessControl` usan
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Aggiungere OAuth di Azure Active Directory o un'altra sicurezzaAdd Azure Active Directory OAuth or other security
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Aggiungere Azure Active Directory OAuth o un'altra sicurezza
 
-Per aggiungere altri protocolli di autorizzazione all'app per la logica, è consigliabile usare il servizio Gestione API di [Azure.To](../api-management/api-management-key-concepts.md) add more authorization protocols to your logic app, consider using the Azure API Management service. Questo servizio consente di esporre l'app per la logica come un'API e offre monitoraggio avanzato, sicurezza, criteri e documentazione per qualsiasi endpoint. Gestione API può esporre un endpoint pubblico o privato per l'app per la logica. Per autorizzare l'accesso a questo endpoint, è possibile usare [OAuth](#azure-active-directory-oauth-authentication)di Azure Active Directory , [certificato client](#client-certificate-authentication)o altri standard di sicurezza per autorizzare l'accesso a tale endpoint. Quando Gestione API riceve una richiesta, il servizio invia la richiesta all'app per la logica, eseguendo anche eventuali trasformazioni necessarie e restrizioni. Per consentire solo a Gestione API di attivare l'app per la logica, è possibile usare le impostazioni dell'intervallo IP in ingresso dell'app per la logica.
+Per aggiungere altri protocolli di autorizzazione all'app per la logica, provare a usare il servizio [gestione API di Azure](../api-management/api-management-key-concepts.md) . Questo servizio consente di esporre l'app per la logica come API e offre funzionalità avanzate di monitoraggio, sicurezza, criteri e documentazione per qualsiasi endpoint. Gestione API può esporre un endpoint pubblico o privato per l'app per la logica. Per autorizzare l'accesso a questo endpoint, è possibile usare [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), un [certificato client](#client-certificate-authentication)o altri standard di sicurezza per autorizzare l'accesso a tale endpoint. Quando Gestione API riceve una richiesta, il servizio invia la richiesta all'app per la logica, eseguendo anche eventuali trasformazioni necessarie e restrizioni. Per consentire solo a gestione API di attivare l'app per la logica, è possibile usare le impostazioni dell'intervallo IP in ingresso dell'app per la logica.
 
 <a name="secure-operations"></a>
 
-## <a name="access-to-logic-app-operations"></a>Accesso alle operazioni dell'app per la logicaAccess to logic app operations
+## <a name="access-to-logic-app-operations"></a>Accesso alle operazioni dell'app per la logica
 
-È possibile consentire l'esecuzione di attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica, ad esempio utenti o gruppi specifici. Per controllare le autorizzazioni, usare il controllo degli accessi in base al ruolo di Azure in modo da poter assegnare ruoli personalizzati o predefiniti ai membri della sottoscrizione di Azure:To control their permissions, use [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) so that you can assign customized or built-in roles to the members in your Azure subscription:
+È possibile consentire solo a utenti o gruppi specifici di eseguire attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md) per poter assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
 
-* [Collaboratore app per](../role-based-access-control/built-in-roles.md#logic-app-contributor)la logica: consente di gestire le app per la logica, ma non è possibile modificarne l'accesso.
+* [Collaboratore app](../role-based-access-control/built-in-roles.md#logic-app-contributor)per la logica: consente di gestire le app per la logica, ma non di modificarne l'accesso.
 
-* [Operatore app per](../role-based-access-control/built-in-roles.md#logic-app-operator)la logica: consente di leggere, abilitare e disabilitare le app per la logica, ma non è possibile modificarle o aggiornarle.
+* [Operatore app](../role-based-access-control/built-in-roles.md#logic-app-operator)per la logica: consente di leggere, abilitare e disabilitare le app per la logica, ma non di modificarle o aggiornarle.
 
 Per impedire la modifica o l'eliminazione delle app per la logica da parte di altri utenti è inoltre possibile usare i [blocchi per le risorse di Azure](../azure-resource-manager/management/lock-resources.md). Questa funzionalità impedisce ad altri utenti di modificare o eliminare le risorse di produzione.
 
@@ -180,41 +180,41 @@ Per impedire la modifica o l'eliminazione delle app per la logica da parte di al
 
 ## <a name="access-to-run-history-data"></a>Accesso ai dati della cronologia di esecuzione
 
-Durante l'esecuzione di un'app per la logica, tutti i dati [vengono crittografati durante](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) il transito usando Transport Layer Security (TLS) e [inattivi.](../security/fundamentals/encryption-atrest.md) Al termine dell'esecuzione dell'app per la logica, è possibile visualizzare la cronologia per l'esecuzione, inclusi i passaggi eseguiti insieme allo stato, alla durata, agli input e agli output per ogni azione. Questo dettaglio dettagliato fornisce informazioni dettagliate su come è stata eseguita l'app per la logica e su dove è possibile avviare la risoluzione dei problemi che si verificano.
+Durante l'esecuzione di un' [app per la](../security/fundamentals/encryption-atrest.md)logica, tutti i dati vengono [crittografati durante il transito](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) con Transport Layer Security (TLS) e inattivi. Al termine dell'esecuzione dell'app per la logica, è possibile visualizzare la cronologia dell'esecuzione, inclusi i passaggi eseguiti con lo stato, la durata, gli input e gli output per ogni azione. Questo approfondimento fornisce informazioni dettagliate sulle modalità di esecuzione dell'app per la logica e su dove è possibile iniziare la risoluzione dei problemi che si verificano.
 
-Quando si visualizza la cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e quindi fornisce collegamenti agli input e agli output per le richieste e le risposte per ogni esecuzione. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica riceve un segreto dall'insieme di credenziali delle chiavi di [Azure](../key-vault/general/overview.md) da usare durante l'autenticazione di un'azione HTTP, si vuole nascondere tale segreto dalla visualizzazione.
+Quando si visualizza la cronologia di esecuzione dell'app per la logica, app per la logica autentica l'accesso e quindi fornisce collegamenti agli input e agli output per le richieste e le risposte per ogni esecuzione. Tuttavia, per le azioni che gestiscono password, segreti, chiavi o altre informazioni riservate, si desidera impedire ad altri utenti di visualizzare e accedere a tali dati. Ad esempio, se l'app per la logica ottiene un segreto da [Azure Key Vault](../key-vault/general/overview.md) da usare durante l'autenticazione di un'azione http, si vuole nascondere tale segreto dalla visualizzazione.
 
-Per controllare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, sono disponibili le opzioni seguenti:To control access to the inputs and outputs in your logic app's run history, you have these options:
+Per controllare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, sono disponibili le opzioni seguenti:
 
-* [Limitare l'accesso in base all'intervallo di indirizzi IP.](#restrict-ip)
+* [Limitare l'accesso in base all'intervallo di indirizzi IP](#restrict-ip).
 
   Questa opzione consente di proteggere l'accesso alla cronologia di esecuzione in base alle richieste provenienti da un intervallo di indirizzi IP specifico.
 
-* Nascondere i dati dalla cronologia di [esecuzione utilizzando l'offuscamento](#obfuscate).
+* [Nascondere i dati dalla cronologia di esecuzione usando l'offuscamento](#obfuscate).
 
-  In molti trigger e azioni è possibile nascondere i relativi input, output o entrambi dalla cronologia di esecuzione di un'app per la logica.
+  In molti trigger e azioni è possibile nascondere gli input, gli output o entrambi dalla cronologia di esecuzione di un'app per la logica.
 
 <a name="restrict-ip"></a>
 
-### <a name="restrict-access-by-ip-address-range"></a>Limitare l'accesso in base all'intervallo di indirizzi IP
+### <a name="restrict-access-by-ip-address-range"></a>Limita l'accesso in base all'intervallo di indirizzi IP
 
-Puoi limitare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica in modo che solo le richieste provenienti da intervalli di indirizzi IP specifici possano visualizzare tali dati. Ad esempio, per impedire a chiunque di accedere a input e `0.0.0.0-0.0.0.0`output, specificare un intervallo di indirizzi IP, ad esempio . Solo una persona con autorizzazioni di amministratore può rimuovere questa restrizione, che offre la possibilità di accedere "just-in-time" ai dati dell'app per la logica. È possibile specificare gli intervalli IP da limitare usando il portale di Azure o in un modello di Azure Resource Manager usato per la distribuzione di app per la logica.
+È possibile limitare l'accesso agli input e agli output nella cronologia di esecuzione dell'app per la logica, in modo che solo le richieste provenienti da intervalli di indirizzi IP specifici possano visualizzare tali dati. Ad esempio, per impedire a tutti gli utenti di accedere a input e output, specificare un intervallo di `0.0.0.0-0.0.0.0`indirizzi IP, ad esempio. Solo una persona con autorizzazioni di amministratore può rimuovere questa restrizione, che offre la possibilità di accedere "just-in-Time" ai dati dell'app per la logica. È possibile specificare gli intervalli IP da limitare usando il portale di Azure o in un modello di Azure Resource Manager usato per la distribuzione dell'app per la logica.
 
-#### <a name="restrict-ip-ranges-in-azure-portal"></a>Limitare gli intervalli IP nel portale di AzureRestrict IP ranges in Azure portal
+#### <a name="restrict-ip-ranges-in-azure-portal"></a>Limitare gli intervalli IP nel portale di Azure
 
 1. Nel portale di Azure aprire l'app per la logica in Progettazione app per la logica.
 
 1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
 
-1. In **Configurazione** > controllo di accesso**Indirizzi IP in ingresso**, selezionare **Intervalli IP specifici**.
+1. In **configurazione** > del controllo di accesso sono**consentiti gli indirizzi IP in ingresso**, selezionare **intervalli IP specifici**.
 
 1. In **Intervalli IP per i contenuti**, specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output. 
 
    Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
-#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli IP nel modello di Azure Resource ManagerRestrict IP ranges in Azure Resource Manager template
+#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli IP nel modello di Azure Resource Manager
 
-Se si automatizza la distribuzione per le app per la logica `accessControl` usando i `contents` modelli di [Resource Manager,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile specificare gli intervalli IP usando la sezione con la sezione nella definizione di risorsa dell'app per la logica, ad esempio:
+Se si [automatizza la distribuzione per le app per la logica usando modelli di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli IP `accessControl` usando la sezione `contents` con la sezione nella definizione di risorsa dell'app per la logica, ad esempio:
 
 ``` json
 {
@@ -255,52 +255,52 @@ Se si automatizza la distribuzione per le app per la logica `accessControl` usan
 
 <a name="obfuscate"></a>
 
-### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Nascondere i dati dalla cronologia di esecuzione utilizzando l'offuscamento
+### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Nascondere i dati dalla cronologia di esecuzione usando l'offuscamento
 
-Molti trigger e azioni dispongono di impostazioni per nascondere input, output o entrambi dalla cronologia di esecuzione di un'app per la logica. Ecco alcune [considerazioni da esaminare](#obfuscation-considerations) quando si usano queste impostazioni per proteggere questi dati.
+Molti trigger e azioni hanno impostazioni per nascondere gli input, gli output o entrambi dalla cronologia di esecuzione di un'app per la logica. Di seguito sono riportate alcune [considerazioni da considerare](#obfuscation-considerations) quando si usano queste impostazioni per proteggere questi dati.
 
-#### <a name="hide-inputs-and-outputs-in-the-designer"></a>Nascondere input e output nella finestra di progettazioneHide inputs and outputs in the designer
+#### <a name="hide-inputs-and-outputs-in-the-designer"></a>Nascondi input e output nella finestra di progettazione
 
-1. Nel [portale di Azure](https://portal.azure.com)aprire l'app per la logica in Progettazione app per la logica.
+1. Nella [portale di Azure](https://portal.azure.com)aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
-   ![Aprire l'app per la logica in Progettazione app per la logicaOpen logic app in Logic App Designer](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
+   ![Aprire l'app per la logica in progettazione app per la logica](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. Nel trigger o nell'azione in cui si desidera nascondere i dati sensibili selezionare il pulsante con i puntini di sospensione (**...**) e quindi scegliere **Impostazioni**.
+1. Selezionare il pulsante con i puntini di sospensione (**..**.) nel trigger o nell'azione in cui si desidera nascondere i dati sensibili, quindi selezionare **Impostazioni**.
 
-   ![Aprire le impostazioni di trigger o azione](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
+   ![Apri impostazioni trigger o azione](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Attivare **Secure Inputs**, **Secure Outputs**o entrambi. Al termine, fare clic su **Fine**.
+1. Attivare gli **input protetti**, gli **output protetti**o entrambi. Al termine, fare clic su **Fine**.
 
-   ![Attivare "Ingressi sicuri" o "Uscite sicure"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
+   ![Attivare "input protetti" o "output protetti"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
-   L'azione o il trigger ora mostra un'icona a otto nella barra del titolo.
+   L'azione o il trigger Mostra ora un'icona di blocco nella barra del titolo.
 
-   ![La barra del titolo dell'azione o del trigger mostra l'icona del lucchetto](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
+   ![Barra del titolo azione o trigger Mostra icona blocco](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
-   I token che rappresentano gli output protetti delle azioni precedenti mostrano anche le icone di blocco. Ad esempio, quando si seleziona un output di questo tipo dall'elenco di contenuto dinamico da usare in un'azione, tale token mostra un'icona a chiave.
+   I token che rappresentano output protetti dalle azioni precedenti mostrano anche icone di blocco. Ad esempio, quando si seleziona un output di questo tipo dall'elenco di contenuto dinamico da usare in un'azione, il token Mostra un'icona di blocco.
 
-   ![Selezionare il token per l'output protettoSelect token for secured output](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![Selezionare il token per l'output protetto](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. Dopo l'esecuzione dell'app per la logica, è possibile visualizzare la cronologia per l'esecuzione.
 
-   1. Nel riquadro **Panoramica** dell'app per la logica selezionare l'esecuzione che si desidera visualizzare.
+   1. Nel riquadro di **Panoramica** dell'app per la logica selezionare l'esecuzione che si vuole visualizzare.
 
-   1. Nel riquadro **di esecuzione dell'app** per la logica espandere le azioni che si desidera esaminare.
+   1. Nel riquadro **esecuzione App** per la logica, espandere le azioni che si desidera esaminare.
 
-      Se si sceglie di nascondere sia gli input che gli output, tali valori ora appaiono nascosti.
+      Se si è scelto di nascondere gli input e gli output, questi valori vengono ora nascosti.
 
-      ![Ingressi e output nascosti nella cronologia di esecuzione](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![Input e output nascosti nella cronologia di esecuzione](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
-#### <a name="hide-inputs-and-outputs-in-code-view"></a>Nascondere input e output nella vista codice
+#### <a name="hide-inputs-and-outputs-in-code-view"></a>Nascondi input e output nella visualizzazione codice
 
-Nella definizione del trigger o dell'azione sottostante, aggiungere o aggiornare la `runtimeConfiguration.secureData.properties` matrice con uno o entrambi questi valori:
+Nella definizione di azione o trigger sottostante aggiungere o aggiornare la `runtimeConfiguration.secureData.properties` matrice con uno o entrambi i valori seguenti:
 
-* `"inputs"`: protegge gli input nella cronologia di esecuzione.
-* `"outputs"`: protegge gli output nella cronologia di esecuzione.
+* `"inputs"`: Protegge gli input nella cronologia di esecuzione.
+* `"outputs"`: Protegge gli output nella cronologia di esecuzione.
 
-Ecco alcune [considerazioni da esaminare](#obfuscation-considerations) quando si usano queste impostazioni per proteggere questi dati.
+Di seguito sono riportate alcune [considerazioni da considerare](#obfuscation-considerations) quando si usano queste impostazioni per proteggere questi dati.
 
 ```json
 "<trigger-or-action-name>": {
@@ -322,64 +322,64 @@ Ecco alcune [considerazioni da esaminare](#obfuscation-considerations) quando si
 
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considerazioni sull'occultamento di input e output
+#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considerazioni per nascondere gli input e gli output
 
-* Quando si nascondeno gli input o gli output in un trigger o un'azione, app per la logica non invia i dati protetti ad Azure Log Analytics.When you oscurcure s or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Inoltre, non è possibile aggiungere [proprietà rilevate](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) al trigger o all'azione per il monitoraggio.
+* Quando si oscurano gli input o gli output in un trigger o un'azione, le app per la logica non inviano i dati protetti ad Azure Log Analytics. Non è inoltre possibile aggiungere [proprietà rilevate](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a tale trigger o azione per il monitoraggio.
 
-* L'API App per la [logica per la gestione della cronologia del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/) non restituisce output protetti.
+* L' [API app per la logica per la gestione della cronologia del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/) non restituisce output protetti.
 
-* Per nascondere gli output da un'azione che nasconde gli input o nasconde in modo esplicito gli output, attivare manualmente **Secure Outputs** in tale azione.
+* Per nascondere gli output di un'azione che nasconde gli input o nasconde in modo esplicito gli output, attivare manualmente gli **output protetti** in tale azione.
 
-* Assicurarsi di attivare **Secure Inputs** o **Secure Outputs** nelle azioni downstream in cui si prevede che la cronologia di esecuzione oscuri i dati.
+* Assicurarsi di attivare gli **input protetti** o gli **output protetti** nelle azioni downstream in cui si prevede che la cronologia di esecuzione nasconda i dati.
 
-  **Impostazione Uscite sicure**
+  **Impostazione degli output protetti**
 
-  Quando si attiva manualmente **Secure Outputs** in un trigger o un'azione, App per la logica protegge questi output nella cronologia di esecuzione. Se un'azione downstream usa in modo esplicito questi output protetti come input, App per la logica nasconde gli input di questa azione nella cronologia di esecuzione, ma *non abilita* l'impostazione **Input sicuri** dell'azione.
+  Quando si attivano manualmente gli **output protetti** in un trigger o un'azione, le app per la logica proteggono questi output nella cronologia di esecuzione. Se un'azione downstream USA in modo esplicito questi output protetti come input, app per la logica nasconde gli input dell'azione nella cronologia di esecuzione, ma *non Abilita* l'impostazione degli **input protetti** dell'azione.
 
-  ![Uscite protette come input e impatto a valle sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+  ![Output protetti come input e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
-  Le azioni Componi, Analizza JSON e Risposta hanno solo l'impostazione **Input sicuri.** Quando è attivata, l'impostazione nasconde anche gli output di queste azioni. Se queste azioni usano in modo esplicito gli output protetti a monte come input, App per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione **Input sicuri** di queste azioni. Se un'azione a valle usa in modo esplicito gli output nascosti dalle azioni Componi, Analizza JSON o Risposta come input, app per la logica *non nasconde gli input o gli output di questa azione downstream.*
+  Le azioni compose, parse JSON e Response hanno solo l'impostazione degli **input protetti** . Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, app per la logica nasconde gli input e gli output di tali azioni, ma *non Abilita* l'impostazione degli **input protetti** di queste azioni. Se un'azione downstream USA in modo esplicito gli output nascosti dalle azioni compose, parse JSON o Response come input, app per *la logica non nasconde gli input o gli output dell'azione downstream*.
 
-  ![Uscite protette come input con impatto a valle su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+  ![Output protetti come input con effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
 
-  **Impostazione Ingressi sicuri**
+  **Impostazione degli input protetti**
 
-  Quando si attivano manualmente **gli input protetti** in un trigger o un'azione, App per la logica protegge questi input nella cronologia di esecuzione. Se un'azione a valle usa in modo esplicito gli output visibili da tale trigger o azione come input, App per la logica nasconde gli input dell'azione a valle nella cronologia di esecuzione, ma *non abilita* **gli input sicuri** in questa azione e non nasconde gli output di questa azione.
+  Quando si attivano manualmente gli **input protetti** in un trigger o un'azione, le app per la logica proteggono questi input nella cronologia di esecuzione. Se un'azione downstream USA in modo esplicito gli output visibili da tale trigger o azione come input, app per la logica nasconde gli input dell'azione downstream nella cronologia di esecuzione, ma *non Abilita* gli **input protetti** in questa azione e non nasconde gli output dell'azione.
 
-  ![Ingressi protetti e impatto a valle sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
+  ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
-  Se le azioni Componi, Analizza JSON e Risposta usano in modo esplicito gli output visibili dal trigger o dall'azione con gli input protetti, App per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione **Input sicuri** di queste azioni. Se un'azione a valle usa in modo esplicito gli output nascosti dalle azioni Componi, Analizza JSON o Risposta come input, app per la logica *non nasconde gli input o gli output di questa azione downstream.*
+  Se le azioni compose, parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non Abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream USA in modo esplicito gli output nascosti dalle azioni compose, parse JSON o Response come input, app per *la logica non nasconde gli input o gli output dell'azione downstream*.
 
-  ![Ingressi protetti e impatto a valle su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
+  ![Input protetti e effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 
-## <a name="access-to-parameter-inputs"></a>Accesso agli input dei parametri
+## <a name="access-to-parameter-inputs"></a>Accesso agli input di parametri
 
-Se si esegue la distribuzione in ambienti diversi, è consigliabile parametrizzare i valori nella definizione del flusso di lavoro che variano in base a tali ambienti. In questo modo, è possibile evitare dati hardcoded usando un modello di [Azure Resource Manager](../azure-resource-manager/templates/overview.md) per distribuire l'app per la logica, proteggere i dati sensibili definendo i parametri protetti e passare tali dati come input separati tramite i parametri del [modello](../azure-resource-manager/templates/template-parameters.md) usando un file di [parametri.](../azure-resource-manager/templates/parameter-files.md)
+Se si esegue la distribuzione in ambienti diversi, provare a parametrizzazione i valori nella definizione del flusso di lavoro che variano in base a tali ambienti. In questo modo, è possibile evitare i dati hardcoded usando un modello di [Azure Resource Manager](../azure-resource-manager/templates/overview.md) per distribuire l'app per la logica, proteggere i dati sensibili definendo parametri protetti e passare i dati come input distinti tramite i [parametri del modello](../azure-resource-manager/templates/template-parameters.md) usando un [file di parametri](../azure-resource-manager/templates/parameter-files.md).
 
-Ad esempio, se si autenticano azioni HTTP con [OAuth di Azure Active Directory](#azure-active-directory-oauth-authentication), è possibile definire e nascondere i parametri che accettano l'ID client e il segreto client utilizzati per l'autenticazione. Per definire questi parametri nell'app `parameters` per la logica, usare la sezione nella definizione del flusso di lavoro dell'app per la logica e nel modello di Resource Manager per la distribuzione. Per nascondere i valori dei parametri che non si desidera visualizzare quando si modifica `securestring` `secureobject` l'app per la logica o si visualizza la cronologia di esecuzione, definire i parametri usando il tipo o e usare la codifica in base alle esigenze. I parametri con questo tipo non vengono restituiti con la definizione di risorsa e non sono accessibili quando si visualizza la risorsa dopo la distribuzione. Per accedere a questi valori `@parameters('<parameter-name>')` di parametro durante il runtime, usare l'espressione all'interno della definizione del flusso di lavoro. Questa espressione viene valutata solo in fase di esecuzione ed è descritta dal linguaggio di [definizione](../logic-apps/logic-apps-workflow-definition-language.md)del flusso di lavoro .
+Se ad esempio si autenticano azioni HTTP con [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), è possibile definire e nascondere i parametri che accettano l'ID client e il segreto client usati per l'autenticazione. Per definire questi parametri nell'app per la logica, usare `parameters` la sezione nella definizione del flusso di lavoro dell'app per la logica e gestione risorse modello per la distribuzione. Per nascondere i valori dei parametri che non si vuole visualizzare quando si modifica l'app per la logica o si visualizza la cronologia di `securestring` esecuzione `secureobject` , definire i parametri usando il tipo o e usare la codifica in base alle esigenze. I parametri con questo tipo non vengono restituiti con la definizione di risorsa e non sono accessibili durante la visualizzazione della risorsa dopo la distribuzione. Per accedere a questi valori di parametro durante il runtime `@parameters('<parameter-name>')` , usare l'espressione all'interno della definizione del flusso di lavoro. Questa espressione viene valutata solo in fase di esecuzione ed è descritta dal [linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> Se usi un parametro in un'intestazione o nel corpo di una richiesta, tale parametro potrebbe essere visibile quando visualizzi la cronologia di esecuzione dell'app per la logica e la richiesta HTTP in uscita. Assicurarsi di impostare anche i criteri di accesso al contenuto di conseguenza. È inoltre possibile utilizzare [l'offuscamento](#obfuscate) per nascondere input e output nella cronologia di esecuzione. Le intestazioni di autorizzazione non sono mai visibili tramite input o output. Se quindi viene usato un segreto, questo non sarà recuperabile.
+> Se si usa un parametro in un'intestazione o in un corpo della richiesta, tale parametro potrebbe essere visibile quando si visualizza la cronologia di esecuzione dell'app per la logica e la richiesta HTTP in uscita. Assicurarsi di impostare anche i criteri di accesso al contenuto di conseguenza. È anche possibile usare l' [offuscamento](#obfuscate) per nascondere gli input e gli output nella cronologia di esecuzione. Le intestazioni di autorizzazione non sono mai visibili tramite input o output. Se quindi viene usato un segreto, questo non sarà recuperabile.
 
-Per altre informazioni, vedere queste sezioni in questo argomento:For more information, see these sections in this topic:
+Per ulteriori informazioni, vedere le sezioni seguenti in questo argomento:
 
-* [Proteggere i parametri nelle definizioni del flusso di lavoroSecure parameters in workflow definitions](#secure-parameters-workflow)
-* [Nascondere i dati dalla cronologia di esecuzione utilizzando l'offuscamento](#obfuscate)
+* [Proteggere i parametri nelle definizioni del flusso di lavoro](#secure-parameters-workflow)
+* [Nascondere i dati dalla cronologia di esecuzione usando l'offuscamento](#obfuscate)
 
-Se si automatizza la distribuzione per le app per la logica utilizzando i modelli di `securestring` `secureobject` [Resource Manager,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile definire parametri di [modello](../azure-resource-manager/templates/template-parameters.md)protetti , che vengono valutati al momento della distribuzione, utilizzando i tipi e . Per definire i parametri del modello, `parameters` utilizzare la sezione di primo livello `parameters` del modello, che è separata e diversa dalla sezione della definizione del flusso di lavoro. Per fornire i valori per i parametri di modello, utilizzare un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato.
+Se si [automatizza la distribuzione per le app per la logica usando modelli di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile definire i [parametri di modello](../azure-resource-manager/templates/template-parameters.md)protetti, che vengono valutati `securestring` in `secureobject` fase di distribuzione, usando i tipi e. Per definire i parametri del modello, usare la sezione di `parameters` primo livello del modello, che è separata e diversa dalla sezione `parameters` della definizione del flusso di lavoro. Per specificare i valori per i parametri del modello, usare un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato.
 
-Ad esempio, se si usano i segreti, è possibile definire e usare parametri di modello protetti che recuperano tali segreti dall'insieme di credenziali delle chiavi di [Azure](../key-vault/general/overview.md) durante la distribuzione. È quindi possibile fare riferimento all'insieme di credenziali delle chiavi e al segreto nel file dei parametri. Per altre informazioni, vedere gli argomenti seguenti:
+Se, ad esempio, si usano i segreti, è possibile definire e usare i parametri di modello protetti che recuperano i segreti da [Azure Key Vault](../key-vault/general/overview.md) durante la distribuzione. È quindi possibile fare riferimento all'insieme di credenziali delle chiavi e al segreto nel file dei parametri. Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Passare valori sensibili durante la distribuzione usando l'insieme di credenziali delle chiavi di AzurePass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
-* [Proteggere i parametri nei modelli](#secure-parameters-deployment-template) di Azure Resource Manager più avanti in questo argomentoSecure parameters in Azure Resource Manager templates later in this topic
+* [Passare i valori sensibili alla distribuzione usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+* [Proteggere i parametri nei modelli di Azure Resource Manager](#secure-parameters-deployment-template) più avanti in questo argomento
 
 <a name="secure-parameters-workflow"></a>
 
-### <a name="secure-parameters-in-workflow-definitions"></a>Proteggere i parametri nelle definizioni del flusso di lavoroSecure parameters in workflow definitions
+### <a name="secure-parameters-in-workflow-definitions"></a>Proteggere i parametri nelle definizioni del flusso di lavoro
 
-Per proteggere le informazioni riservate nella definizione del flusso di lavoro dell'app per la logica, usare i parametri protetti in modo che queste informazioni non siano visibili dopo il salvataggio dell'app per la logica. Si supponga, ad esempio, di disporre di un'azione HTTP che richiede l'autenticazione di base, che utilizza un nome utente e una password. Nella definizione del `parameters` flusso di `basicAuthPasswordParam` `basicAuthUsernameParam` lavoro, la `securestring` sezione definisce i parametri e utilizzando il tipo . La definizione dell'azione `authentication` fa quindi riferimento a questi parametri nella sezione.
+Per proteggere le informazioni riservate nella definizione del flusso di lavoro dell'app per la logica, usare parametri protetti in modo che queste informazioni non siano visibili dopo il salvataggio dell'app per la logica. Si supponga, ad esempio, che un'azione HTTP richieda l'autenticazione di base, che usa un nome utente e una password. Nella definizione del flusso di lavoro `parameters` , la sezione `basicAuthPasswordParam` definisce `basicAuthUsernameParam` i parametri e usando `securestring` il tipo. La definizione dell'azione fa quindi riferimento a questi `authentication` parametri nella sezione.
 
 ```json
 "definition": {
@@ -423,24 +423,24 @@ Per proteggere le informazioni riservate nella definizione del flusso di lavoro 
 
 <a name="secure-parameters-deployment-template"></a>
 
-### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Parametri protetti nei modelli di Azure Resource ManagerSecure parameters in Azure Resource Manager templates
+### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Proteggere i parametri nei modelli di Azure Resource Manager
 
-Un modello di [Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) `parameters` per un'app per la logica include più sezioni. Per proteggere password, chiavi, segreti e altre informazioni riservate, definire i parametri `securestring` protetti `secureobject` a livello di modello e a livello di definizione del flusso di lavoro utilizzando il tipo or . È quindi possibile archiviare questi valori nell'insieme di credenziali delle chiavi di [Azure](../key-vault/general/overview.md) e usare il file dei [parametri](../azure-resource-manager/templates/parameter-files.md) per fare riferimento all'insieme di credenziali delle chiavi e al segreto. Il modello recupera quindi tali informazioni al momento della distribuzione. Per altre informazioni, vedere [Passare valori sensibili durante la distribuzione tramite L'insieme di](../azure-resource-manager/templates/key-vault-parameter.md)credenziali delle chiavi di Azure.For more information, see Pass sensitive values at deployment by using Azure Key Vault .
+Un [modello di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) per un'app per la `parameters` logica include più sezioni. Per proteggere password, chiavi, segreti e altre informazioni riservate, definire parametri protetti a livello di modello e di definizione del flusso di lavoro `securestring` usando `secureobject` il tipo o. È quindi possibile archiviare questi valori in [Azure Key Vault](../key-vault/general/overview.md) e usare il [file di parametri](../azure-resource-manager/templates/parameter-files.md) per fare riferimento all'insieme di credenziali delle chiavi e al segreto. Il modello recupera quindi tali informazioni in fase di distribuzione. Per altre informazioni, vedere [passare valori sensibili alla distribuzione usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
-Di seguito sono `parameters` riportate ulteriori informazioni su queste sezioni:Here is more information about these sections:
+Di seguito sono riportate `parameters` altre informazioni su queste sezioni:
 
-* Al livello principale del modello, una `parameters` sezione definisce i parametri per i valori utilizzati dal modello durante la *distribuzione.* Ad esempio, questi valori possono includere stringhe di connessione per un ambiente di distribuzione specifico. È quindi possibile archiviare questi valori in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato, semplificando la modifica di questi valori.
+* Al livello principale del modello, una `parameters` sezione definisce i parametri per i valori utilizzati dal modello durante la *distribuzione*. Questi valori, ad esempio, possono includere stringhe di connessione per un ambiente di distribuzione specifico. È quindi possibile archiviare questi valori in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato, rendendo più semplice la modifica di questi valori.
 
-* All'interno della definizione di risorsa dell'app `parameters` per la logica, ma all'esterno della definizione del flusso di lavoro, una sezione specifica i valori per i parametri della definizione del flusso di lavoro. In questa sezione è possibile assegnare questi valori utilizzando espressioni di modello che fanno riferimento ai parametri del modello. Queste espressioni vengono valutate al momento della distribuzione.
+* All'interno della definizione di risorsa dell'app per la logica, ma all'esterno `parameters` della definizione del flusso di lavoro, una sezione specifica i valori per i parametri della definizione del flusso di lavoro. In questa sezione è possibile assegnare questi valori usando espressioni di modello che fanno riferimento ai parametri del modello. Queste espressioni vengono valutate in fase di distribuzione.
 
-* All'interno della `parameters` definizione del flusso di lavoro, una sezione definisce i parametri utilizzati dall'app per la logica in fase di esecuzione. È quindi possibile fare riferimento a questi parametri all'interno del flusso di lavoro dell'app per la logica usando espressioni di definizione del flusso di lavoro, che vengono valutate in fase di esecuzione.
+* All'interno della definizione del flusso `parameters` di lavoro, una sezione definisce i parametri usati dall'app per la logica in fase di esecuzione. È quindi possibile fare riferimento a questi parametri nel flusso di lavoro dell'app per la logica usando le espressioni di definizione del flusso di lavoro, che vengono valutate in fase di esecuzione
 
-Questo modello di esempio con più `securestring` definizioni di parametri protetti che utilizzano il tipo:This example template that has multiple secured parameter definitions that use the type:
+Questo modello di esempio con più definizioni di parametro protette che usano `securestring` il tipo:
 
 | Nome parametro | Descrizione |
 |----------------|-------------|
-| `TemplatePasswordParam` | Parametro di modello che accetta una password che viene `basicAuthPasswordParam` quindi passata al parametro della definizione del flusso di lavoro |
-| `TemplateUsernameParam` | Parametro di modello che accetta un nome utente che `basicAuthUserNameParam` viene quindi passato al parametro della definizione del flusso di lavoro |
+| `TemplatePasswordParam` | Parametro di modello che accetta una password che viene quindi passata al `basicAuthPasswordParam` parametro della definizione del flusso di lavoro. |
+| `TemplateUsernameParam` | Parametro di modello che accetta un nome utente che viene quindi passato al `basicAuthUserNameParam` parametro della definizione del flusso di lavoro. |
 | `basicAuthPasswordParam` | Parametro di definizione del flusso di lavoro che accetta la password per l'autenticazione di base in un'azione HTTP |
 | `basicAuthUserNameParam` | Parametro di definizione del flusso di lavoro che accetta il nome utente per l'autenticazione di base in un'azione HTTP |
 |||
@@ -564,72 +564,72 @@ Questo modello di esempio con più `securestring` definizioni di parametri prote
 
 <a name="secure-requests"></a>
 
-## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Accesso a servizi e sistemi chiamati da app per la logica
+## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Accesso ai servizi e ai sistemi chiamati dalle app per la logica
 
-Ecco alcuni modi in cui puoi proteggere gli endpoint che ricevono chiamate o richieste dall'app per la logica:
+Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiamate o richieste dall'app per la logica:
 
 * Aggiungere l'autenticazione alle richieste in uscita.
 
-  Quando si lavora con un trigger basato su HTTP o un'azione che effettua chiamate in uscita, ad esempio HTTP, HTTP e Swagger, o Webhook, è possibile aggiungere l'autenticazione alla richiesta inviata dall'app per la logica. Ad esempio, è possibile utilizzare questi tipi di autenticazione:For example, you can use these authentication types:
+  Quando si lavora con un trigger basato su HTTP o un'azione che esegue chiamate in uscita, ad esempio HTTP, HTTP + spavalderia o webhook, è possibile aggiungere l'autenticazione alla richiesta inviata dall'app per la logica. Ad esempio, è possibile usare questi tipi di autenticazione:
 
   * [Autenticazione di base](#basic-authentication)
 
   * [Autenticazione del certificato client](#client-certificate-authentication)
 
-  * [Autenticazione OAuth di Active Directory](#azure-active-directory-oauth-authentication)
+  * [Autenticazione Active Directory OAuth](#azure-active-directory-oauth-authentication)
 
   * [Autenticazione identità gestita](#managed-identity-authentication)
   
-  Per altre informazioni, vedere [Aggiungere l'autenticazione alle chiamate in uscita](#add-authentication-outbound) più avanti in questo argomento.
+  Per ulteriori informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](#add-authentication-outbound) più avanti in questo argomento.
 
-* Limitare l'accesso dagli indirizzi IP dell'app per la logica.
+* Limitare l'accesso dagli indirizzi IP delle app per la logica.
 
-  Tutte le chiamate agli endpoint da app per la logica provengono da indirizzi IP designati specifici basati sulle aree delle app per la logica. È possibile aggiungere un filtro che accetti le richieste solo da tali indirizzi IP. Per ottenere questi indirizzi IP, vedere [Limiti e configurazione per le app per la logica](logic-apps-limits-and-config.md#configuration)di Azure.To get these IP addresses, see Limits and configuration for Azure Logic Apps .
+  Tutte le chiamate agli endpoint da app per la logica provengono da indirizzi IP specifici designati basati sulle aree delle app per la logica. È possibile aggiungere un filtro che accetti le richieste solo da tali indirizzi IP. Per ottenere questi indirizzi IP, vedere [limiti e configurazione per app per la logica di Azure](logic-apps-limits-and-config.md#configuration).
 
 * Migliorare la sicurezza per le connessioni ai sistemi locali.
 
-  App per la logica di Azure offre l'integrazione con questi servizi per fornire comunicazioni locali più sicure e affidabili.
+  App per la logica di Azure offre l'integrazione con questi servizi per consentire una comunicazione locale più sicura e affidabile.
 
   * Gateway dati locale
 
-    Molti connettori gestiti in App per la logica di Azure facilitano le connessioni protette a sistemi locali, ad esempio File System, SQL, SharePoint e DB2. Il gateway inoltra i dati da origini locali sui canali crittografati tramite il bus di servizio di Azure. Tutto il traffico ha origine come traffico in uscita protetto dall'agente gateway. Altre informazioni su [come funziona il gateway dati locale](logic-apps-gateway-install.md#gateway-cloud-service).
+    Molti connettori gestiti in app per la logica di Azure facilitano le connessioni protette a sistemi locali, ad esempio file System, SQL, SharePoint e DB2. Il gateway inoltra i dati da origini locali sui canali crittografati tramite il bus di servizio di Azure. Tutto il traffico ha origine come traffico in uscita protetto dall'agente gateway. Altre informazioni su [come funziona il gateway dati locale](logic-apps-gateway-install.md#gateway-cloud-service).
 
-  * Connettersi tramite Gestione API di AzureConnect through Azure API Management
+  * Connettersi tramite gestione API di Azure
 
-    [Gestione API di Azure](../api-management/api-management-key-concepts.md) dispone di numerose opzioni di connettività locale, tra cui l'integrazione ExpressRoute e per rete privata locale da sito a sito per la protezione del proxy e la comunicazione con i sistemi locali. Dal flusso di lavoro dell'app per la logica in Progettazione app per la logica, è possibile selezionare un'API esposta da Gestione API, che consente di accedere rapidamente ai sistemi locali.
+    [Gestione API di Azure](../api-management/api-management-key-concepts.md) dispone di numerose opzioni di connettività locale, tra cui l'integrazione ExpressRoute e per rete privata locale da sito a sito per la protezione del proxy e la comunicazione con i sistemi locali. Dal flusso di lavoro dell'app per la logica nella finestra di progettazione dell'app per la logica è possibile selezionare un'API esposta da gestione API, che consente di accedere rapidamente ai sistemi locali.
 
 <a name="add-authentication-outbound"></a>
 
-## <a name="add-authentication-to-outbound-calls"></a>Aggiungere l'autenticazione alle chiamate in uscitaAdd authentication to outbound calls
+## <a name="add-authentication-to-outbound-calls"></a>Aggiungere l'autenticazione alle chiamate in uscita
 
-Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In base al trigger o all'azione utilizzata per effettuare chiamate in uscita o richieste che accedono a questi endpoint, è possibile scegliere tra intervalli diversi di tipi di autenticazione. Per assicurarti di proteggere tutte le informazioni sensibili gestite dall'app per la logica, usa i parametri protetti e codifica i dati in base alle esigenze. Per ulteriori informazioni sull'utilizzo e la protezione dei parametri, consultate [Accesso agli input dei parametri.](#secure-action-parameters)
+Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In base al trigger o all'azione che si utilizza per effettuare chiamate in uscita o richieste che accedono a questi endpoint, è possibile scegliere tra diversi intervalli di tipi di autenticazione. Per assicurarsi di proteggere le informazioni riservate gestite dall'app per la logica, usare i parametri protetti e codificare i dati in modo necessario. Per altre informazioni sull'uso e la protezione dei parametri, vedere [accesso agli input dei parametri](#secure-action-parameters).
 
 > [!NOTE]
-> In Progettazione app per la logica, la proprietà **Authentication** potrebbe essere nascosta in alcuni trigger e azioni in cui è possibile specificare il tipo di autenticazione. Per fare in modo che la proprietà venga visualizzata in questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Autenticazione**. Per ulteriori informazioni, vedere [Autenticare l'accesso con identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+> Nella finestra di progettazione dell'app per la logica la proprietà **Authentication** potrebbe essere nascosta in alcuni trigger e azioni in cui è possibile specificare il tipo di autenticazione. Per fare in modo che la proprietà venga visualizzata in questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione**. Per altre informazioni, vedere [autenticare l'accesso con identità gestita](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 | Tipo di autenticazione | Supportata da |
 |---------------------|--------------|
-| [Basic](#basic-authentication) | Gestione API di Azure, Servizi app di Azure, HTTP, HTTP e Swagger, HTTP Webhook |
-| [Certificato client](#client-certificate-authentication) | Gestione API di Azure, Servizi app di Azure, HTTP, HTTP e Swagger, HTTP Webhook |
-| [Autenticazione OAuth Active Directory](#azure-active-directory-oauth-authentication) | Gestione API di Azure, Servizi app di Azure, Funzioni di Azure, HTTP, HTTP, Swagger, HTTP Webhook |
-| [Crudo](#raw-authentication) | Gestione API di Azure, Servizi app di Azure, Funzioni di Azure, HTTP, HTTP, Swagger, HTTP Webhook |
-| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, Servizi app di Azure, Funzioni di Azure, HTTP, HTTP, Swagger, HTTP Webhook |
+| [Basic](#basic-authentication) | Gestione API di Azure, app Azure Services, HTTP, HTTP + spavalderia, webhook HTTP |
+| [Certificato client](#client-certificate-authentication) | Gestione API di Azure, app Azure Services, HTTP, HTTP + spavalderia, webhook HTTP |
+| [Autenticazione OAuth Active Directory](#azure-active-directory-oauth-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, HTTP + spavalderia, webhook HTTP |
+| [Non elaborati](#raw-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, HTTP + spavalderia, webhook HTTP |
+| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, HTTP + spavalderia, webhook HTTP |
 |||
 
 <a name="basic-authentication"></a>
 
 ### <a name="basic-authentication"></a>Autenticazione di base
 
-Se l'opzione [Base](../active-directory-b2c/secure-rest-api.md) è disponibile, specificare i seguenti valori di proprietà:
+Se è disponibile l'opzione di [base](../active-directory-b2c/secure-rest-api.md) , specificare i valori delle proprietà seguenti:
 
-| Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | Basic | Il tipo di autenticazione da utilizzare |
+| **autenticazione** | `type` | Sì | Basic | Tipo di autenticazione da usare |
 | **Nome utente** | `username` | Sì | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
-| **Password** | `password` | Sì | <*Password*> | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **Password** | `password` | Sì | <*password*> | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 ||||||
 
-Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `Basic` di esempio specifica l'autenticazione come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
+Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica `type` l' `Basic` autenticazione come e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
 
 ```json
 "HTTP": {
@@ -651,16 +651,16 @@ Quando si usano [parametri protetti](#secure-action-parameters) per gestire e pr
 
 ### <a name="client-certificate-authentication"></a>Autenticazione con certificato client
 
-Se l'opzione [Certificato client](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) è disponibile, specificare i seguenti valori di proprietà:
+Se l'opzione [certificato client](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) è disponibile, specificare i valori delle proprietà seguenti:
 
-| Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da utilizzare per i certificati client TLS/SSL <p><p>**Nota:** sebbene i certificati autofirmati siano supportati, i certificati autofirmati per TLS/SSL non sono supportati. Il connettore HTTP non supporta i certificati TLS/SSL intermedi. |
-| **Pfx (in stato di** | `pfx` | Sì | <*encoded-pfx-contenuto del file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica base64, è possibile usare PowerShell attenendosi alla procedura seguente:To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertire il contenuto `ToBase64String()` del certificato utilizzando la funzione e salvarlo in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **Password** | `password`| No | <*file password per pfx*> | Password per accedere al file PFX. |
+| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da usare per i certificati client TLS/SSL <p><p>**Nota**: Sebbene i certificati autofirmati siano supportati, i certificati autofirmati per TLS/SSL non sono supportati. Il connettore HTTP non supporta i certificati TLS/SSL intermedi. |
+| **PFX** | `pfx` | Sì | <*codificato-pfx-file-contenuto*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica Base64, è possibile usare PowerShell attenendosi alla procedura seguente: <p>1. salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. convertire il contenuto del certificato usando la `ToBase64String()` funzione e salvare il contenuto in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Password** | `password`| No | <*password per il file PFX*> | Password per accedere al file PFX. |
 |||||
 
-Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `ClientCertificate` di esempio specifica l'autenticazione come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
+Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica `type` l' `ClientCertificate` autenticazione come e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
 
 ```json
 "HTTP": {
@@ -678,34 +678,34 @@ Quando si usano [parametri protetti](#secure-action-parameters) per gestire e pr
 }
 ```
 
-Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del certificato client, vedere gli argomenti seguenti:For more information about securing services by using client certificate authentication, see these topics:
+Per ulteriori informazioni sulla protezione dei servizi tramite l'autenticazione del certificato client, vedere gli argomenti seguenti:
 
-* [Migliorare la sicurezza per le API usando l'autenticazione del certificato client in Gestione API di AzureImprove security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
-* [Migliorare la sicurezza per i servizi back-end usando l'autenticazione del certificato client in Gestione API di AzureImprove security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Migliorare la sicurezza per il servizio RESTfuL utilizzando i certificati client](../active-directory-b2c/secure-rest-api.md)
+* [Migliorare la sicurezza per le API usando l'autenticazione con certificati client in gestione API di Azure](../api-management/api-management-howto-mutual-certificates-for-clients.md)
+* [Migliorare la sicurezza per i servizi back-end usando l'autenticazione con certificati client in gestione API di Azure](../api-management/api-management-howto-mutual-certificates.md)
+* [Migliorare la sicurezza per il servizio RESTful usando certificati client](../active-directory-b2c/secure-rest-api.md)
 * [Credenziali del certificato per l'autenticazione dell'applicazione](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Usare un certificato TLS/SSL nel codice nel Servizio app di Azure](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-oauth-authentication"></a>Autenticazione OAuth di Azure Active DirectoryAzure Active Directory OAuth authentication
+### <a name="azure-active-directory-oauth-authentication"></a>Autenticazione Azure Active Directory OAuth
 
-Se l'opzione [OAuth di Active Directory](../active-directory/develop/about-microsoft-identity-platform.md) è disponibile, specificare i valori delle proprietà seguenti:
+Se è disponibile l'opzione [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) , specificare i valori delle proprietà seguenti:
 
-| Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | **Autenticazione OAuth Active Directory** <br>o <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | No | <*Emittente DI URL per autorità*> | URL dell'autorità che fornisce il token di autenticazione. Per impostazione predefinita, questo valore è `https://login.windows.net`. |
-| **Tenant** | `tenant` | Sì | <*ID tenant*> | L'ID tenant per il tenant di Azure AD |
-| **Pubblico** | `audience` | Sì | <*risorsa da autorizzare*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
+| **autenticazione** | `type` | Sì | **Autenticazione OAuth Active Directory** <br>o <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2,0](../active-directory/develop/v2-overview.md). |
+| **Authority** | `authority` | No | <*URL per Authority-token-emittente*> | URL dell'autorità che fornisce il token di autenticazione. Per impostazione predefinita, questo valore è `https://login.windows.net`. |
+| **Inquilino** | `tenant` | Sì | <*ID tenant*> | L'ID tenant per il tenant di Azure AD |
+| **Pubblico** | `audience` | Sì | <*da risorsa ad autorizzazione*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Sì | <*ID client*> | L'ID client per l'app richiedente l'autorizzazione |
-| **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>o <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziale selezionato. |
-| **Segreto** | `secret` | Sì, ma solo per il tipo di credenziale "Segreto" | <*segreto client*> | Il segreto client per la richiesta dell'autorizzazione |
-| **Pfx (in stato di** | `pfx` | Sì, ma solo per il tipo di credenziale "Certificato" | <*encoded-pfx-contenuto del file*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
-| **Password** | `password` | Sì, ma solo per il tipo di credenziale "Certificato" | <*file password per pfx*> | Password per accedere al file PFX. |
+| **Tipo di credenziali** | `credentialType` | Sì | Certificato <br>o <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziali selezionato. |
+| **Segreto** | `secret` | Sì, ma solo per il tipo di credenziale "Secret" | <*segreto client*> | Il segreto client per la richiesta dell'autorizzazione |
+| **PFX** | `pfx` | Sì, ma solo per il tipo di credenziale "Certificate" | <*codificato-pfx-file-contenuto*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
+| **Password** | `password` | Sì, ma solo per il tipo di credenziale "Certificate" | <*password per il file PFX*> | Password per accedere al file PFX. |
 |||||
 
-Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `ActiveDirectoryOAuth`di esempio `Secret`specifica l'autenticazione come , il tipo di credenziale come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
+Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica `type` l' `ActiveDirectoryOAuth`autenticazione come, il tipo `Secret`di credenziale come e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
 
 ```json
 "HTTP": {
@@ -728,11 +728,11 @@ Quando si usano [parametri protetti](#secure-action-parameters) per gestire e pr
 
 <a name="raw-authentication"></a>
 
-### <a name="raw-authentication"></a>Autenticazione raw
+### <a name="raw-authentication"></a>Autenticazione non elaborata
 
-Se l'opzione **Raw** è disponibile, è possibile utilizzare questo tipo di autenticazione quando è necessario utilizzare schemi di [autenticazione](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) che non seguono il [protocollo OAuth 2.0](https://oauth.net/2/). Con questo tipo, si crea manualmente il valore dell'intestazione di autorizzazione da inviare con la richiesta in uscita e si specifica il valore dell'intestazione nel trigger o nell'azione.
+Se l'opzione non **elaborata** è disponibile, è possibile usare questo tipo di autenticazione quando è necessario usare [schemi di autenticazione](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) che non seguono il [protocollo OAuth 2,0](https://oauth.net/2/). Con questo tipo, si crea manualmente il valore dell'intestazione di autorizzazione inviato con la richiesta in uscita e si specifica il valore dell'intestazione nel trigger o nell'azione.
 
-Ad esempio, di seguito è riportata un'intestazione di esempio per una richiesta HTTPS che segue il [protocollo OAuth 1.0](https://tools.ietf.org/html/rfc5849):
+Ecco ad esempio un'intestazione di esempio per una richiesta HTTPS che segue il [protocollo OAuth 1,0](https://tools.ietf.org/html/rfc5849):
 
 ```text
 Authorization: OAuth realm="Photos",
@@ -744,15 +744,15 @@ Authorization: OAuth realm="Photos",
    oauth_signature="74KNZJeDHnMBp0EMJ9ZHt%2FXKycU%3D"
 ```
 
-Nel trigger o nell'azione che supporta l'autenticazione non elaborata specificare i valori delle proprietà seguenti:In the trigger or action that supports raw authentication, specify these property values:
+Nel trigger o nell'azione che supporta l'autenticazione non elaborata specificare i valori delle proprietà seguenti:
 
-| Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | Raw | Il tipo di autenticazione da utilizzare |
-| **Valore** | `value` | Sì | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da utilizzare per l'autenticazione |
+| **autenticazione** | `type` | Sì | Raw | Tipo di autenticazione da usare |
+| **Valore** | `value` | Sì | <*Authorization-header-value*> | Valore dell'intestazione di autorizzazione da usare per l'autenticazione |
 ||||||
 
-Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `Raw`di esempio specifica l'autenticazione come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
+Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. In questa definizione di azione HTTP di esempio `type` viene `Raw`specificata l'autenticazione di e viene utilizzata la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
 
 ```json
 "HTTP": {
@@ -773,22 +773,22 @@ Quando si usano [parametri protetti](#secure-action-parameters) per gestire e pr
 
 ### <a name="managed-identity-authentication"></a>Autenticazione identità gestita
 
-Se l'opzione [Identità gestita](../active-directory/managed-identities-azure-resources/overview.md) è disponibile, l'app per la logica può usare l'identità assegnata dal sistema o una *singola* identità assegnata dall'utente creata manualmente per autenticare l'accesso alle risorse in altri tenant di Azure Active Directory (Azure AD) senza effettuare l'accesso. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Altre informazioni sui servizi di [Azure che supportano le identità gestite per l'autenticazione](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)di Azure AD.
+Se l'opzione [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) è disponibile, l'app per la logica può usare l'identità assegnata dal sistema o una *singola* identità assegnata dall'utente creata manualmente per autenticare l'accesso alle risorse in altri tenant Azure Active Directory (Azure ad) senza effettuare l'accesso. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Scopri di più sui [servizi di Azure che supportano identità gestite per l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-1. Prima che l'app per la logica possa usare un'identità gestita, seguire i passaggi descritti in [Autenticare l'accesso alle risorse di Azure usando le identità gestite nelle app per la logica](../logic-apps/create-managed-service-identity.md)di Azure.Before your logic app can use a managed identity, follow the steps in Authenticate access to Azure resources by using managed identities in Azure Logic Apps . Questi passaggi abilitano l'identità gestita nell'app per la logica e configurano l'accesso di tale identità alla risorsa di Azure di destinazione.
+1. Prima che l'app per la logica possa usare un'identità gestita, seguire i passaggi descritti in [autenticazione dell'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure](../logic-apps/create-managed-service-identity.md). Questi passaggi abilitano l'identità gestita nell'app per la logica e configurano l'accesso dell'identità alla risorsa di Azure di destinazione.
 
-1. Prima che una funzione di Azure possa usare un'identità gestita, abilitare innanzitutto [l'autenticazione per le funzioni](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)di Azure.Before an Azure function can use a managed identity, first enable authentication for Azure functions .
+1. Prima che una funzione di Azure possa usare un'identità gestita, [abilitare prima l'autenticazione per funzioni di Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-1. Nel trigger o nell'azione in cui si vuole usare l'identità gestita specificare i valori delle proprietà seguenti:In the trigger or action where you want to use the managed identity, specify these property values:
+1. Nel trigger o nell'azione in cui si vuole usare l'identità gestita specificare i valori delle proprietà seguenti:
 
-   | Proprietà (progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
+   | Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
-   | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Il tipo di autenticazione da utilizzare |
-   | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>- <*nome-identità assegnato dall'utente*> | Identità gestita da utilizzare |
-   | **Pubblico** | `audience` | Sì | <*ID-risorsa di destinazione*> | ID risorsa per la risorsa di destinazione a cui si desidera accedere. <p>Ad esempio, `https://storage.azure.com/` rende validi i token di accesso per l'autenticazione per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare `https://fabrikamstorageaccount.blob.core.windows.net` un URL del servizio radice, ad esempio per un account di archiviazione specifico. <p>**Nota:** la proprietà **Pubblico** potrebbe essere nascosta in alcuni trigger o azioni. Per rendere visibile questa proprietà, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Pubblico**. <p><p>**Importante:** assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse eventuali barre finali necessarie. Pertanto, `https://storage.azure.com/` l'ID risorsa per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID di risorsa, vedere [Servizi di Azure che supportano Azure AD.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) |
+   | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
+   | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* <*assegnata all'utente-Identity-Name*> | Identità gestita da usare |
+   | **Pubblico** | `audience` | Sì | <*ID risorsa di destinazione*> | ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende validi i token di accesso per l'autenticazione per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL `https://fabrikamstorageaccount.blob.core.windows.net` del servizio radice, ad esempio per un account di archiviazione specifico. <p>**Nota**: la proprietà **audience** potrebbe essere nascosta in alcuni trigger o azioni. Per rendere visibile questa proprietà, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **audience**. <p><p>**Importante**: assicurarsi che l'ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure ad, incluse le barre finali richieste. Quindi, l' `https://storage.azure.com/` ID risorsa per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID di risorsa, vedere [servizi di Azure che supportano Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un modello di Azure Resource Manager [per automatizzare la distribuzione,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione `type` HTTP `ManagedServiceIdentity` di esempio specifica l'autenticazione come e utilizza la [funzione parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
+   Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica `type` l' `ManagedServiceIdentity` autenticazione come e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
 
    ```json
    "HTTP": {
@@ -808,7 +808,7 @@ Se l'opzione [Identità gestita](../active-directory/managed-identities-azure-re
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Automatizzare la distribuzione per le app per la logica di AzureAutomate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [Automatizzare la distribuzione per le app per la logica di Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
 * [Monitorare le app per la logica](../logic-apps/monitor-logic-apps-log-analytics.md)  
 * [Diagnosi degli errori delle app per la logica](../logic-apps/logic-apps-diagnosing-failures.md)  
 * [Automatizzare la distribuzione di app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

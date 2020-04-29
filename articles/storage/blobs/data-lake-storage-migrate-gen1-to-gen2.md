@@ -9,10 +9,10 @@ ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: aa4881aef9f3a9ba5d19fb0b768f13a1eb372296
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131426"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2
@@ -97,7 +97,7 @@ In questa tabella vengono confrontate le funzionalità di Gen1 a quella di Gen2.
 |---|---|---|
 |Organizzazione dei dati|[Spazio dei nomi gerarchico](data-lake-storage-namespace.md)<br>Supporto di file e cartelle|[Spazio dei nomi gerarchico](data-lake-storage-namespace.md)<br>Supporto di contenitori, file e cartelle |
 |Ridondanza geografica| [CON ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage)| [con ridondanza locale](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Authentication|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chiave di accesso condiviso](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Autenticazione|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)|[Identità gestita di AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Entità servizio](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Chiave di accesso condiviso](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autorizzazione|Gestione- [RBAC](../../role-based-access-control/overview.md)<br>Dati- [ACL](data-lake-storage-access-control.md)|Gestione- [RBAC](../../role-based-access-control/overview.md)<br>[ACL](data-lake-storage-access-control.md)dati, [RBAC](../../role-based-access-control/overview.md) |
 |Crittografia: dati inattivi|Lato server: con chiavi [gestite da Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gestite dal [cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|Lato server: con chiavi [gestite da Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o gestite dal [cliente](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Supporto di VNET|[integrazione rete virtuale](../../data-lake-store/data-lake-store-network-security.md)|[Endpoint di servizio](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [endpoint privati](../common/storage-private-endpoints.md)|

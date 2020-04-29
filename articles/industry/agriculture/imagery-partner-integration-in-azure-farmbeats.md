@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 52d817d1029e75837e55c1b942525661ace33f87
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82136941"
 ---
 # <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
@@ -40,7 +40,7 @@ Per collegare FarmBeats, è necessario usare le credenziali seguenti nel softwar
 
 Le API contengono la documentazione tecnica di spavalderia. Per informazioni sulle API e sulle richieste o risposte corrispondenti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 FarmBeats USA Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure ad). App Azure servizio fornisce supporto predefinito per l'autenticazione e l'autorizzazione. 
 

@@ -1,6 +1,6 @@
 ---
-title: Configurare la gestione dei lead utilizzando un endpoint HTTPS. Azure Marketplace
-description: Informazioni su come usare un endpoint HTTP per gestire i lead di Microsoft AppSource e Azure Marketplace.
+title: Configurare la gestione dei lead con un endpoint HTTPS | Azure Marketplace
+description: Informazioni su come usare un endpoint HTTP per gestire Microsoft AppSource e i lead di Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: dsindona
 ms.openlocfilehash: f56cc5aaad7d77ff8dc753115ef1becb08ddde73
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770146"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurare la gestione dei clienti potenziali usando un endpoint HTTPS
 
-È possibile usare un endpoint HTTPS per gestire i lead di Microsoft AppSource e Azure Marketplace.You can use an HTTPS endpoint to handle Microsoft AppSource and Azure Marketplace leads. Questi lead possono essere scritti in un sistema CRM (Customer Relationship Management) o inviati come notifica di posta elettronica. In questo articolo viene descritto come utilizzare il servizio di automazione [Microsoft Power Automate](https://powerapps.microsoft.com/automate-processes/) per configurare la gestione dei lead.
+È possibile usare un endpoint HTTPS per gestire Microsoft AppSource e i lead di Azure Marketplace. Questi lead possono essere scritti in un sistema CRM (Customer Relationship Management) o inviati come notifica tramite posta elettronica. Questo articolo descrive come usare il servizio di automazione [Microsoft Power automatizzate](https://powerapps.microsoft.com/automate-processes/) per configurare la gestione dei lead.
 
-## <a name="create-a-flow-using-microsoft-power-automate"></a>Creare un flusso con Microsoft Power AutomateCreate a flow using Microsoft Power Automate
+## <a name="create-a-flow-using-microsoft-power-automate"></a>Creare un flusso usando Microsoft Power automatizzate
 
-1. Aprire la pagina Web [Power Automate.](https://flow.microsoft.com/) Selezionare **Accesso** o **Iscrizione gratuita** per creare un account gratuito di Flow.
+1. Aprire la pagina Web [Power automatizzate](https://flow.microsoft.com/) . Selezionare **Accesso** o **Iscrizione gratuita** per creare un account gratuito di Flow.
 
 1. Accedere e selezionare **Flussi personali** nella barra dei menu.
     > [!div class="mx-imgBorder"]
     > ![Flussi personali](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
 
-1. In **Nuovo**, selezionare **"Istantaneo" dal campo vuoto.**
+1. In **+ nuovo**selezionare **+ Instant (da zero)**.
     > [!div class="mx-imgBorder"]
     > ![Creare da zero](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Assegnare un nome al flusso e quindi in **Scegliere come attivare il flusso**selezionare Quando viene ricevuta una richiesta **HTTP**.
+1. Assegnare un nome al flusso e quindi in **scegliere come attivare questo flusso**, selezionare **quando viene ricevuta una richiesta http**.
 
     > [!div class="mx-imgBorder"]
     > ![Selezionare il trigger di ricezione richiesta HTTP](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
@@ -40,7 +40,7 @@ ms.locfileid: "81770146"
     > [!div class="mx-imgBorder"]
     > ![Espandere il passaggio del flusso](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
 
-1. Utilizzare uno dei metodi seguenti per configurare lo schema JSON del corpo della **richiesta:**
+1. Usare uno dei metodi seguenti per configurare lo **schema JSON del corpo della richiesta**:
 
    - Copiare lo [schema JSON](#json-schema) riportato alla fine di questo articolo nella casella di testo **Schema JSON del corpo della richiesta**.
    - Selezionare **Usare il payload di esempio per generare lo schema**. Nella casella di testo **Immettere o incollare un payload JSON di esempio** incollare l'[esempio JSON](#json-example). Selezionare **Fine** per creare lo schema.
@@ -98,11 +98,11 @@ ms.locfileid: "81770146"
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Configurare l'offerta per inviare clienti potenziali all'endpoint HTTPS
 
-Quando si configurano le informazioni di gestione dei lead per l'offerta, selezionare **Endpoint HTTPS** per destinazione **lead** e incollare l'URL HTTP POST copiato nel passaggio precedente.  
+Quando si configurano le informazioni di gestione dei lead per l'offerta, selezionare **endpoint HTTPS** per la **destinazione lead** e incollare l'URL http post copiato nel passaggio precedente.  
 
 ![Aggiungere contenuto dinamico](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
-Quando vengono generati lead, Microsoft invia lead al flusso di Power Automate, che vengono instradati al sistema CRM o all'indirizzo di posta elettronica configurato.
+Quando vengono generati i lead, Microsoft invia lead al flusso di automazione dell'energia elettrica, che viene indirizzato al sistema CRM o all'indirizzo di posta elettronica configurato.
 
 ## <a name="json-schema-and-example"></a>Esempio e schema JSON
 
@@ -171,7 +171,7 @@ Nell'esempio di test JSON viene usato lo schema seguente:
 }
 ```
 
-È possibile copiare e modificare l'esempio JSON seguente da usare come test nel flusso.
+È possibile copiare e modificare il seguente esempio JSON da usare come test nel flusso.
 
 ### <a name="json-example"></a>Esempio di JSON
 

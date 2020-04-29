@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e263ecde532a8aaed420932bf355910da201723e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365850"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206732"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD
 
@@ -71,7 +71,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 
 1. Azure AD può gestire l'accesso per gli utenti senza basarsi sui componenti di un'istanza locale per la verifica delle password.
 2. Azure AD può trasferire l'accesso dell'utente a un provider di autenticazione attendibile, ad esempio AD FS di Microsoft.
-3. Se è necessario applicare criteri di sicurezza di Active Directory a livello di utente, ad esempio account scaduto, account disabilitato, password scaduta, account bloccato e ore di accesso per ogni accesso dell'utente, Azure AD richiede che in locale siano presenti alcuni componenti.
+3. Se è necessario applicare i criteri di sicurezza Active Directory a livello di utente, ad esempio l'account scaduto, l'account disabilitato, la password scaduta, l'account bloccato e l'orario di accesso per ogni accesso utente, Azure AD richiede alcuni componenti locali.
 4. Funzionalità di accesso non supportate da Azure AD in modo nativo:
    * Accesso tramite smart card o certificati.
    * Accesso tramite server MFA locale.
@@ -134,7 +134,7 @@ Per la procedura di distribuzione, vedere [implementazione dell'autenticazione p
 
 * **Esperienza utente**. L'esperienza utente di autenticazione federata dipende dall'implementazione delle funzionalità, dalla topologia e dalla configurazione della farm federativa. Alcune organizzazioni hanno bisogno di questa flessibilità per adattare e configurare l'accesso alla farm federativa in base alle proprie esigenze di sicurezza. Ad esempio, è possibile configurare gli utenti e i dispositivi connessi internamente perché effettuino l'accesso automaticamente, senza richiedere l'immissione di credenziali. Questa configurazione funziona in quanto gli utenti hanno già effettuato l'accesso dai propri dispositivi. Se necessario, alcune funzionalità di sicurezza avanzate possono complicare la procedura di accesso degli utenti.
 
-* **Scenari avanzati**. Una soluzione di autenticazione federata è in genere necessaria per le aziende con requisiti di autenticazione non supportati nativamente da Azure AD. Vedere le Informazioni dettagliate utili per la [scelta dell'opzione di accesso più adatta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considerare i requisiti comuni seguenti:
+* **Scenari avanzati**. Una soluzione di autenticazione federata è necessaria quando i clienti hanno un requisito di autenticazione che Azure AD non supporta in modo nativo. Vedere le Informazioni dettagliate utili per la [scelta dell'opzione di accesso più adatta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considerare i requisiti comuni seguenti:
 
   * Autenticazione che richiede smart card o certificati.
   * Server di autenticazione a più fattori locali o provider a più fattori di terze parti che richiedono un provider di identità federato.
@@ -175,8 +175,8 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 |Considerazioni|Sincronizzazione dell'hash delle password + Seamless SSO|Autenticazione pass-through + Seamless SSO|Federazione con ADFS|
 |:-----|:-----|:-----|:-----|
 |Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Locale|
-|Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|nessuno|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
-|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|nessuno|[Accesso a Internet in uscita](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
+|Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|Nessuno|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
+|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuno|[Accesso a Internet in uscita](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
 |Esiste un requisito del certificato TLS/SSL?|No|No|Sì|
 |Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Sì|
@@ -192,7 +192,7 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 > [!NOTE]
 > I controlli personalizzati in Azure AD accesso condizionale non supportano attualmente la registrazione del dispositivo.
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 Il sistema di gestione delle identità garantisce che gli utenti abbiano accesso alle app cloud e line-of-business trasferite e rese disponibili nel cloud. Per mantenere produttivi gli utenti autorizzati e tenere i malintenzionati alla larga dai dati sensibili dell'organizzazione, l'autenticazione controlla l'accesso alle app.
 
 Usare o abilitare la sincronizzazione dell'hash delle password indipendentemente dal metodo di autenticazione scelto, per i motivi seguenti:
@@ -203,7 +203,7 @@ Usare o abilitare la sincronizzazione dell'hash delle password indipendentemente
 
 2. **Sopravvivenza alle interruzioni locali**.  Le conseguenze di un'interruzione locale causata da attacchi informatici o emergenze possono essere significative e spaziano da un danno alla reputazione del marchio alla paralisi delle organizzazioni che non sono in grado di gestire l'attacco. Molte organizzazioni sono state recentemente vittime di attacchi malware, incluso il ransomware di destinazione, che ha causato l'interruzione dei server locali. Nel fornire il proprio supporto ai clienti che devono affrontare questi tipi di attacchi, Microsoft ha notato due categorie di organizzazioni:
 
-   * Le organizzazioni che in precedenza avevano attivato la sincronizzazione dell'hash delle password hanno cambiato metodo di autenticazione per usare tale sincronizzazione. Sono tornati online in poche ore. Usando l'accesso alla posta elettronica tramite Office 365, hanno lavorato per risolvere i problemi e accedere ad altri carichi di lavoro basati sul cloud.
+   * Le organizzazioni che in precedenza attivavano la sincronizzazione degli hash delle password oltre all'autenticazione federata o pass-through modificavano il metodo di autenticazione principale per poi usare la sincronizzazione dell'hash delle password. Sono tornati online in poche ore. Usando l'accesso alla posta elettronica tramite Office 365, hanno lavorato per risolvere i problemi e accedere ad altri carichi di lavoro basati sul cloud.
 
    * Le organizzazioni che non hanno precedentemente abilitato la sincronizzazione dell'hash delle password devono ricorrere a sistemi di posta elettronica esterni non attendibili per le comunicazioni per la risoluzione dei problemi. In questi casi, è necessario settimane per ripristinare la propria infrastruttura di identità locale, prima che gli utenti possano accedere di nuovo alle app basate sul cloud.
 

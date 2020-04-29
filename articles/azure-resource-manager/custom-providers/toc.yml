@@ -33,7 +33,7 @@
       href: custom-providers-action-endpoint-how-to.md
     - name: Aggiungere risorse personalizzate in Azure
       href: custom-providers-resources-endpoint-how-to.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento per il proxy di risorse personalizzate
       href: proxy-resource-endpoint-reference.md

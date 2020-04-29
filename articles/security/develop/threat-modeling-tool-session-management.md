@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73161504"
+ms.locfileid: "82203863"
 ---
 # <a name="security-frame-session-management"></a>Infrastruttura di sicurezza: gestione della sessione
 | Prodotto o servizio | Articolo |
@@ -221,7 +221,7 @@ Tutte le applicazioni basate su HTTP che usano cookie devono specificare HttpOnl
 | **Tecnologie applicabili** | Web Form |
 | **Attributi**              | N/D  |
 | **Riferimenti**              | [Proprietà FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Passaggi** | Il valore della proprietà RequireSSL viene impostato nel file di configurazione per un'applicazione ASP.NET usando l'attributo requireSSL dell'elemento di configurazione. È possibile specificare nel file Web.config per l'applicazione ASP.NET se SSL (Secure Sockets Layer) è necessario per restituire il cookie di autenticazione basata su form al server impostando l'attributo requireSSL.|
+| **Passaggi** | Il valore della proprietà RequireSSL viene impostato nel file di configurazione per un'applicazione ASP.NET usando l'attributo requireSSL dell'elemento di configurazione. È possibile specificare nel file Web. config per l'applicazione ASP.NET se Transport Layer Security (TLS), noto in precedenza come SSL (Secure Sockets Layer), è necessario per restituire il cookie di autenticazione basata su form al server impostando l'attributo requireSSL.|
 
 ### <a name="example"></a>Esempio 
 L'esempio di codice seguente imposta l'attributo requireSSL nel file Web.config.

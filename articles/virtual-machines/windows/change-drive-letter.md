@@ -1,5 +1,5 @@
 ---
-title: "Impostare l'unità D: di una macchina virtuale un disco datiMake the D: drive of a VM a data disk "
+title: "Trasformare l'unità D: di una macchina virtuale in un disco dati "
 description: "Descrive come modificare le lettere di unità per una VM Windows, in modo da poter usare l'unità D: come unità dati."
 services: virtual-machines-windows
 author: cynthn
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82083423"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usare l'unità D come unità dati in una macchina virtuale Windows
@@ -47,7 +47,7 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 6. In Lettera unità selezionare l'unità **D** e quindi fare clic su **OK**. 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Spostare nuovamente pagefile.sys nell'unità di archiviazione temporanea
-1. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**
+1. Fare clic con il pulsante destro del mouse sul menu **Start** e scegliere **sistema**
 2. Nel menu a sinistra selezionare **Impostazioni di sistema avanzate**.
 3. Nella sezione **Prestazioni** selezionare **Impostazioni**.
 4. Selezionare la scheda **Avanzate** .
@@ -58,5 +58,5 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 9. Riavviare la macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* È possibile aumentare lo spazio di archiviazione disponibile per la macchina virtuale [collegando un disco dati aggiuntivo.](attach-managed-disk-portal.md)
+* Per aumentare lo spazio di archiviazione disponibile per la macchina virtuale, è possibile [aggiungere un disco dati aggiuntivo](attach-managed-disk-portal.md).
 

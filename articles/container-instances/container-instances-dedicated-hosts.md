@@ -1,46 +1,46 @@
 ---
-title: Distribuzione su host dedicato
-description: Usare un host dedicato per ottenere un vero isolamento a livello di host per i carichi di lavoro delle istanze del contenitore di AzureUse a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
+title: Distribuisci su host dedicato
+description: Usare un host dedicato per ottenere un vero isolamento a livello di host per i carichi di lavoro di istanze di contenitore di Azure
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025034"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Eseguire la distribuzione in host dedicati
 
-"Dedicato" è uno sku per le istanze del contenitore di Azure (ACI) che fornisce un ambiente di elaborazione isolato e dedicato per l'esecuzione sicura dei contenitori. L'uso dello sku dedicato comporta che ogni gruppo di contenitori abbia un server fisico dedicato in un data center di Azure, garantendo l'isolamento completo del carico di lavoro per soddisfare i requisiti di sicurezza e conformità dell'organizzazione. 
+"Dedicated" è uno SKU di istanze di contenitore di Azure che fornisce un ambiente di calcolo isolato e dedicato per i contenitori in esecuzione sicura. L'uso dello SKU dedicato consente a ogni gruppo di contenitori di avere un server fisico dedicato in un Data Center di Azure, garantendo un isolamento completo dei carichi di lavoro per soddisfare i requisiti di sicurezza e conformità dell'organizzazione. 
 
-Lo sku dedicato è appropriato per i carichi di lavoro dei contenitori che richiedono l'isolamento del carico di lavoro dal punto di vista del server fisico.
+Lo SKU dedicato è adatto per i carichi di lavoro del contenitore che richiedono l'isolamento del carico di lavoro dal punto di vista del server fisico.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il limite predefinito per ogni sottoscrizione per l'utilizzo di sku dedicato è 0.The default limit for any subscription to use the dedicated sku is 0. Se si vuole usare questo sku per le distribuzioni del contenitore di produzione, creare una richiesta di supporto di [Azure][azure-support] per aumentare il limite.
+* Il limite predefinito per qualsiasi sottoscrizione per l'uso dello SKU dedicato è 0. Se si vuole usare questo SKU per le distribuzioni di contenitori di produzione, creare un [richiesta di supporto di Azure][azure-support] per aumentare il limite.
 
-## <a name="use-the-dedicated-sku"></a>Usare lo sku dedicato
+## <a name="use-the-dedicated-sku"></a>Usare lo SKU dedicato
 
 > [!IMPORTANT]
-> L'uso dello sku dedicato è disponibile solo nell'ultima versione dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione.
+> L'uso dello SKU dedicato è disponibile solo nella versione più recente dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione.
 >
 
-A partire dalla versione API 2019-12-01, è presente una `sku` proprietà nella sezione delle proprietà del gruppo di contenitori di un modello di distribuzione, necessaria per una distribuzione ACI. Attualmente, è possibile usare questa proprietà come parte di un modello di distribuzione di Azure Resource Manager per ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello, vedere [Esercitazione: Distribuire un gruppo multicontenitore usando un modello](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)di Resource Manager. 
+A partire dall'API versione 2019-12-01, è presente `sku` una proprietà nella sezione delle proprietà del gruppo di contenitori di un modello di distribuzione, che è necessario per una distribuzione di ACI. Attualmente, è possibile usare questa proprietà come parte di un modello di distribuzione Azure Resource Manager per ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-La `sku` proprietà può avere uno dei seguenti valori:
-* `Standard`- la scelta di implementazione ACI standard, che garantisce ancora la sicurezza a livello di hypervisor 
-* `Dedicated`- utilizzato per l'isolamento a livello di carico di lavoro con host fisici dedicati per il gruppo di contenitori- used for workload level isolation with dedicated physical hosts for the container group
+La `sku` proprietà può avere uno dei valori seguenti:
+* `Standard`-la scelta di distribuzione ACI standard, che garantisce comunque la sicurezza a livello di hypervisor 
+* `Dedicated`-usato per l'isolamento a livello di carico di lavoro con host fisici dedicati per il gruppo di contenitori
 
-## <a name="modify-your-json-deployment-template"></a>Modificare il modello di distribuzione JSONModify your JSON deployment template
+## <a name="modify-your-json-deployment-template"></a>Modificare il modello di distribuzione JSON
 
-Nel modello di distribuzione modificare o aggiungere le proprietà seguenti:In your deployment template, modify or add the following properties:
-* In `resources`, `apiVersion` `2019-12-01`impostare su .
-* Nelle proprietà del gruppo `sku` di contenitori aggiungere una proprietà con valore `Dedicated`.
+Nel modello di distribuzione modificare o aggiungere le proprietà seguenti:
+* In `resources`, impostare `apiVersion` su `2019-12-01`.
+* In Proprietà gruppo di contenitori aggiungere una `sku` proprietà con valore. `Dedicated`
 
-Ecco un frammento di codice di esempio per la sezione delle risorse di un modello di distribuzione di gruppi di contenitori che usa lo sku dedicato:Here is an example snippet for the resources section of a container group deployment template that uses the dedicated sku:
+Ecco un frammento di esempio per la sezione Resources di un modello di distribuzione del gruppo di contenitori che usa lo SKU dedicato:
 
 ```json
 [...]
@@ -60,7 +60,7 @@ Ecco un frammento di codice di esempio per la sezione delle risorse di un modell
 ]
 ```
 
-Di seguito è riportato un modello completo che distribuisce un gruppo di contenitori di esempio che esegue una singola istanza del contenitore:Following is a complete template that deploys a sample container group running a single container instance:
+Di seguito è riportato un modello completo che distribuisce un gruppo di contenitori di esempio che esegue una singola istanza del contenitore:
 
 ```json
 {
@@ -127,9 +127,9 @@ Di seguito è riportato un modello completo che distribuisce un gruppo di conten
 }
 ```
 
-## <a name="deploy-your-container-group"></a>Distribuire il gruppo di contenitoriDeploy your container group
+## <a name="deploy-your-container-group"></a>Distribuire il gruppo di contenitori
 
-Se il file del modello di distribuzione è stato creato e modificato sul desktop, è possibile caricarlo nella directory di Cloud Shell trascinandoilo. 
+Se il file del modello di distribuzione è stato creato e modificato sul desktop, è possibile caricarlo nella directory Cloud Shell trascinandolo. 
 
 Creare un gruppo di risorse con il comando [az group create][az-group-create].
 
@@ -143,7 +143,7 @@ Distribuire il modello con il comando [az group deployment create][az-group-depl
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure. Una distribuzione corretta avviene in un host dedicato.
+Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure. Una distribuzione corretta viene eseguita in un host dedicato.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create

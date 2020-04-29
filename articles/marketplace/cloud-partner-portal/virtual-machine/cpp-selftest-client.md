@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
 ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143207"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
@@ -71,7 +71,7 @@ La tabella seguente descrive i campi dell'API.
 |  DNSName           |  Nome DNS della macchina virtuale da testare    |
 |  Utente              |  Nome utente per l'accesso alla macchina virtuale         |
 |  Password          |  Password per l'accesso alla macchina virtuale          |
-|  OS                |  Sistema operativo della macchina virtuale, ovvero `Linux` o `Windows`          |
+|  Sistema operativo                |  Sistema operativo della macchina virtuale, ovvero `Linux` o `Windows`          |
 |  PortNo            |  Numero della porta aperta per la connessione alla macchina virtuale. Il numero della porta in genere è `22` per Linux e `5986` per Windows.          |
 |  |  |
 
@@ -252,7 +252,7 @@ Seguire questa procedura per registrare l'app client.
    - **Tipo di applicazione** : selezionare **app Web/API**
    - **URL di accesso** : digitare "https:\//isvapp.azurewebsites.NET/SELFTEST-VM"
 
-4. Seleziona **Crea**.
+4. Selezionare **Crea**.
 5. In **Registrazioni app** oppure **App registrata** copiare l'**ID applicazione**.
 
    ![Ottenere l'ID dell'applicazione](./media/stclient-app-id.png)
@@ -272,7 +272,7 @@ Seguire questa procedura per registrare l'app client.
     ![Abilitare l'accesso all'API per l'app](./media/stclient-enable-api-access.png)
 
 14. Fare clic su **Seleziona**.
-15. Selezionare **Operazione completata**.
+15. Seleziona **Chiudi**.
 16. In **Impostazioni** selezionare **Proprietà**.
 17. In **Proprietà** scorrere verso il basso fino a **Multi-tenant**. Selezionare **Sì**.
 

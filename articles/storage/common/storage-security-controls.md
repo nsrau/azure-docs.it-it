@@ -10,10 +10,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128030"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlli di sicurezza per archiviazione di Azure
@@ -22,7 +22,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in archiviazione d
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
@@ -54,7 +54,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in archiviazione d
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Authentication| Sì | Azure Active Directory, chiave condivisa e token di accesso condiviso. |
+| Autenticazione| Sì | Azure Active Directory, chiave condivisa e token di accesso condiviso. |
 | Autorizzazione| Sì | Supportare l'autorizzazione tramite RBAC, ACL POSIX e token SAS |
 
 ## <a name="configuration-management"></a>Gestione della configurazione

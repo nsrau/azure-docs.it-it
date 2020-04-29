@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire una macchina virtuale di Azure tramite JavaCreate and Manage an Azure Virtual Machine Using Java
+title: Creare e gestire una macchina virtuale di Azure con Java
 description: Usare Java e Azure Resource Manager per distribuire una macchina virtuale e tutte le relative risorse di supporto.
 services: virtual-machines-windows
 author: cynthn
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870036"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creare e gestire macchine virtuali Windows in Azure tramite Java
@@ -127,7 +127,7 @@ Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità s
     graphURL=https://graph.microsoft.com/
     ```
 
-    ** &lt;Sostituire&gt; subscription-id** con l'identificatore di sottoscrizione, ** &lt;application-id&gt; ** con l'identificatore dell'applicazione Active Directory, ** &lt;authentication-key&gt; ** con la chiave dell'applicazione e ** &lt;tenant-id&gt; ** con l'identificatore tenant.
+    Sostituire ** &lt;Subscription-ID&gt; ** con l'identificatore della sottoscrizione, ** &lt;Application-&gt; ID** con l'identificatore dell'applicazione Active Directory, ** &lt;la&gt; chiave di autenticazione** con la chiave dell'applicazione e ** &lt;l'&gt; ID tenant** con l'identificatore del tenant.
 
 2. Salvare il file.
 3. Impostare una variabile di ambiente denominata AZURE_AUTH_LOCATION nella shell con il percorso completo al file di autenticazione.
@@ -211,7 +211,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Creare l'indirizzo IP pubblico
 
-Per comunicare con la macchina virtuale è necessario [un indirizzo IP pubblico.](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+Un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) è necessario per comunicare con la macchina virtuale.
 
 Per creare l'indirizzo IP pubblico per la macchina virtuale, aggiungere questo codice al blocco try nel metodo main:
 

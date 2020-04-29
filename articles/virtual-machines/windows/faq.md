@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulle macchine virtuali Windows in AzureFAQ about Windows VMs in Azure
+title: Domande frequenti sulle macchine virtuali Windows in Azure
 description: Offre le risposte ad alcune delle domande comuni sulle macchine virtuali Windows create con un modello di Gestione risorse.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: 33d530181f4cc389f81ea83dc42b774ccfc8fd85
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869628"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Domande frequenti sulle Macchine virtuali Windows
-Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione Linux di questo argomento, vedere [Domande frequenti sulle macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Questo articolo analizza alcune delle domande più comuni sulle macchine virtuali Windows create in Azure mediante il modello di distribuzione di Gestione risorse. Per la versione di Linux di questo argomento, vedere [domande frequenti su macchine virtuali Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Cosa è possibile eseguire in una VM di Azure?
-Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. Per informazioni sui criteri di supporto per l'esecuzione di software server Microsoft in Azure, vedere Supporto del software server Microsoft per Macchine virtuali di [Azure.](https://support.microsoft.com/kb/2721672)
+Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. Per informazioni sui criteri di supporto per l'esecuzione di software server Microsoft in Azure, vedere [supporto di software server Microsoft per macchine virtuali di Azure](https://support.microsoft.com/kb/2721672).
 
 Alcune versioni di Windows 7, Windows 8.1 e Windows 10 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per ulteriori informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanta memoria è possibile utilizzare con una macchina virtuale?
-Ogni disco dati può essere fino a 32.767 GiB. Il numero di dischi dati che è possibile utilizzare dipende dalla dimensione della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni per le macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ogni disco dati può essere fino a 32.767 GiB. Il numero di dischi dati che è possibile utilizzare dipende dalla dimensione della macchina virtuale. Per informazioni dettagliate, vedere [dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Azure Managed Disks è l'offerta di archiviazione su disco consigliata per l'uso con Macchine virtuali di Azure per l'archiviazione permanente dei dati. Puoi usare più dischi gestiti con ogni macchina virtuale. Il servizio Managed Disks offre due tipi di opzioni di archiviazione durevole: Managed Disks Premium e Standard. Per informazioni sui prezzi, vedere [Prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Gli account di archiviazione di Azure offrono inoltre spazio di archiviazione per il disco del sistema operativo e per qualsiasi disco di dati. Ogni disco è un file con estensione vhd archiviato come BLOB di pagine. Per informazioni sui prezzi, vedere [Dettagli prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Come si accede alla macchina virtuale?
-Stabilire una connessione remota mediante la Connessione desktop remoto (RDP) per una VM Windows. Per istruzioni, vedere [Come connettersi e accedere a una macchina virtuale](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)di Azure che esegue Windows . Sono supportate al massimo due connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.  
+Stabilire una connessione remota mediante la Connessione desktop remoto (RDP) per una VM Windows. Per istruzioni, vedere [come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sono supportate al massimo due connessioni simultanee, a meno che il server non sia configurato come host sessione Servizi Desktop remoto.  
 
-In caso di problemi con Desktop remoto, vedere Risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di [Azure basata su Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Se si verificano problemi con Desktop remoto, vedere [risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Se si ha familiarità con Hyper-V, è possibile che si stia cercando uno strumento simile a VMConnect.If you're familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure non offre uno strumento simile perché l'accesso alla console a una macchina virtuale non è supportato.
+Se si ha familiarità con Hyper-V, è possibile che si stia cercando uno strumento simile a VMConnect. Azure non offre uno strumento simile perché l'accesso alla console a una macchina virtuale non è supportato.
 
 ## <a name="can-i-use-the-temporary-disk-the-d-drive-by-default-to-store-data"></a>È possibile utilizzare il disco temporaneo (l'unità D: per impostazione predefinita) per archiviare i dati?
-Non utilizzare il disco temporaneo per archiviare i dati. Si tratta solo di archiviazione temporanea, quindi si rischierebbe di perdere dati che non possono essere recuperati. La perdita di dati può verificarsi quando si sposta la macchina virtuale in un host diverso. Il ridimensionamento di una macchina virtuale, l'aggiornamento dell'host o un errore hardware nell'host sono alcuni dei motivi che potrebbero portare a spostare una macchina virtuale.
+Non usare il disco temporaneo per archiviare i dati. Si tratta solo di una risorsa di archiviazione temporanea, quindi si rischierebbe di perdere dati che non possono essere recuperati. La perdita di dati può verificarsi quando si sposta la macchina virtuale in un host diverso. Il ridimensionamento di una macchina virtuale, l'aggiornamento dell'host o un errore hardware nell'host sono alcuni dei motivi che potrebbero portare a spostare una macchina virtuale.
 
 Se si dispone di un'applicazione che deve utilizzare la lettera di unità D:, è possibile riassegnare le lettere di unità in modo che il disco temporaneo ne usi una diversa da D:. Per le istruzioni, vedere [Modificare la lettera di unità di un disco temporaneo di Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -93,10 +93,10 @@ I nomi utente seguenti non sono consentiti:
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Quali requisiti devono avere le password durante la creazione di una VM?
 
-Esistono diversi requisiti di lunghezza della password, a seconda dello strumento in uso:
- - Portale - tra 12 e 72 caratteri
- - PowerShell - da 8 a 123 caratteri
- - CLI - tra 12 - 123
+I requisiti di lunghezza delle password variano a seconda dello strumento in uso:
+ - Portale-tra 12-72 caratteri
+ - PowerShell-tra 8-123 caratteri
+ - INTERFACCIA della riga di comando-tra 12-123
 
 * Devono contenere caratteri minuscoli
 * Devono contenere caratteri maiuscoli

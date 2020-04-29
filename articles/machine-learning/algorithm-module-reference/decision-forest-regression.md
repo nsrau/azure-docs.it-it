@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137026"
 ---
 # <a name="decision-forest-regression-module"></a>Modulo di regressione della foresta delle decisioni
@@ -24,7 +24,7 @@ Usare questo modulo per creare un modello di regressione basato su un insieme di
 
 Dopo aver configurato il modello, è necessario eseguire il training del modello usando un set di dati con etichetta e il modulo [Train Model](./train-model.md) . Sarà quindi possibile usare il modello con training per ottenere stime. 
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Gli alberi delle decisioni sono modelli non parametrici che eseguono una sequenza di semplici test per ogni istanza, attraversando una struttura dei dati ad albero binario fino a raggiungere un nodo foglia (decisione).
 

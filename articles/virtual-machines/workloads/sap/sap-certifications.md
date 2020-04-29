@@ -17,15 +17,15 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
 ms.openlocfilehash: df80113b85153f4e52bcbefa7b33dab9da296173
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084822"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configurazioni e certificazioni SAP in esecuzione su Microsoft Azure
 
-SAP e Microsoft hanno una lunga storia di collaborazione che produce vantaggi per i reciproci clienti. Microsoft aggiorna costantemente la propria piattaforma e invia i dettagli di nuove certificazioni a SAP al fine di garantire la leadership di Microsoft Azure come piattaforma in cui eseguire carichi di lavoro SAP. Le tabelle seguenti illustrano le configurazioni supportate da Azure e un elenco sempre crescente di certificazioni SAP. Questo elenco è un elenco generale che potrebbe deviare qua e là dagli elenchi ufficiali SAP. Come accedere ai dati dettagliati è documentato nell'articolo [Quale software SAP è supportato per le distribuzioni](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) di AzureHow to get to the detailed data is documented in the article What SAP software is supported for Azure deployments
+SAP e Microsoft hanno una lunga storia di collaborazione che produce vantaggi per i reciproci clienti. Microsoft aggiorna costantemente la propria piattaforma e invia i dettagli di nuove certificazioni a SAP al fine di garantire la leadership di Microsoft Azure come piattaforma in cui eseguire carichi di lavoro SAP. Le tabelle seguenti illustrano le configurazioni supportate da Azure e un elenco sempre crescente di certificazioni SAP. Questo elenco è un elenco di panoramica che può deviare da qui e da elenchi SAP ufficiali. Come ottenere i dati dettagliati nell'articolo [quale software SAP è supportato per le distribuzioni di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)
 
 ## <a name="sap-hana-certifications"></a>Certificazioni SAP HANA
 Riferimenti:
@@ -36,10 +36,10 @@ Riferimenti:
 | --- | --- | --- |
 | SAP HANA Developer Edition, che include il software HANA Client e i driver SQLODBC, ODBO (solo Windows), ODBC e JDBC, HANA Studio e il database HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Famiglia di VM serie D |
 | Business One in HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) (Piattaforme IaaS certificate per SAP HANA) |
-| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Disponibilità controllata per GS5. Pieno supporto per M64, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, M416s_v2, M416ms_v2, <br /> SAP HANA in Azure (istanze Large) [Piattaforme IaaS certificate di SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| Suite su HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA su Azure (grandi istanze) [Piattaforme IaaS certificate SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| HANA Enterprise per BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA su Azure (grandi istanze) [Piattaforme IaaS certificate SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA in Azure (istanze di grandi dimensioni)For, M416ms_v2, SAP HANA on Azure (Large instances) <br /> [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA) |
+| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Disponibilità controllata per GS5. Supporto completo per M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, M416s_v2, M416ms_v2, <br /> SAP HANA in Azure (istanze Large) [Piattaforme IaaS certificate di SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite su HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA in Azure (istanze large) [SAP Hana piattaforme IaaS certificate](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| HANA Enterprise per BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA in Azure (istanze large) [SAP Hana piattaforme IaaS certificate](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2, <br /> M416s_v2, M416ms_v2, SAP HANA in Azure (istanze large) <br /> [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA) |
 
 Tenere presente che SAP usa il termine 'clustering' in [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA) come sinonimo di 'scalabilità orizzontale' e NON come riferimento al 'clustering' a disponibilità elevata
 
@@ -52,10 +52,10 @@ Riferimenti:
 
 | Prodotto SAP | Sistema operativo guest | RDBMS | Tipi di macchine virtuali |
 | --- | --- | --- | --- |
-| Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
-| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
-| SAP BusinessObjects BI | Windows |N/D |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
-| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da A5 ad A11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3, D2as_v4 per D64as_v4, E2s_v3 a E64s_v3, E2as_v4 a E64as_v4, M64ms, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208s_v2, M208ms_v2 M416ms_v2 M416s_v2 |
+| Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da a5 a a11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3 D2as_v4 D64as_v4 E2s_v3 E64s_v3 E2as_v4 E64as_v4 M208s_v2, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da a5 a a11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3 D2as_v4 D64as_v4 E2s_v3 E64s_v3 E2as_v4 E64as_v4 M208s_v2, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP BusinessObjects BI | Windows |N/D |Da a5 a a11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3 D2as_v4 D64as_v4 E2s_v3 E64s_v3 E2as_v4 E64as_v4 M208s_v2, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208ms_v2, M416s_v2, M416ms_v2 |
+| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (solo Windows e Oracle Linux), DB2, SAP ASE |Da a5 a a11, da D11 a D14, da DS11 a DS14, da DS11_v2 a DS15_v2, da GS1 a GS5, da D2s_v3 a D64s_v3 D2as_v4 D64as_v4 E2s_v3 E64s_v3 E2as_v4 E64as_v4 M208s_v2, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, M208ms_v2, M416s_v2, M416ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Altri carichi di lavoro SAP supportati in Azure
 
@@ -65,7 +65,7 @@ Riferimenti:
 | SAP BPC 10.01 MS SP08 | Windows e Linux | | Tutti i tipi di VM certificati per NetWeaver<br /> Nota SAP n. 2451795 |
 | Piattaforma di business intelligence SAP Business Objects | Windows e Linux | | Nota SAP n. 2145537 |
 | SAP Data Services 4.2 | | | Nota SAP n. 2288344 |
-| Piattaforma SAP Hybris Commerce  | Windows | SQL Server, Oracle | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
-| Piattaforma SAP Hybris Commerce  | SLES 12 o più recenti | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
-| Piattaforma SAP Hybris Commerce  | RHEL 7 o più recente | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione Hybris]https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
-| SAP (Hybris) Commerce Platform 1811 e versioni successive  | Windows, SLES o RHEL | DATABASE di SQL Azure | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| Piattaforma SAP hybris Commerce  | Windows | SQL Server, Oracle | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| Piattaforma SAP hybris Commerce  | SLES 12 o più recenti | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| Piattaforma SAP hybris Commerce  | RHEL 7 o più recente | SAP HANA | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di hybris]https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| SAP (hybris) Commerce platform 1811 e versioni successive  | Windows, SLES o RHEL | DATABASE SQL Azure | Tutti i tipi di VM certificati per NetWeaver <br /> [Documentazione di hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |

@@ -1,5 +1,5 @@
 ---
-title: Aprire e salvare file con pacchetti SSIS distribuiti in AzureOpen and save files with SSIS packages deployed in Azure
+title: Aprire e salvare file con pacchetti SSIS distribuiti in Azure
 description: Informazioni su come aprire e salvare file in locale e in Azure quando si esegue la migrazione in modalità lift-and-shift di pacchetti SSIS che usano file system locali in SSIS in Azure
 ms.date: 06/27/2018
 ms.topic: conceptual
@@ -9,10 +9,10 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
 ms.openlocfilehash: 630a8ead409ad60b9146838f062210a3301b43b5
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81760199"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Aprire e salvare file in locale e in Azure con pacchetti SSIS distribuiti in Azure
@@ -51,4 +51,4 @@ Per usare **File di Azure** quando si spostano pacchetti che usano i file system
 
 - Distribuire i pacchetti. Per altre informazioni, vedere [Distribuire un progetto SSIS con SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
 - Eseguire i pacchetti. Per altre informazioni, vedere [Eseguire pacchetti SSIS in Azure con SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
-- Pianificare i pacchetti. Per altre informazioni, vedere [Pianificare pacchetti SSIS in Azure.For](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)more info, see Schedule SSIS packages in Azure.
+- Pianificare i pacchetti. Per altre informazioni, vedere [pianificare pacchetti SSIS in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).

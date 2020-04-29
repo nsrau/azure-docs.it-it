@@ -1,5 +1,5 @@
 ---
-title: Configurare SSL - Database di Azure per MariaDBConfigure SSL - Azure Database for MariaDB
+title: Configurare SSL-database di Azure per MariaDB
 description: Istruzioni per la configurazione di Database di Azure per MariaDB e delle applicazioni associate per usare correttamente le connessioni SSL
 author: ajlam
 ms.author: andrela
@@ -7,33 +7,33 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/21/2020
 ms.openlocfilehash: 0af94d04f4e50fd039f01c5746b3a5d47a3698b3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81769935"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MariaDB
 Database di Azure per MariaDB supporta la connessione alle applicazioni client tramite Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
 
 ## <a name="obtain-ssl-certificate"></a>Ottenere un certificato SSL
-Scaricare il certificato necessario per comunicare tramite SSL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) con il database di Azure per il server MariaDB e salvare il file del certificato nell'unità locale (ad esempio, questa esercitazione usa c:.
+Scaricare il certificato necessario per comunicare tramite SSL con il database di Azure per il server [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) MariaDB e salvare il file del certificato nell'unità locale. questa esercitazione usa c:\ssl ad esempio.
 **Per Microsoft Internet Explorer e Microsoft Edge:** una volta completato il download, rinominare il certificato in BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="bind-ssl"></a>Associare SSL
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Connessione al server tramite MySQL Workbench tramite SSL
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Connessione al server con MySQL Workbench tramite SSL
 Configurare MySQL Workbench per connettersi in modo sicuro tramite SSL. 
 
 1. Passare alla scheda **SSL** dalla finestra di dialogo Setup New Connection (Configura nuova connessione). 
 
-1. Aggiornare il campo **Usa SSL** su "Richiedi".
+1. Aggiornare il campo **Usa SSL** a "Richiedi".
 
 1. Immettere il percorso del file **BaltimoreCyberTrustRoot.crt.pem** nel campo **SSL CA File:** (File CA SSL:). 
     
     ![Salva configurazione SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona della connessione e scegliere Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
+Per le connessioni esistenti, è possibile associare SSL facendo clic con il pulsante destro del mouse sull'icona di connessione e scegliendo Modifica. In seguito passare alla scheda **SSL** e associare il file del certificato.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Connessione al server con l'interfaccia della riga di comando di MySQL tramite SSL
 Un altro modo per associare il certificato SSL è quello di usare l'interfaccia della riga di comando di MySQL eseguendo i comandi seguenti. 

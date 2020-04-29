@@ -1,17 +1,17 @@
 ---
 title: Modelli di Gestione risorse per l'API Azure Cosmos DB per MongoDB
 description: Usare i modelli di Azure Resource Manager per creare e configurare l'API Azure Cosmos DB per MongoDB.
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
-ms.openlocfilehash: 531f122679c463b11c84eba2fca9f30b09e0935f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.author: mjbrown
+ms.openlocfilehash: e312b5d8b6052dafa4855afa035429ef06608f1b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063629"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82200786"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gestire Azure Cosmos DB risorse API MongoDB usando modelli di Azure Resource Manager
 
@@ -23,11 +23,226 @@ Creare Azure Cosmos DB risorse usando un modello di Azure Resource Manager. Ques
 
 > [!NOTE]
 > I nomi degli account devono essere minuscoli e 44 o un numero inferiore di caratteri.
-> Per aggiornare ur/s, inviare nuovamente il modello con i valori di proprietà della velocità effettiva aggiornati.
->
-> Attualmente è possibile creare solo la versione 3,2, ovvero gli account che usano l'endpoint nel formato `*.documents.azure.com`, dell'API Azure Cosmos DB per gli account MongoDB tramite PowerShell e l'interfaccia della riga di comando. Per creare la versione 3,6 degli account, usare i modelli di Gestione risorse (sotto) o portale di Azure.
+> Per aggiornare ur/s, ridistribuire il modello con i valori della proprietà velocità effettiva aggiornati.
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json":::
+```json
+{
+"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+"contentVersion": "1.0.0.0",
+"parameters": {
+   "accountName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+         "description": "Cosmos DB account name"
+      }
+   },
+   "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+         "description": "Location for the Cosmos DB account."
+      }
+   },
+   "primaryRegion":{
+      "type":"string",
+      "metadata": {
+         "description": "The primary replica region for the Cosmos DB account."
+      }
+   },
+   "secondaryRegion":{
+      "type":"string",
+      "metadata": {
+        "description": "The secondary replica region for the Cosmos DB account."
+     }
+   },
+   "defaultConsistencyLevel": {
+      "type": "string",
+      "defaultValue": "Session",
+      "allowedValues": [ "Eventual", "ConsistentPrefix", "Session", "BoundedStaleness", "Strong" ],
+      "metadata": {
+         "description": "The default consistency level of the Cosmos DB account."
+      }
+   },
+   "serverVersion": {
+      "defaultValue": "3.6",
+      "allowedValues": [
+         "3.2",
+         "3.6"
+      ],
+      "type": "String",
+      "metadata": {
+         "description": "Specifies the MongoDB server version to use."
+      }
+   },
+   "maxStalenessPrefix": {
+      "type": "int",
+      "defaultValue": 100000,
+      "minValue": 10,
+      "maxValue": 1000000,
+      "metadata": {
+         "description": "Max stale requests. Required for BoundedStaleness. Valid ranges, Single Region: 10 to 1000000. Multi Region: 100000 to 1000000."
+      }
+   },
+   "maxIntervalInSeconds": {
+      "type": "int",
+      "defaultValue": 300,
+      "minValue": 5,
+      "maxValue": 86400,
+      "metadata": {
+         "description": "Max lag time (seconds). Required for BoundedStaleness. Valid ranges, Single Region: 5 to 84600. Multi Region: 300 to 86400."
+      }
+   },
+   "databaseName": {
+      "type": "string",
+      "defaultValue": "Database1",
+      "metadata": {
+         "description": "The name for the Mongo DB database"
+      }
+   },
+   "throughput": {
+      "type": "int",
+      "defaultValue": 400,
+      "minValue": 400,
+      "maxValue": 1000000,
+      "metadata": {
+         "description": "The shared throughput for the Mongo DB database"
+      }
+   },
+   "collection1Name": {
+      "type": "string",
+      "defaultValue": "Collection1",
+      "metadata": {
+         "description": "The name for the first Mongo DB collection"
+      }
+   },
+   "collection2Name": {
+      "type": "string",
+      "defaultValue": "Collection2",
+      "metadata": {
+         "description": "The name for the second Mongo DB collection"
+      }
+   }
+},
+"variables": {
+   "accountName": "[toLower(parameters('accountName'))]",
+   "consistencyPolicy": {
+      "Eventual": {
+         "defaultConsistencyLevel": "Eventual"
+      },
+      "ConsistentPrefix": {
+         "defaultConsistencyLevel": "ConsistentPrefix"
+      },
+      "Session": {
+         "defaultConsistencyLevel": "Session"
+      },
+      "BoundedStaleness": {
+         "defaultConsistencyLevel": "BoundedStaleness",
+         "maxStalenessPrefix": "[parameters('maxStalenessPrefix')]",
+         "maxIntervalInSeconds": "[parameters('maxIntervalInSeconds')]"
+      },
+      "Strong": {
+         "defaultConsistencyLevel": "Strong"
+      }
+   },
+   "locations":
+   [
+      {
+         "locationName": "[parameters('primaryRegion')]",
+         "failoverPriority": 0,
+         "isZoneRedundant": false
+      },
+      {
+         "locationName": "[parameters('secondaryRegion')]",
+         "failoverPriority": 1,
+         "isZoneRedundant": false
+      }
+   ]
+},
+"resources":
+[
+   {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "[variables('accountName')]",
+      "apiVersion": "2020-03-01",
+      "location": "[parameters('location')]",
+      "kind": "MongoDB",
+      "properties": {
+         "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+         "locations": "[variables('locations')]",
+         "databaseAccountOfferType": "Standard",
+         "apiProperties": {
+            "serverVersion": "[parameters('serverVersion')]"
+         }
+      }
+   },
+   {
+      "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
+      "apiVersion": "2020-03-01",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('accountName'))]" ],
+      "properties":{
+         "resource":{
+            "id": "[parameters('databaseName')]"
+         },
+         "options": { "throughput": "[parameters('throughput')]" }
+      }
+   },
+   {
+      "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('collection1Name'))]",
+      "apiVersion": "2020-03-01",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('accountName'), parameters('databaseName'))]" ],
+      "properties":
+      {
+         "resource":{
+            "id":  "[parameters('collection1Name')]",
+            "shardKey": { "user_id": "Hash" },
+            "indexes": [
+               {
+                  "key": { "keys":["user_id", "user_address"] },
+                  "options": { "unique": "true" }
+               },
+               {
+                  "key": { "keys":["_ts"] },
+                  "options": { "expireAfterSeconds": "2629746" }
+               }
+            ],
+            "options": {
+               "If-Match": "<ETag>"
+            }
+         }
+      }
+   },
+   {
+      "type": "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
+      "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('collection2Name'))]",
+      "apiVersion": "2020-03-01",
+      "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', variables('accountName'),  parameters('databaseName'))]" ],
+      "properties":
+      {
+         "resource":{
+            "id":  "[parameters('collection2Name')]",
+            "shardKey": { "company_id": "Hash" },
+            "indexes": [
+               {
+                  "key": { "keys":["company_id", "company_address"] },
+                  "options": { "unique": "true" }
+               },
+               {
+                  "key": { "keys":["_ts"] },
+                  "options": { "expireAfterSeconds": "2629746" }
+               }
+            ],
+            "options": {
+               "If-Match": "<ETag>"
+            }
+         }
+      }
+   }
+]
+}
+```
 
 ### <a name="deploy-via-the-azure-cli"></a>Distribuire tramite l'interfaccia della riga di comando di Azure
 
@@ -41,6 +256,7 @@ read -p 'Enter the account name: ' accountName
 read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
 read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
 read -p 'Enter the database name: ' databaseName
+read -p 'Enter the database throughput: ' throughput
 read -p 'Enter the first collection name: ' collection1Name
 read -p 'Enter the second collection name: ' collection2Name
 
@@ -48,7 +264,7 @@ az group create --name $resourceGroupName --location $location
 az group deployment create --resource-group $resourceGroupName \
   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-mongodb/azuredeploy.json \
   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion \
-  databaseName=$databaseName collection1Name=$collection1Name collection2Name=$collection2Name
+  databaseName=$databaseName throughput=$throughput collection1Name=$collection1Name collection2Name=$collection2Name
 
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```

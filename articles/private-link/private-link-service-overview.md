@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280430"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202214"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -61,7 +61,7 @@ Un servizio di collegamento privato specifica le proprietà seguenti:
 
 ### <a name="details"></a>Dettagli
 
-- È possibile accedere al servizio di collegamento privato dagli endpoint privati approvati nella stessa area. L'endpoint privato può essere raggiunto dalla stessa rete virtuale, reti virtuali con peering a livello di area, reti virtuali con peering globale e in locale usando connessioni VPN private o ExpressRoute. 
+- È possibile accedere al servizio di collegamento privato dagli endpoint privati approvati in qualsiasi area pubblica. L'endpoint privato può essere raggiunto dalla stessa rete virtuale, reti virtuali con peering a livello di area, reti virtuali con peering globale e in locale usando connessioni VPN private o ExpressRoute. 
  
 - Quando si crea un servizio di collegamento privato, viene creata un'interfaccia di rete per il ciclo di vita della risorsa. Questa interfaccia non può essere gestita dal cliente.
  
@@ -108,7 +108,7 @@ Dettagli TLV personalizzati:
 |---------|---------|----------|
 |Type  |1        |PP2_TYPE_AZURE (0xEE)|
 |Length  |2      |Lunghezza del valore|
-|Valore  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|valore  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 byte) che rappresenta il LINKID dell'endpoint privato. Codificato in formato little endian.|
 
  > [!NOTE]

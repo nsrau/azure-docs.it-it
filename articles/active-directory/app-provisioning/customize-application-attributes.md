@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11eddf0e5f9f950373e222a8007cabf7aa0720bb
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142277"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
@@ -310,7 +310,7 @@ Se si seleziona questa opzione, verrà forzata una risincronizzazione di tutti g
 > [!IMPORTANT]
 > È consigliabile impostare **lo stato di provisioning** su **disattivato** prima di richiamare questa opzione.
 
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 - Microsoft Azure AD offre un'implementazione efficiente di un processo di sincronizzazione. In un ambiente inizializzato, durante un ciclo di sincronizzazione vengono elaborati solo gli oggetti che richiedono aggiornamenti.
 - L'aggiornamento dei mapping degli attributi influisce negativamente sulle prestazioni di un ciclo di sincronizzazione. Un aggiornamento della configurazione del mapping degli attributi richiede la rivalutazione di tutti gli oggetti gestiti.
