@@ -1,21 +1,21 @@
 ---
 title: Componente aggiuntivo Routing di applicazioni HTTP nel servizio Azure Kubernetes
-description: Usare il componente aggiuntivo di routing delle applicazioni HTTP per accedere alle applicazioni distribuite nel servizio Azure Kubernetes (AKS).
+description: Usare il componente aggiuntivo routing applicazione HTTP per accedere alle applicazioni distribuite in Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
 ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632411"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
-La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando la soluzione è abilitata, configura un [controller Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
+La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando la soluzione è abilitata, configura un [controller di ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
 
 Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella sottoscrizione. Per altre informazioni sul costo del DNS, vedere la pagina relativa ai [prezzi del DNS][dns-pricing].
 
@@ -24,9 +24,9 @@ Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella so
 
 ## <a name="http-routing-solution-overview"></a>Panoramica della soluzione di routing HTTP
 
-Il componente aggiuntivo distribuisce due componenti: un [controller Kubernetes Ingress][ingress] e un controller [DNS esterno.][external-dns]
+Il componente aggiuntivo distribuisce due componenti: un [controller di ingresso di Kubernetes][ingress] e un controller [DNS esterno][external-dns] .
 
-- **Controller di ingresso**: questo controller è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Il controller Ingress controlla e implementa [le risorse Kubernetes Ingress][ingress-resource], che crea route agli endpoint dell'applicazione.
+- **Controller di ingresso**: questo controller è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Il controller di ingresso controlla e implementa [le risorse di ingresso Kubernetes][ingress-resource], che creano route per gli endpoint dell'applicazione.
 - **Controller External-DNS**: controlla le risorse di ingresso Kubernetes e crea record DNS A nella zona DNS specifica del cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Implementare il routing HTTP: interfaccia della riga di comando

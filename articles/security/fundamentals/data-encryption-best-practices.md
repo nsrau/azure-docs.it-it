@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza e la crittografia dei dati - Microsoft AzureData security and encryption best practices - Microsoft Azure
+title: Procedure consigliate per la sicurezza e la crittografia dei dati-Microsoft Azure
 description: Questo articolo presenta una serie di procedure consigliate per la sicurezza dei dati e la crittografia usando le funzionalità integrate di Azure.
 services: security
 documentationcenter: na
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243497"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la crittografia e la sicurezza dei dati di Azure
-In questo articolo vengono descritte le procedure consigliate per la sicurezza e la crittografia dei dati.
+Questo articolo descrive le procedure consigliate per la sicurezza e la crittografia dei dati.
 
 Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Le opinioni e le tecnologie cambiano nel tempo e questo articolo viene aggiornato regolarmente per riflettere tali modifiche.
 
@@ -37,7 +37,7 @@ Per facilitare la protezione dei dati nel cloud, tenere conto dei possibili stat
 
 La protezione delle chiavi è essenziale per proteggere i dati nel cloud.
 
-[L'insieme](/azure/key-vault/key-vault-overview) di credenziali delle chiavi di Azure consente di proteggere le chiavi crittografiche e i segreti utilizzati dalle applicazioni e dei servizi cloud. L'insieme di credenziali chiave semplifica il processo di gestione delle chiavi e consente di mantenere il controllo delle chiavi che accedono ai dati e li crittografano. Gli sviluppatori possono creare chiavi per lo sviluppo e il test in pochi minuti ed eseguirne facilmente la migrazione alle chiavi di produzione. Gli amministratori della sicurezza possono concedere (e revocare) le autorizzazioni per chiavi, in base alle esigenze.
+[Azure Key Vault](/azure/key-vault/key-vault-overview) aiuta a proteggere le chiavi crittografiche e i segreti usati dalle applicazioni e dai servizi cloud. L'insieme di credenziali chiave semplifica il processo di gestione delle chiavi e consente di mantenere il controllo delle chiavi che accedono ai dati e li crittografano. Gli sviluppatori possono creare chiavi per lo sviluppo e il test in pochi minuti ed eseguirne facilmente la migrazione alle chiavi di produzione. Gli amministratori della sicurezza possono concedere (e revocare) le autorizzazioni per chiavi, in base alle esigenze.
 
 Key Vault consente di creare più contenitori sicuri denominati insiemi di credenziali. Questi insiemi di credenziali sono supportati da moduli di protezione hardware. Gli insiemi di credenziali consentono di ridurre le probabilità di perdita accidentale di informazioni di sicurezza centralizzando l'archiviazione dei segreti delle applicazioni. Gli insiemi di credenziali delle chiavi controllano e registrano anche l'accesso a tutti gli elementi archiviati al loro interno. Azure Key Vault può gestire la richiesta e il rinnovo dei certificati TLS (Transport Layer Security). Fornisce funzionalità che creano una solida soluzione per la gestione del ciclo di vita dei certificati.
 
@@ -111,7 +111,7 @@ Di seguito sono indicate le procedure consigliate specifiche per l'uso di Gatewa
 **Dettagli**: usare [ExpressRoute](/azure/expressroute/expressroute-introduction). Se si decide di usare ExpressRoute, è possibile anche crittografare i dati a livello di applicazione usando SSL/TLS o altri protocolli per una maggiore protezione.
 
 **Procedura consigliata**: interagire con Archiviazione di Azure tramite il portale di Azure.   
-**Dettagli**: tutte le transazioni avvengono via HTTPS. È anche possibile usare [l'API REST](https://msdn.microsoft.com/library/azure/dd179355.aspx) di archiviazione su HTTPS per interagire con Archiviazione di Azure.You can also use Storage REST API over HTTPS to interact with Azure [Storage.](https://azure.microsoft.com/services/storage/)
+**Dettagli**: tutte le transazioni avvengono via HTTPS. È anche possibile usare l' [API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx) su HTTPS per interagire con [archiviazione di Azure](https://azure.microsoft.com/services/storage/).
 
 Le organizzazioni che non riescono a proteggere i dati in transito sono più vulnerabili agli [attacchi man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) e hijack della sessione. Questi attacchi possono essere il primo passo per ottenere l'accesso ai dati riservati.
 

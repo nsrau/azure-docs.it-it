@@ -4,10 +4,10 @@ description: La soluzione Funzioni di Azure supporta più versioni del runtime. 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422489"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
@@ -104,7 +104,7 @@ Di seguito sono riportate le modifiche da tenere presenti prima di aggiornare un
 
 La versione del runtime di funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell' [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) applicazione. Sono supportati i valori di versione di runtime principali seguenti:
 
-| Valore | Destinazione Runtime |
+| valore | Destinazione Runtime |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2.x |

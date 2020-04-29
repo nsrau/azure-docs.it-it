@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7144fa75d156ca7aed9d8215592f89c167cfb221
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633464"
 ---
 # <a name="user-defined-schemas-in-synapse-sql-pool"></a>Schemi definiti dall'utente nel pool di SQL sinapsi
@@ -34,7 +34,7 @@ Al contrario, il pool SQL esegue l'intero carico di lavoro data warehouse all'in
 > 
 > 
 
-## <a name="recommendations"></a>Consigli
+## <a name="recommendations"></a>Indicazioni
 Di seguito sono riportati i consigli per consolidare i carichi di lavoro, la sicurezza, il dominio e i limiti funzionali usando schemi definiti dall'utente:
 
 - Usare un database del pool SQL per eseguire l'intero carico di lavoro data warehouse.

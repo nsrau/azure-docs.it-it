@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: cherylmc
 ms.openlocfilehash: e3eea639eaa52c07e877476e9215144e916618d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502854"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>Configurare un tunnel del dispositivo VPN Always On per la rete WAN virtuale
@@ -23,7 +23,7 @@ ms.locfileid: "79502854"
 
 È necessario creare una configurazione da punto a sito e modificare l'assegnazione dell'hub virtuale. Per istruzioni, vedere le sezioni seguenti:
 
-* [Creare una configurazione da punto a sito](virtual-wan-point-to-site-portal.md#p2sconfig)
+* [Creare una configurazione di P2S](virtual-wan-point-to-site-portal.md#p2sconfig)
 * [Modificare l'assegnazione dell'hub](virtual-wan-point-to-site-portal.md#edit)
 
 ## <a name="configure-the-device-tunnel"></a>Configurare il tunnel del dispositivo

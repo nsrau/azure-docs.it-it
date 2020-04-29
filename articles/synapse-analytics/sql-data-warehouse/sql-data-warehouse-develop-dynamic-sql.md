@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di SQL dinamicoUsing dynamic SQL
-description: Suggerimenti per soluzioni di sviluppo che usano SQL dinamico nel pool Sql Synapse.
+title: Utilizzo di SQL dinamico
+description: Suggerimenti per le soluzioni di sviluppo che usano SQL dinamico nel pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a9280bb8153204f86096cf8249ff053bee3f71cc
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633533"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>SQL dinamico nel pool SQL Synapse
+# <a name="dynamic-sql-in-synapse-sql-pool"></a>SQL dinamico nel pool SQL sinapsi
 
-In questo articolo sono inclusi suggerimenti per le soluzioni di sviluppo che usano SQL dinamico nel pool SQL.
+In questo articolo sono disponibili suggerimenti per le soluzioni di sviluppo che usano SQL dinamico nel pool SQL.
 
 ## <a name="dynamic-sql-example"></a>Esempio di SQL dinamico
 
-Quando si sviluppa codice dell'applicazione per il pool SQL, potrebbe essere necessario usare SQL dinamico per fornire soluzioni flessibili, generiche e modulari. Il pool SQL non supporta i tipi di dati BLOB in questo momento.
+Quando si sviluppa il codice dell'applicazione per il pool SQL, potrebbe essere necessario usare SQL dinamico per offrire soluzioni flessibili, generiche e modulari. Il pool SQL non supporta i tipi di dati BLOB in questo momento.
 
 Il mancato supporto dei tipi di dati BLOB potrebbe limitare le dimensioni delle stringhe poiché i tipi di dati BLOB includono i tipi varchar (max) e nvarchar (max).
 
-Se questi tipi sono stati utilizzati nel codice dell'applicazione per compilare stringhe di grandi dimensioni, è necessario suddividere il codice in blocchi e utilizzare invece l'istruzione EXEC.
+Se sono stati usati questi tipi nel codice dell'applicazione per creare stringhe di grandi dimensioni, è necessario suddividere il codice in blocchi e usare invece l'istruzione EXEC.
 
 Un semplice esempio:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656289"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
@@ -155,10 +155,10 @@ Per altre informazioni sui parametri trigger e Action, che sono simili tra loro,
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP webhook che restituisce queste informazioni:
 
-| Nome proprietà | Type | Descrizione |
+| Nome proprietà | Type | Description |
 |---------------|------|-------------|
-| headers | object | Intestazioni della richiesta |
-| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| headers | oggetto | Intestazioni della richiesta |
+| Corpo | oggetto | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | INT | Codice di stato della richiesta |
 |||
 

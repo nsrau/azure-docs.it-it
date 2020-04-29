@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: shvija
 ms.openlocfilehash: 1b292f9b894dac7df6b9634ce1bad627c8d24fe6
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632771"
 ---
-# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Connettere l'applicazione Apache Spark con gli hub eventi di AzureConnect your Apache Spark application with Azure Event Hubs
-Questa esercitazione illustra come connettere l'applicazione Spark agli hub eventi per lo streaming in tempo reale. Questa integrazione consente lo streaming senza bisogno di modificare i client di protocollo o eseguire cluster Kafka o Zookeeper personalizzati. Questa esercitazione richiede Apache Spark v2.4 e versioni successive e Apache Kafka v2.0 e versioni successive.
+# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Connettere l'applicazione Apache Spark con hub eventi di Azure
+Questa esercitazione illustra la connessione dell'applicazione Spark a hub eventi per lo streaming in tempo reale. Questa integrazione consente lo streaming senza bisogno di modificare i client di protocollo o eseguire cluster Kafka o Zookeeper personalizzati. Questa esercitazione richiede Apache Spark v2.4 e versioni successive e Apache Kafka v2.0 e versioni successive.
 
 > [!NOTE]
 > Questo esempio è disponibile su [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)
@@ -43,7 +43,7 @@ Prima di iniziare questa esercitazione, assicurarsi di avere:
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
-Per l'invio e la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Vedere [Creazione di un hub eventi](event-hubs-create.md) per istruzioni sulla creazione di uno spazio dei nomi e di un hub eventi. Ottenere la stringa di connessione di Hub eventi e il nome di dominio completo (FQDN) da usare successivamente. Per istruzioni, vedere [Ottenere una stringa di connessione ad Hub eventi](event-hubs-get-connection-string.md). 
+Per l'invio e la ricezione da qualsiasi servizio Hub eventi è richiesto uno spazio dei nomi di Hub eventi. Per istruzioni su come creare uno spazio dei nomi e un hub eventi, vedere [creazione di un hub eventi](event-hubs-create.md) . Ottenere la stringa di connessione di Hub eventi e il nome di dominio completo (FQDN) da usare successivamente. Per istruzioni, vedere [Ottenere una stringa di connessione ad Hub eventi](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Clonare il progetto di esempio
 Clonare il repository di Hub eventi di Azure e passare alla sottocartella `tutorials/spark`:
@@ -103,8 +103,8 @@ Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere gli articoli
 
 - [Eseguire il mirroring di un broker Kafka in un hub eventi](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connettere Apache Flink a un hub eventi](event-hubs-kafka-flink-tutorial.md)
-- [Integrazione di Kafka Connect con un hub eventi](event-hubs-kafka-connect-tutorial.md)
+- [Integrare Kafka Connect con un hub eventi](event-hubs-kafka-connect-tutorial.md)
 - [Esplorare gli esempi in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [Connettere Akka Streams a un hub eventi](event-hubs-kafka-akka-streams-tutorial.md)
-- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)
+- [Guida per gli sviluppatori Apache Kafka per hub eventi di Azure](apache-kafka-developer-guide.md)
 

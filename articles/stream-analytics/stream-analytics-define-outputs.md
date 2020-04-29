@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80475236"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
@@ -156,7 +156,7 @@ Questa tabella illustra le conversioni dei tipi di dati dai [tipi di dati di ana
 Dall'analisi di flusso | A Power BI
 -----|-----
 bigint | Int64
-nvarchar(max) | string
+nvarchar(max) | Stringa
 Datetime | Datetime
 float | Double
 Matrice di record | Tipo stringa, valore costante "IRecord" o "IArray"
@@ -167,12 +167,12 @@ L'analisi di flusso deduce lo schema del modello di dati in base al primo set di
 Evitare la `SELECT *` query per impedire l'aggiornamento dinamico dello schema tra le righe. Oltre alle potenziali implicazioni in termini di prestazioni, è possibile che si verifichino incertezze sul tempo impiegato per i risultati. Selezionare i campi esatti che devono essere visualizzati nel dashboard Power BI. È anche necessario che i valori dei dati siano conformi al tipo di dati scelto.
 
 
-Precedente/corrente | Int64 | string | Datetime | Double
+Precedente/corrente | Int64 | Stringa | Datetime | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | string | string | Double
-Double | Double | string | string | Double
-string | string | string | string | string 
-Datetime | string | string |  Datetime | string
+Int64 | Int64 | Stringa | Stringa | Double
+Double | Double | Stringa | Stringa | Double
+Stringa | Stringa | Stringa | Stringa | Stringa 
+Datetime | Stringa | Stringa |  Datetime | Stringa
 
 ## <a name="table-storage"></a>Archiviazione - Tabelle
 
@@ -250,7 +250,7 @@ Nella tabella seguente sono descritte le proprietà per la creazione di un outpu
 | Alias di output | Alias per fare riferimento a questo output nella query di Analisi di flusso di Azure. |
 | Sink | Azure Cosmos DB. |
 | Opzione di importazione | Scegliere **selezionare Cosmos DB dalla sottoscrizione** o **specificare Cosmos DB impostazioni manualmente**.
-| Account ID | Nome o URI endpoint dell'account Azure Cosmos DB. |
+| ID account | Nome o URI endpoint dell'account Azure Cosmos DB. |
 | Chiave account | Chiave di accesso condiviso per l'account Azure Cosmos DB. |
 | Database | Nome del database Azure Cosmos DB. |
 | Nome contenitore | Nome del contenitore da usare, che deve esistere in Cosmos DB. Esempio:  <br /><ul><li> Contenitore di _contenuti_: è necessario che esista un contenitore denominato "contenitore".</li>|
@@ -325,10 +325,10 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output |
 | --- | --- | --- | --- |
 | Archivio Azure Data Lake | Sì | Usare i token {date} e {Time} nel modello di prefisso del percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Database SQL di Azure | Sì, deve essere abilitato. | In base alla clausola PARTITION BY nella query. | Quando l'opzione eredita partizionamento è abilitata, segue il partizionamento dell'input per le [query completamente eseguibili](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere prestazioni migliori per la velocità effettiva di scrittura quando si caricano dati nel database SQL di Azure, vedere l' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md). |
+| database SQL di Azure | Sì, deve essere abilitato. | In base alla clausola PARTITION BY nella query. | Quando l'opzione eredita partizionamento è abilitata, segue il partizionamento dell'input per le [query completamente eseguibili](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere prestazioni migliori per la velocità effettiva di scrittura quando si caricano dati nel database SQL di Azure, vedere l' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md). |
 | Archiviazione BLOB di Azure | Sì | Usare i token {date} e {time} dei campi evento nel modello di percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. L'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.<br /> Quando la chiave di partizione per l'output di hub eventi è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nell'output dell'hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) per inviare eventi alla partizione specifica. <br /> Quando la chiave di partizione per l'output di hub eventi non è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nel passaggio precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** per inviare eventi a tutte le partizioni di output. |
-| Power BI | No | nessuno | Non applicabile. |
+| Power BI | No | Nessuno | Non applicabile. |
 | Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Argomento del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è basato sullo [SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
 | Coda del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è basato sullo [SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
@@ -345,7 +345,7 @@ Nella tabella seguente vengono illustrate alcune considerazioni relative all'inv
 | Tipo di output |    Dimensioni massime messaggio | Ottimizzazione delle dimensioni batch |
 | :--- | :--- | :--- |
 | Archivio Azure Data Lake | Vedere [Data Lake storage limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Utilizzare fino a 4 MB per operazione di scrittura. |
-| Database SQL di Azure | Configurabile con numero massimo di batch. 10.000 numero massimo e 100 di righe minime per singolo inserimento bulk per impostazione predefinita.<br />Vedere [limiti di SQL Azure](../sql-database/sql-database-resource-limits.md). |  Ogni batch viene inizialmente inserito in blocco con il numero massimo di batch. Batch è diviso a metà (fino al numero minimo di batch) in base a errori che è necessario ripetere da SQL. |
+| database SQL di Azure | Configurabile con numero massimo di batch. 10.000 numero massimo e 100 di righe minime per singolo inserimento bulk per impostazione predefinita.<br />Vedere [limiti di SQL Azure](../sql-database/sql-database-resource-limits.md). |  Ogni batch viene inizialmente inserito in blocco con il numero massimo di batch. Batch è diviso a metà (fino al numero minimo di batch) in base a errori che è necessario ripetere da SQL. |
 | Archiviazione BLOB di Azure | Vedere [limiti di archiviazione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | La dimensione massima del blocco BLOB è 4 MB.<br />Il numero massimo di Bock BLOB è 50.000. |
 | Hub eventi di Azure    | 256 KB o 1 MB per messaggio. <br />Vedere [limiti di hub eventi](../event-hubs/event-hubs-quotas.md). |    Quando il partizionamento di input/output non è allineato, ogni `EventData` evento viene compresso singolarmente e inviato in un batch fino alla dimensione massima del messaggio. Questo errore si verifica anche se vengono usate le [proprietà dei metadati personalizzati](#custom-metadata-properties-for-output) . <br /><br />  Quando il partizionamento di input/output è allineato, più eventi vengono `EventData` compressi in una singola istanza, fino alla dimensione massima del messaggio e inviati.    |
 | Power BI | Vedere i [limiti dell'API REST di Power bi](https://msdn.microsoft.com/library/dn950053.aspx). |

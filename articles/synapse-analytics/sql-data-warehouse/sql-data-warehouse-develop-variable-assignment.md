@@ -1,5 +1,5 @@
 ---
-title: Assegnare variabili
+title: Assegna variabili
 description: In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL nel pool SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -12,26 +12,26 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633414"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Assegnare variabili nel pool SQL SynapseAssign variables in Synapse SQL pool
+# <a name="assign-variables-in-synapse-sql-pool"></a>Assegnare variabili nel pool SQL sinapsi
 
 In questo articolo sono disponibili suggerimenti essenziali per l'assegnazione di variabili T-SQL nel pool SQL.
 
-## <a name="set-variables-with-declare"></a>Impostare le variabili con DECLARE
+## <a name="set-variables-with-declare"></a>Imposta variabili con dichiara
 
-Le variabili nel pool `DECLARE` SQL vengono `SET` impostate utilizzando l'istruzione o l'istruzione . L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
+Le variabili nel pool SQL vengono impostate tramite `DECLARE` l'istruzione o `SET` l'istruzione. L'inizializzazione di variabili con DECLARE è uno dei modi più flessibili per impostare un valore di variabile nel pool SQL.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-È anche possibile usare DECLARE per impostare più di una variabile contemporaneamente. Non è possibile utilizzare SELECT o UPDATE per eseguire le operazioni seguenti:
+È anche possibile usare DECLARE per impostare più di una variabile contemporaneamente. Non è possibile usare SELECT o UPDATE per eseguire le operazioni seguenti:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Non è possibile inizializzare e utilizzare una variabile nella stessa istruzione DECLARE. Per illustrare il concetto, l'esempio seguente **non** è consentito, perché @p1 viene inizializzato e usato nella stessa istruzione DECLARE. Di conseguenza, l'esempio seguente restituisce un errore:
+Non è possibile inizializzare e usare una variabile nella stessa istruzione DECLARE. Per illustrare il concetto, l'esempio seguente **non** è consentito, perché @p1 viene inizializzato e usato nella stessa istruzione DECLARE. Di conseguenza, l'esempio seguente genera un errore:
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="set-values-with-set"></a>Impostare i valori con SET
+## <a name="set-values-with-set"></a>Imposta valori con SET
 
 SET è un metodo comune per l'impostazione di una singola variabile.
 
@@ -64,7 +64,7 @@ SET     @v +=1;
 
 ## <a name="limitations"></a>Limitazioni
 
-Non è possibile utilizzare UPDATE per l'assegnazione delle variabili.
+Non è possibile usare l'aggiornamento per l'assegnazione di variabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

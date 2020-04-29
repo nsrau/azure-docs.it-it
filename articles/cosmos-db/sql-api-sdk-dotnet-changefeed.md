@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB .NET del feed di modifiche Processor API, note sulla versione di SDKAzure Cosmos DB .NET change feed Processor API, SDK release notes
+title: API del processore del feed delle modifiche di Azure Cosmos DB .NET, note sulla versione dell'SDK
 description: Tutte le informazioni sull'SDK e sull'API del processore dei feed delle modifiche, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni dell'SDK del processore dei feed delle modifiche .NET.
 author: ealsur
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
 ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619450"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
@@ -20,7 +20,7 @@ ms.locfileid: "80619450"
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed di modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -29,40 +29,40 @@ ms.locfileid: "80619450"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provider di risorse REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Esecutore in blocco - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor in blocco-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor in blocco-Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
-|**Download dell'SDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Download dell'SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentazione API**|[Documentazione di riferimento sull'API della libreria del processore dei feed delle modifiche](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introduzione**|[Introduzione all'SDK del processore dei feed delle modifiche .NET](change-feed.md)|
+|**Operazioni preliminari**|[Introduzione all'SDK del processore dei feed delle modifiche .NET](change-feed.md)|
 |**Framework attualmente supportato**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> Se si utilizza il processore del feed di modifiche, vedere la versione 3.x più recente di [.NET SDK](change-feed-processor.md), che include il feed di modifiche incorporato nell'SDK. 
+> Se si usa il processore del feed delle modifiche, vedere la versione 3. x più recente di [.NET SDK](change-feed-processor.md), che include il feed delle modifiche incorporato nell'SDK. 
 
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Sono stati `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` aggiunti un `ICheckpointPartitionProcessorFactory`nuovo metodo e un'interfaccia pubblica corrispondente. Ciò consente a `IPartitionProcessor` un'implementazione dell'interfaccia di utilizzare il meccanismo di checkpoint incorporato. La nuova factory è `IPartitionProcessorFactory`simile a `Create` , ad `ILeaseCheckpointer` eccezione del fatto che il relativo metodo accetta anche il parametro .
-* Per la stessa `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` `ChangeFeedProcessorBuilder` istanza è possibile utilizzare solo uno dei due metodi , o .
+* Aggiunta di un nuovo `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` metodo e di un' `ICheckpointPartitionProcessorFactory`interfaccia pubblica corrispondente. Questo consente a un'implementazione dell' `IPartitionProcessor` interfaccia di utilizzare il meccanismo di checkpoint incorporato. La nuova Factory è simile a quella esistente `IPartitionProcessorFactory`, ad eccezione del `Create` fatto che il metodo `ILeaseCheckpointer` accetta anche il parametro.
+* Per la stessa `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder` istanza è possibile utilizzare solo uno `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`dei due metodi, ovvero o.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
-* Miglioramenti alla stabilità e alla diagnoability:
-  * Aggiunto il supporto per rilevare la lettura del feed di modifiche che richiede molto tempo. Quando richiede più tempo del `ChangeFeedProcessorOptions.ChangeFeedTimeout` valore specificato dalla proprietà, vengono eseguiti i passaggi seguenti:
-    * L'operazione di lettura del feed di modifiche nella partizione problematica viene interrotta.
-    * L'istanza del processore del feed di modifiche elimina la proprietà del lease problematico. Il lease eliminato verrà prelevato durante il passaggio successivo di acquisizione del lease che verrà eseguito dalla stessa istanza del processore del feed di modifiche o da una diversa. In questo modo, la lettura del feed di modifiche inizierà da capo.
-    * Viene segnalato un problema al monitoraggio dello stato. Il monitoraggio heath predefinito invia tutti i problemi segnalati al registro di traccia.
-  * Aggiunta una nuova `ChangeFeedProcessorOptions.ChangeFeedTimeout`proprietà pubblica: . Il valore predefinito di questa proprietà è 10 min.
-  * Aggiunto un nuovo valore `Monitoring.MonitoredOperation.ReadChangeFeed`di enumerazione pubblica: . Quando il `HealthMonitoringRecord.Operation` valore di `Monitoring.MonitoredOperation.ReadChangeFeed`è impostato su , indica che il problema di integrità è correlato alla lettura del feed di modifiche.
+* Miglioramenti alla stabilità e alla diagnostica:
+  * Aggiunta del supporto per rilevare la lettura del feed di modifiche che richiede molto tempo. Quando impiega più tempo del valore specificato dalla `ChangeFeedProcessorOptions.ChangeFeedTimeout` proprietà, vengono eseguiti i passaggi seguenti:
+    * L'operazione di lettura del feed delle modifiche nella partizione problematica è stata interrotta.
+    * L'istanza del processore del feed delle modifiche Elimina la proprietà del lease problematico. Il lease eliminato verrà prelevato durante il successivo passaggio di acquisizione del lease che verrà eseguito dalla stessa istanza o da un'istanza diversa del processore del feed di modifiche. In questo modo, verrà riavviata la lettura del feed delle modifiche.
+    * Viene segnalato un problema al Health Monitor. Il monitoraggio di integrità predefinito invia tutti i problemi segnalati al log di traccia.
+  * È stata aggiunta una nuova proprietà `ChangeFeedProcessorOptions.ChangeFeedTimeout`pubblica:. Il valore predefinito di questa proprietà è 10 minuti.
+  * È stato aggiunto un nuovo valore enum `Monitoring.MonitoredOperation.ReadChangeFeed`pubblico:. Quando il valore di `HealthMonitoringRecord.Operation` è impostato su `Monitoring.MonitoredOperation.ReadChangeFeed`, indica che il problema di integrità è correlato alla lettura del feed di modifiche.
 
 ### <a name="227"></a><a name="2.2.7"/>2.2.7
-* La strategia di bilanciamento del carico migliorata per lo scenario in cui il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, ad esempio a causa di problemi di rete:
-  * In questo scenario l'algoritmo di bilanciamento del carico utilizzato per considerare erroneamente i lease come scaduti, causando il furto di lease dai proprietari attivi. Ciò potrebbe innestare inutili ri-bilanciamento di un sacco di lease.
-  * Questo problema viene risolto in questa versione evitando tentativi in caso di conflitto durante l'acquisizione del lease scaduto che il proprietario non è stato modificato e posponing acquisizione lease scaduto per l'iterazione di bilanciamento del carico successivo.
+* Strategia di bilanciamento del carico migliorata per lo scenario quando il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
+  * In questo scenario, l'algoritmo di bilanciamento del carico usato per considerare erroneamente i lease come scaduti, causando il furto dei lease dai proprietari attivi. Questo potrebbe attivare il ribilanciamento superfluo di un numero elevato di lease.
+  * Questo problema è stato risolto in questa versione, evitando i tentativi in caso di conflitto durante l'acquisizione del lease scaduto quale proprietario non è stato modificato e posponing acquisisce il lease scaduto alla successiva iterazione del bilanciamento del carico.
 
 ### <a name="226"></a><a name="2.2.6"/>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
@@ -92,7 +92,7 @@ ms.locfileid: "80619450"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
-* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client di documenti da utilizzare con Change Feed Processor, ad esempio decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire l'analisi aggiuntiva, la gestione degli errori e così via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere nuovi parametri nell'implementazione.
+* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client del documento da usare con il processore di feed di modifiche, ad esempio decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire tracce aggiuntive, gestione degli errori e così via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato in modo da includere nuovi parametri nell'implementazione.
 * Miglioramenti della diagnostica secondari.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -153,7 +153,7 @@ ms.locfileid: "80619450"
 
 ### <a name="131"></a><a name="1.3.1"/>1.3.1
 * Miglioramenti della stabilità.
-  * Correzione della gestione dei problemi relativi alle attività annullate che potrebbero causare l'interruzione degli osservatori in alcune partizioni.
+  * Correzione per la gestione dei problemi relativi alle attività annullate che potrebbero causare l'arresto di osservatori in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 
@@ -186,8 +186,8 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.3.0](#2.3.0) |giovedì 2 aprile 2020 |--- |
-| [2.2.8](#2.2.8) |giovedì 28 ottobre 2019 |--- |
+| [2.3.0](#2.3.0) |2 aprile 2020 |--- |
+| [2.2.8](#2.2.8) |28 ottobre 2019 |--- |
 | [2.2.7](#2.2.7) |14 maggio 2019 |--- |
 | [2.2.6](#2.2.6) |29 gennaio 2019 |--- |
 | [2.2.5](#2.2.5) |13 dicembre 2018 |--- |

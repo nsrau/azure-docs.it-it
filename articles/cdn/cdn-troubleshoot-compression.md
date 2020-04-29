@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476424"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Risoluzione dei problemi della compressione dei file CDN
 Questo articolo consente di risolvere i problemi relativi alla [compressione dei file CDN](cdn-improve-performance.md).
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e fare clic su Ottieni **supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto**.
 
 ## <a name="symptom"></a>Sintomo
 La compressione per l'endpoint è abilitata, ma i file vengono restituiti non compressi.
@@ -42,7 +42,7 @@ Le cause possono essere diverse, ad esempio:
 * Il contenuto richiesto non è idoneo per la compressione.
 * La compressione non è abilitata per il tipo di file richiesto.
 * La richiesta HTTP non include un'intestazione che richiede un tipo di compressione valido.
-* Origin sta inviando contenuti in blocchi.
+* L'origine sta inviando contenuto suddiviso in blocchi.
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 > [!TIP]

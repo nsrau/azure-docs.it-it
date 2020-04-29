@@ -1,16 +1,16 @@
 ---
-title: Distribuire app con modelli
-description: Informazioni dettagliate sulla creazione di modelli di Azure Resource Manager per il provisioning e la distribuzione di app del servizio app.
+title: Distribuire le app con i modelli
+description: Informazioni aggiuntive sulla creazione di modelli di Azure Resource Manager per il provisioning e la distribuzione delle app del servizio app.
 author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637934"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
@@ -22,7 +22,7 @@ Questo articolo fornisce suggerimenti per la creazione di modelli di Azure Resou
 Per definire le dipendenze per le app Web è necessario comprendere le modalità di interazione delle risorse all'interno di un'app Web. Se si specificano le dipendenze in un ordine non corretto, potrebbero verificarsi errori di distribuzione o potrebbe crearsi una race condition che blocca la distribuzione.
 
 > [!WARNING]
-> Se si include un'estensione del sito MSDeploy nel modello, è necessario impostare le risorse di configurazione come dipendenti dalla risorsa MSDeploy. Le modifiche alla configurazione causano il riavvio asincrono del sito. Impostando le risorse di configurazione come dipendenti da MSDeploy, si assicura che MSDeploy termini prima del riavvio del sito. Senza queste dipendenze il sito potrebbe essere riavviato durante il processo di distribuzione di MSDeploy. Per un modello di esempio, vedere [Modello WordPress con dipendenza di distribuzione Web](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
+> Se si include un'estensione del sito MSDeploy nel modello, è necessario impostare le risorse di configurazione come dipendenti dalla risorsa MSDeploy. Le modifiche alla configurazione causano il riavvio asincrono del sito. Impostando le risorse di configurazione come dipendenti da MSDeploy, si assicura che MSDeploy termini prima del riavvio del sito. Senza queste dipendenze il sito potrebbe essere riavviato durante il processo di distribuzione di MSDeploy. Per un modello di esempio, vedere la pagina relativa [al modello WordPress con distribuzione Web dipendenza](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
 
 L'immagine seguente mostra l'ordine di dipendenza per varie risorse del servizio app:
 
@@ -41,7 +41,7 @@ Le risorse vengono distribuite nell'ordine seguente:
 **Livello 3**
 * Controllo del codice sorgente - dipende dall'app Web.
 * Estensione del sito MSDeploy - dipende dall'app Web.
-* L'istanza di Azure Application Insights destinata all'app Web dipende dall'app Web.
+* Applicazione Azure istanza di Insights destinata all'app Web, dipende dall'app Web.
 
 **Livello 4**
 * Certificato del servizio app - dipende dal controllo del codice sorgente o da MSDeploy se uno dei due è presente, altrimenti dall'app Web.
@@ -90,7 +90,7 @@ Se il modello di Resource Manager usa MSDeploy, i messaggi di errore relativi al
 
 1. Passare alla [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) del sito.
 2. Passare alla cartella D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Cercare i file appManagerStatus.xml e appManagerLog.xml. Nel primo file viene registrato lo stato, nel secondo le informazioni relative all'errore. Se l'errore non ti è chiaro, puoi includerlo quando chiedi aiuto al [forum.](https://docs.microsoft.com/answers/topics/azure-webapps.html)
+3. Cercare i file appManagerStatus.xml e appManagerLog.xml. Nel primo file viene registrato lo stato, nel secondo le informazioni relative all'errore. Se l'errore non è chiaro, è possibile includerlo quando si richiede assistenza sul [Forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Immettere un nome univoco per l'app Web
 
@@ -109,7 +109,7 @@ Il nome dell'app Web deve essere univoco a livello globale. È possibile usare u
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Se il modello include una risorsa [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) per l'associazione TLS/SSL e il certificato è archiviato in un insieme di credenziali delle chiavi, è necessario assicurarsi che l'identità del servizio app possa accedere al certificato.
+Se il modello include una risorsa [Microsoft. Web/Certificates](/azure/templates/microsoft.web/certificates) per l'associazione TLS/SSL e il certificato viene archiviato in una Key Vault, è necessario assicurarsi che l'identità del servizio app possa accedere al certificato.
 
 In Azure globale, l'entità servizio di servizio app include l'ID di **abfa0a7c-a6b6-4736-8310-5855508787cd**. Per fornire accesso a Key Vault all'entità servizio di servizio app, usare:
 

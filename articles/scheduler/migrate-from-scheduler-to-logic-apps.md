@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899117"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Eseguire la migrazione da Utilità di pianificazione ad App per la logica di Azure
@@ -228,7 +228,7 @@ Se la sottoscrizione di Azure ha di un piano di supporto a pagamento, è possibi
 
 1. Dal menu **supporto** selezionare **nuova richiesta di supporto**. Fornire queste informazioni per la richiesta:
 
-   | Proprietà | Valore |
+   | Proprietà | valore |
    |---------|-------|
    | **Tipo di problema** | **Tecnico** |
    | **Sottoscrizione** | <*sottoscrizione di Azure*> |

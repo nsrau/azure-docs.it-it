@@ -1,6 +1,6 @@
 ---
 title: Analizzare il carico di lavoro
-description: Tecniche per l'analisi delle priorità delle query per il carico di lavoro in Azure Synapse Analytics.Techniques for analyzing query prioritization for your workload in Azure Synapse Analytics.
+description: Tecniche per l'analisi della priorità delle query per il carico di lavoro in Azure sinapsi Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631251"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analizzare il carico di lavoro in Azure Synapse AnalyticsAnalyze your workload in Azure Synapse Analytics
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analizzare il carico di lavoro in Azure sinapsi Analytics
 
-Tecniche per l'analisi del carico di lavoro SQL Synapse in Azure Synapse Analytics.Techniques for analyzing your Synapse SQL workload in Azure Synapse Analytics.
+Tecniche per l'analisi del carico di lavoro SQL sinapsi in Azure sinapsi Analytics.
 
 ## <a name="resource-classes"></a>Classi di risorse
 
-Synapse SQL fornisce classi di risorse per assegnare risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [Classi di risorse & gestione del carico di lavoro.](resource-classes-for-workload-management.md)  Le query attenderanno se la classe di risorse assegnata a una query richiede più risorse di quelle attualmente disponibili.
+Sinapsi SQL fornisce le classi di risorse per assegnare le risorse di sistema alle query.  Per altre informazioni sulle classi di risorse, vedere [classi di risorse & gestione del carico di lavoro](resource-classes-for-workload-management.md).  Le query attendono se la classe di risorse assegnata a una query richiede più risorse rispetto a quelle attualmente disponibili.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Rilevamento di query in coda e altre viste a gestione dinamica
 
@@ -63,12 +63,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL ha i seguenti tipi di attesa:
+Il tipo di attesa di sinapsi SQL è il seguente:
 
 * **LocalQueriesConcurrencyResourceType**: query che si trovano all'esterno del framework di slot di concorrenza. Le query DMV e le funzioni di sistema  come `SELECT @@VERSION` sono esempi di query locali.
 * **UserConcurrencyResourceType**: query che si trovano all'interno del framework di slot di concorrenza. Le query sulle tabelle dell'utente finale rappresentano esempi in cui si usa questo tipo di risorsa.
 * **DmsConcurrencyResourceType**: attese risultanti dalle operazioni di spostamento dei dati.
-* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati. In generale, è consigliabile un tempo minimo tra snapshot consecutivi di 10 minuti.
+* **BackupConcurrencyResourceType**: indica che è in esecuzione il backup di un database. Il valore massimo per questo tipo di risorsa è 1. Se sono stati richiesti più backup contemporaneamente, gli altri vengono accodati. In generale, è consigliabile un tempo minimo tra gli snapshot consecutivi di 10 minuti.
 
 La DMV `sys.dm_pdw_waits` può essere usata per visualizzare le risorse per cui una richiesta è in attesa.
 
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-La `sys.dm_pdw_resource_waits` DMV mostra le informazioni di attesa per una determinata query. Il tempo di attesa delle risorse misura il tempo di attesa per le risorse da fornire. Il tempo di attesa del segnale è il tempo necessario ai server SQL sottostanti per pianificare la query sulla CPU.
+La `sys.dm_pdw_resource_waits` DMV Mostra le informazioni di attesa per una determinata query. Il tempo di attesa delle risorse misura il tempo necessario per fornire le risorse. Il tempo di attesa del segnale è il tempo necessario per i server SQL sottostanti per pianificare la query sulla CPU.
 
 ```sql
 SELECT  [session_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [proteggere un database in sinapsi SQL](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

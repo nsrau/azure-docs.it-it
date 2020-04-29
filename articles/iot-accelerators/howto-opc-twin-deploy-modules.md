@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241071"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
@@ -180,7 +180,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) da [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### <a name="quickstart"></a>Guida introduttiva
+### <a name="quickstart"></a>Avvio rapido
 
 1. Salvare il manifesto di distribuzione precedente in `deployment.json` un file.  
 

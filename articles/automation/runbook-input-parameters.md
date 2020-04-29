@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 3741adbab6bcbc68f266c331e3056013afc0105e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656024"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
@@ -17,7 +17,7 @@ ms.locfileid: "80656024"
 I parametri di input Runbook aumentano la flessibilità di un Runbook consentendo di passare i dati al momento dell'avvio. Questi parametri consentono alle azioni Runbook di essere destinate a scenari e ambienti specifici. Questo articolo descrive la configurazione e l'uso dei parametri di input nei manuali operativi.
 
 >[!NOTE]
->Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo AZ sul ruolo di lavoro ibrido per Runbook, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per l'account di automazione, è possibile aggiornare i moduli alla versione più recente usando [come aggiornare i moduli Azure PowerShell in automazione di Azure](automation-update-azure-modules.md).
+>Questo articolo è stato aggiornato per usare il nuovo modulo Az di Azure PowerShell. È comunque possibile usare il modulo AzureRM, che continuerà a ricevere correzioni di bug almeno fino a dicembre 2020. Per altre informazioni sul nuovo modulo Az e sulla compatibilità di AzureRM, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Per le istruzioni di installazione del modulo Az sul ruolo di lavoro ibrido per runbook, vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Per aggiornare i moduli dell'account di Automazione alla versione più recente, vedere [Come aggiornare i moduli Azure PowerShell in Automazione di Azure](automation-update-azure-modules.md).
 
 ## <a name="configuring-input-parameters"></a>Configurazione dei parametri di input
 
@@ -31,8 +31,8 @@ PowerShell e manuali operativi del flusso di lavoro PowerShell in automazione di
 
 | **Proprietà** | **Descrizione** |
 |:--- |:--- |
-| Type |Obbligatorio. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
-| Nome |Obbligatorio. Nome del parametro. Questo nome deve essere univoco all'interno di Runbook, deve iniziare con una lettera e può contenere solo lettere, numeri o caratteri di sottolineatura. |
+| Tipo |Obbligatorio. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
+| Name |Obbligatorio. Nome del parametro. Questo nome deve essere univoco all'interno di Runbook, deve iniziare con una lettera e può contenere solo lettere, numeri o caratteri di sottolineatura. |
 | Obbligatorio |Facoltativo. Valore booleano che specifica se il parametro richiede un valore. Se si imposta questa impostazione su true, è necessario fornire un valore all'avvio del Runbook. Se si imposta questa opzione su false, un valore è facoltativo. Se non si specifica un valore per la `Mandatory` proprietà, PowerShell considera il parametro di input facoltativo per impostazione predefinita. |
 | Valore predefinito |Facoltativo. Valore utilizzato per il parametro se non viene passato alcun valore di input all'avvio del Runbook. Runbook può impostare un valore predefinito per qualsiasi parametro. |
 
@@ -328,7 +328,7 @@ Ora è possibile chiamare il runbook dal computer locale tramite Azure PowerShel
    ```
 
     >[!NOTE]
-    >Per manuali operativi di PowerShell `Add-AzAccount` e `Add-AzureRMAccount` sono alias per `Connect-AzAccount`. Si noti che questi alias non sono disponibili per manuali operativi grafici. Un Runbook grafico può usare `Connect-AzAccount` solo se stesso.
+    >Per i runbook PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per `Connect-AzAccount`. Si noti che questi alias non sono disponibili per manuali operativi grafici. Un Runbook grafico può usare `Connect-AzAccount` solo se stesso.
 
 1. Ottenere il contenuto del file JSON salvato e convertirlo in una stringa. `JsonPath`indica il percorso in cui è stato salvato il file JSON.
 

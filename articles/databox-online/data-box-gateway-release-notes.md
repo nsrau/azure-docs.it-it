@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265402"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Note sulla versione di disponibilità generale Azure Data Box Edge/Azure Data Box Gateway
@@ -33,7 +33,7 @@ La versione GA corrisponde alle versioni del software:
 
 - **Nuove immagini del disco virtuale** : i nuovi VHDX e VMDK sono ora disponibili nella portale di Azure. Scaricare queste immagini per eseguire il provisioning, configurare e distribuire nuovi dispositivi Data Box Gateway GA. I dispositivi Data Box Gateway creati nelle versioni di anteprima precedenti non possono essere aggiornati a questa versione. Per ulteriori informazioni, andare all'articolo sulle [operazioni preliminari alla distribuzione di Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 - **Supporto per NFS** : il supporto per NFS è attualmente disponibile in anteprima e disponibile per i client v 3.0 e v 4.1 che accedono ai dispositivi Data Box Edge e data box gateway.
-- **Resilienza dell'archiviazione** : il dispositivo data box Edge può sopportare l'errore di un disco dati con la funzionalità di resilienza di archiviazione. Questa funzionalità è attualmente in anteprima. È possibile abilitare la resilienza dell'archiviazione selezionando l'opzione **resiliente** nelle **impostazioni di archiviazione** nell'interfaccia utente Web locale.
+- **Resilienza dell'archiviazione** : il dispositivo data box Edge può sopportare l'errore di un disco dati con la funzionalità di resilienza di archiviazione. Questa funzionalità è attualmente disponibile in anteprima. È possibile abilitare la resilienza dell'archiviazione selezionando l'opzione **resiliente** nelle **impostazioni di archiviazione** nell'interfaccia utente Web locale.
 
 
 ## <a name="known-issues-in-ga-release"></a>Problemi noti nella versione GA
@@ -44,7 +44,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti per il Data 
 | --- | --- | --- | --- |
 | **1.** |Tipi di file | I tipi di file seguenti non sono supportati: file di caratteri, file di blocco, socket, pipe, collegamenti simbolici.  |La copia di questi file comporta la creazione di file di lunghezza 0 nella condivisione NFS. Questi file rimangono in uno stato di errore e vengono anche segnalati in *error.xml*. <br> I collegamenti simbolici alle directory hanno come risultato che le directory non vengono mai contrassegnate come offline. Di conseguenza, è possibile che non venga visualizzata la croce grigia indicante che le directory sono offline e che tutto il contenuto associato è stato caricato completamente in Azure. |
 | **2.** |Eliminazione | A causa di un bug in questa versione, potrebbe essere impossibile eliminare una condivisione NFS. Lo stato della condivisione rimarrà comunque *In fase di eliminazione*.  |Questo problema si verifica solo quando la condivisione usa un nome file non supportato. |
-| **3.** |Copiare | La copia dei dati ha esito negativo con errore: Impossibile completare l'operazione richiesta a causa di una limitazione file system.  |Il flusso di dati alternativo (ADS) associato a dimensioni del file maggiori di 128 KB non è supportato.   |
+| **3.** |Copia | La copia dei dati ha esito negativo con errore: Impossibile completare l'operazione richiesta a causa di una limitazione file system.  |Il flusso di dati alternativo (ADS) associato a dimensioni del file maggiori di 128 KB non è supportato.   |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

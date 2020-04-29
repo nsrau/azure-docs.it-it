@@ -1,21 +1,21 @@
 ---
 title: Usare OpenFaaS con servizio Azure Kubernetes
-description: Informazioni su come distribuire e usare OpenFaaS in un cluster di servizi Azure Kubernetes (AKS) per creare funzioni senza server con contenitori.
+description: Informazioni su come distribuire e usare OpenFaaS in un cluster di Azure Kubernetes Service (AKS) per creare funzioni senza server con i contenitori.
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631461"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso di OpenFaaS in servizio Azure Kubernetes
 
-[OpenFaaS][open-faas] è un framework per la creazione di funzioni senza server tramite l'uso di contenitori. Il fatto che si tratti di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster del servizio Azure Kubernetes.
+[OpenFaaS][open-faas] è un Framework per la creazione di funzioni senza server tramite l'uso di contenitori. Il fatto che si tratti di un progetto Open Source ne ha favorito l'adozione su larga scala all'interno della community. Questo documento descrive l'installazione e l'uso di OpenFaaS in un cluster del servizio Azure Kubernetes.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,11 +26,11 @@ Per completare la procedura descritta in questo articolo è necessario quanto se
 * Avere l'interfaccia della riga di comando di Azure installata nel sistema di sviluppo.
 * Strumenti da riga di comando di GIT installati nel sistema.
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>Aggiungere il repository del grafico helm OpenFaaS
+## <a name="add-the-openfaas-helm-chart-repo"></a>Aggiungere il repository del grafico Helm OpenFaaS
 
-Passare [https://shell.azure.com](https://shell.azure.com) a per aprire Azure Cloud Shell nel browser.
+Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Azure cloud Shell nel browser.
 
-OpenFaaS mantiene i propri grafici timone per tenersi aggiornati con tutte le ultime modifiche.
+OpenFaaS gestisce i propri grafici Helm per restare aggiornati con tutte le modifiche più recenti.
 
 ```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
@@ -41,13 +41,13 @@ helm repo update
 
 È consigliabile archiviare OpenFaaS e le funzioni di OpenFaaS in spazi dei nomi Kubernetes distinti.
 
-Creare uno spazio dei nomi per il sistema Elevia di OpenFaaS:
+Creare uno spazio dei nomi per il sistema e le funzioni OpenFaaS:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-Generare una password per il portale dell'interfaccia utente OpenFaaS e l'API REST:
+Generare una password per il portale dell'interfaccia utente di OpenFaaS e l'API REST:
 
 ```console
 # generate a random password
@@ -58,9 +58,9 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-È possibile ottenere il valore `echo $PASSWORD`del segreto con .
+È possibile ottenere il valore del segreto con `echo $PASSWORD`.
 
-La password che creiamo qui verrà utilizzata dal grafico helm per abilitare l'autenticazione di base sul gateway OpenFaaS, che è esposto a Internet tramite un LoadBalancer cloud.
+La password creata qui verrà usata dal grafico Helm per abilitare l'autenticazione di base sul gateway OpenFaaS, esposto a Internet tramite un LoadBalancer cloud.
 
 Il repository clonato include un grafico Helm per OpenFaaS. Usare questo grafico per distribuire OpenFaaS nel cluster del servizio Azure Container.
 
@@ -108,7 +108,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Per testare il sistema OpenFaaS, passare all'indirizzo IP esterno sulla porta 8080, in questo esempio `http://52.186.64.52:8080`. Verrà richiesto di effettuare l'accesso. Per recuperare la `echo $PASSWORD`password, immettere .
+Per testare il sistema OpenFaaS, passare all'indirizzo IP esterno sulla porta 8080, in questo esempio `http://52.186.64.52:8080`. Verrà richiesto di effettuare l'accesso. Per recuperare la password, immettere `echo $PASSWORD`.
 
 ![Interfaccia utente di OpenFaaS](media/container-service-serverless/openfaas.png)
 
@@ -118,9 +118,9 @@ Infine, installare l'interfaccia della riga di comando di OpenFaaS. In questo es
 brew install faas-cli
 ```
 
-Impostare `$OPENFAAS_URL` sull'IP pubblico trovato sopra.
+Impostare `$OPENFAAS_URL` sull'IP pubblico riportato sopra.
 
-Accedere con l'interfaccia della riga di comando di Azure:Log in with the Azure CLI:
+Accedere con l'interfaccia della riga di comando di Azure:
 
 ```console
 export OPENFAAS_URL=http://52.186.64.52:8080
@@ -246,7 +246,7 @@ Output:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile continuare a imparare con il workshop OpenFaaS attraverso una serie di laboratori pratici che trattano argomenti come creare il proprio bot GitHub, l'utilizzo di segreti, la visualizzazione di metriche e la scalabilità automatica.
+È possibile continuare ad apprendere con il workshop OpenFaaS tramite un set di laboratori pratici che trattano argomenti come la creazione di un bot GitHub, l'utilizzo di segreti, la visualizzazione di metriche e la scalabilità automatica.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

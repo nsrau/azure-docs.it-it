@@ -13,10 +13,10 @@ ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
 ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631708"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Esercitazione: aggiungere un'istanza gestita di database SQL a un gruppo di failover
@@ -421,7 +421,7 @@ Per creare una rete virtuale, seguire questa procedura:
 
    La tabella seguente mostra i valori necessari per la rete virtuale secondaria:
 
-    | **Campo** | Valore |
+    | **Campo** | valore |
     | --- | --- |
     | **Nome** |  Nome della rete virtuale che deve essere utilizzato dall'istanza gestita secondaria, ad esempio `vnet-sql-mi-secondary`. |
     | **Spazio degli indirizzi** | Spazio degli indirizzi per la rete virtuale, ad esempio `10.128.0.0/16`. | 
@@ -460,7 +460,7 @@ Creare l'istanza gestita secondaria usando il portale di Azure.
 
    Nella tabella seguente sono illustrati i valori necessari per l'istanza gestita secondaria:
  
-    | **Campo** | Valore |
+    | **Campo** | valore |
     | --- | --- |
     | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita primaria. |
     | **Gruppo di risorse**| Il gruppo di risorse in cui si trova l'istanza gestita primaria. |
@@ -752,7 +752,7 @@ Creare il gateway per la rete virtuale dell'istanza gestita primaria usando il p
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita primaria:
  
-    | **Campo** | Valore |
+    | **Campo** | valore |
     | --- | --- |
     | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita primaria. |
     | **Nome** | Nome del gateway di rete virtuale, ad esempio `primary-mi-gateway`. | 
@@ -834,7 +834,7 @@ Usando il portale di Azure, ripetere i passaggi della sezione precedente per cre
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita secondaria:
 
-   | **Campo** | Valore |
+   | **Campo** | valore |
    | --- | --- |
    | **Sottoscrizione** |  Sottoscrizione in cui si trova l'istanza gestita secondaria. |
    | **Nome** | Nome del gateway di rete virtuale, ad esempio `secondary-mi-gateway`. | 
@@ -1073,7 +1073,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 
 
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 Pulire le risorse eliminando prima di tutto l'istanza gestita, il cluster virtuale, le eventuali risorse rimanenti e infine il gruppo di risorse. 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)

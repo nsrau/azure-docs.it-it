@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652084"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
@@ -23,7 +23,7 @@ La classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.1
 
 Quando si estende **RoleEntryPoint**, è necessario tenere presenti i seguenti comportamenti dei metodi:
 
-* Il [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) metodo restituisce un valore booleano, pertanto è possibile restituire **false** da questo metodo.
+* Il metodo [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) restituisce un valore booleano, pertanto è possibile restituire **false** da questo metodo.
   
    Se il codice restituisce **false**il processo del ruolo viene interrotto improvvisamente, senza eseguire nessuna sequenza di arresto in programma. In generale, è consigliabile evitare la restituzione di **false** dal metodo **OnStart**.
 * Le eccezioni non rilevate all'interno di un overload di un metodo **RoleEntryPoint** vengono trattate come eccezioni non gestite.

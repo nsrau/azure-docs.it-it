@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632981"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse Azure Resource Manager usando il portale di Azure
@@ -45,7 +45,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 
      ![Creare un gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Selezionare **Verifica + crea**
-6. Seleziona **Crea**. La creazione di un gruppo di risorse richiede alcuni secondi.
+6. Selezionare **Crea**. La creazione di un gruppo di risorse richiede alcuni secondi.
 7. Selezionare **Aggiorna** dal menu superiore per aggiornare l'elenco dei gruppi di risorse e quindi selezionare il gruppo di risorse appena creato per aprirlo. In alternativa, selezionare **notifica**(icona a campana) nella parte superiore e quindi selezionare **Vai al gruppo di risorse** per aprire il gruppo di risorse appena creato
 
     ![Vai al gruppo di risorse](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)

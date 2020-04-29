@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
 ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845351"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
@@ -71,9 +71,9 @@ Il [portale Azure Active Directory](https://aad.portal.azure.com/) è disponibil
 
 Di seguito sono riportate le principali funzionalità di gestione delle identità di Azure:
 
-- Accesso Single Sign-On
+- Single sign-on
 
-- Multi-Factor Authentication
+- Autenticazione a più fattori
 
 - Monitoraggio della sicurezza, avvisi e report basati su Machine Learning
 
@@ -85,7 +85,7 @@ Di seguito sono riportate le principali funzionalità di gestione delle identit�
 
 - Identity Protection
 
-#### <a name="single-sign-on"></a>Accesso Single Sign-On
+#### <a name="single-sign-on"></a>Single sign-on
 
 [Single Sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) consente di accedere a tutte le applicazioni e risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -95,7 +95,7 @@ Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad 
 
 Non solo gli utenti non devono più gestire diversi set di nomi utente e password, ma è anche possibile eseguire il provisioning o deprovisioning automatico dell'accesso alle applicazioni in base ai gruppi aziendali e al relativo stato di dipendente. [Azure ad introduce controlli di governance di sicurezza e accesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) che consentono di gestire centralmente l'accesso degli utenti tra le applicazioni SaaS.
 
-#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+#### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
 [Azure multi-factor authentication (](../../active-directory/authentication/multi-factor-authentication.md) multi-factor authentication) è un metodo di autenticazione che richiede l'uso di più di un metodo di verifica e aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. L'autenticazione a più fattori [consente di proteggere](../../active-directory/authentication/concept-mfa-howitworks.md) l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica o un codice di verifica dell'app per dispositivi mobili e token OAuth di terze parti.
 
@@ -480,7 +480,7 @@ L'infrastruttura per l'applicazione è in genere costituita da vari componenti, 
 
 È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
 
-**Vantaggi offerti dall'uso di Resource Manager**
+**Vantaggi dell'utilizzo di Gestione risorse**
 
 Gestione risorse offre numerosi vantaggi:
 

@@ -1,6 +1,6 @@
 ---
-title: Utilizzo delle etichette per instrumentare le query
-description: Suggerimenti per l'utilizzo di etichette per instrumentare query nel pool Synapse SQL per lo sviluppo di soluzioni.
+title: Uso delle etichette per instrumentare le query
+description: Suggerimenti per l'uso delle etichette per instrumentare le query nel pool SQL sinapsi per lo sviluppo di soluzioni.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5e2cd03ae878e80139a7f7a8ba67cef15b24d571
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633499"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Utilizzo di etichette per instrumentare query nel pool SQL SynapseUsing labels to instrument queries in Synapse SQL pool
+# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Uso delle etichette per instrumentare le query nel pool SQL sinapsi
 
-In questo articolo sono inclusi suggerimenti per lo sviluppo di soluzioni che usano le etichette per instrumentare le query nel pool SQL.
+Sono incluse in questo articolo Suggerimenti per lo sviluppo di soluzioni usando etichette per instrumentare query nel pool SQL.
 
 Suggerimenti per l'uso di etichette per instrumentare query in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 
@@ -35,13 +35,13 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è utile perché l'etichetta è in grado di eseguire query tramite le DMV.
+L'ultima riga contrassegna la stringa 'My Query Label' per la query. Questo tag è utile perché l'etichetta è in grado di eseguire query tramite il DMV.
 
 L'esecuzione di query per le etichette offre un meccanismo per l'individuazione di query problematiche e semplifica il controllo dell'avanzamento mediante l'esecuzione di un processo ELT.
 
-Una buona convenzione di denominazione è estremamente utile. Ad esempio, l'avvio dell'etichetta con PROJECT, PROCEDURE, STATEMENT o COMMENT identifica in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
+Una buona convenzione di denominazione è estremamente utile. Ad esempio, se si avvia l'etichetta con PROJECT, PROCEDURE, istruzione o commento, viene identificata in modo univoco la query tra tutto il codice nel controllo del codice sorgente.
 
-La query seguente utilizza una vista a gestione dinamica per eseguire la ricerca in base all'etichetta:
+Nella query seguente viene utilizzata una vista a gestione dinamica per eseguire la ricerca in base all'etichetta:
 
 ```sql
 SELECT  *

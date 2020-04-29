@@ -1,5 +1,5 @@
 ---
-title: Creare utenti - Database di Azure per MariaDBCreate users - Azure Database for MariaDB
+title: Creare utenti-database di Azure per MariaDB
 description: Questo articolo descrive come creare nuovi account utente per interagire con un Database di Azure per il server MariaDB.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/2/2020
 ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632277"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Creare utenti in Database di Azure per MariaDB 
@@ -23,7 +23,7 @@ L'utente amministratore del server ottiene determinati privilegi per il server, 
 Dopo aver creato il Database di Azure per il server MariaDB, è possibile usare il primo account utente amministratore del server per creare altri utenti e concedere loro l'accesso con privilegi di amministratore. Inoltre, l'account amministratore del server può essere usato per creare utenti con privilegi meno elevati che possono accedere a singoli schemi di database.
 
 > [!NOTE]
-> Il privilegio SUPER e il ruolo DBA non sono supportati. Esaminare [i privilegi](concepts-limits.md#privilege-support) nell'articolo delle limitazioni per comprendere gli elementi non supportati nel servizio.
+> Il privilegio SUPER e il ruolo DBA non sono supportati. Esaminare i [privilegi](concepts-limits.md#privilege-support) nell'articolo limitazioni per comprendere ciò che non è supportato nel servizio.
 
 ## <a name="create-additional-admin-users"></a>Creare altri utenti amministratore
 1. Ottenere le informazioni per la connessione e il nome dell'utente amministratore.

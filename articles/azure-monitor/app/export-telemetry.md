@@ -4,10 +4,10 @@ description: Esportare i dati di diagnostica e di uso nella risorsa di archiviaz
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298297"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
@@ -55,15 +55,15 @@ Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzat
 
 Una volta completata la prima esportazione, sarà presente una struttura simile alla seguente nel contenitore dell'archiviazione BLOB di Azure, che varia a seconda dei dati raccolti.
 
-|Nome | Descrizione |
+|Name | Descrizione |
 |:----|:------|
 | [Disponibilità](export-data-model.md#availability) | Segnala i [test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Evento](export-data-model.md#events) | Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Event](export-data-model.md#events) | Eventi personalizzati generati da [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Eccezioni](export-data-model.md#exceptions) |Segnala le [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel server e nel browser.
 | [Messaggi](export-data-model.md#trace-messages) | Inviati da [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) e dagli [adattatori di registrazione](../../azure-monitor/app/asp-net-trace-logs.md).
 | [Metriche](export-data-model.md#metrics) | Generato dalle chiamate API della metrica.
 | [PerformanceCounters](export-data-model.md) | Contatori delle prestazioni raccolti da Application Insights.
-| [Requests](export-data-model.md#requests)| Inviate da [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.| 
+| [Richieste](export-data-model.md#requests)| Inviate da [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). I moduli standard le usano per segnalare il tempo di risposta del server, calcolato nel server.| 
 
 ### <a name="to-edit-continuous-export"></a>Per modificare l'esportazione continua
 
@@ -107,7 +107,7 @@ Di seguito è riportato il formato del percorso:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Dove
+Where
 
 * `blobCreationTimeUtc`ora di creazione del BLOB nell'archivio di gestione temporanea interno
 * `blobDeliveryTimeUtc` è l'ora in cui il BLOB viene copiato nell'archivio di destinazione dell'esportazione

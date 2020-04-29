@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637511"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connettere i computer Linux a monitoraggio di Azure
@@ -123,9 +123,9 @@ La procedura seguente consente di configurare l'installazione dell'agente per Lo
 
 Se il computer Linux deve comunicare tramite un server proxy per Log Analytics, questa configurazione può essere specificata nella riga di comando includendo `-p [protocol://][user:password@]proxyhost[:port]`. La *protocol* proprietà del protocollo `http` accetta `https`o e la proprietà *proxyhost* accetta un nome di dominio completo o un indirizzo IP del server proxy. 
 
-Ad esempio: `https://proxy01.contoso.com:30443`
+ad esempio `https://proxy01.contoso.com:30443`
 
-Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
+Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. ad esempio `https://user01:password@proxy01.contoso.com:30443`
 
 1. Per configurare il computer Linux per la connessione a un'area di lavoro Log Analytics, eseguire il comando seguente specificando l'ID e la chiave primaria dell'area di lavoro. Il comando seguente scarica l'agente, convalida il relativo checksum e ne esegue l'installazione.
     

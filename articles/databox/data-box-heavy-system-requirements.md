@@ -1,6 +1,6 @@
 ---
-title: Requisiti di sistema per i dati di Microsoft Azure Data Box Heavy Documenti Microsoft
-description: Informazioni sui requisiti software e di rete per Azure Data Box Heavy
+title: Requisiti di sistema Microsoft Azure Data Box Heavy | Microsoft Docs
+description: Informazioni sui requisiti di software e di rete per la Azure Data Box Heavy
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260072"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Requisiti di sistema di Azure Data Box HeavyAzure Data Box Heavy system requirements
+# <a name="azure-data-box-heavy-system-requirements"></a>Requisiti di sistema Azure Data Box Heavy
 
-Questo articolo descrive i requisiti di sistema importanti per il dispositivo Azure Data Box Heavy e per i client che si connettono al dispositivo. È consigliabile esaminare attentamente le informazioni prima di distribuire Data Box Heavy, quindi fare riferimento ad esso in base alle esigenze durante la distribuzione e l'operazione successiva.
+Questo articolo descrive i requisiti di sistema importanti per il dispositivo Azure Data Box Heavy e per i client che si connettono al dispositivo. Si consiglia di rivedere attentamente le informazioni prima di distribuire il Data Box Heavy e quindi di richiamarle in modo necessario durante la distribuzione e l'operazione successiva.
 
 I requisiti di sistema includono:
 
-* Requisiti software per gli host che **si connettono a Data Box Heavy:** descrivono le piattaforme supportate, i browser per l'interfaccia utente Web locale, i client SMB e gli eventuali requisiti aggiuntivi per gli host che possono connettersi alla casella dei dati.
-* **Requisiti** di rete per Data Box Heavy - fornisce informazioni sui requisiti di rete per il funzionamento ottimale del dispositivo Data Box Heavy.
+* **Requisiti software per gli host che si connettono a data box Heavy** : descrive le piattaforme supportate, i browser per l'interfaccia utente Web locale, i client SMB e gli eventuali requisiti aggiuntivi per gli host che possono connettersi al data box.
+* **Requisiti di rete per la data box Heavy** : fornisce informazioni sui requisiti di rete per il funzionamento ottimale del dispositivo data box Heavy.
 
 ## <a name="software-requirements"></a>Requisiti software
 
@@ -50,11 +50,11 @@ I requisiti software includono le informazioni sui sistemi operativi supportati,
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
-Il data center disponga di una rete ad alta velocità. Per velocità di copia più veloci, due connessioni da 40 GbE possono essere utilizzate in parallelo (una per nodo). Se non sono disponibili 40 GbE, è consigliabile disporre di almeno due connessioni da 10 GbE (una per nodo).
+Il data center disponga di una rete ad alta velocità. Per la velocità di copia più veloce, le connessioni 2 40-GbE possono essere utilizzate in parallelo (una per nodo). Se 40-GbE non è disponibile, è consigliabile disporre di almeno 2 10-GbE connessioni (uno per nodo).
 
 ### <a name="port-requirements"></a>Requisiti delle porte
 
-Nella tabella seguente sono elencate le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *In* *uscita* o in uscita si riferisce alla direzione in cui il dispositivo Data Box Heavy invia i dati esternamente, oltre la distribuzione, ad esempio in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Out* In uscita *o in uscita si* intende la direzione in cui il dispositivo data box Heavy invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

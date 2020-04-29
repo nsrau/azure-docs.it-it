@@ -1,6 +1,6 @@
 ---
-title: Connettere il client Web di Windows Virtual Desktop - AzureConnect Windows Virtual Desktop web client - Azure
-description: Come connettersi a Windows Virtual Desktop utilizzando il client web.
+title: Connetti client Web desktop virtuali Windows-Azure
+description: Come connettersi al desktop virtuale di Windows tramite il client Web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,22 +9,22 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656365"
 ---
 # <a name="connect-with-the-web-client"></a>Connettersi con il client Web
 
-Il client Web consente di accedere alle risorse di Windows Virtual Desktop da un browser Web senza il lungo processo di installazione.
+Il client Web consente di accedere alle risorse del desktop virtuale di Windows da un Web browser senza il lungo processo di installazione.
 
 >[!NOTE]
->Il client web non dispone attualmente del supporto del sistema operativo mobile.
+>Il client Web attualmente non dispone del supporto del sistema operativo per dispositivi mobili.
 
 ## <a name="supported-operating-systems-and-browsers"></a>Sistemi operativi e browser supportati
 
-Mentre qualsiasi browser HTML5-capable dovrebbe funzionare, supportiamo ufficialmente i seguenti sistemi operativi e browser.
+Anche se qualsiasi browser compatibile con HTML5 dovrebbe funzionare, sono supportati ufficialmente i sistemi operativi e i browser seguenti.
 
 | Browser           | Sistema operativo supportato                     | Note               |
 |-------------------|----------------------------------|---------------------|
@@ -32,17 +32,17 @@ Mentre qualsiasi browser HTML5-capable dovrebbe funzionare, supportiamo ufficial
 | Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versione 55 o successiva |
-| Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
+| Google Chrome     | Windows, macOS, Linux, sistema operativo Chrome |                     |
 
-## <a name="access-remote-resources-feed"></a>Accedere al feed delle risorse remote
+## <a name="access-remote-resources-feed"></a>Accedere al feed di risorse remote
 
 In un browser passare al [client Web desktop virtuale di Windows](https://rdweb.wvd.microsoft.com/webclient) e accedere con l'account utente.
 
 >[!NOTE]
->Se è già stato eseguito l'accesso con un account Azure Active Directory diverso da quello che si vuole usare per Windows Virtual Desktop, è necessario disconnettersi o usare una finestra del browser privata.
+>Se è già stato effettuato l'accesso con un account di Azure Active Directory diverso da quello che si vuole usare per desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.
 
-Dopo l'accesso, dovrebbe essere visualizzato un elenco di risorse. Puoi avviare le risorse selezionandole come se si trattasse di un'app normale nella scheda **Tutte le risorse.**
+Dopo l'accesso, verrà visualizzato un elenco di risorse. È possibile avviare le risorse selezionandola come una normale app nella scheda **tutte le risorse** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sull'utilizzo del client Web, vedere [Introduzione al client Web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
+Per altre informazioni su come usare il client Web, vedere Introduzione al [client Web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.openlocfilehash: 58e75e4efecf390c4c1449b7ec59684554fa7516
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281418"
 ---
-# <a name="about-expressroute-virtual-network-gateways"></a>Informazioni sui gateway di rete virtuale ExpressRouteAbout ExpressRoute virtual network gateways
+# <a name="about-expressroute-virtual-network-gateways"></a>Informazioni sui gateway di rete virtuale ExpressRoute
 
-Per connettere la rete virtuale di Azure e la rete locale tramite ExpressRoute, è innanzitutto necessario creare un gateway di rete virtuale. Un gateway di rete virtuale ha due scopi: scambiare route IP tra le reti e instradare il traffico di rete. In questo articolo vengono illustrati i tipi di gateway, gli SKU del gateway e le prestazioni stimate per SKU. In questo articolo viene inoltre illustrata ExpressRoute [FastPath,](#fastpath)una funzionalità che consente al traffico di rete dalla rete locale di ignorare il gateway di rete virtuale per migliorare le prestazioni.
+Per connettere la rete virtuale di Azure e la rete locale tramite ExpressRoute, è prima di tutto necessario creare un gateway di rete virtuale. Un gateway di rete virtuale svolge due finalità: le route IP di Exchange tra le reti e il traffico di rete instradato. Questo articolo illustra i tipi di gateway, gli SKU del gateway e le prestazioni stimate in base allo SKU. Questo articolo illustra anche ExpressRoute [FastPath](#fastpath), una funzionalità che consente al traffico di rete dalla rete locale di ignorare il gateway di rete virtuale per migliorare le prestazioni.
 
 ## <a name="gateway-types"></a>Tipi di gateway
 
@@ -31,7 +31,7 @@ Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gatew
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKU del gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se si desidera aggiornare il gateway a uno SKU gateway più potente, nella maggior parte dei casi è possibile utilizzare il cmdlet PowerShell 'Resize-AzVirtualNetworkGateway'. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway. La ricreazione di un gateway comporta tempi di inattività.
+Se si vuole aggiornare il gateway a uno SKU del gateway più potente, nella maggior parte dei casi è possibile usare il cmdlet di PowerShell ' Resize-AzVirtualNetworkGateway '. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway. La ricreazione di un gateway comporta tempi di inattività.
 
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Prestazioni stimate in base allo SKU del gateway
 La tabella seguente illustra i tipi di gateway e le prestazioni stimate. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
@@ -43,9 +43,9 @@ La tabella seguente illustra i tipi di gateway e le prestazioni stimate. La tabe
 >
 >
 
-## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet gateway
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Subnet del gateway
 
-Prima di creare un gateway ExpressRoute, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le macchine virtuali del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway ExpressRoute necessarie. Non distribuire mai altri elementi (ad esempio, macchine virtuali aggiuntive) nella subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
+Prima di creare un gateway ExpressRoute, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni richieste del gateway ExpressRoute. Non distribuire mai nient'altro (ad esempio, altre VM) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -53,7 +53,7 @@ Prima di creare un gateway ExpressRoute, è necessario creare una subnet del gat
 
 Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inclusi nella subnet. Gli indirizzi IP inclusi nella subnet del gateway sono allocati alle VM del gateway e ai servizi del gateway. Alcune configurazioni richiedono più indirizzi IP di altre. 
 
-Quando si pianifica la dimensione della subnet del gateway, fare riferimento alla documentazione relativa alla configurazione che si intende creare. Ad esempio, la configurazione di coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway più grande rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Sebbene sia possibile creare una subnet del gateway di dimensioni ridotte come /29, è consigliabile creare una subnet del gateway di dimensioni pari o superiori a /27 (/27, /26 e così via) se si dispone dello spazio di indirizzi disponibile per eseguire questa operazione. Questo ospiterà la maggior parte delle configurazioni.
+Quando si pianificano le dimensioni della subnet del gateway, fare riferimento alla documentazione per la configurazione che si prevede di creare. Ad esempio, la configurazione della coesistenza del gateway ExpressRoute/VPN richiede una subnet del gateway di dimensioni maggiori rispetto alla maggior parte delle altre configurazioni. È anche consigliabile verificare che la subnet del gateway contenga una quantità di indirizzi IP sufficiente per supportare possibili future configurazioni aggiuntive. Sebbene sia possibile creare una subnet del gateway con dimensioni pari a/29, è consigliabile creare una subnet del gateway di/27 o superiore (/27,/26 e così via) se si dispone dello spazio degli indirizzi disponibile. La maggior parte delle configurazioni verrà adattata.
 
 L'esempio seguente di PowerShell Resource Manager illustra una subnet del gateway denominata GatewaySubnet. La notazione CIDR specifica /27. Questa dimensione ammette un numero di indirizzi IP sufficiente per la maggior parte delle configurazioni attualmente esistenti.
 
@@ -79,24 +79,24 @@ I nuovi SKU gateway supportano anche altre opzioni di distribuzione per soddisfa
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 
-Il gateway di rete virtuale ExpressRoute è progettato per scambiare route di rete e instradare il traffico di rete. FastPath è progettato per migliorare le prestazioni del percorso dati tra la rete locale e la rete virtuale. Se abilitato, FastPath invia il traffico di rete direttamente alle macchine virtuali nella rete virtuale, ignorando il gateway.
+Il gateway di rete virtuale ExpressRoute è progettato per scambiare le route di rete e instradare il traffico di rete. FastPath è progettato per migliorare le prestazioni del percorso dati tra la rete locale e la rete virtuale. Se abilitata, FastPath invia il traffico di rete direttamente alle macchine virtuali nella rete virtuale, ignorando il gateway.
 
-Per ulteriori informazioni su FastPath, incluse limitazioni e requisiti, vedere [Informazioni su FastPath](about-fastpath.md).
+Per ulteriori informazioni su FastPath, inclusi i requisiti e le limitazioni, vedere [informazioni su FastPath](about-fastpath.md).
 
 ## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>API REST e cmdlet PowerShell
 Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le API REST e i cmdlet PowerShell per le configurazioni di gateway di rete virtuale, vedere le pagine seguenti:
 
 | **Classico** | **Gestione risorse** |
 | --- | --- |
-| [Powershell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[Powershell](https://docs.microsoft.com/powershell/module/az.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle configurazioni di connessione disponibili, vedere Panoramica di [ExpressRoute.For](expressroute-introduction.md)more information about available connection configurations, see ExpressRoute Overview .
+Per ulteriori informazioni sulle configurazioni di connessione disponibili, vedere [Panoramica di ExpressRoute](expressroute-introduction.md).
 
-Per altre informazioni sulla creazione di gateway ExpressRoute, vedere Creare un gateway di rete virtuale per ExpressRoute.For more information about creating ExpressRoute gateways, see Create a [virtual network gateway for ExpressRoute.](expressroute-howto-add-gateway-resource-manager.md)
+Per altre informazioni sulla creazione di gateway ExpressRoute, vedere [creare un gateway di rete virtuale per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-Per ulteriori informazioni sulla configurazione di gateway con ridondanza di zona, vedere Creare un gateway di [rete virtuale con ridondanza](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md)di zona.
+Per altre informazioni sulla configurazione dei gateway con ridondanza della zona, vedere [creare un gateway di rete virtuale con ridondanza della zona](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
-Per ulteriori informazioni su FastPath, vedere [Informazioni su FastPath](about-fastpath.md).
+Per ulteriori informazioni su FastPath, vedere [informazioni su FastPath](about-fastpath.md).

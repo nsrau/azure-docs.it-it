@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841811"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configurare i protocolli API di griglia di eventi
@@ -23,7 +23,7 @@ Questa guida fornisce esempi delle possibili configurazioni di protocollo di un 
 | Protocollo | Porta | Descrizione |
 | ---------------- | ------------ | ------------ |
 | HTTP | 5888 | Disabilitato per impostazione predefinita. Utile solo durante i test. Non adatto per carichi di lavoro di produzione.
-| HTTPS | 4438 | Impostazione predefinita
+| HTTPS | 4438 | Predefinito
 
 Vedere la guida per la [sicurezza e l'autenticazione](security-authentication.md) per tutte le configurazioni possibili.
 

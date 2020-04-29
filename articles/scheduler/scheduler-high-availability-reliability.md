@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
 ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898556"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Livelli elevati di disponibilità e affidabilità per l'Utilità di pianificazione di Azure
 
 > [!IMPORTANT]
-> App per la logica di Azure sostituisce [l'Utilità](../logic-apps/logic-apps-overview.md) di pianificazione di Azure, che [viene ritirata.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Per continuare a usare i processi impostati nell'utilità di pianificazione, [eseguire la migrazione ad App per la logica](../scheduler/migrate-from-scheduler-to-logic-apps.md) di Azure appena possibile. 
+> [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile. 
 >
-> L'utilità di pianificazione non è più disponibile nel portale di Azure, ma i cmdlet di PowerShell [per l'API REST](/rest/api/scheduler) e [l'utilità di pianificazione](scheduler-powershell-reference.md) di Azure rimangono disponibili in questo momento in modo da poter gestire i processi e le raccolte di processi.
+> L'utilità di pianificazione non è più disponibile nella portale di Azure, ma i cmdlet di [PowerShell](scheduler-powershell-reference.md) per l' [API REST](/rest/api/scheduler) e l'utilità di pianificazione di Azure restano disponibili in questo momento, in modo da poter gestire processi e raccolte di processi.
 
 L'Utilità di pianificazione di Azure offre livelli elevati di [disponibilità](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e di affidabilità per i processi. Per altre informazioni, vedere il [contratto di servizio per l'Utilità di pianificazione](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -30,7 +30,7 @@ L'Utilità di pianificazione di Azure offre disponibilità elevata e usa sia fun
 
 ### <a name="geo-redundant-service-deployment"></a>Distribuzione del servizio con ridondanza geografica
 
-L'utilità di pianificazione di Azure è disponibile in quasi [tutte le aree geografiche supportate da Azure oggi.](https://azure.microsoft.com/global-infrastructure/regions/#services) Pertanto, se un data center di Azure in un'area servita non è più disponibile, è comunque possibile usare l'Utilità di pianificazione di Azure, in quanto le funzionalità di failover del servizio renderanno disponibile l'Utilità di pianificazione da un altro data center.
+L'utilità di pianificazione di Azure è attualmente disponibile in quasi [tutte le aree geografiche supportate da Azure](https://azure.microsoft.com/global-infrastructure/regions/#services). Pertanto, se un data center di Azure in un'area servita non è più disponibile, è comunque possibile usare l'Utilità di pianificazione di Azure, in quanto le funzionalità di failover del servizio renderanno disponibile l'Utilità di pianificazione da un altro data center.
 
 ### <a name="geo-regional-job-replication"></a>Replica geografica internazionale dei processi
 

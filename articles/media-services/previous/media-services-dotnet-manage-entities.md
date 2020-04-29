@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251141"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestione di asset ed entità correlate con Media Services .NET SDK
@@ -29,7 +29,7 @@ ms.locfileid: "79251141"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Vedere la versione più recente, [servizi multimediali V3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Questo argomento illustra come gestire le entità dei Servizi multimediali di Azure con .NET.
 
@@ -37,10 +37,10 @@ A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app. config con le informazioni di connessione, come descritto in [sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Ottenere un riferimento a un asset
-Un'attività comune consiste nell'ottenere un riferimento a un asset esistente in Servizi multimediali. L'esempio di codice seguente mostra come ottenere un riferimento all'asset dalla raccolta Assets nell'oggetto contesto del server, in base a un ID asset. Nell'esempio di codice riportato di seguito viene utilizzata una query Linq per ottenere un riferimento a un oggetto IAsset esistente.
+Un'attività comune consiste nell'ottenere un riferimento a un asset esistente in Servizi multimediali. L'esempio di codice seguente illustra come ottenere un riferimento a un asset dalla raccolta Assets nell'oggetto contesto del server, in base a un ID asset. Nell'esempio di codice seguente viene usata una query LINQ per ottenere un riferimento a un oggetto IAsset esistente.
 
 ```csharp
     static IAsset GetAsset(string assetId)
@@ -100,7 +100,7 @@ Man mano che aumenta il numero degli asset archiviati, è utile elencarli tutti.
 
 ## <a name="get-a-job-reference"></a>Ottenere un riferimento a un processo
 
-Quando si utilizzano attività di elaborazione nel codice di Servizi multimediali, è spesso necessario ottenere un riferimento a un processo esistente in base a un ID. Esempio di codice seguente viene illustrato come ottenere un riferimento a un IJob oggetto dal Jobs insieme.
+Quando si lavora con le attività di elaborazione nel codice di servizi multimediali, è spesso necessario ottenere un riferimento a un processo esistente in base a un ID. Nell'esempio di codice seguente viene illustrato come ottenere un riferimento a un oggetto IJob dalla raccolta Jobs.
 
 Può essere necessario ottenere un riferimento a un processo quando si avvia un processo di codifica di lunga esecuzione e si vuole verificare lo stato del processo su un thread. In casi come questo, quando il metodo è restituito da un thread, è necessario recuperare un riferimento aggiornato a un processo.
 
@@ -203,7 +203,7 @@ Per altre informazioni sulle opzioni per la distribuzione degli asset, vedere [D
 ```
 
 ## <a name="list-all-access-policies"></a>Elencare tutti i criteri di accesso
-In Servizi multimediali è possibile definire un criterio di accesso per un asset o i relativi file. Un criterio di accesso definisce le autorizzazioni per un file o un asset, ovvero il tipo di accesso e la durata. Nel codice di Servizi multimediali, in genere si definisce un criterio di accesso creando un oggetto IAccessPolicy e associandolo a un asset esistente. Quindi si crea un oggetto ILocator, che consente di fornire l'accesso diretto alle risorse in Servizi multimediali. Il progetto di Visual Studio fornito con questa serie di argomenti include diversi esempi di codice in cui è illustrato come creare e assegnare criteri di accesso e localizzatori agli asset.
+In Servizi multimediali è possibile definire un criterio di accesso per un asset o i relativi file. Un criterio di accesso definisce le autorizzazioni per un file o un asset, ovvero il tipo di accesso e la durata. Nel codice di Servizi multimediali, in genere si definisce un criterio di accesso creando un oggetto IAccessPolicy e associandolo a un asset esistente. Si crea quindi un oggetto ILocator, che consente di fornire l'accesso diretto agli asset in servizi multimediali. Il progetto di Visual Studio fornito con questa serie di argomenti include diversi esempi di codice in cui è illustrato come creare e assegnare criteri di accesso e localizzatori agli asset.
 
 L'esempio di codice seguente illustra come elencare tutti i criteri di accesso nel server e mostra il tipo di autorizzazioni associato a ognuno. Un altro modo utile per visualizzare i criteri di accesso consiste nell'elencare tutti gli oggetti ILocator nel server e quindi, per ogni localizzatore, elencare il relativo criterio di accesso associato usando la relativa proprietà AccessPolicy.
 
@@ -427,6 +427,6 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Caricare i dati del taxi taxi di New York'
-description: Esercitazione Usa il portale di Azure e SQL Server Management StudioSQL Server Management Studio per caricare i dati del taxi cab a New York da un BLOB di Azure globale per Synapse SQL.
+title: 'Esercitazione: caricare dati relativi ai taxi di New York'
+description: L'esercitazione USA portale di Azure e SQL Server Management Studio per caricare i dati dei taxi di New York da un BLOB di Azure globale per sinapsi SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 741779e8328c38e544b1ad297e59155dab4e8c0d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633896"
 ---
-# <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: Caricare il set di dati del taxi cabametro di New YorkTutorial: Load the New York Taxicab dataset
+# <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: caricare il set di dati del taxi di New York
 
-Questa esercitazione usa PolyBase per caricare i dati del taxi cabametro di New York da un account di archiviazione BLOB di Azure globale. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) per:
+Questa esercitazione usa la polibase per caricare i dati dei taxi di New York da un account di archiviazione BLOB di Azure globale. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) per:
 
 > [!div class="checklist"]
 >
-> * Creare un pool SQL nel portale di AzureCreate a SQL pool in the Azure portal
+> * Creare un pool SQL nel portale di Azure
 > * Impostare una regola del firewall a livello di server nel portale di Azure
 > * Connettersi al data warehouse con SSMS
 > * Creare un utente designato per il caricamento dei dati
@@ -41,17 +41,17 @@ Prima di iniziare questa esercitazione, scaricare e installare la versione più 
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
-Accedere al [portale](https://portal.azure.com/)di Azure .
+Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Creazione di un database vuoto
 
 Un pool SQL viene creato con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e in un [server logico di Azure SQL](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Seguire questi passaggi per creare un database vuoto.
+Per creare un database vuoto, seguire questa procedura.
 
-1. Selezionare **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.Select Create a resource in the upper left-left corner of the Azure portal.
+1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-2. Selezionare Database dalla pagina Nuovo e selezionare Analisi synapse di Azure in **In primo piano** nella pagina Nuovo.Select **Databases** from the **New** page, and select **Azure Synapse Analytics** under Featured on the **New** page.
+2. Selezionare **database** nella pagina **nuovo** e selezionare **Azure sinapsi Analytics** in in **primo piano** nella pagina **nuova** .
 
     ![creare un data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
@@ -71,24 +71,24 @@ Seguire questi passaggi per creare un database vuoto.
     | Impostazione                | Valore consigliato          | Descrizione                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **Nome server**        | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Accesso amministratore server** | Qualsiasi nome valido           | Per i nomi di accesso validi, vedere [Identificatori di database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Accesso amministratore server** | Qualsiasi nome valido           | Per i nomi di accesso validi, vedere [identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Password**           | Qualsiasi password valida       | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
-    | **Percorso**           | Qualsiasi località valida       | Per informazioni sulle aree, vedere Aree di Azure .For information about [regions,](https://azure.microsoft.com/regions/)see Azure Regions . |
+    | **Posizione**           | Qualsiasi località valida       | Per informazioni sulle aree, vedere [aree di Azure](https://azure.microsoft.com/regions/). |
 
     ![creare un server di database](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
 5. Selezionare **Seleziona**.
 
-6. Selezionare **Livello prestazioni** per specificare se il data warehouse è Gen1 o Gen2 e il numero di unità del data warehouse.
+6. Selezionare **livello di prestazioni** per specificare se il data warehouse è Gen1 o Gen2 e il numero di unità di data warehouse.
 
-7. Per questa esercitazione, selezionare Pool SQL **Gen2**. Il dispositivo di scorrimento è impostato su **DW1000c** per impostazione predefinita.  Provare a spostarlo verso l'alto o il basso per vedere come funziona.
+7. Per questa esercitazione, selezionare Pool SQL **Gen2**. Il dispositivo di scorrimento è impostato su **compreso dw1000c** per impostazione predefinita.  Provare a spostarlo verso l'alto o il basso per vedere come funziona.
 
     ![configurare le prestazioni](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Selezionare **Applica**.
-9. Nel pannello di provisioning selezionare le **regole di confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Regole di confrontoFor more](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) information about collations, see Collations
+9. Nel pannello provisioning selezionare le regole di **confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per ulteriori informazioni sulle regole di confronto, vedere [regole di confronto](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-10. Dopo aver completato il modulo, selezionare **Crea** per eseguire il provisioning del database. Il provisioning richiede alcuni minuti.
+10. Ora che è stato completato il modulo, selezionare **Crea** per eseguire il provisioning del database. Il provisioning richiede alcuni minuti.
 
 11. Per monitorare il processo di distribuzione, selezionare **Notifiche** sulla barra degli strumenti.
   
@@ -101,13 +101,13 @@ Un firewall a livello di server che impedisce alle applicazioni e agli strumenti
 > [!NOTE]
 > SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server di database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
 
-1. Al termine della distribuzione, selezionare **Database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **Database SQL.** Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione.
+1. Al termine della distribuzione, selezionare **database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **database SQL** . Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione.
 
-2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. Quindi selezionare il nome del server per aprire le impostazioni del server.
+2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. Quindi selezionare il nome del server per aprire Impostazioni server.
 
     ![trovare il nome del server](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-3. Selezionare il nome del server per aprire le impostazioni del server.
+3. Selezionare il nome del server per aprire Impostazioni server.
 
     ![impostazioni del server](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
@@ -119,19 +119,19 @@ Un firewall a livello di server che impedisce alle applicazioni e agli strumenti
 
 6. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
 
-7. Selezionare **OK,** quindi chiudere la pagina **Impostazioni firewall.**
+7. Selezionare **OK** e quindi chiudere la pagina **impostazioni del firewall** .
 
 È ora possibile connettersi al server SQL e ai relativi data warehouse usando questo indirizzo IP. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account ServerAdmin creato in precedenza.  
 
 > [!IMPORTANT]
-> Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Selezionare OFF in questa pagina e quindi **selezionare Salva** per disabilitare il firewall per tutti i servizi di Azure.Select **OFF** on this page and then select Save to disable the firewall for all Azure services.
+> Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Selezionare **disattivato** in questa pagina e quindi fare clic su **Salva** per disabilitare il firewall per tutti i servizi di Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Ottenere il nome completo del server
 
 Ottenere il nome completo del server SQL nel portale di Azure. In seguitò si userà il nome completo per la connessione al server.
 
-1. Accedere al [portale](https://portal.azure.com/)di Azure .
-2. Selezionare Analisi synapse di Azure dal menu a sinistra e selezionare il database nella pagina Analisi synapse di Azure.Select **Azure Synapse Analytics** from the left-left menu, and select your database on the Azure **Synapse Analytics** page.
+1. Accedere al [Portale di Azure](https://portal.azure.com/).
+2. Selezionare **Azure sinapsi Analytics** dal menu a sinistra e selezionare il database nella pagina **Azure sinapsi Analytics** .
 3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**. In questo esempio il nome completo è mynewserver-20180430.database.windows.net.
 
     ![informazioni di connessione](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
@@ -162,13 +162,13 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 ## <a name="create-a-user-for-loading-data"></a>Creare un utente per il caricamento dei dati
 
-L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I valori massimi di memoria vengono definiti in base alle unità del [data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e alla classe [di risorse](resource-classes-for-workload-management.md) configurata.
+L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I valori massimi di memoria sono definiti in base alle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e alla [classe di risorse](resource-classes-for-workload-management.md) configurata.
 
 È consigliabile creare un account di accesso e un utente dedicato per il caricamento dei dati. Quindi aggiungere l'utente con il compito di caricare i dati a una [classe di risorse](resource-classes-for-workload-management.md) che consente un'allocazione di memoria massima appropriata.
 
 Poiché l'accesso è stato eseguito come amministratore del server, è possibile creare account di accesso e utenti. Usare questa procedura per creare un account di accesso e un utente denominato **LoaderRC20**. Quindi assegnare l'utente alla classe di risorse **staticrc20**.
 
-1. In SSMS selezionare **master** per visualizzare un menu a discesa e scegliere **Nuova query**. Viene visualizzata una nuova finestra di query.
+1. In SSMS, fare clic con il pulsante destro del mouse su **Master** per visualizzare un menu a discesa e scegliere **nuova query**. Viene visualizzata una nuova finestra di query.
 
     ![Nuova query nel master](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -199,7 +199,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
 
 Il primo passo per caricare dati è eseguire l'accesso come LoaderRC20.  
 
-1. In Esplora oggetti selezionare il menu a discesa **Connetti** e selezionare **Motore di database .** Viene visualizzata la finestra di dialogo **Connetti al server** .
+1. In Esplora oggetti selezionare il menu a discesa **Connetti** e selezionare **motore di database**. Viene visualizzata la finestra di dialogo **Connetti al server** .
 
     ![Connettersi con il nuovo account](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
@@ -213,7 +213,7 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Creare una tabella esterna per i dati di esempio
 
-Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Questa esercitazione illustra come usare tabelle esterne per caricare i dati dei taxi di New York City da un BLOB di Archiviazione di Azure.This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure Storage blob. Per riferimento futuro, per informazioni su come ottenere i dati nell'archiviazione BLOB di Azure o per caricarli direttamente dall'origine, vedere la panoramica del [caricamento.](design-elt-data-loading.md)
+Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Questa esercitazione illustra come usare le tabelle esterne per caricare i dati relativi ai taxi di New York City da un BLOB di archiviazione di Azure. Per riferimento futuro, per informazioni su come ottenere i dati nell'archivio BLOB di Azure o per caricarli direttamente dall'origine, vedere la [Panoramica del caricamento](design-elt-data-loading.md).
 
 Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si desidera caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati.
 
@@ -229,7 +229,7 @@ Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si d
     CREATE MASTER KEY;
     ```
 
-4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni relativi ai taxi.  Per eseguire un comando aggiunto alla finestra della query, evidenziare i comandi che si desidera eseguire e selezionare **Esegui**.
+4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni relativi ai taxi.  Per eseguire un comando aggiunto alla finestra di query, evidenziare i comandi che si desidera eseguire e selezionare **Execute (Esegui**).
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -271,7 +271,7 @@ Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si d
     CREATE SCHEMA ext;
     ```
 
-7. Creare le tabelle esterne. Le definizioni delle tabelle vengono archiviate nel data warehouse, ma le tabelle fanno riferimento ai dati archiviati nell'archiviazione BLOB di Azure.The table definitions are stored in the data warehouse, but the tables reference data that is stored in Azure blob storage. Eseguire i comandi T-SQL seguenti per creare alcune tabelle esterne che fanno riferimento al BLOB di Azure definito in precedenza nelle origini dati esterne.
+7. Creare le tabelle esterne. Le definizioni di tabella vengono archiviate nel data warehouse, ma le tabelle fanno riferimento a dati archiviati nell'archivio BLOB di Azure. Eseguire i comandi T-SQL seguenti per creare alcune tabelle esterne che fanno riferimento al BLOB di Azure definito in precedenza nelle origini dati esterne.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[Date]
@@ -442,7 +442,7 @@ Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si d
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Caricare i dati nel data warehouse
 
-Questa sezione usa le tabelle esterne appena definite per caricare i dati di esempio dal BLOB di Archiviazione di Azure.This section uses the external tables you just defined to load the sample data from Azure Storage Blob.  
+Questa sezione usa le tabelle esterne appena definite per caricare i dati di esempio da BLOB del servizio di archiviazione di Azure.  
 
 > [!NOTE]
 > Questa esercitazione carica i dati direttamente nella tabella finale. In un ambiente di produzione si userà in genere CREATE TABLE AS SELECT per eseguire il caricamento in una tabella di staging. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. Per accodare i dati della tabella di staging a una tabella di produzione, è possibile usare l'istruzione INSERT...SELECT. Per altre informazioni, vedere [Inserimento di dati in una tabella di produzione](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -518,7 +518,7 @@ Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/stat
     ;
     ```
 
-2. Visualizzare i dati man mano che vengono caricati. Si caricano diversi GB di dati e li si comprime in indici columnstore cluster altamente performanti. Eseguire la query riportata di seguito, che usa le viste a gestione dinamica (DMV) per visualizzare lo stato del caricamento.
+2. Visualizzare i dati man mano che vengono caricati. Si stanno caricando diversi GB di dati e compressi in indici columnstore cluster a elevato livello di prestazioni. Eseguire la query riportata di seguito, che usa le viste a gestione dinamica (DMV) per visualizzare lo stato del caricamento.
 
     ```sql
     SELECT
@@ -558,9 +558,9 @@ Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/stat
 
     ![Visualizzare le tabelle caricate](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="authenticate-using-managed-identities-to-load-optional"></a>Eseguire l'autenticazione tramite identità gestite da caricare (facoltativo)Authenticate using managed identities to load (optional)
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Eseguire l'autenticazione usando identità gestite per il caricamento (facoltativo)
 
-Il caricamento tramite PolyBase e l'autenticazione tramite identità gestite è il meccanismo più sicuro e consente di sfruttare gli endpoint del servizio di rete virtuale con Archiviazione di Azure.Loading using PolyBase and authenticating through managed identities is the most secure mechanism and enables you to leverage virtual network service endpoints with Azure Storage.
+Il caricamento tramite polibase e l'autenticazione tramite identità gestite è il meccanismo più sicuro e consente di sfruttare gli endpoint di servizio della rete virtuale con archiviazione di Azure.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -570,7 +570,7 @@ Il caricamento tramite PolyBase e l'autenticazione tramite identità gestite è 
 
 #### <a name="steps"></a>Passaggi
 
-1. In PowerShell **registrare il server SQL** con Azure Active Directory (AAD):In PowerShell, register your SQL server with Azure Active Directory (AAD):
+1. In PowerShell **registrare SQL Server** con Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -583,14 +583,14 @@ Il caricamento tramite PolyBase e l'autenticazione tramite identità gestite è 
    > [!NOTE]
    > Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Nell'account di archiviazione passare a Controllo di **accesso (IAM)** e selezionare **Aggiungi assegnazione ruolo**. Assegnare il ruolo **RBAC Collaboratore dati BLOB di archiviazione** al server di database SQL.
+3. Nell'account di archiviazione passare a **controllo di accesso (IAM)** e selezionare **Aggiungi assegnazione ruolo**. Assegnare il ruolo di **collaboratore dei dati BLOB di archiviazione** al server del database SQL.
 
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti per le risorse di Azure, fare riferimento a questa [guida](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
   
 **Connettività di Polybase all'account di archiviazione di Azure:**
 
-1. Creare le credenziali con ambito database con **IDENTITY : 'Identità servizio gestito':**
+1. Creare le credenziali con ambito database con **Identity = "identità del servizio gestita"**:
 
    ```SQL
    CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -599,15 +599,15 @@ Il caricamento tramite PolyBase e l'autenticazione tramite identità gestite è 
    > [!NOTE]
    >
    > * Non è necessario specificare SECRET con la chiave di accesso ad Archiviazione di Azure perché questo meccanismo in pratica usa l'[identità gestita](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-   > * Il nome IDENTITY deve essere 'Managed Service Identity' affinché la connettività PolyBase funzioni con l'account di archiviazione di Azure.IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account.
+   > * Il nome dell'identità deve essere **' identità del servizio gestità** per la connettività di base per l'uso con l'account di archiviazione di Azure.
 
-2. Creare l'origine dati esterna specificando le credenziali con ambito database con l'identità del servizio gestito.
+2. Creare l'origine dati esterna specificando le credenziali con ambito database con la identità del servizio gestita.
 
 3. Eseguire le query come di consueto usando le [tabelle esterne](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Fare riferimento alla [documentazione](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) seguente se si vuole configurare gli endpoint del servizio di rete virtuale per Azure Synapse Analytics.Refer to the following documentation if you're set up virtual network service endpoints for Azure Synapse Analytics.
+Vedere la [documentazione](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) seguente se si vuole configurare gli endpoint del servizio rete virtuale per l'analisi delle sinapsi di Azure.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Le risorse di calcolo e i dati caricati nel data warehouse prevedono un addebito. Questi costi vengono addebitati separatamente.
 
@@ -616,13 +616,13 @@ Le risorse di calcolo e i dati caricati nel data warehouse prevedono un addebito
 
 Seguire questa procedura per pulire le risorse nel modo desiderato.
 
-1. Accedere al portale di [Azure,](https://portal.azure.com)selezionare il data warehouse.
+1. Accedere al [portale di Azure](https://portal.azure.com), selezionare la data warehouse.
 
     ![Pulire le risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
 
-3. Per rimuovere il data warehouse in modo che non venga addebitato alcun costo per il calcolo o l'archiviazione, selezionare **Elimina**.
+3. Per rimuovere il data warehouse in modo che non venga addebitato il calcolo o l'archiviazione, selezionare **Elimina**.
 
 4. Per rimuovere il server SQL creato, selezionare **mynewserver-20180430.database.windows.net** nell'immagine precedente e quindi selezionare **Elimina**.  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
 
@@ -644,7 +644,7 @@ Sono state eseguite queste operazioni:
 > * È stato visualizzato lo stato di avanzamento dei dati durante il caricamento
 > * Sono state create statistiche sui nuovi dati caricati
 
-Passare alla panoramica di sviluppo per informazioni su come eseguire la migrazione di un database esistente ad Analisi synapse di Azure.Advance to the development overview to learn how to migrate an existing database to Azure Synapse Analytics.
+Passare alla panoramica dello sviluppo per informazioni su come eseguire la migrazione di un database esistente ad Azure sinapsi Analytics.
 
 > [!div class="nextstepaction"]
-> [Decisioni di progettazione per eseguire la migrazione di un database esistente ad Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
+> [Decisioni di progettazione per la migrazione di un database esistente ad Azure sinapsi Analytics](sql-data-warehouse-overview-develop.md)

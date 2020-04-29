@@ -1,61 +1,61 @@
 ---
 title: Comprendere il funzionamento degli effetti
-description: Le definizioni dei criteri di Azure hanno vari effetti che determinano il modo in cui la conformità viene gestita e segnalata.
+description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
 ms.date: 03/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422449"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
 Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto determina cosa accade quando viene valutata la corrispondenza della regola dei criteri. Il comportamento degli effetti varia a seconda che riguardino una nuova risorsa, una risorsa aggiornata o una risorsa esistente.
 
-Questi effetti sono attualmente supportati in una definizione di criteri:These effects are currently supported in a policy definition:
+Questi effetti sono attualmente supportati in una definizione dei criteri:
 
 - [Aggiungere](#append)
 - [Controllo](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Nega](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabili](#disabled)
-- [EnforceOPAConstraint (anteprima)EnforceOPAConstraint](#enforceopaconstraint) (preview)
-- [EnforceRegoPolicy (anteprima)EnforceRegoPolicy](#enforceregopolicy) (preview)
-- [Modificare](#modify)
+- [Disattivata](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) (anteprima)
+- [EnforceRegoPolicy](#enforceregopolicy) (anteprima)
+- [Modifica](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Le richieste di creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prima cosa da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi degli effetti prima di consegnare la richiesta al provider di risorse appropriato. In questo modo si impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance progettati di Criteri di Azure.Doing so prevents unnecessary processing by a Resource Provider when a resource doesn't meet the designed governance controls of Azure Policy.
+Le richieste di creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prima cosa da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
-- **Append** e **Modify** vengono quindi valutati. Poiché uno dei due potrebbe alterare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un controllo o di negare l'attivazione dell'effetto.
+- Vengono quindi valutate le **aggiunte** e le **modifiche** . Poiché potrebbe modificare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un controllo o di un effetto negato.
 - Successivamente viene valutato **Deny**. La valutazione di Deny prima di Audit impedisce la doppia registrazione di una risorsa non desiderata.
 - **Audit** viene quindi valutato prima che la richiesta venga passata al provider di risorse.
 
 Dopo che il provider di risorse restituisce un codice di riuscita, vengono valutati **AuditIfNotExists** e **DeployIfNotExists** per determinare se è necessaria un'ulteriore registrazione della conformità o un'altra azione.
 
-Attualmente non è disponibile alcun ordine di valutazione per gli effetti **EnforceOPAConstraint** o **EnforceRegoPolicy.**
+Attualmente non è previsto alcun ordine di valutazione per gli effetti **EnforceOPAConstraint** o **EnforceRegoPolicy** .
 
 ## <a name="disabled"></a>Disabled
 
 Questo effetto è utile per gli scenari di test o quando la definizione dei criteri ha parametrizzato l'effetto. Grazie a questa flessibilità è possibile disabilitare una singola assegnazione invece di disabilitare tutte le assegnazioni di quei criteri.
 
-Un'alternativa all'effetto Disabled è **enforcementMode** impostato sull'assegnazione dei criteri.
-Quando **enforcementMode** è _Disabled_, le risorse vengono comunque valutate. La registrazione, ad esempio i registri attività, e l'effetto dei criteri non si verificano. Per ulteriori informazioni, vedere [assegnazione dei criteri - modalità di imposizione](./assignment-structure.md#enforcement-mode).
+Un'alternativa all'effetto disabilitato è **enforcementMode** , che viene impostato nell'assegnazione dei criteri.
+Quando **enforcementMode** è _disabilitato_, le risorse vengono comunque valutate. La registrazione, ad esempio i log attività, e l'effetto dei criteri non si verificano. Per altre informazioni, vedere [modalità di imposizione dell'assegnazione dei criteri](./assignment-structure.md#enforcement-mode).
 
 ## <a name="append"></a>Accoda
 
 Append viene usato per aggiungere altri campi alla risorsa richiesta durante la creazione o l'aggiornamento. Un esempio comune è la specifica di indirizzi IP consentiti per una risorsa di archiviazione.
 
 > [!IMPORTANT]
-> Append è destinato all'uso con le proprietà non tag. Sebbene Append possa aggiungere tag a una risorsa durante una richiesta di creazione o aggiornamento, è consigliabile usare l'effetto [Modifica](#modify) per i tag.
+> L'aggiunta è destinata all'uso con proprietà non di tag. Sebbene Append possa aggiungere tag a una risorsa durante una richiesta di creazione o aggiornamento, è consigliabile usare invece l'effetto di [modifica](#modify) per i tag.
 
 ### <a name="append-evaluation"></a>Valutazione di Append
 
-Append viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Append aggiunge campi alla risorsa quando viene soddisfatta la condizione **if** della regola dei criteri. Se l'effetto Append sostituisce un valore nella richiesta originale con un valore diverso, agisce come effetto Deny e rifiuta la richiesta. Per aggiungere un nuovo valore a una matrice esistente, utilizzare la versione **[\*]** dell'alias.
+Append viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Append aggiunge campi alla risorsa quando viene soddisfatta la condizione **if** della regola dei criteri. Se l'effetto Append sostituisce un valore nella richiesta originale con un valore diverso, agisce come effetto Deny e rifiuta la richiesta. Per aggiungere un nuovo valore a una matrice esistente, usare la **versione\*[]** dell'alias.
 
 Quando una definizione dei criteri che usa l'effetto Append viene eseguita come parte di un ciclo di valutazione, non apporta modifiche alle risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
@@ -65,7 +65,7 @@ Un effetto Append ha solo una matrice **details** obbligatoria. Essendo una matr
 
 ### <a name="append-examples"></a>Esempi di Append
 
-Esempio 1: coppia **campo singolo/valore** che usa un [alias](definition-structure.md#aliases) non**\*[ ]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias non **-\*[ ]** è una matrice, l'effetto aggiunge il **valore** come matrice completa. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
+Esempio 1: singola coppia **campo/valore** che usa un [alias](definition-structure.md#aliases) non**\*[]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Quando l'alias non **[\*]** è una matrice, l'effetto aggiunge il **valore** come intera matrice. Se la matrice esiste già, si verifica un evento Deny per effetto del conflitto.
 
 ```json
 "then": {
@@ -80,7 +80,7 @@ Esempio 1: coppia **campo singolo/valore** che usa un [alias](definition-structu
 }
 ```
 
-Esempio 2: coppia **campo singolo/valore** che usa un [alias](definition-structure.md#aliases) **\*[ ]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Utilizzando l'alias **[\*],** l'effetto aggiunge il **valore** a una matrice potenzialmente preesistente. Se la matrice non esiste ancora, verrà creata.
+Esempio 2: singola coppia **campo/valore** che usa un [alias](definition-structure.md#aliases) **\*[]** con un **valore** di matrice per impostare le regole IP in un account di archiviazione. Utilizzando l'alias **[\*]** , l'effetto aggiunge il **valore** a una matrice potenzialmente preesistente. Se la matrice non esiste ancora, verrà creata.
 
 ```json
 "then": {
@@ -97,42 +97,42 @@ Esempio 2: coppia **campo singolo/valore** che usa un [alias](definition-structu
 
 ## <a name="modify"></a>Modifica
 
-Modifica viene utilizzato per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento dei tag su risorse come costCenter.A common example is updating tags on resources such as costCenter. Un criterio di `mode` modifica deve sempre essere impostato su _Indicizzato,_ a meno che la risorsa di destinazione non sia un gruppo di risorse. Le risorse non conformi esistenti possono essere aggiornate con [un'attività](../how-to/remediate-resources.md)di correzione. Una singola regola di modifica può avere un numero qualsiasi di operazioni.
+La modifica viene utilizzata per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse, ad esempio costCenter. Un criterio di modifica deve essere `mode` sempre impostato su _indicizzato_ , a meno che la risorsa di destinazione non sia un gruppo di risorse. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md). Una singola regola di modifica può avere un numero qualsiasi di operazioni.
 
 > [!IMPORTANT]
-> Modifica è attualmente solo per l'uso con i tag. Se si gestiscono i tag, è consigliabile usare Modifica anziché Aggiungi come modifica offre tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, l'opzione Aggiungi è consigliata se non è possibile creare un'identità gestita.
+> La modifica è attualmente disponibile solo per l'uso con tag. Se si gestiscono i tag, è consigliabile usare modifica anziché Accodamento come modifica fornisce tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, è consigliabile aggiungere se non si è in grado di creare un'identità gestita.
 
-### <a name="modify-evaluation"></a>Modificare la valutazione
+### <a name="modify-evaluation"></a>Modifica valutazione
 
-Modify valuta prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Modifica aggiunge o aggiorna i tag su una risorsa quando viene soddisfatta la condizione **if** della regola dei criteri.
+Modifica valuta prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Modificare aggiungere o aggiornare i tag in una risorsa quando viene soddisfatta la condizione **if** della regola dei criteri.
 
-Quando una definizione di criteri che usa l'effetto Modifica viene eseguita come parte di un ciclo di valutazione, non apporta modifiche alle risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
+Quando una definizione dei criteri che usa l'effetto modifica viene eseguita come parte di un ciclo di valutazione, non modifica le risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
 ### <a name="modify-properties"></a>Modifica di proprietà
 
-La proprietà **details** dell'effetto Modifica dispone di tutte le sottoproprietà che definiscono le autorizzazioni necessarie per la correzione e le **operazioni** utilizzate per aggiungere, aggiornare o rimuovere i valori dei tag.
+La proprietà **Details** dell'effetto di modifica include tutte le sottoproprietà che definiscono le autorizzazioni necessarie per la correzione e le **operazioni** usate per aggiungere, aggiornare o rimuovere i valori dei tag.
 
 - **roleDefinitionIds** [required]
-  - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per ulteriori informazioni, vedere [correzione - configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
-  - Il ruolo definito deve includere tutte le operazioni concesse al ruolo [Collaboratore.](../../../role-based-access-control/built-in-roles.md#contributor)
+  - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per ulteriori informazioni, vedere [correzione-configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
+  - Il ruolo definito deve includere tutte le operazioni concesse al ruolo [collaboratore](../../../role-based-access-control/built-in-roles.md#contributor) .
 - **operazioni** [obbligatorio]
   - Matrice di tutte le operazioni di tag da completare sulle risorse corrispondenti.
   - Proprietà:
     - **operazione** [obbligatorio]
-      - Definisce l'azione da eseguire su una risorsa corrispondente. Le opzioni sono: _addOrReplace_, _Add_, _Remove_. _Aggiungete_ si comporta in modo simile all'effetto [Aggiungi.](#append)
-    - **campo** [obbligatorio]
-      - Tag da aggiungere, sostituire o rimuovere. I nomi dei tag devono rispettare la stessa convenzione di denominazione per altri [campi.](./definition-structure.md#fields)
-    - **valore** (opzionale)
+      - Definisce l'azione da intraprendere su una risorsa corrispondente. Le opzioni sono: _addOrReplace_, _Aggiungi_, _Rimuovi_. _Add_ si comporta in modo analogo all'effetto [Append](#append) .
+    - **Field** [obbligatorio]
+      - Tag da aggiungere, sostituire o rimuovere. I nomi di tag devono rispettare la stessa convenzione di denominazione per gli altri [campi](./definition-structure.md#fields).
+    - **valore** (facoltativo)
       - Valore su cui impostare il tag.
-      - Questa proprietà è obbligatoria se **l'operazione** è _addOrReplace_ o _Add_.
+      - Questa proprietà è obbligatoria se l' **operazione** è _addOrReplace_ o _Add_.
 
-### <a name="modify-operations"></a>Modifica delle operazioni
+### <a name="modify-operations"></a>Modificare le operazioni
 
-La matrice di proprietà **operations** consente di modificare diversi tag in modi diversi da una singola definizione di criteri. Ogni operazione è costituita da **proprietà operation**, **field**e **value** . Operazione determina le operazioni eseguite dall'attività di correzione per i tag, il campo determina il tag modificato e il valore definisce la nuova impostazione per tale tag. L'esempio seguente apporta le seguenti modifiche ai tag:
+La matrice di proprietà **Operations** consente di modificare diversi tag in modi diversi rispetto a una singola definizione di criteri. Ogni operazione è costituita da proprietà **Operation**, **Field**e **value** . L'operazione determina l'attività di monitoraggio e aggiornamento per i tag, il campo determina quale tag viene modificato e il valore definisce la nuova impostazione per il tag. L'esempio seguente apporta le modifiche seguenti ai Tag:
 
-- Imposta `environment` il tag su "Test", anche se esiste già con un valore diverso.
-- Rimuove il `TempResource`tag .
-- Imposta `Dept` il tag sul parametro di criteri _DeptName_ configurato per l'assegnazione dei criteri.
+- Imposta il `environment` tag su "test", anche se esiste già con un valore diverso.
+- Rimuove il tag `TempResource`.
+- Imposta il `Dept` tag sul parametro del criterio _deptname_ configurato nell'assegnazione dei criteri.
 
 ```json
 "details": {
@@ -156,17 +156,17 @@ La matrice di proprietà **operations** consente di modificare diversi tag in mo
 }
 ```
 
-La proprietà **operation** ha le seguenti opzioni:
+Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 
 |Operazione |Descrizione |
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Add |Aggiunge il tag e il valore definiti alla risorsa. |
+|Aggiunta |Aggiunge il tag e il valore definiti alla risorsa. |
 |Rimuovere |Rimuove il tag definito dalla risorsa. |
 
-### <a name="modify-examples"></a>Modificare gli esempi
+### <a name="modify-examples"></a>Modificare esempi
 
-Esempio 1: `environment` aggiungere il `environment` tag e sostituire i tag esistenti con "Test":
+Esempio 1: aggiungere il `environment` tag e sostituire i `environment` tag esistenti con "test":
 
 ```json
 "then": {
@@ -186,7 +186,7 @@ Esempio 1: `environment` aggiungere il `environment` tag e sostituire i tag esis
 }
 ```
 
-Esempio 2: `env` rimuovere il `environment` tag e `environment` aggiungere il tag o sostituire i tag esistenti con un valore con parametri:
+Esempio 2: rimuovere il `env` tag e aggiungere il `environment` tag o sostituire i `environment` tag esistenti con un valore con parametri:
 
 ```json
 "then": {
@@ -240,7 +240,7 @@ Audit viene usato per creare un evento di avviso nel log attività quando viene 
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Il controllo è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. Criteri di Azure invia quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di `Microsoft.Authorization/policies/audit/action` Azure aggiunge un'operazione al log attività e contrassegna la risorsa come non conforme.
+Il controllo è l'ultimo effetto controllato dai criteri di Azure durante la creazione o l'aggiornamento di una risorsa. I criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge `Microsoft.Authorization/policies/audit/action` un'operazione al log attività e contrassegna la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -262,7 +262,7 @@ AuditIfNotExists consente il controllo sulle risorse che corrispondono alla cond
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di `Microsoft.Authorization/policies/audit/action` Azure aggiunge un'operazione al log attività nello stesso modo dell'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge `Microsoft.Authorization/policies/audit/action` un'operazione al log attività in modo analogo all'effetto di controllo. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 
@@ -270,10 +270,10 @@ La proprietà **details** degli effetti AuditIfNotExists ha tutte le sottopropri
 
 - **Type** [obbligatorio]
   - Specifica il tipo della risorsa correlata a cui corrispondere.
-  - Se **details.type** è un tipo di risorsa sotto la risorsa condizione **if,** i criteri eseguono una query per le risorse di questo **tipo** all'interno dell'ambito della risorsa valutata. In caso contrario, le query dei criteri all'interno dello stesso gruppo di risorse della risorsa valutata.
+  - Se **Details. Type** è un tipo di risorsa sotto la risorsa **if** condition, il criterio esegue una query per le risorse di questo **tipo** nell'ambito della risorsa valutata. In caso contrario, le query dei criteri si trovano nello stesso gruppo di risorse della risorsa valutata.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
-  - Quando i valori della condizione per **if.field.type** e **then.details.type** corrispondono, **Name** diventa _obbligatorio_ e deve essere `[field('name')]`. Tuttavia, un effetto di [audit](#audit) dovrebbe essere considerato invece.
+  - Quando i valori della condizione per **if. Field. Type** e **then. Details. Type** corrispondono, il **nome** diventa _obbligatorio_ e deve essere `[field('name')]`. Tuttavia, deve essere considerato un effetto di [controllo](#audit) .
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -324,28 +324,28 @@ Esempio: valuta le macchine virtuali per determinare se esiste l'estensione anti
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-Analogamente a AuditIfNotExists, una definizione di criteri DeployIfNotExists esegue una distribuzione del modello quando viene soddisfatta la condizione.
+Analogamente a AuditIfNotExists, una definizione dei criteri DeployIfNotExists esegue una distribuzione modello quando viene soddisfatta la condizione.
 
 > [!NOTE]
 > I [Modelli nidificati](../../../azure-resource-manager/templates/linked-templates.md#nested-template) sono supportati con **deployIfNotExists** ma i [Modelli collegati](../../../azure-resource-manager/templates/linked-templates.md#linked-template) non sono attualmente supportati.
 
 ### <a name="deployifnotexists-evaluation"></a>Valutazione di DeployIfNotExists
 
-DeployIfNotExists viene eseguito circa 15 minuti dopo che un provider di risorse ha gestito una richiesta di risorsa di creazione o aggiornamento e ha restituito un codice di stato di esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true.
+DeployIfNotExists viene eseguito circa 15 minuti dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento della risorsa e ha restituito un codice di stato di esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true.
 La durata della distribuzione dipende dalla complessità delle risorse incluse nel modello.
 
-Durante un ciclo di valutazione, le definizioni dei criteri con un effetto DeployIfNotExists che corrispondono alle risorse vengono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa. Le risorse non conformi esistenti possono essere aggiornate con [un'attività](../how-to/remediate-resources.md)di correzione.
+Durante un ciclo di valutazione, le definizioni dei criteri con un effetto DeployIfNotExists che corrispondono alle risorse vengono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa. È possibile correggere le risorse non conformi esistenti con un' [attività di correzione](../how-to/remediate-resources.md).
 
 ### <a name="deployifnotexists-properties"></a>Proprietà di DeployIfNotExists
 
-La proprietà **details** dell'effetto DeployIfNotExists dispone di tutte le sottoproprietà che definiscono le risorse correlate da confrontare e della distribuzione del modello da eseguire.
+La proprietà **Details** dell'effetto DeployIfNotExists include tutte le sottoproprietà che definiscono le risorse correlate da confrontare e la distribuzione del modello da eseguire.
 
 - **Type** [obbligatorio]
   - Specifica il tipo della risorsa correlata a cui corrispondere.
   - Inizia cercando di recuperare una risorsa sottostante la risorsa della condizione **if**, quindi esegue una query all'interno dello stesso gruppo di risorse come risorsa della condizione **if**.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
-  - Quando i valori della condizione per **if.field.type** e **then.details.type** corrispondono, **Name** diventa _obbligatorio_ e deve essere `[field('name')]`.
+  - Quando i valori della condizione per **if. Field. Type** e **then. Details. Type** corrispondono, il **nome** diventa _obbligatorio_ e deve essere `[field('name')]`.
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -365,7 +365,7 @@ La proprietà **details** dell'effetto DeployIfNotExists dispone di tutte le sot
   - Può usare [field()] per controllare l'equivalenza con i valori nella condizione **if**.
   - Ad esempio, può essere usato per convalidare che la risorsa padre (nella condizione **if**) sia nello stesso percorso della risorsa della risorsa correlata corrispondente.
 - **roleDefinitionIds** [required]
-  - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per ulteriori informazioni, vedere [correzione - configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
+  - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per ulteriori informazioni, vedere [correzione-configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (facoltativo)
   - I valori consentiti sono _Subscription_ e _ResourceGroup_.
   - Imposta il tipo di distribuzione da attivare. _Subscription_ indica una [distribuzione a livello di sottoscrizione](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indica una distribuzione a un gruppo di risorse.
@@ -432,30 +432,30 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Questo effetto viene utilizzato con `Microsoft.Kubernetes.Data`una *modalità* di definizione dei criteri di . Viene usato per passare le regole di controllo di ammissione Gatekeeper v3 definite con OPA Constraint Framework per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) ai cluster Kubernetes autogestiti in Azure.It's used to pass Gatekeeper v3 admission control rules defined with [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) to Open Policy Agent (OPA) to self-managed Kubernetes clusters on Azure.
+Questo effetto viene utilizzato con la *modalità* di definizione dei `Microsoft.Kubernetes.Data`criteri. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper V3 definite con il [Framework di vincolo OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) in cluster Kubernetes autogestiti in Azure.
 
 > [!NOTE]
-> [Criteri di Azure per il motore AKS](aks-engine.md) è in anteprima pubblica e supporta solo le definizioni dei criteri predefinite.
+> [Criteri di Azure per il motore AKS](aks-engine.md) è in versione di anteprima pubblica e supporta solo le definizioni predefinite dei criteri.
 
-### <a name="enforceopaconstraint-evaluation"></a>Valutazione di EnforceOPAConstraint
+### <a name="enforceopaconstraint-evaluation"></a>Valutazione EnforceOPAConstraint
 
-Il controller di ammissione dell'Agente Criteri aperti valuta qualsiasi nuova richiesta nel cluster in tempo reale.
-Ogni 5 minuti viene completata un'analisi completa del cluster e i risultati vengono segnalati aCriteri di Azure.Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Il controller di ammissione dell'agente criteri aperto valuta tutte le nuove richieste nel cluster in tempo reale.
+Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati vengono segnalati ai criteri di Azure.
 
-### <a name="enforceopaconstraint-properties"></a>EnforceOPAConstraint proprietà
+### <a name="enforceopaconstraint-properties"></a>Proprietà di EnforceOPAConstraint
 
-La proprietà **details** dell'effetto EnforceOPAConstraint dispone delle sottoproprietà che descrivono la regola di controllo di ammissione gatekeeper v3.
+La proprietà **Details** dell'effetto EnforceOPAConstraint include le sottoproprietà che descrivono la regola di controllo dell'ammissione Gatekeeper V3.
 
 - **constraintTemplate** [obbligatorio]
-  - Modello di vincolo CustomResourceDefinition (CRD) che definisce nuovi vincoli. Il modello definisce la logica Rego, lo schema del vincolo e i parametri del vincolo che vengono passati tramite **i valori** dei criteri di Azure.The template defines the Rego logic, the Constraint schema, and the Constraint parameters which are passed via values from Azure Policy.
+  - Il modello di vincolo CustomResourceDefinition (CRD) che definisce nuovi vincoli. Il modello definisce la logica Rego, lo schema del vincolo e i parametri del vincolo passati tramite **valori** da criteri di Azure.
 - **vincolo** [obbligatorio]
-  - Implementazione CRD del modello Constraint. Utilizza i parametri `{{ .Values.<valuename> }}`passati tramite i **valori** come . Nell'esempio seguente, questo `{{ .Values.cpuLimit }}` `{{ .Values.memoryLimit }}`sarebbe e .
+  - Implementazione di CRD del modello di vincolo. USA **i** parametri passati tramite valori `{{ .Values.<valuename> }}`come. Nell'esempio seguente si tratta di `{{ .Values.cpuLimit }}` e. `{{ .Values.memoryLimit }}`
 - **valori** [facoltativo]
-  - Definisce i parametri e i valori da passare al vincolo. Ogni valore deve essere presente nel modello di vincolo CRD.
+  - Definisce tutti i parametri e i valori da passare al vincolo. Ogni valore deve esistere nel modello di vincolo CRD.
 
-### <a name="enforceopaconstraint-example"></a>Esempio EnforceOPAConstraint
+### <a name="enforceopaconstraint-example"></a>Esempio di EnforceOPAConstraint
 
-Esempio: regola di controllo di ammissione di Gatekeeper v3 per impostare i limiti delle risorse di memoria e CPU del contenitore nel motore AKS.
+Esempio: regola di controllo dell'ammissione di Gatekeeper V3 per impostare i limiti delle risorse di memoria e CPU del contenitore nel motore AKS.
 
 ```json
 "if": {
@@ -488,30 +488,30 @@ Esempio: regola di controllo di ammissione di Gatekeeper v3 per impostare i limi
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Questo effetto viene utilizzato con `Microsoft.ContainerService.Data`una *modalità* di definizione dei criteri di . Viene utilizzato per passare le regole di controllo di ammissione Gatekeeper v2 definite con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) a [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) nel servizio Azure [Kubernetes](../../../aks/intro-kubernetes.md).
+Questo effetto viene utilizzato con la *modalità* di definizione dei `Microsoft.ContainerService.Data`criteri. Viene usato per passare le regole di controllo dell'ammissione di Gatekeeper V2 definite con [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) per [aprire l'agente criteri](https://www.openpolicyagent.org/) (OPA) nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Criteri di Azure per AKS](rego-for-aks.md) è in anteprima limitata e supporta solo le definizioni dei criteri predefiniteAzure Policy for AKS is in Limited Preview and only supports built-in policy definitions
+> [Criteri di Azure per AKS](rego-for-aks.md) è in anteprima limitata e supporta solo le definizioni di criteri predefinite
 
-### <a name="enforceregopolicy-evaluation"></a>Valutazione di EnforceRegoPolicyEnforceRegoPolicy evaluation
+### <a name="enforceregopolicy-evaluation"></a>Valutazione EnforceRegoPolicy
 
-Il controller di ammissione dell'Agente Criteri aperti valuta qualsiasi nuova richiesta nel cluster in tempo reale.
-Ogni 5 minuti viene completata un'analisi completa del cluster e i risultati vengono segnalati aCriteri di Azure.Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Il controller di ammissione dell'agente criteri aperto valuta tutte le nuove richieste nel cluster in tempo reale.
+Ogni 5 minuti, viene completata un'analisi completa del cluster e i risultati vengono segnalati ai criteri di Azure.
 
-### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy proprietà
+### <a name="enforceregopolicy-properties"></a>Proprietà di EnforceRegoPolicy
 
-La proprietà **details** dell'effetto EnforceRegoPolicy dispone delle sottoproprietà che descrivono la regola di controllo di ammissione gatekeeper v2.
+La proprietà **Details** dell'effetto EnforceRegoPolicy include le sottoproprietà che descrivono la regola di controllo dell'ammissione Gatekeeper V2.
 
 - **policyId** [obbligatorio]
-  - Nome univoco passato come parametro alla regola di controllo di ammissione Rego.
-- **criterio** [obbligatorio]
-  - Specifica l'URI della regola di controllo di ammissione rego.
+  - Un nome univoco passato come parametro alla regola di controllo dell'ammissione rego.
+- **criteri** [obbligatorio]
+  - Specifica l'URI della regola di controllo dell'ammissione rego.
 - **policyParameters** [facoltativo]
-  - Definisce i parametri e i valori da passare ai criteri di rigo.
+  - Definisce tutti i parametri e i valori da passare al criterio rego.
 
-### <a name="enforceregopolicy-example"></a>Esempio EnforceRegoPolicy
+### <a name="enforceregopolicy-example"></a>Esempio di EnforceRegoPolicy
 
-Esempio: regola di controllo di ammissione gatekeeper v2 per consentire solo le immagini del contenitore specificate in AKS.
+Esempio: regola di controllo dell'ammissione di Gatekeeper V2 per consentire solo le immagini del contenitore specificate in AKS.
 
 ```json
 "if": {
@@ -569,9 +569,9 @@ Ogni assegnazione viene valutata singolarmente. Di conseguenza, non c'è alcuna 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare esempi in [Esempi di criteri di Azure](../samples/index.md).Review examples at Azure Policy samples .
+- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
-- Comprendere come creare criteri a livello di [codice.](../how-to/programmatically-create.md)
-- Scopri come ottenere i dati di [conformità](../how-to/get-compliance-data.md).
-- Informazioni su come [correggere le risorse non conformi.](../how-to/remediate-resources.md)
-- Esaminare le informazioni su cui si trova un gruppo di gestione con Organizzare le risorse con i gruppi di gestione di Azure.Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
+- Esaminare le funzionalità di un gruppo di gestione con [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

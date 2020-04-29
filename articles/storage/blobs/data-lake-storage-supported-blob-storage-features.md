@@ -9,10 +9,10 @@ ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637205"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
@@ -50,7 +50,7 @@ Questa tabella elenca le funzionalità di archiviazione BLOB che è possibile us
 |Registrazione in monitoraggio di Azure|Non ancora supportato|Non ancora disponibile|
 |BLOB in blocchi Premium|Non ancora supportato|[Creare un account BlockBlobStorage](storage-blob-create-account-block-blob.md)|
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Problemi noti con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Servizi di Azure che supportano Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

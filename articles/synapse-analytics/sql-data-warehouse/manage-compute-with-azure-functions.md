@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Gestire il calcolo con Funzioni di AzureTutorial: Manage compute with Azure Functions'
-description: Come usare le funzioni di Azure per gestire il calcolo del pool SQL in Azure Synapse Analytics.How to use Azure functions to manage the compute of your SQL pool in Azure Synapse Analytics.
+title: 'Esercitazione: gestire le risorse di calcolo con funzioni di Azure'
+description: Come usare funzioni di Azure per gestire il calcolo del pool SQL in Azure sinapsi Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631955"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare Funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure Synapse AnalyticsUse Azure Functions to manage compute resources in Azure Synapse Analytics SQL pool
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
-Questa esercitazione usa Funzioni di Azure per gestire le risorse di calcolo per un pool SQL in Analisi synapse di Azure.This tutorial uses Azure Functions to manage compute resources for a SQL pool in Azure Synapse Analytics.
+Questa esercitazione usa funzioni di Azure per gestire le risorse di calcolo per un pool SQL in Azure sinapsi Analytics.
 
-Per usare App per le funzioni di Azure con il pool SQL, è necessario creare un [account dell'entità](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) servizio con accesso come collaboratore nella stessa sottoscrizione dell'istanza del pool SQL.
+Per usare app per le funzioni di Azure con il pool SQL, è necessario creare un [account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) con accesso come collaboratore nella stessa sottoscrizione dell'istanza del pool SQL.
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuire il ridimensionamento basato su timer con un modello di Azure Resource Manager
 
@@ -97,7 +97,7 @@ Attualmente, le funzioni attivate per impostazione predefinita sono *DWScaleDown
 
 Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Con queste funzioni, nel corso di un giorno è possibile eseguire solo una riduzione e un aumento delle prestazioni. Per un controllo più granulare, ad esempio per ridurre le prestazioni più volte al giorno o impostare un comportamento di ridimensionamento diverso nei fine settimana, è necessario aggiungere un altro trigger.
 
-1. Creare una nuova funzione vuota. Selezionare *+* il pulsante accanto alla posizione Funzioni per visualizzare il riquadro del modello di funzione.
+1. Creare una nuova funzione vuota. Selezionare il *+* pulsante accanto al percorso funzioni per visualizzare il riquadro modello di funzione.
 
    ![Creare una nuova funzione](./media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -171,4 +171,4 @@ Eseguire nei giorni feriali l'aumento delle prestazioni a DW1000 alle ore 8 e la
 
 Altre informazioni sulle funzioni di Azure [attivate da un timer](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Estrarre il [repository degli esempi](https://github.com/Microsoft/sql-data-warehouse-samples)del pool SQL .
+Checkout the SQL pool [Samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
