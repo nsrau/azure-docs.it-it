@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681999"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
@@ -54,7 +54,7 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 
 La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
-| Nome        |
+| Name        |
 | ----------- |
 | Switch on (Accendi)   |
 | Switch off (Spegni)  |
@@ -100,7 +100,7 @@ Le istruzioni presenti in questo articolo presuppongono che si usi Windows. Se s
 
 ### <a name="download-the-microservices"></a>Scaricare i microservizi
 
-Scaricare e decomprimere i [microservizi](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) di monitoraggio remoto da GitHub in una posizione appropriata nel computer locale. L'articolo presuppone che il nome di questa cartella sia **remote-monitoring-services-dotnet-master**.
+Scaricare e decomprimere i [microservizi di monitoraggio remoto](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) da GitHub in un percorso appropriato nel computer locale. L'articolo presuppone che il nome di questa cartella sia **remote-monitoring-services-dotnet-master**.
 
 Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) da GitHub in un percorso appropriato nel computer locale. L'articolo presuppone che il nome di questa cartella sia **device-simulation-dotnet-master**.
 
@@ -108,7 +108,7 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **storage-adapter/WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString.**
+Aprire il file **storage-Adapter/WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString** .
 
 Per eseguire il microservizio in locale, fare clic su **Debug > Avvia debug**.
 
@@ -425,7 +425,7 @@ In questa sezione vengono testati i tipi di dispositivi creati in locale nelle s
 
 Aprire la cartella **device-simulation-dotnet-master** scaricata da GitHub in una nuova istanza di Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring,** quindi modificare le impostazioni come segue:
+Aprire il file **WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring** e modificare anche le impostazioni come segue:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -493,7 +493,7 @@ Per configurare ed eseguire la simulazione
 
 Per arrestare la simulazione, selezionare la richiesta **Stop simulation** (Arresta simulazione) in Postman e quindi fare clic su **Send** (Invia).
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 È possibile arrestare i due microservizi in esecuzione in locale nelle istanze di Visual Studio Code (**Debug > Arresta debug**).
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479560"
 ---
 # <a name="install-azure-farmbeats"></a>Installare Azure FarmBeats
@@ -152,7 +152,7 @@ A questo punto è possibile installare FarmBeats. Attenersi alla procedura segue
 
 2. Passare ad Azure Marketplace nel portale e cercare **Azure FarmBeats** nel Marketplace.
 
-3. Viene visualizzata una nuova finestra con una panoramica di Azure FarmBeats. Seleziona **Crea**.
+3. Viene visualizzata una nuova finestra con una panoramica di Azure FarmBeats. Selezionare **Crea**.
 
 4. Viene visualizzata una nuova finestra. Completare il processo di iscrizione scegliendo la sottoscrizione, il gruppo di risorse e la posizione corretti in cui si vuole installare Azure FarmBeats.
 
@@ -172,7 +172,7 @@ Al termine dell'installazione, è possibile verificare l'installazione e iniziar
 
 **Datahub** si trova in https://\<FarmBeats-Website-Name>-API.azurewebsites.NET/Swagger. Qui vengono visualizzati i diversi oggetti API di FarmBeats ed eseguono operazioni REST sulle API.
 
-## <a name="upgrade"></a>Aggiornamento di versione/Aggiornare la versione
+## <a name="upgrade"></a>Aggiornamento
 
 Per aggiornare FarmBeats alla versione più recente, eseguire i passaggi seguenti in un'istanza di Cloud Shell usando l'ambiente di PowerShell. L'utente deve essere il proprietario della sottoscrizione in cui è installato FarmBeats.
 

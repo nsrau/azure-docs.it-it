@@ -1,70 +1,70 @@
 ---
-title: Elenco delle funzionalità di Azure Media PlayerAzure Media Player feature list
-description: Informazioni di riferimento sulle funzionalità per Azure Media Player.A feature reference for Azure Media Player.
+title: Elenco di funzionalità Azure Media Player
+description: Riferimento alla funzionalità per Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727229"
 ---
-# <a name="feature-list"></a>Elenco delle funzionalità #
-Ecco l'elenco delle funzionalità testate e non supportate:
+# <a name="feature-list"></a>Elenco di funzionalità #
+Di seguito è riportato l'elenco delle funzionalità testate e delle funzionalità non supportate:
 
-|                                         | Testato | PARZIALMENTE TESTATO | Testate | Supportato | NOTE                                                                                                                |
+|                                         | TESTATO | PARZIALMENTE TESTATO | NON testato | NON supportato | NOTE                                                                                                                |
 |:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
 | Riproduzione                                |        |                  |          |             |                                                                                                                      |
-| Riproduzione su richiesta di base                | X      |                  |          |             | Supporta solo flussi da Servizi multimediali di AzureSupports streams from Azure Media Services only                                                                      |
-| Riproduzione live di base                     | X      |                  |          |             | Supporta solo flussi da Servizi multimediali di AzureSupports streams from Azure Media Services only                                                                      |
-| AES                                     | X      |                  |          |             | Supporta il servizio di distribuzione delle chiavi di Servizi multimediali di AzureSupports Azure Media Services Key Delivery Service                                                                   |
-| Multi-DRM                               |        | X                |          |             |                                                                                                                      |
-| PlayReady                               | X      |                  |          |             | Supporta il servizio di distribuzione delle chiavi di Servizi multimediali di AzureSupports Azure Media Services Key Delivery Service                                                                   |
+| Riproduzione su richiesta di base                | X      |                  |          |             | Supporta solo flussi da servizi multimediali di Azure                                                                      |
+| Riproduzione live di base                     | X      |                  |          |             | Supporta solo flussi da servizi multimediali di Azure                                                                      |
+| AES                                     | X      |                  |          |             | Supporta il servizio di distribuzione delle chiavi di servizi multimediali di Azure                                                                   |
+| DRM multiplo                               |        | X                |          |             |                                                                                                                      |
+| PlayReady                               | X      |                  |          |             | Supporta il servizio di distribuzione delle chiavi di servizi multimediali di Azure                                                                   |
 | Widevine                                |        | X                |          |             | Supporta le caselle Widevine PSSH delineate nel manifesto                                                                    |
-| FairPlay                                |        | X                |          |             | Supporta il servizio di distribuzione delle chiavi di Servizi multimediali di AzureSupports Azure Media Services Key Delivery Service                                                                   |
+| FairPlay                                |        | X                |          |             | Supporta il servizio di distribuzione delle chiavi di servizi multimediali di Azure                                                                   |
 | Tecnici                                   |        |                  |          |             |                                                                                                                      |
 | MSE/EME (AzureHtml5JS)                  | X      |                  |          |             |                                                                                                                      |
-| Flash Fallback (FlashSS)                | X      |                  |          |             | Non tutte le funzioni sono disponibili su questa tecnologia.                                                                         |
-| Silverlight Fallback SilverlightSS      | X      |                  |          |             | Non tutte le funzioni sono disponibili su questa tecnologia.                                                                         |
-| Pass-through HLS nativo (Html5)         |        | X                |          |             | Non tutte le funzionalità sono disponibili su questa tecnologia a causa delle restrizioni della piattaforma.                                            |
-| Funzionalità                                |        |                  |          |             |                                                                                                                      |
+| Fallback Flash (Flash)                | X      |                  |          |             | Non tutte le funzionalità sono disponibili in questa tecnologia.                                                                         |
+| Silverlight fallback Silverlight      | X      |                  |          |             | Non tutte le funzionalità sono disponibili in questa tecnologia.                                                                         |
+| Pass-through HLS nativo (HTML5)         |        | X                |          |             | Non tutte le funzionalità sono disponibili in questa tecnologia a causa di restrizioni della piattaforma.                                            |
+| Caratteristiche                                |        |                  |          |             |                                                                                                                      |
 | Supporto dell'API                             | X      |                  |          |             | Vedere l'elenco dei problemi noti                                                                                                |
 | Interfaccia utente di base                                | X      |                  |          |                                                                                                                                    |
 | Inizializzazione tramite JavaScript       | X      |                  |          |             |                                                                                                                      |
 | Inizializzazione tramite tag video        |        | X                |          |             |                                                                                                                      |
-| Indirizzamento segmento - Basato sul tempo         | X      |                  |          |             |                                                                                                                      |
-| Indirizzamento segmento - Basato su indice        |        |                  |          | X           |                                                                                                                      |
-| Indirizzamento segmento - Basato su byte         |        |                  |          | X           |                                                                                                                      |
-| Rewriter URL di Servizi multimediali di AzureAzure Media Services URL rewriter       |        | X                |          |             |                                                                                                                      |
-| Accessibilità - Sottotitoli  |        | X                |          |             |  WebVTT supportato per il CEA 708 live parzialmente testato                                                       |
-| Accessibilità - Tasti di scelta rapida                 | X      |                  |          |             |                                                                                                                      |
-| Accessibilità - Contrasto elevato           |        | X                |          |             |                                                                                                                      |
-| Accessibilità - Tab Focus               |        | X                |          |             |                                                                                                                      |
-| Messaggi di errore                         |        | X                |          |             | I messaggi di errore sono incoerenti tra i tecnici                                                                         |
+| Indirizzamento del segmento-basato sul tempo         | X      |                  |          |             |                                                                                                                      |
+| Indirizzamento del segmento-basato sull'indice        |        |                  |          | X           |                                                                                                                      |
+| Indirizzamento segmento-basato su byte         |        |                  |          | X           |                                                                                                                      |
+| Rewriter URL di servizi multimediali di Azure       |        | X                |          |             |                                                                                                                      |
+| Accessibilità-didascalie e sottotitoli  |        | X                |          |             |  WebVTT supportato per su richiesta, Live CEA 708 parzialmente testato                                                       |
+| Accessibilità-tasti di scelta rapida                 | X      |                  |          |             |                                                                                                                      |
+| Accessibilità-Contrasto elevato           |        | X                |          |             |                                                                                                                      |
+| Accessibilità-scheda stato attivo               |        | X                |          |             |                                                                                                                      |
+| Messaggistica degli errori                         |        | X                |          |             | I messaggi di errore sono incoerenti tra le tecnologie                                                                         |
 | Attivazione di eventi                        | X      |                  |          |             |                                                                                                                      |
-| Diagnostica                             |        | X                |          |             | Le informazioni di diagnostica sono disponibili solo nella tecnologia AzureHtml5JS e parzialmente disponibili nella tecnologia SilverlightSS. |
+| Diagnostica                             |        | X                |          |             | Le informazioni di diagnostica sono disponibili solo in AzureHtml5JS Tech e sono parzialmente disponibili su Silverlights Tech. |
 | Ordine tecnico personalizzabile                 |        | X                |          |             |                                                                                                                      |
-| Euristica - Base                      | X      |                  |          |             |                                                                                                                      |
-| Euristica - Personalizzazione              |        |                  | X        |             | La personalizzazione è disponibile solo con la tecnologia AzureHtml5JS.Customization is only available with the AzureHtml5JS tech.                                                          |
+| Euristica-di base                      | X      |                  |          |             |                                                                                                                      |
+| Euristica-personalizzazione              |        |                  | X        |             | La personalizzazione è disponibile solo con la tecnologia AzureHtml5JS.                                                          |
 | Discontinuità                         | X      |                  |          |             |                                                                                                                      |
-| Selezionare Bitrate                          | X      |                  |          |             | Questa API è disponibile solo nei tecnici AzureHtml5JS e FlashSS.This API is only available on the AzureHtml5JS and FlashSS techs.                                                    |
-| Flusso multi-audio                      |        | X                |          |             | L'opzione audio a livello di codice è supportata nei tecnici AzureHtml5JS e FlashSS ed è disponibile tramite la selezione dell'interfaccia utente in AzureHtml5JS, FlashSS e Html5 nativo (in Safari).  La maggior parte delle piattaforme richiede gli stessi dati privati del codec per passare da un flusso audio all'altro (stesso codec, canale, frequenza di campionamento e così via). |
-| Localizzazione dell'interfaccia utenteUI Localization                         |        | X                |          |             |                                                                                                                      |
-| Riproduzione a più istanze                 |        |                  |          | X           | Questo scenario può funzionare per alcuni tecnici, ma è attualmente non supportato e non testato. Si può anche ottenere questo per lavorare utilizzando iframe |
-| Supporto per gli annunci                             |        | x                |          |             | AMP supporta l'inserimento di annunci lineari pre-medio e post-roll da server ad ad di tipo VAST compatibili con VOD nella tecnologia AzureHtml5JS |
-| Analytics                               |        | X                |          |             | AMP offre la possibilità di ascoltare gli eventi di analisi e diagnostica per inviare a un back-end di Analytics di tua scelta.  Tutti gli eventi e le proprietà non sono disponibili in tutte le tecnologie a causa delle limitazioni della piattaforma.                                                                            |
-| Skin personalizzati                            |        |                  | X        |             | Trasforma i controlli di impostazione su false in AMP e usa il tuo HTML e CSS.           |
-| Cerca la barra di scorrimento                      |        |                  |          | X           |                                                                                                                      |
+| Selezione velocità in bit                          | X      |                  |          |             | Questa API è disponibile solo per le Tech AzureHtml5JS e flashing.                                                    |
+| Flusso multiaudio                      |        | X                |          |             | Il Commuter audio a livello di codice è supportato in AzureHtml5JS e i tecnici Flash ed è disponibile tramite la selezione dell'interfaccia utente in AzureHtml5JS, Flashing e HTML5 nativo (in Safari).  Per la maggior parte delle piattaforme sono necessari gli stessi dati privati dei codec per cambiare i flussi audio (stesso codec, canale, frequenza di campionamento e così via). |
+| Localizzazione dell'interfaccia utente                         |        | X                |          |             |                                                                                                                      |
+| Riproduzione a istanze diverse                 |        |                  |          | X           | Questo scenario può funzionare per alcuni tecnici ma non è attualmente supportato e non testato. Questa operazione può essere eseguita anche con gli iframe |
+| Supporto per ADS                             |        | x                |          |             | AMP supporta l'inserimento di annunci lineari precedenti a metà e post-roll da server ad di grandi conformi per VOD in AzureHtml5JS Tech |
+| Analytics                               |        | X                |          |             | AMP consente di ascoltare le analisi e gli eventi di diagnostica per inviare un back-end di analisi di propria scelta.  Tutti gli eventi e le proprietà non sono disponibili in tecnologie a causa di limitazioni della piattaforma.                                                                            |
+| Interfacce personalizzate                            |        |                  | X        |             | Impostare i controlli su false in AMP e usando il codice HTML e CSS.           |
+| Pulitura della barra di ricerca                      |        |                  |          | X           |                                                                                                                      |
 | Trick-Play                              |        |                  |          | X           |                                                                                                                      |
-| Solo audio                              |        |                  |          | X           | Potrebbe funzionare in alcuni tecnici per lo streaming adattivo, ma non è attualmente supportato e non funziona in AzureHtml5JS.May work in some techs for Adaptive Streaming but is currently not supported and does not work in AzureHtml5JS. La riproduzione MP3 progressiva può funzionare con la tecnologia HTML5 se la piattaforma lo supporta.                                                                                                        |
-| Solo video                              |        |                  |          | X           | Potrebbe funzionare in alcuni tecnici per lo streaming adattivo, ma non è attualmente supportato e non funziona in AzureHtml5JS.May work in some techs for Adaptive Streaming but is currently not supported and does not work in AzureHtml5JS.      |
+| Solo audio                              |        |                  |          | X           | Può funzionare in alcuni tech per lo streaming adattivo, ma non è attualmente supportato e non funziona in AzureHtml5JS. La riproduzione in formato MP3 progressivo può funzionare con la tecnologia HTML5 se supportata dalla piattaforma.                                                                                                        |
+| Solo video                              |        |                  |          | X           | Può funzionare in alcuni tech per lo streaming adattivo, ma non è attualmente supportato e non funziona in AzureHtml5JS.      |
 | Presentazione multiperiodo               |        |                  |          | X                                                                                                                                  |
-| Angoli di ripresa multipli                  |        |                  |          | X           |                                                                                                                      |
-| Velocità di riproduzione                          |        | X                |          |             | La velocità di riproduzione è supportata nella maggior parte degli scenari tranne che nel caso dei dispositivi mobili a causa di un bug parziale in Chrome                 |
+| Più angoli della fotocamera                  |        |                  |          | X           |                                                                                                                      |
+| Playback Speed                          |        | X                |          |             | La velocità di riproduzione è supportata nella maggior parte degli scenari, ad eccezione del caso dei dispositivi mobili a causa di un bug parziale in Chrome                 |
 
 ## <a name="next-steps"></a>Passaggi successivi ##
-- [Azure Media Player Quickstart](azure-media-player-quickstart.md)
+- [Avvio rapido su Azure Media Player](azure-media-player-quickstart.md)

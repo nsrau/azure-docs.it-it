@@ -1,6 +1,6 @@
 ---
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
-description: In questo articolo vengono descritti diversi modi per autenticare l'accesso alle risorse della griglia di eventi (WebHook, sottoscrizioni, argomenti personalizzati)
+description: Questo articolo descrive le diverse modalità di autenticazione dell'accesso alle risorse di griglia di eventi (webhook, sottoscrizioni, argomenti personalizzati)
 services: event-grid
 author: banisadr
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
 ms.openlocfilehash: 4b2d65c9523f32eed01baa8d63c3d0119d00de1b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81532394"
 ---
-# <a name="authenticating-access-to-event-grid-resources"></a>Autenticazione dell'accesso alle risorse della griglia di eventiAuthenticating access to Event Grid resources
+# <a name="authenticating-access-to-event-grid-resources"></a>Autenticazione dell'accesso alle risorse di griglia di eventi
 
 Griglia di eventi di Azure ha tre tipi di autenticazione:
 
@@ -35,18 +35,18 @@ Analogamente a molti altri servizi che supportano i webhook, Griglia di eventi r
 
 Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una funzione di Azure, il codice dell'endpoint deve partecipare a un handshake di convalida con Griglia di eventi. Griglia di eventi supporta due modalità di convalida della sottoscrizione.
 
-1. **Handshake sincrono:** al momento della creazione della sottoscrizione di eventi, Griglia di eventi invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida nella risposta in modo sincrono. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
+1. **Handshake sincrono**: al momento della creazione della sottoscrizione di eventi, griglia di eventi Invia un evento di convalida della sottoscrizione all'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia di eventi. La parte di dati dell'evento include una proprietà `validationCode`. L'applicazione verifica che la richiesta di convalida sia per una sottoscrizione di eventi prevista e restituisce il codice di convalida nella risposta in modo sincrono. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
 
-2. **Handshake asincrono:** in alcuni casi, non è possibile restituire il ValidationCode in risposta in modo sincrono. Ad esempio, se si utilizza un [`Zapier`](https://zapier.com) servizio di terze parti (ad esempio if [o IFTTT](https://ifttt.com/)), non è possibile rispondere a livello di codice con il codice di convalida.
+2. **Handshake asincrono**: in alcuni casi non è possibile restituire il ValidationCode in risposta in modo sincrono. Se ad esempio si usa un servizio di terze parti, ad [`Zapier`](https://zapier.com) esempio o [IFTTT](https://ifttt.com/), non è possibile rispondere a livello di codice con il codice di convalida.
 
-   A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, Griglia di eventi invia una proprietà `validationUrl` nella parte di dati dell'evento di convalida della sottoscrizione. Per completare l'handshake, individuare l'URL nei dati dell'evento ed eseguire una richiesta GET. È possibile usare un client REST o un Web browser.
+   A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, Griglia di eventi invia una proprietà `validationUrl` nella parte di dati dell'evento di convalida della sottoscrizione. Per completare l'handshake, trovare l'URL nei dati degli eventi ed eseguire una richiesta GET. È possibile usare un client REST o un Web browser.
 
-   L'URL fornito è valido per **5 minuti.** Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se non si completa la convalida manuale entro 5 `Failed`minuti, lo stato di provisioning viene impostato su . È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
+   L'URL specificato è valido per **5 minuti**. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se la convalida manuale non viene completata entro 5 minuti, lo stato di provisioning è impostato `Failed`su. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
 
-   Questo meccanismo di autenticazione richiede inoltre che l'endpoint webhook restituisca un codice di stato HTTP 200 in modo che sappia che il POST per l'evento di convalida è stato accettato prima di poter essere inserito nella modalità di convalida manuale. In altre parole, se l'endpoint restituisce 200 ma non restituisce una risposta di convalida in modo sincrono, la modalità viene passata alla modalità di convalida manuale. Se è presente un GET nell'URL di convalida entro 5 minuti, l'handshake di convalida viene considerato riuscito.
+   Questo meccanismo di autenticazione richiede anche che l'endpoint del webhook restituisca un codice di stato HTTP 200 in modo che sappia che il POST per l'evento di convalida è stato accettato prima di poter essere inserito nella modalità di convalida manuale. In altre parole, se l'endpoint restituisce 200 ma non restituisce una risposta di convalida in modo sincrono, la modalità viene passata alla modalità di convalida manuale. Se è presente un'operazione GET sull'URL di convalida entro 5 minuti, l'handshake di convalida viene considerato riuscito.
 
 > [!NOTE]
-> L'utilizzo di certificati autofirmati per la convalida non è supportato. Utilizzare invece un certificato firmato da un'autorità di certificazione (CA).
+> L'uso di certificati autofirmati per la convalida non è supportato. Usare invece un certificato firmato da un'autorità di certificazione (CA).
 
 ### <a name="validation-details"></a>Dettagli di convalida
 
@@ -87,36 +87,36 @@ Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida nel
 }
 ```
 
-È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 Accettata non una risposta di convalida di sottoscrizione di Griglia di eventi riconosciuta come valida. La richiesta http deve essere completata entro 30 secondi. Se l'operazione non viene completata entro 30 secondi, l'operazione verrà annullata e potrebbe essere ritentata dopo 5 secondi. Se tutti i tentativi hanno esito negativo, verrà considerato come errore di handshake di convalida.
+È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 Accettata non una risposta di convalida di sottoscrizione di Griglia di eventi riconosciuta come valida. La richiesta HTTP deve essere completata entro 30 secondi. Se l'operazione non termina entro 30 secondi, l'operazione verrà annullata e potrà essere ritentata dopo 5 secondi. Se tutti i tentativi hanno esito negativo, verranno trattati come errori di handshake di convalida.
 
-In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione dell'evento rimane nello stato in sospeso fino a quando non viene convalidata. L'URL di convalida utilizza la porta 553.The validation Url uses port 553. Se le regole del firewall bloccano la porta 553, potrebbe essere necessario aggiornare le regole per un handshake manuale riuscito.
+In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione dell'evento rimane nello stato in sospeso fino a quando non viene convalidata. L'URL di convalida usa la porta 553. Se le regole del firewall bloccano la porta 553, potrebbe essere necessario aggiornare le regole per un handshake manuale riuscito.
 
 Per un esempio di gestione dell'handshake di convalida della sottoscrizione, vedere un [ esempio C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
-## <a name="troubleshooting-eventsubsciption-validation"></a>Risoluzione dei problemi relativi alla convalida della sottosciptione di eventiTroubleshooting EventSubsciption Validation
+## <a name="troubleshooting-eventsubsciption-validation"></a>Risoluzione dei problemi di convalida EventSubsciption
 
-Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio\/di errore del tipo "Il tentativo di convalidare l'endpoint fornito https: /your-endpoint-here non è riuscito. Per ulteriori dettagli,\/visitare https: /aka.ms/esvalidation", indica che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
+Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore simile a "il tentativo di convalidare\/l'endpoint specificato https:/Your-endpoint-Here non è riuscito. Per ulteriori informazioni, vedere https:\//aka.ms/esvalidation "indica che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
 
-- Eseguire un HTTP POST all'URL webhook con un corpo della richiesta [SubscriptionValidationEvent di esempio](#validation-details) usando Postman o curl o uno strumento simile.
-- Se il webhook implementa il meccanismo di handshake di convalida sincrona, verificare che il ValidationCode viene restituito come parte della risposta.
-- Se il webhook implementa il meccanismo di handshake di convalida asincrona, verificare di essere il HTTP POST restituisce 200 OK.
-- Se il webhook restituisce 403 (Accesso negato) nella risposta, verificare che il webhook si trova dietro un gateway applicazione di Azure o un Firewall applicazione Web. Se lo è, allora la necessità di disabilitare queste regole del firewall e fare di nuovo un HTTP POST:
+- Eseguire una richiesta HTTP POST all'URL del webhook con un corpo della richiesta [SubscriptionValidationEvent di esempio](#validation-details) con il posting o curl o uno strumento simile.
+- Se il webhook sta implementando un meccanismo di handshake di convalida sincrona, verificare che ValidationCode venga restituito come parte della risposta.
+- Se il webhook sta implementando un meccanismo di handshake di convalida asincrono, verificare che il POST HTTP stia restituendo 200 OK.
+- Se il webhook restituisce 403 (accesso negato) nella risposta, controllare se il webhook è dietro un gateway applicazione Azure o un Web Application Firewall. In caso contrario, è necessario disabilitare le regole del firewall ed eseguire di nuovo HTTP POST:
 
-  920300 (Richiesta mancante di un'intestazione di accettazione, è possibile risolvere il problema)
+  920300 (per la richiesta manca un'intestazione Accept, è possibile risolvere il problema)
 
-  942430 (Rilevamento anomalie caratteri SQL con restrizioni (args): numero di caratteri speciali superati (12))
+  942430 (argomenti limitati al rilevamento di anomalie dei caratteri SQL (args): numero di caratteri speciali superato (12))
 
-  920230 (codifica URL multipla rilevata)
+  920230 (codifica più URL rilevata)
 
-  942130 (attacco SQL Injection: rilevato Tautologia SQL).
+  942130 (attacco SQL injection: rilevato tautologia SQL).
 
-  931130 (Possibile attacco RFI (Remote File Inclusion) - Riferimento/Collegamento fuori dominio)
+  931130 (possibile attacco RFI (Remote File Inclusion) = riferimento all'esterno del dominio/collegamento)
 
 ### <a name="event-delivery-security"></a>Sicurezza del recapito degli eventi
 
 #### <a name="azure-ad"></a>Azure AD
 
-È possibile proteggere l'endpoint webhook usando Azure Active Directory per autenticare e autorizzare Griglia di eventi per pubblicare eventi negli endpoint. È necessario creare un'applicazione Azure Active Directory, creare un principio di ruolo e servizio nell'applicazione che autorizza Griglia di eventi e configurare la sottoscrizione di eventi per l'uso dell'applicazione Azure AD. [Informazioni su come configurare AAD con Griglia di eventi](secure-webhook-delivery.md).
+È possibile proteggere l'endpoint del webhook usando Azure Active Directory per autenticare e autorizzare griglia di eventi per la pubblicazione di eventi negli endpoint. È necessario creare un'applicazione Azure Active Directory, creare un ruolo e un principio di servizio nell'applicazione autorizzazione griglia di eventi e configurare la sottoscrizione di eventi per l'uso dell'applicazione Azure AD. [Informazioni su come configurare AAD con griglia di eventi](secure-webhook-delivery.md).
 
 #### <a name="query-parameters"></a>Parametri di query
 
@@ -164,7 +164,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 I token di firma di accesso condiviso per Griglia di eventi includono la risorsa, un'ora di scadenza e una firma. Il formato del token di firma di accesso condiviso è: `r={resource}&e={expiration}&s={signature}`.
 
-La risorsa è il percorso dell'argomento di Griglia di eventi a cui si inviano gli eventi. Ad esempio, un percorso `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`di risorsa valido è: . Per visualizzare tutte le versioni delle API supportate, vedere [Microsoft.EventGrid resource types](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
+La risorsa è il percorso dell'argomento di Griglia di eventi a cui si inviano gli eventi. Ad esempio, un percorso di risorsa valido è `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`:. Per visualizzare tutte le versioni API supportate, vedere [tipi di risorse Microsoft. EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
 
 La firma viene generata da una chiave.
 
@@ -201,11 +201,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-Tutti gli eventi o i dati scritti su disco dal servizio Griglia di eventi vengono crittografati da una chiave gestita da Microsoft, assicurandosi che sia crittografata inattivi. Inoltre, il periodo di tempo massimo per cui gli eventi o i dati conservati sono 24 ore in conformità con il [criterio di ripetizione della griglia di](delivery-and-retry.md)eventi. Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati dopo 24 ore o la time-to-live dell'evento, a seconda del valore minore.
+Tutti gli eventi o i dati scritti sul disco dal servizio griglia di eventi vengono crittografati da una chiave gestita da Microsoft, assicurando che siano crittografati. Inoltre, il periodo massimo di tempo per cui gli eventi o i dati conservati sono pari a 24 ore rispetto ai [criteri di ripetizione dei tentativi di griglia di eventi](delivery-and-retry.md). Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati dopo 24 ore o la durata (TTL) dell'evento, a seconda del numero minore.
 
-## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida dell'endpoint con CloudEvents v1.0Endpoint Validation with CloudEvents v1.0
-Se si ha già familiarità con Griglia di eventi, è possibile che si sia a conoscenza dell'handshake di convalida dell'endpoint di Griglia di eventi per evitare abusi. CloudEvents v1.0 implementa la propria semantica di [protezione dell'abuso](security-authentication.md#webhook-event-delivery) usando il metodo HTTP OPTIONS. Si può leggere di più su di esso [qui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, Griglia di eventi viene utilizzata con la protezione dall'abuso di CloudEvents v1.0 al posto del meccanismo degli eventi di convalida della griglia di eventi.
+## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida degli endpoint con CloudEvents v 1.0
+Se si ha già familiarità con griglia di eventi, è possibile che l'handshake di convalida degli endpoint della griglia di eventi non venga usato per impedire abusi. CloudEvents v 1.0 implementa la propria [semantica di protezione da abusi](security-authentication.md#webhook-event-delivery) usando il metodo delle opzioni http. Per altre informazioni, vedere [qui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, griglia di eventi USA con la protezione dagli abusi di CloudEvents v 1.0 al posto del meccanismo di convalida degli eventi di griglia di eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per un'introduzione a Griglia di eventi, vedere [Informazioni sulla griglia di eventiFor](overview.md) an introduction to Event Grid, see About Event Grid
+- Per un'introduzione a griglia di eventi, vedere [informazioni su griglia di eventi](overview.md)

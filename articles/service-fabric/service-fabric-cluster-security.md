@@ -1,19 +1,19 @@
 ---
-title: Proteggere un cluster di Azure Service FabricSecure an Azure Service Fabric cluster
+title: Proteggere un cluster di Azure Service Fabric
 description: Informazioni sugli scenari di sicurezza per un cluster di Azure Service Fabric e le varie tecnologie che è possibile usare per la relativa implementazione.
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461583"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 
-Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. È possibile creare un cluster non protetto, tuttavia se il cluster espone gli endpoint di gestione a Internet pubblico, gli utenti anonimi possono connettersi a esso. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
+Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. È possibile creare un cluster non protetto. Tuttavia, se il cluster espone gli endpoint di gestione alla rete Internet pubblica, gli utenti anonimi possono connettersi a tale cluster. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
 
 In questo articolo viene fornita una panoramica degli scenari di sicurezza per i cluster di Azure e i cluster autonomi e le varie tecnologie che è possibile usare per la relativa implementazione:
 
@@ -53,7 +53,7 @@ I cluster eseguiti in Azure e i cluster autonomi eseguiti in Windows possono usa
 
 ### <a name="client-to-node-certificate-security"></a>Sicurezza basata su certificati da client a nodo
 
-Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). I certificati del cluster hanno gli stessi diritti dei certificati di amministrazione client. Tuttavia, devono essere utilizzati solo dal cluster e non dagli utenti amministratori come procedura consigliata per la sicurezza.
+Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). I certificati del cluster hanno gli stessi diritti dei certificati di amministrazione client. Tuttavia, devono essere usati solo dal cluster e non dagli utenti amministratori come procedura di sicurezza consigliata.
 
 I client che si connettono al cluster con il certificato amministratore hanno accesso completo alle funzionalità di gestione. I client che si connettono al cluster con il certificato client utente di sola lettura hanno solo l'accesso in lettura alle funzionalità di gestione. Questi certificati vengono usati per il controllo degli accessi in base al ruolo descritto più avanti in questo articolo.
 
@@ -109,14 +109,14 @@ Il certificato deve soddisfare i requisiti seguenti:
 
 * Il certificato deve includere una chiave privata. In genere questi certificati hanno l'estensione pfx o pem.  
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il **nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster di Service Fabric**. Questa corrispondenza è necessaria per fornire un TLS per l'endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il dominio con estensione cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
+* Il **nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster di Service Fabric**. Questa corrispondenza è necessaria per fornire un TLS per l'endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il dominio *. cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
 Altri aspetti da considerare:
 
-* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per *il nome comune*); ad esempio, **CN\.- www contoso.com**.
+* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per il *nome comune*); ad esempio, **cn = www\.contoso.com**.
 * Il campo **Soggetto** può essere vuoto.
-* Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Questi vengono immessi come valori **di nome DNS.** Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
-* Il valore del campo **Scopi previsti** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
+* Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Questi vengono immessi come valori dei **nomi DNS** . Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
+* Il valore del campo **scopi designati** del certificato deve includere un valore appropriato, ad esempio **l'autenticazione server** o **l'autenticazione client**.
 
 ### <a name="application-certificates-optional"></a>Certificati delle applicazioni (facoltativo)
 

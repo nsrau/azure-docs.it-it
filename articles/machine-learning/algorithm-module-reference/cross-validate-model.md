@@ -1,7 +1,7 @@
 ---
-title: 'Cross Validate Model: riferimento al modulo'
+title: 'Modello Cross Validate: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Cross-Validate Model in Azure Machine Learning per convalidare in modo incrociato le stime dei parametri per i modelli di classificazione o regressione partizionando i dati.
+description: Informazioni su come usare il modulo Cross-Validate Model in Azure Machine Learning per convalidare in modo incrociato le stime dei parametri per i modelli di classificazione o di regressione partizionando i dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,120 +10,120 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477647"
 ---
 # <a name="cross-validate-model"></a>Cross Validate Model
 
-Questo articolo descrive come usare il modulo Cross Validate Model nella finestra di progettazione di Azure Machine Learning (anteprima). *La convalida incrociata* è una tecnica spesso utilizzata nell'apprendimento automatico per valutare sia la variabilità di un set di dati che l'affidabilità di qualsiasi modello sottoposto a training tramite tali dati.  
+Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer (anteprima). La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
 
-Il modulo Cross Validate Model accetta come input un set di dati con etichetta, insieme a un modello di classificazione o regressione non sottoposto a training. Divide il set di dati in un certo numero di subset (*piega*), compila un modello su ogni piega e quindi restituisce un set di statistiche di accuratezza per ogni piega. Confrontando le statistiche di precisione per tutte le pieghe, è possibile interpretare la qualità del set di dati. È quindi possibile comprendere se il modello è suscettibile di variazioni nei dati.  
+Il modulo Cross Validate Model accetta come input un set di dati con etichetta, insieme a un modello di classificazione o regressione senza training. Divide il set di dati in un certo numero di subset (*riduzioni*), compila un modello a ogni riduzioni e quindi restituisce un set di statistiche di accuratezza per ogni sezione. Confrontando le statistiche di accuratezza per tutte le riduzioni, è possibile interpretare la qualità del set di dati. È quindi possibile capire se il modello è soggetto a variazioni nei dati.  
 
-Cross Validate Model restituisce anche i risultati e le probabilità stimati per il set di dati, in modo da poter valutare l'affidabilità delle stime.  
+Cross Validate Model restituisce inoltre risultati stimati e probabilità per il set di dati, in modo che sia possibile valutare l'affidabilità delle stime.  
 
 ### <a name="how-cross-validation-works"></a>Funzionamento della convalida incrociata
 
-1. La convalida incrociata divide in modo casuale i dati di training in pieghe. 
+1. La convalida incrociata divide in modo casuale i dati di training in riduzioni. 
 
-   L'algoritmo prevede 10 sezioni per impostazione predefinita se il set di dati non è stato partizionato in precedenza. Per dividere il set di dati in un numero diverso di pieghe, è possibile utilizzare il modulo [Partizione e Campione](partition-and-sample.md) e indicare il numero di pieghe da utilizzare.  
+   L'algoritmo prevede 10 sezioni per impostazione predefinita se il set di dati non è stato partizionato in precedenza. Per dividere il set di dati in un numero diverso di riduzioni, è possibile usare il modulo [Partition and Sample](partition-and-sample.md) e indicare il numero di riduzioni da usare.  
 
-2.  Il modulo accantonato i dati nella piega 1 da utilizzare per la convalida. (Questo è a volte chiamato la *piega holdout*.) Il modulo utilizza le pieghe rimanenti per eseguire il training di un modello. 
+2.  Il modulo consente di accantonare i dati nella sezione 1 da usare per la convalida. Questa operazione viene a volte definita *riduzioni di esenzione*. Il modulo usa le riduzioni rimanenti per eseguire il training di un modello. 
 
-    Ad esempio, se si creano cinque pieghe, il modulo genera cinque modelli durante la convalida incrociata. Il modulo esegue il training di ogni modello utilizzando quattro quinti dei dati. Testa ogni modello sul restante quinto.  
+    Se, ad esempio, si creano cinque riduzioni, il modulo genera cinque modelli durante la convalida incrociata. Il modulo addestra ogni modello usando quattro quinti dei dati. Esegue il test di ogni modello nel rimanente un quinto.  
 
-3.  Durante il test del modello per ogni piega, il modulo valuta statistiche di accuratezza multiple. Le statistiche utilizzate dal modulo dipendono dal tipo di modello che si sta valutando. Vengono utilizzate statistiche diverse per valutare i modelli di classificazione rispetto ai modelli di regressione.  
+3.  Durante il test del modello per ogni riduzioni, il modulo valuta più statistiche di accuratezza. Le statistiche utilizzate dal modulo dipendono dal tipo di modello che si sta valutando. Vengono usate statistiche diverse per valutare i modelli di classificazione e i modelli di regressione.  
 
-4.  Al termine del processo di compilazione e valutazione per tutte le pieghe, Cross Validate Model genera un set di metriche delle prestazioni e risultati con punteggio per tutti i dati. Esamina queste metriche per vedere se una piega singola ha una precisione alta o bassa. 
+4.  Quando il processo di compilazione e valutazione è completo per tutte le riduzioni, Cross Validate model genera un set di metriche delle prestazioni e risultati con punteggi per tutti i dati. Esaminare queste metriche per verificare se una singola riduzione ha una precisione elevata o bassa. 
 
 ### <a name="advantages-of-cross-validation"></a>Vantaggi della convalida incrociata
 
-Un modo diverso e comune di valutare un modello consiste nel dividere i dati in un set di training e test usando [Dividi dati](split-data.md), quindi convalidare il modello nei dati di training. Ma la convalida incrociata offre alcuni vantaggi:  
+Un modo diverso e comune per valutare un modello consiste nel suddividere i dati in un set di training e di test usando [Split data](split-data.md), quindi convalidare il modello sui dati di training. Ma la convalida incrociata offre alcuni vantaggi:  
 
--   La convalida incrociata utilizza più dati di test.
+-   La convalida incrociata usa più dati di test.
 
-    La convalida incrociata misura le prestazioni del modello con i parametri specificati in uno spazio dati più ampio. In altre parte, la convalida incrociata usa l'intero set di dati di training sia per il training che per la valutazione, anziché per una parte. Al contrario, se si convalida un modello utilizzando i dati generati da una divisione casuale, in genere si valuta il modello solo per il 30% o meno dei dati disponibili.  
+    La convalida incrociata misura le prestazioni del modello con i parametri specificati in uno spazio dati più grande. Ciò significa che la convalida incrociata usa l'intero set di dati di training sia per il training sia per la valutazione, anziché una parte. Al contrario, se si convalida un modello utilizzando i dati generati da una suddivisione casuale, in genere si valuta il modello solo con il 30% o meno dei dati disponibili.  
 
-    Tuttavia, poiché la convalida incrociata eseguo il training e convalida il modello più volte in un set di dati più grande, è molto più intensivo dal punto di vista del calcolo. Richiede molto più tempo rispetto alla convalida su una divisione casuale.  
+    Tuttavia, poiché la convalida incrociata addestra e convalida il modello più volte su un set di dati più grande, è molto più impegnativo a livello di calcolo. Richiede molto più tempo rispetto alla convalida su una suddivisione casuale.  
 
--   La convalida incrociata valuta sia il set di dati che il modello.
+-   La convalida incrociata valuta sia il set di dati sia il modello.
 
-    La convalida incrociata non misura semplicemente l'accuratezza di un modello. Fornisce inoltre un'idea di quanto sia rappresentativo il set di dati e di quanto sia sensibile il modello alle variazioni nei dati.  
+    La convalida incrociata non misura semplicemente l'accuratezza di un modello. Fornisce inoltre una certa idea di come rappresenta il set di dati e la sensibilità del modello alle variazioni nei dati.  
 
-## <a name="how-to-use-cross-validate-model"></a>Come utilizzare Cross Validate Model
+## <a name="how-to-use-cross-validate-model"></a>Come usare Cross Validate Model
 
-L'esecuzione della convalida incrociata può richiedere molto tempo se il set di dati è di grandi dimensioni.  Pertanto, è possibile utilizzare Cross Validate Model nella fase iniziale di compilazione e test del modello. In questa fase, è possibile valutare la bontà dei parametri del modello (presupponendo che il tempo di calcolo sia tollerabile). È quindi possibile eseguire il training e valutare il modello utilizzando i parametri stabiliti con i moduli [Modello di training](train-model.md) e Valuta [modello.](evaluate-model.md)
+L'esecuzione della convalida incrociata può richiedere molto tempo se il set di dati è di grandi dimensioni.  Pertanto, è possibile utilizzare Cross Validate Model nella fase iniziale della compilazione e del test del modello. In questa fase è possibile valutare la bontà dei parametri del modello (presupponendo che il tempo di calcolo sia tollerabile). È quindi possibile eseguire il training e la valutazione del modello usando i parametri stabiliti con i moduli [Train Model](train-model.md) e [Evaluate Model](evaluate-model.md) .
 
-In questo scenario, è necessario eseguire il training e il test del modello utilizzando Cross Validate Model.
+In questo scenario è necessario eseguire il training e il test del modello usando Cross Validate Model.
 
-1. Aggiungere il modulo Cross Validate Model alla pipeline. È possibile trovarlo nella finestra di progettazione di Azure Machine Learning, nella categoria **Valutazione & punteggio modello.** 
+1. Aggiungere il modulo Cross Validate Model alla pipeline. È possibile trovarlo in Azure Machine Learning Designer, nella categoria **punteggio & valutazione del modello** . 
 
-2. Connettere l'output di qualsiasi modello di classificazione o regressione. 
+2. Connettere l'output di un modello di classificazione o di regressione. 
 
-    Ad esempio, se si utilizza **Albero decisionale potenziato** a due classi per la classificazione, configurare il modello con i parametri desiderati. Trascinare quindi un connettore dalla porta modello non **sottoposto** a training del classificatore alla porta corrispondente di Cross Validate Model. 
+    Se, ad esempio, si usa un **albero delle decisioni con boosting di classe** per la classificazione, configurare il modello con i parametri desiderati. Trascinare quindi un connettore dalla porta del **modello** non sottoposto a training del classificatore alla porta corrispondente di Cross Validate Model. 
 
     > [!TIP] 
-    > Non è necessario eseguire il training del modello, perché il modello di convalida incrociata esegue automaticamente il training del modello come parte della valutazione.  
-3.  Nella porta **Dataset** di Cross Validate Model connettere qualsiasi set di dati di training con etichetta.  
+    > Non è necessario eseguire il training del modello, perché Cross-Validate Model esegue automaticamente il training del modello come parte della valutazione.  
+3.  Sulla porta del **set di dati** di Cross Validate Model, connettere qualsiasi set di dati di training con etichetta.  
 
-4.  Nel riquadro destro di Convalida incrociata modello, fare clic su **Modifica colonna**. Selezionare la singola colonna che contiene l'etichetta della classe o il valore stimabile. 
+4.  Nel pannello destro di Cross Validate Model fare clic su **Edit Column**. Consente di selezionare la singola colonna che contiene l'etichetta della classe oppure il valore stimabile. 
 
-5. Impostare un valore per il parametro **Seme casuale** se si desidera ripetere i risultati della convalida incrociata tra esecuzioni successive sugli stessi dati.  
+5. Impostare un valore per il parametro **seed casuale** se si desidera ripetere i risultati della convalida incrociata in esecuzioni successive sugli stessi dati.  
 
 6. Inviare la pipeline.
 
-7. Vedere la sezione [Risultati](#results) per una descrizione dei report.
+7. Per una descrizione dei report, vedere la sezione relativa ai [risultati](#results) .
 
 ## <a name="results"></a>Risultati
 
-Al termine di tutte le iterazioni, Cross Validate Model crea punteggi per l'intero set di dati. Crea inoltre metriche sulle prestazioni che è possibile utilizzare per valutare la qualità del modello.
+Una volta completate tutte le iterazioni, Cross Validate Model crea i punteggi per l'intero set di dati. Vengono inoltre create le metriche delle prestazioni che è possibile utilizzare per valutare la qualità del modello.
 
 ### <a name="scored-results"></a>Scored results
 
-Il primo output del modulo fornisce i dati di origine per ogni riga, insieme ad alcuni valori stimati e probabilità correlate. 
+Il primo output del modulo fornisce i dati di origine per ogni riga, insieme ad alcuni valori stimati e a probabilità correlate. 
 
-Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Convalida incrociata del modello. Selezionare **Visualizza risultati score.**
+Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza risultati con punteggio**.
 
 | Nome nuova colonna      | Descrizione                              |
 | -------------------- | ---------------------------------------- |
 | Scored Labels        | Questa colonna viene aggiunta alla fine del set di dati. Contiene il valore stimato per ogni riga. |
-| Probabilità con punteggio | Questa colonna viene aggiunta alla fine del set di dati. Indica la probabilità stimata del valore in **Etichette con punteggio**. |
-| Numero di piegatura          | Indica l'indice in base zero della piega a cui è stata assegnata ogni riga di dati durante la convalida incrociata. |
+| Probabilità con Punteggio | Questa colonna viene aggiunta alla fine del set di dati. Indica la probabilità stimata del valore nelle **etichette con punteggio**. |
+| Numero di riduzioni          | Indica l'indice in base zero della riduzioni a cui è stata assegnata ogni riga di dati durante la convalida incrociata. |
 
  ### <a name="evaluation-results"></a>Valutazione dei risultati
 
-La seconda relazione è raggruppata per pieghe. Tenere presente che durante l'esecuzione, Cross Validate Model suddivide casualmente i dati di training in *n* pieghe (per impostazione predefinita, 10). In ogni iterazione del set di dati, Cross Validate Model usa una piega come set di dati di convalida. Utilizza le restanti pieghe *n-1* per eseguire il training di un modello. Ognuno dei *modelli n* viene testato rispetto ai dati in tutte le altre pieghe.
+Il secondo report è raggruppato per riduzioni. Tenere presente che durante l'esecuzione, Cross Validate Model suddivide in modo casuale i dati di training in *n* riduzioni (per impostazione predefinita, 10). In ogni iterazione sul set di dati, Cross Validate Model usa una sezione come set di dati di convalida. Usa le riduzioni *n-1* rimanenti per eseguire il training di un modello. Ognuno dei modelli *n* viene testato rispetto ai dati in tutte le altre riduzioni.
 
-In questo report, le pieghe sono elencate in base al valore di indice, in ordine crescente.  Per ordinare in qualsiasi altra colonna, è possibile salvare i risultati come set di dati.
+In questo report, le riduzioni sono elencate in base al valore di indice in ordine crescente.  Per eseguire l'ordinamento in base a qualsiasi altra colonna, è possibile salvare i risultati come set di dati.
 
-Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Convalida incrociata del modello. Selezionare **Visualizza risultati valutazione per piega**.
+Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza i risultati della valutazione in base a riduzioni**.
 
 
 |Nome colonna| Descrizione|
 |----|----|
-|Numero di piegatura| Identificatore per ogni piegatura. Se sono state create cinque pieghe, sarebbero presenti cinque sottoinsiemi di dati, numerati da 0 a 4.
-|Numero di esempi in piega|Il numero di righe assegnate a ogni piegatura. Dovrebbero essere più o meno uguali. |
+|Numero di riduzioni| Identificatore per ogni riduzioni. Se sono state create cinque riduzioni, saranno presenti cinque subset di dati, numerati da 0 a 4.
+|Numero di esempi in riduzioni|Numero di righe assegnate a ogni riduzioni. Devono essere approssimativamente uguali. |
 
 
-Il modulo include anche le seguenti metriche per ogni piega, a seconda del tipo di modello che stai valutando: 
+Il modulo include anche le metriche seguenti per ogni riduzioni, a seconda del tipo di modello che si sta valutando: 
 
-+ **Modelli di classificazione**: Precisione, richiamo, Punteggio F, AUC, precisione  
++ **Modelli di classificazione**: precisione, richiamo, Punteggio F, AUC, accuratezza  
 
-+ **Modelli di regressione**: errore assoluto medio, errore al quadrato della media radice, errore assoluto relativo, errore al quadrato relativo e coefficiente di determinazione
++ **Modelli di regressione**: errore assoluto medio, radice errore quadratico medio, errore assoluto relativo, errore quadratico relativo e coefficiente di determinazione
 
 
 ## <a name="technical-notes"></a>Note tecniche  
 
-+ È consigliabile normalizzare i set di dati prima di utilizzarli per la convalida incrociata. 
++ È consigliabile normalizzare i set di elementi prima di usarli per la convalida incrociata. 
 
-+ La convalida incrociata del modello è molto più dispendiosa dal punto di vista del calcolo e richiede più tempo rispetto alla convalida del modello tramite un set di dati diviso in modo casuale. Il motivo è che Cross Validate Model esegue il training e convalida il modello più volte.
++ Cross Validate Model è molto più impegnativo a livello di calcolo e richiede più tempo rispetto a quando il modello è stato convalidato tramite un set di dati suddiviso in modo casuale. Il motivo è che Cross Validate Model Trains e convalida il modello più volte.
 
-+ Non è necessario suddividere il set di dati in set di training e test quando si usa la convalida incrociata per misurare l'accuratezza del modello. 
++ Quando si usa la convalida incrociata per misurare l'accuratezza del modello, non è necessario suddividere il set di dati in set di training e di testing. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il set di moduli disponibili per Azure Machine Learning.See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 

@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 13936a55baed59d5b6257f13f69305a1ce72927a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730394"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
@@ -39,7 +39,7 @@ I metodi diretti vengono implementati nel dispositivo. Per creare correttamente 
 > Quando si richiama un metodo diretto in un dispositivo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici stampabili US-ASCII, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-I metodi diretti sono sincroni e hanno esito positivo o negativo dopo il periodo di timeout (impostazione predefinita: 30 secondi, impostabile tra 5 e 300 secondi). Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
+I metodi diretti sono sincroni e possono avere esito positivo o negativo dopo il periodo di timeout (valore predefinito: 30 secondi, impostabile tra 5 e 300 secondi). Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
 I metodi diretti supportano solo HTTPS lato cloud e solo MQTT o AMQP lato dispositivo.
 
@@ -61,7 +61,7 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS composte dagl
 
 * *Metodo* POST
 
-* *Intestazioni* che contengono l'autorizzazione, l'ID richiesta, il tipo di contenuto e la codifica del contenuto.
+* *Intestazioni* contenenti l'autorizzazione, l'ID richiesta, il tipo di contenuto e la codifica del contenuto.
 
 * *Corpo* JSON trasparente nel formato seguente:
 
@@ -76,9 +76,9 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS composte dagl
     }
     ```
 
-Il valore `responseTimeoutInSeconds` fornito come nella richiesta è la quantità di tempo che il servizio Hub IoT deve attendere il completamento dell'esecuzione diretta di un metodo in un dispositivo. Impostare questo timeout su almeno fino al tempo di esecuzione previsto di un metodo diretto da parte di un dispositivo. Se timeout non viene fornito, viene utilizzato il valore predefinito di 30 secondi. I valori minimo `responseTimeoutInSeconds` e massimo per sono rispettivamente 5 e 300 secondi.
+Il valore fornito come `responseTimeoutInSeconds` nella richiesta è la quantità di tempo per cui il servizio hub Internet deve attendere il completamento dell'esecuzione di un metodo diretto in un dispositivo. Impostare questo timeout almeno fino a quando il tempo di esecuzione previsto di un metodo diretto da parte di un dispositivo. Se il timeout non viene specificato, viene usato il valore predefinito di 30 secondi. I valori minimo e massimo per `responseTimeoutInSeconds` sono rispettivamente 5 e 300 secondi.
 
-Il valore `connectTimeoutInSeconds` fornito come nella richiesta è la quantità di tempo dopo la chiamata di un metodo diretto che il servizio Hub IoT deve attendere per un dispositivo disconnesso per essere portato in linea. Il valore predefinito è 0, il che significa che i dispositivi devono essere già online al momento della chiamata di un metodo diretto. Il valore `connectTimeoutInSeconds` massimo per è 300 secondi.
+Il valore fornito come `connectTimeoutInSeconds` nella richiesta è la quantità di tempo dopo la chiamata di un metodo diretto che il servizio hub Internet deve attendere per la connessione di un dispositivo disconnesso. Il valore predefinito è 0, ovvero i dispositivi devono essere già online al momento della chiamata a un metodo diretto. Il valore massimo per `connectTimeoutInSeconds` è 300 secondi.
 
 
 #### <a name="example"></a>Esempio
@@ -104,12 +104,12 @@ curl -X POST \
 
 L'app back-end riceve una risposta composta dagli elementi seguenti:
 
-* *Codice di stato HTTP*:
-  * 200 indica la corretta esecuzione del metodo diretto;
-  * 404 indica che l'ID dispositivo non è valido o che il dispositivo `connectTimeoutInSeconds` non era online dopo la chiamata di un metodo diretto e per successivamente (utilizzare il messaggio di errore accompagnato per comprendere la causa principale);
-  * 504 indica il timeout del gateway causato dal `responseTimeoutInSeconds`dispositivo che non risponde a una chiamata diretta al metodo all'interno di .
+* *Codice di stato http*:
+  * 200 indica l'esecuzione corretta del metodo diretto;
+  * 404 indica che l'ID dispositivo non è valido o che il dispositivo non era online al momento della chiamata di un metodo diretto e `connectTimeoutInSeconds` per poi (usare un messaggio di errore accompagnato per comprendere la causa principale);
+  * 504 indica il timeout del gateway causato dal dispositivo che non risponde a una chiamata `responseTimeoutInSeconds`al metodo diretto all'interno di.
 
-* *Intestazioni* che contengono l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto.
+* *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto.
 
 * *Corpo* JSON nel formato seguente:
 
@@ -183,7 +183,7 @@ Il dispositivo crea un collegamento di invio per restituire la risposta del meto
 
 La risposta del metodo viene restituita sul collegamento di invio ed è strutturata come segue:
 
-* Proprietà dell'ID di correlazione, che contiene l'ID richiesta passato nel messaggio di richiesta del metodo.
+* La proprietà ID di correlazione, che contiene l'ID richiesta passato nel messaggio di richiesta del metodo.
 
 * Una proprietà dell'applicazione denominata `IoThub-status`, contenente lo stato del metodo fornito dall'utente.
 

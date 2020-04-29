@@ -1,5 +1,5 @@
 ---
-title: Usare gli strumenti IoT di Azure per VSCode per gestire la messaggistica dell'hub ITUse Azure IoT Tools for VSCode to manager IT Hub messaging
+title: Usare gli strumenti di Azure per VSCode per la gestione della messaggistica dell'hub IT
 description: Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare dispositivi per i messaggi al cloud e inviare messaggi al dispositivo nell'hub IoT di Azure cloud.
 author: formulahendry
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682507"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Azure IoT Tools per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
@@ -41,7 +41,7 @@ Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* Strumenti IoT di Azure per il codice VS o copiare e incollare questo URL in una finestra del [browser:Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy and paste this URL into a browser window:`vscode:extension/vsciot-vscode.azure-iot-tools`
+* [Strumenti di Azure per la vs code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o copiare e incollare l'URL in una finestra del browser:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Eseguire l'accesso all'hub IoT
 
@@ -56,17 +56,17 @@ Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare
 5. Verrà visualizzato in pochi secondi l'elenco dei dispositivi nella scheda **Dispositivi di Azure IoT hub di Azure**.
 
    > [!Note]
-   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere la stringa di connessione dei criteri **iothubowner** per l'hub IoT a cui si connette il dispositivo IoT nella finestra popup.
+   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere la stringa di connessione del criterio **iothubowner** per l'hub delle cose a cui si connette il dispositivo Internet nella finestra popup.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorare i messaggi da dispositivo a cloud
 
 Per monitorare i messaggi inviati dal dispositivo all'hub IoT, seguire questi passaggi:
 
-1. Fare clic con il pulsante destro del mouse sul dispositivo e **selezionare Avvia monitoraggio endpoint evento integrato**.
+1. Fare clic con il pulsante destro del mouse sul dispositivo e scegliere **Avvia monitoraggio endpoint evento predefinito**.
 
-2. I messaggi monitorati verranno visualizzati nella visualizzazione**dell'hub di Azure IoT** **OUTPUT.** > 
+2. I messaggi monitorati verranno visualizzati nella vista **output** > **Hub Azure** .
 
-3. Per interrompere il monitoraggio, fare clic con il pulsante destro del mouse sulla vista **OUTPUT** e selezionare Interrompi endpoint evento predefinito per il **monitoraggio.**
+3. Per arrestare il monitoraggio, fare clic con il pulsante destro del mouse sulla visualizzazione **output** e scegliere **Interrompi monitoraggio endpoint evento predefinito**.
 
 ## <a name="send-cloud-to-device-messages"></a>Inviare messaggi da cloud a dispositivo
 
@@ -76,7 +76,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 
 2. Immettere il messaggio nella casella di input.
 
-3. I risultati verranno visualizzati nella visualizzazione**dell'hub OUTPUT Azure IoT.Results** will be shown in **OUTPUT** > Azure IoT Hub view.
+3. I risultati verranno visualizzati nella vista **output** > **Hub Azure** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

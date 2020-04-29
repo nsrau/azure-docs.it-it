@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 71d28a19316bf1b618ec9008a5e96a503687b202
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681955"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework  
@@ -30,7 +30,7 @@ In Smooth Streaming per OSMF sono incluse due versioni di plug-in:
 * Plug-in Static Smooth Streaming per OSMF (con estensione swc)
 * Plug-in Dynamic Smooth Streaming per OSMF (con estensione swf)
 
-In questo documento si presuppone che il lettore disponga di una conoscenza generale dei plug-in OSMF e OSMF. Per ulteriori informazioni su OSMF, consultare la documentazione sul [sito ufficiale OSMF](http://osmf.org/).
+In questo documento si presuppone che il lettore abbia una conoscenza generale del funzionamento dei plug-in OSMF e OSMF. Per ulteriori informazioni su OSMF, consultare la documentazione sul [sito ufficiale di OSMF](http://osmf.org/).
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Plug-in Smooth Streaming per OSMF 2.0
 Il plug-in supporta il caricamento e la riproduzione di contenuto Smooth Streaming su richiesta con le funzionalità seguenti:
@@ -331,7 +331,7 @@ pacchetto {
 Il plug-in dinamico Smooth Streaming per OSMF è compatibile con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). È possibile utilizzare il plug-in SS per OSMF per aggiungere la riproduzione di contenuti Smooth Streaming a SMP. A questo scopo, copiare il plug-in "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" in un server Web per il caricamento tramite HTTP attenendosi alla procedura seguente:
 
 1. Passare alla [pagina di installazione di Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
-2. Impostare src su un'origine Smooth Streaming (ad esempio http:\//devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2. Impostare src su un'origine Smooth Streaming, ad esempio http:\//devplatem.vo.msecnd.NET/Sintel/Sintel_H264.ISM/manifest 
 3. Apportare le modifiche di configurazione desiderate e fare clic su Preview and Update.
    
    **Nota** Per il server Web del contenuto deve essere presente un file crossdomain.xml valido. 
@@ -388,7 +388,7 @@ Per ulteriori informazioni sullo sviluppo generale per OSMF, consultare la [pagi
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

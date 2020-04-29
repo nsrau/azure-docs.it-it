@@ -12,17 +12,17 @@ ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141676"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
 
 Le procedure consigliate e le raccomandazioni seguenti illustrano alcuni aspetti principali dell'integrazione di Azure Active Directory (Azure AD) B2C in ambienti applicativi nuovi o esistenti.
 
-## <a name="fundamentals"></a>Concetti fondamentali
+## <a name="fundamentals"></a>Nozioni di base
 
 |  |  |
 |--|--|
@@ -43,7 +43,7 @@ Definire l'architettura del servizio e dell'applicazione, inventariare i sistemi
 | Creare un piano di migrazione |La pianificazione in anticipo può rendere la migrazione più agevole. Altre informazioni sulla [migrazione degli utenti](user-migration.md).|
 | Usabilità rispetto alla sicurezza | La soluzione deve raggiungere il giusto equilibrio tra l'usabilità dell'applicazione e il livello di rischio accettabile per l'organizzazione. |
 | Spostare le dipendenze locali nel cloud | Per garantire una soluzione resiliente, provare a trasferire le dipendenze delle applicazioni esistenti nel cloud. |
-| Eseguire la migrazione di app esistenti a b2clogin.com | La deprecazione di login.microsoftonline.com diviene valida per tutti i tenant Azure AD B2C il 04 dicembre 2020. [Altre informazioni](b2clogin.md). |
+| Eseguire la migrazione di app esistenti a b2clogin.com | La deprecazione di login.microsoftonline.com diviene valida per tutti i tenant Azure AD B2C il 04 dicembre 2020. [Altre informazioni](b2clogin.md) |
 
 ## <a name="implementation"></a>Implementazione
 

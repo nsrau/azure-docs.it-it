@@ -1,5 +1,5 @@
 ---
-title: 'Creare e modificare un circuito ExpressRoute: interfaccia della riga di comando di AzureCreate and modify an ExpressRoute circuit: Azure CLI'
+title: 'Creare e modificare un circuito ExpressRoute: interfaccia della riga di comando di Azure'
 description: Questo articolo descrive le procedure di creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute tramite l'interfaccia della riga di comando.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: b967e1d8751a9c6a5214fef5241d57e954ad9f17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476152"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creare e modificare un circuito ExpressRoute tramite l'interfaccia della riga di comando
@@ -20,11 +20,11 @@ ms.locfileid: "79476152"
 Questo articolo descrive la procedura di creazione di un circuito di Azure ExpressRoute usando l'interfaccia della riga di comando. Questo articolo descrive anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito. Se si vuole usare un metodo diverso per operare con circuiti ExpressRoute, è possibile selezionare l'articolo appropriato nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-circuit-arm.md)
-> * [Interfaccia della riga di comando di AzureAzure](howto-circuit-cli.md)
-> * [Modello di Azure Resource ManagerAzure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
+> * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (versione classica)](expressroute-howto-circuit-classic.md)
 >
 
@@ -35,7 +35,7 @@ Questo articolo descrive la procedura di creazione di un circuito di Azure Expre
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Accedere all'account Azure e selezionare la sottoscrizione
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. accedere al proprio account Azure e selezionare la sottoscrizione
 
 Per iniziare la configurazione, accedere al proprio account Azure. Se si usa il cloud shell "Try It", l'accesso è automatico. Per eseguire la connessione, usare gli esempi che seguono:
 
@@ -55,9 +55,9 @@ Selezionare la sottoscrizione per la quale si vuole creare un circuito ExpressRo
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Ottenere l'elenco dei provider, delle posizioni e delle larghezze di banda supportati
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. ottenere l'elenco dei provider, delle posizioni e delle larghezze di banda supportate
 
-Prima di creare un circuito ExpressRoute, è necessario avere l'elenco delle località, delle opzioni di larghezza di banda e dei provider di connettività supportati. Il comando `az network express-route list-service-providers` CLI restituisce queste informazioni, che verranno usate nei passaggi successivi:The CLI command returns this information, which you'll use in later steps:
+Prima di creare un circuito ExpressRoute, è necessario avere l'elenco delle località, delle opzioni di larghezza di banda e dei provider di connettività supportati. Il comando `az network express-route list-service-providers` CLI restituisce queste informazioni, che verranno usate nei passaggi successivi:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -118,13 +118,13 @@ La risposta restituita è simile all'esempio seguente:
 
 Controllare la riposta per verificare se è presente il proprio provider di connettività. Prendere nota delle informazioni seguenti, perché saranno necessarie al momento della creazione di un circuito:
 
-* Nome
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
 È ora possibile creare un circuito ExpressRoute.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Creare un circuito ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. creare un circuito ExpressRoute
 
 > [!IMPORTANT]
 > Il circuito ExpressRoute viene addebitato dal momento in cui viene emessa una chiave di servizio. Eseguire l'operazione quando il provider di connettività è pronto a effettuare il provisioning del circuito.
@@ -141,8 +141,8 @@ L'esempio seguente illustra come creare un circuito ExpressRoute a 200 Mbps tram
 
 Verificare di aver specificato il livello e la famiglia SKU corretti:
 
-* Il livello SKU determina se un circuito ExpressRoute è [Local](expressroute-faqs.md#expressroute-local), Standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *Local*, *Standard* o *Premium*.
-* La famiglia SKU determina il tipo di fatturazione. È possibile specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati illimitato. È possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma *non* è possibile eseguire il passaggio *inverso*. Un circuito *locale* è solo *Unlimiteddata.*
+* Il livello SKU determina se un circuito ExpressRoute è [locale](expressroute-faqs.md#expressroute-local), standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *local*, *standard* o *Premium*.
+* La famiglia SKU determina il tipo di fatturazione. È possibile specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati senza limiti. È possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma *non* è possibile eseguire il passaggio *inverso*. Un circuito *locale* è solo *Unlimiteddata* .
 
 
 Il circuito ExpressRoute viene addebitato dal momento in cui viene emessa una chiave di servizio. Di seguito è riportato un esempio di richiesta di una nuova chiave di servizio:
@@ -153,9 +153,9 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 La risposta contiene la chiave di servizio.
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Elencare tutti i circuiti ExpressRoute
+### <a name="4-list-all-expressroute-circuits"></a>4. elencare tutti i circuiti ExpressRoute
 
-Per ottenere un elenco di tutti i circuiti `az network express-route list` ExpressRoute creati, eseguire il comando. È possibile recuperare queste informazioni in qualsiasi momento usando questo comando. Per ottenere un elenco di tutti i circuiti, effettuare la chiamata senza parametri.
+Per ottenere un elenco di tutti i circuiti ExpressRoute creati, eseguire il `az network express-route list` comando. È possibile recuperare queste informazioni in qualsiasi momento usando questo comando. Per ottenere un elenco di tutti i circuiti, effettuare la chiamata senza parametri.
 
 ```azurecli-interactive
 az network express-route list
@@ -198,7 +198,7 @@ La chiave di servizio è indicata nel campo *ServiceKey* della risposta.
 az network express-route list -h
 ```
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Inviare la chiave del servizio al provider di connettività per il provisioning
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. inviare la chiave di servizio al provider di connettività per il provisioning
 
 'ServiceProviderProvisioningState' offre informazioni sullo stato di provisioning corrente sul lato provider del servizio. Le informazioni di stato indicano lo stato sul lato Microsoft. Per altre informazioni, vedere [l'articolo sui flussi di lavoro](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
@@ -223,7 +223,7 @@ Per poterlo usare, un circuito ExpressRoute deve avere lo stato seguente:
 "circuitProvisioningState": "Enabled
 ```
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Controllare periodicamente lo stato e lo stato della chiave del circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. controllare periodicamente lo stato e lo stato della chiave del circuito
 
 La verifica dello stato e della condizione della chiave del circuito comunicano all'utente quando il provider ha abilitato il circuito. Dopo la configurazione del circuito, lo stato di 'ServiceProviderProvisioningState' visualizzato è 'Provisioned', come illustrato nell'esempio seguente:
 
@@ -262,7 +262,7 @@ La risposta restituita è simile all'esempio seguente:
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-### <a name="7-create-your-routing-configuration"></a>7. Creare la configurazione del routing
+### <a name="7-create-your-routing-configuration"></a>7. creare la configurazione di routing
 
 Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione del routing per un circuito ExpressRoute](howto-routing-cli.md) per creare e modificare i peering del circuito.
 
@@ -350,7 +350,7 @@ Vedere le istruzioni contenute in [Spostare i circuiti ExpressRoute dal modello 
 Per effettuare il deprovisioning e l'eliminazione di un circuito ExpressRoute, assicurarsi di comprendere i criteri seguenti:
 
 * È necessario scollegare tutte le reti virtuali dal circuito ExpressRoute. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
-* Se lo stato di provisioning del provider di servizi di circuiti ExpressRoute è **Provisioning** o **Provisioning,** è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
+* Se lo stato di provisioning del provider di servizi del circuito **ExpressRoute è il provisioning** o il **provisioning**, è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
 * È possibile eliminare il circuito se il provider del servizio ne ha effettuato il deprovisioning. Dopo il deprovisioning di un circuito, lo stato di provisioning del provider di servizio è impostato su **Senza provisioning**. Viene così interrotta la fatturazione per il circuito.
 
 È possibile eliminare un circuito ExpressRoute eseguendo questo comando:

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480284"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contare gli eventi di sicurezza per ID attività
 
 
-Questo esempio si basa sulla struttura fissa \<\>-\<della\>colonna **Activity:** ID Name .
+Questo esempio si basa sulla struttura fissa della colonna **Activity** : \<nome\>-\<\>ID.
 Analizza il valore di **Activity** (Attività) in due nuove colonne e conta le occorrenze di ogni **activityID**.
 
 ```Kusto
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Analizzare l'ID e il nome dell'attività
-I due esempi riportati di seguito si\>-\<basano sulla struttura fissa della colonna\> **Attività:** \<Nome ID . Il primo esempio usa l'operatore di **analisi** per assegnare valori a due nuove colonne: **activityID** e **activityDesc**.
+I due esempi seguenti si basano sulla struttura fissa della colonna **Activity** : \<nome\>-\<\>ID. Il primo esempio usa l'operatore di **analisi** per assegnare valori a due nuove colonne: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -373,9 +373,9 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
-Il `Usage` tipo di dati può essere utilizzato per tenere traccia del volume di dati ingerente in base alla soluzione o al tipo di dati. Esistono altre tecniche per studiare i volumi di dati ingeriti per [computer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) o sottoscrizione di [Azure, gruppo di risorse o risorse.](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)
+Il `Usage` tipo di dati può essere utilizzato per tenere traccia del volume di dati inserito per soluzione o tipo di dati. Sono disponibili altre tecniche per studiare i volumi di dati inseriti in base al [computer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) o alla [sottoscrizione di Azure, al gruppo di risorse o alla risorsa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Volume dati per soluzione
 
@@ -389,11 +389,11 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Si noti `where IsBillable = true` che la clausola esclude i tipi di dati da determinate soluzioni per le quali non è previsto alcun addebito per l'inserimento.  Anche la `TimeGenerated` clausola con è solo per garantire che l'esperienza di query nel portale di Azure guarderà indietro oltre le 24 ore predefinite. Quando si utilizza il `StartTime` `EndTime` tipo di dati Utilizzo e rappresentano gli intervalli di tempo per i quali vengono presentati i risultati. 
+Si noti che la `where IsBillable = true` clausola filtra i tipi di dati di determinate soluzioni per le quali non è previsto alcun addebito per l'inserimento.  La clausola con `TimeGenerated` viene inoltre garantita solo per garantire che l'esperienza di query nel portale di Azure riguarderà oltre le 24 ore predefinite. Quando si usa il tipo di dati `StartTime` Usage `EndTime` e rappresentano i bucket temporali per i quali vengono presentati i risultati. 
 
 #### <a name="data-volume-by-type"></a>Volume di dati per tipo
 
-È possibile approfondire ulteriormente per visualizzare le tendenze dei dati per per tipo di dati:You can drill in further to see data trends for by data type:
+È possibile eseguire ulteriormente il drill-down per visualizzare le tendenze dei dati per tipo di dati:
 
 ```kusto
 Usage 
@@ -403,7 +403,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-O per vedere una tabella per soluzione e tipo per l'ultimo mese,
+O per visualizzare una tabella in base alla soluzione e al tipo per l'ultimo mese,
 
 ```kusto
 Usage 

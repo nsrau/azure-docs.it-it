@@ -1,5 +1,5 @@
 ---
-title: Monitorare le prestazioni utilizzando le DMVMonitor performance using DMVs
+title: Monitorare le prestazioni con DMV
 description: Informazioni su come rilevare e diagnosticare i problemi di prestazioni comuni utilizzando visualizzazioni a gestione dinamica per monitorare il database SQL di Microsoft Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
 ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683008"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitoraggio delle prestazioni del database SQL di Azure tramite DMV
@@ -44,13 +44,13 @@ In un'istanza di SQL Server locale, le viste a gestione dinamica restituiscono i
 Questo articolo contiene una raccolta di query DMV che è possibile eseguire utilizzando SQL Server Management Studio o Azure Data Studio per rilevare i seguenti tipi di problemi di prestazioni delle query:
 
 - [Identificazione delle query correlate all'utilizzo eccessivo della CPU](#identify-cpu-performance-issues)
-- [PAGELATCH_ e WRITE_LOG wait sinistramente correlati ai colli di bottiglia di I/O](#identify-io-performance-issues)
-- [PAGELATCH_ di attesa causata da contesa di bytTempDB](#identify-tempdb-performance-issues)
-- [RESOURCE_SEMAHPORE le attese causate da problemi di attesa della concessione di memoria](#identify-memory-grant-wait-performance-issues)
-- [Identificazione delle dimensioni del database e degli oggetti](#calculating-database-and-objects-sizes)
-- [Recupero delle informazioni sulle sessioni attiveRetrieving information about active sessions](#monitoring-connections)
-- [Recuperare le informazioni sull'utilizzo delle risorse a livello di sistema e del databaseRetrieve system-wide and database resource usage information](#monitor-resource-use)
-- [Recupero delle informazioni sulle prestazioni delle queryRetrieving query performance information](#monitoring-query-performance)
+- [PAGELATCH_ * e WRITE_LOG attese correlate ai colli di bottiglia di IO](#identify-io-performance-issues)
+- [PAGELATCH_ * attese ha causato la contesa di bytTempDB](#identify-tempdb-performance-issues)
+- [RESOURCE_SEMAHPORE attese causato da problemi di attesa della concessione di memoria](#identify-memory-grant-wait-performance-issues)
+- [Identificazione delle dimensioni di database e oggetti](#calculating-database-and-objects-sizes)
+- [Recupero di informazioni sulle sessioni attive](#monitoring-connections)
+- [Recuperare le informazioni sull'utilizzo delle risorse a livello di sistema e di database](#monitor-resource-use)
+- [Recupero delle informazioni sulle prestazioni delle query](#monitoring-query-performance)
 
 ## <a name="identify-cpu-performance-issues"></a>Identificare i problemi di prestazioni della CPU
 
@@ -248,7 +248,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificare i problemi di prestazioni di `tempdb`
 
-Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare `tempdb` ulteriormente la contesa, utilizzare [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per verificare che il valore wait_resource inizi con `2:x:y` dove 2 è `tempdb` l'ID del database, `x` è l'ID del file ed `y` è l'ID della pagina.  
+Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. `tempdb` Per confermare ulteriormente la contesa, utilizzare [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore wait_resource inizia `2:x:y` con dove 2 `tempdb` è l'ID del database `x` , è l'ID del file `y` e è l'ID della pagina.  
 
 Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
 
@@ -552,7 +552,7 @@ Il grafico seguente illustra l'uso di risorse della CPU per un database Premium 
 
 ![Uso delle risorse del database SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-In base ai dati, per le dimensioni di calcolo P2 il carico massimo della CPU di questo database attualmente supera di poco il 50% dell'uso della CPU (a mezzogiorno di martedì). Se la CPU è il fattore dominante nel profilo di risorsa dell'applicazione, è possibile decidere che P2 è la dimensione di calcolo corretta per garantire che il carico di lavoro si adatti sempre. Se si prevede che un'applicazione presenti un incremento nel tempo, è consigliabile avere un buffer di risorse aggiuntivo, in modo che l'applicazione non raggiunga mai il limite del livello di prestazioni. Se si aumentano le dimensioni di calcolo, è possibile evitare gli errori visibili ai clienti che si possono verificare se un database non ha risorse sufficienti per elaborare in modo efficiente le richieste, in particolare in ambienti sensibili alla latenza. Un esempio è costituito da un database che supporta un'applicazione per la creazione di pagine Web in base ai risultati delle chiamate al database.
+In base ai dati, per le dimensioni di calcolo P2 il carico massimo della CPU di questo database attualmente supera di poco il 50% dell'uso della CPU (a mezzogiorno di martedì). Se la CPU è il fattore dominante nel profilo delle risorse dell'applicazione, è possibile decidere che P2 è la dimensione di calcolo corretta per garantire che il carico di lavoro sia sempre adatto. Se si prevede che un'applicazione presenti un incremento nel tempo, è consigliabile avere un buffer di risorse aggiuntivo, in modo che l'applicazione non raggiunga mai il limite del livello di prestazioni. Se si aumentano le dimensioni di calcolo, è possibile evitare gli errori visibili ai clienti che si possono verificare se un database non ha risorse sufficienti per elaborare in modo efficiente le richieste, in particolare in ambienti sensibili alla latenza. Un esempio è costituito da un database che supporta un'applicazione per la creazione di pagine Web in base ai risultati delle chiamate al database.
 
 Altri tipi di applicazioni possono interpretare in modo diverso lo stesso grafico. Se ad esempio un'applicazione prova a elaborare i dati del libro paga ogni giorno e usa lo stesso grafico, questo tipo di modello di processo batch potrebbe essere eseguito correttamente con dimensioni di calcolo P1. Il valore di DTU delle dimensioni di calcolo P1 è pari a 100, mentre quello delle dimensioni di calcolo P2 è pari a 200. Il livello di prestazioni fornito dalle dimensioni di calcolo P2 è doppio rispetto a quello fornito dalle dimensioni di calcolo P1. Il 50% dell'uso della CPU nel livello P2 equivale quindi al 100% dell'uso della CPU in P1. Se l'applicazione non presenta timeout, è possibile che non sia rilevante se il completamento di un processo richiede 2 ore o 2,5 ore, se viene completato in giornata. Per un'applicazione che rientra in questa categoria è probabilmente sufficiente usare le dimensioni di calcolo P1. Si può sfruttare la presenza di periodi di tempo durante il giorno in cui l'uso delle risorse è inferiore, in modo da spalmare un picco massimo in altri momenti nel corso della giornata. Le dimensioni di calcolo P1 possono essere ottimali per questo tipo di applicazione e possono consentire di limitare i costi, purché i processi vengano completati in orario ogni giorno.
 
@@ -574,7 +574,7 @@ ORDER BY start_time DESC
 
 L'esempio successivo mostra i diversi modi in cui è possibile usare la vista del catalogo **sys.resource_stats** per ottenere informazioni sul modo in cui il database SQL usa le risorse:
 
-1. Per esaminare l'utilizzo delle risorse della settimana passata per il database userdb1, è possibile eseguire questa query:To look at the past week's resource use for the database userdb1, you can run this query:
+1. Per esaminare l'uso delle risorse della settimana precedente per il database userdb1, è possibile eseguire questa query:
 
     ```sql
     SELECT *
@@ -664,7 +664,7 @@ Questo è solo uno snapshot in un singolo punto nel tempo. Per una migliore comp
 
 ### <a name="maximum-concurrent-logins"></a>Numero massimo di accessi simultanei
 
-Per avere un'idea della frequenza degli accessi, è possibile analizzare i modelli dell'utente e dell'applicazione. È inoltre possibile eseguire carichi reali in un ambiente di test per assicurarsi di non raggiungere questo o gli altri limiti descritti in questo argomento. Non esiste una singola query o vista a gestione dinamica (DMV) che può mostrare i conteggi di accesso simultanei o la cronologia.
+Per avere un'idea della frequenza degli accessi, è possibile analizzare i modelli dell'utente e dell'applicazione. È inoltre possibile eseguire carichi reali in un ambiente di test per assicurarsi di non raggiungere questo o gli altri limiti descritti in questo argomento. Non esiste una singola query o DMV (DMV) in grado di visualizzare la cronologia o i conteggi di accesso simultanei.
 
 Se più client usano la stessa stringa di connessione, il servizio autentica ogni account di accesso. Se 10 utenti si connettono contemporaneamente a un database con nome utente e password identici, ci saranno dieci account di accesso simultanei. Questo limite si applica solo alla durata dell'account di accesso e dell'autenticazione. Se gli stessi 10 utenti si connettono in sequenza al database, il numero di account di accesso simultanei non sarà mai superiore a uno.
 
@@ -690,7 +690,7 @@ INNER JOIN sys.databases D ON (D.database_id = S.database_id)
 WHERE D.name = 'MyDatabase'
 ```
 
-Queste query restituiscono un conteggio temporizzato. Se si raccolgono più campioni nel tempo, si avrà la migliore comprensione dell'utilizzo della sessione.
+Queste query restituiscono un conteggio temporizzato. Se si raccolgono più campioni nel tempo, si avrà la migliore comprensione dell'uso della sessione.
 
 Per l'analisi del database SQL, è possibile anche ottenere dati statistici cronologici sulle sessioni eseguendo query della visualizzazione [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ed esaminando la colonna **active_session_count**.
 

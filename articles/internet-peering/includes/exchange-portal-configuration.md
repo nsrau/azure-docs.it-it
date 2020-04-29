@@ -1,5 +1,5 @@
 ---
-title: File di inclusione
+title: includere il file
 titleSuffix: Azure
 description: File di inclusione
 services: internet-peering
@@ -9,65 +9,65 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 268703081a2a40e8bcc665889eaeaf8edd673bfd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680914"
 ---
-1. Nella scheda **Configurazione** della pagina **Crea peering** compilare le caselle come illustrato.
+1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato.
 
     > [!div class="mx-imgBorder"]
-    > ![Creare un tipo di peering di peering per pagine di peering](../media/setup-exchange-conf-tab.png)
+    > ![Creare un tipo di peering di scambio di pagine peering](../media/setup-exchange-conf-tab.png)
 
-    * Per **Tipo di peering**, selezionare **Exchange**.
+    * Per **tipo di peering**selezionare **Exchange**.
     * Selezionare **SKU** come **Basic Free**.
-    * Selezionare la posizione **Metro** in cui si desidera impostare il peering.
+    * Selezionare la **località** in cui si vuole configurare il peering.
 
         > [!NOTE]
-        > Se si dispone già di connessioni di peering con Microsoft nella posizione **Metro** selezionata e si usa il portale per la prima volta per configurare il peering in tale posizione, le connessioni peering esistenti verranno elencate nella sezione **Connessioni peering** come illustrato. Microsoft convertirà automaticamente queste connessioni di peering in una risorsa di Azure in modo che sia possibile gestirle tutte insieme alle nuove connessioni in un'unica posizione. Per altre informazioni, vedere [Convertire un peering di Exchange legacy in una risorsa](../howto-legacy-exchange-portal.md)di Azure tramite il portale .
+        > Se si hanno già connessioni peering con Microsoft nella località **metro** selezionata e si sta usando il portale per la prima volta per configurare il peering in tale percorso, le connessioni di peering esistenti verranno elencate nella sezione **connessioni peering** , come illustrato. Microsoft convertirà automaticamente queste connessioni di peering in una risorsa di Azure in modo che sia possibile gestirle tutte insieme alle nuove connessioni in un'unica posizione. Per altre informazioni, vedere [convertire un peering di Exchange legacy in una risorsa di Azure tramite il portale](../howto-legacy-exchange-portal.md).
         >
 
-1. In **Connessioni peering**selezionare **Crea nuova** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
+1. In **connessioni peering**selezionare **Crea nuovo** per aggiungere una riga per ogni nuova connessione che si desidera configurare.
 
-    * Per configurare o modificare le impostazioni di connessione, selezionare il pulsante di modifica per una linea.
+    * Per configurare o modificare le impostazioni di connessione, selezionare il pulsante modifica per una riga.
 
         > [!div class="mx-imgBorder"]
         > ![Pulsante Modifica](../media/setup-exchange-conf-tab-edit.png)
 
-    * Per eliminare una riga, selezionare **...**  >  **Elimina**.
+    * Per eliminare una riga, selezionare **...**  >  **Eliminare**.
 
         > [!div class="mx-imgBorder"]
         > ![Pulsante Elimina](../media/setup-exchange-conf-tab-delete.png)
 
-    * È necessario fornire tutte le impostazioni per una connessione, come illustrato di seguito.
+    * È necessario specificare tutte le impostazioni per una connessione, come illustrato di seguito.
 
          > [!div class="mx-imgBorder"]
-         > ![Pagina Connessione peering di Exchange](../media/setup-exchange-conf-tab-connection.png)
+         > ![Pagina connessione peering di Exchange](../media/setup-exchange-conf-tab-connection.png)
 
-        1. Selezionare la **funzionalità Peering** in cui è necessario configurare la connessione.
-        1. Nelle caselle **Indirizzo IPv4** e **Indirizzo IPv6** immettere rispettivamente gli indirizzi IPv4 e IPv6 che verranno configurati nei router Microsoft utilizzando il comando neighbor.
-        1. Inserisci il numero di prefissi IPv4 e IPv6 che pubblicizzerai rispettivamente nelle caselle Numero massimo di **indirizzi IPv4 annunciati** e Numero massimo di **indirizzi IPv6 pubblicizzati.**
+        1. Selezionare la **funzionalità di peering** in cui deve essere configurata la connessione.
+        1. Nelle caselle **indirizzo IPv4** e **indirizzo IPv6** immettere rispettivamente gli indirizzi IPv4 e IPv6 che verrebbero configurati nei router Microsoft usando il comando Neighbor.
+        1. Immettere il numero di prefissi IPv4 e IPv6 che verranno annunciati rispettivamente nelle caselle numero **massimo indirizzi IPv4 annunciati** e **indirizzi IPv6** annunciati.
         1. Selezionare **OK** per salvare le impostazioni di connessione.
 
-1. Ripetere il passaggio per aggiungere altre connessioni in qualsiasi struttura in cui Microsoft sia colocalizzata con la rete, all'interno della **metropolitana** selezionata in precedenza.
+1. Ripetere il passaggio per aggiungere altre connessioni in qualsiasi struttura in cui Microsoft si trova nella propria rete, all'interno della **metro** selezionata in precedenza.
 
-1. Dopo aver aggiunto tutte le connessioni necessarie, selezionare **Revisione e creazione**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Scheda Configurazione peering](../media/setup-exchange-conf-tab-final.png)
-
-1. Si noti che il portale esegue la convalida di base delle informazioni immesse. Una barra multifunzione nella parte superiore visualizza il messaggio *Esecuzione della convalida finale...*.
+1. Dopo aver aggiunto tutte le connessioni necessarie, selezionare **Verifica + crea**.
 
     > [!div class="mx-imgBorder"]
-    > ![Scheda Convalida peering](../media/setup-direct-review-tab-validation.png)
+    > ![Scheda configurazione peering](../media/setup-exchange-conf-tab-final.png)
 
-1. Dopo che il messaggio diventa *Convalida superata,* verificare le informazioni. Inviare la richiesta selezionando **Crea**. Per modificare la richiesta, selezionare **Indietro** e ripetere i passaggi.
+1. Si noti che il portale esegue la convalida di base delle informazioni immesse. Una barra multifunzione nella parte superiore Visualizza il messaggio *che esegue la convalida finale...*.
+
+    > [!div class="mx-imgBorder"]
+    > ![Scheda convalida peering](../media/setup-direct-review-tab-validation.png)
+
+1. Dopo che il messaggio è stato modificato in *convalida superata*, verificare le informazioni. Inviare la richiesta selezionando **Crea**. Per modificare la richiesta, selezionare **precedente** e ripetere i passaggi.
 
     > [!div class="mx-imgBorder"]
     > ![Invio peering](../media/setup-exchange-review-tab-submit.png)
 
-1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione non riesce, [contattare Microsoft peering](mailto:peering@microsoft.com). Viene visualizzata una distribuzione corretta come illustrato di seguito.
+1. Dopo aver inviato la richiesta, attendere il completamento della distribuzione. Se la distribuzione non riesce, contattare il [peering Microsoft](mailto:peering@microsoft.com). Una distribuzione corretta viene visualizzata come illustrato di seguito.
 
     > [!div class="mx-imgBorder"]
-    > ![Successo di peering](../media/setup-direct-success.png)
+    > ![Il peering è riuscito](../media/setup-direct-success.png)

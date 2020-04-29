@@ -1,5 +1,5 @@
 ---
-title: Localizzazione - Azure Active Directory B2C
+title: Localizzazione-Azure Active Directory B2C
 description: Specificare l'elemento di localizzazione di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681407"
 ---
 # <a name="localization"></a>Localizzazione
@@ -104,13 +104,13 @@ L'elemento **LocalizedCollection** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Elemento | 0:n | Definisce un'opzione disponibile per l'utente da selezionare per un'attestazione nell'interfaccia utente, ad esempio, un valore in un elenco a discesa. |
+| Item | 0:n | Definisce un'opzione disponibile per l'utente da selezionare per un'attestazione nell'interfaccia utente, ad esempio, un valore in un elenco a discesa. |
 
 L'elemento **Item** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Text | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
+| Testo | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
 | valore | Sì | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
@@ -146,29 +146,29 @@ L'elemento **LocalizedString** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ElementType | Sì | Valori possibili: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation)o [UxElement](#uxelement).   | 
-| ElementId | Sì | Se **ElementType** è `ClaimType` `Predicate`impostato `InputValidation`su , , o , questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema . |
+| ElementType | Sì | Valori possibili: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicate](#predicate), [InputValidation](#inputvalidation)o [UxElement](#uxelement).   | 
+| ElementId | Sì | Se **elementType** è impostato su `ClaimType`, `Predicate`o `InputValidation`, questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. |
 | ID stringa | Sì | Se **ElementType** è impostato su `ClaimType`, questo elemento contiene un riferimento a un attributo di un tipo di attestazione. I valori possibili sono: `DisplayName`, `AdminHelpText` o `PatternHelpText`. Il valore`DisplayName` viene usato per impostare il nome visualizzato di attestazione. Il valore `AdminHelpText` viene usato per impostare il nome del testo di istruzioni dell'utente di attestazione. Il valore`PatternHelpText` viene usato per impostare il testo di istruzioni del criterio di attestazione. Se **ElementType** è impostato su `UxElement`, questo elemento contiene un riferimento a un elemento dell'interfaccia utente. Se **ElementType** è impostato su `ErrorMessage`, questo elemento specifica l'identificatore di un messaggio di errore. Visualizzare gli [ID stringa di localizzazione](localization-string-ids.md) per un elenco completo degli `UxElement` identificatori.|
 
 ## <a name="elementtype"></a>ElementType
 
-Il riferimento ElementType a un tipo di attestazione, una trasformazione attestazione o un elemento dell'interfaccia utente nei criteri da localizzare.
+Riferimento ElementType a un tipo di attestazione, a una trasformazione di attestazione o a un elemento dell'interfaccia utente nel criterio da localizzare.
 
 | Elemento da localizzare | ElementType | ElementId |ID stringa |
 | --------- | -------- | ----------- |----------- |
-| Nome provider di identità |`ClaimsProvider`| | ID dell'elemento ClaimsExchange|
-| Attributi del tipo di attestazione|`ClaimType`|Nome del tipo di attestazione| Attributo dell'attestazione da localizzare. Valori `AdminHelpText`possibili: `DisplayName` `PatternHelpText`, `UserHelpText`, , e .|
-|Messaggio di errore|`ErrorMessage`||Id del messaggio di errore |
-|Copia le stringhe localizzate nelle attestazioni|`GetLocalizedStringsTra nsformationClaimType`||Il nome dell'attestazione di output|
-|Messaggio utente predicato|`Predicate`|Il nome del predicato| Attributo del predicato da localizzare. Valori possibili: `HelpText`.|
-|Messaggio utente del gruppo di predicati|`InputValidation`|ID dell'elemento PredicateValidation.|ID dell'elemento PredicateGroup. Il gruppo di predicati deve essere un elemento figlio dell'elemento di convalida del predicato come definito nel ElementId.|
+| Nome del provider di identità |`ClaimsProvider`| | ID dell'elemento ClaimsExchange|
+| Attributi del tipo di attestazione|`ClaimType`|Nome del tipo di attestazione| Attributo dell'attestazione da localizzare. Valori possibili: `AdminHelpText`, `DisplayName` `PatternHelpText`, e `UserHelpText`.|
+|Messaggio di errore|`ErrorMessage`||ID del messaggio di errore |
+|Copia le stringhe localizzate in attestazioni|`GetLocalizedStringsTra nsformationClaimType`||Nome dell'attestazione di output|
+|Messaggio utente predicato|`Predicate`|Nome del predicato| Attributo del predicato da localizzare. Valori possibili: `HelpText`.|
+|Messaggio utente gruppo predicato|`InputValidation`|ID dell'elemento PredicateValidation.|ID dell'elemento PredicateGroup. Il gruppo predicato deve essere un elemento figlio dell'elemento validation Predicate come definito in ElementId.|
 |Elementi dell'interfaccia utente |`UxElement` | | ID dell'elemento dell'interfaccia utente da localizzare.|
 
 ## <a name="examples"></a>Esempi
 
 ### <a name="claimsprovider"></a>ClaimsProvider
 
-Il ClaimsProvider valore viene utilizzato per localizzare uno dei provider di attestazioni nome visualizzato. 
+Il valore ClaimsProvider viene usato per localizzare uno dei provider di attestazioni nome visualizzato. 
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -192,7 +192,7 @@ Nell'esempio seguente viene illustrato come localizzare il nome visualizzato dei
 
 ### <a name="claimtype"></a>ClaimType
 
-Il ClaimType valore viene utilizzato per localizzare uno degli attributi dell'attestazione. 
+Il valore ClaimType viene usato per localizzare uno degli attributi di attestazione. 
 
 ```xml
 <ClaimType Id="email">
@@ -203,7 +203,7 @@ Il ClaimType valore viene utilizzato per localizzare uno degli attributi dell'at
 </ClaimType>
 ```
 
-Nell'esempio seguente viene illustrato come localizzare gli attributi DisplayName, UserHelpText e PatternHelpText del tipo di attestazione di posta elettronica.
+Nell'esempio seguente viene illustrato come localizzare gli attributi DisplayName, UserHelpText e PatternHelpText del tipo di attestazione e-mail.
 
 ```XML
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
@@ -234,7 +234,7 @@ Nell'esempio seguente viene illustrato come localizzare il messaggio di errore U
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
 
-Il GetLocalizedStringsTransformationClaimType valore viene utilizzato per copiare le stringhe localizzate nelle attestazioni. Per altre informazioni, vedere [Trasformazione delle attestazioni GetLocalizedStringsTransformationFor](string-transformations.md#getlocalizedstringstransformation) more information, see GetLocalizedStringsTransformation claims transformation
+Il valore GetLocalizedStringsTransformationClaimType viene usato per copiare le stringhe localizzate in attestazioni. Per altre informazioni, vedere [GetLocalizedStringsTransformation Claims Transformation](string-transformations.md#getlocalizedstringstransformation)
 
 
 ```xml
@@ -259,7 +259,7 @@ Nell'esempio seguente viene illustrato come localizzare le attestazioni di outpu
 
 ### <a name="predicate"></a>Predicate
 
-Il valore Predicate viene utilizzato per localizzare uno dei messaggi di errore [Predicate.](predicates.md) 
+Il valore del predicato viene usato per localizzare uno dei messaggi di errore del [predicato](predicates.md) . 
 
 ```xml
 <Predicates>
@@ -282,7 +282,7 @@ Il valore Predicate viene utilizzato per localizzare uno dei messaggi di errore 
 </Predicates>
 ```
 
-Nell'esempio seguente viene illustrato come localizzare il testo della Guida dei predicati.
+Nell'esempio seguente viene illustrato come localizzare il testo della Guida per i predicati.
 
 ```xml
 <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
@@ -292,7 +292,7 @@ Nell'esempio seguente viene illustrato come localizzare il testo della Guida dei
 
 ### <a name="inputvalidation"></a>InputValidation
 
-Il Valore InputValidation viene utilizzato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation.](predicates.md) 
+Il valore InputValidation viene usato per localizzare uno dei messaggi di errore del gruppo [PredicateValidation](predicates.md) . 
 
 ```xml
 <PredicateValidations>
@@ -317,15 +317,15 @@ Il Valore InputValidation viene utilizzato per localizzare uno dei messaggi di e
 </PredicateValidations>
 ```
 
-Nell'esempio seguente viene illustrato come localizzare un testo della Guida del gruppo di convalida del predicato.
+Nell'esempio seguente viene illustrato come localizzare il testo della guida del gruppo di convalida del predicato.
 
 ```XML
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
-### <a name="uxelement"></a>Oggetto UxElement
+### <a name="uxelement"></a>UxElement
 
-Il UxElement valore viene utilizzato per localizzare uno degli elementi dell'interfaccia utente. Nell'esempio seguente viene illustrato come localizzare i pulsanti continua e annulla.
+Il valore UxElement viene usato per localizzare uno degli elementi dell'interfaccia utente. Nell'esempio seguente viene illustrato come localizzare i pulsanti continua e Annulla.
 
 ```XML
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
@@ -334,7 +334,7 @@ Il UxElement valore viene utilizzato per localizzare uno degli elementi dell'int
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli articoli seguenti per esempi di localizzazione:See the following articles for localization examples:
+Per esempi di localizzazione, vedere gli articoli seguenti:
 
 - [Personalizzazione della lingua con criteri personalizzati in Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalizzazione della lingua con flussi utente in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalizzazione della lingua con i flussi utente in Azure Active Directory B2C](user-flow-language-customization.md)

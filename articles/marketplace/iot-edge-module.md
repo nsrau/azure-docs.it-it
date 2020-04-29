@@ -1,5 +1,5 @@
 ---
-title: Moduli Edge IoT di Azure Marketplace
+title: Moduli di IoT Edge di Azure Marketplace
 description: L'offerta Moduli di Azure IoT Edge in Azure Marketplace per gli editori di app e servizi.
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684345"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
@@ -58,7 +58,7 @@ Tutti i criteri e le condizioni dei contratti di Microsoft Azure Marketplace si 
 
 Per pubblicare un modulo Azure IoT Edge in Azure Marketplace, è necessario soddisfare i seguenti prerequisiti:
 
-- Accesso al Centro per i partner. Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Accesso al centro per i partner. Per altre informazioni, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Ospitare il modulo Azure IoT Edge in un'istanza di Registro Azure Container. 
 - Avere a pronti i metadati del modulo Azure IoT Edge, come i seguenti (elenco non completo): 
     - Un titolo
@@ -75,15 +75,15 @@ I requisiti tecnici principali di un modulo Azure IoT Edge, affinché possa esse
 
 ## <a name="documentation-and-resources"></a>Documentazione e risorse
 
-[Creare un'offerta del modulo IoT Edge:](./partner-center-portal/azure-iot-edge-module-creation.md) passaggi per la pubblicazione di una nuova offerta di moduli IoT Edge nel Centro per i partner.
+[Creare un'offerta del modulo IOT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) : i passaggi per la pubblicazione di una nuova offerta del modulo IOT Edge nel centro per i partner.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se non è già stato fatto,
 
-- [Scopri](https://azuremarketplace.microsoft.com/sell) di più sul mercato.
+- [Informazioni sul Marketplace](https://azuremarketplace.microsoft.com/sell) .
 
-Per registrarsi nel Centro per i partner e iniziare a creare una nuova offerta o a lavorarle su una offerta esistente,
+Per eseguire la registrazione al centro per i partner e iniziare a creare una nuova offerta o a utilizzarne una esistente,
 
-- Accedi al [Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare la tua offerta.
-- Per informazioni su come pubblicare un'offerta del modulo IoT Edge, vedere [Creare un'offerta del modulo IoT Edge.](./partner-center-portal/azure-iot-edge-module-creation.md)
+- Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare l'offerta.
+- Per informazioni su come pubblicare un'offerta del modulo IoT Edge, vedere [creare un'offerta di modulo IOT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) .
